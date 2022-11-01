@@ -1,0 +1,116 @@
+\documentclass{article}
+
+\usepackage{styles/arxiv}
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage[english]{babel}
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{graphicx}
+\usepackage{stmaryrd}
+
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{mathtools}
+
+\usepackage{tikz}
+\usepackage{qtree}
+
+\newtheorem{definition}{Definition}
+\numberwithin{definition}{section}
+\newtheorem{lemma}{Lemma}
+\numberwithin{lemma}{section}
+\newtheorem{proposition}{Proposition}
+\numberwithin{proposition}{section}
+\newtheorem{corollary}{Corollary}
+\numberwithin{corollary}{section}
+\newtheorem{theorem}{Theorem}
+\numberwithin{theorem}{section}
+
+\DeclareMathSymbol{\mathinvertedexclamationmark}{\mathclose}{operators}{'074}
+\DeclareMathSymbol{\mathexclamationmark}{\mathclose}{operators}{'041}
+\makeatletter
+\newcommand{\raisedmathinvertedexclamationmark}{%
+  \mathclose{\mathpalette\raised@mathinvertedexclamationmark\relax}%
+}
+\newcommand{\raised@mathinvertedexclamationmark}[2]{%
+  \raisebox{\depth}{$\m@th#1\mathinvertedexclamationmark$}%
+}
+\begingroup\lccode`~=`! \lowercase{\endgroup
+  \def~}{\@ifnextchar`{\raisedmathinvertedexclamationmark\@gobble}{\mathexclamationmark}}
+\mathcode`!="8000
+\makeatother
+
+
+\title{Geometry of arithmetic expressions}
+
+%\date{September 9, 1985}	% Here you can change the date presented in the paper title
+%\date{} 					% Or removing it
+
+\author{
+  Mingli~Yuan \\
+  AI Lab \\
+  ColorfulClouds Tech.\\
+  Beijing, 100083 \\
+  \texttt{mingli.yuan@gmail.com}
+  \And
+  Le~Zhang \\
+  %% Affiliation \\
+  %% Address \\
+  %% \texttt{email} \\
+  \And
+  Wenfeng~Jiang \\
+  %% Affiliation \\
+  %% Address \\
+  %% \texttt{email} \\
+}
+
+% Uncomment to remove the date
+%\date{}
+
+% Uncomment to override  the `A preprint' in the header
+\renewcommand{\headeright}{A preprint}
+\renewcommand{\undertitle}{A preprint}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+    TODO
+\end{abstract}
+
+\keywords{arithmetic expressions, hyperbolic geometry}
+
+\setcounter{tocdepth}{2}
+\tableofcontents
+\newpage
+
+\section{Introduction}\label{sec:introduction}
+
+Can arithmetic expressions form a geometry space? This is the central problem of our concern.
+
+\begin{thebibliography}{9}
+
+\bibitem{Giuseppe2019}
+    Giuseppe Negro,
+    \textit{Laplacian on Poincaré upper half plane},
+    Mathematics Stack Exchange,
+    2019.
+
+\bibitem{Costa2001ADO}
+  S. Costa,
+  \textit{A description of several coordinate systems for hyperbolic spaces},
+  arXiv: Mathematical Physics,
+  2001.
+
+
+\end{thebibliography}
+
+
+\end{document}
