@@ -99,7 +99,7 @@
 Can arithmetic expressions form a geometry space?
 In this paper, we will show several examples of arithmetic expression space and explore their properties.
 
-\subsection{An addition-multiplication grid}
+\subsection{A special scalar field and a grid}
 
 For the upper half plane
 \[
@@ -163,7 +163,7 @@ we can parse them into a syntax trees. For example, the above expression can be 
 \end{figure}
 
 The evaluation of the expression is from the leaves to the root recursively, but generally the orders of such evaluations are not unique.
-For one expression, if the sequence of evaluations is unique, we call it a threadlike expression.
+For one expression, if the sequence of evaluations is unique, we call it a threadlike expression, and write them down
 
 \begin{definition}
 A threadlike expression is an arithmetic expression with a unique evaluation sequence.
@@ -187,7 +187,25 @@ and the combinations of them. We can normalize any threadlike expressions to the
 
 \subsection{Encoding threadlike expressions on the addition-multiplication gird}
 
+If we understand the horizontal blue lines as $+ 1$ and the vertical green lines as $\times 2$,
+then the threadlike expressions can be encoded on the addition-multiplication grid.
+For example in figure \ref{fig:encoding}, we encode $(1 \times 4 - 1) \times 2 - 3$ into the blod black lines.
 
+\begin{figure}[ht]
+\centering
+\resizebox{0.9\textwidth}{!}{\includegraphics{images/05-example-expression-embedding}}
+\caption{encoding threadlike expression}\label{fig:encoding}
+\end{figure}
+
+The zigzag lines can be divided into four parts
+\begin{itemize}
+\item the vertical line from $1$ to $4$: encoded as multiplication by $4$
+\item the horizontal line from $4$ to $3$: encoded as subtraction by $1$
+\item the vertical line from $3$ to $6$: encoded as multiplication by $2$
+\item the horizontal line from $6$ to $3$: encoded as subtraction by $3$
+\end{itemize}
+
+\subsection{From a scalar field to a space of threadlike expressions}
 
 
 \section{Flow equation and the first kind of arithmetic expression space}\label{sec:examples}
