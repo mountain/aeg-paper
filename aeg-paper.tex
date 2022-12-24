@@ -103,16 +103,13 @@
 \section{Introduction}\label{sec:introduction}
 
 Can arithmetic expressions form a geometric space?
-In this paper, the first in a series on the geometry of arithmetic expressions, we present several examples of arithmetic expression spaces and examine their properties.
-
-Since this is a new area of research, we will begin by introducing a basic example in the first section.
-Next, we will demonstrate more complex examples and discuss their properties and conclusions.
+In this paper, we present several examples of arithmetic expression spaces and examine their properties.
 
 \subsection{Arithmetic expression}
 
-In order to define arithmetic expressions involving real numbers in a rigorous way, we need to use a sophisticated type theory.
+In order to define arithmetic expressions involving real numbers  $\mathbb{R}$ in a rigorous way, we need to use a sophisticated type theory.
 However, in order to keep things simple and maintain clarity, we will start by using only production rules,
-but with certain semantic restrictions.
+but with certain semantic restrictions. We will also begin with rational numbers $\mathbb{Q}$ to avoid the difficulties inside real numbers $\mathbb{R}$ .
 
 \begin{definition}
     The definition of arithmetic expression $a$ over $\mathbb{Q}$ is given by the following production rules:
@@ -171,7 +168,7 @@ The evaluation order of an arithmetic expression $a$ is an ordering of branch no
 such that every node (sub-expression) is evaluated before its parent.
 \end{definition}
 
-Below are examples of expressions that have a unique evaluation order. These include left-expanded, right-expanded,
+Below are examples of expressions that have a unique evaluation order. These include right-expanded, left-expanded,
 and combinations of them, as shown in Figure \ref{fig:leftright} and Figure \ref{fig:combination}.
 
 \begin{figure}[ht]
@@ -187,14 +184,14 @@ and combinations of them, as shown in Figure \ref{fig:leftright} and Figure \ref
 \end{figure}
 
 \begin{definition}
-A threadlike expression is an arithmetic expression that all the right nodes in its tree representation are leaf nodes.
+A threadlike expression is an arithmetic expression that all the left nodes in its tree representation are leaf nodes.
 \end{definition}
 
 So a threadlike expression is right-expanded and its evaluation order is unique.
 
-Threadlike expressions are important because they are analogousness in the expression world to the concept of path in homotopy theory in geometry.
+Threadlike expressions are significant because they are analogous to the concept of paths in homotopy theory in geometry.
 
-\subsection{An assignment and a grid}
+\subsection{An assignment and a grid}\label{sec:assignment}
 
 Consider the upper half plane $\{\mathcal{H}: (x, y) | y > 0 \}$ equipped with an inner product and metrics defined as follows:
 
@@ -216,8 +213,8 @@ A = - \frac{x}{y}
 
 We call this field an \emph{assignment}.
 
-Bridging by this scalar field, we can set up analogousness between path in homotopy and threadlike arithmetic expression
-which is a special kind of arithmetic expression we will introduce in subsection \ref{sec:threadlike}.
+Proper assignments allow us to establish a connection between paths in homotopy and threadlike arithmetic expressions,
+and to incorporate function theory into the study of arithmetic expression geometry.
 
 \begin{figure}[ht]
 \centering
@@ -248,7 +245,9 @@ This leads to a rigorous treatment of arithmetic expressions as a geometric spac
 
 \subsection{Encoding threadlike expressions on the addition-multiplication gird}\label{sec:encoding}
 
-If we interpret the horizontal blue lines as $+ 1$ and the vertical green lines as $\times 2$ in Figure \ref{fig:gridex0}, we can encode threadlike expressions on the addition-multiplication grid. For example, in Figure \ref{fig:encoding} we encode $(1 \times 4 - 1) \times 2 - 3$ as the bold black lines.
+If we interpret the horizontal blue lines as $+ 1$ and the vertical green lines as $\times 2$ in Figure \ref{fig:gridex0},
+we can encode threadlike expressions on the addition-multiplication grid. For example, in Figure \ref{fig:encoding}
+we encode $((((1 \times 4) - 1) \times 2) - 3)$ as the bold black lines.
 
 \begin{figure}[ht]
 \centering
@@ -268,9 +267,9 @@ The zigzag lines in Figure \ref{fig:encoding} can be divided into four parts:
 
 As shown in Figure \ref{fig:canonicalform}, we have the following paths and expressions:
 \begin{itemize}
-\item the black path: $1 \times 8 - 5 = 3$
-\item the purple path: $(1 - \frac{5}{8}) \times 8 = 3$
-\item the brown path: $(((1 - \frac{1}{8}) \times 2 - \frac{1}{2}) \times 2 - 1) \times 2 = 3$
+\item the black path: $((1 \times 8) - 5) = 3$
+\item the purple path: $((1 - \frac{5}{8}) \times 8) = 3$
+\item the brown path: $((((((1 - \frac{1}{8}) \times 2) - \frac{1}{2}) \times 2) - 1) \times 2) = 3$
 \item the orange path: infinit many addition-multiplication terms accumulated together, a special kind of integration
 \end{itemize}
 
@@ -286,18 +285,18 @@ It is easy to see that the expressions can be transformed into each other by usi
 
 Conversion form brown path to black path
 \begin{align}
-3 & = (((1 - \frac{1}{8}) \times 2 - \frac{1}{2}) \times 2 - 1) \times 2 \\
+3 & = ((((((1 - \frac{1}{8}) \times 2) - \frac{1}{2}) \times 2) - 1) \times 2) \\
 & = 1 \times 8 -  \frac{1}{8} \times 8 - \frac{1}{2} \times 4 - 1 \times 2 \\
-& = 1 \times 8 - 5
+& = ((1 \times 8) - 5)
 \end{align}
 
 Conversion form brown path to purple path
 \begin{align}
-3 & = (((1 - \frac{1}{8}) \times 2 - \frac{1}{2}) \times 2 - 1) \times 2 \\
+3 & = ((((((1 - \frac{1}{8}) \times 2) - \frac{1}{2}) \times 2) - 1) \times 2) \\
 & = (1 - \frac{1}{8}) \times 8 - \frac{1}{2} \times 4 -  1 \times 2 \\
 & = (1 - \frac{1}{8}) \times 8 - \frac{1}{4} \times 8 -  \frac{1}{4} \times 8 \\
 & = (1 - \frac{1}{8} - \frac{1}{4} - \frac{1}{4}) \times 8 \\
-& = (1 - \frac{5}{8}) \times 8
+& = ((1 - \frac{5}{8}) \times 8)
 \end{align}
 
 Therefore, we can define the black and purple paths in Figure \ref{fig:canonicalform} as a pair of canonical paths,
@@ -305,6 +304,34 @@ which represent all threadlike expressions connecting the source $1$ and the tar
 
 Once we have such canonical paths, we can determine the canonical form of the whole space relative to an arbitrary source point $O$
 and any other target point $P$. This allows us to define the space as a space of threadlike expressions.
+
+\subsection{The detailed construction of the grids}\label{sec:construction-of-grids}
+
+To construct the grid described in subsection \ref{sec:assignment} and figure \ref{fig:gridex0},
+we will use the number theory decomposition introduced by Victor Pambuccian in \cite{Pambuccian2016THEAO} and
+Celia Schacht in \cite{Schacht2018ANOTHERAO}.
+
+$$
+n = \tau(n) \omega(n)
+$$
+
+where $\tau(n)$ is a power of 2 and $\omega(n)$ is an odd.
+
+We can see directly from the figure \ref{fig:gridex0} that the grid is constructed by the following rules:
+\begin{itemize}
+\item horizantal blue lines (additional lines) satisfying $y = 2^k, k \in \mathbb{Z}$
+\item vertical green lines (multiplicative lines) satisfying
+    \begin{itemize}
+        \item the value of x satisfying $x = \frac{m}{2^l}, l \in \mathbb{Z}^+, m \in \mathbb{Z}$
+        \item the assignment begin from $\omega(m)$ and increase exponentially by power 2.
+    \end{itemize}
+\end{itemize}
+
+\begin{figure}[ht]
+\centering
+\resizebox{0.9\textwidth}{!}{\includegraphics{images/07-grid-detail}}
+\caption{$\omega$ gives the assignment of the start points of green lines}\label{fig:griddetail}
+\end{figure}
 
 \subsection{Topological arithmetica expression space}\label{sec:topology}
 
@@ -358,6 +385,53 @@ The left side of the flow equation (\eqref{eq:flow}) is governed by the distance
 Isometries keep the flow equation\eqref{eq:flow}
 \label{thm:isometry}
 \end{theorem}
+
+\subsection{A direct formal solution of the flow equation}
+
+Giving the flow equation
+$$
+    \frac{da}{ds} = \mu \cos \theta + a \lambda \sin \theta
+$$
+
+We can get a formal solution step by step:
+
+$$
+    \frac{da}{\mu \cos \theta + a \lambda \sin \theta} = ds
+$$
+
+$$
+    \frac{1}{\lambda \sin \theta} \frac{d(\mu \cos \theta + a \lambda \sin \theta)}{\mu \cos \theta + a \lambda \sin \theta} = ds
+$$
+
+$$
+    \frac{1}{\lambda \sin \theta} ln(\mu \cos \theta + a \lambda \sin \theta) = s + C
+$$
+
+$$
+    \mu \cos \theta + a \lambda \sin \theta = e^{s \lambda \sin \theta} e^{C \lambda \sin \theta}
+$$
+
+Considering the initial condition
+$$
+    \mu \cos \theta + a_0 \lambda \sin \theta = e^{C \lambda \sin \theta}
+$$
+
+We have
+$$
+    \mu \cos \theta + a \lambda \sin \theta = e^{s \lambda \sin \theta} (\mu \cos \theta + a_0 \lambda \sin \theta)
+$$
+
+$$
+   a = \frac{\mu \cos \theta + a_0 \lambda \sin \theta}{\lambda \sin \theta} e^{s \lambda \sin \theta} - \frac{\mu}{\lambda}\cot \theta
+$$
+
+$$
+   a = (\frac{\mu}{\lambda} \cot \theta + a_0) e^{s \lambda \sin \theta} - \frac{\mu}{\lambda} \cot \theta
+$$
+
+\begin{equation}
+   a =  a_0 e^{\lambda t \sin \theta} + \frac{\mu}{\lambda} (e^{s \lambda \sin \theta} - 1) \cot \theta
+\end{equation}
 
 \subsection{The contour-gradient form of flow equation}
 
@@ -928,105 +1002,26 @@ Notice that $(0 + \mu) \cdot e^\lambda \neq 0 \cdot e^\lambda + \mu$, then we ha
 
 \subsection{Questions related with complexity}\label{sec:tube}
 
+\bibliographystyle{plain}
 \bibliography{aeg-paper.bib}
 
 \appendix
 
-\section{The grid}\label{sec:unitlength}
+\section{Unit length in the grid}\label{sec:unitlength}
 
-The grid in figure \ref{fig:grid} is power 2 based
+The grid in figure \ref{fig:gridex0} is power 2 based, so we can calculate the length of each edge directly.
 
+The distance between the blue lines:
 
+$$
+\int ds = \int\limits_{2^{k - 1}}^{2^k} \frac{1}{y \ln 2} dy = \frac{1}{\ln 2} \left( \ln 2^k - \ln 2^{k - 1} \right) = 1
+$$
 
-\section{The direct solution of the flow equation}
+The distance between $(-k y, y)$ and $(-(k + 1)y, y)$ which are on different neighboring green lines:
 
-\begin{equation}
-    \frac{dx}{dt} = u(\mu \cos \theta + x \lambda \sin \theta)
-\end{equation}
-
-We can get the solution step by step:
-
-\begin{equation}
-    \frac{dx}{\mu \cos \theta + x \lambda \sin \theta} = u dt
-\end{equation}
-
-\begin{equation}
-    \frac{1}{\lambda \sin \theta} \frac{d(\mu \cos \theta + x \lambda \sin \theta)}{\mu \cos \theta + x \lambda \sin \theta} = u dt
-\end{equation}
-
-\begin{equation}
-    \frac{1}{\lambda \sin \theta} ln(\mu \cos \theta + x \lambda \sin \theta) = u t + C
-\end{equation}
-
-\begin{equation}
-    \mu \cos \theta + x \lambda \sin \theta = e^{u \lambda t \sin \theta} e^{C \lambda \sin \theta}
-\end{equation}
-
-Considering the initial condition
-\begin{equation}
-    \mu \cos \theta + x_0 \lambda \sin \theta = e^{C \lambda \sin \theta}
-\end{equation}
-
-We have
-\begin{equation}
-    \mu \cos \theta + x \lambda \sin \theta = e^{u \lambda t \sin \theta} (\mu \cos \theta + x_0 \lambda \sin \theta)
-\end{equation}
-
-\begin{equation}
-   x = \frac{\mu \cos \theta + x_0 \lambda \sin \theta}{\lambda \sin \theta} e^{\lambda t \sin \theta} - \frac{\mu}{\lambda}\cot \theta
-\end{equation}
-
-\begin{equation}
-   x = (\frac{\mu}{\lambda} \cot \theta + x_0) e^{\lambda t \sin \theta} - \frac{\mu}{\lambda} \cot \theta
-\end{equation}
-
-\begin{equation}
-   x =  x_0 e^{\lambda t \sin \theta} + \frac{\mu}{\lambda} (e^{\lambda t \sin \theta} - 1) \cot \theta
-\end{equation}
-
-In order to verify the conformance, we expand the formula
-
-\begin{equation}
-   x =  x_0 e^{\lambda t \sin \theta} + \frac{\mu}{\lambda} [1 + \lambda t \sin \theta + \frac{1}{2!} (\lambda t \sin \theta)^2  + \frac{1}{3!} (\lambda t \sin \theta)^3 + \cdots - 1] \cot \theta
-\end{equation}
-
-\begin{equation}
-   x =  x_0 e^{\lambda t \sin \theta} + t \mu \cos \theta + \frac{\mu}{\lambda} \sin \theta \cos \theta (\frac{\lambda^2t^2}{2!} + \frac{\lambda^3t^3}{3!} \sin \theta + \frac{\lambda^4t^4}{4!} \sin^2 \theta + \cdots)
-\end{equation}
-
-\begin{equation}
-   x =  x_0 e^{\lambda t \sin \theta} + t \mu \cos \theta + \frac{\mu}{2\lambda} \sin 2\theta (\frac{\lambda^2t^2}{2!} + \frac{\lambda^3t^3}{3!} \sin \theta + \frac{\lambda^4t^4}{4!} \sin^2 \theta + \cdots)
-\end{equation}
-
-\begin{equation}
-   x =  x_0 e^{\lambda t \sin \theta} + \mu t \cos \theta + \frac{\mu}{2\lambda} \Psi(t) \sin 2\theta
-\end{equation}
-
-When $\theta = \frac{k \pi}{2}, k = 0, 1, 2, 3\cdots, t = 0, 1, 2, 3\cdots$, we have
-
-\begin{equation}
-    x = x_0 e^{\lambda t \sin \theta} + \mu t \cos \theta
-\end{equation}
-
-Especially, we have
-
-\begin{equation}
-    x = x_0 + \mu t, t = 0, 1, 2, 3\cdots, k = 0, 1, 2, 3\cdots, \theta = 2k\pi
-\end{equation}
-
-\begin{equation}
-    x = x_0e^{\lambda t}, t = 0, 1, 2, 3\cdots, k = 0, 1, 2, 3\cdots, \theta = 2k\pi + \frac{\pi}{2}
-\end{equation}
-
-\begin{equation}
-    x = x_0 - \mu t, t = 0, 1, 2, 3\cdots, k = 0, 1, 2, 3\cdots, \theta = 2k\pi + \pi
-\end{equation}
-
-\begin{equation}
-    x = x_0 e^{- \lambda t}, t = 0, 1, 2, 3\cdots, k = 0, 1, 2, 3\cdots, \theta = 2k\pi + \frac{3 \pi}{2}
-\end{equation}
-
-which gives the conformance.
+$$
+\int ds = \int\limits_{-(k+1) y}^{-k y} \frac{1}{y} dx = \frac{1}{y} \left( - k y + (k + 1) y \right) = 1
+$$
 
 \section{Arithmetic expression, combinators and transformation over trees}\label{sec:expressions}
 
