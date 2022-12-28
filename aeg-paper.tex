@@ -241,7 +241,7 @@ $$
 where $\alpha = 2^k , k \in \mathbb{Z}$.
 
 We can image if we make the grid finer and finer, the grid will become a continuous space.
-This leads to a rigorous treatment of arithmetic expressions as a geometric space in subsection \ref{sec:topology}.
+This leads to a rigorous treatment of arithmetic expressions as a geometric space in section \ref{sec:topology}.
 
 \subsection{Encoding threadlike expressions on the addition-multiplication gird}\label{sec:encoding}
 
@@ -315,35 +315,36 @@ Consider a infinitesimal generating process on a Riemannian surface $M$ using tw
 one for an additional action $\mu$ and the other for a multiplicative action $e^\lambda$.
 These two generators are perpendicular. This generation process produces an assignment $A: M \to R$ over the surface.
 
-At any point with an assignment $a_0$, considering a movement with a distance of $\epsilon$, direction angle of $\theta$, and time elapsed of $\delta$, we can establish the following:
+For any point with an assignment $a_0$, if we consider a movement of distance $\epsilon$ in a direction with angle $\theta$
+over a time period of $\delta$, we can establish the following:
 
-\begin{equation}
+$$
     a_{\delta} = (a_0 + \mu \epsilon \cos \theta)e^{\lambda \epsilon \sin \theta}
-\end{equation}
+$$
 
 or
 
-\begin{equation}
+$$
     a_{\delta} = a_0 e^{\lambda \epsilon \sin \theta} + \mu \epsilon \cos \theta
-\end{equation}
+$$
 
-Both can be simplified to the same
+Both formula can be simplified to the same result:
 
-\begin{equation}
+$$
     a_{\delta} = a_0 + \epsilon (a_0 \lambda \sin \theta + \mu \cos \theta)
-\end{equation}
+$$
 
-Then
+Then, we have the following equation:
 
-\begin{equation}
+$$
     \frac{1}{\delta} (a_{\delta} - a_0) = \frac{\epsilon}{\delta} (\mu \cos \theta + x_0 \lambda \sin \theta)
-\end{equation}
+$$
 
 When both $\delta$ and $\epsilon$ are towards zero, we get $da / dt$, and hence
 
-\begin{equation}
+$$
     \frac{da}{dt} = u (\mu \cos \theta + a \lambda \sin \theta)
-\end{equation}
+$$
 
 Or, we can change it to another form
 
@@ -351,51 +352,21 @@ Or, we can change it to another form
     \frac{da}{ds} = \mu \cos \theta + a \lambda \sin \theta\label{eq:flow}
 \end{equation}
 
-The left side of the flow equation (\eqref{eq:flow}) is governed by the distance structure, and the right side is governed by the angle structure. This leads to a theorem.
+We name this equation (\eqref{eq:flow}) as the flow equation.
+
+The left side of this equation is governed by the distance structure, while the right side is governed by the angle structure.
+This leads to below theorem.
 
 \begin{theorem}
 Isometries keep the flow equation\eqref{eq:flow}
 \label{thm:isometry}
 \end{theorem}
 
-\subsection{A direct formal solution of the flow equation}
+\begin{proof}
+  An isometry keeps both the distance structure and the angle structure, so it keeps the flow equation.
+\end{proof}
 
-Giving the flow equation
-$$
-    \frac{da}{ds} = \mu \cos \theta + a \lambda \sin \theta
-$$
-
-We can get a formal solution step by step:
-
-$$
-    \frac{da}{\mu \cos \theta + a \lambda \sin \theta} = ds
-$$
-
-$$
-    \frac{1}{\lambda \sin \theta} \frac{d(\mu \cos \theta + a \lambda \sin \theta)}{\mu \cos \theta + a \lambda \sin \theta} = ds
-$$
-
-$$
-    \frac{1}{\lambda \sin \theta} ln(\mu \cos \theta + a \lambda \sin \theta) = s + C
-$$
-
-$$
-    \mu \cos \theta + a \lambda \sin \theta = e^{s \lambda \sin \theta} e^{C \lambda \sin \theta}
-$$
-
-Considering the initial condition
-$$
-    \mu \cos \theta + a_0 \lambda \sin \theta = e^{C \lambda \sin \theta}
-$$
-
-We have
-$$
-    \mu \cos \theta + a \lambda \sin \theta = e^{s \lambda \sin \theta} (\mu \cos \theta + a_0 \lambda \sin \theta)
-$$
-
-$$
-   a = \frac{\mu \cos \theta + a_0 \lambda \sin \theta}{\lambda \sin \theta} e^{s \lambda \sin \theta} - \frac{\mu}{\lambda}\cot \theta
-$$
+We can also get a direct formal solution of the flow equation (\eqref{eq:flow}).
 
 \begin{equation}
    a = (a_0 + \frac{\mu}{\lambda} \cot \theta) e^{s \lambda \sin \theta} - \frac{\mu}{\lambda} \cot \theta
@@ -1094,6 +1065,48 @@ TODO...
 \bibliography{aeg-paper.bib}
 
 \appendix
+
+\section{A direct formal solution of the flow equation}\label{sec:directformalsolution}
+
+We can also get a direct formal solution of the flow equation (\eqref{eq:flow}) step by step:
+
+$$
+    \frac{da}{\mu \cos \theta + a \lambda \sin \theta} = ds
+$$
+
+$$
+    \frac{1}{\lambda \sin \theta} \frac{d(\mu \cos \theta + a \lambda \sin \theta)}{\mu \cos \theta + a \lambda \sin \theta} = ds
+$$
+
+$$
+    \frac{1}{\lambda \sin \theta} ln(\mu \cos \theta + a \lambda \sin \theta) = s + C
+$$
+
+$$
+    \mu \cos \theta + a \lambda \sin \theta = e^{s \lambda \sin \theta} e^{C \lambda \sin \theta}
+$$
+
+Considering the initial condition
+$$
+    \mu \cos \theta + a_0 \lambda \sin \theta = e^{C \lambda \sin \theta}
+$$
+
+We have
+$$
+    \mu \cos \theta + a \lambda \sin \theta = e^{s \lambda \sin \theta} (\mu \cos \theta + a_0 \lambda \sin \theta)
+$$
+
+$$
+   a = \frac{\mu \cos \theta + a_0 \lambda \sin \theta}{\lambda \sin \theta} e^{s \lambda \sin \theta} - \frac{\mu}{\lambda}\cot \theta
+$$
+
+$$
+   a = (a_0 + \frac{\mu}{\lambda} \cot \theta) e^{s \lambda \sin \theta} - \frac{\mu}{\lambda} \cot \theta
+$$
+
+$$
+   a =  a_0 e^{s \lambda \sin \theta} + \frac{\mu}{\lambda} (e^{s \lambda \sin \theta} - 1) \cot \theta
+$$
 
 \section{Arithmetic expression, combinators and transformation over trees}\label{sec:expressions}
 
