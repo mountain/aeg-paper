@@ -1,0 +1,24 @@
+\documentclass{standalone}
+\usepackage{amsmath}
+\usepackage{tikz}
+
+\begin{document}
+\begin{tikzpicture}
+\filldraw [black] (0,0) circle (2pt) node[align=center, below] {$\odot$};
+\filldraw [black] (4,1) circle (2pt) node[align=center, below] {$\alpha$};
+\filldraw [black] (2,3) circle (2pt) node[align=center, below] {$\beta$};
+\filldraw [black] (5,3) circle (2pt) node[align=center, below] {$\gamma$};
+\filldraw [black] (-2,2) circle (2pt) node[align=center, below] {$\psi$};
+\filldraw [black] (1,2) circle (2pt) node[align=center, below] {$\phi$};
+\filldraw [gray] (3,-0.4) circle (0pt) node[align=center, below] {$x$};
+\filldraw [gray] (3,1.8) circle (0pt) node[align=center, below] {$y$};
+\filldraw [gray] (4.7,2) circle (0pt) node[align=center, below] {$z$};
+\draw [gray] (0,0) to[out=300,in=240] (4,1);
+\draw [gray] (4,1) to[out=120,in=300] (2,3);
+\draw [gray] (4,1) to[out=60,in=240] (5,3);
+\draw [gray] (0,0) to[out=120,in=300] (-2,2);
+\draw [gray] (0,0) to[out=60,in=240] (1,2);
+\filldraw [gray] (-1,0.8) circle (0pt) node[align=center, below] {$y$};
+\filldraw [gray] (0.7,1) circle (0pt) node[align=center, below] {$z$};
+\end{tikzpicture}
+\end{document}

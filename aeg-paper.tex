@@ -312,6 +312,76 @@ and any other target point $P$. This allows us to define the space as a space of
 In order to study mesh grids like the one described in subsection \ref{sec:meshgrid},
 we need to investigate the algebraic structure of the threadlike arithmetic expressions that are generated.
 
+\subsection{Currying and path notation}
+
+Currying is a basic technique in functional programming, which is used to transform a function with multiple arguments into a sequence of functions with one argument.
+By currying a threadlike arithmetic expression, we can obtain a sequence of functions that operate on an operand, which is the leftmost leaf node.
+
+We introduce the following notation for currying a threadlike arithmetic expression:
+\begin{itemize}
+    \item initial operand: the leftmost leaf node
+    \item operator: $\oplus_y: x \mapsto x + y$
+    \item operator: $\ominus_y: x \mapsto x - y$
+    \item operator: $\otimes_y: x \mapsto x \cdot e^y$
+    \item operator: $\oslash_y: x \mapsto x \cdot e^{-y}$
+\end{itemize}
+
+For example, the threadlike arithmetic expression $(((((1 \times 2) \times 2) + 1) \times 3) + 6)$ can be curried as
+
+$$\oplus_6(\otimes_{\ln 3}(\oplus_1(\otimes_{\ln 2}(\otimes_{\ln 2}(1)))))$$
+
+Suppose we have a series of operators $a_1, a_2, \cdots a_{n-1}, a_n$, we introduce the initial version of \emph{path notation}.
+
+$$x a_1 a_2 \cdots a_{n-1} a_n \coloneqq a_n( a_{n-1}( \cdots a_2( a_1(x) ) \cdots ) )$$
+
+So, the above example can be written as
+
+$$1 \otimes_{\ln 2} \otimes_{\ln 2} \oplus_1 \otimes_{\ln 3} \oplus_6 $$
+
+In order to make this notation purely functional, we can also introduce a special operator $\odot$, and interpret it as
+\begin{itemize}
+    \item When it appears at the beginning of a path and is followed by the operator $\oplus_y$ or $\ominus_y$, it is interpreted as the zero map $\odot: x \mapsto 0$
+    \item When it appears at the beginning of a path and is followed by the operator $\otimes_y$ or $\oslash_y$, it is interpreted as the one map $\odot: x \mapsto 1$
+    \item When it does not appear at the beginning of a path, it is interpreted as the identity map $\odot: x \mapsto x$
+\end{itemize}
+
+That is the final version of our path notation. Now, we can rewrite the above example as follows:
+
+$$\odot \oplus_1 \otimes_{\ln 2} \otimes_{\ln 2} \oplus_1 \otimes_{\ln 3} \oplus_6 $$
+
+If a path begins with $\odot$, we refer to it as a \emph{bounded path}.
+If it does not, we refer to it as a \emph{free path}, similar to the concept of vectors from the origin versus vectors at arbitrary points.
+
+Now we will verify that the operators within a path are associative.
+
+\begin{lemma}\label{lemma:associative}
+    The operators within a path are associative, i.e. we have $$a (b c) = (a b) c$$
+\end{lemma}
+
+\begin{proof}
+Follow the definition, we have
+$$(a (b c)) = (b c)(a) = c(b(a))$$
+$$((a b) c) = c (a b) = c(b(a))$$
+\end{proof}
+
+\begin{definition}\label{definition:concatenate}
+    The concatenation of paths $p_1 \cdot p_2$ is defined as the composite of functions:
+    $$p_1 \cdot p_2 \coloneqq p_2 \circ p_1 $$
+\end{definition}
+
+\begin{definition}\label{definition:gca}
+    The greatest common ancestor of two bounded paths $\beta, \gamma$ is defined as the composite of functions:
+    $$p_1 \cdot p_2 \coloneqq p_2 \circ p_1 $$
+\end{definition}
+
+\begin{figure}[ht]
+\centering
+\resizebox{0.5\textwidth}{!}{\includegraphics{images/10-gca.pdf}}
+\caption{Factorization by greatest common ancestor}
+\end{figure}
+
+\subsection{Algebraic structure and equality}
+
 For a given number field $\mathcal{F}$ and elements $\mu, \lambda \in \mathcal{F}$, we consider all the arithmetical expressions
 $E(\mu, \lambda)$ that are freely generated from
 \begin{itemize}
@@ -326,7 +396,7 @@ $E(\mu, \lambda)$ that are freely generated from
 $\mu$ serves as an additional generator, and $e^\lambda$ is the multiplicative generator.
 In cases where the context is clear, we may omit $\mu$ and $\lambda$ from the index.
 
-The algebraic structure of $E(\mu, \lambda)$ will depend on the type of equality we adopt:
+The algebraic structure of generated arithmetic expressions will depend on the type of equality we adopt:
 \begin{itemize}
     \item literal structure: a semigroup under the literal equality
     \item syntactical structure: under equality by some syntactical rules
@@ -342,31 +412,8 @@ The algebraic structure of $E(\mu, \lambda)$ will depend on the type of equality
 
 When we adopt literal equality, two expressions are equal if and only if they have the same string representation.
 
-Suppose we have a series of operators $a_1, a_2, \cdots a_{n-1}, a_n$, we introduce a \emph{path notion}.
 
-\begin{definition}\label{definition:path}
-    a path of operators $a_1 a_2 \cdots a_{n-1} a_n$ is a function over $\mathcal{F}$ which apply operators on an operand in turn
-    $$a_1 a_2 \cdots a_{n-1} a_n (x) \coloneqq a_n( a_{n-1}( \cdots a_2( a_1(x) ) \cdots ) ), \forall x \in \mathcal{F}$$
-\end{definition}
-
-Any expressions in $E(\mu, \lambda)$ can be written as a path with operand $0$. And now we verify the operators is associative inside a path.
-
-\begin{lemma}\label{lemma:associative}
-    The operators inside a path is associative, i.e. $$x (y z) = (x y) z$$
-\end{lemma}
-
-\begin{proof}
-    Follow the definition, we have
-$$(x (y z)) [\alpha] = (y z) (x[\alpha]) = z(y(x[\alpha]))$$
-$$((x y) z) [\alpha] = z ((x y)[\alpha]) = z(y(x[\alpha]))$$
-\qedhere
-\end{proof}
-
-\begin{definition}
-\label{definition:concatenate}
-    Concatenate of paths $p_1 \cdot p_2$ is defined as the composite of functions
-    $$p_1 \cdot p_2 \coloneqq p_2 \circ p_1 $$
-\end{definition}
+Any expressions in $E(\mu, \lambda)$ can be written as a path with operand $0$.
 
 \begin{lemma}
 \label{lemma:semigroup}
@@ -375,7 +422,7 @@ the algebraic structure $\mathcal{P} = (E, \cdot)$ is a semigroup.
 
 \subsection{Syntactical structure}\label{subsec:syntactical}
 
-We can introduce the inverse notion
+We can introduce the inverse notation
 \begin{itemize}
     \item $\oplus^{-1} = \ominus$
     \item $\ominus^{-1} = \oplus$
@@ -403,7 +450,7 @@ Considering the inverse of a composition, we have
 
 $$\alpha = a_1^{-1}( a_2^{-1}( \cdots a_{n-1}^{-1}( a_n^{-1}(\beta) ) \cdots ) )$$
 
-Or under the path notion
+Or under the path notation
 
 $$\alpha = \beta a_n^{-1} a_{n-1}^{-1} \cdots a_2^{-1} a_1^{-1}$$
 
@@ -450,30 +497,6 @@ The cayley tree of path group $\mathcal{P}$ is a tree structure as below
 \caption{Cayley tree of syntactical structure}
 \end{figure}
 
-\begin{figure}[ht]
-\centering
-\begin{tikzpicture}
-
-\filldraw [black] (0,0) circle (2pt) node[align=center, below] {0};
-\filldraw [black] (4,1) circle (2pt) node[align=center, below] {$\alpha$};
-\filldraw [black] (2,3) circle (2pt) node[align=center, below] {$\beta$};
-\filldraw [black] (5,3) circle (2pt) node[align=center, below] {$\gamma$};
-\filldraw [black] (-2,2) circle (2pt) node[align=center, below] {$\psi$};
-\filldraw [black] (1,2) circle (2pt) node[align=center, below] {$\phi$};
-\filldraw [gray] (3,-0.4) circle (0pt) node[align=center, below] {$x$};
-\filldraw [gray] (3,1.8) circle (0pt) node[align=center, below] {$y$};
-\filldraw [gray] (4.7,2) circle (0pt) node[align=center, below] {$z$};
-\draw [gray] (0,0) to[out=300,in=240] (4,1);
-\draw [gray] (4,1) to[out=120,in=300] (2,3);
-\draw [gray] (4,1) to[out=60,in=240] (5,3);
-\draw [gray] (0,0) to[out=120,in=300] (-2,2);
-\draw [gray] (0,0) to[out=60,in=240] (1,2);
-\filldraw [gray] (-1,0.8) circle (0pt) node[align=center, below] {$y$};
-\filldraw [gray] (0.7,1) circle (0pt) node[align=center, below] {$z$};
-
-\end{tikzpicture}
-\caption{Factorization by greatest common divisor}
-\end{figure}
 
 The generating order is a partial order over $E$, we assume the later generated one is greater in generating.
 By the generating order, we can define the concept of greatest common divisor: for any $\beta, \gamma \in A$,
@@ -485,7 +508,7 @@ So coprime of $\psi, \phi \in A$ means $gcd(\psi, \phi) = 0$
 When $\alpha = gcd(\beta, \gamma)$, and $\beta = \alpha \circ \psi$, $\gamma = \alpha \circ \phi$ hold, then $\psi$ and $\phi$ are coprimes.
 \end{lemma}
 
-\subsection{Semantical structure}\label{sec:semantical}
+\subsection{Semantic structure}\label{sec:semantic}
 
 Now we study the evaluation result, and the structure under the evaluation equality.
 Giving an element of $E(\mu, \lambda)$ with a generating path $0 a_1 a_2 \cdots a_n$,
@@ -496,7 +519,7 @@ $$
 \nu(0 a_1 a_2 \cdots a_n) = \sum_{i} k_i \mu e^{l_i \lambda} \in R
 $$
 where $k_i \in N, l_i \in N$, and obviously $\sum_{i} k_i \mu e^{l_i \lambda}$ is an evaluation of a polynomial over $\mathcal{F}$ at $e^{\lambda}$.
-Comparing with path notion, we call this an expanded notion, or evaluated notion if we emphasising on evaluated value.
+Comparing with path notation, we call this an expanded notation, or evaluated notation if we emphasising on evaluated value.
 
 \begin{lemma}
 \label{lemma:arithmeticalalgebra}
@@ -504,7 +527,7 @@ All arithmetical expressions $E(\mu, \lambda)$ is an algebra over numbers field 
 \end{lemma}
 
 \begin{proof}
-By using the expanded notion, it is easy to verify the three axioms of an algebra is hold:
+By using the expanded notation, it is easy to verify the three axioms of an algebra is hold:
 for any arithmetical expressions $x, y, z \in E$ and $a, b \in \mathcal{F}$, we have
 \begin{itemize}
     \item right distributivity: $(x + y) \cdot z = x \cdot z + y \cdot z$
@@ -610,7 +633,7 @@ Assuming the assignment at the center point of a cell is $a_0$, we move in diffe
 
 \begin{itemize}
 \item $\theta = 0$: $a_1 = a_0 + \mu s$
-\item $\theta = \frac{\pi}{2}$: $a_1 = a_0 e^{\lambda}$
+\item $\theta = \frac{\pi}{2}$: $a_1 = a_0 e^{\lambda s}$
 \item $\theta = \pi$: $a_1 = a_0 - \mu s$
 \item $\theta = \frac{3 \pi}{2}$: $a_1 = a_0 e^{- \lambda s} $
 \end{itemize}
@@ -1029,8 +1052,7 @@ TODO...
 
 \newpage
 
-
-\section{Furthur reseach and problems}\label{sec:secondkind}
+\section{Unsolved problems}\label{sec:secondkind}
 
 \subsection{Foundation questions}\label{sec:foundation}
 
