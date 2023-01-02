@@ -67,7 +67,7 @@
 \newcommand{\intgp}{\mathclap{\smash{\otimes}}{\int}}
 \newcommand{\intgg}{\mathclap{\rightsquigarrow}\mathclap{\int}}
 
-\title{Geometry of Arithmetic Expressions: I.\\ Concepts and Unsolved Problems}
+\title{Geometry of Arithmetic Expressions: I.\\ Basic Concepts and Unsolved Problems}
 
 %\date{Decmber 8, 2022}	% Here you can change the date presented in the paper title
 %\date{} 				% Or removing it
@@ -111,7 +111,7 @@ In order to define arithmetic expressions involving real numbers  $\mathbb{R}$ i
 However, in order to keep things simple and maintain clarity, we will start by using only production rules,
 but with certain semantic restrictions. We will also begin with rational numbers $\mathbb{Q}$ to avoid the difficulties inside real numbers $\mathbb{R}$ .
 
-\begin{definition}
+\begin{definition}\label{def:arithmetic-expression}
     The definition of arithmetic expression $a$ over $\mathbb{Q}$ is given by the following production rules:
     \begin{lstlisting}[mathescape]
     $a \longleftarrow x$
@@ -293,7 +293,7 @@ Conversion form brown path to black path
 Conversion form brown path to purple path
 \begin{align}
 3 & = ((((((1 - \frac{1}{8}) \times 2) - \frac{1}{2}) \times 2) - 1) \times 2) \\
-& = (1 - \frac{1}{8}) \times 8 - \frac{1}{2} \times 4 -  1 \times 2 \\
+& = (1 - \frac{1}{8}) \times 8 - \frac{1}{2} \times 4 - 1 \times 2 \\
 & = (1 - \frac{1}{8}) \times 8 - \frac{1}{4} \times 8 -  \frac{1}{4} \times 8 \\
 & = (1 - \frac{1}{8} - \frac{1}{4} - \frac{1}{4}) \times 8 \\
 & = ((1 - \frac{5}{8}) \times 8)
@@ -304,13 +304,6 @@ which represent all threadlike expressions connecting the source $1$ and the tar
 
 Once we have such canonical paths, we can determine the canonical form of the whole space relative to an arbitrary source point $O$
 and any other target point $P$. This allows us to define the space as a space of threadlike expressions.
-
-\newpage
-
-\section{Algebraic structure of generated threadlike arithmetic expressions}\label{sec:algebraicstructure}
-
-In order to study mesh grids like the one described in subsection \ref{sec:meshgrid},
-we need to investigate the algebraic structure of the threadlike arithmetic expressions that are generated.
 
 \subsection{Currying and path notation}
 
@@ -330,7 +323,7 @@ For example, the threadlike arithmetic expression $(((((1 \times 2) \times 2) + 
 
 $$\oplus_6(\otimes_{\ln 3}(\oplus_1(\otimes_{\ln 2}(\otimes_{\ln 2}(1)))))$$
 
-Suppose we have a series of operators $a_1, a_2, \cdots a_{n-1}, a_n$, we introduce the initial version of \emph{path notation}.
+Suppose we have a series of operators $a_1, a_2, \cdots a_{n-1}, a_n$, we introduce a \emph{path notation}.
 
 $$x a_1 a_2 \cdots a_{n-1} a_n \coloneqq a_n( a_{n-1}( \cdots a_2( a_1(x) ) \cdots ) )$$
 
@@ -338,19 +331,9 @@ So, the above example can be written as
 
 $$1 \otimes_{\ln 2} \otimes_{\ln 2} \oplus_1 \otimes_{\ln 3} \oplus_6 $$
 
-In order to make this notation purely functional, we can also introduce a special operator $\odot$, and interpret it as
-\begin{itemize}
-    \item When it appears at the beginning of a path and is followed by the operator $\oplus_y$ or $\ominus_y$, it is interpreted as the zero map $\odot: x \mapsto 0$
-    \item When it appears at the beginning of a path and is followed by the operator $\otimes_y$ or $\oslash_y$, it is interpreted as the one map $\odot: x \mapsto 1$
-    \item When it does not appear at the beginning of a path, it is interpreted as the identity map $\odot: x \mapsto x$
-\end{itemize}
-
-That is the final version of our path notation. Now, we can rewrite the above example as follows:
-
-$$\odot \oplus_1 \otimes_{\ln 2} \otimes_{\ln 2} \oplus_1 \otimes_{\ln 3} \oplus_6 $$
-
-If a path begins with $\odot$, we refer to it as a \emph{bounded path}.
+If a path begins with a number, we refer to it as a \emph{bounded path}.
 If it does not, we refer to it as a \emph{free path}, similar to the concept of vectors from the origin versus vectors at arbitrary points.
+a bounded path results in a number, while a free path results in a function.
 
 Now we will verify that the operators within a path are associative.
 
@@ -359,9 +342,13 @@ Now we will verify that the operators within a path are associative.
 \end{lemma}
 
 \begin{proof}
-Follow the definition, we have
-$$(a (b c)) = (b c)(a) = c(b(a))$$
-$$((a b) c) = c (a b) = c(b(a))$$
+For a free path, follow the definition, we have
+$$a (b c) = (b c)(a) = c(b(a))$$
+$$(a b) c = c (a b) = c(b(a))$$
+
+For a bounded path, we have
+$$x a (b c) = (b c)(a(x)) = c(b(a(x)))$$
+$$x (a b) c = c((a b)(x)) = c(b(a(x)))$$
 \end{proof}
 
 \begin{definition}\label{definition:concatenate}
@@ -369,194 +356,69 @@ $$((a b) c) = c (a b) = c(b(a))$$
     $$p_1 \cdot p_2 \coloneqq p_2 \circ p_1 $$
 \end{definition}
 
-\begin{definition}\label{definition:gca}
-    The greatest common ancestor of two bounded paths $\beta, \gamma$ is defined as the composite of functions:
-    $$p_1 \cdot p_2 \coloneqq p_2 \circ p_1 $$
-\end{definition}
+When a sequence of paths is concatenated, and only the first path can be bounded.
+If the first path is bounded, the concatenated result is a bounded path.
+Otherwise, the concatenated result is a free path.
 
-\begin{figure}[ht]
-\centering
-\resizebox{0.5\textwidth}{!}{\includegraphics{images/10-gca.pdf}}
-\caption{Factorization by greatest common ancestor}
-\end{figure}
+\subsection{Generated structure and problems on equality, sigularity, symmetries}
 
-\subsection{Algebraic structure and equality}
+In order to study mesh grids like the one described in subsection \ref{sec:meshgrid},
+we need to investigate the algebraic structure of the threadlike arithmetic expressions that are generated.
 
-For a given number field $\mathcal{F}$ and elements $\mu, \lambda \in \mathcal{F}$, we consider all the arithmetical expressions
-$E(\mu, \lambda)$ that are freely generated from
+For real number $\mathbb{R}$ and elements $\mu, \lambda \in \mathbb{R}$, we consider all the arithmetical expressions
+that are freely generated from
 \begin{itemize}
     \item initial operand: $0$
-    \item operator: $\odot: x \mapsto x$
     \item operator: $\oplus_\mu: x \mapsto x + \mu$
     \item operator: $\ominus_\mu: x \mapsto x - \mu$
     \item operator: $\otimes_\lambda: x \mapsto x \cdot e^\lambda$
-    \item operator: $\oslash_\lambda: x \mapsto x / e^\lambda$
+    \item operator: $\oslash_\lambda: x \mapsto x \cdot e^{- \lambda}$
 \end{itemize}
 
-$\mu$ serves as an additional generator, and $e^\lambda$ is the multiplicative generator.
+We denote these expressions as $E(\mu, \lambda)$, where $\mu$ is the additional generator and $e^\lambda$ is the multiplicative generator.
 In cases where the context is clear, we may omit $\mu$ and $\lambda$ from the index.
+Our goal is not to study only a single $E(\mu, \lambda)$, but rather to use a family of $E(\mu, \lambda)$ to approach a continuous space.
 
-The algebraic structure of generated arithmetic expressions will depend on the type of equality we adopt:
+From the perspective of computer science, it is useful to consider different levels of equality within freely generated structures.
 \begin{itemize}
-    \item literal structure: a semigroup under the literal equality
-    \item syntactical structure: under equality by some syntactical rules
-    \begin{itemize}
-        \item when $\odot$ operator take no effect, it is a monoid
-        \item when inverse operator exists, it is a group
-        \item when commutative and distributive laws exist between additional operators and multiplicative operators, it is an algebra
-    \end{itemize}
-    \item semantic structure: under the equality of the evaluation of the expression
+\item Literal equality: the finest level of equality, judged by the string representation of the expression
+\item Syntactical equality: equality under certain syntactical rules
+\begin{itemize}
+\item When inverse operators exist, it forms a group
+\item When the commutative and distributive laws exist, it can be considered an algebra
+\end{itemize}
+\item Semantic equality: the coarsest level of equality, judged by the evaluation of the expression
 \end{itemize}
 
-\subsection{Literal structure}\label{subsec:literial}
+Literal equality is the strictest level of equality, and two different threadlike expressions are considered equal only if their string representations are exactly the same.
+This level of equality may be too strict, as it may not be compatible with the evaluation of the expression.
+However, under literal equality, the generated structure is the most rich and provides the base textures that can be woven into a space.
 
-When we adopt literal equality, two expressions are equal if and only if they have the same string representation.
+Semantic equality is the least strict level of equality, and two different threadlike expressions are considered equal if they evaluate to the same number.
+This level of equality provides the total symmetrical resources of the space.
 
+We can think of literal equality as the bottom and semantic equality as the top of a lattice,
+with syntactical equality being a compromise between the two extremes.
 
-Any expressions in $E(\mu, \lambda)$ can be written as a path with operand $0$.
+To end this introduction part of the paper, we present several problems and speculations that drives our research.
+These important problems arise from distance between syntactical and semantic structures.
 
-\begin{lemma}
-\label{lemma:semigroup}
-the algebraic structure $\mathcal{P} = (E, \cdot)$ is a semigroup.
-\end{lemma}
+\emph{Foundational problem}: A careful reader may have noticed that the definition \ref{def:arithmetic-expression}
+is based on rational numbers $\mathbb{Q}$. Why can't we use real numbers $\mathbb{R}$ instead? The answer is that
+syntactically valid expressions may not be semantically valid. Dividing by zero can lead to invalid expressions,
+and the evaluation of the expression cannot be defined in this situation. Therefore, in real numbers,
+an expression may be syntactically valid but semantically not valid,
+and there is no algorithm that can decide whether an expression is semantically valid or not.
+How can we bridge this gap and provide a continuous geometry space?
+We will attempt to partially solve this problem in some special cases in section \ref{sec:topology}.
 
-\subsection{Syntactical structure}\label{subsec:syntactical}
+\emph{Singular point problem}: We have a very strong intuition that semantically invalid expressions lead to singular points.
+The way we discussed in complex analysis may be borrowed here: essential singularities and poles.
 
-We can introduce the inverse notation
-\begin{itemize}
-    \item $\oplus^{-1} = \ominus$
-    \item $\ominus^{-1} = \oplus$
-    \item $\otimes^{-1} = \oslash$
-    \item $\oslash^{-1} = \otimes$
-    \item $\odot^{-1} = \odot$
-\end{itemize}
-
-Then we have the calculation rule of inverse.
-
-\begin{lemma}
-\label{lemma:inverserule}
-If we have
-$$\beta = \alpha a_1 a_2 \cdots a_{n-1} a_n$$
-then
-$$\alpha = \beta a_n^{-1} a_{n-1}^{-1} \cdots a_2^{-1} a_1^{-1}$$
-\end{lemma}
-
-\begin{proof}
-Notice that $\oplus, \ominus, \otimes, \oslash$ are all bijections, we know that $\alpha a_1 a_2 \cdots a_{n-1} a_n$ is a composition of functions
-
-$$\beta = a_n( a_{n-1}( \cdots a_2( a_1(\alpha) ) \cdots ) )$$
-
-Considering the inverse of a composition, we have
-
-$$\alpha = a_1^{-1}( a_2^{-1}( \cdots a_{n-1}^{-1}( a_n^{-1}(\beta) ) \cdots ) )$$
-
-Or under the path notation
-
-$$\alpha = \beta a_n^{-1} a_{n-1}^{-1} \cdots a_2^{-1} a_1^{-1}$$
-
-\qedhere
-\end{proof}
-
-Informally we can divide a long calculation into pieces, or composite small pieces of calculations into a longer one,
-for example
-
-$$\gamma = 0 a_1 a_2 \cdots a_{n-1} a b_1 b2 \cdots b_{m-1} b_m$$
-
-can be rewritten as
-
-$$\gamma = 0 ((\odot a_1 a_2 \cdots a_{n-1} a) \circ (\odot b_1 b_2 \cdots b_{m-1} b_m))$$
-
-And if we treat $\odot$ and $0$ as the same, and we define
-
-$$\alpha = 0 a_1 a_2 \cdots a_{n-1} a$$
-$$\beta = 0 b_1 b2 \cdots b_{m-1} b_m$$
-
-We have
-
-$$\gamma = \alpha \circ \beta$$
-
-where $\alpha$, $\beta$ and $\gamma$ are all well defined in $E$.
-
-Under such definition, the algebraic structure $\mathcal{P} = (E, \circ)$ is a group, and we call it \emph{path group}.
-
-\begin{theorem}
-\label{theorem:pathgroup}
-the algebraic structure $\mathcal{P} = (E, \circ)$ is a group
-\end{theorem}
-
-\begin{proof}
-    Follow the definition of group, we have
-\qedhere
-\end{proof}
-
-The cayley tree of path group $\mathcal{P}$ is a tree structure as below
-
-\begin{figure}[ht]
-\centering
-\includegraphics[width=3in]{images/cayley}
-\caption{Cayley tree of syntactical structure}
-\end{figure}
-
-
-The generating order is a partial order over $E$, we assume the later generated one is greater in generating.
-By the generating order, we can define the concept of greatest common divisor: for any $\beta, \gamma \in A$,
-the greatest common divisor $gcd(\beta, \gamma)$ is the greatest common ancestor in the generating tree.
-So coprime of $\psi, \phi \in A$ means $gcd(\psi, \phi) = 0$
-
-\begin{lemma}
-\label{lemma:coprimes}
-When $\alpha = gcd(\beta, \gamma)$, and $\beta = \alpha \circ \psi$, $\gamma = \alpha \circ \phi$ hold, then $\psi$ and $\phi$ are coprimes.
-\end{lemma}
-
-\subsection{Semantic structure}\label{sec:semantic}
-
-Now we study the evaluation result, and the structure under the evaluation equality.
-Giving an element of $E(\mu, \lambda)$ with a generating path $0 a_1 a_2 \cdots a_n$,
-and the evaluation can be expressed by a function $\nu: E(\mu, \lambda) \to R$,
-and we can proof by structure induction that all evaluation result keep the form
-
-$$
-\nu(0 a_1 a_2 \cdots a_n) = \sum_{i} k_i \mu e^{l_i \lambda} \in R
-$$
-where $k_i \in N, l_i \in N$, and obviously $\sum_{i} k_i \mu e^{l_i \lambda}$ is an evaluation of a polynomial over $\mathcal{F}$ at $e^{\lambda}$.
-Comparing with path notation, we call this an expanded notation, or evaluated notation if we emphasising on evaluated value.
-
-\begin{lemma}
-\label{lemma:arithmeticalalgebra}
-All arithmetical expressions $E(\mu, \lambda)$ is an algebra over numbers field $\mathcal{F}$, or $\mathcal{A} = (E, \mathcal{F}, \cdot)$.
-\end{lemma}
-
-\begin{proof}
-By using the expanded notation, it is easy to verify the three axioms of an algebra is hold:
-for any arithmetical expressions $x, y, z \in E$ and $a, b \in \mathcal{F}$, we have
-\begin{itemize}
-    \item right distributivity: $(x + y) \cdot z = x \cdot z + y \cdot z$
-    \item left distributivity: $z \cdot (x + y) = z \cdot x + z \cdot y$
-    \item compatibility with scalars: $(ax) \cdot (by) = (ab) (x \cdot y)$
-\end{itemize}
-\qedhere
-\end{proof}
-
-Since exponent appears in multiplication generators, we now study an equivalent formulation of Lindemann-Weierstrass theorem
-
-\begin{theorem}
-\label{theorem:LindemannWeierstrass}
-If $\alpha_1, \cdots, \alpha_m$ are distinct algebraic numbers, then $e^{\alpha_1}, \cdots, e^{\alpha_m}$ are linearly independent over the algebraic numbers.
-\end{theorem}
-
-This theorem gives the transcendental nature of $e$.
-Now we can verify path group $\mathcal{P}$ is non-abelian by calculating the result at point $0$ when the field $\mathcal{F}$ is algebraic.
-
-\begin{corollary}
-\label{corollary:nonabelian}
-The path group $\mathcal{P} = (E, \circ)$ is non-abelian when the field $\mathcal{F}$ is algebraic
-\end{corollary}
-
-\begin{proof}
-Because of Lindemann-Weierstrass theorem, $\mu$ have a covering structure and each layer of $\nu$ is a injectiion to the codomain.
-Notice that $(0 + \mu) \cdot e^\lambda \neq 0 \cdot e^\lambda + \mu$, then we have $0 \oplus \otimes \neq 0 \otimes \oplus$
-\qedhere
-\end{proof}
+\emph{Symmetry and classification problem}: We conjecture that the equality lattice may not only play a role in the construction of a space, but also determine the symmetry of that space.
+We can imagine that, at certain levels of the lattice, we weave syntactically generated substructures into points to form a space,
+and the weaving process uses up some of the symmetrical resources, leaving the rest to form a symmetry on the space.
+The structure within the total symmetry may provide us with a systematic way of constructing spaces, and allow us to classify spaces based on their symmetries.
 
 \newpage
 
@@ -632,10 +494,10 @@ we can use this solution to derive (details in Appendix \ref{sec:conformance}) t
 Assuming the assignment at the center point of a cell is $a_0$, we move in different directions and obtain the following assignments:
 
 \begin{itemize}
-\item $\theta = 0$: $a_1 = a_0 + \mu s$
-\item $\theta = \frac{\pi}{2}$: $a_1 = a_0 e^{\lambda s}$
-\item $\theta = \pi$: $a_1 = a_0 - \mu s$
-\item $\theta = \frac{3 \pi}{2}$: $a_1 = a_0 e^{- \lambda s} $
+\item $\theta = 0$: $a_s = a_0 + \mu s$
+\item $\theta = \frac{\pi}{2}$: $a_s = a_0 e^{\lambda s}$
+\item $\theta = \pi$: $a_s = a_0 - \mu s$
+\item $\theta = \frac{3 \pi}{2}$: $a_s = a_0 e^{- \lambda s} $
 \end{itemize}
 
 This result is straightforward but it demonstrates that the infinitesimal generating process is consistent with the discrete mesh grid.
@@ -709,10 +571,10 @@ In this coordinate system, the additional line and the multiplicative line are:
 \end{equation}
 
 By analyzing the formula, we can also get the geometric meaning of the assignment.
-On the hyperbolic plane with sectional curvature $\kappa$, the circumference of the circle with radius $r$ is given by the following formula
+On the hyperbolic plane with sectional curvature $\kappa$, the circumference $L$ of the circle with radius $r$ is given by the following formula
 
 \begin{equation}
-c = \frac{\sinh(\sqrt{\kappa} r)}{\sqrt{\kappa}}\label{eq:circumference}
+L = \frac{\sinh(\sqrt{\kappa} r)}{\sqrt{\kappa}}\label{eq:circumference}
 \end{equation}
 
 Notice the similarity between equation \ref{eq:gradevo} and equation \ref{eq:circumference} with $c=0$, $\mu=1$ and $\lambda=\sqrt{\kappa}$.
@@ -723,6 +585,8 @@ This similarity will lead us to the geometric interpretation of assignment in th
 \newpage
 
 \section{The first kind arithmetic expression space $\mathfrak{K}_1$}\label{sec:firstkind}
+
+
 
 \subsection{Example I}\label{subsec:exmp1}
 
@@ -940,7 +804,7 @@ $$
 
 \section{Topological arithmetic expression space}\label{sec:topology}
 
-\subsection{The detailed construction of the grids $G_i$}\label{sec:construction-of-grids}
+\subsection{The construction of the grids $G_0$}\label{sec:construction-of-grids}
 
 To construct the grid described in subsection \ref{sec:meshgrid} and figure \ref{fig:gridex0},
 we will use the number theory decomposition introduced by Victor Pambuccian in \cite{Pambuccian2016THEAO} and
@@ -1016,6 +880,8 @@ $$
 $$
 \end{proof}
 
+\subsection{The construction of the grids $G_1$}\label{sec:construction-of-grids}
+
 We can similarly construct the grid $G_1$ using the additional generator $\frac{1}{2}$ and the multiplicative generator
 $\sqrt{2}$, the grid $G_2$ using the additional generator $\frac{1}{4}$ and the multiplicative generator $\sqrt[4]{2}$,
 and so on. And each time the cell of the mesh grid is divided into smaller cells and the end points of the vertical lines
@@ -1027,9 +893,12 @@ move upward.
 \caption{the construction schema of $G_1$}\label{fig:gridschemag1}
 \end{figure}
 
+\subsection{The construction of the grids $G_2$}\label{sec:construction-of-grids}
+
+
+\subsection{The grid mesh is dense}\label{sec:construction-of-grids}
 
 It is easy to see that there is a chain of inclusion relations:
-
 $$
 V_0 \subset V_1 \subset V_2 \subset \cdots V_i \subset \cdots
 $$
@@ -1052,7 +921,21 @@ TODO...
 
 \newpage
 
-\section{Unsolved problems}\label{sec:secondkind}
+\section{On order-4 apeirogonal tiling}\label{sec:tiling}
+
+\subsection{Construction problem of order-4 apeirogonal tiling}\label{sec:tiling}
+
+\newpage
+
+\section{New perspectives and methods}\label{sec:function}
+
+\subsection{On integral}\label{sec:function}
+
+\subsection{On representation of function}\label{sec:function}
+
+\newpage
+
+\section{A glossary of unsolved problems}\label{sec:problems}
 
 \subsection{Foundation questions}\label{sec:foundation}
 
@@ -1184,10 +1067,6 @@ which gives the conformance.
 \subsection{Applicative and concatenative}\label{sec:donaghey}
 
 \subsection{Donaghey transformation}\label{sec:donaghey}
-
-\newpage
-
-\section{On order-4 apeirogonal tiling }\label{sec:secondkind}
 
 \newpage
 
