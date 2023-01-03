@@ -592,8 +592,26 @@ This similarity will lead us to the geometric interpretation of assignment in th
 
 \subsection{Example I}\label{subsec:exmp1}
 
+Consider the upper half plane $\{\mathcal{H}: (x, y) | y > 0 \}$ equipped with an inner product and metrics defined as follows:
+
+$$
+\mathbf{a} \cdot \mathbf{b} = \begin{bmatrix} a_x & a_y \end{bmatrix} \begin{bmatrix} \frac{1}{y^2} & 0 \\ 0 & \frac{1}{y^2} \end{bmatrix} \begin{bmatrix} b_x \\ b_y \end{bmatrix}
+$$
+
+and
+
+$$
+ds^2 = \frac{1}{y^2} (dx^2 + dy^2)
+$$
+
+We consider an assignment function $A$ defined on $\mathcal{H}$.
+
+\begin{equation}
+A = - \frac{x}{y}
+\end{equation}
+
 \begin{theorem}\footnote{The proof is originally by Le Zhang, and modified by Mingli Yuan}
-For the above $A$, $A$ satisfy the flow equation\eqref{eq:flow}
+For the assignment $A$ in above formula, $A$ satisfy the flow equation\eqref{eq:flow}
 \end{theorem}
 
 \begin{proof}
@@ -639,17 +657,13 @@ $$
 
 \end{proof}
 
-\subsubsection{As eigenvalue of Laplacian}
-
-We can verify $A$ is an eigenvalue of the Laplacian
+We can verify $A$ is an eigenfunction of the Laplacian
 
 $$
 \Delta A = - y^2 (\frac{\partial^2}{\partial x^2} A + \frac{\partial^2}{\partial y^2} A) = y^2 (\frac{1}{\partial y} (\frac{1}{\partial y} \frac{x}{y})) = 2 A
 $$
 
-\subsection{Example II}\label{subsec:exmp2}
-
-\subsubsection{Geometry settings}\label{subsec:gsetting2}
+\subsection{A horocycle-based coordinate system}\label{subsec:horocyclebased}
 
 First, we introduce the horocycle-based coordinate system of hyperbolic surfaces.
 It is a global coordinate system given by two orthogonal pencils of circles; one pencil are horocycles sharing the same ideal point,
@@ -697,6 +711,15 @@ and the metrics
 $$
 ds^2 = e^{-2v} du^2 + dv^2
 $$
+
+Laplacian is given by\cite{Costa2001ADO}
+
+$$
+\Delta = e^{2v} \frac{\partial^2}{{\partial u}^2} + \frac{\partial^2}{{\partial v}^2} - \frac{\partial}{\partial v}
+$$
+
+
+\subsection{Example II}\label{subsec:exmp2}
 
 \subsubsection{The assignment}
 
@@ -786,12 +809,6 @@ And because of theorem \ref{thm:isometry} and Möbius transform is conformal, we
 \end{proof}
 
 \subsubsection{As eigenvalue of Laplacian}
-
-Laplacian is given by\cite{Costa2001ADO}
-
-$$
-\Delta = e^{2y} \frac{\partial^2}{{\partial x}^2} + \frac{\partial^2}{{\partial y}^2} - \frac{\partial}{\partial y}
-$$
 
 and we have $A$ is an eigenvalue of the Laplacian
 $$
@@ -933,9 +950,11 @@ TODO...
 
 \section{New perspectives and methods}\label{sec:function}
 
-\subsection{On integral}\label{sec:function}
+\subsection{On integral theory}\label{sec:integral}
 
 \subsection{On representation of function}\label{sec:function}
+
+\subsection{Questions related with complexity?}\label{sec:complexity}
 
 \newpage
 
@@ -951,21 +970,20 @@ TODO...
 
 \subsubsection{The third kind of arithmetic expression space}\label{sec:thirdkind}
 
-\subsection{Harmonic problem}\label{sec:tube}
+\subsection{Harmonic problem}\label{sec:harmonic}
 
 \subsection{Tube structure}\label{sec:tube}
 
-\subsection{Singular points and divergent series}\label{sec:tube}
+\subsection{Singular points and divergent series}\label{sec:singularity}
 
-\subsection{Function and a new caculus?}\label{sec:tube}
+\subsection{Function and a new caculus?}\label{sec:caculus}
 
-\subsection{Category of function theories?}\label{sec:tube}
+\subsection{Category of function theories?}\label{sec:function}
 
-\subsection{Geometrilization of computation and logic}\label{sec:tube}
+\subsection{Geometrilization of computation}\label{sec:computation}
 
+\subsection{Geometrilization of logic}\label{sec:logic}
 \subsubsection{irrationality of $\sqrt{17}$}
-
-\subsection{Questions related with complexity?}\label{sec:tube}
 
 \bibliographystyle{plain}
 \bibliography{aeg-paper.bib}
