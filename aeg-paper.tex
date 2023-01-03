@@ -588,14 +588,14 @@ This similarity will lead us to the geometric interpretation of assignment in th
 
 \section{The first kind arithmetic expression space $\mathfrak{K}_1$}\label{sec:firstkind}
 
+TODO
 
+\subsection{Example space I}\label{subsec:exmp1}
 
-\subsection{Example I}\label{subsec:exmp1}
-
-Consider the upper half plane $\{\mathcal{H}: (x, y) | y > 0 \}$ equipped with an inner product and metrics defined as follows:
+Consider the upper half plane ${\mathcal{H}: (x, y) \ | \ y > 0}$ equipped with an inner product and metrics defined as follows:
 
 $$
-\mathbf{a} \cdot \mathbf{b} = \begin{bmatrix} a_x & a_y \end{bmatrix} \begin{bmatrix} \frac{1}{y^2} & 0 \\ 0 & \frac{1}{y^2} \end{bmatrix} \begin{bmatrix} b_x \\ b_y \end{bmatrix}
+\mathbf{a} \cdot \mathbf{b} = \begin{bmatrix} a_x & a_y \end{bmatrix} \begin{bmatrix} \frac{1}{y^2} & 0 \ 0 & \frac{1}{y^2} \end{bmatrix} \begin{bmatrix} b_x \ b_y \end{bmatrix}
 $$
 
 and
@@ -604,7 +604,7 @@ $$
 ds^2 = \frac{1}{y^2} (dx^2 + dy^2)
 $$
 
-We consider an assignment function $A$ defined on $\mathcal{H}$.
+We also consider an assignment function $A$ defined on $\mathcal{H}$ as follows:
 
 \begin{equation}
 A = - \frac{x}{y}
@@ -631,7 +631,7 @@ $$
 \frac{da}{ds} = - \frac{dx + ady}{y} \frac{y}{\sqrt{dx^2 + dy^2}} = - \frac{dx + ady}{\sqrt{dx^2 + dy^2}}
 $$
 
-Considering the local coordinate is given by $(-1, 0)$ and $(0, -1)$ under the right-hand rule, we have
+Considering that the local coordinate is given by $(-1, 0)$ and $(0, -1)$ under the right-hand rule, we have:
 
 $$
 \cos \theta = \frac{\begin{bmatrix} dx & dy \end{bmatrix} \begin{bmatrix} \frac{1}{y^2} & 0 \\ 0 & \frac{1}{y^2} \end{bmatrix} \begin{bmatrix} -1 \\ 0 \end{bmatrix}}{\sqrt{\begin{bmatrix} dx & dy \end{bmatrix} \begin{bmatrix} \frac{1}{y^2} & 0 \\ 0 & \frac{1}{y^2} \end{bmatrix} \begin{bmatrix} dx \\ dy \end{bmatrix}}\sqrt{\begin{bmatrix} -1 & 0 \end{bmatrix} \begin{bmatrix} \frac{1}{y^2} & 0 \\ 0 & \frac{1}{y^2} \end{bmatrix} \begin{bmatrix} -1 \\ 0 \end{bmatrix}}}
@@ -665,39 +665,24 @@ $$
 
 \subsection{A horocycle-based coordinate system}\label{subsec:horocyclebased}
 
-First, we introduce the horocycle-based coordinate system of hyperbolic surfaces.
-It is a global coordinate system given by two orthogonal pencils of circles; one pencil are horocycles sharing the same ideal point,
-the other are geodesics which are perpendicular to the first pencil.
+First, we introduce the horocycle-based coordinate system for hyperbolic surfaces.
+It is a global coordinate system given by two orthogonal sets of circles: one set consists of horocycles that share the same ideal point,
+while the other consists of geodesics that are perpendicular to the first set.
 
-On the Poincaré disc $\mathcal{P}$, the blue horocycles are tangible each other at the ideal point $\Omega$, which forms the first pencil,
-the green lines are geodesics forms the second pencil; and the coordinate of point $P$ are given by the length of $OQ$ and $QP$,
-where the point $O$ is the origin and the length is the metric inside the hyperbolic surface.
+On the Poincaré disc $\mathcal{P}$, the blue horocycles are tangible at the ideal point $\Omega$, forming the first set of circles.
+The green lines are geodesics that form the second set. The coordinates of point $P$ are given by the lengths of $OQ$ and $QP$,
+where point $O$ is the origin and the length is measured using the metric of the hyperbolic surface.
 
-The coordinate of $P$ is $(u,v)$ where the sign of the length is decided by below rules:
+The coordinates of $P$ are $(u,v)$, where the sign of the length is determined by the following rules:
 \begin{itemize}
-    \item u: if $P$ is in the same side of $\Omega$, then x is positive; otherwise x is negative
-    \item v: the sign of the length should satisfy the right-hand rule
+\item u: if $P$ is on the same side of $\Omega$, then x is positive; otherwise, x is negative
+\item v: the sign of the length should satisfy the right-hand rule
 \end{itemize}
 
 \begin{figure}[ht]
 \centering
-\begin{tikzpicture}
-    \node[anchor=225] at (4,2) {$\Omega$};
-    \draw[red,fill=red] (0,2) circle[radius=4];
-    \draw[blue] (1, 2) circle[radius=3];
-    \draw[black] (-4,2) -- (4,2);
-    \draw[green] (4,2) arc (-90:-180:4);
-    \draw[blue] (2, 2) circle[radius=2];
-    \node[fill,circle,inner sep=1pt] at (-2,2) {};
-    \node[anchor=225] at (-2,2) {$O$};
-    \node[fill,circle,inner sep=1pt] at (0.175,4.9) {};
-    \node[anchor=225] at (0.175,4.9) {$Q$};
-    \node[fill,circle,inner sep=1pt] at (0.8,3.6) {};
-    \node[anchor=90] at (0.8,3.5) {$P$};
-    \node[anchor=225] at (0.49,4.1) {$v$};
-    \node[anchor=225] at (-1.6,3.9) {$u$};
-\end{tikzpicture}
-\caption{Horocycle-based coordinate system}\label{fig:horocyclecoord}
+\resizebox{0.5\textwidth}{!}{\includegraphics{images/11-horocyclebased}}
+\caption{A horocycle-based coordinate system}\label{fig:horocyclecoord}
 \end{figure}
 
 We can equip it with an inner product
@@ -719,7 +704,7 @@ $$
 $$
 
 
-\subsection{Example II}\label{subsec:exmp2}
+\subsection{Example space II}\label{subsec:exmp2}
 
 \subsubsection{The assignment}
 
