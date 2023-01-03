@@ -1,0 +1,14 @@
+\documentclass{standalone}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{graphicx}
+
+\begin{document}
+\begin{tikzpicture}
+    \draw (0, 0) node[inner sep=0] {\includegraphics[width=6in]{14-apeirogon.png}};
+    \draw [black, line width=0.2pt, ->] (-3.58,-5.53) to[out=90,in=270] (-3.58,5.7);
+    \node [anchor=south] at (-3.58,5.7) {y};
+    \draw [black, line width=0.2pt, ->] (-9.25,-5.53) to[out=0,in=180] (9.25,-5.53);
+    \node [anchor=west] at (9.5,-5.53) {x};
+\end{tikzpicture}
+\end{document}
