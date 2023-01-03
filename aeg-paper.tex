@@ -588,7 +588,8 @@ This similarity will lead us to the geometric interpretation of assignment in th
 
 \section{The first kind arithmetic expression space $\mathfrak{K}_1$}\label{sec:firstkind}
 
-TODO
+In this section, we will present two analytic examples due to Le that are equivalent and belong to the class of spaces
+called the first kind arithmetic expression space $\mathfrak{K}_1$.
 
 \subsection{Example space I}\label{subsec:exmp1}
 
@@ -604,7 +605,7 @@ $$
 ds^2 = \frac{1}{y^2} (dx^2 + dy^2)
 $$
 
-We also consider an assignment function $A$ defined on $\mathcal{H}$ as follows:
+We also consider an assignment function $A$ defined on $\mathcal{H}$ as follows\footnote{This analytic example is provided by Le Zhang, and the geometry interpretation is given by Mingli Yuan}:
 
 \begin{equation}
 A = - \frac{x}{y}
@@ -706,70 +707,36 @@ $$
 
 \subsection{Example space II}\label{subsec:exmp2}
 
-\subsubsection{The assignment}
+Giving the Poincaré disc $\mathcal{P}$ equipped with the above horocycle-based coordinate system,
+we consider an assignment function $A$ defined on $\mathcal{P}$ as follows\footnote{This analytic example is provided by Le Zhang, and the geometry interpretation is given by Mingli Yuan}:
 
 \begin{equation}
 A = u e^{-v}
 \end{equation}
 
 \begin{theorem}
-For the above $A$, $A$ satisfy the flow equation\eqref{eq:flow}
+For the assignment $A$ in above formula, $A$ satisfy the flow equation\eqref{eq:flow}
 \end{theorem}
 
 \begin{figure}[ht]
 \centering
-\begin{tikzpicture}
-\draw [black, line width=0.6pt, ->] (0,0) to[out=90,in=270] (0,4.25);
-\node [anchor=south] at (0,4.5) {y};
-\draw [black, line width=0.6pt, ->] (-4.25,0) to[out=0,in=180] (4.25,0);
-\node [anchor=west] at (4.5,0) {x};
-
-\draw [blue, line width=0.6pt] (-4.25,4.0) to[out=0,in=180] (4.25,4.0);
-\draw [blue, line width=0.6pt] (-4.25,2.0) to[out=0,in=180] (4.25,2.0);
-\draw [green, line width=0.6pt] (-3.5,0) to[out=90,in=270] (-3.5,4.5);
-
-\node[anchor=45] at (0.0,4.0) {$O$};
-\node[anchor=45] at (-3.5,4.0) {$Q$};
-\node[anchor=45] at (-3.5,2.0) {$P$};
-\node[anchor=225] at (-2.0,4.1) {$x = u$};
-\node[anchor=225] at (-3.0,1.0) {$y = e^v$};
-
-\end{tikzpicture}
-
-\begin{tikzpicture}
-    \node[anchor=225] at (4,2) {$\Omega$};
-    \draw[red,fill=red] (0,2) circle[radius=4];
-    \draw[blue] (1, 2) circle[radius=3];
-    \draw[black] (-4,2) -- (4,2);
-    \draw[green] (4,2) arc (-90:-180:4);
-    \draw[blue] (2, 2) circle[radius=2];
-    \node[fill,circle,inner sep=1pt] at (-2,2) {};
-    \node[anchor=225] at (-2,2) {$O$};
-    \node[fill,circle,inner sep=1pt] at (0.175,4.9) {};
-    \node[anchor=225] at (0.175,4.9) {$Q$};
-    \node[fill,circle,inner sep=1pt] at (0.8,3.6) {};
-    \node[anchor=90] at (0.8,3.5) {$P$};
-    \node[anchor=225] at (0.49,4.1) {$v$};
-    \node[anchor=225] at (-1.6,3.9) {$u$};
-\end{tikzpicture}
+\resizebox{0.8\textwidth}{!}{\includegraphics{images/12-proofbymapping}}
 \caption{Mapping between two examples}\label{fig:mapping}
 \end{figure}
 
 \begin{proof}
 
-For example in last section \ref{subsec:exmp1}, if we introduce complex
+If we introduce complex in the upper half plane model in last section \ref{subsec:exmp1}
 
 $$
 z = x + y i
 $$
 
-and there is a Möbius transform
+and stetup a Möbius transform between the upper half plane and current horocycle-based coordinate system:
 
 $$
 z \mapsto \frac{z-i}{z+i}
 $$
-
-that can connect the upper half plane model in last section \ref{subsec:exmp1} to current Horocycle-based coordinate system.
 
 This transform maps each horizontal lines in $\mathcal{H}$ into the horocycles sharing the same ideal point $\Omega = 1$ in $\mathcal{P}$,
 also it maps each vertical geodesics in $\mathcal{H}$ into geodesics in $\mathcal{P}$ which are perpendicular to the above horocycles.
@@ -793,16 +760,98 @@ And because of theorem \ref{thm:isometry} and Möbius transform is conformal, we
 
 \end{proof}
 
-\subsubsection{As eigenvalue of Laplacian}
-
-and we have $A$ is an eigenvalue of the Laplacian
+We can verify $A$ is also an eigenfunction of the Laplacian
 $$
-\Delta A = e^{2y} \frac{\partial^2(x e^{-y})}{{\partial x}^2} + \frac{\partial^2(x e^{-y})}{{\partial y}^2} - \frac{\partial(x e^{-y})}{\partial y} = 2A
+\Delta A = e^{2v} \frac{\partial^2(u e^{-v})}{{\partial u}^2} + \frac{\partial^2(u e^{-v})}{{\partial v}^2} - \frac{\partial(u e^{-v})}{\partial v} = 2A
 $$
 
-\subsection{Equivalence of the two examples}
+From the above proof, we can see that the two assignment function $A$ arose from the same geometry setting, they are equivalent to each other.
 
-\subsection{Generators independence}
+\subsection{Generator independence}
+
+Considering the upper half plane $\mathcal{B}$:
+$$
+\{\mathcal{B}: (x, y) | y > 0 \}
+$$
+
+equipped with an inner product and metrics as follows:
+
+$$
+\mathbf{a} \cdot \mathbf{b} = \begin{bmatrix} a_x & a_y \end{bmatrix} \begin{bmatrix} \frac{1}{\mu^2 y^2} & 0 \\ 0 & \frac{1}{\lambda^2 y^2} \end{bmatrix} \begin{bmatrix} b_x \\ b_y \end{bmatrix}
+$$
+
+$$
+ds^2 = \frac{1}{y^2}(\frac{dx^2}{\mu^2} + \frac{dy^2}{\lambda^2})
+$$
+
+Whatever the choice of $\mu$ and $\lambda$, the assignment is given by
+
+\begin{equation}
+A = - \frac{x}{y}
+\end{equation}
+
+We can verify $A$ satisfying the flow equation\eqref{eq:flow}, and also it is generator independent.
+
+\begin{theorem}
+The above $A$ satisfying the flow equation\eqref{eq:flow}
+\end{theorem}
+
+\begin{proof}
+$$
+da = d(-\frac{x}{y}) = \frac{xdy - ydx}{y^2} = -\frac{dx + a dy}{y}
+$$
+
+Notice that
+
+$$
+ds = \frac{1}{y}\sqrt{\frac{dx^2}{\mu^2} + \frac{dy^2}{\lambda^2}}
+$$
+
+then
+
+$$
+\frac{da}{ds} = - \frac{dx + a dy}{y} \frac{y}{\sqrt{\frac{dx^2}{\mu^2} + \frac{dy^2}{\lambda^2}}} = \frac{dx + a dy}{\sqrt{\frac{dx^2}{\mu^2} + \frac{dy^2}{\lambda^2}}}
+$$
+
+Consider the local coordinate system given by $(-1, 0)$ and $(0, -1)$ according to the right-hand rule, we have
+
+$$
+\cos \theta = \frac{\begin{bmatrix} dx & dy \end{bmatrix} \begin{bmatrix} \frac{1}{\mu^2 y^2} & 0 \\ 0 & \frac{1}{\lambda^2 y^2} \end{bmatrix} \begin{bmatrix} -1 \\ 0 \end{bmatrix}}{\sqrt{\begin{bmatrix} dx & dy \end{bmatrix} \begin{bmatrix} \frac{1}{\mu^2 y^2} & 0 \\ 0 & \frac{1}{\lambda^2 y^2} \end{bmatrix} \begin{bmatrix} dx \\ dy \end{bmatrix}}\sqrt{\begin{bmatrix} -1 & 0 \end{bmatrix} \begin{bmatrix} \frac{1}{\mu^2 y^2} & 0 \\ 0 & \frac{1}{\lambda^2 y^2} \end{bmatrix} \begin{bmatrix} -1 \\ 0 \end{bmatrix}}}
+$$
+
+Therefore we have
+
+$$
+\cos \theta = \frac{-\frac{dx}{\mu}}{\sqrt{\frac{dx^2}{\mu^2} + \frac{dy^2}{\lambda^2}}}
+$$
+
+Similarly
+
+$$
+\sin \theta = \frac{-\frac{dy}{\lambda}}{\sqrt{\frac{dx^2}{\mu^2} + \frac{dy^2}{\lambda^2}}}
+$$
+
+Hence we have
+
+$$
+\frac{da}{ds} = \mu \cos \theta + a \lambda \sin \theta
+$$
+
+\end{proof}
+
+tube structure of the first kind
+
+\begin{figure}[ht]
+\centering
+\resizebox{1.0\textwidth}{!}{\includegraphics{images/13-tube1st.png}}
+\caption{Tube structure of the first kind}\label{fig:tube1st}
+\end{figure}
+
+\subsection{Related problems}
+
+\emph{Eigenfunction problem}: TODO.
+
+\emph{Eigenfunction and classification problem}: TODO.
 
 \newpage
 

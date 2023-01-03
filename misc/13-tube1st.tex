@@ -1,0 +1,16 @@
+\documentclass{standalone}
+\usepackage{amsmath}
+\usepackage{tikz}
+
+\begin{document}
+\begin{tikzpicture}
+    \draw[red,fill=red] (0,2) circle[radius=4];
+    \draw[blue] (1, 2) circle[radius=3];
+    \draw[black] (-4,2) -- (4,2);
+    \draw[green] (4,2) arc (-90:-180:4);
+    \draw[blue] (2, 2) circle[radius=2];
+    \node[fill,circle,inner sep=1pt] at (-2,2) {};
+    \node[fill,circle,inner sep=1pt] at (0.175,4.9) {};
+    \node[fill,circle,inner sep=1pt] at (0.8,3.6) {};
+\end{tikzpicture}
+\end{document}
