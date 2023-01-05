@@ -179,7 +179,9 @@ such that every node (sub-expression) is evaluated before its parent.
 For example, the possible evaluation orders of the arithmetic expression in Figure \ref{fig:syntaxtree} are:
 \begin{itemize}
   \item $1 \times 2 \rightarrow 2; 2 \times 2 \rightarrow 4; 4 - 1 \rightarrow 3; 2 + 1 \rightarrow 3; 3 \times 3 \rightarrow 9; 9 - 6 \rightarrow 3$
-  \item $1 \times 2 \times 2 - (2 + 1) \times 1 - 6$
+  \item $1 \times 2 \rightarrow 2; 2 \times 2 \rightarrow 4; 2 + 1 \rightarrow 3; 4 - 1 \rightarrow 3; 3 \times 3 \rightarrow 9; 9 - 6 \rightarrow 3$
+  \item $1 \times 2 \rightarrow 2; 2 + 1 \rightarrow 3; 2 \times 2 \rightarrow 4; 4 - 1 \rightarrow 3; 3 \times 3 \rightarrow 9; 9 - 6 \rightarrow 3$
+  \item $2 + 1 \rightarrow 3; 1 \times 2 \rightarrow 2; 2 \times 2 \rightarrow 4; 4 - 1 \rightarrow 3; 3 \times 3 \rightarrow 9; 9 - 6 \rightarrow 3$
 \end{itemize}
 
 Below are examples of expressions that have a unique evaluation order. These include right-expanded, left-expanded,
@@ -196,6 +198,10 @@ and combinations of them, as shown in Figure \ref{fig:leftright} and Figure \ref
 \resizebox{0.2\textheight}{!}{\includegraphics{images/04-example-expression-syntax-tree-combination}}
 \caption{combinations of right-expanded and left-expanded expressions}\label{fig:combination}
 \end{figure}
+
+Evaluation order of an arithmetic expression is related with the topological order of its tree representation but not the same.
+The topological order of a tree is an ordering of nodes such that every node is visited before or after its parent.
+But here we are interested in the ordering of branch nodes only, leaf nodes are already evaluated, so we can ignore them.
 
 \begin{definition}
 A threadlike expression is an arithmetic expression that all the left nodes in its tree representation are leaf nodes.
