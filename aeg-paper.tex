@@ -114,23 +114,26 @@ However, in order to keep things simple and maintain clarity, we will start by u
 but with certain semantic restrictions. We will also begin with rational numbers $\mathbb{Q}$ to avoid the difficulties inside real numbers $\mathbb{R}$ .
 
 \begin{definition}\label{def:arithmetic-expression}
-    The definition of arithmetic expression $a$ over $\mathbb{Q}$ is given by the following production rules:
-    \begin{lstlisting}[mathescape]
-    $a \longleftarrow x$
-    $a \longleftarrow ( a + a )$
-    $a \longleftarrow ( a - a )$
-    $a \longleftarrow ( a \times a )$
-    $a \longleftarrow ( a \div a )$
-    \end{lstlisting}
+    An arithmetic expression $a$ over $\mathbb{Q}$ is a structure given by the following production rules:
+\begin{equation}\label{eq:productionrule}
+\begin{aligned}
+a &\longleftarrow x\\
+a &\longleftarrow ( a + a )\\
+a &\longleftarrow ( a - a )\\
+a &\longleftarrow ( a \times a )\\
+a &\longleftarrow ( a + a )
+\end{aligned}
+\end{equation}
     where $x \in \mathbb{Q}$, and we denote this as $a \in \mathbb{E} \left [\mathbb{Q} \right ]$.
+
 \end{definition}
 
 During the production process, we can obtain both a string representation and a tree representation of arithmetic expression $a$,
 where the two representations are equivalent. For instance, the string representation of $a$ might be:
 
-$$
+\begin{equation}
 (((((1 \times 2) \times 2) - 1) \times (2 + 1)) - 6)
-$$
+\end{equation}
 
 and the parsed syntax tree is depicted in Figure \ref{fig:syntaxtree}.
 
@@ -140,7 +143,10 @@ and the parsed syntax tree is depicted in Figure \ref{fig:syntaxtree}.
 \caption{a tree representation of an arithmetic expression}\label{fig:syntaxtree}
 \end{figure}
 
+If we interpret the target as a string and the building processes in production rule \eqref{eq:productionrule} as string building,
+we get the \emph{string representation}. On the other hand, if the target is a tree, tree building leads to the \emph{tree representation}.
 We can easily obtain the string representation of $a$ from its tree representation by performing a pre-order traversal.
+
 The concept of a \emph{sub-expression} can also be derived from the concept of a sub-tree.
 The branch nodes are all labeled with operators: $+$, $-$, $\times$, $\div$. The leaf nodes are all labeled with numbers.
 
@@ -159,7 +165,7 @@ We can define evaluation $\nu(a)$ of $a$ recursively as follows:
 We say that an arithmetic expression $a$ is \emph{evaluable} if $\nu(a)$ is defined.
 In the rest of this article, we will only consider evaluable arithmetic expressions unless stated otherwise.
 
-Given an arithmetic expression $a$, we can obtain its tree representation.
+Given an arithmetic expression $a$, whatever evaluable or not, we can obtain its tree representation.
 If a node $l$ is a leaf node, its corresponding subexpression $s$ is a number, so we consider it to be already "evaluated".
 If a node $b$ is a branch node, its corresponding subexpression $s$ is an expression, and we can apply $\nu$ to it to obtain a number $\nu(s)$.
 During the recursive evaluation process, starting from the leaves and moving towards the root, the subexpressions are evaluated one after another.
@@ -169,6 +175,12 @@ However, the order of evaluations is generally not unique.
 The evaluation order of an arithmetic expression $a$ is an ordering of branch nodes in the tree representation of $a$
 such that every node (sub-expression) is evaluated before its parent.
 \end{definition}
+
+For example, the possible evaluation orders of the arithmetic expression in Figure \ref{fig:syntaxtree} are:
+\begin{itemize}
+  \item $1 \times 2 \rightarrow 2; 2 \times 2 \rightarrow 4; 4 - 1 \rightarrow 3; 2 + 1 \rightarrow 3; 3 \times 3 \rightarrow 9; 9 - 6 \rightarrow 3$
+  \item $1 \times 2 \times 2 - (2 + 1) \times 1 - 6$
+\end{itemize}
 
 Below are examples of expressions that have a unique evaluation order. These include right-expanded, left-expanded,
 and combinations of them, as shown in Figure \ref{fig:leftright} and Figure \ref{fig:combination}.
