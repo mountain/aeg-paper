@@ -199,17 +199,24 @@ and combinations of them, as shown in Figure \ref{fig:leftright} and Figure \ref
 \caption{combinations of right-expanded and left-expanded expressions}\label{fig:combination}
 \end{figure}
 
-Evaluation order of an arithmetic expression is related with the topological order of its tree representation but not the same.
-The topological order of a tree is an ordering of nodes such that every node is visited before or after its parent.
-But here we are interested in the ordering of branch nodes only, leaf nodes are already evaluated, so we can ignore them.
+The evaluation order of an arithmetic expression is related to the topological order of its tree representation,
+but they are not the same. The topological order of a tree is an ordering of nodes such that every node is visited before its parent\cite{Knuth1997TheAO}.
+However, we are only interested in the ordering of branch nodes, as leaf nodes have already been evaluated and can be ignored.
+Additionally, the topological order goes from parent to children, while the evaluation order goes from children to parent.
 
 \begin{definition}
 A threadlike expression is an arithmetic expression that all the left nodes in its tree representation are leaf nodes.
 \end{definition}
 
 So a threadlike expression is right-expanded and its evaluation order is unique.
+One example of threadlike expressions is shown at the left side of Figure \ref{fig:leftright}.
 
-Threadlike expressions are significant because they are analogous to the concept of paths in homotopy theory in geometry.
+Threadlike expressions are significant here because they are analogous to the concept of paths in homotopy theory in geometry.
+In a more general context, certain special types of threadlike expressions are also interesting:
+for example, \emph{alternating threadlike expressions} are expressions in which the additional and multiplicative operators appear in an alternating manner.
+In the field of computing, a hardware component called \emph{multiplier-accumulator} (MAC) unit has been implemented \cite{Quinnell2007FloatingPointFM},
+which is a special case of an alternating threadlike expression.
+As a result, some numerical algorithms based on MAC units have been studied \cite{Markstein2004SoftwareDA}.
 
 \subsection{A scalar field and a mesh grid}\label{sec:meshgrid}
 
@@ -327,7 +334,7 @@ and any other target point $P$. This allows us to define the space as a space of
 
 \subsection{Currying and path notation}
 
-Currying is a basic technique in functional programming, which is used to transform a function with multiple arguments into a sequence of functions with one argument.
+Currying is a basic technique in functional programming\cite{Reynolds1972DefinitionalIF}, which is used to transform a function with multiple arguments into a sequence of functions with one argument.
 By currying a threadlike arithmetic expression, we can obtain a sequence of functions that operate on an operand, which is the leftmost leaf node.
 
 We introduce the following notation for currying a threadlike arithmetic expression:
@@ -877,7 +884,7 @@ tube structure of the first kind: TODO
 
 \subsection{The construction of the grid $G_0$}\label{sec:construction-of-grids}
 
-To construct the grid described in subsection \ref{sec:meshgrid} and figure \ref{fig:gridex0},
+To construct the grid described in subsection \ref{sec:meshgrid} and Figure \ref{fig:gridex0},
 we will use the number theory decomposition introduced by Victor Pambuccian in \cite{Pambuccian2016THEAO} and
 Celia Schacht in \cite{Schacht2018ANOTHERAO}.
 
@@ -887,7 +894,7 @@ $$
 
 where $\tau(n)$ is a power of 2 and $\omega(n)$ is an odd.
 
-We can see directly from the figure \ref{fig:gridex0} that the grid is constructed by the following rules:
+We can see directly from the Figure \ref{fig:gridex0} that the grid is constructed by the following rules:
 \begin{itemize}
 \item horizantal lines (blue, additional lines) satisfying $y = 2^k, k \in \mathbb{Z}$
 \item vertical lines (green, multiplicative lines) satisfying
