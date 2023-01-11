@@ -563,18 +563,6 @@ then along $\theta_g$ we have
     \frac{da}{ds} = \pm \sqrt{\mu^2 + \lambda^2 a^2}\label{eq:grad}
 \end{equation}
 
-Equation \eqref{eq:grad} is solvable, and we get the relation between $a$ and $s$ along the gradient flow line:
-
-\begin{equation}
-    \pm \tanh(\lambda s + c) = \frac{\lambda a}{\sqrt{\mu^2 + \lambda^2 a^2}}
-\end{equation}
-
-If we assume $\mu > 0$, we can further simplify the equation to
-
-\begin{equation}
-  a = \pm \frac{\mu}{\lambda} \sinh(c \pm \lambda s)\label{eq:gradevo}
-\end{equation}
-
 By introducing the right-hand rotation angle $\phi$ along the gradient direction, we can establish a local polar coordinate system based on the gradient and contour lines.
 Then the growth rate of $a$ along the angle $\phi$ is
 
@@ -600,6 +588,19 @@ In this coordinate system, the additional line and the multiplicative line are:
 \begin{equation}
     \phi = \arccos \frac{a \lambda}{\sqrt {\mu^2 + a^2 \lambda^2}}\label {eq:mulitiplcativeline}
 \end{equation}
+
+Equation \eqref{eq:contourgradient} is solvable, and we get the relation between $a$ and $s$:
+
+\begin{equation}
+    \tanh(\lambda (s - c) \cos \phi) = \frac{\lambda a}{\sqrt{\mu^2 + \lambda^2 a^2}}
+\end{equation}
+
+we can further simplify the equation to
+
+\begin{equation}
+  a = \pm \frac{\mu}{\lambda} \sinh(\lambda (s - c) \cos \phi)\label{eq:gradevo}
+\end{equation}
+
 
 By analyzing the formula, we can also get the geometric meaning of the assignment.
 On the hyperbolic plane with sectional curvature $\kappa$, the circumference $L$ of the circle with radius $r$ is given by the following formula
