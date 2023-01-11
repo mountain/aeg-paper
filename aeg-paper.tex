@@ -107,6 +107,8 @@ In this paper, we present several examples of arithmetic expression spaces and e
 
 TODO
 
+\section{Basic concepts}\label{sec:concepts}
+
 \subsection{Arithmetic expression}
 
 In order to define arithmetic expressions involving real numbers  $\mathbb{R}$ in a rigorous way, we need to use a sophisticated type theory.
@@ -178,11 +180,13 @@ such that every node (sub-expression) is evaluated before its parent.
 
 For example, the possible evaluation orders of the arithmetic expression in Figure \ref{fig:syntaxtree} are:
 \begin{itemize}
-  \item $1 \times 2 \rightarrow 2; 2 \times 2 \rightarrow 4; 4 - 1 \rightarrow 3; 2 + 1 \rightarrow 3; 3 \times 3 \rightarrow 9; 9 - 6 \rightarrow 3$
-  \item $1 \times 2 \rightarrow 2; 2 \times 2 \rightarrow 4; 2 + 1 \rightarrow 3; 4 - 1 \rightarrow 3; 3 \times 3 \rightarrow 9; 9 - 6 \rightarrow 3$
-  \item $1 \times 2 \rightarrow 2; 2 + 1 \rightarrow 3; 2 \times 2 \rightarrow 4; 4 - 1 \rightarrow 3; 3 \times 3 \rightarrow 9; 9 - 6 \rightarrow 3$
-  \item $2 + 1 \rightarrow 3; 1 \times 2 \rightarrow 2; 2 \times 2 \rightarrow 4; 4 - 1 \rightarrow 3; 3 \times 3 \rightarrow 9; 9 - 6 \rightarrow 3$
+  \item $1 \times 2 \rightarrow \underline{2}; \underline{2} \times 2 \rightarrow \underline{4}; \underline{4} - 1 \rightarrow \underline{3}; 2 + 1 \rightarrow \underline{3}; \underline{3} \times \underline{3} \rightarrow \underline{9}; \underline{9} - 6 \rightarrow 3$
+  \item $1 \times 2 \rightarrow \underline{2}; \underline{2} \times 2 \rightarrow \underline{4}; 2 + 1 \rightarrow \underline{3}; \underline{4} - 1 \rightarrow \underline{3}; \underline{3} \times \underline{3} \rightarrow \underline{9}; \underline{9} - 6 \rightarrow 3$
+  \item $1 \times 2 \rightarrow \underline{2}; 2 + 1 \rightarrow \underline{3}; \underline{2} \times 2 \rightarrow \underline{4}; \underline{4} - 1 \rightarrow \underline{3}; \underline{3} \times \underline{3} \rightarrow \underline{9}; \underline{9} - 6 \rightarrow 3$
+  \item $2 + 1 \rightarrow \underline{3}; 1 \times 2 \rightarrow \underline{2}; \underline{2} \times 2 \rightarrow \underline{4}; \underline{4} - 1 \rightarrow \underline{3}; \underline{3} \times \underline{3} \rightarrow \underline{9}; \underline{9} - 6 \rightarrow 3$
 \end{itemize}
+
+The underlined numbers are the numbers that are evaluated during the evaluation process.
 
 Below are examples of expressions that have a unique evaluation order. These include right-expanded, left-expanded,
 and combinations of them, as shown in Figure \ref{fig:leftright} and Figure \ref{fig:combination}.
