@@ -67,6 +67,8 @@
 \newcommand{\intgp}{\mathclap{\smash{\otimes}}{\int}}
 \newcommand{\intgg}{\mathclap{\rightsquigarrow}\mathclap{\int}}
 
+\DeclareMathOperator{\arcsinh}{arcsinh}
+
 \title{Geometry of Arithmetic Expressions: I.\\ Basic Concepts and Unsolved Problems}
 
 %\date{Decmber 8, 2022}	% Here you can change the date presented in the paper title
@@ -221,6 +223,8 @@ for example, \emph{alternating threadlike expressions} are expressions in which 
 In the field of computing, a hardware component called \emph{multiplier-accumulator} (MAC) unit has been implemented \cite{Quinnell2007FloatingPointFM},
 which is a special case of an alternating threadlike expression.
 As a result, some numerical algorithms based on MAC units have been studied \cite{Markstein2004SoftwareDA}.
+
+\subsection{Alternating threadlike expressions}\label{sec:alternating}
 
 \subsection{A scalar field and a mesh grid}\label{sec:meshgrid}
 
@@ -391,7 +395,7 @@ When a sequence of paths is concatenated, and only the first path can be bounded
 If the first path is bounded, the concatenated result is a bounded path.
 Otherwise, the concatenated result is a free path.
 
-\subsection{Generated structure and problems on equality, sigularity, symmetries}
+\subsection{Generated structure, commutator, and arithmetic torsion}
 
 In order to study mesh grids like the one described in subsection \ref{sec:meshgrid},
 we need to investigate the algebraic structure of the threadlike arithmetic expressions that are generated.
@@ -409,6 +413,8 @@ that are freely generated from
 We denote these expressions as $E(\mu, \lambda)$, where $\mu$ is the additional generator and $e^\lambda$ is the multiplicative generator.
 In cases where the context is clear, we may omit $\mu$ and $\lambda$ from the index.
 Our goal is not to study only a single $E(\mu, \lambda)$, but rather to use a family of $E(\mu, \lambda)$ to approach a continuous space.
+
+\subsection{Problems on equality, singularity, symmetries}
 
 From the perspective of computer science, it is useful to consider different levels of equality within freely generated structures.
 \begin{itemize}
@@ -579,6 +585,24 @@ And the simplified equation is
 
 The equation \eqref{eq:contourgradient} is the flow equation in the contour-gradient coordinate system.
 
+Equation \eqref{eq:contourgradient} is solvable, and we get the relation between $a$ and $s$:
+
+\begin{equation}
+    \tanh(\lambda s \cos \phi - c) = \frac{\lambda a}{\sqrt{\mu^2 + \lambda^2 a^2}}
+\end{equation}
+
+we can further simplify the equation to
+
+\begin{equation}
+  a = \pm \frac{\mu}{\lambda} \sinh(\lambda s \cos \phi - c)\label{eq:gradevo}
+\end{equation}
+
+Under the initial condition $a = a_0$ when $s = 0$, we can get the following equation:
+
+\begin{equation}
+    a = \pm \frac{\mu}{\lambda} \sinh(\lambda s \cos \phi - \arcsinh \frac{a_0 \lambda}{\mu})
+\end{equation}
+
 In this coordinate system, the additional line and the multiplicative line are:
 
 \begin{equation}
@@ -586,33 +610,12 @@ In this coordinate system, the additional line and the multiplicative line are:
 \end{equation}
 
 \begin{equation}
-    \phi = \arccos \frac{a \lambda}{\sqrt {\mu^2 + a^2 \lambda^2}}\label {eq:mulitiplcativeline}
+    \phi = \arcsin \frac{\mu}{\sqrt {\mu^2 + a^2 \lambda^2}}\label {eq:mulitiplcativeline}
 \end{equation}
 
-Equation \eqref{eq:contourgradient} is solvable, and we get the relation between $a$ and $s$:
+\subsection{The existence theorems}
 
-\begin{equation}
-    \tanh(\lambda (s - c) \cos \phi) = \frac{\lambda a}{\sqrt{\mu^2 + \lambda^2 a^2}}
-\end{equation}
-
-we can further simplify the equation to
-
-\begin{equation}
-  a = \pm \frac{\mu}{\lambda} \sinh(\lambda (s - c) \cos \phi)\label{eq:gradevo}
-\end{equation}
-
-
-By analyzing the formula, we can also get the geometric meaning of the assignment.
-On the hyperbolic plane with sectional curvature $\kappa$, the circumference $L$ of the circle with radius $r$ is given by the following formula
-
-\begin{equation}
-L = \frac{\sinh(\sqrt{\kappa} r)}{\sqrt{\kappa}}\label{eq:circumference}
-\end{equation}
-
-Notice the similarity between equation \ref{eq:gradevo} and equation \ref{eq:circumference} with $c=0$, $\mu=1$ and $\lambda=\sqrt{\kappa}$.
-This similarity will lead us to the geometric interpretation of assignment in the next subsection.
-
-\subsection{Geometric interpretation of assignment}
+\subsection{Flow and function}
 
 \newpage
 
@@ -999,13 +1002,27 @@ TODO...
 
 \newpage
 
+\section{Form arithmetic torsion to curvature}\label{sec:curvature}
+
+\newpage
+
 \section{On order-4 apeirogonal tiling}\label{sec:tiling}
 
 \subsection{Construction of order-4 apeirogonal tiling}\label{sec:tiling}
 
+\subsection{Coloring and compatible coordinate}\label{sec:coloring}
+
 \newpage
 
-\section{New perspectives and methods}\label{sec:function}
+\section{The second and third kind of arithmetic expression space $\mathfrak{K}_2$ and $\mathfrak{K}_3$}\label{sec:morekinds}
+
+\newpage
+
+\section{Tube structure, complexification and fibration}\label{sec:morekinds}
+
+\newpage
+
+\section{General discussion}\label{sec:function}
 
 \subsection{On integral theory}\label{sec:integral}
 
@@ -1023,17 +1040,11 @@ TODO...
 
 \subsection{Eigenfunction problem}\label{sec:eigenfunction}
 
-\subsubsection{The second kind of arithmetic expression space}\label{sec:secondkind}
-
-\subsubsection{The third kind of arithmetic expression space}\label{sec:thirdkind}
-
-\subsection{Harmonic problem}\label{sec:harmonic}
-
 \subsection{Tube structure}\label{sec:tube}
 
 \subsection{Singular points and divergent series}\label{sec:singularity}
 
-\subsection{Function and a new caculus?}\label{sec:caculus}
+\subsection{Function and a new calculus?}\label{sec:caculus}
 
 \subsection{Category of function theories?}\label{sec:function}
 
