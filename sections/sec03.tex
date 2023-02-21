@@ -1,0 +1,160 @@
+% \usepackage{amsmath}
+
+\subsection{Flow equation}\label{sec:equation}
+
+Consider an infinitesimal generating process on a Riemannian surface $M$ using two generators:
+one for an additional action $\mu$ and the other for a multiplicative action $e^\lambda$.
+These two generators are perpendicular.
+This generation process produces an assignment $A: M \to R$ over the surface.
+
+For any point with an assignment $a_0$, if we consider a movement of distance $\epsilon$ in a direction with angle $\theta$
+over a time period of $\delta$, we can establish the following:
+
+\[
+    a_{\delta} = (a_0 + \mu \epsilon \cos \theta)e^{\lambda \epsilon \sin \theta}
+\]
+
+or
+
+\[
+    a_{\delta} = a_0 e^{\lambda \epsilon \sin \theta} + \mu \epsilon \cos \theta
+\]
+
+Both formula can be simplified to the same result:
+
+\[
+    a_{\delta} = a_0 + \epsilon (a_0 \lambda \sin \theta + \mu \cos \theta)
+\]
+
+Then, we have the following equation:
+
+\[
+    \frac{1}{\delta} (a_{\delta} - a_0) = \frac{\epsilon}{\delta} (\mu \cos \theta + x_0 \lambda \sin \theta)
+\]
+
+When both $\delta$ and $\epsilon$ are towards zero, we get $da / dt$, and hence
+
+\[
+    \frac{da}{dt} = u (\mu \cos \theta + a \lambda \sin \theta)
+\]
+
+Or, we can change it to another form
+
+\begin{equation}
+    \frac{da}{ds} = \mu \cos \theta + a \lambda \sin \theta\label{eq:flow}
+\end{equation}
+
+We name this equation~\eqref{eq:flow} as the flow equation.
+
+The left side of this equation is governed by the distance structure, while the right side is governed by the angle structure.
+This leads to below theorem.
+
+\begin{theorem}
+Isometries keep the flow equation\eqref{eq:flow}
+\label{thm:isometry}
+\end{theorem}
+
+\begin{proof}
+  An isometry keeps both the distance structure and the angle structure, so it keeps the flow equation.
+\end{proof}
+
+We can also get a direct formal solution of the flow equation~\eqref{eq:flow}(details in Appendix~\ref{sec:directformalsolution}).
+
+\begin{equation}
+   a = (a_0 + \frac{\mu}{\lambda} \cot \theta) e^{\lambda s \sin \theta} - \frac{\mu}{\lambda} \cot \theta\label{eq:solution}
+\end{equation}
+
+While the validity of this solution is still uncertain because we have not assumed any constraints on the local coordinate system,
+it is still a useful starting point for further investigation.
+For example, we can use this solution to derive (details in Appendix~\ref{sec:conformance}) the relationship between assignments at different vertices in a cell of a mesh grid.
+
+Assuming the assignment at the center point of a cell is $a_0$, we move in different directions and obtain the following assignments:
+
+\begin{itemize}
+\item $\theta = 0$: $a_s = a_0 + \mu s$
+\item $\theta = \frac{\pi}{2}$: $a_s = a_0 e^{\lambda s}$
+\item $\theta = \pi$: $a_s = a_0 - \mu s$
+\item $\theta = \frac{3 \pi}{2}$: $a_s = a_0 e^{- \lambda s} $
+\end{itemize}
+
+This result is straightforward, but it demonstrates that the infinitesimal generating process is consistent with the discrete mesh grid.
+
+\subsection{The contour-gradient form of flow equation}\label{subsec:the-contour-gradient-form}
+
+It is easy to derive the contour equation in the local coordinate
+
+\begin{equation}
+    \mu \cos \theta_c + a \lambda \sin \theta_c = 0\label{eq:contour}
+\end{equation}
+
+then we have
+
+\begin{equation}
+    \theta_c = - \arctan \frac{\mu}{a \lambda}\label{eq:contourangle}
+\end{equation}
+
+the contour and the gradient are perpendicular to each other
+
+\begin{equation}
+    \theta_g = \pm \frac{\pi}{2} - \arctan \frac{\mu}{a \lambda}\label{eq:gradientangle}
+\end{equation}
+
+then along $\theta_g$ we have
+
+\begin{equation}
+    \frac{da}{ds} = \mu \cos (\pm \frac{\pi}{2} - \arctan \frac{\mu}{a \lambda}) + a \lambda \sin (\pm \frac{\pi}{2} - \arctan \frac{\mu}{a \lambda})
+    \label{eq:alonggradient}
+\end{equation}
+
+\begin{equation}
+    \frac{da}{ds} = \pm \sqrt{\mu^2 + \lambda^2 a^2}\label{eq:grad}
+\end{equation}
+
+By introducing the right-hand rotation angle $\phi$ along the gradient direction, we can establish a local polar coordinate system based on the gradient and contour lines.
+Then the growth rate of $a$ along the angle $\phi$ is
+
+\begin{equation}
+    \frac{da}{ds} = \mu \cos (\frac{\pi}{2} - \arctan \frac{\mu}{a \lambda} + \phi) + a \lambda \sin (\frac{\pi}{2} - \arctan \frac{\mu}{a \lambda} + \phi)
+    \label{eq:fourfold}
+\end{equation}
+
+And the simplified equation is
+
+\begin{equation}
+    \frac{da}{ds} = \sqrt {\mu^2 + a^2 \lambda^2} \cos \phi\label{eq:contourgradient}
+\end{equation}
+
+The equation~\eqref{eq:contourgradient} is the flow equation in the contour-gradient coordinate system.
+
+Equation~\eqref{eq:contourgradient} is solvable, and we get the relation between $a$ and $s$:
+
+\begin{equation}\label{eq:rel_a_s}
+    \tanh(\lambda s \cos \phi - c) = \frac{\lambda a}{\sqrt{\mu^2 + \lambda^2 a^2}}
+\end{equation}
+
+we can further simplify the equation to
+
+\begin{equation}
+  a = \pm \frac{\mu}{\lambda} \sinh(\lambda s \cos \phi - c)\label{eq:gradevo}
+\end{equation}
+
+Under the initial condition $a = a_0$ when $s = 0$, we can get the following equation:
+
+\begin{equation}
+    a = \pm \frac{\mu}{\lambda} \sinh(\lambda s \cos \phi - \arcsinh \frac{a_0 \lambda}{\mu})\label{eq:gradevo2}
+\end{equation}
+
+In this coordinate system, the additional line and the multiplicative line are:
+
+\begin{equation}
+    \phi = \arccos \frac{\mu}{\sqrt {\mu^2 + a^2 \lambda^2}} \label{eq:additionalline}
+\end{equation}
+
+\begin{equation}
+    \phi = \arcsin \frac{\mu}{\sqrt {\mu^2 + a^2 \lambda^2}}\label {eq:mulitiplcativeline}
+\end{equation}
+
+\subsection{The existence theorems}\label{subsec:existence-theorems}
+
+\subsection{Flow and function}\label{subsec:flow-and-function}
+
