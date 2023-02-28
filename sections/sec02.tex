@@ -269,17 +269,28 @@ a bounded path results in a number, while a free path results in a function.
 Now we will verify that the operators within a path are associative.
 
 \begin{lemma}\label{lemma:associative}
-    The operators within a path are associative, i.e. we have \[a (b c) = (a b) c\]
+    The operators within a path are associative, i.e. we have \[a [b c] = [a b] c\]
 \end{lemma}
 
 \begin{proof}
+We use normal typeface to express the path notation, and bold typeface to express the function notation.
+
 For a free path, follow the definition, we have
-\[a (b c) = (b c)(a) = c(b(a))\]
-\[(a b) c = c (a b) = c(b(a))\]
+\[a [b c] = [b c](\mathbf{a}) = \mathbf{c}(\mathbf{b}(\mathbf{a}))\]
+\[[a b] c = \mathbf{c}([a b]) = \mathbf{c}(\mathbf{b}(\mathbf{a}))\]
+
+hence, we have
+\[a [b c] = [a b] c\]
+is hold for a free path.
 
 For a bounded path, we have
-\[x a (b c) = (b c)(a(x)) = c(b(a(x)))\]
-\[x (a b) c = c((a b)(x)) = c(b(a(x)))\]
+\[x a [b c] = [b c](\mathbf{a}(x)) = \mathbf{c}(\mathbf{b}(\mathbf{a}(x)))\]
+\[x [a b] c = \mathbf{c}([a b](x)) = \mathbf{c}(\mathbf{b}(\mathbf{a}(x)))\]
+
+hence, we have
+\[a [b c] = [a b] c\]
+is hold for a bounded path.
+
 \end{proof}
 
 \begin{definition}\label{definition:concatenate}
