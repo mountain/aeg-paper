@@ -178,21 +178,21 @@ the proof is given in the section.
 
 \subsection{Flow and function}\label{subsec:flow-and-function}
 
-William P. Thurston had given a famous example\cite{Thurston1994OnPA} of many ways of understanding a mathematical concept.
+William P. Thurston had given a famous example\cite{Thurston1994OnPA} of many ways to understand a mathematical concept.
 In this section, we will give a new understanding of functions in which we treat them as flows.
 
 \begin{definition}\label{def:projection}
 Given a function $k$ on the real domain $R$, we can introduce a mapping $l$ on the arithmetic expression space $H$ such that the following diagram commutes.
 
- \begin{center}
-        \begin{tikzcd}
-            H && H \\
-            R && R
-            \arrow["l", from=1-1, to=1-3]
-            \arrow["\nu"', from=1-1, to=2-1]
-            \arrow["\nu", from=1-3, to=2-3]
-            \arrow["k"', from=2-1, to=2-3]
-        \end{tikzcd}
+\begin{center}
+    \begin{tikzcd}
+        H && H \\
+        R && R
+        \arrow["l", from=1-1, to=1-3]
+        \arrow["\nu"', from=1-1, to=2-1]
+        \arrow["\nu", from=1-3, to=2-3]
+        \arrow["k"', from=2-1, to=2-3]
+    \end{tikzcd}
 \end{center}
 
 where $\nu$ is the evaluation function of the expression. Then we call the mapping $l$ is the promotion of the function $k$,
