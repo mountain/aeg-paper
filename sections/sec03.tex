@@ -156,30 +156,42 @@ In this coordinate system, the additional line and the multiplicative line are:
 
 \subsection{The existence theorems}\label{subsec:existence-theorems}
 
-There are two existence theorem for the flow equation~\eqref{eq:flow}.
+There are two important existence theorems related to the flow equation~\eqref{eq:flow}.
 
-\textbf{The first existence theorem}
+The first existence theorem states that if we have a Riemann surface $M$, then there exists a function $a$ on $M$ that satisfies the flow equation~\eqref{eq:flow}. This theorem is proved in a later section, and we will not go into the details of the proof here.
 
 \begin{theorem}
     Giving a Riemann surface $M$, there exists a function $a$ on $M$ satisfying the flow equation~\eqref{eq:flow}.
     \label{prop:existence1st}
 \end{theorem}
 
-We do not discuss the proof of this theorem here, because it requires further topics in later sections,
-the proof is given in the section.
+The second existence theorem is also crucial. It says that if we have a smooth surface $S$ and a function $a$ on $S$, then we can find a metric $g$ on $S$ that makes $a$ satisfy the flow equation~\eqref{eq:flow}.
 
-\textbf{The second existence theorem}
-
-\begin{theorem}
-    Giving a smooth surface $S$, and a function $a$ on $S$, there exists a metric $g$ on $S$ that makes $a$
+\begin{theorem}(By Le Zhang)
+    Giving an oriented metrizable smooth surface $S$, and a function $a$ on $S$, there exists a metric $g$ on $S$ that makes $a$
     satisfying the flow equation~\eqref{eq:flow}.
     \label{prop:existence2nd}
 \end{theorem}
 
+\begin{proof}
+    For an area $U$ of point $p$ on surface $S$, there exists an isothermal coordinate that satisfies the following equation:
+    $$ds^2 =e^{2\rho}(du^2 + dv^2)$$
+    where $u$ and $v$ are the coordinates of $U$ and $\rho$ is the function of $u, v$ on $U$.
+    We have
+    $$ \omega_1 = e^{\rho} du \hspace{4em}  \omega_2 = e^{\rho} dv $$
+    $$ \mathbf{e}_1 = e^{-\rho} \partial_u \hspace{3em}  \mathbf{e}_2 = e^{-\rho} \partial_v $$
+    The gradient of $a$ in the isothermal coordinate is given by
+    $$\nabla_a = \frac{\partial a}{\partial u} du + \frac{\partial a}{\partial v} dv$$
+    Now we rewrite the flow equation~\eqref{eq:flow} as the following equation:
+    $$da = \mu \cos \theta ds + a \lambda \sin \theta ds$$
+    hence, we have
+    $$e^{2\rho} = \frac{\gamma^2}{\mu^2 + a^2 \lambda^2}$$
+     \qedhere
+\end{proof}
+
 \subsection{Flow and function}\label{subsec:flow-and-function}
 
-William P. Thurston had given a famous example\cite{Thurston1994OnPA} of many ways to understand a mathematical concept.
-In this section, we will give a new understanding of functions in which we treat them as flows.
+William P. Thurston, a notable mathematician, presented a celebrated example in his work\cite{Thurston1994OnPA}, which demonstrated various approaches to comprehend the mathematical concept of derivative. The next section of this article aims to present novel insight into functions. Namely, the treatment of functions as flows will be discussed.
 
 \begin{definition}\label{def:projection}
 Given a function $k$ on the real domain $R$, we can introduce a mapping $l$ on the arithmetic expression space $H$ such that the following diagram commutes.
@@ -198,3 +210,5 @@ Given a function $k$ on the real domain $R$, we can introduce a mapping $l$ on t
 where $\nu$ is the evaluation function of the expression. Then we call the mapping $l$ is the promotion of the function $k$,
 or function $k$ is the projection of the mapping $l$.
 \end{definition}
+
+
