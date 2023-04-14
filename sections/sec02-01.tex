@@ -1,0 +1,223 @@
+\subsection{Currying and path notation}\label{subsec:currying}
+
+Currying is a basic technique in functional programming\cite{Reynolds1972DefinitionalIF},
+which is used to transform a function with multiple arguments into a sequence of functions with one argument.
+By currying a threadlike arithmetic expression, we can obtain a sequence of functions that operate on an operand, which is the leftmost leaf node.
+
+We introduce the following notation for currying a threadlike arithmetic expression:
+\begin{itemize}
+    \item initial operand: the leftmost leaf node
+    \item operator: $\oplus_y: x \mapsto x + y$
+    \item operator: $\ominus_y: x \mapsto x - y$
+    \item operator: $\otimes_y: x \mapsto x \cdot e^y$
+    \item operator: $\oslash_y: x \mapsto x \cdot e^{-y}$
+\end{itemize}
+
+For example, the threadlike arithmetic expression $(((((1 \times 2) \times 2) + 1) \times 3) + 6)$ can be curried as
+
+\[\oplus_6(\otimes_{\ln 3}(\oplus_1(\otimes_{\ln 2}(\otimes_{\ln 2}(1)))))\]
+
+Suppose we have a series of operators $a_1, a_2, \cdots a_{n-1}, a_n$, we introduce a \emph{path notation}.
+
+\[x a_1 a_2 \cdots a_{n-1} a_n \coloneqq a\_n( a_{n-1}( \cdots a_2( a_1(x) ) \cdots ) )\]
+
+So, the above example can be written as
+
+\[1 \otimes_{\ln 2} \otimes_{\ln 2} \oplus_1 \otimes_{\ln 3} \oplus_6 \]
+
+If a path begins with a number, we refer to it as a \emph{bounded path}.
+If it does not, we refer to it as a \emph{free path}, similar to the concept of vectors from the origin versus vectors at arbitrary points.
+a bounded path results in a number, while a free path results in a function.
+
+Now we will verify that the operators within a path are associative.
+
+\begin{lemma}\label{lemma:associative}
+    The operators within a path are associative, i.e. we have \[a [b c] = [a b] c\]
+\end{lemma}
+
+\begin{proof}
+We use normal typeface to express the path notation, and bold typeface to express the function notation.
+
+For a free path, follow the definition, we have
+\[a [b c] = [b c](\mathbf{a}) = \mathbf{c}(\mathbf{b}(\mathbf{a}))\]
+\[[a b] c = \mathbf{c}([a b]) = \mathbf{c}(\mathbf{b}(\mathbf{a}))\]
+
+hence, we have
+\[a [b c] = [a b] c\]
+is hold for a free path.
+
+For a bounded path, we have
+\[x a [b c] = [b c](\mathbf{a}(x)) = \mathbf{c}(\mathbf{b}(\mathbf{a}(x)))\]
+\[x [a b] c = \mathbf{c}([a b](x)) = \mathbf{c}(\mathbf{b}(\mathbf{a}(x)))\]
+
+hence, we have
+\[a [b c] = [a b] c\]
+is hold for a bounded path.
+
+\end{proof}
+
+\begin{definition}\label{definition:concatenate}
+    The concatenation of paths $p_1 \cdot p_2$ is defined as the composite of functions:
+    \[p_1 \cdot p_2 \coloneqq p_2 \circ p_1 \]
+\end{definition}
+
+When a sequence of paths is concatenated, and only the first path can be bounded.
+If the first path is bounded, the concatenated result is a bounded path.
+Otherwise, the concatenated result is a free path.
+
+\subsection{Alternating threadlike expressions}\label{subsec:alternating}
+
+Now we can define alternating threadlike expressions, which were mentioned in Section~\ref{sec:expression}, using the path notion.
+
+\begin{equation}\label{eq:alternative}
+    \alpha = a_1 b_1 a_2 b_2 \cdots a_l b_l, a_i = \otimes_{\lambda_i}, b_i = \oplus_{\mu_i}, \lambda_i, \mu_i \in \mathbb{R}
+\end{equation}
+
+where $\bigoplus$ and $\bigotimes$ denote addition and multiplication, respectively,
+and the expression is a zigzag of alternating addition and multiplication operations.
+$\alpha$ is a free path, and we can bind a number to it.
+
+Since $0$ is the identity element for addition and $1$ is the identity element for multiplication,
+it is straightforward to see that any arithmetic expression can be converted into an alternating threadlike expression
+by introducing more $0$ and $1$ into the original expression.
+So alternating threadlike expression is a kind of canonical form.
+
+We can derive a formula for perturbations in alternating threadlike expressions.
+
+Let us define the left-to-right accumulated sum of $\lambda_i$ as $\check{\lambda}_i$, such that:
+\begin{equation}
+\check{\lambda}_i = \sum_{j=1}^i \lambda_j, \check{\lambda}_0 = 0\label{eq:accsumlr}
+\end{equation}
+
+Then we also have right-to-left accumulated sum of $\lambda_i$
+\begin{equation}
+\hat{\lambda}_i = \check{\lambda}_l - \check{\lambda}_{l - i}, \hat{\lambda}_0 = 0\label{eq:accsumrl}
+\end{equation}
+
+Expanding equation~\eqref{eq:alternative} using the distributive law and the above notion at point $\mu_0$, we obtain:
+\begin{align}
+\alpha(\mu_0) & = e^{\lambda_l}(\cdots (e^{\lambda_2} (e^{\lambda_1} \mu_0 + \mu_1) + \mu_2) \cdots) + \mu_l \\
+& = e^{\hat{\lambda}_l} \mu_0 + e^{\hat{\lambda}_{l - 1}} \mu_1  + e^{\hat{\lambda}_{l - 2}} \mu_2 + \cdots + e^{\hat{\lambda}_1} \mu_{l - 1} + e^{\hat{\lambda}_0} \mu_l
+\end{align}
+
+Next, at the starting point $\mu_0$, we introduce a perturbation $\tilde{\mu}_0 = e^{\eta_0} \mu_0 + \epsilon_0$,
+where $\eta_0$ and $\epsilon_0$ are the disturbance terms added by the summation and multiplication operations, respectively. Then, we have:
+\begin{align}
+\alpha(\tilde{\mu}_0) & = e^{\hat{\lambda}_l} (\tilde{\mu}_0) + e^{\hat{\lambda}_{l - 1}} \mu_1  + e^{\hat{\lambda}_{l - 2}} \mu_2 + \cdots + e^{\hat{\lambda}_1} \mu_{l - 1} + e^{\hat{\lambda}_0} \mu_l \\
+& = \alpha(\mu_0) + e^{\hat{\lambda}_l} (\tilde{\mu}_0 - \mu_0)
+\end{align}
+
+As a result, purely from an arithmetic perspective, without the need for limits, we can derive the following meaningful ratio:
+\begin{equation}
+\frac{\alpha(\tilde{\mu}_0) - \alpha(\mu_0)}{\tilde{\mu}_0 - \mu_0} = e^{\hat{\lambda}_l} = e^{\check{\lambda}_l}\label{eq:ratio}
+\end{equation}
+
+Now we extend this relationship from the starting point $\mu_0$ to the entire process, we define the recursive formula
+
+\[
+w_i = e^{\lambda_i} w_{i-1} + \mu_i, w_0 = 0
+\]
+
+and then we have
+
+\begin{equation}
+\frac{\tilde{w}_i - w_i}{\tilde{\mu}_0 - \mu_0} = e^{\check{\lambda}_i}, i \in \{1, ..., l\}\label{eq:perturbation1}
+\end{equation}
+
+So, we have
+
+\[
+\tilde{w}_i - w_i = e^{\check{\lambda}_i} (\tilde{\mu}_0 - \mu_0)
+\]
+
+and hence
+
+\begin{equation}
+\tilde{w}_i - w_i = e^{\lambda_i}(\tilde{w}_{i - 1} - w_{i - 1})\label{eq:perturbation2}
+\end{equation}
+
+That means the perturbation along the path is controlled by the multiplication terms of $e^{\lambda_i}$.
+
+\subsection{Generated structure, commutator and arithmetic torsion}\label{subsec:generated-structure}
+
+In order to study mesh grids like the one described in subsection~\ref{subsec:meshgrid},
+we need to investigate the algebraic structure of the threadlike arithmetic expressions that are generated.
+
+For real number $\mathbb{R}$ and elements $\mu, \lambda \in \mathbb{R}$, we consider all the arithmetical expressions
+that are freely generated from
+\begin{itemize}
+    \item initial operand: $0$
+    \item operator: $\oplus_\mu: x \mapsto x + \mu$
+    \item operator: $\ominus_\mu: x \mapsto x - \mu$
+    \item operator: $\otimes_\lambda: x \mapsto x \cdot e^\lambda$
+    \item operator: $\oslash_\lambda: x \mapsto x \cdot e^{- \lambda}$
+\end{itemize}
+
+We denote these expressions as $E(\mu, \lambda)$, where $\mu$ is the additional generator and $e^\lambda$ is the multiplicative generator.
+In cases where the context is clear, we may omit $\mu$ and $\lambda$ from the index.
+Our goal is not to study only a single $E(\mu, \lambda)$, but rather to use a family of $E(\mu, \lambda)$ to approach a continuous space.
+
+Since $\oplus_\mu$ and $\ominus_\mu$ are mutually inverse operations, it follows that $\otimes_\lambda$ and $\oslash_\lambda$ are also mutually inverse. This means that $E(\mu, \lambda)$ forms a group.
+An intriguing observation is that the commutator of this group is not equal to identity generally,
+especially the commutator of the generators.
+
+\begin{equation}
+x \oplus_\mu \otimes_\lambda \ominus_\mu \oslash_\lambda - x = \mu(1 - e^{-\lambda})\label{eq:commutator1}
+\end{equation}
+\begin{equation}
+x \otimes_\lambda \oplus_\mu \oslash_\lambda \ominus_\mu - x = - \mu(1 - e^{-\lambda})\label{eq:commutator2}
+\end{equation}
+
+Or equivlently, we define below error $\tau$:
+
+\begin{equation}
+\tau = x \otimes_\lambda \oplus_\mu - x \oplus_\mu \otimes_\lambda = \mu(1 - e^\lambda)\label{eq:torsion}
+\end{equation}
+
+These errors are constant, indicating a type of torsion in the generated group.
+And torsion $\tau$ is specifically referred to as the arithmetic torsion.
+
+We will reveal that $\tau$ is related to the curvature of the surface in later sections.
+
+\subsection{Problems on equality, singularity, symmetries}\label{subsec:problems-on-equality-singularity-symmetries}
+
+From the perspective of computer science, it is useful to consider different levels of equality within freely generated structures.
+\begin{itemize}
+\item Literal equality: the finest level of equality, judged by the string representation of the expression
+\item Syntactical equality: equality under certain syntactical rules
+\begin{itemize}
+\item When inverse operators exist, it forms a group
+\item When the commutative and distributive laws exist, it can be considered an algebra
+\end{itemize}
+\item Semantic equality: the coarsest level of equality, judged by the evaluation of the expression
+\end{itemize}
+
+Literal equality is the strictest level of equality, and two different threadlike expressions are considered equal only if their string representations are exactly the same.
+This level of equality may be too strict, as it may not be compatible with the evaluation of the expression.
+However, under literal equality, the generated structure is the most rich and provides the base textures that can be woven into a space.
+
+Semantic equality is the least strict level of equality, and two different threadlike expressions are considered equal if they evaluate to the same number.
+This level of equality provides the total symmetrical resources of the space.
+
+We can think of literal equality as the bottom and semantic equality as the top of a lattice,
+with syntactical equality being a compromise between the two extremes.
+
+To end this introduction part of the paper, we present several problems and speculations that drives our research.
+These important problems arise from distance between syntactical and semantic structures.
+
+\emph{Foundational problem}: A careful reader may have noticed that the definition~\ref{def:arithmetic-expression} is based on rational numbers $\mathbb{Q}$.
+Why can't we use real numbers $\mathbb{R}$ instead?
+The answer is that syntactically valid expressions may not be semantically valid.
+Dividing by zero can lead to invalid expressions, and the evaluation of the expression cannot be defined in this situation.
+Therefore, in real numbers, an expression may be syntactically valid but semantically not valid,
+and there is no algorithm that can decide whether an expression is semantically valid or not.
+How can we bridge this gap and provide a continuous geometry space?
+We will attempt to partially solve this problem in some special cases in section~\ref{sec:topology}.
+
+\emph{Singular point problem}: We have a very strong intuition that semantically invalid expressions lead to singular points.
+The way we discussed in complex analysis may be borrowed here: essential singularities and poles.
+
+\emph{Symmetry and classification problem}: We conjecture that the equality lattice may not only play a role in the construction of a space, but also determine the symmetry of that space.
+We can imagine that, at certain levels of the lattice, we weave syntactically generated substructures into points to form a space,
+and the weaving process uses up some symmetrical resources, leaving the rest to form a symmetry on the space.
+The structure within the total symmetry may provide us with a systematic way of constructing spaces, and allow us to classify spaces based on their symmetries.
