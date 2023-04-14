@@ -121,437 +121,45 @@
 
 \section{The first kind arithmetic expression space $\mathfrak{K}_1$}\label{sec:firstkind}
 
-In this section, we will present two analytic examples due to Le that are equivalent and belong to the class of spaces
-called the first kind arithmetic expression space $\mathfrak{K}_1$.
-
-\subsection{Example space I}\label{subsec:exmp1}
-
-Consider the upper half plane ${\mathcal{H}: (x, y) \ | \ y > 0}$ equipped with an inner product and metrics defined as follows:
-
-$$
-\mathbf{a} \cdot \mathbf{b} = \begin{bmatrix} a_x & a_y \end{bmatrix} \begin{bmatrix} \frac{1}{y^2} & 0 \ 0 & \frac{1}{y^2} \end{bmatrix} \begin{bmatrix} b_x \ b_y \end{bmatrix}
-$$
-
-and
-
-$$
-ds^2 = \frac{1}{y^2} (dx^2 + dy^2)
-$$
-
-We also consider an assignment function $A$ defined on $\mathcal{H}$ as follows\footnote{This analytic example is provided by Le Zhang, and the geometry interpretation is given by Mingli Yuan}:
-
-\begin{equation}
-A = - \frac{x}{y}
-\end{equation}
-
-\begin{theorem}\footnote{The proof is originally by Le Zhang, and modified by Mingli Yuan}
-For the assignment $A$ defined by above formula, $A$ satisfy the flow equation\eqref{eq:flow}
-\end{theorem}
-
-\begin{proof}
-$$
-da = d(-\frac{x}{y}) = \frac{xdy - ydx}{y^2} = -\frac{dx + ady}{y}
-$$
-
-and
-
-$$
-ds = \frac{\sqrt{dx^2 + dy^2}}{y}
-$$
-
-then
-
-$$
-\frac{da}{ds} = - \frac{dx + ady}{y} \frac{y}{\sqrt{dx^2 + dy^2}} = - \frac{dx + ady}{\sqrt{dx^2 + dy^2}}
-$$
-
-Considering that the local coordinate is given by $(-1, 0)$ and $(0, -1)$ under the right-hand rule, we have:
-
-$$
-\cos \theta = \frac{\begin{bmatrix} dx & dy \end{bmatrix} \begin{bmatrix} \frac{1}{y^2} & 0 \\ 0 & \frac{1}{y^2} \end{bmatrix} \begin{bmatrix} -1 \\ 0 \end{bmatrix}}{\sqrt{\begin{bmatrix} dx & dy \end{bmatrix} \begin{bmatrix} \frac{1}{y^2} & 0 \\ 0 & \frac{1}{y^2} \end{bmatrix} \begin{bmatrix} dx \\ dy \end{bmatrix}}\sqrt{\begin{bmatrix} -1 & 0 \end{bmatrix} \begin{bmatrix} \frac{1}{y^2} & 0 \\ 0 & \frac{1}{y^2} \end{bmatrix} \begin{bmatrix} -1 \\ 0 \end{bmatrix}}}
-$$
-
-hence
-
-$$
-\cos \theta = \frac{-dx}{\sqrt{dx^2 + dy^2}}
-$$
-
-and similarly
-
-$$
-\sin \theta = \frac{-dy}{\sqrt{dx^2 + dy^2}}
-$$
-
-then
-
-$$
-\frac{da}{ds} = \cos \theta + a \sin \theta
-$$
-
-\end{proof}
-
-We can verify $A$ is an eigenfunction of the Laplacian
-
-$$
-\Delta A = - y^2 (\frac{\partial^2}{\partial x^2} A + \frac{\partial^2}{\partial y^2} A) = y^2 (\frac{1}{\partial y} (\frac{1}{\partial y} \frac{x}{y})) = 2 A
-$$
-
-\subsection{A horocycle-based coordinate system}\label{subsec:horocyclebased}
-
-First, we introduce the horocycle-based coordinate system for hyperbolic surfaces.
-It is a global coordinate system given by two orthogonal sets of circles: one set consists of horocycles that share the same ideal point,
-while the other consists of geodesics that are perpendicular to the first set.
-
-On the Poincaré disc $\mathcal{P}$, the blue horocycles are tangible at the ideal point $\Omega$, forming the first set of circles.
-The green lines are geodesics that form the second set. The coordinates of point $P$ are given by the lengths of $OQ$ and $QP$,
-where point $O$ is the origin and the length is measured using the metric of the hyperbolic surface.
-
-The coordinates of $P$ are $(u,v)$, where the sign of the length is determined by the following rules:
-\begin{itemize}
-\item u: if $P$ is on the same side of $\Omega$, then $u$ is positive; otherwise, $u$ is negative
-\item v: the sign of the length should satisfy the right-hand rule
-\end{itemize}
-
-\begin{figure}[ht]
-\centering
-\resizebox{0.5\textwidth}{!}{\includegraphics{images/11-horocyclebased}}
-\caption{A horocycle-based coordinate system}\label{fig:horocyclecoord}
-\end{figure}
-
-We can equip it with an inner product
-
-\[
-\mathbf{a} \cdot \mathbf{b} = \begin{bmatrix} a_u & a_v \end{bmatrix} \begin{bmatrix} e^{-2v} & 0 \\ 0 & 1 \end{bmatrix} \begin{bmatrix} b_u \\ b_v \end{bmatrix}
-\]
-
-and the metrics
-
-$$
-ds^2 = e^{-2v} du^2 + dv^2
-$$
-
-Laplacian is given by\cite{Costa2001ADO}
-
-$$
-\Delta = e^{2v} \frac{\partial^2}{{\partial u}^2} + \frac{\partial^2}{{\partial v}^2} - \frac{\partial}{\partial v}
-$$
-
-\subsection{Example space II}\label{subsec:exmp2}
-
-Giving the Poincaré disc $\mathcal{P}$ equipped with the above horocycle-based coordinate system,
-we consider an assignment function $A$ defined on $\mathcal{P}$ as follows\footnote{This analytic example is provided by Le Zhang, and the geometry interpretation is given by Mingli Yuan}:
-
-\begin{equation}
-A = u e^{-v}
-\end{equation}
-
-\begin{theorem}
-For the assignment $A$ defined by above formula, $A$ satisfy the flow equation\eqref{eq:flow}
-\end{theorem}
-
-\begin{figure}[ht]
-\centering
-\resizebox{0.8\textwidth}{!}{\includegraphics{images/12-proofbymapping}}
-\caption{Mapping between two examples}\label{fig:mapping}
-\end{figure}
-
-\begin{proof}
-
-If we introduce complex in the upper half plane model in last section \ref{subsec:exmp1}
-
-$$
-z = x + y i
-$$
-
-and stetup a Möbius transform between the upper half plane and current horocycle-based coordinate system:
-
-$$
-z \mapsto \frac{z-i}{z+i}
-$$
-
-This transform maps each horizontal lines in $\mathcal{H}$ into the horocycles sharing the same ideal point $\Omega = 1$ in $\mathcal{P}$,
-also it maps each vertical geodesics in $\mathcal{H}$ into geodesics in $\mathcal{P}$ which are perpendicular to the above horocycles.
-
-And rewrite the Möbius transform in the target coordinate, we get:
-
-$$
-\begin{cases}
-x = u\\
-y = e^v \\
-\end{cases}
-$$
-
-This lead to
-
-$$
-A = -\frac{x}{y} = u e^{-v}
-$$
-
-And because of theorem \ref{thm:isometry} and Möbius transform is conformal, we can conclude that $A = u e^{-v}$ obey flow equation.
-
-\end{proof}
-
-We can verify $A$ is also an eigenfunction of the Laplacian
-$$
-\Delta A = e^{2v} \frac{\partial^2(u e^{-v})}{{\partial u}^2} + \frac{\partial^2(u e^{-v})}{{\partial v}^2} - \frac{\partial(u e^{-v})}{\partial v} = 2A
-$$
-
-From the above proof, we can see that the two assignment function $A$ arose from the same geometry setting, they are equivalent to each other.
-
-\subsection{Generator independence}
-
-Considering the upper half plane $\mathcal{B}$:
-$$
-\{\mathcal{B}: (x, y) | y > 0 \}
-$$
-
-equipped with an inner product and metrics as follows:
-
-$$
-\mathbf{a} \cdot \mathbf{b} = \begin{bmatrix} a_x & a_y \end{bmatrix} \begin{bmatrix} \frac{1}{\mu^2 y^2} & 0 \\ 0 & \frac{1}{\lambda^2 y^2} \end{bmatrix} \begin{bmatrix} b_x \\ b_y \end{bmatrix}
-$$
-
-$$
-ds^2 = \frac{1}{y^2}(\frac{dx^2}{\mu^2} + \frac{dy^2}{\lambda^2})
-$$
-
-Whatever the choice of $\mu$ and $\lambda$, the assignment is given by
-
-\begin{equation}
-A = - \frac{x}{y}
-\end{equation}
-
-We can verify $A$ satisfying the flow equation\eqref{eq:flow}, and also it is generator independent.
-
-\begin{theorem}
-The above $A$ satisfying the flow equation\eqref{eq:flow}
-\end{theorem}
-
-\begin{proof}
-$$
-da = d(-\frac{x}{y}) = \frac{xdy - ydx}{y^2} = -\frac{dx + a dy}{y}
-$$
-
-Notice that
-
-$$
-ds = \frac{1}{y}\sqrt{\frac{dx^2}{\mu^2} + \frac{dy^2}{\lambda^2}}
-$$
-
-then
-
-$$
-\frac{da}{ds} = - \frac{dx + a dy}{y} \frac{y}{\sqrt{\frac{dx^2}{\mu^2} + \frac{dy^2}{\lambda^2}}} = \frac{dx + a dy}{\sqrt{\frac{dx^2}{\mu^2} + \frac{dy^2}{\lambda^2}}}
-$$
-
-Consider the local coordinate system given by $(-1, 0)$ and $(0, -1)$ according to the right-hand rule, we have
-
-$$
-\cos \theta = \frac{\begin{bmatrix} dx & dy \end{bmatrix} \begin{bmatrix} \frac{1}{\mu^2 y^2} & 0 \\ 0 & \frac{1}{\lambda^2 y^2} \end{bmatrix} \begin{bmatrix} -1 \\ 0 \end{bmatrix}}{\sqrt{\begin{bmatrix} dx & dy \end{bmatrix} \begin{bmatrix} \frac{1}{\mu^2 y^2} & 0 \\ 0 & \frac{1}{\lambda^2 y^2} \end{bmatrix} \begin{bmatrix} dx \\ dy \end{bmatrix}}\sqrt{\begin{bmatrix} -1 & 0 \end{bmatrix} \begin{bmatrix} \frac{1}{\mu^2 y^2} & 0 \\ 0 & \frac{1}{\lambda^2 y^2} \end{bmatrix} \begin{bmatrix} -1 \\ 0 \end{bmatrix}}}
-$$
-
-Therefore we have
-
-$$
-\cos \theta = \frac{-\frac{dx}{\mu}}{\sqrt{\frac{dx^2}{\mu^2} + \frac{dy^2}{\lambda^2}}}
-$$
-
-Similarly
-
-$$
-\sin \theta = \frac{-\frac{dy}{\lambda}}{\sqrt{\frac{dx^2}{\mu^2} + \frac{dy^2}{\lambda^2}}}
-$$
-
-Hence we have
-
-$$
-\frac{da}{ds} = \mu \cos \theta + a \lambda \sin \theta
-$$
-
-\end{proof}
-
-\subsection{Related problems}
-
-\emph{Eigenfunction problem}: TODO.
-
-\emph{Eigenfunction and classification problem}: TODO.
-
+\input{sections/sec04.tex}
 \newpage
 
 \section{Topological arithmetic expression space}\label{sec:topology}
 
-\subsection{The construction of the grid $G_0$}\label{sec:construction-of-grids}
-
-To construct the grid described in subsection \ref{sec:meshgrid} and Figure \ref{fig:gridex0},
-we will use the number theory decomposition introduced by Victor Pambuccian in \cite{Pambuccian2016THEAO} and
-Celia Schacht in \cite{Schacht2018ANOTHERAO}.
-
-$$
-n = \tau(n) \omega(n)
-$$
-
-where $\tau(n)$ is a power of 2 and $\omega(n)$ is an odd.
-
-We can see directly from the Figure \ref{fig:gridex0} that the grid is constructed by the following rules:
-\begin{itemize}
-\item horizantal lines (blue, additional lines) satisfying $y = 2^k, k \in \mathbb{Z}$
-\item vertical lines (green, multiplicative lines) satisfying
-    \begin{itemize}
-        \item the value of x satisfying $x = \frac{m}{2^l}, l \in \mathbb{Z}^+, m \in \mathbb{Z}$
-        \item the assignment begin from $\omega(-m)$ and increase exponentially by power 2.
-    \end{itemize}
-\end{itemize}
-
-\begin{figure}[ht]
-\centering
-\resizebox{0.9\textwidth}{!}{\includegraphics{images/07-grid-detail}}
-\caption{$\omega$ gives the assignment at the start points of vertical lines in $G_0$}\label{fig:griddetail}
-\end{figure}
-
-The horizontal lines and the vertical lines divide the whole space into a mesh grid $G_0 = (V_0, E_0, F_0)$, where
-$V_0$ is the set of crossing points, $E_0$ is the set of edges (segments in the horizontal and vertical lines,
-it should be noted that only the vertical lines are geodesics, while the horizontal lines are horocycles) connecting
-the crossing points, and $F_0$ is the set of cut cells. This mesh grid is generated by the additional generator $1$ and
-the multiplicative generator $2$, and $V_0$, $E_0$, and $F_0$ are all countable sets.
-
-We illustrate the construction schema of $G_0$ in Figure \ref{fig:gridschema}.
-
-\begin{figure}[ht]
-\centering
-\resizebox{0.9\textwidth}{!}{\includegraphics{images/08-grid-schema}}
-\caption{the construction schema of $G_0$}\label{fig:gridschema}
-\end{figure}
-
-We notice that $G_0$ is very regular, in fact, all edges are equidistant.
-
-\begin{lemma}\label{lem:regular}
-All edges in $G_0$ are equidistant.
-\end{lemma}
-
-\begin{proof}
-Following the construction schema in Figure \ref{fig:gridschema}, we can calculate the length of segments are all equidistant.
-
-Length of $AC$ and $BD$:
-
-$$
-\int ds = \int\limits_{2^{k}}^{2^{k+1}} \frac{1}{y \ln 2} dy = \frac{1}{\ln 2} \left( \ln 2^{k+1} - \ln 2^k \right) = 1
-$$
-
-Length of $AB$:
-
-$$
-\int ds = \int\limits_{-2^k(\omega + 1)}^{-2^k(\omega - 1)} \frac{1}{2^{k+1}} dx = \frac{1}{2^{k+1}} \left( 2^{k + 1} \right) = 1
-$$
-
-Length of $CE$:
-
-$$
-\int ds = \int\limits_{-2^k(\omega + 1)}^{-2^k \omega} \frac{1}{2^k} dx = \frac{1}{2^k} \left( 2^k \right) = 1
-$$
-
-Length of $ED$:
-
-$$
-\int ds = \int\limits_{-2^k \omega}^{-2^k(\omega - 1)} \frac{1}{2^k} dx = \frac{1}{2^k} \left( 2^k \right) = 1
-$$
-\end{proof}
-
-\subsection{The construction of the grid $G_1$}\label{sec:construction-of-grids}
-
-We can similarly construct the grid $G_1$ using the additional generator $\frac{1}{2}$ and the multiplicative generator
-$\sqrt{2}$, the grid $G_2$ using the additional generator $\frac{1}{4}$ and the multiplicative generator $\sqrt[4]{2}$,
-and so on. And each time the cell of the mesh grid is divided into smaller cells and the end points of the vertical lines
-move upward.
-
-\begin{figure}[ht]
-\centering
-\resizebox{0.9\textwidth}{!}{\includegraphics{images/09-grid-schema-g1}}
-\caption{the construction schema of $G_1$}\label{fig:gridschemag1}
-\end{figure}
-
-\subsection{The construction of the grid $G_2$}\label{sec:construction-of-grids}
-
-
-\subsection{The grid mesh is dense}\label{sec:construction-of-grids}
-
-It is easy to see that there is a chain of inclusion relations:
-$$
-V_0 \subset V_1 \subset V_2 \subset \cdots V_i \subset \cdots
-$$
-
-Suppose $V = \bigcup_{i=1}^{\infty} V_i$, we have below lemma
-
-\begin{lemma}
-$V$ is a countable dense set.
-\end{lemma}
-
-\begin{proof}
-Because $V_i$ is countable, and the union is over a countable index set, so $V$ is countable.
-
-We can prove it is dense by contradiction. Suppose $V$ is not a dense set. Then there is a point $p$ in the space
-neither belongs to $V$ nor is a limit point of $V$.
-
-TODO...
-
-\end{proof}
-
-\subsection{Completeness and topology}\label{sec:topdef}
-
-\subsection{As a special integral}\label{sec:integral}
-
+\input{sections/sec05.tex}
 \newpage
 
 \section{Form arithmetic torsion to curvature}\label{sec:curvature}
 
+\input{sections/sec06.tex}
 \newpage
 
 \section{On order-4 apeirogonal tiling}\label{sec:tiling}
 
-\subsection{Construction of order-4 apeirogonal tiling}\label{sec:tiling}
-
-\subsection{Coloring and compatible coordinate}\label{sec:coloring}
-
+\input{sections/sec07.tex}
 \newpage
 
 \section{The second and third kind of arithmetic expression space $\mathfrak{K}_2$ and $\mathfrak{K}_3$}\label{sec:morekinds}
 
+\input{sections/sec08.tex}
 \newpage
 
 \section{Tube structure, complexification and fibration}\label{sec:morekinds}
 
+\input{sections/sec09.tex}
 \newpage
 
 \section{General discussion}\label{sec:function}
 
-\subsection{On integral theory}\label{sec:integral}
-
-\subsection{On representation of function}\label{sec:function}
-
-\subsection{Questions related with complexity?}\label{sec:complexity}
+\input{sections/sec10.tex}
+\newpage
 
 \newpage
 
 \section{A glossary of unsolved problems}\label{sec:problems}
 
-\subsection{Foundation questions}\label{sec:foundation}
-
-\subsection{Classification problem}\label{sec:donaghey}
-
-\subsection{Eigenfunction problem}\label{sec:eigenfunction}
-
-\subsection{Tube structure}\label{sec:tube}
-
-\subsection{Singular points and divergent series}\label{sec:singularity}
-
-\subsection{Function and a new calculus?}\label{sec:caculus}
-
-\subsection{Category of function theories?}\label{sec:function}
-
-\subsection{Geometrilization of computation}\label{sec:computation}
-
-\subsection{Geometrilization of logic}\label{sec:logic}
-\subsubsection{irrationality of $\sqrt{17}$}
+\input{sections/sec11.tex}
+\newpage
 
 \bibliographystyle{plain}
 \bibliography{aeg-paper.bib}
@@ -560,105 +168,17 @@ TODO...
 
 \section{A direct formal solution of the flow equation}\label{sec:directformalsolution}
 
-We can also get a direct formal solution of the flow equation (\eqref{eq:flow}) step by step:
-
-$$
-    \frac{da}{\mu \cos \theta + a \lambda \sin \theta} = ds
-$$
-
-$$
-    \frac{1}{\lambda \sin \theta} \frac{d(\mu \cos \theta + a \lambda \sin \theta)}{\mu \cos \theta + a \lambda \sin \theta} = ds
-$$
-
-$$
-    \frac{1}{\lambda \sin \theta} ln(\mu \cos \theta + a \lambda \sin \theta) = s + C
-$$
-
-$$
-    \mu \cos \theta + a \lambda \sin \theta = e^{\lambda s \sin \theta} e^{C \lambda \sin \theta}
-$$
-
-Considering the initial condition
-$$
-    \mu \cos \theta + a_0 \lambda \sin \theta = e^{C \lambda \sin \theta}
-$$
-
-We have
-$$
-    \mu \cos \theta + a \lambda \sin \theta = e^{\lambda s \sin \theta} (\mu \cos \theta + a_0 \lambda \sin \theta)
-$$
-
-$$
-   a = \frac{\mu \cos \theta + a_0 \lambda \sin \theta}{\lambda \sin \theta} e^{\lambda s \sin \theta} - \frac{\mu}{\lambda}\cot \theta
-$$
-
-$$
-   a = (a_0 + \frac{\mu}{\lambda} \cot \theta) e^{\lambda s \sin \theta} - \frac{\mu}{\lambda} \cot \theta
-$$
-
-\begin{equation}
-   a =  a_0 e^{\lambda s \sin \theta} + \frac{\mu}{\lambda} (e^{\lambda s \sin \theta} - 1) \cot \theta
-\end{equation}
-
-\begin{equation}\label{eq:directformalsolution}
-   a =  a_0 e^{\lambda s \sin \theta} + \frac{\mu}{\lambda} (e^{\lambda s \sin \theta} - 1) \cot \theta
-\end{equation}
+\input{sections/sec12.tex}
+\newpage
 
 \section{Conformance between infinitesimal generating process and discrete mesh grid}\label{sec:conformance}
 
-In order to verify the conformance, we expand the formula \eqref{eq:directformalsolution} in the following way:
-
-\begin{equation}
-   a =  a_0 e^{\lambda s \sin \theta} + \frac{\mu}{\lambda} [1 + \lambda s \sin \theta + \frac{1}{2!} (\lambda s \sin \theta)^2  + \frac{1}{3!} (\lambda s \sin \theta)^3 + \cdots - 1] \cot \theta
-\end{equation}
-
-\begin{equation}
-   a = a_0 e^{\lambda s \sin \theta} + \mu s \cos \theta + \frac{\mu}{\lambda} \sin \theta \cos \theta (\frac{\lambda^2s^2}{2!} + \frac{\lambda^3s^3}{3!} \sin \theta + \frac{\lambda^4s^4}{4!} \sin^2 \theta + \cdots)
-\end{equation}
-
-\begin{equation}
-   a = a_0 e^{\lambda s \sin \theta} + \mu s \cos \theta + \frac{\mu}{2\lambda} \sin 2\theta (\frac{\lambda^2s^2}{2!} + \frac{\lambda^3s^3}{3!} \sin \theta + \frac{\lambda^4s^4}{4!} \sin^2 \theta + \cdots)
-\end{equation}
-
-\begin{equation}
-   a = a_0 e^{\lambda s \sin \theta} + \mu s \cos \theta + \frac{\mu}{2\lambda} \Psi(s) \sin 2\theta
-\end{equation}
-
-When $\theta = \frac{k \pi}{2}, k = 0, 1, 2, 3\cdots, s = 0, 1, 2, 3\cdots$, we have
-
-\begin{equation}
-    a = a_0 e^{\lambda s \sin \theta} + \mu s \cos \theta
-\end{equation}
-
-Especially, we have
-
-\begin{equation}
-    a = a_0 + \mu s, s = 0, 1, 2, 3\cdots, k = 0, 1, 2, 3\cdots, \theta = 2k\pi
-\end{equation}
-
-\begin{equation}
-    a = x_0e^{\lambda s}, s = 0, 1, 2, 3\cdots, k = 0, 1, 2, 3\cdots, \theta = 2k\pi + \frac{\pi}{2}
-\end{equation}
-
-\begin{equation}
-    a = a_0 - \mu s, s = 0, 1, 2, 3\cdots, k = 0, 1, 2, 3\cdots, \theta = 2k\pi + \pi
-\end{equation}
-
-\begin{equation}
-    a = a_0 e^{- \lambda s}, s = 0, 1, 2, 3\cdots, k = 0, 1, 2, 3\cdots, \theta = 2k\pi + \frac{3 \pi}{2}
-\end{equation}
-
-which gives the conformance.
+\input{sections/sec13.tex}
+\newpage
 
 \section{Arithmetic expression, combinators and transformation over trees}\label{sec:expressions}
 
-\subsection{LISP and combinators}\label{sec:donaghey}
-
-\subsection{Applicative and concatenative}\label{sec:donaghey}
-
-\subsection{Donaghey transformation}\label{sec:donaghey}
-
+\input{sections/sec14.tex}
 \newpage
-
 
 \end{document}
