@@ -1,0 +1,13 @@
+\documentclass[tikz,border=5]{standalone}
+\usetikzlibrary{lindenmayersystems}
+\pgfdeclarelindenmayersystem{cayley}{
+  \rule{F -> F [ R [F] [+F] [-F] ]}
+  \symbol{R}{
+    \pgflsystemstep=0.5\pgflsystemstep
+  }
+}
+\begin{document}
+\begin{tikzpicture}
+\draw l-system [l-system={cayley, axiom=[F] [+F] [-F] [++F], step=3cm, order=6}];
+\end{tikzpicture}
+\end{document}
