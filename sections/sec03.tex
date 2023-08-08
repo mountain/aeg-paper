@@ -1,5 +1,3 @@
-% \usepackage{amsmath}
-
 \subsection{Flow equation}\label{sec:equation}
 
 Consider an infinitesimal generating process on a Riemannian surface $M$ using two generators:
@@ -141,7 +139,13 @@ we can further simplify the equation to
 Under the initial condition $a = a_0$ when $s = 0$, we can get the following equation:
 
 \begin{equation}
-    a = \pm \frac{\mu}{\lambda} \sinh(\lambda s \cos \phi - \arcsinh \frac{a_0 \lambda}{\mu})\label{eq:gradevo2}
+    a = \frac{\mu}{\lambda} \sinh(\lambda s \cos \phi + \arcsinh \frac{a_0 \lambda}{\mu})\label{eq:gradevo2}
+\end{equation}
+
+or
+
+\begin{equation}
+    a = - \frac{\mu}{\lambda} \sinh(\lambda s \cos \phi - \arcsinh \frac{a_0 \lambda}{\mu})\label{eq:gradevo3}
 \end{equation}
 
 In this coordinate system, the additional line and the multiplicative line are:
@@ -182,10 +186,10 @@ The second existence theorem is also crucial. It says that if we have a smooth s
     $$ \mathbf{e}_1 = e^{-\rho} \partial_u \hspace{3em}  \mathbf{e}_2 = e^{-\rho} \partial_v $$
     The gradient of $a$ in the isothermal coordinate is given by
     $$\nabla_a = \frac{\partial a}{\partial u} du + \frac{\partial a}{\partial v} dv$$
-    Now we rewrite the flow equation~\eqref{eq:flow} as the following equation:
-    $$da = \mu \cos \theta ds + a \lambda \sin \theta ds$$
+    Now we rewrite the gradient equation~\eqref{eq:grad} as the following equation:
+    $$\frac{da^2}{\mu^2 + a^2 \lambda^2} = ds^2$$
     hence, we have
-    $$e^{2\rho} = \frac{\gamma^2}{\mu^2 + a^2 \lambda^2}$$
+    $$\frac{da^2}{\mu^2 + a^2 \lambda^2} = e^{2\rho}(du^2 + dv^2)$$
      \qedhere
 \end{proof}
 
