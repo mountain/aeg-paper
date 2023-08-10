@@ -158,6 +158,32 @@ In this coordinate system, the additional line and the multiplicative line are:
     \phi = \arcsin \frac{\mu}{\sqrt {\mu^2 + a^2 \lambda^2}}\label {eq:mulitiplcativeline}
 \end{equation}
 
+\subsection{Flow and function}\label{subsec:flow-and-function}
+
+In this section, we aim to present novel insight into functions.
+Namely, the treatment of functions as flows will be discussed.
+
+\begin{definition}\label{def:projection}
+Given a function $k$ on the real domain $R$, we can introduce a mapping $l$ on the arithmetic expression space $H$ such that the following diagram commutes.
+
+\begin{center}
+    \begin{tikzcd}
+        H && H \\
+        R && R
+        \arrow["l", from=1-1, to=1-3]
+        \arrow["\nu"', from=1-1, to=2-1]
+        \arrow["\nu", from=1-3, to=2-3]
+        \arrow["k"', from=2-1, to=2-3]
+    \end{tikzcd}
+\end{center}
+
+where $\nu$ is the evaluation function of the expression. Then we call the mapping $l$ is the promotion of the function $k$,
+or function $k$ is the projection of the mapping $l$.
+\end{definition}
+
+A mapping $l$ on the arithmetic expression space $H$ can be implemented by a geometry flow on $M$.
+We give an example of function $\sin$ as follows.
+
 \subsection{The existence theorems}\label{subsec:existence-theorems}
 
 There are two important existence theorems related to the flow equation~\eqref{eq:flow}.
@@ -178,41 +204,28 @@ The second existence theorem is also crucial. It says that if we have a smooth s
 \end{theorem}
 
 \begin{proof}
-    For an area $U$ of point $p$ on surface $S$, there exists an isothermal coordinate that satisfies the following equation:
+    There are two steps in the proof. First, we prove that there exists a metric $g$ on $S$ that makes $a$ satisfy the flow equation~\eqref{eq:flow} in a local coordinate system.
+    Then we prove that the local metric can be extended to a global metric on $S$.
+
+    \emph{Part 1: local perspective}
+
+    For an area $U$ of point $p$ on surface $S$, there exists a local isothermal coordinate that satisfies the following equation:
     $$ds^2 =e^{2\rho}(du^2 + dv^2)$$
     where $u$ and $v$ are the coordinates of $U$ and $\rho$ is the function of $u, v$ on $U$.
-    We have
-    $$ \omega_1 = e^{\rho} du \hspace{4em}  \omega_2 = e^{\rho} dv $$
-    $$ \mathbf{e}_1 = e^{-\rho} \partial_u \hspace{3em}  \mathbf{e}_2 = e^{-\rho} \partial_v $$
-    The gradient of $a$ in the isothermal coordinate is given by
-    $$\nabla_a = \frac{\partial a}{\partial u} du + \frac{\partial a}{\partial v} dv$$
-    Now we rewrite the gradient equation~\eqref{eq:grad} as the following equation:
-    $$\frac{da^2}{\mu^2 + a^2 \lambda^2} = ds^2$$
-    hence, we have
-    $$\frac{da^2}{\mu^2 + a^2 \lambda^2} = e^{2\rho}(du^2 + dv^2)$$
-     \qedhere
+    The gradient of $a$ in the local isothermal coordinate is given by
+    $$\nabla a = \frac{\partial a}{\partial u} du + \frac{\partial a}{\partial v} dv$$
+    According to the directional derivative definition, we have
+    $$\frac{da_{\phi}}{ds_{\phi}} = ||\nabla a|| \cos \phi$$
+    where $||\nabla a||$ is the norm of $\nabla a$ and $\phi$ is the angle between $\nabla a$ and the movement direction.
+
+    Now considering the flow equation in the gradient-contour coodinate, we have the following equation:
+    $$\frac{da_{\phi}}{ds_{\phi}} = \sqrt{\mu^2 + a^2 \lambda^2} \cos \phi $$
+
+    Notice that $||\nabla a||$ is fixed for the given function $a$ and the local coordinate system, and $\sqrt{\mu^2 + a^2 \lambda^2}$ is also fixed for the given function $a$.
+    So can we scale $\rho$ with a linear factor to make $||\nabla a||$ varying to a fixed value of $\sqrt{\mu^2 + a^2 \lambda^2}$?
+
+    \emph{Part 2: Global perspective}
+
+    \qedhere
 \end{proof}
-
-\subsection{Flow and function}\label{subsec:flow-and-function}
-
-William P. Thurston, a notable mathematician, presented a celebrated example in his work\cite{Thurston1994OnPA}, which demonstrated various approaches to comprehend the mathematical concept of derivative. The next section of this article aims to present novel insight into functions. Namely, the treatment of functions as flows will be discussed.
-
-\begin{definition}\label{def:projection}
-Given a function $k$ on the real domain $R$, we can introduce a mapping $l$ on the arithmetic expression space $H$ such that the following diagram commutes.
-
-\begin{center}
-    \begin{tikzcd}
-        H && H \\
-        R && R
-        \arrow["l", from=1-1, to=1-3]
-        \arrow["\nu"', from=1-1, to=2-1]
-        \arrow["\nu", from=1-3, to=2-3]
-        \arrow["k"', from=2-1, to=2-3]
-    \end{tikzcd}
-\end{center}
-
-where $\nu$ is the evaluation function of the expression. Then we call the mapping $l$ is the promotion of the function $k$,
-or function $k$ is the projection of the mapping $l$.
-\end{definition}
-
 
