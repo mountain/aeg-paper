@@ -222,10 +222,11 @@ It says that if we have a smooth surface $S$ and a function $a$ on $S$, then we 
     Now, considering the flow equation in the gradient-contour coordinate system, we arrive at:
     \[ \frac{da_{\phi}}{ds_{\phi}} = \sqrt{\mu^2 + a^2 \lambda^2} \cos \phi. \]
 
-    Note that \( ||\nabla a|| \) is fixed for the given function \( a \) and the local coordinate system, and \( \sqrt{\mu^2 + a^2 \lambda^2} \) is also fixed for the given function \( a \). Thus, we can scale \( \rho \) with a linear factor to make \( ||\nabla a|| \) match the fixed value of \( \sqrt{\mu^2 + a^2 \lambda^2} \). Specifically, we can find a morphing ratio \( \kappa \) as follows:
+    Note that \( ||\nabla a|| \) is fixed for the given function \( a \) and the local coordinate system, and \( \sqrt{\mu^2 + a^2 \lambda^2} \) is also fixed for the given function \( a \). Thus, we can scale \( e^{2\rho} \) with a linear factor \( \kappa \) to make \( ||\nabla a|| \) match the fixed value of \( \sqrt{\mu^2 + a^2 \lambda^2} \). Specifically, we can find a morphing ratio \( \kappa \) as follows:
 
     \begin{align}
     ds^2 &= \kappa e^{2 \rho}(du^2 + dv^2)\label{eq:morphing} \\
+         &= e^{2 \rho + \ln \kappa}(du^2 + dv^2) \\
          &= \kappa ||\nabla a|| \\
          &= \sqrt{\mu^2 + a^2 \lambda^2},
     \end{align}
