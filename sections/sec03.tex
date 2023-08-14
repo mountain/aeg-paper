@@ -122,6 +122,14 @@ And the simplified equation is
     \frac{da}{ds} = \sqrt {\mu^2 + a^2 \lambda^2} \cos \phi\label{eq:contourgradient}
 \end{equation}
 
+or
+
+\begin{equation}
+    \frac{da_{\phi}}{ds_{\phi}} = \sqrt {\mu^2 + a^2 \lambda^2} \cos \phi\label{eq:contourgradient2}
+\end{equation}
+
+if we want to emphasize the path is along the angle $\phi$.
+
 The equation~\eqref{eq:contourgradient} is the flow equation in the contour-gradient coordinate system.
 
 Equation~\eqref{eq:contourgradient} is solvable, and we get the relation between $a$ and $s$:
@@ -219,7 +227,7 @@ It says that if we have a smooth surface $S$ and a function $a$ on $S$, then we 
     \[ \frac{da_{\phi}}{ds_{\phi}} = ||\nabla a|| \cos \phi, \]
     where \( ||\nabla a|| \) is the norm of \( \nabla a \), and \( \phi \) is the angle between \( \nabla a \) and the direction of movement.
 
-    Now, considering the flow equation in the gradient-contour coordinate system, we arrive at:
+    Now, considering the flow equation~\ref{eq:contourgradient2} in the gradient-contour coordinate system, we have:
     \[ \frac{da_{\phi}}{ds_{\phi}} = \sqrt{\mu^2 + a^2 \lambda^2} \cos \phi. \]
 
     Note that \( ||\nabla a|| \) is fixed for the given function \( a \) and the local coordinate system, and \( \sqrt{\mu^2 + a^2 \lambda^2} \) is also fixed for the given function \( a \). Thus, we can scale \( e^{2\rho} \) with a linear factor \( \kappa \) to make \( ||\nabla a|| \) match the fixed value of \( \sqrt{\mu^2 + a^2 \lambda^2} \). Specifically, we can find a morphing ratio \( \kappa \) as follows:
@@ -233,7 +241,7 @@ It says that if we have a smooth surface $S$ and a function $a$ on $S$, then we 
 
     yielding:
     \begin{equation}
-        \kappa = \frac{\sqrt{\mu^2 + a^2 \lambda^2}}{||\nabla a||}\label{eq:ratio}
+        \kappa = \frac{\sqrt{\mu^2 + a^2 \lambda^2}}{||\nabla a||}\label{eq:ratio}.
     \end{equation}
 
     This value of \( \kappa \) allows us to morph the local isothermal coordinate into a gradient-contour coordinate,
