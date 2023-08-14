@@ -191,40 +191,58 @@ There are two important existence theorems related to the flow equation~\eqref{e
 The first existence theorem states that if we have a Riemann surface $M$, then there exists a function $a$ on $M$ that satisfies the flow equation~\eqref{eq:flow}. This theorem is proved in a later section, and we will not go into the details of the proof here.
 
 \begin{theorem}
-    Giving a Riemann surface $M$, there exists a function $a$ on $M$ satisfying the flow equation~\eqref{eq:flow}.
+    Given a Riemann surface $M$, there exists a function $a$ on $M$ satisfying the flow equation~\eqref{eq:flow}.
     \label{prop:existence1st}
 \end{theorem}
 
-The second existence theorem is also crucial. It says that if we have a smooth surface $S$ and a function $a$ on $S$, then we can find a metric $g$ on $S$ that makes $a$ satisfy the flow equation~\eqref{eq:flow}.
+The second existence theorem is also crucial.
+It says that if we have a smooth surface $S$ and a function $a$ on $S$, then we can find a metric $g$ on $S$ that makes $a$ satisfy the flow equation~\eqref{eq:flow}.
 
 \begin{theorem}(By Le Zhang)
-    Giving an oriented metrizable smooth surface $S$, and a function $a$ on $S$, there exists a metric $g$ on $S$ that makes $a$
+    Given an oriented Riemannian surface $S$, and a function $a$ over $S$, there exists a metric $g$ on $S$ that makes $a$
     satisfying the flow equation~\eqref{eq:flow}.
     \label{prop:existence2nd}
 \end{theorem}
 
 \begin{proof}
-    There are two steps in the proof. First, we prove that there exists a metric $g$ on $S$ that makes $a$ satisfy the flow equation~\eqref{eq:flow} in a local coordinate system.
-    Then we prove that the local metric can be extended to a global metric on $S$.
+    The proof consists of two main steps. First, we demonstrate the existence of a metric \( g \) on \( S \) that allows \( a \) to satisfy the flow equation~\eqref{eq:flow} in a local coordinate system. Then, we show that this local metric can be extended to a global metric on \( S \).
 
-    \emph{Part 1: local perspective}
+    \emph{Part 1: Local Perspective}
 
-    For an area $U$ of point $p$ on surface $S$, there exists a local isothermal coordinate that satisfies the following equation:
-    $$ds^2 =e^{2\rho}(du^2 + dv^2)$$
-    where $u$ and $v$ are the coordinates of $U$ and $\rho$ is the function of $u, v$ on $U$.
-    The gradient of $a$ in the local isothermal coordinate is given by
-    $$\nabla a = \frac{\partial a}{\partial u} du + \frac{\partial a}{\partial v} dv$$
-    According to the directional derivative definition, we have
-    $$\frac{da_{\phi}}{ds_{\phi}} = ||\nabla a|| \cos \phi$$
-    where $||\nabla a||$ is the norm of $\nabla a$ and $\phi$ is the angle between $\nabla a$ and the movement direction.
+    Consider a point \( p \) on the surface \( S \), and there is a neighborhood \( U \) around \( p \).
+    In this area, we can find a local isothermal coordinate system in which the metric takes the form:
+    \[ ds^2 = e^{2\rho}(du^2 + dv^2), \]
+    where \( u \) and \( v \) are the coordinates of \( U \), and \( \rho \) is a function of \( u, v \) in \( U \).
+    The gradient of \( a \) in this local isothermal coordinate system is expressed as:
+    \[ \nabla a = \frac{\partial a}{\partial u} du + \frac{\partial a}{\partial v} dv. \]
+    Using the definition of the directional derivative, we obtain:
+    \[ \frac{da_{\phi}}{ds_{\phi}} = ||\nabla a|| \cos \phi, \]
+    where \( ||\nabla a|| \) is the norm of \( \nabla a \), and \( \phi \) is the angle between \( \nabla a \) and the direction of movement.
 
-    Now considering the flow equation in the gradient-contour coodinate, we have the following equation:
-    $$\frac{da_{\phi}}{ds_{\phi}} = \sqrt{\mu^2 + a^2 \lambda^2} \cos \phi $$
+    Now, considering the flow equation in the gradient-contour coordinate system, we arrive at:
+    \[ \frac{da_{\phi}}{ds_{\phi}} = \sqrt{\mu^2 + a^2 \lambda^2} \cos \phi. \]
 
-    Notice that $||\nabla a||$ is fixed for the given function $a$ and the local coordinate system, and $\sqrt{\mu^2 + a^2 \lambda^2}$ is also fixed for the given function $a$.
-    So can we scale $\rho$ with a linear factor to make $||\nabla a||$ varying to a fixed value of $\sqrt{\mu^2 + a^2 \lambda^2}$?
+    Note that \( ||\nabla a|| \) is fixed for the given function \( a \) and the local coordinate system, and \( \sqrt{\mu^2 + a^2 \lambda^2} \) is also fixed for the given function \( a \). Thus, we can scale \( \rho \) with a linear factor to make \( ||\nabla a|| \) match the fixed value of \( \sqrt{\mu^2 + a^2 \lambda^2} \). Specifically, we can find a morphing ratio \( \kappa \) as follows:
 
-    \emph{Part 2: Global perspective}
+    \begin{align}
+    ds^2 &= \kappa e^{2 \rho}(du^2 + dv^2)\label{eq:morphing} \\
+         &= \kappa ||\nabla a|| \\
+         &= \sqrt{\mu^2 + a^2 \lambda^2},
+    \end{align}
+
+    yielding:
+    \begin{equation}
+        \kappa = \frac{\sqrt{\mu^2 + a^2 \lambda^2}}{||\nabla a||}\label{eq:ratio}
+    \end{equation}
+
+    This value of \( \kappa \) allows us to morph the local isothermal coordinate into a gradient-contour coordinate,
+    and thus the flow equation~\eqref{eq:flow} can be satisfied in the final local coordinate system.
+    The morphing is controlled by the equation~\eqref{eq:morphing}, and the morphing ratio \( \kappa \) is varied from $1$ to the value of~\eqref{eq:ratio}.
+
+    \emph{Part 2: Global Perspective}
+
+
+
 
     \qedhere
 \end{proof}
