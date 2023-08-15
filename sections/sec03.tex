@@ -192,6 +192,26 @@ or function $k$ is the projection of the mapping $l$.
 A mapping $l$ on the arithmetic expression space $H$ can be implemented by a geometry flow on $M$.
 We give an example of function $\sin$ as follows.
 
+\subsubsection{The flow of sine}\label{subsubsec:flow-of-sine}
+
+Form the flow equation~\eqref{eq:flow} we have
+
+$$\frac{da}{ds} = \cos \theta + a \sin \theta$$
+
+$$\frac{da}{dt} = (\cos \theta + a \sin \theta)\frac{ds}{dt}$$
+
+And along the variation of $t$, we have $a(t) = \sin t$, so we have
+
+$$\cos t = (\cos \theta + \sin t \sin \theta)\frac{ds}{dt}$$
+
+$$\frac{ds}{dt} = \frac{\cos t}{\cos \theta + \sin t \sin \theta}$$
+
+\subsubsection{Brachistochrone curve}\label{subsubsec:brachistochrone}
+
+The brachistochrone curve is the curve between two points
+that minimizes the time taken by a frictionless bead sliding along a wire.
+
+
 \subsection{The existence theorems}\label{subsec:existence-theorems}
 
 There are two important existence theorems related to the flow equation~\eqref{eq:flow}.
@@ -224,17 +244,19 @@ It says that if we have a smooth surface $S$ and a function $a$ on $S$, then we 
     The gradient of \( a \) in this local isothermal coordinate system is expressed as:
     \[ \nabla a = \frac{\partial a}{\partial u} du + \frac{\partial a}{\partial v} dv. \]
     Using the definition of the directional derivative, we obtain:
-    \[ \frac{da_{\phi}}{ds_{\phi}} = ||\nabla a|| \cos \phi, \]
-    where \( ||\nabla a|| \) is the norm of \( \nabla a \), and \( \phi \) is the angle between \( \nabla a \) and the direction of movement.
+    \[ \frac{da_{\psi}}{ds_{\psi}} = ||\nabla a|| \cos \psi, \]
+    where \( ||\nabla a|| \) is the norm of \( \nabla a \), and \( \psi \) is the angle between \( \nabla a \) and the direction of movement.
 
     Now, considering the flow equation~\ref{eq:contourgradient2} in the gradient-contour coordinate system, we have:
     \[ \frac{da_{\phi}}{ds_{\phi}} = \sqrt{\mu^2 + a^2 \lambda^2} \cos \phi. \]
 
-    Note that \( ||\nabla a|| \) is fixed for the given function \( a \) and the local coordinate system, and \( \sqrt{\mu^2 + a^2 \lambda^2} \) is also fixed for the given function \( a \). Thus, we can scale \( e^{2\rho} \) with a linear factor \( \kappa \) to make \( ||\nabla a|| \) match the fixed value of \( \sqrt{\mu^2 + a^2 \lambda^2} \). Specifically, we can find a morphing ratio \( \kappa \) as follows:
+    Note that \( ||\nabla a|| \) is fixed for the given function \( a \) and the local coordinate system, and \( \sqrt{\mu^2 + a^2 \lambda^2} \) is also fixed for the given function \( a \).
+    Thus, we can scale \( e^{2\rho} \) with a linear factor \( \kappa \) to make \( ||\nabla a|| \) match the fixed value of \( \sqrt{\mu^2 + a^2 \lambda^2} \).
+    Specifically, we can find a morphing ratio \( \kappa \), and along certain direction, we have:
 
     \begin{align}
-    ds^2 &= \kappa e^{2 \rho}(du^2 + dv^2)\label{eq:morphing} \\
-         &= e^{2 \rho + \ln \kappa}(du^2 + dv^2) \\
+    ds^2 &= e^{2 \rho + \ln \kappa}(du^2 + dv^2) \\
+         &= \kappa e^{2 \rho}(du^2 + dv^2)\label{eq:morphing}\\
          &= \kappa ||\nabla a|| \\
          &= \sqrt{\mu^2 + a^2 \lambda^2},
     \end{align}
