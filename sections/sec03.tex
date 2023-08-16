@@ -208,8 +208,8 @@ $$\frac{ds}{dt} = \frac{\cos t}{\cos \theta + \sin t \sin \theta}$$
 
 \subsubsection{Brachistochrone curve}\label{subsubsec:brachistochrone}
 
-The brachistochrone curve is the curve between two points
-that minimizes the time taken by a frictionless bead sliding along a wire.
+The brachistochrone curve is the curve between two points that minimizes the time taken by a frictionless bead sliding along a wire.
+We assume the wire is a curve $\eta = f(\delta)$, and the bead starts at $(0, 0)$ and ends at $( \Delta, H )$ as time $t$ goes from $0$ to $T$.
 
 
 \subsection{The existence theorems}\label{subsec:existence-theorems}
@@ -272,9 +272,21 @@ It says that if we have a smooth surface $S$ and a function $a$ on $S$, then we 
 
     \emph{Part 2: Global Perspective}
 
-
-
-
     \qedhere
 \end{proof}
 
+\subsection{Notion study}\label{subsec:notion-study}
+
+The flow equation~\eqref{eq:flow} is taken in a local polar coordinate system,
+
+$$\frac{da}{ds} = \mu \cos \theta + a \lambda \sin \theta$$
+
+If we take $dx = \cos \theta ds$ and $dy = \sin \theta ds$, we can rewrite it as
+
+$$da = \mu dx + a \lambda dy$$
+
+$$a + da = (a + \mu dx)e^{\lambda dy}$$
+
+$$a + da = (a + \mu dx)e^{\lambda dy}$$
+
+$$\lfloor a \rfloor = \lceil \lfloor A \rfloor \rceil $$
