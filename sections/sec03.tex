@@ -189,10 +189,17 @@ where $\nu$ is the evaluation function of the expression. Then we call the mappi
 or function $k$ is the projection of the mapping $l$.
 \end{definition}
 
-A mapping $l$ on the arithmetic expression space $H$ can be implemented by a geometry flow on $M$.
-We give an example of function $\sin$ as follows.
+Giving the arithmetic expression space $H$, now we introduce the standard definition of flow by one-parameter group.
+\begin{definition}\label{def:flow}
+a continuous group homomorphism
+\end{definition}
 
-\subsubsection{The flow of sine}\label{subsubsec:flow-of-sine}
+Giving a function $f$ on $R$, the arithmetic expression space $H$, we introduce a flow $T$ on $H$.
+
+Giving an arithmetic expression space as definition at the beginning of the section\ref{subsec:meshgrid},
+we will show examples of flows as functions.
+
+\subsubsection{Example 1: the flow of sine}\label{subsubsec:flow-of-sine}
 
 Form the flow equation~\eqref{eq:flow} we have
 
@@ -206,7 +213,17 @@ $$\cos t = (\cos \theta + \sin t \sin \theta)\frac{ds}{dt}$$
 
 $$\frac{ds}{dt} = \frac{\cos t}{\cos \theta + \sin t \sin \theta}$$
 
-\subsubsection{Brachistochrone curve}\label{subsubsec:brachistochrone}
+$$ s = \csc \theta \ln (\cos \theta + \sin t \sin \theta) + C$$
+
+$$ e^{(s - C) \sin \theta}= \cos \theta + \sin t \sin \theta$$
+
+Notice that  $a(t) = \sin t$ and $a = - \frac{x}{y}$, we have
+
+
+$$ e^{(s - C) \sin \theta}= \cos \theta + \sin t \sin \theta$$
+
+
+\subsubsection{Example 2: Brachistochrone curve}\label{subsubsec:brachistochrone}
 
 The brachistochrone curve is the curve between two points that minimizes the time taken by a frictionless bead sliding along a wire.
 We assume the wire is a curve $\eta = f(\delta)$, and the bead starts at $(0, 0)$ and ends at $( \Delta, H )$ as time $t$ goes from $0$ to $T$.
