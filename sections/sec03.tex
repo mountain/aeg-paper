@@ -294,12 +294,10 @@ We morph the metric $g$ to make $a$ satisfy the flow equation~\eqref{eq:flow}, t
 
     \emph{Part 2: Global Perspective}
 
-
-
     \qedhere
 \end{proof}
 
-\subsection{Notion study}\label{subsec:notion-study}
+\subsection{Local Descartes coordinate}\label{subsec:notion-study}
 
 The flow equation~\eqref{eq:flow} is taken in a local polar coordinate system,
 
@@ -309,8 +307,16 @@ If we take $dx = \cos \theta ds$ and $dy = \sin \theta ds$, we can rewrite it as
 
 $$da = \mu dx + a \lambda dy$$
 
-$$a + da = (a + \mu dx)e^{\lambda dy}$$
+Now we introduce the formula of arithmetic torsion at infinitesimal level. Considering the commutator of two infinitesimal generating processes, we have
+$$
+  d\tau = a_0 e^{\lambda dy} + \mu dx - (a_0 + \mu dx) e^{\lambda dy}
+$$
 
-$$a + da = (a + \mu dx)e^{\lambda dy}$$
+then we have
+$$
+d\tau = \mu dx (1 - e^{\lambda dy})
+$$
 
-$$\lfloor a \rfloor = \lceil \lfloor A \rfloor \rceil $$
+\begin{equation}
+  d\tau = - \mu \lambda dx dy\label{eq:arithmetic_torsion}
+\end{equation}
