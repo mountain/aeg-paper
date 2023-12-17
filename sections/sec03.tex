@@ -62,9 +62,7 @@ We can also get a direct formal solution of the flow equation~\eqref{eq:flow}(de
    a = (a_0 + \frac{\mu}{\lambda} \cot \theta) e^{\lambda s \sin \theta} - \frac{\mu}{\lambda} \cot \theta\label{eq:solution}
 \end{equation}
 
-While the validity of this solution is still uncertain because we have not assumed any constraints on the local coordinate system,
-it is still a useful starting point for further investigation.
-For example, we can use this solution to derive (details in Appendix~\ref{sec:conformance}) the relationship between assignments at different vertices in a cell of a mesh grid.
+Now, we can use this solution to derive (details in Appendix~\ref{sec:conformance}) the relationship between assignments at different vertices in a cell of a mesh grid.
 
 Assuming the assignment at the center point of a cell is $a_0$, we move in different directions and obtain the following assignments:
 
@@ -166,6 +164,50 @@ In this coordinate system, the additional line and the multiplicative line are:
     \phi = \arcsin \frac{\mu}{\sqrt {\mu^2 + a^2 \lambda^2}}\label {eq:mulitiplcativeline}
 \end{equation}
 
+\subsection{Local Descartes coordinate and area formula}\label{subsec:descartes-coordinate}
+We begin our exploration by examining the flow equation~\eqref{eq:flow} within the framework of a local polar coordinate system:
+
+\begin{equation}
+    \frac{da}{ds} = \mu \cos \theta + a \lambda \sin \theta
+\end{equation}
+
+In an effort to recontextualize this equation, we set $dx = \cos \theta ds$ and $dy = \sin \theta ds$,
+thereby enabling us to express it in a different light:
+
+\begin{equation}
+    da = \mu dx + a \lambda dy
+\end{equation}
+
+Our attention now turns to the concept of arithmetic torsion, particularly at an infinitesimal level. Delving into the interplay between two infinitesimal generating processes, we observe that:
+
+\begin{equation}
+    d\tau = a_0 e^{\lambda dy} + \mu dx - (a_0 + \mu dx) e^{\lambda dy}
+\end{equation}
+
+From this relationship, we deduce:
+
+\begin{equation}
+    d\tau = \mu dx (1 - e^{\lambda dy})
+\end{equation}
+
+This leads us to an intriguing area formula, capturing the essence of this interaction:
+
+\begin{equation}
+    d\tau = - \mu \lambda dx dy \label{eq:area_formular}
+\end{equation}
+
+or in the form of a differential form:
+\begin{equation}
+    d\tau = - \mu \lambda dS \label{eq:area_formular2}
+\end{equation}
+
+where $dS$ is the area element.
+
+This formula is interesting because it connects the area elements and arithmetic torsion which by nature are defined on edge of the area.
+
+These kind of formulas are also meet in the study of classic analysis or differential geometry, for example, Stokes theorem or the Gauss-Bonnet theorem.
+We will develop this formula further in the following section\ref{sec:curvature} to connect it with curvature and the Gauss-Bonnet theorem.
+
 \subsection{Flow and function}\label{subsec:flow-and-function}
 
 In this section, we aim to present novel insight into functions.
@@ -189,44 +231,15 @@ where $\nu$ is the evaluation function of the expression. Then we call the mappi
 or function $k$ is the projection of the mapping $l$.
 \end{definition}
 
-Giving the arithmetic expression space $H$, now we introduce the standard definition of flow by one-parameter group.
-\begin{definition}\label{def:flow}
-a continuous group homomorphism
-\end{definition}
-
-Giving a function $f$ on $R$, the arithmetic expression space $H$, we introduce a flow $T$ on $H$.
-
 Giving an arithmetic expression space as definition at the beginning of the section\ref{subsec:meshgrid},
 we will show examples of flows as functions.
 
-\subsubsection{Example 1: the flow of sine}\label{subsubsec:flow-of-sine}
-
-Form the flow equation~\eqref{eq:flow} we have
-
-$$\frac{da}{ds} = \cos \theta + a \sin \theta$$
-
-$$\frac{da}{dt} = (\cos \theta + a \sin \theta)\frac{ds}{dt}$$
-
-And along the variation of $t$, we have $a(t) = \sin t$, so we have
-
-$$\cos t = (\cos \theta + \sin t \sin \theta)\frac{ds}{dt}$$
-
-$$\frac{ds}{dt} = \frac{\cos t}{\cos \theta + \sin t \sin \theta}$$
-
-$$ s = \csc \theta \ln (\cos \theta + \sin t \sin \theta) + C$$
-
-$$ e^{(s - C) \sin \theta}= \cos \theta + \sin t \sin \theta$$
-
-Notice that  $a(t) = \sin t$ and $a = - \frac{x}{y}$, we have
-
-
-$$ e^{(s - C) \sin \theta}= \cos \theta + \sin t \sin \theta$$
-
-
-\subsubsection{Example 2: Brachistochrone curve}\label{subsubsec:brachistochrone}
+\subsubsection{Example: Brachistochrone curve}\label{subsubsec:brachistochrone}
 
 The brachistochrone curve is the curve between two points that minimizes the time taken by a frictionless bead sliding along a wire.
 We assume the wire is a curve $\eta = f(\delta)$, and the bead starts at $(0, 0)$ and ends at $( \Delta, H )$ as time $t$ goes from $0$ to $T$.
+
+TODO
 
 \subsection{The existence theorems}\label{subsec:existence-theorems}
 
@@ -244,15 +257,16 @@ It says that if we have a smooth surface $S$ and a function $a$ on $S$, then we 
 We morph the metric $g$ to make $a$ satisfy the flow equation~\eqref{eq:flow}, this technique will be touched back and forth in the following sections.
 
 \begin{theorem}(By Le Zhang)
-    Given an oriented 2D Riemannian manifold $S$, and a function $a$ over $S$, there exists a metric $g$ on $S$ that makes $a$
+    Given an oriented 2D compact Riemannian manifold $S$, and a function $a$ over $S$, there exists a metric $g$ on $S$ that makes $a$
     satisfying the flow equation~\eqref{eq:flow}.
     \label{prop:existence2nd}
 \end{theorem}
 
 \begin{proof}
-    The proof consists of two main steps. First, we demonstrate the existence of a metric \( g \) on \( S \) that allows \( a \) to satisfy the flow equation~\eqref{eq:flow} in a local coordinate system. Then, we show that this local metric can be extended to a global metric on \( S \).
 
-    \emph{Part 1: Local Perspective}
+    The proof is divided into two parts: local perspective and global perspective.
+
+    \emph{Local perspective}:
 
     Consider a point \( p \) on the surface \( S \), and there is a neighborhood \( U \) around \( p \).
     In this area, we can find a local isothermal coordinate system in which the metric takes the form:
@@ -292,31 +306,16 @@ We morph the metric $g$ to make $a$ satisfy the flow equation~\eqref{eq:flow}, t
         \kappa = \frac{||\nabla a||}{\sqrt{\mu^2 + a^2 \lambda^2}}\label{eq:ratio}.
     \end{equation}
 
-    \emph{Part 2: Global Perspective}
+    \emph{Global perspective}:
+
+    When we consider the broader scope of the surface \( S \), it's possible to extend the morphing process to every point,
+    ensuring that the flow equation~\eqref{eq:flow} is satisfied on a global scale.
+    However, this expansion necessitates a harmonious integration of the morphing process across neighboring locales.
+    Specifically, this means that the morphing should not only preserve the circles centered at point \( p \) within its immediate local chart
+    but also maintain the integrity of these circles within the adjacent charts of point \( p \).
+    In essence, the morphing process must be seamlessly coordinated across the various local regions to achieve a unified global transformation.
+
+    TODO
 
     \qedhere
 \end{proof}
-
-\subsection{Local Descartes coordinate}\label{subsec:notion-study}
-
-The flow equation~\eqref{eq:flow} is taken in a local polar coordinate system,
-
-$$\frac{da}{ds} = \mu \cos \theta + a \lambda \sin \theta$$
-
-If we take $dx = \cos \theta ds$ and $dy = \sin \theta ds$, we can rewrite it as
-
-$$da = \mu dx + a \lambda dy$$
-
-Now we introduce the formula of arithmetic torsion at infinitesimal level. Considering the commutator of two infinitesimal generating processes, we have
-$$
-  d\tau = a_0 e^{\lambda dy} + \mu dx - (a_0 + \mu dx) e^{\lambda dy}
-$$
-
-then we have
-$$
-d\tau = \mu dx (1 - e^{\lambda dy})
-$$
-
-\begin{equation}
-  d\tau = - \mu \lambda dx dy\label{eq:arithmetic_torsion}
-\end{equation}
