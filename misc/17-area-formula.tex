@@ -1,0 +1,203 @@
+\documentclass{standalone}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{mathtools}
+
+\usepackage{pgf}
+\usepgflibrary{fpu}
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usetikzlibrary{angles,fit,arrows,calc,math,matrix,intersections,through,backgrounds,cd}
+\usepackage{tkz-euclide}
+\usepackage{tkz-graph}
+\usepackage{graphicx}
+\pgfplotsset{compat=1.18}
+
+\begin{document}
+
+    \tikzmath{
+        \one = 1;
+        \base = 2;
+        \offset = 15.8888888;
+        \valofpi = 3.1415926;
+        \anglei = 3.1415926;
+        \angleo = 3.1415926;
+    }
+
+    \begin{tikzpicture}
+            \draw [black, line width=0.6pt, ->] (15.875,0) to[out=90,in=270] (15.875,15.5);
+            \node [anchor=south] at (16,15.5) {y};
+            \draw [black, line width=0.6pt, ->] (-7.5,0) to[out=0,in=180] (18,0);
+            \node [anchor=west] at (18.5,0) {x};
+
+            \foreach \x in {-25,...,2}
+            \node [anchor=north] at (\x / 9 * 8 + \offset,0) {\x};
+            \foreach \y in {1,...,17}
+            \node [anchor=-135] at (18,\y / 9 * 8) {\y};
+
+            \foreach \t in {17, ..., 1}
+            \draw [lightgray, line width=0.6pt] (-7.5, \t / 9 * 8) to[out=0,in=180] (18, \t / 9 * 8);
+
+            \foreach \t in {-26, ..., 2}
+            \draw [lightgray, line width=0.6pt] (\t / 9 * 8 + \offset, 0) to[out=90,in=270] (\t / 9 * 8 + \offset, 15.5);
+
+            \draw [green, line width=1.0pt] (-25 / 9 * 8 + \offset, 0) to[out=90,in=270] (-25 / 9 * 8 + \offset, 1 / 9 * 8);
+            \draw [green, line width=1.0pt] (-24 / 9 * 8 + \offset, 0) to[out=90,in=270] (-24 / 9 * 8 + \offset, 8 / 9 * 8);
+            \draw [green, line width=1.0pt] (-23 / 9 * 8 + \offset, 0) to[out=90,in=270] (-23 / 9 * 8 + \offset, 1 / 9 * 8);
+            \draw [green, line width=1.0pt] (-22 / 9 * 8 + \offset, 0) to[out=90,in=270] (-22 / 9 * 8 + \offset, 2 / 9 * 8);
+            \draw [green, line width=1.0pt] (-21 / 9 * 8 + \offset, 0) to[out=90,in=270] (-21 / 9 * 8 + \offset, 1 / 9 * 8);
+            \draw [green, line width=1.0pt] (-20 / 9 * 8 + \offset, 0) to[out=90,in=270] (-20 / 9 * 8 + \offset, 4 / 9 * 8);
+            \draw [green, line width=1.0pt] (-19 / 9 * 8 + \offset, 0) to[out=90,in=270] (-19 / 9 * 8 + \offset, 1 / 9 * 8);
+            \draw [green, line width=1.0pt] (-18 / 9 * 8 + \offset, 0) to[out=90,in=270] (-18 / 9 * 8 + \offset, 2 / 9 * 8);
+            \draw [green, line width=1.0pt] (-17 / 9 * 8 + \offset, 0) to[out=90,in=270] (-17 / 9 * 8 + \offset, 1 / 9 * 8);
+            \draw [green, line width=1.0pt] (-16 / 9 * 8 + \offset, 0) to[out=90,in=270] (-16 / 9 * 8 + \offset, 16 / 9 * 8);
+            \draw [green, line width=1.0pt] (-15 / 9 * 8 + \offset, 0) to[out=90,in=270] (-15 / 9 * 8 + \offset, 1 / 9 * 8);
+            \draw [green, line width=1.0pt] (-14 / 9 * 8 + \offset, 0) to[out=90,in=270] (-14 / 9 * 8 + \offset, 2 / 9 * 8);
+            \draw [green, line width=1.0pt] (-13 / 9 * 8 + \offset, 0) to[out=90,in=270] (-13 / 9 * 8 + \offset, 1 / 9 * 8);
+            \draw [green, line width=1.0pt] (-12 / 9 * 8 + \offset, 0) to[out=90,in=270] (-12 / 9 * 8 + \offset, 4 / 9 * 8);
+            \draw [green, line width=1.0pt] (-11 / 9 * 8 + \offset, 0) to[out=90,in=270] (-11 / 9 * 8 + \offset, 1 / 9 * 8);
+            \draw [green, line width=1.0pt] (-10 / 9 * 8 + \offset, 0) to[out=90,in=270] (-10 / 9 * 8 + \offset, 2 / 9 * 8);
+            \draw [green, line width=1.0pt] (-9 / 9 * 8 + \offset, 0) to[out=90,in=270] (-9 / 9 * 8 + \offset, 1 / 9 * 8);
+            \draw [green, line width=1.0pt] (-8 / 9 * 8 + \offset, 0) to[out=90,in=270] (-8 / 9 * 8 + \offset, 8 / 9 * 8);
+            \draw [green, line width=1.0pt] (-7 / 9 * 8 + \offset, 0) to[out=90,in=270] (-7 / 9 * 8 + \offset, 1 / 9 * 8);
+            \draw [green, line width=1.0pt] (-6 / 9 * 8 + \offset, 0) to[out=90,in=270] (-6 / 9 * 8 + \offset, 2 / 9 * 8);
+            \draw [green, line width=1.0pt] (-5 / 9 * 8 + \offset, 0) to[out=90,in=270] (-5 / 9 * 8 + \offset, 1 / 9 * 8);
+            \draw [green, line width=1.0pt] (-4 / 9 * 8 + \offset, 0) to[out=90,in=270] (-4 / 9 * 8 + \offset, 4 / 9 * 8);
+            \draw [green, line width=1.0pt] (-3 / 9 * 8 + \offset, 0) to[out=90,in=270] (-3 / 9 * 8 + \offset, 1 / 9 * 8);
+            \draw [green, line width=1.0pt] (-2 / 9 * 8 + \offset, 0) to[out=90,in=270] (-2 / 9 * 8 + \offset, 2 / 9 * 8);
+            \draw [green, line width=1.0pt] (-1 / 9 * 8 + \offset, 0) to[out=90,in=270] (-1 / 9 * 8 + \offset, 1 / 9 * 8);
+
+            \foreach \a in {16, 8, 4, 2, 1}
+            \draw [blue, line width=0.6pt] (-7.5, \a / 9 * 8) to[out=0,in=180] (18, \a / 9 * 8);
+
+            \node[circle,fill=black,inner sep=1pt,minimum size=3pt] (a) at (\offset, 16 / 9 * 8) {};
+            \node [anchor=315, red] at (\offset, 16 / 9 * 8) {0};
+            \node[circle,fill=black,inner sep=1pt,minimum size=3pt] (a) at (-16 / 9 * 8 + \offset, 16 / 9 * 8) {};
+            \node [anchor=315, red] at (-16 / 9 * 8 + \offset, 16 / 9 * 8) {1};
+
+            \node[circle,fill=black,inner sep=1pt,minimum size=3pt] (a) at (\offset, 8 / 9 * 8) {};
+            \node [anchor=315, red] at (\offset, 8 / 9 * 8) {0};
+            \node[circle,fill=black,inner sep=1pt,minimum size=3pt] (b) at (-8 / 9 * 8 + \offset, 8 / 9 * 8) {};
+            \node [anchor=315, red] at (-8 / 9 * 8 + \offset, 8 / 9 * 8) {1};
+            \node[circle,fill=black,inner sep=1pt,minimum size=3pt] (b) at (-16 / 9 * 8 + \offset, 8 / 9 * 8) {};
+            \node [anchor=315, red] at (-16 / 9 * 8 + \offset, 8 / 9 * 8) {2};
+            \node[circle,fill=black,inner sep=1pt,minimum size=3pt] (b) at (-16 / 9 * 8 + \offset, 8 / 9 * 8) {};
+            \node [anchor=315, red] at (-24 / 9 * 8 + \offset, 8 / 9 * 8) {3};
+
+            \node[circle,fill=black,inner sep=1pt,minimum size=3pt] (a) at (\offset, 4 / 9 * 8) {};
+            \node [anchor=315, red] at (\offset, 4 / 9 * 8) {0};
+            \node[circle,fill=black,inner sep=1pt,minimum size=3pt] (b) at (-4 / 9 * 8 + \offset, 4 / 9 * 8) {};
+            \node [anchor=315, red] at (-4 / 9 * 8 + \offset, 4 / 9 * 8) {1};
+            \node[circle,fill=black,inner sep=1pt,minimum size=3pt] (b) at (-8 / 9 * 8 + \offset, 4 / 9 * 8) {};
+            \node [anchor=315, red] at (-8 / 9 * 8 + \offset, 4 / 9 * 8) {2};
+            \node[circle,fill=black,inner sep=1pt,minimum size=3pt] (b) at (-12 / 9 * 8 + \offset, 4 / 9 * 8) {};
+            \node [anchor=315, red] at (-12 / 9 * 8 + \offset, 4 / 9 * 8) {3};
+            \node[circle,fill=black,inner sep=1pt,minimum size=3pt] (b) at (-16 / 9 * 8 + \offset, 4 / 9 * 8) {};
+            \node [anchor=315, red] at (-16 / 9 * 8 + \offset, 4 / 9 * 8) {4};
+            \node[circle,fill=black,inner sep=1pt,minimum size=3pt] (b) at (-20 / 9 * 8 + \offset, 4 / 9 * 8) {};
+            \node [anchor=315, red] at (-20 / 9 * 8 + \offset, 4 / 9 * 8) {5};
+            \node[circle,fill=black,inner sep=1pt,minimum size=3pt] (b) at (-24 / 9 * 8 + \offset, 4 / 9 * 8) {};
+            \node [anchor=315, red] at (-24 / 9 * 8 + \offset, 4 / 9 * 8) {6};
+
+            \node[circle,fill=black,inner sep=1pt,minimum size=3pt] (b) at (\offset, 2 / 9 * 8) {};
+            \node [anchor=315, red] at (\offset, 2 / 9 * 8) {0};
+            \node[circle,fill=black,inner sep=1pt,minimum size=3pt] (b) at (-2 / 9 * 8 + \offset, 2 / 9 * 8) {};
+            \node [anchor=315, red] at (-2 / 9 * 8 + \offset, 2 / 9 * 8) {1};
+            \node[circle,fill=black,inner sep=1pt,minimum size=3pt] (b) at (-4 / 9 * 8 + \offset, 2 / 9 * 8) {};
+            \node [anchor=315, red] at (-4 / 9 * 8 + \offset, 2 / 9 * 8) {2};
+            \node[circle,fill=black,inner sep=1pt,minimum size=3pt] (b) at (-6 / 9 * 8 + \offset, 2 / 9 * 8) {};
+            \node [anchor=315, red] at (-6 / 9 * 8 + \offset, 2 / 9 * 8) {3};
+            \node[circle,fill=black,inner sep=1pt,minimum size=3pt] (b) at (-8 / 9 * 8 + \offset, 2 / 9 * 8) {};
+            \node [anchor=315, red] at (-8 / 9 * 8 + \offset, 2 / 9 * 8) {4};
+            \node[circle,fill=black,inner sep=1pt,minimum size=3pt] (b) at (-10 / 9 * 8 + \offset, 2 / 9 * 8) {};
+            \node [anchor=315, red] at (-10 / 9 * 8 + \offset, 2 / 9 * 8) {5};
+            \node[circle,fill=black,inner sep=1pt,minimum size=3pt] (b) at (-12 / 9 * 8 + \offset, 2 / 9 * 8) {};
+            \node [anchor=315, red] at (-12 / 9 * 8 + \offset, 2 / 9 * 8) {6};
+            \node[circle,fill=black,inner sep=1pt,minimum size=3pt] (b) at (-14 / 9 * 8 + \offset, 2 / 9 * 8) {};
+            \node [anchor=315, red] at (-14 / 9 * 8 + \offset, 2 / 9 * 8) {7};
+            \node[circle,fill=black,inner sep=1pt,minimum size=3pt] (b) at (-16 / 9 * 8 + \offset, 2 / 9 * 8) {};
+            \node [anchor=315, red] at (-16 / 9 * 8 + \offset, 2 / 9 * 8) {8};
+            \node[circle,fill=black,inner sep=1pt,minimum size=3pt] (b) at (-18 / 9 * 8 + \offset, 2 / 9 * 8) {};
+            \node [anchor=315, red] at (-18 / 9 * 8 + \offset, 2 / 9 * 8) {9};
+            \node[circle,fill=black,inner sep=1pt,minimum size=3pt] (b) at (-20 / 9 * 8 + \offset, 2 / 9 * 8) {};
+            \node [anchor=315, red] at (-20 / 9 * 8 + \offset, 2 / 9 * 8) {10};
+            \node[circle,fill=black,inner sep=1pt,minimum size=3pt] (b) at (-22 / 9 * 8 + \offset, 2 / 9 * 8) {};
+            \node [anchor=315, red] at (-22 / 9 * 8 + \offset, 2 / 9 * 8) {11};
+            \node[circle,fill=black,inner sep=1pt,minimum size=3pt] (b) at (-24 / 9 * 8 + \offset, 2 / 9 * 8) {};
+            \node [anchor=315, red] at (-24 / 9 * 8 + \offset, 2 / 9 * 8) {12};
+
+            \node[circle,fill=black,inner sep=1pt,minimum size=3pt] (b) at (\offset, 1 / 9 * 8) {};
+            \node [anchor=315, red] at (\offset, 1 / 9 * 8) {0};
+            \node[circle,fill=black,inner sep=1pt,minimum size=3pt] (b) at (-1 / 9 * 8 + \offset, 1 / 9 * 8) {};
+            \node [anchor=315, red] at (-1 / 9 * 8 + \offset, 1 / 9 * 8) {1};
+            \node[circle,fill=black,inner sep=1pt,minimum size=3pt] (b) at (-2 / 9 * 8 + \offset, 1 / 9 * 8) {};
+            \node [anchor=315, red] at (-2 / 9 * 8 + \offset, 1 / 9 * 8) {2};
+            \node[circle,fill=black,inner sep=1pt,minimum size=3pt] (b) at (-3 / 9 * 8 + \offset, 1 / 9 * 8) {};
+            \node [anchor=315, red] at (-3 / 9 * 8 + \offset, 1 / 9 * 8) {3};
+            \node[circle,fill=black,inner sep=1pt,minimum size=3pt] (b) at (-4 / 9 * 8 + \offset, 1 / 9 * 8) {};
+            \node [anchor=315, red] at (-4 / 9 * 8 + \offset, 1 / 9 * 8) {4};
+            \node[circle,fill=black,inner sep=1pt,minimum size=3pt] (b) at (-5 / 9 * 8 + \offset, 1 / 9 * 8) {};
+            \node [anchor=315, red] at (-5 / 9 * 8 + \offset, 1 / 9 * 8) {5};
+            \node[circle,fill=black,inner sep=1pt,minimum size=3pt] (b) at (-6 / 9 * 8 + \offset, 1 / 9 * 8) {};
+            \node [anchor=315, red] at (-6 / 9 * 8 + \offset, 1 / 9 * 8) {6};
+            \node[circle,fill=black,inner sep=1pt,minimum size=3pt] (b) at (-7 / 9 * 8 + \offset, 1 / 9 * 8) {};
+            \node [anchor=315, red] at (-7 / 9 * 8 + \offset, 1 / 9 * 8) {7};
+            \node[circle,fill=black,inner sep=1pt,minimum size=3pt] (b) at (-8 / 9 * 8 + \offset, 1 / 9 * 8) {};
+            \node [anchor=315, red] at (-8 / 9 * 8 + \offset, 1 / 9 * 8) {8};
+            \node[circle,fill=black,inner sep=1pt,minimum size=3pt] (b) at (-9 / 9 * 8 + \offset, 1 / 9 * 8) {};
+            \node [anchor=315, red] at (-9 / 9 * 8 + \offset, 1 / 9 * 8) {9};
+            \node[circle,fill=black,inner sep=1pt,minimum size=3pt] (b) at (-10 / 9 * 8 + \offset, 1 / 9 * 8) {};
+            \node [anchor=315, red] at (-10 / 9 * 8 + \offset, 1 / 9 * 8) {10};
+            \node[circle,fill=black,inner sep=1pt,minimum size=3pt] (b) at (-11 / 9 * 8 + \offset, 1 / 9 * 8) {};
+            \node [anchor=315, red] at (-11 / 9 * 8 + \offset, 1 / 9 * 8) {11};
+            \node[circle,fill=black,inner sep=1pt,minimum size=3pt] (b) at (-12 / 9 * 8 + \offset, 1 / 9 * 8) {};
+            \node [anchor=315, red] at (-12 / 9 * 8 + \offset, 1 / 9 * 8) {12};
+            \node[circle,fill=black,inner sep=1pt,minimum size=3pt] (b) at (-13 / 9 * 8 + \offset, 1 / 9 * 8) {};
+            \node [anchor=315, red] at (-13 / 9 * 8 + \offset, 1 / 9 * 8) {13};
+            \node[circle,fill=black,inner sep=1pt,minimum size=3pt] (b) at (-14 / 9 * 8 + \offset, 1 / 9 * 8) {};
+            \node [anchor=315, red] at (-14 / 9 * 8 + \offset, 1 / 9 * 8) {14};
+            \node[circle,fill=black,inner sep=1pt,minimum size=3pt] (b) at (-15 / 9 * 8 + \offset, 1 / 9 * 8) {};
+            \node [anchor=315, red] at (-15 / 9 * 8 + \offset, 1 / 9 * 8) {15};
+            \node[circle,fill=black,inner sep=1pt,minimum size=3pt] (b) at (-16 / 9 * 8 + \offset, 1 / 9 * 8) {};
+            \node [anchor=315, red] at (-16 / 9 * 8 + \offset, 1 / 9 * 8) {16};
+            \node[circle,fill=black,inner sep=1pt,minimum size=3pt] (b) at (-17 / 9 * 8 + \offset, 1 / 9 * 8) {};
+            \node [anchor=315, red] at (-17 / 9 * 8 + \offset, 1 / 9 * 8) {17};
+            \node[circle,fill=black,inner sep=1pt,minimum size=3pt] (b) at (-18 / 9 * 8 + \offset, 1 / 9 * 8) {};
+            \node [anchor=315, red] at (-18 / 9 * 8 + \offset, 1 / 9 * 8) {18};
+            \node[circle,fill=black,inner sep=1pt,minimum size=3pt] (b) at (-19 / 9 * 8 + \offset, 1 / 9 * 8) {};
+            \node [anchor=315, red] at (-19 / 9 * 8 + \offset, 1 / 9 * 8) {19};
+            \node[circle,fill=black,inner sep=1pt,minimum size=3pt] (b) at (-20 / 9 * 8 + \offset, 1 / 9 * 8) {};
+            \node [anchor=315, red] at (-20 / 9 * 8 + \offset, 1 / 9 * 8) {20};
+            \node[circle,fill=black,inner sep=1pt,minimum size=3pt] (b) at (-21 / 9 * 8 + \offset, 1 / 9 * 8) {};
+            \node [anchor=315, red] at (-21 / 9 * 8 + \offset, 1 / 9 * 8) {21};
+            \node[circle,fill=black,inner sep=1pt,minimum size=3pt] (b) at (-22 / 9 * 8 + \offset, 1 / 9 * 8) {};
+            \node [anchor=315, red] at (-22 / 9 * 8 + \offset, 1 / 9 * 8) {22};
+            \node[circle,fill=black,inner sep=1pt,minimum size=3pt] (b) at (-23 / 9 * 8 + \offset, 1 / 9 * 8) {};
+            \node [anchor=315, red] at (-23 / 9 * 8 + \offset, 1 / 9 * 8) {23};
+            \node[circle,fill=black,inner sep=1pt,minimum size=3pt] (b) at (-24 / 9 * 8 + \offset, 1 / 9 * 8) {};
+            \node [anchor=315, red] at (-24 / 9 * 8 + \offset, 1 / 9 * 8) {24};
+            \node[circle,fill=black,inner sep=1pt,minimum size=3pt] (b) at (-25 / 9 * 8 + \offset, 1 / 9 * 8) {};
+            \node [anchor=315, red] at (-25 / 9 * 8 + \offset, 1 / 9 * 8) {25};
+
+            \node [anchor=135, black] at (\offset, 8 / 9 * 8) {A};
+            \node [anchor=135, black] at (\offset, 4 / 9 * 8) {B};
+            \node [anchor=135, black] at (-8 / 9 * 8 + \offset, 8 / 9 * 8) {D};
+            \node [anchor=135, black] at (-8 / 9 * 8 + \offset, 4 / 9 * 8) {C};
+            \node [anchor=135, black] at (\offset, 2 / 9 * 8) {E};
+            \node [anchor=135, black] at (-16 / 9 * 8 + \offset, 2 / 9 * 8) {F};
+            \node [anchor=135, black] at (-16 / 9 * 8 + \offset, 8 / 9 * 8) {G};
+            \node [anchor=135, black] at (\offset, 1 / 9 * 8) {H};
+            \node [anchor=135, black] at (-24 / 9 * 8 + \offset, 1 / 9 * 8) {I};
+            \node [anchor=135, black] at (-24 / 9 * 8 + \offset, 8 / 9 * 8) {J};
+
+            \begin{scope}
+                    \path[fill=blue,opacity=0.1] (-8 / 9 * 8 + \offset, 8 / 9 * 8) -- (\offset, 8 / 9 * 8) -- (\offset, 4 / 9 * 8) -- (-8 / 9 * 8 + \offset, 4 / 9 * 8) -- cycle;
+                    \path[fill=pink,opacity=0.3] (-16 / 9 * 8 + \offset, 8 / 9 * 8) -- (\offset, 8 / 9 * 8) -- (\offset, 2 / 9 * 8) -- (-16 / 9 * 8 + \offset, 2 / 9 * 8) -- cycle;
+                    \path[fill=green,opacity=0.1] (-24 / 9 * 8 + \offset, 8 / 9 * 8) -- (\offset, 8 / 9 * 8) -- (\offset, 1 / 9 * 8) -- (-24 / 9 * 8 + \offset, 1 / 9 * 8) -- cycle;
+            \end{scope}
+
+    \end{tikzpicture}
+
+\end{document}
