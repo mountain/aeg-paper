@@ -245,10 +245,10 @@ TODO
 
 There are two important existence theorems related to the flow equation~\eqref{eq:flow}.
 
-The first existence theorem states that if we have a 2D Riemannian manifold $M$, then there exists a function $a$ on $M$ that satisfies the flow equation~\eqref{eq:flow}. This theorem is proved in a later section, and we will not go into the details of the proof here.
+The first existence theorem states that if we have a Riemannian surface $S$, then there exists a function $a$ on $S$ that satisfies the flow equation~\eqref{eq:flow}. This theorem is proved in a later section, and we will not go into the details of the proof here.
 
 \begin{theorem}
-    Given a 2D Riemannian manifold $M$, there exists a function $a$ on $M$ satisfying the flow equation~\eqref{eq:flow}.
+    Given a Riemannian surface $S$, there exists a function $a$ on $S$ satisfying the flow equation~\eqref{eq:flow}.
     \label{prop:existence1st}
 \end{theorem}
 
@@ -257,7 +257,7 @@ It says that if we have a smooth surface $S$ and a function $a$ on $S$, then we 
 We morph the metric $g$ to make $a$ satisfy the flow equation~\eqref{eq:flow}, this technique will be touched back and forth in the following sections.
 
 \begin{theorem}(By Le Zhang)
-    Given an oriented 2D compact Riemannian manifold $S$, and a function $a$ over $S$, there exists a metric $g$ on $S$ that makes $a$
+    Given an oriented compact Riemannian surface $S$, and a function $a$ over $S$, there exists a metric $g$ on $S$ that makes $a$
     satisfying the flow equation~\eqref{eq:flow}.
     \label{prop:existence2nd}
 \end{theorem}
@@ -282,28 +282,28 @@ We morph the metric $g$ to make $a$ satisfy the flow equation~\eqref{eq:flow}, t
     \[ \frac{da_{\phi}}{ds_{\phi}} = \sqrt{\mu^2 + a^2 \lambda^2} \cos \phi. \]
 
     Note that \( ||\nabla a|| \) is fixed for the given function \( a \) and the local coordinate system, and \( \sqrt{\mu^2 + a^2 \lambda^2} \) is also fixed for the given function \( a \).
-    We can scale \( e^{2\rho} \) with a linear factor \( \kappa \) to make \( ||\nabla a|| \) match the fixed value of \( \sqrt{\mu^2 + a^2 \lambda^2} \),
-    thus we have a morphing process controlled by \( \kappa \) that
+    We can scale \( e^{2\rho} \) with a linear factor \( \alpha \) to make \( ||\nabla a|| \) match the fixed value of \( \sqrt{\mu^2 + a^2 \lambda^2} \),
+    thus we have a morphing process controlled by \( \alpha \) that
     \begin{align}
-    ds^2 &= \kappa e^{2 \rho}(du^2 + dv^2)\label{eq:morphing} \\
-         &= e^{2 \rho + \ln \kappa}(du^2 + dv^2).
+    ds^2 &= \alpha e^{2 \rho}(du^2 + dv^2)\label{eq:morphing} \\
+         &= e^{2 \rho + \ln \alpha}(du^2 + dv^2).
     \end{align}
 
-    Under the morphing ratio \( \kappa \), we have:
+    Under the morphing ratio \( \alpha \), we have:
 
     \begin{equation}
-      ||\nabla_\kappa a|| = \kappa^{-1} ||\nabla a||,
+      ||\nabla_\alpha a|| = \alpha^{-1} ||\nabla a||,
     \end{equation}
 
-    and when \( \kappa \) is set to the value of:
+    and when \( \alpha \) is set to the value of:
 
-    \[ ||\nabla_\kappa a|| = \sqrt{\mu^2 + a^2 \lambda^2}, \]
+    \[ ||\nabla_\alpha a|| = \sqrt{\mu^2 + a^2 \lambda^2}, \]
 
     the flow equation~\eqref{eq:flow} is satisfied in the local coordinate system.
 
-    The morphing ratio \( \kappa \) is calculated as follows:
+    The morphing ratio \( \alpha \) is calculated as follows:
     \begin{equation}
-        \kappa = \frac{||\nabla a||}{\sqrt{\mu^2 + a^2 \lambda^2}}\label{eq:ratio}.
+        \alpha = \frac{||\nabla a||}{\sqrt{\mu^2 + a^2 \lambda^2}}\label{eq:ratio}.
     \end{equation}
 
     \emph{Global perspective}:
