@@ -1,6 +1,68 @@
 
 \subsection{Curvature}\label{sec:curvature-calculations}
 
+Giving
+
+\[
+    ds^2 = \frac{1}{y^2} (\frac{dx^2}{\mu^2} + \frac{dy^2}{\lambda^2})
+\]
+
+in order to calculate the curvature $K$, we follow the equations in text book
+
+\[
+    K = - \frac{1}{A B} \left(\partial_y \left(\frac{\partial_y A}{B}\right) + \partial_x \left(\frac{\partial_x B}{A}\right)\right)
+\]
+
+where
+
+\[
+    A = \frac{1}{\mu y}, \quad B = \frac{1}{\lambda y}
+\]
+
+so we have
+
+\[
+    K = - \mu \lambda y^2 \left(
+          \partial_y \left(\lambda y \partial_y \left(\frac{1}{\mu y}\right)\right)
+        + \partial_x \left(\mu y \partial_x \left(\frac{1}{\lambda y}\right)\right)
+    \right)
+\]
+
+\[
+    K = - \lambda^2 y^2 \left(
+    \partial_y \left( y \partial_y \left(\frac{1}{y} \right)\right)
+    \right)
+\]
+
+\[
+    K = - \lambda^2 y^2 \frac{1}{y^2}
+\]
+
+\[
+    K = - \lambda^2
+\]
+
+\subsection{Area element}\label{sec:area-element}
+
+The area element is given by
+
+\[
+    dS = A B dx dy
+\]
+
+\textbf{i.e}
+
+\[
+    dS = \frac{1}{\mu \lambda y^2} dx dy
+\]
+
+\subsection{Arithmetic torsion}\label{sec:torsion-calculations}
+
+The arithmetic torsion is given by
+\[
+    \tau = \mu \lambda dS = \frac{1}{y^2}
+\]
+
 \subsection{Laplacian}\label{sec:laplacian-calculations}
 
 \newpage
