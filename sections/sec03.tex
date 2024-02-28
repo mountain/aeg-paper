@@ -171,29 +171,29 @@ We begin our exploration by examining the flow equation~\eqref{eq:flow} within t
     \frac{da}{ds} = \mu \cos \theta + a \lambda \sin \theta
 \end{equation}
 
-In an effort to recontextualize this equation, we set $dx = \cos \theta ds$ and $dy = \sin \theta ds$,
+In an effort to recontextualize this equation, we set $du = \cos \theta ds$ and $dv = \sin \theta ds$,
 thereby enabling us to express it in a different light:
 
 \begin{equation}
-    da = \mu dx + a \lambda dy
+    da = \mu du + a \lambda dv
 \end{equation}
 
 Our attention now turns to the concept of arithmetic torsion, particularly at an infinitesimal level. Delving into the interplay between two infinitesimal generating processes, we observe that:
 
 \begin{equation}
-    d\tau = (a_0 + \mu dx) e^{\lambda dy} - (a_0 e^{\lambda dy} + \mu dx)
+    d\tau = (a_0 + \mu du) e^{\lambda dv} - (a_0 e^{\lambda dv} + \mu du)
 \end{equation}
 
 From this relationship, we deduce:
 
 \begin{equation}
-    d\tau = \mu dx (e^{\lambda dy} - 1)
+    d\tau = \mu du (e^{\lambda dv} - 1)
 \end{equation}
 
 This leads us to an intriguing area formula, capturing the essence of this interaction:
 
 \begin{equation}
-    d\tau = \mu \lambda dx dy \label{eq:area_formula}
+    d\tau = \mu \lambda du dv \label{eq:area_formula}
 \end{equation}
 
 or in the form of a differential form:

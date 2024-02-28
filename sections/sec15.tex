@@ -1,22 +1,47 @@
-
-\subsection{Curvature}\label{sec:curvature-calculations}
-
 Giving
 
 \[
     ds^2 = \frac{1}{y^2} (\frac{dx^2}{\mu^2} + \frac{dy^2}{\lambda^2})
 \]
 
-in order to calculate the curvature $K$, we follow the equations in text book
+we calculate the geometric quantities.
+We follow the notion in the text book\cite{Needham2021VisualDG}, and the first fundamental form is given by
 
 \[
-    K = - \frac{1}{A B} \left(\partial_y \left(\frac{\partial_y A}{B}\right) + \partial_x \left(\frac{\partial_x B}{A}\right)\right)
+    ds^2 = A^2 dx^2 + B^2 dy^2
 \]
 
 where
 
 \[
     A = \frac{1}{\mu y}, \quad B = \frac{1}{\lambda y}
+\]
+
+\subsection{Line element}\label{sec:line-element}
+
+The line element is already given by above equation.
+
+\subsection{Area element}\label{sec:area-element}
+
+The area element is given by
+
+\[
+    dS = A B dx dy
+\]
+
+hence we have
+
+\[
+    dS = \frac{1}{\mu \lambda y^2} dx dy
+\]
+
+\subsection{Gauss curvature}\label{sec:curvature-calculations}
+
+
+Gauss curvature $K$ is given by
+
+\[
+    K = - \frac{1}{A B} \left(\partial_y \left(\frac{\partial_y A}{B}\right) + \partial_x \left(\frac{\partial_x B}{A}\right)\right)
 \]
 
 so we have
@@ -42,27 +67,45 @@ so we have
     K = - \lambda^2
 \]
 
-\subsection{Area element}\label{sec:area-element}
-
-The area element is given by
-
-\[
-    dS = A B dx dy
-\]
-
-\textbf{i.e}
-
-\[
-    dS = \frac{1}{\mu \lambda y^2} dx dy
-\]
-
-\subsection{Arithmetic torsion}\label{sec:torsion-calculations}
-
-The arithmetic torsion is given by
-\[
-    \tau = \mu \lambda dS = \frac{1}{y^2}
-\]
-
 \subsection{Laplacian}\label{sec:laplacian-calculations}
 
-\newpage
+Given a metric tensor
+\[
+    g =
+    \begin{bmatrix}
+        A^2 & 0\\
+        0 & B^2
+    \end{bmatrix},
+\]
+where \(A\) and \(B\) are functions of the coordinates (typically \(x\) and \(y\)), the Laplacian of a function \(f(x, y)\) can be derived from the general expression of the Laplace-Beltrami operator for a Riemannian manifold. The formula for the Laplacian \(\Delta f\) in such a setting, using the metric components \(g_{ij}\), is given by:
+\[
+    \Delta f = \frac{1}{\sqrt{|g|}} \partial_i \left( \sqrt{|g|} g^{ij} \partial_j f \right),
+\]
+where \(|g|\) is the determinant of the metric tensor \(g_{ij}\), \(g^{ij}\) are the components of the inverse metric tensor, and \(\partial_i\) denotes partial differentiation with respect to the \(i\)th coordinate.
+
+Given the metric tensor, the determinant \(|g|\) is \(A^2B^2\). The inverse metric tensor \(g^{ij}\) is simply:
+\[
+    g^{ij} =
+    \begin{bmatrix}
+        \frac{1}{A^2} & 0\\
+        0 & \frac{1}{B^2}
+    \end{bmatrix}.
+\]
+Plugging these into the formula for the Laplacian, we get:
+\[
+    \Delta f = \frac{1}{A B} \left[ \partial_x \left( B A^{-1} \partial_x f \right) + \partial_y \left( A B^{-1} \partial_y f \right) \right],
+\]
+
+In our setting, \(A = \frac{1}{\mu y}\) and \(B = \frac{1}{\lambda y}\):
+
+\[
+    \Delta f = y^2 \left(\mu^2 \frac{\partial^2 f}{\partial x^2} + \lambda^2 \frac{\partial^2 f}{\partial y^2}\right)
+\]
+
+And for the function \(f = - \frac{x}{y}\), we have
+
+\[
+    \Delta f = - \frac{2 \lambda^2 x}{y} = 2 \lambda^2 f
+\]
+
+So, we reach the conclusion that the function \(f = - \frac{x}{y}\) is a eigenfunction of the Laplacian with eigenvalue \(2 \lambda^2\).
