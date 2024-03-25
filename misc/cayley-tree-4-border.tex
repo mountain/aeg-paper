@@ -1,0 +1,30 @@
+\documentclass[border=7mm]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{calc,math}
+\begin{document}
+    \begin{tikzpicture}[scale=0.125pt]
+        \tikzmath{
+            \power=2; \deviation=90; \numsteps=5;
+            function branch(\x,\y,\rotate,\step){ \step=\step-1;
+                if (\step >= 0) then {
+                    \mix = int(100*\step/(\numsteps-1));
+                    {
+                        \draw[shift={(\x pt,\y pt)},scale=\power^\step, rotate=\rotate, color=black]
+                        (0,-1)--(0,1);
+                        \draw[shift={(\x pt,\y pt)},scale=\power^\step, rotate=\rotate, color=black]
+                        (0,0.5)--(0.5,0)--(0,-0.5)--(-0.5, 0);
+                        \draw[shift={(\x pt,\y pt)},scale=\power^\step, rotate=\rotate, color=cyan, fill=cyan]
+                        (0,1)--(1,0)--(0,-1)--(-1, 0) coordinate(newbase);
+                    };
+                    coordinate \b; \b1 = (newbase);
+                    for \a in {-\deviation,0,\deviation}{
+                        branch(\bx1,\by1,mod(\rotate+\a,360),\step);
+                    };
+                };
+            };
+            for \angle in {0,90,180,-90}{
+                branch(0,0,\angle,\numsteps);
+            };
+        }
+    \end{tikzpicture}
+\end{document}
