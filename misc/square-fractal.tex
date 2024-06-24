@@ -1,0 +1,37 @@
+\documentclass[border=7mm]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{calc,math}
+\begin{document}
+    \begin{tikzpicture}[scale=0.125pt]
+        \tikzmath{
+            \power=2; \deviation=90; \numsteps=5;
+            function branch(\x,\y,\rotate,\step) {
+                \step = \step - 1;
+                if (\step >= 0) then {
+                    \mix = int(100*\step/(\numsteps-1));
+                    {
+                        \draw[shift={(\x pt,\y pt)},scale=\power^\step, rotate=\rotate, color=black]
+                        (0,0.5)--(0.5,0)--(0,-0.5)--(-0.5, 0);
+                        \draw[shift={(\x pt,\y pt)},scale=\power^\step, rotate=\rotate, color=cyan, fill=cyan]
+                        (0,1)--(1,0)--(0,-1)--(-1, 0);
+                        \draw[shift={(\x pt,\y pt)},scale=\power^\step, rotate=\rotate, color=black]
+                        (-1,0)--(1,0);
+                        \draw[shift={(\x pt,\y pt)},scale=\power^\step, rotate=\rotate, color=black]
+                        (0,-1)--(0,1) coordinate(newbase);
+                    };
+                    coordinate \b; \b1 = (newbase);
+                    for \a in {-\deviation,0,\deviation}{
+                        branch(\bx1,\by1,mod(\rotate+\a,360),\step);
+                    };
+                };
+            };
+            {
+                \draw[shift={(0 pt,0 pt)},scale=32, rotate=0, color=black, fill=cyan] (2,2)--(-2,2)--(-2,-2)--(2, -2)--(2, 2);
+                \draw[shift={(0 pt,0 pt)},scale=32, rotate=0, color=black, fill=white] (1,1)--(-1,1)--(-1,-1)--(1, -1)--(1, 1);
+            };
+            for \angle in {0,90,180,-90}{
+                branch(0,0,\angle,\numsteps);
+            };
+        };
+    \end{tikzpicture}
+\end{document}

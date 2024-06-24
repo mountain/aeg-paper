@@ -62,10 +62,44 @@ We can also get a direct formal solution of the flow equation~\eqref{eq:flow}(de
    a = (a_0 + \frac{\mu}{\lambda} \cot \theta) e^{\lambda s \sin \theta} - \frac{\mu}{\lambda} \cot \theta\label{eq:solution}
 \end{equation}
 
-Now, we can use this solution to derive (details in Appendix~\ref{sec:conformance}) the relationship between assignments at different vertices in a cell of a mesh grid.
+\subsection{Discrete generating}\label{subsec:discrete-generating}
 
-Assuming the assignment at the center point of a cell is $a_0$, we move in different directions and obtain the following assignments:
+In section~\ref{subsec:generated-structure}, we have discussed a discrete generating process.
+Since flow equation governs an infinitesimal generating process,
+we will show the above discrete generating process can be emerged from the solution of the flow equation~\eqref{eq:solution} naturally.
+We expand the formula by the Taylor series:
 
+\[
+    a =  a_0 e^{\lambda s \sin \theta} + \frac{\mu}{\lambda} [1 + \lambda s \sin \theta + \frac{1}{2!} (\lambda s \sin \theta)^2  + \frac{1}{3!} (\lambda s \sin \theta)^3 + \cdots - 1] \cot \theta
+\]
+
+Change the formula slightly:
+\[
+    a = a_0 e^{\lambda s \sin \theta} + \mu s \cos \theta + \frac{\mu}{\lambda} \sin \theta \cos \theta (\frac{\lambda^2s^2}{2!} + \frac{\lambda^3s^3}{3!} \sin \theta + \frac{\lambda^4s^4}{4!} \sin^2 \theta + \cdots)
+\]
+
+By the formula of double angle, we have
+\[
+    a = a_0 e^{\lambda s \sin \theta} + \mu s \cos \theta + \frac{\mu}{2\lambda} \sin 2\theta (\frac{\lambda^2s^2}{2!} + \frac{\lambda^3s^3}{3!} \sin \theta + \frac{\lambda^4s^4}{4!} \sin^2 \theta + \cdots)
+\]
+
+We denote
+\begin{equation}
+    \Psi(s) = \frac{1}{2!} + \frac{\lambda s}{3!} \sin \theta + \frac{\lambda^2 s^2}{4!} \sin^2 \theta + \cdots
+\end{equation}
+
+Then we have
+\begin{equation}
+    a = a_0 e^{\lambda s \sin \theta} + \mu s \cos \theta + \frac{\mu\lambda}{2} s^2 \Psi(s) \sin 2\theta
+\end{equation}
+
+This formula gives the discrete generating process, when $\theta = \frac{k \pi}{2}, k = 0, 1, 2, 3\cdots, s = 0, 1, 2, 3\cdots$, we have
+
+\begin{equation}
+    a = a_0 e^{\lambda s \sin \theta} + \mu s \cos \theta
+\end{equation}
+
+Especially, we have the following four cases:
 \begin{itemize}
 \item $\theta = 0$: $a_s = a_0 + \mu s$
 \item $\theta = \frac{\pi}{2}$: $a_s = a_0 e^{\lambda s}$
@@ -73,7 +107,8 @@ Assuming the assignment at the center point of a cell is $a_0$, we move in diffe
 \item $\theta = \frac{3 \pi}{2}$: $a_s = a_0 e^{- \lambda s} $
 \end{itemize}
 
-This result is straightforward, but it demonstrates that the infinitesimal generating process is consistent with the discrete mesh grid.
+This result is straightforward, but it demonstrates that the infinitesimal generating process is consistent with the discrete generating process.
+And this expands our toolset, enabling us to explore the interplay between discrete and infinitesimal generating processes.
 
 \subsection{The contour-gradient form of flow equation}\label{subsec:the-contour-gradient-form}
 
@@ -171,14 +206,22 @@ We begin our exploration by examining the flow equation~\eqref{eq:flow} within t
     \frac{da}{ds} = \mu \cos \theta + a \lambda \sin \theta
 \end{equation}
 
-In an effort to recontextualize this equation, we set $du = \cos \theta ds$ and $dv = \sin \theta ds$,
-thereby enabling us to express it in a different light:
+In an effort to re-contextualize this equation, we set $du = \cos \theta ds$ and $dv = \sin \theta ds$,
+where $du$ and $dv$ are perpendicular infinitesimal movements.
+We can use these movements to construct a local Descartes coordinate system, and the first fundamental form of this system is:
+
+\begin{equation}
+    ds^2 = A^2 du^2 + B^2 dv^2
+\end{equation}
+
+Thereby this enables us to express the flow equation in a different light:
 
 \begin{equation}
     da = \mu du + a \lambda dv
 \end{equation}
 
-Our attention now turns to the concept of arithmetic torsion, particularly at an infinitesimal level. Delving into the interplay between two infinitesimal generating processes, we observe that:
+Our attention now turns to the concept of arithmetic torsion, particularly at an infinitesimal level.
+Delving into the interplay between two infinitesimal generating processes, we observe that:
 
 \begin{equation}
     d\tau = (a_0 + \mu du) e^{\lambda dv} - (a_0 e^{\lambda dv} + \mu du)
@@ -190,21 +233,25 @@ From this relationship, we deduce:
     d\tau = \mu du (e^{\lambda dv} - 1)
 \end{equation}
 
-This leads us to an intriguing area formula, capturing the essence of this interaction:
+This leads us to an area formula, capturing the essence of this interaction:
 
 \begin{equation}
     d\tau = \mu \lambda du dv \label{eq:area_formula}
 \end{equation}
 
-or in the form of a differential form:
+and because the area element have a form
+
 \begin{equation}
-    d\tau = \mu \lambda dS \label{eq:area_formula2}
+    dS = |AB| du dv \label{eq:area_element}
 \end{equation}
 
-where $dS$ is the area element.
+Then we have
+\begin{equation}
+    \frac{d\tau}{\mu \lambda} = \frac{dS}{|AB|}\label{eq:area_formula2}
+\end{equation}
 
-This formula is intriguing as it establishes a link between area elements and arithmetic torsion,
-both inherently associated with the edges of the area. Such formulations find parallels in the realms of classic analysis and differential geometry.
+This formula is compelling as it establishes a link between area elements and arithmetic torsion.
+Such formulations find parallels in the realms of classic analysis and differential geometry.
 For instance, they resonate with concepts akin to Stokes' theorem or the Gauss-Bonnet theorem.
 We intend to expand upon this formula in the ensuing section\ref{sec:curvature},
 aiming to forge a connection with curvature and delve into the intricacies of the Gauss-Bonnet theorem.
