@@ -589,18 +589,6 @@ Or, we can change it to another form
 
 We name this equation~\eqref{eq:flow} as the flow equation.
 
-The left side of this equation is governed by the distance structure, while the right side is governed by the angle structure.
-This leads to below theorem.
-
-\begin{theorem}
-    Isometries keep the flow equation\eqref{eq:flow}
-    \label{thm:isometry}
-\end{theorem}
-
-\begin{proof}
-    An isometry keeps both the distance structure and the angle structure, so it keeps the flow equation.
-\end{proof}
-
 We can also get a direct formal solution of the flow equation~\eqref{eq:flow}(details in Appendix~\ref{sec:directformalsolution}).
 
 \begin{equation}
@@ -806,8 +794,37 @@ underscoring its significance and application in our study.
 
 \section{Arithmetic expression space}\label{sec:space}
 
-
 \subsection{The definition}\label{subsec:definition}
+
+In the light of previous sections, we introduce a new mathematical object $\mathfrak{E}$, an arithmetic expression space,
+as a tuple of $( F, E, M, a )$:
+
+\begin{itemize}
+    \item $F$: a number field
+    \item $E$: threadlike expressions over $F$
+    \item $M$: a Riemannian manifold
+    \item $a$: a smooth assignment function from $M$ to $F$ which satisfied the flow equation.
+\end{itemize}
+
+\subsection{Examples}\label{subsec:example}
+
+\emph{Example 1}:
+
+The hyperbolic space equipped with the metric and assignment in the upper half plane model is an arithmetic expression space.
+\[
+    ds^2 = \frac{1}{y^2}(\frac{dx^2}{\mu^2} + \frac{dy^2}{\lambda^2})
+\]
+and assignment
+\[
+    a = - \frac{x}{y}
+\]
+
+The flow equation is satisfied.
+
+\emph{Example 2}:
+
+
+\emph{Example 3}:
 
 
 \subsection{The existence theorems}\label{subsec:existence-theorems}
@@ -888,16 +905,6 @@ We morph the metric $g$ to make $a$ satisfy the flow equation~\eqref{eq:flow}, t
 
     \qedhere
 \end{proof}
-
-\newpage
-
-\section{The first kind space $\mathfrak{E}_1$}\label{sec:firstkind}
-
-\subsection{Setting of $\mathfrak{E}_1$ space}\label{sec:setting}
-
-\subsection{Grid in $\mathfrak{E}_1$ space}\label{sec:grid}
-
-\subsection{Eigenfunction of Laplacian}\label{sec:eigenfunction}
 
 \newpage
 
