@@ -753,6 +753,16 @@ Thereby this enables us to express the flow equation in a different light:
     da = \mu du + a \lambda dv
 \end{equation}
 
+or in a partial differential form:
+
+\begin{equation}
+    \frac{\partial a}{\partial u} = \mu
+\end{equation}
+
+\begin{equation}
+    \frac{\partial a}{\partial v} = a \lambda
+\end{equation}
+
 Our attention now turns to the concept of arithmetic torsion, particularly at an infinitesimal level.
 Delving into the interplay between two infinitesimal generating processes, we observe that:
 
@@ -789,6 +799,48 @@ This system, by integrating the assignment, lays the foundation for a theoretica
 We refer to this as the arithmetic coordinate system, given its unique properties and alignment with arithmetic principles.
 The proof of its existence and further elaboration will be undertaken in the upcoming section\ref{subsec:existence-theorems},
 underscoring its significance and application in our study.
+
+\subsection{Flow and function}\label{subsec:flow-and-function}
+
+In this section, we aim to present novel insight into functions.
+Namely, the treatment of functions as flows will be discussed.
+
+\begin{definition}\label{def:projection}
+Given a function $f$ on the real domain $R$, we can introduce a mapping $g$ on the arithmetic expression space $H$ such that the following diagram commutes.
+
+\begin{center}
+    \begin{tikzcd}
+        H && H \\
+        R && R
+        \arrow["g", from=1-1, to=1-3]
+        \arrow["\nu"', from=1-1, to=2-1]
+        \arrow["\nu", from=1-3, to=2-3]
+        \arrow["f"', from=2-1, to=2-3]
+    \end{tikzcd}
+\end{center}
+
+where $\nu$ is the evaluation function of the expression.
+Then we say the mapping $g$ is the promotion of the function $f$, or function $f$ is the projection of the mapping $g$.
+\end{definition}
+
+Now we consider the derivative of the mapping $g$ with respect to the assignment $a$.
+
+\begin{equation}
+    \frac{d g}{d a} =
+\end{equation}
+
+\subsection{The additive-multiplicative derivative}\label{subsec:additive-multiplicative-derivative}
+
+Given a scalar field $a$ on a Riemannian surface $M$ satisfying the flow equation~\eqref{eq:flow},
+we have local Descartes coordinates $u$ and $v$, and the first fundamental form $ds^2 = A^2 du^2 + B^2 dv^2$.
+Now we study the derivative of $a$ with respect to the additive $u$ and multiplicative $v$.
+
+If we consider the derivative of $a$ with respect to the additive $u$ and multiplicative $v$ simultaneously, we have:
+
+\begin{equation}
+    \nabla a = \frac{\partial a}{\partial u} \mathbf{e}_u + \frac{\partial a}{\partial v} \mathbf{e}_v
+\end{equation}
+
 
 \newpage
 
