@@ -82,13 +82,7 @@ Beijing, 100083 \\
 \maketitle
 
 \begin{abstract}
-    Arithmetic expressions can be organized into geometric spaces.
-    By introducing a flow equation, we explore how infinitesimal and discrete generating processes can
-    transform arithmetic expressions into geometric forms.
-    The study extends theoretical frameworks and provides practical examples to conceptualize these spaces,
-    particularly focusing on the construction of the first kind space $\mathfrak{E}_1$.
-    This exploration sets the groundwork for future research into the classification and potential applications of
-    arithmetic expression spaces, bridging the fields of arithmetic, geometry, and analysis.
+This study explores how arithmetic expressions can be systematically organized into geometric spaces. By introducing a flow equation, we examine the processes—both infinitesimal and discrete—that transform arithmetic expressions into geometric structures. Our investigation extends existing theoretical frameworks and provides concrete examples that conceptualize these spaces, with a particular focus on constructing the first kind of arithmetic expression space, denoted as $\mathfrak{E}_1$. This research lays the foundation for future studies in classifying arithmetic expression spaces and exploring their potential applications, bridging the disciplines of arithmetic, geometry, and mathematical analysis.
 \end{abstract}
 
 \keywords{arithmetic expressions, flow equation, arithmetic expression space, the first kind AEG space}
@@ -99,41 +93,30 @@ Beijing, 100083 \\
 
 \section{Introduction}\label{sec:introduction}
 
-Can arithmetic expressions be systematically organized into geometric spaces?
-Traditionally, real numbers $\mathbb{R}$ are viewed as a continuum of additive arithmetic expressions,
-and the exponential function over real numbers, $e^\mathbb{R}$, as a continuum of multiplicative arithmetic expressions.
-This study extends these well-established ideas to identify and characterize geometric spaces formed by arithmetic expressions.
+The concept of systematically organizing arithmetic expressions into geometric spaces presents a compelling extension to traditional mathematical frameworks. Real numbers $\mathbb{R}$ can be conceptualized as a continuum of additive arithmetic expressions, while the exponential function over real numbers, $e^\mathbb{R}$, represents a continuum of multiplicative arithmetic expressions. This paper aims to extend these well-established ideas by characterizing and constructing geometric spaces formed by arithmetic expressions.
 
 The key insights of Arithmetic Expression Geometry (AEG) are
 \begin{itemize}
     \item Computation as Flow: AEG assigns geometric shapes to computations, enabling their interpretation as flows within a geometric space. This geometric representation provides a visual and intuitive way to understand the dynamics of computations.
-    \item Additive and Multiplicative Variations: AEG uniquely considers both additive and multiplicative variations within its geometric space. This contrasts with traditional approaches like Riemann integration, which primarily focus on additive variations. By incorporating both types of variations, AEG offers a more comprehensive framework for understanding changes and transformations within the space of arithmetic expressions.
-\end{itemize}
+    \item Additive and Multiplicative Variations: Unlike traditional approaches, such as Riemann integration which focuses primarily on additive variations, AEG incorporates both additive and multiplicative variations. This dual consideration offers a more holistic framework for analyzing transformations within the space of arithmetic expressions.
+\item \end{itemize}
 
 While the broader implications of AEG are vast, this paper focuses specifically on the definition and construction of AEG spaces.
 
 \emph{Main Contributions}
 
-The cornerstone of our methodology is the introduction of a flow equation essential for constructing the proposed
-geometric space. This equation governs the infinitesimal generation of arithmetic expressions,
-facilitating their transformation into nearby forms. Our analysis demonstrates that this infinitesimal generating process
-is consistent with a discrete generating process that enumerate all discrete arithmetic expressions at certain granularity.
+The foundation of our approach lies in the introduction of a flow equation, which is critical for constructing the proposed geometric space. This flow equation describes the infinitesimal processes that generate arithmetic expressions, facilitating their transformation into neighboring forms. Our analysis demonstrates that this infinitesimal process is consistent with the discrete generation of arithmetic expressions at a specified granularity.
 
 \emph{Structure of the Paper}
 
-The structure of the paper is as follows:
-
 \begin{itemize}
-\item Section~\ref{sec:example}: We introduce an intuitive example to contextualize the theoretical discussion.
-\item Section~\ref{sec:concepts}: Fundamental concepts are outlined to lay the groundwork for the detailed discussions
-that follow.
-\item Section~\ref{sec:flowequation}: We delve into the flow equation that is central to the theoretical framework.
-\item Section~\ref{sec:space}: The general construction of an arithmetic expression space is presented.
-\item Section~\ref{sec:firstkind}: We explore the specific construction of the first kind space $\mathfrak{E}_1$.
-\item Section~\ref{sec:conclusion}: The paper concludes with a synthesis of findings and directions for future research.
+    \item Section~\ref{sec:example}: presents an intuitive example that serves as context for the theoretical discussion.
+    \item Section~\ref{sec:concepts}: outlines fundamental concepts to lay the groundwork for the detailed analyses that follow.
+    \item Section~\ref{sec:flowequation}: discusses the flow equation, which is central to our theoretical framework.
+    \item Section~\ref{sec:space}: elaborates on the general construction of an arithmetic expression space.
+    \item Section~\ref{sec:firstkind}: focuses on the specific construction of the first kind space $\mathfrak{E}_1$.
+    \item Section~\ref{sec:conclusion}: synthesizes the findings and discusses directions for future research.
 \end{itemize}
-
-\newpage
 
 \section{An intuitive example}\label{sec:example}
 
@@ -149,13 +132,13 @@ and
     ds^2 = \frac{1}{y^2} (dx^2 + \frac{dy^2}{\ln^2 2})
 \]
 
-Within this setting, we introduce a scalar field $a$ defined by the relationship:
+In this setting, we introduce a scalar field $a$, which is defined by the following relationship:
 
 \begin{equation}
     a = - \frac{x}{y}\label{eq:assignment}
 \end{equation}
 
-This field is hereafter referred to as the \emph{assignment} field.
+This scalar field is referred to as the \emph{assignment} field.
 
 \begin{figure}[ht]
     \centering
@@ -164,15 +147,11 @@ This field is hereafter referred to as the \emph{assignment} field.
         with red values indicating the assignment field $a = -x/y$.}\label{fig:gridex0}
 \end{figure}
 
-On the scalar field $\mathcal{H}$, a grid is constructed as illustrated in Figure~\ref{fig:gridex0}.
-This grid comprises two families of lines, one colored blue and the other green, oriented perpendicularly.
-The red values at the intersection points represent the values of the assignment field $a$.
-The blue lines signify an increment by $+1$ in the assignment field $a$,
-whereas the green lines represent a multiplication by $2$.
+On the scalar field $\mathcal{H}$, we construct a grid as illustrated in Figure~\ref{fig:gridex0}.
 
-Arithmetic expressions can be effectively represented as paths on the above grid, exemplified by the encoding
-demonstrated in Figure~\ref{fig:encoding}. This figure illustrates the encoding of the arithmetic expression
-$((((1 \times 4) - 1) \times 2) - 3)$ using bold black lines.
+This grid consists of two orthogonal families of lines, represented by blue and green colors. The red values at intersection points denote the values of the assignment field $a$. The blue lines represent an increment by $+1$ in the assignment field $a$, while the green lines signify a multiplication by $2$.
+
+Arithmetic expressions can be effectively represented as paths on the constructed grid, as demonstrated in Figure~\ref{fig:encoding}.This figure illustrates the encoding of the arithmetic expression $((((1 \times 4) - 1) \times 2) - 3)$ using bold black lines.
 
 \begin{figure}[ht]
 \centering
@@ -180,22 +159,17 @@ $((((1 \times 4) - 1) \times 2) - 3)$ using bold black lines.
 \caption{Visualization of encoding a threadlike expression}\label{fig:encoding}
 \end{figure}
 
-The depicted zigzag path in Figure~\ref{fig:encoding} can be dissected into four distinct segments, each corresponding to specific arithmetic operations:
+The depicted zigzag path in Figure~\ref{fig:encoding} is decomposed into four segments, each corresponding to specific arithmetic operations:
 \begin{itemize}
 \item A vertical segment ascending from $1$ to $4$, representing a multiplication by $4$. This segment corresponds to traversing two steps along the multiplicative axis of the grid.
-\item A horizontal segment progressing from $4$ to $3$, signifying a subtraction by $1$. This segment corresponds to a single step along the additive axis.
-\item Another vertical segment extending from $3$ to $6$, indicative of a multiplication by $2$. This segment involves a single step upward on the multiplicative axis.
-\item The final horizontal segment from $6$ to $3$, representing a subtraction by $3$. This path covers three steps along the additive axis.
+\item A horizontal segment from $4$ to $3$, signifying a subtraction by $1$. This segment represents a single step along the additive axis.
+\item Another vertical segment from $3$ to $6$, indicating a multiplication by $2$, involving one step upward along the multiplicative axis.
+\item The final horizontal segment from $6$ to $3$, representing a subtraction by $3$, covering three steps along the additive axis.
 \end{itemize}
 
-This method of encoding provides a clear and structured representation of arithmetic operations within a geometric
-framework, offering an intuitive visualization of complex expressions.
+This encoding method provides a clear and systematic representation of arithmetic operations within a geometric framework, allowing for an intuitive visualization of complex expressions.
 
-Similarly,  Figure~\ref{fig:canonicalform} depicts various paths and their associated expressions,
-all originating from the same source, $1$, and converging at the same target, $3$.
-These expressions enable the evaluation of arithmetic operations in a consistent, lineage-based manner,
-which are aptly termed threadlike expressions.
-While these paths illustrate diverse encoding strategies within a canonical framework:
+In a similar fashion, Figure~\ref{fig:canonicalform} presents various paths and their associated expressions, all originating from the source $1$ and converging at the same target, $3$. These expressions serve as a means of evaluating arithmetic operations in a consistent, lineage-based manner, aptly termed threadlike expressions. The illustrated paths also represent diverse encoding strategies within a canonical framework:
 
 \begin{itemize}
     \item The \textbf{black path} represents the expression $((1 \times 8) - 5) = 3$.
@@ -238,8 +212,6 @@ With the establishment of such canonical paths, any arbitrary target point $P$ c
 a predetermined source point $O$ through a canonical path.
 This structured approach permits the conceptualization of the entire domain as a collection of canonical expressions.
 Thus, we define this domain explicitly as a space of expressions, where each point connection adheres to a canonical form.
-
-\newpage
 
 \section{Basic concepts}\label{sec:concepts}
 
