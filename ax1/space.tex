@@ -59,6 +59,7 @@
 \newcommand{\intgg}{\mathclap{\rightsquigarrow}\mathclap{\int}}
 
 \DeclareMathOperator{\arcsinh}{arcsinh}
+\DeclareMathOperator{\arctanh}{arctanh}
 
 \title{Can arithmetic expressions form a geometry space?}
 
@@ -204,22 +205,15 @@ Transformation from the brown path to the purple path:
     & = ((1 - \frac{5}{8}) \times 8)
 \end{align}
 
-Consequently, the black and purple paths depicted in Figure~\ref{fig:canonicalform} can be designated as canonical paths.
-These paths exemplify all possible threadlike expressions that connect the initial point,
-represented by the source $1$, to the terminal point, $3$.
+Consequently, the black and purple paths depicted in Figure~\ref{fig:canonicalform} can be designated as canonical paths. These paths exemplify all possible threadlike expressions that connect the initial point, represented by the source $1$, to the terminal point, $3$.
 
-With the establishment of such canonical paths, any arbitrary target point $P$ can be systematically related to
-a predetermined source point $O$ through a canonical path.
-This structured approach permits the conceptualization of the entire domain as a collection of canonical expressions.
-Thus, we define this domain explicitly as a space of expressions, where each point connection adheres to a canonical form.
+With the establishment of such canonical paths, any arbitrary target point $P$ can be systematically related to a predetermined source point $O$ through a canonical path. This structured approach permits the conceptualization of the entire domain as a collection of canonical expressions. Thus, we define this domain explicitly as a space of expressions, where each point connection adheres to a canonical form.
 
 \section{Basic concepts}\label{sec:concepts}
 
 \subsection{Arithmetic expression}\label{sec:expression}
 
-In order to define arithmetic expressions involving real numbers  $\mathbb{R}$ in a rigorous way, we need to use a sophisticated type theory.
-However, in order to keep things simple and maintain clarity, we will start by using only production rules, but with certain semantic restrictions.
-We will also begin with rational numbers $\mathbb{Q}$ to avoid the difficulties inside real numbers $\mathbb{R}$ .
+In order to define arithmetic expressions involving real numbers  $\mathbb{R}$ in a rigorous way, we need to use a sophisticated type theory. However, in order to keep things simple and maintain clarity, we will start by using only production rules, but with certain semantic restrictions. We will also begin with rational numbers $\mathbb{Q}$ to avoid the difficulties inside real numbers $\mathbb{R}$ .
 
 \begin{definition}\label{def:arithmetic-expression}
 An arithmetic expression $a$ over $\mathbb{Q}$ is a structure given by the following production rules:
@@ -472,7 +466,7 @@ That means the perturbation along the path is controlled by the multiplication t
 
 \subsection{Generated structure, commutator and arithmetic torsion}\label{subsec:generated-structure}
 
-In order to study mesh grids like the one described in subsection~\ref{subsec:meshgrid},
+In order to study mesh grids like the one described in section~\ref{sec:example},
 we need to investigate the algebraic structure of the threadlike arithmetic expressions that are generated.
 
 For real number $\mathbb{R}$ and elements $\mu, \lambda \in \mathbb{R}$, we consider all the arithmetical expressions
@@ -775,14 +769,14 @@ underscoring its significance and application in our study.
 \subsection{The definition}\label{subsec:definition}
 
 In the light of previous sections, we introduce a new mathematical object $\mathfrak{E}$, an arithmetic expression space,
-as a tuple of $( F, E, M, a )$:
+as a tuple of $(M, a)$:
 
 \begin{itemize}
-    \item $F$: a number field
-    \item $E$: threadlike expressions over $F$
-    \item $M$: a Riemannian manifold
+    \item $M$: a Riemannian surface
     \item $a$: a smooth assignment function from $M$ to $F$ which satisfied the flow equation.
 \end{itemize}
+
+And then we can interpret a smooth path by the flow equation as a threadlike arithmetic expression.
 
 \subsection{Examples}\label{subsec:example}
 
@@ -818,6 +812,15 @@ Example 1 and Example 2 are the same assignment field but with different coordin
 
 The hyperbolic space equipped with the following metric and assignment in the Poincaré disk model is an arithmetic expression space.
 
+\[
+    ds^2 = dr^2 + \sinh^2 r d\theta^2
+\]
+
+and assignment
+
+\[
+    a = (e^{2 \arctanh r \sin \theta} -  1) \cot \theta
+\]
 
 \subsection{The local existence theorem}\label{subsec:existence-theorems}
 
@@ -885,9 +888,7 @@ And we had proved a local version of the second existence propositions as a theo
 
 \section{Conclusion}\label{sec:conclusion}
 
-\subsection{Integration}\label{sec:integration}
 
-\subsection{Complexification}\label{sec:complexification}
 
 \bibliographystyle{plain}
 \bibliography{space.bib}
@@ -939,6 +940,5 @@ $$
 \begin{equation}\label{eq:directformalsolution}
 a =  a_0 e^{\lambda s \sin \theta} + \frac{\mu}{\lambda} (e^{\lambda s \sin \theta} - 1) \cot \theta
 \end{equation}
-
 
 \end{document}
