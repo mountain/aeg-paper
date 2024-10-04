@@ -511,8 +511,6 @@ Or equivlently, we define below difference $\tau$ obey the right-hand rule:
 These differences are constant, indicating a type of torsion in the generated group.
 And torsion $\tau$ is specifically referred to as the arithmetic torsion.
 
-\newpage
-
 \section{Flow equation}\label{sec:flowequation}
 
 \subsection{Flow equation}\label{sec:equation}
@@ -772,50 +770,6 @@ We refer to this as the arithmetic coordinate system, given its unique propertie
 The proof of its existence and further elaboration will be undertaken in the upcoming section\ref{subsec:existence-theorems},
 underscoring its significance and application in our study.
 
-\subsection{Flow and function}\label{subsec:flow-and-function}
-
-In this section, we aim to present novel insight into functions.
-Namely, the treatment of functions as flows will be discussed.
-
-\begin{definition}\label{def:projection}
-Given a function $f$ on the real domain $R$, we can introduce a mapping $g$ on the arithmetic expression space $H$ such that the following diagram commutes.
-
-\begin{center}
-    \begin{tikzcd}
-        H && H \\
-        R && R
-        \arrow["g", from=1-1, to=1-3]
-        \arrow["\nu"', from=1-1, to=2-1]
-        \arrow["\nu", from=1-3, to=2-3]
-        \arrow["f"', from=2-1, to=2-3]
-    \end{tikzcd}
-\end{center}
-
-where $\nu$ is the evaluation function of the expression.
-Then we say the mapping $g$ is the promotion of the function $f$, or function $f$ is the projection of the mapping $g$.
-\end{definition}
-
-Now we consider the derivative of the mapping $g$ with respect to the assignment $a$.
-
-\begin{equation}
-    \frac{d g}{d a} =
-\end{equation}
-
-\subsection{The additive-multiplicative derivative}\label{subsec:additive-multiplicative-derivative}
-
-Given a scalar field $a$ on a Riemannian surface $M$ satisfying the flow equation~\eqref{eq:flow},
-we have local Descartes coordinates $u$ and $v$, and the first fundamental form $ds^2 = A^2 du^2 + B^2 dv^2$.
-Now we study the derivative of $a$ with respect to the additive $u$ and multiplicative $v$.
-
-If we consider the derivative of $a$ with respect to the additive $u$ and multiplicative $v$ simultaneously, we have:
-
-\begin{equation}
-    \nabla a = \frac{\partial a}{\partial u} \mathbf{e}_u + \frac{\partial a}{\partial v} \mathbf{e}_v
-\end{equation}
-
-
-\newpage
-
 \section{Arithmetic expression space}\label{sec:space}
 
 \subsection{The definition}\label{subsec:definition}
@@ -834,7 +788,7 @@ as a tuple of $( F, E, M, a )$:
 
 \emph{Example 1}:
 
-The hyperbolic space equipped with the metric and assignment in the upper half plane model is an arithmetic expression space.
+The hyperbolic space equipped with the following metric and assignment in the upper half plane model is an arithmetic expression space.
 \[
     ds^2 = \frac{1}{y^2}(\frac{dx^2}{\mu^2} + \frac{dy^2}{\lambda^2})
 \]
@@ -847,38 +801,48 @@ The flow equation is satisfied.
 
 \emph{Example 2}:
 
+The hyperbolic space equipped with the following metric and assignment in the horocycle coordinate is an arithmetic expression space.
+\[
+    ds^2 = e^{-2v} du^2 + dv^2
+\]
+and assignment
+\[
+    a = u e^ {-v}
+\]
+
+The flow equation is satisfied.
+
+Example 1 and Example 2 are the same assignment field but with different coordinate systems.
 
 \emph{Example 3}:
 
+The hyperbolic space equipped with the following metric and assignment in the Poincaré disk model is an arithmetic expression space.
 
-\subsection{The existence theorems}\label{subsec:existence-theorems}
 
-There are two important existence theorems related to the flow equation~\eqref{eq:flow}.
+\subsection{The local existence theorem}\label{subsec:existence-theorems}
 
-The first existence theorem states that if we have a Riemannian surface $S$, then there exists a function $a$ on $S$ that satisfies the flow equation~\eqref{eq:flow}. This theorem is proved in a later section, and we will not go into the details of the proof here.
+There are two existence propositions related to the flow equation~\eqref{eq:flow}.
+
+The first existence propositions states that if we have a Riemannian surface $S$, then there exists a function $a$ on $S$ that satisfies the flow equation~\eqref{eq:flow}.
 
 \begin{proposition}
     Given a Riemannian surface $S$, there exists a function $a$ on $S$ satisfying the flow equation~\eqref{eq:flow}.
     \label{prop:existence1st}
 \end{proposition}
 
-The second existence theorem is also crucial.
+The second existence propositions is also interesting.
 It says that if we have a smooth surface $S$ and a function $a$ on $S$, then we can find a metric $g$ on $S$ that makes $a$ satisfy the flow equation~\eqref{eq:flow}.
-We morph the metric $g$ to make $a$ satisfy the flow equation~\eqref{eq:flow}, this technique will be touched back and forth in the following sections.
+We morph the metric $g$ to make $a$ satisfy the flow equation~\eqref{eq:flow}.
 
+And we had proved a local version of the second existence propositions as a theorem.
 \begin{theorem}(By Le Zhang)
-    Given an oriented compact Riemannian surface $S$, and a function $a$ over $S$, there exists a metric $g$ on $S$ that makes $a$
-    satisfying the flow equation~\eqref{eq:flow}.
+    For every point \( p \) on an oriented compact Riemannian surface $S$, and a smooth function $a$ over $S$, there exists a metric $g$ on a neighborhood surrounding \( p \)
+    that makes $a$ satisfying the flow equation~\eqref{eq:flow}.
     \label{prop:existence2nd}
 \end{theorem}
 
 \begin{proof}
-
-    The proof is divided into two parts: local perspective and global perspective.
-
-    \emph{Local perspective}:
-
-    Consider a point \( p \) on the surface \( S \), and there is a neighborhood \( U \) around \( p \).
+    Consider a neighborhood \( U \) around \( p \).
     In this area, we can find a local isothermal coordinate system in which the metric takes the form:
     \[ ds^2 = e^{2\rho}(du^2 + dv^2), \]
     where \( u \) and \( v \) are the coordinates of \( U \), and \( \rho \) is a function of \( u, v \) in \( U \).
@@ -915,31 +879,15 @@ We morph the metric $g$ to make $a$ satisfy the flow equation~\eqref{eq:flow}, t
     \begin{equation}
         \alpha = \frac{||\nabla a||}{\sqrt{\mu^2 + a^2 \lambda^2}}\label{eq:ratio}.
     \end{equation}
-
-    \emph{Global perspective}:
-
-    When we consider the broader scope of the surface \( S \), it's possible to extend the morphing process to every point,
-    ensuring that the flow equation~\eqref{eq:flow} is satisfied on a global scale.
-    However, this expansion necessitates a harmonious integration of the morphing process across neighboring locales.
-    Specifically, this means that the morphing should not only preserve the circles centered at point \( p \) within its immediate local chart
-    but also maintain the integrity of these circles within the adjacent charts of point \( p \).
-    In essence, the morphing process must be seamlessly coordinated across the various local regions to achieve a unified global transformation.
-
-    TODO
-
     \qedhere
-\end{proof}
 
-\newpage
+\end{proof}
 
 \section{Conclusion}\label{sec:conclusion}
 
 \subsection{Integration}\label{sec:integration}
 
 \subsection{Complexification}\label{sec:complexification}
-
-
-\newpage
 
 \bibliographystyle{plain}
 \bibliography{space.bib}
