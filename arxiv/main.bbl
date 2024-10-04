@@ -1,0 +1,25 @@
+\begin{thebibliography}{1}
+
+\bibitem{Knuth1997TheAO}
+Donald~Ervin Knuth.
+\newblock The art of computer programming, volume i: Fundamental algorithms,
+  2nd edition.
+\newblock 1997.
+
+\bibitem{Markstein2004SoftwareDA}
+Peter~W. Markstein.
+\newblock Software division and square root using goldschmidt's algorithms.
+\newblock 2004.
+
+\bibitem{Quinnell2007FloatingPointFM}
+Eric Quinnell, Earl~E. Swartzlander, and Carl Lemonds.
+\newblock Floating-point fused multiply-add architectures.
+\newblock {\em 2007 Conference Record of the Forty-First Asilomar Conference on
+  Signals, Systems and Computers}, pages 331--337, 2007.
+
+\bibitem{Reynolds1972DefinitionalIF}
+John~C. Reynolds.
+\newblock Definitional interpreters for higher-order programming languages.
+\newblock {\em Higher-Order and Symbolic Computation}, 11:363--397, 1972.
+
+\end{thebibliography}
