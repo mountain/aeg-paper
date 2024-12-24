@@ -274,10 +274,21 @@ Let's consider the direction of \(\phi = 0\) in the contour-gradient coordinate 
 Then we have the coordinate-free form of the flow equation:
 
 \begin{equation}\label{eq:coordinate-free}
-    |\Delta a| = \sqrt{\mu^2 + a^2 \lambda^2}
+||\nabla a|| = \sqrt{\mu^2 + a^2 \lambda^2}
 \end{equation}
 
-It should be noted that the coordinate-free form of the flow equation~\eqref{eq:coordinate-free} is an Eikonal equation.
+It should be noted that the coordinate-free form of the flow equation~\eqref{eq:coordinate-free} is an Eikonal equation,
+and can be viewed as a Hamilton–Jacobi equation
+\[
+H(x, a, \nabla a) = 0
+\]
+
+where the Hamiltonian is
+
+\begin{equation}\label{eq:hamiltonian}
+    H(x, a, p) = ||p|| - \sqrt{\mu^2 + a^2 \lambda^2}
+\end{equation}
+
 
 \subsection{Propagation method}\label{subsec:propagation-method}
 
