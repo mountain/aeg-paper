@@ -199,7 +199,7 @@ In this coordinate system, the additional line and the multiplicative line are:
     \phi = \arcsin \frac{\mu}{\sqrt {\mu^2 + a^2 \lambda^2}}\label {eq:mulitiplcativeline}
 \end{equation}
 
-\subsection{Local Descartes coordinate and area formula}\label{subsec:descartes-coordinate}
+\subsection{Arithmetic coordinate and area formula}\label{subsec:descartes-coordinate}
 We begin our exploration by examining the flow equation~\eqref{eq:flow} within the framework of a local polar coordinate system:
 
 \begin{equation}
@@ -258,9 +258,29 @@ aiming to forge a connection with curvature and delve into the intricacies of th
 
 It's noteworthy to emphasize the distinctiveness of the local Descartes coordinate system.
 This system, by integrating the assignment, lays the foundation for a theoretical framework.
-We refer to this as the arithmetic coordinate system, given its unique properties and alignment with arithmetic principles.
+We refer to this as the \emph{arithmetic coordinate system}, given its unique properties and alignment with arithmetic principles.
 The proof of its existence and further elaboration will be undertaken in the upcoming section\ref{subsec:existence-theorems},
 underscoring its significance and application in our study.
+
+\subsection{The coordinat-free form of flow equation}\label{subsec:coordinate-free}
+
+From the contour-gradient form of the flow equation~\eqref{eq:contourgradient}, we can derive a coordinate-free form of the flow equation.
+Let's consider the direction of \(\phi = 0\) in the contour-gradient coordinate system, and we have
+
+\[
+    \frac{da}{ds}|_{\phi = 0} = \sqrt{\mu^2 + a^2 \lambda^2} \cos 0
+\]
+
+Then we have the coordinate-free form of the flow equation:
+
+\begin{equation}\label{eq:coordinate-free}
+    |\Delta a| = \sqrt{\mu^2 + a^2 \lambda^2}
+\end{equation}
+
+It should be noted that the coordinate-free form of the flow equation~\eqref{eq:coordinate-free} is an Eikonal equation.
+
+\subsection{Propagation method}\label{subsec:propagation-method}
+
 
 \subsection{Flow and function}\label{subsec:flow-and-function}
 
@@ -288,33 +308,27 @@ or function $k$ is the projection of the mapping $l$.
 Giving an arithmetic expression space as definition at the beginning of the section\ref{subsec:meshgrid},
 we will show examples of flows as functions.
 
-\subsubsection{Example: Brachistochrone curve}\label{subsubsec:brachistochrone}
+% \subsubsection{Example: Brachistochrone curve}\label{subsubsec:brachistochrone}
+%
+% The brachistochrone curve is the curve between two points that minimizes the time taken by a frictionless bead sliding along a wire.
+% We assume the wire is a curve $\eta = f(\delta)$, and the bead starts at $(0, 0)$ and ends at $( \Delta, H )$ as time $t$ goes from $0$ to $T$.
+%
+% TODO
 
-The brachistochrone curve is the curve between two points that minimizes the time taken by a frictionless bead sliding along a wire.
-We assume the wire is a curve $\eta = f(\delta)$, and the bead starts at $(0, 0)$ and ends at $( \Delta, H )$ as time $t$ goes from $0$ to $T$.
+\subsection{The existence theorem}\label{subsec:existence-theorem}
 
-TODO
+There are two existence problems related to the flow equation~\eqref{eq:flow}.
+The first existence problem concerns the existence of a function $a$ on a Riemannian surface $S$ that satisfies the flow equation~\eqref{eq:flow}.
+The second existence problem concerns the existence of a metric $g$ on a Riemannian surface $S$ that makes a function $a$ satisfy the flow equation~\eqref{eq:flow}.
 
-\subsection{The existence theorems}\label{subsec:existence-theorems}
+We can proof there is a local morphing process over metric $g$ to make a function $a$ satisfy the flow equation~\eqref{eq:flow} locally.
+But the global morphing process is more complicated, and we need to consider the global structure of the surface $S$, which is still not settled.
 
-There are two important existence theorems related to the flow equation~\eqref{eq:flow}.
-
-The first existence theorem states that if we have a Riemannian surface $S$, then there exists a function $a$ on $S$ that satisfies the flow equation~\eqref{eq:flow}. This theorem is proved in a later section, and we will not go into the details of the proof here.
-
-\begin{theorem}
-    Given a Riemannian surface $S$, there exists a function $a$ on $S$ satisfying the flow equation~\eqref{eq:flow}.
-    \label{prop:existence1st}
-\end{theorem}
-
-The second existence theorem is also crucial.
-It says that if we have a smooth surface $S$ and a function $a$ on $S$, then we can find a metric $g$ on $S$ that makes $a$ satisfy the flow equation~\eqref{eq:flow}.
-We morph the metric $g$ to make $a$ satisfy the flow equation~\eqref{eq:flow}, this technique will be touched back and forth in the following sections.
-
-\begin{theorem}(By Le Zhang)
-    Given an oriented compact Riemannian surface $S$, and a function $a$ over $S$, there exists a metric $g$ on $S$ that makes $a$
+\begin{lemma}(By Le Zhang)
+    Given an oriented compact Riemannian surface $S$, and a smooth function $a$ over $S$, there exists a metric $g$ on $S$ that makes $a$
     satisfying the flow equation~\eqref{eq:flow}.
     \label{prop:existence2nd}
-\end{theorem}
+\end{lemma}
 
 \begin{proof}
 
@@ -373,17 +387,3 @@ We morph the metric $g$ to make $a$ satisfy the flow equation~\eqref{eq:flow}, t
 
     \qedhere
 \end{proof}
-
-\subsection{The additive-multiplicative derivative}\label{subsec:additive-multiplicative-derivative}
-
-Given a scalar field $a$ on a Riemannian surface $M$ satisfying the flow equation~\eqref{eq:flow},
-we have local Descartes coordinates $u$ and $v$, and the first fundamental form $ds^2 = A^2 du^2 + B^2 dv^2$.
-Now we study the derivative of $a$ with respect to the additive $u$ and multiplicative $v$.
-
-If we consider the derivative of $a$ with respect to the additive $u$ and multiplicative $v$ simultaneously, we have:
-
-\begin{equation}
-    \nabla a = \frac{\partial a}{\partial u} \mathbf{e}_u + \frac{\partial a}{\partial v} \mathbf{e}_v
-\end{equation}
-
-
