@@ -271,14 +271,14 @@ Let's consider the direction of \(\phi = 0\) in the contour-gradient coordinate 
     \frac{da}{ds}|_{\phi = 0} = \sqrt{\mu^2 + a^2 \lambda^2} \cos 0
 \]
 
-Then we have the coordinate-free form of the flow equation:
+Notice the gradient of \(a\) is not dependent on the coordinate system, and we have the coordinate-free form of the flow equation:
 
 \begin{equation}\label{eq:coordinate-free}
 ||\nabla a|| = \sqrt{\mu^2 + a^2 \lambda^2}
 \end{equation}
 
 It should be noted that the coordinate-free form of the flow equation~\eqref{eq:coordinate-free} is an Eikonal equation,
-and can be viewed as a Hamilton–Jacobi equation
+and can be viewed as a special Hamilton–Jacobi equation
 \[
 H(x, a, \nabla a) = 0
 \]
@@ -289,8 +289,30 @@ where the Hamiltonian is
     H(x, a, p) = ||p|| - \sqrt{\mu^2 + a^2 \lambda^2}
 \end{equation}
 
-
 \subsection{Propagation method}\label{subsec:propagation-method}
+
+From equation~\eqref{eq:gradevo2} or equation~\eqref{eq:gradevo3}, we can derive a geometrcal propagation interpretation of the flow equation.
+Let's rewrite the equation~\eqref{eq:gradevo2} and equation~\eqref{eq:gradevo3} as
+
+\begin{equation}
+    a = \pm \frac{\mu}{\lambda} \sinh(\lambda s \cos \phi + \arcsinh \frac{a_0 \lambda}{\mu})\label{eq:gradevo4}
+\end{equation}
+
+If we take $a_0 = 0$, and considering the gradient direction $\phi = 0$, we have
+
+\begin{equation}
+    a = \pm \frac{\mu}{\lambda} \sinh(\lambda s)\label{eq:gradevo5}
+\end{equation}
+
+Comparing the equation~\eqref{eq:gradevo5} with the circumference of a circle with radius $s$:
+
+\begin{equation}
+    C = 2 \pi \frac{1}{sqrt{-k}} \sinh(\sqrt{-k} s) \label{eq:circle}
+\end{equation}
+
+
+
+
 
 
 \subsection{Flow and function}\label{subsec:flow-and-function}
