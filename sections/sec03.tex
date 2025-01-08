@@ -291,30 +291,29 @@ where the Hamiltonian is
 
 \subsection{Propagation method}\label{subsec:propagation-method}
 
-From equation~\eqref{eq:gradevo2} or equation~\eqref{eq:gradevo3}, we can derive a geometrcal propagation interpretation of the flow equation.
-Let's rewrite the equation~\eqref{eq:gradevo2} and equation~\eqref{eq:gradevo3} as
+Starting from Equations~\eqref{eq:gradevo2} and \eqref{eq:gradevo3}, we can derive a geometric propagation interpretation of the flow equation.
+By rewriting Equations~\eqref{eq:gradevo2} and \eqref{eq:gradevo3} in a unified form, we obtain
 
 \begin{equation}
-    a = \pm \frac{\mu}{\lambda} \sinh(\lambda s \cos \phi + \arcsinh \frac{a_0 \lambda}{\mu})\label{eq:gradevo4}
+a = \pm \frac{\mu}{\lambda} \sinh\bigl(\lambda s \cos \phi + \arcsinh!\bigl(\tfrac{a_0 \lambda}{\mu}\bigr)\bigr).\label{eq:gradevo4}
 \end{equation}
 
-If we take $a_0 = 0$, and considering the gradient direction $\phi = 0$, we have
+If we set $a_0=0$ and choose the gradient direction $\phi=0$, the expression simplifies to
 
 \begin{equation}
-    a = \pm \frac{\mu}{\lambda} \sinh(\lambda s)\label{eq:gradevo5}
+a = \pm \frac{\mu}{\lambda} \sinh(\lambda s).\label{eq:gradevo5}
 \end{equation}
 
-Comparing the equation~\eqref{eq:gradevo5} with the circumference of a circle with radius $s$:
+Comparing Equation~\eqref{eq:gradevo5} with the circumference of a circle of radius $s$:
 
 \begin{equation}
-    C = 2 \pi \frac{1}{sqrt{-k}} \sinh(\sqrt{-k} s) \label{eq:circle}
+C = 2\pi ,\frac{1}{\sqrt{-k}} ,\sinh\bigl(\sqrt{-k},s\bigr), \label{eq:circle}
 \end{equation}
 
-This hints at a geometric interpretation of the flow equation, where the assignment $a$ is propagated along the circle with radius $s$.
-With a initial assignment $a_0 = 0$, which forms a zero line, and the propagation form a wavefront by circles from every point on the zero line,
-then the propagation of $a$ is the propagation of the wavefront.
-
-We will establish a more detailed and rigours geometric interpretation of the flow equation in the section\ref{sec:curvature}.
+we see that the assignment  can be interpreted as propagating along a circle of radius.
+With  forming a zero line, each point on this line generates a wavefront described by concentric circles.
+Hence, the propagation of  corresponds to the wavefront evolution in this geometric sense.
+A more detailed and rigorous geometric interpretation of the flow equation will be provided in Section~\ref{sec:curvature}.
 
 \subsection{Flow and function}\label{subsec:flow-and-function}
 
@@ -407,17 +406,15 @@ But the global morphing process is more complicated, and we need to consider the
     \begin{equation}
         \alpha = \frac{||\nabla a||}{\sqrt{\mu^2 + a^2 \lambda^2}}\label{eq:ratio}.
     \end{equation}
-
-    \emph{Global perspective}:
-
-    When we consider the broader scope of the surface \( S \), it's possible to extend the morphing process to every point,
-    ensuring that the flow equation~\eqref{eq:flow} is satisfied on a global scale.
-    However, this expansion necessitates a harmonious integration of the morphing process across neighboring locales.
-    Specifically, this means that the morphing should not only preserve the circles centered at point \( p \) within its immediate local chart
-    but also maintain the integrity of these circles within the adjacent charts of point \( p \).
-    In essence, the morphing process must be seamlessly coordinated across the various local regions to achieve a unified global transformation.
-
-    TODO
-
     \qedhere
 \end{proof}
+
+\emph{discussion of the global perspective}:
+
+When we consider the broader scope of the surface \( S \), it's possible to extend the morphing process to every point,
+ensuring that the flow equation~\eqref{eq:flow} is satisfied on a global scale.
+However, this expansion necessitates a harmonious integration of the morphing process across neighboring locales.
+Specifically, this means that the morphing should not only preserve the circles centered at point \( p \) within its immediate local chart
+but also maintain the integrity of these circles within the adjacent charts of point \( p \).
+In essence, the morphing process must be seamlessly coordinated across the various local regions to achieve a unified global transformation.
+How to achieve this harmonious integration remains an open question, and further exploration is needed to address this challenge.
