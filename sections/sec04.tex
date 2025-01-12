@@ -1,4 +1,4 @@
-
+\usepackage{amsmath}
 In this section, we will present two analytic examples due to Le that are equivalent and belong to the class of spaces
 called the first kind arithmetic expression space $\mathfrak{E}_1$.
 
@@ -18,12 +18,12 @@ $$
 
 We also consider an assignment function $A$ defined on $\mathcal{H}$ as follows\footnote{This analytic example is provided by Le Zhang, and the geometry interpretation is given by Mingli Yuan}:
 
-\begin{equation}
-A = - \frac{x}{y}
+\begin{equation}\label{eq:exmp1}
+a = - \frac{x}{y}
 \end{equation}
 
 \begin{theorem}\footnote{The proof is originally by Le Zhang, and modified by Mingli Yuan}
-For the assignment $A$ defined by above formula, $A$ satisfy the flow equation\eqref{eq:flow}
+The assignment $a$ defined by above formula\eqref{eq:exmp1} satisfy the flow equation\eqref{eq:flow}
 \end{theorem}
 
 \begin{proof}
@@ -69,10 +69,10 @@ $$
 
 \end{proof}
 
-We can verify $A$ is an eigenfunction of the Laplacian
+We can verify $a$ is an eigenfunction of the Laplacian
 
 $$
-\Delta A = - y^2 (\frac{\partial^2}{\partial x^2} A + \frac{\partial^2}{\partial y^2} A) = y^2 (\frac{1}{\partial y} (\frac{1}{\partial y} \frac{x}{y})) = 2 A
+\Delta a = - y^2 (\frac{\partial^2}{\partial x^2} a + \frac{\partial^2}{\partial y^2} a) = y^2 (\frac{1}{\partial y} (\frac{1}{\partial y} \frac{x}{y})) = 2 a
 $$
 
 \subsection{A horocycle-based coordinate system}\label{subsec:horocyclebased}
@@ -120,12 +120,12 @@ $$
 Giving the Poincaré disc $\mathcal{P}$ equipped with the above horocycle-based coordinate system,
 we consider an assignment function $A$ defined on $\mathcal{P}$ as follows\footnote{This analytic example is provided by Le Zhang, and the geometry interpretation is given by Mingli Yuan}:
 
-\begin{equation}
-A = u e^{-v}
+\begin{equation}\label{eq:exmp2}
+a = u e^{-v}
 \end{equation}
 
 \begin{theorem}
-For the assignment $A$ defined by above formula, $A$ satisfy the flow equation\eqref{eq:flow}
+The assignment $a$ defined by above formula \eqref{eq:exmp2} satisfy the flow equation\eqref{eq:flow}
 \end{theorem}
 
 \begin{figure}[ht]
@@ -163,19 +163,19 @@ $$
 This lead to
 
 $$
-A = -\frac{x}{y} = u e^{-v}
+a = -\frac{x}{y} = u e^{-v}
 $$
 
-And because of theorem \ref{thm:isometry} and Möbius transform is conformal, we can conclude that $A = u e^{-v}$ obey flow equation.
+And because of isometry keeps the flow equation and Möbius transform is conformal, we can conclude that $a = u e^{-v}$ obey flow equation.
 
 \end{proof}
 
-We can verify $A$ is also an eigenfunction of the Laplacian
+We can verify $a$ is also an eigenfunction of the Laplacian
 $$
-\Delta A = e^{2v} \frac{\partial^2(u e^{-v})}{{\partial u}^2} + \frac{\partial^2(u e^{-v})}{{\partial v}^2} - \frac{\partial(u e^{-v})}{\partial v} = 2A
+\Delta a = e^{2v} \frac{\partial^2(u e^{-v})}{{\partial u}^2} + \frac{\partial^2(u e^{-v})}{{\partial v}^2} - \frac{\partial(u e^{-v})}{\partial v} = 2a
 $$
 
-From the above proof, we can see that the two assignment function $A$ arose from the same geometry setting, they are equivalent to each other.
+From the above proof, we can see that the two assignment function $a$ arose from the same geometry setting, they are equivalent to each other.
 
 \subsection{Generator independence}
 
@@ -196,14 +196,14 @@ $$
 
 Whatever the choice of $\mu$ and $\lambda$, the assignment is given by
 
-\begin{equation}
-A = - \frac{x}{y}
+\begin{equation}\label{eq:exmp3}
+a = - \frac{x}{y}
 \end{equation}
 
-We can verify $A$ satisfying the flow equation\eqref{eq:flow}, and also it is generator independent.
+We can verify $a$ satisfying the flow equation\eqref{eq:flow}, and also it is generator independent.
 
 \begin{theorem}
-The above $A$ satisfying the flow equation\eqref{eq:flow}
+The above $a$ given by \eqref{eq:exmp3} satisfying the flow equation\eqref{eq:flow}
 \end{theorem}
 
 \begin{proof}
