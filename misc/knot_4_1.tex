@@ -1,0 +1,123 @@
+\documentclass{standalone}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{mathtools}
+
+\usepackage{pgf}
+\usepgflibrary{fpu}
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usetikzlibrary{angles,fit,arrows,calc,math,matrix,intersections,through,backgrounds,cd}
+\usepackage{tkz-euclide}
+\usepackage{tkz-graph}
+\usepackage{graphicx}
+\pgfplotsset{compat=1.18}
+
+\begin{document}
+
+        \tikzmath{
+                \one = 1;
+                \base = 2.618033988749;
+                \offset = 15.8888888;
+                \valofpi = 3.1415926;
+                \anglei = 3.1415926;
+                \angleo = 3.1415926;
+        }
+
+        \begin{tikzpicture}[scale=1.0]
+                % 1. 绘制坐标轴
+                \draw[black, line width=0.6pt, ->]
+                (\offset,0) to[out=90,in=270] (\offset,15.5)
+                node [anchor=south] {y};
+
+                \draw[black, line width=0.6pt, ->]
+                (-7.5,0) to[out=0,in=180] (18,0)
+                node [anchor=west] {x};
+
+                % 2. 绘制 x 和 y 坐标轴刻度
+                \foreach \x in {-25,...,2} {
+                        \node [anchor=north] at (\x/9*8 + \offset, 0) {\x};
+                }
+                \foreach \y in {1,...,17} {
+                        \node [anchor=-135] at (18, \y/9*8) {\y};
+                }
+
+                % 3. 浅灰色水平网格线
+                \foreach \t in {17,...,1} {
+                        \draw [lightgray, line width=0.6pt]
+                        (-7.5,\t/9*8)
+                        to[out=0,in=180]
+                        (18,\t/9*8);
+                }
+
+                % 4. 浅灰色竖直网格线
+                \foreach \t in {-26,...,2} {
+                        \draw [lightgray, line width=0.6pt]
+                        (\t/9*8 + \offset, 0)
+                        to[out=90,in=270]
+                        (\t/9*8 + \offset, 15.5);
+                }
+
+                % 5. 绘制 4_1 结构
+                \draw[black, line width=1.2pt]
+                (-24/9*8 + \offset, 16/9*8)
+                to[out=0,in=180]
+                (-8/9*8 + \offset, 16/9*8);
+                \node[circle, fill=black, inner sep=1.5pt] at (-24/9*8 + \offset, 16/9*8) {};
+                \node [anchor=270] at (-16/9*8 + \offset, 16/9*8) {$\ominus_1$};
+                \draw[black, line width=1.2pt]
+                (-8/9*8 + \offset, 16/9*8)
+                to[out=270,in=90]
+                (-8/9*8 + \offset, 6.111/9*8);
+                \node[circle, fill=black, inner sep=1.5pt] at (-8/9*8 + \offset, 16/9*8) {};
+                \node [anchor=180] at (-8/9*8 + \offset, 11.055/9*8) {$\oslash_t$};
+                \draw[black, line width=1.2pt]
+                (-8/9*8 + \offset, 6.111/9*8)
+                to[out=270,in=90]
+                (-8/9*8 + \offset, 2.334/9*8);
+                \node[circle, fill=black, inner sep=1.5pt] at (-8/9*8 + \offset, 6.111/9*8) {};
+                \node [anchor=0] at (-8/9*8 + \offset, 4.444/9*8) {$\oslash_t$};
+                \draw[black, line width=1.2pt]
+                (-8/9*8 + \offset, 2.334/9*8)
+                to[out=0,in=180]
+                (-5.666/9*8 + \offset, 2.334/9*8);
+                \node[circle, fill=black, inner sep=1.5pt] at (-8/9*8 + \offset, 2.334/9*8) {};
+                \node [anchor=90] at (-6.833/9*8 + \offset, 2.334/9*8) {$\ominus_1$};
+                \draw[black, line width=1.2pt]
+                (-5.666/9*8 + \offset, 2.334/9*8)
+                to[out=90,in=270]
+                (-5.666/9*8 + \offset, 6.111/9*8);
+                \node[circle, fill=black, inner sep=1.5pt] at (-5.666/9*8 + \offset, 2.334/9*8) {};
+                \node [anchor=180] at (-5.666/9*8 + \offset, 4.444/9*8) {$\otimes_t$};
+                \draw[black, line width=1.2pt]
+                (-5.666/9*8 + \offset, 6.111/9*8)
+                to[out=180,in=0]
+                (-11.777/9*8 + \offset + 3.55, 6.111/9*8);
+                \node[circle, fill=black, inner sep=1.5pt] at (-5.666/9*8 + \offset, 6.111/9*8) {};
+                \node [anchor=90] at (-9.162/9*8 + \offset, 6.111/9*8) {$\oplus_1$};
+
+                \draw[black, line width=1.2pt]  (-8/9*8 + \offset + 0.17, 6.111/9*8) arc [start angle=0, end angle=180, radius=5pt];
+
+                \draw[black, line width=1.2pt]
+                (-11.777/9*8 + \offset + 3.15, 6.111/9*8)
+                to[out=180,in=0]
+                (-17.888/9*8 + \offset, 6.111/9*8);
+                \node[circle, fill=black, inner sep=1.5pt] at (-11.777/9*8 + \offset, 6.111/9*8) {};
+                \node [anchor=90] at (-15.273/9*8 + \offset, 6.111/9*8) {$\oplus_1$};
+                \draw[black, line width=1.2pt]
+                (-17.888/9*8 + \offset, 6.111/9*8)
+                to[out=180,in=0]
+                (-24/9*8 + \offset, 6.111/9*8);
+                \node[circle, fill=black, inner sep=1.5pt] at (-17.888/9*8 + \offset, 6.111/9*8) {};
+                \node [anchor=90] at (-21.384/9*8 + \offset, 6.111/9*8) {$\oplus_1$};
+                \draw[black, line width=1.2pt]
+                (-24/9*8 + \offset, 6.111/9*8)
+                to[out=90,in=270]
+                (-24/9*8 + \offset, 16/9*8);
+                \node[circle, fill=black, inner sep=1.5pt] at (-24/9*8 + \offset, 6.111/9*8) {};
+                \node [anchor=0] at (-24/9*8 + \offset, 11.050/9*8) {$\otimes_t$};
+
+        \end{tikzpicture}
+\end{document}
