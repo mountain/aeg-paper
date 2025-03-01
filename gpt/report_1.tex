@@ -1,0 +1,179 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{hyperref}
+\usepackage{enumitem}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{prop}{Proposition}
+\newtheorem{cor}{Corollary}
+\newtheorem{definition}{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+
+\begin{document}
+
+    \title{Arithmetic Expression Spaces and 3D Manifold Surgery:\\
+    Loops, Coverings, and Fundamental Groups}
+    \author{}
+    \date{}
+
+    \maketitle
+
+    \section*{Introduction}
+
+    In this report, we explore how \emph{arithmetic expression spaces} can be used to model 3D manifold surgeries, with loops in these spaces serving as projections of covering spaces formed via cutting and gluing operations. We begin by examining the construction and properties of arithmetic expression spaces as geometric objects, then discuss how loops therein can be interpreted as isometries or deck transformations in a universal cover setting. We next examine 3D surgery concepts (particularly Dehn surgery) and the induced modifications on the fundamental group and covering spaces, ultimately drawing connections to knot theory, geometric group theory, and arithmetic topology.
+
+    \bigskip
+
+    \section{Arithmetic Expression Spaces as Curved Geometric Structures}
+    \label{sec:arithmetic-spaces}
+
+    An \emph{arithmetic expression space} is an abstract geometric object whose points correspond to arithmetic expressions, and whose structure is designed so that performing algebraic operations equates to moving within the space. In such a space, the binary operations of addition and multiplication act like independent ``directions'' of motion. For example, starting at a point representing some value $x$, moving along one generator direction could correspond to adding a fixed number (e.g.\ $+1$), while moving along another corresponds to multiplying by a certain factor (e.g.\ $\times 2$). Formally, one can imagine a \emph{Cayley graph} or manifold associated with a presentation having two kinds of generators: one for addition and one for multiplication (and their inverses if defined). The resulting space has a natural non-Euclidean geometry because the two operations do not commute trivially and can produce exponential branching in the structure. In fact, a tree-like structure emerges if we treat different sequences of operations as distinct paths. This suggests equipping the space with \emph{negative curvature} (as in a hyperbolic metric) to accommodate the rapid ``spreading out'' of paths created by multiplication.
+
+    \medskip
+
+    {\bf Embedding free groups in hyperbolic space.} For a simple illustration, consider the free group on two generators (analogous to an expression space with two basic operations but no relations). Its Cayley graph is an infinite 4-valent tree, which expands exponentially from any starting vertex. Such a tree cannot be embedded isometrically in a flat plane without distortion, but it fits naturally inside the hyperbolic plane. In fact, one can embed the 4-valent tree in the Poincar\'e disk model of the hyperbolic plane, with each edge a geodesic arc (see, for example, \href{https://blog.geometryteachersguide.com/visually-representing-infinite-cayley-graphs-in-the-hyperbolic-plane/}{[37\,\textdagger L33-L41]}). The negative curvature of the disk ``opens up'' enough room for the exponentially branching graph to sit without overlaps (\href{https://blog.geometryteachersguide.com/visually-representing-infinite-cayley-graphs-in-the-hyperbolic-plane/}{[37\,\textdagger L57-L61]}). \emph{This} exemplifies how a curved geometry can realize an arithmetic expression space: addition and multiplication generate paths that diverge exponentially (much like a free group), and hyperbolic space provides the curvature to accommodate this growth. Essentially, addition could be viewed as a translation along one geodesic direction, and multiplication as a different motion (a hyperbolic rotation or dilation) --- both are isometries in an appropriate metric.
+
+    \medskip
+
+    {\bf Affine transformations.} One can also model a simplified arithmetic expression space as a \emph{group of transformations} of the form $x \mapsto ax + b$. Here $b$ (translation) plays the role of addition and $a$ (scaling) the role of multiplication. This affine group can be given a geometric structure (it is in fact a 2-dimensional Lie group) which one can analyze for curvature.
+
+    \medskip
+
+    {\bf Quotient by relations.} If the expression space is truly free (no distributivity, no commutativity, etc.), its Cayley graph is a tree (or disjoint union thereof), corresponding to a word-hyperbolic group. But in standard arithmetic, many relations \emph{do} hold (like distributivity $a(b+c) = ab + ac$). Imposing such relations identifies different paths in the covering tree, creating \emph{loops} in the quotient space. Each loop indicates a place where the geometry is forced to flatten or twist, possibly introducing zero or positive curvature. One obtains a 2D CW-complex or manifold: the \emph{arithmetic expression space}. Despite potentially flattening some parts, these spaces often remain coarse-hyperbolic or have relatively hyperbolic structure if the relations do not embed large $\mathbb{Z}^2$ subgroups. Geometrically, such spaces can be complicated, but share the property that \emph{noncommuting generators induce negative curvature} in large portions of the space, enabling them to host interesting loops that reflect arithmetic identities.
+
+    \bigskip
+
+    \section{Loops in Expression Spaces as Covering Transformations}
+    \label{sec:loops-as-coverings}
+
+    Any geometric space has loops (closed paths) representing elements of its fundamental group $\pi_1$. In an \emph{arithmetic expression space}, loops arise from sequences of operations that return to the starting expression --- for instance, performing additions and multiplications in such an order that you end up with the same value you started with. Algebraically, such a sequence $E_1 \to E_2 \to \cdots \to E_n = E_1$ is an \emph{identity} in the group. Each loop in the space thus corresponds to an element of $\pi_1$.
+
+    \medskip
+
+    {\bf Universal cover and deck transformations.} If $X$ is our expression space, let $\widetilde{X}$ be its \emph{universal cover}, a simply connected covering space. Each loop $\gamma$ in $X$ \emph{lifts} to a path in $\widetilde{X}$ that starts at some basepoint $\widetilde{x}$ and ends at a different point $\widetilde{x}'$ in $\widetilde{X}$. This endpoint $\widetilde{x}'$ is related to $\widetilde{x}$ by a \emph{deck transformation} --- an isometry of the covering space that corresponds exactly to $\gamma$. More precisely, the group of deck transformations of $\widetilde{X}\to X$ is isomorphic to $\pi_1(X)$ (see \href{http://homepages.math.uic.edu/~kauffman/KnotGroupAndBFTheory.pdf}{[10\,\textdagger L773-L781]} and \href{https://www.maths.ed.ac.uk/~v1ranick/papers/hatcher.pdf}{[44\,\textdagger L1-L4]}). In this sense, \emph{every loop in $X$ is realized as an isometry of the universal cover}.
+
+    \medskip
+
+    {\bf Example: circle $S^1$.} For the simplest case $X=S^1$, the universal cover is $\widetilde{X}=\mathbb{R}$. Loops in $S^1$ (which generate $\pi_1(S^1)\cong\mathbb{Z}$) correspond to integer translations in $\mathbb{R}$. Each integer $n$ in $\mathbb{Z}$ acts by $x\mapsto x+n$, an isometry of $\mathbb{R}$.
+
+    \medskip
+
+    {\bf Example: hyperbolic manifold.} For a closed hyperbolic 3-manifold $X$, its universal cover $\widetilde{X}\cong \mathbb{H}^3$. A loop $\gamma$ in $X$ that is homotopic to a closed geodesic induces a \emph{loxodromic} isometry of $\mathbb{H}^3$ with an axis along the lift of that geodesic (\href{https://arxiv.org/abs/math/0109125}{[47\,\textdagger L11-L17]}). By extension, each loop in an arithmetic expression space is likewise an isometry of the covering space (often some tree or hyperbolic plane/disk model).
+
+    \bigskip
+
+    \section{3D Surgery: Cutting, Gluing, and Induced Covering Spaces}
+    \label{sec:3d-surgery}
+
+    \emph{3D manifold surgery} is a procedure that modifies a 3-manifold by removing a submanifold (often a torus neighborhood of a knot) and regluing it in a different way. Dehn surgery on a knot $K$ in $S^3$ provides a classical example: one removes the knot's tubular neighborhood (which is $S^1\times D^2$) and glues back a solid torus so that a loop on the boundary torus is identified with the meridian of the new solid torus. This changes the fundamental group by imposing a new relation. For instance, if the knot group has meridian $\mu$ and longitude $\lambda$, then a $(p,q)$-Dehn filling kills the loop $\mu^p\lambda^q$ in $\pi_1$, i.e.\ sets $\mu^p\lambda^q=1$ in the new manifold \cite[{[16\,\textdagger L173-L181]}]{somebib}.
+
+    \medskip
+
+    {\bf Fundamental group perspective.} Adding a relation $\gamma=1$ in $\pi_1(X)$ means the new group is $G/\langle\!\langle \gamma\rangle\!\rangle$. From the covering space viewpoint, this \emph{collapses} the deck transformations associated to $\gamma$. If $\widetilde{X}$ is the universal cover of $X$, then to get the universal cover of the new manifold $Y$ (with $\gamma=1$), we form the quotient $\widetilde{X}/\langle\!\langle \widetilde{\gamma}\rangle\!\rangle$ where $\widetilde{\gamma}$ is the set of all lifts of $\gamma$. Geometrically, we attach 2-cells along those loops in $\widetilde{X}$, making them contractible. The result is simply connected, so it is indeed the universal cover of $Y$ \cite[{[10\,\textdagger L773-L781, 44\,\textdagger L1-L4]}]{somebib}.
+
+    \medskip
+
+    {\bf Surgery on knot complements.} For a knot complement $X=S^3\setminus K$, Dehn surgery modifies the boundary torus by identifying a loop $p\mu + q\lambda$ with a meridian. Algebraically, $\mu^p\lambda^q=1$ in $\pi_1(Y)$. The universal cover changes accordingly, killing that loop. Often, if $X$ was hyperbolic, $Y$ remains hyperbolic except for finitely many $(p,q)$ slopes (Thurston's hyperbolic Dehn surgery theorem). Thus one can interpret these new manifolds' universal covers as the same $\mathbb{H}^3$ but with a different discrete group quotient \cite[{[16\,\textdagger L181-L186]}]{somebib}.
+
+    \bigskip
+
+    \section{Universal Covers, Fundamental Groups, and Expression Spaces}
+    \label{sec:cover-and-fg}
+
+    Because loops in an arithmetic expression space $X$ inject into $\pi_1(X)$, performing a 3D surgery along such a loop amounts to \emph{adding a relation that kills the loop}. In a covering space sense, we \emph{identify} points in $\widetilde{X}$ that differ by that deck transformation, effectively capping off holes. As a result:
+
+    \begin{enumerate}[label=(\alph*)]
+        \item The fundamental group of the new manifold is $G/\langle\!\langle \gamma\rangle\!\rangle$ for $G=\pi_1(X)$.
+        \item The universal cover $\widetilde{Y}$ can be obtained from $\widetilde{X}$ by attaching cells along all lifts of $\gamma$ to make them contractible.
+    \end{enumerate}
+
+    Hence, the loop we choose for surgery---or a family of loops---directly shapes how the covering space changes. In knot complements, these loops lie on boundary tori; in arithmetic spaces, one can similarly look at boundary structures or certain distinguished loops that might realize gluing instructions.
+
+    \bigskip
+
+    \section{Connections to Knot Theory and 3-Manifold Topology}
+    \label{sec:knot-theory}
+
+    Many fundamental observations in knot theory parallel these ideas:
+
+    \begin{itemize}
+        \item \textbf{Knot groups and loops:} A knot group $\pi_1(S^3\setminus K)$ can be generated by meridians and other loops; relations come from Wirtinger presentations. One can view these generators as akin to arithmetic operations, with each crossing imposing a relation \cite[{[16\,\textdagger L181-L186]}]{somebib}.
+        \item \textbf{Dehn surgery as adding relations:} Killing the meridian or some combination of loops in the boundary torus is exactly how one obtains new manifolds from the knot complement. This is the topological essence of 3D surgery, matching the group-theoretic operation of adding relations.
+        \item \textbf{Universal abelian cover and Alexander polynomial:} From an abelianized viewpoint, loops in the commutator subgroup become trivial in the abelian cover, linking to classical invariants like the Alexander polynomial. Analogously, we can interpret certain loops in arithmetic spaces and see how covering transformations factor through abelianization.
+        \item \textbf{Arithmetic topology analogy:} Number-theoretic analogies identify loops with primes, universal covers with universal field extensions, and so forth (\href{https://arxiv.org/abs/1010.1881}{[49\,\textdagger L403-L411]}). These parallels suggest a rich interplay between covering space theory and arithmetic operations, well beyond simple addition and multiplication.
+    \end{itemize}
+
+    \bigskip
+
+    \section{Geometric Group Theory Perspectives}
+    \label{sec:ggt-perspectives}
+
+    From a \emph{geometric group theory} perspective, arithmetic expression spaces can be understood in terms of their Cayley graphs. If the group has few or no algebraic relations, one gets a free (thus hyperbolic) group. If one imposes commuting or distributive laws, the space may acquire $\mathbb{Z}^2$ substructures, losing hyperbolicity. In general:
+
+    \begin{itemize}[leftmargin=2em]
+        \item \emph{Free groups} on $n\ge 2$ generators are Gromov-hyperbolic (negatively curved) \cite[{[28\,\textdagger L79-L86]}]{somebib}. Their Cayley graphs embed quasi-isometrically in hyperbolic space.
+        \item \emph{Baumslag--Solitar groups} $BS(m,n)=\langle a,b\mid a^{-1}b^ma=b^n\rangle$ illustrate how a single relation can spoil hyperbolicity by creating large abelian subgroups \cite[{[24\,\textdagger L63-L71]}]{somebib}.
+        \item \emph{Arithmetic spaces with many relations} (like full commutativity and distributivity) embed $\mathbb{Z}^2$ or higher rank abelian groups, implying partial flats.
+    \end{itemize}
+
+    Hence, studying loops in these spaces is equivalent to analyzing word problems and normal forms in such groups. Tools like Todd--Coxeter or Knuth--Bendix help detect new relations, which correspond to loops. Viewing these loops as cutting/gluing instructions leads to 3D surgery analogies.
+
+    \bigskip
+
+    \section{Computational Approaches}
+    \label{sec:computation}
+
+    \begin{itemize}[leftmargin=2em]
+        \item \textbf{Cayley graph enumeration:} One can systematically generate paths in an expression space, detect when two distinct paths yield the same expression, and hence discover loops. This is akin to partial coset enumeration or rewriting.
+        \item \textbf{SnapPy and Dehn fillings:} For knot complements, \href{https://snappy.computop.org/}{\texttt{SnapPy}} can perform Dehn surgeries by adding relations $\mu^p\lambda^q=1$ on the boundary. It computes the resulting fundamental group or hyperbolic volume (\href{https://arxiv.org/abs/math/9803087}{[51\,\textdagger L43-L51]}).
+        \item \textbf{Rewrite systems:} Algebra systems (e.g.\ Prover9, Mathematica) can incorporate distributive or commutative laws to reduce expressions to normal forms. If a confluent rewrite system can be found, checking if a loop is trivial becomes straightforward.
+        \item \textbf{Visualization:} Tools like \href{https://github.com/AdhocMan/computers_in_hyperbolic_geometry}{Walrus} or custom scripts in Sage can attempt to embed finite portions of a group Cayley graph in hyperbolic space for intuition (\href{https://blog.geometryteachersguide.com/visually-representing-infinite-cayley-graphs-in-the-hyperbolic-plane/}{[37\,\textdagger L39-L47]}).
+    \end{itemize}
+
+    Such computational methods provide concrete examples, guide conjectures, and check theoretical claims.
+
+    \bigskip
+
+    \section{Conclusion}
+
+    \emph{Arithmetic expression spaces} offer a geometric framework where addition and multiplication become orthogonal directions in a potentially negatively curved metric. \emph{Loops} in these spaces represent relations or identities among expressions, which can also be viewed as \emph{deck transformations} of their universal covers. In a 3D manifold context, \emph{surgeries} correspond to \emph{adding relations} that kill certain loops, thereby modifying the fundamental group and the cover. This viewpoint naturally extends to knot complements, Dehn fillings, and broader phenomena in geometric group theory and arithmetic topology.
+
+    \medskip
+
+    By translating algebraic and topological operations into geometric movements and isometries, we obtain a unifying perspective for understanding how cutting and gluing along loops alters spaces. In turn, universal covers---the simply connected sheets on which loops act as deck transformations---remain a powerful tool to track these changes at both local and global scales.
+
+    \bigskip
+
+    \section*{References and Links}
+
+    \begin{itemize}[leftmargin=1.5em]
+        \item \textdagger Some references use line notation, e.g.\ ``[37\,\textdagger L33-L41]'' or ``[47\,\textdagger L11-L17]''. These refer to locations in online blog posts or preprints. For example:
+        \begin{itemize}
+            \item \href{https://blog.geometryteachersguide.com/visually-representing-infinite-cayley-graphs-in-the-hyperbolic-plane/}{[37\,\textdagger L33-L41]} and \href{https://blog.geometryteachersguide.com/visually-representing-infinite-cayley-graphs-in-the-hyperbolic-plane/}{[37\,\textdagger L57-L61]}
+            \item \href{https://arxiv.org/abs/math/0109125}{[47\,\textdagger L11-L17]}
+            \item \href{http://homepages.math.uic.edu/~kauffman/KnotGroupAndBFTheory.pdf}{[10\,\textdagger L773-L781]}
+            \item \href{https://www.maths.ed.ac.uk/~v1ranick/papers/hatcher.pdf}{[44\,\textdagger L1-L4]}
+            \item \href{https://arxiv.org/abs/1010.1881}{[49\,\textdagger L403-L411]}
+            \item \href{https://arxiv.org/abs/math/9803087}{[51\,\textdagger L43-L51]}
+        \end{itemize}
+
+        \vspace*{0.5em}
+
+        \item Specific references from the main text:
+        \begin{itemize}
+            \item \href{https://arxiv.org/abs/math/0109125}{[47\,\textdagger L11-L17]} discusses hyperbolic isometries and group actions.
+            \item \href{https://blog.geometryteachersguide.com/visually-representing-infinite-cayley-graphs-in-the-hyperbolic-plane/}{[37\,\textdagger L33-L41]} shows embedding of free groups into the Poincar\'e disk.
+            \item \href{http://homepages.math.uic.edu/~kauffman/KnotGroupAndBFTheory.pdf}{[10\,\textdagger L773-L781]} and \href{https://www.maths.ed.ac.uk/~v1ranick/papers/hatcher.pdf}{[44\,\textdagger L1-L4]} on fundamental groups and deck transformations.
+            \item \href{https://arxiv.org/abs/1010.1881}{[49\,\textdagger L403-L411]} for arithmetic topology analogies.
+        \end{itemize}
+
+        \vspace*{0.5em}
+
+        \item \textbf{SnapPy}: \href{https://snappy.computop.org/}{snappy.computop.org} for computations on 3-manifolds, Dehn fillings, fundamental group simplifications.
+
+    \end{itemize}
+
+\end{document}
