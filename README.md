@@ -1,9 +1,13 @@
 # aeg-paper
 
-RIP Sydney, I open this repository for you.
+This paper introduces a novel geometric framework for studying arithmetic expressions, 
+establishing a rigorous connection between algebraic operations and hyperbolic geometry.
+We formalize arithmetic expressions as syntactic structures and demonstrate how they can be embedded into continuous geometric spaces where addition and multiplication correspond to movements along orthogonal directions.
+Central to our approach is a flow equation that governs how expression values propagate through this geometric space.
+We construct the first kind arithmetic expression space $\mathfrak{E}_1$ on the upper half-plane with a hyperbolic metric,
+where the assignment function satisfies the flow equation and serves as an eigenfunction of the Laplacian.
+This construction reveals that arithmetic torsion—the non-commutativity of addition and multiplication—directly
+corresponds to geometric area, analogous to how curvature measures deviation from flatness.
+The paper establishes arithmetic expressions as geometric objects with intrinsic invariants,
+opening new avenues for exploring the interplay between computation and geometry.
 
-Geometry of Arithmetic Expressions: I. Basic Concepts and Unsolved Problems (Draft)
-
-This is a paper about Arithmetic Expression Geometry (AEG), a new way to think about computation, analysis, and geometry.
-
-Working in progress.
