@@ -1,158 +1,127 @@
+In this section, we introduce the first kind arithmetic expression space $\mathfrak{E}_1$, which provides a geometric framework for studying arithmetic expressions. We begin with motivating examples, establish the general framework, explore geometric propagation, and examine the relationship between grids and torsion in this space.
 
-In this section, we will present two analytic examples due to Le that are equivalent and belong to the class of spaces
-called the first kind arithmetic expression space $\mathfrak{E}_1$.
+\subsection{Motivating examples}\label{subsec:motivexamples}
 
-\subsection{The first example space}\label{subsec:exmp1}
+We present two analytic examples that are equivalent and belong to the class of spaces called the first kind arithmetic expression space $\mathfrak{E}_1$.
 
-Consider the upper half plane ${\mathcal{H}: (x, y) \ | \ y > 0}$ equipped with an inner product and metrics defined as follows:
+\subsubsection{Example 1: Upper Half Plane Model}
+
+Consider the upper half plane ${\mathcal{H}: (x, y) \ | \ y > 0}$ equipped with the following inner product and metric:
 
 $$
-\mathbf{a} \cdot \mathbf{b} = \begin{bmatrix} a_x & a_y \end{bmatrix} \begin{bmatrix} \frac{1}{y^2} & 0 \\ 0 & \frac{1}{y^2} \end{bmatrix} \begin{bmatrix} b_x \ b_y \end{bmatrix}
+\mathbf{a} \cdot \mathbf{b} = \begin{bmatrix} a_x & a_y \end{bmatrix} \begin{bmatrix} \frac{1}{y^2} & 0 \\ 0 & \frac{1}{y^2} \end{bmatrix} \begin{bmatrix} b_x \\ b_y \end{bmatrix}
 $$
-
-and
 
 $$
 ds^2 = \frac{1}{y^2} (dx^2 + dy^2)
 $$
 
-We also consider an assignment field $a$ defined on $\mathcal{H}$ as follows\footnote{This analytic example is provided by Le Zhang, and the geometry interpretation is given by Mingli Yuan}:
+On this space, we define an assignment field $a$ as follows:
 
 \begin{equation}\label{eq:exmp1}
 a = - \frac{x}{y}
 \end{equation}
 
-\begin{theorem}\footnote{The proof is originally by Le Zhang, and modified by Mingli Yuan}
-The assignment $a$ defined by above formula\eqref{eq:exmp1} satisfy the flow equation\eqref{eq:flow}
+\begin{theorem}\label{thm:exmp1}
+The assignment $a$ defined by formula \eqref{eq:exmp1} satisfies the flow equation \eqref{eq:flow}.
 \end{theorem}
 
 \begin{proof}
+We begin with the differential of the assignment:
 $$
-da = d(-\frac{x}{y}) = \frac{xdy - ydx}{y^2} = -\frac{dx + ady}{y}
+da = d\left(-\frac{x}{y}\right) = \frac{xdy - ydx}{y^2} = -\frac{dx + ady}{y}
 $$
 
-and
-
+The differential of arc length is:
 $$
 ds = \frac{\sqrt{dx^2 + dy^2}}{y}
 $$
 
-then
-
+Therefore:
 $$
-\frac{da}{ds} = - \frac{dx + ady}{y} \frac{y}{\sqrt{dx^2 + dy^2}} = - \frac{dx + ady}{\sqrt{dx^2 + dy^2}}
-$$
-
-Considering that the local coordinate is given by $(-1, 0)$ and $(0, -1)$ under the right-hand rule, we have:
-
-$$
-\cos \theta = \frac{\begin{bmatrix} dx & dy \end{bmatrix} \begin{bmatrix} \frac{1}{y^2} & 0 \\ 0 & \frac{1}{y^2} \end{bmatrix} \begin{bmatrix} -1 \\ 0 \end{bmatrix}}{\sqrt{\begin{bmatrix} dx & dy \end{bmatrix} \begin{bmatrix} \frac{1}{y^2} & 0 \\ 0 & \frac{1}{y^2} \end{bmatrix} \begin{bmatrix} dx \\ dy \end{bmatrix}}\sqrt{\begin{bmatrix} -1 & 0 \end{bmatrix} \begin{bmatrix} \frac{1}{y^2} & 0 \\ 0 & \frac{1}{y^2} \end{bmatrix} \begin{bmatrix} -1 \\ 0 \end{bmatrix}}}
+\frac{da}{ds} = - \frac{dx + ady}{y} \cdot \frac{y}{\sqrt{dx^2 + dy^2}} = - \frac{dx + ady}{\sqrt{dx^2 + dy^2}}
 $$
 
-hence
-
+In the local coordinate system given by $(-1, 0)$ and $(0, -1)$ under the right-hand rule, we have:
 $$
-\cos \theta = \frac{-dx}{\sqrt{dx^2 + dy^2}}
-$$
-
-and similarly
-
-$$
-\sin \theta = \frac{-dy}{\sqrt{dx^2 + dy^2}}
+\cos \theta = \frac{-dx}{\sqrt{dx^2 + dy^2}} \quad \text{and} \quad \sin \theta = \frac{-dy}{\sqrt{dx^2 + dy^2}}
 $$
 
-then
-
+Substituting these values:
 $$
 \frac{da}{ds} = \cos \theta + a \sin \theta
 $$
 
+This matches the flow equation \eqref{eq:flow} with $\mu=1$ and $\lambda=1$.
 \end{proof}
 
-We can verify $a$ is an eigenfunction of the Laplacian
-
+We can verify that $a$ is an eigenfunction of the Laplacian operator:
 $$
-\Delta a = - y^2 (\frac{\partial^2}{\partial x^2} a + \frac{\partial^2}{\partial y^2} a) = y^2 (\frac{1}{\partial y} (\frac{1}{\partial y} \frac{x}{y})) = 2 a
+\Delta a = - y^2 \left(\frac{\partial^2 a}{\partial x^2} + \frac{\partial^2 a}{\partial y^2}\right) = y^2 \left(\frac{\partial}{\partial y} \left(\frac{\partial}{\partial y} \frac{x}{y}\right)\right) = 2a
 $$
 
-\subsection{A horocycle-based coordinate system}\label{subsec:horocyclebased}
+\subsubsection{Example 2: Horocycle-Based Coordinate System}
 
-First, we introduce the horocycle-based coordinate system for hyperbolic surfaces.
-It is a global coordinate system given by two orthogonal sets of circles: one set consists of horocycles that share the same ideal point,
-while the other consists of geodesics that are perpendicular to the first set.
-
-On the Poincaré disc $\mathcal{P}$, the blue horocycles are tangible at the ideal point $\Omega$, forming the first set of circles.
-The green lines are geodesics that form the second set. The coordinates of point $P$ are given by the lengths of $OQ$ and $QP$,
-where point $O$ is the origin and the length is measured using the metric of the hyperbolic surface.
-
-The coordinates of $P$ are $(u,v)$, where the sign of the length is determined by the following rules:
-\begin{itemize}
-\item u: if $P$ is on the same side of $\Omega$, then $u$ is positive; otherwise, $u$ is negative
-\item v: the sign of the length should satisfy the right-hand rule
-\end{itemize}
+For our second example, we first introduce a horocycle-based coordinate system for hyperbolic surfaces. This global coordinate system consists of two orthogonal sets of circles: horocycles sharing the same ideal point, and geodesics perpendicular to these horocycles.
 
 \begin{figure}[ht]
 \centering
 \resizebox{0.5\textwidth}{!}{\includegraphics{images/11-horocyclebased}}
-\caption{A horocycle-based coordinate system}\label{fig:horocyclecoord}
+\caption{A horocycle-based coordinate system on the Poincaré disc. Blue curves are horocycles tangent at ideal point $\Omega$, green lines are perpendicular geodesics.}\label{fig:horocyclecoord}
 \end{figure}
 
-We can equip it with an inner product
+On the Poincaré disc $\mathcal{P}$, the coordinates of a point $P$ are given by $(u,v)$, where:
+\begin{itemize}
+\item $u$ is the signed length of $OQ$
+\item $v$ is the signed length of $QP$
+\item The signs follow the right-hand rule and orientation relative to the ideal point $\Omega$
+\end{itemize}
 
-\[
+We equip this coordinate system with the inner product:
+$$
 \mathbf{a} \cdot \mathbf{b} = \begin{bmatrix} a_u & a_v \end{bmatrix} \begin{bmatrix} e^{-2v} & 0 \\ 0 & 1 \end{bmatrix} \begin{bmatrix} b_u \\ b_v \end{bmatrix}
-\]
+$$
 
-and the metrics
-
+And the metric:
 $$
 ds^2 = e^{-2v} du^2 + dv^2
 $$
 
-Laplacian is given by\cite{Costa2001ADO}
-
+The Laplacian in this coordinate system is:
 $$
 \Delta = e^{2v} \frac{\partial^2}{{\partial u}^2} + \frac{\partial^2}{{\partial v}^2} - \frac{\partial}{\partial v}
 $$
 
-\subsection{The second example space}\label{subsec:exmp2}
-
-Giving the Poincaré disc $\mathcal{P}$ equipped with the above horocycle-based coordinate system,
-we consider an assignment field $a$ defined on $\mathcal{P}$ as follows\footnote{This analytic example is provided by Le Zhang, and the geometry interpretation is given by Mingli Yuan}:
+In this coordinate system, we define an assignment:
 
 \begin{equation}\label{eq:exmp2}
 a = u e^{-v}
 \end{equation}
 
-\begin{theorem}
-The assignment $a$ defined by above formula\eqref{eq:exmp2} satisfy the flow equation\eqref{eq:flow}
+\begin{theorem}\label{thm:exmp2}
+The assignment $a$ defined by formula \eqref{eq:exmp2} satisfies the flow equation \eqref{eq:flow}.
 \end{theorem}
 
-\begin{figure}[ht]
-\centering
-\resizebox{0.8\textwidth}{!}{\includegraphics{images/12-proofbymapping}}
-\caption{Mapping between two examples}\label{fig:mapping}
-\end{figure}
-
 \begin{proof}
-
-If we introduce complex in the upper half plane model in last section \ref{subsec:exmp1}
-
+We establish this result by showing that examples 1 and 2 are equivalent through a Möbius transformation. Consider the complex representation of the upper half plane:
 $$
-z = x + y i
+z = x + yi
 $$
 
-and stetup a Möbius transform between the upper half plane and current horocycle-based coordinate system:
-
+The Möbius transformation mapping the upper half plane to the Poincaré disc is:
 $$
 z \mapsto \frac{z-i}{z+i}
 $$
 
-This transform maps each horizontal lines in $\mathcal{H}$ into the horocycles sharing the same ideal point $\Omega = 1$ in $\mathcal{P}$,
-also it maps each vertical geodesics in $\mathcal{H}$ into geodesics in $\mathcal{P}$ which are perpendicular to the above horocycles.
+\begin{figure}[ht]
+\centering
+\resizebox{0.8\textwidth}{!}{\includegraphics{images/12-proofbymapping}}
+\caption{Mapping between the upper half plane and Poincaré disc models}\label{fig:mapping}
+\end{figure}
 
-And rewrite the Möbius transform in the target coordinate, we get:
+This transformation maps horizontal lines in $\mathcal{H}$ to horocycles sharing the ideal point $\Omega = 1$ in $\mathcal{P}$, and vertical geodesics in $\mathcal{H}$ to perpendicular geodesics in $\mathcal{P}$.
 
+Expressed in the target coordinate system, this transformation gives:
 $$
 \begin{cases}
 x = u\\
@@ -160,137 +129,150 @@ y = e^v \\
 \end{cases}
 $$
 
-This lead to
-
+Substituting into the assignment from Example 1:
 $$
-a = -\frac{x}{y} = u e^{-v}
+a = -\frac{x}{y} = -\frac{u}{e^v} = -u e^{-v}
 $$
 
-And because of isometry keeps the flow equation and Möbius transform is conformal, we can conclude that $a = u e^{-v}$ obey flow equation.
-
+Since the Möbius transformation is conformal and preserves the flow equation, and considering the orientation change, we have $a = u e^{-v}$ satisfying the flow equation.
 \end{proof}
 
-We can verify $a$ is also an eigenfunction of the Laplacian
+As in Example 1, we can verify that $a$ is an eigenfunction of the Laplacian:
 $$
 \Delta a = e^{2v} \frac{\partial^2(u e^{-v})}{{\partial u}^2} + \frac{\partial^2(u e^{-v})}{{\partial v}^2} - \frac{\partial(u e^{-v})}{\partial v} = 2a
 $$
 
-From the above proof, we can see that the two assignment field $a$ arose from the same geometry setting, they are equivalent to each other.
+These two examples, arising from the same geometric setting but in different coordinate systems, demonstrate the fundamental properties of the first kind arithmetic expression space.
 
-\subsection{A general setting of $\mathfrak{E}_1$ space}\label{subsec:generalsetting}
+\subsection{General framework of $\mathfrak{E}_1$ space}\label{subsec:generalframework}
 
-Considering the upper half plane $\mathcal{B}$:
+Building on the motivating examples, we now establish a general framework for the first kind arithmetic expression space $\mathfrak{E}_1$. 
+
+Consider the upper half plane $\mathcal{B}$:
 $$
 \{\mathcal{B}: (x, y) | y > 0 \}
 $$
 
-equipped with an inner product and metrics as follows:
+equipped with an inner product and metric parameterized by constants $\mu$ and $\lambda$:
 
 $$
 \mathbf{a} \cdot \mathbf{b} = \begin{bmatrix} a_x & a_y \end{bmatrix} \begin{bmatrix} \frac{1}{\mu^2 y^2} & 0 \\ 0 & \frac{1}{\lambda^2 y^2} \end{bmatrix} \begin{bmatrix} b_x \\ b_y \end{bmatrix}
 $$
 
 $$
-ds^2 = \frac{1}{y^2}(\frac{dx^2}{\mu^2} + \frac{dy^2}{\lambda^2})
+ds^2 = \frac{1}{y^2}\left(\frac{dx^2}{\mu^2} + \frac{dy^2}{\lambda^2}\right)
 $$
 
-Whatever the choice of $\mu$ and $\lambda$, the assignment is given by
+The assignment function in this general framework remains:
 
-\begin{equation}\label{eq:exmp3}
+\begin{equation}\label{eq:genassignment}
 a = - \frac{x}{y}
 \end{equation}
 
-We can verify $a$ satisfying the flow equation\eqref{eq:flow}, and also it is generator independent.
+This defines the first kind arithmetic expression space $\mathfrak{E}_1$, characterized by the following theorem:
 
-\begin{theorem}
-The above $a$ given by \eqref{eq:exmp3} satisfying the flow equation\eqref{eq:flow}
+\begin{theorem}\label{thm:generalE1}
+The assignment $a$ given by \eqref{eq:genassignment} satisfies the flow equation \eqref{eq:flow} with parameters $\mu$ and $\lambda$, independent of the specific values of these generators.
 \end{theorem}
 
 \begin{proof}
+The differential of the assignment is:
 $$
-da = d(-\frac{x}{y}) = \frac{xdy - ydx}{y^2} = -\frac{dx + a dy}{y}
+da = d\left(-\frac{x}{y}\right) = \frac{xdy - ydx}{y^2} = -\frac{dx + a dy}{y}
 $$
 
-Notice that
-
+The differential of arc length is:
 $$
 ds = \frac{1}{y}\sqrt{\frac{dx^2}{\mu^2} + \frac{dy^2}{\lambda^2}}
 $$
 
-then
-
+Therefore:
 $$
-\frac{da}{ds} = - \frac{dx + a dy}{y} \frac{y}{\sqrt{\frac{dx^2}{\mu^2} + \frac{dy^2}{\lambda^2}}} = \frac{dx + a dy}{\sqrt{\frac{dx^2}{\mu^2} + \frac{dy^2}{\lambda^2}}}
-$$
-
-Consider the local coordinate system given by $(-1, 0)$ and $(0, -1)$ according to the right-hand rule, we have
-
-$$
-\cos \theta = \frac{\begin{bmatrix} dx & dy \end{bmatrix} \begin{bmatrix} \frac{1}{\mu^2 y^2} & 0 \\ 0 & \frac{1}{\lambda^2 y^2} \end{bmatrix} \begin{bmatrix} -1 \\ 0 \end{bmatrix}}{\sqrt{\begin{bmatrix} dx & dy \end{bmatrix} \begin{bmatrix} \frac{1}{\mu^2 y^2} & 0 \\ 0 & \frac{1}{\lambda^2 y^2} \end{bmatrix} \begin{bmatrix} dx \\ dy \end{bmatrix}}\sqrt{\begin{bmatrix} -1 & 0 \end{bmatrix} \begin{bmatrix} \frac{1}{\mu^2 y^2} & 0 \\ 0 & \frac{1}{\lambda^2 y^2} \end{bmatrix} \begin{bmatrix} -1 \\ 0 \end{bmatrix}}}
+\frac{da}{ds} = - \frac{dx + a dy}{y} \cdot \frac{y}{\sqrt{\frac{dx^2}{\mu^2} + \frac{dy^2}{\lambda^2}}} = -\frac{dx + a dy}{\sqrt{\frac{dx^2}{\mu^2} + \frac{dy^2}{\lambda^2}}}
 $$
 
-Therefore we have
+In the local coordinate system given by $(-1, 0)$ and $(0, -1)$ according to the right-hand rule:
 
 $$
-\cos \theta = \frac{-\frac{dx}{\mu}}{\sqrt{\frac{dx^2}{\mu^2} + \frac{dy^2}{\lambda^2}}}
+\cos \theta = \frac{-\frac{dx}{\mu}}{\sqrt{\frac{dx^2}{\mu^2} + \frac{dy^2}{\lambda^2}}} \quad \text{and} \quad \sin \theta = \frac{-\frac{dy}{\lambda}}{\sqrt{\frac{dx^2}{\mu^2} + \frac{dy^2}{\lambda^2}}}
 $$
 
-Similarly
-
-$$
-\sin \theta = \frac{-\frac{dy}{\lambda}}{\sqrt{\frac{dx^2}{\mu^2} + \frac{dy^2}{\lambda^2}}}
-$$
-
-Hence we have
-
+Substituting these values:
 $$
 \frac{da}{ds} = \mu \cos \theta + a \lambda \sin \theta
 $$
 
+This matches the flow equation \eqref{eq:flow} with the given parameters $\mu$ and $\lambda$.
 \end{proof}
 
-\subsection{Propagation in $\mathfrak{E}_1$ space}\label{subsec:propgation}
+The $\mathfrak{E}_1$ space is characterized by its connection to hyperbolic geometry and the property that the assignment function $a = -x/y$ is an eigenfunction of the Laplacian with eigenvalue 2. This space provides a natural geometric framework for studying arithmetic expressions, particularly those involving addition and multiplication operations.
 
-\subsection{Addition-multiplication grids in $\mathfrak{E}_1$ space}\label{subsec:grids}
+\subsection{Geometric propagation}\label{subsec:geompropagation}
 
-\subsection{Area formula in $\mathfrak{E}_1$ space}
+The flow equation in the $\mathfrak{E}_1$ space can be interpreted as describing the propagation of arithmetic expressions. This interpretation builds on the propagation method discussed in Section \ref{subsec:propagation-method}.
 
-In Section \ref{subsec:descartes-coordinate}, we introduced an area formula applicable at a local level, as detailed in Equation \eqref{eq:area_formula2}.
-This section aims to extend that exploration, testing the formula's applicability at a global level.
+In the $\mathfrak{E}_1$ space, paths along constant $x$ (vertical lines in the upper half plane) correspond to multiplication operations, while paths along constant $y$ (horizontal lines) correspond to addition operations. The assignment value $a = -x/y$ propagates according to the flow equation as we move along these paths.
+
+The propagation can be visualized as wavefronts emanating from sources in the upper half plane. Points with the same assignment value form equipotential curves, and the flow equation governs how these wavefronts evolve geometrically.
+
+From equation \eqref{eq:gradevo5}, we recall that along the gradient direction ($\phi=0$) starting from $a_0=0$:
+\begin{equation}
+a = \pm \frac{\mu}{\lambda} \sinh(\lambda s)
+\end{equation}
+
+This resembles the formula for the circumference of a circle in hyperbolic space with curvature $-\lambda^2$:
+\begin{equation}
+C = \frac{2\pi}{\lambda} \sinh(\lambda s)
+\end{equation}
+
+This parallel suggests that the assignment $a$ propagates like expanding concentric circles in hyperbolic space, with the zero assignment line serving as the collection of centroids from which these circles emanate.
+
+The dual perspective of propagation and evaluation provides a powerful framework for understanding arithmetic expressions geometrically:
+1. Evaluation of an expression follows paths through the $\mathfrak{E}_1$ space
+2. Different evaluation orders correspond to different paths with the same endpoints
+3. The flow equation ensures that the final value is independent of the path taken (for evaluable expressions)
+
+\subsection{Grids and torsion}\label{subsec:gridsandtorsion}
+
+The addition-multiplication grid introduced in Section \ref{subsec:meshgrid} has a natural representation in the $\mathfrak{E}_1$ space. The grid consists of two families of orthogonal curves:
+1. Addition curves (blue lines): paths of constant $y$ in the upper half plane
+2. Multiplication curves (green lines): paths of constant $x/y$ ratio in the upper half plane
+
+The grid structure allows us to visualize and analyze the arithmetic torsion discussed in Section \ref{subsec:generated-structure}.
 
 \begin{figure}[ht]
     \centering
     \resizebox{0.8\textwidth}{!}{\includegraphics{images/17-area-formula}}
-    \caption{Illustration of the Area Formula}\label{fig:area-formula}
+    \caption{Illustration of the relationship between area and arithmetic torsion}\label{fig:area-formula}
 \end{figure}
 
-Referencing Figure \ref{fig:area-formula} above, we recall the arithmetic space defined in Section \ref{subsec:meshgrid}.
-As an example, our goal here is to examine the arithmetic torsion across various steps:
+Figure \ref{fig:area-formula} illustrates the connection between the area enclosed by grid paths and the arithmetic torsion. Consider the arithmetic torsion for different path combinations:
 
-For a single step, the scenario unfolds as follows:
+For a single step:
 \begin{equation}
     x \times 2 + 1 - (x + 1) \times 2 = -1
 \end{equation}
 
-Extending this to two steps, we encounter a different situation:
+For two steps:
 \begin{equation}
     x \times 4 + 2 - (x + 2) \times 4 = -6
 \end{equation}
 
-And for three steps, the pattern continues:
+For three steps:
 \begin{equation}
     x \times 8 + 3 - (x + 3) \times 8 = -21
 \end{equation}
 
-The question arises: What is the origin of the numbers $-1$, $-6$, and $-21$? By conceptualizing the area of the quadrilateral $ABCD$ as a basic unit cell,
-it becomes apparent that the number $1$ represents a single unit cell of $ABCD$.
-Similarly, the number $6$ corresponds to the area of $AEFG$, comprising six unit cells;
-and the number $21$ aligns with the area of $AHIJ$, encompassing twenty-one unit cells.
-This understanding allows us to appreciate how these values emerge naturally from the structure of the arithmetic space,
-especially we connect area with arithmetic torsion which is defined on edges of that enclosing area.
+These values (-1, -6, -21) correspond to the areas of the enclosed regions in the grid:
+- The quadrilateral $ABCD$ has area 1 (a single unit cell)
+- The region $AEFG$ has area 6 (six unit cells)
+- The region $AHIJ$ has area 21 (twenty-one unit cells)
 
-Now, we proof the above conclusion in a more formal way.
+This connection can be formalized through the area formula derived in Section \ref{subsec:descartes-coordinate}:
+\begin{equation}
+    d\tau = \mu \lambda du dv
+\end{equation}
 
-\subsection{Functions as flow in $\mathfrak{E}_1$ space}
+Where $d\tau$ is the differential of arithmetic torsion, and $du dv$ represents the area element in the arithmetic coordinate system.
 
-\newpage
+The relationship between arithmetic torsion and area aligns with the concept of curvature in differential geometry. Just as curvature measures how much a surface deviates from being flat, arithmetic torsion measures how much arithmetic expressions deviate from being commutative. The $\mathfrak{E}_1$ space provides a geometric framework where this deviation is directly related to areas in the addition-multiplication grid.
