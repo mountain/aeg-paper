@@ -1,4 +1,54 @@
-Can arithmetic expressions form a geometric space?
-In this paper, we present several examples of arithmetic expression spaces and examine their properties.
+From the syntactic trees of arithmetic expressions to the hyperbolic geometry of modular forms, the interplay between discrete algebra and continuous geometry has long fascinated mathematicians. This work addresses a fundamental question: Can the evaluation dynamics of arithmetic expressions themselves form a geometric space? We demonstrate that threadlike arithmetic expressions naturally embed into hyperbolic surfaces through a novel flow equation.
 
-TODO
+\subsection{Key Definitions}
+
+We formalize arithmetic expressions $a \in \mathbb{E}[\mathbb{Q}]$ using production rules that generate terms through addition, subtraction, multiplication, and division operations. The evaluation $\nu(a)$ of these expressions can be viewed from multiple perspectives:
+
+\begin{itemize}
+    \item \textit{Syntactically} as tree structures with branch nodes (operators) and leaf nodes (constants)
+    \item \textit{Algebraically} as compositions of elementary operations
+    \item \textit{Geometrically} as paths through a continuous space
+\end{itemize}
+
+Of particular importance are threadlike expressions, where all left nodes are leaf nodes. These expressions, analogous to paths in homotopy theory, provide a natural bridge between algebraic and geometric perspectives.
+
+Through currying and path notation, we establish a formal framework for representing threadlike expressions as sequences of elementary operations:
+\begin{equation}
+x a_1 a_2 \cdots a_n \coloneqq a_n(a_{n-1}(\cdots a_2(a_1(x))\cdots))
+\end{equation}
+
+This representation reveals that the commutator of addition and multiplication operations exhibits a non-trivial torsion:
+\begin{equation}
+\tau = x \oplus_\mu \otimes_\lambda - x \otimes_\lambda \oplus_\mu = \mu(e^\lambda - 1)
+\end{equation}
+
+\subsection{Foundational Results}
+
+The central insight of our approach is that arithmetic operations—specifically addition and multiplication—can be interpreted as movements along orthogonal directions in a properly constructed geometric space. This interpretation transforms arithmetic evaluation into geometric propagation, with expression values corresponding to points in a hyperbolic manifold.
+
+The embedding of arithmetic expressions into geometry is governed by a flow equation:
+\begin{equation}
+\frac{da}{ds} = \mu \cos \theta + a \lambda \sin \theta
+\end{equation}
+
+This partial differential equation describes how assignment values propagate through space along directions with angle $\theta$. In its coordinate-free form:
+\begin{equation}
+\|\nabla a\| = \sqrt{\mu^2 + a^2\lambda^2}
+\end{equation}
+
+This is an Eikonal equation equivalent to a special Hamilton-Jacobi equation, connecting our construction to fundamental concepts in analytical mechanics and differential geometry.
+
+We establish a specific realization of this framework in the first kind arithmetic expression space $\mathfrak{E}_1$, defined on the upper half-plane $\mathcal{B} = \{(x,y) \mid y > 0\}$ with a hyperbolic metric:
+\begin{equation}
+ds^2 = \frac{1}{y^2}\left(\frac{dx^2}{\mu^2} + \frac{dy^2}{\lambda^2}\right)
+\end{equation}
+
+In this space, the assignment function $a = -\frac{x}{y}$ satisfies the flow equation with parameters $\mu$ and $\lambda$. Moreover, $a$ is an eigenfunction of the Laplacian with eigenvalue 2, reinforcing the intrinsic geometric nature of this construction.
+
+\subsection{Implications}
+
+\subsection{Roadmap}
+
+Our main results establish: (1) A flow equation governing arithmetic propagation in curved spaces; (2) The $\mathfrak{E}_1$ space as a universal geometric framework for expression evaluation;
+
+Through this work, we demonstrate that arithmetic expressions do indeed form a geometric space—one with rich structure and deep connections to hyperbolic geometry, differential equations, and algebraic systems.
