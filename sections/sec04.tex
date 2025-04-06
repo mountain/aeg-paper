@@ -240,9 +240,21 @@ A significant geometric characteristic of the first kind arithmetic expression s
 
 Both grid structures are constructed within the upper half-plane model. The first grid is rectilinear, consisting of horizontal lines encoding addition operations and vertical lines encoding multiplication operations. Specifically, this grid is constructed through iterative applications of these two operations to generate a lattice in the $(x,y)$ coordinates. Each horizontal displacement from $(x,y)$ to $(x+1,y)$ represents an addition, and each vertical displacement from $(x,y)$ to $(x,2y)$ represents a multiplication by 2. The grid vertices correspond to values of expressions constructed from repeated applications of addition and multiplication operations, typically originating from a rational base point, often designated as 1.
 
+\begin{figure}[ht]
+\centering
+\resizebox{0.8\textwidth}{!}{\includegraphics{images/01-grid-example-1}}
+\caption{Rectilinear grid structure in the first kind arithmetic expression space $\mathfrak{E}_1$}\label{fig:grid1}
+\end{figure}
+
 Notably, in this first grid, the scalar field $a$ remains invariant under variations of the metric parameters $\mu$ and $\lambda$. That is, while the geometric properties of the space (lengths and angles) vary with these parameters, the locus where $a=0$—specifically, the vertical line $x=0$—remains structurally invariant and unaffected by changes in $\mu$ and $\lambda$.
 
 The second grid emerges through a conformal transformation, specifically the Möbius transformation acting within the upper half-plane. This transformation maps horizontal lines to semicircles centered on the real axis and vertical rays to orthogonal semicircles. Under this transformation, the roles of addition and multiplication are effectively interchanged. The addition-multiplication structure of the first grid transforms into a new system of curved geodesics: the images of addition steps now follow curved trajectories around the origin, while the multiplicative steps exhibit contraction and inversion properties.
+
+\begin{figure}[ht]
+\centering
+\resizebox{0.8\textwidth}{!}{\includegraphics{images/18-grid-example-2}}
+\caption{Transformed grid structure in the first kind arithmetic expression space $\mathfrak{E}_1$}\label{fig:grid2}
+\end{figure}
 
 Although the visual structure of the second grid exhibits greater complexity, it retains a profound arithmetic coherence. The grid vertices continue to correspond to expressions generated through repeated applications of addition and multiplication operations, albeit composed under the transformed geometry. This grid demonstrates enhanced flexibility: under the conformal transformation, the images of zero lines such as $x=0$ are no longer fixed but deform into dynamic arcs. Consequently, the second grid accommodates a richer family of zero structures, allowing for the possibility of curved, branching, or nested nodal sets that vary with $\mu$, $\lambda$, or the choice of conformal framing.
 
