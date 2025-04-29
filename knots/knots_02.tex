@@ -1,16 +1,15 @@
 \documentclass{article}
-\usepackage{amsmath, amssymb, amsfonts} % Removed bm
+\usepackage{amsmath, amssymb, amsfonts}
 \usepackage{geometry}
 \geometry{margin=2.5cm}
 \title{Embedding Small Knot Groups into the Three-Dimensional Arithmetic-Expression Group}
-\author{Ming Yuan, ChatGPT, Gemini} % Optional: Add author or leave empty
+\author{Mingli Yuan, ChatGPT, Gemini}
 \date{\today}
 
 \begin{document}
 \maketitle
 
 \section{The extended arithmetic-expression group $\mathcal{G}$}
-% Removed "commuting" and rephrased slightly
 We consider the positive real line $(0,\infty)$ acted upon by three fundamental one-parameter flows:
 \begin{align}
 \oplus_{\mu} &: x \mapsto x+\mu, \quad \text{(Translation)}\\
@@ -30,7 +29,6 @@ We embed two Wirtinger generators into $\mathcal{G}$ by:
 a \longmapsto (\alpha, p, q), \qquad
 b \longmapsto (\beta, r, s).
 \end{equation}
-% Define u and v here for clarity
 Let $u = e^{p+q}$ and $v = e^{r+s}$. Repeated application of the group law \eqref{eq:group-law} yields the general forms:
 \begin{align}
 a^{m} &= \left(\alpha \sum_{k=0}^{m-1} u^k, mp, mq\right) = \bigl(\alpha\Sigma_{m}(u), mp, mq\bigr), \\
@@ -38,7 +36,6 @@ b^{n} &= \left(\beta \sum_{k=0}^{n-1} v^k, nr, ns\right) = \bigl(\beta\Sigma_{n}
 \end{align}
 where $\Sigma_{k}(z)=1+z+\dots+z^{k-1} = \frac{z^k-1}{z-1}$ for $z \neq 1$.
 The composition $a^m b^n$ is then:
-% Corrected formula for a^m b^n
 \begin{equation}
 \label{eq:am-bn}
 a^{m}b^{n}=\bigl(u^m \beta\Sigma_{n}(v) + \alpha\Sigma_{m}(u), mp+nr, mq+ns\bigr).
@@ -46,86 +43,81 @@ a^{m}b^{n}=\bigl(u^m \beta\Sigma_{n}(v) + \alpha\Sigma_{m}(u), mp+nr, mq+ns\bigr
 
 To force the word $a^{m}b^{n}$ to be trivial (equal to the identity $(0,0,0)$), we need its components to be zero:
 \begin{align}
-% Use \text{\emph{...}} or \text{\textit{...}}
 &\text{\textit{Multiplicative conditions:}} & mp+nr=0, & \quad mq+ns=0, \label{eq:mult} \tag{M} \\
-% Corrected translational condition
 &\text{\textit{Translational condition:}} & u^m \beta\Sigma_{n}(v) + \alpha\Sigma_{m}(u)=0. \label{eq:trans} \tag{T}
 \end{align}
 
 \section{Trefoil $3_1$ (relation $a^{2}b^{3}=e$)}
-Here $m=2, n=3$. Condition~\eqref{eq:mult} gives $2p+3r=0$ and $2q+3s=0$. This implies $r+s = -\frac{2}{3}(p+q)$, so $v = e^{r+s} = (e^{p+q})^{-2/3} = u^{-2/3}$.
-With $\beta=1$, the corrected translational constraint \eqref{eq:trans} becomes $u^2 \Sigma_3(v) + \alpha \Sigma_2(u) = 0$:
+Here $m=2, n=3$. Condition~\eqref{eq:mult} gives $2p+3r=0$ and $2q+3s=0$. This implies $r+s = -\frac{2}{3}(p+q)$, so $v = e^{r+s} = u^{-2/3}$.
+With $\beta=1$, the translational constraint \eqref{eq:trans} is $u^2 \Sigma_3(v) + \alpha \Sigma_2(u) = 0$, which means $\alpha(1+u) = -u^2 \Sigma_3(u^{-2/3})$.
+The term $N = u^2 \Sigma_3(u^{-2/3}) = u^2(1+u^{-2/3}+u^{-4/3}) = u^2 + u^{4/3} + u^{2/3}$.
+To reveal the Alexander polynomial, we factor $N$.
+Let $t=u^{1/3}$. Then $N = t^6 + t^4 + t^2 = t^2(t^4+t^2+1)$.
+Let $\Delta_{3_1}(t) = t^2 - t + 1$ be the Alexander polynomial for the trefoil knot.
+Using the factorization $t^4+t^2+1 = (t^2-t+1)(t^2+t+1) = \Delta_{3_1}(t)(t^2+t+1)$, we have:
+\begin{equation*}
+    N = t^2 \Delta_{3_1}(t) (t^2+t+1).
+\end{equation*}
+Substituting back $t=u^{1/3}$:
+\begin{equation*}
+    N = u^{2/3} \Delta_{3_1}(u^{1/3}) (u^{2/3} + u^{1/3} + 1).
+\end{equation*}
+Thus, the constraint $\alpha(1+u) = -N$ gives:
 \begin{equation}
-u^2(1+v+v^2) + \alpha(1+u) = 0 \quad \Rightarrow \quad u^2(1+u^{-2/3}+u^{-4/3}) + \alpha(1+u) = 0.
-\end{equation}
-The term involving $u$ is $N = u^2 + u^{4/3} + u^{2/3}$. We can factor this expression to reveal the Alexander polynomial. Let $\Delta_{3_1}(t) = t^2 - t + 1$ be the Alexander polynomial for the trefoil knot. Noting that $t^4+t^2+1 = (t^2+1)^2 - t^2 = (t^2-t+1)(t^2+t+1) = \Delta_{3_1}(t)(t^2+t+1)$, we can set $t=u^{1/3}$:
-\begin{align}
-N &= u^{2/3}(u^{4/3} + u^{2/3} + 1) \\
-&= u^{2/3}((u^{1/3})^4 + (u^{1/3})^2 + 1) \\
-&= u^{2/3} \Delta_{3_1}(u^{1/3}) (u^{2/3} + u^{1/3} + 1).
-\end{align}
-Thus, the constraint equation becomes $u^{2/3} \Delta_{3_1}(u^{1/3}) (u^{2/3} + u^{1/3} + 1) + \alpha(u+1) = 0$.
-Solving for $\alpha$ gives:
-\begin{equation}
-\alpha(u) = - \frac{u^{2/3} (u^{2/3} + u^{1/3} + 1) \Delta_{3_1}(u^{1/3})}{u+1}.
+\alpha(u) = - \frac{u^{2/3} (u^{2/3} + u^{1/3} + 1) \, \Delta_{3_1}(u^{1/3})}{u+1}.
 \end{equation}
 Unlike the figure-eight knot case, the constraint does not simply set the Alexander polynomial to zero. Instead, $\Delta_{3_1}(u^{1/3})$ appears as a factor in the expression determining the required translational shift $\alpha(u)$. Choosing any $u=e^{p+q} \in (0,\infty), u\ne1$, determines suitable $p,q$. Then $r=-2p/3, s=-2q/3$ and $\alpha(u)$ are determined, defining an embedding $a=(\alpha,p,q)$, $b=(1,r,s)$ such that $a^2 b^3 = e$.
 
 \section{Figure-eight $4_1$ (relation $w = abbbaBAAB = e$)}
-% Clarify notation A=a^-1, B=b^-1
-Let $A=a^{-1}$ and $B=b^{-1}$. The relation word $w = abbbaBAAB$ has exponent sum zero for both $a$ and $b$. Thus, the multiplicative part of its image in $\mathcal{G}$ is automatically zero, regardless of the embedding parameters $(p,q)$ and $(r,s)$.
-Let's choose a specific embedding for simplicity: $a \mapsto (0,\lambda,\kappa)$ (so $\alpha=0, p=\lambda, q=\kappa$) and $b \mapsto (1,0,0)$ (so $\beta=1, r=0, s=0$). Then $u=e^{\lambda+\kappa}$ and $v=e^{0}=1$. $A=a^{-1}=(0,-\lambda,-\kappa)$ and $B=b^{-1}=(-1,0,0)$.
-The image of the word $w$ in $\mathcal{G}$ was calculated (see derivation notes or re-calculate) to be:
+Let $A=a^{-1}$ and $B=b^{-1}$. The relation word $w = abbbaBAAB$ has exponent sum zero for both $a$ and $b$. Thus, the multiplicative part of its image in $\mathcal{G}$ is automatically zero.
+Choose the embedding $a \mapsto (0,\lambda,\kappa)$ ($\alpha=0$) and $b \mapsto (1,0,0)$ ($\beta=1, r=s=0$). Then $u=e^{\lambda+\kappa}$, $v=1$, $A=(0,-\lambda,-\kappa)$, $B=(-1,0,0)$.
+The image of the word $w$ in $\mathcal{G}$ is calculated to be:
 \begin{equation}
 w \longmapsto (3u-u^2-1, 0, 0).
 \end{equation}
-Setting this equal to the identity $(0,0,0)$ requires only the translational component to be zero:
+Setting this equal to the identity $(0,0,0)$ requires:
 \begin{equation}
 u^2-3u+1=0, \qquad \text{where } u=e^{\lambda+\kappa}.
 \end{equation}
-The familiar Alexander polynomial $\Delta_{4_1}(t)=t^{2}-3t+1$ therefore reappears as the sole constraint on $u$. Any positive root $u$ of this quadratic allows for an embedding.
+The familiar Alexander polynomial $\Delta_{4_1}(t)=t^{2}-3t+1$ therefore reappears as the sole constraint $\Delta_{4_1}(u)=0$.
 
 \section{Cinquefoil $5_1$ (relation $a^{2}b^{5}=e$)}
-Here $m=2, n=5$. Conditions~\eqref{eq:mult} give $2p+5r=0$ and $2q+5s=0$, hence $r+s = -\frac{2}{5}(p+q)$ and $v=u^{-2/5}$.
-Fixing $\beta=1$, the corrected translational constraint \eqref{eq:trans} is $u^2 \Sigma_5(v) + \alpha \Sigma_2(u) = 0$:
+Here $m=2, n=5$. Conditions~\eqref{eq:mult} give $2p+5r=0$ and $2q+5s=0$, hence $v=u^{-2/5}$.
+Fixing $\beta=1$, the translational constraint \eqref{eq:trans} is $u^2 \Sigma_5(v) + \alpha \Sigma_2(u) = 0$, so $\alpha(1+u) = -u^2 \Sigma_5(u^{-2/5})$.
+Let $E = u^2 \Sigma_5(u^{-2/5}) = u^2(1+u^{-2/5}+u^{-4/5}+u^{-6/5}+u^{-8/5}) = u^{2}+u^{8/5}+u^{6/5}+u^{4/5}+u^{2/5}$.
+To reveal the Alexander polynomial, let $t=u^{1/5}$. Then $E = t^{10}+t^8+t^6+t^4+t^2 = t^2(t^8+t^6+t^4+t^2+1)$.
+Let $\Delta_{5_1}(t) = t^4 - t^3 + t^2 - t + 1$ be the standard Alexander polynomial for the cinquefoil knot (which is also the cyclotomic polynomial $\Phi_{10}(t)$).
+The polynomial part $P(t) = t^8+t^6+t^4+t^2+1$ factors as $P(t) = (t^4+t^3+t^2+t+1) \Delta_{5_1}(t)$.
+Therefore:
+\begin{equation*}
+    E = t^2 (t^4+t^3+t^2+t+1) \Delta_{5_1}(t).
+\end{equation*}
+Substituting back $t=u^{1/5}$:
+\begin{equation*}
+    E = u^{2/5} (u^{4/5}+u^{3/5}+u^{2/5}+u^{1/5}+1) \, \Delta_{5_1}(u^{1/5}).
+\end{equation*}
+The constraint $\alpha(1+u) = -E$ gives:
 \begin{equation}
-u^2(1+v+v^2+v^3+v^4) + \alpha(1+u) = 0.
+\alpha(u) = - \frac{u^{2/5} (u^{4/5}+u^{3/5}+u^{2/5}+u^{1/5}+1) \, \Delta_{5_1}(u^{1/5})}{u+1}.
 \end{equation}
-Substituting $v=u^{-2/5}$, the term involving $u$ is $E = u^2(1+u^{-2/5}+u^{-4/5}+u^{-6/5}+u^{-8/5}) = u^{2}+u^{8/5}+u^{6/5}+u^{4/5}+u^{2/5}$.
-Let $\Delta_{5_1}(t) = t^4 - t^3 + t^2 - t + 1$ be the Alexander polynomial for the cinquefoil knot (which is also the cyclotomic polynomial $\Phi_{10}(t)$). We factor $E$ to show the connection. Let $t=u^{1/5}$:
-\begin{align}
-E &= u^{2/5}(u^{8/5} + u^{6/5} + u^{4/5} + u^{2/5} + 1) \\
-&= u^{2/5} (t^8 + t^6 + t^4 + t^2 + 1).
-\end{align}
-The polynomial part $P(t) = t^8 + t^6 + t^4 + t^2 + 1$ can be factored using the identity $P(t) = \frac{t^{10}-1}{t^2-1} = \frac{(t^5-1)(t^5+1)}{(t-1)(t+1)}$. Since $t^5-1 = (t-1)(t^4+t^3+t^2+t+1)$ and $t^5+1 = (t+1)(t^4-t^3+t^2-t+1) = (t+1)\Delta_{5_1}(t)$, we have:
-\begin{equation}
-P(t) = (t^4+t^3+t^2+t+1) \Delta_{5_1}(t).
-\end{equation}
-Thus, $E = u^{2/5} (u^{4/5}+u^{3/5}+u^{2/5}+u^{1/5}+1) \Delta_{5_1}(u^{1/5})$.
-The constraint equation becomes $u^{2/5} (u^{4/5}+u^{3/5}+u^{2/5}+u^{1/5}+1) \Delta_{5_1}(u^{1/5}) + \alpha(u+1) = 0$.
-Solving for $\alpha$:
-\begin{equation}
-\alpha(u) = - \frac{u^{2/5} (u^{4/5}+u^{3/5}+u^{2/5}+u^{1/5}+1) \Delta_{5_1}(u^{1/5})}{u+1}.
-\end{equation}
-Similar to the trefoil case, the Alexander polynomial $\Delta_{5_1}(u^{1/5})$ emerges as a factor determining $\alpha(u)$, rather than yielding a simple constraint like $\Delta_K(u)=0$. Choosing any $u>0$, $u\neq1$ then determines $p,q$ such that $e^{p+q}=u$. Then $r=-2p/5, s=-2q/5$ and $\alpha(u)$ are determined, defining the embedding $a=(\alpha,p,q)$, $b=(1,r,s)$ such that $a^2 b^5 = e$.
+Similar to the trefoil case, the Alexander polynomial $\Delta_{5_1}(u^{1/5})$ emerges as a factor determining $\alpha(u)$. Choosing any $u>0$, $u\neq1$ determines $p,q$. Then $r=-2p/5, s=-2q/5$ and $\alpha(u)$ are determined, defining the embedding $a=(\alpha,p,q)$, $b=(1,r,s)$ such that $a^2 b^5 = e$.
 
 \section{Summary}
-% Updated summary to reflect the structure of the solution
 \begin{center}
+% Table uses \Delta notation and sum for brevity
 \begin{tabular}{c|c|c}
 Knot & Multiplicative constraints & Translational solution constraint \\ \hline
-$3_1$ ($a^2 b^3=e$) & $2p+3r=0, 2q+3s=0$ ($v=u^{-2/3}$) & $\alpha(u) = - \frac{u^{2/3} (u^{2/3} + u^{1/3} + 1) \Delta_{3_1}(u^{1/3})}{u+1}$ (given $\beta=1$) \\
-$4_1$ ($w=e$) & automatic (exponent sums are 0) & $u^{2}-3u+1=0$ (i.e. $\Delta_{4_1}(u)=0$, given specific $\alpha=0, \beta=1, r=s=0$) \\
-$5_1$ ($a^2 b^5=e$)& $2p+5r=0, 2q+5s=0$ ($v=u^{-2/5}$) & $\alpha(u) = - \frac{u^{2/5} (\sum_{k=0}^4 u^{k/5}) \Delta_{5_1}(u^{1/5})}{u+1}$ (given $\beta=1$)
+$3_1$ ($a^2 b^3=e$) & $2p+3r=0, 2q+3s=0$ ($v=u^{-2/3}$) & $\alpha(u) = - \frac{u^{2/3} (u^{2/3} + u^{1/3} + 1) \, \Delta_{3_1}(u^{1/3})}{u+1}$ (given $\beta=1$) \\
+$4_1$ ($w=e$) & automatic (exponent sums are 0) & $\Delta_{4_1}(u)=0$ (given specific $\alpha=0, \beta=1, r=s=0$) \\
+$5_1$ ($a^2 b^5=e$)& $2p+5r=0, 2q+5s=0$ ($v=u^{-2/5}$) & $\alpha(u) = - \frac{u^{2/5} (\sum_{k=0}^4 u^{k/5}) \, \Delta_{5_1}(u^{1/5})}{u+1}$ (given $\beta=1$)
 \end{tabular}
 \end{center}
-% Note: Simplified the expression for 5_1 in the table slightly using sum notation for brevity.
 
 \section{Discussion}
 The three-parameter group $\mathcal{G}$ provides a uniform algebraic-geometric setting for representing small knot groups:
 \begin{itemize}
     \item For relations with zero exponent sums (like the figure-eight knot using $w$), the multiplicative constraints are automatically satisfied. The translational constraint often relates directly to the Alexander polynomial evaluated at $u=e^{\lambda+\kappa}$, resulting in $\Delta_K(u)=0$.
-    \item For relations of torus-knot type like $a^m b^n = e$, non-trivial multiplicative constraints link the parameters of $a$ and $b$ (specifically $v$ becomes a power of $u$). The translational constraint typically requires a specific non-zero $\alpha$ (or $\beta$) value. The Alexander polynomial $\Delta_K$ (evaluated at a fractional power of $u$) appears as a factor within the expression determining this translational component, rather than directly yielding the constraint.
+    \item For relations of torus-knot type like $a^m b^n = e$, non-trivial multiplicative constraints link the parameters of $a$ and $b$. The translational constraint typically requires a specific non-zero $\alpha$ (or $\beta$) value. The Alexander polynomial $\Delta_K$ (evaluated at a fractional power of $u$) appears as a factor within the expression determining this translational component, rather than directly yielding the constraint.
     \item The framework naturally handles $a^m b^n$ relations. Knot groups with more generators could potentially be embedded by extending this solvable group structure.
 \end{itemize}
 This suggests that the geometry associated with $\mathcal{G}$ captures essential algebraic information related to knot groups, particularly information encoded in the Alexander polynomial, while potentially offering parameters ($\alpha, \beta$, and the choice of $u$ off the constraint variety) to encode finer invariants.
