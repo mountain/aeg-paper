@@ -181,31 +181,48 @@ And torsion $\tau$ is specifically referred to as the arithmetic torsion.
 
 We will reveal that $\tau$ is related to the curvature of the surface in later sections.
 
-\subsection{Problems on equality, singularity, symmetries}\label{subsec:problems-on-equality-singularity-symmetries}
+\subsection{Levels of Equality, Singularity, and Symmetry Problems}
+\label{subsec:problems-on-equality-singularity-symmetries}
 
-From the perspective of computer science, it is useful to consider different levels of equality within freely generated structures.
+From theoretical and computational perspectives, it is useful to consider different levels of equality within structures generated freely from arithmetic operations. These levels reveal distinct stages of abstraction, from the most basic sequential representation to the final numerical or geometric realization. We can distinguish at least the following key levels:
+
+\begin{enumerate}
+    \item \textbf{Literal Equality}: \\
+    This is the finest level of equality, judged directly by the sequence of operations (or its string representation). Two threadlike expressions are literally equal only if their sequences are identical. While this level might be too strict to reflect computational outcomes, it provides the richest \emph{base textures} without any imposed algebraic constraints, forming the foundation upon which more complex structures and spaces can be woven.
+
+    \item \textbf{Operational/Syntactic Equality}: \\
+    This level is based on fundamental rules governing the composition of operations, chief among them being \textbf{associativity} (as proven in Lemma~\ref{lem:associativity}). Associativity ensures that the result of composing a sequence of operations is well-defined, independent of the grouping (parenthesization). This endows our arithmetic expressions with at least a foundational \textbf{monoid} or \textbf{groupoid} structure, enabling the consistent definition of "paths" and their composition, which is essential for geometrization. It is crucial to note that the sequential path operations central to this framework (e.g., compositions of addition $\oplus_\mu$ and multiplication $\otimes_\lambda$) generally do \textbf{not} satisfy the standard \textbf{distributive law} at this level. This is evidenced by the non-zero arithmetic torsion $\tau$, a key feature indicating the non-commutative and non-distributive nature of these combined operations.
+
+    \item \textbf{Relational/Algebraic Equality}: \\
+    Building upon the operational structure above, specific contexts often introduce \textbf{additional, concrete algebraic relations}. These relations might stem from:
+    \begin{itemize}
+        \item The existence of inverses for the operations, leading to a group structure.
+        * Geometric or topological constraints, such as identities that must be satisfied by relators in a knot group.
+        * Arithmetic identities satisfied by parameters involved in the operations, such as a minimal polynomial $P(\lambda)=0$.
+    \end{itemize}
+    This level of equality is defined by the \textbf{specific presentation (generators and relations)} of the resulting algebraic structure, shaping the particular algebraic object of interest (e.g., a specific group). Formal tools from combinatorial group theory, such as \textbf{HNN extensions} and \textbf{amalgamated free products}, provide a precise framework for describing these algebraic structures arising from geometric, topological, or arithmetic constraints. Results like Britton's Lemma ensure that these relationally-defined structures are typically non-trivial.
+
+    \item \textbf{Semantic Equality}: \\
+    This is the coarsest level of equality, determined by the final \textbf{numerical evaluation} of the expression or by the \textbf{value of the assignment function $a$} in a geometric model. Two expressions might be distinct at the Relational/Algebraic level (representing different group elements) but still yield the same semantic value. This level directly corresponds to the computational output or the state within the geometric realization.
+\end{enumerate}
+
+\textbf{Hierarchy and Challenges}:
+
+We can view these levels of equality as forming a lattice or hierarchy based on refinement, ordered by implication from finer to coarser levels:
+$$ E_{\text{Literal}} \implies E_{\text{Op/Syn}} \implies E_{\text{Rel/Alg}} \implies E_{\text{Semantic}} $$
+where $E_X$ denotes "equality at level X", and $\implies$ means "implies". A finer equality necessarily satisfies any coarser equality.
+
+It is important, however, to distinguish this lattice of \emph{equality relations} (ordered by refinement) from the relationship between the corresponding \emph{algebraic structures}. For instance, in the context of HNN extensions relevant to fibered knots (corresponding to the Relational/Algebraic level, e.g., the knot group $\pi_1(K)$), the structure typically contains the base group (corresponding to the finer Operational/Syntactic level, e.g., $\pi_1(F)$) as a (normal) \textbf{subgroup}. That is, the algebraic structure defined by the coarser ("higher" in the lattice) equality relation embeds the structure defined by the finer ("lower") relation. This is not a contradiction; it highlights that a coarser equivalence relation (identifying more pairs) can define a larger, more complex algebraic structure which contains the structure defined by the finer relation as a component.
+
+Significant theoretical challenges arise from the "distance" between these different levels, particularly between the Relational/Algebraic structure and its Semantic/Geometric realization. For example:
+
 \begin{itemize}
-\item Literal equality: the finest level of equality, judged by the string representation of the expression
-\item Syntactical equality: equality under certain syntactical rules
-\begin{itemize}
-\item When inverse operators exist, it forms a group
-\item When the commutative and distributive laws exist, it can be considered an algebra
-\end{itemize}
-\item Semantic equality: the coarsest level of equality, judged by the evaluation of the expression
+    \item \textbf{Role of Background Algebra}: While the AEG path operations themselves might be non-distributive, the discussion of Relational/Algebraic equality (e.g., involving $P(\lambda)=0$) relies on the parameters (like $\lambda$) residing within standard algebraic systems (fields, rings) where distributivity holds, allowing polynomials and minimal polynomials to be defined. These relations from standard algebra are then imposed as constraints on the non-distributive AEG operational structure.
+    \item \textbf{Singularity Problem}: Certain literally or syntactically valid expressions might be semantically invalid (e.g., involving division by zero), especially when extending definitions from $\mathbb{Q}$ to $\mathbb{R}$ or $\mathbb{C}$. How do these semantic singularities manifest in the geometric model? Do they correspond to singularities in the space or specific behaviors of the assignment function $a$?
+    \item \textbf{Symmetry Problem}: What is the relationship between the symmetries of the algebraic structure (e.g., automorphisms of the HNN group) and the symmetries of the final geometric space (e.g., isometries of the $\mathfrak{E}_1$ space)? How does the process of constructing the geometric space ("weaving the textures into a space") selectively realize or break the symmetries present at the algebraic level? Different levels of equality correspond to different "symmetry resources".
 \end{itemize}
 
-Literal equality is the strictest level of equality, and two different threadlike expressions are considered equal only if their string representations are exactly the same.
-This level of equality may be too strict, as it may not be compatible with the evaluation of the expression.
-However, under literal equality, the generated structure is the most rich and provides the base textures that can be woven into a space.
-
-Semantic equality is the least strict level of equality, and two different threadlike expressions are considered equal if they evaluate to the same number.
-This level of equality provides the total symmetrical resources of the space.
-
-We can think of literal equality as the bottom and semantic equality as the top of a lattice,
-with syntactical equality being a compromise between the two extremes.
-
-To end this introduction part of the paper, we present several problems and speculations that drives our research.
-These important problems arise from distance between syntactical and semantic structures.
+Exploring these problems is central to our research, aiming to develop a unified theoretical framework capable of accommodating these different structural levels and revealing the deep connections between arithmetic, algebra, geometry, and topology.
 
 \emph{Foundational problem}: A careful reader may have noticed that the definition~\ref{def:arithmetic-expression} is based on rational numbers $\mathbb{Q}$.
 Why can't we use real numbers $\mathbb{R}$ instead?
