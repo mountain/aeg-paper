@@ -276,60 +276,61 @@ We conjecture that this grid duality corresponds to a deeper expression-theoreti
 The addition-multiplication grid introduced in Section~\ref{subsec:meshgrid} has a natural embedding in the arithmetic expression space $\mathfrak{E}_1$. This grid consists of two orthogonal families of curves:
 
 \begin{enumerate}
-\item \textbf{Addition curves} (blue lines): horizontal geodesics along which $y$ remains constant, representing iterated additions.
-\item \textbf{Multiplication curves} (green lines): vertical or logarithmically scaled geodesics where the ratio $x/y$ remains constant, representing multiplicative transformations.
+    \item \textbf{Addition curves} (blue lines): horizontal geodesics along which $y$ remains constant, representing iterated additions.
+    \item \textbf{Multiplication curves} (green lines): vertical or logarithmically scaled geodesics where the ratio $x/y$ remains constant, representing multiplicative transformations.
 \end{enumerate}
 
 This grid structure facilitates the geometric analysis of \emph{arithmetic torsion}—a quantity arising from the non-commutativity of certain additive and multiplicative expression sequences. Specifically, torsion quantifies the discrepancy between two seemingly equivalent but differently ordered expressions.
 
 \begin{figure}[ht]
-\centering
-\resizebox{0.8\textwidth}{!}{\includegraphics{images/17-area-formula}}
-\caption{Illustration of the correspondence between hyperbolic area and arithmetic torsion}\label{fig:area-formula}
+    \centering
+    \resizebox{0.8\textwidth}{!}{\includegraphics{images/17-area-formula}}
+    \caption{Illustration of the correspondence between hyperbolic area and arithmetic torsion}\label{fig:area-formula}
 \end{figure}
 
 Figure~\ref{fig:area-formula} illustrates the relationship between the area enclosed by expression paths in the grid and the resulting torsion. Consider the following expression identity comparisons:
 
 \begin{itemize}
-\item One-step case:
-\begin{equation}
-x \times 2 + 1 - (x + 1) \times 2 = -1
-\end{equation}
+    \item One-step case:
+    \begin{equation}
+        x \times 2 + 1 - (x + 1) \times 2 = -1
+    \end{equation}
 
-\item Two-step case:
-\begin{equation}
-    x \times 4 + 2 - (x + 2) \times 4 = -6
-\end{equation}
+    \item Two-step case:
+    \begin{equation}
+        x \times 4 + 2 - (x + 2) \times 4 = -6
+    \end{equation}
 
-\item Three-step case:
-\begin{equation}
-    x \times 8 + 3 - (x + 3) \times 8 = -21
-\end{equation}\end{itemize}
+    \item Three-step case:
+    \begin{equation}
+        x \times 8 + 3 - (x + 3) \times 8 = -21
+    \end{equation}
+\end{itemize}
 
-These differences correspond precisely to the hyperbolic areas enclosed between alternative evaluation paths:
+These differences correspond precisely to the hyperbolic areas enclosed between alternative evaluation paths within these specific grid examples:
 
 \begin{itemize}
-\item The region $ABCD$ encompasses 1 unit cell.
-\item The region $AEFG$ encompasses 6 unit cells.
-\item The region $AHIJ$ encompasses 21 unit cells.
+    \item The region $ABCD$ encompasses 1 unit cell.
+    \item The region $AEFG$ encompasses 6 unit cells.
+    \item The region $AHIJ$ encompasses 21 unit cells.
 \end{itemize}
-Thus, arithmetic torsion accumulates proportionally to the area enclosed by the grid paths, indicating an intrinsic connection between algebraic non-commutativity and geometric surface area.
+These examples compellingly suggest that arithmetic torsion accumulates in proportion to the area enclosed by the grid paths, indicating a potential connection between algebraic non-commutativity and geometric surface area.
 
-This relationship is expressed through a differential formulation:
+Further supporting this connection, we established a differential formulation:
 \begin{equation}
-d\tau = \mu \lambda\, du\, dv
+    d\tau = \mu \lambda\, du\, dv \label{eq:area_formula}
 \end{equation}
+where $d\tau$ represents the infinitesimal arithmetic torsion, and $du\, dv$ denotes the area element in the $(u, v)$ coordinate system adapted to the grid. This equation provides the precise microscopic law linking infinitesimal torsion to the infinitesimal area element.
 
-where $d\tau$ represents the infinitesimal arithmetic torsion, and $du\, dv$ denotes the area element in the $(u, v)$ coordinate system adapted to the grid.
+However, while we possess both macroscopic observations suggesting a torsion-area relationship (from the scaled grid examples) and the exact microscopic differential law \eqref{eq:area_formula}, the explicit integral theorem rigorously bridging these scales is currently underdeveloped. Formulating how the microscopic torsion density $d\tau$ integrates over a finite region to yield the total accumulated torsion—potentially involving boundary terms in analogy with Stokes' theorem, or relating the total torsion to curvature and topology similarly to the Gauss-Bonnet theorem—remains a key objective for future work.
 
-The analogy with curvature in differential geometry becomes evident: just as Gaussian curvature encodes deviation from flatness, arithmetic torsion quantifies deviation from commutativity in arithmetic flow. In this sense, torsion constitutes a measure of the operational significance of evaluation order.
+The analogy with curvature in differential geometry therefore becomes particularly pertinent: just as Gaussian curvature encodes deviation from flatness, arithmetic torsion quantifies deviation from commutativity in arithmetic flow. In this sense, torsion constitutes a measure of the operational significance of evaluation order.
 
-The $\mathfrak{E}_1$ space thus provides a mathematical framework where algebraic non-commutativity manifests as measurable geometric distortion—establishing a novel interpretation of arithmetic structure as a form of discrete curvature. This opens avenues for investigating further geometric invariants such as torsion density, torsion-induced flow bifurcation, and potentially a Gauss–Bonnet-type integral identity for arithmetic surfaces.
-
+The $\mathfrak{E}_1$ space thus provides a mathematical framework where algebraic non-commutativity manifests as measurable geometric distortion—establishing a novel interpretation of arithmetic structure as a form of discrete curvature. This opens avenues for investigating further geometric invariants such as torsion density, torsion-induced flow bifurcation, and \textbf{realizing} a Gauss–Bonnet-type integral identity for arithmetic surfaces.
 
 \subsection{Tube structure}\label{sec:tubestructure}
 
-In preceding sections, we introduced the first kind arithmetic expression space $\mathfrak{E}_1$ as a geometric realization of arithmetic flow under \textbf{fixed} generator parameters $\mu$ and $\lambda$. However, more complex structures emerge when we consider the \textbf{entire family of spaces} indexed by the parameter $\lambda$ (or potentially both $\mu$ and $\lambda$) and analyze how expression behavior evolves across this family. This naturally leads to the concept of a \emph{tube structure}.
+In preceding sections, we introduced the first kind arithmetic expression space $\mathfrak{E}_1$ as a geometric realization of arithmetic flow under \textbf{fixed} generator parameters $\mu$ and $\lambda$. However, more complex structures emerge when we consider the entire family of spaces indexed by the parameter $\lambda$ (or potentially both $\mu$ and $\lambda$) and analyze how expression behavior evolves across this family. This naturally leads to the concept of a \emph{tube structure}.
 
 \subsubsection{From Slices to Parameterized Families}\label{subsec:tube_slices}
 
