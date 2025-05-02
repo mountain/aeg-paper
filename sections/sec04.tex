@@ -211,28 +211,24 @@ The $\mathfrak{E}_1$ space is distinguished by its intrinsic connection to hyper
 
 \subsection{Geometric propagation mechanisms}\label{subsec:geompropagation}
 
-The flow equation in the $\mathfrak{E}_1$ space can be interpreted as describing the propagation of arithmetic expressions. This interpretation extends the propagation method discussed in Section \ref{subsec:propagation-method}.
+The flow equation \eqref{eq:flow} in the $\mathfrak{E}_1$ space, $da/ds = \mu \cos \theta + a \lambda \sin \theta$, provides a dynamic interpretation of arithmetic expression evaluation as a propagation process. This perspective extends the propagation method discussed in Section \ref{subsec:propagation-method}.
 
-In the $\mathfrak{E}_1$ space, paths along constant $x$ (vertical geodesics in the upper half plane) correspond to multiplication operations, while paths along constant $y$ (horizontal geodesics) correspond to addition operations. The assignment value $a = -x/y$ propagates according to the flow equation as we traverse these paths.
+We can visualize this process using the concept of wavefronts. Considering the locus where the assignment $a=0$ (the y-axis, $x=0$) as the initial source or baseline, the "information" or "value" propagates outwards into the upper half-plane $\mathcal{H}$. The flow equation governs how the assignment value $a$ changes as this propagation occurs.
 
-The propagation can be visualized as wavefronts emanating from source points in the upper half plane. Points with identical assignment values form equipotential curves, and the flow equation governs the geometric evolution of these wavefronts.
+Points with the same assignment value form equipotential lines, or contours, defined by $a = -x/y = a_0$ (constant). In the $(x,y)$ coordinate chart of $\mathcal{H}$, these contours are rays emanating from the origin, described by the equation $x = -a_0 y$.
 
-From equation \eqref{eq:gradevo5}, we recall that along the gradient direction ($\phi=0$) starting from $a_0=0$:
-\begin{equation}
-a = \pm \frac{\mu}{\lambda} \sinh(\lambda s)
-\end{equation}
+A key insight arises when observing how these equipotential lines behave as the propagation proceeds. Propagation, fundamentally occurring along directions related to the gradient of $a$ (which are orthogonal to the contours), leads to an increase in the magnitude $|a|$ as points move further from the initial $a=0$ line.
 
-This expression exhibits a structural similarity to the formula for the circumference of a circle in hyperbolic space with curvature $-\lambda^2$:
-\begin{equation}
-C = \frac{2\pi}{\lambda} \sinh(\lambda s)
-\end{equation}
+Now, consider the orientation of the contour ray $x = -a_0 y$. Its slope in the $(x,y)$ plane is $dy/dx = -1/a_0$.
+\begin{itemize}
+    \item When $|a_0|$ is very small (i.e., close to the initial $a=0$ state on the y-axis), the slope $-1/a_0$ is very large in magnitude, meaning the ray is nearly vertical, aligned closely with the y-axis.
+    \item As the wavefront propagates outwards, the magnitude $|a_0|$ increases. Consequently, the magnitude of the slope $|-1/a_0|$ decreases, approaching zero as $|a_0| \to \infty$. This means the ray becomes increasingly horizontal, aligning more closely with the x-axis.
+\end{itemize}
+Therefore, the geometric propagation driven by the flow equation manifests as a dynamic \textbf{sweeping or change in orientation of the equipotential rays} $a=a_0$. As the magnitude $|a|$ increases due to propagation away from the zero line, the corresponding ray appears to \textbf{rotate} from a near-vertical orientation (along the y-axis for $a=0$) towards a near-horizontal orientation (along the positive x-axis if $a \to -\infty$, or the negative x-axis if $a \to +\infty$).
 
-This correspondence suggests that the assignment $a$ propagates analogously to expanding concentric circles in hyperbolic space, with the zero assignment locus serving as the collection of centroids from which these circles emanate.
+This increase in magnitude $|a|$ with the propagation distance $s$ along the gradient is quantified by the relationship $|a| = (\mu/\lambda) \sinh(\lambda s)$ (derived from \eqref{eq:gradevo5} for propagation from $a_0=0$), confirming that further propagation indeed leads to larger $|a|$ values and thus more horizontally oriented contour lines.
 
-The dual perspective of propagation and evaluation provides a powerful framework for understanding arithmetic expressions geometrically:
-1. Evaluation of an expression follows geodesic paths through the $\mathfrak{E}_1$ space
-2. Different evaluation orders correspond to distinct paths with identical endpoints
-3. The flow equation ensures that the final value remains invariant with respect to the path taken (for evaluable expressions)
+This dynamic picture of equipotential rays sweeping from vertical towards horizontal alignment provides a core geometric interpretation of the propagation mechanism inherent in the flow equation within the $\mathfrak{E}_1$ space.
 
 \subsection{Grid structures}\label{subsec:grids}
 
