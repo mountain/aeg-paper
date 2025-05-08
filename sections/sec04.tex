@@ -230,42 +230,68 @@ This increase in magnitude $|a|$ with the propagation distance $s$ along the gra
 
 This dynamic picture of equipotential rays sweeping from vertical towards horizontal alignment provides a core geometric interpretation of the propagation mechanism inherent in the flow equation within the $\mathfrak{E}_1$ space.
 
-\subsection{Grid structures}\label{subsec:grids}
+\subsection{Grid structures and their interrelation via conformal mapping}\label{subsec:grids_revised}
 
-A significant geometric characteristic of the first kind arithmetic expression space is the presence of two distinct yet interrelated grid structures, each encoding addition and multiplication operations in different ways. These dual grids reflect the geometric structure of the Baumslag–Solitar group, whose Cayley graph exhibits an anisotropic, hierarchical lattice with a natural correspondence to mixed additive-multiplicative expressions.
+A significant geometric characteristic of the first kind arithmetic expression space ($\mathfrak{E}_1$) is the presence of two distinct yet interrelated grid structures. These structures provide a geometric realization for arithmetic operations and reveal a deep connection to the Baumslag--Solitar groups. Both grid types are constructed within the upper half-plane model, utilizing the assignment function $a = -x/y$ as the underlying scalar field that defines the meaning of arithmetic operations.
 
-Both grid structures are constructed within the upper half-plane model. The first grid is rectilinear, consisting of horizontal lines encoding addition operations and vertical lines encoding multiplication operations. Specifically, this grid is constructed through iterative applications of these two operations to generate a lattice in the $(x,y)$ coordinates. Each horizontal displacement from $(x,y)$ to $(x+1,y)$ represents an addition, and each vertical displacement from $(x,y)$ to $(x,2y)$ represents a multiplication by 2. The grid vertices correspond to values of expressions constructed from repeated applications of addition and multiplication operations, typically originating from a rational base point, often designated as 1.
+\subsubsection{The Rectilinear Grid: Geometric Realization of $BS(2,1)$}
 
-\begin{figure}[ht]
-\centering
-\resizebox{0.8\textwidth}{!}{\includegraphics{images/01-grid-example-1}}
-\caption{Rectilinear grid structure in the first kind arithmetic expression space $\mathfrak{E}_1$}\label{fig:grid1}
-\end{figure}
-
-Notably, in this first grid, the scalar field $a$ remains invariant under variations of the metric parameters $\mu$ and $\lambda$. That is, while the geometric properties of the space (lengths and angles) vary with these parameters, the locus where $a=0$—specifically, the vertical line $x=0$—remains structurally invariant and unaffected by changes in $\mu$ and $\lambda$.
-
-The second grid emerges through a conformal transformation, specifically the Möbius transformation acting within the upper half-plane. This transformation maps horizontal lines to semicircles centered on the real axis and vertical rays to orthogonal semicircles. Under this transformation, the roles of addition and multiplication are effectively interchanged. The addition-multiplication structure of the first grid transforms into a new system of curved geodesics: the images of addition steps now follow curved trajectories around the origin, while the multiplicative steps exhibit contraction and inversion properties.
-
-\begin{figure}[ht]
-\centering
-\resizebox{0.8\textwidth}{!}{\includegraphics{images/18-grid-example-2}}
-\caption{Transformed grid structure in the first kind arithmetic expression space $\mathfrak{E}_1$}\label{fig:grid2}
-\end{figure}
-
-Although the visual structure of the second grid exhibits greater complexity, it retains a profound arithmetic coherence. The grid vertices continue to correspond to expressions generated through repeated applications of addition and multiplication operations, albeit composed under the transformed geometry. This grid demonstrates enhanced flexibility: under the conformal transformation, the images of zero lines such as $x=0$ are no longer fixed but deform into dynamic arcs. Consequently, the second grid accommodates a richer family of zero structures, allowing for the possibility of curved, branching, or nested nodal sets that vary with $\mu$, $\lambda$, or the choice of conformal framing.
-
-Each of these grid structures can be interpreted as a geometric realization of a Cayley graph:
+The first grid structure, which we will call the \textbf{rectilinear grid}, is built upon a standard Cartesian-like coordinate system in the upper half-plane $\mathcal{H} = \{(x,y) \mid y>0\}$. (See Figure~\ref{fig:grid1_revised}, corresponding to the original Figure 9).
 
 \begin{itemize}
-\item The rectilinear grid corresponds to the Cayley graph of the Baumslag–Solitar group $BS(1,2)$, where multiplication by 2 followed by addition by 1 follows the relation $b^{-1}ab = a^2$.
-\item The transformed (dual) grid corresponds to the Cayley graph of the dual Baumslag–Solitar group, where the roles of addition and multiplication are inverted.
+    \item \textbf{Lines of Constant $y$ (Horizontal Lines):} These blue lines represent loci where one type of arithmetic operation, \textbf{addition}, is performed. Specifically, for a fixed $y_0$, moving along this line from $x_1$ to $x_2$ corresponds to changing the assignment value $a = -x/y_0$. An operation of adding a quantity $s$ to $a$ (i.e., $a_{new} = a_{old} + s$) is realized by changing $x$ to $x - s \cdot y_0$. The red numerals on these lines in Figure 9 (the original figure which this refers to) indicate the value of $a = -x/y$ at those points.
+    \item \textbf{Lines of Constant $x$ (Vertical Lines):} These green lines represent loci where the other fundamental arithmetic operation, \textbf{multiplication}, is performed. For a fixed $x_0$, moving along this line from $y_1$ to $y_2$ changes $a = -x_0/y$. An operation of multiplying $a$ by a factor $k$ (i.e., $a_{new} = a_{old} \cdot k$) is realized by changing $y$ to $y/k$. The blue numerals on these lines in Figure 9 (the original figure) indicate the value of $a = -x/y$ at those points. For this rectilinear grid, we specifically consider the multiplication factor to be $k=2$.
 \end{itemize}
 
-Thus, the two grid systems exhibit duality not only in geometric terms but also in group-theoretic structure. The Möbius transformation, acting within the upper half-plane, connects these dual groups by exchanging generators and inverting flow directions, reflecting an intrinsic duality in the geometric composition of arithmetic operations.
+The assignment $a = -x/y$ at the grid intersection points quantifies the result of these iterated additions and multiplications. This rectilinear grid, with addition step $s$ and multiplication factor $k=2$, serves as a geometric realization of the \textbf{Baumslag--Solitar group $BS(2,1)$}. The group $BS(2,1)$ is defined by the presentation $\langle x_g, y_g \mid y_g^{-1}x_g^2y_g = x_g \rangle$. Using the Currying-style operators $\oplus_s$ (add $s$) for $x_g$ and $\otimes_k$ (multiply by $k$) for $y_g$, this relation is satisfied when $2s/k = s$, which implies $k=2$ (for $s \neq 0$). This confirms the consistency of the rectilinear grid with $BS(2,1)$ when the multiplication factor is 2.
 
-The coexistence of these dual grid structures—one linear, one curved—linked via conformal symmetry, suggests a profound underlying symmetry in the geometry of arithmetic expressions. This duality reflects how different evaluation paths or expression embeddings can be interpreted as projections from a common, more complex geometric source. Understanding this symmetry may provide a pathway to expressing arithmetic relations via modular or automorphic structures, particularly in the context of recursive expressions and iterative identities, where Baumslag–Solitar-like behavior naturally emerges.
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.8\textwidth]{images/01-grid-example-1.pdf}
+\caption{Rectilinear grid structure in $\mathfrak{E}_1$, corresponding to $BS(2,1)$. Red numerals on horizontal (addition) lines and blue numerals on vertical (multiplication) lines indicate the value of $a=-x/y$.}\label{fig:grid1_revised}
+\end{figure}
 
-We conjecture that this grid duality corresponds to a deeper expression-theoretic equivalence, and that the Möbius transformation connecting them manifests an underlying arithmetic symmetry in expression geometry.
+\subsubsection{Chirality of the Rectilinear Grid}
+We define the \textbf{chirality} (or handedness) of the grid at any point by considering the local directions of ``increasing addition'' and ``increasing multiplication'' with respect to the assignment $a=-x/y$.
+\begin{itemize}
+    \item \textbf{Direction of Increasing Addition ($V_{add}$):} To increase $a$ by a positive amount $s$ (i.e., $a \to a+s$), $x$ must decrease (since $y>0$). Thus, $V_{add}$ points locally in the negative $x$-direction (left).
+    \item \textbf{Direction of Increasing Multiplication ($V_{mul}$):} To increase $a$ by a factor $k>1$ (assuming $a \neq 0$), $y$ must decrease to $y/k$. Thus, $V_{mul}$ points locally in the negative $y$-direction (downwards).
+\end{itemize}
+The rotation from $V_{add}$ (left) to $V_{mul}$ (down) in the $(x,y)$ plane is \textbf{clockwise}. We define this clockwise chirality as the characteristic ``handedness'' of the rectilinear $BS(2,1)$ grid, which we designate as a ``right-handed system'' for the purpose of this discussion.
+
+\subsubsection{The Transformed Grid via $w = -1/z$: Geometric Realization of $BS(1,2)$}
+The second grid structure, the \textbf{transformed (or curved) grid}, emerges when the rectilinear grid is mapped by the conformal transformation $w = -1/z$, where $z=x+iy$ and $w=u+iv$. (See Figure~\ref{fig:grid2_revised}, corresponding to the original Figure 10). This specific M\"obius transformation maps the upper half-plane to itself.
+
+Horizontal lines ($y=c_0$) in the $z$-plane (addition lines) are mapped to semicircles in the $w$-plane of the form $u^2 + (v - 1/(2c_0))^2 = (1/(2c_0))^2$. These become the addition loci in the transformed grid.
+Vertical lines ($x=c_0$) in the $z$-plane (multiplication lines) are mapped to semicircles in the $w$-plane of the form $(u + 1/(2c_0))^2 + v^2 = (1/(2c_0))^2$. These become the multiplication loci in the transformed grid.
+
+Under this transformation, the assignment function $a_{orig} = -x/y$ at a point $z_0$ transforms to $a_{new} = -u/v = x/y = -a_{orig}$ at the corresponding point $w_0$.
+
+The key insight is how the arithmetic operations and the associated algebraic structure are transformed while preserving a notion of chirality:
+\begin{enumerate}
+    \item \textbf{Transformation of Addition:} An addition of $+s$ in the rectilinear grid (affecting $a_{orig}$) corresponds to an operation that changes $a_{new}$ by $-s$. Thus, for the transformed grid to represent addition of a positive step (say, $+s'$), it must correspond to an operation that changes $a_{new}$ from $A$ to $A+s'$. This means the underlying operation related to $a_{orig}$ was a change by $-s'$. Effectively, the ``direction'' of the addition operation inverses ($s \to -s$) when interpreted through $a_{new}$.
+
+    \item \textbf{Preservation of Chirality and Transformation of Multiplication:} The conformal map $w=-1/z$ is orientation-preserving. However, the logical inversion of the addition step (from $s$ to $-s$ in its effect on $a_{new}$ to achieve an increase in $a_{new}$) would flip the chirality defined by (direction of increasing $a_{new}$ via addition) $\to$ (direction of increasing $a_{new}$ via original multiplication factor). To preserve the original clockwise chirality (the ``right-handed system''), the multiplication operation must also undergo a logical ``inversion.'' We interpret this as the multiplication factor $k$ transforming to $1/k$.
+\end{enumerate}
+Therefore, for the transformed grid:
+\begin{itemize}
+    \item The effective addition step becomes $-s$ (when aiming to increase $a_{new}$).
+    \item The effective multiplication factor becomes $1/k$. Since the rectilinear grid had $k=2$ for $BS(2,1)$, the transformed grid effectively operates with a multiplication factor of $1/2$.
+\end{itemize}
+A system with an addition operation $\oplus_{-s}$ and a multiplication operation $\otimes_{\ln(1/2)}$ (multiplication by $1/2$) satisfies the Baumslag--Solitar group relation $BS(1,2)$: $(y')^{-1}x'y' = (x')^2$, where $x'$ is $\oplus_{-s}$ and $y'$ is $\otimes_{\ln(1/2)}$. This is because $(-s)/(1/2) = 2(-s)$.
+
+Thus, the transformed grid, under this interpretation driven by chirality preservation, serves as a geometric realization of \textbf{$BS(1,2)$}.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.8\textwidth]{images/18-grid-example-2.pdf}
+\caption{Transformed (curved) grid structure in $\mathfrak{E}_1$ via $w=-1/z$, corresponding to $BS(1,2)$.}\label{fig:grid2_revised}
+\end{figure}
+
+\subsubsection{Interrelation and Symmetry}
+The rectilinear grid ($BS(2,1)$ with multiplication factor 2) and the transformed curved grid ($BS(1,2)$ with multiplication factor $1/2$) are intrinsically linked by the conformal map $w=-1/z$. This transformation, when combined with the principle of preserving a defined operational chirality, elucidates a profound connection between these two distinct Baumslag--Solitar groups. It is not merely a geometric mapping of lines to curves, but a transformation that systematically alters the interpretation of arithmetic operations (addition step $s \to -s$, multiplication factor $k \to 1/k$) while preserving a fundamental handedness of the operational space.
+
+This reveals an underlying symmetry in the geometric representation of these arithmetic structures on the $\mathfrak{E}_1$ space. The assignment function $a=-x/y$ acts as a consistent background field against which these different, yet related, arithmetic worlds ($BS(2,1)$ and $BS(1,2)$) can be manifested through geometric grids. The transformation $w=-1/z$ acts as a bridge, demonstrating how a change in geometric perspective, coupled with a consistent application of chirality, can translate one algebraic structure into another. This moves beyond simple duality, offering a concrete mechanism for the observed interrelation.
 
 \subsection{Torsion under scale transformation}\label{subsec:gridsandtorsion}
 
