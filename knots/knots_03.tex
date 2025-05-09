@@ -185,4 +185,29 @@ The SageMath script used for the computational verification and calculation of $
 For more information on the theory of Arithmetic Expression Geometry, please refer to the foundational materials available at:
 \url{https://github.com/mountain/aeg-paper/blob/main/aeg-paper.pdf}
 
+\newpage
+
+\section*{Addendum: An Intuitive Hypothesis on Periodicity, Fundamental Domains, and Arithmetic Parameters}
+
+The following reflections, shared by the first author (Mingli Yuan), articulate an insightful hypothesis that seeks to connect the observed arithmetic parameters $k_p$ and $k_q$ (derived from the evaluations $p(t)$ and $q(t)$ of relator paths) to the geometric and topological foundations of knot complements, particularly in light of concepts like the Uniformization Theorem, fundamental domains, and covering spaces. This intuition emerged from the systematic study of knot examples and the structure of their global arithmetic torsion.
+
+The core intuition is articulated as follows:
+
+``My intuition starts from three fundamental points:
+\begin{enumerate}
+    \item There must be a profound \textbf{coordination between the geometry of the knot complement and the numbers} that arise from its arithmetic interpretation.
+    \item The knot complement $X$ is formed from a \textbf{fundamental domain $F$ which is geometrically finite and closes up perfectly} under identifications by the knot group $\Gamma$. The relator path $\gamma_R$, which leads to $p(t)$, can be visualized as tracing a path along the boundary segments of this fundamental domain, a path that is closed in $X$.
+    \item The knot group $\Gamma$ is a \textbf{discrete group} acting on a universal cover $\tilde{X}$. This discreteness is essential for the well-defined structure of $X$ and its fundamental domain.
+\end{enumerate}
+
+Now, when the fundamental domain is 'unfolded' through uniformization (i.e., by lifting to the infinite cyclic cover $X_\infty$, which is structured by the deck transformation $t$), this path $\gamma_R$ (represented by $p(t)$) can be thought of as being 'cut and reconnected' in a way that forms an infinitely repeating periodic structure within $X_\infty$. The arithmetic parameter $k_p$ (from $p(t) = \sigma \Delta(t)t^{-k_p}$) reflects the '$t$-level' or 'phase' of this fundamental segment's arithmetic evaluation in relation to $\Delta(t)$ within this periodic, $t$-graded structure.
+
+On the other hand, $q(t)$ (representing the path $\bar{\gamma}_R$), while perhaps not as directly interpretable as 'the boundary' in the same way as $p(t)$, must also, when unfolded into $X_\infty$, result in a similar infinitely repeating path structure.
+
+Crucially, for the overall framework to be self-consistent—for the arithmetic model to faithfully reflect a geometry built upon a finitely-sided, properly closing fundamental domain $F$ and a discrete group $\Gamma$—the manner in which these two infinite periodic structures (associated with $p(t)$ and $q(t)$) relate to each other must be constrained. Specifically, their 'periodicities' or '$t$-depths' (characterized by the integers $k_p$ and $k_q$) cannot be arbitrary with respect to each other. They must satisfy some kind of 'simple ratio' or commensurability. If the 'periodicity' or '$t$-depth scaling' associated with $\gamma_R$ (related to $k_p$) defines a fundamental unit, then the corresponding characteristic for $\bar{\gamma}_R$ (related to $k_q$) must be a rational multiple of this unit. (Since $k_p$ and $k_q$ are integers, their ratio is inherently rational, but the 'simplicity' may refer to the idea that these integers, and their difference $K = |k_q-k_p|$, are reasonably small or structurally significant rather than arbitrarily complex).
+
+If this 'simple ratio' or commensurability between the $t$-scalings of $p(t)$ and $q(t)$ were not present, it would imply a kind of 'incoherence' or 'irrationality' in the way the arithmetic model reflects the underlying discrete, periodic geometric structure formed by the action of $\Gamma$ and the deck transformation $t$. This would potentially violate the foundational principles of a well-defined fundamental domain that closes consistently and a group that acts discretely.
+
+Therefore, the emergence of integer exponents $k_p, k_q$, and their integer difference $K = |k_q-k_p|$ (which determines the cyclotomic factor $t^K-1$ in the torsion $\tau = p-q$), is a natural consequence of this required **harmony between the discrete geometry of the knot complement (fundamental domain, group action) and the algebraic numbers produced by its arithmetic interpretation.** The idea that $q(t)$ must exhibit a 'rational number period' relative to $p(t)$ is a way of stating that these integers $k_p$ and $k_q$ must be well-behaved and reflect the underlying integral or rational nature of periods and actions in the discrete geometric setting."
+
 \end{document}
