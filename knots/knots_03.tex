@@ -12,6 +12,9 @@
     pdftitle={Knots, Arithmetic Torsion, and Cyclotomic Fields},
     pdfpagemode=FullScreen,
     }
+\usepackage{booktabs}   % For professional looking table lines (toprule, midrule, bottomrule)
+\usepackage{array}      % For \newcolumntype, enabling custom column definitions
+\usepackage[a4paper, margin=1in]{geometry} % Page margin settings, adjust as needed
 
 \title{Knots, Arithmetic Torsion, and Cyclotomic Fields}
 \author{Mingli Yuan, Gemini, ChatGPT}
@@ -24,6 +27,8 @@
 \begin{abstract}
 This document explores an arithmetic interpretation of knot group theory, focusing on the relationship between knot relators, their corresponding Alexander polynomials, and a newly defined measure termed global arithmetic torsion. By mapping knot group generators to specific arithmetic operations involving a parameter $t$, we demonstrate how the closure condition of a relator path can yield the Alexander polynomial equation $\Delta(t)=0$. Furthermore, the global arithmetic torsion of such paths, $\tau(\gamma_R)(t)$, exhibits a remarkable structure, consistently factoring into the Alexander polynomial $\Delta(t)$ and a cyclotomic component of the form $t^K-1$. This suggests a deep connection between knot topology, the non-commutative nature of arithmetic operation sequences, and algebraic properties related to roots of unity and cyclotomic fields. Examples, including the figure-eight knot ($4_1$) and knots $6_2$ and $6_3$, are used to illustrate these findings.
 \end{abstract}
+
+\tableofcontents
 
 \section{Introduction}
 
@@ -177,17 +182,9 @@ Future research could aim to:
 \end{itemize}
 This arithmetic framework appears to offer a novel lens through which to explore the rich interplay between knot topology, group theory, and algebraic number theory.
 
-\section{Computational Verification Code}
-
-The SageMath script used for the computational verification and calculation of $p(t)$, $q(t)$, and the torsion factors for the knots discussed can be found at:
-\url{https://github.com/mountain/knot-alexander/blob/main/torsion.py}
-
-For more information on the theory of Arithmetic Expression Geometry, please refer to the foundational materials available at:
-\url{https://github.com/mountain/aeg-paper/blob/main/aeg-paper.pdf}
-
 \newpage
 
-\section*{Addendum: An Intuitive Hypothesis on Periodicity, Fundamental Domains, and Arithmetic Parameters}
+\section{Addendum I: An Intuitive Hypothesis on Periodicity, Fundamental Domains, and Arithmetic Parameters}
 
 The following reflections, shared by the first author (Mingli Yuan), articulate an insightful hypothesis that seeks to connect the observed arithmetic parameters $k_p$ and $k_q$ (derived from the evaluations $p(t)$ and $q(t)$ of relator paths) to the geometric and topological foundations of knot complements, particularly in light of concepts like the Uniformization Theorem, fundamental domains, and covering spaces. This intuition emerged from the systematic study of knot examples and the structure of their global arithmetic torsion.
 
@@ -209,5 +206,79 @@ Crucially, for the overall framework to be self-consistent—for the arithmetic 
 If this 'simple ratio' or commensurability between the $t$-scalings of $p(t)$ and $q(t)$ were not present, it would imply a kind of 'incoherence' or 'irrationality' in the way the arithmetic model reflects the underlying discrete, periodic geometric structure formed by the action of $\Gamma$ and the deck transformation $t$. This would potentially violate the foundational principles of a well-defined fundamental domain that closes consistently and a group that acts discretely.
 
 Therefore, the emergence of integer exponents $k_p, k_q$, and their integer difference $K = |k_q-k_p|$ (which determines the cyclotomic factor $t^K-1$ in the torsion $\tau = p-q$), is a natural consequence of this required **harmony between the discrete geometry of the knot complement (fundamental domain, group action) and the algebraic numbers produced by its arithmetic interpretation.** The idea that $q(t)$ must exhibit a 'rational number period' relative to $p(t)$ is a way of stating that these integers $k_p$ and $k_q$ must be well-behaved and reflect the underlying integral or rational nature of periods and actions in the discrete geometric setting."
+
+\newpage
+
+\section{Addendum II: Preliminary Experimental Observations and Reflections on the Behavior of Arithmetic Torsion with Different Reference Paths}
+
+(Note by the authors of this document: This addendum records some preliminary computational experiments and observational reflections undertaken to further examine the "rationality hypothesis" proposed by the first author, building upon the intuitive speculations in "Addendum I." Given that these explorations are still at a very early stage, the following conclusions and interpretations should be considered highly speculative, intended to stimulate further rigorous mathematical research rather than to present established theory.)
+
+In previous discussions, we defined the global arithmetic torsion $\tau(\gamma_R)(t) = p(t) - q_{\text{rev}}(t)$ based on the knot relator path $\gamma_R$ and its operationally reverse-sequence path $\bar{\gamma}_R$ (where $p(t) = \nu(\gamma_R)(0,t)$ and $q_{\text{rev}}(t) = \nu(\bar{\gamma}_R)(0,t)$). We observed that its structure typically includes the Alexander polynomial $\Delta(t)$ and a cyclotomic factor $t^K-1$. To further probe the "rationality hypothesis"—the idea that the fundamental geometric and topological properties of a knot complement require the parameters emerging from its arithmetic interpretation to possess a certain "simplicity" or "coordination"—we conducted the following two new sets of computational experiments, altering the reference path compared against $p(t)$.
+
+\subsection*{Experiment 1: Canonical Reordered Paths $\gamma_C$ as Reference}
+
+We compared $p(t) = \nu(\gamma_R)(0,t)$ with the evaluations of two types of canonical paths: $\gamma_{A \to M}$ (all additive-type operations first, then all multiplicative-type operations), with evaluation $q_C(t) = \nu(\gamma_{A \to M})(0,t)$; and $\gamma_{M \to A}$ (multiplicative-type first, then additive-type), with evaluation $q_C'(t) = \nu(\gamma_{M \to A})(0,t)$.
+
+\textbf{Observation (based on knots $4_1, 5_2, 6_1, 6_2, 6_3$, etc., using the script's logic for selecting mappings based on relator exponent sums):}
+A very notable phenomenon is that for these selected relators and mappings (which ensure that the chosen multiplicative generator has a net exponent sum $N_{\text{mult}}=0$ in the relator), the evaluation results of both types of canonical paths were \emph{consistently 1}. That is:
+$q_C(t) = 1$ and $q_C'(t) = 1$.
+
+\textbf{Preliminary Analysis of Experiment 1}:
+This result $q_C(t)=q_C'(t)=1$ stems from:
+\begin{itemize}
+    \item When $N_{\text{mult}}=0$, $\nu(\gamma_{A \to M})(0,t) = N_{\text{add}} \cdot t^0 = N_{\text{add}}$.
+    \item When evaluating from 0, the first step of $\nu(\gamma_{M \to A})(0,t)$ (all multiplicative operations) results in 0, and the second step (all additive operations applied to 0) results in $N_{\text{add}}$.
+    \item Thus, both canonical path evaluations equal $N_{\text{add}}$, the net number of operations of the "additive generator" in the relator.
+    \item The fact that they both equal 1 implies that these selected relators (under the script's mapping logic) coincidentally satisfy $N_{\text{add}}=1$.
+\end{itemize}
+Consequently, the new "torsion" (or difference) becomes $T'(t) = p(t) - 1$. Our analysis of the factor structure of $T'(t)$ (as seen in the computational outputs for $4_1, 5_2, 6_1, 6_2, 6_3$) revealed:
+\begin{itemize}
+    \item The Alexander polynomial $\Delta(t)$ is generally no longer a direct factor of $T'(t)$.
+    \item The factor $(t-1)$ (i.e., $\Phi_1(t)$) appears very commonly. This arises because, under the conditions $N_{\text{mult}}=0, N_{\text{add}}=1$, $p(1) = \nu(\gamma_R)(0,1) = N_{\text{add}} = 1$, therefore $p(1)-1=0$.
+    \item For some knots (e.g., $6_2$), other higher-order cyclotomic polynomials (e.g., $\Phi_6(t)$) also appeared as factors of $T'(t)$, indicating that the equation $p(t)=1$ also has solutions at other higher roots of unity for these specific $\gamma_R$.
+\end{itemize}
+
+\subsection*{Experiment 2: Randomly Shuffled Path $\gamma_{\text{shuffled}}$ as Reference}
+
+To test whether the cyclotomic factors observed in $p(t)-1$ were merely a consequence of the overall count of operations (i.e., $N_{\text{mult}}=0, N_{\text{add}}=1$) or if they depended on the specific order of operations in the original relator $\gamma_R$, we conducted a second set of experiments.
+We took the sequence of operations from $\gamma_R$ (preserving the total number and type of operations) and randomly permuted it to obtain a path $\gamma_{\text{shuffled}}$, then calculated its evaluation $p_{\text{shuffled}}(t) = \nu(\gamma_{\text{shuffled}})(0,t)$. We then examined the difference $T_{\text{new}}(t) = p_{\text{val}}(t) - p_{\text{shuffled}}(t)$ (where $p_{\text{val}}(t)$ is the evaluation of the original relator path).
+
+\textbf{Observation (based on knots $5_2, 6_1, 6_2, 6_3$):}
+\begin{itemize}
+    \item $p_{\text{shuffled}}(t)$ is generally a complex rational function of $t$, not equal to 1.
+    \item In the factors of the new difference $T_{\text{new}}(t)$, the Alexander polynomial $\Delta(t)$ no longer appears.
+    \item The $(t-1)$ factor is still commonly present.
+    \item Crucially, the higher-order cyclotomic polynomial factors that appeared in $p_{\text{val}}(t)-1$ (from Experiment 1) mostly disappeared or changed form in $p_{\text{val}}(t)-p_{\text{shuffled}}(t)$.
+\end{itemize}
+
+\subsection*{Preliminary Cautious Interpretation of Experimental Results and Reflections on the "Rationality Hypothesis"}
+
+\begin{enumerate}
+    \item \textbf{Specificity of $\Delta(t)$ and Higher-Order Cyclotomic Patterns}: The results from the random shuffling experiment strongly suggest that the Alexander polynomial $\Delta(t)$ appearing as a factor in the original torsion $\tau(\gamma_R)(t) = p_{\text{val}}(t) - q_{\text{rev}}(t)$, as well as the specific higher-order cyclotomic factors observed in $p_{\text{val}}(t)-1$, are not general properties of any path with the same total number of operations. They appear to be intimately linked to the \emph{highly specific, non-random sequence of operations in the knot relator $\gamma_R$ itself}.
+    \item \textbf{Regarding the "Triviality" vs. "Non-Triviality" of the $(t-1)$ Factor}:
+    \begin{itemize}
+        \item \textit{Arithmetic Perspective}: The frequent appearance of the $(t-1)$ factor in all these difference expressions has a direct arithmetic origin: when $t=1$, the multiplicative operation $\otimes_1$ degenerates to an identity operation. This causes the evaluation of any path with the same net additive count $N_{\text{add}}$ (in our examples, 1) and net multiplicative exponent $N_{\text{mult}}=0$ to converge to $N_{\text{add}}$ (i.e., 1) when evaluated from 0 at $t=1$. Thus, the difference between any two such path evaluations will inevitably be zero at $t=1$, making $(t-1)$ a factor.
+        \item \textit{Geometric Perspective}: However, as pointed out by the first author's viewpoint, this arithmetic "triviality" may possess non-trivial significance if it corresponds to deeper geometric constructs. The first author suggests that if the path $\gamma_R$ (related to $p(t)$) and, for instance, the path $\bar{\gamma}_R$ (related to $q_{\text{rev}}(t)$) or even the canonical path $\gamma_C$ (related to $q_C(t)=1$) can all be geometrically viewed as valid ways of describing the "effective boundary" or "closure method" of a fundamental domain for the same knot complement $X$, then when $t=1$ (which corresponds to the infinite cyclic cover "collapsing" back to the base space $X$), it is natural for these different arithmetic constructions to yield consistent evaluation results (all equal to $N_{\text{add}}=1$) as they reflect the same underlying base geometric object. This consistency at $t=1$ can be seen as a fundamental manifestation of the "harmony between number and geometry" hypothesis. Therefore, the ubiquitous $(t-1)$ factor, far from contradicting the first author's "rationality hypothesis," might actually be its most fundamental supporting evidence.
+    \end{itemize}
+    \item \textbf{Overall Support for the "Rationality Hypothesis"}: These experimental results generally support the first author's proposed viewpoint on rationality. That is, the ability to reveal profound "rationality" (such as the connection to $\Delta(t)$ or the appearance of specific higher-order cyclotomic factors) is vested in those paths that possess genuine geometric and topological meaning (i.e., knot relators $\gamma_R$), rather than arbitrary random paths. This suggests that the "coordination between number and geometry" is manifested through the precise arithmetic structure of these special paths.
+\end{enumerate}
+
+\subsection*{Concluding Thoughts on These Preliminary Experiments}
+These preliminary computational experiments have opened new perspectives and posed further questions. For instance, why do the canonical path evaluations $q_C(t)$ and $q_C'(t)$ so consistently yield 1 for the relators selected by the script's logic (i.e., why is $N_{\text{add}}=1$ so common under the $N_{\text{mult}}=0$ condition)? What is the precise geometric meaning of the higher-order cyclotomic roots of $p_{\text{val}}(t)-1=0$? These questions await deeper theoretical investigation and broader computational verification. However, the first author's geometric intuition regarding fundamental domains, covering spaces, and the "rational periodicity" of paths undoubtedly provides very valuable guidance for these explorations.
+
+\newpage
+
+\section{Addendum III: Computational Verification Code}
+
+The SageMath script used for the computational verification and calculation of $p(t)$, $q(t)$, and the torsion factors for the knots discussed can be found at:
+\begin{itemize}
+    \item \url{https://github.com/mountain/knot-alexander/blob/main/torsion.py}: reference path $\gamma_R$.
+    \item \url{https://github.com/mountain/knot-alexander/blob/main/torsion2.py}: canonical path $\gamma_{A \to M}$ and $\gamma_{M \to A}$.
+    \item \url{https://github.com/mountain/knot-alexander/blob/main/torsion3.py}: randomly shuffled path $\gamma_{\text{shuffled}}$.
+\end{itemize}
+
+
+For more information on the theory of Arithmetic Expression Geometry, please refer to the foundational materials available at:
+\url{https://github.com/mountain/aeg-paper/blob/main/aeg-paper.pdf}
 
 \end{document}
