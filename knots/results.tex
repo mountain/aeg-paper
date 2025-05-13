@@ -1,0 +1,231 @@
+\documentclass{article}
+\usepackage{amsmath}    % For mathematical formulas
+\usepackage{booktabs}   % For professional looking table lines (toprule, midrule, bottomrule)
+\usepackage[a4paper, margin=0.75in]{geometry} % Page margin settings, adjust as needed
+
+\begin{document}
+
+\section*{Arithmetic Torsion Analysis for Knot $4_1$}
+
+\noindent Note: For all examples below, the mapping used is 'a' as multiplicative ($\otimes_a$) and 'b' as additive ($\oplus_1$).
+For knot $4_1$, the Alexander polynomial is $\Delta(a) = a^2 - 3a + 1$.
+The cyclotomic polynomials referred to are $\Phi_1(a) = a-1$ and $\Phi_2(a) = a+1$.
+$p(a) = \nu(S_R)(0,a)$ and $q(a) = \nu(S_{R_{\text{rev}}})(0,a)$.
+
+\begin{table}[htbp]
+\centering
+\caption{Summary of Arithmetic Torsion Analysis for Knot $4_1$ (Unified Mapping).}
+\label{tab:knot41_unified_mapping_new_data}
+\scriptsize % Using scriptsize for better fit
+% Adjusted 6-column specifiers for width
+\begin{tabular}{@{}p{3.2cm} p{2.0cm} p{2.0cm} p{2.5cm} p{3.3cm} p{3.3cm}@{}}
+\toprule
+\textbf{Relator(s) Used} & \textbf{$p(a)$} & \textbf{$q(a)$} & \textbf{Torsion $\tau(a) = p(a) - q(a)$} & \textbf{Torsion Factors} (using $\Phi_n(a), \Delta(a)$) & \textbf{Notes} ($k_p, k_q, \sigma_{\text{eff}}$; Cyclot. Factors) \\
+\midrule
+\texttt{aaBAbbbAB}, \texttt{abbbaBAAB} & $-\Delta(a)$ & $-\frac{\Delta(a)}{a^2}$ & $\frac{-\Delta(a)(a^2-1)}{a^2}$ & $\frac{-\Delta(a) \Phi_1(a) \Phi_2(a)}{a^2}$ & $k_p=0, k_q=2, \sigma_{\text{eff}}=-1$; Cyclot. $\Phi_1\Phi_2$ \\
+\addlinespace
+\texttt{aBAABabbb}, \texttt{bbbABaaBA}, \texttt{bbbaBAABa} & $-\frac{\Delta(a)}{a}$ & $-\frac{\Delta(a)}{a}$ & $0$ & $0$ & $k_p=1, k_q=1, p(a)=q(a)$; No cyclot. part \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\vspace{1cm} % Add some vertical space between sections
+
+\section*{Arithmetic Torsion Analysis for Knot $6_2$}
+
+\noindent Note: For all examples below, the mapping used is 'a' as multiplicative ($\otimes_a$) and 'b' as additive ($\oplus_1$).
+For knot $6_2$, the Alexander polynomial is $\Delta(a) = a^4 - 3a^3 + 3a^2 - 3a + 1$.
+The cyclotomic polynomials referred to are $\Phi_1(a) = a-1$, $\Phi_2(a) = a+1$, and $\Phi_4(a) = a^2+1$.
+$p(a) = \nu(S_R)(0,a)$ and $q(a) = \nu(S_{R_{\text{rev}}})(0,a)$.
+
+\begin{table}[htbp]
+\centering
+\caption{Summary of Arithmetic Torsion Analysis for Knot $6_2$ (Unified Mapping, Grouped by Torsion Outcome).}
+\label{tab:knot62_unified_mapping_new_data}
+\scriptsize % Using scriptsize for better fit
+% Adjusted 6-column specifiers for width
+\begin{tabular}{@{}p{3.2cm} p{2.0cm} p{2.0cm} p{2.5cm} p{3.3cm} p{3.3cm}@{}}
+\toprule
+\textbf{Relator(s) Used} & \textbf{$p(a)$} & \textbf{$q(a)$} & \textbf{Torsion $\tau(a) = p(a) - q(a)$} & \textbf{Torsion Factors} (using $\Phi_n(a), \Delta(a)$) & \textbf{Notes} ($k_p, k_q, \sigma_{\text{eff}}$; Cyclot. Factors) \\
+\midrule
+% Type 1: Zero Torsion
+\texttt{aaBAbbbAAbbbABaaBBB} & $-\frac{\Delta(a)}{a^2}$ & $-\frac{\Delta(a)}{a^2}$ & $0$ & $0$ & $k_p=2, k_q=2, p(a)=q(a)$; No cyclot. part \\
+\addlinespace
+\midrule
+% Type 2: Torsion = Delta(a)(a^2-1)/a^3
+\texttt{aBAABBBAABabbbaabbb}, \texttt{bbbAAbbbABaaBBBaaBA}, \texttt{bbbaBAABBBAABabbbaa} & $-\frac{\Delta(a)}{a^3}$ & $-\frac{\Delta(a)}{a}$ & $\frac{\Delta(a)(a^2-1)}{a^3}$ & $\frac{\Delta(a)\Phi_1(a)\Phi_2(a)}{a^3}$ & $k_p=3, k_q=1, \sigma_{\text{eff}}=1$; Cyclot. $\Phi_1\Phi_2$ \\
+\addlinespace
+\midrule
+% Type 3: Torsion = -Delta(a)(a^2-1)/a^3
+\texttt{aabbbaBAABBBAABabbb}, \texttt{bbbaabbbaBAABBBAABa}, \texttt{bbbABaaBBBaaBAbbbAA} & $-\frac{\Delta(a)}{a}$ & $-\frac{\Delta(a)}{a^3}$ & $\frac{-\Delta(a)(a^2-1)}{a^3}$ & $\frac{-\Delta(a)\Phi_1(a)\Phi_2(a)}{a^3}$ & $k_p=1, k_q=3, \sigma_{\text{eff}}=-1$; Cyclot. $\Phi_1\Phi_2$ \\
+\addlinespace
+\midrule
+% Type 4: Torsion = -Delta(a)(a^4-1)/a^4
+\texttt{aaBBBaaBAbbbAAbbbAB}, \texttt{abbbaabbbaBAABBBAAB} & $-\Delta(a)$ & $-\frac{\Delta(a)}{a^4}$ & $\frac{-\Delta(a)(a^4-1)}{a^4}$ & $\frac{-\Delta(a)\Phi_1(a)\Phi_2(a)\Phi_4(a)}{a^4}$ & $k_p=0, k_q=4, \sigma_{\text{eff}}=-1$; Cyclot. $\Phi_1\Phi_2\Phi_4$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+\vspace{1cm} % Add some vertical space between sections
+
+\section*{Arithmetic Torsion Analysis for Knot $6_3$}
+
+\noindent Note: For all examples below, the mapping used is 'a' as multiplicative ($\otimes_a$) and 'b' as additive ($\oplus_1$).
+For knot $6_3$, the Alexander polynomial is $\Delta(a) = a^4 - 3a^3 + 5a^2 - 3a + 1$.
+The cyclotomic polynomials referred to are $\Phi_1(a) = a-1$, $\Phi_2(a) = a+1$, and $\Phi_4(a) = a^2+1$.
+$p(a) = \nu(S_R)(0,a)$ and $q(a) = \nu(S_{R_{\text{rev}}})(0,a)$.
+
+% --- Knot 6_3: Type A Torsion ---
+\begin{table}[htbp]
+\centering
+\caption{Knot $6_3$ Analysis: Type A Torsion $\tau(a) = \frac{\Delta(a)(a^4-1)}{a^4}$.}
+\label{tab:knot63_type_A}
+\scriptsize
+\begin{tabular}{@{}p{4.0cm} p{1.8cm} p{1.8cm} p{2.2cm} p{3.0cm} p{3.2cm}@{}}
+\toprule
+\textbf{Relator(s) Used (Original Index)} & \textbf{$p(a)$} & \textbf{$q(a)$} & \textbf{Torsion $\tau(a)$} & \textbf{Torsion Factors} & \textbf{Notes} \\
+\midrule
+\texttt{aabbaBAABabbaabABBAbABBAb} (1), \texttt{baabbbaabABBAABabbaBAABBA} (4), \texttt{aBBabaBBabAAbbABaaBAbbAAb} (6), \texttt{aBBaaBAbbABaaBBabAAbbbAAb} (7), \texttt{aabbbaabABBAABabbaBAABBAb} (8), \texttt{baBBaaBAbbABaaBBabAAbbbAA} (17), \texttt{baabbaBAABabbaabABBAbABBA} (27), \texttt{baBBabaBBabAAbbABaaBAbbAA} (30)
+& $\Delta(a)$ & $\frac{\Delta(a)}{a^4}$ & $\frac{\Delta(a)(a^4-1)}{a^4}$ & $\frac{\Delta(a)\Phi_1\Phi_2\Phi_4}{a^4}$ & $k_p=0, k_q=4, \sigma_{\text{eff}}=1$; Cyclot. $\Phi_1\Phi_2\Phi_4$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% --- Knot 6_3: Type B Torsion (Zero) ---
+\begin{table}[htbp]
+\centering
+\caption{Knot $6_3$ Analysis: Type B Torsion $\tau(a) = 0$.}
+\label{tab:knot63_type_B}
+\scriptsize
+\begin{tabular}{@{}p{4.0cm} p{1.8cm} p{1.8cm} p{2.2cm} p{3.0cm} p{3.2cm}@{}}
+\toprule
+\textbf{Relator(s) Used (Original Index)} & \textbf{$p(a)$} & \textbf{$q(a)$} & \textbf{Torsion $\tau(a)$} & \textbf{Torsion Factors} & \textbf{Notes} \\
+\midrule
+\texttt{aBAABBAbaabbbaabABBAABabb} (2), \texttt{bABBAbaabbaBAABabbaabABBA} (9), \texttt{aBBabAAbbABaaBAbbAAbaBBab} (11), \texttt{aabABBAABabbaBAABBAbaabbb} (16), \texttt{bbaBAABBAbaabbbaabABBAABa} (18), \texttt{bbAAbaBBabaBBabAAbbABaaBA} (19), \texttt{bbaBAABabbaabABBAbABBAbaa} (20), \texttt{bbABaaBBabAAbbbAAbaBBaaBA} (21), \texttt{bbbAAbaBBaaBAbbABaaBBabAA} (22), \texttt{bbaabABBAbABBAbaabbaBAABa} (23), \texttt{baBBabAAbbABaaBAbbAAbaBBa} (24), \texttt{aBAABabbaabABBAbABBAbaabb} (25), \texttt{bbbaabABBAABabbaBAABBAbaa} (31), \texttt{aabABBAbABBAbaabbaBAABabb} (32), \texttt{bbABaaBAbbAAbaBBabaBBabAA} (34)
+& $\frac{\Delta(a)}{a^2}$ & $\frac{\Delta(a)}{a^2}$ & $0$ & $0$ & $k_p=2, k_q=2, p(a)=q(a)$; No cyclot. part \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% --- Knot 6_3: Type C Torsion ---
+\begin{table}[htbp]
+\centering
+\caption{Knot $6_3$ Analysis: Type C Torsion $\tau(a) = \frac{\Delta(a)(a^2-1)}{a^3}$.}
+\label{tab:knot63_type_C}
+\scriptsize
+\begin{tabular}{@{}p{4.0cm} p{1.8cm} p{1.8cm} p{2.2cm} p{3.0cm} p{3.2cm}@{}}
+\toprule
+\textbf{Relator(s) Used (Original Index)} & \textbf{$p(a)$} & \textbf{$q(a)$} & \textbf{Torsion $\tau(a)$} & \textbf{Torsion Factors} & \textbf{Notes} \\
+\midrule
+\texttt{aaBAbbAAbaBBabaBBabAAbbAB} (3), \texttt{aaBBabAAbbbAAbaBBaaBAbbAB} (5), \texttt{abbaabABBAbABBAbaabbaBAAB} (10), \texttt{abbaBAABBAbaabbbaabABBAAB} (12), \texttt{abaBBabAAbbABaaBAbbAAbaBB} (14), \texttt{aaBAbbABaaBBabAAbbbAAbaBB} (29)
+& $\frac{\Delta(a)}{a}$ & $\frac{\Delta(a)}{a^3}$ & $\frac{\Delta(a)(a^2-1)}{a^3}$ & $\frac{\Delta(a)\Phi_1\Phi_2}{a^3}$ & $k_p=1, k_q=3, \sigma_{\text{eff}}=1$; Cyclot. $\Phi_1\Phi_2$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% --- Knot 6_3: Type D Torsion ---
+\begin{table}[htbp]
+\centering
+\caption{Knot $6_3$ Analysis: Type D Torsion $\tau(a) = \frac{-\Delta(a)(a^4-1)}{a^4}$.}
+\label{tab:knot63_type_D}
+\scriptsize
+\begin{tabular}{@{}p{4.0cm} p{1.8cm} p{1.8cm} p{2.2cm} p{3.0cm} p{3.2cm}@{}}
+\toprule
+\textbf{Relator(s) Used (Original Index)} & \textbf{$p(a)$} & \textbf{$q(a)$} & \textbf{Torsion $\tau(a)$} & \textbf{Torsion Factors} & \textbf{Notes} \\
+\midrule
+\texttt{bABBAbABBAbaabbaBAABabbaa} (13), \texttt{bAAbbbAAbaBBaaBAbbABaaBBa} (26), \texttt{bAAbbABaaBAbbAAbaBBabaBBa} (33), \texttt{bABBAABabbaBAABBAbaabbbaa} (35)
+& $\frac{\Delta(a)}{a^4}$ & $\Delta(a)$ & $\frac{-\Delta(a)(a^4-1)}{a^4}$ & $\frac{-\Delta(a)\Phi_1\Phi_2\Phi_4}{a^4}$ & $k_p=4, k_q=0, \sigma_{\text{eff}}=-1$; Cyclot. $\Phi_1\Phi_2\Phi_4$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% --- Knot 6_3: Type E Torsion ---
+\begin{table}[htbp]
+\centering
+\caption{Knot $6_3$ Analysis: Type E Torsion $\tau(a) = \frac{-\Delta(a)(a^2-1)}{a^3}$.}
+\label{tab:knot63_type_E}
+\scriptsize
+\begin{tabular}{@{}p{4.0cm} p{1.8cm} p{1.8cm} p{2.2cm} p{3.0cm} p{3.2cm}@{}}
+\toprule
+\textbf{Relator(s) Used (Original Index)} & \textbf{$p(a)$} & \textbf{$q(a)$} & \textbf{Torsion $\tau(a)$} & \textbf{Torsion Factors} & \textbf{Notes} \\
+\midrule
+\texttt{abAAbbABaaBAbbAAbaBBabaBB} (15), \texttt{abAAbbbAAbaBBaaBAbbABaaBB} (Index 28)
+& $\frac{\Delta(a)}{a^3}$ & $\frac{\Delta(a)}{a}$ & $\frac{-\Delta(a)(a^2-1)}{a^3}$ & $\frac{-\Delta(a)\Phi_1\Phi_2}{a^3}$ & $k_p=3, k_q=1, \sigma_{\text{eff}}=-1$; Cyclot. $\Phi_1\Phi_2$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\vspace{1cm}
+
+\section*{Arithmetic Torsion Analysis for Knot $7_6$}
+
+\noindent Note: For all examples below, the mapping used is 'a' as multiplicative ($\otimes_a$) and 'b' as additive ($\oplus_1$).
+For knot $7_6$, the Alexander polynomial is $\Delta(a) = a^4 - 5a^3 + 7a^2 - 5a + 1$.
+The cyclotomic polynomials referred to are $\Phi_1(a) = a-1$, $\Phi_2(a) = a+1$, and $\Phi_4(a) = a^2+1$.
+$p(a) = \nu(S_R)(0,a)$ and $q(a) = \nu(S_{R_{\text{rev}}})(0,a)$.
+
+% --- Knot 7_6: Type A Torsion (Zero) ---
+\begin{table}[htbp]
+\centering
+\caption{Knot $7_6$ Analysis (Unified Mapping): Type A Torsion $\tau(a) = 0$.}
+\label{tab:knot76_type_A}
+\scriptsize
+\begin{tabular}{@{}p{4.0cm} p{1.8cm} p{1.8cm} p{2.2cm} p{3.0cm} p{3.2cm}@{}}
+\toprule
+\textbf{Relator(s) Used (Original Index)} & \textbf{$p(a)$} & \textbf{$q(a)$} & \textbf{Torsion $\tau(a)$} & \textbf{Torsion Factors} & \textbf{Notes} \\
+\midrule
+\texttt{abABBBAbaBAABabbbaBAbaabABabbbaBAAB} (2), \texttt{abAAbaBAbbbABaaBAbaBBBabABaaBAbbbAB} (5), \texttt{aaBAbbbABabAAbaBAbbbABaaBAbaBBBabAB} (6), \texttt{abbbaBAABabABBBAbaBAABabbbaBAbaabAB} (12), \texttt{abABaaBAbbbABabAAbaBAbbbABaaBAbaBBB} (21)
+& $-\frac{\Delta(a)}{a^2}$ & $-\frac{\Delta(a)}{a^2}$ & $0$ & $0$ & $k_p=2, k_q=2, p(a)=q(a)$; No cyclot. part \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% --- Knot 7_6: Type B Torsion ---
+\begin{table}[htbp]
+\centering
+\caption{Knot $7_6$ Analysis (Unified Mapping): Type B Torsion $\tau(a) = \frac{\Delta(a)(a^2-1)}{a^3}$.}
+\label{tab:knot76_type_B}
+\scriptsize
+\begin{tabular}{@{}p{4.0cm} p{1.8cm} p{1.8cm} p{2.2cm} p{3.0cm} p{3.2cm}@{}}
+\toprule
+\textbf{Relator(s) Used (Original Index)} & \textbf{$p(a)$} & \textbf{$q(a)$} & \textbf{Torsion $\tau(a)$} & \textbf{Torsion Factors} & \textbf{Notes} \\
+\midrule
+\texttt{aBAABabABBBAbaBAABabbbaBAbaabABabbb} (3), \texttt{bbbaBAABabABBBAbaBAABabbbaBAbaabABa} (14), \texttt{bABBBAbaBAABabbbaBAbaabABabbbaBAABa} (15), \texttt{bAAbaBAbbbABaaBAbaBBBabABaaBAbbbABa} (18), \texttt{bbbABabAAbaBAbbbABaaBAbaBBBabABaaBA} (19)
+& $-\frac{\Delta(a)}{a^3}$ & $-\frac{\Delta(a)}{a}$ & $\frac{\Delta(a)(a^2-1)}{a^3}$ & $\frac{\Delta(a)\Phi_1\Phi_2}{a^3}$ & $k_p=3, k_q=1, \sigma_{\text{eff}}=1$; Cyclot. $\Phi_1\Phi_2$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% --- Knot 7_6: Type C Torsion ---
+\begin{table}[htbp]
+\centering
+\caption{Knot $7_6$ Analysis (Unified Mapping): Type C Torsion $\tau(a) = \frac{-\Delta(a)(a^2-1)}{a^3}$.}
+\label{tab:knot76_type_C}
+\scriptsize
+\begin{tabular}{@{}p{4.0cm} p{1.8cm} p{1.8cm} p{2.2cm} p{3.0cm} p{3.2cm}@{}}
+\toprule
+\textbf{Relator(s) Used (Original Index)} & \textbf{$p(a)$} & \textbf{$q(a)$} & \textbf{Torsion $\tau(a)$} & \textbf{Torsion Factors} & \textbf{Notes} \\
+\midrule
+\texttt{aBBBabABaaBAbbbABabAAbaBAbbbABaaBAb} (1), \texttt{aBAbaabABabbbaBAABabABBBAbaBAABabbb} (4), \texttt{aabABabbbaBAABabABBBAbaBAABabbbaBAb} (7), \texttt{baBBBabABaaBAbbbABabAAbaBAbbbABaaBA} (10), \texttt{bbbABaaBAbaBBBabABaaBAbbbABabAAbaBA} (11), \texttt{bbbaBAbaabABabbbaBAABabABBBAbaBAABa} (13), \texttt{baabABabbbaBAABabABBBAbaBAABabbbaBA} (16), \texttt{aBAbbbABaaBAbaBBBabABaaBAbbbABabAAb} (17), \texttt{aBAABabbbaBAbaabABabbbaBAABabABBBAb} (20), \texttt{baBAbbbABaaBAbaBBBabABaaBAbbbABabAA} (22), \texttt{baBAABabbbaBAbaabABabbbaBAABabABBBA} (23)
+& $-\frac{\Delta(a)}{a}$ & $-\frac{\Delta(a)}{a^3}$ & $\frac{-\Delta(a)(a^2-1)}{a^3}$ & $\frac{-\Delta(a)\Phi_1\Phi_2}{a^3}$ & $k_p=1, k_q=3, \sigma_{\text{eff}}=-1$; Cyclot. $\Phi_1\Phi_2$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% --- Knot 7_6: Type D Torsion ---
+\begin{table}[htbp]
+\centering
+\caption{Knot $7_6$ Analysis (Unified Mapping): Type D Torsion $\tau(a) = \frac{-\Delta(a)(a^4-1)}{a^4}$.}
+\label{tab:knot76_type_D}
+\scriptsize
+\begin{tabular}{@{}p{4.0cm} p{1.8cm} p{1.8cm} p{2.2cm} p{3.0cm} p{3.2cm}@{}}
+\toprule
+\textbf{Relator(s) Used (Original Index)} & \textbf{$p(a)$} & \textbf{$q(a)$} & \textbf{Torsion $\tau(a)$} & \textbf{Torsion Factors} & \textbf{Notes} \\
+\midrule
+\texttt{abbbaBAbaabABabbbaBAABabABBBAbaBAAB} (8), \texttt{aaBAbaBBBabABaaBAbbbABabAAbaBAbbbAB} (9)
+& $-\Delta(a)$ & $-\frac{\Delta(a)}{a^4}$ & $\frac{-\Delta(a)(a^4-1)}{a^4}$ & $\frac{-\Delta(a)\Phi_1\Phi_2\Phi_4}{a^4}$ & $k_p=0, k_q=4, \sigma_{\text{eff}}=-1$; Cyclot. $\Phi_1\Phi_2\Phi_4$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\end{document}
