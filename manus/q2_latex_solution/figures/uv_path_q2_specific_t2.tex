@@ -1,0 +1,58 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta} % For nicer arrowheads
+
+\begin{document}
+\begin{tikzpicture}[scale=1.2, every node/.style={scale=0.9, auto}]
+    % Define coordinates for the path aBAABabb with t=2 (ln t = ln 2)
+    \pgfmathsetmacro{\lnTwo}{ln(2)} % Define ln(2) for V coordinates
+
+    \coordinate (P0) at (0,0);            % Start
+    \coordinate (P1) at (0,\lnTwo);       % after a
+    \coordinate (P2) at (-1,\lnTwo);      % after B
+    \coordinate (P3) at (-1,0);           % after A
+    \coordinate (P4) at (-1,-\lnTwo);     % after A
+    \coordinate (P5) at (-2,-\lnTwo);     % after B
+    \coordinate (P6) at (-2,0);           % after a
+    \coordinate (P7) at (-1,0);           % after b (Note: P7 is same as P3)
+    \coordinate (P8) at (0,0);            % after b (Note: P8 is same as P0, path closes)
+
+    % Draw path segments with labels for operations
+    \definecolor{pathcolor}{rgb}{0.2,0.2,0.6}
+    \draw[-{Stealth[length=2mm, width=1.5mm]}, thick, pathcolor] (P0) -- (P1) node[midway, right] {a ($\otimes 2$)};
+    \draw[-{Stealth[length=2mm, width=1.5mm]}, thick, pathcolor] (P1) -- (P2) node[midway, above] {B ($\oplus -1$)};
+    \draw[-{Stealth[length=2mm, width=1.5mm]}, thick, pathcolor] (P2) -- (P3) node[midway, left]  {A ($\otimes 1/2$)};
+    \draw[-{Stealth[length=2mm, width=1.5mm]}, thick, pathcolor] (P3) -- (P4) node[midway, left]  {A ($\otimes 1/2$)};
+    \draw[-{Stealth[length=2mm, width=1.5mm]}, thick, pathcolor] (P4) -- (P5) node[midway, below] {B ($\oplus -1$)};
+    \draw[-{Stealth[length=2mm, width=1.5mm]}, thick, pathcolor] (P5) -- (P6) node[midway, left]  {a ($\otimes 2$)};
+    \draw[-{Stealth[length=2mm, width=1.5mm]}, thick, pathcolor] (P6) -- (P7) node[midway, above] {b ($\oplus 1$)};
+    \draw[-{Stealth[length=2mm, width=1.5mm]}, thick, pathcolor] (P7) -- (P8) node[midway, above right] {b ($\oplus 1$)};
+
+    % Label points (using slightly offset positions for clarity)
+    \node[below left, text=black] at (P0) {$P_0(0,0)$};
+    \node[above right, text=black] at (P1) {$P_1(0, \ln 2)$};
+    \node[above left, text=black] at (P2) {$P_2(-1, \ln 2)$};
+    \node[below left, text=black] at (P3) {$P_3/P_7(-1,0)$};
+    \node[below left, text=black] at (P4) {$P_4(-1, -\ln 2)$};
+    \node[below right, text=black] at (P5) {$P_5(-2, -\ln 2)$};
+    \node[above left, text=black] at (P6) {$P_6(-2,0)$};
+
+    % Shade the area Sigma_S
+    \definecolor{fillcolor}{rgb}{0.3,0.7,0.3}
+    \fill[fillcolor, opacity=0.3] (P0) -- (P1) -- (P2) -- (P3) -- (P4) -- (P5) -- (P6) -- (P7) -- cycle;
+    \node[text=black, scale=1.1] at (-0.8, -0.2) {$\Sigma_S$};
+
+    % Axes (adjust range as needed, V axis uses ln2)
+    \draw[-{Stealth[length=2mm, width=1.5mm]}, gray] (-2.5,0) -- (0.5,0) node[right] {$U$};
+    \draw[-{Stealth[length=2mm, width=1.5mm]}, gray] (0,-1.5*\lnTwo) -- (0,1.5*\lnTwo) node[above] {$V$};
+    
+    % V-axis ticks for ln2, 0, -ln2
+    \node[left, text=black] at (0, \lnTwo) {$\ln 2$};
+    \node[left, text=black] at (0, -\lnTwo) {$-\ln 2$};
+
+    % Add a grid for better readability (U steps by 0.5, V steps by ln(2)/2)
+    \draw[gray!30, thin, step=0.5] (-2.4,-1.4*\lnTwo) grid (0.4,1.4*\lnTwo);
+
+\end{tikzpicture}
+\end{document}
+
