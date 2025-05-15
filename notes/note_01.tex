@@ -1,0 +1,74 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage[a4paper, margin=1in]{geometry}
+
+\title{Notes on the "Cayley Model" of a Hyperbolic Expression Space}
+\author{Mingli Yuan}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{Name and Motivation}
+This note outlines a conceptual model for a novel arithmetic expression space, termed the \textbf{Cayley model}. The primary motivation is to develop a geometrically embodied framework for arithmetic expressions and their corresponding accumulative commutative space. This model seeks to deeply integrate the algebraic structure of the free group on two generators ($F_2$), the combinatorial properties of its Cayley graph, principles of iterative fractal geometry, and an intrinsic hyperbolic geometry.
+
+\section{Geometric Construction of the Space ($D_n \to D_\infty$)}
+
+\subsection{Iterative Process and Scaling Rule}
+The geometric space, denoted $D_\infty$ in its limit, is constructed through an infinite iterative process starting from an initial square region $D_1$ (with side length $L_0$). In each subsequent step $n \ge 1$, new geometric structures are added to the periphery of the previous stage $D_{n-1}$ (where $D_0$ can be considered $D_1$). These added structures are derived from square units whose characteristic side length, $s_n$, follows a scaling rule of halving at each step: $s_n = L_0/2^n$. This process is visually suggested by iterative fractal constructions where smaller, scaled copies of a motif are added.
+
+\begin{figure}
+    \centering
+    \caption{Construction steps $n$ = 2, 3, 4, and 5 of the tree $T_n$ and the domain $D_n$}
+\end{figure}
+
+\subsection{Topological Properties and Boundary}
+The region $D_n$ at each finite stage of iteration, and its limit $D_\infty$, is topologically homeomorphic to a disk. However, its boundary $B_n = \partial D_n$ becomes increasingly intricate with each iteration. In the limit, the boundary $B_\infty = \partial D_\infty$ is expected to be a fractal. As a bounded and closed subset of the Euclidean plane in which it is constructed, $D_\infty$ is a compact set.
+
+\section{Embedded $F_2$ Cayley Graph}
+A key feature of the Cayley model is the natural embedding of the Cayley graph of $F_2$ (a 4-valent tree) within $D_\infty$. This embedded graph is formed by connecting the diagonals of the square units that are notionally added or activated at each stage $n$ of the $D_n$ construction. Due to the scaling rule for these square units, the Euclidean lengths of the edges of this embedded Cayley graph decrease as their depth (distance from the root along the tree) increases.
+
+\section{Coordinate System}
+A natural coordinate system $(x,y)$ for $D_\infty$ can be defined by aligning the axes with the two main diagonals of the initial square $D_1$. This orientation typically aligns the principal branches of the embedded $F_2$ Cayley graph with the coordinate axes or diagonal directions.
+
+\section{The $L(x,y)$ Field: Manhattan Distance to Boundary}
+For any point $p(x,y)$ within $D_\infty$ (or $D_n$), a scalar field $L(x,y)$ is defined as the Manhattan distance from $p$ to the boundary $B_\infty$ (or $B_n$). This field $L(x,y)$ quantifies the ``depth'' or ``interiority'' of a point $p$ within $D_\infty$. As $p$ approaches the boundary $B_\infty$, $L(x,y) \to 0$.
+
+\section{Proposed Hyperbolic Metric for the Cayley Model}
+The Cayley model $D_\infty$ is proposed to be endowed with the following Riemannian metric:
+\begin{equation}
+ds^2 = \frac{dx^2 + dy^2}{L^2(x, y)}
+\end{equation}
+This form is analogous to the Poincaré metric for hyperbolic space. The function $L(x,y)$ acts as a conformal factor, causing the intrinsic distance $ds$ to become large as $L(x,y) \to 0$ (i.e., as points approach the boundary $B_\infty$). This implies that the boundary $B_\infty$ is at an infinite intrinsic distance from any interior point, a characteristic feature of hyperbolic geometry.
+
+\section{Gaussian Curvature ($K$)}
+For a metric of the form $ds^2 = \frac{dx^2 + dy^2}{\lambda(x,y)^2}$ (here $\lambda(x,y) = L(x,y)$), the Gaussian curvature is given by $K = \lambda (\Delta \lambda) - |\nabla \lambda|^2$ assuming $\lambda$ is $C^2$, or more generally $K = L \Delta L - |\nabla L|^2$ if using $L$ directly from $ds^2 = (dx^2+dy^2)/L^2$.
+The function $L(x,y)$, being a Manhattan distance, is piecewise of the form $\pm x \pm y + C$ in regions away from its non-differentiable ``ridges''. In such regions, $\Delta L = 0$ and $|\nabla L|^2 = (\pm 1)^2 + (\pm 1)^2 = 2$.
+This leads to the hypothesis that the Gaussian curvature of the Cayley model is constant $K = -2$ almost everywhere. A rigorous verification, particularly addressing the behavior at the non-smooth ridges of $L(x,y)$ where curvature might be concentrated, is a subject for further investigation. If confirmed, this would establish $D_\infty$ as a space with constant negative curvature.
+
+\section{Relation to the Accumulative Commutative Space}
+
+\subsection{The Scaled $(U',V')$ Space ($\mathcal{UV}'$)}
+The Cayley model $D_\infty$ serves as the (new) arithmetic expression space. Paths $\gamma$ on its embedded $F_2$ Cayley graph represent arithmetic expressions. The corresponding accumulative commutative space is envisioned as a \emph{scaled} parameter space, denoted $\mathcal{UV}'$, with coordinates $(U',V')$:
+\begin{align*}
+U'_\gamma &= \sum_{k} s(k)\mu_k \\
+V'_\gamma &= \sum_{k} s(k)\lambda_k
+\end{align*}
+Here, $(\mu_k, \lambda_k)$ are the nominal parameters of the $k$-th operation in path $\gamma$, and $s(k)$ is a depth-dependent scaling factor (e.g., $s(k) \sim 1/2^k$) reflecting the geometric scaling within the Cayley model. Due to the convergent nature of these sums, the space $\mathcal{UV}'$ (the set of all achievable $(U',V')$ points) is expected to be a compact subset of $\mathbb{R}^2$. This $\mathcal{UV}'$ space can be viewed as a compact parameter representation for the $F_2$ Cayley tree and its boundary.
+
+\subsection{Conjectured Link via $L(x,y)$}
+A crucial hypothesized link between the hyperbolic geometry of the Cayley model $D_\infty$ and the structure of $\mathcal{UV}'$ (particularly in the context of global arithmetic torsion, $\tau = \iint_{\Sigma'_{\gamma'}} e^{V'} dV' \wedge dU'$) involves the $L(x,y)$ field. It is conjectured that the scaled accumulative parameter $V'$ (or $e^{V'}$) might be related to $L(x,y)$ for a point $(x,y)$ on the path $\gamma$ in $D_\infty$. For instance, a relation like $V' \approx -\alpha \ln L(x,y)$ (for some constant $\alpha$) would imply $e^{V'} \approx (L(x,y))^{-\alpha}$. This would directly connect the weighting factor $e^{V'}$ in the torsion integral to the conformal factor $1/L(x,y)$ defining the hyperbolic metric of the expression space $D_\infty$.
+
+\section{Overall Vision}
+The Cayley model aims to provide a unified framework that integrates:
+\begin{itemize}
+    \item The discrete combinatorial structure of $F_2$.
+    \item A continuous expression space $D_\infty$ with a fractal boundary, constructed through iterative scaling.
+    \item An intrinsic hyperbolic geometry on $D_\infty$ (potentially with constant negative curvature $K=-2$).
+    \item A corresponding compact, scaled accumulative commutative space $\mathcal{UV}'$ where the parameters of expressions reside.
+\end{itemize}
+This model offers a concrete geometric realization for concepts discussed previously, such as a compact representation of $F_2$ parameters and a direct link between the geometry of the expression space and the measures used in the accumulative commutative space (e.g., for torsion).
+
+\end{document}
