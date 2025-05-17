@@ -11,3 +11,20 @@ corresponds to geometric area, analogous to how curvature measures deviation fro
 The paper establishes arithmetic expressions as geometric objects with intrinsic invariants,
 opening new avenues for exploring the interplay between computation and geometry.
 
+
+## Building the PDF
+
+Ensure that `pdflatex` and `bibtex` are available. Then run:
+
+```bash
+./build.sh
+```
+
+### Building with Docker
+
+If a TeX environment is not installed locally, use Docker:
+
+```bash
+docker build -t aeg-paper .
+docker run --rm -v $(pwd):/work aeg-paper
+```
