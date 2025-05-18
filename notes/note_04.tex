@@ -1,0 +1,119 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage[margin=1in]{geometry}
+% \usepackage[UTF8]{ctex} % Kept commented as the content is in English
+
+\title{Summary of a Specific HNN Arithmetization Attempt for the $4_1$ Knot in AEG}
+\author{Mingli Yuan (and Gemini AI)}
+\date{May 18, 2025}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\newtheorem{definition}{Definition}
+\newtheorem{remark}{Remark}
+
+\begin{document}
+\maketitle
+
+\section{Objective}
+This note summarizes the derivation and discussion of a specific arithmetic interpretation within Arithmetic Expression Geometry (AEG) for the HNN presentation of the $4_1$ knot group, $G_{HNN}(4_1)$. The focus is on a scheme where the fiber group generators $u,v$ are arithmetized as effective additions (specifically, ``add 1'' and ``add $\phi$'', where $\phi$ is the golden ratio), and the stable letter $t$ is arithmetized as a multiplication by a root of the Alexander polynomial ($\phi^{-2}$ or $\phi^2$). We will also highlight the challenges this specific scheme faces in faithfully representing the free group $F_2 = \langle u,v \rangle$.
+
+\section{HNN Presentation and AEG Setup}
+The HNN presentation for the $4_1$ knot group (from your \texttt{knots/problem\_01.tex}) is:
+$$ G_{HNN} = \langle u, v, t \mid t^{-1}ut = h_*(u), \ t^{-1}vt = h_*(v) \rangle $$
+where the monodromy $h_*$ acts as $h_*(u) = uv$ and $h_*(v) = vuv$.
+
+We represent AEG operations as traceable expressions acting on an arithmetic value $x$:
+\begin{itemize}
+    \item Additive operation $A(\mu): x \mapsto x + \mu$
+    \item Multiplicative operation $M(L): x \mapsto x \cdot L$
+    \item Inverse operations: $(A(\mu))^{-1} = A(-\mu)$, $(M(L))^{-1} = M(1/L)$.
+    \item Composition $(\mathcal{E}_1 \circ \mathcal{E}_2)(x) = \mathcal{E}_1(\mathcal{E}_2(x))$ (operators act from right to left).
+\end{itemize}
+
+\section{The Specific Arithmetization Scheme}
+We investigate the following ``short'' traceable expressions for $u, v, t$:
+\begin{enumerate}
+    \item $\mathcal{E}(t)(x) = x \cdot t_{var}$ (pure multiplication by a parameter $t_{var}$)
+    \item $\mathcal{E}(u)(x) = x + \mu_u$ (pure addition by a constant $\mu_u$)
+    \item $\mathcal{E}(v)(x) = x + \mu_v$ (pure addition by a constant $\mu_v$)
+\end{enumerate}
+
+\section{Derivation from HNN Relations}
+
+\subsection{From $R_u: t^{-1}ut = uv$}
+This relation translates to the AEG identity: $\mathcal{E}(t^{-1}) \circ \mathcal{E}(u) \circ \mathcal{E}(t) \equiv \mathcal{E}(u) \circ \mathcal{E}(v)$.
+\begin{itemize}
+    \item LHS applied to $x$: $x + \mu_u/t_{var}$
+    \item RHS applied to $x$: $x + \mu_u + \mu_v$
+\end{itemize}
+Equating the constant terms yields:
+$$ \frac{\mu_u}{t_{var}} = \mu_u + \mu_v \quad (*)$$
+
+\subsection{From $R_v: t^{-1}vt = vuv$}
+This relation translates to: $\mathcal{E}(t^{-1}) \circ \mathcal{E}(v) \circ \mathcal{E}(t) \equiv \mathcal{E}(v) \circ \mathcal{E}(u) \circ \mathcal{E}(v)$.
+\begin{itemize}
+    \item LHS applied to $x$: $x + \mu_v/t_{var}$
+    \item RHS applied to $x$: $x + \mu_u + 2\mu_v$
+\end{itemize}
+Equating the constant terms yields:
+$$ \frac{\mu_v}{t_{var}} = \mu_u + 2\mu_v \quad (**)$$
+
+\subsection{Solving the System for $\mu_u, \mu_v, t_{var}$}
+The system of equations is:
+\begin{align*}
+    \mu_u &= t_{var}(\mu_u + \mu_v) \\
+    \mu_v &= t_{var}(\mu_u + 2\mu_v)
+\end{align*}
+For non-trivial solutions (i.e., $\mu_u, \mu_v$ not both zero), this system requires its determinant to be zero, which leads to:
+$$ t_{var}^2 - 3t_{var} + 1 = 0 $$
+This is precisely the Alexander polynomial of the $4_1$ knot, $\Delta_{4_1}(t_{var}) = 0$.
+The roots are $t_{var,1}^* = \phi^2 = \frac{3+\sqrt{5}}{2}$ and $t_{var,2}^* = \phi^{-2} = \frac{3-\sqrt{5}}{2}$.
+
+If we choose $t_{var}^* = \phi^{-2}$ (corresponding to the "divide by $\phi^2$" case you were interested in) and set $\mu_u=1$ (as a scale choice), then from $(*)$:
+$$ \frac{1}{\phi^{-2}} = 1 + \mu_v \implies \phi^2 = 1 + \mu_v \implies \mu_v = \phi^2 - 1 $$
+Since $\phi^2 = \phi+1$, we have $\mu_v = (\phi+1) - 1 = \phi$.
+So, this specific solution is:
+\begin{itemize}
+    \item $\mathcal{E}(t)(x) = x \cdot \phi^{-2}$
+    \item $\mathcal{E}(u)(x) = x + 1$
+    \item $\mathcal{E}(v)(x) = x + \phi$
+\end{itemize}
+
+\section{Discussion of this Scheme}
+
+\subsection{Significance of the Result}
+\begin{enumerate}
+    \item \textbf{Intrinsic Link to Knot Invariants}: This derivation demonstrates that even the simplest AEG arithmetization forms for HNN generators are forced by the group relations to resonate with the knot's Alexander polynomial. The parameter $t_{var}$ for the monodromy operation $\mathcal{E}(t)$ must be a root of $\Delta_{4_1}(t)$.
+    \item \textbf{Emergence of Golden Ratio $\phi$}: The parameters for the fiber operations $\mathcal{E}(u)$ and $\mathcal{E}(v)$ become directly related to $\phi$ (e.g., $\mu_u=1, \mu_v=\phi$) when $t_{var}^*$ is an Alexander root. This connects AEG parameters to fundamental constants associated with the $4_1$ knot's hyperbolic geometry and dynamics.
+    \item \textbf{Support for Specific AEG Space Parameters}: This result algebraically supports the idea of constructing an $E_{4_1}$ space with background AEG parameters tuned to these Alexander roots (e.g., an intrinsic multiplicative strength related to $\phi^2$ or $\phi^{-2}$), as in such a space, the HNN algebraic structure could be realized by these very simple arithmetic forms for $u$ and $v$.
+\end{enumerate}
+
+\subsection{The Challenge of Representing $F_2$}
+While this scheme provides an algebraically consistent solution for the HNN relations *at specific values of $t_{var}$*, it faces a fundamental challenge regarding the representation of the fiber group $\pi_1(F) \cong F_2 = \langle u,v \rangle$:
+\begin{enumerate}
+    \item \textbf{Commutativity of Pure Additions on a Scalar}: If $\mathcal{E}(u)(x) = x+1$ and $\mathcal{E}(v)(x) = x+\phi$ are interpreted as operations on a single scalar value $x$ (e.g., a real number), then these operations are commutative:
+        $$ (\mathcal{E}(u) \circ \mathcal{E}(v))(x) = (x+\phi)+1 = x+1+\phi $$
+        $$ (\mathcal{E}(v) \circ \mathcal{E}(u))(x) = (x+1)+\phi = x+1+\phi $$
+        Thus, $\mathcal{E}(u) \circ \mathcal{E}(v) \equiv \mathcal{E}(v) \circ \mathcal{E}(u)$.
+    \item \textbf{Incompatibility with Free Group $F_2$}: The free group $F_2$ is fundamentally non-abelian (e.g., $uv \neq vu$). An arithmetic interpretation where $\mathcal{E}(u)$ and $\mathcal{E}(v)$ commute cannot be a faithful representation of $F_2$. The commutator $\mathcal{E}([u,v]) = \mathcal{E}(u)\mathcal{E}(v)\mathcal{E}(u^{-1})\mathcal{E}(v^{-1})$ would act as the identity, which is not true for $F_2$.
+    \item \textbf{Implications for 2D Geometry and Torsion}:
+        \begin{itemize}
+            \item If $\mathcal{E}(u)$ and $\mathcal{E}(v)$ are commutative and effectively 1-dimensional (like additions on the real line), their images in the Accumulative Commutative Space (ACS), say $(1,0)$ and $(\phi,0)$, would be collinear.
+            \item They cannot, by themselves, span a 2-dimensional area in ACS, which is associated with the torsion of non-commuting paths (like $[u,v]$).
+            \item They also cannot directly define the side-pairings of a non-degenerate 2D fundamental domain (like an ideal quadrilateral or octagon) on the hyperbolic plane $\mathbb{H}^2$ (the fiber lift $F_{lift}$) if their geometric realization is restricted to 1D translations.
+        \end{itemize}
+\end{enumerate}
+
+\section{Conclusion on this Specific Scheme}
+The arithmetization scheme $\mathcal{E}(u) \approx A(1)$, $\mathcal{E}(v) \approx A(\phi)$, and $\mathcal{E}(t) = M(\phi^{-2} \text{ or } \phi^2)$ is a powerful ``special solution'' that highlights the deep connection between AEG, HNN relations, and the Alexander polynomial at its roots. It reveals how specific (possibly irrational) arithmetic parameters are dictated by the knot group algebra.
+
+However, the interpretation of $\mathcal{E}(u)$ and $\mathcal{E}(v)$ as simple, scalar, commutative additions poses a significant challenge for faithfully representing the non-abelian nature of the fiber group $F_2$ and for constructing the necessary 2D geometry of the fiber surface tiling.
+
+This indicates that while the *effective arithmetic behavior* might simplify to "add 1" and "add $\phi$" under these special "resonant" conditions, the underlying *structural definition* of the traceable expressions $\mathcal{E}(u)$ and $\mathcal{E}(v)$ likely needs to be more complex (e.g., involving non-commuting AEG base operations, or acting on a richer, multi-component arithmetic state) to fully address the $F_2$ representation and the geometric requirements of forming a 2D tiling. This was the impetus for our subsequent discussions on "two-channel vectors" or operations with inherent multiplicative components.
+
+This specific scheme acts as a crucial stepping stone, revealing the unique role of Alexander polynomial roots, but it also underscores the need for a more sophisticated arithmetization of $u$ and $v$ to capture the full richness of $F_2$.
+
+\end{document}
