@@ -1,0 +1,88 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{geometry}
+\usepackage{hyperref}
+
+\geometry{a4paper, margin=1in}
+
+\title{Arithmetic Expression Geometry (AEG): Flow, Accumulation, Dual Timescales, and a Minimalist Realization of Renormalization}
+\author{Mingli Yuan (Conceptual Framework)}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+Arithmetic Expression Geometry (AEG) theory \cite{YuanAEG} establishes an intrinsic geometric framework for arithmetic processes, conceptualizing the generation and evolution of arithmetic expressions as motion and deformation within specific geometric structures. This theory not only uncovers the underlying dynamical and evolutionary characteristics of arithmetic operations but, significantly, through its explicit treatment of ``scale'' and the concept of ``evolutionary time,'' the AEG framework offers a surprisingly minimalist yet functional realization of the core ideas of the Renormalization Group (RG).
+
+\section{A Brief Overview of the AEG Framework}
+
+The AEG theory introduces several key concepts:
+
+\begin{itemize}
+    \item \textbf{Assignment Function ($a$)}: Represents the central measure of an arithmetic expression at a specific stage of evolution and dynamical state. It can be understood as a generalized "value," "energy," or "information-bearing state."
+    \item \textbf{Flow Equation}: Describes how the assignment function $a$ evolves along a geometric path $s$ under the drive of parameterized arithmetic operations (addition and multiplication). Its core form is \cite[Sec 3.1, Eq. 30]{YuanAEG}:
+    $$\frac{da}{ds} = \mu \cos\theta + a\lambda \sin\theta$$
+    Here, $\mu$ and $\lambda$ are the strength parameters of the additive and multiplicative generators, respectively, and $\theta$ is the angle between the path direction and the principal axis of addition. This equation reveals that the rate of change of the assignment function is influenced by both an additive drive ($\mu \cos\theta$) and a multiplicative, scale-dependent drive ($a\lambda \sin\theta$). The flow equation also possesses a coordinate-independent form, $||\nabla a|| = \sqrt{\mu^2 + a^2\lambda^2}$, which is an Eikonal equation, deeply connected to wave-front propagation in physics and the Hamilton-Jacobi equation in classical mechanics \cite[Sec 3.5, Eq. 57, 58]{YuanAEG}.
+    \item \textbf{Accumulative Commutative Space (ACS)}: To quantify the global non-commutative effects of sequences of arithmetic operations (termed arithmetic torsion), AEG introduces the Accumulative Commutative Space. For any arithmetic path $\gamma$, its coordinates $(A_\gamma, M_\gamma)$ in the ACS represent the sum of all additive operation parameters $\mu_k$ and the sum of all (logarithmic) multiplicative operation parameters $\lambda_k$ along the path, respectively \cite[Sec 5.1]{YuanAEG}:
+    $$A_\gamma = \sum \mu_k$$
+    $$M_\gamma = \sum \lambda_k$$
+    The ACS provides a commutative reference plane, enabling comparisons between different paths and the definition of geometric quantities such as the area-integral form of arithmetic torsion, $\tau(\gamma) = \iint_{\Sigma_\gamma} e^M dA \wedge dM$ \cite[Sec 5.1, Eq. 75]{YuanAEG}.
+\end{itemize}
+
+\section{Perturbation (Error) Propagation and the Role of Multiplicative Scale: An Example}
+
+To elucidate the central role of multiplicative scale within the AEG framework, consider the propagation of perturbations in "Alternative Threadlike Expressions" \cite[Sec 2.6]{YuanAEG}. Let a path composed of alternating multiplicative and additive operations act on an initial value $\mu_0$. Let $w_i$ be the intermediate value after the $i$-th pair of operations, $\otimes_{\lambda_i}$ (multiplication by $e^{\lambda_i}$) followed by $\oplus_{\mu_i}$ (addition of $\mu_i$), such that $w_i = e^{\lambda_i} w_{i-1} + \mu_i$, with $w_0 = \mu_0$.
+
+If the initial value $\mu_0$ is subjected to a small perturbation, becoming $\tilde{\mu}_0$, the resulting perturbation at the $i$-th step, $\Delta w_i = \tilde{w}_i - w_i$, is related to the initial perturbation $\Delta \mu_0 = \tilde{\mu}_0 - \mu_0$ by \cite[Sec 2.6, Eq. 25]{YuanAEG}:
+$$\frac{\tilde{w}_i - w_i}{\tilde{\mu}_0 - \mu_0} = e^{\sum_{j=1}^i \lambda_j} = e^{\check{\lambda}_i}$$
+where $\check{\lambda}_i = \sum_{j=1}^i \lambda_j$ is the accumulated logarithmic multiplicative factor up to the $i$-th step.
+
+This result clearly demonstrates the \textbf{amplifying (or diminishing) effect of the multiplicative scale}:
+The initial perturbation $\Delta \mu_0$, as it propagates along the arithmetic path, is modulated in its absolute magnitude by the \textbf{accumulated multiplicative factor $e^{\check{\lambda}_i}$}.
+
+\begin{itemize}
+    \item If the accumulated logarithmic multiplicative factor $\check{\lambda}_i > 0$, then $e^{\check{\lambda}_i} > 1$, and the initial perturbation is amplified. This implies an increased sensitivity of the system to initial conditions.
+    \item If $\check{\lambda}_i < 0$, then $0 < e^{\check{\lambda}_i} < 1$, and the initial perturbation is diminished, indicating a degree of robustness or error attenuation.
+    \item If $\check{\lambda}_i = 0$, the perturbation propagates with its original magnitude (when considering only the multiplicative effects).
+\end{itemize}
+This directly illustrates that multiplicative operations do more than merely change numerical values; they \textbf{set the "scale" or "gain" for the propagation of information} (in this instance, perturbation/error). Each multiplicative operation $\otimes_{\lambda_j}$ contributes a factor $e^{\lambda_j}$ to this cumulative scale transformation. Consequently, the multiplicative structure of an arithmetic expression (its "evolutionary history") profoundly influences the characteristics of its internal "dynamical processes" (such as perturbation propagation).
+
+\section{Philosophical Reflections on Dual Timescales and the Central Role of Scale}
+
+Grounded in the AEG framework and the elucidated properties of arithmetic processes, the proposition that "addition is dynamical time, and multiplication is evolutionary time" can be elevated to a more philosophical level of discourse, where "scale" assumes a central, connective, and regulatory role.
+
+\begin{itemize}
+    \item \textbf{Locality of Dynamical Time (Addition) vs. Globality of Evolutionary Time (Multiplication)}:
+    Additive operations, embodying dynamical time, typically exert a local, linear influence, acting upon the system's state within a given, pre-defined "scale." They describe the system's internal evolution against a stable or slowly varying "background."
+    Multiplicative operations, embodying evolutionary time, exert a global, structural influence. They directly alter this "background" itself—the intrinsic "scale" of the system. Each multiplicative act can potentially shift the system into an entirely new behavioral regime, where the rules of dynamics (or their parameters) might undergo qualitative changes. This "scale" is determined by the accumulated history of multiplications (i.e., evolutionary time $M_\gamma$).
+
+    \item \textbf{Hierarchy of Scales and Emergence}:
+    The accumulation of evolutionary time (multiplication) does not merely alter magnitudes; more importantly, it establishes a \textbf{hierarchy of scales}. A complex arithmetic expression, through its multiplicative structure, can be viewed as a collection of dynamical processes nested and organized across different scalar levels.
+    Higher-level scales (set by earlier or stronger multiplicative operations) furnish "boundary conditions" or "macroscopic constraints" for lower-level scales and their associated dynamical processes. This hierarchy of scales is key to understanding how complex behaviors (such as the loss landscape of LLMs \cite{Liu2025NTL} or the geometric structures within AEG itself) can emerge from simple arithmetic rules. The "riverbed" (slow process, corresponding to evolutionary time) in the river-valley model of LLM training determining the "valley's" morphology (the environment for the fast process, corresponding to dynamical time) \cite{Liu2025NTL} is a manifestation of this scalar hierarchy's regulatory effect.
+
+    \item \textbf{Geometry as a Representation of Complexity and the Role of Scale}:
+    A core objective of AEG is to seek geometric measures for the complexity of arithmetic processes. The dual timescale perspective provides a foundation for this:
+    \begin{itemize}
+        \item \textbf{Dynamical Complexity}: Can be quantified, at a specific scale, by the length of dynamical paths, the "phase space volume" traversed (potentially corresponding to the volume of specific submanifolds in AEG, such as hyperbolic volumes), or information entropy. This complexity is a function of the current "evolutionary stage" or "scale."
+        \item \textbf{Evolutionary Complexity}: Can be measured by the complexity of the path describing the evolution of scale itself (e.g., the trajectory of $M_\gamma$), or by the "geometric distance" or "structural disparity" between different evolutionary stages (perhaps captured by concepts like arithmetic torsion).
+    \end{itemize}
+    "Scale" serves as the crucial bridge here: it is not only a product of evolutionary time but also the stage upon which dynamical complexity unfolds. The total complexity of an arithmetic expression is a composite reflection of its evolutionary and dynamical behaviors across all relevant scales. Geometric invariants within AEG, such as the $e^M$ factor associated with arithmetic torsion, explicitly weave the evolutionary scale $M$ into the geometric measure of dynamical processes.
+
+    \item \textbf{Irreversibility of Time and the Origin of Symmetry Breaking}:
+    In purely dynamical time (reversible addition and subtraction), a system might exhibit a high degree of symmetry. However, the introduction of evolutionary time (multiplication), particularly when multiplicative factors are not unity, often breaks this symmetry and can introduce irreversibility. For instance, a sustained process of multiplicative amplification ($\lambda > 0$) drives the system away from its initial state, while sustained multiplicative reduction ($\lambda < 0$) might lead to information loss or system degeneracy to a trivial state.
+    The direction and rate of "scale" evolution determine how system symmetries are broken and new structures are formed. In this sense, multiplication (evolutionary time) is the primary engine for the creation and shaping of complex arithmetic structures (and their geometric counterparts).
+\end{itemize}
+
+\section{Conclusion}
+In summary, the AEG framework, through tools such as the flow equation and the ACS, provides a robust mathematical foundation for the central thesis that "addition is dynamical time, and multiplication is evolutionary time/scale." The example of perturbation propagation intuitively demonstrates the modulatory effect of multiplicative scale on dynamical processes. At a deeper level, this dual timescale perspective, with the core role of scale, not only reveals the inherent hierarchical structure and evolutionary mechanisms of arithmetic processes but also offers an inspiring theoretical lens for the geometric and complexity-theoretic analysis of broader computational and natural processes. \textbf{It is crucial to emphasize that by directly mapping multiplicative operations to transformations of scale, and by intrinsically integrating these scale transformations into the flow equation and geometric structure, the AEG framework essentially provides a minimalist yet functionally complete realization of the ideas underpinning renormalization. It allows for the observation of the effective behavior of system dynamics (driven by addition) at different "evolutionary times" (i.e., different accumulated scales), which is the central aim of renormalization analysis. This inherent, arithmetically-grounded perspective on renormalization is one of the most innovative and potent aspects of the AEG theory.}
+
+\begin{thebibliography}{9}
+    \bibitem{YuanAEG} Yuan, M. Geometry of Arithmetic Expressions: I. Basic Concepts and Unsolved Problems (Draft). \textit{Manuscript in aeg-paper repository}.
+    \bibitem{Liu2025NTL} Liu, Z., Liu, Y., Gore, J., \& Tegmark, M. (2025). Neural Thermodynamic Laws for Large Language Model Training. \textit{arXiv preprint arXiv:2505.10559}.
+\end{thebibliography}
+
+\end{document}
