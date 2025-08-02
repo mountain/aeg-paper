@@ -15,47 +15,45 @@
 \usepackage[T1]{fontenc} % Font encoding (improves copy-paste, hyphenation)
 \usepackage[utf8]{inputenc} % Input encoding (allows UTF-8 characters)
 \usepackage{microtype} % Improved typography (subtle adjustments)
-\usepackage[english]{babel} % Uncomment if writing primarily in English for hyphenation etc.
+\usepackage[english]{babel} % For hyphenation etc.
 
 % --- Graphics, Links, Lists, Tables ---
 \usepackage{graphicx} % For including images
 \usepackage{hyperref} % For clickable links (references, URLs)
-\usepackage{tikz}     % For drawing diagrams (if needed later)
-\usepackage{enumitem} % For customizing lists (like C1, C2...)
-\usepackage{booktabs} % For professional-looking tables (if needed later)
+\usepackage{tikz}     % For drawing diagrams
+\usepackage{enumitem} % For customizing lists
+\usepackage{booktabs} % For professional-looking tables
 \usepackage{url}      % For typesetting URLs
 
 % --- Page Geometry ---
 \geometry{margin=1in} % Set 1-inch margins on all sides
 
 % --- Theorem Environments ---
-% Numbered within sections
 \newtheorem{definition}{Definition}[section]
 \newtheorem{lemma}{Lemma}[section]
 \newtheorem{proposition}{Proposition}[section]
 \newtheorem{corollary}{Corollary}[section]
 \newtheorem{theorem}{Theorem}[section]
 
-% --- Custom Math Commands (Examples from original doc) ---
-% Add your specific commands here as needed, e.g.:
-% \DeclareMathOperator{\arcsinh}{arcsinh}
+% --- Custom Math Commands ---
+\DeclareMathOperator{\arsinh}{arsinh}
 
 % --- Document Metadata ---
 \title{Arithmetic Expression Geometry I: Flow, Torsion, and the First Kind Expression Space}
-\author{Mingli Yuan \\ % Affiliation can be added here if desired
-        \texttt{mingli.yuan@gmail.com}} % Example email
-\date{\today} % Use current date for drafts
+\author{Mingli Yuan \\
+        \texttt{mingli.yuan@gmail.com}}
+\date{\today}
 
-% --- Hyperref Setup (Optional Customization) ---
+% --- Hyperref Setup ---
 \hypersetup{
     colorlinks=true,
     linkcolor=blue,
     filecolor=magenta,
     urlcolor=cyan,
     citecolor=green,
-    pdftitle={\@title}, % Use title for PDF metadata
-    pdfauthor={\@author}, % Use author for PDF metadata
-    pdfkeywords={Arithmetic Expressions, Hyperbolic Geometry, Flow Equation, Geometric Group Theory, Computational Geometry, Arithmetic Torsion}, % Add keywords
+    pdftitle={\@title},
+    pdfauthor={\@author},
+    pdfkeywords={Arithmetic Expressions, Hyperbolic Geometry, Flow Equation, Geometric Group Theory, Computational Geometry, Arithmetic Torsion},
     bookmarks=true,
     bookmarksopen=true,
 }
@@ -106,384 +104,641 @@ The remainder of this paper is structured as follows:
   \item \textbf{Section 8} provides a discussion of the results and outlines future research directions, including curvature interpretations, integral theorems, and connections to other mathematical fields.
 \end{itemize}
 
-\section{Threadlike Expressions and Arithmetic Paths}\label{sec:paths_cs}
+\section{Threadlike Expressions and Arithmetic Paths}
 
-This section lays the algebraic groundwork for Arithmetic Expression Geometry (AEG). We formally define arithmetic expressions, focusing on a computationally significant subclass known as threadlike expressions. We then introduce path notation via currying, establishing a framework where sequences of arithmetic operations are treated as composable paths, analogous to structures studied in formal language theory and geometric group theory.
+\subsection{Arithmetic expression}\label{subsec:arithmetic-expression-full}
+In order to define arithmetic expressions involving real numbers  $\mathbb{R}$ in a rigorous way, we need to use a sophisticated type theory.
+However, in order to keep things simple and maintain clarity, we will start by using only production rules, but with certain semantic restrictions.
+We will also begin with rational numbers $\mathbb{Q}$ to avoid the difficulties inside real numbers $\mathbb{R}$ .
 
-\subsection{Syntactic Structure and Evaluation}
-
-We begin by defining the fundamental objects of our study: arithmetic expressions built over the field of rational numbers \( \mathbb{Q} \). While our ultimate goal involves geometric spaces potentially related to real or complex numbers, starting with \( \mathbb{Q} \) avoids immediate complications related to decidability and singularities (issues discussed further in Section~\ref{sec:discussion_future}).
-
-\begin{definition}[Arithmetic Expression]\label{def:arithmetic_expression_cs}
-An \textbf{arithmetic expression} \( a \) over the rational numbers \( \mathbb{Q} \) is a structure inductively defined by the following grammar:
-\begin{equation*}
-a \longleftarrow x \quad | \quad (a + a) \quad | \quad (a - a) \quad | \quad (a \times a) \quad | \quad (a \div a),
-\end{equation*}
-where \( x \in \mathbb{Q} \). The set of all such expressions is denoted by \( \mathbb{E}[\mathbb{Q}] \).
-\end{definition}
-
-Each expression \( a \in \mathbb{E}[\mathbb{Q}] \) admits both a familiar string representation (e.g., \( ((1+2)\times 3) \)) and an equivalent, unique tree representation where internal nodes are operators (\(+, -, \times, \div\)) and leaf nodes are rational constants (\(x \in \mathbb{Q}\)).
-
-The semantics are given by a partial evaluation function \( \nu: \mathbb{E}[\mathbb{Q}] \dashrightarrow \mathbb{Q} \), defined recursively in the standard way:
-\begin{itemize}
-    \item \( \nu(x) = x \) for any \( x \in \mathbb{Q} \).
-    \item \( \nu((a \mathbin{op} b)) = \nu(a) \mathbin{op} \nu(b) \) for \( \mathrm{op} \in \{+, -, \times\} \), provided \( \nu(a) \) and \( \nu(b) \) are defined.
-    \item \( \nu((a \div b)) = \nu(a) / \nu(b) \), provided \( \nu(a) \), \( \nu(b) \) are defined and \( \nu(b) \neq 0 \).
-\end{itemize}
-An expression \( a \) is \textbf{evaluable} if \( \nu(a) \) is defined. Unless otherwise stated, we will primarily consider evaluable expressions in this foundational work.
-
-\subsection{Threadlike Expressions and Currying}
-
-While general arithmetic expressions correspond to arbitrary trees, we focus on a specific class that reflects sequential computation.
-
-\begin{definition}[Threadlike Expression]\label{def:threadlike_expression_cs}
-A \textbf{threadlike expression} is an arithmetic expression whose syntax tree has the property that every left child of any internal node is a leaf node (a constant).
-\end{definition}
-
-Threadlike expressions correspond to fully right-associated or right-nested structures. A key property of threadlike expressions is that they possess a \textbf{unique evaluation order}, proceeding strictly from the innermost operation outwards. This sequential structure lends itself naturally to representation using \emph{currying}, transforming the expression into a sequence of unary function applications acting on an initial operand. To align with the geometric interpretation developed later, we define the core path operators as follows:
-
-\begin{definition}[Path Operators]\label{def:path_operators_cs}
-Let \( \mu, \lambda \in \mathbb{R} \).
-\begin{itemize}
-  \item Additive operator: \( \oplus_\mu : x \mapsto x + \mu \)
-  \item Subtractive operator: \( \ominus_\mu : x \mapsto x - \mu \)
-  \item Multiplicative operator: \( \otimes_\lambda : x \mapsto x \cdot e^\lambda \)
-  \item Divisive operator: \( \oslash_\lambda : x \mapsto x \cdot e^{-\lambda} \)
-\end{itemize}
-\end{definition}
-The use of \( e^\lambda \) is crucial for the connection to hyperbolic geometry and the flow equation derived in Section~\ref{sec:flow_equation_cs}.
-
-\begin{definition}[Path Notation]\label{def:path_notation_cs}
-Let \( x \in \mathbb{Q} \) be an initial operand and \( a_1, a_2, \dots, a_n \) be a sequence of path operators. The \textbf{path notation} represents the sequential application:
-\[
-x a_1 a_2 \dots a_n \coloneqq a_n(\cdots a_2(a_1(x)) \cdots)
-\]
-A path starting with an initial operand \( x \) is a \textbf{bounded path}. A sequence of operators without an initial operand is a \textbf{free path}, representing a function.
-\end{definition}
-
-\subsection{Associativity and Concatenation of Paths}
-
-Paths can be combined through concatenation, which corresponds to function composition.
-
-\begin{definition}[Path Concatenation]\label{def:concatenate_cs}
-The \textbf{concatenation} of two free paths \( p_1 \) and \( p_2 \) is \( p_1 \cdot p_2 \). The corresponding function is \( \mathbf{p}_2 \circ \mathbf{p}_1 \).
-\end{definition}
-
-\begin{lemma}[Associativity of Path Application]\label{lemma:associative_cs}
-The application of path operators is associative, inherited from the associativity of function composition.
-\end{lemma}
-\begin{proof}
-Let \( \mathbf{a}, \mathbf{b}, \mathbf{c} \) be the functions for free paths \( a, b, c \). The path \( (a \cdot b) \cdot c \) corresponds to the function \( \mathbf{c} \circ (\mathbf{b} \circ \mathbf{a}) \). The path \( a \cdot (b \cdot c) \) corresponds to \( (\mathbf{c} \circ \mathbf{b}) \circ \mathbf{a} \). By associativity of function composition, these are identical.
-\end{proof}
-
-\subsection{Alternating Threadlike Expressions and Perturbation}
-
-A particularly important subclass consists of paths where additive and multiplicative operations alternate.
-
-\begin{definition}[Alternating Path]\label{def:alternating_path_cs}
-An \textbf{alternating path} \( \alpha \) is a free path of the form:
-\begin{equation}\label{eq:alternative_cs}
-    \alpha = a_1 b_1 a_2 b_2 \cdots a_l b_l, \quad \text{where } a_i = \otimes_{\lambda_i}, \ b_i = \oplus_{\mu_i}
+\begin{definition}\label{def:arithmetic-expression-full}
+    An arithmetic expression $a$ over $\mathbb{Q}$ is a structure given by the following production rules:
+\begin{equation}\label{eq:productionrule-full}
+\begin{aligned}
+a &\longleftarrow x\\
+a &\longleftarrow ( a + a )\\
+a &\longleftarrow ( a - a )\\
+a &\longleftarrow ( a \times a )\\
+a &\longleftarrow ( a \div a )
+\end{aligned}
 \end{equation}
+    where $x \in \mathbb{Q}$, and we denote this as $a \in \mathbb{E} \left [\mathbb{Q} \right ]$.
 \end{definition}
 
-When applied to an initial value \( \mu_0 \), the result \( \alpha(\mu_0) \) can be expanded. Let \( \hat{\lambda}_k = \sum_{j=l-k+1}^{l} \lambda_j \) be the right-accumulated sum of multiplicative parameters. The evaluation expands to:
+During the production process, we can obtain both a string representation and a tree representation of arithmetic expression $a$,
+where the two representations are equivalent.
+For instance, the string representation of $a$ might be:
 \begin{equation}
-\alpha(\mu_0) = e^{\hat{\lambda}_l} \mu_0 + \sum_{i=1}^l e^{\hat{\lambda}_{l-i}} \mu_i \label{eq:alternating_expansion_cs}
+(((((1 \times 2) \times 2) - 1) \times (2 + 1)) - 6)\label{eq:equation-full}
 \end{equation}
-A perturbation at the start, \( \tilde{\mu}_0 \), propagates linearly:
-\begin{equation}
-\frac{\alpha(\tilde{\mu}_0) - \alpha(\mu_0)}{\tilde{\mu}_0 - \mu_0} = e^{\hat{\lambda}_l} = e^{\sum_{k=1}^l \lambda_k} \label{eq:ratio_cs}
-\end{equation}
-This shows that the sensitivity of the output to changes in the input depends only on the accumulated multiplicative factors.
-
-\section{The Arithmetic Flow Equation}\label{sec:flow_equation_cs}
-
-We now derive the central differential equation governing the continuous evolution of expression values within a geometric framework. This "Arithmetic Flow Equation" bridges discrete algebraic operations and continuous geometric propagation.
-
-\subsection{Derivation from Infinitesimal Generation}
-
-Consider a smooth assignment function \( a: M \to \mathbb{R} \) on a Riemannian manifold \( (M, g) \). We model its local generation via two orthogonal actions: an additive action with infinitesimal strength \( \mu \) and a multiplicative action with infinitesimal strength \( \lambda \). Moving an infinitesimal distance \( ds \) in a direction at angle \( \theta \) to the additive direction, the first-order change \( da \) is approximated by applying the actions in either order.
-\begin{itemize}
-    \item Add then multiply: \( (a + \mu ds \cos \theta) e^{\lambda ds \sin \theta} \approx a + a \lambda ds \sin \theta + \mu ds \cos \theta \)
-    \item Multiply then add: \( a e^{\lambda ds \sin \theta} + \mu ds \cos \theta \approx a + a \lambda ds \sin \theta + \mu ds \cos \theta \)
-\end{itemize}
-Both yield the same first-order change. Taking the limit gives the directional derivative:
-\begin{equation}
-    \frac{da}{ds} = \mu \cos \theta + a \lambda \sin \theta \label{eq:flow_cs}
-\end{equation}
-This is the \textbf{Arithmetic Flow Equation}. It dictates how the value \( a \) changes as one moves on the manifold. A formal solution for constant \( \theta \) is derived in Appendix~\ref{app:flow_solution}.
-
-\subsection{Eikonal and Hamilton–Jacobi Interpretation}
-
-The flow equation can be expressed in a coordinate-free form. The maximum rate of change of \( a \), given by the norm of its gradient \( ||\nabla a|| \), must equal the maximum value of the right-hand side of Eq.~\eqref{eq:flow_cs} over all \( \theta \), which is \( \sqrt{\mu^2 + a^2 \lambda^2} \). This gives:
-\begin{equation}\label{eq:coordinate_free_cs}
-||\nabla a|| = \sqrt{\mu^2 + a^2 \lambda^2}
-\end{equation}
-This is an \textbf{Eikonal equation}, common in geometric optics. It is also equivalent to a static \textbf{Hamilton–Jacobi equation} \( H(x, a, \nabla a) = 0 \) with Hamiltonian:
-\begin{equation}\label{eq:hamiltonian_cs}
-    H(x, a, p) = ||p||_g - \sqrt{\mu^2 + a^2 \lambda^2}
-\end{equation}
-This connects AEG to the powerful frameworks of analytical mechanics.
-
-\subsection{Contour-Gradient Coordinates and Propagation Laws}
-
-We can analyze the flow in a local coordinate system based on the function \( a \) itself.
-\begin{itemize}
-    \item \textbf{Contour Direction:} Where \( da/ds = 0 \), we have \( \tan \theta_c = - \mu / (a \lambda) \).
-    \item \textbf{Gradient Direction:} Orthogonal to the contour, the rate of change is maximal: \( \frac{da}{ds}\big|_{\theta_g} = \pm \sqrt{\mu^2 + a^2 \lambda^2} \).
-\end{itemize}
-Let \( \phi \) be the angle relative to the gradient direction. The flow equation becomes:
-\begin{equation}
-    \frac{da}{ds} = \sqrt {\mu^2 + a^2 \lambda^2} \cos \phi \label{eq:contourgradient_cs}
-\end{equation}
-Integrating this equation for a fixed direction \( \phi \) and initial condition \( a(0)=a_0 \) yields the explicit propagation law:
-\begin{equation}
-    a(s) = \frac{\mu}{\lambda} \sinh\left(\lambda s \cos \phi + \mathrm{arsinh} \frac{a_0 \lambda}{\mu}\right) \label{eq:gradevo_initial_cs}
-\end{equation}
-This solution describes how the value \( a \) evolves along straight lines in the local contour-gradient frame.
-
-\section{The First Kind Expression Space \( \mathfrak{E}_1 \)}\label{sec:E1_space_cs}
-
-We now construct the first concrete geometric realization of this framework: the \emph{first kind arithmetic expression space}, \( \mathfrak{E}_1 \), based on the upper half-plane model of hyperbolic geometry.
-
-\subsection{Definition and Metric Structure}
-
-The geometric foundation for \( \mathfrak{E}_1 \) is the upper half-plane manifold \( \mathcal{B} = \{ (x, y) \in \mathbb{R}^2 \mid y > 0 \} \). We equip it with a Riemannian metric \( g \) parameterized by \( \mu \) and \( \lambda \). The line element is:
-\begin{equation}
-ds^2 = \frac{1}{y^2}\left(\frac{dx^2}{\mu^2} + \frac{dy^2}{\lambda^2}\right) \label{eq:metric_general_cs}
-\end{equation}
-Within this space, we define the \textbf{assignment function} \( a: \mathcal{B} \to \mathbb{R} \) as:
-\begin{equation}\label{eq:genassignment_cs}
-a(x, y) = - \frac{x}{y}
-\end{equation}
-
-\begin{definition}[First Kind Expression Space]\label{def:E1_space_cs}
-The \textbf{first kind arithmetic expression space} \( \mathfrak{E}_1(\mu, \lambda) \) is the Riemannian manifold \( (\mathcal{B}, g) \), with metric \( g \) from Eq.~\eqref{eq:metric_general_cs} and the distinguished assignment function \( a(x,y) = -x/y \).
-\end{definition}
-
-\subsection{Flow Equation and Laplacian Properties}
-
-A key property is that this specific assignment function on this specific space satisfies our general flow equation.
-
-\begin{theorem}[Assignment Satisfies Flow Equation]\label{thm:generalE1_cs}
-In the space \( \mathfrak{E}_1(\mu, \lambda) \), the assignment function \( a(x,y) = -x/y \) satisfies the Arithmetic Flow Equation~\eqref{eq:flow_cs}.
-\end{theorem}
-\begin{proof}
-The proof involves computing the differential \( da \), the arc length \( ds \), and forming the derivative \( da/ds \). By defining the angle \( \theta \) appropriately in terms of the scaled differentials \( dx/\mu \) and \( dy/\lambda \), the expression for \( da/ds \) simplifies to exactly \( \mu \cos \theta + a \lambda \sin \theta \). (See Appendix~\ref{app:geometry_calc} for details).
-\end{proof}
-
-The assignment function also has a special relationship with the Laplace-Beltrami operator \( \Delta_g \).
-
-\begin{proposition}[Laplacian of the Assignment Function]\label{prop:laplacian_general_cs}
-For the general \( \mathfrak{E}_1(\mu, \lambda) \) space, the assignment function \( a = -x/y \) is an eigenfunction of the Laplace-Beltrami operator \( \Delta_g = -\mathrm{div}(\mathrm{grad} f) \):
-\[
-\Delta_g a = -2\lambda^2 a
-\]
-\end{proposition}
-\begin{proof}
-The proof follows from a direct calculation using the coordinate formula for the Laplacian with the metric \( g \) from Eq.~\eqref{eq:metric_general_cs}.
-\end{proof}
-
-\begin{corollary}[Standard Poincaré Case]\label{cor:laplacian_standard_cs}
-When \( \mu = 1 \) and \( \lambda = 1 \), the metric reduces to the standard Poincaré metric \( ds^2 = (dx^2 + dy^2)/y^2 \). In this standard hyperbolic space \( \mathfrak{E}_1(1, 1) \), the assignment function \( a = -x/y \) is an eigenfunction of the hyperbolic Laplacian with eigenvalue -2.
-\end{corollary}
-
-\subsection{Horocycle-Based Coordinate Equivalence}
-
-The structure of \( \mathfrak{E}_1(1, 1) \) can also be described using horocycle coordinates \( (u, v) \), often used in the Poincaré disk model. The metric takes the form \( ds^2 = e^{-2v} du^2 + dv^2 \), and the assignment function becomes \( a(u, v) = -u e^{-v} \). This equivalence is established via a Möbius transformation between the upper half-plane and the disk, demonstrating that the fundamental properties of \( \mathfrak{E}_1 \) are intrinsic to the geometry, not just an artifact of the \( (x, y) \) coordinate system.
-
-\section{Geometric Phenomena in \( \mathfrak{E}_1 \)}\label{sec:propagation_grids_cs}
-
-We now explore the geometric consequences of the \( \mathfrak{E}_1 \) structure, investigating how expression values propagate, the natural grid structures that arise, and the connection between algebraic non-commutativity and geometric area.
-
-\subsection{Equipotential Evolution and Geometric Propagation}
-
-The flow equation provides a dynamic picture of evaluation. Equipotential lines, where \( a = a_0 \) is constant, are rays \( x = -a_0 y \) from the origin in the \( (x, y) \) chart. Propagation starts from the \( a=0 \) baseline (the y-axis). As the value \( |a| \) increases with propagation distance, the slope \( |-a_0| \) of the equipotential ray increases, causing the ray to sweep from a vertical orientation towards a horizontal one. This provides a geometric interpretation of value propagation.
-
-\subsection{Grid Structures and Baumslag–Solitar Symmetry}
-
-Discrete arithmetic operations embed into \( \mathfrak{E}_1 \) as grids. For \( \mathfrak{E}_1(1, \ln 2) \), corresponding to integer addition (\(+1\)) and multiplication by 2, we find:
-\begin{itemize}
-    \item \textbf{Addition Lines (\(+1\)):} Horizontal lines (\( y = \text{const} \)) in the \( (x, y) \) chart.
-    \item \textbf{Multiplication Lines (\(\times 2\)):} Vertical lines (\( x = \text{const} \)) in the \( (x, y) \) chart.
-\end{itemize}
-This rectilinear grid (Figure~\ref{fig:grid1_cs}) provides a geometric realization of the algebraic structure. Möbius transformations of the space map this grid to a dual, curvilinear grid, interchanging the roles of addition and multiplication. This duality is deeply connected to the structure of \textbf{Baumslag–Solitar groups}, like \( BS(1, 2) \), whose Cayley graphs can be modeled by these geometric grids.
+and the parsed syntax tree is depicted in Figure~\ref{fig:syntaxtree-full}.
 
 \begin{figure}[ht]
 \centering
-\resizebox{0.8\textwidth}{!}{\includegraphics{images/01-grid-example-1}}
-\caption{Rectilinear grid structure in \( \mathfrak{E}_1(1, \ln 2) \). Horizontal blue lines represent \(+1\) operations, vertical green lines represent \(\times 2\) operations. The red values are the assignment \(a = -x/y\).}
-\label{fig:grid1_cs}
+\resizebox{0.2\textheight}{!}{\includegraphics{images/02-example-expression-syntax-tree.pdf}}
+\caption{a tree representation of an arithmetic expression}\label{fig:syntaxtree-full}
 \end{figure}
 
-\subsection{Arithmetic Torsion and the Local Area Law}
-
-The non-commutativity of addition and multiplication gives rise to \textbf{arithmetic torsion}. For a single commutator step, \( (x \oplus_\mu \otimes_\lambda) - (x \otimes_\lambda \oplus_\mu) \), the torsion is \( \mu(1 - e^\lambda) \). When composed, this accumulates. In the \( \mathfrak{E}_1(1, \ln 2) \) grid, we observe a remarkable correspondence: the accumulated torsion between two different paths (e.g., multiply-then-add vs. add-then-multiply) is directly proportional to the hyperbolic area (number of grid cells) enclosed by those paths (Figure~\ref{fig:area-formula_cs}).
-
-\begin{figure}[ht]
-    \centering
-    \resizebox{0.8\textwidth}{!}{\includegraphics{images/17-area-formula}}
-    \caption{Illustration of the correspondence between accumulated arithmetic torsion and the hyperbolic area enclosed by evaluation paths in \( \mathfrak{E}_1(1, \ln 2) \).}
-    \label{fig:area-formula_cs}
-\end{figure}
-
-This macroscopic observation is underpinned by the microscopic law derived from the flow equation:
-\begin{equation}
-    d\tau = \mu \lambda\, du\, dv \label{eq:area_formula_diff_cs}
-\end{equation}
-where \( d\tau \) is the infinitesimal torsion generated by commuting infinitesimal additive (\(du\)) and multiplicative (\(dv\)) steps. This establishes that local arithmetic torsion acts as a geometric area density, suggesting it can be interpreted as a form of "arithmetic curvature".
-
-\section{Global Torsion and the Accumulative Commutative Space}\label{sec:global_torsion_cs}
-
-While Section~\ref{sec:propagation_grids_cs} established a local correspondence between torsion and area in the specific context of \( \mathfrak{E}_1 \), we now develop a general, global theory of arithmetic torsion applicable to any arbitrary arithmetic path. This requires introducing a new geometric stage: the Accumulative Commutative Space.
-
-\subsection{Global Torsion and the Accumulative Commutative Space (ACS)}
-
-The non-commutative nature of arithmetic operations means that evaluating a path \( \gamma \) and its reversed-sequence counterpart \( \bar{\gamma} \) yields different results. This "gap" or "tear" prevents the direct application of standard integral theorems. To quantify the total accumulated torsion, we need a space where paths can form closed boundaries.
-
-We define the \textbf{global arithmetic torsion} \( \tau(\gamma) \) algebraically as the difference in evaluation between a path and its reverse:
-\begin{equation}
-\tau_{\text{alg}}(\gamma) = \nu(\gamma) - \nu(\bar{\gamma})
-\label{eq:T_alg_formal_cs}
-\end{equation}
-This quantity is independent of the initial value, making it an intrinsic property of the path's operational structure.
-
-To give this algebraic quantity a geometric meaning, we introduce the \textbf{Accumulative Commutative Space (ACS)}. This is a Euclidean plane whose coordinates are the commutative sums of the operational parameters along a path \( \gamma \):
+Evaluation $\nu$ is a partial function that operates on arithmetic expression $a \in \mathbb{E} \left [\mathbb{Q} \right ]$.
+It is undefined only if division by zero occurs during the recursive evaluation process.
+We can define evaluation $\nu(a)$ of $a$ recursively as follows:
 \begin{itemize}
-    \item \( A_\gamma = \sum \mu_k \): The total accumulated additive charge.
-    \item \( M_\gamma = \sum \lambda_k \): The total accumulated logarithmic multiplicative charge.
+  \item Constant leaf: for any $x \in \mathbb{Q}$, $\nu(x) = x$.
+  \item Compositional node by $+$: For any $(a + b)$, $\nu((a + b)) = \nu(a) + \nu(b)$.
+  \item Compositional node by $-$: For any $(a - b)$, $\nu((a - b)) = \nu(a) - \nu(b)$.
+  \item Compositional node by $\times$: For any $(a \times b)$, $\nu((a \times b)) = \nu(a) \nu(b)$.
+  \item Compositional node by $\div$: For any $(a \div b)$, if $\nu(b) \neq 0$, then $\nu((a \div b)) = \nu(a) / \nu(b)$.
 \end{itemize}
-In the ACS, any path \( \gamma \) and its reverse \( \bar{\gamma} \) share the same start point (0,0) and the same end point \( (A_\gamma, M_\gamma) \). Their trajectories, however, generally differ, thus enclosing a well-defined planar region \( \Sigma_\gamma \).
 
-\subsection{The Triple Identity: A Stokes-like Theorem for Arithmetic}
+We say that an arithmetic expression $a$ is \emph{evaluable} if $\nu(a)$ is defined.
+In the rest of this article, we will only consider evaluable arithmetic expressions unless stated otherwise.
 
-Our central finding is that global arithmetic torsion possesses three equivalent formulations, bridging its algebraic definition with geometric measures in the ACS.
-
-\begin{theorem}[The Triple Identity of Global Torsion]\label{thm:triple_identity_cs}
-For an arbitrary arithmetic path \( \gamma \), its global torsion \( \tau(\gamma) \) is given by:
-\begin{enumerate}
-    \item \textbf{Algebraic Form:} \( \tau(\gamma) = \nu(\gamma) - \nu(\bar{\gamma}) \)
-    \item \textbf{Interior Integral Form:} \( \tau(\gamma) = \iint_{\Sigma_\gamma} e^M dM \wedge dA \)
-    \item \textbf{Boundary Integral Form:} \( \tau(\gamma) = \oint_{\partial \Sigma_\gamma} e^M dA \)
-\end{enumerate}
-where the integrals are taken over the region \( \Sigma_\gamma \) and its boundary \( \partial\Sigma_\gamma \) in the Accumulative Commutative Space.
-\end{equation}
-
-This triple identity provides a definitive answer to the "torsion-area problem": global arithmetic torsion is precisely quantified as an \( e^M \)-weighted area in the ACS. This establishes a concrete "Stokes-like theorem for arithmetic", relating a global algebraic effect to the integral of a local geometric density in a specially constructed parameter space. The ACS itself is not just a convenient tool; it also arises naturally as the target space for group homomorphisms from the free group of operations \( F_2 = \langle \oplus, \otimes \rangle \), giving it deep algebraic significance.
-
-\section{The Tube Structure \( \mathcal{T} \) and Expression Dynamics}\label{sec:tube_structure_cs}
-
-We now extend our view from a single geometric space to a \emph{family} of spaces to study how structures vary as the underlying operational strengths change. This leads to the concept of the "tube structure" \( \mathcal{T} \).
-
-\subsection{Family of Expression Spaces Indexed by \( \lambda \)}
-
-Let us fix \( \mu=1 \) and consider the family of spaces \( \{ \mathfrak{E}_1^{(\lambda)} \}_{\lambda \in \Lambda} \) generated by varying the multiplicative parameter \( \lambda \). Each space \( \mathfrak{E}_1^{(\lambda)} \) is a "slice" in this family.
-
-\begin{definition}[Tube Structure \( \mathcal{T} \)]\label{def:tube_structure_cs}
-The \textbf{tube structure} \( \mathcal{T} \) is the total space formed by the family of slices \( \{ \mathfrak{E}_1^{(\lambda)} \}_{\lambda \in \Lambda} \). It can be written as the disjoint union \( \mathcal{T} = \bigsqcup_{\lambda \in \Lambda} \mathfrak{E}_1^{(\lambda)} \), equipped with a structure (e.g., a fiber bundle) that relates the different fibers. \( \Lambda \) is the base space and \( \mathfrak{E}_1^{(\lambda)} \) is the fiber over \( \lambda \).
+\begin{definition}
+The evaluation order of an arithmetic expression $a$ is an ordering of branch nodes in the tree representation of $a$
+such that every node (sub-expression) is evaluated before its parent.
 \end{definition}
 
-\subsection{Sections, Trajectories, and Zero Loci in \( \mathcal{T}_1 \)}
+\begin{definition}
+A threadlike expression is an arithmetic expression that all the left nodes in its tree representation are leaf nodes.
+\end{definition}
+So a threadlike expression is right-expanded and its evaluation order is unique.
+Threadlike expressions are significant here because they are analogous to the concept of paths in homotopy theory in geometry.
 
-Within \( \mathcal{T} \), we can track how arithmetic constructs evolve with \( \lambda \). A fixed algebraic structure (like a polynomial) traces a path, called a \textbf{section}, through the tube as \( \lambda \) varies.
+\subsection{Currying and path notation}\label{subsec:currying-full}
+Currying is a basic technique in functional programming\cite{Reynolds1972DefinitionalIF},
+which is used to transform a function with multiple arguments into a sequence of functions with one argument.
+By currying a threadlike arithmetic expression, we can obtain a sequence of functions that operate on an operand, which is the leftmost leaf node.
 
-A key feature to analyze is the **zero locus**: the set of points where the assignment function is zero. In the tube \( \mathcal{T}_1 \) built from \( \mathfrak{E}_1^{(\lambda)} \) spaces, the zero locus in every slice is the y-axis (\( x=0 \)), as \( a = -x/y \). This locus is constant and does not evolve with \( \lambda \).
+We introduce the following notation for currying a threadlike arithmetic expression:
+\begin{itemize}
+    \item initial operand: the leftmost leaf node
+    \item operator: $\oplus_y: x \mapsto x + y$
+    \item operator: $\ominus_y: x \mapsto x - y$
+    \item operator: $\otimes_y: x \mapsto x \cdot e^y$
+    \item operator: $\oslash_y: x \mapsto x \cdot e^{-y}$
+\end{itemize}
 
-\subsection{Outlook: Nontrivial Tube Spaces and Topological Change}
+Suppose we have a series of operators $a_1, a_2, \cdots a_{n-1}, a_n$, we introduce a \emph{path notation}.
+\[x a_1 a_2 \cdots a_{n-1} a_n \coloneqq a\_n( a_{n-1}( \cdots a_2( a_1(x) ) \cdots ) )\]
+If a path begins with a number, we refer to it as a \emph{bounded path}.
+If it does not, we refer to it as a \emph{free path}.
 
-The simplicity of the zero locus in \( \mathcal{T}_1 \) limits its ability to model more complex phenomena. This motivates the search for \textbf{"non-trivial" arithmetic expression spaces}, \( \mathfrak{E}_{NT} \), where the assignment function or geometry might allow for more complex zero sets within each slice (e.g., multiple curves).
+\begin{lemma}\label{lemma:associative-full}
+    The operators within a path are associative.
+\end{lemma}
+\begin{proof}
+This follows directly from the associativity of function composition. For free paths represented by functions $\mathbf{a}, \mathbf{b}, \mathbf{c}$, we have $\mathbf{c} \circ (\mathbf{b} \circ \mathbf{a}) = (\mathbf{c} \circ \mathbf{b}) \circ \mathbf{a}$.
+\end{proof}
 
-In a tube structure \( \mathcal{T}_{NT} \) built from such spaces, the zero locus could exhibit rich, dynamic behavior as \( \lambda \) varies, including morphing, bifurcation, and topological change. Analyzing these phenomena is a crucial direction for future research, potentially connecting AEG to algebraic geometry, dynamical systems, and knot theory.
+\begin{definition}\label{definition:concatenate-full}
+    The concatenation of paths $p_1 \cdot p_2$ is defined as the composite of functions:
+    \[p_1 \cdot p_2 \coloneqq p_2 \circ p_1 \]
+\end{definition}
 
-\section{Discussion and Future Directions}\label{sec:discussion_future}
-
-This paper has laid the initial groundwork for Arithmetic Expression Geometry. We have moved from algebraic paths to a governing flow equation, a concrete hyperbolic realization (\( \mathfrak{E}_1 \)), and a global theory of torsion. This concluding section synthesizes these findings and outlines key avenues for future research.
-
-\subsection{Levels of Equality and Foundational Problems}
-
-From a foundational perspective, different levels of equality can be considered:
-\begin{enumerate}
-    \item \textbf{Literal Equality:} Identical sequences of operations.
-    \item \textbf{Operational/Syntactic Equality:} Equality under rules like associativity.
-    \item \textbf{Relational/Algebraic Equality:} Equality under additional imposed relations (e.g., from group theory).
-    \item \textbf{Semantic Equality:} Equality of the final numerical evaluation.
-\end{enumerate}
-The "distance" between these levels gives rise to significant challenges. For instance, a syntactically valid expression (e.g., \( 1 \div (x-x) \)) may not be semantically valid. How do such singularities manifest in the geometric model? Do they correspond to geometric singularities in the space? What is the relationship between algebraic symmetries (e.g., automorphisms of the generating group) and geometric symmetries (e.g., isometries of the space)? Exploring these questions is central to developing a complete theory.
-
-\subsection{Future Research Directions}
-
-This foundational work opens numerous avenues for further research:
-
-\begin{enumerate}[label=\textbf{F\arabic*.}, leftmargin=*, widest=F6, align=left]
-    \item \textbf{A General Arithmetic Gauss-Bonnet Theorem:} A primary goal is to fully bridge the local and global pictures of torsion. This involves relating the integral of the torsion density (or a related curvature) in a space like \( \mathfrak{E}_1 \) to the global algebraic torsion, potentially yielding a Gauss-Bonnet type theorem for AEG.
-
-    \item \textbf{Construction and Analysis of Non-Trivial Spaces (\( \mathfrak{E}_{NT} \)):} A crucial next step is to construct and investigate "non-trivial" AEG spaces (\( \mathfrak{E}_{NT} \)) that exhibit more complex zero-set behavior, allowing for the study of bifurcation and topological change within their tube structures.
-
-    \item \textbf{Connections to Other Mathematical Fields:}
-        \begin{itemize}
-            \item \textit{Geometric Group Theory:} Deepen the connection between AEG grid structures and the geometry of Cayley graphs for groups like BS(m,n) and other solvable or hyperbolic groups.
-            \item \textit{Knot Theory and Topology:} Explore whether the evolution of zero loci in tube structures can model knot invariants like the Alexander polynomial, which arise from related algebraic structures.
-            \item \textit{Number Theory:} Investigate potential AEG constructions related to number-theoretic functions, continued fractions, or modular groups.
-        \end{itemize}
-
-    \item \textbf{Global Metric Existence:} Resolve the open problem of finding conditions under which a global metric exists on a manifold \( S \) that makes a given function \( a: S \to \mathbb{R} \) satisfy the Arithmetic Flow Equation globally.
-\end{enumerate}
-
-\subsection{Concluding Remark}
-
-Arithmetic Expression Geometry offers a nascent but potentially unifying perspective, weaving together threads from computation, algebra, and geometry. By treating arithmetic evaluation as a dynamic geometric process, AEG reveals unexpected structures and provides quantitative links between algebraic properties and geometric measures. The rich set of open problems suggests that further exploration of this geometry holds significant promise for uncovering deeper connections between the way we compute and the mathematical spaces that computation might naturally inhabit.
-
-\newpage
-\appendix
-
-\section{Formal Solution of the Arithmetic Flow Equation}\label{app:flow_solution}
-
-This appendix provides the derivation of the formal solution to the Arithmetic Flow Equation~\eqref{eq:flow_cs}, \( \frac{da}{ds} = \mu \cos \theta + a \lambda \sin \theta \), assuming constant parameters. This is a first-order linear ODE. Rewriting in standard form \( \frac{da}{ds} - (\lambda \sin \theta) a = \mu \cos \theta \), we use the integrating factor \( I(s) = e^{-\lambda s \sin \theta} \).
-Multiplying by \( I(s) \) gives:
-\[
-\frac{d}{ds}\left( a e^{-\lambda s \sin \theta} \right) = \mu \cos \theta e^{-\lambda s \sin \theta}
-\]
-Integrating both sides with respect to \( s \) (for \( \sin \theta \neq 0 \)):
-\[
-a e^{-\lambda s \sin \theta} = \mu \cos \theta \left( \frac{e^{-\lambda s \sin \theta}}{-\lambda \sin \theta} \right) + C_1
-\]
-Solving for \( a(s) \) gives \( a(s) = -\frac{\mu}{\lambda} \cot \theta + C_1 e^{\lambda s \sin \theta} \). Applying the initial condition \( a(0) = a_0 \) determines the constant \( C_1 = a_0 + \frac{\mu}{\lambda} \cot \theta \). Substituting back gives the final solution:
+\subsection{Alternating threadlike expressions}\label{subsec:alternating-full}
+Now we can define alternating threadlike expressions using the path notion.
+\begin{equation}\label{eq:alternative-full}
+    \alpha = a_1 b_1 a_2 b_2 \cdots a_l b_l, a_i = \otimes_{\lambda_i}, b_i = \oplus_{\mu_i}, \lambda_i, \mu_i \in \mathbb{R}
+\end{equation}
+Any arithmetic expression can be converted into an alternating threadlike expression by introducing identity elements ($0$ for addition, $1$ for multiplication). So it is a kind of canonical form. We can derive a formula for perturbations in such expressions. Let $\hat{\lambda}_i$ be the right-accumulated sum of $\lambda_j$. For a starting point $\mu_0$ and its perturbation $\tilde{\mu}_0$, we have:
 \begin{equation}
-   a(s) = \left(a_0 + \frac{\mu}{\lambda} \cot \theta\right) e^{\lambda s \sin \theta} - \frac{\mu}{\lambda} \cot \theta \quad (\text{for } \sin \theta \neq 0) \label{eq:solution_appendix_cs}
+\frac{\alpha(\tilde{\mu}_0) - \alpha(\mu_0)}{\tilde{\mu}_0 - \mu_0} = e^{\hat{\lambda}_l} = e^{\sum_{j=1}^l \lambda_j}\label{eq:ratio-full}
+\end{equation}
+This shows the perturbation along the path is controlled by the multiplication terms.
+
+\subsection{Generated structure, commutator and arithmetic torsion}\label{subsec:generated-structure-full}
+We consider the algebraic structure freely generated by the path operators. This forms a group, but it is not abelian. The commutator of the generators is generally not identity:
+\begin{equation}
+x \oplus_\mu \otimes_\lambda \ominus_\mu \oslash_\lambda - x = \mu(1 - e^{-\lambda})\label{eq:commutator1-full}
+\end{equation}
+Or equivalently, we define the difference $\tau$ which we call \textbf{arithmetic torsion}:
+\begin{equation}
+\tau = x \oplus_\mu \otimes_\lambda - x \otimes_\lambda \oplus_\mu = \mu(e^\lambda - 1)\label{eq:torsion-full}
+\end{equation}
+This constant difference indicates a type of torsion in the generated group.
+
+\subsection{Levels of Equality, Singularity, and Symmetry Problems}
+\label{subsec:problems-on-equality-singularity-symmetries-full}
+It is useful to consider different levels of equality:
+\begin{enumerate}
+    \item \textbf{Literal Equality}: Identical sequences of operations.
+    \item \textbf{Operational/Syntactic Equality}: Equality under rules like associativity.
+    \item \textbf{Relational/Algebraic Equality}: Equality under additional imposed relations.
+    \item \textbf{Semantic Equality}: Equality of the final numerical evaluation.
+\end{enumerate}
+Significant theoretical challenges arise from the "distance" between these levels, leading to foundational problems:
+\begin{itemize}
+    \item \textbf{Singularity Problem}: Syntactically valid expressions may be semantically invalid (e.g., division by zero). How do these manifest in the geometric model?
+    \item \textbf{Symmetry Problem}: What is the relationship between the symmetries of the algebraic structure and the symmetries of the final geometric space?
+\end{itemize}
+Exploring these problems is central to our research.
+
+\section{The Arithmetic Flow Equation}
+
+This section derives the central flow equation governing how assignment values propagate through geometric space: $\frac{da}{ds} = \mu \cos \theta + a \lambda \sin \theta$, where $\theta$ represents the angle of movement. The flow equation can be reformulated in various ways, including its coordinate-free form ($||\nabla a|| = \sqrt{\mu^2 + a^2 \lambda^2}$), which is an Eikonal equation equivalent to a special Hamilton-Jacobi equation.
+
+The section demonstrates that the flow equation is consistent with discrete generating processes and can be expressed in contour-gradient form. It establishes a relationship between arithmetic torsion and geometric area ($d\tau = \mu \lambda du dv$), linking non-commutativity in arithmetic to measurable geometric properties. The flow equation is shown to have a geometric propagation interpretation, where assignment values correspond to wavefront evolution in hyperbolic space. The section concludes with a discussion of the existence of metrics that make functions satisfy the flow equation, presenting a local morphing process while noting that the global case remains unsettled.
+
+\subsection{Derivation of the flow equation}\label{sec:equation-full}
+
+Consider an infinitesimal generating process on a Riemannian surface $M$ using two generators:
+one for an additional action $\mu$ and the other for a multiplicative action $e^\lambda$.
+These two generators are perpendicular.
+This generation process produces an assignment $A: M \to R$ over the surface.
+
+For any point with an assignment $a_0$, if we consider a movement of distance $\epsilon$ in a direction with angle $\theta$
+over a time period of $\delta$, we can establish the following:
+
+\[
+    a_{\delta} = (a_0 + \mu \epsilon \cos \theta)e^{\lambda \epsilon \sin \theta}
+\]
+
+or
+
+\[
+    a_{\delta} = a_0 e^{\lambda \epsilon \sin \theta} + \mu \epsilon \cos \theta
+\]
+
+Both formula can be simplified to the same result:
+
+\[
+    a_{\delta} = a_0 + \epsilon (a_0 \lambda \sin \theta + \mu \cos \theta)
+\]
+
+Then, we have the following equation:
+
+\[
+    \frac{1}{\delta} (a_{\delta} - a_0) = \frac{\epsilon}{\delta} (\mu \cos \theta + x_0 \lambda \sin \theta)
+\]
+
+When both $\delta$ and $\epsilon$ are towards zero, we get $da / dt$, and hence
+
+\[
+    \frac{da}{dt} = u (\mu \cos \theta + a \lambda \sin \theta)
+\]
+
+Or, we can change it to another form
+
+\begin{equation}
+    \frac{da}{ds} = \mu \cos \theta + a \lambda \sin \theta\label{eq:flow-full}
 \end{equation}
 
-\section{Geometric Calculation Details for \( \mathfrak{E}_1 \)}\label{app:geometry_calc}
+We name this equation~\eqref{eq:flow-full} as the flow equation.
 
-\subsection{Proof of Theorem~\ref{thm:generalE1_cs}}
-The differential of the assignment is \( da = d(-x/y) = (x dy - y dx) / y^2 = -(dx + a dy) / y \).
-The arc length differential is \( ds = \frac{1}{y} \sqrt{dx^2/\mu^2 + dy^2/\lambda^2} \).
-The directional derivative is \( \frac{da}{ds} = -\frac{dx + a dy}{\sqrt{dx^2/\mu^2 + dy^2/\lambda^2}} \).
-We can rewrite the numerator as \( -dx - a dy = \mu(-dx/\mu) + a\lambda(-dy/\lambda) \).
-Define the direction angle \( \theta \) via its cosines:
-\[
-\cos \theta = \frac{-dx/\mu}{\sqrt{dx^2/\mu^2 + dy^2/\lambda^2}} \quad \text{and} \quad \sin \theta = \frac{-dy/\lambda}{\sqrt{dx^2/\mu^2 + dy^2/\lambda^2}}
-\]
-Substituting these into the expression for \( da/ds \) gives:
-\[
-\frac{da}{ds} = \frac{\mu(-dx/\mu) + a\lambda(-dy/\lambda)}{\sqrt{dx^2/\mu^2 + dy^2/\lambda^2}} = \mu \cos \theta + a \lambda \sin \theta
-\]
-This completes the proof.
+The left side of this equation is governed by the distance structure, while the right side is governed by the angle structure.
+So that the isometrics of the surface keep the flow equation~\eqref{eq:flow-full}.
 
-\subsection{Infinitesimal Arithmetic Torsion}
-We derive \( d\tau = \mu \lambda \, du \, dv \). Consider applying infinitesimal steps: \( du \) in the \( \mu \)-direction and \( dv \) in the \( \lambda \)-direction, from value \( a \).
+We can also get a direct formal solution of the flow equation~\eqref{eq:flow-full}(details in Appendix~\ref{sec:directformalsolution}).
+
+\begin{equation}
+   a = (a_0 + \frac{\mu}{\lambda} \cot \theta) e^{\lambda s \sin \theta} - \frac{\mu}{\lambda} \cot \theta\label{eq:solution-full}
+\end{equation}
+
+\subsection{The contour-gradient form of flow equation}\label{subsec:the-contour-gradient-form-full}
+
+It is easy to derive the contour equation in the local coordinate
+
+\begin{equation}
+    \mu \cos \theta_c + a \lambda \sin \theta_c = 0\label{eq:contour-full}
+\end{equation}
+
+then we have
+
+\begin{equation}
+    \theta_c = - \arctan \frac{\mu}{a \lambda}\label{eq:contourangle-full}
+\end{equation}
+
+the contour and the gradient are perpendicular to each other
+
+\begin{equation}
+    \theta_g = \pm \frac{\pi}{2} - \arctan \frac{\mu}{a \lambda}\label{eq:gradientangle-full}
+\end{equation}
+
+then along $\theta_g$ we have
+
+\begin{equation}
+    \frac{da}{ds} = \mu \cos (\pm \frac{\pi}{2} - \arctan \frac{\mu}{a \lambda}) + a \lambda \sin (\pm \frac{\pi}{2} - \arctan \frac{\mu}{a \lambda})
+    \label{eq:alonggradient-full}
+\end{equation}
+
+\begin{equation}
+    \frac{da}{ds} = \pm \sqrt{\mu^2 + \lambda^2 a^2}\label{eq:grad-full}
+\end{equation}
+
+By introducing the right-hand rotation angle $\phi$ along the gradient direction, we can establish a local polar coordinate system based on the gradient and contour lines.
+Then the growth rate of $a$ along the angle $\phi$ is
+
+\begin{equation}
+    \frac{da}{ds} = \sqrt {\mu^2 + a^2 \lambda^2} \cos \phi\label{eq:contourgradient-full}
+\end{equation}
+
+\subsection{Arithmetic coordinate and area formula}\label{subsec:descartes-coordinate-full}
+We begin our exploration by examining the flow equation~\eqref{eq:flow-full} within the framework of a local polar coordinate system:
+\begin{equation}
+    \frac{da}{ds} = \mu \cos \theta + a \lambda \sin \theta
+\end{equation}
+In an effort to re-contextualize this equation, we set $du = \cos \theta ds$ and $dv = \sin \theta ds$,
+where $du$ and $dv$ are perpendicular infinitesimal movements.
+This enables us to express the flow equation in a different light:
+\begin{equation}
+    da = \mu du + a \lambda dv
+\end{equation}
+Our attention now turns to the concept of arithmetic torsion, particularly at an infinitesimal level.
+Delving into the interplay between two infinitesimal generating processes, we observe that:
+\begin{equation}
+    d\tau = (a_0 + \mu du) e^{\lambda dv} - (a_0 e^{\lambda dv} + \mu du)
+\end{equation}
+From this relationship, we deduce:
+\begin{equation}
+    d\tau = \mu du (e^{\lambda dv} - 1)
+\end{equation}
+This leads us to an area formula, capturing the essence of this interaction:
+\begin{equation}
+    d\tau = \mu \lambda du dv \label{eq:area_formula-full}
+\end{equation}
+
+\subsection{The coordinate-free form of flow equation}\label{subsec:coordinate-free-full}
+From the contour-gradient form of the flow equation, we can derive a coordinate-free form of the flow equation.
+Let's consider the direction of \(\phi = 0\) in the contour-gradient coordinate system, and we have
+\[
+    \frac{da}{ds}|_{\phi = 0} = \sqrt{\mu^2 + a^2 \lambda^2} \cos 0
+\]
+Notice the gradient of \(a\) is not dependent on the coordinate system, and we have the coordinate-free form of the flow equation:
+\begin{equation}\label{eq:coordinate-free-full}
+||\nabla a|| = \sqrt{\mu^2 + a^2 \lambda^2}
+\end{equation}
+It should be noted that the coordinate-free form of the flow equation is an Eikonal equation,
+and can be viewed as a special Hamilton–Jacobi equation
+\[
+H(x, a, \nabla a) = 0
+\]
+where the Hamiltonian is
+\begin{equation}\label{eq:hamiltonian-full}
+    H(x, a, p) = ||p|| - \sqrt{\mu^2 + a^2 \lambda^2}
+\end{equation}
+
+\section{The First Kind Expression Space $\mathfrak{E}_1$}
+
+This section introduces the first kind arithmetic expression space ($\mathfrak{E}_1$), providing a geometric framework for analyzing arithmetic expressions. The space is constructed on the upper half-plane with a hyperbolic metric: $ds^2 = \frac{1}{y^2} (dx^2 + dy^2)$, where the assignment function $a = - \frac{x}{y}$ satisfies the flow equation and serves as an eigenfunction of the Laplacian with eigenvalue 2.
+
+Two equivalent examples of $\mathfrak{E}_1$ are presented: the upper half-plane model and a horocycle-based coordinate system, connected through Möbius transformation. The section explores geometric propagation mechanisms, showing how the assignment value propagates like expanding concentric circles in hyperbolic space. It examines grid structures in $\mathfrak{E}_1$, revealing dual grids reflecting the geometric structure of the Baumslag-Solitar group, and demonstrates how arithmetic torsion corresponds precisely to hyperbolic areas enclosed between evaluation paths. The section concludes by introducing tube structures, which extend $\mathfrak{E}_1$ to parameterized families, enabling analysis of how expressions evolve across parameter variations.
+
+\subsection{Foundational exemplars}\label{subsec:motivexamples-full}
+
+We present two analytically equivalent examples that belong to the class of spaces designated as the first kind arithmetic expression space $\mathfrak{E}_1$.
+
+\subsubsection{Example 1: Upper Half Plane Model}
+
+Consider the upper half plane ${\mathcal{H}: (x, y) \ | \ y > 0}$ equipped with the following inner product and metric tensor:
+
+$$
+\mathbf{a} \cdot \mathbf{b} = \begin{bmatrix} a_x & a_y \end{bmatrix} \begin{bmatrix} \frac{1}{y^2} & 0 \\ 0 & \frac{1}{y^2} \end{bmatrix} \begin{bmatrix} b_x \\ b_y \end{bmatrix}
+$$
+
+$$
+ds^2 = \frac{1}{y^2} (dx^2 + dy^2)
+$$
+
+On this manifold, we define an assignment field $a$ as follows:
+
+\begin{equation}\label{eq:exmp1-full}
+a = - \frac{x}{y}
+\end{equation}
+
+\begin{theorem}\label{thm:exmp1-full}
+The assignment $a$ defined by formula \eqref{eq:exmp1-full} satisfies the flow equation \eqref{eq:flow-full}.
+\end{theorem}
+
+\begin{proof}
+We initiate with the differential of the assignment:
+$$
+da = d\left(-\frac{x}{y}\right) = \frac{xdy - ydx}{y^2} = -\frac{dx + ady}{y}
+$$
+
+The differential of arc length is given by:
+$$
+ds = \frac{\sqrt{dx^2 + dy^2}}{y}
+$$
+
+Therefore:
+$$
+\frac{da}{ds} = - \frac{dx + ady}{y} \cdot \frac{y}{\sqrt{dx^2 + dy^2}} = - \frac{dx + ady}{\sqrt{dx^2 + dy^2}}
+$$
+
+In the local coordinate system determined by $(-1, 0)$ and $(0, -1)$ under the right-hand rule, we have:
+$$
+\cos \theta = \frac{-dx}{\sqrt{dx^2 + dy^2}} \quad \text{and} \quad \sin \theta = \frac{-dy}{\sqrt{dx^2 + dy^2}}
+$$
+
+Substituting these values:
+$$
+\frac{da}{ds} = \cos \theta + a \sin \theta
+$$
+
+This precisely corresponds to the flow equation \eqref{eq:flow-full} with $\mu=1$ and $\lambda=1$.
+\end{proof}
+
+We can verify that $a$ constitutes an eigenfunction of the Laplacian operator:
+$$
+\Delta a = - y^2 \left(\frac{\partial^2 a}{\partial x^2} + \frac{\partial^2 a}{\partial y^2}\right) = y^2 \left(\frac{\partial}{\partial y} \left(\frac{\partial}{\partial y} \frac{x}{y}\right)\right) = 2a
+$$
+
+\subsubsection{Example 2: Horocycle-Based Coordinate System}
+
+For our second exemplar, we introduce a horocycle-based coordinate system for hyperbolic surfaces. This global coordinate system comprises two orthogonal families of curves: horocycles sharing the same ideal point, and geodesics perpendicular to these horocycles.
+
+\begin{figure}[ht]
+\centering
+\resizebox{0.5\textwidth}{!}{\includegraphics{images/11-horocyclebased.pdf}}
+\caption{A horocycle-based coordinate system on the Poincaré disc. Blue curves represent horocycles tangent at ideal point $\Omega$, green lines depict perpendicular geodesics.}\label{fig:horocyclecoord-full}
+\end{figure}
+
+On the Poincaré disc $\mathcal{P}$, the coordinates of a point $P$ are denoted by $(u,v)$, where:
 \begin{itemize}
-    \item Path 1: \( (a + \mu du) e^{\lambda dv} \)
-    \item Path 2: \( a e^{\lambda dv} + \mu du \)
+\item $u$ represents the signed length of $OQ$
+\item $v$ represents the signed length of $QP$
+\item The sign conventions adhere to the right-hand rule and orientation relative to the ideal point $\Omega$
 \end{itemize}
-The torsion \( d\tau \) is the difference. Using \( e^x \approx 1+x \):
-\begin{align*}
-d\tau &\approx (a + \mu du) (1 + \lambda dv) - (a (1 + \lambda dv) + \mu du) \\
-&= (a + a \lambda dv + \mu du + \mu \lambda du dv) - (a + a \lambda dv + \mu du) = \mu \lambda du dv
-\end{align*}
 
-% --- Bibliography Commands ---
+We equip this coordinate system with the inner product:
+$$
+\mathbf{a} \cdot \mathbf{b} = \begin{bmatrix} a_u & a_v \end{bmatrix} \begin{bmatrix} e^{-2v} & 0 \\ 0 & 1 \end{bmatrix} \begin{bmatrix} b_u \\ b_v \end{bmatrix}
+$$
+
+And the corresponding metric tensor:
+$$
+ds^2 = e^{-2v} du^2 + dv^2
+$$
+
+The Laplacian operator in this coordinate system is expressed as:
+$$
+\Delta = e^{2v} \frac{\partial^2}{{\partial u}^2} + \frac{\partial^2}{{\partial v}^2} - \frac{\partial}{\partial v}
+$$
+
+In this coordinate framework, we define an assignment:
+
+\begin{equation}\label{eq:exmp2-full}
+a = u e^{-v}
+\end{equation}
+
+\begin{theorem}\label{thm:exmp2-full}
+The assignment $a$ defined by formula \eqref{eq:exmp2-full} satisfies the flow equation \eqref{eq:flow-full}.
+\end{theorem}
+
+\begin{proof}
+We establish this result by demonstrating that examples 1 and 2 are equivalent through a Möbius transformation. Consider the complex representation of the upper half plane:
+$$
+z = x + yi
+$$
+
+The Möbius transformation mapping the upper half plane to the Poincaré disc is given by:
+$$
+z \mapsto \frac{z-i}{z+i}
+$$
+
+\begin{figure}[ht]
+\centering
+\resizebox{0.8\textwidth}{!}{\includegraphics{images/12-proofbymapping.pdf}}
+\caption{Mapping between the upper half plane and Poincaré disc models}\label{fig:mapping-full}
+\end{figure}
+
+This conformal transformation maps horizontal lines in $\mathcal{H}$ to horocycles sharing the ideal point $\Omega = 1$ in $\mathcal{P}$, and vertical geodesics in $\mathcal{H}$ to perpendicular geodesics in $\mathcal{P}$.
+
+Expressed in the target coordinate system, this transformation yields:
+$$
+\begin{cases}
+x = u\\
+y = e^v \\
+\end{cases}
+$$
+
+Substituting into the assignment from Example 1:
+$$
+a = -\frac{x}{y} = -\frac{u}{e^v} = -u e^{-v}
+$$
+
+Since the Möbius transformation is conformal and preserves the flow equation, and accounting for the orientation change, we obtain $a = u e^{-v}$ satisfying the flow equation.
+\end{proof}
+
+As in Example 1, we can verify that $a$ constitutes an eigenfunction of the Laplacian:
+$$
+\Delta a = e^{2v} \frac{\partial^2(u e^{-v})}{{\partial u}^2} + \frac{\partial^2(u e^{-v})}{{\partial v}^2} - \frac{\partial(u e^{-v})}{\partial v} = 2a
+$$
+
+These two examples, emerging from the same geometric foundation but expressed in different coordinate systems, demonstrate the fundamental properties of the first kind arithmetic expression space.
+
+\subsection{Theoretical framework of $\mathfrak{E}_1$ space}\label{subsec:generalframework-full}
+
+Building upon the foundational exemplars, we now establish a comprehensive theoretical framework for the first kind arithmetic expression space $\mathfrak{E}_1$. 
+
+Consider the upper half plane $\mathcal{B}$:
+$$
+\{\mathcal{B}: (x, y) | y > 0 \}
+$$
+
+equipped with an inner product and metric tensor parameterized by constants $\mu$ and $\lambda$:
+
+$$
+\mathbf{a} \cdot \mathbf{b} = \begin{bmatrix} a_x & a_y \end{bmatrix} \begin{bmatrix} \frac{1}{\mu^2 y^2} & 0 \\ 0 & \frac{1}{\lambda^2 y^2} \end{bmatrix} \begin{bmatrix} b_x \\ b_y \end{bmatrix}
+$$
+
+$$
+ds^2 = \frac{1}{y^2}\left(\frac{dx^2}{\mu^2} + \frac{dy^2}{\lambda^2}\right)
+$$
+
+The assignment function in this generalized framework maintains the form:
+
+\begin{equation}\label{eq:genassignment-full}
+a = - \frac{x}{y}
+\end{equation}
+
+This defines the first kind arithmetic expression space $\mathfrak{E}_1$, characterized by the following theorem:
+
+\begin{theorem}\label{thm:generalE1-full}
+The assignment $a$ given by \eqref{eq:genassignment-full} satisfies the flow equation \eqref{eq:flow-full} with parameters $\mu$ and $\lambda$, independent of the specific values of these generators.
+\end{theorem}
+
+\begin{proof}
+The differential of the assignment is given by:
+$$
+da = d\left(-\frac{x}{y}\right) = \frac{xdy - ydx}{y^2} = -\frac{dx + a dy}{y}
+$$
+
+The differential of arc length is expressed as:
+$$
+ds = \frac{1}{y}\sqrt{\frac{dx^2}{\mu^2} + \frac{dy^2}{\lambda^2}}
+$$
+
+Therefore:
+$$
+\frac{da}{ds} = - \frac{dx + a dy}{y} \cdot \frac{y}{\sqrt{\frac{dx^2}{\mu^2} + \frac{dy^2}{\lambda^2}}} = -\frac{dx + a dy}{\sqrt{\frac{dx^2}{\mu^2} + \frac{dy^2}{\lambda^2}}}
+$$
+
+In the local coordinate system determined by $(-1, 0)$ and $(0, -1)$ according to the right-hand rule:
+
+$$
+\cos \theta = \frac{-\frac{dx}{\mu}}{\sqrt{\frac{dx^2}{\mu^2} + \frac{dy^2}{\lambda^2}}} \quad \text{and} \quad \sin \theta = \frac{-\frac{dy}{\lambda}}{\sqrt{\frac{dx^2}{\mu^2} + \frac{dy^2}{\lambda^2}}}
+$$
+
+Substituting these values:
+$$
+\frac{da}{ds} = \mu \cos \theta + a \lambda \sin \theta
+$$
+
+This precisely corresponds to the flow equation \eqref{eq:flow-full} with the given parameters $\mu$ and $\lambda$.
+\end{proof}
+
+The $\mathfrak{E}_1$ space is distinguished by its intrinsic connection to hyperbolic geometry and the property that the assignment function $a = -x/y$ constitutes an eigenfunction of the Laplacian operator with eigenvalue 2. This space provides a natural geometric framework for analyzing arithmetic expressions, particularly those involving addition and multiplication operations.
+
+\subsection{Tube structure}\label{sec:tubestructure-full}
+
+In preceding sections, we introduced the first kind arithmetic expression space $\mathfrak{E}_1$ as a geometric realization of arithmetic flow under \textbf{fixed} generator parameters $\mu$ and $\lambda$. However, more complex structures emerge when we consider the entire family of spaces indexed by the parameter $\lambda$ (or potentially both $\mu$ and $\lambda$) and analyze how expression behavior evolves across this family. This naturally leads to the concept of a \emph{tube structure}.
+
+\subsubsection{From Slices to Parameterized Families}\label{subsec:tube_slices-full}
+
+Each individual $\mathfrak{E}_1$ space, denoted $\mathfrak{E}_1^{(\lambda)}$, can be conceptualized as a single \emph{slice} or \emph{fiber} (in the sense of fiber bundles) within the family of expression spaces indexed by the parameter $\lambda$. Within each slice, the evaluation of arithmetic expressions is realized through traversal along (geodesic) paths, the result is governed by the scalar field $a$, and the flow is determined by the metric tensor corresponding to that slice.
+
+Consider a fixed algebraic structure—for instance, an alternating path (with a fixed internal multiplier) corresponding to a polynomial $P(x)$—and examine how its evaluation result $P(e^\lambda)$ evolves as the tube structure parameter $\lambda$ varies. For each value of $\lambda$, the evaluation $P(e^\lambda)$ corresponds to a point (or more accurately, the assignment value $a$ at that point) within the $\lambda$-slice $\mathfrak{E}_1^{(\lambda)}$. As $\lambda$ varies continuously, these points trace out a continuous trajectory through the family of spaces. We refer to such a trajectory generated by $P$ as a \emph{section} or a \emph{$\lambda$-trajectory}. The collection of all slices corresponding to the allowed $\lambda$ values, along with these structures upon them, together form a new, higher-dimensional entity: the tube structure.
+
+\subsubsection{Tube Structure as Total Space}\label{subsec:tube_total_space-full}
+
+We define a \textbf{tube structure $\mathcal{T}$} as the \emph{total space} formed by the family of $\mathfrak{E}_1$ spaces indexed by a continuous parameter $\lambda$ (typically $\lambda > 0$), which can be formally written as the disjoint union:
+\begin{equation}
+\mathcal{T} = \bigsqcup_{\lambda > 0} \mathfrak{E}_1^{(\lambda)}
+\end{equation}
+This total space needs to be endowed with an appropriate topology (and possibly a differential or fiber bundle structure) to support coherent analysis along the $\lambda$-direction.
+
+In this structure:
+\begin{itemize}
+    \item The \emph{base space} is the parameter domain $\Lambda$ for $\lambda$ (e.g., $\mathbb{R}^+$).
+    \item The \emph{fiber} over each point $\lambda$ in the base space is the geometric expression space $\mathfrak{E}_1^{(\lambda)}$.
+    \item Fixed algebraic expression structures (especially those corresponding to polynomials $P(x)$, via the evaluation $P(e^\lambda)$) trace \emph{canonical sections} or $\lambda$-trajectories through $\mathcal{T}$. These sections connect the fibers for different $\lambda$.
+\end{itemize}
+
+\subsubsection{Zero Loci and Nodal Evolution}\label{subsec:tube_zeros-full}
+
+A primary motivation for studying tube structures is to investigate how \emph{zero loci}—the sets of points where an expression evaluates to zero ($a=0$)—evolve with the parameter $\lambda$.
+
+\begin{itemize}
+    \item \textbf{In the Tube Structure $\mathcal{T}_1$ based on $\mathfrak{E}_1$}: For the $\mathfrak{E}_1$ space ($a=-x/y$) that we have discussed in detail, the zero locus within \textbf{each slice} $\mathfrak{E}_1^{(\lambda)}$ is always the \textbf{same simple} line: the y-axis ($x=0$). Consequently, in the tube structure $\mathcal{T}_1 = \bigsqcup \mathfrak{E}_1^{(\lambda)}$, the overall zero locus is the trivial hyperplane $x=0$.
+
+    \item \textbf{Outlook for Non-Trivial Spaces}: However, as our research suggests, the simplicity of the zero locus in $\mathfrak{E}_1$ might limit its capacity to explain more complex phenomena (like those observed in knot theory examples). Therefore, there is strong motivation to seek and construct \textbf{"non-trivial" arithmetic expression spaces $\mathfrak{E}_{NT}$}, where a single slice $\mathfrak{E}_{NT}^{(\lambda)}$ might possess \textbf{multiple or morphologically more complex zero lines}. In the tube structures $\mathcal{T}_{NT}$ built from such non-trivial spaces, the zero locus itself could evolve with $\lambda$, potentially exhibiting various interesting phenomena, such as:
+    \begin{itemize}
+        \item \textbf{Bifurcation}: New zero lines might emerge or merge with existing ones as $\lambda$ varies.
+        \item \textbf{Branching}: The zero locus of certain expressions might exhibit multi-valued behavior along the $\lambda$-direction.
+        \item \textbf{Topology change}: The overall zero surface might develop handles (genus), singularities, or undergo other changes in its topological structure.
+    \end{itemize}
+\end{itemize}
+The analysis of such complex zero loci and their evolution (potentially within $\mathcal{T}_{NT}$) constitutes a core direction for studying expression dynamics, particularly when considering families of expressions or differential equations involving $\lambda$.
+
+\subsection{Grid structures, chirality, and their interrelation via conformal mapping}\label{subsec:grids_revised-full}
+
+A significant geometric characteristic of the first kind arithmetic expression space ($\mathfrak{E}_1$) is the presence of two distinct yet interrelated grid structures. These structures provide a geometric realization for arithmetic operations and reveal a deep connection to the Baumslag--Solitar groups $BS(2,1)$ and $BS(1,2)$. Both grid types are constructed within the upper half-plane model $\mathcal{H} = \{(x,y) \mid y>0\}$, utilizing the assignment function $a = -x/y$ as the underlying scalar field that defines the meaning of arithmetic operations.
+
+\subsubsection{The Rectilinear Grid: Geometric Realization of $BS(2,1)$ and its Chirality}
+
+The first grid structure, the \textbf{rectilinear grid} (Figure~\ref{fig:grid1_revised-full}), is formed by lines parallel to the Cartesian axes.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.8\textwidth]{images/01-grid-example-1.pdf}
+\caption{Rectilinear grid structure in $\mathfrak{E}_1$, a geometric realization of $BS(2,1)$ (with multiplication factor 2), exhibiting a clockwise (right-handed) operational chirality.}\label{fig:grid1_revised-full}
+\end{figure}
+
+\subsubsection{The Transformed Grid via $w = -1/z$: Emergence of $BS(1,2)$ through Chirality Preservation}
+The second grid structure, the \textbf{transformed (or curved) grid} (Figure~\ref{fig:grid2_revised-full}), results from applying the conformal transformation $w = -1/z$ to the rectilinear grid. This specific M\"obius transformation maps $\mathcal{H}$ to itself, transforming horizontal lines to semicircles and vertical lines to other semicircles. The transformed grid, under a chirality-preserving reinterpretation of its operations, serves as a geometric realization of \textbf{$BS(1,2)$}.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.8\textwidth]{images/18-grid-example-2.pdf}
+\caption{Transformed (curved) grid structure in $\mathfrak{E}_1$ via $w=-1/z$. Through chirality preservation, its operations correspond to $BS(1,2)$.}\label{fig:grid2_revised-full}
+\end{figure}
+
+\section{Global Torsion and the Accumulative Commutative Space}
+
+\subsection{Global arithmetic torsion and the accumulative commutative space}
+\label{sec:global_torsion_acs_narrative_enhanced_lc}
+
+The non-commutative nature of fundamental arithmetic operations, such as addition and multiplication, is the very source of arithmetic torsion. Consider the local effect: evaluating an expression like $x \oplus_\mu \otimes_\lambda$ versus $x \otimes_\lambda \oplus_\mu$. While both "path segments" originate from the same initial value $x$, their terminal points in the arithmetic expression space will differ if a non-zero local torsion $\tau_{\text{local}} = \nu(x \oplus_\mu \otimes_\lambda) - \nu(x \otimes_\lambda \oplus_\mu)$ exists. These two segments do not naturally form a closed loop; instead, they represent a "gap" or a "tear" caused by the order of operations. This inherent "openness" or "torn state" at the local level signifies a deviation from commutativity and poses a challenge for directly applying integral theorems like Green's or Stokes', which typically rely on closed paths or well-defined bounded regions within the space of action.
+
+The crucial question then arises: how do these elemental "tears" accumulate along an extended, arbitrary arithmetic path $\gamma$? How can we quantify the total geometric impact of these accumulated deviations? This is the heart of the "torsion-area problem" which we previously highlighted with specific examples in the $\mathfrak{E}_1$ space and the local differential formulation $d\tau_{\text{local}} = \mu \lambda du dv$. We seek a general principle to measure this overall "deviation from commutativity" for any path $\gamma$.
+
+Thus, the \textbf{accumulative commutative space} (ACS) is born. This space, constructed by the \textit{commutative accumulation} of operational parameters ($A_\gamma = \sum \mu_k$ and $M_\gamma = \sum \lambda_k$) from a path $\gamma$, provides exactly such a commutative canvas. Critically, in this ACS, any path $\gamma$ and its reversed-sequence counterpart $\bar{\gamma}$ share common start $(0,0)$ and end points $(A_\gamma, M_\gamma)$. This allows them to genuinely form the boundary $\partial\Sigma_\gamma$ of a well-defined planar region $\Sigma_\gamma$. It is upon this stage that we can rigorously explore and establish the geometric nature of global arithmetic torsion.
+
+\subsubsection*{Algebraic definition of global arithmetic torsion $\tau(\gamma)$: comparison via path reversal}
+
+Let $\gamma$ be an arbitrary arithmetic path. The \textbf{global arithmetic torsion, $\tau(\gamma)$}, is then defined through its \textbf{algebraic evaluation form}:
+\begin{equation}
+\tau_{\text{alg}}(\gamma) = \nu(\gamma) - \nu(\bar{\gamma})
+\label{eq:T_alg_formal_final_narrative_enhanced_acs_AM_lc}
+\end{equation}
+A crucial property is that $\tau_{\text{alg}}(\gamma)$ is independent of the initial value $x$, making it an intrinsic characteristic of the operational structure of path $\gamma$.
+
+\subsubsection*{Geometric representation of paths in the accumulative commutative space and the region $\Sigma_\gamma$}
+
+The accumulative commutative space (ACS) is a Euclidean plane. For any given arithmetic path $\gamma$, its representation in this space is constructed by accumulating the parameters of its constituent operations:
+\begin{itemize}
+    \item $A_\gamma = \sum \mu_k$: The total accumulated additive charge.
+    \item $M_\gamma = \sum \lambda_k$: The total accumulated logarithmic multiplicative charge.
+\end{itemize}
+When the sequence of operation parameters defining path $\gamma$ is plotted as a trajectory in this ACS, it charts a path starting from the origin $(0,0)$ to a final point $(A_\gamma, M_\gamma)$. Critically, the reversed path $\bar{\gamma}$ also maps from $(0,0)$ to the \textit{same} endpoint $(A_\gamma, M_\gamma)$, enclosing a two-dimensional region, which we denote as $\Sigma_\gamma$.
+
+\subsubsection*{Core conclusion: the triple identity of global arithmetic torsion}
+
+Within this framework, our central finding is that the global arithmetic torsion $\tau(\gamma)$ possesses three equivalent formulations. This \textbf{triple identity} bridges its algebraic definition with concrete geometric measures in the accumulative commutative space:
+
+\textbf{(I) Algebraic evaluation form}:
+\[ \tau(\gamma) = \nu(\gamma) - \nu(\bar{\gamma}) \]
+
+\textbf{(II) Geometric interior integral form in the accumulative commutative space:}
+\[ \tau(\gamma) = \iint_{\Sigma_\gamma} e^M dM \wedge dA \]
+
+\textbf{(III) Geometric boundary integral form in the accumulative commutative space:}
+\[ \tau(\gamma) = \oint_{\partial \Sigma_\gamma} e^M dA \]
+
+In summary, our main theorem states the equality of these three forms:
+\begin{equation}
+\tau_{\text{alg}}(\gamma) = \tau_{\text{int}}(\gamma) = \tau_{\text{bound}}(\gamma)
+\label{eq:triple_identity_final_narrative_enhanced_acs_AM_lc}
+\end{equation}
+
+The establishment of this triple identity provides a definitive affirmative answer to our initial "torsion-area problem": global arithmetic torsion for an arbitrary path $\gamma$ can indeed be precisely quantified as an $e^M$-weighted area within the accumulative commutative space.
+
+\subsection{$F_2$ homomorphisms and ideal-like structures}
+\label{sec:acs_algebraic_significance_revised_AM_lc}
+
+The accumulative commutative space (ACS) also has deep algebraic significance. The set of all possible finite sequences of our fundamental operators forms the free group on two generators, $F_2 = \langle X_A, X_M \rangle$. We can define a group homomorphism $\Phi: F_2 \to \mathbb{R}^2$ by mapping any path $\gamma \in F_2$ to its total accumulated charges, $\Phi(\gamma) = (A_\gamma, M_\gamma)$.
+
+The preimages of subgroups in $\mathbb{R}^2$ (like $k\mathbb{Z}\mu_0 \times l\mathbb{Z}\lambda_0$) form normal subgroups in $F_2$. Remarkably, the lattice structure of these normal subgroups in $F_2$ is perfectly compatible with the lattice structure of ideals in $\mathbb{Z}$ and, consequently, with the nesting of closed sets in the Zariski topology on $\text{Spec } \mathbb{Z}$. This uncovers an intrinsic arithmetic order within the purely generative framework of $F_2$, even before any notion of arithmetic evaluation $\nu(\gamma)$ is applied.
+
+\section{Discussion and Future Directions}
+This work establishes a new geometric framework for arithmetic. Key future directions include:
+\begin{itemize}
+    \item Formulating a general arithmetic Gauss-Bonnet theorem.
+    \item Constructing non-trivial expression spaces with more complex zero loci.
+    \item Deepening connections to geometric group theory, knot theory, and number theory.
+\end{itemize}
+
 \bibliographystyle{plain}
-\bibliography{aeg-paper} % Your .bib file name
+\bibliography{aeg-paper}
 
 \end{document}
+
+</final_file_content>
+
+IMPORTANT: For any future changes to this file, use the final_file_content shown above as your reference. This content reflects the current state of the file, including any auto-formatting (e.g., if you used single quotes but the formatter converted them to double quotes). Always base your SEARCH/REPLACE operations on this final version to ensure accuracy.<environment_details>
+# VSCode Visible Files
+paper4p/aeg.tex
+
+# VSCode Open Tabs
+paper4p/aeg.tex
+
+# Current Time
+7/24/2025, 2:40:07 AM (Asia/Shanghai, UTC+8:00)
+
+# Context Window Usage
+819,180 / 1,048.576K tokens used (78%)
+
+# Current Mode
+ACT MODE
+</environment_details>
