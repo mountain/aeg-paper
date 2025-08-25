@@ -1,6 +1,6 @@
 # aeg-paper
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.16938961.svg)](https://doi.org/10.5281/zenodo.16938961)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.16938960.svg)](https://doi.org/10.5281/zenodo.16938960)
 
 This paper introduces a novel geometric framework for studying arithmetic expressions, 
 establishing a rigorous connection between algebraic operations and hyperbolic geometry.
