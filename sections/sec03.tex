@@ -282,31 +282,33 @@ where the Hamiltonian is
     H(x, a, p) = ||p|| - \sqrt{\mu^2 + a^2 \lambda^2}
 \end{equation}
 
-\subsection{Propagation method}\label{subsec:propagation-method}
+\subsection{Propagation and Rectification}\label{subsec:propagation}
 
-Starting from Equations~\eqref{eq:gradevo2} and \eqref{eq:gradevo3}, we can derive a geometric propagation interpretation of the flow equation.
-By rewriting them in a unified form, we obtain
-
-\begin{equation}
-a = \pm \frac{\mu}{\lambda} \sinh\bigl(\lambda s \cos \phi + \arcsinh\bigl(\tfrac{a_0 \lambda}{\mu}\bigr)\bigr).\label{eq:gradevo4}
+While Equation \eqref{eq:contourgradient} can be solved directly, its structure suggests a simplifying change of variables that "rectifies" the flow. Let us define a new variable $f$ by
+\[
+f = \operatorname{arcsinh}\left(\frac{\lambda a}{\mu}\right).
+\]
+This choice is motivated by the desire to find a variable whose gradient has a constant magnitude. Using the chain rule,
+\[
+\nabla f = \frac{df}{da}\nabla a = \frac{\lambda/\mu}{\sqrt{1+(\lambda a/\mu)^2}}\nabla a = \frac{\lambda}{\sqrt{\mu^2+\lambda^2 a^2}}\nabla a.
+\]
+Taking the norm of both sides and using the Eikonal form \eqref{eq:coordinate-free}, we find
+\[
+\|\nabla f\|=\frac{\lambda}{\sqrt{\mu^2+\lambda^2 a^2}}\|\nabla a\|=\lambda.
+\]
+The rectified variable $f$ has a gradient of constant magnitude. Consequently, its rate of change along a direction at an angle $\phi$ to the gradient is simply
+\[
+\frac{df}{ds}=\langle \nabla f, T \rangle = \|\nabla f\|\cos\phi = \lambda\cos\phi.
+\]
+This linearized equation is trivial to integrate: $f(s) = f_0 + \lambda s \cos\phi$. Substituting back for $a$ gives $a = (\mu/\lambda)\sinh(f)$, which yields the general solution for propagation from an initial value $f_0$:
+\begin{equation}\label{eq:gradevo}
+a=\frac{\mu}{\lambda}\sinh\!\Big(\lambda s\cos\phi+\operatorname{arcsinh}\frac{\lambda a_0}{\mu}\Big).
 \end{equation}
-
-If we set $a_0=0$ and choose the gradient direction $\phi=0$, the expression simplifies to
-
-\begin{equation}
-a = \pm \frac{\mu}{\lambda} \sinh(\lambda s).\label{eq:gradevo5}
-\end{equation}
-
-Comparing Equation~\eqref{eq:gradevo5} with the circumference of a circle of radius $s$ in a hyperbolic space with curvature $k$:
-
-\begin{equation}
-C =  \frac{2\pi}{\sqrt{-k}} \sinh\bigl(\sqrt{-k} s\bigr), \label{eq:circle}
-\end{equation}
-
-we see that the assignment $a$ can be interpreted as a propagating circumference along an expanding circle of radius $s$.
-With the centroids forming a zero line, each point on this line generates a wavefront described by concentric circles.
-Hence, the propagation of $a$ corresponds to the wavefront evolution in this geometric sense.
-A more detailed and rigorous geometric interpretation of the flow equation will be provided in Section~\ref{sec:firstkind}.
+In the case of propagation along the gradient ($\phi=0$) from a zero-value contour ($a_0=0$), this simplifies to
+\[
+a=\pm\frac{\mu}{\lambda}\sinh(\lambda s).
+\]
+This form is reminiscent of the circumference of a hyperbolic circle of radius $s$, $C \propto \sinh(\sqrt{-k}s)$, suggesting that $a$ can be interpreted as a propagating wavefront in a space of constant negative curvature. A detailed geometric interpretation will be given in Section~\ref{sec:firstkind}.
 
 \subsection{Flow and function}\label{subsec:flow-and-function}
 
