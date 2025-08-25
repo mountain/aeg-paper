@@ -1,5 +1,7 @@
 # aeg-paper
 
+[![DOI](https://zenodo.org/badge/16938961.svg)](https://zenodo.org/badge/latestdoi/16938961)
+
 This paper introduces a novel geometric framework for studying arithmetic expressions, 
 establishing a rigorous connection between algebraic operations and hyperbolic geometry.
 We formalize arithmetic expressions as syntactic structures and demonstrate how they can be embedded into continuous geometric spaces where addition and multiplication correspond to movements along orthogonal directions.
