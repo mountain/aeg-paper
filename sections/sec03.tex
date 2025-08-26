@@ -401,3 +401,25 @@ Specifically, this means that the morphing should not only preserve the circles 
 but also maintain the integrity of these circles within the adjacent charts of point \( p \).
 In essence, the morphing process must be seamlessly coordinated across the various local regions to achieve a unified global transformation.
 How to achieve this harmonious integration remains an open question, and further exploration is needed to address this challenge.
+
+\subsection{Defining the Arithmetic Expression Space}\label{subsec:aes-definition}
+
+The preceding sections have established the flow equation as the fundamental differential relation governing the interplay between arithmetic operations and a continuous geometric background. We have derived its various forms and established a local existence theorem (Lemma~\ref{prop:existence2nd}), showing that a metric can be morphed to accommodate a given scalar field as a valid assignment. This provides the necessary motivation to formally define the central object of our study.
+
+\begin{definition}[Arithmetic Expression Space]\label{def:aes}
+An \emph{Arithmetic Expression Space} (AES) is a pair $(M, a)$, where:
+\begin{itemize}
+    \item $M$ is a two-dimensional Riemannian manifold, equipped with a metric $g$.
+    \item $a: M \to \mathbb{R}$ is a smooth scalar field on $M$.
+\end{itemize}
+such that for given constant parameters $\mu, \lambda \in \mathbb{R}$, the pair $(M, a)$ satisfies the flow equation:
+\[
+    \frac{da}{ds} = \mu \cos \theta + a \lambda \sin \theta
+\]
+or, equivalently, its coordinate-free Eikonal form:
+\[
+    ||\nabla a||_g = \sqrt{\mu^2 + a^2 \lambda^2}
+\]
+The manifold $M$ provides the geometric stage, defining distance and angles, while the scalar field $a$ embodies the arithmetic assignment. The flow equation enforces the core consistency condition that links the geometry of $M$ to the arithmetic propagation defined by $a$. In the subsequent sections, we will construct and analyze concrete examples of such spaces, beginning with the first kind space $\mathfrak{E}_{1}$.
+\end{definition}
+
