@@ -1,0 +1,28 @@
+
+\subsection{Definition and Intuition}
+A pair of real-valued functions $(f,g)=(f(u,v,a),g(u,v,a))$ is said to be \textbf{arithmetic holomorphic} if it satisfies the AEG-Cauchy-Riemann equations:
+\begin{equation}\label{eq:16}\tag{16}
+D_u f=D_v g,\qquad D_v f=-D_u g.
+\end{equation}
+This definition lifts the classic Cauchy-Riemann conditions from the complex plane $\mathbb{C} \cong \mathbb{R}^2(u,v)$ to the horizontal geometry of the arithmetic expression contact structure.
+
+\subsection{Basic Properties and Proof Sketches}
+\begin{enumerate}
+    \item \textbf{Conformality and Modulus Equality}: The vectors $(D_uf,D_ug)$ and $(D_vf,D_vg)$ are orthogonal and have equal magnitude:
+    \[
+    (D_uf)^2+(D_ug)^2=(D_vf)^2+(D_vg)^2.
+    \]
+    The proof follows from direct substitution using Eq.~\eqref{eq:16}.
+
+    \item \textbf{Closure Properties}: The set of arithmetic holomorphic pairs is closed under addition and an "AEG complex multiplication" defined as $(f,g)\odot(\tilde f,\tilde g)=(f\tilde f- g\tilde g,\ f\tilde g+\tilde f g)$. Furthermore, composition with a classic holomorphic function of $(u,v)$ preserves arithmetic holomorphicity.
+
+    \item \textbf{Classical Limit}: If $f$ and $g$ are independent of $a$, then $D_u=\partial_u$ and $D_v=\partial_v$, and the AEG-CR equations reduce to the standard Cauchy-Riemann equations.
+
+    \item \textbf{Rigidity}: If $f=f(a)$ and $g=g(a)$, the only solutions are constants. (\textit{Hint}: Eq.~\eqref{eq:16} forces the vectors $(f'(a), g'(a))$ and $(\mu, \lambda a)$ to be simultaneously orthogonal and equal in magnitude, which is impossible unless they are zero.)
+
+    \item \textbf{Scaling of the Curvature Density}: In arithmetic holomorphic coordinates $(f,g)$, the curvature 2-form transforms as:
+    \begin{equation}\label{eq:17}\tag{17}
+    d\omega=\frac{\mu\lambda}{|F'|^2}\,df\wedge dg,\qquad \text{where } |F'|^2:=(D_uf)^2+(D_ug)^2.
+    \end{equation}
+    The area density scales by the Jacobian factor, but the total integral remains invariant. This provides an area formula for "expression conformal coordinates".
+\end{enumerate}

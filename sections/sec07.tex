@@ -1,0 +1,50 @@
+\subsection{Axiomatic Definition and Basic Formulas}
+
+\paragraph{A1 (Definition of the Expression Differential)}
+We define the action of $\delta$ on the coordinate functions as:
+\begin{equation}\label{eq:9}\tag{9}
+\delta a=\omega,\quad \delta u=du,\quad \delta v=dv,
+\end{equation}
+and extend its action to all scalar fields $F$ by linearity and the Leibniz rule.
+
+\paragraph{A2 (Directional Derivatives)} The operators $D_u, D_v$ are defined as in Eq.~\eqref{eq:2}, with directional synthesis given by Eq.~\eqref{eq:3}.
+
+\paragraph{A3–A4 (Chain Rules)}
+For univariate and bivariate compositions, $\Phi(a)$ and $F(E_1, E_2)$, the following chain rules hold:
+\begin{equation}\label{eq:10-11}\tag{10-11}
+\delta\Phi(a)=\Phi'(a)\,\omega,\qquad
+\delta F=\partial_1F\,\delta E_1+\partial_2F\,\delta E_2.
+\end{equation}
+These are consistent with the equivalent definition $\delta F=dF-(\partial_aF)\alpha$.
+
+\paragraph{T1–T5 (Fundamental Theorems)}
+The axiomatic system yields five fundamental theorems:
+\begin{itemize}
+    \item[T1] \textbf{Flow Equation:} Setting $F=a$ in the definition of $\delta$ immediately gives Eq.~\eqref{eq:4}.
+    \item[T2] \textbf{Non-Commutativity:} $[D_u,D_v]=\mu\lambda\,\partial_a$.
+    \item[T3] \textbf{Curvature / Covariant Second Differential:} $\delta^2F=\mu\lambda(\partial_aF)\,du\wedge dv$.
+    \item[T4] \textbf{Compatibility with de Rham:} $(d\omega)^*=\mu\lambda\,du\wedge dv$ on the section $\alpha=0$.
+    \item[T5] \textbf{Circulation-Area Theorem:} As stated in Eq.~\eqref{eq:8}.
+\end{itemize}
+
+\subsection{Quick Reference and Computation Rules}
+Let $\omega=\mu\,du+\lambda a\,dv$. The following rules apply:
+\begin{gather}
+\delta(a^n)=n a^{n-1}\omega\ (n\in\mathbb{Z}),\quad
+\delta(\ln a)=\frac{\omega}{a}\ (a>0),\quad
+\delta(e^a)=e^a\,\omega, \label{eq:13} \tag{13} \\
+\delta(\sin a)=\cos a\,\omega,\quad \delta(\cos a)=-\sin a\,\omega,\quad
+\delta(\arcsin a)=\frac{\omega}{\sqrt{1+a^2}}. \label{eq:14} \tag{14}
+\end{gather}
+If $E=E(u,v,a)$, its expression derivatives and differential are:
+\begin{equation}\label{eq:15}\tag{15}
+D_uE=E_u+\mu E_a,\quad D_vE=E_v+\lambda a E_a,\quad
+\delta E=(D_uE)\,du+(D_vE)\,dv.
+\end{equation}
+These identities provide a unified interface for automatic differentiation, optimization, and geometric modeling.
+
+\subsection{Geometric Interpretation: An Ehresmann Connection}
+If we view the projection $\pi:(u,v,a)\mapsto(u,v)$ as a fiber bundle, the condition $\alpha=0$ defines a horizontal distribution $\mathcal{H}$. The operators $D_u,D_v$ are the horizontal lifts of the base vector fields $\partial_u, \partial_v$. The curvature 2-form of this connection corresponds to $\delta^2 a$. This perspective rigorously explains why applying $\delta$ is equivalent to restricting $d$ to $\ker\alpha$ and reveals the geometric meaning of the non-commutativity factor $\mu\lambda$.
+
+\subsection{Numerics and Scaling: Natural Units and Preconditioning}
+In natural units where $\tilde u=\mu u$ and $\tilde v=\lambda v$, all formulas retain their form. For numerical optimization, working with the rectified variable $y$ (or, equivalently, preconditioning the gradients for $a$ with the pointwise factor $(\mu^2+\lambda^2 a^2)^{-1}$) can significantly smooth the loss landscape and improve convergence stability.
