@@ -1,0 +1,672 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+
+\usepackage{arxiv/arxiv}
+\usepackage{styles/quiver}
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage[english]{babel}
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{graphicx}
+\usepackage{stmaryrd}
+
+\usepackage{tikz}
+\usetikzlibrary{angles,fit,arrows,calc,math,intersections,through,backgrounds}
+\usepackage{qtree}
+
+\usepackage{listings}
+\lstset{
+  basicstyle=\itshape,
+  xleftmargin=3em,
+  literate={->}{$\rightarrow$}{2}
+           {α}{$\alpha$}{1}
+           {δ}{$\delta$}{1}
+}
+
+\usepackage{xstring}
+\usepackage{stmaryrd}
+\usepackage{wasysym}
+\usepackage{textcomp}
+\usepackage{blindtext}
+\usepackage{subfiles}
+
+\newtheorem{definition}{Definition}
+\numberwithin{definition}{section}
+\newtheorem{lemma}{Lemma}
+\numberwithin{lemma}{section}
+\newtheorem{proposition}{Proposition}
+\numberwithin{proposition}{section}
+\newtheorem{corollary}{Corollary}
+\numberwithin{corollary}{section}
+\newtheorem{theorem}{Theorem}
+\numberwithin{theorem}{section}
+\newtheorem{remark}{Remark}
+\numberwithin{remark}{section}
+
+\DeclareMathSymbol{\mathinvertedexclamationmark}{\mathclose}{operators}{'074}
+\DeclareMathSymbol{\mathexclamationmark}{\mathclose}{operators}{'041}
+\makeatletter
+\newcommand{\raisedmathinvertedexclamationmark}{%
+  \mathclose{\mathpalette\raised@mathinvertedexclamationmark\relax}%
+}
+\newcommand{\raised@mathinvertedexclamationmark}[2]{%
+  \raisebox{\depth}{$\m@th#1\mathinvertedexclamationmark$}%
+}
+\begingroup\lccode`~=`! \lowercase{\endgroup
+  \def~}{\@ifnextchar`{\raisedmathinvertedexclamationmark\@gobble}{\mathexclamationmark}}
+\mathcode`!="8000
+\makeatother
+
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\DeclareMathOperator{\Tr}{Tr} % Example, if trace was needed
+
+\title{Arithmetic expression geometry \\ and its thermodynamics correspondence}
+
+%\date{Decmber 8, 2022}	% Here you can change the date presented in the paper title
+%\date{} 				% Or removing it
+
+\author{
+Mingli Yuan \\
+\texttt{mingli.yuan@gmail.com}
+}
+
+% Uncomment to remove the date
+%\date{}
+
+% Uncomment to override  the `A preprint' in the header
+\renewcommand{\headeright}{A draft}
+\renewcommand{\undertitle}{A draft}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This paper explores the geometric structure of arithmetic expressions and establishes a correspondence with thermodynamic systems.
+\end{abstract}
+
+\keywords{arithmetic expressions, hyperbolic geometry, thermodynamics, contact structure}
+
+\setcounter{tocdepth}{2}
+\tableofcontents
+
+\section{Arithmetic expressions space}\label{sec:aes}
+
+Arithmetic expressions space (AES) is a geometric structure that encapsulates the properties and operations of arithmetic expressions.
+It serves as a foundational framework for understanding the relationships between different expressions and their evaluations,
+each point in AES represents a unique arithmetic expression, and their evaluations are mapped to geometric flows.
+In the central part of AES, we define a differential equation that allows us to explore the infinitesimal changes in expressions and their evaluations.
+
+
+\subsection{Derivation of the flow equation}\label{sec:equation}
+
+Consider an infinitesimal generating process on a Riemannian surface $M$ using two generators:
+one for an additional action $\mu$ and the other for a multiplicative action $e^\lambda$.
+These two generators are perpendicular.
+This generation process produces an assignment $A: M \to R$ over the surface.
+
+For any point with an assignment $a_0$, if we consider a movement of distance $\epsilon$ in a direction with angle $\theta$
+over a time period of $\delta$, we can establish the following:
+
+\[
+    a_{\delta} = (a_0 + \mu \epsilon \cos \theta)e^{\lambda \epsilon \sin \theta}
+\]
+
+or
+
+\[
+    a_{\delta} = a_0 e^{\lambda \epsilon \sin \theta} + \mu \epsilon \cos \theta
+\]
+
+Both formula can be simplified to the same result:
+
+\[
+    a_{\delta} = a_0 + \epsilon (a_0 \lambda \sin \theta + \mu \cos \theta)
+\]
+
+Then, we have the following equation:
+
+\[
+    \frac{1}{\delta} (a_{\delta} - a_0) = \frac{\epsilon}{\delta} (\mu \cos \theta + x_0 \lambda \sin \theta)
+\]
+
+When both $\delta$ and $\epsilon$ are towards zero, we get $da / dt$, and hence
+
+\[
+    \frac{da}{dt} = u (\mu \cos \theta + a \lambda \sin \theta)
+\]
+
+Or, we can change it to another form
+
+\begin{equation}
+    \frac{da}{ds} = \mu \cos \theta + a \lambda \sin \theta\label{eq:flow}
+\end{equation}
+
+We name this equation~\eqref{eq:flow} as the flow equation.
+
+The left side of this equation is governed by the distance structure, while the right side is governed by the angle structure.
+So that the isometrics of the surface keep the flow equation~\eqref{eq:flow}.
+
+We can also get a direct formal solution of the flow equation~\eqref{eq:flow}(details in Appendix~\ref{sec:directformalsolution}).
+
+\begin{equation}
+   a = (a_0 + \frac{\mu}{\lambda} \cot \theta) e^{\lambda s \sin \theta} - \frac{\mu}{\lambda} \cot \theta\label{eq:solution}
+\end{equation}
+
+\subsection{Discrete generating}\label{subsec:discrete-generating}
+
+In section~\ref{subsec:generated-structure}, we have discussed a discrete generating process.
+Since flow equation governs an infinitesimal generating process,
+we will show the above discrete generating process can be emerged from the solution of the flow equation~\eqref{eq:solution} naturally.
+We expand the formula by the Taylor series:
+
+\[
+    a =  a_0 e^{\lambda s \sin \theta} + \frac{\mu}{\lambda} [1 + \lambda s \sin \theta + \frac{1}{2!} (\lambda s \sin \theta)^2  + \frac{1}{3!} (\lambda s \sin \theta)^3 + \cdots - 1] \cot \theta
+\]
+
+Change the formula slightly:
+\[
+    a = a_0 e^{\lambda s \sin \theta} + \mu s \cos \theta + \frac{\mu}{\lambda} \sin \theta \cos \theta (\frac{\lambda^2s^2}{2!} + \frac{\lambda^3s^3}{3!} \sin \theta + \frac{\lambda^4s^4}{4!} \sin^2 \theta + \cdots)
+\]
+
+By the formula of double angle, we have
+\[
+    a = a_0 e^{\lambda s \sin \theta} + \mu s \cos \theta + \frac{\mu}{2\lambda} \sin 2\theta (\frac{\lambda^2s^2}{2!} + \frac{\lambda^3s^3}{3!} \sin \theta + \frac{\lambda^4s^4}{4!} \sin^2 \theta + \cdots)
+\]
+
+We denote
+\begin{equation}
+    \Psi(s) = \frac{1}{2!} + \frac{\lambda s}{3!} \sin \theta + \frac{\lambda^2 s^2}{4!} \sin^2 \theta + \cdots
+\end{equation}
+
+Then we have
+\begin{equation}
+    a = a_0 e^{\lambda s \sin \theta} + \mu s \cos \theta + \frac{\mu\lambda}{2} s^2 \Psi(s) \sin 2\theta
+\end{equation}
+
+This formula gives the discrete generating process, when $\theta = \frac{k \pi}{2}, k = 0, 1, 2, 3\cdots, s = 0, 1, 2, 3\cdots$, we have
+
+\begin{equation}
+    a = a_0 e^{\lambda s \sin \theta} + \mu s \cos \theta
+\end{equation}
+
+Especially, we have the following four cases:
+\begin{itemize}
+\item $\theta = 0$: $a_s = a_0 + \mu s$
+\item $\theta = \frac{\pi}{2}$: $a_s = a_0 e^{\lambda s}$
+\item $\theta = \pi$: $a_s = a_0 - \mu s$
+\item $\theta = \frac{3 \pi}{2}$: $a_s = a_0 e^{- \lambda s} $
+\end{itemize}
+
+This result is straightforward, but it demonstrates that the infinitesimal generating process is consistent with the discrete generating process.
+And this expands our toolset, enabling us to explore the interplay between discrete and infinitesimal generating processes.
+
+\subsection{The contour-gradient form of flow equation}\label{subsec:the-contour-gradient-form}
+
+It is easy to derive the contour equation in the local coordinate
+
+\begin{equation}
+    \mu \cos \theta_c + a \lambda \sin \theta_c = 0\label{eq:contour}
+\end{equation}
+
+then we have
+
+\begin{equation}
+    \theta_c = - \arctan \frac{\mu}{a \lambda}\label{eq:contourangle}
+\end{equation}
+
+the contour and the gradient are perpendicular to each other
+
+\begin{equation}
+    \theta_g = \pm \frac{\pi}{2} - \arctan \frac{\mu}{a \lambda}\label{eq:gradientangle}
+\end{equation}
+
+then along $\theta_g$ we have
+
+\begin{equation}
+    \frac{da}{ds} = \mu \cos (\pm \frac{\pi}{2} - \arctan \frac{\mu}{a \lambda}) + a \lambda \sin (\pm \frac{\pi}{2} - \arctan \frac{\mu}{a \lambda})
+    \label{eq:alonggradient}
+\end{equation}
+
+\begin{equation}
+    \frac{da}{ds} = \pm \sqrt{\mu^2 + \lambda^2 a^2}\label{eq:grad}
+\end{equation}
+
+By introducing the right-hand rotation angle $\phi$ along the gradient direction, we can establish a local polar coordinate system based on the gradient and contour lines.
+Then the growth rate of $a$ along the angle $\phi$ is
+
+\begin{equation}
+    \frac{da}{ds} = \mu \cos (\frac{\pi}{2} - \arctan \frac{\mu}{a \lambda} + \phi) + a \lambda \sin (\frac{\pi}{2} - \arctan \frac{\mu}{a \lambda} + \phi)
+    \label{eq:fourfold}
+\end{equation}
+
+And the simplified equation is
+
+\begin{equation}
+    \frac{da}{ds} = \sqrt {\mu^2 + a^2 \lambda^2} \cos \phi\label{eq:contourgradient}
+\end{equation}
+
+or
+
+\begin{equation}
+    \frac{da_{\phi}}{ds_{\phi}} = \sqrt {\mu^2 + a^2 \lambda^2} \cos \phi\label{eq:contourgradient2}
+\end{equation}
+
+if we want to emphasize the path is along the angle $\phi$.
+
+The equation~\eqref{eq:contourgradient} is the flow equation in the contour-gradient coordinate system.
+
+Equation~\eqref{eq:contourgradient} is solvable, and we get the relation between $a$ and $s$:
+
+\begin{equation}\label{eq:rel_a_s}
+    \tanh(\lambda s \cos \phi - c) = \frac{\lambda a}{\sqrt{\mu^2 + \lambda^2 a^2}}
+\end{equation}
+
+we can further simplify the equation to
+
+\begin{equation}
+  a = \pm \frac{\mu}{\lambda} \sinh(\lambda s \cos \phi - c)\label{eq:gradevo}
+\end{equation}
+
+Under the initial condition $a = a_0$ when $s = 0$, we can get the following equation:
+
+\begin{equation}
+    a = \frac{\mu}{\lambda} \sinh(\lambda s \cos \phi + \arcsinh \frac{a_0 \lambda}{\mu})\label{eq:gradevo2}
+\end{equation}
+
+or
+
+\begin{equation}
+    a = - \frac{\mu}{\lambda} \sinh(\lambda s \cos \phi - \arcsinh \frac{a_0 \lambda}{\mu})\label{eq:gradevo3}
+\end{equation}
+
+In this coordinate system, the additional line and the multiplicative line are:
+
+\begin{equation}
+    \phi = \arccos \frac{\mu}{\sqrt {\mu^2 + a^2 \lambda^2}} \label{eq:additionalline}
+\end{equation}
+
+\begin{equation}
+    \phi = \arcsin \frac{\mu}{\sqrt {\mu^2 + a^2 \lambda^2}}\label {eq:mulitiplcativeline}
+\end{equation}
+
+\subsection{Arithmetic coordinate and area formula}\label{subsec:descartes-coordinate}
+We begin our exploration by examining the flow equation~\eqref{eq:flow} within the framework of a local polar coordinate system:
+
+\begin{equation}
+    \frac{da}{ds} = \mu \cos \theta + a \lambda \sin \theta
+\end{equation}
+
+In an effort to re-contextualize this equation, we set $du = \cos \theta ds$ and $dv = \sin \theta ds$,
+where $du$ and $dv$ are perpendicular infinitesimal movements.
+We can use these movements to construct a local Descartes coordinate system, and the first fundamental form of this system is:
+
+\begin{equation}
+    ds^2 = A^2 du^2 + B^2 dv^2
+\end{equation}
+
+Thereby this enables us to express the flow equation in a different light:
+
+\begin{equation}
+    da = \mu du + a \lambda dv
+\end{equation}
+
+Our attention now turns to the concept of arithmetic torsion, particularly at an infinitesimal level.
+Delving into the interplay between two infinitesimal generating processes, we observe that:
+
+\begin{equation}
+    d\tau = (a_0 + \mu du) e^{\lambda dv} - (a_0 e^{\lambda dv} + \mu du)
+\end{equation}
+
+From this relationship, we deduce:
+
+\begin{equation}
+    d\tau = \mu du (e^{\lambda dv} - 1)
+\end{equation}
+
+This leads us to an area formula, capturing the essence of this interaction:
+
+\begin{equation}
+    d\tau = \mu \lambda du dv \label{eq:area_formula}
+\end{equation}
+
+and because the area element have a form
+
+\begin{equation}
+    dS = |AB| du dv \label{eq:area_element}
+\end{equation}
+
+Then we have
+\begin{equation}
+    \frac{d\tau}{\mu \lambda} = \frac{dS}{|AB|}\label{eq:area_formula2}
+\end{equation}
+
+This formula is compelling as it establishes a link between area elements and arithmetic torsion.
+Such formulations find parallels in the realms of classic analysis and differential geometry.
+For instance, they resonate with concepts akin to Stokes' theorem or the Gauss-Bonnet theorem.
+We intend to expand upon this formula in the ensuing section\ref{sec:curvature},
+aiming to forge a connection with curvature and delve into the intricacies of the Gauss-Bonnet theorem.
+
+It's noteworthy to emphasize the distinctiveness of the local Descartes coordinate system.
+This system, by integrating the assignment, lays the foundation for a theoretical framework.
+We refer to this as the \emph{arithmetic coordinate system}, given its unique properties and alignment with arithmetic principles.
+
+\subsection{The coordinate-free form of flow equation}\label{subsec:coordinate-free}
+
+From the contour-gradient form of the flow equation~\eqref{eq:contourgradient}, we can derive a coordinate-free form of the flow equation.
+Let's consider the direction of \(\phi = 0\) in the contour-gradient coordinate system, and we have
+
+\[
+    \frac{da}{ds}|_{\phi = 0} = \sqrt{\mu^2 + a^2 \lambda^2} \cos 0
+\]
+
+Notice the gradient of \(a\) is not dependent on the coordinate system, and we have the coordinate-free form of the flow equation:
+
+\begin{equation}\label{eq:coordinate-free}
+||\nabla a|| = \sqrt{\mu^2 + a^2 \lambda^2}
+\end{equation}
+
+It should be noted that the coordinate-free form of the flow equation~\eqref{eq:coordinate-free} is an Eikonal equation,
+and can be viewed as a special Hamilton–Jacobi equation
+\[
+H(x, a, \nabla a) = 0
+\]
+
+where the Hamiltonian is
+
+\begin{equation}\label{eq:hamiltonian}
+    H(x, a, p) = ||p|| - \sqrt{\mu^2 + a^2 \lambda^2}
+\end{equation}
+
+\subsection{Propagation and Rectification}\label{subsec:propagation}
+
+While Equation \eqref{eq:contourgradient} can be solved directly, its structure suggests a simplifying change of variables that "rectifies" the flow. Let us define a new variable $f$ by
+\[
+f = \operatorname{arcsinh}\left(\frac{\lambda a}{\mu}\right).
+\]
+This choice is motivated by the desire to find a variable whose gradient has a constant magnitude. Using the chain rule,
+\[
+\nabla f = \frac{df}{da}\nabla a = \frac{\lambda/\mu}{\sqrt{1+(\lambda a/\mu)^2}}\nabla a = \frac{\lambda}{\sqrt{\mu^2+\lambda^2 a^2}}\nabla a.
+\]
+Taking the norm of both sides and using the Eikonal form \eqref{eq:coordinate-free}, we find
+\[
+\|\nabla f\|=\frac{\lambda}{\sqrt{\mu^2+\lambda^2 a^2}}\|\nabla a\|=\lambda.
+\]
+The rectified variable $f$ has a gradient of constant magnitude. Consequently, its rate of change along a direction at an angle $\phi$ to the gradient is simply
+\[
+\frac{df}{ds}=\langle \nabla f, T \rangle = \|\nabla f\|\cos\phi = \lambda\cos\phi.
+\]
+This linearized equation is trivial to integrate: $f(s) = f_0 + \lambda s \cos\phi$. Substituting back for $a$ gives $a = (\mu/\lambda)\sinh(f)$, which yields the general solution for propagation from an initial value $f_0$:
+\begin{equation}\label{eq:gradevo4}
+a=\frac{\mu}{\lambda}\sinh\!\Big(\lambda s\cos\phi+\operatorname{arcsinh}\frac{\lambda a_0}{\mu}\Big).
+\end{equation}
+In the case of propagation along the gradient ($\phi=0$) from a zero-value contour ($a_0=0$), this simplifies to
+\[
+a=\pm\frac{\mu}{\lambda}\sinh(\lambda s).
+\]
+This form is reminiscent of the circumference of a hyperbolic circle of radius $s$, $C \propto \sinh(\sqrt{-k}s)$, suggesting that $a$ can be interpreted as a propagating wavefront in a space of constant negative curvature.
+
+\section{A contact structure}\label{sec:contact_structure}
+In this section, we develop another differential geometry framework related with AES, focusing on its contact structure and the associated differential calculus.
+This framework provides a robust mathematical foundation for expression derivatives and their geometric interpretations.
+
+\subsection{Core definitions and the contact structure}\label{subsec:core_definitions}
+
+We begin by establishing our geometric space. Consider a 3-dimensional manifold with coordinates $(u,v,a) \in \mathbb{R}^3$. The geometry is built upon two fundamental 1-forms, defined using constant real parameters $\mu$ and $\lambda$:
+\begin{equation}\label{eq:contact_forms_def}
+\omega := \mu\,du + \lambda a\,dv, \qquad \alpha := da - \omega.
+\end{equation}
+The 1-form $\alpha$ is central to our construction. Its primary role is to define a ``horizontal'' plane at each point, known as the contact distribution. To see how it works, let's consider its action on an arbitrary vector field $X = x_u \partial_u + x_v \partial_v + x_a \partial_a$. Recalling that $da(X) = x_a$, $du(X) = x_u$, and $dv(X) = x_v$, the action is given by:
+\[
+\alpha(X) = da(X) - \mu\,du(X) - \lambda a\,dv(X) = x_a - \mu x_u - \lambda a x_v.
+\]
+The set of all vectors $X$ for which $\alpha(X)=0$ constitutes this horizontal plane.
+
+Throughout this work, we use two types of differentials in parallel: (i) the standard de Rham exterior derivative $d$, which is always nilpotent ($d^2=0$); and (ii) the \textbf{expression differential} $\delta$, which is axiomatically defined in Section~\ref{ch:differential_calculus}.
+
+\paragraph{The contact property.}
+A key property of $\alpha$ is that it defines a contact structure on our 3D space. This is verified by checking if the 3-form $\alpha \wedge d\alpha$ is a volume form (i.e., non-zero everywhere). First, we compute the exterior derivative of $\omega$:
+\[
+d\omega = d(\mu\,du + \lambda a\,dv) = \lambda\,da \wedge dv.
+\]
+Then, the exterior derivative of $\alpha$ is simply $d\alpha = d(da - \omega) = -d\omega = -\lambda\,da \wedge dv$. Now, we can compute the wedge product:
+\begin{align*}
+\alpha \wedge d\alpha &= (da - \omega) \wedge (-\lambda\,da \wedge dv) \\
+&= -da \wedge (\lambda\,da \wedge dv) + \omega \wedge (\lambda\,da \wedge dv) \\
+&= 0 + (\mu\,du + \lambda a\,dv) \wedge (\lambda\,da \wedge dv) \\
+&= \mu\lambda\,du \wedge da \wedge dv + \lambda^2 a\,\underbrace{dv \wedge da \wedge dv}_{=0} \\
+&= \mu\lambda\,du \wedge da \wedge dv.
+\end{align*}
+Provided $\mu\lambda \neq 0$, this is a volume form, confirming that $\alpha$ is a \textbf{contact form}.
+
+\paragraph{Normal form, Reeb field, and contact distribution.}
+By introducing natural units $\tilde{u} = \mu u$ and $\tilde{v} = \lambda v$, the form $\alpha$ is reduced to its canonical form $\alpha_0 = da - d\tilde{u} - a\,d\tilde{v}$, which facilitates comparison with standard literature.
+
+The Reeb vector field $R$, defined by $i_R d\alpha = 0$ and $\alpha(R) = 1$, is $R = -(1/\mu)\partial_u$. The contact distribution $\mathcal{H}$, as introduced earlier, is formally the kernel of $\alpha$:
+\[
+\mathcal{H} := \ker\alpha = \{X \in TM : \alpha(X) = 0\}.
+\]
+Viewing the tangent bundle as a composition of the $(u,v)$-base and the $a$-fiber, the form $\alpha = da - \omega$ intrinsically links the ``vertical'' change $da$ to the ``horizontal'' displacement defined by $\omega$.
+
+\subsection{The geometry on the contact distribution \texorpdfstring{$\ker\alpha$}{ker(alpha)}} % Revised title for 6.2
+\label{subsec:geometry_on_ker_alpha}
+
+We now define two special vector fields that form a basis for the horizontal plane $\mathcal{H}$ at every point. These are the horizontal lifts of the base coordinate vectors, which we term the \textbf{expression directional derivatives}:
+\begin{equation}\label{eq:directional_derivatives}
+D_u := \partial_u + \mu\,\partial_a, \qquad D_v := \partial_v + \lambda a\,\partial_a.
+\end{equation}
+These fields are constructed specifically to be horizontal, a fact we can verify directly. For $D_u$, its coordinate components are $(x_u, x_v, x_a) = (1, 0, \mu)$. Applying the formula for $\alpha(X)$:
+\[
+\alpha(D_u) = x_a - \mu x_u - \lambda a x_v = \mu - \mu(1) - \lambda a(0) = 0.
+\]
+For $D_v$, its components are $(x_u, x_v, x_a) = (0, 1, \lambda a)$. Applying $\alpha$:
+\[
+\alpha(D_v) = x_a - \mu x_u - \lambda a x_v = \lambda a - \mu(0) - \lambda a(1) = 0.
+\]
+Since both $D_u$ and $D_v$ are annihilated by $\alpha$, and they are clearly linearly independent, they form a basis for the 2-dimensional contact distribution:
+\[
+\ker\alpha = \text{span}\{D_u, D_v\}.
+\]
+
+For any smooth scalar field $F(u,v,a)$, we define its expression differential $\delta F$ and the directional derivative $D_\theta$ as:
+\begin{equation}\label{eq:3}\tag{3}
+\delta F := (D_uF)\,du + (D_vF)\,dv, \qquad D_\theta := \cos\theta\,D_u + \sin\theta\,D_v.
+\end{equation}
+This construction effectively reduces the geometry from the three-dimensional space $(u,v,a)$ to the two-dimensional contact distribution $\mathcal{H}$.
+
+\paragraph{Structural relation between d and $\delta$.}
+For any scalar field $F$, the two differentials are related by a fundamental identity:
+\[
+\boxed{ \delta F = dF - (\partial_a F)\,\alpha }
+\]
+This identity can be interpreted as projecting $dF$ onto the horizontal distribution $\mathcal{H}$ by subtracting its vertical component along $\alpha$. Expanding this definition yields:
+\[
+\delta F = (F_u + \mu F_a)\,du + (F_v + \lambda a F_a)\,dv,
+\]
+which is consistent with Eq.~\eqref{eq:15}. In particular, we recover $\delta a = \omega$, $\delta u = du$, and $\delta v = dv$.
+
+\subsection{Legendrian flow and rectification}
+
+A curve $\gamma(s) = (u(s), v(s), a(s))$ is \textbf{Legendrian} if its tangent vector lies in the contact distribution, i.e., $\dot\gamma(s) \in \ker\alpha$. For such a curve, the evolution of $a$ is governed by the \textbf{flow equation}:
+\begin{equation}\label{eq:4}\tag{4}
+\frac{da}{ds} = D_\theta a = \mu\cos\theta + \lambda a\sin\theta,
+\end{equation}
+where $\theta$ parameterizes the angle of the tangent vector in the basis $\{D_u,D_v\}$. With respect to a given metric on the base manifold, this flow equation can be written in its Eikonal form:
+\begin{equation}\label{eq:5}\tag{5}
+\|\nabla a\| = \sqrt{\mu^2 + \lambda^2 a^2}.
+\end{equation}
+We introduce a \textbf{rectifying variable} $y$:
+\begin{equation}\label{eq:6}\tag{6}
+y = \arcsin\left(\frac{\lambda a}{\mu}\right) \quad\Rightarrow\quad \|\nabla y\| = \lambda.
+\end{equation}
+This rectification transforms the non-linear velocity field for $a$ into a constant-speed flow for $y$, which is advantageous for geometric constructions and enhances numerical stability.
+
+\paragraph{Non-commutativity and curvature.}
+The commutator of the horizontal vector fields yields a purely vertical vector, reflecting the "curvature" of the contact distribution. This phenomenon can be described as a "vertical return":
+\begin{equation}\label{eq:7}\tag{7}
+[D_u,D_v] = \mu\lambda\,\partial_a,\qquad \delta^2F = \mu\lambda(\partial_a F)\,du\wedge dv,\qquad \delta^2 a = \mu\lambda\,du\wedge dv.
+\end{equation}
+The circulation-area formula provides a tool for quantifying mesh singularities and global topological constraints:
+\begin{equation}\label{eq:8}\tag{8}
+\oint_{\partial\Sigma}\omega = \iint_\Sigma d\omega = \mu\lambda\iint_\Sigma du\wedge dv.
+\end{equation}
+
+\section{Thermodynamic correspondence}\label{sec:thermodynamic}
+
+This section places the arithmetic contact form of Section~\ref{subsec:core_definitions} into direct correspondence with the standard contact geometry of equilibrium thermodynamics.
+
+\subsection{Dictionary and a contactomorphism}\label{subsec:dictionary}
+
+Let the thermodynamic phase space be coordinatized by $(S,V;U,T,p)$ and equipped with the standard 1-form
+\begin{equation}\label{eq:td1form}
+  \alpha_{\mathrm{TD}} := dU + p\,dV - T\,dS .
+\end{equation}
+(Other sign conventions are common; \eqref{eq:td1form} matches the first law $dU=T\,dS-p\,dV$ along equilibria.)
+
+\begin{proposition}[AEG--Thermo contact correspondence]\label{prop:contactomorphism}
+Consider the map
+\begin{equation}\label{eq:dictionary}
+  \Phi:\ (u,v,a)\ \longmapsto\ (S,V;U,T,p)=(v,\,-u;\,a,\,\lambda a,\,\mu).
+\end{equation}
+Then the pullback of the thermodynamic 1-form coincides with the AEG contact form \eqref{eq:contact_forms_def}:
+\[
+  \Phi^*(\alpha_{\mathrm{TD}})=d a + \mu\,d(-u) - (\lambda a)\,dv
+  = d a - \mu\,du - \lambda a\,dv \;=\; \alpha .
+\]
+Hence $\Phi$ is a contactomorphism between the AEG contact manifold $(\mathbb{R}^3,\alpha)$ and the thermodynamic contact manifold $(\mathbb{R}^5,\alpha_{\mathrm{TD}})$ restricted to the image of~$\Phi$.
+\end{proposition}
+
+\begin{remark}[Conformal Massieu representation]\label{rem:massieu}
+Introduce a dimensionless energy potential $Y:=\ln(a/E_\ast)$ using a fixed energy scale $E_\ast>0$, and define
+\[
+  T^\flat:=\lambda,\qquad p^\flat:=\frac{\mu}{a}.
+\]
+Then
+\begin{equation}\label{eq:conformal_massieu}
+  \alpha \;=\; d a - \mu\,du - \lambda a\,dv
+          \;=\; a\Big(dY + p^\flat\,dV - T^\flat\,dS\Big),
+\end{equation}
+i.e., $\alpha$ is conformally equivalent (by the nowhere-vanishing factor $a$) to the Massieu-type form
+$\alpha^\flat := dY + p^\flat dV - T^\flat dS$. Therefore the induced contact structure is unchanged, while multiplicative information of $a$ is linearized into $Y$.
+\end{remark}
+
+\subsection{Equilibria (Legendrian submanifolds) and Maxwell relations}\label{subsec:equilibria}
+
+An \emph{equilibrium} (Legendrian) submanifold $L$ is characterized by the constraint $\alpha|_L=0$. Under the dictionary \eqref{eq:dictionary}, this condition is equivalent to the first law:
+\begin{equation}\label{eq:firstlaw}
+  \alpha_{\mathrm{TD}}|_L=0\quad\Longleftrightarrow\quad
+  dU = T\,dS - p\,dV
+  \quad\Longleftrightarrow\quad
+  d a = \mu\,du + \lambda a\,dv .
+\end{equation}
+Consequently, along $L$ one may take $U$ as a fundamental equation $U=U(S,V)$ and identify the intensities as
+\begin{equation}\label{eq:intensities}
+  T=\Bigl(\frac{\partial U}{\partial S}\Bigr)_{V},\qquad
+  p=-\Bigl(\frac{\partial U}{\partial V}\Bigr)_{S}.
+\end{equation}
+Translating back to AEG variables $(u,v,a)$ via $(S,V)=(v,-u)$ yields
+\begin{equation}\label{eq:intensities-aeg}
+  T=\lambda a=\Bigl(\frac{\partial a}{\partial v}\Bigr)_{u},\qquad
+  p=\mu=\Bigl(\frac{\partial a}{\partial u}\Bigr)_{v}.
+\end{equation}
+
+\begin{proposition}[Maxwell relation in AEG variables]\label{prop:maxwell}
+On an equilibrium manifold $L$, the classical Maxwell relation
+\begin{equation}\label{eq:maxwell-classic}
+  \Bigl(\frac{\partial T}{\partial V}\Bigr)_{S}
+  \;=\; -\,\Bigl(\frac{\partial p}{\partial S}\Bigr)_{V}
+\end{equation}
+is equivalent to
+\begin{equation}\label{eq:maxwell-aeg}
+  \frac{\partial(\lambda a)}{\partial u}\Big|_{v}
+  \;=\;
+  \frac{\partial \mu}{\partial v}\Big|_{u}.
+\end{equation}
+\emph{Proof.} Apply the change of variables $(S,V)=(v,-u)$ in \eqref{eq:maxwell-classic} and use \eqref{eq:intensities-aeg}.
+\qed
+\end{proposition}
+
+\begin{remark}[Compatibility of the fundamental equation]\label{rem:compat}
+Suppose one prescribes functions $(\lambda,\mu)$ on the state space and seeks $U(S,V)$ solving
+\[
+\partial_S U=\lambda(S,V)\,U,\qquad \partial_V U=-\mu(S,V).
+\]
+A necessary and sufficient integrability condition is precisely the Maxwell compatibility
+$\partial_V(\lambda U) = -\partial_S\mu$, which is equivalent to \eqref{eq:maxwell-classic}. In particular, the choice of constant \(\lambda\) and constant \(\mu\neq 0\) is \emph{not} compatible with a nontrivial two-variable fundamental equation $U(S,V)$; at least one of them must vary with state.
+\end{remark}
+
+\subsection{Thermodynamic potentials and Legendre transforms}\label{subsec:potentials}
+
+On $L$ the usual potentials arise by Legendre transforms of $U(S,V)$:
+\begin{align}
+F(T,V) &:= U-TS,          & dF &= -S\,dT - p\,dV, \label{eq:helmholtz}\\
+H(S,p) &:= U+pV,          & dH &= \ \ T\,dS + V\,dp, \label{eq:enthalpy}\\
+G(T,p) &:= U+pV-TS,       & dG &= -S\,dT + V\,dp. \label{eq:gibbs}
+\end{align}
+In the Massieu representation of Remark~\ref{rem:massieu}, define the \emph{Massieu (free-entropy) potential}
+\begin{equation}\label{eq:massieu}
+  \Psi(T^\flat,p^\flat) := Y - T^\flat S - p^\flat V,
+  \qquad d\Psi = -S\,dT^\flat - V\,dp^\flat ,
+\end{equation}
+which is contact-equivalent to \eqref{eq:helmholtz}--\eqref{eq:gibbs} under the conformal factor $a$ in \eqref{eq:conformal_massieu}. This form is convenient for information-geometric and convex-analytic arguments because $Y=\ln(a/E_\ast)$ is dimensionless and multiplicative effects become additive.
+
+\subsection{Response functions and convexity}\label{subsec:response}
+
+Assuming sufficient smoothness of the fundamental equation $U(S,V)$, the standard response functions are
+\[
+  C_V := \Bigl(\frac{\partial U}{\partial T}\Bigr)_{V},\qquad
+  \kappa_T := -\frac{1}{V}\Bigl(\frac{\partial V}{\partial p}\Bigr)_{T},\qquad
+  \alpha_p := \frac{1}{V}\Bigl(\frac{\partial V}{\partial T}\Bigr)_{p}.
+\]
+Stability in the energy representation is encoded by convexity of $U$ in $(S,V)$:
+\[
+  \frac{\partial^2 U}{\partial S^2}\ge 0,\qquad
+  \det\!\begin{pmatrix}
+    U_{SS} & U_{SV}\\ U_{VS} & U_{VV}
+  \end{pmatrix}\ge 0,
+\]
+with the equalities characterizing marginal stability. Equivalently, in the Massieu representation one works with the convexity of $-\,\Psi$ in $(T^\flat,p^\flat)$.
+In AEG variables, these conditions pull back via \eqref{eq:dictionary} and \eqref{eq:intensities-aeg}, and can be expressed in terms of the Jacobian and Hessians of $a(u,v)$; for instance
+\[
+  U_{SS}=\Bigl(\frac{\partial T}{\partial S}\Bigr)_V
+  = \Bigl(\frac{\partial (\lambda a)}{\partial v}\Bigr)_{u},
+  \qquad
+  -U_{VV}=\Bigl(\frac{\partial p}{\partial V}\Bigr)_S
+  = \Bigl(\frac{\partial \mu}{\partial u}\Bigr)_{v}.
+\]
+
+\subsection{Units and normalization}\label{subsec:units}
+
+Under the SI assignment $[U]=[E]$, $[S]=[E][\Theta]^{-1}$, $[V]=[L]^3$, the dictionary \eqref{eq:dictionary} gives
+\[
+  [p]=[E][V]^{-1},\quad [T]=[\Theta],\quad [\lambda]=[S]^{-1},\quad [\mu]=[p],
+\]
+and each term in $\alpha_{\mathrm{TD}}$ and $\alpha$ has dimension $[E]$. In the Massieu representation, $Y$ and the intensive pair $(T^\flat,p^\flat)$ are dimensionless provided one fixes reference scales $E_\ast$ and $S_\ast$ (e.g.\ $S_\ast=k_B$) and writes $\lambda=T^\flat/S_\ast$, $\mu=p^\flat\,E_\ast$.
+
+\subsection{A solvable family (illustration)}\label{subsec:example}
+
+Let $\lambda=\lambda(S)$ be a given smooth function and set
+\[
+  U(S,V)=C(V)\,\exp\!\Big(\textstyle\int^S \lambda(\sigma)\,d\sigma\Big).
+\]
+Then $T=\partial_S U=\lambda(S)\,U$, and $p=-\partial_V U=-C'(V)\exp(\int^S\lambda)$, so the Maxwell compatibility is automatic. The corresponding AEG data along equilibria are
+\[
+  a=U,\qquad \mu=p=-C'(V)\,e^{\int^S\lambda},\qquad \lambda=\lambda(S),\qquad
+  \text{with }(S,V)=(v,-u).
+\]
+This toy family exhibits the two canonical AEG modes (multiplicative in $v=S$ and additive in $u=-V$) while remaining globally integrable. Non-degeneracy of response functions requires $C''(V)\neq 0$ and $\lambda'(S)\neq 0$.
+
+\medskip
+
+In summary, the arithmetic contact form $\alpha=da-\mu\,du-\lambda a\,dv$ is not merely analogous to thermodynamic geometry: via the dictionary \eqref{eq:dictionary} it \emph{is} the thermodynamic contact form \eqref{eq:td1form}. Maxwell relations, Legendre transforms, stability/metric structures, and dimension bookkeeping all transfer verbatim; the Massieu (logarithmic) representation \eqref{eq:conformal_massieu} provides a conformally equivalent, dimensionless chart that linearizes multiplicative phenomena.
+
+\end{document}
