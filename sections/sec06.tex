@@ -5,7 +5,7 @@ This framework provides a robust mathematical foundation for expression derivati
 
 \subsection{Core definitions and the contact structure}\label{subsec:core_definitions}
 
-We begin by establishing our geometric space. Consider a 3-dimensional manifold with coordinates $(u,v) \in \mathbb{R}^2$ and a value field $a \in \mathbb{R}$. The geometry is built upon two fundamental 1-forms, defined using constant real parameters $\mu$ and $\lambda$:
+We begin by establishing our geometric space. Consider a 3-dimensional manifold with coordinates $(u,v,a) \in \mathbb{R}^3$. The geometry is built upon two fundamental 1-forms, defined using constant real parameters $\mu$ and $\lambda$:
 \begin{equation}\label{eq:contact_forms_def}
 \omega := \mu\,du + \lambda a\,dv, \qquad \alpha := da - \omega.
 \end{equation}
@@ -17,7 +17,7 @@ The set of all vectors $X$ for which $\alpha(X)=0$ constitutes this horizontal p
 
 Throughout this work, we use two types of differentials in parallel: (i) the standard de Rham exterior derivative $d$, which is always nilpotent ($d^2=0$); and (ii) the \textbf{expression differential} $\delta$, which is axiomatically defined in Section~\ref{ch:differential_calculus}.
 
-\paragraph{The Contact Property.}
+\paragraph{The contact property.}
 A key property of $\alpha$ is that it defines a contact structure on our 3D space. This is verified by checking if the 3-form $\alpha \wedge d\alpha$ is a volume form (i.e., non-zero everywhere). First, we compute the exterior derivative of $\omega$:
 \[
 d\omega = d(\mu\,du + \lambda a\,dv) = \lambda\,da \wedge dv.
@@ -32,7 +32,7 @@ Then, the exterior derivative of $\alpha$ is simply $d\alpha = d(da - \omega) = 
 \end{align*}
 Provided $\mu\lambda \neq 0$, this is a volume form, confirming that $\alpha$ is a \textbf{contact form}.
 
-\paragraph{Normal Form, Reeb Field, and Contact Distribution.}
+\paragraph{Normal form, Reeb field, and contact distribution.}
 By introducing natural units $\tilde{u} = \mu u$ and $\tilde{v} = \lambda v$, the form $\alpha$ is reduced to its canonical form $\alpha_0 = da - d\tilde{u} - a\,d\tilde{v}$, which facilitates comparison with standard literature.
 
 The Reeb vector field $R$, defined by $i_R d\alpha = 0$ and $\alpha(R) = 1$, is $R = -(1/\mu)\partial_u$. The contact distribution $\mathcal{H}$, as introduced earlier, is formally the kernel of $\alpha$:
@@ -41,7 +41,7 @@ The Reeb vector field $R$, defined by $i_R d\alpha = 0$ and $\alpha(R) = 1$, is 
 \]
 Viewing the tangent bundle as a composition of the $(u,v)$-base and the $a$-fiber, the form $\alpha = da - \omega$ intrinsically links the ``vertical'' change $da$ to the ``horizontal'' displacement defined by $\omega$.
 
-\subsection{The Geometry on the Contact Distribution \texorpdfstring{$\ker\alpha$}{ker(alpha)}} % Revised title for 6.2
+\subsection{The geometry on the contact distribution \texorpdfstring{$\ker\alpha$}{ker(alpha)}} % Revised title for 6.2
 \label{subsec:geometry_on_ker_alpha}
 
 We now define two special vector fields that form a basis for the horizontal plane $\mathcal{H}$ at every point. These are the horizontal lifts of the base coordinate vectors, which we term the \textbf{expression directional derivatives}:
@@ -67,7 +67,7 @@ For any smooth scalar field $F(u,v,a)$, we define its expression differential $\
 \end{equation}
 This construction effectively reduces the geometry from the three-dimensional space $(u,v,a)$ to the two-dimensional contact distribution $\mathcal{H}$.
 
-\paragraph{Structural Relation between d and $\delta$.}
+\paragraph{Structural relation between d and $\delta$.}
 For any scalar field $F$, the two differentials are related by a fundamental identity:
 \[
 \boxed{ \delta F = dF - (\partial_a F)\,\alpha }
@@ -78,7 +78,7 @@ This identity can be interpreted as projecting $dF$ onto the horizontal distribu
 \]
 which is consistent with Eq.~\eqref{eq:15}. In particular, we recover $\delta a = \omega$, $\delta u = du$, and $\delta v = dv$.
 
-\subsection{Legendrian Flow and Rectification}
+\subsection{Legendrian flow and rectification}
 
 A curve $\gamma(s) = (u(s), v(s), a(s))$ is \textbf{Legendrian} if its tangent vector lies in the contact distribution, i.e., $\dot\gamma(s) \in \ker\alpha$. For such a curve, the evolution of $a$ is governed by the \textbf{flow equation}:
 \begin{equation}\label{eq:4}\tag{4}
@@ -94,7 +94,7 @@ y = \arcsin\left(\frac{\lambda a}{\mu}\right) \quad\Rightarrow\quad \|\nabla y\|
 \end{equation}
 This rectification transforms the non-linear velocity field for $a$ into a constant-speed flow for $y$, which is advantageous for geometric constructions and enhances numerical stability.
 
-\paragraph{Non-commutativity and Curvature.}
+\paragraph{Non-commutativity and curvature.}
 The commutator of the horizontal vector fields yields a purely vertical vector, reflecting the "curvature" of the contact distribution. This phenomenon can be described as a "vertical return":
 \begin{equation}\label{eq:7}\tag{7}
 [D_u,D_v] = \mu\lambda\,\partial_a,\qquad \delta^2F = \mu\lambda(\partial_a F)\,du\wedge dv,\qquad \delta^2 a = \mu\lambda\,du\wedge dv.
@@ -104,7 +104,7 @@ The circulation-area formula provides a tool for quantifying mesh singularities 
 \oint_{\partial\Sigma}\omega = \iint_\Sigma d\omega = \mu\lambda\iint_\Sigma du\wedge dv.
 \end{equation}
 
-\paragraph{Compatibility with de Rham Cohomology.}
+\paragraph{Compatibility with de Rham cohomology.}
 The exterior derivative of $\omega$ is $d\omega = \lambda\,da\wedge dv$. By pulling this 2-form back to a section where $\alpha=0$ (i.e., substituting $da=\omega$), we obtain:
 \[
 (d\omega)^* = \lambda\,\omega\wedge dv = \mu\lambda\,du\wedge dv,
@@ -114,7 +114,7 @@ which is identical to $\delta^2 a$. This demonstrates the precise collaborative 
 \paragraph{Example: Basis Flows.}
 Flowing along $D_u$ implies $\dot{a} = \mu \Rightarrow a(s) = a_0 + \mu s$. Flowing along $D_v$ implies $\dot{a} = \lambda a \Rightarrow a(s) = a_0 e^{\lambda s}$. Linear combinations of these generate the general flow given by Eq.~\eqref{eq:4}.
 
-\paragraph{Remark (Generalization to Surfaces).}
+\paragraph{Remark (Generalization to surfaces).}
 On an arbitrary oriented Riemannian surface with an orthonormal coframe $\{\theta^1, \theta^2\}$ and connection 1-form $\varpi$, we define
 \begin{gather}
 \omega=\mu\,\theta^1+\lambda a\,\theta^2, \quad \alpha=da-\omega, \label{eq:18} \tag{18-19} \\
