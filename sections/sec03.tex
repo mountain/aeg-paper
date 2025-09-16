@@ -13,25 +13,25 @@ For any point with an assignment $a_0$, if we consider a movement of distance $\
 over a time period of $\delta$, we can establish the following:
 
 \[
-    a_{\delta} = (a_0 + \mu \epsilon \cos \theta)e^{\lambda \epsilon \sin \theta}
+    a_{\delta} = (a_0 + \mu \epsilon \cos \theta)e^{\lambda \epsilon \sin \theta} + O(\epsilon^2)
 \]
 
 or
 
 \[
-    a_{\delta} = a_0 e^{\lambda \epsilon \sin \theta} + \mu \epsilon \cos \theta
+    a_{\delta} = a_0 e^{\lambda \epsilon \sin \theta} + \mu \epsilon \cos \theta + O(\epsilon^2)
 \]
 
 Both formula can be simplified to the same result:
 
 \[
-    a_{\delta} = a_0 + \epsilon (a_0 \lambda \sin \theta + \mu \cos \theta)
+    a_{\delta} = a_0 + \epsilon (a_0 \lambda \sin \theta + \mu \cos \theta) + O(\epsilon^2)
 \]
 
 Then, we have the following equation:
 
 \[
-    \frac{1}{\delta} (a_{\delta} - a_0) = \frac{\epsilon}{\delta} (\mu \cos \theta + x_0 \lambda \sin \theta)
+    \frac{1}{\delta} (a_{\delta} - a_0) = \frac{\epsilon}{\delta} (\mu \cos \theta + a_0 \lambda \sin \theta)
 \]
 
 When both $\delta$ and $\epsilon$ are towards zero, we get $da / dt$, and hence
@@ -49,7 +49,7 @@ Or, we can change it to another form
 We name this equation~\eqref{eq:flow} as the flow equation.
 
 The left side of this equation is governed by the distance structure, while the right side is governed by the angle structure.
-So that the isometrics of the surface keep the flow equation~\eqref{eq:flow}.
+So that the isometries of the surface keep the flow equation~\eqref{eq:flow}.
 
 We can also get a direct formal solution of the flow equation~\eqref{eq:flow}(details in Appendix~\ref{sec:directformalsolution}).
 
@@ -206,7 +206,7 @@ where $du$ and $dv$ are perpendicular infinitesimal movements.
 We can use these movements to construct a local Descartes coordinate system, and the first fundamental form of this system is:
 
 \begin{equation}
-    ds^2 = A^2 du^2 + B^2 dv^2
+    ds^2 = du^2 + dv^2
 \end{equation}
 
 Thereby this enables us to express the flow equation in a different light:
@@ -237,12 +237,12 @@ This leads us to an area formula, capturing the essence of this interaction:
 and because the area element have a form
 
 \begin{equation}
-    dS = |AB| du dv \label{eq:area_element}
+    dS = du dv \label{eq:area_element}
 \end{equation}
 
 Then we have
 \begin{equation}
-    \frac{d\tau}{\mu \lambda} = \frac{dS}{|AB|}\label{eq:area_formula2}
+    \frac{d\tau}{\mu \lambda} = dS\label{eq:area_formula2}
 \end{equation}
 
 This formula is compelling as it establishes a link between area elements and arithmetic torsion.
