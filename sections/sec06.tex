@@ -1,11 +1,10 @@
-In previous sections, we introduced the concept of accumulative commutative space (ACS).
-ACS can be viewed as a geometric abelianization of the arithmetic expression space (AES).
-In this section, we develop another differential geometry framework related with AES, focusing on its contact structure and the associated differential calculus.
-This framework provides a robust mathematical foundation for expression derivatives and their geometric interpretations.
+In the preceding section, we introduced the Accumulative Commutative Space (ACS) as an abstract parameter plane essential for quantifying global arithmetic torsion. While powerful for global analysis, the ACS lacks an intrinsic mechanism to describe the \textit{local}, non-commutative dynamics of arithmetic operations.
+
+This section bridges that gap by endowing the ACS with a rich differential structure. We construct a three-dimensional \textbf{Arithmetic Contact Manifold}, whose two-dimensional base is precisely a local, differential version of the ACS. This framework provides the geometric engine for the arithmetic flow, unifying the global, commutative picture of torsion with the local, non-commutative nature of operations. It is here that the flow equation from Section~\ref{sec:flow_equation} finds its most natural home, and we develop the differential calculus necessary for its study.
 
 \subsection{Core definitions and the contact structure}\label{subsec:core_definitions}
 
-We begin by establishing our geometric space. Consider a 3-dimensional manifold with coordinates $(u,v,a) \in \mathbb{R}^3$. The geometry is built upon two fundamental 1-forms, defined using constant real parameters $\mu$ and $\lambda$:
+We begin by establishing our geometric space. Consider a 3-dimensional manifold with coordinates $(u,v,a) \in \mathbb{R}^3$, where the base plane spanned by $(u,v)$ is understood as the differential realization of the ACS. The geometry is built upon two fundamental 1-forms, defined using constant real parameters $\mu$ and $\lambda$:
 \begin{equation}\label{eq:contact_forms_def}
 \omega := \mu\,du + \lambda a\,dv, \qquad \alpha := da - \omega.
 \end{equation}
@@ -113,11 +112,3 @@ which is identical to $\delta^2 a$. This demonstrates the precise collaborative 
 
 \paragraph{Example: Basis Flows.}
 Flowing along $D_u$ implies $\dot{a} = \mu \Rightarrow a(s) = a_0 + \mu s$. Flowing along $D_v$ implies $\dot{a} = \lambda a \Rightarrow a(s) = a_0 e^{\lambda s}$. Linear combinations of these generate the general flow given by Eq.~\eqref{eq:4}.
-
-\paragraph{Remark (Generalization to surfaces).}
-On an arbitrary oriented Riemannian surface with an orthonormal coframe $\{\theta^1, \theta^2\}$ and connection 1-form $\varpi$, we define
-\begin{gather}
-\omega=\mu\,\theta^1+\lambda a\,\theta^2, \quad \alpha=da-\omega, \label{eq:18} \tag{18-19} \\
-d\omega=\mu\lambda\,\theta^1\wedge\theta^2+\varpi\wedge(\lambda a\,\theta^1-\mu\,\theta^2). \nonumber
-\end{gather}
-The flow equation and rectification hold analogously, with $d\omega$ now including a geometric torsion term involving $\varpi$.
