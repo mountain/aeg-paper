@@ -57,6 +57,75 @@ We can also get a direct formal solution of the flow equation~\eqref{eq:flow}(de
    a = (a_0 + \frac{\mu}{\lambda} \cot \theta) e^{\lambda s \sin \theta} - \frac{\mu}{\lambda} \cot \theta\label{eq:solution}
 \end{equation}
 
+\subsection{The matrix Lie algebra perspective}
+\label{subsec:matrix_lie_algebra}
+
+To place the flow equation~\eqref{eq:flow} on a firm Lie--theoretic footing, we model each evaluation state as an element of the affine group $G = \mathrm{Aff}(1)$ acting on the line by $x \mapsto \Phi x + a$. In matrix form, this action is represented by the faithful representation $\rho: G \to \mathrm{GL}(2, \mathbb{R})$:
+\begin{equation}
+    \rho(g) =
+    \begin{pmatrix}
+        \Phi & a \\
+        0    & 1
+    \end{pmatrix},
+\end{equation}
+where $\Phi \in \mathbb{R}_{>0}$ is the accumulated multiplicative scaling (corresponding to the flow of $\lambda$) and $a \in \mathbb{R}$ is the current translation (corresponding to the flow of $\mu$). Group multiplication in $G$ is realized as ordinary matrix multiplication.
+
+The Lie algebra $\mathfrak{aff}(1)$ consists of all matrices of the form
+\[
+X =
+\begin{pmatrix}
+\alpha & \beta\\
+0      & 0
+\end{pmatrix}, \qquad \alpha,\beta \in \mathbb{R},
+\]
+with a basis given, for instance, by the dilation generator $E_{11}$ and the translation generator $E_{12}$. For a path $s \mapsto g(s)$ in $G$ with matrix representation $\rho(g(s))$, we prescribe an infinitesimal generator $\Omega \in \mathfrak{aff}(1)$ that combines the local multiplicative and additive intensities $\lambda$ and $\mu$ along a direction $\theta$:
+\begin{equation}
+    \Omega
+    = \lambda \sin\theta \, E_{11} + \mu \cos\theta \, E_{12}
+    =
+    \begin{pmatrix}
+        \lambda \sin\theta & \mu \cos\theta \\
+        0                  & 0
+    \end{pmatrix}.
+\end{equation}
+
+The evolution of the arithmetic state is governed by the (right--invariant) differential equation:
+\begin{equation}
+    \frac{d}{ds}\rho(g(s)) = \Omega \,\rho(g(s)).
+\end{equation}
+Substituting the matrix forms, we have:
+\begin{equation}
+    \begin{pmatrix}
+        d\Phi/ds & da/ds \\
+        0        & 0
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        \lambda \sin\theta & \mu \cos\theta \\
+        0                  & 0
+    \end{pmatrix}
+    \begin{pmatrix}
+        \Phi & a \\
+        0    & 1
+    \end{pmatrix}.
+\end{equation}
+Performing the matrix multiplication on the right-hand side, the upper-right entry yields:
+\begin{equation}
+    \frac{da}{ds}
+    = (\lambda \sin\theta)\,a + (\mu \cos\theta)\cdot 1
+    = \mu \cos\theta + a \lambda \sin\theta,
+\end{equation}
+which is exactly the flow equation~\eqref{eq:flow} derived initially from the geometric propagation picture.
+
+\textbf{Mathematical Note.}
+In this formulation, the generator takes the form $\Omega = \lambda \sin\theta\,E_{11} + \mu \cos\theta\,E_{12}$, so the flow equation is structurally identical to the action of the Lie algebra $\mathfrak{aff}(1)$ on the affine line. The term $\mu \cos\theta$ is the contribution of the translation generator $E_{12}$, while the term $a \lambda \sin\theta$ arises from the interaction between the dilation generator $E_{11}$ and the current state $a$.
+
+Crucially, at the level of the affine-group representation, the translation component $D(g)$ (which corresponds to $a$) satisfies a twisted Leibniz rule:
+\begin{equation}
+    D(uv) = D(u) + \Phi(u) D(v).
+\end{equation}
+This is precisely the defining relation of the Fox differential calculus on the group ring. The "Leibniz-like" form of the flow equation is thus the continuous incarnation of this rule, with the off--diagonal entry in the product $\Omega\,\rho(g)$ playing the role of the Fox derivative of the current state. (See Section~\ref{sec:acs_and_fox} for further discussion on the connection between $Aff(1)$ representations and global arithmetic torsion).
+
 \subsection{Discrete generating}\label{subsec:discrete-generating}
 
 In section~\ref{subsec:generated-structure}, we have discussed a discrete generating process.
