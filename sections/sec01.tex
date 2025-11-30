@@ -1,54 +1,181 @@
-From the syntactic trees of arithmetic expressions to the hyperbolic geometry of modular forms, the interplay between discrete algebra and continuous geometry has long fascinated mathematicians. This work addresses a fundamental question: Can the evaluation dynamics of arithmetic expressions themselves form a geometric space? We demonstrate that threadlike arithmetic expressions naturally embed into hyperbolic surfaces through a novel flow equation.
 
-\subsection{Key Definitions}
+From the symbolic trees of elementary arithmetic to the hyperbolic geometry of modular curves, the tension between
+\emph{discrete algebra} and \emph{continuous geometry} has been a recurring theme throughout modern mathematics.
+This paper proposes that the evaluation process of arithmetic expressions itself carries enough structure to be treated
+as a genuine geometric object.
 
-We formalize arithmetic expressions $a \in \mathbb{E}[\mathbb{Q}]$ using production rules that generate terms through addition, subtraction, multiplication, and division operations. The evaluation $\nu(a)$ of these expressions can be viewed from multiple perspectives:
+\subsection{Background and motivation}
+
+An arithmetic expression is usually regarded as a finite syntactic object: a string or a tree built from numbers and the
+operations $+,-,\times,\div$. Once evaluated, it collapses to a single real number, and the intermediate steps are
+forgotten. In classical analysis and numerical computation, this intermediate structure is treated as an implementation
+detail rather than a primary object of study.
+
+In this work we take the opposite stance: \emph{the evaluation dynamics of arithmetic expressions}---the way values
+propagate through a tree, and the way addition and multiplication interleave along a path---is elevated to the status of
+a geometric phenomenon. Concretely, we show that certain families of expressions (threadlike expressions) can be
+encoded as paths in a two–dimensional manifold, and that the failure of addition and multiplication to commute induces
+a measurable geometric torsion on this manifold.
+
+The guiding question is:
+
+\begin{quote}
+Can the evaluation dynamics of arithmetic expressions be realized as a geometric flow, in such a way that algebraic
+features (such as non-commutativity and evaluation order) are reflected as geometric invariants (such as area, curvature
+or contact torsion)?
+\end{quote}
+
+\subsection{A higher–level perspective: echoes of 1960s–70s mathematical physics}
+
+Conceptually, this project sits in a lineage of ideas that became prominent in the 1960s and 1970s in mathematical
+physics, where \emph{discrete} or \emph{combinatorial} data was systematically lifted into \emph{geometric} and
+\emph{analytic} structures.
+
+A few analogies are particularly relevant:
 
 \begin{itemize}
-    \item \textit{Syntactically} as tree structures with branch nodes (operators) and leaf nodes (constants)
-    \item \textit{Algebraically} as compositions of elementary operations
-    \item \textit{Geometrically} as paths through a continuous space
+  \item In geometric mechanics, Hamilton–Jacobi and eikonal equations reinterpret the evolution of a system as a
+  flow of level sets of an action function on a manifold. Our flow equation for arithmetic assignment plays a similar
+  role: it governs how the ``value'' $a$ propagates over a surface driven by additive and multiplicative generators.
+
+  \item In gauge theory and index theory, non-commuting operators and group actions are encoded as curvature and
+  characteristic classes on bundles. Here, the non-commutativity of ``add then multiply'' versus ``multiply then add''
+  manifests as an \emph{arithmetic torsion}, which we relate to a geometric area element.
+
+  \item In contact and symplectic geometry, which matured in the same period, a contact form ties together a base
+  space and a distinguished ``vertical'' direction, and the dynamics of a system is realized as a Legendrian or
+  Hamiltonian flow. Our arithmetic expression contact manifold plays an analogous role for evaluation dynamics:
+  the base is a commutative parameter space, while the vertical coordinate records the assignment value.
+
+  \item Finally, in lattice models and renormalization, discrete combinatorial structures are embedded into continuum
+  geometric or field–theoretic frameworks. In a similar spirit, we embed discrete expression trees and paths into
+  continuous manifolds (the arithmetic expression spaces), and study their scaling and torsion properties.
 \end{itemize}
 
-Of particular importance are threadlike expressions, where all left nodes are leaf nodes. These expressions, analogous to paths in homotopy theory, provide a natural bridge between algebraic and geometric perspectives.
+The present paper is not a work in mathematical physics; rather, it is consciously informed by this historical pattern:
+\emph{start from a purely algebraic/combinatorial object, and seek a geometric enlargement in which its hidden
+structure becomes visible as curvature, torsion, or contact geometry.}
 
-Through currying and path notation, we establish a formal framework for representing threadlike expressions as sequences of elementary operations:
-\begin{equation}
-x a_1 a_2 \cdots a_n \coloneqq a_n(a_{n-1}(\cdots a_2(a_1(x))\cdots))
-\end{equation}
+\subsection{From expressions to flows}
 
-This representation reveals that the commutator of addition and multiplication operations exhibits a non-trivial torsion:
-\begin{equation}
-\tau = x \oplus_\mu \otimes_\lambda - x \otimes_\lambda \oplus_\mu = \mu(e^\lambda - 1)
-\end{equation}
+We begin by formalizing arithmetic expressions via production rules over $\mathbb{Q}$ and by emphasizing a special
+class of \emph{threadlike expressions}, in which all left children in the syntax tree are leaves.
+These threadlike expressions admit a natural currying and path notation, and they can be viewed as analogues of
+paths in homotopy theory. On this combinatorial side we identify a first invariant: the \emph{arithmetic torsion}, which
+measures the discrepancy between the two basic compositions
+\[
+  x \xrightarrow{\;\oplus\mu\;} x+\mu \xrightarrow{\;\otimes\lambda\;} (x+\mu)e^{\lambda}
+  \qquad\text{and}\qquad
+  x \xrightarrow{\;\otimes\lambda\;} xe^{\lambda} \xrightarrow{\;\oplus\mu\;} xe^{\lambda}+\mu.
+\]
+The torsion is a non-zero constant depending on $\mu,\lambda$, indicating an intrinsic obstruction to distributivity
+within this path calculus.
 
-\subsection{Foundational Results}
+The central step is to show that these discrete propagations admit an infinitesimal counterpart.
+We derive a flow equation
+\[
+  \frac{da}{ds} = \mu\cos\theta + a\lambda\sin\theta,
+\]
+which governs how the assignment value $a$ changes along a curve of arclength $s$ in a direction making angle
+$\theta$ with two distinguished generating directions (addition and multiplication).
+In coordinate–free form this becomes an eikonal equation
+\[
+  \|\nabla a\| = \sqrt{\mu^2 + \lambda^2 a^2},
+\]
+revealing the evaluation of expressions as a geometric wavefront propagation problem.
 
-The central insight of our approach is that arithmetic operations—specifically addition and multiplication—can be interpreted as movements along orthogonal directions in a properly constructed geometric space. This interpretation transforms arithmetic evaluation into geometric propagation, with expression values corresponding to points in a hyperbolic manifold.
+\subsection{Arithmetic expression spaces and torsion as area}
 
-The embedding of arithmetic expressions into geometry is governed by a flow equation:
-\begin{equation}
-\frac{da}{ds} = \mu \cos \theta + a \lambda \sin \theta
-\end{equation}
+The flow equation leads naturally to the notion of an \emph{Arithmetic Expression Space (AES)}: a Riemannian
+surface $M$ equipped with a scalar field $a:M\to\mathbb{R}$ satisfying the flow equation for fixed generators
+$\mu,\lambda$.
+We construct and analyse a concrete example, the \emph{first kind space} $\mathfrak{E}_1$, realized on the upper
+half–plane endowed with a hyperbolic metric, where the simple formula
+\[
+  a(x,y) = -\frac{x}{y}
+\]
+simultaneously satisfies the flow equation and the Laplace eigenvalue equation $\Delta a = 2a$.
+Within $\mathfrak{E}_1$ we identify addition–multiplication grids whose combinatorics reflect Baumslag–Solitar
+groups of the form $\mathrm{BS}(2,1)$ and $\mathrm{BS}(1,2)$, and we show that arithmetic torsion along these grids
+is proportional to hyperbolic area enclosed by evaluation paths.
 
-This partial differential equation describes how assignment values propagate through space along directions with angle $\theta$. In its coordinate-free form:
-\begin{equation}
-\|\nabla a\| = \sqrt{\mu^2 + a^2\lambda^2}
-\end{equation}
+To capture the global effect of non-commutativity along an arbitrary path, we introduce the
+\emph{Accumulative Commutative Space (ACS)}.
+This is a commutative parameter plane where each expression path $\gamma$ is mapped to the pair
+$(A_\gamma,M_\gamma)$ of its accumulated additive and logarithmic multiplicative charges.
+In this plane, a path and its reversed sequence share the same endpoints and enclose a region $\Sigma_\gamma$.
+We prove a Stokes–type \emph{triple identity} asserting that the global arithmetic torsion
+$\tau(\gamma)$ admits three equivalent descriptions: as an algebraic evaluation difference, as an $e^M$–weighted area
+integral over $\Sigma_\gamma$, and as a boundary integral along $\partial\Sigma_\gamma$.
 
-This is an Eikonal equation equivalent to a special Hamilton-Jacobi equation, connecting our construction to fundamental concepts in analytical mechanics and differential geometry.
+\subsection{Contact geometry and differential calculus for expressions}
 
-We establish a specific realization of this framework in the first kind arithmetic expression space $\mathfrak{E}_1$, defined on the upper half-plane $\mathcal{B} = \{(x,y) \mid y > 0\}$ with a hyperbolic metric:
-\begin{equation}
-ds^2 = \frac{1}{y^2}\left(\frac{dx^2}{\mu^2} + \frac{dy^2}{\lambda^2}\right)
-\end{equation}
+While the ACS provides a flat commutative backdrop for measuring global torsion, it does not yet encode the local,
+non-commutative dynamics.
+To bridge this gap, we lift the ACS to a three-dimensional manifold with coordinates $(u,v,a)$ and introduce the
+1–form
+\[
+  \alpha \;=\; da - (\mu\,du + \lambda a\,dv).
+\]
+We show that $\alpha$ is a contact form and that its kernel defines a horizontal distribution spanned by two vector fields
+$D_u,D_v$.
+Legendrian curves with respect to this contact structure carry precisely the same flow equation as AES–paths, so the
+contact manifold can be regarded as a natural differential–geometric completion of the arithmetic expression space.
 
-In this space, the assignment function $a = -\frac{x}{y}$ satisfies the flow equation with parameters $\mu$ and $\lambda$. Moreover, $a$ is an eigenfunction of the Laplacian with eigenvalue 2, reinforcing the intrinsic geometric nature of this construction.
+On this contact manifold we develop an \emph{expression differential} $\delta$, a horizontal counterpart of the de Rham
+differential $d$ adapted to the arithmetic flow.
+The operator $\delta$ satisfies a twisted Leibniz rule, its second iterate $\delta^2$ measures a curvature two–form
+proportional to $\mu\lambda\,du\wedge dv$, and it is compatible with $d$ in the sense of an Ehresmann connection.
 
-\subsection{Implications}
+Finally, we introduce \emph{arithmetic holomorphic functions}, i.e.\ pairs $(f,g)$ satisfying a system of
+Cauchy–Riemann–type equations written in terms of $D_u,D_v$.
+This provides a first glimpse of an ``arithmetic function theory'' living on the contact structure, parallel in spirit to
+classical complex analysis on $(u,v)$–planes but sensitive to the arithmetic torsion encoded in $\mu,\lambda$.
 
-\subsection{Roadmap}
+\subsection{Main contributions of this paper}
 
-Our main results establish: (1) A flow equation governing arithmetic propagation in curved spaces; (2) The $\mathfrak{E}_1$ space as a universal geometric framework for expression evaluation;
+The contributions of this first paper can be summarized as follows:
 
-Through this work, we demonstrate that arithmetic expressions do indeed form a geometric space—one with rich structure and deep connections to hyperbolic geometry, differential equations, and algebraic systems.
+\begin{itemize}
+  \item We formalize arithmetic expressions via threadlike paths and identify a canonical notion of
+  \emph{arithmetic torsion} arising from the non-commutativity of addition and multiplication.
+
+  \item We derive a flow equation for assignment values, exhibit its Eikonal/Hamilton–Jacobi form, and use it to
+  define the notion of an \emph{Arithmetic Expression Space (AES)}. We construct and analyse in detail the
+  first kind space $\mathfrak{E}_1$ on the hyperbolic upper half–plane.
+
+  \item We introduce the \emph{Accumulative Commutative Space (ACS)} and prove a triple identity relating global
+  arithmetic torsion to a weighted area integral and a boundary integral in this commutative parameter plane.
+
+  \item We construct an \emph{arithmetic expression contact structure} on a three–dimensional manifold, identify the
+  associated Lie algebra as a solvable central extension of $\mathfrak{aff}(1)$, and show that Legendrian flows
+  recover the arithmetic flow equation.
+
+  \item We define a horizontal differential calculus adapted to this contact structure and formulate an initial notion
+  of \emph{arithmetic holomorphic functions}, opening a path toward a geometric function theory for arithmetic
+  expressions.
+\end{itemize}
+
+Throughout, the emphasis is not on solving classical problems, but on setting up a coherent geometric framework in
+which new invariants of arithmetic expressions can be formulated and studied.
+
+\subsection{Structure of the paper}
+
+Section~\ref{sec:concepts} develops the basic combinatorial and algebraic framework: production rules for arithmetic
+expressions, path notation, alternating threadlike expressions, arithmetic torsion, and a hierarchy of equality levels.
+Section~\ref{sec:flowequation} derives the flow equation, presents its Lie–algebraic and coordinate–free forms, and
+establishes consistency with discrete generating processes.
+Section~\ref{sec:firstkind} constructs the first kind arithmetic expression space $\mathfrak{E}_1$ on the hyperbolic
+upper half–plane, analyses its grid structures, and relates arithmetic torsion to hyperbolic area.
+
+Section~\ref{sec:acspace} introduces the accumulative commutative space and proves the triple identity for global
+arithmetic torsion, linking algebraic evaluation, area integrals, and boundary integrals.
+Section~\ref{sec:ecstructure} lifts the ACS to a three–dimensional contact manifold, identifies the associated Lie
+algebra, and interprets arithmetic flows as Legendrian curves.
+Section~\ref{ch:differential_calculus} develops a differential calculus on the contact structure, including the expression
+differential and its curvature.
+Section~\ref{ch:holomorphic} introduces arithmetic holomorphic functions and outlines several open directions.
+
+The overall aim is to show that arithmetic expressions, when viewed through this geometric lens, exhibit a rich internal
+structure that parallels, in a discrete–arithmetic setting, many of the themes that emerged in geometric mechanics and
+mathematical physics in the latter half of the twentieth century.

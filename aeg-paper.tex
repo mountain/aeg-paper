@@ -91,7 +91,39 @@ Beijing, 100083 \\
 \maketitle
 
 \begin{abstract}
-    This paper introduces a novel geometric framework for studying arithmetic expressions, establishing a rigorous connection between algebraic operations and hyperbolic geometry. We formalize arithmetic expressions as syntactic structures and demonstrate how they can be embedded into continuous geometric spaces where addition and multiplication correspond to movements along orthogonal directions. Central to our approach is a flow equation that governs how expression values propagate through this geometric space. We construct the first kind arithmetic expression space $\mathfrak{E}_1$ on the upper half-plane with a hyperbolic metric, where the assignment function satisfies the flow equation and serves as an eigenfunction of the Laplacian. This construction reveals that arithmetic torsion—the non-commutativity of addition and multiplication—directly corresponds to geometric area, analogous to how curvature measures deviation from flatness. The paper establishes arithmetic expressions as geometric objects with intrinsic invariants, opening new avenues for exploring the interplay between computation and geometry.
+Arithmetic expressions are usually regarded as purely syntactic objects whose intermediate evaluation steps disappear
+once a final numerical value is produced. In this paper we develop a geometric framework in which the evaluation
+dynamics of expressions itself becomes the primary object of study. The starting point is the observation that the basic
+operations of addition and multiplication generate two transverse directions of propagation, whose infinitesimal interplay
+gives rise to a flow equation
+\[
+    \frac{da}{ds}=\mu\cos\theta + a\lambda\sin\theta,
+\]
+a Hamilton--Jacobi--type relation governing how assignment values evolve along distinguished directions. We show
+that this flow admits a natural realization on a hyperbolic surface: in the first kind arithmetic expression space
+$\mathfrak{E}_1$, defined on the upper half--plane with a weighted hyperbolic metric, the assignment function
+$a=-x/y$ simultaneously satisfies the flow equation and a Laplace eigenvalue equation. Within this space, the
+non-commutativity of ``add then multiply'' versus ``multiply then add'' manifests as an \emph{arithmetic torsion}
+which corresponds exactly to hyperbolic area enclosed by evaluation paths.
+
+To analyse global torsion for arbitrary expression paths, we introduce the \emph{Accumulative Commutative Space
+(ACS)}, a commutative parameter plane that records total additive and multiplicative charges. In the ACS a path and
+its reversed sequence enclose a well-defined region, and we establish a Stokes--type triple identity expressing global
+arithmetic torsion equivalently as an algebraic evaluation difference, an $e^M$-weighted area integral, and a boundary
+integral along the enclosing curve.
+
+We then construct a three-dimensional \emph{arithmetic expression contact manifold}, with contact form
+$\alpha = da - (\mu\,du + \lambda a\,dv)$, whose horizontal distribution encodes the local non-commutative
+dynamics. Legendrian curves with respect to this structure satisfy the arithmetic flow equation, and the associated Lie
+algebra is identified as a solvable central extension of $\mathfrak{aff}(1)$. On this manifold we develop an expression
+differential calculus $\delta$, compatible with the de Rham differential and exhibiting a curvature proportional to
+$\mu\lambda\,du\wedge dv$. Finally, we introduce \emph{arithmetic holomorphic functions}, defined via Cauchy--Riemann
+type equations on the contact structure, providing a first glimpse of an emerging geometric function theory for
+arithmetic expressions.
+
+Taken together, these constructions offer a unified view of arithmetic evaluation as a geometric flow, echoing themes
+from geometric mechanics and contact geometry, and establishing arithmetic expressions as geometric objects equipped
+with intrinsic invariants and differential structures.
 \end{abstract}
 
 \keywords{arithmetic expressions, hyperbolic geometry}
