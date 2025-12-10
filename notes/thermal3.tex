@@ -1,0 +1,294 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{hyperref}
+
+\title{From Algorithmic Thermodynamics to Arithmetic Expression Geometry:\\
+An example of contactomorphism}
+
+\author{Mingli Yuan\thanks{Draft note; comments welcome.}}
+
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section*{Algorithmic thermodynamics and arithmetic expression geometry}
+
+In this note we spell out a concrete contactomorphism between the
+algorithmic thermodynamics of Baez--Stay and the contact geometry
+arising from arithmetic expression geometry (AEG).  We also explain
+how a natural ``weight'' function
+\[
+  W(A,M) = A + \alpha M
+\]
+on arithmetic expressions leads to a partition function that is a
+special case of the Baez--Stay partition function, once we restrict to
+a suitable family of prefix-free programs.
+
+\subsection*{1. Algorithmic thermodynamics}
+
+Fix a universal prefix-free Turing machine $U$, and let
+$X = \mathrm{dom}(U)$ be the set of halting programs.  Baez and Stay
+treat $X$ as a set of microstates and consider the following
+observables on $X$:
+\begin{itemize}
+  \item $E(x)$: the logarithm of the runtime of program $x$,
+  \item $V(x)$: the length $|x|$ of $x$,
+  \item $N(x)$: the output of $x$ as a natural number.
+\end{itemize}
+These play the roles of energy, volume, and particle number,
+respectively.\footnote{See \cite{BaezStay} for details.}
+
+For parameters $T$ (algorithmic temperature), $P$ (algorithmic
+pressure), and $\mu$ (algorithmic chemical potential), the Gibbs
+ensemble is defined by the partition function
+\begin{equation}
+  Z(T,P,\mu)
+  = \sum_{x \in X}
+    \exp\!\left(
+      -\frac{1}{T}\bigl(E(x) + P V(x) - \mu N(x)\bigr)
+    \right).
+  \label{eq:alg-partition}
+\end{equation}
+Equivalently, in terms of the conjugate variables
+\[
+  \beta = \frac{1}{T},\qquad
+  \gamma = \frac{P}{T},\qquad
+  \delta = -\frac{\mu}{T},
+\]
+one can write
+\[
+  Z(\beta,\gamma,\delta)
+    = \sum_{x\in X} e^{-\beta E(x) - \gamma V(x) - \delta N(x)}.
+\]
+
+Let $p(x)$ be the corresponding Gibbs probability measure.
+Its entropy
+\[
+  S = - \sum_{x\in X} p(x)\,\ln p(x)
+\]
+is a function of the macroscopic variables $(E,V,N)$ (or
+equivalently of $(T,P,\mu)$).  A standard calculation in statistical
+mechanics yields the thermodynamic relation
+\begin{equation}
+  dS
+  = \frac{1}{T}\,dE + \frac{P}{T}\,dV - \frac{\mu}{T}\,dN,
+\end{equation}
+or in the more familiar form
+\begin{equation}
+  dE = T\,dS - P\,dV + \mu\,dN.
+  \label{eq:alg-first-law}
+\end{equation}
+This suggests considering the \emph{algorithmic thermodynamic contact
+form}
+\begin{equation}
+  \alpha_{\mathrm{alg}} = dE - T\,dS + P\,dV - \mu\,dN,
+\end{equation}
+whose vanishing encodes the first law \eqref{eq:alg-first-law} along
+equilibrium submanifolds.
+
+\subsection*{2. AEG contact geometry and ordinary thermodynamics}
+
+Arithmetic expression geometry (AEG) is built on a 3--dimensional
+manifold with coordinates $(u,v,a)$ and contact form
+\begin{equation}
+  \alpha_{\mathrm{AEG}} = da - \mu\,du - \lambda a\,dv,
+  \label{eq:aeg-contact}
+\end{equation}
+where $\lambda$ and $\mu$ are fixed real parameters that encode
+additive and multiplicative generators.\footnote{See
+  \cite{YuanThermal} for a detailed development.}
+
+In the associated thermodynamic correspondence, one introduces a
+standard thermodynamic phase space with coordinates
+$(S,V;U,T,p)$ and contact form
+\begin{equation}
+  \alpha_{\mathrm{TD}} := dU + p\,dV - T\,dS.
+\end{equation}
+The dictionary
+\begin{equation}
+  (S,V;U,T,p) = (v,-u;\,a,\lambda a,\mu)
+  \label{eq:aeg-thermo-dict}
+\end{equation}
+defines a map
+\[
+  \Phi\colon (u,v,a) \longmapsto (S,V;U,T,p)
+          = (v,-u;\,a,\lambda a,\mu),
+\]
+for which one checks
+\begin{align}
+  \Phi^*(\alpha_{\mathrm{TD}})
+   &= d a + \mu\,d(-u) - (\lambda a)\,dv \\
+   &= da - \mu\,du - \lambda a\,dv \\
+   &= \alpha_{\mathrm{AEG}}.
+\end{align}
+Thus $(\mathbb{R}^3,\alpha_{\mathrm{AEG}})$ is contactomorphic to the
+thermodynamic contact manifold restricted to the image of
+\eqref{eq:aeg-thermo-dict}.
+
+\subsection*{3. A contactomorphism to algorithmic thermodynamics}
+
+To connect with algorithmic thermodynamics, we restrict to a sector of
+fixed $N$ and suppress the $\mu\,dN$ term.  On the submanifold where
+$N$ is constant, the algorithmic contact form reduces to
+\begin{equation}
+  \alpha_{\mathrm{alg}}|_{dN=0} = dE - T\,dS + P\,dV.
+\end{equation}
+This is identical in shape to $\alpha_{\mathrm{TD}}$, with the obvious
+identifications $U \leftrightarrow E$ and $p \leftrightarrow P$.
+Therefore the same dictionary \eqref{eq:aeg-thermo-dict} yields a
+contactomorphism
+\[
+  \Phi_{\mathrm{alg}}\colon (u,v,a)
+    \longmapsto (S,V;E,T,P)
+    = (v,-u;\,a,\lambda a,\mu)
+\]
+from $(\mathbb{R}^3,\alpha_{\mathrm{AEG}})$ onto the 3--dimensional
+submanifold of the algorithmic thermodynamic phase space with fixed
+$N$:
+\begin{align}
+  \Phi_{\mathrm{alg}}^*(\alpha_{\mathrm{alg}}|_{dN=0})
+    &= d a - (\lambda a)\,dS + P\,dV \\
+    &= d a - (\lambda a)\,dv + \mu\,d(-u) \\
+    &= da - \mu\,du - \lambda a\,dv \\
+    &= \alpha_{\mathrm{AEG}}.
+\end{align}
+In this sense, the AEG contact manifold is naturally realized as a
+contact submanifold of the algorithmic thermodynamic contact manifold.
+
+\subsection*{4. Weights, first-hit expressions, and prefix-free codes}
+
+We now explain how a natural choice of microstates and a weight
+function $W$ on AEG leads to a partition function that is a special
+case of \eqref{eq:alg-partition}.
+
+Each arithmetic expression carries a pair of ``charges''
+\[
+  (A,M) = (\text{additive count},\ \text{multiplicative count}),
+\]
+counting the number of additive and multiplicative steps in its
+discrete generation.  Fix a positive slope parameter $\alpha>0$ and
+define the weight
+\begin{equation}
+  W(A,M) = A + \alpha M.
+\end{equation}
+Geometrically, $W$ defines a foliation of the $(A,M)$--lattice by
+affine lines of slope $-\alpha$.
+
+For a threshold $C\in\mathbb{R}$, define the \emph{first-hit set}
+$F_C$ as the set of expressions $e$ such that
+\[
+  W(e) \ge C
+  \quad\text{and}\quad
+  W(e') < C
+  \quad\text{for every proper prefix }e'\prec e.
+\]
+Here $e'\prec e$ means that $e'$ is obtained from $e$ by cutting off
+some trailing generators in the discrete construction process.  By
+construction, $F_C$ is prefix-free with respect to this prefix order:
+no element of $F_C$ is a prefix of another.  Indeed, if $e\in F_C$ and
+$e\prec e''$, then any path from the root to $e''$ must pass through
+$e$, at which point $W$ has already crossed the threshold.
+
+In a binary branching model where each generating step increases $W$
+by one unit, the first-hit set $F_C$ satisfies the Kraft inequality
+\[
+  \sum_{e\in F_C} 2^{-W(e)} \le 1,
+\]
+so $W(e)$ plays the role of a codeword length.  Consequently there
+exists a prefix-free Turing machine (a Chaitin machine) whose domain
+is in bijection with $F_C$, with the codeword length of the program
+corresponding to $e$ equal to $W(e)$ (up to an additive constant).
+
+More concretely, given any Turing machine $M$ with domain
+$\mathrm{dom}(M)$, one can form a blank-endmarker machine $M'$ whose
+domain consists of words of the form $x\diamond$ for $x\in\mathrm{dom}(M)$;
+this domain is prefix-free, and the blank symbol $\diamond$ serves as
+a self-delimiting terminator \cite{StayConcrete}.  Applying such
+constructions to $F_C$ yields a universal prefix-free machine whose
+halting programs realize the same multiset of code lengths as
+$\{W(e):e\in F_C\}$.
+
+\subsection*{5. Partition functions and the collapse of $E$ and $V$}
+
+Restrict attention to the microstates $e\in F_C$.  For each such $e$,
+let $x_e$ be the corresponding program on our chosen prefix-free
+machine.  We can then define the algorithmic observables
+\begin{equation}
+  E(x_e) = c_E\,W(e),\qquad
+  V(x_e) = c_V\,W(e),\qquad
+  N(x_e) = 0,
+\end{equation}
+for some fixed positive constants $c_E,c_V$ encoding the choice of
+units.  (Operationally, one may choose the runtime of $x_e$ to grow
+exponentially in $W(e)$, so that $\log\text{runtime}\propto W(e)$.)
+
+The Baez--Stay partition function, restricted to these microstates and
+with $\delta=0$, becomes
+\begin{align}
+  Z_{\mathrm{alg}}(\beta,\gamma)
+    &= \sum_{e\in F_C}
+         \exp\!\bigl(-\beta E(x_e)-\gamma V(x_e)\bigr) \\
+    &= \sum_{e\in F_C}
+         \exp\!\bigl(-(\beta c_E + \gamma c_V) W(e)\bigr).
+\end{align}
+If we now introduce the effective inverse temperature
+\[
+  \kappa := \beta c_E + \gamma c_V
+\]
+and define the AEG partition function
+\begin{equation}
+  Z_{\mathrm{AEG}}(\beta_W)
+    := \sum_{e\in F_C} e^{-\beta_W W(e)},
+\end{equation}
+then on the restricted ensemble we have the identity
+\begin{equation}
+  Z_{\mathrm{alg}}(\beta,\gamma)
+    = Z_{\mathrm{AEG}}(\beta_W)
+    \quad\text{whenever}\quad
+    \beta_W = \kappa.
+\end{equation}
+In other words, the AEG partition function is obtained from the
+algorithmic thermodynamic partition function by restricting to a
+subsystem where the energy $E$ and program length $V$ are both linear
+functions of the AEG weight $W$.
+
+In this toy model, the microscopic information carried by $W(e)$ is
+fully preserved---each microstate $e\in F_C$ remains distinct.  What
+is lost, from the point of view of algorithmic thermodynamics, is one
+macroscopic degree of freedom: the ability to vary the tradeoff
+between log-runtime and program length independently.  This loss is
+reflected in the fact that the pair $(\beta,\gamma)$ only enters the
+restricted partition function through the single combination
+$\kappa = \beta c_E + \gamma c_V$.
+
+From the contact-geometric viewpoint, the AEG contact manifold
+describes a 3--dimensional contact submanifold of the full
+algorithmic thermodynamic contact manifold, obtained by fixing $N$ and
+imposing the relations
+\[
+  E = a,\qquad V = -u,\qquad S = v.
+\]
+The contactomorphism $\Phi_{\mathrm{alg}}$ makes this identification
+explicit.
+
+\begin{thebibliography}{9}
+
+\bibitem{BaezStay}
+J.~C.~Baez and M.~Stay,
+\newblock Algorithmic Thermodynamics,
+\newblock \emph{arXiv:1010.2067}.
+
+\bibitem{YuanThermal}
+M.~Yuan,
+\newblock Arithmetic Expression Geometry and its Thermodynamics Correspondence,
+\newblock draft manuscript.
+
+\bibitem{StayConcrete}
+M.~Stay,
+\newblock Very Simple Chaitin Machines for Concrete AIT,
+\newblock \emph{Fundamenta Informaticae}, arXiv:cs/0508056.
+
+\end{thebibliography}
+
+\end{document}
