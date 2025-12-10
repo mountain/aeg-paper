@@ -1,0 +1,372 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+
+\title{Clarifying the Keraia--AEG Mapping\\
+and the Two Thermodynamic Pictures}
+\author{Notes}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Background}
+
+There are three layers in our discussion:
+
+\begin{itemize}
+  \item The \emph{code space}: concrete programs for a universal prefix-free machine
+  (in particular, the Keraia machine based on binary combinatory logic).
+  \item \emph{Algorithmic thermodynamics} (Baez--Stay): the Gibbs ensemble on
+  programs with observables
+  \[
+    E(x) = \log \text{runtime},\quad
+    V(x) = \text{program length},\quad
+    N(x) = \text{output}.
+  \]
+  \item \emph{Arithmetic expression geometry} (AEG): the contact manifold
+  \((u,v,a)\) with contact form
+  \[
+    \alpha = da - \mu\,du - \lambda a\,dv
+  \]
+  and its contactomorphism to standard thermodynamics.
+\end{itemize}
+
+Baez and Stay fix a universal prefix-free Turing machine and treat
+\[
+  X = \mathrm{dom}(U)
+\]
+as the set of microstates. They choose three observables on \(X\): the log runtime
+\(E(x)\), the program length \(V(x)\), and the output \(N(x)\). The corresponding
+Gibbs ensemble is
+\[
+  Z(\beta,\gamma,\delta)
+    = \sum_{x\in X} \exp\bigl(-\beta E(x) - \gamma V(x) - \delta N(x)\bigr),
+\]
+with conjugate variables
+\(\beta = 1/T\), \(\gamma = P/T\), \(\delta = -\mu/T\) and the fundamental relation
+\[
+  dE = T\,dS - P\,dV + \mu\,dN.
+\]
+
+Here \(E\), \(V\), \(N\) are \emph{independent} thermodynamic observables; they are
+not a priori functions of each other.
+
+In AEG, we instead work on the 3--manifold with coordinates \((u,v,a)\) and
+contact form
+\[
+  \alpha = da - \mu\,du - \lambda a\,dv.
+\]
+The contactomorphism
+\[
+  \Phi: (u,v,a) \longmapsto (S,V;U,T,p) = (v,-u; a,\lambda a,\mu)
+\]
+pulls back the standard thermodynamic form
+\(\alpha_{\mathrm{TD}} = dU + p\,dV - T\,dS\) to \(\alpha\),
+so \(\Phi^*(\alpha_{\mathrm{TD}}) = \alpha\).
+AEG thus lives on an \emph{equilibrium sector} of a thermodynamic system with
+two extensive variables (entropy \(S\) and volume \(V\)) and one energy \(U\),
+with a very specific relation between \(T\) and \(U\) (namely \(T=\lambda U\)).
+\medskip
+
+Our Keraia--AEG visualiser tried to combine these three layers into one picture.
+The purpose of this note is to make precise what was implicitly assumed, identify
+the mistakes, and extract a corrected dictionary.
+
+\section{What the first visualiser actually did}
+
+In the prototype:
+\begin{itemize}
+  \item Each Keraia program is a binary string in prefix form, with
+  \begin{align*}
+    n_0(x) &= \#\{\texttt{0}\text{ in }x\}
+    &&\text{(leaves, basic combinators)},\\
+    n_1(x) &= \#\{\texttt{1}\text{ in }x\}
+    &&\text{(application nodes)}.
+  \end{align*}
+  \item The ``ACS'' picture used coordinates
+  \[
+    A(x) = \mu\cdot n_0(x), \qquad M(x) = \lambda\cdot n_1(x),
+  \]
+  and drew the incremental path
+  \[
+    (0,0) \to (\mu,0) \to \cdots \to (A(x),M(x))
+  \]
+  by adding \((\mu,0)\) for each \texttt{0} and \((0,\lambda)\) for each \texttt{1}.
+  \item A ``cost''
+  \[
+    W(A,M) = A + M
+  \]
+  was implicitly treated as an ``energy'', so iso-\(W\) lines were drawn as straight
+  lines of slope \(-1\) in the \((A,M)\)--plane.
+  \item Two sliders \(\varepsilon_0\), \(\varepsilon_1\) were called ``hardware cost per leaf/app'',
+  and then \(\mu, \lambda\) were set equal to them numerically:
+  \[
+    \mu = \varepsilon_0,\qquad \lambda = \varepsilon_1.
+  \]
+\end{itemize}
+
+On top of this, the AEG hyperbolic propagation picture \(\mathfrak{E}_1\) was driven
+by the same \((A,M)\) increments: \texttt{0} moved along an ``additive generator'',
+\texttt{1} along a ``multiplicative generator''.
+
+\section{Why this mapping is conceptually wrong}
+
+There are three intertwined issues.
+
+\subsection{(1) Collapsing \(E\) and \(V\)}
+
+In algorithmic thermodynamics, for each program \(x\) we have:
+\[
+  E(x) = \log t(x),\quad
+  V(x) = |x|,\quad
+  N(x) = \mathrm{output}(x),
+\]
+and \(E, V, N\) are independent observables: two programs can have the same
+length \(V\) but wildly different runtimes \(t\), and hence different \(E\).
+The Gibbs ensemble and the fundamental relation
+\[
+  dE = T\,dS - P\,dV + \mu\,dN
+\]
+live on this 3--dimensional space of observables.
+
+The prototype visualiser effectively assumed that
+\[
+  E(x) \approx W\bigl(A(x),M(x)\bigr),
+\]
+and \(V(x)\) was never used as a separate coordinate. In fact, we had
+\[
+  V_{\mathrm{code}}(x) = n_0(x) + n_1(x)
+\]
+and both ``energy'' and ``volume'' were functions of this same static quantity.
+As a result, the Baez--Stay geometry in \((E,V,N)\) could not possibly be recovered:
+the dimension was collapsed from three to (essentially) one.
+
+Worse, for Keraia the internal combinator tree can grow and shrink dramatically
+during evaluation, so the true runtime \(t(x)\) is governed by the entire reduction
+trace, not by the static counts \(n_0(x),n_1(x)\). Using \((A,M)\) alone to infer
+\(E\) makes the AEG picture ``static'' in exactly this misleading sense.
+
+\subsection{(2) Confusing hardware costs with thermodynamic conjugates}
+
+In Baez--Stay's formulation, hardware-level weights like ``cost per bit'' enter
+\emph{inside the observables}. For example, one might choose
+\[
+  E_{\mathrm{lin}}(x)
+    = \varepsilon_0 n_0(x) + \varepsilon_1 n_1(x)
+\]
+as a very crude approximation to \(\log t(x)\), or set
+\(V(x) = n_0(x) + n_1(x)\) as the bit-length. These are machine-dependent,
+model-specific choices.
+
+The \emph{conjugate variables} \((\beta,\gamma,\delta)\) appear in the exponent of
+the Gibbs weight:
+\[
+  Z(\beta,\gamma,\delta)
+    = \sum_{x}\exp\bigl(-\beta E(x) - \gamma V(x) - \delta N(x)\bigr),
+\]
+and the thermodynamic quantities \((T,P,\mu)\) are defined from these by
+\(\beta = 1/T\), \(\gamma = P/T\), \(\delta = -\mu/T\).
+They are properties of the ensemble, not of the hardware.
+
+Similarly, in AEG the parameters \(\mu,\lambda\) sit in the contact form
+\[
+  \alpha = da - \mu\,du - \lambda a\,dv
+\]
+and, under the contactomorphism, correspond to pressure and (scaled) temperature
+in an equilibrium thermodynamic model. They again play the role of intensive
+variables tied to an ensemble.
+
+The prototype silently identified
+\[
+  \mu \equiv \varepsilon_0,\qquad \lambda \equiv \varepsilon_1,
+\]
+thus mixing up ``cost per primitive'' with ``thermodynamic conjugate''.
+
+\subsection{(3) Treating \(W\) as the fundamental observable}
+
+In the AEG side we sometimes consider a linear cost
+\[
+  W(A,M) = A + \alpha M
+\]
+to define level sets or first-hitting sets in the \((A,M)\)--plane. This is a
+\emph{derived} quantity: it is a particular linear functional of \((A,M)\), used to
+slice the state space.
+
+In Baez--Stay's picture the fundamental observable is \(E(x)\). Linear combinations
+like
+\[
+  \beta E(x) + \gamma V(x) + \delta N(x)
+\]
+appear in the exponent of the Gibbs weight, but they are not promoted to new,
+independent thermodynamic coordinates; the thermodynamic calculus is formulated
+in terms of \(E,V,N\) and their conjugates.
+
+The prototype visualiser instead elevated \(W(A,M)\) itself to ``the'' energy,
+so its iso-lines were drawn and interpreted as physical iso-energy hypersurfaces.
+This hid the distinction between the underlying observables and the particular
+linear combination used for weighting.
+
+\section{A corrected dictionary}
+
+For each Keraia program \(x\) we now distinguish clearly:
+
+\subsection{Static code observables}
+
+\begin{itemize}
+  \item Number of leaves:
+  \[
+    n_0(x) = \#\{\texttt{0}\text{ in }x\}.
+  \]
+  \item Number of application nodes:
+  \[
+    n_1(x) = \#\{\texttt{1}\text{ in }x\}.
+  \]
+  \item Static code length (in bits or nodes):
+  \[
+    V_{\mathrm{code}}(x) = n_0(x) + n_1(x).
+  \]
+\end{itemize}
+
+These live naturally in the \((n_0,n_1)\)--lattice. Mapping
+\[
+  A(x) = \mu_A\, n_0(x), \qquad M(x) = \mu_M\, n_1(x)
+\]
+with fixed scale factors \(\mu_A,\mu_M>0\) gives an affine copy of this lattice; it is
+\emph{purely geometric/combinatorial}.
+
+\subsection{Dynamic execution observables}
+
+Using a concrete Keraia interpreter (e.g.\ Stay's reduction rules) we define:
+
+\begin{itemize}
+  \item The reduction trace \((t \mapsto \mathrm{AST}_t(x))\), where
+  \(\mathrm{AST}_t(x)\) is the internal combinator tree at step \(t\).
+  \item The number of reduction steps to halt:
+  \[
+    t(x) \in \mathbb{N}\cup\{\infty\}.
+  \]
+  \item The dynamic tree size at step \(t\):
+  \[
+    L_{\mathrm{dyn}}(x,t)
+      = \#\{\text{nodes in } \mathrm{AST}_t(x)\},
+  \]
+  which can grow/shrink significantly during evaluation.
+  \item The log runtime:
+  \[
+    E(x) = \log t(x),
+  \]
+  when \(x\) halts.
+  \item The output:
+  \[
+    N(x) = \mathrm{output}(x).
+  \]
+\end{itemize}
+
+These are the observables entering the algorithmic thermodynamics.
+
+\subsection{Algorithmic thermodynamics layer}
+
+We now adopt
+\[
+  E(x) = \log t(x),\quad
+  V(x) = V_{\mathrm{code}}(x),\quad
+  N(x) = \mathrm{output}(x),
+\]
+and build the partition function
+\[
+  Z(\beta,\gamma,\delta)
+    = \sum_{x\in X} \exp\bigl(-\beta E(x) - \gamma V(x) - \delta N(x)\bigr).
+\]
+
+The thermodynamic variables are:
+\begin{align*}
+  \beta &= 1/T,       & T &= \text{algorithmic temperature},\\
+  \gamma &= P/T,      & P &= \text{algorithmic pressure},\\
+  \delta &= -\mu/T,   & \mu &= \text{algorithmic potential}.
+\end{align*}
+
+Expectation values \(\bar E,\bar V,\bar N\) and entropy \(S\) satisfy the usual
+relations
+\[
+  dE = T\,dS - P\,dV + \mu\,dN,
+\]
+Maxwell relations, and so on. This is the Baez--Stay structure.
+
+\subsection{AEG contact layer and its identification}
+
+On the AEG side we work with coordinates \((u,v,a)\) and contact form
+\(\alpha = da - \mu\,du - \lambda a\,dv\). The contactomorphism
+\[
+  \Phi(u,v,a) = (S,V;U,T,p) = (v,-u; a,\lambda a,\mu)
+\]
+identifies \(a\) with the internal energy \(U\), \(\lambda a\) with temperature \(T\),
+and \(\mu\) with pressure \(p\), while \((u,v)\) map (up to sign) to \((V,S)\).
+
+For the purpose of relating to algorithmic thermodynamics, we:
+
+\begin{itemize}
+  \item Restrict to a fixed-output sector \(N = N_0\), so that the \(\mu\,dN\) term
+        drops out and we effectively work on the \((E,V)\)--plane.
+  \item Identify, up to an overall scale,
+  \[
+    a \;\approx\; E \quad\text{(or equivalently, } U \approx E \text{)}.
+  \]
+  \item Regard the AEG generators as acting on the \((u,v)\)--base:
+  \begin{align*}
+    \text{``additive'' generator} &\leftrightarrow \partial_u
+      &&\text{(changing code size at nearly fixed }a),\\
+    \text{``multiplicative'' generator} &\leftrightarrow \partial_v
+      &&\text{(scaling }a \text{ via the } \lambda a\,dv \text{ term)}.
+  \end{align*}
+\end{itemize}
+
+For the specific Keraia encoding, it is natural to \emph{model}
+\(\texttt{0}\) as an elementary step in the ``additive'' direction and
+\(\texttt{1}\) as an elementary step in the ``multiplicative'' direction. This is exact
+on the static code combinatorics, and only approximate on the dynamic \(E(x)\)
+side (because true runtime is computed by executing the interpreter).
+
+\section{Static vs dynamic pictures}
+
+With the corrected dictionary in place, the earlier observation now becomes
+clear:
+
+\begin{itemize}
+  \item AEG describes a \emph{static} geometry on the space of expressions or
+        code trees. Its flows and contact structure depend only on the abstract
+        generative rules (additive vs multiplicative), not on a specific reduction
+        semantics.
+  \item Algorithmic thermodynamics is intrinsically \emph{dynamic} in the sense
+        that its primary observable \(E\) is defined from the full reduction trace.
+        For Keraia, the dynamic tree size \(L_{\mathrm{dyn}}(x,t)\) can undergo large
+        excursions before halting, and these excursions drive \(E(x)\).
+\end{itemize}
+
+The original visualiser implicitly tried to read the dynamic behaviour directly
+from static counts \((n_0,n_1)\), and further conflated hardware costs with
+thermodynamic conjugates. This is why it gave a misleading impression that the
+``AEG thermodynamics'' and the Baez--Stay thermodynamics were literally the
+same system.
+
+The cleaned-up viewpoint is:
+
+\begin{enumerate}
+  \item Use \((n_0,n_1)\) and their affine images \((A,M)\) as a \emph{purely
+        combinatorial} coordinate system on the code space.
+  \item Compute the dynamic observables \(E,V,N\) by actually running the Keraia
+        interpreter.
+  \item Place AEG on the sector of standard thermodynamics with extensive
+        variables \((S,V)\) and internal energy \(U\), via the contactomorphism
+        \(\Phi\), and then identify \(U \approx E\) on each fixed-output sector.
+  \item Compare the AEG flows in \((u,v,a)\) with the algorithmic flows in
+        \((E,V)\) as \emph{two} compatible thermodynamic pictures, rather than
+        forcing one to be a literal animation of the other.
+\end{enumerate}
+
+In particular, a revised visualiser should make this separation explicit:
+one layer for the static ACS path \((A,M)\), another for the dynamic point
+\((E,V)\) obtained from real runtime, and possibly a third for the AEG
+hyperbolic propagation in \((u,v,a)\). The interesting content is precisely in
+how these layers \emph{fail} to coincide and in which regimes they come close.
+
+\end{document}

@@ -1,0 +1,319 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb}
+
+\title{A toy correspondence between pf--Keraia and \\Arithmetic Expression Geometry}
+\author{(draft note)}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{pf--Keraia as a prefix--free Chaitin machine}
+
+We work with Michael Stay's Keraia machine, viewed in its prefix--free
+form (\emph{pf--Keraia}) as a universal Chaitin machine.
+A Keraia program is a preorder traversal of a full binary tree built
+from a curried $\lambda$--interpreter.  At the level of syntax, we may
+summarize the relevant clauses as
+\[
+  F \;\to\; F\,B
+  \qquad
+  F \;\to\; \diamond
+\]
+\[
+  B \;\to\; 0
+  \qquad
+  B \;\to\; 1,
+\]
+where (informally)
+
+\begin{itemize}
+  \item the leaf symbol $0$ denotes a basic combinator associated with the
+  curried $\lambda$--interpreter;
+
+  \item the symbol $1$ denotes a \emph{pairing / application} node that
+  combines two subtrees into a larger combinator.
+\end{itemize}
+
+Curried application is strictly binary, so the application tree of a
+closed term is a full binary tree.  Programs are written as preorder
+traversals of this tree, and in the prefix--free Keraia variant the
+first complete traversal is treated as the program, while the remaining
+bits are given as input.  Any strict prefix of a valid program is an
+incomplete tree (syntax error / underflow), and any strict extension
+leads to overflow.  Thus the domain $X_K$ of halting codewords of
+pf--Keraia is prefix--free.
+
+Let $x \in X_K$ be a halting codeword and let $T(x)$ denote its first
+full binary tree (the program part).  We write
+\[
+  n_0(x) := \#\{\text{occurrences of }0\text{ in }T(x)\},
+  \qquad
+  n_1(x) := \#\{\text{occurrences of }1\text{ in }T(x)\}.
+\]
+Since $T(x)$ is a full binary tree, we have the standard identity
+\[
+  n_0(x) = n_1(x) + 1,
+\]
+so the pair $(n_0(x),n_1(x))$ can equally well be described by
+$(n_1(x), n_0(x)-n_1(x))$.
+
+Besides the purely syntactic data, we also consider three standard
+``algorithmic thermodynamic'' observables for a halting program $x$:
+\begin{itemize}
+  \item the program length $V(x) := |x|$;
+  \item the logarithm of the runtime $E(x) := \log \mathrm{time}(x)$;
+  \item optionally, the numerical output $N(x)$.
+\end{itemize}
+Following Baez--Stay, these three functions are treated as analogues of
+volume, energy, and particle number, respectively, and give rise to a
+Gibbs ensemble on $X_K$.
+
+\section{Algorithmic thermodynamics on pf--Keraia}
+
+Fix inverse temperature $\beta$, ``algorithmic pressure'' parameter
+$\gamma$, and potential parameter $\delta$.
+The partition function of pf--Keraia is taken to be
+\[
+  Z_K(\beta,\gamma,\delta)
+  \;:=\;
+  \sum_{x \in X_K}
+  \exp\!\bigl(-\beta E(x) - \gamma V(x) - \delta N(x)\bigr),
+\]
+with the corresponding Gibbs weight
+\[
+  p(x)
+  \;=\;
+  \frac{1}{Z_K(\beta,\gamma,\delta)}
+  \exp\!\bigl(-\beta E(x) - \gamma V(x) - \delta N(x)\bigr).
+\]
+In domains of convergence this defines a well–behaved probability
+distribution on $X_K$.
+
+For the purposes of relating pf--Keraia to Arithmetic Expression Geometry
+(AEG), we restrict attention to the two--dimensional slice with
+$\delta = 0$ and focus on the pair of observables
+$(E,V)$, together with their conjugate variables $(\beta,\gamma)$.
+Formally, this is exactly the setting of Baez--Stay's algorithmic
+thermodynamics applied to a concrete prefix--free machine.
+
+\section{Arithmetic Expression Geometry (AEG) in brief}
+
+AEG works on a three–dimensional contact manifold with coordinates
+$(u,v,a)$ and contact form
+\[
+  \alpha
+  \;=\;
+  da - \mu\,du - \lambda a\,dv,
+\]
+where $\mu$ and $\lambda$ are fixed parameters (``additive'' and
+``multiplicative'' charges), and $a$ is an \emph{assignment} attached to
+a point $(u,v)$ of the base.
+
+Legendrian curves $\gamma(s)=(u(s),v(s),a(s))$ satisfy the
+\emph{arithmetic flow equation}
+\[
+  \frac{da}{ds} \;=\; \mu \cos\theta(s) + \lambda a(s)\,\sin\theta(s),
+\]
+where the angle $\theta$ parametrizes the direction of the tangent of
+$\gamma$ in the $(u,v)$–plane.
+The two fundamental generators of AEG are:
+
+\begin{itemize}
+  \item an \emph{additive} move $\oplus_\mu$ which shifts $a$ by a fixed
+  increment when moving along the $u$–direction;
+
+  \item a \emph{multiplicative} move $\otimes_\lambda$ which rescales
+  $a$ multiplicatively when moving along the $v$–direction.
+\end{itemize}
+
+On the thermodynamic side, there is a contactomorphism between
+$(u,v,a)$ and the usual variables $(S,V;U)$ given by
+\[
+  (u,v,a) \longmapsto (S,V;U) = (v,-u;a),
+\]
+under which $\alpha$ pulls back to the standard thermodynamic
+form $dU + p\,dV - T\,dS$ once one identifies $T = \lambda a$ and
+$p = \mu$.  In particular, the additive and multiplicative generators
+of AEG act on $a$ in a way that mirrors the trade–offs between energy,
+volume, and entropy in a thermodynamic system.
+
+\section{A combinatorial dictionary: pf--Keraia vs.\ AEG generators}
+
+We now propose a \emph{toy} dictionary between pf--Keraia programs and
+AEG ``threadlike'' expressions, based on the combinatorics of the
+underlying full binary tree and a coarse–grained model of runtime.
+
+\subsection{Counting leaf and application nodes}
+
+Given a pf--Keraia program $x \in X_K$, its program tree $T(x)$ is a
+full binary tree.  We interpret
+\[
+  n_\oplus(x) := n_0(x)
+  \qquad\text{and}\qquad
+  n_\otimes(x) := n_1(x)
+\]
+as the \emph{additive} and \emph{multiplicative} charges of $x$
+respectively.
+
+Intuitively:
+
+\begin{itemize}
+  \item each occurrence of $0$ introduces a new basic combinator leaf
+  (curried $\lambda$ / interpreter), enlarging the ``volume'' of the
+  syntax tree without adding branching;
+
+  \item each occurrence of $1$ introduces a binary pairing / application
+  node, growing the branching structure and enabling higher--order
+  computation.
+\end{itemize}
+
+The relation $n_0 = n_1 + 1$ expresses the constraint that valid
+programs live on a specific lattice in the $(n_\oplus,n_\otimes)$--plane.
+
+\subsection{Toy model for runtime scaling}
+
+At the level of exact semantics, both $0$ and $1$ can contribute
+nontrivially to the runtime of a pf--Keraia program: the $0$--leaf
+invokes an interpreter, and the $1$--node builds the data structures on
+which that interpreter operates.  For our purposes we adopt the
+following \emph{coarse–grained} model:
+
+\begin{itemize}
+  \item each $0$ contributes a fixed additive cost $\varepsilon_0$ to the
+  log runtime, accounting for the overhead of introducing a new basic
+  combinator;
+
+  \item each $1$ contributes a (possibly larger) additive cost
+  $\varepsilon_1$ to the log runtime, reflecting the application /
+  pairing of subtrees.
+\end{itemize}
+
+Thus we write, at the level of a toy model,
+\[
+  E(x)
+  \;\approx\;
+  \varepsilon_0\,n_0(x) + \varepsilon_1\,n_1(x),
+\]
+while the program length is exactly
+\[
+  V(x) = n_0(x) + n_1(x) + (\text{overhead}).
+\]
+
+It is often convenient in AEG to work not with $E$ itself but with the
+\emph{runtime} $T(x) := e^{E(x)}$ and its logarithm $Y(x) := E(x)$ as a
+Massieu–type potential.  In these variables, each $1$ multiplies the
+runtime by a factor $e^{\varepsilon_1}$, while each $0$ multiplies it by
+$e^{\varepsilon_0}$.  This multiplicative structure is precisely what
+AEG's $\otimes_\lambda$ generator is designed to encode at the level of
+the assignment $a$.
+
+\subsection{Defining AEG charges from Keraia syntax}
+
+We now define two AEG charges from the syntax tree of a Keraia program:
+\[
+  A(x) := \mu\,n_\oplus(x) = \mu\,n_0(x),
+  \qquad
+  M(x) := \lambda\,n_\otimes(x) = \lambda\,n_1(x),
+\]
+and a combined ``cost''
+\[
+  W(x) := A(x) + \alpha\,M(x)
+  = \mu\,n_0(x) + \alpha\lambda\,n_1(x),
+\]
+where $\alpha>0$ is a fixed parameter.
+
+The pair $(A(x),M(x))$ plays the role of an accumulative commutative
+coordinate for the program $x$:
+\begin{itemize}
+  \item incrementing $n_0$ corresponds to applying the additive generator
+  $\oplus_\mu$ once along the $u$–axis of AEG;
+
+  \item incrementing $n_1$ corresponds to applying the multiplicative
+  generator $\otimes_\lambda$ once along the $v$–axis.
+\end{itemize}
+
+The toy runtime model above can be written in terms of $(A,M)$ as
+\[
+  E(x)
+  \;\approx\;
+  c_1 A(x) + c_2 M(x),
+\]
+for suitable constants $c_1,c_2$ determined by $\varepsilon_0,\varepsilon_1$.
+Conversely, the Baez--Stay Boltzmann weight
+$\beta E(x) + \gamma V(x)$ can be expressed as a linear form in
+$(A(x),M(x))$ once the overhead in $V(x)$ is accounted for.  Thus, at a
+purely linear level, the ``thermodynamic'' pairing $(E,V)$ is equivalent
+to the AEG pair $(A,M)$ via a change of basis in $\mathbb{R}^2$.
+
+\section{First--hitting sets and prefix--free domains}
+
+Consider now the set of programs with cost bounded by a threshold $C$,
+\[
+  \mathcal{D}_C := \{\, x \in X_K : W(x) \le C \,\}.
+\]
+Because each application of $\oplus_\mu$ or $\otimes_\lambda$ increases
+$W$ by a fixed positive amount, any extension of a given codeword
+necessarily has strictly larger cost.
+
+It is therefore natural to single out the \emph{first–hitting set}
+\[
+  \mathcal{F}_C := \{\, x \in X_K :
+      W(x) \le C \text{ and every proper prefix of }x
+      \text{ has cost } < C \,\}.
+\]
+The set $\mathcal{F}_C$ is prefix–free by construction, and in the
+pf--Keraia setting it is a subset of the already prefix–free domain
+$X_K$.  The Kraft sum
+\[
+  K_C := \sum_{x \in \mathcal{F}_C} 2^{-|x|}
+\]
+is therefore bounded by $1$, with equality in the idealized limit where
+all halting programs of cost $\le C$ are included.
+
+From the AEG point of view, $\mathcal{F}_C$ picks out those
+threadlike expression paths that hit the ``cost horizon''
+$W = C$ for the first time.  From the Keraia point of view, it is a
+prefix--free shell in the code tree.  The map
+\[
+  x \longmapsto (A(x),M(x),a(x))
+\]
+that sends a pf--Keraia program $x$ to its AEG coordinates and
+assignment $a(x)$ thus implements a \emph{contactomorphism} between:
+
+\begin{itemize}
+  \item the algorithmic thermodynamic contact structure on pf--Keraia,
+  built from $(E,V)$ and their conjugate variables, and
+
+  \item the arithmetic expression contact structure $(u,v,a)$ with
+  contact form $\alpha = da - \mu\,du - \lambda a\,dv$,
+\end{itemize}
+up to a linear change of variables in the extensive sector and the
+choice of a coarse–grained runtime model.
+
+\section{Summary}
+
+In summary, at the level of syntax and coarse–grained runtime scaling,
+we obtain the following conceptual identifications:
+\begin{itemize}
+  \item[\(\bullet\)]
+  Keraia leaf bits $0$ (curried $\lambda$ / interpreter leaves)
+  \emph{additively} enlarge the program, and are modelled by the AEG
+  additive generator $\oplus_\mu$ with charge $A \propto n_0$;
+
+  \item[\(\bullet\)]
+  Keraia internal bits $1$ (pairing / application nodes)
+  \emph{multiplicatively} increase runtime at the level of $T=e^E$, and
+  are modelled by the AEG multiplicative generator $\otimes_\lambda$
+  with charge $M \propto n_1$;
+
+  \item[\(\bullet\)]
+  the Baez--Stay Boltzmann weight $\beta E + \gamma V$ on pf--Keraia is,
+  in this toy model, a linear functional of $(A,M)$ and therefore
+  compatible with the AEG contact form.
+\end{itemize}
+
+This provides a concrete playground where prefix--free Chaitin machines,
+algorithmic thermodynamics, and arithmetic expression geometry can be
+seen as different shadows of the same underlying combinatorial structure.
+\end{document}
