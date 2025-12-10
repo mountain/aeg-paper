@@ -1,0 +1,437 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{hyperref}
+
+\title{From Algorithmic Thermodynamics to Arithmetic Expression Geometry:\\
+A Contactomorphism via First-Hitting Expressions}
+
+\author{Mingli Yuan\thanks{Draft note; comments welcome.}}
+
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Baez and Stay developed an ``algorithmic thermodynamics'' in which
+prefix-free programs of a universal Turing machine play the role of
+microstates, and the logarithm of runtime, program length, and output
+are observables analogous to energy $E$, volume $V$, and particle number
+$N$. In this note we explain how a restricted form of their
+thermodynamic formalism admits a natural contactomorphism with the
+contact geometry of arithmetic expressions (AEG). The key steps are:
+(1) replace prefix-free programs by \emph{first-hitting expression paths}
+in the accumulative commutative space (ACS), selected by a linear
+functional $W(A,M)$; (2) use these paths to define an algorithmic
+partition function in AEG variables; and (3) show that, after fixing
+$N$ and imposing a simple equation of state $T=\lambda E$, $P=\mu_{\rm add}$,
+the Baez--Stay contact form reduces to the AEG contact form
+$\alpha_{\rm AEG}=da-(\mu_{\rm add}\,du+\lambda a\,dv)$ via an explicit
+contactomorphism. This provides a precise geometric bridge between
+algorithmic thermodynamics and the geometry of arithmetic expressions.
+\end{abstract}
+
+\section{Baez--Stay algorithmic thermodynamics}
+
+Let $U$ be a universal prefix-free Turing machine and let
+\[
+  X = \mathrm{dom}(U)
+\]
+be the set of halting programs for $U$. Following Baez and Stay, each
+program $x\in X$ is treated as a microstate, and any real-valued
+function on $X$ is an observable.
+
+We focus on the three observables
+\begin{align*}
+  E(x) &:= \log(\text{runtime of }x),\\
+  V(x) &:= \text{length of }x,\\
+  N(x) &:= \text{output of }x\in\mathbb{N},
+\end{align*}
+which play the roles of energy, volume, and particle number,
+respectively.
+
+For inverse temperature $\beta$, and conjugate parameters
+$\gamma,\delta\in\mathbb{R}$, the \emph{partition function} is
+\begin{equation}
+  Z(\beta,\gamma,\delta)
+  = \sum_{x\in X}
+    \exp\!\bigl(-\beta E(x)-\gamma V(x)-\delta N(x)\bigr).
+  \label{eq:Baez-partition}
+\end{equation}
+Whenever $Z$ converges, it defines a Gibbs ensemble
+\[
+  p(x)
+  = \frac{1}{Z(\beta,\gamma,\delta)}
+    \exp\!\bigl(-\beta E(x)-\gamma V(x)-\delta N(x)\bigr)
+\]
+which maximizes Shannon entropy $S = -\sum_x p(x)\log p(x)$ under
+constraints on the mean values
+\[
+  E = \mathbb{E}_p[E(x)],\quad
+  V = \mathbb{E}_p[V(x)],\quad
+  N = \mathbb{E}_p[N(x)].
+\]
+
+Baez and Stay then introduce conjugate intensive variables
+\[
+  T = \frac{1}{\beta},\qquad
+  P = \frac{\gamma}{\beta},\qquad
+  \mu = -\frac{\delta}{\beta},
+\]
+and show that the usual thermodynamic differential relation holds:
+\begin{equation}
+  dE = T\,dS - P\,dV + \mu\,dN.
+  \label{eq:Baez-fundamental}
+\end{equation}
+From the standpoint of contact geometry, \eqref{eq:Baez-fundamental}
+suggests the \emph{algorithmic contact form}
+\begin{equation}
+  \alpha_{\rm alg} = dE - T\,dS + P\,dV - \mu\,dN
+\end{equation}
+on the $(2n+1)$-dimensional space with coordinates
+$(S,V,N;E,T,P,\mu)$, whose equilibrium submanifold is the locus
+$\alpha_{\rm alg}=0$.
+
+\section{Arithmetic expression geometry and contact structure}
+
+Arithmetic expression geometry (AEG) starts from threadlike arithmetic
+expressions built from additive and multiplicative generators. These
+expressions can be encoded as paths in the \emph{accumulative
+commutative space} (ACS), a plane with coordinates
+\[
+  (A,M)\in\mathbb{R}^2
+\]
+recording total additive and (logarithmic) multiplicative charge along
+a path. The non-commutativity of ``add then multiply'' vs.\ ``multiply
+then add'' is measured by an \emph{arithmetic torsion} which can be
+expressed as an $e^M$-weighted area in ACS.
+
+To capture local dynamics, AEG introduces a $3$-dimensional contact
+manifold with coordinates $(u,v,a)\in\mathbb{R}^3$ and 1-form
+\begin{equation}
+  \alpha_{\rm AEG}
+  = da - (\mu_{\rm add}\,du + \lambda a\,dv),
+  \label{eq:AEG-contact}
+\end{equation}
+where $\mu_{\rm add}$ and $\lambda$ are fixed real parameters. The base
+coordinates $(u,v)$ are a differential realization of ACS, while $a$ is
+the \emph{assignment value} propagated along expression paths. The
+kernel $\ker\alpha_{\rm AEG}$ is spanned by the horizontal vector fields
+\[
+  D_u = \partial_u + \mu_{\rm add}\partial_a,\qquad
+  D_v = \partial_v + \lambda a\,\partial_a,
+\]
+and the \emph{Legendrian curves} (curves tangent to $\ker\alpha$) obey
+the flow equation
+\[
+  \frac{da}{ds}
+  = \mu_{\rm add}\cos\theta + \lambda a\sin\theta,
+\]
+which is the infinitesimal form of the discrete alternation of addition
+and multiplication.
+
+It is convenient to view \eqref{eq:AEG-contact} as the restriction of a
+thermodynamic contact form. In a separate note, a contactomorphism
+\[
+  \Phi:(u,v,a)\mapsto
+  (S,V;U,T,p) = (v,-u; a,\lambda a,\mu_{\rm add})
+\]
+was exhibited, under which the standard 1-form
+$\alpha_{\rm TD}=dU+p\,dV-T\,dS$ pulls back to $\alpha_{\rm AEG}$.
+Thus the AEG contact manifold is contactomorphic to a thermodynamic
+phase space restricted by $U=a$, $T=\lambda a$, $p=\mu_{\rm add}$.
+
+\section{First-hitting expressions and prefix-free families}
+
+Baez's formalism fundamentally relies on a prefix-free set of programs:
+$\mathrm{dom}(U)$ is prefix-free, and this guarantees the convergence and
+information-theoretic interpretation of the partition function
+\eqref{eq:Baez-partition}.
+
+On the AEG side, there is no explicit prefix-free constraint in the
+definition of threadlike expressions. However, a natural prefix-like
+structure appears as soon as we introduce a ``cost functional'' on ACS
+and insist on \emph{first-hitting} paths.
+
+\subsection{A linear cost functional on ACS}
+
+Let $(A,M)\in\mathbb{R}^2$ denote the total additive and multiplicative
+charges of a threadlike expression. Fix a positive parameter
+$\alpha>0$ and define a linear functional
+\begin{equation}
+  W(A,M) := A + \alpha M.
+  \label{eq:W-def}
+\end{equation}
+Geometrically, $W$ picks out a direction in ACS with slope
+$\alpha$ and provides a notion of ``weighted length'' or ``work'' along
+an expression path. For a discrete path $\sigma$ starting at $(0,0)$ and
+consisting of unit steps in the $A$- and $M$-directions, we write
+\[
+  W(\sigma) := W\bigl(A(\sigma),M(\sigma)\bigr)
+\]
+for the cost of its endpoint.
+
+\subsection{First-hitting paths at level $C$}
+
+Fix a threshold $C>0$. A threadlike expression path $\sigma$ from
+$(0,0)$ is said to be \emph{first-hitting at level $C$} if:
+\begin{enumerate}
+\item $W(\sigma)\ge C$, and
+\item for each proper initial segment $\tau\prec\sigma$,
+      we have $W(\tau)<C$.
+\end{enumerate}
+Let $S_C$ denote the set of all such first-hitting paths.
+
+Two observations are immediate:
+\begin{itemize}
+\item If we encode each path $\sigma$ by its sequence of additive and
+      multiplicative steps (for example using an alphabet $\{+,\times\}$),
+      then $S_C$ is \emph{prefix-free}: no $\sigma\in S_C$ is a prefix of
+      any other $\sigma'\in S_C$. Indeed, if $\sigma$ were a prefix of
+      $\sigma'$ and both satisfied (1), then $\sigma$ would violate (2).
+
+\item Under mild regularity assumptions on the allowed steps (e.g. unit
+      steps, or a finite step set with bounded increments), the family
+      $\{S_C\}_{C>0}$ behaves like a Kraft family of prefix codes. For
+      discrete choices of $C$ and $\alpha$ one can check that the Kraft
+      sum $\sum_{\sigma\in S_C}2^{-|\sigma|}$ is close to $1$, with
+      $|\sigma|$ the number of steps of the path.
+\end{itemize}
+
+Thus $S_C$ provides a canonical prefix-free subset of threadlike
+expressions at ``cost level'' $C$. It is natural to regard elements of
+$S_C$ as AEG analogues of halting programs.
+
+\subsection{Observables on first-hitting expressions}
+
+Given $\sigma\in S_C$, we define three observables mirroring the Baez
+triple $(E,V,N)$:
+\begin{align*}
+  W(\sigma) &:= A(\sigma)+\alpha M(\sigma)
+              &&\text{(weighted cost, ``log runtime''),}\\
+  L(\sigma) &:= A(\sigma)+M(\sigma)
+              &&\text{(unweighted length, ``program length''),}\\
+  a(\sigma) &:= \text{assignment value at the endpoint}
+              &&\text{(output / particle number).}
+\end{align*}
+The assignment $a(\sigma)$ is defined by propagating the initial value
+along the path via the addition/multiplication dynamics, as in the
+original AEG construction.
+
+\section{An AEG partition function}
+
+Using the first-hitting set $S_C$ and the observables
+$(W,L,a)$, we can define an AEG partition function that is formally
+identical to \eqref{eq:Baez-partition}:
+\begin{equation}
+  Z_C(\beta,\gamma,\delta)
+  := \sum_{\sigma\in S_C}
+     \exp\!\bigl(-\beta W(\sigma)-\gamma L(\sigma)-\delta a(\sigma)\bigr).
+  \label{eq:AEG-partition}
+\end{equation}
+Whenever $Z_C$ converges, it yields a Gibbs probability measure
+\[
+  p_C(\sigma)
+  = \frac{1}{Z_C(\beta,\gamma,\delta)}
+    \exp\!\bigl(-\beta W(\sigma)-\gamma L(\sigma)-\delta a(\sigma)\bigr),
+\]
+and we can define mean values
+\[
+  E := \mathbb{E}_{p_C}[W(\sigma)],\quad
+  V := \mathbb{E}_{p_C}[L(\sigma)],\quad
+  N := \mathbb{E}_{p_C}[a(\sigma)].
+\]
+Note that we have deliberately \emph{reused} the symbols $E,V,N$ for the
+mean observables, as this allows us to apply Baez--Stay's formalism
+essentially verbatim.
+
+With the same definitions of
+\[
+  T = \frac{1}{\beta},\quad
+  P = \frac{\gamma}{\beta},\quad
+  \mu = -\frac{\delta}{\beta},
+\]
+the usual thermodynamic derivation applies and we again obtain
+\[
+  dE = T\,dS - P\,dV + \mu\,dN,
+\]
+where $S$ is the Shannon entropy of $p_C$. Thus the AEG ensemble
+\eqref{eq:AEG-partition} carries the same contact structure as the
+Baez--Stay ensemble \eqref{eq:Baez-partition}, provided we adopt the
+identification
+\[
+  E \leftrightarrow \mathbb{E}[W],\quad
+  V \leftrightarrow \mathbb{E}[L],\quad
+  N \leftrightarrow \mathbb{E}[a].
+\]
+
+\section{The contactomorphism}
+
+We now make precise the relation between the Baez--Stay contact form
+and the AEG contact form \eqref{eq:AEG-contact}.
+
+\subsection{Reduction of the algorithmic contact form}
+
+Start from the algorithmic contact form
+\[
+  \alpha_{\rm alg}
+  = dE - T\,dS + P\,dV - \mu\,dN.
+\]
+We perform two reductions.
+
+\paragraph{Fixing $N$.} Restrict to a level set $N=N_0$. On this
+4-dimensional submanifold, $dN=0$ and
+\[
+  \alpha'_{\rm alg} = dE - T\,dS + P\,dV.
+\]
+
+\paragraph{Imposing a simple equation of state.}
+On $\{N=N_0\}$, choose an ``equation of state''
+\begin{equation}
+  T = \lambda E,\qquad P = \mu_{\rm add},
+  \label{eq:EOS}
+\end{equation}
+with constants $\lambda,\mu_{\rm add}\in\mathbb{R}$.
+This is the analogue of restricting to a family of ensembles where
+temperature is proportional to energy and pressure is fixed. Substituting
+\eqref{eq:EOS} into $\alpha'_{\rm alg}$ we obtain a 3-dimensional
+contact form on $(S,V,E)$:
+\begin{equation}
+  \alpha_{\rm red}
+  = dE - \lambda E\,dS + \mu_{\rm add}\,dV.
+  \label{eq:alpha-red}
+\end{equation}
+
+\subsection{Explicit contactomorphism to AEG}
+
+Consider the AEG contact manifold $(u,v,a)$ with
+\[
+  \alpha_{\rm AEG}
+  = da - (\mu_{\rm add}\,du + \lambda a\,dv).
+\]
+Define a smooth map
+\begin{equation}
+  \Psi:(u,v,a)\longmapsto (S,V,E) = (v,-u,a).
+  \label{eq:Psi}
+\end{equation}
+Compute the pullback of $\alpha_{\rm red}$:
+\begin{align*}
+  \Psi^*(\alpha_{\rm red})
+  &= \Psi^*\bigl(dE - \lambda E\,dS + \mu_{\rm add}\,dV\bigr)\\
+  &= da - \lambda a\,dv + \mu_{\rm add}\,d(-u)\\
+  &= da - \lambda a\,dv - \mu_{\rm add}\,du\\
+  &= da - (\mu_{\rm add}\,du + \lambda a\,dv)\\
+  &= \alpha_{\rm AEG}.
+\end{align*}
+Thus $\Psi$ is a \emph{strict contactomorphism} between the AEG contact
+manifold $(\mathbb{R}^3,\alpha_{\rm AEG})$ and the reduced algorithmic
+contact manifold $(\mathbb{R}^3,\alpha_{\rm red})$ obtained from
+$\alpha_{\rm alg}$ by fixing $N$ and imposing the equation of state
+\eqref{eq:EOS}.
+
+In words: after identifying
+\[
+  a \leftrightarrow E,\qquad
+  v \leftrightarrow S,\qquad
+  -u \leftrightarrow V,
+\]
+and fixing the functional dependencies $T=\lambda E$, $P=\mu_{\rm add}$,
+the algorithmic thermodynamics of Baez--Stay and the AEG contact
+geometry describe the same contact structure.
+
+\section{On the naturality of $W$ and of the reduction}
+
+The linear cost functional $W(A,M)=A+\alpha M$ plays two roles
+simultaneously:
+\begin{itemize}
+\item It defines a family of first-hitting sets $S_C$ which are
+      automatically prefix-free in the step-encoding of expressions.
+      Thus $W$ provides the AEG analogue of the prefix-free domain of a
+      universal Turing machine.
+
+\item Its expectation $\mathbb{E}_{p_C}[W]$ serves as the energy variable
+      $E$ in the Baez--Stay formalism, allowing the fundamental relation
+      \eqref{eq:Baez-fundamental} to be imported into AEG.
+\end{itemize}
+
+The reduction $T=\lambda E$, $P=\mu_{\rm add}$ used in
+\eqref{eq:EOS} is not forced by Baez--Stay's theory; it represents a
+particularly simple family of algorithmic equations of state which
+matches the AEG contact form. From the AEG perspective, it is natural
+because:
+\begin{enumerate}
+\item The contact form $\alpha_{\rm AEG}$ already singles out constants
+      $\lambda$ and $\mu_{\rm add}$ as the coefficients governing
+      multiplicative and additive propagation in the Legendrian flow.
+
+\item The mapping $T=\lambda E$ is consistent with the rectified flow
+      picture in AEG, where the gradient of the transformed variable
+      $y=\mathrm{arcsinh}(\lambda a/\mu_{\rm add})$ has constant norm
+      proportional to $\lambda$.
+
+\item The constant-pressure condition $P=\mu_{\rm add}$ reflects the
+      fact that the additive generator has fixed ``strength'' in ACS:
+      one additive step always increases $A$ by the same amount.
+\end{enumerate}
+
+One should nevertheless keep in mind that this identifies only a
+\emph{restricted} sector of the full algorithmic thermodynamics with
+AEG. Allowing more general equations of state on the Baez--Stay side
+would correspond, on the AEG side, to deforming the contact form
+\eqref{eq:AEG-contact} or enlarging the state space (for example by
+treating $N$ as an additional continuous coordinate). Exploring such
+deformations may be a natural way to incorporate richer algorithmic
+observables into arithmetic expression geometry.
+
+\section*{Outlook}
+
+This note shows that the following diagram commutes at the level of
+contact geometry:
+\[
+  \text{prefix-free programs}
+   \;\longleftrightarrow\;
+  \text{first-hitting expression paths}
+   \;\longrightarrow\;
+  \text{AEG contact manifold},
+\]
+where the left arrow is mediated by the observables $(E,V,N)$ vs.
+$(W,L,a)$ and the right arrow by the contactomorphism $\Psi$. Several
+directions suggest themselves:
+\begin{itemize}
+\item make the prefix-coding aspect of $S_C$ precise, including exact
+      Kraft equalities and the relation to Chaitin's $\Omega$ for
+      suitable choices of parameters and thresholds;
+
+\item analyze convergence and computability properties of the AEG
+      partition function $Z_C$ in analogy with Baez--Stay and Tadaki;
+
+\item lift the present 3-dimensional contactomorphism to a higher
+      dimensional picture where $N$ (or other expression-theoretic
+      invariants) become additional contact coordinates.
+\end{itemize}
+In this way, algorithmic thermodynamics and arithmetic expression
+geometry may be seen as two complementary coordinatizations of the same
+underlying geometric structure.
+\bigskip
+
+\bibliographystyle{plain}
+\begin{thebibliography}{9}
+
+\bibitem{BaezStay}
+J.~C.~Baez and M.~Stay,
+\newblock Algorithmic Thermodynamics,
+\newblock \emph{arXiv:1010.2067}, 2013.
+
+\bibitem{YuanAEG}
+M.~Yuan,
+\newblock Geometry of Arithmetic Expressions: I. Basic Concepts and Unsolved Problems,
+\newblock preprint, 2025.
+
+\bibitem{YuanThermo}
+M.~Yuan,
+\newblock Arithmetic Expression Geometry and its Thermodynamics Correspondence,
+\newblock draft note, 2025.
+
+\end{thebibliography}
+
+\end{document}
