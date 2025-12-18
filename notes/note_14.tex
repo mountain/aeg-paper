@@ -1,0 +1,278 @@
+
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{microtype}
+
+\title{\textbf{Progress Memo: Resource Geometry for Computation}\\
+\large Turing Machines, Pebble Game Toy Models, and a Bridge to Arithmetic Expression Geometry (AEG)}
+\author{Working notes (collaborative)}
+\date{\today}
+
+% --- Macros ---
+\newcommand{\ACS}{\ensuremath{\mathrm{ACS}}}
+\newcommand{\TM}{\ensuremath{\mathrm{TM}}}
+\newcommand{\AEG}{\ensuremath{\mathrm{AEG}}}
+\newcommand{\e}{\ensuremath{\mathrm{e}}}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This memo consolidates our current progress on a ``hard'' mathematical test-bed for a broader
+structure/flow program: \emph{resource geometry} of computation.
+We model a computation as a path in a two-dimensional accumulative plane whose axes are
+(i) \emph{time advance} and (ii) \emph{space unfolding} (log-memory / tape information).
+A closed-loop invariant (``resource torsion'') is obtained by comparing alternative schedules that share the same
+commutative totals.
+
+We report two toy-model experiments: (A) a Pebble Game on a Y-shaped DAG, where two legal schedules enclose a
+nonzero weighted area; and (B) an extension that introduces recomputation, where alternative strategies no longer
+share the same endpoint in time, motivating a canonical \emph{closure} mechanism (``ghost waiting'').
+We also record the open questions and next milestones, including a more explicit bridge to Arithmetic Expression
+Geometry (\AEG), and a plan to compute a library of minimal-but-nontrivial Turing-machine examples.
+\end{abstract}
+
+\section{Context: boundedness and a structure/flow stance}
+Our motivating meta-claim (from the broader boundedness work) is that many ``capacity'' models are still
+container-shaped: a structure is treated as a vessel and flows are treated as boundary exchange.
+A more portable abstraction is to treat a system as a \emph{structure maintained by flows}:
+stability depends on the balance of flows relative to the system's internal ability to route/transform them.
+
+Computation is a clean domain where this can be made precise.
+A Turing machine maintains a structured external memory (its tape) by a sequential flow of state transitions.
+Time and space are not merely two numbers attached to the run; the \emph{schedule of space usage} during time
+often determines feasibility and cost.
+Our goal is to make this schedule into a geometric object that supports (i) invariant-like quantities, and
+(ii) an ``area'' that behaves like a synthetic complexity measure.
+
+\section{The resource plane $\ACS_{\TM}$ and the torsion/area functional}
+\subsection{Coordinates and conventions}
+We define an \emph{Accumulative Commutative Space} for computation,
+\[
+\ACS_{\TM} \cong \mathbb{R}^2,\qquad (A,M),
+\]
+with intended meanings:
+\begin{itemize}[leftmargin=*]
+\item $A$ (\textbf{time advance}): discrete step count. Each primitive step increases $A$ by $\Delta A = 1$.
+\item $M$ (\textbf{space unfolding}): a \emph{dimensionless} log-space quantity. The canonical choice is
+\[
+M := S_{\mathrm{info}} \quad \text{(in nats)},
+\]
+so that $\e^M$ equals the number of tape microstates compatible with the currently ``active'' memory footprint.
+\end{itemize}
+
+Given a run, we obtain a discrete path $\gamma$ in $\ACS_{\TM}$ by logging $(A_k,M_k)$ after each step.
+
+\subsection{A 1-form, an action, and a torsion}
+Following the \AEG template, we choose a 1-form on $\ACS_{\TM}$:
+\[
+\omega := \e^{M}\, dA.
+\]
+For a discrete path with unit time steps, we use the convention
+\[
+\mathcal{W}(\gamma) := \int_\gamma \omega \;\;\approx\;\; \sum_{k=1}^{T} \e^{M_k},
+\]
+i.e.\ the weight at step $k$ is computed from the post-step memory level $M_k$
+(another consistent convention is to use $M_{k-1}$; the choice only shifts by boundary terms).
+
+Given two endpoint-matching schedules $\gamma$ and $\bar\gamma$, define the \textbf{resource torsion}
+\[
+\tau_{\TM}(\gamma,\bar\gamma) := \mathcal{W}(\bar\gamma)-\mathcal{W}(\gamma).
+\]
+
+\subsection{Area law}
+Since $d\omega = \e^M\, dM\wedge dA$, Stokes/Green yields the area identity
+\[
+\tau_{\TM}(\gamma,\bar\gamma)
+= \int_{\bar\gamma}\omega-\int_{\gamma}\omega
+= \int_{\partial\Sigma}\omega
+= \iint_{\Sigma} \e^{M}\, dM\wedge dA,
+\]
+where $\Sigma$ is the (possibly piecewise-linear) region in $\ACS_{\TM}$ enclosed by the two schedules.
+
+\paragraph{Interpretive note.}
+The exponential choice is intentionally ``sharp'': it treats memory growth as a multiplicative explosion of
+configuration microstates.
+Part of the ongoing work is to test alternative weights (e.g.\ $M\, dA$ or $\e^{\alpha M}dA$) and decide which one
+produces invariants that are meaningful and robust.
+
+\section{Toy model A: Pebble Game on a Y-shaped DAG}
+\subsection{Graph and rules}
+We used a minimal DAG where distinct legal schedules exist while the total number of computed nodes is fixed.
+The Y-graph has five nodes:
+\[
+L_1 \to L_2 \to L_3,\qquad R_1,\qquad \{L_3,R_1\}\to \mathrm{Root}.
+\]
+We use the black-pebble rule set:
+a parent can be pebbled only if all its predecessors carry pebbles; pebbles may be removed once their values are no
+longer needed.
+
+We interpret:
+\begin{itemize}[leftmargin=*]
+\item time $A$ as the number of placed pebbles (here always $A_{\mathrm{final}}=5$),
+\item space $M$ as the number of pebbles on the board after each step (so $M\in\{1,2,\dots\}$).
+\end{itemize}
+
+\subsection{Two schedules}
+We compared two classic schedules:
+\begin{itemize}[leftmargin=*]
+\item \textbf{Lazy / depth-first:} compute the deep branch first, then compute $R_1$ while holding $L_3$.
+\item \textbf{Eager / breadth-first:} compute the shallow branch early, so its pebble must be held longer.
+\end{itemize}
+
+\begin{center}
+\begin{tabular}{@{}ccccc@{}}
+\toprule
+Step $k$ & (Lazy) $M_k$ & $\e^{M_k}$ & (Eager) $M_k$ & $\e^{M_k}$ \\
+\midrule
+1 & 1 & $\e$   & 1 & $\e$ \\
+2 & 1 & $\e$   & 2 & $\e^2$ \\
+3 & 1 & $\e$   & 2 & $\e^2$ \\
+4 & 2 & $\e^2$ & 2 & $\e^2$ \\
+5 & 1 & $\e$   & 1 & $\e$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Thus,
+\[
+\mathcal{W}_{\mathrm{Lazy}} = 4\e + \e^2,\qquad
+\mathcal{W}_{\mathrm{Eager}} = 2\e + 3\e^2,
+\]
+and the torsion is
+\[
+\tau_{\TM} = \mathcal{W}_{\mathrm{Eager}}-\mathcal{W}_{\mathrm{Lazy}}
+= 2\e^2-2\e = 2\e(\e-1) \approx 9.34.
+\]
+By contrast, the unweighted space--time sum gives $8-6=2$.
+
+\subsection{Area interpretation}
+The two schedules differ by a ``plateau'' of length $2$ during which the eager schedule holds one extra pebble.
+In $\ACS_{\TM}$ this is literally a rectangle of width $\Delta A=2$ and height difference
+$\Delta(\e^M)=\e^2-\e$, hence the same result:
+\[
+\tau_{\TM} \;=\; 2(\e^2-\e).
+\]
+This experiment is a sanity check: a nontrivial ordering effect appears even in a tiny DAG.
+
+\section{Toy model B: recomputation and the open-loop problem}
+\subsection{Why loops break}
+True time--space tradeoffs usually require \emph{recomputation}:
+discard an intermediate value to save space, and later recompute it to finish the task.
+Geometrically, this increases total time.
+If we compare a ``rich'' strategy (high memory, short time) with a ``poor'' strategy (low memory, long time),
+their endpoints $(A_{\mathrm{final}},M_{\mathrm{final}})$ no longer match in $A$.
+A direct area/torsion is therefore undefined unless we specify a canonical closure.
+
+\subsection{A closure rule: ghost waiting}
+We proposed a closure mechanism that makes the comparison well-posed:
+
+Let $\gamma_1$ and $\gamma_2$ be two strategies producing the same final output, with times $T_1 < T_2$.
+Extend the faster path $\gamma_1$ by an \emph{idle segment} of length $\Delta A = T_2-T_1$ during which the system
+\emph{holds the output} (or its representation) at a memory level $M_{\mathrm{hold}}$.
+Denote the extended path by $\gamma_1^{+}$.
+
+Then define the \textbf{relative torsion with closure}
+\[
+\tau_{\TM}^{\mathrm{rel}}(\gamma_1,\gamma_2)
+:= \mathcal{W}(\gamma_2)-\mathcal{W}(\gamma_1^{+})
+= \mathcal{W}(\gamma_2)-\Big(\mathcal{W}(\gamma_1)+ (T_2-T_1)\e^{M_{\mathrm{hold}}}\Big).
+\]
+
+\paragraph{Interpretation.}
+The idle term is an ``opportunity cost'' of finishing early: in any synchronized system, a result must be stored or
+kept available until downstream consumers are ready.
+This closure is not the only option, but it is explicit and testable.
+
+\subsection{A preliminary qualitative prediction}
+Under the exponential weight, peak memory is punished very strongly.
+Therefore the geometry suggests a bias toward recomputation whenever it reduces the peak $M$ significantly,
+even if it increases time moderately.
+This aligns with the intuition that, when the state space explodes combinatorially, ``space is thermodynamically
+expensive'' compared with time.
+
+A key next step is to instantiate this claim on a concrete pebble graph where recomputation is unavoidable
+(e.g.\ diamond graphs and their chains), rather than relying on hypothetical parameter choices.
+
+\section{Toy model C: minimal nontrivial Turing-machine families (next computations)}
+We want a family that is small enough to compute by hand, yet rich enough to admit alternative schedules that
+enclose nonzero area in $\ACS_{\TM}$.
+Three candidates:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Write--scan--erase family.}
+Machines that (i) write a marker block, (ii) scan to locate a delimiter, and (iii) erase.
+Alternative implementations can front-load or back-load the marker allocation.
+
+\item \textbf{Copy-to-the-right family.}
+Given an input block $x$ on the tape, output $xx$ to the right.
+One strategy uses an extra track/marker (higher $M$) to avoid rescanning;
+another rescans more (higher $A$) with smaller memory.
+
+\item \textbf{Incrementer family (unary/binary).}
+Incrementers naturally separate into ``carry propagation'' phases and ``cleanup'' phases, where different
+encodings/strategies shift memory growth in time.
+\end{enumerate}
+
+For each family we will:
+(i) specify a small machine instance (few states, small alphabet),
+(ii) log $(A_k,M_k)$ from simulation,
+(iii) construct an endpoint-matching comparison schedule (or use the closure rule if times differ),
+and (iv) compute $\tau_{\TM}$ exactly or with certified bounds.
+
+\section{Bridge to \AEG: a proto-functorial dictionary (status)}
+We previously wrote a research proposal describing a functor-like correspondence from resource geometry to \AEG
+(see the companion file in this repository).
+The current memo refines the bridge in two directions:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Shared commutative plane:}
+both theories use an accumulative plane $(A,M)$ and the same canonical 1-form $\omega=\e^M dA$.
+
+\item \textbf{Ordering sensitivity as torsion:}
+\AEG torsion measures non-commutativity of generators (e.g.\ add vs multiply).
+Resource torsion measures ordering sensitivity of memory unfolding relative to time steps.
+
+\item \textbf{Next hard question: realizable reorderings.}
+In \AEG the reversed ordering is always definable.
+For Turing machines, not every permutation of memory increments is realizable without changing semantics.
+We need a clean definition of the equivalence moves that generate the ``loop group'' of realizable schedule changes.
+\end{itemize}
+
+\section{Next milestones and a discussion agenda}
+\subsection*{Milestones (near term)}
+\begin{enumerate}[leftmargin=*]
+\item Fix discrete conventions and choose a small set of candidate weights
+(e.g.\ $\e^{\alpha M}dA$ with $\alpha\in\{0,1\}$).
+\item Fully work out a recomputation pebble graph (diamond chain) and compute $\tau_{\TM}^{\mathrm{rel}}$ with the
+ghost-waiting closure.
+\item Specify the first minimal Turing-machine family, compute $(A_k,M_k)$ traces, and produce diagrams in $\ACS_{\TM}$.
+\item Implement a small simulator that outputs traces and computes actions/torsions; use it to build a ``worked examples''
+library.
+\end{enumerate}
+
+\subsection*{Questions to reopen in the next discussion}
+\begin{itemize}[leftmargin=*]
+\item What is the \emph{right} definition of $M$ for Turing machines (support size vs Shannon entropy vs microstate count)?
+\item Is $\omega=\e^M dA$ too sharp? What empirical/axiomatic criteria should decide the weight?
+\item Is ghost-waiting the correct canonical closure, or should we instead use a relative/homological notion of area?
+\item Can we prove any inequality that resembles a ``Gauss--Bonnet'' bound linking torsion to global complexity parameters?
+\item What is the minimal transformation set on Turing programs that generates nontrivial realizable loops?
+\end{itemize}
+
+\appendix
+\section{Discrete conventions (for reproducibility)}
+We use time steps $k=1,\dots,T$ and record memory levels $M_k$ after each step.
+The discrete action is
+\[
+\mathcal{W}(\gamma) := \sum_{k=1}^{T} \e^{M_k}.
+\]
+If one uses the alternative convention $\sum_{k=0}^{T-1} \e^{M_k}$, the difference is a boundary term
+$\e^{M_0}-\e^{M_T}$, hence torsion comparisons remain unchanged whenever endpoints match.
+
+\end{document}
