@@ -1,0 +1,366 @@
+
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{enumitem}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  urlcolor=blue,
+  citecolor=blue
+}
+
+% --- Notation for basic affine operators on x ---
+\newcommand{\AddOne}{\oplus 1}
+\newcommand{\SubOne}{\ominus 1}
+\newcommand{\MulTwo}{\otimes 2}
+\newcommand{\DivTwo}{\oslash 2}
+\newcommand{\SubTwo}{\ominus 2}
+\newcommand{\AddTwo}{\oplus 2}
+
+\newcommand{\Aff}{\mathrm{Aff}(1)}
+\newcommand{\Id}{\mathrm{Id}}
+
+\title{A $4\times 4$ Affine Torus from a Nested Piecewise Map\\
+and a Discrete Torsion--Offset Correspondence}
+\author{Mingli Yuan (exercise note, drafted with ChatGPT)}
+\date{December 2025}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We consider a piecewise affine map $a(x,s)$ on $s\in [0,5)$ whose four parameter intervals encode the elementary
+arithmetic operations ``$+1$'', ``$\times 2$'', ``$-2$'', ``$\div 2$''.
+By gluing the endpoints $0\sim 5$, the parameter becomes a circle. For two parameters $(p,q)$ we study the nested map
+$A(x;p,q)=a(a(x,p),q)$.
+The $4\times 4$ case table for $(p,q)$ yields a natural CW--decomposition of a torus with
+$16$ vertices, $32$ edges, and $16$ faces, equipped with a discrete $\Aff$--valued connection.
+We define a face holonomy (a commutator) as a discrete torsion constant $c$ and list the resulting torsion table.
+Finally, we work out four representative loops, one in each of the four classes
+(contractible/noncontractible) $\times$ (identity/non-identity),
+and illustrate how a \emph{weighted} torsion integral recovers the translation offset of a loop.
+This is a toy model for the Stokes-type torsion identities in the AEG framework.
+\end{abstract}
+
+\section{The piecewise map $a(x,s)$ and the circle parameter}
+
+Define the map $a(x,s)$ for $x\in \mathbb{R}$ and $s\in [0,5)$ by
+\begin{equation}\label{eq:def-a}
+a(x,s)=
+\begin{cases}
+x+s, & 0\le s<1,\\[2pt]
+2^{\,s-1}\,(x+1), & 1\le s<2,\\[2pt]
+2x - s + 4, & 2\le s<4,\\[2pt]
+2^{\,5-s}\,x, & 4\le s<5.
+\end{cases}
+\end{equation}
+A direct check at the breakpoints $s=1,2,4$ shows continuity, and moreover
+\[
+a(x,0)=x,\qquad \lim_{s\to 5^-}a(x,s)=x.
+\]
+Hence the endpoints can be glued to obtain a continuous map $a(x,\bar s)$ on a circle parameter
+$\bar s\in \mathbb{R}/5\mathbb{Z}\cong S^1$.
+
+\paragraph{Operational reading.}
+The four parameter intervals encode four basic operations on $x$:
+\begin{center}
+\begin{tabular}{@{}ll@{}}
+$0\to 1$: & $x\mapsto x+1$ (write $\AddOne$),\\
+$1\to 2$: & $x\mapsto 2x$ (write $\MulTwo$),\\
+$2\to 4$: & $x\mapsto x-2$ (write $\SubTwo$),\\
+$4\to 0$: & $x\mapsto x/2$ (write $\DivTwo$),
+\end{tabular}
+\end{center}
+and reversing an oriented step produces the inverse operator (e.g.\ $\SubOne$ is the inverse of $\AddOne$).
+
+\section{The $4\times 4$ case table for $A(x;p,q)=a(a(x,p),q)$}
+
+Let $p,q\in [0,5)$ (again with $0\sim 5$ understood), and define
+\[
+A(x;p,q) \;:=\; a(a(x,p),q).
+\]
+Split each parameter circle into the four half-open intervals
+\[
+I_0=[0,1),\quad I_1=[1,2),\quad I_2=[2,4),\quad I_3=[4,5).
+\]
+On each rectangle $I_i\times I_j$ the function $A(x;p,q)$ is an explicit affine expression in $x$.
+The full $4\times 4$ table (16 analytic pieces) is:
+
+\begin{table}[h!]
+\centering
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.45}
+\small
+\begin{tabular}{@{}l>{\centering\arraybackslash}p{0.20\linewidth}
+                >{\centering\arraybackslash}p{0.22\linewidth}
+                >{\centering\arraybackslash}p{0.22\linewidth}
+                >{\centering\arraybackslash}p{0.22\linewidth}@{}}
+\toprule
+$p\backslash q$
+& $0\le q<1$
+& $1\le q<2$
+& $2\le q<4$
+& $4\le q<5$\\
+\midrule
+$0\le p<1$
+& $x+p+q$
+& $2^{q-1}(x+p+1)$
+& $2x+2p-q+4$
+& $2^{5-q}(x+p)$\\
+$1\le p<2$
+& $2^{p-1}(x+1)+q$
+& $2^{q-1}\!\bigl(2^{p-1}(x+1)+1\bigr)$
+& $2^{p}(x+1)-q+4$
+& $2^{p+4-q}(x+1)$\\
+$2\le p<4$
+& $2x-p+4+q$
+& $2^{q-1}(2x-p+5)$
+& $4x-2p-q+12$
+& $2^{5-q}(2x-p+4)$\\
+$4\le p<5$
+& $2^{5-p}x+q$
+& $2^{q-1}\!\bigl(2^{5-p}x+1\bigr)$
+& $2^{6-p}x-q+4$
+& $2^{10-p-q}x$\\
+\bottomrule
+\end{tabular}
+\caption{The 16 analytic pieces of $A(x;p,q)$ on $I_i\times I_j$. Each entry is valid only on its corresponding rectangle.}
+\label{tab:case-table}
+\end{table}
+
+\section{A torus CW--complex with an $\Aff$--valued edge labelling}
+
+\subsection{The $16$ vertices, $32$ edges, and $16$ faces}
+
+Mark the four breakpoints $\{0,1,2,4\}\subset [0,5)$ on each parameter circle.
+After gluing $0\sim 5$, each of $p$ and $q$ becomes a circle subdivided into four directed edges:
+\[
+0\to 1,\quad 1\to 2,\quad 2\to 4,\quad 4\to 0.
+\]
+Taking the product of the two subdivided circles produces a $4\times 4$ grid on the square fundamental domain
+(with opposite sides identified). The resulting CW--complex has:
+\begin{itemize}[leftmargin=18pt]
+\item $V=4\cdot 4=16$ vertices: $(p,q)\in\{0,1,2,4\}^2$,
+\item $E=16$ horizontal edges (in the $q$--direction) $+\,16$ vertical edges (in the $p$--direction), hence $E=32$,
+\item $F=4\cdot 4=16$ square faces, corresponding to the rectangles $I_i\times I_j$ of Table~\ref{tab:case-table}.
+\end{itemize}
+Topologically, this is the standard CW--decomposition of a torus $T^2=S^1\times S^1$.
+
+\subsection{Edge labels as affine maps and the induced path holonomy}
+
+Each oriented edge is labelled by one of the four elementary affine operators on $x$:
+\[
+\AddOne:\;x\mapsto x+1,\qquad
+\MulTwo:\;x\mapsto 2x,\qquad
+\SubTwo:\;x\mapsto x-2,\qquad
+\DivTwo:\;x\mapsto \frac{x}{2},
+\]
+and reversing an edge direction applies the inverse operator:
+\[
+\SubOne:\;x\mapsto x-1,\qquad
+\DivTwo^{-1}=\MulTwo,\qquad
+\SubTwo^{-1}=\AddTwo:\;x\mapsto x+2.
+\]
+Thus any oriented path $\gamma$ in the $1$--skeleton (a concatenation of edges) evaluates to an affine map
+\begin{equation}\label{eq:holonomy}
+\rho(\gamma):\; x\longmapsto \Phi_\gamma\,x + A_\gamma,
+\qquad (\Phi_\gamma\in 2^{\mathbb{Z}},\; A_\gamma\in \tfrac12\mathbb{Z}).
+\end{equation}
+We call $\rho(\gamma)$ the \emph{holonomy} of the path.
+
+This is the same affine viewpoint used in the AEG framework:
+the group generated by $\oplus_\mu$ and $\otimes_\lambda$ embeds faithfully into $\Aff$
+via $x\mapsto \Phi x + a$ matrices, and commutators become nontrivial holonomy in $\Aff$
+(see Section~2.8--2.9 in the AEG paper). 
+
+\section{Face holonomy constants and discrete torsion}
+
+\subsection{Face commutators}
+
+Fix a face whose lower edge in the $p$--direction is of type $P$ and whose left edge in the $q$--direction is of type $Q$,
+where $P,Q\in\{\AddOne,\MulTwo,\SubTwo,\DivTwo\}$.
+Define the face holonomy (a commutator) by
+\begin{equation}\label{eq:commutator}
+H(P,Q)\;:=\;P\,Q\,P^{-1}\,Q^{-1}.
+\end{equation}
+Because $\Aff(1)\cong \mathbb{R}\rtimes \mathbb{R}^\times$ is a semidirect product,
+the commutator of a translation with a scaling is a \emph{translation}. Concretely,
+\[
+H(P,Q)(x)=x+c(P,Q)
+\]
+for some constant $c(P,Q)\in \tfrac12\mathbb{Z}$. We interpret $c(P,Q)$ as a discrete torsion (or curvature density)
+assigned to that face type.
+This is directly analogous to the AEG observation that
+\[
+x\,\oplus_\mu\,\otimes_\lambda\,\ominus_\mu\,\oslash_\lambda-x=\mu\,(1-e^{-\lambda})
+\]
+is a constant measuring non-commutativity (AEG Eq.\ (22)). 
+
+\subsection{The torsion table}
+
+Arranging the four $p$--edge types by rows and the four $q$--edge types by columns gives the $4\times 4$ table below:
+
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+$p\backslash q$ 
+& $0\to 1:\;\AddOne$ 
+& $1\to 2:\;\MulTwo$ 
+& $2\to 4:\;\SubTwo$ 
+& $4\to 0:\;\DivTwo$ \\
+\midrule
+$0\to 1:\;\AddOne$ & $0$ & $+\tfrac12$ & $0$ & $-1$\\
+$1\to 2:\;\MulTwo$ & $-\tfrac12$ & $0$ & $+1$ & $0$\\
+$2\to 4:\;\SubTwo$ & $0$ & $-1$ & $0$ & $+2$\\
+$4\to 0:\;\DivTwo$ & $+1$ & $0$ & $-2$ & $0$\\
+\bottomrule
+\end{tabular}
+\caption{Face holonomy constants $c(P,Q)$ defined by $H(P,Q)(x)=x+c(P,Q)$. Eight faces have $c=0$ (commuting pairs), and eight faces have $c\ne 0$ (non-commuting pairs).}
+\label{tab:torsion-table}
+\end{table}
+
+\section{A weighted torsion integral and the loop offset}
+
+\subsection{Offset of a loop}
+
+For a closed path (loop) $\gamma$ based at a vertex $v_0$, the holonomy \eqref{eq:holonomy} is an affine map.
+If $\Phi_\gamma=1$ then $\rho(\gamma)$ is a pure translation $x\mapsto x+A_\gamma$.
+\begin{itemize}[leftmargin=18pt]
+\item If $A_\gamma=0$, then $\gamma$ produces an \emph{arithmetic identity} (operator-level loop).
+\item If $A_\gamma\ne 0$, then $\gamma$ produces a non-identity affine shift.
+\end{itemize}
+The quantity $A_\gamma$ will be called the \emph{offset} of the loop.
+
+\subsection{Why a weight is necessary}
+
+A key structural point is that translations are \emph{not} central in $\Aff(1)$:
+if $g(x)=\Phi x + a$ and $T_c(x)=x+c$ then
+\begin{equation}\label{eq:conjugation}
+g^{-1}\,T_c\,g \;=\; T_{c/\Phi}.
+\end{equation}
+Therefore, when one ``adds up'' face translations from different places on the torus,
+each face constant must be transported to a common basepoint, producing a scale-dependent weight.
+
+\subsection{Discrete Stokes formula (toy model)}
+
+Let $\Sigma$ be an oriented union of faces (a $2$--chain) in the torus CW--complex, and suppose its boundary is the loop
+$\partial\Sigma=\gamma$ (so $\gamma$ is contractible).
+Choose a base vertex $v_0$ and, for each face $f\subset \Sigma$, choose an \emph{anchor vertex} $v_f$
+(e.g.\ the lower-left corner of the face in a chosen fundamental domain),
+together with a path $\pi_f$ from $v_0$ to $v_f$ in a spanning tree.
+Write $\rho(\pi_f)(x)=\Phi_f x + A_f$.
+
+Then the boundary holonomy is the product of conjugated face holonomies,
+and using \eqref{eq:conjugation} (together with the fact that translations commute) one obtains the discrete Stokes law:
+\begin{equation}\label{eq:discrete-stokes}
+\rho(\gamma)(x)=x+\sum_{f\subset \Sigma}\epsilon_f\,\frac{c(f)}{\Phi_f},
+\end{equation}
+where $\epsilon_f=\pm 1$ records whether the face orientation agrees with $\Sigma$.
+
+This is the discrete analogue of the AEG ``triple identity'' in the accumulative commutative space,
+where the torsion is recovered by an $e^M$--weighted area integral and an equivalent boundary integral
+(AEG Eq.\ (74)). 
+
+\section{Four representative examples}
+
+We now exhibit four explicit loops, one in each of the four classes:
+\[
+\text{(contractible / noncontractible)} \times \text{(identity / non-identity)}.
+\]
+We represent vertices by indices $(i,j)\in(\mathbb{Z}/4\mathbb{Z})^2$,
+where $i$ tracks the $p$--circle breakpoints in order $0,1,2,4$ and similarly for $j$ and $q$.
+A positive step $i\to i+1$ uses the $p$--edge type in the order
+$\AddOne,\MulTwo,\SubTwo,\DivTwo$, and similarly for $j\to j+1$ in the $q$--direction.
+
+\subsection{Example A: contractible \& identity (a $1\times 3$ strip)}
+
+Let $\Sigma_A$ be the $1\times 3$ strip consisting of the three faces with anchors $(0,1)$, $(0,2)$, $(0,3)$.
+Its boundary loop $\gamma_A=\partial\Sigma_A$ has edge word
+\[
+\gamma_A:\quad
+\MulTwo\,\SubTwo\,\DivTwo\,\AddOne\,\MulTwo\,\AddTwo\,\DivTwo\,\SubOne,
+\]
+and one checks directly that $\rho(\gamma_A)=\Id$.
+
+The three face types are $(\AddOne,\MulTwo)$, $(\AddOne,\SubTwo)$, $(\AddOne,\DivTwo)$,
+so $c=\tfrac12,0,-1$. Using the basepoint at $(0,1)$, the anchors have scales
+$\Phi=1,2,2$, hence weights $1,\tfrac12,\tfrac12$.
+Therefore
+\[
+A_{\gamma_A}=\frac{\tfrac12}{1}+\frac{0}{2}+\frac{-1}{2}=0,
+\]
+in agreement with $\rho(\gamma_A)=\Id$.
+
+\subsection{Example B: contractible \& non-identity (a $2\times 2$ block)}
+
+Let $\Sigma_B$ be the $2\times 2$ block consisting of four faces with anchors $(0,1),(0,2),(1,1),(1,2)$.
+Its boundary loop $\gamma_B=\partial\Sigma_B$ has holonomy
+\[
+\rho(\gamma_B)(x)=x+1.
+\]
+Only two of the four faces have nonzero torsion:
+$c(\AddOne,\MulTwo)=\tfrac12$ at anchor $(0,1)$ with $\Phi=1$, and
+$c(\MulTwo,\SubTwo)=1$ at anchor $(1,2)$ with $\Phi=2$.
+Hence the weighted torsion sum gives
+\[
+A_{\gamma_B}=\frac{\tfrac12}{1}+\frac{1}{2}=1,
+\]
+again matching the boundary offset.
+
+\subsection{Example C: noncontractible \& identity (a meridian loop)}
+
+Consider the meridian loop $\gamma_C$ going once around the $q$--circle at fixed $p$:
+\[
+\gamma_C:\quad \AddOne\,\MulTwo\,\SubTwo\,\DivTwo.
+\]
+As an arithmetic expression this is exactly
+\[
+x \xmapsto{\AddOne} x+1 \xmapsto{\MulTwo} 2(x+1)
+\xmapsto{\SubTwo} 2(x+1)-2 \xmapsto{\DivTwo} \frac{2(x+1)-2}{2}=x,
+\]
+so $\rho(\gamma_C)=\Id$.
+Topologically, $\gamma_C$ represents a generator of $\pi_1(T^2)$.
+
+\subsection{Example D: noncontractible \& non-identity (a longitude with a scaled bubble)}
+
+Start at a basepoint, move to the line $q=2$, traverse once around the $p$--circle (a longitude),
+and insert a small contractible ``bubble'' around the face of type $(\MulTwo,\SubTwo)$ at scale $2$.
+The resulting loop $\gamma_D$ is homotopic to the longitude (hence noncontractible),
+but its holonomy is
+\[
+\rho(\gamma_D)(x)=x+\tfrac12.
+\]
+Indeed, the inserted bubble has face constant $c(\MulTwo,\SubTwo)=1$,
+and since it occurs at scale $\Phi=2$ relative to the basepoint,
+its transported contribution is $1/2$ by \eqref{eq:conjugation}.
+Equivalently, $\gamma_D$ differs from the identity longitude by a weighted torsion flux through that single face.
+
+\section{Summary and outlook}
+
+This $4\times 4$ torus is a compact ``finite state'' model of the affine non-commutativity phenomena
+central to arithmetic expression geometry:
+\begin{itemize}[leftmargin=18pt]
+\item The $1$--skeleton paths form a path groupoid whose evaluation lands in an affine group, mirroring the AEG setup of
+threadlike expressions and $\Aff(1)$ holonomy.
+\item The face constants $c(P,Q)$ behave as a discrete torsion density measuring pairwise non-commutativity of generators.
+\item The semidirect product structure forces a \emph{weight} (a scale transport) in any Stokes-type sum:
+offsets are not plain sums of face constants, but conjugated sums.
+\end{itemize}
+Two natural next questions, now phrased purely in this toy model, are:
+(i)~how to classify loops simultaneously by homotopy class in $T^2$ and by affine holonomy $(\Phi_\gamma,A_\gamma)$,
+and (ii)~how these invariants interact with the ``commutativity vs.\ noncommutativity'' pattern (zero vs.\ nonzero faces)
+encoded by Table~\ref{tab:torsion-table}.
+
+\end{document}
