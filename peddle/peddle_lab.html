@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pebble Game: Resource Geometry Lab</title>
+    <style>
+        :root {
+            --bg-color: #1a1a1a;
+            --text-color: #e0e0e0;
+            --accent-color: #4CAF50;
+            --remove-color: #f44336;
+            --node-empty: #333;
+            --node-filled: #4CAF50;
+            --node-available: #2196F3;
+            --grid-line: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        header {
+            padding: 15px 20px;
+            background-color: #252525;
+            border-bottom: 1px solid #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h1 { margin: 0; font-size: 1.2rem; }
+        .subtitle { font-size: 0.8rem; color: #888; }
+
+        .controls {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        button {
+            background-color: #333;
+            color: white;
+            border: 1px solid #555;
+            padding: 5px 12px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        button:hover { background-color: #444; }
+        button.primary { background-color: var(--accent-color); border-color: var(--accent-color); }
+
+        input[type="number"] {
+            background: #222;
+            border: 1px solid #444;
+            color: white;
+            padding: 4px;
+            width: 50px;
+        }
+
+        .main-container {
+            display: flex;
+            flex: 1;
+            height: calc(100vh - 60px);
+        }
+
+        .panel {
+            flex: 1;
+            position: relative;
+            border-right: 1px solid #333;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .panel-header {
+            padding: 10px;
+            background: #202020;
+            font-weight: bold;
+            font-size: 0.9rem;
+            border-bottom: 1px solid #333;
+        }
+
+        #game-canvas {
+            background-color: #111;
+            cursor: crosshair;
+            flex: 1;
+        }
+
+        #chart-container {
+            flex: 1;
+            background-color: #151515;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #metrics {
+            padding: 15px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            background: #222;
+            border-top: 1px solid #333;
+        }
+
+        .metric-item span { color: #888; }
+        .metric-value { font-weight: bold; color: var(--accent-color); }
+
+        .legend {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            pointer-events: none;
+            font-size: 0.8rem;
+            background: rgba(0,0,0,0.7);
+            padding: 5px;
+            border-radius: 4px;
+        }
+        .legend-item { display: flex; align-items: center; gap: 5px; margin-bottom: 3px; }
+        .dot { width: 10px; height: 10px; border-radius: 50%; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div>
+        <h1>Resource Geometry Lab</h1>
+        <span class="subtitle">Toy Model: Pyramid Graph (Recomputation Testbed)</span>
+    </div>
+    <div class="controls">
+        <label>Max Pebbles: <input type="number" id="max-pebbles" value="10" min="1"></label>
+        <button onclick="resetGame()">Reset (R)</button>
+        <button class="primary" onclick="loadGraph('pyramid5')">Pyramid-5</button>
+        <button onclick="loadGraph('diamond')">Diamond Chain</button>
+    </div>
+</header>
+
+<div class="main-container">
+    <div class="panel">
+        <div class="panel-header">Computional Graph (DAG)</div>
+        <canvas id="game-canvas"></canvas>
+        <div class="legend">
+            <div class="legend-item"><div class="dot" style="background:#333; border:1px solid #555"></div>Locked</div>
+            <div class="legend-item"><div class="dot" style="background:var(--node-available)"></div>Available</div>
+            <div class="legend-item"><div class="dot" style="background:var(--node-filled)"></div>Pebbled</div>
+        </div>
+    </div>
+
+    <div class="panel">
+        <div class="panel-header">Accumulative Commutative Space (ACS)</div>
+        <div id="chart-container">
+            <canvas id="chart-canvas"></canvas>
+        </div>
+        <div id="metrics">
+            <div class="metric-item"><span>Time (A):</span> <span id="val-time" class="metric-value">0</span></div>
+            <div class="metric-item"><span>Space (M):</span> <span id="val-space" class="metric-value">0</span></div>
+            <div class="metric-item"><span>Action (∫M dA):</span> <span id="val-linear" class="metric-value">0</span></div>
+            <div class="metric-item"><span>Action (∫e^M dA):</span> <span id="val-exp" class="metric-value">0</span></div>
+            <div class="metric-item" style="grid-column: span 2; border-top: 1px solid #444; padding-top: 5px; margin-top:5px;">
+                <span>Log:</span> <span id="val-status" style="color: #aaa;">Ready. Click blue nodes to pebble.</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // --- Configuration & State ---
+    const canvas = document.getElementById('game-canvas');
+    const ctx = canvas.getContext('2d');
+    const chartCanvas = document.getElementById('chart-canvas');
+    const chartCtx = chartCanvas.getContext('2d');
+
+    let nodes = [];
+    let edges = [];
+    let pebbles = new Set(); // Stores IDs of pebbled nodes
+    let history = [{step: 0, m: 0, costLin: 0, costExp: 0}]; // Trajectory
+
+    let maxPebbles = 10;
+    let nodeRadius = 18;
+    let currentGraphType = 'pyramid5';
+
+    // --- Graph Generators ---
+
+    function createPyramid(levels) {
+        nodes = [];
+        edges = [];
+        const width = canvas.width;
+        const height = canvas.height;
+        const padding = 50;
+        const levelHeight = (height - 2 * padding) / (levels - 1);
+
+        let idCounter = 0;
+        let prevLayer = [];
+
+        // Build from bottom up (Inputs at bottom) or Top down?
+        // Standard pebble game: Inputs at bottom.
+        // Level 0 = Base (Inputs). Level k = Peak.
+
+        for (let l = 0; l < levels; l++) {
+            const nodesInLayer = levels - l;
+            const currentLayer = [];
+            const layerY = height - padding - (l * levelHeight);
+            const totalWidth = (nodesInLayer - 1) * 60;
+            const startX = (width - totalWidth) / 2;
+
+            for (let i = 0; i < nodesInLayer; i++) {
+                const node = {
+                    id: idCounter++,
+                    x: startX + i * 60,
+                    y: layerY,
+                    layer: l,
+                    label: idCounter
+                };
+                nodes.push(node);
+                currentLayer.push(node);
+
+                // Edges: If not base layer, connect to parents below
+                // In pyramid: Node at index i in layer l depends on i and i+1 in layer l-1?
+                // No, standard pyramid: Top depends on two below.
+                // Let's reverse visual: Inputs at bottom.
+                // Node i at Level l depends on Node i and Node i+1 at Level l-1 is wrong for convergence.
+                // Correct Pyramid: Base has N nodes. Next layer has N-1.
+                // Node i at layer l (l>0) depends on Node i and Node i+1 at layer l-1.
+            }
+
+            if (l > 0) {
+                for (let i = 0; i < currentLayer.length; i++) {
+                    // Connect to parents in prevLayer
+                    // Parent 1
+                    edges.push({from: prevLayer[i].id, to: currentLayer[i].id});
+                    // Parent 2
+                    edges.push({from: prevLayer[i+1].id, to: currentLayer[i].id});
+                }
+            }
+            prevLayer = currentLayer;
+        }
+        fitNodesToCanvas();
+    }
+
+    function createDiamondChain(length) {
+        nodes = [];
+        edges = [];
+        let id = 0;
+        let prevTail = null;
+
+        const startX = 50;
+        const startY = canvas.height / 2;
+        const spacingX = 80;
+        const diamondHeight = 60;
+
+        for(let i=0; i<length; i++) {
+            // S (Source of diamond)
+            let s = {id: id++, x: startX + i*spacingX*2, y: startY, label: `S${i}`};
+            nodes.push(s);
+            if (prevTail !== null) {
+                edges.push({from: prevTail, to: s.id});
+            }
+
+            // M1 (Top), M2 (Bottom)
+            let m1 = {id: id++, x: startX + i*spacingX*2 + spacingX/2, y: startY - diamondHeight, label: `T${i}`};
+            let m2 = {id: id++, x: startX + i*spacingX*2 + spacingX/2, y: startY + diamondHeight, label: `B${i}`};
+            nodes.push(m1, m2);
+
+            edges.push({from: s.id, to: m1.id});
+            edges.push({from: s.id, to: m2.id});
+
+            // T (Target of diamond)
+            let t = {id: id++, x: startX + i*spacingX*2 + spacingX, y: startY, label: `E${i}`};
+            nodes.push(t);
+
+            edges.push({from: m1.id, to: t.id});
+            edges.push({from: m2.id, to: t.id});
+
+            prevTail = t.id;
+        }
+        fitNodesToCanvas();
+    }
+
+    function fitNodesToCanvas() {
+        // Simple scaling to keep nodes visible on resize
+        // (Omitted for brevity in this toy version, relying on hardcoded math mostly fitting)
+    }
+
+    // --- Game Logic ---
+
+    function getParents(nodeId) {
+        return edges.filter(e => e.to === nodeId).map(e => e.from);
+    }
+
+    function canPlacePebble(nodeId) {
+        if (pebbles.has(nodeId)) return false; // Already has one
+        const parents = getParents(nodeId);
+        // Base nodes (no parents) can always be pebbled
+        if (parents.length === 0) return true;
+        // Otherwise, all parents must have pebbles
+        return parents.every(pId => pebbles.has(pId));
+    }
+
+    function updateMetrics(actionType) {
+        const step = history.length;
+        const currentM = pebbles.size;
+
+        // Calculate costs (integrals)
+        // We use Riemann sum style: Cost of the step is determined by the state *after* the action?
+        // Or state held during the step. Let's use state *after* for simplicity, or average.
+        // In the paper notes: e^{M_k} where M_k is post-step.
+
+        const lastEntry = history[history.length - 1];
+        const deltaA = 1; // Discrete step
+
+        const incLin = currentM * deltaA;
+        const incExp = Math.exp(currentM) * deltaA;
+
+        history.push({
+            step: step,
+            m: currentM,
+            costLin: lastEntry.costLin + incLin,
+            costExp: lastEntry.costExp + incExp
+        });
+
+        document.getElementById('val-time').innerText = step;
+        document.getElementById('val-space').innerText = currentM;
+        document.getElementById('val-linear').innerText = Math.round(history[history.length-1].costLin);
+        document.getElementById('val-exp').innerText = Math.round(history[history.length-1].costExp);
+    }
+
+    function handleClick(e) {
+        const rect = canvas.getBoundingClientRect();
+        const mouseX = e.clientX - rect.left;
+        const mouseY = e.clientY - rect.top;
+
+        // Check node clicks
+        for (let node of nodes) {
+            const dx = mouseX - node.x;
+            const dy = mouseY - node.y;
+            if (dx*dx + dy*dy < nodeRadius*nodeRadius) {
+                handleNodeAction(node);
+                break;
+            }
+        }
+    }
+
+    function handleNodeAction(node) {
+        const msg = document.getElementById('val-status');
+
+        if (pebbles.has(node.id)) {
+            // Remove pebble
+            pebbles.delete(node.id);
+            msg.innerText = `Removed pebble from Node ${node.label}`;
+            updateMetrics('remove');
+        } else {
+            // Attempt to place
+            if (canPlacePebble(node.id)) {
+                if (pebbles.size >= maxPebbles) {
+                    msg.innerText = `Limit reached! Max ${maxPebbles} pebbles. Remove one first.`;
+                    msg.style.color = '#f44336';
+                    setTimeout(() => msg.style.color = '#aaa', 2000);
+                    return;
+                }
+                pebbles.add(node.id);
+                msg.innerText = `Placed pebble on Node ${node.label}`;
+                updateMetrics('place');
+            } else {
+                msg.innerText = `Cannot place on Node ${node.label}. Predecessors needed.`;
+                msg.style.color = '#f44336';
+                setTimeout(() => msg.style.color = '#aaa', 2000);
+            }
+        }
+        draw();
+        drawChart();
+    }
+
+    // --- Rendering ---
+
+    function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Draw Edges
+        ctx.lineWidth = 2;
+        edges.forEach(edge => {
+            const n1 = nodes.find(n => n.id === edge.from);
+            const n2 = nodes.find(n => n.id === edge.to);
+
+            // Highlight edge if flow is valid (from node has pebble)
+            if (pebbles.has(n1.id)) {
+                ctx.strokeStyle = '#666';
+            } else {
+                ctx.strokeStyle = '#333';
+            }
+
+            ctx.beginPath();
+            ctx.moveTo(n1.x, n1.y);
+            ctx.lineTo(n2.x, n2.y);
+            ctx.stroke();
+        });
+
+        // Draw Nodes
+        nodes.forEach(node => {
+            ctx.beginPath();
+            ctx.arc(node.x, node.y, nodeRadius, 0, Math.PI * 2);
+
+            if (pebbles.has(node.id)) {
+                ctx.fillStyle = getComputedStyle(document.body).getPropertyValue('--node-filled');
+                ctx.strokeStyle = '#fff';
+            } else if (canPlacePebble(node.id)) {
+                ctx.fillStyle = getComputedStyle(document.body).getPropertyValue('--node-available');
+                ctx.strokeStyle = 'transparent';
+            } else {
+                ctx.fillStyle = getComputedStyle(document.body).getPropertyValue('--node-empty');
+                ctx.strokeStyle = '#444';
+            }
+
+            ctx.fill();
+            ctx.stroke();
+
+            // Text ID (optional, simplify for visual)
+            // ctx.fillStyle = '#fff';
+            // ctx.fillText(node.label, node.x-4, node.y+3);
+        });
+    }
+
+    function drawChart() {
+        const w = chartCanvas.width;
+        const h = chartCanvas.height;
+        chartCtx.clearRect(0, 0, w, h);
+
+        // Draw grid
+        chartCtx.strokeStyle = '#222';
+        chartCtx.lineWidth = 1;
+        chartCtx.beginPath();
+        for(let x=0; x<w; x+=20) { chartCtx.moveTo(x, 0); chartCtx.lineTo(x, h); }
+        for(let y=0; y<h; y+=20) { chartCtx.moveTo(0, y); chartCtx.lineTo(w, y); }
+        chartCtx.stroke();
+
+        if (history.length < 2) return;
+
+        // Auto Scale
+        const maxStep = Math.max(20, history.length + 5);
+        const maxM = Math.max(10, ...history.map(h => h.m)) + 2;
+
+        const scaleX = w / maxStep;
+        const scaleY = (h - 20) / maxM; // flip Y
+
+        // Draw Area (Fill)
+        chartCtx.fillStyle = 'rgba(76, 175, 80, 0.2)';
+        chartCtx.beginPath();
+        chartCtx.moveTo(0, h);
+        history.forEach(pt => {
+            chartCtx.lineTo(pt.step * scaleX, h - (pt.m * scaleY));
+        });
+        chartCtx.lineTo(history[history.length-1].step * scaleX, h);
+        chartCtx.fill();
+
+        // Draw Line
+        chartCtx.strokeStyle = '#4CAF50';
+        chartCtx.lineWidth = 2;
+        chartCtx.beginPath();
+        chartCtx.moveTo(0, h); // Start at 0,0
+
+        // Step chart logic
+        for (let i = 0; i < history.length; i++) {
+            const pt = history[i];
+            const prevPt = i > 0 ? history[i-1] : {step:0, m:0};
+
+            // Draw horizontal from prev step to current step (discrete time)
+            // Actually, simply connecting points is fine for visual overview
+            chartCtx.lineTo(pt.step * scaleX, h - (pt.m * scaleY));
+        }
+        chartCtx.stroke();
+    }
+
+    // --- Init ---
+
+    function resize() {
+        canvas.width = canvas.parentElement.clientWidth;
+        canvas.height = canvas.parentElement.clientHeight;
+        chartCanvas.width = chartCanvas.parentElement.clientWidth;
+        chartCanvas.height = chartCanvas.parentElement.clientHeight;
+        if(currentGraphType === 'pyramid5') createPyramid(5);
+        else createDiamondChain(4);
+        draw();
+        drawChart();
+    }
+
+    function resetGame() {
+        pebbles.clear();
+        history = [{step: 0, m: 0, costLin: 0, costExp: 0}];
+        draw();
+        drawChart();
+        updateMetrics();
+    }
+
+    function loadGraph(type) {
+        currentGraphType = type;
+        resetGame();
+        resize();
+    }
+
+    window.addEventListener('resize', resize);
+    canvas.addEventListener('mousedown', handleClick);
+
+    // Inputs
+    document.getElementById('max-pebbles').addEventListener('change', (e) => {
+        maxPebbles = parseInt(e.target.value);
+    });
+    document.addEventListener('keydown', (e) => {
+        if(e.key === 'r' || e.key === 'R') resetGame();
+    });
+
+    // Start
+    setTimeout(() => {
+        resize();
+        // createPyramid(5);
+    }, 100);
+
+</script>
+</body>
+</html>
