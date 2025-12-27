@@ -162,3 +162,93 @@ For non-zero parameters \(\mu, \lambda\), we can normalize the basis via the lin
 This demonstrates that for any \(\mu\lambda \neq 0\), the resulting Lie algebra belongs to a \textbf{single isomorphism class} over \(\mathbb{R}\). The parameters \(\mu\) and \(\lambda\) only scale the basis, they do not change the intrinsic algebraic structure.
 
 In conclusion, the contact form \(\alpha=da-\mu\,du-\lambda a\,dv\), which in natural units \((\tilde{u}=\mu u, \tilde{v}=\lambda v)\) takes the canonical shape \(da-d\tilde{u}-a\,d\tilde{v}\), provides the precise geometric stage for this "geometrized affine algebra." The fact that this geometry realizes a central extension of \(\mathfrak{aff}(1)\) confirms that the AEG framework captures the fundamental algebraic signature of arithmetic—a structure born from the interaction of a translation-like operation (\(D_u\)) with a value-dependent scaling operation (\(D_v\)).
+
+\subsection{Computational spacetime duality: a de Rham and Poincar\'e-duality viewpoint}
+\label{subsec:spacetime_duality}
+
+A recurring theme in AEG is that the same non-commutative defect can be computed either from a
+\emph{one-dimensional boundary object} (a history) or from a \emph{two-dimensional interior object}
+(a filling).  In the ACS, global torsion admits a Stokes-type ``triple identity'' (Section~5); on the
+contact manifold, the circulation--area relation \eqref{eq:8} provides its local differential analogue.
+Both statements share the schematic form
+\[
+\text{(boundary holonomy)} \;=\; \text{(curvature flux through a spanning surface)}.
+\]
+This observation motivates a \textbf{computational spacetime duality}:
+\begin{itemize}
+\item \textbf{time-like objects:} $1$D evaluation histories (words/paths, i.e.\ ordered operation sequences);
+\item \textbf{space-like objects:} $2$D canonical structures (rewriting/proof surfaces that relate histories);
+\item \textbf{duality bridge:} torsion as a de Rham pairing (curvature flux equals boundary holonomy).
+\end{itemize}
+
+\paragraph{Adjoining $2$-cells to the path calculus.}
+A threadlike (or alternating) expression path can be viewed as a word in the generators
+$\oplus_{\mu}$ and $\otimes_{\lambda}$ (and inverses), hence as a $1$-morphism in a path groupoid.
+However, non-commutativity is not adequately captured by ordinary topological homotopy of curves.
+Instead, we \emph{adjoin explicit $2$-dimensional data}: the basic generating $2$-cell is the
+\emph{interchange square}
+\[
+(\oplus_{\mu}\,\otimes_{\lambda}) \;\Rightarrow\; (\otimes_{\lambda}\,\oplus_{\mu}),
+\]
+whose discrete label is the one-step torsion constant
+\[
+\tau_{\mathrm{local}}
+:= \bigl(x \oplus_{\mu}\otimes_{\lambda}\bigr) - \bigl(x\otimes_{\lambda}\oplus_{\mu}\bigr)
+= \mu\,(e^{\lambda}-1),
+\]
+independent of the initial value $x$.
+In the infinitesimal limit (arithmetic coordinates $(u,v)$), this label is replaced by the integral
+of the torsion/curvature density over the $2$-cell.  Concretely, we take the $2$-form
+\begin{equation}\label{eq:torsion_density_form}
+\Omega \;:=\; \delta^{2}a \;=\; \mu\lambda\,du\wedge dv,
+\end{equation}
+which already appeared as the curvature of the horizontal calculus in \eqref{eq:7}.
+A composite rewriting surface $\Sigma$ obtained by pasting interchange cells carries the additive label
+\[
+\mathrm{label}(\Sigma) \;:=\; \iint_{\Sigma}\Omega,
+\]
+so the existence of a $2$-morphism (a rewriting surface) between two histories becomes the
+appropriate notion of ``arithmetic homotopy'' in this setting.
+
+\paragraph{de Rham pairing: curvature flux equals boundary holonomy.}
+The contact geometry provides a canonical potential $1$-form for the local density \eqref{eq:torsion_density_form}.
+Indeed, on the horizontal section $\alpha=0$ (equivalently $da=\omega$), we have
+\[
+(d\omega)^{*} = \mu\lambda\,du\wedge dv = \Omega,
+\]
+so $\Omega$ is the pulled-back curvature of the connection defined by $\alpha$.
+Consequently, for any oriented surface $\Sigma$ in the $(u,v)$-base with boundary $\partial\Sigma$,
+Stokes' theorem yields the de Rham pairing identity
+\begin{equation}\label{eq:de_rham_pairing_local}
+\iint_{\Sigma}\Omega
+\;=\;
+\iint_{\Sigma}(d\omega)^{*}
+\;=\;
+\oint_{\partial\Sigma}\omega,
+\end{equation}
+which is precisely the circulation--area relation \eqref{eq:8}.
+In the global ACS picture, the same structure reappears with the weighted forms
+$\eta_{\mathrm{ACS}}:= e^{M}\,dA$ and $\Omega_{\mathrm{ACS}}:= d\eta_{\mathrm{ACS}} = e^{M}\,dM\wedge dA$,
+so that torsion is again computed either from a boundary integral or an interior flux.
+
+\paragraph{A filling-cost functional.}
+Once $2$-morphisms are admitted, the natural quantitative object is a \emph{filling cost}:
+for two histories $\gamma$ and $\gamma'$ with the same semantic endpoints, define
+\begin{equation}\label{eq:filling_cost_def}
+\mathrm{Fill}(\gamma \Rightarrow \gamma')
+\;:=\;
+\inf_{\Sigma:\ \partial\Sigma=\gamma' - \gamma}\;
+\iint_{\Sigma}\Omega,
+\end{equation}
+where the infimum runs over admissible rewriting surfaces $\Sigma$ realizing $\gamma \Rightarrow \gamma'$.
+In the special case $\gamma'=\bar{\gamma}$ (reversal of the operation order), the ACS triple identity
+recovers a canonical filling and computes the same invariant as a weighted area.  The functional
+\eqref{eq:filling_cost_def} is therefore a natural extension from ``torsion as area'' to ``torsion as minimal filling.''
+
+\paragraph{Interpretation.}
+The message of this subsection is organizational rather than terminological: AEG naturally carries
+both $1$D ``history data'' (evaluation paths) and $2$D ``proof data'' (rewriting fillings), and the
+torsion invariant can be computed from either side.  This provides a geometric template for
+studying trade-offs between time-like costs (length/word length/energy of a history) and
+space-like costs (area or minimal filling cost of canonicalization), with torsion as the
+duality bridge.

@@ -1,0 +1,443 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{hyperref}
+\usepackage{enumitem}
+
+\title{Notes on Arithmetic Expression Geometry (AEG):\\
+Complexity, Torsion, and a PD\textsubscript{3} Program (Milestone Draft)}
+\author{Conversation Notes (draft)}
+\date{\today}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\dd}{\,\mathrm{d}}
+\newcommand{\vol}{\mathrm{Vol}}
+\newcommand{\Fill}{\mathrm{Fill}}
+\newcommand{\Time}{\mathrm{Time}}
+\newcommand{\Space}{\mathrm{Space}}
+\newcommand{\Cost}{\mathcal{C}}
+\newcommand{\ACS}{\mathrm{ACS}}
+\newcommand{\Eone}{E_{1}}
+\newcommand{\Aff}{\mathrm{Aff}(1)}
+\newcommand{\PD}{\mathrm{PD}}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+These notes summarize a staged program. The guiding thesis is that arithmetic evaluation can be
+realized geometrically so that non-commutativity induces measurable invariants (torsion/area/curvature).
+The program is organized around three milestones:
+(1) build a concrete PD\textsubscript{3} prototype and compute a \emph{nontrivial} Poincar\'e--Lefschetz duality pairing
+between an explicit 2-class (torsion/curvature density) and an explicit 1-class (generator representative);
+(2) promote global torsion from a ``triple identity'' into a \emph{filling-cost principle} (a Dehn-function-like viewpoint),
+stable under the chosen equivalence level;
+(3) only after (1)--(2), fix a branchless computation model (straight-line / threadlike paths) and run toy experiments
+(e.g.\ $1\mapsto 3$) comparing time/space proxies against torsion/filling costs.
+Geometric volume growth is kept as a heuristic motivation, but the primary quantitative object is a
+torsion-driven filling cost once PD\textsubscript{3} is stabilized.
+\end{abstract}
+
+\tableofcontents
+
+% ------------------------------------------------------------
+\section{Milestones and success criteria}
+
+\subsection{Milestone 1: a concrete PD\textsubscript{3} prototype with a nontrivial pairing}
+\paragraph{Goal.}
+Turn PD\textsubscript{3} from a slogan into a \emph{computable tool}. Concretely, choose an explicit compact oriented
+3-manifold $M$ (with boundary) on which the AEG differential forms make sense, and exhibit:
+\begin{itemize}[leftmargin=2em]
+  \item a 2-class $[\kappa]\in H^2(M)$ or $H^2(M,\partial M)$ arising from torsion/curvature density,
+  \item a 1-class $c\in H_1(M,\partial M)$ or $H_1(M)$ which is its Poincar\'e--Lefschetz dual,
+  \item an explicit pairing computation verifying nontriviality.
+\end{itemize}
+
+\paragraph{Minimal PD\textsubscript{3} ``training stage'' (recommended).}
+Instead of a contractible ``box'' (which forces $H^2=0$ and trivializes the pairing), use a periodic base:
+\[
+M_{\mathrm{tor}} := \mathbb{T}^2_{u,v}\times[a_-,a_+],
+\qquad \mathbb{T}^2_{u,v}=\R^2/(U\Z\oplus V\Z).
+\]
+Because $\alpha$ and $\omega$ are invariant under $u$- and $v$-translations, this quotient is compatible with the AEG
+contact/differential setup. The class $[du\wedge dv]$ is nontrivial on $\mathbb{T}^2$, hence $H^2(M_{\mathrm{tor}})\neq 0$.
+
+\paragraph{Pass/fail criterion.}
+Produce a clean statement of the form
+\[
+[\kappa]\neq 0,\qquad \PD([\kappa]) = [\gamma_a]\in H_1(M_{\mathrm{tor}},\partial M_{\mathrm{tor}}),
+\]
+where $\gamma_a$ is a vertical relative 1-cycle (an $a$-segment from $a_-$ to $a_+$ at a fixed $(u,v)$), and verify the
+pairing against a dual test class.
+
+\subsection{Milestone 2: from ``torsion as area'' to a filling-cost principle}
+\paragraph{Goal.}
+Define a cost functional that measures \emph{how much non-commutativity must be paid} to transform one realization
+into another, in a way analogous to a Dehn function / van Kampen area:
+\begin{itemize}[leftmargin=2em]
+  \item choose the equivalence level (literal / operational / relational / semantic),
+  \item define a notion of ``elementary move'' (e.g.\ swapping adjacent generators, or a controlled homotopy),
+  \item define a filling surface $\Sigma$ encoding a sequence of moves,
+  \item define a torsion-driven area functional $\Fill(\Sigma)$, and the minimal filling cost
+  \[
+  \Fill(\gamma\Rightarrow\gamma') := \inf_{\Sigma:\,\partial\Sigma=\gamma-\gamma'} \iint_\Sigma \text{(torsion density)}.
+  \]
+\end{itemize}
+The ACS triple identity provides a \emph{canonical} filling between $\gamma$ and $\bar\gamma$; the milestone is to turn
+this into a \emph{general} minimal-filling language aligned with PD\textsubscript{3}.
+
+\paragraph{Pass/fail criterion.}
+State and prove (at least in a toy model) a proposition of the form:
+``$\Fill(\gamma\Rightarrow\gamma')$ is well-defined on the chosen equivalence class and reduces to the ACS integral in
+the special case $\gamma'=\bar\gamma$.''
+
+\subsection{Milestone 3: fix the computation model and run toy experiments}
+\paragraph{Phase I scope.}
+Work first with \emph{branchless} computations: threadlike / alternating expressions, i.e.\ straight-line programs.
+Branching is treated as a later design layer, not assumed to appear automatically from affine/contact dynamics.
+
+\paragraph{Pass/fail criterion.}
+For a fixed toy task (e.g.\ $1\mapsto 3$), compute and compare across multiple realization paths $\gamma$:
+\begin{itemize}[leftmargin=2em]
+  \item $\Time(\gamma)$: word length / geometric length,
+  \item $\Space(\gamma)$: vertical excursion (range of $a$) and/or scale excursion ($M$ in ACS),
+  \item $\Fill(\gamma)$ or torsion-derived cost(s),
+\end{itemize}
+and exhibit at least one nontrivial trade-off (a Pareto front in miniature).
+
+\subsection{What we will \emph{not} claim (yet)}
+\begin{itemize}[leftmargin=2em]
+  \item ``Geometric volume \emph{is} complexity'': volume growth is motivating, but scale dependence and non-injectivity
+  issues require PD\textsubscript{3}/filling stabilization first.
+  \item ``Full computational universality'': Phase I is a straight-line model; branching mechanisms are postponed.
+\end{itemize}
+
+% ------------------------------------------------------------
+\section{Motivation: From non-commutativity to geometry-based costs}
+
+\subsection{Symbolic explosion and hyperbolicity (heuristic)}
+A recurring heuristic is:
+\begin{quote}
+Non-commutativity increases the number of distinct operation strings exponentially; if a geometric encoding assigns
+each string to a point and small balls have uniformly positive volume, then the exponential explosion manifests as
+exponential volume growth. Hyperbolic spaces provide the model case: $\vol(B_r)\sim e^{(n-1)r}$, whereas Euclidean
+balls grow polynomially.
+\end{quote}
+This motivates the slogan \emph{``complexity as geometric volume''}, but we treat it as a \emph{heuristic}.
+
+\subsection{Why ``volume'' is not a stable commitment}
+Two structural pitfalls must be handled before using volume as a complexity proxy:
+\begin{itemize}[leftmargin=2em]
+  \item \textbf{Scale dependence:} volume depends on the metric and normalization; complexity should not evaporate under
+  rescaling.
+  \item \textbf{Non-injectivity:} many distinct operation strings may collapse to the same semantic endpoint; volume growth
+  is meaningful only after specifying the equivalence level and the embedding.
+\end{itemize}
+This is why the program pivots to torsion-driven \emph{filling costs} once PD\textsubscript{3} is fixed.
+
+\subsection{A concern: affine dynamics without branching}
+Purely affine/contact dynamics may fail to supply branching/choice. Hence Phase I restricts to straight-line models.
+Branching is treated as an explicit design ingredient (e.g.\ boundary-driven or singularity-driven mechanisms), deferred
+to a later phase.
+
+% ------------------------------------------------------------
+\section{A minimal computational ontology: problems, encodings, and costs}
+
+We want a framework that can host:
+\begin{enumerate}[leftmargin=2em]
+  \item a well-defined \emph{computational problem} (input $\mapsto$ output),
+  \item multiple \emph{computation schemes} (encodings + dynamics),
+  \item distinct complexity quantities: \emph{representation complexity}, \emph{time cost}, \emph{space cost},
+        plus a torsion/filling cost once PD\textsubscript{3} is stabilized.
+\end{enumerate}
+
+\subsection{Paths as computations (Phase I: branchless)}
+Threadlike (or alternating) arithmetic expressions can be curried into a sequence of operators and viewed as
+\emph{paths} in a groupoid of evaluation. A computational run is a path; different runs for the same denotation are
+different paths with a common semantic endpoint.
+In Phase I, we restrict to such paths (straight-line computations), and make the equality level explicit whenever
+optimization is discussed.
+
+\subsection{A first target ``sparrow'' example}
+We keep a toy target in mind: compute $1\mapsto 3$ using different expression paths. The point is not the numerical
+result but the variation among:
+\begin{itemize}[leftmargin=2em]
+  \item \textbf{path length} (step count / geometric length),
+  \item \textbf{torsion / curvature accumulation} (order-sensitive),
+  \item \textbf{space usage proxies} (intermediate amplitude of $a$, scale excursion in ACS),
+  \item \textbf{filling cost proxies} once Milestones 1--2 are complete.
+\end{itemize}
+
+% ------------------------------------------------------------
+\section{AEG core constructions (2D and 3D)}
+
+\subsection{The group generated by add/multiply and arithmetic torsion}
+Fix $\mu,\lambda\in\R$ and consider generators:
+\[
+\oplus_\mu: x\mapsto x+\mu,\qquad
+\otimes_\lambda: x\mapsto x e^{\lambda},
+\]
+together with inverses. Their commutator produces a constant discrepancy (arithmetic torsion)
+\[
+\tau = (x\oplus_\mu\otimes_\lambda)-(x\otimes_\lambda\oplus_\mu)=\mu(e^\lambda-1),
+\]
+independent of $x$.
+
+\subsection{E\textsubscript{1}: a hyperbolic Arithmetic Expression Space}
+On the upper half-plane $H=\{(x,y)\mid y>0\}$, equip the hyperbolic-type metric
+\[
+ds^2=\frac{1}{y^2}\left(\frac{dx^2}{\mu^2}+\frac{dy^2}{\lambda^2}\right),
+\]
+and the assignment field
+\[
+a(x,y)=-\frac{x}{y}.
+\]
+Then $a$ satisfies the flow equation (for appropriate orientation conventions)
+\[
+\frac{da}{ds}=\mu\cos\theta+\lambda a\sin\theta,
+\]
+and also a Laplace eigen-equation (in the parameterized metric, $\Delta a=2\lambda^2 a$).
+
+\subsection{Local torsion density as an area element}
+In arithmetic coordinates $(u,v)$ on the base, the differential form
+\[
+da=\mu\,du+\lambda a\,dv
+\]
+yields an infinitesimal torsion/area law
+\[
+d\tau=\mu\lambda\,du\wedge dv.
+\]
+This is the microscopic bridge between non-commutativity and geometric area.
+
+\subsection{Globalization via the Accumulative Commutative Space (ACS)}
+To compare a path $\gamma$ with its reversed-order counterpart $\bar\gamma$, introduce commutative coordinates
+\[
+(A_\gamma,M_\gamma)=\Big(\sum_k \mu_k, \sum_k \lambda_k\Big)
+\]
+so that $\gamma$ and $\bar\gamma$ share endpoints in the $(A,M)$ plane and (in the simple embedded case) bound a
+region $\Sigma_\gamma$.
+A ``triple identity'' expresses global torsion in three equivalent forms:
+\[
+\tau(\gamma)=\nu(\gamma)-\nu(\bar\gamma)
+=\iint_{\Sigma_\gamma} e^{M}\, dM\wedge dA
+=\oint_{\partial\Sigma_\gamma} e^{M}\, dA.
+\]
+\paragraph{Milestone-2 viewpoint.}
+Interpret the middle term as a \emph{filling functional}; then generalize from the canonical pair $(\gamma,\bar\gamma)$
+to arbitrary pairs $(\gamma,\gamma')$ related by the chosen equivalence relation.
+
+\subsection{The 3D arithmetic contact manifold}
+Lift the ACS base to a three-manifold with coordinates $(u,v,a)\in\R^3$ and define
+\[
+\omega:=\mu\,du+\lambda a\,dv,\qquad
+\alpha:=da-\omega.
+\]
+Then $\alpha\wedge d\alpha=\mu\lambda\,du\wedge da\wedge dv\neq 0$ if $\mu\lambda\neq 0$, so $\alpha$ is a contact form.
+
+\paragraph{Horizontal distribution and Lie brackets.}
+Define horizontal vector fields
+\[
+D_u:=\partial_u+\mu\,\partial_a,\qquad
+D_v:=\partial_v+\lambda a\,\partial_a.
+\]
+Their commutator is a pure vertical return:
+\[
+[D_u,D_v]=\mu\lambda\,\partial_a.
+\]
+
+\paragraph{Expression differential calculus.}
+Define a horizontal differential $\delta$ by
+\[
+\delta F = dF-(\partial_a F)\alpha = (D_u F)\,du+(D_v F)\,dv,
+\]
+with curvature/second differential
+\[
+\delta^2 F = \mu\lambda(\partial_a F)\,du\wedge dv,\qquad
+\delta^2 a=\mu\lambda\,du\wedge dv.
+\]
+Stokes/Green appears as a circulation--area relation
+\[
+\oint_{\partial\Sigma}\omega=\iint_{\Sigma} d\omega
+=\mu\lambda\iint_{\Sigma} du\wedge dv
+\quad \text{(on the horizontal section)}.
+\]
+
+% ------------------------------------------------------------
+\section{Why PD\textsubscript{3}: making generators and relators genuinely dual}
+
+\subsection{The dimensional mismatch in 2D}
+In dimension $n=2$, Poincar\'e duality pairs $H^1$ with $H_1$ (self-dual), and $H^2$ with $H_0$.
+Hence the intuitive ``1-skeleton vs 2-cells'' pairing is \emph{not} a PD pairing in 2D.
+
+\subsection{The PD\textsubscript{3} advantage}
+In dimension $n=3$, PD pairs complementary dimensions:
+\[
+H^1(M)\cong H_{2}(M,\partial M),\qquad
+H^2(M)\cong H_{1}(M,\partial M).
+\]
+Thus 2-dimensional ``relator data'' (2-classes / 2-cells) can be dualized into 1-dimensional ``generator data''
+(1-classes / 1-cycles):
+\[
+\boxed{\text{relators (2-cells)} \;\longleftrightarrow\; \text{generators (1-skeleton)}}.
+\]
+
+\subsection{Milestone-1 focus: PD\textsubscript{3} as a calculation device}
+The point of PD\textsubscript{3} here is not philosophical: it should let us compute and compare invariants by pairing
+explicit differential forms with explicit cycles. The first deliverable is a \emph{nontrivial} pairing on an explicit $M$.
+
+% ------------------------------------------------------------
+\section{Design choices: what is the PD\textsubscript{3} stage?}
+
+To use PD\textsubscript{3} as a hard tool (not just a metaphor), we must choose an actual PD\textsubscript{3} object.
+
+\subsection{Option A$^\ast$: a compact ``computation stage'' with nontrivial topology (relative PD)}
+A naive box $\Sigma\times[a_-,a_+]$ with $\Sigma$ contractible can force $H^2=0$ and trivialize Milestone 1.
+So we prefer a compact stage with $H^2\neq 0$, e.g.\ the torus stage
+\[
+M_{\mathrm{tor}} := \mathbb{T}^2_{u,v}\times[a_-,a_+].
+\]
+Relative PD applies:
+\[
+H^k(M_{\mathrm{tor}})\cong H_{3-k}(M_{\mathrm{tor}},\partial M_{\mathrm{tor}}).
+\]
+This is aligned with ``finite resources'' while still supporting a nontrivial 1--2 duality.
+
+\subsection{Option B: global compactification / quotient}
+Seek a global quotient or compactification of the AEG contact manifold so that it becomes a closed 3-manifold or a
+PD\textsubscript{3} complex. This is conceptually clean but technically harder; identifications must respect the AEG
+1-forms.
+
+\subsection{Option C: borrow a canonical PD\textsubscript{3} arena (knot complements)}
+Use a known 3-manifold with boundary (e.g.\ a knot complement) where PD\textsubscript{3} is standard, then embed or
+compare AEG structures to it. This reduces the burden of ``making PD true'' and lets us focus on translating invariants.
+We treat this as a Phase-II route, after Milestone 1 works in the internal prototype.
+
+% ------------------------------------------------------------
+\section{A training ground (Phase II): the figure-eight knot complement and Fox/Alexander data}
+
+\subsection{Presentation data}
+A standard entry point is the figure-eight knot $4_1$ group presentation:
+\[
+\langle a,b \mid r=1\rangle,\qquad r=\texttt{abbbaBAAB}
+\quad(A=a^{-1},\,B=b^{-1}),
+\]
+with Alexander polynomial
+\[
+\Delta(t)=t^2-3t+1.
+\]
+The relator $\to$ Alexander route is classically mediated by Fox calculus.
+
+\subsection{Why this matters here}
+In AEG, the affine representation viewpoint yields a ``twisted Leibniz rule'' for the translation component:
+\[
+D(uv)=D(u)+\Phi(u)D(v),
+\]
+which mirrors the defining identity of Fox differential calculus. This suggests that the
+\emph{linearization of relators} (Fox derivatives) has an intrinsic continuous avatar in the AEG contact/differential setup.
+
+\subsection{PD\textsubscript{3} geometry: meridian $\leftrightarrow$ Seifert surface}
+In a knot complement $M=S^3\setminus K$ (with $\partial M\simeq T^2$), a meridian loop $\mu$ is a 1-cycle, and a
+Seifert surface $S$ is a relative 2-class $[S]\in H_2(M,\partial M)$. Their intersection pairing is normalized as
+\[
+\langle [\mu],[S]\rangle = 1,
+\]
+making them a tangible model of the 1--2 duality in PD\textsubscript{3}.
+
+% ------------------------------------------------------------
+\section{Bridging PD\textsubscript{3} back to AEG (Milestone 1 details)}
+
+\subsection{A natural 2-class candidate: curvature/torsion density}
+On the AEG contact manifold, the basic curvature/torsion density is
+\[
+\kappa := \mu\lambda\,du\wedge dv.
+\]
+On $M_{\mathrm{tor}}=\mathbb{T}^2\times[a_-,a_+]$, the class $[du\wedge dv]$ generates $H^2(\mathbb{T}^2)$, hence
+$[\kappa]\neq 0\in H^2(M_{\mathrm{tor}})$.
+
+\subsection{Expected dual 1-class and its geometric representative}
+Poincar\'e--Lefschetz duality gives
+\[
+H^2(M_{\mathrm{tor}})\cong H_1(M_{\mathrm{tor}},\partial M_{\mathrm{tor}}).
+\]
+Thus $\PD([\kappa])$ is a \emph{relative} 1-class. A canonical representative is the vertical segment
+\[
+\gamma_a:\ [0,1]\to M_{\mathrm{tor}},\quad t\mapsto (u_0,v_0, a_- + t(a_+-a_-)),
+\]
+with endpoints on the boundary tori. This matches the ``vertical return'' direction suggested by
+\[
+[D_u,D_v]=\mu\lambda\,\partial_a.
+\]
+
+\subsection{From Stokes to PD pairing}
+The circulation--area identity
+\[
+\oint_{\partial\Sigma}\omega=\iint_{\Sigma} d\omega
+\]
+is the local shadow of PD pairing: a boundary integral along a 1-chain equals an interior integral of a 2-form.
+Milestone 1 asks for the \emph{global} version on $M_{\mathrm{tor}}$, with explicit classes/cycles and a nontrivial result.
+
+% ------------------------------------------------------------
+\section{Complexity agenda after Milestones 1--2 are stabilized}
+
+Once a PD\textsubscript{3} stage and a dual basis are fixed, we can formulate quantitative questions.
+
+\subsection{Time cost as 1D length / word length}
+Given a computation path $\gamma$:
+\begin{itemize}[leftmargin=2em]
+  \item combinatorial time: $\ell(\gamma)$ (word length / step count),
+  \item geometric time: $L(\gamma)$ (length in a chosen metric on the base or on the contact manifold).
+\end{itemize}
+
+\subsection{Space cost as vertical excursion / scale excursion}
+Candidate proxies:
+\begin{itemize}[leftmargin=2em]
+  \item $\sup |a|$ or range of $a$ along the lifted path (size of intermediate values),
+  \item scale coordinate $M$ in ACS (log-multiplicative accumulation),
+  \item energy-like quantities derived from $\alpha\wedge d\alpha$ after choosing a normalization.
+\end{itemize}
+
+\subsection{Torsion as a filling cost (primary quantitative object)}
+After Milestone 2, define a filling functional $\Fill(\cdot)$ and treat it as a first-class cost, comparable to time and space.
+
+\subsection{A spatiotemporal objective (Phase I prototype)}
+For a fixed denotation (input $\mapsto$ output), compare realization paths $\gamma$ and optimize a multi-objective functional
+\[
+\Cost(\gamma)=\Time(\gamma)+\beta\cdot \Space(\gamma)+\gamma_0\cdot \Fill(\gamma),
+\]
+then study trade-offs and phase transitions as weights vary.
+
+% ------------------------------------------------------------
+\section{Open technical tasks (organized by milestones)}
+
+\subsection*{Milestone 1 tasks (PD\textsubscript{3} prototype)}
+\begin{enumerate}[leftmargin=2em]
+  \item \textbf{Fix the stage.} Implement $M_{\mathrm{tor}}=\mathbb{T}^2\times[a_-,a_+]$ (or an equivalent compact stage with $H^2\neq 0$).
+  \item \textbf{Well-defined forms.} Check that $\omega,\alpha,\kappa$ descend to the quotient stage without ambiguity.
+  \item \textbf{Nontriviality.} Prove $[\kappa]\neq 0$ and compute $\PD([\kappa])$ explicitly as a relative 1-class.
+  \item \textbf{Pairing computation.} Write an explicit pairing identity that can be checked on representatives.
+\end{enumerate}
+
+\subsection*{Milestone 2 tasks (filling-cost principle)}
+\begin{enumerate}[leftmargin=2em]
+  \item \textbf{Choose equivalence level.} Specify which moves/homotopies define ``same realization''.
+  \item \textbf{Define fillings.} Decide the geometric object encoding a sequence of commutations (surface / 2-chain).
+  \item \textbf{Define $\Fill$.} Choose the torsion density used in the area functional and prove basic properties (invariance, additivity/triangle-type bounds).
+  \item \textbf{Recover ACS.} Show the ACS triple identity is recovered as a special case.
+\end{enumerate}
+
+\subsection*{Milestone 3 tasks (complexity experiments)}
+\begin{enumerate}[leftmargin=2em]
+  \item \textbf{Fix Phase I model.} Commit to branchless threadlike/alternating computations.
+  \item \textbf{Toy benchmark.} For $1\mapsto 3$, enumerate several representative paths and compute $(\ell,L,\sup|a|,M,\Fill)$.
+  \item \textbf{Trade-off exhibit.} Produce at least one nontrivial trade-off chart/table.
+\end{enumerate}
+
+\vspace{1em}
+\noindent\textbf{Remark.}
+The staged order is deliberate: PD\textsubscript{3} first (structural duality and nontrivial classes),
+then filling cost (a stable quantitative object),
+then complexity comparisons (toy models, and only later branching/universality).
+
+\end{document}

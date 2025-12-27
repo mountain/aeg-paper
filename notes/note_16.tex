@@ -1,0 +1,217 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{hyperref}
+\usepackage{enumitem}
+
+\title{A de Rham / Poincar\'e-Duality Viewpoint on Computational Spacetime Duality in AEG}
+\author{Conversation Notes (draft)}
+\date{\today}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\dd}{\,\mathrm{d}}
+\newcommand{\vol}{\mathrm{Vol}}
+\newcommand{\Fill}{\mathrm{Fill}}
+\newcommand{\Time}{\mathrm{Time}}
+\newcommand{\Space}{\mathrm{Space}}
+\newcommand{\Cost}{\mathcal{C}}
+\newcommand{\ACS}{\mathrm{ACS}}
+\newcommand{\Eone}{E_{1}}
+\newcommand{\Aff}{\mathrm{Aff}(1)}
+\newcommand{\PD}{\mathrm{PD}}
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\section*{A de Rham / Poincar\'e-Duality Viewpoint on Computational Spacetime Duality in AEG}
+
+\subsection*{0. Purpose and current status}
+Arithmetic Expression Geometry (AEG) treats the \emph{evaluation dynamics} of arithmetic expressions as a geometric object.
+Threadlike (and especially alternating) expressions are encoded as directed paths, while the \emph{failure of commutativity}
+between addition and multiplication produces a measurable invariant called \emph{arithmetic torsion}.
+The present note records a ``Route B'' interpretation: \emph{non-commutative rearrangements are promoted from 1D equalities to 2D generating faces (2-morphisms)},
+each carrying a canonical \emph{vertical-return label} (torsion). We then outline how the de Rham pairing and Poincar\'e duality (PD)
+suggest a \emph{computational spacetime duality}:
+\begin{itemize}
+  \item \textbf{time-like objects:} 1D evaluation flows (words / paths),
+  \item \textbf{space-like objects:} 2D canonical structures (proof surfaces / rewritings),
+  \item \textbf{duality bridge:} torsion as a de Rham pairing (curvature flux through a surface = boundary holonomy).
+\end{itemize}
+At this stage, the exemplar space $E_1$ is non-singular and topologically simple; the PD perspective is therefore currently conceptual/relative.
+A singular example will be analyzed later to produce genuinely nontrivial global cohomological content.
+
+\subsection*{1. Discrete generators and the basic torsion constant}
+Fix real parameters $\mu,\lambda\in\mathbb{R}$. Consider the elementary operators on values $x$:
+\[
+\oplus_\mu: x\mapsto x+\mu,\qquad \otimes_\lambda: x\mapsto x\,e^\lambda,
+\]
+together with their inverses. They generate a group $E(\mu,\lambda)$ under composition, faithfully representable inside $\mathrm{Aff}(1)$.
+The fundamental non-commutativity appears already at one step:
+\begin{align}
+\tau_{\mathrm{local}}
+&:= \bigl(x\oplus_\mu\otimes_\lambda\bigr)-\bigl(x\otimes_\lambda\oplus_\mu\bigr)
+= (x+\mu)e^\lambda - (xe^\lambda+\mu)
+= \mu\,(e^\lambda-1). \label{eq:torsion-local}
+\end{align}
+A key point is that $\tau_{\mathrm{local}}$ is \emph{independent of $x$}, hence an intrinsic defect of the operational structure.
+
+\subsection*{2. Path groupoid viewpoint and the need for ``2D data''}
+Threadlike expressions admit a path notation, hence form a (syntactic) path calculus.
+Geometrically, one encodes such expressions as piecewise threadlike paths on an \emph{Arithmetic Expression Space} $(M,a)$,
+leading to a \emph{path groupoid} $\mathcal{G}(M)$ whose objects are points of $M$ and whose morphisms are evaluation paths.
+Loops in this groupoid correspond to arithmetic identities ``at the semantic level'' (same endpoint / same assignment value),
+but ordinary topological homotopy is not the right equivalence in the presence of curvature-like effects:
+one needs a mechanism that controls how loops may deform while tracking non-commutativity.
+Route B supplies this missing mechanism by explicitly adjoining \emph{2D generating faces}.
+
+\subsection*{3. Infinitesimal limit: flow equation and torsion density}
+A central step is the infinitesimalization of alternating add/multiply propagation.
+Let $s$ be arclength and $\theta$ the angle between the local direction of motion and the additive generator.
+The assignment $a$ evolves by the \emph{flow equation}:
+\begin{equation}
+\frac{da}{ds}=\mu\cos\theta+\lambda a\sin\theta. \label{eq:flow}
+\end{equation}
+Introduce local ``arithmetic coordinates'' $(u,v)$ by $du=\cos\theta\,ds$ and $dv=\sin\theta\,ds$.
+Then \eqref{eq:flow} becomes the Pfaffian form
+\begin{equation}
+da=\mu\,du+\lambda a\,dv. \label{eq:omega}
+\end{equation}
+Now compare two infinitesimal ordered updates: ``add then multiply'' vs ``multiply then add''.
+A direct expansion gives
+\begin{align}
+d\tau
+&:= (a+\mu\,du)e^{\lambda\,dv} - (a\,e^{\lambda\,dv}+\mu\,du)
+= \mu\,du\,(e^{\lambda\,dv}-1)
+= \mu\lambda\,du\,dv + O(\|(du,dv)\|^3).
+\end{align}
+Hence the \emph{torsion density} is
+\begin{equation}
+\Omega := d\tau = \mu\lambda\,du\wedge dv. \label{eq:Omega-uv}
+\end{equation}
+This is the microscopic ``curvature law'': torsion accumulates as an area density.
+
+\subsection*{4. Global torsion via the Accumulative Commutative Space (ACS): the triple identity}
+A single local commutation produces a ``tear'' rather than a closed loop in the original noncommutative setting.
+To measure \emph{global} torsion for an arbitrary path $\gamma$, introduce the \emph{Accumulative Commutative Space} (ACS),
+the plane whose coordinates record total additive and logarithmic multiplicative charges:
+\[
+(A_\gamma,M_\gamma),\qquad A_\gamma=\sum \mu_k,\quad M_\gamma=\sum \lambda_k.
+\]
+In ACS, $\gamma$ and its reversed-sequence path $\bar\gamma$ share the same endpoints and bound a region $\Sigma_\gamma$.
+One obtains a Stokes-type triple identity:
+\begin{equation}
+\tau(\gamma)
+:=\nu(\gamma)-\nu(\bar\gamma)
+=\int_{\Sigma_\gamma} e^{M}\,dM\wedge dA
+=\oint_{\partial\Sigma_\gamma} e^{M}\,dA. \label{eq:triple}
+\end{equation}
+Thus, torsion can be computed either as:
+(i) an algebraic evaluation difference,
+(ii) a weighted area integral (a 2D ``flux''),
+(iii) a boundary integral (a 1D ``holonomy'').
+
+\subsection*{5. Contact lift: the arithmetic expression contact manifold and curvature}
+To encode \emph{local} non-commutative dynamics, lift the ACS base to a 3-manifold with coordinates $(u,v,a)$ and define
+\begin{equation}
+\omega := \mu\,du+\lambda a\,dv,\qquad \alpha := da-\omega. \label{eq:contact}
+\end{equation}
+Then $\alpha$ is a contact form when $\mu\lambda\neq 0$, since
+\[
+\alpha\wedge d\alpha = \mu\lambda\,du\wedge da\wedge dv \neq 0.
+\]
+The horizontal distribution $H=\ker\alpha$ is spanned by the horizontal lifts
+\[
+D_u=\partial_u+\mu\,\partial_a,\qquad D_v=\partial_v+\lambda a\,\partial_a.
+\]
+Their commutator is purely vertical:
+\begin{equation}
+[D_u,D_v]=\mu\lambda\,\partial_a. \label{eq:commutator}
+\end{equation}
+This ``vertical return'' is the infinitesimal geometric avatar of non-commutativity.
+Equivalently, one introduces a horizontal differential $\delta$ (projection of $d$ to $H$), for which
+\[
+\delta^2 a = \mu\lambda\,du\wedge dv,
+\]
+matching \eqref{eq:Omega-uv}. Moreover, the circulation-area identity reads
+\begin{equation}
+\oint_{\partial\Sigma}\omega=\int_\Sigma d\omega = \mu\lambda\int_\Sigma du\wedge dv. \label{eq:circulation}
+\end{equation}
+This makes the contact manifold an Ehresmann-connection completion of the ACS picture: torsion is literally curvature flux / holonomy.
+
+\subsection*{6. Route B: a 2-categorical (2-groupoid) interpretation}
+Route B proposes the following elevation:
+\begin{itemize}
+  \item \textbf{1-morphisms:} evaluation words / paths (compositions of $\oplus_\mu$ and $\otimes_\lambda$),
+  \item \textbf{2-morphisms:} rewriting surfaces built from \emph{generating faces} that swap adjacent additive and multiplicative steps.
+\end{itemize}
+The fundamental generating 2-cell is the ``interchange square''
+\[
+(\oplus\,\otimes)\;\Rightarrow\;(\otimes\,\oplus),
+\]
+and its label is the vertical-return defect:
+\[
+\mathrm{label}(\text{2-cell})=\tau_{\mathrm{local}}
+\quad\text{(discrete),}\qquad
+\mathrm{label}(\text{2-cell})=\int_{\text{cell}} \Omega
+\quad\text{(infinitesimal/continuous).}
+\]
+A composite rewriting surface $\Sigma$ (a pasting of such 2-cells) carries the total label
+\[
+\mathrm{label}(\Sigma)=\int_\Sigma \Omega,
+\]
+which is additive under vertical composition (pasting) of 2-morphisms.
+Coherence constraints (independence of the label from the pasting order) are controlled by the closedness/cocycle condition of the curvature density
+(the continuous heuristic is $d\Omega=0$).
+In this way, ``arithmetic homotopy'' is no longer topological homotopy of loops in a simply connected base,
+but the existence of a 2-morphism (a canonical surface of rewrites) between two 1D words/paths.
+
+\subsection*{7. de Rham pairing and computational spacetime duality}
+The identity \eqref{eq:triple} and its contact analogue \eqref{eq:circulation} suggest a natural duality:
+\begin{itemize}
+  \item A \textbf{time-like} evaluation history is a 1D chain (a word/path, or a loop when comparing orderings).
+  \item A \textbf{space-like} canonical structure is a 2D chain $\Sigma$ realizing a rewriting/proof (a 2-morphism) whose boundary encodes the comparison of histories.
+  \item The torsion is a \textbf{de Rham pairing}:
+  \[
+  \tau \;=\; \int_\Sigma \Omega \;=\; \oint_{\partial\Sigma}\eta,
+  \]
+  where $\Omega$ is the curvature 2-form (e.g. $\mu\lambda\,du\wedge dv$ or $e^M dM\wedge dA$ in ACS) and $\eta$ is a potential 1-form (e.g. $\omega$ or $e^M dA$).
+\end{itemize}
+This mirrors gauge-theoretic intuition: holonomy along a loop equals flux of curvature through a spanning surface.
+
+\paragraph{PD interpretation and complexity.}
+In a topologically nontrivial setting (e.g. relative compact domains, quotients, or spaces with singularities removed),
+Poincar\'e (or Poincar\'e--Lefschetz) duality relates 1-cycles and 2-cohomology classes:
+\[
+H_1(N)\cong H^2(N),
+\]
+so a time-like class $[\gamma]\in H_1$ corresponds to a cohomology class that can be represented by a 2-form such as $\Omega$.
+The torsion then becomes the evaluation of that class on an appropriate 2-chain (a canonical surface / proof).
+This motivates a \emph{computational spacetime duality}:
+\begin{itemize}
+  \item \textbf{time complexity} (cost of executing an evaluation history) is encoded by 1D data (word length, path length, energy of a Legendrian flow),
+  \item \textbf{space complexity} (cost of canonicalization / normalization / proof) is encoded by 2D data (size/area of a rewriting surface, or weighted action $\int_\Sigma \Omega$),
+  \item \textbf{duality bridge} is the curvature/holonomy relation (de Rham pairing), which computes the same invariant from either 1D boundary or 2D interior.
+\end{itemize}
+For the current nonsingular exemplar $E_1$, global topology is simple and PD yields limited global invariants,
+but the de Rham pairing remains a precise organizational principle for torsion.
+A later singular example is expected to produce genuinely nontrivial cohomology classes,
+making PD quantitatively informative rather than merely structural.
+
+\subsection*{8. Roadmap (next steps)}
+\begin{enumerate}
+  \item Formalize the ``Route B'' 2-groupoid: specify generating 1-cells, generating 2-cells, and coherence/cocycle conditions.
+  \item Identify the correct ambient space $N$ (relative/quotient/singularity-removed) where PD is nontrivial.
+  \item Define complexity functionals:
+    \begin{itemize}
+      \item time-like: length/energy of $\gamma$,
+      \item space-like: minimal weighted filling $\inf_{\partial\Sigma=\gamma} \int_\Sigma \Omega$,
+    \end{itemize}
+    and study their relations (upper/lower bounds, scaling, invariance under allowed rewrites).
+  \item Analyze the singular example to test whether torsion detects nontrivial cohomology via loops around singular sets.
+\end{enumerate}
+
+\end{document}
