@@ -4,9 +4,7 @@ Two equivalent examples of $\mathfrak{E}_0$ are presented: the upper half-plane 
 
 At the end of this section, we establish the theoretical framework for the first kind arithmetic expression space $\mathfrak{E}_1$, highlighting its singular properties.
 
-In earlier drafts, the smooth, non-singular arithmetic expression space was denoted by $\mathfrak{E}_1$.
-
-In the present work, we adopt a revised indexing: the non-singular case is denoted by $\mathfrak{E}_0$, while $\mathfrak{E}_1$ refers to the arithmetic expression space with a single isolated singularity.
+In earlier drafts, the smooth, non-singular arithmetic expression space was denoted by $\mathfrak{E}_1$. In the present work, we adopt a revised indexing: the non-singular case is denoted by $\mathfrak{E}_0$, while $\mathfrak{E}_1$ refers to the arithmetic expression space with a single isolated singularity.
 
 \subsection{Foundational exemplars}\label{subsec:motivexamples}
 
@@ -413,3 +411,83 @@ The formalism of tube structures opens up multiple avenues for research in arith
 \end{itemize}
 
 Ultimately, tube structures provide a mathematical framework wherein the dynamics of arithmetic expressions can be analyzed analogously to field theory. In this analogy, expressions (or their underlying algebraic structures) act as structured sections, while quantities like arithmetic torsion, curvature, and zero loci serve as local or global invariants.
+
+\subsection{The first kind arithmetic expression space $\mathfrak{E}_1$}\label{subsec:firstkindspace}
+
+We now introduce the \emph{first kind} arithmetic expression space, denoted
+$\mathfrak{E}_1$, which represents the simplest instance of an AEG space with
+a genuine topological singularity.
+
+In contrast to the zeroth kind space $\mathfrak{E}_0$, which is non-singular and
+typically features a line-like zero set (as in the upper half-plane model),
+$\mathfrak{E}_1$ is organized around a \emph{single isolated zero point}.
+This point acts as a source for arithmetic propagation and introduces the
+first non-trivial homological structure into the theory.
+
+\paragraph{Geometric setting.}
+The underlying manifold of $\mathfrak{E}_1$ is a hyperbolic plane of constant
+Gaussian curvature $K=-\lambda^2$, modeled here by the Poincaré disk
+\[
+\mathbb{D}^2=\{w\in\mathbb{C}:|w|<1\}.
+\]
+The center $w=0$ is designated as the unique zero of the assignment function,
+$a(0)=0$, and is treated as a singular point of the arithmetic geometry.
+
+Let $s$ denote the hyperbolic distance from $w=0$.
+In the Poincaré disk model, if $r_e=|w|$ is the Euclidean radius, then
+\[
+s(r_e)=\frac{2}{\lambda}\operatorname{arctanh}(r_e),
+\qquad \lambda s = 2\operatorname{arctanh}(r_e),
+\]
+so that $s\to\infty$ as $r_e\to1$.
+
+\paragraph{Assignment function.}
+By radial symmetry, the assignment depends only on $s$ and satisfies the
+AEG flow equation along the gradient direction,
+\[
+\frac{da}{ds}=\sqrt{\mu^2+(\lambda a)^2},
+\qquad a(0)=0.
+\]
+The solution is
+\[
+a(s)=\frac{\mu}{\lambda}\sinh(\lambda s),
+\]
+which, expressed in terms of the Euclidean radius $r_e$, becomes
+\[
+a(r_e)=\frac{\mu}{\lambda}\sinh\!\bigl(2\operatorname{arctanh}(r_e)\bigr)
+      =\frac{\mu}{\lambda}\frac{2r_e}{1-r_e^2}.
+\]
+Thus $a$ vanishes at the singular point $r_e=0$ and diverges as $r_e\to1$.
+
+\paragraph{Characteristic lines.}
+The geometry of $\mathfrak{E}_1$ is organized by several canonical families of
+curves:
+\begin{itemize}
+\item \emph{Contour (similarity) lines} $a=\text{const}$ are Euclidean circles
+centered at the origin.
+\item \emph{Gradient (popularity) lines} are radial geodesics emanating from the
+singular point.
+\item \emph{Additive and multiplicative directions} are determined by the angle
+\[
+\alpha(a)=\arctan\!\left(\frac{\mu}{\lambda a}\right)
+        =\arctan\!\left(\frac{1-r_e^2}{2r_e}\right),
+\]
+which depends only on $r_e$.
+Near $r_e\to0$, additive directions are tangential and multiplicative directions
+are radial; near the boundary $r_e\to1$, this behavior is reversed.
+\end{itemize}
+In this sense, the central zero acts as an \emph{additive singularity}, while the
+ideal boundary plays the role of an effective multiplicative singularity.
+
+\paragraph{Topological feature.}
+Removing the singular point yields the punctured disk
+$\mathbb{D}^2\setminus\{0\}$, whose first homology group is
+\[
+H_1(\mathbb{D}^2\setminus\{0\})\cong\mathbb{Z}.
+\]
+This is the first AEG example admitting non-contractible loops.
+As a result, arithmetic histories encircling the singularity form distinct
+homology classes, and the existence and cost of fillings become non-trivial.
+This feature makes $\mathfrak{E}_1$ the natural testing ground for arithmetic
+homotopy, filling cost, and the Stokes-type formulations developed later via the
+Accumulative Commutative Space.
