@@ -1,0 +1,352 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,array}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+
+\setlength{\parskip}{0.55em}
+\setlength{\parindent}{1.5em}
+\setlist[itemize]{topsep=0.25em,itemsep=0.2em,leftmargin=1.8em}
+\setlist[enumerate]{topsep=0.25em,itemsep=0.2em,leftmargin=2em}
+
+\newtheorem{observation}{Observation}[section]
+\newtheorem{problem}{Problem}[section]
+\newtheorem{principle}{Principle}[section]
+\newtheorem{remark}{Remark}[section]
+
+\newcommand{\AEG}{AEG}
+\newcommand{\dd}{\,d}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\vol}{\operatorname{vol}}
+\newcommand{\arsinh}{\operatorname{arsinh}}
+\newcommand{\delbar}{\overline{\partial}_{\!\AEG}}
+\newcommand{\delAEG}{\partial_{\!\AEG}}
+
+\title{\textbf{Analysis I: The $\delta$-Differential, Twisted Harmonicity, and an Analytic Research Program for Arithmetic Expression Geometry}}
+\author{Mingli Yuan}
+\date{March 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This note records a forward-looking analytic program inside Arithmetic Expression Geometry (\AEG). The immediate motivation is to clarify the long-term mathematical role of the expression differential $\delta$ and of the emerging notion of arithmetic holomorphicity. The main claim is that the $\delta$-calculus should be regarded not as a notational variant of the de Rham differential, but as a horizontal, curvature-sensitive differential attached to the arithmetic contact structure. Once this is taken seriously, the correct analytic question is no longer whether classical harmonicity survives unchanged, but what second-order equation is naturally induced by the non-commuting first-order operators of \AEG. We argue that arithmetic holomorphicity points toward a twisted notion of harmonicity, propose a small set of canonical candidate operators, and formulate a concrete work path for the next stage of the theory. The strategic picture is that flow, torsion, and contact supply the kinematic and geometric skeleton of \AEG, whereas the $\delta$-differential and the analytic structures built from it may eventually provide its function theory, potential theory, and boundary analysis.
+\end{abstract}
+
+\section{Position of the analytic route within the present \AEG{} picture}
+
+At the present stage of \AEG, the clearest geometric hierarchy is already visible. The flow equation provides the foundational propagation law for arithmetic evaluation; torsion condenses global non-commutativity into a first intrinsic defect; and the contact form
+\begin{equation}
+\alpha = da - (\mu\,du + \lambda a\,dv)
+\end{equation}
+provides the local differential-geometric completion of that defect. This much gives \AEG{} a compelling geometry of arithmetic histories.
+
+The analytic route begins one layer deeper. Its task is to ask whether these histories support a genuine function theory: a theory of first-order equations, second-order equations, conjugate objects, energies, kernels, and boundary phenomena. In this note, the answer is taken to be open but promising. The short-term difficulty is that this route is less immediately classifiable than the loop and zero-signature program. The long-term reward, however, may be greater. If the loop program supplies a semantics of identities, then the $\delta$-route may supply the analysis of arithmetic fields.
+
+This note therefore adopts the following strategic assessment:
+\begin{principle}[Strategic assessment]
+The loop and zero-classification program is likely to produce decisive structural results sooner; the $\delta$-differential and new harmonicity program may have the higher eventual ceiling, because it has the potential to turn \AEG{} into a genuine function theory rather than a purely geometric or algebraic language.
+\end{principle}
+
+\section{The basic analytic input: horizontal differential structure}
+
+The analytic story begins with the contact data on the three-dimensional manifold with coordinates $(u,v,a)$:
+\begin{equation}
+\omega = \mu\,du + \lambda a\,dv,
+\qquad
+\alpha = da - \omega,
+\end{equation}
+and with the horizontal vector fields
+\begin{equation}
+D_u = \partial_u + \mu\,\partial_a,
+\qquad
+D_v = \partial_v + \lambda a\,\partial_a.
+\end{equation}
+The expression differential is then given by
+\begin{equation}
+\delta F = dF - (\partial_a F)\alpha = (D_uF)\,du + (D_vF)\,dv.
+\end{equation}
+This is the first point at which the analysis of \AEG{} diverges from a naive transfer of classical calculus. The differential $\delta$ is not nilpotent in the ordinary sense. Rather,
+\begin{equation}
+[D_u,D_v] = \mu\lambda\,\partial_a,
+\qquad
+\delta^2 F = \mu\lambda\,(\partial_a F)\,du \wedge dv.
+\end{equation}
+Thus the failure of horizontality to be integrable is directly visible as a curvature term.
+
+This motivates the first conceptual shift.
+\begin{principle}[$\delta$ is a horizontal covariant differential]
+The correct interpretation of $\delta$ is not ``a modified exterior derivative'' in a merely formal sense, but a horizontal differential attached to an arithmetic connection. Its non-nilpotence records the local defect generated by the interaction between translation-like and value-dependent scaling operations.
+\end{principle}
+
+Under this interpretation, several later questions become more natural. One no longer asks only for a convenient notation for derivatives of expressions. One asks instead: what are the canonical first-order and second-order operators attached to this connection, what are their invariants, and what class of functions do they single out?
+
+\section{Why classical harmonicity is unlikely to be the final answer}
+
+The draft already introduces arithmetic holomorphicity via the system
+\begin{equation}
+D_u f = D_v g,
+\qquad
+D_v f = -D_u g.
+\end{equation}
+If one writes $F=f+ig$, these equations become
+\begin{equation}
+(D_u + iD_v)F = 0.
+\end{equation}
+This immediately suggests that the primitive analytic object in \AEG{} may be a complexified pair rather than a single scalar function.
+
+That point matters. In classical complex analysis, holomorphicity implies ordinary harmonicity because the underlying first-order operators commute in the required way. Here they do not. Consequently, one should expect a coupled or twisted second-order equation rather than the ordinary Laplace equation.
+
+Define the horizontal sum-of-squares operator
+\begin{equation}
+\Delta_H := D_u^2 + D_v^2.
+\end{equation}
+A direct formal calculation gives the following.
+
+\begin{observation}[Factorization and twisted harmonicity]
+Let
+\begin{equation}
+\delbar := \frac{1}{2}(D_u + iD_v),
+\qquad
+\delAEG := \frac{1}{2}(D_u - iD_v).
+\end{equation}
+Then
+\begin{equation}
+4\delAEG\delbar
+= (D_u - iD_v)(D_u + iD_v)
+= \Delta_H + i\mu\lambda\,\partial_a,
+\end{equation}
+and
+\begin{equation}
+4\delbar\delAEG
+= (D_u + iD_v)(D_u - iD_v)
+= \Delta_H - i\mu\lambda\,\partial_a.
+\end{equation}
+Therefore any arithmetic holomorphic field $F$ formally satisfies
+\begin{equation}
+(\Delta_H + i\mu\lambda\,\partial_a)F = 0.
+\end{equation}
+Equivalently, for $F=f+ig$ one has
+\begin{equation}
+\Delta_H f = \mu\lambda\,\partial_a g,
+\qquad
+\Delta_H g = -\mu\lambda\,\partial_a f.
+\end{equation}
+\end{observation}
+
+This is the first strong indication that any future notion of ``harmonic'' in \AEG{} should not be expected to coincide with $\Delta_H h=0$ for a real scalar $h$. The curvature term forces the real and imaginary parts to remain coupled through the vertical derivative $\partial_a$.
+
+\begin{remark}
+The previous observation should presently be read as a structural guide rather than as a finalized theorem package. The precise function spaces, regularity assumptions, and coordinate domains still need to be fixed. What matters at this stage is the form of the operator that the first-order system naturally generates.
+\end{remark}
+
+There is a second reason to distrust a naive transplantation of ordinary harmonicity. The natural scalar field $a=-x/y$ in the basic models is not psychologically a flat Euclidean coordinate. The analytic world of \AEG{} is born from a curved horizontal distribution and from a value-dependent scaling direction. It is therefore entirely plausible that the natural analytic objects should be eigenfunctions or twisted harmonic objects rather than classical harmonic functions in the usual sense.
+
+\section{Candidate second-order operators}
+
+The next task is not to multiply definitions, but to identify a very small set of genuinely natural candidates and then force them to justify themselves.
+
+\subsection{The holomorphicity-compatible operator}
+
+The first candidate is forced by factorization:
+\begin{equation}
+\mathcal{H}_{\mathrm{tw}} := \Delta_H + i\mu\lambda\,\partial_a.
+\end{equation}
+This operator is canonical if one begins with the arithmetic Cauchy--Riemann equations. It has four immediate virtues.
+\begin{enumerate}[label=(\alph*)]
+\item It is generated directly by the first-order arithmetic holomorphicity equations.
+\item It reduces to the classical Laplacian when the fields are independent of $a$ or when the curvature parameter $\mu\lambda$ is effectively absent.
+\item It displays the role of vertical sensitivity explicitly, instead of hiding it inside coordinate expressions.
+\item It makes clear that the primitive analytic unknown may have to be complex-valued or pair-valued.
+\end{enumerate}
+
+Its drawback is equally clear: it is not, at least in this raw form, a scalar real operator. If the eventual function theory is to include a scalar notion of harmonicity, one must still decide whether scalar harmonicity is primary or derived.
+
+\subsection{The variational operator}
+
+A second candidate comes from energy rather than factorization. Consider the horizontal Dirichlet energy
+\begin{equation}
+E[F] = \int \bigl(|D_uF|^2 + |D_vF|^2\bigr)\,\vol,
+\end{equation}
+where $\vol$ is taken, at least provisionally, to be the contact volume form $\alpha\wedge d\alpha$, hence a constant multiple of $du\wedge da\wedge dv$. With respect to this volume, the divergence of $D_u$ is $0$, whereas the divergence of $D_v$ is $\lambda$. The formal adjoints are therefore
+\begin{equation}
+D_u^* = -D_u,
+\qquad
+D_v^* = -D_v - \lambda.
+\end{equation}
+This leads to the tentative variational operator
+\begin{equation}
+\mathcal{L}_{\mathrm{var}} := D_u^*D_u + D_v^*D_v
+= -\bigl(D_u^2 + D_v^2 + \lambda D_v\bigr).
+\end{equation}
+Up to sign, the associated Euler--Lagrange equation is
+\begin{equation}
+(D_u^2 + D_v^2 + \lambda D_v)F = 0.
+\end{equation}
+
+This is not identical to the holomorphicity-compatible operator. That discrepancy should be regarded as informative rather than embarrassing. It sharpens the central analytic question.
+
+\begin{problem}[Selection of the canonical second-order operator]
+Determine whether the analytically natural second-order operator of \AEG{} should be defined by factorization, by an energy principle, by a gauge-equivalence class relating the two, or by a pair of coexisting notions that serve different roles.
+\end{problem}
+
+\subsection{A likely conclusion}
+
+My present expectation is that \AEG{} will not have a single undifferentiated notion of harmonicity. Rather, it may have at least two tightly related notions:
+\begin{enumerate}[label=(\roman*)]
+\item a \emph{twisted harmonicity} attached to arithmetic holomorphicity and the factorization of first-order operators; and
+\item a \emph{variational harmonicity} attached to horizontal energy and adjoint calculus.
+\end{enumerate}
+The crucial question is whether these are genuinely distinct, or whether they become equivalent after the correct normalization, density, gauge choice, or change of unknown.
+
+\section{Criteria for a successful analytic theory}
+
+The analytic route will become mathematically convincing only if it satisfies a small number of strong criteria.
+
+\begin{principle}[Canonicity]
+The main second-order operator should be forced by the structure of \AEG{}, not selected from a large menu of equally plausible definitions.
+\end{principle}
+
+\begin{principle}[Compatibility with first-order theory]
+Arithmetic holomorphicity should imply a clear and structurally meaningful second-order equation. If possible, the second-order operator should factor through the first-order operators.
+\end{principle}
+
+\begin{principle}[Computability]
+The theory must admit explicit examples, recurrence relations, or basis expansions. A purely formal operator calculus without calculable model families would not match the arithmetic motivation of \AEG.
+\end{principle}
+
+\begin{principle}[Classical limit]
+When the dependence on $a$ disappears, or when the curvature contribution is switched off, the theory should reduce cleanly to ordinary complex analysis and potential theory on the $(u,v)$-plane.
+\end{principle}
+
+\begin{principle}[Interaction with the rest of the \AEG{} program]
+The analytic theory should eventually speak to loops, zero-signatures, and singular backgrounds, rather than developing as an isolated branch of contact geometry.
+\end{principle}
+
+\section{Why the affine--Appell basis may be the decisive computational advantage}
+
+A major reason for optimism is that the present draft already contains a nontrivial computational engine: the affine--Appell basis and its finite upward sweep for antiderivatives. In natural units, one considers
+\begin{equation}
+B_n(a,v) := e^{-n\tilde v} a^n,
+\end{equation}
+and the finite span generated by coefficients $P_n(u,v,e^{\tilde v})B_n(a,v)$. This class is closed under the mixed calculus generated by $D_u$ and $D_v$, and it supports explicit antidifferentiation in the $D_u$ direction.
+
+This matters analytically for at least three reasons.
+\begin{enumerate}[label=(\arabic*)]
+\item It gives a ready-made family on which the candidate operators can be computed exactly.
+\item It opens the possibility of explicit recursion for holomorphic, twisted harmonic, or variationally harmonic fields.
+\item It suggests that \AEG{} may favor basis-driven and constructive analysis rather than existence theory alone.
+\end{enumerate}
+
+The computational promise of this basis should not be underestimated. In many young theories, abstract definitions appear first and explicit examples arrive much later. Here the situation may be reversed: the basis may supply enough explicit structure to guide the abstract definitions themselves.
+
+\begin{problem}[Analytic use of the affine--Appell basis]
+Compute the action of $\delbar$, $\delAEG$, $\mathcal{H}_{\mathrm{tw}}$, and $\mathcal{L}_{\mathrm{var}}$ on the affine--Appell basis, classify low-degree solutions, and determine whether the basis supports a natural decomposition of arithmetic holomorphic or twisted harmonic fields.
+\end{problem}
+
+\section{Near-term work path}
+
+The next stage should be organized as a sequence of tightly connected tasks rather than as a broad search for analogies.
+
+\subsection*{Phase I: operator selection and formal foundations}
+\begin{enumerate}[label=I.\arabic*.]
+\item Define the complex first-order operators $\delbar$ and $\delAEG$ cleanly and state their algebraic relations.
+\item Decide whether the primitive analytic objects are best treated as complex-valued fields, ordered real pairs, or sections of a simple rank-two bundle.
+\item Compute the formal adjoints of $D_u$ and $D_v$ under the contact volume and under any other candidate natural density.
+\item Compare the factorization-based operator and the energy-based operator, and determine whether a gauge transformation or density correction aligns them.
+\end{enumerate}
+
+\subsection*{Phase II: model examples on the basic backgrounds}
+\begin{enumerate}[label=II.\arabic*.]
+\item Work out explicit examples on the basic background $E_1$ and, where appropriate, on its regular part.
+\item Compute the operators on the basic scalar fields $u$, $v$, $a$, and on the rectifying variable
+\begin{equation}
+ y = \arsinh\!\left(\frac{\lambda a}{\mu}\right).
+\end{equation}
+\item Determine whether the rectified coordinate $y$ simplifies the analytic equations, either by reducing nonlinearities or by clarifying the geometry of the vertical direction.
+\item Build a small catalogue of explicit arithmetic holomorphic and twisted harmonic families.
+\end{enumerate}
+
+\subsection*{Phase III: local theory and analytic structure}
+\begin{enumerate}[label=III.\arabic*.]
+\item Prove local existence or local normal-form statements for the first-order arithmetic Cauchy--Riemann system.
+\item Clarify whether harmonic conjugates exist locally, and under what integrability or curvature conditions.
+\item Investigate whether the transformed curvature density formula in arithmetic holomorphic coordinates can be turned into an area theorem, a Jacobian theorem, or a rigidity statement.
+\end{enumerate}
+
+\subsection*{Phase IV: boundary analysis and global theory}
+\begin{enumerate}[label=IV.\arabic*.]
+\item Seek a Cauchy-type formula, Poisson-type kernel, or Green-type kernel on the basic backgrounds.
+\item Formulate a first boundary value problem for one of the candidate second-order operators.
+\item Study how singularities of the background and the classification of zeros affect analytic continuation, removable singularities, and fillability.
+\end{enumerate}
+
+\subsection*{Phase V: integration with the rest of the program}
+\begin{enumerate}[label=V.\arabic*.]
+\item Relate analytic fields to loop observables and zero-signatures.
+\item Ask whether arithmetic 2-cells or arithmetic surfaces admit preferred analytic structures.
+\item Determine whether the analytic theory produces new invariants for loops, defects, or singular backgrounds.
+\end{enumerate}
+
+\section{Long-term prospects}
+
+If the analytic route succeeds, its long-term outputs could be substantial.
+
+\subsection{A genuine arithmetic function theory}
+
+The most ambitious prospect is that \AEG{} develops a function theory analogous in spirit, though not in form, to classical complex analysis. The central objects would then be arithmetic holomorphic fields, twisted harmonic fields, their singularities, their conjugates, and the kernels mediating boundary data.
+
+\subsection{A potential theory on arithmetic backgrounds}
+
+Once a natural second-order operator is fixed, one may ask for Green functions, maximum principles, boundary regularity, and spectral theory. If these emerge, \AEG{} will possess not only geometry and algebra, but also a robust theory of propagation and equilibrium.
+
+\subsection{A bridge to zero classification}
+
+The analytic route may eventually interact strongly with the classification of zeros. A loop may be topologically trivial yet analytically obstructed; a quantity may be neutral at the charge level yet still carry local analytic curvature. In this way, the theory of ``meaningful zeros'' could acquire an analytic layer rather than remaining purely topological or algebraic.
+
+\subsection{A route toward arithmetic surfaces and higher structures}
+
+If arithmetic 2-cells and arithmetic surfaces become viable, the analytic theory may provide distinguished fillings, energy-minimizing representatives, or conformal-type coordinate systems. That would push \AEG{} beyond the geometry of expressions toward an analysis of arithmetic spaces.
+
+\section{Main risks}
+
+The promise of this route is real, but so are the dangers.
+
+\begin{enumerate}[label=(\arabic*)]
+\item \textbf{Diffusion into general contact analysis.} If the theory is presented too abstractly, it may look like a rephrasing of known sub-Riemannian or contact-analytic constructions. The arithmetic meaning of $D_u$, $D_v$, and the value-dependent scaling direction must remain visible.
+\item \textbf{Proliferation of definitions.} It would be easy to define many versions of harmonicity. The correct strategy is the opposite: define as little as possible and make the structure choose.
+\item \textbf{Premature generality.} The early theory should be developed first on the basic backgrounds and on explicit calculable families, not in the greatest possible generality.
+\item \textbf{Loss of computability.} Since arithmetic computability is one of the main motivations of \AEG{}, an analytic theory that has no explicit examples, no recursions, and no workable bases would miss the point.
+\end{enumerate}
+
+\section{A realistic success criterion for the next stage}
+
+For the coming period, the program need not aim immediately at a complete function theory. A decisive advance would already be achieved if the following three goals were met:
+\begin{enumerate}[label=(\alph*)]
+\item a canonical first-order and second-order operator package is fixed;
+\item a nontrivial explicit family of arithmetic holomorphic or twisted harmonic fields is constructed and understood;
+\item at least one theorem connects the analytic theory back to another core component of \AEG{}, such as torsion, loops, singular backgrounds, or the classification of zeros.
+\end{enumerate}
+
+If these are achieved, the analytic route will cease to be merely suggestive and will become a stable branch of the theory.
+
+\section{Outlook}
+
+The deepest reason to pursue this route is not simply that it extends the present draft. It is that it tests whether arithmetic expression geometry can support a full analytic life. Flow gives kinematics, torsion gives the first intrinsic defect, contact gives the local geometric engine, and loop theory gives the semantics of identities. The $\delta$-differential and the theory that grows from it may provide the missing analytic organ: the place where arithmetic histories become fields, fields become equations, and equations begin to support a function theory of their own.
+
+My present long-term view is therefore cautious but optimistic. This route is less likely to yield the next quick theorem, but more likely to matter deeply if it succeeds. It should be pursued with discipline: start from the first-order operators, force the second-order operator to reveal itself, exploit the affine--Appell basis ruthlessly, and keep every step tied to arithmetic meaning rather than abstract analogy.
+
+\begin{thebibliography}{9}
+
+\bibitem{aeg-draft}
+M.~Yuan,
+\emph{Geometry of Arithmetic Expressions I: Basic Concepts and Unsolved Problems},
+preprint draft.
+
+\end{thebibliography}
+
+\end{document}
