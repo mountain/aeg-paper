@@ -1,0 +1,299 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,array,longtable}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+
+\setlength{\parskip}{0.5em}
+\setlength{\parindent}{1.5em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.2em,leftmargin=1.8em}
+\setlist[enumerate]{topsep=0.3em,itemsep=0.2em,leftmargin=2em}
+
+\newtheorem{principle}{Principle}[section]
+\newtheorem{problem}{Problem}[section]
+\newtheorem{remark}{Remark}[section]
+
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\ACS}{ACS}
+\newcommand{\AEG}{AEG}
+
+\title{\textbf{Loop II: Kinds of Zero, Arithmetic Loops, and a Near-Term Research Program}}
+\author{Mingli Yuan}
+\date{March 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This note records a research program for the next phase of arithmetic loop theory inside Arithmetic Expression Geometry (\AEG). The main shift of emphasis is that loops should be treated arithmetically before they are treated pictorially: a path encodes a process of evaluation, while a loop encodes a relation, an identity, or a neutralized process. The central problem is therefore not merely to decide when an expression ``equals zero,'' but to clarify \emph{what kind of zero} is represented by a given identity. We propose a provisional taxonomy of zeros, introduce the notion of a \emph{zero signature} for a loop, and formulate a collection of concrete problems concerning grid-independence, loop operations, arithmetic 2-cells, arithmetic surfaces, and the role of singular backgrounds. A secondary but useful goal is to rewrite the classification theorem of closed surfaces in the language of arithmetic loops, not as an end in itself, but as a calibration exercise for the emerging formalism.
+\end{abstract}
+
+\section{Position of loops in the present \AEG{} picture}
+
+The current development of \AEG{} already exhibits a clear internal hierarchy. The flow equation
+\begin{equation}
+\frac{da}{ds} = \mu \cos \theta + \lambda a \sin \theta
+\end{equation}
+provides the foundational propagation law for arithmetic evaluation. Global non-commutativity then condenses into the torsion invariant
+\begin{equation}
+\tau(\gamma) = \nu(\gamma) - \nu(\bar\gamma)
+= \int_{\Sigma_\gamma} e^M\, dM \wedge dA
+= \oint_{\partial \Sigma_\gamma} e^M\, dA,
+\end{equation}
+and the local differential completion is furnished by the contact form
+\begin{equation}
+\alpha = da - (\mu\,du + \lambda a\,dv).
+\end{equation}
+In this sense, flow is foundational, torsion is the first intrinsic defect, and the contact structure is the local geometric engine of that defect.
+
+The next natural layer is the study of loops. At the operator level, one already has the working definition that a word $w$ is an arithmetic loop at parameter $t$ if
+\begin{equation}
+\rho_t(w) = \Id.
+\end{equation}
+In the first examples this operator condition coincides with geometric closure of the corresponding path on an arithmetic grid. However, the long-term goal should be broader: loops should be regarded as objects living in a background arithmetic expression space $(E,a)$\footnote{To avoid conflict between historical drafts with different labels for $E_0,E_1,\dots$, we mostly write $(E,a)$ whenever the precise label is not essential. The naming convention is currently being reorganized so that the subscript records the number of isolated singularities.}, not merely as closed drawings on a chosen chart.
+
+This shift matters conceptually. A point records a value. A path records a history of computation. A loop records a relation. Therefore loop theory should become the relation-theoretic layer of \AEG{}.
+
+\section{Guiding principles}
+
+\begin{principle}[Arithmetic primacy]
+The leading motivation is arithmetic computability rather than geometric spectacle. Geometry is valuable insofar as it provides good coordinates, invariants, compression schemes, and normal forms for arithmetic processes.
+\end{principle}
+
+This principle explains the importance of the accumulative commutative space. \ACS{} is not merely a geometric picture; it is a computable compression of a non-commutative process into additive and logarithmic multiplicative charges. Likewise, torsion is not merely an area formula; it is the first robust defect separating different histories with the same endpoints.
+
+\begin{principle}[A loop is an identity before it is a curve]
+A geometric loop is significant because it expresses an arithmetic neutrality. The primary question is not whether a curve closes visually, but what relation is certified by that closure.
+\end{principle}
+
+\begin{principle}[Zero is stratified]
+The sentence ``this loop is zero'' is too coarse. Different identities may vanish for fundamentally different reasons. A central objective is therefore to classify kinds of zero rather than to collapse them prematurely.
+\end{principle}
+
+\begin{principle}[Record before quotient]
+In the early stage of the theory, one should preserve distinctions between different neutralities and only later choose which distinctions to forget. Premature quotienting would erase the very structure that the theory is trying to expose.
+\end{principle}
+
+\begin{principle}[Classical theorems as calibration exercises]
+Rewriting a mature theorem in arithmetic language is valuable even when it yields no new classical result. The gain lies in testing the coherence, precision, and expressive power of the new language.
+\end{principle}
+
+\section{A provisional taxonomy of zeros}
+
+The present note proposes that arithmetic loop theory should begin with a taxonomy of zeros. The issue is not simply that many expressions evaluate to $0$, but that the phrase ``represents zero'' may refer to distinct layers of disappearance.
+
+\subsection{Six provisional layers}
+
+For a path or loop $\gamma$, the following kinds of zero appear naturally.
+
+\begin{enumerate}[label=\arabic*.]
+\item \textbf{Value-zero.} The expression or path evaluates to $0$ at a chosen basepoint or under a chosen evaluation map.
+\item \textbf{Operator-zero.} The induced action is trivial, for example $\rho(\gamma)=\Id$.
+\item \textbf{Charge-zero.} The total additive and multiplicative charges vanish, typically $(A_\gamma,M_\gamma)=(0,0)$, or more generally vanish in a prescribed quotient of charge space.
+\item \textbf{Torsion-zero.} The order defect disappears: $\tau(\gamma)=0$.
+\item \textbf{Topological-zero.} The loop is null-homotopic or null-homologous in the chosen background.
+\item \textbf{Local-holonomy-zero.} No residual local curvature or holonomy remains in the contact lift or in a related local differential structure.
+\end{enumerate}
+
+These layers should not be assumed to coincide. On the contrary, the central expectation is that they often separate.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.18\textwidth} >{\raggedright\arraybackslash}p{0.20\textwidth} >{\raggedright\arraybackslash}p{0.26\textwidth} >{\raggedright\arraybackslash}p{0.24\textwidth}}
+\toprule
+\textbf{Layer} & \textbf{Typical test} & \textbf{Arithmetic meaning} & \textbf{Possible use} \\
+\midrule
+Value-zero & $\nu(\gamma)=0$ & a chosen evaluation vanishes & basepoint computation, local examples \\
+Operator-zero & $\rho(\gamma)=\Id$ & a genuine identity certificate & insertion/deletion of neutral modules \\
+Charge-zero & $(A_\gamma,M_\gamma)=(0,0)$ & no net additive or multiplicative load & coarse filtering, normal forms in \ACS{} \\
+Torsion-zero & $\tau(\gamma)=0$ & no first-order order defect & order-insensitive normalization \\
+Topological-zero & $[\gamma]=0$ in the background & geometrically fillable in the underlying space & surface building, homotopy comparison \\
+Local-holonomy-zero & vanishing local obstruction & no residual infinitesimal defect & contact-theoretic refinement \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Zero signatures}
+
+A practical way to begin is to record, for each loop $\gamma$, a \emph{zero signature}
+\begin{equation}
+Z(\gamma)=\bigl(Z_{\mathrm{val}}, Z_{\mathrm{op}}, Z_{\mathrm{ch}}, Z_{\mathrm{tor}}, Z_{\mathrm{top}}, Z_{\mathrm{loc}}\bigr),
+\end{equation}
+where each component may be binary, graded, or tagged by extra data such as parameter locus, basepoint dependence, or chart dependence. In other words, the goal is not to ask whether $\gamma$ is simply ``zero,'' but how $\gamma$ becomes invisible under a sequence of forgetful maps.
+
+The immediate mathematical task is then to determine the partial order among these notions.
+
+\begin{problem}[Poset of zeros]
+Determine which kinds of zero imply which others, which implications fail, and which implications hold only under additional assumptions on the background $(E,a)$, the allowed generators, or the parameter regime.
+\end{problem}
+
+\begin{problem}[Separation examples]
+Construct explicit loops witnessing the independence of the different layers: for example, a loop that is charge-zero but not operator-zero, or topologically trivial but still carrying nontrivial torsion or local holonomy.
+\end{problem}
+
+\section{Arithmetic loops as computational objects}
+
+The research program should remain faithful to the arithmetic motivation. Loop theory is valuable because it promises a structured and reusable library of relations. From this viewpoint, a future loop calculus should support three basic tasks.
+
+\subsection{Detection by layers}
+
+Given a candidate identity, one wants to know at which layer it can be detected.
+\begin{itemize}
+\item A charge test in \ACS{} should serve as a fast coarse filter.
+\item A torsion test should detect the first non-commutative defect invisible to endpoint data.
+\item A full operator or loop-space test should supply the strongest identity certificate.
+\end{itemize}
+The programmatic question is therefore:
+
+\begin{problem}[Detection hierarchy]
+Which identities are already visible at the charge level, which require torsion, and which only become visible in the full loop space or in a contact-theoretic lift?
+\end{problem}
+
+\subsection{Loop operations}
+
+A useful theory must say how identities combine. The following operations should be studied systematically:
+\begin{itemize}
+\item concatenation and inversion;
+\item conjugation and change of basepoint;
+\item insertion or deletion of neutral subwords;
+\item transport between different grids or charts, including conformal self-maps of the background;
+\item cut-and-paste operations that assemble larger loops from smaller ones.
+\end{itemize}
+For each operation one should track the effect on the zero signature.
+
+\begin{problem}[Functoriality of zero signatures]
+For each basic loop operation, determine which components of $Z(\gamma)$ are preserved, which are transformed in a controlled way, and which may jump.
+\end{problem}
+
+\subsection{Loop archives and normal forms}
+
+A modest but immediately practical step is to build a curated archive of arithmetic loops. Each entry should record at least the following items:
+\begin{enumerate}[label=(\alph*)]
+\item the background $(E,a)$ and its singularity structure;
+\item the word or presentation defining the loop;
+\item the parameter locus on which the loop closes;
+\item the operator action;
+\item the charge data $(A,M)$ and related quotients;
+\item the torsion data;
+\item the topological class in the background;
+\item the behavior under reversal, conjugation, and chart change.
+\end{enumerate}
+Such an archive would make the theory cumulative rather than anecdotal.
+
+\section{From loops to arithmetic 2-cells and surfaces}
+
+The next conceptual step after loops is not an arbitrary appeal to higher dimensions, but a controlled theory of filling.
+
+\subsection{Arithmetic 2-cells}
+
+In classical topology, a loop bounds a 2-cell when it is null-homotopic in the relevant complex. In the present setting, one must first decide which kind of zero is sufficient for a loop to count as a boundary. Different choices lead to different theories.
+
+\begin{problem}[Arithmetic 2-cell]
+Formulate one or more notions of arithmetic 2-cell. For a chosen notion, specify precisely which loops are admissible as boundaries: operator-zero loops, topologically trivial loops, torsion-zero loops, or some stricter combination.
+\end{problem}
+
+\begin{problem}[Arithmetic null-homotopy]
+Define what it means for a loop to be null-homotopic in the arithmetic sense. The resulting notion should distinguish ordinary topological contraction from contraction that preserves or annihilates arithmetic data.
+\end{problem}
+
+\subsection{Arithmetic surfaces}
+
+Once 2-cells are available, the natural question is how to assemble surfaces. Here the most instructive short-term exercise is to revisit the classification theorem of closed surfaces through arithmetic loops and fillings.
+
+The objective is not to replace the classical theorem by novelty for its own sake. Rather, the theorem should be used as a language stress-test. The classical proof relies on a finite rewriting system for polygon words, together with controlled cutting and gluing moves. This makes it an ideal calibration problem for arithmetic loop language.
+
+\begin{problem}[Arithmetic surface exercise]
+Rewrite the classification theorem of closed surfaces in the language of arithmetic loops, with special attention to what is forgotten when one passes from an arithmetic surface to its underlying topological surface.
+\end{problem}
+
+The recommended first examples are:
+\begin{itemize}
+\item the torus, because commutator-type loops meet torsion questions directly;
+\item the projective plane, because orientation reversal must be expressed explicitly;
+\item the Klein bottle, because it combines loop relations, twisting, and high computability.
+\end{itemize}
+
+\subsection{Arithmetic orientability}
+
+A future surface theory will also require an arithmetic notion of orientability. Since arithmetic grids already carry a notion of handedness or chirality, it is natural to ask whether such local chirality can be extended consistently over a surface built from loop data.
+
+\begin{problem}[Arithmetic orientability]
+Define orientability for an arithmetic surface in terms of the global compatibility of local arithmetic frames, and compare it with classical orientability after forgetting arithmetic data.
+\end{problem}
+
+\section{Singular backgrounds and defect loops}
+
+Loop theory becomes substantially richer in the presence of singularities. In a punctured or defect background, geometric closure need not imply triviality, and arithmetic neutrality need not imply topological triviality. This suggests that singular backgrounds should not be treated as pathological exceptions, but as natural laboratories for loop theory.
+
+Three distinctions become especially important.
+\begin{enumerate}[label=\arabic*.]
+\item A loop may be operator-trivial while still winding nontrivially around a singularity.
+\item A loop may be topologically trivial while still carrying torsion or local defect.
+\item A loop may remain the ``same'' arithmetic identity under a chart change, even though its geometric chirality is reversed.
+\end{enumerate}
+
+\begin{problem}[Loops around defects]
+Develop explicit examples of loops surrounding singularities and determine which parts of their zero signatures are controlled by the background topology and which parts are genuinely arithmetic.
+\end{problem}
+
+\section{Near-term research program}
+
+The following agenda is intended for the next stage of work. It is deliberately organized as a research program rather than as a completed theory.
+
+\subsection{Work package I: free loops in a background}
+
+Define basepointed and unbased arithmetic loops in a background $(E,a)$, independent of a particular chosen grid. Clarify how a loop is transported across admissible charts, especially under conformal self-maps and handedness changes. The figure-eight example should serve as the first benchmark rather than the final model.
+
+\subsection{Work package II: taxonomy and poset of zeros}
+
+Construct a basic catalogue of kinds of zero and begin proving implication and separation results among them. The output should be a preliminary poset of zero types together with a supply of explicit examples. This package is foundational because later notions of filling and surface construction will depend on which neutralities are deemed sufficient.
+
+\subsection{Work package III: loop operations and a relation calculus}
+
+Develop a small arithmetic calculus of identities: concatenation, inversion, conjugation, stabilization by neutral insertions, and cut-and-paste operations. The guiding aim is computational: to turn loop space into an organized repository of reusable relations.
+
+\subsection{Work package IV: arithmetic 2-cells and surface words}
+
+Define admissible fillings and test them first on torus, projective plane, and Klein bottle words. The purpose is to determine whether the language of arithmetic loops is already strong enough to support a controlled two-dimensional theory.
+
+\subsection{Work package V: interaction with \ACS{} and contact geometry}
+
+Determine which loop invariants descend to \ACS{}, which are first detected by torsion, and which only become visible after passing to a local differential lift. In particular, one should separate global accounting from local generation mechanisms.
+
+\subsection{Work package VI: benchmark corpus}
+
+Assemble a compact corpus of examples, including:
+\begin{itemize}
+\item commutator-type loops;
+\item the figure-eight relator example;
+\item loops around singular points or walls;
+\item loops related by conformal chart changes;
+\item polygon words corresponding to standard closed surfaces.
+\end{itemize}
+A reliable benchmark corpus is likely to be more valuable at this stage than premature general theorems.
+
+\section{Outlook}
+
+The central thesis of this note is that arithmetic loop theory should be organized around \emph{structured neutrality}. Zero is not a single point of disappearance; it is a family of different disappearance mechanisms. Once this perspective is accepted, several later problems become more sharply posed. Which loops may be filled? Which identities may be inserted freely into larger constructions? Which neutralities survive passage to \ACS{}, and which require the full non-commutative or contact-theoretic framework? Which classical topological constructions remain valid after arithmetic data are restored?
+
+In this sense, the study of loops is not a side branch of \AEG{}. It is the beginning of its relation theory. If path theory describes how arithmetic moves, then loop theory should describe how arithmetic neutralizes itself, how identities assemble, and how higher geometric objects emerge from those neutralizations. The immediate task is therefore not maximal generality, but disciplined language-building: define kinds of zero, record zero signatures, develop basic loop operations, and test the resulting formalism against a small number of hard classical examples.
+
+\begin{thebibliography}{9}
+
+\bibitem{AEG1}
+Mingli Yuan,
+\emph{Geometry of Arithmetic Expressions: I. Basic Concepts and Unsolved Problems},
+draft preprint, 2025.
+
+\bibitem{Loop1}
+Mingli Yuan,
+\emph{A First Example of Arithmetic Loop and Conformal Handedness},
+draft note, 2026.
+
+\end{thebibliography}
+
+\end{document}
