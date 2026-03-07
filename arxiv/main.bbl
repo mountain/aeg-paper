@@ -1,25 +1,79 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
-\bibitem{Knuth1997TheAO}
-Donald~Ervin Knuth.
-\newblock The art of computer programming, volume i: Fundamental algorithms,
-  2nd edition.
-\newblock 1997.
+\bibitem{Ahlfors1979ComplexAnalysis}
+Lars~V. Ahlfors.
+\newblock {\em Complex Analysis}.
+\newblock McGraw-Hill, New York, 3 edition, 1979.
 
-\bibitem{Markstein2004SoftwareDA}
-Peter~W. Markstein.
-\newblock Software division and square root using goldschmidt's algorithms.
-\newblock 2004.
+\bibitem{BaumslagSolitar1962NonHopfian}
+Gilbert Baumslag and Donald Solitar.
+\newblock Some two-generator one-relator non-hopfian groups.
+\newblock {\em Bulletin of the American Mathematical Society}, 68(3):199--201,
+  1962.
 
-\bibitem{Quinnell2007FloatingPointFM}
-Eric Quinnell, Earl~E. Swartzlander, and Carl Lemonds.
-\newblock Floating-point fused multiply-add architectures.
-\newblock {\em 2007 Conference Record of the Forty-First Asilomar Conference on
-  Signals, Systems and Computers}, pages 331--337, 2007.
+\bibitem{Beardon1983DiscreteGroups}
+Alan~F. Beardon.
+\newblock {\em The Geometry of Discrete Groups}, volume~91 of {\em Graduate
+  Texts in Mathematics}.
+\newblock Springer-Verlag, New York, 1983.
 
-\bibitem{Reynolds1972DefinitionalIF}
-John~C. Reynolds.
-\newblock Definitional interpreters for higher-order programming languages.
-\newblock {\em Higher-Order and Symbolic Computation}, 11:363--397, 1972.
+\bibitem{Chomsky1956ThreeMF}
+Noam Chomsky.
+\newblock Three models for the description of language.
+\newblock {\em IRE Transactions on Information Theory}, 2(3):113--124, 1956.
+
+\bibitem{Darboux1882Pfaff}
+G.~Darboux.
+\newblock Sur le probl\`eme de pfaff.
+\newblock {\em Bulletin des Sciences Math\'ematiques et Astronomiques},
+  6(1):14--36, 1882.
+
+\bibitem{doCarmo1976CurvesSurfaces}
+Manfredo~P. do~Carmo.
+\newblock {\em Differential Geometry of Curves and Surfaces}.
+\newblock Prentice-Hall, Englewood Cliffs, NJ, 1976.
+
+\bibitem{Evans2010PDE}
+Lawrence~C. Evans.
+\newblock {\em Partial Differential Equations}, volume~19 of {\em Graduate
+  Studies in Mathematics}.
+\newblock American Mathematical Society, 2 edition, 2010.
+
+\bibitem{Fox1953FreeDifferential}
+Ralph~H. Fox.
+\newblock Free differential calculus. i. derivation in the free group ring.
+\newblock {\em Annals of Mathematics}, 57(3):547--560, 1953.
+
+\bibitem{Geiges2001BriefHistory}
+Hansj\"org Geiges.
+\newblock A brief history of contact geometry and topology.
+\newblock {\em Expositiones Mathematicae}, 19(1):25--53, 2001.
+
+\bibitem{Geiges2008IntroContact}
+Hansj{"o}rg Geiges.
+\newblock {\em An Introduction to Contact Topology}, volume 109 of {\em
+  Cambridge Studies in Advanced Mathematics}.
+\newblock Cambridge University Press, 2008.
+
+\bibitem{Hamilton1834GeneralMethod}
+William~Rowan Hamilton.
+\newblock On a general method in dynamics.
+\newblock {\em Philosophical Transactions of the Royal Society of London},
+  124:247--308, 1834.
+
+\bibitem{KobayashiNomizu1963FDG1}
+Shoshichi Kobayashi and Katsumi Nomizu.
+\newblock {\em Foundations of Differential Geometry. Vol. I}.
+\newblock Interscience Publishers, New York, 1963.
+
+\bibitem{LyndonSchupp1977Combinatorial}
+Roger~C. Lyndon and Paul~E. Schupp.
+\newblock {\em Combinatorial Group Theory}.
+\newblock Springer-Verlag, Berlin and New York, 1977.
+
+\bibitem{Post1943FormalRO}
+Emil~L. Post.
+\newblock Formal reductions of the general combinatorial decision problem.
+\newblock {\em American Journal of Mathematics}, 65(2):197--215, 1943.
 
 \end{thebibliography}

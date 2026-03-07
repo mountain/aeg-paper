@@ -1,26 +1,33 @@
 \documentclass{article}
 
-\usepackage{arxiv}
-
-\usepackage[utf8]{inputenc} % allow utf-8 input
-\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
-\usepackage{hyperref}       % hyperlinks
-\usepackage{url}            % simple URL typesetting
-\usepackage{booktabs}       % professional-quality tables
-\usepackage[english]{babel}
-\usepackage{nicefrac}       % compact symbols for 1/2, etc.
-\usepackage{microtype}      % microtypography
-\usepackage{graphicx}
-\usepackage{stmaryrd}
-
-\usepackage{amsthm}
-\usepackage{amsfonts}
 \usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
 \usepackage{mathtools}
 
+\usepackage{arxiv}
+\usepackage{quiver}
+
+\usepackage[utf8]{inputenc} \usepackage[T1]{fontenc}    \usepackage[hypertexnames=false]{hyperref}       \usepackage{url}            \usepackage{booktabs}       \usepackage[english]{babel}
+\usepackage{nicefrac}       \usepackage{microtype}      \usepackage{graphicx}
+\usepackage{stmaryrd}
+
+\usepackage{tikz}
+\usetikzlibrary{angles,fit,arrows,calc,math,intersections,through,backgrounds}
 \usepackage{qtree}
 
+\usepackage{listings}
+\lstset{
+  basicstyle=\itshape,
+  xleftmargin=3em,
+  literate={->}{$\rightarrow$}{2}
+           {α}{$\alpha$}{1}
+           {δ}{$\delta$}{1}
+}
+
 \usepackage{xstring}
+\usepackage{stmaryrd}
 \usepackage{wasysym}
 \usepackage{textcomp}
 \usepackage{blindtext}
@@ -36,13 +43,25 @@
 \numberwithin{corollary}{section}
 \newtheorem{theorem}{Theorem}
 \numberwithin{theorem}{section}
+\newtheorem{example}{Theorem}
+\numberwithin{example}{section}
+
+\DeclareMathSymbol{\mathinvertedexclamationmark}{\mathclose}{operators}{'074}
+\DeclareMathSymbol{\mathexclamationmark}{\mathclose}{operators}{'041}
+\makeatletter
+\newcommand{\raisedmathinvertedexclamationmark}{\mathclose{\mathpalette\raised@mathinvertedexclamationmark\relax}}
+\newcommand{\raised@mathinvertedexclamationmark}[2]{\raisebox{\depth}{$\m@th#1\mathinvertedexclamationmark$}}
+\begingroup\lccode`~=`! \lowercase{\endgroup
+  \def~}{\@ifnextchar`{\raisedmathinvertedexclamationmark\@gobble}{\mathexclamationmark}}
+\mathcode`!="8000
+\makeatother
 
 \DeclareMathOperator{\arcsinh}{arcsinh}
-\DeclareMathOperator{\arctanh}{arctanh}
+\DeclareMathOperator{\Tr}{Tr} 
 
-\title{Can arithmetic expressions form a geometry space?}
+\title{Arithmetic Expression Geometry I: Foundations}
 
-\date{}
+\date{} 				
 
 \author{
 Mingli Yuan \\
@@ -51,10 +70,6 @@ Beijing, 100083 \\
 \texttt{mingli.yuan@gmail.com}
 }
 
-% Uncomment to remove the date
-%\date{}
-
-% Uncomment to override  the `A preprint' in the header
 \renewcommand{\headeright}{A preprint}
 \renewcommand{\undertitle}{A preprint}
 
@@ -62,799 +77,3540 @@ Beijing, 100083 \\
 \maketitle
 
 \begin{abstract}
-This study explores how arithmetic expressions can be systematically organized into geometric spaces.
-By introducing a flow equation, we examine the processes—both infinitesimal and discrete—that transform arithmetic expressions into geometric structures.
-Our investigation extends existing theoretical frameworks and provides concrete examples that conceptualize these spaces.
-This research lays the foundation for future studies.
+We introduce Arithmetic Expression Geometry (AEG), a framework in which arithmetic expressions are studied through
+the geometry of their evaluation histories rather than only through their final numerical values. For a distinguished
+class of threadlike expressions, additive and multiplicative updates determine two generating directions of propagation,
+and their infinitesimal interplay yields the arithmetic flow equation
+\[
+    \frac{da}{ds}=\mu\cos\theta + a\lambda\sin\theta.
+\]
+This leads to the notion of an Arithmetic Expression Space: a Riemannian surface equipped with an assignment field
+satisfying the corresponding first-order law. We construct the basic model $\mathfrak{E}_0$ on the upper half-plane,
+where $a=-x/y$ satisfies both the flow equation and a Laplace eigenvalue equation, and we record the first singular
+model $\mathfrak{E}_1$.
+
+The first intrinsic invariant of the theory is \emph{arithmetic torsion}, arising from the non-commutativity of additive
+and multiplicative propagation. To globalize this invariant, we introduce the \emph{Accumulative Commutative Space}
+(ACS), a plane of total additive and logarithmic multiplicative charges, and prove a Stokes--type triple identity that
+expresses global torsion equivalently as an evaluation difference, an $e^M$-weighted area integral, and a boundary
+integral.
+
+To localize the same phenomenon, we construct a three-dimensional \emph{arithmetic expression contact manifold}
+with contact form $\alpha = da - (\mu\,du + \lambda a\,dv)$. Its horizontal distribution recovers the arithmetic flow,
+yields a natural horizontal differential calculus $\delta$, and produces a curvature package proportional to
+$\mu\lambda\,du\wedge dv$. We then define \emph{arithmetic holomorphic fields} by an arithmetic Cauchy--Riemann
+system and show that they satisfy a twisted second-order equation, providing the first analytic structure of the theory.
+Taken together, these results establish the first foundational layer of AEG: arithmetic evaluation admits a path
+language, intrinsic invariants, local and global geometric structures, and the beginnings of a function theory.
 \end{abstract}
 
-\keywords{arithmetic expressions, flow equation, arithmetic expression space}
+\keywords{arithmetic expressions, hyperbolic geometry}
 
-\setcounter{tocdepth}{1}
+\setcounter{tocdepth}{2}
 \tableofcontents
 \newpage
 
 \section{Introduction}\label{sec:introduction}
 
-The concept of systematically organizing arithmetic expressions into geometric spaces presents a compelling extension to traditional mathematical frameworks.
-Real numbers $\mathbb{R}$ can be conceptualized as a continuum of additive arithmetic expressions, while the exponential function over real numbers,
-$e^\mathbb{R}$, represents a continuum of multiplicative arithmetic expressions.
-This paper aims to extend these well-established ideas by characterizing and constructing geometric spaces formed by arithmetic expressions.
+An arithmetic expression is usually treated as a finite syntactic object: a string or a tree built from numbers and the operations $+,-,\times,\div$. Once evaluated, it collapses to a single numerical value, and the intermediate process is normally discarded. The present paper takes the opposite stance. We regard the \emph{evaluation dynamics} of an arithmetic expression---how values propagate through a tree, how additive and multiplicative updates interleave along a path, and how evaluation order changes the resulting history---as a mathematical object in its own right.
 
-While the broader implications of AEG are vast, this paper focuses specifically on the definition and construction of AEG spaces.
+The guiding question is simple to state:
 
-\emph{Main Contributions}
+\begin{quote}
+Can the evaluation of arithmetic expressions be organized as a geometric process, so that order effects, non-commutativity, and accumulation become visible as geometric invariants?
+\end{quote}
 
-The foundation of our approach lies in the introduction of a flow equation, which is critical for constructing the proposed geometric space.
-This flow equation describes the infinitesimal processes that generate arithmetic expressions, facilitating their transformation into neighboring forms.
-Our analysis demonstrates that this infinitesimal process is consistent with the discrete generation of arithmetic expressions at a specified granularity.
+Our answer is that, at least for a distinguished class of expressions, the answer is yes. For \emph{threadlike expressions}, the discrete evaluation process admits a path description. Addition and multiplication then appear as two generating directions, and their failure to commute produces a first intrinsic defect, which we call \emph{arithmetic torsion}. The central thesis of this paper is that this defect is not merely a bookkeeping artifact: it has a natural geometric realization.
 
-\emph{Structure of the Paper}
+\subsection{Historical placement}
+
+Two older mathematical traditions form the natural backdrop for this work, although neither contains the present theory as a special case. On the syntactic side, the study of formal generation and rewriting supplies the basic language in which expressions are built and manipulated; here the classical landmarks are the work of Post on combinatorial reduction and Chomsky on generative description \cite{Post1943FormalRO,Chomsky1956ThreeMF}. On the geometric side, the attempt to encode propagation laws as differential structure belongs more closely to the tradition initiated by Hamilton's characteristic-function viewpoint in dynamics \cite{Hamilton1834GeneralMethod}. The local differential form used later in this paper also places the theory near the Pfaff/contact lineage descending from Darboux; for the historical development of contact geometry, see \cite{Darboux1882Pfaff,Geiges2001BriefHistory}.
+
+These references are meant only to locate the style of the construction. The present paper does \emph{not} apply existing Hamilton--Jacobi theory, nor does it import contact geometry as a ready-made formalism. Rather, it starts from ordinary arithmetic expressions and asks whether their internal evaluation history already carries enough structure to force a geometric enlargement.
+
+\subsection{From expressions to flows}
+
+We begin by formalizing arithmetic expressions through production rules over $\mathbb{Q}$ and by isolating a special class of \emph{threadlike expressions}, in which every left child in the syntax tree is a leaf. These expressions admit a natural currying and path notation. Along such paths one can compare the two elementary propagations
+\[
+  x \xrightarrow{\;\oplus\mu\;} x+\mu \xrightarrow{\;\otimes\lambda\;} (x+\mu)e^{\lambda}
+  \qquad\text{and}\qquad
+  x \xrightarrow{\;\otimes\lambda\;} xe^{\lambda} \xrightarrow{\;\oplus\mu\;} xe^{\lambda}+\mu.
+\]
+Their discrepancy defines arithmetic torsion, the first invariant of the theory.
+
+Passing from discrete propagation to infinitesimal motion leads to the flow equation
+\[
+  \frac{da}{ds}=\mu\cos\theta + a\lambda\sin\theta,
+\]
+which describes the evolution of the assignment value $a$ along a curve of arclength $s$ making angle $\theta$ with the additive and multiplicative generating directions. In coordinate-free language this becomes an eikonal-type relation
+\[
+  \|\nabla a\|=\sqrt{\mu^2+\lambda^2 a^2}.
+\]
+This is the point at which evaluation ceases to look purely combinatorial and begins to look geometric.
+
+\subsection{What this paper establishes}
+
+The first task of the paper is to show that the flow equation is not formal window dressing but the organizing law of a genuine geometry. We therefore introduce \emph{Arithmetic Expression Spaces} (AES): Riemannian surfaces equipped with an assignment field satisfying the arithmetic flow equation for fixed generators $\mu,\lambda$. A concrete basic model is then constructed on the upper half-plane, where the field
+\[
+  a(x,y)=-\frac{x}{y}
+\]
+realizes the flow in a hyperbolic background.
+
+The second task is to extract a global invariant from non-commutative evaluation histories. For this we introduce the \emph{Accumulative Commutative Space} (ACS), which records the total additive and logarithmic multiplicative charges of a path. In ACS, a path and its reversal determine an enclosed region, and global arithmetic torsion admits three equivalent descriptions: an algebraic evaluation difference, a weighted area integral, and a boundary integral.
+
+The third task is local differential completion. We lift ACS to a three-dimensional manifold with coordinates $(u,v,a)$ and contact form
+\[
+  \alpha = da-(\mu\,du+\lambda a\,dv).
+\]
+Its horizontal distribution recovers the arithmetic flow, and on this distribution we define the expression differential $\delta$, a horizontal differential calculus adapted to arithmetic propagation.
+
+The fourth task is to identify the first analytic structure forced by this geometry. We introduce arithmetic holomorphic fields through a Cauchy--Riemann-type system on the horizontal distribution. The point of doing so is not to imitate classical complex analysis superficially, but to test whether the first-order arithmetic structure already determines a nontrivial second-order consequence. In the present paper we record the first step of that analytic route.
+
+Finally, Section~\ref{sec:concepts} closes with a first discussion of closed words and neutralities. This is only an entry point. The broader loop program---where paths encode histories but loops encode relations---belongs to the next layer of the theory and will be developed separately.
+
+\subsection{Main contributions}
+
+The contributions of this paper may be summarized as follows.
 
 \begin{itemize}
-    \item Section~\ref{sec:concepts}: outlines basic concepts to lay the groundwork for the detailed analyses that follow.
-    \item Section~\ref{sec:flowequation}: discusses the flow equation, which is central to our theoretical framework.
-    \item Section~\ref{sec:space}: elaborates on the general construction of an arithmetic expression space.
-    \item Section~\ref{sec:conclusion}: synthesizes the findings and discusses directions for future research.
+  \item We formalize a path language for threadlike arithmetic expressions and isolate arithmetic torsion as the first intrinsic defect produced by the non-commutativity of additive and multiplicative propagation.
+
+  \item We derive the arithmetic flow equation and use it to define arithmetic expression spaces. We construct the basic model $\mathfrak{E}_0$ explicitly on a hyperbolic background.
+
+  \item We introduce the accumulative commutative space and prove a Stokes-type triple identity for global torsion.
+
+  \item We construct an arithmetic expression contact manifold, interpret evaluation histories as horizontal or Legendrian curves, and develop the $\delta$-differential as a horizontal differential calculus.
+
+  \item We formulate arithmetic holomorphicity as the beginning of an arithmetic function theory and isolate its first structural consequence as the analytic problem opened by the contact geometry.
 \end{itemize}
+
+The aim is therefore modest but foundational: not to solve a pre-existing classical problem, but to exhibit a coherent framework in which arithmetic expressions acquire flow, torsion, contact structure, and the first beginnings of a function theory.
+
+\subsection{Structure of the paper}
+
+Section~\ref{sec:concepts} develops the basic combinatorial framework: production rules, path notation, alternating threadlike expressions, arithmetic torsion, equality levels, and a first discussion of closed words and neutralities.
+Section~\ref{sec:flowequation} derives the flow equation and its coordinate-free form.
+Section~\ref{sec:01kind} constructs the basic arithmetic expression spaces, centering on the zeroth-kind model and a brief singular outlook.
+Section~\ref{sec:acspace} introduces ACS and proves the triple identity for global torsion.
+Section~\ref{sec:ecstructure} constructs the contact manifold and interprets arithmetic flow in that language.
+Section~\ref{ch:differential_calculus} develops the $\delta$-differential and its curvature.
+Section~\ref{ch:holomorphic} introduces arithmetic holomorphicity and records the first analytic consequence of the resulting first-order system.
+
+The overall message is that arithmetic expressions possess more internal structure than their final values alone would suggest. Once one keeps track of evaluation history rather than merely evaluation outcome, geometric phenomena appear naturally.
+ \newpage
 
 \section{Basic concepts}\label{sec:concepts}
 
-\subsection{Arithmetic expression}\label{sec:expression}
+This section fixes the elementary language used throughout the paper. We begin with ordinary arithmetic expressions over $\mathbb{Q}$, represent them as trees, and isolate the special class of threadlike expressions. We then introduce the addition--multiplication grid as the first geometric model on which these expressions can be seen as paths. The emphasis here is deliberately pedagogical: before discussing flow, torsion, or contact geometry, we want the reader to have a small stock of explicit examples that can be carried mentally through the rest of the paper.
 
-In order to define arithmetic expressions involving real numbers  $\mathbb{R}$ in a rigorous way, we need to use a sophisticated type theory. However, in order to keep things simple and maintain clarity, we will start by using only production rules, but with certain semantic restrictions. We will also begin with rational numbers $\mathbb{Q}$ to avoid the difficulties inside real numbers $\mathbb{R}$ .
+\subsection{Arithmetic expression}\label{subsec:arithmetic-expression}
+
+To keep the first layer of the theory elementary, we start with arithmetic expressions over the rational numbers $\mathbb{Q}$. This avoids the analytic subtleties of real numbers while preserving the essential combinatorial features of expression building and evaluation.
 
 \begin{definition}\label{def:arithmetic-expression}
-An arithmetic expression $a$ over $\mathbb{Q}$ is a structure given by the following production rules:
+An arithmetic expression $a$ over $\mathbb{Q}$ is generated by the production rules
 \begin{equation}\label{eq:productionrule}
 \begin{aligned}
-    a &\longleftarrow x\\
-    a &\longleftarrow ( a + a )\\
-    a &\longleftarrow ( a - a )\\
-    a &\longleftarrow ( a \times a )\\
-    a &\longleftarrow ( a \div a )
+a &\longleftarrow x, \\
+a &\longleftarrow (a+a), \\
+a &\longleftarrow (a-a), \\
+a &\longleftarrow (a\times a), \\
+a &\longleftarrow (a\div a),
 \end{aligned}
 \end{equation}
-where $x \in \mathbb{Q}$, and we denote this as $a \in \mathbb{E} \left [\mathbb{Q} \right ]$.
+where $x\in\mathbb{Q}$. We write $a\in \mathbb{E}[\mathbb{Q}]$.
 \end{definition}
 
-During the production process, we can obtain both a string representation and a tree representation of arithmetic expression $a$,
-where the two representations are equivalent.
-For instance, the string representation of $a$ might be:
+The same expression can be viewed in two equivalent ways:
+\begin{itemize}
+    \item as a \emph{string}, obtained by applying the production rules formally;
+    \item as a \emph{syntax tree}, whose leaves are numbers and whose branch nodes are labeled by the operators $+, -, \times, \div$.
+\end{itemize}
 
+For example, consider the expression
 \begin{equation}
-    (((((1 \times 2) \times 2) - 1) \times (2 + 1)) - 6)\label{eq:equation}
+(((((1 \times 2) \times 2) - 1) \times (2 + 1)) - 6).
+\label{eq:equation}
 \end{equation}
-
-and the parsed syntax tree is depicted in Figure~\ref{fig:syntaxtree}.
+Its tree representation is shown in Figure~\ref{fig:syntaxtree}.
 
 \begin{figure}[ht]
-    \centering
-    \resizebox{0.2\textheight}{!}{\includegraphics{02-example-expression-syntax-tree}}
-    \caption{a tree representation of an arithmetic expression}\label{fig:syntaxtree}\label{fig:figure}
+\centering
+\resizebox{0.2\textheight}{!}{\includegraphics{images/02-example-expression-syntax-tree.pdf}}
+\caption{A tree representation of an arithmetic expression.}
+\label{fig:syntaxtree}
 \end{figure}
 
-If we interpret the target as a string and the building processes in production rule~\eqref{eq:productionrule} as string building, we get the \emph{string representation}.
-On the other hand, if the target is a tree, tree building leads to the \emph{tree representation}.
-We can easily obtain the string representation of $a$ from its tree representation by performing a pre-order traversal.
+A \emph{sub-expression} is simply the expression determined by a subtree. Passing from the tree to the string is routine: one may perform a pre-order traversal and insert parentheses in the usual way.
 
-The concept of a \emph{sub-expression} can also be derived from the concept of a subtree.
-The branch nodes are all labeled with operators: $+$, $-$, $\times$, $\div$.
-The leaf nodes are all labeled with numbers.
-
-Evaluation $\nu$ is a partial function that operates on arithmetic expression $a \in \mathbb{E} \left [\mathbb{Q} \right ]$.
-It is undefined only if division by zero occurs during the recursive evaluation process.
-
-We can define evaluation $\nu(a)$ of $a$ recursively as follows:
+Evaluation is a partial function
+\[
+\nu: \mathbb{E}[\mathbb{Q}] \rightarrow \mathbb{Q},
+\]
+undefined exactly when a division by zero occurs during the recursive evaluation process. It is given inductively by
 \begin{itemize}
-    \item Constant leaf: For any $x \in \mathbb{Q}$, $\nu(x) = x$.
-    \item Compositional node by $+$: For any $(a + b)$, $\nu((a + b)) = \nu(a) + \nu(b)$.
-    \item Compositional node by $-$: For any $(a - b)$, $\nu((a - b)) = \nu(a) - \nu(b)$.
-    \item Compositional node by $\times$: For any $(a \times b)$, $\nu((a \times b)) = \nu(a) \nu(b)$.
-    \item Compositional node by $\div$: For any $(a \div b)$, if $\nu(b) \neq 0$, then $\nu((a \div b)) = \nu(a) / \nu(b)$.
+    \item $\nu(x)=x$ for any constant leaf $x\in\mathbb{Q}$;
+    \item $\nu((a+b))=\nu(a)+\nu(b)$;
+    \item $\nu((a-b))=\nu(a)-\nu(b)$;
+    \item $\nu((a\times b))=\nu(a)\nu(b)$;
+    \item $\nu((a\div b))=\nu(a)/\nu(b)$ whenever $\nu(b)\neq 0$.
 \end{itemize}
 
-We say that an arithmetic expression $a$ is \emph{evaluable} if $\nu(a)$ is defined.
-In the rest of this article, we will only consider evaluable arithmetic expressions unless stated otherwise.
+We call $a$ \emph{evaluable} if $\nu(a)$ is defined. Unless explicitly stated otherwise, expressions in this paper are assumed to be evaluable.
 
-Given an arithmetic expression $a$, whatever evaluable or not, we can obtain its tree representation.
-If a node $l$ is a leaf node, its corresponding subexpression $s$ is a number, so we consider it to be already \("\)evaluated\("\).
-If a node $b$ is a branch node, its corresponding subexpression $s$ is an expression, and we can apply $\nu$ to it to obtain a number $\nu(s)$.
-During the recursive evaluation process, starting from the leaves and moving towards the root, the subexpressions are evaluated one after another.
-However, the order of evaluations is generally not unique.
+Even when the final value is fixed, the intermediate order of evaluation need not be unique.
 
 \begin{definition}
-    The evaluation order of an arithmetic expression $a$ is an ordering of branch nodes in the tree representation of $a$
-    such that every node (sub-expression) is evaluated before its parent.
+The \emph{evaluation order} of an arithmetic expression $a$ is an ordering of the branch nodes in its tree representation such that each node is evaluated only after all of its children have been evaluated.
 \end{definition}
 
-For example, the possible evaluation orders of the arithmetic expression in Figure~\ref{fig:syntaxtree} are:
+For the expression in \eqref{eq:equation}, the following are all legal evaluation orders:
 \begin{itemize}
-    \item $1 \times 2 \rightarrow \underline{2}; \underline{2} \times 2 \rightarrow \underline{4}; \underline{4} - 1 \rightarrow \underline{3}; 2 + 1 \rightarrow \underline{3}; \underline{3} \times \underline{3} \rightarrow \underline{9}; \underline{9} - 6 \rightarrow 3$
-    \item $1 \times 2 \rightarrow \underline{2}; \underline{2} \times 2 \rightarrow \underline{4}; 2 + 1 \rightarrow \underline{3}; \underline{4} - 1 \rightarrow \underline{3}; \underline{3} \times \underline{3} \rightarrow \underline{9}; \underline{9} - 6 \rightarrow 3$
-    \item $1 \times 2 \rightarrow \underline{2}; 2 + 1 \rightarrow \underline{3}; \underline{2} \times 2 \rightarrow \underline{4}; \underline{4} - 1 \rightarrow \underline{3}; \underline{3} \times \underline{3} \rightarrow \underline{9}; \underline{9} - 6 \rightarrow 3$
-    \item $2 + 1 \rightarrow \underline{3}; 1 \times 2 \rightarrow \underline{2}; \underline{2} \times 2 \rightarrow \underline{4}; \underline{4} - 1 \rightarrow \underline{3}; \underline{3} \times \underline{3} \rightarrow \underline{9}; \underline{9} - 6 \rightarrow 3$
+    \item $1 \times 2 \rightarrow \underline{2};\ \underline{2} \times 2 \rightarrow \underline{4};\ \underline{4} - 1 \rightarrow \underline{3};\ 2 + 1 \rightarrow \underline{3};\ \underline{3} \times \underline{3} \rightarrow \underline{9};\ \underline{9} - 6 \rightarrow 3$;
+    \item $1 \times 2 \rightarrow \underline{2};\ \underline{2} \times 2 \rightarrow \underline{4};\ 2 + 1 \rightarrow \underline{3};\ \underline{4} - 1 \rightarrow \underline{3};\ \underline{3} \times \underline{3} \rightarrow \underline{9};\ \underline{9} - 6 \rightarrow 3$;
+    \item $1 \times 2 \rightarrow \underline{2};\ 2 + 1 \rightarrow \underline{3};\ \underline{2} \times 2 \rightarrow \underline{4};\ \underline{4} - 1 \rightarrow \underline{3};\ \underline{3} \times \underline{3} \rightarrow \underline{9};\ \underline{9} - 6 \rightarrow 3$;
+    \item $2 + 1 \rightarrow \underline{3};\ 1 \times 2 \rightarrow \underline{2};\ \underline{2} \times 2 \rightarrow \underline{4};\ \underline{4} - 1 \rightarrow \underline{3};\ \underline{3} \times \underline{3} \rightarrow \underline{9};\ \underline{9} - 6 \rightarrow 3$.
 \end{itemize}
+The underlined numbers are the intermediate values created during evaluation. This elementary example already shows one of the recurring themes of AEG: a single final value may conceal several distinct evaluation histories.
 
-The underlined numbers are the numbers that are evaluated during the evaluation process.
-
-Below are examples of expressions that have a unique evaluation order.
-These include right-expanded, left-expanded,
-and combinations of them, as shown in Figure~\ref{fig:leftright} and Figure~\ref{fig:combination}.
+There are also important classes of expressions whose evaluation order is unique. Examples include right-expanded expressions, left-expanded expressions, and mixtures of the two, as shown in Figure~\ref{fig:leftright} and Figure~\ref{fig:combination}.
 
 \begin{figure}[ht]
-    \centering
-    \resizebox{0.4\textheight}{!}{\includegraphics{03-example-expression-syntax-tree-left-right}}
-    \caption{right-expanded and left-expanded expressions}\label{fig:leftright}
+\centering
+\resizebox{0.4\textheight}{!}{\includegraphics{images/03-example-expression-syntax-tree-left-right.pdf}}
+\caption{Right-expanded and left-expanded expressions.}
+\label{fig:leftright}
 \end{figure}
 
 \begin{figure}[ht]
-    \centering
-    \resizebox{0.2\textheight}{!}{\includegraphics{04-example-expression-syntax-tree-combination}}
-    \caption{combinations of right-expanded and left-expanded expressions}\label{fig:combination}
+\centering
+\resizebox{0.2\textheight}{!}{\includegraphics{images/04-example-expression-syntax-tree-combination}}
+\caption{Combinations of right-expanded and left-expanded expressions.}
+\label{fig:combination}
 \end{figure}
-
-The evaluation order of an arithmetic expression is related to the topological order of its tree representation, but they are not the same.
-The topological order of a tree is an ordering of nodes such that every node is visited before its parent\cite{Knuth1997TheAO}.
-However, we are only interested in the ordering of branch nodes, as leaf nodes have already been evaluated and can be ignored.
-Additionally, the topological order goes from parent to children, while the evaluation order goes from children to parent.
 
 \begin{definition}
-    A threadlike expression is an arithmetic expression that all the left nodes in its tree representation are leaf nodes.
+A \emph{threadlike expression} is an arithmetic expression whose tree representation has the property that every left child is a leaf.
 \end{definition}
 
-So a threadlike expression is right-expanded and its evaluation order is unique.
-One example of threadlike expressions is shown on the left side of Figure~\ref{fig:leftright}.
-
-Threadlike expressions are significant here because they are analogous to the concept of paths in homotopy theory in geometry.
-In a more general context, certain special types of threadlike expressions are also interesting:
-for example, \emph{alternating threadlike expressions} are expressions in which the additional and multiplicative operators appear in an alternating manner.
-In the field of computing, a hardware component called \emph{multiplier-accumulator} (MAC) unit has been implemented~\cite{Quinnell2007FloatingPointFM},
-which is a special case of an alternating threadlike expression.
-As a result, some numerical algorithms based on MAC units have been studied~\cite{Markstein2004SoftwareDA}.
+Intuitively, a threadlike expression is built by starting from one initial number and then repeatedly attaching a new operation and a new number on the right. Such expressions are especially important because they admit a unique evaluation order and therefore behave like directed histories. Later they will become the prototype of geometric paths.
 
 \subsection{Currying and path notation}\label{subsec:currying}
 
-Currying is a basic technique in functional programming\cite{Reynolds1972DefinitionalIF},
-which is used to transform a function with multiple arguments into a sequence of functions with one argument.
-By currying a threadlike arithmetic expression, we can obtain a sequence of functions that operate on an operand, which is the leftmost leaf node.
+A threadlike expression can be read from left to right as a succession of unary operations acting on the current value. This viewpoint is the most convenient one for geometry.
 
-We introduce the following notation for currying a threadlike arithmetic expression:
+We therefore introduce the operators
 \begin{itemize}
-    \item initial operand: the leftmost leaf node
-    \item operator: $\oplus_y: x \mapsto x + y$
-    \item operator: $\ominus_y: x \mapsto x - y$
-    \item operator: $\otimes_y: x \mapsto x \cdot e^y$
-    \item operator: $\oslash_y: x \mapsto x \cdot e^{-y}$
+    \item $\oplus_y : x \mapsto x+y$,
+    \item $\ominus_y : x \mapsto x-y$,
+    \item $\otimes_y : x \mapsto x\cdot e^y$,
+    \item $\oslash_y : x \mapsto x\cdot e^{-y}$.
 \end{itemize}
 
-For example, the threadlike arithmetic expression $(((((1 \times 2) \times 2) + 1) \times 3) + 6)$ can be curried as
+For example, the threadlike expression
+\[
+(((((1 \times 2) \times 2) + 1) \times 3) + 6)
+\]
+may be rewritten as
+\[
+\oplus_6\bigl(\otimes_{\ln 3}(\oplus_1(\otimes_{\ln 2}(\otimes_{\ln 2}(1))))\bigr).
+\]
 
-\[\oplus_6(\otimes_{\ln 3}(\oplus_1(\otimes_{\ln 2}(\otimes_{\ln 2}(1)))))\]
+This motivates the following path notation. For operators $a_1, a_2, \dots, a_n$, define
+\[
+x a_1 a_2 \cdots a_n \coloneqq a_n\bigl(a_{n-1}(\cdots a_2(a_1(x))\cdots)\bigr).
+\]
+The same example then becomes simply
+\[
+1\,\otimes_{\ln 2}\,\otimes_{\ln 2}\,\oplus_1\,\otimes_{\ln 3}\,\oplus_6.
+\]
 
-Suppose we have a series of operators $a_1, a_2, \cdots a_{n-1}, a_n$, we introduce a \emph{path notation}.
-
-\[x a_1 a_2 \cdots a_{n-1} a_n \coloneqq a\_n( a_{n-1}( \cdots a_2( a_1(x) ) \cdots ) )\]
-
-So, the above example can be written as
-
-\[1 \otimes_{\ln 2} \otimes_{\ln 2} \oplus_1 \otimes_{\ln 3} \oplus_6 \]
-
-If a path begins with a number, we refer to it as a \emph{bounded path}.
-If it does not, we refer to it as a \emph{free path}, similar to the concept of vectors from the origin versus vectors at arbitrary points.
-a bounded path results in a number, while a free path results in a function.
-
-Now we will verify that the operators within a path are associative.
+If a path begins with a number, we call it a \emph{bounded path}. If it consists only of operators, we call it a \emph{free path}. A bounded path evaluates to a number; a free path evaluates to a function.
 
 \begin{lemma}\label{lemma:associative}
-The operators within a path are associative, i.e. we have \[a [b c] = [a b] c\]
+The path notation is associative. In other words,
+\[
+a[bc]=[ab]c.
+\]
 \end{lemma}
 
 \begin{proof}
-    We use normal typeface to express the path notation, and bold typeface to express the function notation.
+For a free path,
+\[
+a[bc]=[bc](\mathbf a)=\mathbf c(\mathbf b(\mathbf a)),
+\qquad
+[ab]c=\mathbf c([ab])=\mathbf c(\mathbf b(\mathbf a)).
+\]
+Hence $a[bc]=[ab]c$.
 
-    For a free path, follow the definition, we have
-    \[a [b c] = [b c](\mathbf{a}) = \mathbf{c}(\mathbf{b}(\mathbf{a}))\]
-    \[[a b] c = \mathbf{c}([a b]) = \mathbf{c}(\mathbf{b}(\mathbf{a}))\]
-
-    hence, we have
-    \[a [b c] = [a b] c\]
-    is hold for a free path.
-
-    For a bounded path, we have
-    \[x a [b c] = [b c](\mathbf{a}(x)) = \mathbf{c}(\mathbf{b}(\mathbf{a}(x)))\]
-    \[x [a b] c = \mathbf{c}([a b](x)) = \mathbf{c}(\mathbf{b}(\mathbf{a}(x)))\]
-
-    hence, we have
-    \[a [b c] = [a b] c\]
-    is hold for a bounded path.
-
+For a bounded path,
+\[
+x a[bc]=[bc](\mathbf a(x))=\mathbf c(\mathbf b(\mathbf a(x))),
+\qquad
+x[ab]c=\mathbf c([ab](x))=\mathbf c(\mathbf b(\mathbf a(x))).
+\]
+Again $a[bc]=[ab]c$ follows.
 \end{proof}
 
 \begin{definition}\label{definition:concatenate}
-The concatenation of paths $p_1 \cdot p_2$ is defined as the composite of functions:
-\[p_1 \cdot p_2 \coloneqq p_2 \circ p_1 \]
+The concatenation of two paths $p_1$ and $p_2$ is their composite as functions:
+\[
+p_1\cdot p_2 \coloneqq p_2\circ p_1.
+\]
 \end{definition}
 
-When a sequence of paths is concatenated, and only the first path can be bounded.
-If the first path is bounded, the concatenated result is a bounded path.
-Otherwise, the concatenated result is a free path.
+Only the first factor in a concatenation may be bounded. If the first factor is bounded, the result is bounded; otherwise the result remains a free path.
 
-\subsection{Alternating threadlike expressions}\label{subsec:alternating}
+\subsection{A scalar field and a mesh grid}\label{subsec:meshgrid}
 
-Now we can define alternating threadlike expressions, which were mentioned in Section~\ref{sec:expression}, using the path notion.
+Having described threadlike expressions syntactically, we now introduce the simplest geometric picture in which they can be drawn. Consider the upper half-plane
+\[
+\mathcal H=\{(x,y)\mid y>0\}
+\]
+equipped with the metric
+\[
+ds^2=\frac{1}{y^2}\left(dx^2+\frac{dy^2}{\ln^2 2}\right)
+\]
+and the assignment function
+\begin{equation}
+a=-\frac{x}{y}.
+\label{eq:assignment}
+\end{equation}
+We call $a$ the \emph{assignment}.
+
+At this stage the reader may treat $(\mathcal H,a)$ simply as a prototype. Later sections justify why this choice is natural, but for now the main point is concrete: it supplies a grid on which ``add $1$'' and ``multiply by $2$'' become visible motions.
+
+\begin{figure}[ht]
+\centering
+\resizebox{0.9\textwidth}{!}{\includegraphics{images/01-grid-example-1.pdf}}
+\caption{An addition--multiplication grid with generators $\mu=1$ and $\lambda=\ln 2$.}
+\label{fig:gridex0}
+\end{figure}
+
+Figure~\ref{fig:gridex0} shows the resulting addition--multiplication grid. The blue family represents the relation ``$+1$,'' the green family represents ``$\times 2$,'' and the red labels record the assignment values at the crossing points. The two curve families are perpendicular, and the neighboring grid steps have unit length with respect to the above metric.
+
+For the purposes of this section, the picture may be read informally as follows:
+\begin{itemize}
+    \item moving horizontally changes the current value by addition or subtraction;
+    \item moving vertically changes the current value by multiplication or division;
+    \item a threadlike expression becomes a zigzag path on the grid.
+\end{itemize}
+
+This is the first point where the paper begins to look geometric rather than merely symbolic.
+
+\subsection{Encoding threadlike expressions on the addition--multiplication grid}\label{subsec:encoding}
+
+Once the grid is available, threadlike expressions can be drawn directly on it. In Figure~\ref{fig:encoding}, the bold black path encodes the expression
+\[
+((((1\times 4)-1)\times 2)-3).
+\]
+
+\begin{figure}[ht]
+\centering
+\resizebox{0.9\textwidth}{!}{\includegraphics{images/05-example-expression-embedding}}
+\caption{Encoding a threadlike expression as a zigzag path.}
+\label{fig:encoding}
+\end{figure}
+
+Reading the path segment by segment, we obtain:
+\begin{itemize}
+    \item the vertical segment from $1$ to $4$: multiplication by $4$;
+    \item the horizontal segment from $4$ to $3$: subtraction by $1$;
+    \item the vertical segment from $3$ to $6$: multiplication by $2$;
+    \item the horizontal segment from $6$ to $3$: subtraction by $3$.
+\end{itemize}
+
+This example is elementary, but it is worth lingering over. The path is not merely a picture of the final value $3$; it is a record of how the value $3$ was obtained.
+
+\subsection{From a scalar field to a space of threadlike expressions}\label{subsec:from-field-to-space}
+
+The next example is more revealing. In Figure~\ref{fig:canonicalform}, several different paths start at the same source value $1$ and end at the same target value $3$.
+
+\begin{figure}[ht]
+\centering
+\resizebox{0.9\textwidth}{!}{\includegraphics{images/06-example-canonical-form}}
+\caption{Different encodings of the same endpoint relation.}
+\label{fig:canonicalform}
+\end{figure}
+
+The displayed paths correspond to:
+\begin{itemize}
+    \item the black path: $((1\times 8)-5)=3$;
+    \item the purple path: $((1-\frac{5}{8})\times 8)=3$;
+    \item the brown path: $((((((1-\frac18)\times 2)-\frac12)\times 2)-1)\times 2)=3$;
+    \item the orange path: an infinite accumulation of addition and multiplication steps.
+\end{itemize}
+
+The black, purple, and brown paths all have the same source and the same target, yet they record different histories. Algebraically, they are related by distributivity and by regrouping of terms.
+
+For example, the brown path can be compressed to the black path:
+\begin{align}
+3 &= ((((((1-\tfrac18)\times 2)-\tfrac12)\times 2)-1)\times 2) \\
+  &= 1\times 8 - \tfrac18\times 8 - \tfrac12\times 4 - 1\times 2 \\
+  &= (1\times 8)-5.
+\end{align}
+
+The same brown path can also be reorganized into the purple path:
+\begin{align}
+3 &= ((((((1-\tfrac18)\times 2)-\tfrac12)\times 2)-1)\times 2) \\
+  &= (1-\tfrac18)\times 8 - \tfrac12\times 4 - 1\times 2 \\
+  &= (1-\tfrac18)\times 8 - \tfrac14\times 8 - \tfrac14\times 8 \\
+  &= \bigl(1-\tfrac18-\tfrac14-\tfrac14\bigr)\times 8 \\
+  &= \bigl(1-\tfrac58\bigr)\times 8.
+\end{align}
+
+We may therefore regard the black and purple paths as a first \emph{canonical pair}: one emphasizes the final multiplication, the other emphasizes the total additive correction before multiplication.
+
+Pedagogically, this is one of the most important examples in the section. It shows that a space of expressions should not be thought of as a mere list of values. What matters is the coexistence of multiple histories between the same endpoints. Later, torsion will measure the failure of such histories to collapse completely.
+
+If one prefers categorical language, the same picture may be packaged by taking grid points as objects and encoded paths as morphisms, with composition given by concatenation. We do not need the full groupoid formalism in the present paper, but the path viewpoint will remain essential.
+ \subsection{Alternating threadlike expressions}\label{subsec:alternating}
+
+Among threadlike expressions, the most useful bookkeeping class is the alternating one.
 
 \begin{equation}\label{eq:alternative}
-\alpha = a_1 b_1 a_2 b_2 \cdots a_l b_l, a_i = \otimes_{\lambda_i}, b_i = \oplus_{\mu_i}, \lambda_i, \mu_i \in \mathbb{R}
+\alpha = a_1 b_1 a_2 b_2 \cdots a_l b_l,
+\qquad
+ a_i=\otimes_{\lambda_i},\quad b_i=\oplus_{\mu_i},\quad \lambda_i,\mu_i\in\mathbb{R}.
 \end{equation}
 
-where $\bigoplus$ and $\bigotimes$ denote addition and multiplication, respectively,
-and the expression is a zigzag of alternating addition and multiplication operations.
-$\alpha$ is a free path, and we can bind a number to it.
+Thus an alternating threadlike expression is a zigzag of multiplication and addition steps. It is naturally a free path, and it becomes a bounded path once an initial value is attached.
 
-Since $0$ is the identity element for addition and $1$ is the identity element for multiplication,
-it is straightforward to see that any arithmetic expression can be converted into an alternating threadlike expression
-by introducing more $0$ and $1$ into the original expression.
-So alternating threadlike expression is a kind of canonical form.
+Since $0$ is the identity for addition and $1$ is the identity for multiplication, any threadlike expression can be rewritten in alternating form by inserting harmless $+0$ and $\times 1$ steps when necessary. We do not claim uniqueness here; the point is that alternating form gives a uniform language for explicit calculations.
 
-We can derive a formula for perturbations in alternating threadlike expressions.
-
-Let us define the left-to-right accumulated sum of $\lambda_i$ as $\check{\lambda}_i$, such that:
+Define the left-to-right accumulated sums
 \begin{equation}
-    \check{\lambda}_i = \sum_{j=1}^i \lambda_j, \check{\lambda}_0 = 0\label{eq:accsumlr}
+\check{\lambda}_i = \sum_{j=1}^i \lambda_j,
+\qquad
+\check{\lambda}_0=0,
+\label{eq:accsumlr}
 \end{equation}
-
-Then we also have right-to-left accumulated sum of $\lambda_i$
+and the right-to-left accumulated sums
 \begin{equation}
-    \hat{\lambda}_i = \check{\lambda}_l - \check{\lambda}_{l - i}, \hat{\lambda}_0 = 0\label{eq:accsumrl}
+\hat{\lambda}_i = \check{\lambda}_l - \check{\lambda}_{l-i},
+\qquad
+\hat{\lambda}_0=0.
+\label{eq:accsumrl}
 \end{equation}
 
-Expanding equation~\eqref{eq:alternative} using the distributive law and the above notion at point $\mu_0$, we obtain:
+Expanding \eqref{eq:alternative} at an initial value $\mu_0$, we obtain
 \begin{align}
-    \alpha(\mu_0) & = e^{\lambda_l}(\cdots (e^{\lambda_2} (e^{\lambda_1} \mu_0 + \mu_1) + \mu_2) \cdots) + \mu_l \\
-    & = e^{\hat{\lambda}_l} \mu_0 + e^{\hat{\lambda}_{l - 1}} \mu_1  + e^{\hat{\lambda}_{l - 2}} \mu_2 + \cdots + e^{\hat{\lambda}_1} \mu_{l - 1} + e^{\hat{\lambda}_0} \mu_l
+\alpha(\mu_0)
+&= e^{\lambda_l}\bigl(\cdots(e^{\lambda_2}(e^{\lambda_1}\mu_0+\mu_1)+\mu_2)\cdots\bigr)+\mu_l \\
+&= e^{\hat{\lambda}_l}\mu_0 + e^{\hat{\lambda}_{l-1}}\mu_1 + e^{\hat{\lambda}_{l-2}}\mu_2 + \cdots + e^{\hat{\lambda}_1}\mu_{l-1} + e^{\hat{\lambda}_0}\mu_l.
 \end{align}
 
-Next, at the starting point $\mu_0$, we introduce a perturbation $\tilde{\mu}_0 = e^{\eta_0} \mu_0 + \epsilon_0$,
-where $\eta_0$ and $\epsilon_0$ are the disturbance terms added by the summation and multiplication operations, respectively.
-Then, we have:
+Now perturb the starting value by
+\[
+\tilde\mu_0=e^{\eta_0}\mu_0+\epsilon_0.
+\]
+Then
 \begin{align}
-    \alpha(\tilde{\mu}_0) & = e^{\hat{\lambda}_l} (\tilde{\mu}_0) + e^{\hat{\lambda}_{l - 1}} \mu_1  + e^{\hat{\lambda}_{l - 2}} \mu_2 + \cdots + e^{\hat{\lambda}_1} \mu_{l - 1} + e^{\hat{\lambda}_0} \mu_l \\
-    & = \alpha(\mu_0) + e^{\hat{\lambda}_l} (\tilde{\mu}_0 - \mu_0)
+\alpha(\tilde\mu_0)
+&= e^{\hat{\lambda}_l}\tilde\mu_0 + e^{\hat{\lambda}_{l-1}}\mu_1 + e^{\hat{\lambda}_{l-2}}\mu_2 + \cdots + e^{\hat{\lambda}_1}\mu_{l-1} + e^{\hat{\lambda}_0}\mu_l \\
+&= \alpha(\mu_0)+e^{\hat{\lambda}_l}(\tilde\mu_0-\mu_0).
 \end{align}
-
-As a result, purely from an arithmetic perspective, without the need for limits, we can derive the following meaningful ratio:
+Hence we obtain the exact ratio
 \begin{equation}
-    \frac{\alpha(\tilde{\mu}_0) - \alpha(\mu_0)}{\tilde{\mu}_0 - \mu_0} = e^{\hat{\lambda}_l} = e^{\check{\lambda}_l}\label{eq:ratio1}
+\frac{\alpha(\tilde\mu_0)-\alpha(\mu_0)}{\tilde\mu_0-\mu_0}
+= e^{\hat{\lambda}_l}
+= e^{\check{\lambda}_l}.
+\label{eq:ratio-alternating}
 \end{equation}
 
-Now we extend this relationship from the starting point $\mu_0$ to the entire process, we define the recursive formula
-
+If we define recursively
 \[
-    w_i = e^{\lambda_i} w_{i-1} + \mu_i, w_0 = 0
+w_i=e^{\lambda_i}w_{i-1}+\mu_i,
+\qquad
+w_0=0,
 \]
-
-and then we have
-
+then the perturbation propagates according to
 \begin{equation}
-    \frac{\tilde{w}_i - w_i}{\tilde{\mu}_0 - \mu_0} = e^{\check{\lambda}_i}, i \in \{1,\cdots,l\}\label{eq:perturbation1}
+\frac{\tilde w_i-w_i}{\tilde\mu_0-\mu_0}=e^{\check{\lambda}_i},
+\qquad i\in\{1,\dots,l\},
 \end{equation}
-
-So, we have
-
+and therefore
 \[
-    \tilde{w}_i - w_i = e^{\check{\lambda}_i} (\tilde{\mu}_0 - \mu_0)
+\tilde w_i-w_i=e^{\check{\lambda}_i}(\tilde\mu_0-\mu_0)
 \]
-
-and hence
-
+with the recursive form
 \begin{equation}
-    \tilde{w}_i - w_i = e^{\lambda_i}(\tilde{w}_{i - 1} - w_{i - 1})\label{eq:perturbation2}
+\tilde w_i-w_i = e^{\lambda_i}(\tilde w_{i-1}-w_{i-1}).
+\label{eq:perturbation2}
 \end{equation}
 
-That means the perturbation along the path is controlled by the multiplication terms of $e^{\lambda_i}$.
+These formulas are still purely arithmetic, but they already foreshadow the differential viewpoint of later sections: multiplication controls the amplification of perturbations along a path.
 
 \subsection{Generated structure, commutator and arithmetic torsion}\label{subsec:generated-structure}
 
-For real number $\mathbb{R}$ and elements $\mu, \lambda \in \mathbb{R}$, we consider all the arithmetical expressions
-that are freely generated from
+We now freeze two real parameters $\mu,\lambda\in\mathbb{R}$ and study the operators
 \begin{itemize}
-    \item initial operand: $0$
-    \item operator: $\oplus_\mu: x \mapsto x + \mu$
-    \item operator: $\ominus_\mu: x \mapsto x - \mu$
-    \item operator: $\otimes_\lambda: x \mapsto x \cdot e^\lambda$
-    \item operator: $\oslash_\lambda: x \mapsto x \cdot e^{- \lambda}$
+    \item $\oplus_\mu:x\mapsto x+\mu$,
+    \item $\ominus_\mu:x\mapsto x-\mu$,
+    \item $\otimes_\lambda:x\mapsto x\cdot e^{\lambda}$,
+    \item $\oslash_\lambda:x\mapsto x\cdot e^{-\lambda}$.
 \end{itemize}
+These are the elementary moves behind the addition--multiplication grid.
 
-We denote these expressions as $E(\mu, \lambda)$, where $\mu$ is the additional generator and $e^\lambda$ is the multiplicative generator.
-In cases where the context is clear, we may omit $\mu$ and $\lambda$ from the index.
-Our goal is not to study only a single $E(\mu, \lambda)$, but rather to use a family of $E(\mu, \lambda)$ to approach a continuous space.
-
-Since $\oplus_\mu$ and $\ominus_\mu$ are mutually inverse operations, it follows that $\otimes_\lambda$ and $\oslash_\lambda$ are also mutually inverse. This means that $E(\mu, \lambda)$ forms a group.
-An observation is that the commutator of this group is not equal to identity generally,
-especially the commutator of the generators.
-
+The first nontrivial question is whether addition and multiplication commute when viewed as successive path operations. In general they do not. Acting on a value $x$, we have
 \begin{equation}
-    x \oplus_\mu \otimes_\lambda \ominus_\mu \oslash_\lambda - x = \mu(1 - e^{-\lambda})\label{eq:commutator1}
+x\oplus_\mu\otimes_\lambda\ominus_\mu\oslash_\lambda - x
+= \mu(1-e^{-\lambda}),
+\label{eq:commutator1}
 \end{equation}
+and
 \begin{equation}
-    x \otimes_\lambda \oplus_\mu \oslash_\lambda \ominus_\mu - x = - \mu(1 - e^{-\lambda})\label{eq:commutator2}
+x\otimes_\lambda\oplus_\mu\oslash_\lambda\ominus_\mu - x
+= -\mu(1-e^{-\lambda}).
+\label{eq:commutator2}
 \end{equation}
+The two oriented commutators differ by sign, reflecting the handedness of the corresponding square on the grid.
 
-Formula\ref{eq:commutator1} obey the right-hand rule, and formula\ref{eq:commutator2} obey the left-hand rule.
-
-Or equivlently, we define below difference $\tau$ obey the right-hand rule:
-
+A more local way to record the same defect is to compare the two-step paths directly:
 \begin{equation}
-    \tau = x \oplus_\mu \otimes_\lambda - x \otimes_\lambda \oplus_\mu = \mu(e^\lambda - 1)\label{eq:torsion}
+\tau = x\oplus_\mu\otimes_\lambda - x\otimes_\lambda\oplus_\mu
+= \mu(e^{\lambda}-1).
+\label{eq:torsion}
 \end{equation}
+We call $\tau$ the \emph{arithmetic torsion}. It is the first invariant showing that two histories with the same generators and the same endpoints need not coincide. In later sections this torsion will reappear as an area quantity and then as a curvature-related quantity.
 
-These differences are constant, indicating a type of torsion in the generated group.
-And torsion $\tau$ is specifically referred to as the arithmetic torsion.
+\subsection{The generated group and its \texorpdfstring{$\mathrm{Aff}(1)$}{Aff(1)} representation}
+\label{subsec:generated_group_affine}
+
+Because $\oplus_\mu$ and $\ominus_\mu$ are inverses, and likewise $\otimes_\lambda$ and $\oslash_\lambda$, finite compositions of these operators form a group.
+
+\begin{definition}
+Let $E(\mu,\lambda)$ denote the group generated by $\oplus_\mu$ and $\otimes_\lambda$ together with their inverses $\ominus_\mu$ and $\oslash_\lambda$, under composition.
+\end{definition}
+
+It is convenient to realize $E(\mu,\lambda)$ inside the affine group of the line. In matrix form,
+\[
+\mathrm{Aff}(1)=\left\{
+\begin{pmatrix}
+\Phi & a\\
+0 & 1
+\end{pmatrix}
+\;
+\middle|
+\;
+\Phi\in\mathbb{R}^{\times},\ a\in\mathbb{R}
+\right\},
+\]
+with the action
+\[
+\begin{pmatrix}
+\Phi & a\\
+0 & 1
+\end{pmatrix}\cdot x = \Phi x + a.
+\]
+
+The basic generators are represented by
+\[
+\rho(\oplus_\mu)=
+\begin{pmatrix}
+1 & \mu\\
+0 & 1
+\end{pmatrix},
+\qquad
+\rho(\otimes_\lambda)=
+\begin{pmatrix}
+e^{\lambda} & 0\\
+0 & 1
+\end{pmatrix}.
+\]
+
+\begin{lemma}
+The assignment above extends uniquely to a group homomorphism
+\[
+\rho:E(\mu,\lambda)\to \mathrm{Aff}(1)
+\]
+compatible with evaluation on the line.
+\end{lemma}
+
+Thus one may think of an element of $E(\mu,\lambda)$ either as a word in the arithmetic generators or as an affine matrix. In this representation the commutator is a genuine affine defect, and later the differential theory will recover the flow equation from the corresponding Lie algebra $\mathfrak{aff}(1)$.
+
+\subsection{Levels of equality and first problems}
+\label{subsec:problems-on-equality-singularity-symmetries}
+
+By now the reader has already seen several ways in which two expressions may be ``the same.'' It is useful to keep these levels separate.
+
+\begin{enumerate}
+    \item \textbf{Literal equality.} Two expressions are literally equal if their written forms coincide exactly.
+
+    \item \textbf{Path or operational equality.} After currying, two expressions may determine the same bounded or free path, even if parentheses are grouped differently. This is the level governed by composition and associativity.
+
+    \item \textbf{Relational equality.} Two paths may be identified after using additional algebraic relations, such as distributive reorganizations or later loop relations.
+
+    \item \textbf{Semantic equality.} Two expressions are semantically equal if they evaluate to the same number, or geometrically, if they reach the same assigned endpoint.
+\end{enumerate}
+
+These levels should not be collapsed too early. One of the main philosophical choices of AEG is to remember as much history as possible before passing to coarser notions of equality.
+
+There is also an important warning already visible at the elementary level: evaluation is partial. Division by zero may render a syntactically valid expression semantically invalid. For this reason the present paper begins over $\mathbb{Q}$ and with evaluable expressions. Singularities and continuous extensions will be treated later, after the geometric picture has been built.
+
+Finally, the present section points toward a further layer that will only be opened, not developed, in this paper. A point records a value; a path records a history; and a closed path records a relation. Such a relation may vanish in several different senses: it may evaluate to zero, act trivially as an operator, carry zero total charge, or have zero torsion. In other words, even ``zero'' is stratified. The systematic study of these neutralities belongs to the later loop theory, but the reader should already keep in mind that equality in AEG is layered rather than monolithic.
+
+Appendix~\ref{app:equality-neutralities} records concrete examples that separate these levels and illustrate first neutralities.
+ \newpage
 
 \section{Flow equation}\label{sec:flowequation}
 
-\subsection{Flow equation}\label{sec:equation}
+This section derives the differential law that governs the infinitesimal propagation of assignment values. Starting from the two elementary generators introduced in Section~\ref{subsec:generated-structure}, we pass from discrete zigzag histories to a first-order continuous equation. We then reinterpret that equation in the affine group $\mathrm{Aff}(1)$, rewrite it in contour--gradient and coordinate-free forms, and record a local metric-rectification statement that motivates the formal definition of an arithmetic expression space.
 
-Consider an infinitesimal generating process on a Riemannian surface $M$ using two generators:
-one for an additional action $\mu$ and the other for a multiplicative action $e^\lambda$.
-These two generators are perpendicular.
-This generation process produces an assignment $A: M \to R$ over the surface.
+\subsection{Derivation of the flow equation}\label{sec:equation}
 
-For any point with an assignment $a_0$, if we consider a movement of distance $\epsilon$ in a direction with angle $\theta$
-over a time period of $\delta$, we can establish the following:
+The simplest continuous picture is obtained by idealizing the two basic arithmetic moves as infinitesimal motions in two orthogonal directions. Let $(u,v)$ be a local orthogonal coordinate system in which the $u$-direction represents the additive generator and the $v$-direction represents the multiplicative generator. We fix constants $\mu,\lambda\in\mathbb{R}$ and interpret them as the infinitesimal intensities of these two actions.
 
+Let $a=a(s)$ be the current assignment value along a unit-speed path, and let $\theta$ denote the angle of the tangent vector with the positive $u$-direction. Then
 \[
-    a_{\delta} = (a_0 + \mu \epsilon \cos \theta)e^{\lambda \epsilon \sin \theta}
+    du = \cos\theta\,ds,
+    \qquad
+    dv = \sin\theta\,ds.
 \]
-
+During the infinitesimal step $ds$, the additive generator contributes $\mu\,du$, while the multiplicative generator contributes the factor $e^{\lambda dv}$. There are two natural orderings of the two actions:
+\[
+    a(s+ds) = (a + \mu\,du)e^{\lambda dv} + O(ds^2)
+\]
 or
-
 \[
-    a_{\delta} = a_0 e^{\lambda \epsilon \sin \theta} + \mu \epsilon \cos \theta
+    a(s+ds) = a e^{\lambda dv} + \mu\,du + O(ds^2).
 \]
-
-Both formula can be simplified to the same result:
-
+Their difference is second-order, exactly as suggested by the arithmetic torsion calculation of Section~\ref{subsec:generated-structure}. Expanding the exponential to first order gives
 \[
-    a_{\delta} = a_0 + \epsilon (a_0 \lambda \sin \theta + \mu \cos \theta)
+    a(s+ds) = a + \mu\,du + a\lambda\,dv + O(ds^2)
+            = a + \bigl(\mu\cos\theta + a\lambda\sin\theta\bigr)ds + O(ds^2).
 \]
-
-Then, we have the following equation:
-
-\[
-    \frac{1}{\delta} (a_{\delta} - a_0) = \frac{\epsilon}{\delta} (\mu \cos \theta + x_0 \lambda \sin \theta)
-\]
-
-When both $\delta$ and $\epsilon$ are towards zero, we get $da / dt$, and hence
-
-\[
-    \frac{da}{dt} = u (\mu \cos \theta + a \lambda \sin \theta)
-\]
-
-Or, we can change it to another form
-
+Dividing by $ds$ and passing to the limit, we obtain the fundamental differential relation
 \begin{equation}
-    \frac{da}{ds} = \mu \cos \theta + a \lambda \sin \theta\label{eq:flow}
+    \frac{da}{ds} = \mu \cos \theta + a \lambda \sin \theta.
+    \label{eq:flow}
 \end{equation}
+We call \eqref{eq:flow} the \emph{flow equation}. It is the continuous counterpart of the discrete propagation formulas of Section~\ref{subsec:alternating}: the additive generator contributes linearly, while the multiplicative generator amplifies the current value itself.
 
-We name this equation~\eqref{eq:flow} as the flow equation.
-
-We can also get a direct formal solution of the flow equation~\eqref{eq:flow}.
-
+For a fixed direction $\theta$, equation~\eqref{eq:flow} is a linear first-order ordinary differential equation. When $\lambda\sin\theta\neq 0$, its solution is
 \begin{equation}
-    a = (a_0 + \frac{\mu}{\lambda} \cot \theta) e^{\lambda s \sin \theta} - \frac{\mu}{\lambda} \cot \theta\label{eq:solution}
+   a(s) = \left(a_0 + \frac{\mu}{\lambda} \cot \theta\right) e^{\lambda s \sin \theta} - \frac{\mu}{\lambda} \cot \theta,
+   \label{eq:solution}
 \end{equation}
+with initial value $a(0)=a_0$. The axis directions $\theta=0,\pi$ are the purely additive cases and will be discussed again in Section~\ref{subsec:discrete-generating}.
+
+\subsection{The matrix Lie algebra perspective}
+\label{subsec:matrix_lie_algebra}
+
+The flow equation admits a natural Lie-theoretic interpretation. We model an evaluation state by an element of the affine group of the line,
+\[
+G=\mathrm{Aff}(1)=\left\{
+\begin{pmatrix}
+\Phi & a\\
+0 & 1
+\end{pmatrix}
+\;\middle|\; \Phi\in\mathbb{R}_{>0},\ a\in\mathbb{R}
+\right\},
+\]
+acting on $x\in\mathbb{R}$ by $x\mapsto \Phi x + a$. Here $\Phi$ records accumulated multiplicative scaling, while $a$ records translation.
+
+Its Lie algebra consists of matrices of the form
+\[
+X=
+\begin{pmatrix}
+\alpha & \beta\\
+0 & 0
+\end{pmatrix},
+\qquad \alpha,\beta\in\mathbb{R},
+\]
+with basis given by the dilation generator $E_{11}$ and the translation generator $E_{12}$. For a path $s\mapsto g(s)\in G$, we prescribe the infinitesimal generator
+\[
+\Omega(\theta)
+= \lambda \sin\theta\,E_{11} + \mu\cos\theta\,E_{12}
+=
+\begin{pmatrix}
+\lambda\sin\theta & \mu\cos\theta\\
+0 & 0
+\end{pmatrix}.
+\]
+The corresponding left-invariant matrix equation is
+\begin{equation}
+    \frac{d}{ds}g(s)=\Omega(\theta)\,g(s).
+\end{equation}
+Writing
+\[
+g(s)=
+\begin{pmatrix}
+\Phi(s) & a(s)\\
+0 & 1
+\end{pmatrix},
+\]
+we obtain
+\[
+\begin{pmatrix}
+\Phi'(s) & a'(s)\\
+0 & 0
+\end{pmatrix}
+=
+\begin{pmatrix}
+\lambda\sin\theta & \mu\cos\theta\\
+0 & 0
+\end{pmatrix}
+\begin{pmatrix}
+\Phi(s) & a(s)\\
+0 & 1
+\end{pmatrix}.
+\]
+Comparing the upper-right entries yields
+\[
+    \frac{da}{ds}=a\lambda\sin\theta + \mu\cos\theta,
+\]
+which is exactly equation~\eqref{eq:flow}. Thus the flow equation is the $a$-component of a linear evolution on $\mathrm{Aff}(1)$.
+
+This affine-group picture also clarifies why the translation part behaves like a twisted derivative. If we write an element of $G$ as $(\Phi,D)$, then
+\[
+(\Phi_1,D_1)(\Phi_2,D_2)=(\Phi_1\Phi_2, D_1+\Phi_1D_2),
+\]
+so the translation component satisfies
+\begin{equation}
+    D(uv)=D(u)+\Phi(u)D(v).
+\end{equation}
+At the representation level, this is the same twisted Leibniz rule that lies behind Fox's free differential calculus \cite{Fox1953FreeDifferential}. In the present paper the rule appears in its simplest affine form; later sections will recover it geometrically through contact and differential structures.
 
 \subsection{Discrete generating}\label{subsec:discrete-generating}
 
-In section~\ref{subsec:generated-structure}, we have discussed a discrete generating process.
-Since flow equation governs an infinitesimal generating process,
-we will show the above discrete generating process can be emerged from the solution of the flow equation~\eqref{eq:solution} naturally.
-We expand the formula by the Taylor series:
-
+The infinitesimal flow should reproduce the discrete arithmetic generators when we move exactly along the coordinate directions. This is already visible by expanding the one-step propagation law to second order:
 \[
-    a =  a_0 e^{\lambda s \sin \theta} + \frac{\mu}{\lambda} [1 + \lambda s \sin \theta + \frac{1}{2!} (\lambda s \sin \theta)^2  + \frac{1}{3!} (\lambda s \sin \theta)^3 + \cdots - 1] \cot \theta
+    a(s)=a_0 e^{\lambda s\sin\theta} + \mu s\cos\theta + \frac{\mu\lambda}{2}s^2\Psi(s)\sin 2\theta,
 \]
-
-Change the formula slightly:
-\[
-    a = a_0 e^{\lambda s \sin \theta} + \mu s \cos \theta + \frac{\mu}{\lambda} \sin \theta \cos \theta (\frac{\lambda^2s^2}{2!} + \frac{\lambda^3s^3}{3!} \sin \theta + \frac{\lambda^4s^4}{4!} \sin^2 \theta + \cdots)
-\]
-
-By the formula of double angle, we have
-\[
-    a = a_0 e^{\lambda s \sin \theta} + \mu s \cos \theta + \frac{\mu}{2\lambda} \sin 2\theta (\frac{\lambda^2s^2}{2!} + \frac{\lambda^3s^3}{3!} \sin \theta + \frac{\lambda^4s^4}{4!} \sin^2 \theta + \cdots)
-\]
-
-We denote
-\begin{equation}
-    \Psi(s) = \frac{1}{2!} + \frac{\lambda s}{3!} \sin \theta + \frac{\lambda^2 s^2}{4!} \sin^2 \theta + \cdots
-\end{equation}
-
-Then we have
-\begin{equation}
-    a = a_0 e^{\lambda s \sin \theta} + \mu s \cos \theta + \frac{\mu\lambda}{2} s^2 \Psi(s) \sin 2\theta
-\end{equation}
-
-This formula gives the discrete generating process, when $\theta = \frac{k \pi}{2}, k = 0, 1, 2, 3\cdots, s = 0, 1, 2, 3\cdots$, we have
-
-\begin{equation}
-    a = a_0 e^{\lambda s \sin \theta} + \mu s \cos \theta
-\end{equation}
-
-Especially, we have the following four cases:
+where $\Psi(s)$ is analytic near $s=0$ and satisfies $\Psi(0)=\frac{1}{2!}$. The mixed term is proportional to $\sin 2\theta$, so it disappears when $\theta\in \frac{\pi}{2}\mathbb{Z}$. In those axis directions we recover the four basic motions:
 \begin{itemize}
-    \item $\theta = 0$: $a_s = a_0 + \mu s$
-    \item $\theta = \frac{\pi}{2}$: $a_s = a_0 e^{\lambda s}$
-    \item $\theta = \pi$: $a_s = a_0 - \mu s$
-    \item $\theta = \frac{3 \pi}{2}$: $a_s = a_0 e^{- \lambda s} $
+\item $\theta = 0$: $a_s = a_0 + \mu s$,
+\item $\theta = \frac{\pi}{2}$: $a_s = a_0 e^{\lambda s}$,
+\item $\theta = \pi$: $a_s = a_0 - \mu s$,
+\item $\theta = \frac{3\pi}{2}$: $a_s = a_0 e^{-\lambda s}$.
 \end{itemize}
-
-This result is straightforward, but it demonstrates that the infinitesimal generating process is consistent with the discrete generating process.
-And this expands our toolset, enabling us to explore the interplay between discrete and infinitesimal generating processes.
+These are precisely the continuous counterparts of ``add,'' ``multiply,'' ``subtract,'' and ``divide.'' In this sense the flow equation is not an external analytic decoration; it is the infinitesimal envelope of the discrete generator calculus developed in Section~\ref{subsec:generated-structure}.
 
 \subsection{The contour-gradient form of flow equation}\label{subsec:the-contour-gradient-form}
 
-It is easy to derive the contour equation in the local coordinate
+The scalar field $a$ determines two preferred local directions: the contour direction, along which $a$ is constant, and the gradient direction, along which $a$ changes most rapidly. The flow equation can be rewritten so that these directions become explicit.
 
+Let $\theta_c$ be the angle of a contour direction. Since $da/ds=0$ along a contour, equation~\eqref{eq:flow} gives
 \begin{equation}
-    \mu \cos \theta_c + a \lambda \sin \theta_c = 0\label{eq:contour}
+    \mu \cos \theta_c + a \lambda \sin \theta_c = 0.
+    \label{eq:contour}
 \end{equation}
-
-then we have
-
+Thus
 \begin{equation}
-    \theta_c = - \arctan \frac{\mu}{a \lambda}\label{eq:contourangle}
+    \theta_c = - \arctan \frac{\mu}{a \lambda}.
+    \label{eq:contourangle}
 \end{equation}
-
-the contour and the gradient are perpendicular to each other
-
+A gradient direction is perpendicular to the contour direction, so
 \begin{equation}
-    \theta_g = \pm \frac{\pi}{2} - \arctan \frac{\mu}{a \lambda}\label{eq:gradientangle}
+    \theta_g = \pm \frac{\pi}{2} - \arctan \frac{\mu}{a \lambda}.
+    \label{eq:gradientangle}
 \end{equation}
-
-then along $\theta_g$ we have
-
+Substituting this angle into the flow equation gives
 \begin{equation}
-    \frac{da}{ds} = \mu \cos (\pm \frac{\pi}{2} - \arctan \frac{\mu}{a \lambda}) + a \lambda \sin (\pm \frac{\pi}{2} - \arctan \frac{\mu}{a \lambda})
+    \frac{da}{ds} = \mu \cos \!\left(\pm \frac{\pi}{2} - \arctan \frac{\mu}{a \lambda}\right) + a \lambda \sin \!\left(\pm \frac{\pi}{2} - \arctan \frac{\mu}{a \lambda}\right),
     \label{eq:alonggradient}
 \end{equation}
-
+and therefore
 \begin{equation}
-    \frac{da}{ds} = \pm \sqrt{\mu^2 + \lambda^2 a^2}\label{eq:grad}
+    \frac{da}{ds} = \pm \sqrt{\mu^2 + \lambda^2 a^2}.
+    \label{eq:grad}
 \end{equation}
-
-By introducing the right-hand rotation angle $\phi$ along the gradient direction, we can establish a local polar coordinate system based on the gradient and contour lines.
-Then the growth rate of $a$ along the angle $\phi$ is
-
+Now rotate the positive gradient direction by an angle $\phi$. In the resulting contour--gradient frame, the flow equation becomes
 \begin{equation}
-    \frac{da}{ds} = \mu \cos (\frac{\pi}{2} - \arctan \frac{\mu}{a \lambda} + \phi) + a \lambda \sin (\frac{\pi}{2} - \arctan \frac{\mu}{a \lambda} + \phi)
+    \frac{da}{ds} = \mu \cos \!\left(\frac{\pi}{2} - \arctan \frac{\mu}{a \lambda} + \phi\right) + a \lambda \sin \!\left(\frac{\pi}{2} - \arctan \frac{\mu}{a \lambda} + \phi\right),
     \label{eq:fourfold}
 \end{equation}
-
-And the simplified equation is
-
+which simplifies to
 \begin{equation}
-    \frac{da}{ds} = \sqrt {\mu^2 + a^2 \lambda^2} \cos \phi\label{eq:contourgradient}
+    \frac{da}{ds} = \sqrt {\mu^2 + a^2 \lambda^2} \, \cos \phi.
+    \label{eq:contourgradient}
 \end{equation}
-
-or
-
+If we wish to emphasize the chosen direction, we may write equivalently
 \begin{equation}
-    \frac{da_{\phi}}{ds_{\phi}} = \sqrt {\mu^2 + a^2 \lambda^2} \cos \phi\label{eq:contourgradient2}
+    \frac{da_{\phi}}{ds_{\phi}} = \sqrt {\mu^2 + a^2 \lambda^2} \, \cos \phi.
+    \label{eq:contourgradient2}
 \end{equation}
+This is the flow equation in contour--gradient coordinates.
 
-if we want to emphasize the path is along the angle $\phi$.
-
-The equation~\eqref{eq:contourgradient} is the flow equation in the contour-gradient coordinate system.
-
-Equation~\eqref{eq:contourgradient} is solvable, and we get the relation between $a$ and $s$:
-
+Integrating \eqref{eq:contourgradient} for fixed $\phi$ yields
 \begin{equation}\label{eq:rel_a_s}
-\tanh(\lambda s \cos \phi - c) = \frac{\lambda a}{\sqrt{\mu^2 + \lambda^2 a^2}}
+    \operatorname{arcsinh}\frac{\lambda a}{\mu} = \lambda s \cos \phi + c,
 \end{equation}
-
-we can further simplify the equation to
-
+so that
 \begin{equation}
-    a = \pm \frac{\mu}{\lambda} \sinh(\lambda s \cos \phi - c)\label{eq:gradevo}
+  a = \frac{\mu}{\lambda} \sinh(\lambda s \cos \phi + c).
+  \label{eq:gradevo}
 \end{equation}
-
-Under the initial condition $a = a_0$ when $s = 0$, we can get the following equation:
-
+With initial condition $a(0)=a_0$, we obtain
 \begin{equation}
-    a = \frac{\mu}{\lambda} \sinh(\lambda s \cos \phi + \arcsinh \frac{a_0 \lambda}{\mu})\label{eq:gradevo2}
+    a = \frac{\mu}{\lambda} \sinh\!\left(\lambda s \cos \phi + \operatorname{arcsinh} \frac{a_0 \lambda}{\mu}\right).
+    \label{eq:gradevo2}
 \end{equation}
-
-or
-
+The pure additive and pure multiplicative directions are also easy to identify in this frame. They satisfy, respectively,
 \begin{equation}
-    a = - \frac{\mu}{\lambda} \sinh(\lambda s \cos \phi - \arcsinh \frac{a_0 \lambda}{\mu})\label{eq:gradevo3}
+    \phi = \arccos \frac{\mu}{\sqrt {\mu^2 + a^2 \lambda^2}},
+    \label{eq:additionalline}
 \end{equation}
-
-In this coordinate system, the additional line and the multiplicative line are:
-
+and
 \begin{equation}
-    \phi = \arccos \frac{\mu}{\sqrt {\mu^2 + a^2 \lambda^2}} \label{eq:additionalline}
+    \phi = \arcsin \frac{\mu}{\sqrt {\mu^2 + a^2 \lambda^2}}.
+    \label{eq:mulitiplcativeline}
 \end{equation}
 
+\subsection{Arithmetic coordinate and area formula}\label{subsec:descartes-coordinate}
+
+The contour--gradient discussion suggests another elementary rewriting. Resolve the tangent direction into orthogonal components by setting
+\[
+    du = \cos \theta\, ds,
+    \qquad
+    dv = \sin \theta\, ds.
+\]
+Then
 \begin{equation}
-    \phi = \arcsin \frac{\mu}{\sqrt {\mu^2 + a^2 \lambda^2}}\label {eq:mulitiplcativeline}
+    ds^2 = du^2 + dv^2,
 \end{equation}
-
-\subsection{Local Descartes coordinate and area formula}\label{subsec:descartes-coordinate}
-We begin our exploration by examining the flow equation~\eqref{eq:flow} within the framework of a local polar coordinate system:
-
+and the flow equation becomes the Pfaffian relation
 \begin{equation}
-    \frac{da}{ds} = \mu \cos \theta + a \lambda \sin \theta
+    da = \mu \, du + a \lambda \, dv.
 \end{equation}
+This differential form will reappear in Section~\ref{sec:ecstructure} as the local model of the arithmetic contact form; in that sense it already lies in the classical Pfaffian lineage descending from Darboux \cite{Darboux1882Pfaff}.
 
-In an effort to re-contextualize this equation, we set $du = \cos \theta ds$ and $dv = \sin \theta ds$,
-where $du$ and $dv$ are perpendicular infinitesimal movements.
-We can use these movements to construct a local Descartes coordinate system, and the first fundamental form of this system is:
-
+Now compare the two oriented infinitesimal two-step paths based at a value $a_0$:
+\[
+    (a_0 + \mu\,du)e^{\lambda dv}
+    \qquad\text{and}\qquad
+    a_0 e^{\lambda dv} + \mu\,du.
+\]
+Their difference is the infinitesimal torsion,
 \begin{equation}
-    ds^2 = A^2 du^2 + B^2 dv^2
+    d\tau = (a_0 + \mu du) e^{\lambda dv} - (a_0 e^{\lambda dv} + \mu du).
 \end{equation}
-
-Thereby this enables us to express the flow equation in a different light:
-
+Expanding to the first nontrivial order gives
+\[
+    d\tau = \mu du \,(e^{\lambda dv}-1) = \mu\lambda \, du\,dv + O\bigl((ds)^3\bigr).
+\]
+Hence the second-order torsion density is
 \begin{equation}
-    da = \mu du + a \lambda dv
+    d\tau = \mu \lambda \, du \, dv.
+    \label{eq:area_formula}
 \end{equation}
-
-or in a partial differential form:
-
+Since the Euclidean area element in the $(u,v)$-frame is
 \begin{equation}
-    \frac{\partial a}{\partial u} = \mu
+    dS = du \, dv,
+    \label{eq:area_element}
 \end{equation}
-
+we obtain the local identity
 \begin{equation}
-    \frac{\partial a}{\partial v} = a \lambda
+    \frac{d\tau}{\mu \lambda} = dS.
+    \label{eq:area_formula2}
 \end{equation}
+This is the infinitesimal prototype of the global torsion formulas proved later in the accumulative commutative space.
 
-Our attention now turns to the concept of arithmetic torsion, particularly at an infinitesimal level.
-Delving into the interplay between two infinitesimal generating processes, we observe that:
+\subsection{The coordinate-free form of flow equation}\label{subsec:coordinate-free}
 
+Equation~\eqref{eq:contourgradient} immediately yields a coordinate-free version of the theory. Along the positive gradient direction we have $\phi=0$, and therefore
+\[
+    \frac{da}{ds}\bigg|_{\phi=0} = \sqrt{\mu^2 + a^2 \lambda^2}.
+\]
+But along the unit gradient direction, $da/ds = \|\nabla a\|$. Hence
+\begin{equation}\label{eq:coordinate-free}
+    ||\nabla a|| = \sqrt{\mu^2 + a^2 \lambda^2}.
+\end{equation}
+This is an eikonal equation, or equivalently a first-order Hamilton--Jacobi-type relation in the modern PDE sense \cite{Hamilton1834GeneralMethod,Evans2010PDE}. The corresponding Hamiltonian may be written as
+\[
+H(x,a,p)=0,
+\]
+where
+\begin{equation}\label{eq:hamiltonian}
+    H(x, a, p) = ||p|| - \sqrt{\mu^2 + a^2 \lambda^2}.
+\end{equation}
+The coordinate-free form is especially useful conceptually: it shows that the flow equation depends only on the metric norm of the gradient and the current value of the assignment field.
+
+\subsection{Propagation and rectification}\label{subsec:propagation}\label{subsec:propagation-method}
+
+The coordinate-free form suggests a change of variables that rectifies the nonlinear growth. Define
+\[
+f = \operatorname{arcsinh}\left(\frac{\lambda a}{\mu}\right).
+\]
+Then by the chain rule,
+\[
+\nabla f
+= \frac{\lambda}{\sqrt{\mu^2+\lambda^2 a^2}}\,\nabla a.
+\]
+Taking norms and using \eqref{eq:coordinate-free}, we obtain
+\[
+\|\nabla f\| = \lambda.
+\]
+Thus the rectified variable $f$ has constant gradient magnitude. Along a direction making angle $\phi$ with the positive gradient direction,
+\[
+\frac{df}{ds} = \langle \nabla f, T\rangle = \|\nabla f\|\cos\phi = \lambda\cos\phi.
+\]
+Integrating gives
+\[
+f(s) = f_0 + \lambda s\cos\phi,
+\qquad
+f_0 = \operatorname{arcsinh}\left(\frac{\lambda a_0}{\mu}\right).
+\]
+Returning to $a = (\mu/\lambda)\sinh f$, we recover the explicit propagation law
+\begin{equation}\label{eq:gradevo4}
+a=\frac{\mu}{\lambda}\sinh\!\Big(\lambda s\cos\phi+\operatorname{arcsinh}\frac{\lambda a_0}{\mu}\Big).
+\end{equation}
+In particular, when propagation starts from a zero contour ($a_0=0$) and follows the gradient direction ($\phi=0$),
+\[
+    a = \frac{\mu}{\lambda}\sinh(\lambda s).
+\]
+This hyperbolic-sine growth law will match the geometry of the zeroth kind space $\mathfrak{E}_0$ in the next section.
+
+\subsection{Flow and function}\label{subsec:flow-and-function}
+
+The flow viewpoint suggests a simple but useful distinction between a map acting on values and a map acting on histories.
+
+\begin{definition}\label{def:projection}
+Let $H$ be a space of expression histories equipped with an evaluation map $\nu:H\to\mathbb{R}$. Given a function $k:\mathbb{R}\to\mathbb{R}$, a map $\ell:H\to H$ is called a \emph{promotion} of $k$ if the following diagram commutes:
+
+\begin{center}
+    \begin{tikzcd}
+        H && H \\
+        \mathbb{R} && \mathbb{R}
+        \arrow["\ell", from=1-1, to=1-3]
+        \arrow["\nu"', from=1-1, to=2-1]
+        \arrow["\nu", from=1-3, to=2-3]
+        \arrow["k"', from=2-1, to=2-3]
+    \end{tikzcd}
+\end{center}
+
+In that case we also say that $k$ is the \emph{projection} of $\ell$.
+\end{definition}
+
+The point of the definition is modest but important. A function on values forgets history; a promoted map on $H$ may retain or reorganize it. Concrete examples will appear once explicit arithmetic expression spaces have been constructed.
+
+\subsection{The existence theorem}\label{subsec:existence-theorem}
+
+There are two natural existence questions associated with the flow equation. The first asks for pairs $(M,a)$ that satisfy the equation for a fixed metric. The second asks whether, for a given smooth function $a$, one can modify the metric so that $a$ becomes a solution. In this paper we only record a local result of the second kind.
+
+\begin{lemma}[Local metric rectification, after Le Zhang]
+    Let $S$ be a smooth oriented surface with a Riemannian metric $g_0$, and let $a\in C^{\infty}(S)$. If $p\in S$ satisfies $\nabla_{g_0}a(p)\neq 0$, then there exists a neighborhood $U\ni p$ and a conformally rescaled metric $g$ on $U$ such that $a$ satisfies the flow equation~\eqref{eq:flow} on $U$.
+    \label{prop:existence2nd}
+\end{lemma}
+
+\begin{proof}
+By the standard existence of local isothermal coordinates on a surface \cite{doCarmo1976CurvesSurfaces}, after shrinking $U$ if necessary we may write
+\[
+    g_0 = e^{2\rho}(du^2+dv^2)
+\]
+on $U$. In these coordinates the norm of the gradient of $a$ is
+\[
+    ||\nabla_{g_0} a||.
+\]
+Now introduce a positive conformal factor $\alpha$ and define
+\begin{align}
+    g &= \alpha^2 e^{2\rho}(du^2+dv^2) \label{eq:morphing}\\
+      &= e^{2\rho+2\ln \alpha}(du^2+dv^2).
+\end{align}
+Under this rescaling,
+\[
+    ||\nabla_{g} a|| = \alpha^{-1} ||\nabla_{g_0} a||.
+\]
+Therefore, if we choose
 \begin{equation}
-    d\tau = (a_0 + \mu du) e^{\lambda dv} - (a_0 e^{\lambda dv} + \mu du)
+    \alpha = \frac{||\nabla_{g_0} a||}{\sqrt{\mu^2 + a^2 \lambda^2}},
+    \label{eq:ratio}
 \end{equation}
+then
+\[
+    ||\nabla_g a|| = \sqrt{\mu^2 + a^2\lambda^2}.
+\]
+By the coordinate-free form \eqref{eq:coordinate-free}, this is exactly the flow equation on $U$.
+\end{proof}
 
-From this relationship, we deduce:
+The lemma is intentionally local. Extending the construction across an entire surface requires compatibility of the conformal factors across overlapping charts and control near critical or singular loci. Those global questions are left open here.
 
-\begin{equation}
-    d\tau = \mu du (e^{\lambda dv} - 1)
-\end{equation}
+\subsection{Defining the Arithmetic Expression Space}\label{subsec:aes-definition}
 
-This leads us to an area formula, capturing the essence of this interaction:
+We now package the preceding discussion into the basic object of the paper.
 
-\begin{equation}
-    d\tau = \mu \lambda du dv \label{eq:area_formula}
-\end{equation}
-
-and because the area element have a form
-
-\begin{equation}
-    dS = |AB| du dv \label{eq:area_element}
-\end{equation}
-
-Then we have
-\begin{equation}
-    \frac{d\tau}{\mu \lambda} = \frac{dS}{|AB|}\label{eq:area_formula2}
-\end{equation}
-
-This formula is compelling as it establishes a link between area elements and arithmetic torsion.
-It's noteworthy to emphasize the distinctiveness of the local Descartes coordinate system.
-This system, by integrating the assignment, lays the foundation for a theoretical framework.
-We refer to this as the arithmetic coordinate system, given its unique properties and alignment with arithmetic principles.
-The proof of its existence and further elaboration will be undertaken in the upcoming section\ref{subsec:existence-theorems},
-underscoring its significance and application in our study.
-
-\section{Arithmetic expression space}\label{sec:space}
-
-\subsection{The definition}\label{subsec:definition}
-
-In the light of previous sections, we introduce a new mathematical object $\mathfrak{E}$, an arithmetic expression space,
-as a tuple of $(M, a)$:
-
+\begin{definition}[Arithmetic Expression Space]\label{def:aes}
+An \emph{Arithmetic Expression Space} (AES) is a pair $(M,a)$ together with fixed constants $\mu,\lambda\in\mathbb{R}$ such that:
 \begin{itemize}
-    \item $M$: a Riemannian surface
-    \item $a$: a smooth assignment function from $M$ to $F$ which satisfied the flow equation.
+    \item $M$ is a two-dimensional Riemannian manifold with metric $g$;
+    \item $a:M\to\mathbb{R}$ is a smooth scalar field;
+    \item $a$ satisfies the flow equation
+    \[
+        \frac{da}{ds} = \mu \cos \theta + a \lambda \sin \theta,
+    \]
+    equivalently, the coordinate-free relation
+    \[
+        ||\nabla a||_g = \sqrt{\mu^2 + a^2 \lambda^2}.
+    \]
 \end{itemize}
+The manifold $M$ provides the geometric stage, the scalar field $a$ records arithmetic assignment, and the flow equation expresses the consistency between the two. In the next section we construct the fundamental example $\mathfrak{E}_0$ and then use it as the first geometric laboratory of the theory.
+\end{definition}
+ \newpage
 
-And then we can interpret a smooth path by the flow equation as a threadlike arithmetic expression.
+\section{The zeroth and first kind spaces: \texorpdfstring{$\mathfrak{E}_0$}{E0} and \texorpdfstring{$\mathfrak{E}_1$}{E1}}\label{sec:01kind}
 
-\subsection{Examples}\label{subsec:example}
+This section constructs the first explicit arithmetic expression spaces. The main model is the smooth zeroth kind space $\mathfrak{E}_0$, where the flow equation from Section~\ref{sec:flowequation} is realized on a negatively curved surface. Three features of this model will matter later: a horocyclic coordinate picture, a rectilinear arithmetic grid, and the local torsion--area law. We then record a brief singular counterpart, the first kind space $\mathfrak{E}_1$, whose isolated zero introduces the first non-trivial loops. Questions about parameter families and tube structures are postponed to later work.
 
-\emph{Example 1}:
+\subsection{The zeroth kind arithmetic expression space}\label{subsec:motivexamples}\label{subsec:generalframework}
 
-The hyperbolic space equipped with the following metric and assignment in the upper half plane model is an arithmetic expression space.
+\subsubsection{A normalized model}
+
+Let
 \[
-    ds^2 = \frac{1}{y^2}(\frac{dx^2}{\mu^2} + \frac{dy^2}{\lambda^2})
+\mathcal H = \{(x,y)\in\mathbb R^2\mid y>0\}
 \]
-and assignment
+be the upper half-plane with the standard hyperbolic metric
+\begin{equation}\label{eq:exmp1}
+    g_0 = \frac{1}{y^2}(dx^2+dy^2).
+\end{equation}
+The upper half-plane model, its Möbius symmetries, and its horocycle foliations are standard in hyperbolic geometry; see, for example, Beardon \cite{Beardon1983DiscreteGroups}. On this surface define the assignment field
 \[
-    a = - \frac{x}{y}
-\]
-
-The flow equation is satisfied.
-
-\emph{Example 2}:
-
-The hyperbolic space equipped with the following metric and assignment in the horocycle coordinate is an arithmetic expression space.
-\[
-    ds^2 = e^{-2v} du^2 + dv^2
-\]
-and assignment
-\[
-    a = u e^ {-v}
+    a(x,y) = -\frac{x}{y}.
 \]
 
-The flow equation is satisfied.
-
-Example 1 and Example 2 are the same assignment field but with different coordinate systems.
-
-\emph{Example 3}:
-
-The hyperbolic space equipped with the following metric and assignment in the Poincaré disk model is an arithmetic expression space.
-
-\[
-    ds^2 = dr^2 + \sinh^2 r d\theta^2
-\]
-
-and assignment
-
-\[
-    a = (e^{2 \arctanh r \sin \theta} -  1) \cot \theta
-\]
-
-\subsection{The local existence theorem}\label{subsec:existence-theorems}
-
-There are two existence propositions related to the flow equation~\eqref{eq:flow}.
-
-The first existence propositions states that if we have a Riemannian surface $S$, then there exists a function $a$ on $S$ that satisfies the flow equation~\eqref{eq:flow}.
-
-\begin{proposition}
-    Given a Riemannian surface $S$, there exists a function $a$ on $S$ satisfying the flow equation~\eqref{eq:flow}.
-    \label{prop:existence1st}
+\begin{proposition}\label{thm:exmp1}
+The pair $(\mathcal H,a)$ with metric \eqref{eq:exmp1} satisfies the arithmetic flow equation.
 \end{proposition}
 
-The second existence propositions is also interesting.
-It says that if we have a smooth surface $S$ and a function $a$ on $S$, then we can find a metric $g$ on $S$ that makes $a$ satisfy the flow equation~\eqref{eq:flow}.
-We morph the metric $g$ to make $a$ satisfy the flow equation~\eqref{eq:flow}.
+\begin{proof}
+We compute
+\[
+    a_x = -\frac{1}{y},
+    \qquad
+    a_y = \frac{x}{y^2} = -\frac{a}{y}.
+\]
+Since the inverse metric is $g_0^{-1}=y^2(\partial_x^2+\partial_y^2)$, we obtain
+\[
+    \|\nabla a\|_{g_0}^2
+    = y^2 a_x^2 + y^2 a_y^2
+    = 1 + a^2.
+\]
+By the coordinate-free form \eqref{eq:coordinate-free} of the flow equation, this is exactly the case $\mu=\lambda=1$.
+\end{proof}
 
-And we had proved a local version of the second existence propositions as a theorem.
-\begin{theorem}(By Le Zhang)
-    For every point \( p \) on an oriented compact Riemannian surface $S$, and a smooth function $a$ over $S$, there exists a metric $g$ on a neighborhood surrounding \( p \)
-    that makes $a$ satisfying the flow equation~\eqref{eq:flow}.
-    \label{prop:existence2nd}
+The same field is also a Laplace eigenfunction:
+\[
+    \Delta a = y^2\Big(\frac{\partial^2 a}{\partial x^2} + \frac{\partial^2 a}{\partial y^2}\Big) = 2a.
+\]
+Thus the normalized model already exhibits the two basic features that motivate the whole theory: the flow equation and a natural second-order relation.
+
+\subsubsection{The general \texorpdfstring{$(\mu,\lambda)$}{(mu,lambda)}-model}
+
+For fixed parameters $\mu>0$ and $\lambda>0$, define on the same upper half-plane the metric
+\[
+    g_{\mu,\lambda}
+    = \frac{1}{y^2}\left(\frac{dx^2}{\mu^2}+\frac{dy^2}{\lambda^2}\right)
+\]
+and keep the same assignment formula
+\begin{equation}\label{eq:genassignment}
+    a(x,y) = -\frac{x}{y}.
+\end{equation}
+
+\begin{theorem}\label{thm:generalE1}
+The triple $(\mathcal H,g_{\mu,\lambda},a)$ is an arithmetic expression space in the sense of Definition~\ref{def:aes}. We call it the \emph{zeroth kind arithmetic expression space} and denote it by $\mathfrak{E}_0=\mathfrak{E}_0(\mu,\lambda)$.
 \end{theorem}
 
 \begin{proof}
-    Consider a neighborhood \( U \) around \( p \).
-    In this area, we can find a local isothermal coordinate system in which the metric takes the form:
-    \[ ds^2 = e^{2\rho}(du^2 + dv^2), \]
-    where \( u \) and \( v \) are the coordinates of \( U \), and \( \rho \) is a function of \( u, v \) in \( U \).
-    The gradient of \( a \) in this local isothermal coordinate system is expressed as:
-    \[ \nabla a = \frac{\partial a}{\partial u} du + \frac{\partial a}{\partial v} dv. \]
-    Using the definition of the directional derivative, we obtain:
-    \[ \frac{da_{\psi}}{ds_{\psi}} = ||\nabla a|| \cos \psi, \]
-    where \( ||\nabla a|| \) is the norm of \( \nabla a \), and \( \psi \) is the angle between \( \nabla a \) and the direction of movement.
-
-    Now, considering the flow equation~\ref{eq:contourgradient2} in the gradient-contour coordinate system, we have:
-    \[ \frac{da_{\phi}}{ds_{\phi}} = \sqrt{\mu^2 + a^2 \lambda^2} \cos \phi. \]
-
-    Note that \( ||\nabla a|| \) is fixed for the given function \( a \) and the local coordinate system, and \( \sqrt{\mu^2 + a^2 \lambda^2} \) is also fixed for the given function \( a \).
-    We can scale \( e^{2\rho} \) with a linear factor \( \alpha \) to make \( ||\nabla a|| \) match the fixed value of \( \sqrt{\mu^2 + a^2 \lambda^2} \),
-    thus we have a morphing process controlled by \( \alpha \) that
-    \begin{align}
-        ds^2 &= \alpha e^{2 \rho}(du^2 + dv^2)\label{eq:morphing} \\
-        &= e^{2 \rho + \ln \alpha}(du^2 + dv^2).
-    \end{align}
-
-    Under the morphing ratio \( \alpha \), we have:
-
-    \begin{equation}
-        ||\nabla_\alpha a|| = \alpha^{-1} ||\nabla a||,
-    \end{equation}
-
-    and when \( \alpha \) is set to the value of:
-
-    \[ ||\nabla_\alpha a|| = \sqrt{\mu^2 + a^2 \lambda^2}, \]
-
-    the flow equation~\eqref{eq:flow} is satisfied in the local coordinate system.
-
-    The morphing ratio \( \alpha \) is calculated as follows:
-    \begin{equation}
-        \alpha = \frac{||\nabla a||}{\sqrt{\mu^2 + a^2 \lambda^2}}\label{eq:ratio}.
-    \end{equation}
-    \qedhere
-
+The inverse metric is
+\[
+    g_{\mu,\lambda}^{-1}
+    = \mu^2 y^2\,\partial_x^2 + \lambda^2 y^2\,\partial_y^2.
+\]
+Using the same derivatives of $a$ as above, we find
+\[
+    \|\nabla a\|_{g_{\mu,\lambda}}^2
+    = \mu^2 y^2 a_x^2 + \lambda^2 y^2 a_y^2
+    = \mu^2 + \lambda^2 a^2.
+\]
+Again by \eqref{eq:coordinate-free}, this is precisely the flow equation.
 \end{proof}
 
-But the global version of the second existence propositions is still in question, the morphing process may not be continuous globally and break the global structure of the surface.
-
-\section{The first kind space $\mathfrak{E}_1$}\label{sec:firstkind}
-
-\section{Semi-complex arithmetic expression space}\label{sec:complex}
-
-Building upon the infinitesimal generating process introduced by the flow equation~\eqref{eq:flow},
-we can extend this framework by considering whether such a process could be associated with a negative multiplicative generator, such as $-1$.
-Indeed, this is possible by formulating the arithmetic expression space over complex numbers. To explore this,
-we analyze the flow equation~\eqref{eq:complexflow} in the context of complex numbers, specifically incorporating a complex angle into the generating process.
-
-Furthermore, we observe that the imaginary component $\beta$ introduces a distinct scaling effect,
-as demonstrated by the appearance of $\sinh \beta$ and $\cosh \beta$ in the corresponding terms,
-which govern the deformation of the system.
-This suggests that a rotation in the imaginary direction can substitute for the morphing process in the real metric $g$.
-Consequently, this insight opens the possibility for establishing a global existence theorem within the complex arithmetic expression space.
-
-Specifically, we consider a complex assignment field $a = a_r + i a_i$ defined over a Riemannian surface $M$, where the angle $\theta = \alpha + i \beta$ is also extended into the complex domain.
-But we still take the real number $\mu$ and $\lambda$ as the generating parameters. We call this setting as a semi-complex cases.
-
-\subsection{Reformulated flow equation}\label{subsec:complex-flow}
-
-Under the semi-complex setup, the flow equation~\eqref{eq:flow} can be reformulated to accommodate the complex-valued parameters.
-
-Specifically, the flow equation takes the following complex form which is the same as the original flow equation~\eqref{eq:flow}:
-
-\begin{equation}
-    \label{eq:complexflow0}
-    \frac{da}{ds}  = \mu \cos \theta + a \lambda \sin \theta
+Two remarks are useful.
+First, if one sets $u=x$ and $v=\lambda^{-1}\log y$, then
+\begin{equation}\label{eq:exmp2}
+    g_{\mu,\lambda} = e^{-2\lambda v}\frac{du^2}{\mu^2}+dv^2,
+    \qquad
+    a = -u e^{-\lambda v}.
 \end{equation}
+In these coordinates, the level sets $v=\text{const}$ are horocycles based at the ideal point $\infty$, while the lines $u=\text{const}$ are geodesics orthogonal to them \cite{Beardon1983DiscreteGroups}. Second, after the harmless rescaling $u\mapsto u/\mu$, the metric depends only on $\lambda$; geometrically, $\lambda$ fixes the curvature scale, while $\mu$ fixes the additive unit recorded by the assignment field.
 
-Now we can study how $\Re a$ and $\Im a$ evolve along the flow, we have
+\begin{figure}[ht]
+\centering
+\resizebox{0.5\textwidth}{!}{\includegraphics{images/11-horocyclebased}}
+\caption{A horocyclic coordinate picture for $\mathfrak{E}_0$. Under the standard equivalence between the upper half-plane and the Poincaré disc, horocycles become circles tangent to a common ideal point, and the orthogonal geodesics remain visible as the transversal foliation.}\label{fig:horocyclecoord}
+\end{figure}
 
+\subsection{Propagation and grid structure in \texorpdfstring{$\mathfrak{E}_0$}{E0}}\label{subsec:geompropagation}
+
+The zeroth kind space is the first place where the abstract propagation law from Section~\ref{subsec:propagation} becomes a concrete geometry. Its zero set is the vertical geodesic
+\[
+    Z_0 = \{x=0,\ y>0\},
+\]
+and the assignment contours are the rays
+\[
+    a(x,y)=a_0
+    \quad\Longleftrightarrow\quad
+    x=-a_0 y.
+\]
+Thus the value of an arithmetic expression is read off by which ray through the origin the point lies on.
+
+A particularly useful rectified variable is
+\[
+    f=\operatorname{arcsinh}\!\left(\frac{\lambda a}{\mu}\right)
+      = \operatorname{arcsinh}\!\left(-\frac{\lambda x}{\mu y}\right).
+\]
+By Section~\ref{subsec:propagation}, it satisfies $\|\nabla f\|=\lambda$. In this sense $f/\lambda$ plays the role of a signed distance coordinate measured from the zero line $Z_0$. Consequently, when propagation starts from $a=0$ and follows the positive gradient direction, the assignment grows according to
+\begin{equation}\label{eq:e0-propagation}
+    a(s)=\frac{\mu}{\lambda}\sinh(\lambda s),
+\end{equation}
+exactly as predicted by the general formula \eqref{eq:gradevo4}. The hyperbolic-sine law is therefore not an abstract consequence alone: in $\mathfrak{E}_0$ it becomes a visible distance-growth relation.
+
+Supplementary computations for the horocyclic grid picture and related explicit formulas are collected in Appendix~\ref{app:model-acs}.
+
+\subsubsection{The rectilinear arithmetic grid and the Baumslag--Solitar relation}\label{subsec:grids_revised}
+
+The horocyclic coordinates also turn elementary arithmetic operations into concrete geometric moves. Fix an additive step $s\in\mathbb R$ and a multiplicative factor $k>0$. Define transformations of $\mathfrak{E}_0$ by
+\[
+    X_s(u,v) = \bigl(u-s e^{\lambda v},\, v\bigr),
+    \qquad
+    Y_k(u,v) = \bigl(u,\, v-\lambda^{-1}\log k\bigr).
+\]
+A direct substitution into \eqref{eq:exmp2} shows that
+\[
+    a\circ X_s = a+s,
+    \qquad
+    a\circ Y_k = ka.
+\]
+So motion along a horocycle realizes addition, while motion across horocycles realizes multiplication.
+
+The orbit of a point under these two moves generates the familiar rectilinear grid. In particular, when $k=2$, the horizontal and vertical directions geometrize the two generators of a Baumslag--Solitar type relation. More generally, for any positive integer $k$ one has the exact identity
+\[
+    Y_k^{-1}X_s^{\,k}Y_k = X_s,
+\]
+where $X_s^{\,k}$ denotes $k$ successive additions by $s$. This is precisely the defining relation of $BS(k,1)$ in the form introduced by Baumslag and Solitar \cite{BaumslagSolitar1962NonHopfian}. Thus the arithmetic grid in $\mathfrak{E}_0$ is not merely mnemonic; it is a geometric realization of the same algebraic relation that already appears in the symbolic theory of expression histories.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.8\textwidth]{images/01-grid-example-1.pdf}
+\caption{The rectilinear arithmetic grid in $\mathfrak{E}_0$. Horizontal moves implement addition, vertical rescalings implement multiplication, and the grid records the $BS(2,1)$ relation in geometric form.}\label{fig:grid1_revised}
+\end{figure}
+
+There is also a dual curved grid obtained from the Möbius inversion $w=-1/z$, which sends lines in the upper half-plane to semicircles and exchanges the two Baumslag--Solitar viewpoints $BS(k,1)$ and $BS(1,k)$. Since that duality is not needed later, we record it only as a geometric remark and do not develop it further here.
+
+\subsection{Torsion and enclosed area}\label{subsec:gridsandtorsion}
+
+The grid makes local non-commutativity directly visible. For one additive step $s$ followed by one multiplicative step $k$, the two evaluation orders give
+\[
+    k(a+s) - (ka+s) = (k-1)s.
+\]
+So even a single elementary cell already carries a non-trivial torsion. In the simplest case $k=2$ and $s=1$, this torsion has magnitude $1$.
+
+The same phenomenon persists for longer staircase paths. For example,
+\[
+    x\times 2 + 1 - (x+1)\times 2 = -1,
+\]
+\[
+    x\times 4 + 2 - (x+2)\times 4 = -6,
+\]
+\[
+    x\times 8 + 3 - (x+3)\times 8 = -21.
+\]
+The absolute values $1,6,21$ are exactly the numbers of unit cells enclosed by the corresponding pairs of staircase paths in Figure~\ref{fig:area-formula}. More generally,
+\[
+    x\times 2^n + n - (x+n)\times 2^n = -n(2^n-1),
+\]
+so the torsion grows in step with the enclosed grid area.
+
+\begin{figure}[ht]
+    \centering
+    \resizebox{0.8\textwidth}{!}{\includegraphics{images/17-area-formula}}
+    \caption{Arithmetic torsion as enclosed area in the rectilinear grid. The examples with $1$, $6$, and $21$ unit cells already foreshadow the global torsion--area theorem developed later in the accumulative commutative space.}\label{fig:area-formula}
+\end{figure}
+
+At the infinitesimal level, this observation is exactly the local torsion law already derived in Section~\ref{sec:flowequation}:
+\[
+    d\tau = \mu\lambda\,du\,dv.
+\]
+Equivalently, torsion density is just the oriented area density in coordinates adapted to the arithmetic grid. At the level of $\mathfrak{E}_0$, however, this remains a \emph{local} statement. To turn it into a global theorem for arbitrary paths, one needs a commutative stage on which a path and its reverse genuinely bound a region. That is the role of the accumulative commutative space introduced in the next section.
+
+\subsection{The first kind arithmetic expression space \texorpdfstring{$\mathfrak{E}_1$}{E1}}\label{subsec:firstkindspace}
+
+The zeroth kind space is smooth and its zero set is a whole geodesic line. The next natural model collapses that zero set to a single isolated point. This leads to the \emph{first kind arithmetic expression space} $\mathfrak{E}_1$, the simplest singular arithmetic expression space.
+
+Take the Poincaré disc
+\[
+    \mathbb D = \{w\in\mathbb C\mid |w|<1\}
+\]
+with the hyperbolic metric of curvature $-\lambda^2$,
+\[
+    g_1 = \frac{4}{\lambda^2}\frac{dr^2+r^2d\vartheta^2}{(1-r^2)^2},
+\]
+where $(r,\vartheta)$ are Euclidean polar coordinates. The center $r=0$ is declared to be the unique zero of the assignment and is treated as a singular point. If $s$ denotes hyperbolic distance from the center, then
+\[
+    s(r)=\frac{2}{\lambda}\operatorname{arctanh}(r),
+\]
+and the radial flow equation gives
+\[
+    a(s)=\frac{\mu}{\lambda}\sinh(\lambda s).
+\]
+Hence, in the Euclidean radius variable,
+\[
+    a(r)=\frac{\mu}{\lambda}\frac{2r}{1-r^2}.
+\]
+Thus the contours of constant assignment are concentric circles, while the gradient lines are radial geodesics. In contrast to $\mathfrak{E}_0$, where the zero set is extended, here arithmetic propagation emanates from a single singular center.
+
+Topologically, removing the singular point produces the punctured disc
+\[
+    \mathbb D\setminus\{0\},
+\]
+whose first homology group is $\mathbb Z$. This is the first arithmetic expression space admitting genuinely non-contractible loops. For that reason, $\mathfrak{E}_1$ is the natural testing ground for the loop, filling, and singularity questions that lie beyond the scope of the present paper. Here we record it only as the first singular model and as a bridge to the global torsion formalism of the next section.
+
+\paragraph{Remark on parameter families.}
+Varying $\lambda$ produces a family of such spaces and suggests a higher-dimensional ``tube'' picture in which one studies how sections and zero loci evolve with the parameter. That perspective is conceptually important, but it is not needed for the foundational arc of the present paper. We therefore postpone it to later work.
+ \newpage
+
+\section{The accumulative commutative space}\label{sec:acspace}
+
+This section globalizes the local torsion--area law observed in Section~\ref{subsec:gridsandtorsion}. In $\mathfrak{E}_0$ we saw that a single commutation square already carries torsion, but for a general expression history the two orders $\gamma$ and $\bar\gamma$ do not automatically bound a common region in the expression space itself. The role of the accumulative commutative space (ACS) is precisely to solve this bookkeeping problem: it forgets the current assignment value and remembers only the accumulated additive and multiplicative charges.
+
+\subsection{Global arithmetic torsion in the ACS}
+\label{sec:global_torsion_acs_narrative_enhanced_lc}
+
+Let
+\[
+    \gamma=(g_1,\dots,g_n)
+\]
+be a finite arithmetic path, applied in that order, where each $g_j$ is either an additive step
+\[
+    \oplus_{\mu_j}:x\mapsto x+\mu_j
+\]
+or a multiplicative step
+\[
+    \otimes_{\lambda_j}:x\mapsto e^{\lambda_j}x.
+\]
+Thus the evaluation of $\gamma$ at an initial value $x$ is
+\[
+    \nu_x(\gamma):=g_n\circ\cdots\circ g_1(x).
+\]
+We write $\bar\gamma=(g_n,\dots,g_1)$ for the reversed history.
+
+The ACS is the plane with coordinates $(A,M)$, where $A$ records accumulated additive charge and $M$ records accumulated logarithmic multiplicative charge. For each step $g_j$ define
+\[
+    (\Delta A_j,\Delta M_j)=
+    \begin{cases}
+        (\mu_j,0), & g_j=\oplus_{\mu_j},\\[4pt]
+        (0,\lambda_j), & g_j=\otimes_{\lambda_j}.
+    \end{cases}
+\]
+Starting from $(A_0,M_0)=(0,0)$, set
+\[
+    (A_k,M_k):=\sum_{j=1}^k (\Delta A_j,\Delta M_j),
+    \qquad 1\le k\le n.
+\]
+The broken line joining
+\[
+    (A_0,M_0),(A_1,M_1),\dots,(A_n,M_n)
+\]
+is called the \emph{ACS path} of $\gamma$ and is denoted by $C_\gamma$.
+
+The decisive point is that the endpoint $(A_n,M_n)$ depends only on the total charges and not on the order in which they were accumulated. Hence $C_\gamma$ and $C_{\bar\gamma}$ always have the same initial and terminal points. When all additive and multiplicative charges are nonnegative, these two monotone paths bound an obvious planar region between them. In general we interpret $\Sigma_\gamma$ as any oriented $2$-chain in the ACS satisfying
+\[
+    \partial\Sigma_\gamma = C_{\bar\gamma}-C_\gamma.
+\]
+This is the global geometric object to which torsion will be attached.
+
+The algebraic definition of global torsion is the comparison of a path with its reversed order:
 \begin{equation}
-\label{eq:complexflow2}
-\frac{da}{ds}
+    \tau_{\mathrm{alg}}(\gamma)
+    := \nu_x(\gamma)-\nu_x(\bar\gamma).
+    \label{eq:T_alg_formal_final_narrative_enhanced_acs_AM_lc}
+\end{equation}
+We will usually shorten this to $\tau(\gamma)$. At first sight the difference depends on the initial value $x$, but in fact that dependence cancels. The cleanest way to see this is to rewrite evaluation itself as a weighted line integral on the ACS.
+
+\begin{proposition}\label{prop:acs-evaluation-formula}
+For every arithmetic path $\gamma$ and every initial value $x$,
+\begin{equation}
+    \nu_x(\gamma)=e^{M_\gamma}x+\int_{C_{\bar\gamma}} e^M\,dA,
+    \label{eq:acs-evaluation-formula}
+\end{equation}
+where $(A,M)$ are the ACS coordinates and $M_\gamma$ is the total multiplicative charge of $\gamma$. Consequently, $\tau_{\mathrm{alg}}(\gamma)$ is independent of $x$.
+\end{proposition}
+
+\begin{proof}
+Let $I_A\subseteq\{1,\dots,n\}$ be the set of additive indices, and for each $j\in I_A$ define the \emph{future multiplicative charge}
+\[
+    M_j^{+}:=\sum_{\substack{k>j\\ g_k=\otimes_{\lambda_k}}}\lambda_k.
+\]
+When the path is evaluated, the additive contribution $\mu_j$ is subsequently scaled by every later multiplicative step, hence by the factor $e^{M_j^{+}}$. Therefore
+\[
+    \nu_x(\gamma)=e^{M_\gamma}x+\sum_{j\in I_A}\mu_j e^{M_j^{+}}.
+\]
+Now read the reversed path $\bar\gamma$. The additive edge corresponding to the original step $g_j=\oplus_{\mu_j}$ is traversed exactly when the current ACS height is $M_j^{+}$, because all multiplicative steps that were later in $\gamma$ have become earlier in $\bar\gamma$. Thus
+\[
+    \int_{C_{\bar\gamma}} e^M\,dA = \sum_{j\in I_A}\mu_j e^{M_j^{+}},
+\]
+with the sign of $\mu_j$ automatically incorporated by the oriented edge integral. Substituting this into the previous expression gives \eqref{eq:acs-evaluation-formula}.
+
+Applying the same formula to $\bar\gamma$ yields
+\[
+    \nu_x(\bar\gamma)=e^{M_\gamma}x+\int_{C_\gamma} e^M\,dA,
+\]
+since $M_{\bar\gamma}=M_\gamma$. The $x$-terms therefore cancel in \eqref{eq:T_alg_formal_final_narrative_enhanced_acs_AM_lc}.
+\end{proof}
+
+Two points are worth emphasizing. First, the kernel $e^M$ is not inserted by hand: it is forced by the fact that every additive step feels all multiplicative steps that come after it. Second, the ACS does not evaluate an expression by itself; rather, it records exactly the commutative data needed to compare two different histories of the same total charge.
+
+\subsubsection*{A worked four-step example}
+Take
+\[
+    \gamma=(\oplus_1,\otimes_{\log 2},\oplus_1,\otimes_{\log 2}).
+\]
+Then
+\[
+    \nu_x(\gamma)=2\bigl(2(x+1)+1\bigr)=4x+6,
+\]
+while
+\[
+    \nu_x(\bar\gamma)=2(2x+1)+1=4x+3.
+\]
+So the global torsion is
+\[
+    \tau(\gamma)=3.
+\]
+In the ACS, the two histories become
+\[
+    C_\gamma:\ (0,0)\to(1,0)\to(1,\log 2)\to(2,\log 2)\to(2,2\log 2),
+\]
+\[
+    C_{\bar\gamma}:\ (0,0)\to(0,\log 2)\to(1,\log 2)\to(1,2\log 2)\to(2,2\log 2).
+\]
+Hence
+\[
+    \int_{C_\gamma} e^M\,dA = 1+2=3,
+    \qquad
+    \int_{C_{\bar\gamma}} e^M\,dA = 2+4=6,
+\]
+and therefore
+\[
+    \tau(\gamma)=\int_{C_{\bar\gamma}} e^M\,dA-\int_{C_\gamma} e^M\,dA=3.
+\]
+Equivalently, the region between the two monotone paths consists of two rectangles, and its positive $e^M$-weighted area is
+\[
+    \int_0^1\int_0^{\log 2} e^M\,dM\,dA
+    +
+    \int_1^2\int_{\log 2}^{2\log 2} e^M\,dM\,dA
+    =1+2=3.
+\]
+This is the simplest nontrivial instance of the general theorem below.
+
+\subsection{The triple identity for global torsion}
+\label{subsec:acs-triple-identity}
+
+The previous proposition turns the algebraic difference $\nu_x(\gamma)-\nu_x(\bar\gamma)$ into a boundary integral. The next step is immediate: since the ACS is a plane, Stokes' theorem converts that boundary integral into an interior integral.
+
+\begin{theorem}[Triple identity]\label{thm:acs-triple-identity}
+Let
+\[
+    \eta:=e^M\,dA
+\]
+be the canonical $1$-form on the ACS. Then for every arithmetic path $\gamma$,
+\begin{equation}
+    \tau_{\mathrm{alg}}(\gamma)
+    =\oint_{\partial\Sigma_\gamma}\eta
+    =\iint_{\Sigma_\gamma} d\eta
+    =\iint_{\Sigma_\gamma} e^M\,dM\wedge dA.
+    \label{eq:triple_identity_final_narrative_enhanced_acs_AM_lc}
+\end{equation}
+In particular, when all charges are nonnegative and $\Sigma_\gamma$ is the canonical region between the two monotone ACS paths, $\tau(\gamma)$ is exactly the positive $e^M$-weighted area between $C_\gamma$ and $C_{\bar\gamma}$.
+\end{theorem}
+
+\begin{proof}
+By Proposition~\ref{prop:acs-evaluation-formula},
+\[
+    \tau_{\mathrm{alg}}(\gamma)
+    =\nu_x(\gamma)-\nu_x(\bar\gamma)
+    =\int_{C_{\bar\gamma}} e^M\,dA - \int_{C_\gamma} e^M\,dA
+    =\oint_{\partial\Sigma_\gamma}\eta.
+\]
+Since $d\eta=e^M\,dM\wedge dA$, Stokes' theorem gives
+\[
+    \oint_{\partial\Sigma_\gamma}\eta=\iint_{\Sigma_\gamma} d\eta
+    =\iint_{\Sigma_\gamma} e^M\,dM\wedge dA.
+\]
+This proves the triple identity.
+\end{proof}
+
+The theorem is the global version of the staircase examples from Section~\ref{subsec:gridsandtorsion}. There, torsion was seen cell by cell inside $\mathfrak{E}_0$; here, the same phenomenon is reorganized on a commutative parameter plane where two histories with the same total charges become the boundary of a genuine filling. That is the conceptual role of the ACS.
+
+\subsection{An algebraic remark: the ACS as abelianization shadow}
+\label{sec:acs_algebraic_significance_revised_AM_lc}
+
+The ACS is not merely a convenient plane for drawing weighted areas. It also has a direct algebraic meaning. If one forgets numerical evaluation and remembers only the two formal generators
+\[
+    X_A \quad\text{and}\quad X_M,
+\]
+then symbolic expression histories form the free group
+\[
+    F_2=\langle X_A,X_M\rangle.
+\]
+The map
+\[
+    \mathrm{ab}:F_2\longrightarrow \mathbb Z^2,
+    \qquad
+    X_A\longmapsto (1,0),\quad X_M\longmapsto (0,1),
+\]
+is the standard abelianization homomorphism of the free group \cite{LyndonSchupp1977Combinatorial}. After restoring the basic units $\mu_0$ and $\lambda_0$, and passing from $\mathbb Z^2$ to a real coordinate plane when convenient, one recovers exactly the charge map
+\[
+    \gamma\longmapsto (A_\gamma,M_\gamma)
+\]
+used throughout this section.
+
+In this sense the ACS is the \emph{commutative shadow} of the non-commutative path calculus. Reversing a word changes its history but not its total abelianized charge, which is why $C_\gamma$ and $C_{\bar\gamma}$ end at the same point. More refined subgroup, congruence, and quotient questions are certainly suggested by this observation, but they are not needed for the foundational arc of the present paper.
+
+\subsection{Conclusion and transition}
+
+The ACS solves the global bookkeeping problem for torsion. It converts a comparison between two evaluation histories in the arithmetic expression space into a boundary--interior relation on a commutative $(A,M)$-plane. The next section asks for a local differential-geometric engine whose curvature reproduces the same non-commutative defect infinitesimally. This leads naturally to the arithmetic expression contact manifold.
+
+Further supporting computations are recorded in Appendix~\ref{app:model-acs}.
+ \newpage
+
+\section{Arithmetic expression contact structure}\label{sec:ecstructure}
+
+The ACS of Section~\ref{sec:acspace} solved the \emph{global} bookkeeping problem for torsion: two different evaluation histories with the same total charges can be compared on a commutative parameter plane. What is still missing is a \emph{local} geometric engine that remembers the current assignment value while keeping track of the two infinitesimal arithmetic directions. This is the role of the contact manifold introduced in the present section. Complementary computations are collected in Appendix~\ref{app:contact-delta-holomorphicity}.
+
+We work on the three-dimensional manifold
+\[
+    M:=\mathbb{R}^3_{(u,v,a)},
+\]
+where $u$ and $v$ are the local additive and multiplicative coordinates, and $a$ is the current assignment value. The pair $(u,v)$ plays the infinitesimal role that $(A,M)$ played globally in the ACS, but now the assignment coordinate is retained rather than forgotten.
+
+\subsection{The contact form and its horizontal distribution}
+\label{subsec:core_definitions}
+
+The basic Pfaffian datum is the pair of $1$-forms
+\begin{equation}\label{eq:contact_forms_def}
+\omega:=\mu\,du+\lambda a\,dv,
+\qquad
+\alpha:=da-\omega.
+\end{equation}
+The form $\alpha$ measures the failure of a tangent vector to follow the arithmetic propagation law. For a tangent vector
+\[
+    X=x_u\,\partial_u+x_v\,\partial_v+x_a\,\partial_a,
+\]
+one has
+\[
+    \alpha(X)=x_a-\mu x_u-\lambda a x_v.
+\]
+Hence $\alpha(X)=0$ if and only if
+\[
+    x_a=\mu x_u+\lambda a x_v.
+\]
+This is exactly the infinitesimal propagation law: the vertical change of the assignment variable is determined by the additive and multiplicative components of the motion. The kernel of $\alpha$ is therefore the space of admissible infinitesimal arithmetic motions.
+
+\begin{proposition}\label{prop:contact-form}
+If $\mu\lambda\neq 0$, then $\alpha$ is a contact form on $M$.
+\end{proposition}
+
+\begin{proof}
+Since $d\omega=\lambda\,da\wedge dv$, we have
+\[
+    d\alpha=-d\omega=-\lambda\,da\wedge dv.
+\]
+Therefore
+\[
+    \alpha\wedge d\alpha
+    =(da-\mu\,du-\lambda a\,dv)\wedge(-\lambda\,da\wedge dv)
+    =\mu\lambda\,du\wedge da\wedge dv,
+\]
+which is nonzero everywhere when $\mu\lambda\neq 0$. Hence $\alpha$ is a contact form.
+\end{proof}
+
+This is not an exotic new contact geometry, but an arithmetic coordinatization of the standard local model. Indeed, after rescaling
+\[
+    \tilde u=\mu u,
+    \qquad
+    \tilde v=\lambda v,
+\]
+and then setting
+\[
+    x:=\tilde v,
+    \qquad
+    y:=a,
+    \qquad
+    z:=a-\tilde u,
+\]
+one obtains
+\[
+    \alpha = dz-y\,dx,
+\]
+which is the standard Darboux form on $\mathbb{R}^3$ \cite{Darboux1882Pfaff,Geiges2008IntroContact}. In this sense, the arithmetic coordinates do not create a new contact structure; they single out the particular horizontal directions relevant to addition and multiplication.
+
+The corresponding Reeb field is immediate to compute. Since $i_Rd\alpha=0$ and $\alpha(R)=1$, one finds
+\[
+    R=-\frac{1}{\mu}\,\partial_u.
+\]
+So the distinguished transverse direction is not the vertical $a$-axis, but the $u$-direction corrected by the arithmetic normalization.
+
+\subsection{Horizontal lifts and Legendrian flow}
+\label{subsec:geometry_on_ker_alpha}
+
+The two basic arithmetic directions are the horizontal lifts of the base coordinate fields:
+\begin{equation}\label{eq:2}
+D_u:=\partial_u+\mu\,\partial_a,
+\qquad
+D_v:=\partial_v+\lambda a\,\partial_a.
+\end{equation}
+They satisfy
+\[
+    \alpha(D_u)=0,
+    \qquad
+    \alpha(D_v)=0,
+\]
+so they form a basis of the rank-$2$ distribution
+\[
+    \mathcal H:=\ker\alpha=\mathrm{span}\{D_u,D_v\}.
+\]
+Geometrically, $D_u$ is the infinitesimal ``add'' direction and $D_v$ is the infinitesimal ``multiply'' direction.
+
+For any smooth scalar field $F(u,v,a)$ we define the horizontal differential and the synthesized direction field by
+\begin{equation}\label{eq:3}\tag{3}
+\delta F := (D_uF)\,du + (D_vF)\,dv,
+\qquad
+D_\theta:=\cos\theta\,D_u+\sin\theta\,D_v.
+\end{equation}
+A direct expansion gives the basic identity
+\[
+    \delta F = dF-(\partial_aF)\,\alpha.
+\]
+Thus $\delta$ is simply the de Rham differential with its vertical component removed. The next section will take this formula as the starting point for the axiomatic differential calculus.
+
+A curve $\gamma(s)=(u(s),v(s),a(s))$ is \emph{Legendrian} if $\dot\gamma(s)\in\ker\alpha$. Equivalently, there exist functions $\xi(s)$ and $\eta(s)$ such that
+\[
+    \dot\gamma = \xi D_u + \eta D_v.
+\]
+Comparing the $u$-, $v$-, and $a$-components yields
+\[
+    \dot u = \xi,
+    \qquad
+    \dot v = \eta,
+    \qquad
+    \dot a = \mu\xi+\lambda a\eta.
+\]
+If the base projection is parametrized by unit speed and angle $\theta$, so that
+\[
+    \xi=\cos\theta,
+    \qquad
+    \eta=\sin\theta,
+\]
+then the Legendrian condition becomes
+\begin{equation}\label{eq:4}\tag{4}
+\frac{da}{ds}=\mu\cos\theta+\lambda a\sin\theta,
+\end{equation}
+which is exactly the flow equation of Section~\ref{sec:flowequation}. If one also adopts the Riemannian viewpoint used there on the $(u,v)$-base, then the same relation can be rewritten as
+\begin{equation}\label{eq:5}\tag{5}
+\|\nabla a\|=\sqrt{\mu^2+\lambda^2a^2},
+\end{equation}
+and the rectifying variable
+\begin{equation}\label{eq:6}\tag{6}
+y=\arcsinh\!\left(\frac{\lambda a}{\mu}\right)
+\qquad\Longrightarrow\qquad
+\|\nabla y\|=\lambda.
+\end{equation}
+These formulas are recalled here only to stress their geometric meaning: the arithmetic flow is precisely the Legendrian propagation law determined by the contact form.
+
+The two coordinate directions recover the expected elementary motions. Along $D_u$ one has $\dot a=\mu$, hence
+\[
+    a(s)=a_0+\mu s.
+\]
+Along $D_v$ one has $\dot a=\lambda a$, hence
+\[
+    a(s)=a_0e^{\lambda s}.
+\]
+Thus the contact distribution packages the additive and multiplicative generators into a single horizontal geometry.
+
+\subsection{Curvature and local torsion}
+\label{subsec:local-curvature-and-torsion}
+
+The horizontal distribution is not integrable. Its failure to close is exactly the local arithmetic torsion.
+
+\begin{proposition}\label{prop:local-curvature}
+The horizontal fields satisfy
+\begin{equation}\label{eq:7}\tag{7}
+[D_u,D_v]=\mu\lambda\,\partial_a,
+\qquad
+\delta^2F=\mu\lambda(\partial_aF)\,du\wedge dv,
+\qquad
+\delta^2a=\mu\lambda\,du\wedge dv.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+A direct computation gives
+\[
+    [D_u,D_v]
+    =[\partial_u+\mu\partial_a,\partial_v+\lambda a\partial_a]
+    =\mu\lambda\,\partial_a.
+\]
+Hence
+\[
+    \delta^2F
+    =([D_u,D_v]F)\,du\wedge dv
+    =\mu\lambda(\partial_aF)\,du\wedge dv,
+\]
+and taking $F=a$ yields the last identity.
+\end{proof}
+
+The meaning of \eqref{eq:7} is simple: an infinitesimal $u$-move followed by an infinitesimal $v$-move does not return to the same assignment value as the reversed order. The defect is purely vertical, so it is invisible on the base $(u,v)$-plane but measurable in the full contact manifold.
+
+\subsubsection*{A worked local commutator square}
+Let $\Phi_u^h$ and $\Phi_v^k$ denote the time-$h$ and time-$k$ flows of $D_u$ and $D_v$. They are
+\[
+    \Phi_u^h(u,v,a)=(u+h,v,a+\mu h),
+    \qquad
+    \Phi_v^k(u,v,a)=(u,v+k,e^{\lambda k}a).
+\]
+Before closing a loop, compare the two simplest two-step histories with the same endpoint in the base plane:
+\[
+    p_{uv}:=\Phi_v^k\!\circ\Phi_u^h(u,v,a)
+    =\bigl(u+h,v+k,e^{\lambda k}(a+\mu h)\bigr),
+\]
+\[
+    p_{vu}:=\Phi_u^h\!\circ\Phi_v^k(u,v,a)
+    =\bigl(u+h,v+k,e^{\lambda k}a+\mu h\bigr).
+\]
+Their assignment values differ by
+\[
+    a(p_{uv})-a(p_{vu})=\mu h(e^{\lambda k}-1).
+\]
+This is the exact finite torsion of a single local commutation square. Its first-order part is again $\mu\lambda hk$.
+
+If one now continues around the remaining two sides of the base rectangle and returns to the original $(u,v)$-point, the lifted loop acquires a vertical holonomy:
+\[
+    \bigl(\Phi_v^{-k}\circ\Phi_u^{-h}\circ\Phi_v^{k}\circ\Phi_u^{h}\bigr)(u,v,a)
+    = \bigl(u,v,a+\mu h(1-e^{-\lambda k})\bigr).
+\]
+So the closed-loop vertical drift is
+\[
+    \Delta_a(h,k)=\mu h(1-e^{-\lambda k})
+    =e^{-\lambda k}\,\mu h(e^{\lambda k}-1)
+    =\mu\lambda hk+O(hk^2).
+\]
+Thus the open-path torsion and the closed-loop holonomy are not identical at finite scale, but they carry the same infinitesimal density $\mu\lambda$. This distinction is worth keeping visible in a foundational paper, because the global ACS formula of Section~\ref{subsec:acs-triple-identity} keeps track of the exact exponential weighting rather than only its first-order shadow.
+
+This same closed-loop defect can be read as a boundary integral. If one closes the lifted loop by the final vertical segment (on which $\omega=0$), then Stokes' theorem gives
+\begin{equation}\label{eq:8}\tag{8}
+\oint_{\partial S}\omega=\iint_S d\omega,
+\qquad
+d\omega=\lambda\,da\wedge dv,
+\end{equation}
+for any smooth spanning surface $S$ of the closed loop. Along horizontal segments one has $\alpha=0$, hence $da=\omega$, so the left-hand side measures exactly the accumulated vertical drift. Equivalently, $d\alpha(D_u,D_v)=-\mu\lambda$, so the same constant is the curvature of the contact distribution when viewed on its horizontal frame. This is the local differential analogue of the boundary--interior identities from Section~\ref{subsec:acs-triple-identity}.
+
+\subsection{A short algebraic remark}
+\label{subsec:contact-algebra-remark}
+
+The paper mainly uses the bracket identities above, but it is useful to record the Lie algebra they generate. Let
+\[
+    \mathfrak g:=\mathrm{span}\{D_u,D_v,\partial_a\}.
+\]
+Besides \eqref{eq:7}, one has
+\[
+    [D_u,\partial_a]=0,
+    \qquad
+    [D_v,\partial_a]=-\lambda\,\partial_a.
+\]
+Now set
+\[
+    C:=\partial_u=D_u-\mu\partial_a.
+\]
+Then $C$ commutes with both $D_v$ and $\partial_a$, so
+\[
+    \mathfrak g
+    =\mathrm{span}\{C\}\oplus\mathrm{span}\{D_v,\partial_a\}.
+\]
+After rescaling $H:=\lambda^{-1}D_v$ (when $\lambda\neq 0$), the second summand satisfies
+\[
+    [H,\partial_a]=-\partial_a,
+\]
+which is the standard two-dimensional affine Lie algebra $\mathfrak{aff}(1)$. Hence
+\[
+    \mathfrak g\cong \mathbb{R}\oplus\mathfrak{aff}(1).
+\]
+In particular $\mathfrak g$ is solvable but not nilpotent. This remark is included only to place the contact model in familiar Lie-theoretic terms; the foundational narrative of the paper depends only on the explicit brackets, not on the full classification theory.
+
+\subsection{Conclusion and transition}
+
+The contact manifold supplies the local geometric mechanism that the ACS deliberately forgot. In the ACS, torsion appeared as a weighted filling between two entire histories. Here, the same phenomenon appears infinitesimally as the curvature of a horizontal distribution and as the vertical drift of a lifted commutator square. The next section extracts from this geometry the operator $\delta$ and turns it into a usable differential calculus.
+ \newpage
+
+\section{Differential calculus on the contact structure}\label{ch:differential_calculus}
+
+The contact manifold of Section~\ref{sec:ecstructure} supplied the local geometric stage for arithmetic propagation. The present section develops the differential calculus naturally attached to that stage. The guiding idea is simple: the ordinary de Rham differential $d$ differentiates in all directions of $(u,v,a)$, whereas the expression differential $\delta$ keeps only the horizontal part determined by the propagation law. In this sense $\delta$ should be read as a horizontal covariant differential rather than as a second copy of the de Rham operator.
+
+\subsection{Definition and equivalent formulas}
+
+\paragraph{Coordinate definition.}
+We define the action of $\delta$ on the coordinate functions by
+\begin{equation}\label{eq:9}\tag{9}
+\delta a=\omega,
+\qquad
+\delta u=du,
+\qquad
+\delta v=dv,
+\end{equation}
+and extend it to all smooth scalar fields by linearity and the Leibniz rule.
+
+\begin{proposition}\label{prop:delta_equivalent_formula}
+For every smooth scalar field $F(u,v,a)$ one has
+\begin{equation}\label{eq:10}\tag{10}
+\delta F
+= dF-(\partial_aF)\,\alpha
+= (D_uF)\,du+(D_vF)\,dv.
+\end{equation}
+Consequently, for every horizontal vector $X\in\ker\alpha$,
+\[
+\delta F(X)=dF(X).
+\]
+\end{proposition}
+
+\begin{proof}
+Write
+\[
+dF=(\partial_uF)\,du+(\partial_vF)\,dv+(\partial_aF)\,da.
+\]
+Since $\alpha=da-(\mu\,du+\lambda a\,dv)$, one gets
+\[
+dF-(\partial_aF)\alpha
+=(\partial_uF+\mu\partial_aF)\,du+(\partial_vF+\lambda a\partial_aF)\,dv,
+\]
+which is exactly \eqref{eq:10}. If $X\in\ker\alpha$, then $\alpha(X)=0$, so \eqref{eq:10} gives $\delta F(X)=dF(X)$.
+\end{proof}
+
+The operators $D_u$ and $D_v$ are therefore the horizontal derivatives singled out by the arithmetic contact structure. In particular, setting $F=a$ in \eqref{eq:10} recovers $\delta a=\omega$, so along any Legendrian curve the equality $\delta a=\omega$ is exactly the propagation law from Section~\ref{sec:flowequation}.
+
+\subsection{Chain rules and elementary examples}
+
+The usual differentiation rules survive, but now with $\delta$ in place of $d$.
+For a smooth univariate function $\Phi$ and a smooth bivariate function $H$, one has
+\begin{equation}\label{eq:11}\tag{11}
+\delta\bigl(\Phi(E)\bigr)=\Phi'(E)\,\delta E,
+\qquad
+\delta\bigl(H(E_1,E_2)\bigr)=\partial_1H\,\delta E_1+\partial_2H\,\delta E_2.
+\end{equation}
+The product rule is the special case $H(x,y)=xy$.
+
+Applying \eqref{eq:11} to functions of $a$ alone immediately yields the most useful elementary formulas:
+\begin{equation}\label{eq:13}\tag{13}
+\delta(a^n)=n a^{n-1}\omega\ \ (n\in\mathbb{Z}),
+\qquad
+\delta(\ln a)=\frac{\omega}{a}\ \ (a>0),
+\qquad
+\delta(e^a)=e^a\omega,
+\end{equation}
+and
+\begin{equation}\label{eq:14}\tag{14}
+\delta(\sin a)=\cos a\,\omega,
+\qquad
+\delta(\cos a)=-\sin a\,\omega,
+\qquad
+\delta(\arcsin a)=\frac{\omega}{\sqrt{1-a^2}}\ \ (|a|<1).
+\end{equation}
+A particularly useful rectifying example is
+\[
+y=\arcsinh\!\left(\frac{\lambda a}{\mu}\right)
+\qquad\Longrightarrow\qquad
+\delta y=\frac{\lambda}{\sqrt{\mu^2+\lambda^2a^2}}\,\omega,
+\]
+which is the differential form of the rectification already used in Sections~\ref{sec:flowequation} and \ref{sec:01kind}.
+
+For a general mixed field $E=E(u,v,a)$, the horizontal derivatives are
+\begin{equation}\label{eq:15}\tag{15}
+D_uE=E_u+\mu E_a,
+\qquad
+D_vE=E_v+\lambda a E_a,
+\qquad
+\delta E=(D_uE)\,du+(D_vE)\,dv.
+\end{equation}
+For example, if $E(u,v,a)=ua$, then
+\[
+D_uE=a+\mu u,
+\qquad
+D_vE=\lambda ua,
+\qquad
+\delta E=(a+\mu u)\,du+\lambda ua\,dv.
+\]
+This is the basic mechanism behind the entire $\delta$-calculus: ordinary derivatives in $(u,v)$ are coupled to the vertical sensitivity $\partial_a$ through the two arithmetic directions.
+
+\subsection{The fundamental curvature package}
+
+For scalar fields we abbreviate the antisymmetrized second horizontal differential by
+\[
+\delta^2F:=(D_uD_vF-D_vD_uF)\,du\wedge dv.
+\]
+The main identities can then be packaged as follows.
+
+\begin{theorem}[Fundamental package]\label{thm:delta_fundamental_package}
+One has
+\begin{equation}\label{eq:12}\tag{12}
+[D_u,D_v]=\mu\lambda\,\partial_a,
+\qquad
+\delta^2F=\mu\lambda(\partial_aF)\,du\wedge dv,
+\qquad
+d\omega=\mu\lambda\,du\wedge dv+\lambda\,\alpha\wedge dv.
+\end{equation}
+In particular,
+\[
+d\omega(D_u,D_v)=\mu\lambda,
+\qquad
+\delta^2a=\mu\lambda\,du\wedge dv.
+\]
+\end{theorem}
+
+\begin{proof}
+The bracket identity was already computed in Proposition~\ref{prop:local-curvature}:
+\[
+[D_u,D_v]=\mu\lambda\,\partial_a.
+\]
+Applying this to a scalar field $F$ gives the middle formula in \eqref{eq:12}. For the last identity, recall that
+\[
+\omega=\mu\,du+\lambda a\,dv,
+\qquad
+\alpha=da-\omega.
+\]
+Hence
+\[
+d\omega=\lambda\,da\wedge dv
+=\lambda(\alpha+\mu\,du+\lambda a\,dv)\wedge dv
+=\mu\lambda\,du\wedge dv+\lambda\,\alpha\wedge dv.
+\]
+Evaluating this on $D_u$ and $D_v$ gives $d\omega(D_u,D_v)=\mu\lambda$, because $\alpha(D_u)=\alpha(D_v)=0$.
+\end{proof}
+
+The theorem makes precise the sense in which $\delta$ is not nilpotent. Its square does not vanish; it records the same constant local defect $\mu\lambda$ that already appeared in the contact commutator square of Section~\ref{sec:ecstructure}. Thus $\delta$ is not merely convenient notation for derivatives of expressions. It is a curvature-sensitive differential attached to the arithmetic connection.
+
+\subsection{Connection viewpoint and natural units}
+
+From the bundle viewpoint, the projection
+\[
+\pi:M=\mathbb{R}^3_{(u,v,a)}\longrightarrow \mathbb{R}^2_{(u,v)},
+\qquad
+\pi(u,v,a)=(u,v),
+\]
+together with the horizontal distribution $\mathcal H=\ker\alpha$ defines an Ehresmann connection, and $D_u,D_v$ are the horizontal lifts of $\partial_u,\partial_v$ in that connection language \cite{KobayashiNomizu1963FDG1}. What is special in the present setting is not the abstract notion of a connection, but the arithmetic meaning of its preferred frame: $D_u$ is the infinitesimal add-direction, whereas $D_v$ is the infinitesimal multiply-direction with value-dependent scaling.
+
+It is often convenient to pass to natural units
+\[
+\tilde u:=\mu u,
+\qquad
+\tilde v:=\lambda v.
+\]
+Then
+\[
+D_u=\mu\bigl(\partial_{\tilde u}+\partial_a\bigr),
+\qquad
+D_v=\lambda\bigl(\partial_{\tilde v}+a\partial_a\bigr).
+\]
+This does not change the geometry; it simply removes the dimensional constants from the first-order formulas and makes the computational structure more transparent.
+
+\subsection{A calculable basis and upward sweep}
+
+For explicit calculations, especially in the direction that leads toward function theory, the following scaled monomials are useful. In natural units define
+\[
+B_n(a,v):=e^{-n\tilde v}a^n
+\qquad (n\in\mathbb{N}).
+\]
+These are adapted to the multiplicative direction because
+\[
+D_vB_n=0,
+\qquad
+D_uB_n=\mu n e^{-\tilde v}B_{n-1}.
+\]
+Thus the family $\{B_n\}$ is invariant along $D_v$ and forms a simple lowering ladder under $D_u$.
+
+To make the closure statement precise, write $q:=e^{\tilde v}$ and consider finite sums
+\[
+F=\sum_{n=0}^N P_n(u,v,q)\,B_n(a,v),
+\]
+where each $P_n$ is smooth in $(v,q)$ and polynomial in $u$. Then
+\[
+D_u\bigl(P_nB_n\bigr)=(\partial_uP_n)B_n+\mu n q^{-1}P_nB_{n-1},
+\]
+\[
+D_v\bigl(P_nB_n\bigr)=\bigl(\partial_vP_n+\lambda q\,\partial_qP_n\bigr)B_n.
+\]
+So this finite-span class is stable under repeated applications of $D_u$ and $D_v$.
+
+The same basis supports explicit antidifferentiation in the $D_u$-direction. If $P$ is independent of $u$, then
+\[
+D_u^{-1}\!\bigl(P(v,q)\,B_n\bigr)
+=\frac{q\,P(v,q)}{\mu(n+1)}\,B_{n+1}.
+\]
+More generally, if the coefficients are polynomial in $u$, one removes the remainder by a finite upward sweep, because each correction differentiates the coefficient once in $u$ and therefore lowers its degree.
+
+\paragraph{Example.}
+For
+\[
+F=a^3e^{\lambda v}=e^{4\tilde v}B_3,
+\]
+one obtains
+\[
+D_u^{-1}F=\frac{e^{\lambda v}}{4\mu}a^4,
+\qquad
+D_u\!\left(\frac{e^{\lambda v}}{4\mu}a^4\right)=a^3e^{\lambda v}.
+\]
+This calculable basis is the main reason the $\delta$-calculus is not merely formal in the present draft: it already supplies explicit families on which the first-order and second-order operators can be computed exactly. The next section uses the same horizontal operators to define the first analytic fields of the theory.
+ \newpage
+
+\section{Arithmetic holomorphic function}\label{ch:holomorphic}
+
+The previous section produced the horizontal differential calculus attached to the arithmetic contact structure. We now use that calculus to define the first analytic fields of AEG. The aim is not to transplant classical complex analysis unchanged, but to identify the first-order system that is naturally forced by the two horizontal arithmetic directions and to extract its first genuine second-order consequence \cite{Ahlfors1979ComplexAnalysis}.
+
+\subsection{Arithmetic Cauchy--Riemann equations}
+
+\begin{definition}
+A pair of smooth real-valued functions
+\[
+(f,g)=(f(u,v,a),g(u,v,a))
+\]
+is called \textbf{arithmetic holomorphic} if it satisfies the arithmetic Cauchy--Riemann equations
+\begin{equation}\label{eq:16}\tag{16}
+D_u f=D_v g,
+\qquad
+D_v f=-D_u g.
+\end{equation}
+\end{definition}
+
+If one writes
+\[
+F:=f+ig,
+\]
+then it is natural to introduce the complex first-order operators
+\begin{equation}\label{eq:17}\tag{17}
+\bar\partial_{\mathrm{AEG}}
+:=\frac12(D_u+iD_v),
+\qquad
+\partial_{\mathrm{AEG}}
+:=\frac12(D_u-iD_v).
+\end{equation}
+With this notation, \eqref{eq:16} is exactly the single complex equation
+\[
+\bar\partial_{\mathrm{AEG}}F=0.
+\]
+
+This is the correct analogue of the classical $\bar\partial$-equation, but now expressed in the arithmetic horizontal frame. In particular, when $f$ and $g$ are independent of $a$, one has
+\[
+D_u=\partial_u,
+\qquad
+D_v=\partial_v,
+\]
+so \eqref{eq:16} reduces to the ordinary Cauchy--Riemann equations on the $(u,v)$-plane.
+
+\subsection{Horizontal conformality and Jacobian}
+
+The first geometric consequence of \eqref{eq:16} is that the two horizontal derivative vectors are orthogonal and have the same size.
+
+\begin{proposition}\label{prop:arithmetic_holomorphic_conformality}
+If $F=f+ig$ is arithmetic holomorphic, then
+\[
+(D_u f,D_u g)\cdot(D_v f,D_v g)=0
+\]
+and
+\[
+(D_u f)^2+(D_u g)^2=(D_v f)^2+(D_v g)^2.
+\]
+Equivalently, the horizontal Jacobian
+\[
+J_H(F):=D_u f\,D_v g-D_v f\,D_u g
+\]
+satisfies
+\begin{equation}\label{eq:18}\tag{18}
+J_H(F)
+=(D_u f)^2+(D_v f)^2
+=(D_u g)^2+(D_v g)^2.
+\end{equation}
+Consequently,
+\[
+\delta f\wedge \delta g
 =
-\begin{pmatrix}
-\lambda \sin(\alpha) \cosh(\beta) & -\lambda \cos(\alpha) \sinh(\beta) \\
-\lambda \cos(\alpha) \sinh(\beta) & \lambda \sin(\alpha) \cosh(\beta)
-\end{pmatrix}
-\begin{pmatrix}
-a_r \\
-a_i
-\end{pmatrix}
+J_H(F)\,du\wedge dv.
+\]
+\end{proposition}
+
+\begin{proof}
+Using \eqref{eq:16},
+\[
+(D_u f,D_u g)\cdot(D_v f,D_v g)
+=
+D_u f\,D_v f+D_u g\,D_v g
+=
+D_v g\,D_v f-D_v f\,D_v g
+=0.
+\]
+Likewise,
+\[
+(D_u f)^2+(D_u g)^2
+=
+(D_u f)^2+(D_v f)^2
+=
+(D_v g)^2+(D_v f)^2
+=
+(D_v f)^2+(D_v g)^2.
+\]
+The identity \eqref{eq:18} follows from
+\[
+J_H(F)=D_u f\,D_v g-D_v f\,D_u g
+\]
+together with \eqref{eq:16}. Finally,
+\[
+\delta f=(D_u f)\,du+(D_v f)\,dv,
+\qquad
+\delta g=(D_u g)\,du+(D_v g)\,dv,
+\]
+so
+\[
+\delta f\wedge \delta g
+=
+\bigl(D_u f\,D_v g-D_v f\,D_u g\bigr)\,du\wedge dv
+=
+J_H(F)\,du\wedge dv.
+\]
+\end{proof}
+
+Thus arithmetic holomorphic fields are horizontally conformal in exactly the sense relevant to the contact geometry developed above. The Jacobian density is no longer built from Euclidean derivatives alone; it is built from the horizontal pair $(D_u,D_v)$ selected by the propagation law.
+
+\subsection{Elementary examples, composition, and rigidity}
+
+\paragraph{Classical limit.}
+Every classical holomorphic function of $u+iv$ gives an arithmetic holomorphic field after pullback to the $(u,v,a)$-space with no $a$-dependence. This is the simplest consistency check.
+
+\paragraph{A genuinely arithmetic coordinate.}
+The first nontrivial example is
+\begin{equation}\label{eq:19}\tag{19}
+\zeta(u,v,a):=
+u+\frac{i}{\lambda}\log(\mu+i\lambda a),
+\end{equation}
+where the logarithm is taken on the right half-plane $\{\Re z>0\}$, which contains $\mu+i\lambda a$ because $\mu>0$.
+
+\begin{proposition}\label{prop:zeta_is_arithmetic_holomorphic}
+The field $\zeta$ defined by \eqref{eq:19} is arithmetic holomorphic.
+\end{proposition}
+
+\begin{proof}
+One has
+\[
+\partial_a\zeta
+=
+\frac{i}{\lambda}\cdot\frac{i\lambda}{\mu+i\lambda a}
+=
+-\frac{1}{\mu+i\lambda a}.
+\]
+Hence
+\[
+D_u\zeta
+=
+\partial_u\zeta+\mu\,\partial_a\zeta
+=
+1-\frac{\mu}{\mu+i\lambda a}
+=
+\frac{i\lambda a}{\mu+i\lambda a},
+\]
+and
+\[
+D_v\zeta
+=
+\lambda a\,\partial_a\zeta
+=
+-\frac{\lambda a}{\mu+i\lambda a}.
+\]
+Therefore
+\[
+D_u\zeta+iD_v\zeta
+=
+\frac{i\lambda a}{\mu+i\lambda a}
+-
+\frac{i\lambda a}{\mu+i\lambda a}
+=
+0,
+\]
+so $\bar\partial_{\mathrm{AEG}}\zeta=0$.
+\end{proof}
+
+This example is important because it depends genuinely on $a$. It is not a classical holomorphic function merely reinterpreted in arithmetic notation.
+
+\begin{proposition}\label{prop:holomorphic_composition_family}
+Let $\Phi$ be a classical holomorphic function on a complex domain containing the image of an arithmetic holomorphic field $F$. Then $\Phi\!\circ F$ is again arithmetic holomorphic.
+\end{proposition}
+
+\begin{proof}
+By the chain rule for the horizontal operators,
+\[
+\bar\partial_{\mathrm{AEG}}(\Phi(F))
+=
+\Phi'(F)\,\bar\partial_{\mathrm{AEG}}F.
+\]
+Hence $\bar\partial_{\mathrm{AEG}}F=0$ implies $\bar\partial_{\mathrm{AEG}}(\Phi(F))=0$.
+\end{proof}
+
+Applying Proposition~\ref{prop:holomorphic_composition_family} to the arithmetic coordinate $\zeta$ already yields a rich explicit family:
+\[
+\Phi(\zeta),
+\qquad
+\Phi\ \text{classically holomorphic},
+\]
+for example $\zeta^m$, $e^\zeta$, and local rational functions of $\zeta$ away from their poles.
+
+\begin{proposition}\label{prop:rigidity_a_only_holomorphic}
+If an arithmetic holomorphic field $F$ depends only on $a$, then $F$ is constant.
+\end{proposition}
+
+\begin{proof}
+If $F=F(a)$, then
+\[
+D_uF=\mu\,\partial_aF,
+\qquad
+D_vF=\lambda a\,\partial_aF.
+\]
+So
+\[
+\bar\partial_{\mathrm{AEG}}F
+=
+\frac12(\mu+i\lambda a)\,\partial_aF.
+\]
+Since $\mu>0$, the factor $\mu+i\lambda a$ never vanishes on the real $a$-axis. Thus $\bar\partial_{\mathrm{AEG}}F=0$ implies $\partial_aF=0$.
+\end{proof}
+
+The last proposition should be read as a first rigidity statement: in AEG, the new analytic freedom does not live in the vertical variable by itself, but in the coupling between the horizontal directions and the vertical sensitivity.
+
+\subsection{Factorization and twisted harmonicity}
+
+The first-order system already forces a natural second-order operator. Set
+\[
+\Delta_H:=D_u^2+D_v^2.
+\]
+
+\begin{theorem}[Factorization and twisted harmonicity]\label{thm:factorization_twisted_harmonicity}
+The arithmetic Cauchy--Riemann operators satisfy
+\begin{equation}\label{eq:20}\tag{20}
+4\partial_{\mathrm{AEG}}\bar\partial_{\mathrm{AEG}}
+=
+\Delta_H+i\mu\lambda\,\partial_a,
+\qquad
+4\bar\partial_{\mathrm{AEG}}\partial_{\mathrm{AEG}}
+=
+\Delta_H-i\mu\lambda\,\partial_a.
+\end{equation}
+Consequently, every arithmetic holomorphic field $F$ satisfies
+\[
+(\Delta_H+i\mu\lambda\,\partial_a)F=0.
+\]
+Equivalently, if $F=f+ig$, then
+\[
+\Delta_H f=\mu\lambda\,\partial_a g,
+\qquad
+\Delta_H g=-\mu\lambda\,\partial_a f.
+\]
+\end{theorem}
+
+\begin{proof}
+By definition,
+\[
+4\partial_{\mathrm{AEG}}\bar\partial_{\mathrm{AEG}}
+=
+(D_u-iD_v)(D_u+iD_v)
+=
+D_u^2+D_v^2+i(D_uD_v-D_vD_u).
+\]
+Section~\ref{ch:differential_calculus} established the bracket identity
+\[
+[D_u,D_v]=\mu\lambda\,\partial_a,
+\]
+hence
+\[
+4\partial_{\mathrm{AEG}}\bar\partial_{\mathrm{AEG}}
+=
+\Delta_H+i\mu\lambda\,\partial_a.
+\]
+The second formula in \eqref{eq:20} is obtained similarly from
+\[
+(D_u+iD_v)(D_u-iD_v)
+=
+D_u^2+D_v^2-i(D_uD_v-D_vD_u).
+\]
+If $F$ is arithmetic holomorphic, then $\bar\partial_{\mathrm{AEG}}F=0$, so applying $\partial_{\mathrm{AEG}}$ gives
+\[
+(\Delta_H+i\mu\lambda\,\partial_a)F=0.
+\]
+Separating real and imaginary parts yields the coupled system for $f$ and $g$.
+\end{proof}
+
+This theorem is the first real analytic payoff of the theory. In the classical flat case, holomorphicity implies ordinary harmonicity because the first-order operators commute in the required way. Here they do not: the constant arithmetic curvature $\mu\lambda$ survives as the vertical coupling term $i\mu\lambda\,\partial_a$. Thus the natural second-order consequence of arithmetic holomorphicity is a \emph{twisted} harmonic equation rather than the ordinary Laplace equation.
+
+\subsection{A calculable family: the affine--Appell basis}
+
+The theory would remain too formal if one had only abstract operators and no workable families. The basis developed in the previous section provides such a family.
+
+Let
+\[
+q:=e^{\lambda v},
+\qquad
+B_n(a,v):=q^{-n}a^n=e^{-n\lambda v}a^n
+\qquad (n\in\mathbb{N}).
+\]
+For finite sums of the form
+\[
+F=\sum_{n=0}^N P_n(u,v,q)\,B_n(a,v),
+\]
+with each $P_n$ smooth in $(v,q)$ and polynomial in $u$, the operators $\partial_{\mathrm{AEG}}$ and $\bar\partial_{\mathrm{AEG}}$ act triangularly.
+
+\begin{proposition}\label{prop:affine_appell_holomorphic_operators}
+For every coefficient $P=P(u,v,q)$ independent of $a$ and every $n\ge 0$,
+\[
+\bar\partial_{\mathrm{AEG}}(PB_n)
+=
+\frac12\Bigl[\partial_uP+i\bigl(\partial_vP+\lambda q\,\partial_qP\bigr)\Bigr]B_n
 +
-\begin{pmatrix}
-\mu \cos(\alpha) \cosh(\beta) \\
--\mu \sin(\alpha) \sinh(\beta)
-\end{pmatrix}
-\end{equation}
+\frac{\mu n}{2q}\,P\,B_{n-1},
+\]
+and
+\[
+\partial_{\mathrm{AEG}}(PB_n)
+=
+\frac12\Bigl[\partial_uP-i\bigl(\partial_vP+\lambda q\,\partial_qP\bigr)\Bigr]B_n
++
+\frac{\mu n}{2q}\,P\,B_{n-1}.
+\]
+In particular, every finite span generated by the basis $\{B_0,\dots,B_N\}$ is stable under $\partial_{\mathrm{AEG}}$, $\bar\partial_{\mathrm{AEG}}$, and therefore under $\Delta_H$ as well.
+\end{proposition}
 
-Hence, we have the following two equations:
+\begin{proof}
+From the previous section,
+\[
+D_u(PB_n)=(\partial_uP)B_n+\mu n q^{-1}P\,B_{n-1},
+\]
+\[
+D_v(PB_n)=\bigl(\partial_vP+\lambda q\,\partial_qP\bigr)B_n.
+\]
+Substituting these formulas into the definitions \eqref{eq:17} gives the stated identities. Stability under $\Delta_H$ follows because
+\[
+\Delta_H
+=
+4\partial_{\mathrm{AEG}}\bar\partial_{\mathrm{AEG}}-i\mu\lambda\,\partial_a,
+\]
+and $\partial_a(PB_n)$ is again a finite linear combination of basis elements of lower or equal index.
+\end{proof}
 
-\begin{equation}
-\label{eq:complexflow4}
-\frac{da_r}{ds} = \cosh \beta (\lambda a_r \sin \alpha  + \mu \cos \alpha) + \lambda a_i \sin \alpha \cosh \beta
-\end{equation}
+This is the main computational reason that the analytic branch of AEG is already viable in a first paper. The theory is not merely formal: the first-order operators, the twisted second-order operator, and the explicit basis all close on concrete model families.
 
-\begin{equation}
-\label{eq:complexflow5}
-\frac{da_i}{ds} = \sinh \beta (\lambda a_i \cos \alpha  + \mu \sin \alpha) - \lambda a_r \cos \alpha \sinh \beta
-\end{equation}
+\medskip
+
+The picture emerging from this section is therefore quite rigid. Arithmetic holomorphicity is a genuinely horizontal first-order condition. It has a classical limit, but it also has new $a$-dependent solutions. Most importantly, it already forces a nontrivial second-order equation. In that sense, the analytic route of AEG begins not with analogy, but with a structurally compelled operator package.
+ \newpage
 
 
-\section{Conclusion}\label{sec:conclusion}
+\section{Outlook: relation theory, meaningful zeros, and analytic future}\label{sec:outlook}
 
-In this paper, we addressed the existence of a geometry space composed entirely of arithmetic expressions.
-We provided a rigorous framework and demonstrated that such a space can indeed be constructed.
-Furthermore, we illustrated how the flow equation plays a central role in generating and transforming arithmetic expressions within this constructed geometry.
+This first paper has deliberately remained close to the minimal skeleton of the theory. Its purpose has not been to complete every branch of Arithmetic Expression Geometry at once, but to isolate the few structures that appear to be unavoidable once arithmetic evaluation is treated as a geometry of histories rather than as a disposable intermediate process.
 
-Our work opens up a new avenue for exploring the interplay between arithmetic and geometry.
-We believe that this novel approach will lead to a deeper understanding of the underlying principles in below areas:
-\begin{itemize}
-    \item Analysis: a new kind of integral which mixes addition and multiplication.
-    \item Geometry: a new arithmetic means to study the geometry of surfaces.
-    \item Computational complexity: a test bed to study time and space complexity of algorithms in a geometric way.
-\end{itemize}
+\subsection{What has been established}
 
-We hope that our work will inspire further research in these areas and provide a fresh perspective on the relationship between arithmetic and geometry.
+The logical chain of the paper can now be read as a single progression:
+\[
+\text{expression paths}
+\;\longrightarrow\;
+\text{flow}
+\;\longrightarrow\;
+\text{torsion}
+\;\longrightarrow\;
+\text{contact structure}
+\;\longrightarrow\;
+\delta\text{-calculus}
+\;\longrightarrow\;
+\text{arithmetic holomorphicity}.
+\]
+Section~\ref{sec:flowequation} extracted the infinitesimal propagation law of arithmetic evaluation. Section~\ref{sec:01kind} showed that this law is not merely formal, but admits concrete geometric realization on the basic backgrounds $\mathfrak{E}_0$ and $\mathfrak{E}_1$. Section~\ref{sec:acspace} globalized the first defect of the theory by expressing torsion in the Accumulative Commutative Space as an algebraic difference, a boundary integral, and a weighted area integral. Section~\ref{sec:ecstructure} then localized this defect in the contact form
+\[
+\alpha = da-(\mu\,du+\lambda a\,dv),
+\]
+while Section~\ref{ch:differential_calculus} identified the associated horizontal differential calculus. Finally, Section~\ref{ch:holomorphic} showed that the same structure already supports a first analytic field equation and even forces a nontrivial twisted second-order consequence.
+
+In this sense, Paper I has established more than a collection of isolated constructions. It has shown that arithmetic histories carry a coherent geometric package: a propagation law, a defect quantity, a local geometric engine, and the beginning of a function theory. That is the conceptual threshold this paper was meant to cross.
+
+\subsection{From paths to relations}
+
+The present paper studies \emph{paths}. The next stage should study \emph{relations}. A path records a computation history; a closed word records a relation among histories. The natural primitive object here is not equality alone, but \emph{neutrality}: the various senses in which a nontrivial history can return to a null effect.
+
+At the most elementary level, four kinds of neutrality already suggest themselves.
+
+\begin{enumerate}
+    \item \textbf{Value neutrality.} A closed history returns the same final assignment value.
+    \item \textbf{Operator neutrality.} The induced transformation on assignment values is the identity.
+    \item \textbf{Charge neutrality.} The total additive and multiplicative charges vanish in the commutative record.
+    \item \textbf{Torsion neutrality.} The enclosed weighted area, hence the arithmetic torsion, vanishes.
+\end{enumerate}
+
+These notions should not be collapsed into one another. Two histories may agree in final value while remaining distinct in charge or torsion, and it is precisely such cases that are likely to produce the first serious theory of \emph{meaningful zeros}. Put differently, equality asks when two expressions are identified as the same object, whereas loop theory asks in what sense a nontrivial relation disappears and what residue of that disappearance remains visible.
+
+This is why the loop direction should be viewed as a relation theory rather than merely as a supplement to the present path language. Once a corpus of explicit closed words is assembled, one can begin to classify which neutralities imply which others, which implications fail, and which loops remain nontrivial even when one layer of effect has vanished. That program is the natural algebraic and topological continuation of the current paper.
+
+\subsection{From differential geometry to function theory}
+
+The second major direction opened here is analytic rather than relational. The operator package
+\[
+\bar\partial_{\mathrm{AEG}}F=0,
+\qquad
+4\partial_{\mathrm{AEG}}\bar\partial_{\mathrm{AEG}}
+=
+\Delta_H+i\mu\lambda\,\partial_a
+\]
+shows that arithmetic holomorphicity is not decorative notation. It is the first sign that AEG may support a genuine function theory.
+
+Several near-term analytic questions are now concrete enough to be pursued directly. One must determine the canonical second-order operators attached to the arithmetic horizontal structure; construct explicit families of arithmetic holomorphic and twisted harmonic fields; clarify the role of harmonic conjugacy and local normal forms; and eventually formulate the first kernel, boundary value, or continuation problems on the basic backgrounds. The affine--Appell basis is especially promising here, because it gives the theory a computational engine before it has a large abstract apparatus.
+
+The main discipline of this analytic route is equally clear. It should not diffuse into a general theory of contact or sub-Riemannian analysis detached from arithmetic meaning. The constants $\mu$ and $\lambda$, the value-dependent scaling direction, and the interpretation of $D_u$ and $D_v$ as add- and multiply-directions must remain visible at every stage. Otherwise the theory will become formally rich but conceptually misplaced.
+
+\subsection{Singular backgrounds and higher structures}
+
+The first-kind space $\mathfrak{E}_1$ already suggests that singular backgrounds are not decorative variants of $\mathfrak{E}_0$. They are likely to be the place where torsion, neutrality, and analysis interact most sharply. A loop may be trivial at one level and obstructed at another because of singular geometry; an analytic field may extend smoothly on a regular background but fail, branch, or pick up monodromy around a singular locus. These possibilities do not yet constitute a theory, but they indicate where the next structural collisions are likely to occur.
+
+Beyond loops and singular backgrounds lies the possibility of arithmetic $2$-cells and arithmetic surfaces. If such objects become viable, they may provide preferred fillings for loops, new area-type invariants, and a higher-dimensional stage on which zero classes, holonomy, and analytic structures can meet. For the present paper, however, it is enough to note that the basic ingredients are already visible: boundary histories, weighted area, contact curvature, and a first horizontal complex calculus.
+
+\subsection{A realistic program after Paper I}
+
+A decisive next stage would already be achieved if the following four goals were met.
+
+\begin{enumerate}
+    \item Build a reliable corpus of explicit closed words and separate the first neutrality classes by concrete examples.
+    \item Fix a canonical first-order/second-order analytic package on the basic backgrounds and construct nontrivial explicit solution families.
+    \item Prove at least one theorem connecting the relation theory back to the analytic or geometric theory, for example by attaching an invariant to a loop or by constraining fillings through torsion or singularity data.
+    \item Clarify the role of singular backgrounds as genuine structural objects rather than as exceptional cases.
+\end{enumerate}
+
+If these goals are reached, Arithmetic Expression Geometry will have moved beyond a geometric reinterpretation of evaluation and toward a unified framework in which arithmetic histories admit propagation, defect, relation, and analysis in a single language.
+
+\medskip
+
+The broader claim of this paper is therefore modest in form but ambitious in implication. Arithmetic expressions do not merely yield values; they also carry histories, and those histories have geometry. Once that geometry is taken seriously, arithmetic begins to exhibit flow, torsion, horizontal structure, curvature, and analytic fields. This paper has only established the first layer of that picture. But if the subsequent relation theory and analytic theory develop as expected, then the geometry of arithmetic expressions may become not just an analogy, but a stable mathematical domain of its own.
+ \newpage
 
 \bibliographystyle{plain}
 \bibliography{main}
+\newpage
+
+\appendix
+
+The appendices collect computations and examples that support the main text, with explicit cross-references from the relevant sections.
+
+\section{Supplementary calculations for the model spaces and the ACS}\label{app:model-acs}
+
+This appendix collects a few explicit computations that support Sections~\ref{subsec:geompropagation} and~\ref{sec:global_torsion_acs_narrative_enhanced_lc}. The guiding principle is the same as in the main text: only calculations that clarify already-established structures are recorded here. No new program is introduced.
+
+\subsection{Horocyclic coordinates and the arithmetic grid in \texorpdfstring{$\mathfrak{E}_0$}{E0}}
+\label{appC:horocyclic-grid}
+
+Recall that on the upper half-plane
+\[
+\mathcal H=\{(x,y)\in\mathbb R^2\mid y>0\}
+\]
+we consider the metric and assignment field
+\[
+ g_{\mu,\lambda}=\frac1{y^2}\left(\frac{dx^2}{\mu^2}+\frac{dy^2}{\lambda^2}\right),
+ \qquad
+ a(x,y)=-\frac{x}{y}.
+\]
+Set
+\[
+ u=x,
+ \qquad
+ v=\lambda^{-1}\log y.
+\]
+Then $y=e^{\lambda v}$ and therefore
+\[
+ dx=du,
+ \qquad
+ dy=\lambda e^{\lambda v}\,dv.
+\]
+Substituting into the metric gives
+\[
+ g_{\mu,\lambda}
+ =\frac{1}{e^{2\lambda v}}\left(\frac{du^2}{\mu^2}+\frac{\lambda^2e^{2\lambda v}dv^2}{\lambda^2}\right)
+ =e^{-2\lambda v}\frac{du^2}{\mu^2}+dv^2,
+\]
+while the assignment becomes
+\[
+ a(u,v)=-\frac{u}{e^{\lambda v}}=-u e^{-\lambda v}.
+\]
+This is the horocyclic form used in Section~\ref{subsec:geompropagation}.
+
+The elementary arithmetic moves can now be read off directly.
+For an additive step $s\in\mathbb R$ and a multiplicative factor $k>0$, define
+\[
+ X_s(u,v)=(u-se^{\lambda v},v),
+ \qquad
+ Y_k(u,v)=\bigl(u,v-\lambda^{-1}\log k\bigr).
+\]
+Then
+\[
+ a\bigl(X_s(u,v)\bigr)
+ =-\bigl(u-se^{\lambda v}\bigr)e^{-\lambda v}
+ =-ue^{-\lambda v}+s
+ =a(u,v)+s,
+\]
+and
+\[
+ a\bigl(Y_k(u,v)\bigr)
+ =-u e^{-\lambda(v-\lambda^{-1}\log k)}
+ =-u e^{-\lambda v}e^{\log k}
+ =k a(u,v).
+\]
+So $X_s$ realizes addition and $Y_k$ realizes multiplication.
+
+\begin{proposition}
+\label{prop:appC-one-cell-torsion}
+For one additive step $s$ and one multiplicative factor $k=e^{\Lambda}$, the two elementary histories
+\[
+\gamma_{\square}=(\oplus_s,\otimes_{\Lambda}),
+\qquad
+\bar\gamma_{\square}=(\otimes_{\Lambda},\oplus_s)
+\]
+have torsion
+\[
+\tau(\gamma_{\square})=s(e^{\Lambda}-1)=s(k-1).
+\]
+Moreover, this torsion is exactly the weighted area of the rectangle
+$[0,s]\times[0,\Lambda]$ in the ACS:
+\[
+\tau(\gamma_{\square})
+ =\int_0^s\int_0^{\Lambda} e^M\,dM\,dA.
+\]
+\end{proposition}
+
+\begin{proof}
+Direct evaluation gives
+\[
+\nu_x(\gamma_{\square})=e^{\Lambda}(x+s),
+\qquad
+\nu_x(\bar\gamma_{\square})=e^{\Lambda}x+s,
+\]
+so
+\[
+\tau(\gamma_{\square})
+ =e^{\Lambda}(x+s)-(e^{\Lambda}x+s)
+ =s(e^{\Lambda}-1).
+\]
+On the other hand,
+\[
+\int_0^s\int_0^{\Lambda} e^M\,dM\,dA
+ =\int_0^s (e^{\Lambda}-1)\,dA
+ =s(e^{\Lambda}-1).
+\]
+The two expressions coincide.
+\end{proof}
+
+Thus the finite torsion carried by a single arithmetic cell is already the exact weighted-area quantity that later appears globally in the ACS. The infinitesimal law
+\[
+ d\tau = \mu\lambda\,du\,dv
+\]
+from Section~\ref{sec:flowequation} is simply the first-order expansion of this finite formula in coordinates adapted to the grid.
+
+\begin{corollary}
+\label{cor:appC-rectangular-family}
+Let
+\[
+\gamma_{m,n}=\bigl(\oplus_1\bigr)^m\bigl(\otimes_{\log 2}\bigr)^n,
+\qquad
+\bar\gamma_{m,n}=\bigl(\otimes_{\log 2}\bigr)^n\bigl(\oplus_1\bigr)^m.
+\]
+Then
+\[
+\tau(\gamma_{m,n})=m(2^n-1).
+\]
+In particular, taking $m=n$ recovers the sequence $1,6,21,\dots$ from Section~\ref{subsec:gridsandtorsion}.
+\end{corollary}
+
+\begin{proof}
+We have
+\[
+\nu_x(\gamma_{m,n})=2^n(x+m),
+\qquad
+\nu_x(\bar\gamma_{m,n})=2^n x+m.
+\]
+Hence
+\[
+\tau(\gamma_{m,n})=2^n(x+m)-(2^n x+m)=m(2^n-1).
+\]
+\end{proof}
+
+\subsection{The radial formula in \texorpdfstring{$\mathfrak{E}_1$}{E1}}
+\label{appC:first-kind-radial}
+
+Section~\ref{subsec:firstkindspace} records the first kind space $\mathfrak{E}_1$ in the Poincar\'e disc with a single isolated zero. The assignment formula there is a direct consequence of the hyperbolic distance function.
+
+\begin{lemma}
+\label{lem:appC-radial-formula}
+Let $r\in(0,1)$ be the Euclidean radial coordinate on the Poincar\'e disc with curvature $-\lambda^2$, and let
+\[
+ s(r)=\frac{2}{\lambda}\operatorname{arctanh}(r)
+\]
+be the hyperbolic distance from the center. If the radial arithmetic flow starts from the singular zero and satisfies
+\[
+ a(s)=\frac{\mu}{\lambda}\sinh(\lambda s),
+\]
+then
+\[
+ a(r)=\frac{\mu}{\lambda}\frac{2r}{1-r^2}.
+\]
+\end{lemma}
+
+\begin{proof}
+From
+\[
+ s(r)=\frac{2}{\lambda}\operatorname{arctanh}(r)
+\]
+we obtain
+\[
+ \lambda s = 2\operatorname{arctanh}(r).
+\]
+Hence
+\[
+ e^{\lambda s}=\frac{1+r}{1-r},
+ \qquad
+ e^{-\lambda s}=\frac{1-r}{1+r}.
+\]
+Therefore
+\[
+ \sinh(\lambda s)
+ =\frac{e^{\lambda s}-e^{-\lambda s}}{2}
+ =\frac12\left(\frac{1+r}{1-r}-\frac{1-r}{1+r}\right)
+ =\frac12\cdot\frac{(1+r)^2-(1-r)^2}{1-r^2}
+ =\frac{2r}{1-r^2}.
+\]
+Substituting this into $a(s)=\frac{\mu}{\lambda}\sinh(\lambda s)$ gives the claimed formula.
+\end{proof}
+
+Two asymptotic regimes are immediate:
+\[
+ a(r)\sim \frac{2\mu}{\lambda}r
+ \quad (r\to 0),
+ \qquad
+ a(r)\sim \frac{\mu}{\lambda}\frac{1}{1-r}
+ \quad (r\to 1^-).
+\]
+So the singular center behaves linearly to first order, while the assignment diverges at the ideal boundary.
+
+\subsection{An inductive derivation of the ACS evaluation formula}
+\label{appC:acs-induction}
+
+The proof in Section~\ref{sec:global_torsion_acs_narrative_enhanced_lc} explains the evaluation formula by reading off the future multiplicative charge of each additive edge. For later reference it is convenient to record the same statement in an inductive form.
+
+For a prefix
+\[
+\gamma^{(k)}=(g_1,\dots,g_k)
+\]
+of an arithmetic history, write
+\[
+ M_k:=\sum_{\substack{1\le j\le k\\ g_j=\otimes_{\lambda_j}}}\lambda_j
+\]
+for its total multiplicative charge. If $g_j=\oplus_{\mu_j}$ with $j\le k$, define the future multiplicative charge inside the prefix by
+\[
+ M^+_{j,k}:=\sum_{\substack{j<\ell\le k\\ g_\ell=\otimes_{\lambda_\ell}}}\lambda_\ell.
+\]
+
+\begin{proposition}
+\label{prop:appC-prefix-evaluation}
+For every prefix $\gamma^{(k)}$ and every initial value $x$,
+\[
+\nu_x\bigl(\gamma^{(k)}\bigr)
+ = e^{M_k}x
+   + \sum_{\substack{1\le j\le k\\ g_j=\oplus_{\mu_j}}}
+     \mu_j e^{M^+_{j,k}}.
+\]
+\end{proposition}
+
+\begin{proof}
+We argue by induction on $k$.
+
+For $k=0$ the history is empty, $M_0=0$, and the formula reads $\nu_x(\varnothing)=x$, which is true.
+
+Assume the formula holds for $k$ and consider $\gamma^{(k+1)}$.
+There are two cases.
+
+\smallskip
+\noindent
+\emph{Case 1:} $g_{k+1}=\oplus_{\mu_{k+1}}$.
+Then $M_{k+1}=M_k$, and
+\[
+\nu_x\bigl(\gamma^{(k+1)}\bigr)
+ =\nu_x\bigl(\gamma^{(k)}\bigr)+\mu_{k+1}.
+\]
+By the induction hypothesis,
+\[
+\nu_x\bigl(\gamma^{(k+1)}\bigr)
+ =e^{M_k}x
+ +\sum_{\substack{1\le j\le k\\ g_j=\oplus_{\mu_j}}}\mu_j e^{M^+_{j,k}}
+ +\mu_{k+1}.
+\]
+Since the new step is additive, the future multiplicative charges of all earlier additive steps remain unchanged, and the new additive term has future multiplicative charge $0$. Thus the required formula holds for $k+1$.
+
+\smallskip
+\noindent
+\emph{Case 2:} $g_{k+1}=\otimes_{\lambda_{k+1}}$.
+Then
+\[
+\nu_x\bigl(\gamma^{(k+1)}\bigr)
+ =e^{\lambda_{k+1}}\nu_x\bigl(\gamma^{(k)}\bigr).
+\]
+Applying the induction hypothesis gives
+\[
+\nu_x\bigl(\gamma^{(k+1)}\bigr)
+ =e^{\lambda_{k+1}}e^{M_k}x
+ +\sum_{\substack{1\le j\le k\\ g_j=\oplus_{\mu_j}}}
+   \mu_j e^{\lambda_{k+1}}e^{M^+_{j,k}}.
+\]
+Now $M_{k+1}=M_k+\lambda_{k+1}$, and every earlier additive step acquires one extra future multiplicative factor $e^{\lambda_{k+1}}$. Hence
+\[
+ e^{\lambda_{k+1}}e^{M^+_{j,k}} = e^{M^+_{j,k+1}},
+\]
+which yields the desired formula.
+\end{proof}
+
+Taking $k=n$ gives the evaluation formula from the main text. Reading the reversed history $\bar\gamma$ instead of $\gamma$ turns the same sum into a line integral along the reversed ACS path:
+\[
+\nu_x(\gamma)=e^{M_\gamma}x+\int_{C_{\bar\gamma}}e^M\,dA.
+\]
+The integral notation is simply a compact way to encode the same weighted sum.
+
+\subsection{Explicit torsion formulas in the ACS}
+\label{appC:explicit-torsion-formulas}
+
+Let
+\[
+\gamma=(g_1,\dots,g_n)
+\]
+be an arithmetic history. For each additive step $g_j=\oplus_{\mu_j}$, define both the future and past multiplicative charges by
+\[
+ M_j^+ := \sum_{\substack{k>j\\ g_k=\otimes_{\lambda_k}}}\lambda_k,
+ \qquad
+ M_j^- := \sum_{\substack{k<j\\ g_k=\otimes_{\lambda_k}}}\lambda_k.
+\]
+Then the forward and reversed evaluations read
+\[
+\nu_x(\gamma)=e^{M_\gamma}x+\sum_{j\in I_A}\mu_j e^{M_j^+},
+\qquad
+\nu_x(\bar\gamma)=e^{M_\gamma}x+\sum_{j\in I_A}\mu_j e^{M_j^-},
+\]
+where $I_A$ denotes the set of additive indices.
+
+\begin{corollary}
+\label{cor:appC-explicit-torsion-formula}
+For every arithmetic history $\gamma$,
+\[
+\tau(\gamma)
+ =\sum_{j\in I_A}\mu_j\bigl(e^{M_j^+}-e^{M_j^-}\bigr).
+\]
+\end{corollary}
+
+\begin{proof}
+Subtract the two formulas above. The common term $e^{M_\gamma}x$ cancels.
+\end{proof}
+
+This expression is often the fastest way to compute torsion in concrete examples. It also makes two structural facts transparent.
+First, only additive steps contribute directly to the sum; multiplicative steps act by reweighting those contributions. Second, a step contributes nothing precisely when its total multiplicative charge before and after are the same.
+
+\begin{corollary}
+\label{cor:appC-block-paths}
+Suppose $\gamma$ is a block path of the form
+\[
+\gamma=(\oplus_{\mu_1},\dots,\oplus_{\mu_r},\otimes_{\lambda_1},\dots,\otimes_{\lambda_s}),
+\]
+and let
+\[
+\Lambda:=\lambda_1+\cdots+\lambda_s.
+\]
+Then
+\[
+\tau(\gamma)=\bigl(e^{\Lambda}-1\bigr)(\mu_1+\cdots+\mu_r).
+\]
+\end{corollary}
+
+\begin{proof}
+For every additive step in such a block path one has $M_j^+=\Lambda$ and $M_j^-=0$. The previous corollary therefore gives
+\[
+\tau(\gamma)
+ =\sum_{j=1}^r \mu_j(e^{\Lambda}-1)
+ =\bigl(e^{\Lambda}-1\bigr)(\mu_1+\cdots+\mu_r).
+\]
+\end{proof}
+
+\paragraph{A signed example.}
+To illustrate the oriented nature of the ACS filling, consider
+\[
+\gamma=(\oplus_1,\otimes_{\log 2},\oplus_{-1}).
+\]
+Then
+\[
+\nu_x(\gamma)=2(x+1)-1=2x+1,
+\]
+whereas
+\[
+\nu_x(\bar\gamma)=(x-1)\cdot 2+1=2x-1.
+\]
+So
+\[
+\tau(\gamma)=2.
+\]
+In ACS language,
+\[
+C_\gamma:(0,0)\to(1,0)\to(1,\log 2)\to(0,\log 2),
+\]
+while
+\[
+C_{\bar\gamma}:(0,0)\to(-1,0)\to(-1,\log 2)\to(0,\log 2).
+\]
+These two paths together bound the rectangle
+\[
+[-1,1]\times[0,\log 2],
+\]
+so the triple identity becomes
+\[
+\tau(\gamma)
+ =\int_{-1}^1\int_0^{\log 2} e^M\,dM\,dA
+ =2.
+\]
+This is a useful reminder that the ACS formalism is not restricted to monotone positive staircases: the same weighted-area language also handles signed additive data through oriented chains.
+ \newpage
+
+\section{Supplementary calculations for contact / delta / holomorphicity}\label{app:contact-delta-holomorphicity}
+
+This appendix collects the technical calculations that were deliberately compressed in Sections~\ref{sec:ecstructure}, \ref{ch:differential_calculus}, and \ref{ch:holomorphic}. Its role is parallel to that of Appendix~\ref{app:model-acs}: it does not enlarge the program of the paper, but records the explicit computations behind the contact form, the horizontal differential $\delta$, and the first arithmetic holomorphic fields.
+
+\subsection{Darboux reduction, the Reeb field, and the elementary Lie algebra}
+\label{appD:darboux-reeb}
+
+Recall the arithmetic contact form
+\[
+\alpha=da-(\mu\,du+\lambda a\,dv)
+\]
+on $M=\mathbb R^3_{(u,v,a)}$, together with the horizontal fields
+\[
+D_u=\partial_u+\mu\,\partial_a,
+\qquad
+D_v=\partial_v+\lambda a\,\partial_a.
+\]
+The following three short computations are used implicitly throughout Section~\ref{sec:ecstructure}.
+
+\begin{proposition}
+\label{prop:appD-darboux-reeb}
+Assume $\mu\lambda\neq 0$.
+Then:
+\begin{enumerate}
+    \item After the change of variables
+    \[
+    \tilde u=\mu u,
+    \qquad
+    \tilde v=\lambda v,
+    \qquad
+    x:=\tilde v,
+    \qquad
+    y:=a,
+    \qquad
+    z:=a-\tilde u,
+    \]
+    the contact form becomes
+    \[
+    \alpha = dz-y\,dx.
+    \]
+
+    \item The Reeb field of $\alpha$ is
+    \[
+    R=-\frac1\mu\,\partial_u.
+    \]
+
+    \item The Lie algebra generated by $D_u,D_v,\partial_a$ splits as
+    \[
+    \mathfrak g:=\mathrm{span}\{D_u,D_v,\partial_a\}
+    \cong \mathbb R \oplus \mathfrak{aff}(1).
+    \]
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Since
+\[
+ d\tilde u=\mu\,du,
+ \qquad
+ d\tilde v=\lambda\,dv,
+ \qquad
+ dz=da-d\tilde u,
+\]
+one obtains
+\[
+\alpha=da-d\tilde u-a\,d\tilde v=dz-y\,dx.
+\]
+This is the standard Darboux form.
+
+For the Reeb field, write
+\[
+R=r_u\partial_u+r_v\partial_v+r_a\partial_a.
+\]
+Because
+\[
+d\alpha=-\lambda\,da\wedge dv,
+\]
+the condition $i_Rd\alpha=0$ gives $r_v=r_a=0$.
+The normalization $\alpha(R)=1$ then becomes
+\[
+-\mu r_u=1,
+\]
+so $R=-\mu^{-1}\partial_u$.
+
+Finally,
+\[
+[D_u,D_v]=\mu\lambda\,\partial_a,
+\qquad
+[D_u,\partial_a]=0,
+\qquad
+[D_v,\partial_a]=-\lambda\,\partial_a.
+\]
+Set
+\[
+C:=\partial_u=D_u-\mu\partial_a,
+\qquad
+H:=\lambda^{-1}D_v,
+\qquad
+E:=-\partial_a.
+\]
+Then $[C,H]=[C,E]=0$, while
+\[
+[H,E]=E.
+\]
+Thus $\mathrm{span}\{H,E\}\cong\mathfrak{aff}(1)$ and
+\[
+\mathfrak g=\mathbb RC\oplus\mathrm{span}\{H,E\}\cong\mathbb R\oplus\mathfrak{aff}(1).
+\]
+\end{proof}
+
+This proposition is mainly organizational. It says that the arithmetic contact manifold is locally the standard contact model, but written in coordinates adapted to the add/multiply directions.
+
+\subsection{Exact local commutator squares and infinitesimal density}
+\label{appD:commutator-squares}
+
+The main text records the local defect carried by the commutator of the two horizontal fields. For later reference it is useful to isolate the exact finite formulas.
+
+\begin{proposition}
+\label{prop:appD-commutator-square}
+Let $\Phi_u^h$ and $\Phi_v^k$ be the time-$h$ and time-$k$ flows of $D_u$ and $D_v$. Then
+\[
+\Phi_u^h(u,v,a)=(u+h,v,a+\mu h),
+\qquad
+\Phi_v^k(u,v,a)=(u,v+k,e^{\lambda k}a).
+\]
+Define the two-step endpoints
+\[
+p_{uv}:=\Phi_v^k\!\circ\Phi_u^h(u,v,a),
+\qquad
+p_{vu}:=\Phi_u^h\!\circ\Phi_v^k(u,v,a).
+\]
+Then
+\[
+a(p_{uv})-a(p_{vu})=\mu h(e^{\lambda k}-1).
+\]
+If one closes the base rectangle by the inverse legs, the lifted commutator loop satisfies
+\[
+\bigl(\Phi_v^{-k}\circ\Phi_u^{-h}\circ\Phi_v^k\circ\Phi_u^h\bigr)(u,v,a)
+=\bigl(u,v,a+\mu h(1-e^{-\lambda k})\bigr).
+\]
+\end{proposition}
+
+\begin{proof}
+The flow formulas follow by solving
+\[
+\dot u=1,\quad \dot v=0,\quad \dot a=\mu
+\]
+for $D_u$, and
+\[
+\dot u=0,\quad \dot v=1,\quad \dot a=\lambda a
+\]
+for $D_v$.
+Therefore
+\[
+p_{uv}
+=\Phi_v^k(u+h,v,a+\mu h)
+=\bigl(u+h,v+k,e^{\lambda k}(a+\mu h)\bigr),
+\]
+whereas
+\[
+p_{vu}
+=\Phi_u^h(u,v+k,e^{\lambda k}a)
+=\bigl(u+h,v+k,e^{\lambda k}a+\mu h\bigr).
+\]
+Subtracting the assignment coordinates gives the first formula.
+
+For the closed commutator loop, apply the four maps in order:
+\[
+(u,v,a)
+\xmapsto{\Phi_u^h}(u+h,v,a+\mu h)
+\xmapsto{\Phi_v^k}(u+h,v+k,e^{\lambda k}(a+\mu h)),
+\]
+then
+\[
+\xmapsto{\Phi_u^{-h}}(u,v+k,e^{\lambda k}(a+\mu h)-\mu h)
+\xmapsto{\Phi_v^{-k}}(u,v,a+\mu h-\mu he^{-\lambda k}).
+\]
+This is exactly the claimed vertical drift.
+\end{proof}
+
+The two formulas encode two slightly different finite quantities:
+\begin{itemize}
+    \item the \emph{open-path torsion} between two histories with the same base endpoint,
+    \item the \emph{closed-loop holonomy} after returning to the original $(u,v)$.
+\end{itemize}
+They are not equal at finite scale, but their first-order densities coincide.
+
+\begin{corollary}
+\label{cor:appD-infinitesimal-density}
+One has
+\[
+\frac{a(p_{uv})-a(p_{vu})}{hk}=\mu\lambda+O(k),
+\qquad
+\frac{\Delta_a(h,k)}{hk}=\mu\lambda+O(k),
+\]
+where
+\[
+\Delta_a(h,k):=\mu h(1-e^{-\lambda k}).
+\]
+In particular,
+\[
+\lim_{h,k\to 0}\frac{a(p_{uv})-a(p_{vu})}{hk}
+=
+\lim_{h,k\to 0}\frac{\Delta_a(h,k)}{hk}
+=\mu\lambda.
+\]
+\end{corollary}
+
+\begin{proof}
+Use the expansions
+\[
+e^{\lambda k}-1=\lambda k+O(k^2),
+\qquad
+1-e^{-\lambda k}=\lambda k+O(k^2).
+\]
+\end{proof}
+
+This is the local bridge between the exact exponential weighting of the ACS and the constant curvature density seen by the contact structure and the $\delta$-calculus.
+
+\subsection{The \texorpdfstring{$B_n$}{Bn} basis and the finite upward sweep}
+\label{appD:Bn-basis-upward-sweep}
+
+Section~\ref{ch:differential_calculus} introduces the scaled monomials
+\[
+\tilde v:=\lambda v,
+\qquad
+q:=e^{\tilde v},
+\qquad
+B_n(a,v):=e^{-n\tilde v}a^n=q^{-n}a^n.
+\]
+The point of the basis is that it linearizes the multiplicative direction and makes the $D_u$-calculus algorithmic.
+
+\begin{lemma}
+\label{lem:appD-Bn-actions}
+For every $n\ge 0$ one has
+\[
+D_vB_n=0,
+\qquad
+D_uB_n=\mu n e^{-\tilde v}B_{n-1}=\mu n q^{-1}B_{n-1}.
+\]
+\end{lemma}
+
+\begin{proof}
+Since $B_n=q^{-n}a^n$, it is independent of $u$, so
+\[
+D_uB_n=\mu\partial_a(q^{-n}a^n)=\mu n q^{-n}a^{n-1}=\mu n q^{-1}B_{n-1}.
+\]
+For $D_v$, use $\partial_v q=\lambda q$ and $\partial_a a^n=na^{n-1}$:
+\[
+\partial_vB_n=-n\lambda q^{-n}a^n,
+\qquad
+\lambda a\partial_aB_n=\lambda n q^{-n}a^n.
+\]
+These two terms cancel.
+\end{proof}
+
+\begin{lemma}
+\label{lem:appD-one-step-antiderivative}
+If $P=P(v,q)$ is independent of $u$, then
+\[
+D_u\!\left(\frac{qP}{\mu(n+1)}B_{n+1}\right)=PB_n.
+\]
+Hence
+\[
+D_u^{-1}(PB_n)=\frac{qP}{\mu(n+1)}B_{n+1}
+\]
+within the class of fields independent of $u$.
+\end{lemma}
+
+\begin{proof}
+Since $P$ is independent of $u$ and $a$, one has
+\[
+D_u\!\left(\frac{qP}{\mu(n+1)}B_{n+1}\right)
+=\frac{qP}{\mu(n+1)}D_uB_{n+1}
+=\frac{qP}{\mu(n+1)}\mu(n+1)q^{-1}B_n
+=PB_n.
+\]
+\end{proof}
+
+The genuinely useful step is what happens when the coefficient depends polynomially on $u$.
+
+\begin{proposition}
+\label{prop:appD-upward-sweep}
+Let $P=P(u,v,q)$ be polynomial in $u$, and consider a target term $PB_n$.
+Define the first lift
+\[
+G_0:=\frac{qP}{\mu(n+1)}B_{n+1}.
+\]
+Then
+\[
+D_uG_0=PB_n+R_1,
+\qquad
+R_1:=\frac{q\,\partial_uP}{\mu(n+1)}B_{n+1}.
+\]
+In particular, the $u$-degree of the remainder is one lower than that of $P$.
+Iterating this correction therefore terminates after finitely many steps.
+\end{proposition}
+
+\begin{proof}
+Use the product rule:
+\[
+D_uG_0
+=\frac{q\,\partial_uP}{\mu(n+1)}B_{n+1}
++\frac{qP}{\mu(n+1)}D_uB_{n+1}.
+\]
+By Lemma~\ref{lem:appD-Bn-actions},
+\[
+D_uB_{n+1}=\mu(n+1)q^{-1}B_n,
+\]
+so the second term is exactly $PB_n$.
+The first term is $R_1$.
+Since $\partial_uP$ lowers the $u$-degree by one, repeated correction ends after finitely many iterations.
+\end{proof}
+
+\paragraph{A sample two-step sweep.}
+Take $P(u,v,q)=u$.
+The first lift is
+\[
+G_0=\frac{qu}{\mu(n+1)}B_{n+1},
+\]
+and Proposition~\ref{prop:appD-upward-sweep} gives
+\[
+D_uG_0=uB_n+\frac{q}{\mu(n+1)}B_{n+1}.
+\]
+Applying Lemma~\ref{lem:appD-one-step-antiderivative} to the remainder yields the corrected primitive
+\[
+G=\frac{qu}{\mu(n+1)}B_{n+1}-\frac{q^2}{\mu^2(n+1)(n+2)}B_{n+2},
+\]
+for which
+\[
+D_uG=uB_n.
+\]
+This is the finite ``upward sweep'' mechanism used implicitly in the main text.
+
+\subsection{Factorization of the arithmetic Cauchy--Riemann operators}
+\label{appD:factorization}
+
+Let
+\[
+\partial_{\mathrm{AEG}}:=\frac12(D_u-iD_v),
+\qquad
+\bar\partial_{\mathrm{AEG}}:=\frac12(D_u+iD_v),
+\]
+acting on complex-valued fields on $M$.
+For a field $F=f+ig$, the arithmetic Cauchy--Riemann equations are exactly
+\[
+\bar\partial_{\mathrm{AEG}}F=0.
+\]
+We now record the two operator factorizations that stand behind the second-order consequence in Section~\ref{ch:holomorphic}.
+
+\begin{proposition}
+\label{prop:appD-factorization}
+Define the horizontal Laplacian by
+\[
+\Delta_H:=D_u^2+D_v^2.
+\]
+Then
+\[
+4\partial_{\mathrm{AEG}}\bar\partial_{\mathrm{AEG}}
+=\Delta_H+i\mu\lambda\,\partial_a,
+\qquad
+4\bar\partial_{\mathrm{AEG}}\partial_{\mathrm{AEG}}
+=\Delta_H-i\mu\lambda\,\partial_a.
+\]
+Consequently, every arithmetic holomorphic field satisfies
+\[
+(\Delta_H+i\mu\lambda\,\partial_a)F=0.
+\]
+\end{proposition}
+
+\begin{proof}
+Expand the first composition:
+\[
+4\partial_{\mathrm{AEG}}\bar\partial_{\mathrm{AEG}}
+=(D_u-iD_v)(D_u+iD_v)
+=D_u^2+D_v^2+i(D_uD_v-D_vD_u).
+\]
+Since
+\[
+[D_u,D_v]=\mu\lambda\,\partial_a,
+\]
+this becomes
+\[
+4\partial_{\mathrm{AEG}}\bar\partial_{\mathrm{AEG}}
+=\Delta_H+i\mu\lambda\,\partial_a.
+\]
+The second identity is analogous.
+If $\bar\partial_{\mathrm{AEG}}F=0$, then applying $\partial_{\mathrm{AEG}}$ gives
+\[
+\partial_{\mathrm{AEG}}\bar\partial_{\mathrm{AEG}}F=0,
+\]
+hence
+\[
+(\Delta_H+i\mu\lambda\,\partial_a)F=0.
+\]
+\end{proof}
+
+The point of this formula is conceptual rather than merely formal. The curvature term does not appear as an external perturbation: it is forced by the non-commutation of the two horizontal arithmetic directions.
+
+\begin{corollary}
+\label{cor:appD-horizontal-jacobian}
+Let $F=f+ig$ be arithmetic holomorphic, and define
+\[
+|F'|_H^2:=(D_uf)^2+(D_ug)^2=(D_vf)^2+(D_vg)^2.
+\]
+Then
+\[
+\delta f\wedge\delta g=|F'|_H^2\,du\wedge dv.
+\]
+\end{corollary}
+
+\begin{proof}
+Using
+\[
+\delta f=(D_uf)\,du+(D_vf)\,dv,
+\qquad
+\delta g=(D_ug)\,du+(D_vg)\,dv,
+\]
+one gets
+\[
+\delta f\wedge\delta g
+=(D_ufD_vg-D_vfD_ug)\,du\wedge dv.
+\]
+The arithmetic Cauchy--Riemann equations imply
+\[
+D_vg=D_uf,
+\qquad
+D_vf=-D_ug,
+\]
+so the coefficient becomes
+\[
+(D_uf)^2+(D_ug)^2=|F'|_H^2.
+\]
+\end{proof}
+
+\subsection{A genuinely arithmetic holomorphic coordinate and a rigidity check}
+\label{appD:explicit-zeta}
+
+The first examples in Section~\ref{ch:holomorphic} should not all come from classical holomorphic functions on the $(u,v)$-plane. The next calculation shows that there are already local fields with genuine $a$-dependence.
+
+\begin{proposition}
+\label{prop:appD-zeta}
+Fix a simply connected open set on which a branch of the logarithm is chosen for
+\[
+\mu+i\lambda a.
+\]
+Define
+\[
+\zeta(u,a):=u+\frac{i}{\lambda}\log(\mu+i\lambda a).
+\]
+Then $\zeta$ is arithmetic holomorphic:
+\[
+\bar\partial_{\mathrm{AEG}}\zeta=0.
+\]
+\end{proposition}
+
+\begin{proof}
+Since $\zeta$ is independent of $v$, only the $a$-dependence matters.
+Differentiate the logarithm:
+\[
+\partial_a\zeta
+=\frac{i}{\lambda}\cdot\frac{i\lambda}{\mu+i\lambda a}
+=-\frac{1}{\mu+i\lambda a}.
+\]
+Therefore
+\[
+D_u\zeta
+=1+\mu\partial_a\zeta
+=1-\frac{\mu}{\mu+i\lambda a}
+=\frac{i\lambda a}{\mu+i\lambda a},
+\]
+and
+\[
+D_v\zeta
+=\lambda a\partial_a\zeta
+=-\frac{\lambda a}{\mu+i\lambda a}.
+\]
+Hence
+\[
+D_u\zeta+iD_v\zeta
+=\frac{i\lambda a}{\mu+i\lambda a}-i\frac{\lambda a}{\mu+i\lambda a}=0,
+\]
+which is exactly $2\bar\partial_{\mathrm{AEG}}\zeta=0$.
+\end{proof}
+
+This field is already enough to show that arithmetic holomorphicity is not merely the old planar theory rewritten in new notation. The coordinate $u$ and the assignment variable $a$ are intertwined through the logarithm of the affine quantity $\mu+i\lambda a$.
+
+A complementary one-line calculation explains the rigidity statement from the main text.
+
+\begin{corollary}
+\label{cor:appD-rigidity-a-only}
+If a complex field $F$ depends only on $a$ and satisfies
+\[
+\bar\partial_{\mathrm{AEG}}F=0,
+\]
+then $F$ is constant.
+\end{corollary}
+
+\begin{proof}
+If $F=F(a)$, then
+\[
+2\bar\partial_{\mathrm{AEG}}F
+=(D_u+iD_v)F
+=(\mu+i\lambda a)F'(a).
+\]
+For real $a$, the factor $\mu+i\lambda a$ never vanishes when $\mu\neq 0$, so $F'(a)=0$.
+\end{proof}
+ \newpage
+
+\section{Supplementary examples on equality levels and first neutralities}\label{app:equality-neutralities}
+
+This appendix gathers the elementary examples that motivate the layered notion of equality from Section~\ref{sec:concepts} and the first loop-theoretic outlook announced there. Its purpose is pedagogical. The main text keeps only the shortest route from expressions to torsion; the present appendix records a small stock of explicit examples that can be used as calibration tests later on.
+
+\subsection{The equality ladder revisited through small examples}
+\label{appE:equality-ladder}
+
+Section~\ref{subsec:problems-on-equality-singularity-symmetries} distinguishes several levels of equality. The quickest way to keep those levels separate is to place a few concrete examples side by side.
+
+\paragraph{Literal versus operational equality.}
+The two expressions
+\[
+(x+1)+2,
+\qquad
+x+(1+2)
+\]
+are not literally identical as written strings. After currying, however, both determine the same operational history
+\[
+(\oplus_1,\oplus_2),
+\]
+so they are operationally equal.
+
+\paragraph{Operational versus relational equality.}
+The two expressions
+\[
+(x+1)\times 2,
+\qquad
+x\times 2+2
+\]
+are not produced by the same threaded history. The first corresponds to
+\[
+(\oplus_1,\otimes_{\log 2}),
+\]
+whereas the second corresponds to
+\[
+(\otimes_{\log 2},\oplus_2).
+\]
+Nevertheless, they induce the same affine map
+\[
+x\longmapsto 2x+2.
+\]
+So they are equal only after an additional algebraic relation is imposed; this is the first prototype of \emph{relational equality}.
+
+\paragraph{Semantic equality at a chosen basepoint.}
+The expressions
+\[
+x+2,
+\qquad
+x\times 2
+\]
+are different both operationally and relationally, but at the chosen basepoint $x=2$ they have the same value $4$. This is the coarsest level of comparison: a single evaluation point can identify histories that the richer layers keep distinct.
+
+\paragraph{A canonical warning.}
+The two histories
+\[
+(\oplus_1,\otimes_{\log 2})
+\qquad\text{and}\qquad
+(\otimes_{\log 2},\oplus_1)
+\]
+have the same generators and the same total endpoint data in the grid, but they induce different affine maps,
+\[
+x\longmapsto 2x+2,
+\qquad
+x\longmapsto 2x+1.
+\]
+This is the smallest example showing why AEG insists on remembering history before quotienting by coarser equalities.
+
+\subsection{Affine normal form and fixed-point closure}
+\label{appE:fixed-point-closure}
+
+Every threaded arithmetic history acts by an affine map. Writing this explicitly is the easiest way to separate basepoint closure from operator identity.
+
+\begin{proposition}
+\label{prop:appE-affine-normal-form}
+Let
+\[
+\gamma=(g_1,\dots,g_n)
+\]
+be a history built from additive generators $\oplus_\mu:x\mapsto x+\mu$ and multiplicative generators $\otimes_\lambda:x\mapsto e^\lambda x$.
+Then there exist uniquely determined real numbers $M_\gamma$ and $B_\gamma$ such that
+\[
+\rho(\gamma)(x)=\nu_x(\gamma)=e^{M_\gamma}x+B_\gamma.
+\]
+Moreover:
+\begin{enumerate}
+    \item If $M_\gamma\neq 0$, then $\gamma$ has a unique fixed basepoint,
+    \[
+    x_\ast=\frac{B_\gamma}{1-e^{M_\gamma}}.
+    \]
+    \item If $M_\gamma=0$, then either $\rho(\gamma)=Id$ (when $B_\gamma=0$) or $\gamma$ has no fixed basepoint at all (when $B_\gamma\neq 0$).
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+The existence of the affine normal form follows by induction on the length of the history. The empty history gives $x\mapsto x$. Appending $\oplus_\mu$ changes only the translation term, while appending $\otimes_\lambda$ multiplies both coefficients by $e^\lambda$.
+
+Now solve the fixed-point equation
+\[
+x=e^{M_\gamma}x+B_\gamma.
+\]
+If $e^{M_\gamma}\neq 1$, there is exactly one solution,
+\[
+x_\ast=\frac{B_\gamma}{1-e^{M_\gamma}}.
+\]
+If $e^{M_\gamma}=1$, then the equation reduces to $B_\gamma=0$. In that case every basepoint is fixed and the affine map is the identity; otherwise there is no fixed point.
+\end{proof}
+
+This elementary proposition already distinguishes two notions that should not be conflated:
+\begin{itemize}
+    \item \emph{fixed-point closure} at a chosen basepoint,
+    \item \emph{operator triviality}, meaning $\rho(\gamma)=Id$.
+\end{itemize}
+A fixed-point loop may exist without the operator being trivial.
+
+\begin{example}
+\label{ex:appE-fixed-not-identity}
+Consider
+\[
+\gamma_{\mathrm{fp}}=(\oplus_1,\otimes_{\log 2},\oplus_{-1}).
+\]
+A direct computation gives
+\[
+\rho(\gamma_{\mathrm{fp}})(x)=2x+1.
+\]
+Hence $\gamma_{\mathrm{fp}}$ is not operator-trivial, but it does have the unique fixed basepoint
+\[
+x_\ast=\frac{1}{1-2}=-1.
+\]
+So this word closes at one distinguished value without being an identity.
+\end{example}
+
+\begin{example}
+\label{ex:appE-identity-word}
+Consider
+\[
+\gamma_{\mathrm{id}}=(\oplus_1,\otimes_{\log 2},\oplus_{-2},\otimes_{-\log 2}).
+\]
+Then
+\[
+x\xrightarrow{\oplus_1}x+1
+\xrightarrow{\otimes_{\log 2}}2x+2
+\xrightarrow{\oplus_{-2}}2x
+\xrightarrow{\otimes_{-\log 2}}x.
+\]
+So $\rho(\gamma_{\mathrm{id}})=Id$.
+This is a genuine operator relation, not merely a basepoint-dependent closure.
+\end{example}
+
+\subsection{First neutralities and separation examples}
+\label{appE:first-neutralities}
+
+The main text only opens the door to loop theory. At that stage the most useful thing is not a full taxonomy, but a small stock of examples separating the first few neutralities.
+
+Fix a basepoint $x_0$.
+For a history $\gamma$, define:
+\begin{itemize}
+    \item \textbf{value-zero at $x_0$}: $\nu_{x_0}(\gamma)=0$;
+    \item \textbf{operator-zero}: $\rho(\gamma)=Id$;
+    \item \textbf{charge-zero}: $(A_\gamma,M_\gamma)=(0,0)$;
+    \item \textbf{torsion-zero}: $\tau(\gamma)=0$.
+\end{itemize}
+Only the first notion depends on the chosen basepoint. The others are intrinsic to the history.
+
+\begin{proposition}
+\label{prop:appE-separation-examples}
+The following histories separate the four elementary neutralities.
+
+\smallskip
+\noindent
+\textbf{(i) Value-zero without the others.}
+At basepoint $x_0=0$,
+\[
+\gamma_{\mathrm{val}}=(\oplus_1,\otimes_{\log 2},\oplus_{-2})
+\]
+satisfies
+\[
+\nu_0(\gamma_{\mathrm{val}})=0,
+\qquad
+\rho(\gamma_{\mathrm{val}})(x)=2x,
+\qquad
+(A,M)=(-1,\log 2),
+\qquad
+\tau(\gamma_{\mathrm{val}})=3.
+\]
+
+\smallskip
+\noindent
+\textbf{(ii) Operator-zero without charge-zero or torsion-zero.}
+For
+\[
+\gamma_{\mathrm{op}}=(\oplus_1,\otimes_{\log 2},\oplus_{-2},\otimes_{-\log 2})
+\]
+one has
+\[
+\rho(\gamma_{\mathrm{op}})=Id,
+\qquad
+(A,M)=(-1,0),
+\qquad
+\tau(\gamma_{\mathrm{op}})=3.
+\]
+
+\smallskip
+\noindent
+\textbf{(iii) Charge-zero without operator-zero or torsion-zero.}
+For
+\[
+\gamma_{\mathrm{ch}}=(\oplus_1,\otimes_{\log 2},\oplus_{-1},\otimes_{-\log 2})
+\]
+one has
+\[
+\rho(\gamma_{\mathrm{ch}})(x)=x+\frac12,
+\qquad
+(A,M)=(0,0),
+\qquad
+\tau(\gamma_{\mathrm{ch}})=\frac32.
+\]
+
+\smallskip
+\noindent
+\textbf{(iv) Torsion-zero without the others.}
+For
+\[
+\gamma_{\mathrm{tor}}=(\oplus_1,\oplus_2)
+\]
+one has
+\[
+\rho(\gamma_{\mathrm{tor}})(x)=x+3,
+\qquad
+(A,M)=(3,0),
+\qquad
+\tau(\gamma_{\mathrm{tor}})=0.
+\]
+\end{proposition}
+
+\begin{proof}
+(i) Starting from $x$, the history $\gamma_{\mathrm{val}}$ gives
+\[
+x\xrightarrow{\oplus_1}x+1
+\xrightarrow{\otimes_{\log 2}}2x+2
+\xrightarrow{\oplus_{-2}}2x.
+\]
+Hence $\rho(\gamma_{\mathrm{val}})(x)=2x$, so at $x_0=0$ the value is $0$.
+The additive and multiplicative charges are visibly $-1$ and $\log 2$.
+For the reverse word,
+\[
+\bar\gamma_{\mathrm{val}}=(\oplus_{-2},\otimes_{\log 2},\oplus_1),
+\]
+and
+\[
+\rho(\bar\gamma_{\mathrm{val}})(x)=2x-3.
+\]
+Therefore
+\[
+\tau(\gamma_{\mathrm{val}})=2x-(2x-3)=3.
+\]
+
+(ii) Example~\ref{ex:appE-identity-word} already shows $\rho(\gamma_{\mathrm{op}})=Id$.
+The total charges are $A=-1$ and $M=0$.
+For the reverse word,
+\[
+\bar\gamma_{\mathrm{op}}=(\otimes_{-\log 2},\oplus_{-2},\otimes_{\log 2},\oplus_1),
+\]
+one gets
+\[
+\rho(\bar\gamma_{\mathrm{op}})(x)=x-3,
+\]
+so $\tau(\gamma_{\mathrm{op}})=3$.
+
+(iii) For $\gamma_{\mathrm{ch}}$,
+\[
+x\xrightarrow{\oplus_1}x+1
+\xrightarrow{\otimes_{\log 2}}2x+2
+\xrightarrow{\oplus_{-1}}2x+1
+\xrightarrow{\otimes_{-\log 2}}x+\frac12.
+\]
+Thus $\rho(\gamma_{\mathrm{ch}})(x)=x+\frac12$.
+The additive charges cancel and the multiplicative charges cancel, so $(A,M)=(0,0)$.
+For the reverse word,
+\[
+\bar\gamma_{\mathrm{ch}}=(\otimes_{-\log 2},\oplus_{-1},\otimes_{\log 2},\oplus_1),
+\]
+one obtains
+\[
+\rho(\bar\gamma_{\mathrm{ch}})(x)=x-1,
+\]
+so
+\[
+\tau(\gamma_{\mathrm{ch}})=\left(x+\frac12\right)-(x-1)=\frac32.
+\]
+
+(iv) For $\gamma_{\mathrm{tor}}=(\oplus_1,\oplus_2)$ one simply has
+\[
+\rho(\gamma_{\mathrm{tor}})(x)=x+3.
+\]
+Since the reversed word is $(\oplus_2,\oplus_1)$, the same map is obtained after reversal. Hence $\tau(\gamma_{\mathrm{tor}})=0$, while the operator and total additive charge are nontrivial.
+\end{proof}
+
+The point of the proposition is not that these four notions are the final taxonomy of zeros. It is only that even the first layer already separates, so later loop theory should record these distinctions before quotienting them away.
+
+\subsection{A first zero-signature table}
+\label{appE:zero-signature-table}
+
+For a quick bookkeeping device, define the binary signature at basepoint $x_0$ by
+\[
+Z_{x_0}(\gamma)=\bigl(Z_{\mathrm{val}},Z_{\mathrm{op}},Z_{\mathrm{ch}},Z_{\mathrm{tor}}\bigr),
+\]
+where each entry is $1$ if the corresponding neutrality holds and $0$ otherwise.
+Using the histories above at the basepoint $x_0=0$, one gets:
+\[
+\begin{array}{c|c}
+\text{history} & Z_0(\gamma)\\
+\hline
+\gamma_{\mathrm{val}} & (1,0,0,0)\\
+\gamma_{\mathrm{op}}  & (1,1,0,0)\\
+\gamma_{\mathrm{ch}}  & (0,0,1,0)\\
+\gamma_{\mathrm{tor}} & (0,0,0,1)\\
+(\oplus_1,\oplus_{-1}) & (1,1,1,1)
+\end{array}
+\]
+The first line shows pure value-zero at the chosen basepoint. The second line shows that operator-zero is stronger than value-zero at $x_0=0$, but still independent of charge-zero and torsion-zero. The third and fourth lines separate charge-zero and torsion-zero. The last line records the completely neutral cancellation.
+
+This small table is not yet a full loop theory. It is merely a reminder that ``zero'' in AEG is already stratified before one reaches the richer topological and local-holonomy layers suggested by the future loop program.
+ \newpage
+
 
 \end{document}
