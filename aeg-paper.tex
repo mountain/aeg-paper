@@ -11,7 +11,7 @@
 
 \usepackage[utf8]{inputenc} % allow utf-8 input
 \usepackage[T1]{fontenc}    % use 8-bit T1 fonts
-\usepackage{hyperref}       % hyperlinks
+\usepackage[hypertexnames=false]{hyperref}       % hyperlinks
 \usepackage{url}            % simple URL typesetting
 \usepackage{booktabs}       % professional-quality tables
 \usepackage[english]{babel}
@@ -50,6 +50,8 @@
 \numberwithin{corollary}{section}
 \newtheorem{theorem}{Theorem}
 \numberwithin{theorem}{section}
+\newtheorem{example}{Theorem}
+\numberwithin{example}{section}
 
 \DeclareMathSymbol{\mathinvertedexclamationmark}{\mathclose}{operators}{'074}
 \DeclareMathSymbol{\mathexclamationmark}{\mathclose}{operators}{'041}
@@ -68,10 +70,9 @@
 \DeclareMathOperator{\arcsinh}{arcsinh}
 \DeclareMathOperator{\Tr}{Tr} % Example, if trace was needed
 
-\title{Geometry of Arithmetic Expressions: I.\\ Basic Concepts and Unsolved Problems (Draft)}
+\title{Arithmetic Expression Geometry I: Foundations}
 
-%\date{Decmber 8, 2022}	% Here you can change the date presented in the paper title
-%\date{} 				% Or removing it
+\date{} 				% Or removing it
 
 \author{
 Mingli Yuan \\
@@ -80,10 +81,6 @@ Beijing, 100083 \\
 \texttt{mingli.yuan@gmail.com}
 }
 
-% Uncomment to remove the date
-%\date{}
-
-% Uncomment to override  the `A preprint' in the header
 \renewcommand{\headeright}{A preprint}
 \renewcommand{\undertitle}{A preprint}
 
@@ -91,39 +88,31 @@ Beijing, 100083 \\
 \maketitle
 
 \begin{abstract}
-Arithmetic expressions are usually regarded as purely syntactic objects whose intermediate evaluation steps disappear
-once a final numerical value is produced. In this paper we develop a geometric framework in which the evaluation
-dynamics of expressions itself becomes the primary object of study. The starting point is the observation that the basic
-operations of addition and multiplication generate two transverse directions of propagation, whose infinitesimal interplay
-gives rise to a flow equation
+We introduce Arithmetic Expression Geometry (AEG), a framework in which arithmetic expressions are studied through
+the geometry of their evaluation histories rather than only through their final numerical values. For a distinguished
+class of threadlike expressions, additive and multiplicative updates determine two generating directions of propagation,
+and their infinitesimal interplay yields the arithmetic flow equation
 \[
-    \frac{da}{ds}=\mu\cos\theta + a\lambda\sin\theta,
+    \frac{da}{ds}=\mu\cos\theta + a\lambda\sin\theta.
 \]
-a Hamilton--Jacobi--type relation governing how assignment values evolve along distinguished directions. We show
-that this flow admits a natural realization on a hyperbolic surface: in the zeroth kind arithmetic expression space
-$\mathfrak{E}_0$, defined on the upper half--plane with a weighted hyperbolic metric, the assignment function
-$a=-x/y$ simultaneously satisfies the flow equation and a Laplace eigenvalue equation. Within this space, the
-non-commutativity of ``add then multiply'' versus ``multiply then add'' manifests as an \emph{arithmetic torsion}
-which corresponds exactly to hyperbolic area enclosed by evaluation paths.
+This leads to the notion of an Arithmetic Expression Space: a Riemannian surface equipped with an assignment field
+satisfying the corresponding first-order law. We construct the basic model $\mathfrak{E}_0$ on the upper half-plane,
+where $a=-x/y$ satisfies both the flow equation and a Laplace eigenvalue equation, and we record the first singular
+model $\mathfrak{E}_1$.
 
-To analyse global torsion for arbitrary expression paths, we introduce the \emph{Accumulative Commutative Space
-(ACS)}, a commutative parameter plane that records total additive and multiplicative charges. In the ACS a path and
-its reversed sequence enclose a well-defined region, and we establish a Stokes--type triple identity expressing global
-arithmetic torsion equivalently as an algebraic evaluation difference, an $e^M$-weighted area integral, and a boundary
-integral along the enclosing curve.
+The first intrinsic invariant of the theory is \emph{arithmetic torsion}, arising from the non-commutativity of additive
+and multiplicative propagation. To globalize this invariant, we introduce the \emph{Accumulative Commutative Space}
+(ACS), a plane of total additive and logarithmic multiplicative charges, and prove a Stokes--type triple identity that
+expresses global torsion equivalently as an evaluation difference, an $e^M$-weighted area integral, and a boundary
+integral.
 
-We then construct a three-dimensional \emph{arithmetic expression contact manifold}, with contact form
-$\alpha = da - (\mu\,du + \lambda a\,dv)$, whose horizontal distribution encodes the local non-commutative
-dynamics. Legendrian curves with respect to this structure satisfy the arithmetic flow equation, and the associated Lie
-algebra is identified as a solvable central extension of $\mathfrak{aff}(1)$. On this manifold we develop an expression
-differential calculus $\delta$, compatible with the de Rham differential and exhibiting a curvature proportional to
-$\mu\lambda\,du\wedge dv$. Finally, we introduce \emph{arithmetic holomorphic functions}, defined via Cauchy--Riemann
-type equations on the contact structure, providing a first glimpse of an emerging geometric function theory for
-arithmetic expressions.
-
-Taken together, these constructions offer a unified view of arithmetic evaluation as a geometric flow, echoing themes
-from geometric mechanics and contact geometry, and establishing arithmetic expressions as geometric objects equipped
-with intrinsic invariants and differential structures.
+To localize the same phenomenon, we construct a three-dimensional \emph{arithmetic expression contact manifold}
+with contact form $\alpha = da - (\mu\,du + \lambda a\,dv)$. Its horizontal distribution recovers the arithmetic flow,
+yields a natural horizontal differential calculus $\delta$, and produces a curvature package proportional to
+$\mu\lambda\,du\wedge dv$. We then define \emph{arithmetic holomorphic fields} by an arithmetic Cauchy--Riemann
+system and show that they satisfy a twisted second-order equation, providing the first analytic structure of the theory.
+Taken together, these results establish the first foundational layer of AEG: arithmetic evaluation admits a path
+language, intrinsic invariants, local and global geometric structures, and the beginnings of a function theory.
 \end{abstract}
 
 \keywords{arithmetic expressions, hyperbolic geometry}
@@ -148,7 +137,7 @@ with intrinsic invariants and differential structures.
 \input{sections/sec03.tex}
 \newpage
 
-\section{The zeroth and first kind spaces: $\mathfrak{E}_0$ and $\mathfrak{E}_1$}\label{sec:01kind}
+\section{The zeroth and first kind spaces: \texorpdfstring{$\mathfrak{E}_0$}{E0} and \texorpdfstring{$\mathfrak{E}_1$}{E1}}\label{sec:01kind}
 
 \input{sections/sec04.tex}
 \newpage
@@ -173,40 +162,11 @@ with intrinsic invariants and differential structures.
 \input{sections/sec08.tex}
 \newpage
 
-% \section{The figure-eight knot case study: I}\label{ch:knot41_aeg_spaces_1st}
-%
-% \input{sections/sec08.tex}
-% \newpage
 
-% \section{On order-4 apeirogonal tiling}\label{sec:tiling}
-%
-% \input{sections/sec07.tex}
-% \newpage
-%
-% \section{Topological arithmetic expression space}\label{sec:topology}
-%
-% \input{sections/sec08.tex}
-% \newpage
-%
-% \section{From arithmetic torsion to curvature}\label{sec:curvature}
-%
-% \input{sections/sec09.tex}
-% \newpage
-%
-% \section{Tube structure, complexification and fibration}\label{sec:morekinds}
-%
-% \input{sections/sec10.tex}
-% \newpage
-%
-% \section{General discussion}\label{sec:function}
-%
-% \input{sections/sec11.tex}
-% \newpage
+\section{Outlook: relation theory, meaningful zeros, and analytic future}\label{sec:outlook}
 
-% \section{A glossary of unsolved problems}\label{sec:problems}
-%
-% \input{sections/sec12.tex}
-% \newpage
+\input{sections/sec09.tex}
+\newpage
 
 \bibliographystyle{plain}
 \bibliography{aeg-paper.bib}
@@ -214,29 +174,22 @@ with intrinsic invariants and differential structures.
 
 \appendix
 
-\section{Solution of the flow equation}\label{sec:directformalsolution}
+The appendices collect computations and examples that support the main text, with explicit cross-references from the relevant sections.
 
-\input{sections/sec13.tex}
+\section{Supplementary calculations for the model spaces and the ACS}\label{app:model-acs}
+
+\input{sections/sec10.tex}
 \newpage
 
-% \section{Infinitesimal-discrete conformance}\label{sec:conformance}
-%
-% \input{sections/sec14.tex}
-% \newpage
+\section{Supplementary calculations for contact / delta / holomorphicity}\label{app:contact-delta-holomorphicity}
 
-\section{Geometry calculation}\label{sec:geometrycalculationn}
-
-\input{sections/sec15.tex}
+\input{sections/sec11.tex}
 \newpage
 
-% \section{Grid calculation}\label{sec:gridcalculation}
-%
-% \input{sections/sec16.tex}
-% \newpage
+\section{Supplementary examples on equality levels and first neutralities}\label{app:equality-neutralities}
 
-% \section{Arithmetic expression, combinators and transformation over trees}\label{sec:expressions}
-%
-% \input{sections/sec17.tex}
-% \newpage
+\input{sections/sec12.tex}
+\newpage
+
 
 \end{document}

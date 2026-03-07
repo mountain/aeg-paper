@@ -1,352 +1,187 @@
-\subsection{Currying and path notation}\label{subsec:currying}
-
-Currying is a basic technique in functional programming\cite{Reynolds1972DefinitionalIF},
-which is used to transform a function with multiple arguments into a sequence of functions with one argument.
-By currying a threadlike arithmetic expression, we can obtain a sequence of functions that operate on an operand, which is the leftmost leaf node.
-
-We introduce the following notation for currying a threadlike arithmetic expression:
-\begin{itemize}
-    \item initial operand: the leftmost leaf node
-    \item operator: $\oplus_y: x \mapsto x + y$
-    \item operator: $\ominus_y: x \mapsto x - y$
-    \item operator: $\otimes_y: x \mapsto x \cdot e^y$
-    \item operator: $\oslash_y: x \mapsto x \cdot e^{-y}$
-\end{itemize}
-
-For example, the threadlike arithmetic expression $(((((1 \times 2) \times 2) + 1) \times 3) + 6)$ can be curried as
-
-\[\oplus_6(\otimes_{\ln 3}(\oplus_1(\otimes_{\ln 2}(\otimes_{\ln 2}(1)))))\]
-
-Suppose we have a series of operators $a_1, a_2, \cdots a_{n-1}, a_n$, we introduce a \emph{path notation}.
-
-\[x a_1 a_2 \cdots a_{n-1} a_n \coloneqq a\_n( a_{n-1}( \cdots a_2( a_1(x) ) \cdots ) )\]
-
-So, the above example can be written as
-
-\[1 \otimes_{\ln 2} \otimes_{\ln 2} \oplus_1 \otimes_{\ln 3} \oplus_6 \]
-
-If a path begins with a number, we refer to it as a \emph{bounded path}.
-If it does not, we refer to it as a \emph{free path}, similar to the concept of vectors from the origin versus vectors at arbitrary points.
-a bounded path results in a number, while a free path results in a function.
-
-Now we will verify that the operators within a path are associative.
-
-\begin{lemma}\label{lemma:associative}
-    The operators within a path are associative, i.e. we have \[a [b c] = [a b] c\]
-\end{lemma}
-
-\begin{proof}
-We use normal typeface to express the path notation, and bold typeface to express the function notation.
-
-For a free path, follow the definition, we have
-\[a [b c] = [b c](\mathbf{a}) = \mathbf{c}(\mathbf{b}(\mathbf{a}))\]
-\[[a b] c = \mathbf{c}([a b]) = \mathbf{c}(\mathbf{b}(\mathbf{a}))\]
-
-hence, we have
-\[a [b c] = [a b] c\]
-is hold for a free path.
-
-For a bounded path, we have
-\[x a [b c] = [b c](\mathbf{a}(x)) = \mathbf{c}(\mathbf{b}(\mathbf{a}(x)))\]
-\[x [a b] c = \mathbf{c}([a b](x)) = \mathbf{c}(\mathbf{b}(\mathbf{a}(x)))\]
-
-hence, we have
-\[a [b c] = [a b] c\]
-is hold for a bounded path.
-
-\end{proof}
-
-\begin{definition}\label{definition:concatenate}
-    The concatenation of paths $p_1 \cdot p_2$ is defined as the composite of functions:
-    \[p_1 \cdot p_2 \coloneqq p_2 \circ p_1 \]
-\end{definition}
-
-When a sequence of paths is concatenated, and only the first path can be bounded.
-If the first path is bounded, the concatenated result is a bounded path.
-Otherwise, the concatenated result is a free path.
-
-\subsection{The path groupoid of evaluation}
-
-Threadlike expressions admit a natural interpretation as \emph{paths} in an underlying expression space rather than in a
-bare set of values. Concretely, keep in mind the prototype introduced in Section~\ref{sec:concepts}: the upper half-plane
-equipped with the assignment field $a = -x/y$. Each point $p$ of this surface carries a value $a(p)$, and nearby points
-are organized by level sets of $a$ (contours) and gradient lines. The ``values'' are thus not an abstract state space, but
-the images of points of a geometric space under an assignment function.
-
-To relate paths to numerical evaluation, we fix a distinguished basepoint $O$ in the expression space (for instance
-a point with $a(O)=x_0$). Any threadlike expression can then be encoded as a \emph{bounded path} starting at $O$
-and following addition/multiplication generators along the grid. Its endpoint $P$ lies in the expression space, and the
-numerical value of the expression is read off as the assignment $a(P)$. Different bounded paths from $O$ to the same
-endpoint $P$ correspond to different syntactic expressions whose evaluation agrees at that point.
-
-This leads to the following geometric structure.
-
-\begin{definition}[Path groupoid of the expression space]
-Let $M$ denote an expression space equipped with an assignment function $a:M\to\mathbb{R}$ (such as the scalar
-field on the upper half-plane in Section~\ref{sec:concepts}). The \emph{path groupoid} $\mathcal{G}$ of $M$ has:
-\begin{itemize}
-  \item objects given by points $p\in M$;
-  \item morphisms $p\to q$ given by (piecewise) threadlike paths on $M$ from $p$ to $q$ encoded by the addition–
-        multiplication generators;
-  \item composition given by concatenation of paths;
-  \item identity morphisms given by the constant (empty) path at each object;
-  \item inverses given, when they exist, by reversing the path and inverting each elementary generator.
-\end{itemize}
-\end{definition}
-
-The subgroupoid of $\mathcal{G}$ consisting of morphisms with source $O$ encodes all bounded threadlike expressions:
-a morphism $O\to P$ determines an expression whose value is $a(P)$. From a mapping viewpoint, many morphisms
-in $\mathcal{G}$ are loops $P\to P$; they record different expression paths that return to the same point in the
-expression space.
-
-On the syntactic side, literal threadlike expressions give morphisms in a purely combinatorial path groupoid. Encoding
-them as geometric paths in $M$ and then composing with the assignment $a$ yields a functor from this syntactic
-groupoid to a ``semantic'' groupoid in which objects are points of $M$ and the assignment $a$ serves as a projection
-to numerical values. The non-triviality of arithmetic torsion (Section~\ref{subsec:generated_structure}) will show that
-even after passing to this semantic level, distinct syntactic paths can induce genuinely different loops in the expression
-space, reflected geometrically as non-trivial holonomy.
-
 \subsection{Alternating threadlike expressions}\label{subsec:alternating}
 
-Now we can define alternating threadlike expressions, which were mentioned in Section~\ref{sec:expression}, using the path notion.
+Among threadlike expressions, the most useful bookkeeping class is the alternating one.
 
 \begin{equation}\label{eq:alternative}
-    \alpha = a_1 b_1 a_2 b_2 \cdots a_l b_l, a_i = \otimes_{\lambda_i}, b_i = \oplus_{\mu_i}, \lambda_i, \mu_i \in \mathbb{R}
+\alpha = a_1 b_1 a_2 b_2 \cdots a_l b_l,
+\qquad
+ a_i=\otimes_{\lambda_i},\quad b_i=\oplus_{\mu_i},\quad \lambda_i,\mu_i\in\mathbb{R}.
 \end{equation}
 
-where $\bigoplus$ and $\bigotimes$ denote addition and multiplication, respectively,
-and the expression is a zigzag of alternating addition and multiplication operations.
-$\alpha$ is a free path, and we can bind a number to it.
+Thus an alternating threadlike expression is a zigzag of multiplication and addition steps. It is naturally a free path, and it becomes a bounded path once an initial value is attached.
 
-Since $0$ is the identity element for addition and $1$ is the identity element for multiplication,
-it is straightforward to see that any arithmetic expression can be converted into an alternating threadlike expression
-by introducing more $0$ and $1$ into the original expression.
-So alternating threadlike expression is a kind of canonical form.
+Since $0$ is the identity for addition and $1$ is the identity for multiplication, any threadlike expression can be rewritten in alternating form by inserting harmless $+0$ and $\times 1$ steps when necessary. We do not claim uniqueness here; the point is that alternating form gives a uniform language for explicit calculations.
 
-We can derive a formula for perturbations in alternating threadlike expressions.
-
-Let us define the left-to-right accumulated sum of $\lambda_i$ as $\check{\lambda}_i$, such that:
+Define the left-to-right accumulated sums
 \begin{equation}
-\check{\lambda}_i = \sum_{j=1}^i \lambda_j, \check{\lambda}_0 = 0\label{eq:accsumlr}
+\check{\lambda}_i = \sum_{j=1}^i \lambda_j,
+\qquad
+\check{\lambda}_0=0,
+\label{eq:accsumlr}
 \end{equation}
-
-Then we also have right-to-left accumulated sum of $\lambda_i$
+and the right-to-left accumulated sums
 \begin{equation}
-\hat{\lambda}_i = \check{\lambda}_l - \check{\lambda}_{l - i}, \hat{\lambda}_0 = 0\label{eq:accsumrl}
+\hat{\lambda}_i = \check{\lambda}_l - \check{\lambda}_{l-i},
+\qquad
+\hat{\lambda}_0=0.
+\label{eq:accsumrl}
 \end{equation}
 
-Expanding equation~\eqref{eq:alternative} using the distributive law and the above notion at point $\mu_0$, we obtain:
+Expanding \eqref{eq:alternative} at an initial value $\mu_0$, we obtain
 \begin{align}
-\alpha(\mu_0) & = e^{\lambda_l}(\cdots (e^{\lambda_2} (e^{\lambda_1} \mu_0 + \mu_1) + \mu_2) \cdots) + \mu_l \\
-& = e^{\hat{\lambda}_l} \mu_0 + e^{\hat{\lambda}_{l - 1}} \mu_1  + e^{\hat{\lambda}_{l - 2}} \mu_2 + \cdots + e^{\hat{\lambda}_1} \mu_{l - 1} + e^{\hat{\lambda}_0} \mu_l
+\alpha(\mu_0)
+&= e^{\lambda_l}\bigl(\cdots(e^{\lambda_2}(e^{\lambda_1}\mu_0+\mu_1)+\mu_2)\cdots\bigr)+\mu_l \\
+&= e^{\hat{\lambda}_l}\mu_0 + e^{\hat{\lambda}_{l-1}}\mu_1 + e^{\hat{\lambda}_{l-2}}\mu_2 + \cdots + e^{\hat{\lambda}_1}\mu_{l-1} + e^{\hat{\lambda}_0}\mu_l.
 \end{align}
 
-Next, at the starting point $\mu_0$, we introduce a perturbation $\tilde{\mu}_0 = e^{\eta_0} \mu_0 + \epsilon_0$,
-where $\eta_0$ and $\epsilon_0$ are the disturbance terms added by the summation and multiplication operations, respectively. Then, we have:
+Now perturb the starting value by
+\[
+\tilde\mu_0=e^{\eta_0}\mu_0+\epsilon_0.
+\]
+Then
 \begin{align}
-\alpha(\tilde{\mu}_0) & = e^{\hat{\lambda}_l} (\tilde{\mu}_0) + e^{\hat{\lambda}_{l - 1}} \mu_1  + e^{\hat{\lambda}_{l - 2}} \mu_2 + \cdots + e^{\hat{\lambda}_1} \mu_{l - 1} + e^{\hat{\lambda}_0} \mu_l \\
-& = \alpha(\mu_0) + e^{\hat{\lambda}_l} (\tilde{\mu}_0 - \mu_0)
+\alpha(\tilde\mu_0)
+&= e^{\hat{\lambda}_l}\tilde\mu_0 + e^{\hat{\lambda}_{l-1}}\mu_1 + e^{\hat{\lambda}_{l-2}}\mu_2 + \cdots + e^{\hat{\lambda}_1}\mu_{l-1} + e^{\hat{\lambda}_0}\mu_l \\
+&= \alpha(\mu_0)+e^{\hat{\lambda}_l}(\tilde\mu_0-\mu_0).
 \end{align}
-
-As a result, purely from an arithmetic perspective, without the need for limits, we can derive the following meaningful ratio:
+Hence we obtain the exact ratio
 \begin{equation}
-\frac{\alpha(\tilde{\mu}_0) - \alpha(\mu_0)}{\tilde{\mu}_0 - \mu_0} = e^{\hat{\lambda}_l} = e^{\check{\lambda}_l}\label{eq:ratio}
+\frac{\alpha(\tilde\mu_0)-\alpha(\mu_0)}{\tilde\mu_0-\mu_0}
+= e^{\hat{\lambda}_l}
+= e^{\check{\lambda}_l}.
+\label{eq:ratio-alternating}
 \end{equation}
 
-Now we extend this relationship from the starting point $\mu_0$ to the entire process, we define the recursive formula
-
+If we define recursively
 \[
-w_i = e^{\lambda_i} w_{i-1} + \mu_i, w_0 = 0
+w_i=e^{\lambda_i}w_{i-1}+\mu_i,
+\qquad
+w_0=0,
 \]
-
-and then we have
-
+then the perturbation propagates according to
 \begin{equation}
-\frac{\tilde{w}_i - w_i}{\tilde{\mu}_0 - \mu_0} = e^{\check{\lambda}_i}, i \in \{1, ..., l\}\label{eq:perturbation1}
+\frac{\tilde w_i-w_i}{\tilde\mu_0-\mu_0}=e^{\check{\lambda}_i},
+\qquad i\in\{1,\dots,l\},
 \end{equation}
-
-So, we have
-
+and therefore
 \[
-\tilde{w}_i - w_i = e^{\check{\lambda}_i} (\tilde{\mu}_0 - \mu_0)
+\tilde w_i-w_i=e^{\check{\lambda}_i}(\tilde\mu_0-\mu_0)
 \]
-
-and hence
-
+with the recursive form
 \begin{equation}
-\tilde{w}_i - w_i = e^{\lambda_i}(\tilde{w}_{i - 1} - w_{i - 1})\label{eq:perturbation2}
+\tilde w_i-w_i = e^{\lambda_i}(\tilde w_{i-1}-w_{i-1}).
+\label{eq:perturbation2}
 \end{equation}
 
-That means the perturbation along the path is controlled by the multiplication terms of $e^{\lambda_i}$.
+These formulas are still purely arithmetic, but they already foreshadow the differential viewpoint of later sections: multiplication controls the amplification of perturbations along a path.
 
 \subsection{Generated structure, commutator and arithmetic torsion}\label{subsec:generated-structure}
 
-In order to study mesh grids like the one described in subsection~\ref{subsec:meshgrid},
-we need to investigate the algebraic structure of the threadlike arithmetic expressions that are generated.
-
-For real number $\mathbb{R}$ and elements $\mu, \lambda \in \mathbb{R}$, we consider all the arithmetical expressions
-that are freely generated from
+We now freeze two real parameters $\mu,\lambda\in\mathbb{R}$ and study the operators
 \begin{itemize}
-    \item initial operand: $0$
-    \item operator: $\oplus_\mu: x \mapsto x + \mu$
-    \item operator: $\ominus_\mu: x \mapsto x - \mu$
-    \item operator: $\otimes_\lambda: x \mapsto x \cdot e^\lambda$
-    \item operator: $\oslash_\lambda: x \mapsto x \cdot e^{- \lambda}$
+    \item $\oplus_\mu:x\mapsto x+\mu$,
+    \item $\ominus_\mu:x\mapsto x-\mu$,
+    \item $\otimes_\lambda:x\mapsto x\cdot e^{\lambda}$,
+    \item $\oslash_\lambda:x\mapsto x\cdot e^{-\lambda}$.
 \end{itemize}
+These are the elementary moves behind the addition--multiplication grid.
 
-We denote these expressions as $E(\mu, \lambda)$, where $\mu$ is the additional generator and $e^\lambda$ is the multiplicative generator.
-In cases where the context is clear, we may omit $\mu$ and $\lambda$ from the index.
-Our goal is not to study only a single $E(\mu, \lambda)$, but rather to use a family of $E(\mu, \lambda)$ to approach a continuous space.
-
-Since $\oplus_\mu$ and $\ominus_\mu$ are mutually inverse operations, it follows that $\otimes_\lambda$ and $\oslash_\lambda$ are also mutually inverse. This means that $E(\mu, \lambda)$ forms a group.
-An observation is that the commutator of this group is not equal to identity generally,
-especially the commutator of the generators.
-
+The first nontrivial question is whether addition and multiplication commute when viewed as successive path operations. In general they do not. Acting on a value $x$, we have
 \begin{equation}
-x \oplus_\mu \otimes_\lambda \ominus_\mu \oslash_\lambda - x = \mu(1 - e^{-\lambda})\label{eq:commutator1}
+x\oplus_\mu\otimes_\lambda\ominus_\mu\oslash_\lambda - x
+= \mu(1-e^{-\lambda}),
+\label{eq:commutator1}
 \end{equation}
+and
 \begin{equation}
-x \otimes_\lambda \oplus_\mu \oslash_\lambda \ominus_\mu - x = - \mu(1 - e^{-\lambda})\label{eq:commutator2}
+x\otimes_\lambda\oplus_\mu\oslash_\lambda\ominus_\mu - x
+= -\mu(1-e^{-\lambda}).
+\label{eq:commutator2}
 \end{equation}
+The two oriented commutators differ by sign, reflecting the handedness of the corresponding square on the grid.
 
-Formula \ref{eq:commutator1} obey the right-hand rule, and formula \ref{eq:commutator2} obey the left-hand rule.
-
-Or equivlently\footnote{Please reference section \ref{subsec:descartes-coordinate}, the equivlence here is refered to the same order of the infinitesimal}, we define below difference $\tau$ obey the right-hand rule:
-
+A more local way to record the same defect is to compare the two-step paths directly:
 \begin{equation}
-\tau = x \oplus_\mu \otimes_\lambda - x \otimes_\lambda \oplus_\mu = \mu(e^\lambda - 1)\label{eq:torsion}
+\tau = x\oplus_\mu\otimes_\lambda - x\otimes_\lambda\oplus_\mu
+= \mu(e^{\lambda}-1).
+\label{eq:torsion}
 \end{equation}
+We call $\tau$ the \emph{arithmetic torsion}. It is the first invariant showing that two histories with the same generators and the same endpoints need not coincide. In later sections this torsion will reappear as an area quantity and then as a curvature-related quantity.
 
-These differences are constant, indicating a type of torsion in the generated group.
-And torsion $\tau$ is specifically referred to as the arithmetic torsion.
-
-We will reveal that $\tau$ is related to the curvature of the surface in later sections.
-
-\subsection{The generated group and its $\mathrm{Aff}(1)$ representation}
+\subsection{The generated group and its \texorpdfstring{$\mathrm{Aff}(1)$}{Aff(1)} representation}
 \label{subsec:generated_group_affine}
 
-In order to focus on the algebraic structure generated by addition and multiplication, we fix real parameters
-$\mu,\lambda\in\mathbb{R}$ and consider the following four basic operators acting on values $x$:
-\[
-  \oplus_\mu : x \longmapsto x + \mu,\quad
-  \ominus_\mu : x \longmapsto x - \mu,\quad
-  \otimes_\lambda : x \longmapsto x\cdot e^{\lambda},\quad
-  \oslash_\lambda : x \longmapsto x\cdot e^{-\lambda}.
-\]
-
-By construction, $\oplus_\mu$ and $\ominus_\mu$ are mutual inverses, and so are $\otimes_\lambda$ and $\oslash_\lambda$.
-Restricting to finite compositions of these four operators, we obtain a group.
+Because $\oplus_\mu$ and $\ominus_\mu$ are inverses, and likewise $\otimes_\lambda$ and $\oslash_\lambda$, finite compositions of these operators form a group.
 
 \begin{definition}
-Let $E(\mu,\lambda)$ denote the group freely generated by $\oplus_\mu$ and $\otimes_\lambda$ together with their
-inverses $\ominus_\mu$ and $\oslash_\lambda$, under composition as the group operation. Elements of $E(\mu,\lambda)$
-act on $X\subseteq\mathbb{R}$ by evaluation.
+Let $E(\mu,\lambda)$ denote the group generated by $\oplus_\mu$ and $\otimes_\lambda$ together with their inverses $\ominus_\mu$ and $\oslash_\lambda$, under composition.
 \end{definition}
 
-It is convenient to realize $E(\mu,\lambda)$ as a subgroup of the affine group $\mathrm{Aff}(1)$ acting on the real line
-by $x\mapsto \Phi x + a$. In matrix form we consider
+It is convenient to realize $E(\mu,\lambda)$ inside the affine group of the line. In matrix form,
 \[
-  \mathrm{Aff}(1) = \Bigl\{
-    \begin{pmatrix}
-      \Phi & a\\
-      0 & 1
-    \end{pmatrix}
-    \;\Big|\; \Phi\in\mathbb{R}^{\times},\, a\in\mathbb{R}
-  \Bigr\},
+\mathrm{Aff}(1)=\left\{
+\begin{pmatrix}
+\Phi & a\\
+0 & 1
+\end{pmatrix}
+\;
+\middle|
+\;
+\Phi\in\mathbb{R}^{\times},\ a\in\mathbb{R}
+\right\},
 \]
-with multiplication given by matrix multiplication. The action on the line is recovered by
+with the action
 \[
-  \begin{pmatrix}
-    \Phi & a\\
-    0 & 1
-  \end{pmatrix}
-  \cdot x = \Phi x + a.
+\begin{pmatrix}
+\Phi & a\\
+0 & 1
+\end{pmatrix}\cdot x = \Phi x + a.
+\]
+
+The basic generators are represented by
+\[
+\rho(\oplus_\mu)=
+\begin{pmatrix}
+1 & \mu\\
+0 & 1
+\end{pmatrix},
+\qquad
+\rho(\otimes_\lambda)=
+\begin{pmatrix}
+e^{\lambda} & 0\\
+0 & 1
+\end{pmatrix}.
 \]
 
 \begin{lemma}
-The assignment
+The assignment above extends uniquely to a group homomorphism
 \[
-  \rho(\oplus_\mu) =
-  \begin{pmatrix}
-    1 & \mu\\
-    0 & 1
-  \end{pmatrix},
-  \qquad
-  \rho(\otimes_\lambda) =
-  \begin{pmatrix}
-    e^{\lambda} & 0\\
-    0 & 1
-  \end{pmatrix}
+\rho:E(\mu,\lambda)\to \mathrm{Aff}(1)
 \]
-extends uniquely to a group homomorphism $\rho:E(\mu,\lambda)\to \mathrm{Aff}(1)$ which is compatible with the
-action on $X$, i.e.\ $\rho(g)\cdot x$ agrees with the evaluation of $g$ at $x$.
+compatible with evaluation on the line.
 \end{lemma}
 
-Thus, up to this faithful representation, we may think of elements of $E(\mu,\lambda)$ as affine matrices. In particular,
-the arithmetic torsion introduced below can be interpreted as the effect of the commutator
-\[
-  [\oplus_\mu,\otimes_\lambda] = \oplus_\mu \otimes_\lambda \ominus_\mu \oslash_\lambda
-\]
-on the real line, or equivalently as a non-trivial holonomy in the affine group. In Section~\ref{sec:flowequation} we
-will differentiate this affine action and recover the flow equation at the level of the corresponding Lie algebra
-$\mathfrak{aff}(1)$.
+Thus one may think of an element of $E(\mu,\lambda)$ either as a word in the arithmetic generators or as an affine matrix. In this representation the commutator is a genuine affine defect, and later the differential theory will recover the flow equation from the corresponding Lie algebra $\mathfrak{aff}(1)$.
 
-\subsection{Levels of Equality, Singularity, and Symmetry Problems}
+\subsection{Levels of equality and first problems}
 \label{subsec:problems-on-equality-singularity-symmetries}
 
-From theoretical and computational perspectives, it is useful to consider different levels of equality within structures generated freely from arithmetic operations. These levels reveal distinct stages of abstraction, from the most basic sequential representation to the final numerical or geometric realization. We can distinguish at least the following key levels:
+By now the reader has already seen several ways in which two expressions may be ``the same.'' It is useful to keep these levels separate.
 
 \begin{enumerate}
-    \item \textbf{Literal Equality}: \\
-    This is the finest level of equality, judged directly by the sequence of operations (or its string representation). Two threadlike expressions are literally equal only if their sequences are identical. While this level might be too strict to reflect computational outcomes, it provides the richest \emph{base textures} without any imposed algebraic constraints, forming the foundation upon which more complex structures and spaces can be woven.
+    \item \textbf{Literal equality.} Two expressions are literally equal if their written forms coincide exactly.
 
-    \item \textbf{Operational/Syntactic Equality}: \\
-    This level is based on fundamental rules governing the composition of operations, chief among them being \textbf{associativity} (as proven in Lemma~\ref{lemma:associative}). Associativity ensures that the result of composing a sequence of operations is well-defined, independent of the grouping (parenthesization). This endows our arithmetic expressions with at least a foundational \textbf{monoid} or \textbf{groupoid} structure, enabling the consistent definition of "paths" and their composition, which is essential for geometrization. It is crucial to note that the sequential path operations central to this framework (e.g., compositions of addition $\oplus_\mu$ and multiplication $\otimes_\lambda$) generally do \textbf{not} satisfy the standard \textbf{distributive law} at this level. This is evidenced by the non-zero arithmetic torsion $\tau$, a key feature indicating the non-commutative and non-distributive nature of these combined operations.
+    \item \textbf{Path or operational equality.} After currying, two expressions may determine the same bounded or free path, even if parentheses are grouped differently. This is the level governed by composition and associativity.
 
-    \item \textbf{Relational/Algebraic Equality}: \\
-    Building upon the operational structure above, specific contexts often introduce \textbf{additional, concrete algebraic relations}. These relations might stem from:
-    \begin{itemize}
-        \item The existence of inverses for the operations, leading to a group structure.
-        \item Geometric or topological constraints, such as identities that must be satisfied by relators in a knot group.
-        \item Arithmetic identities satisfied by parameters involved in the operations, such as a minimal polynomial $P(\lambda)=0$.
-    \end{itemize}
-    This level of equality is defined by the \textbf{specific presentation (generators and relations)} of the resulting algebraic structure, shaping the particular algebraic object of interest (e.g., a specific group). Formal tools from combinatorial group theory, such as \textbf{HNN extensions} and \textbf{amalgamated free products}, provide a precise framework for describing these algebraic structures arising from geometric, topological, or arithmetic constraints. Results like Britton's Lemma ensure that these relationally-defined structures are typically non-trivial.
+    \item \textbf{Relational equality.} Two paths may be identified after using additional algebraic relations, such as distributive reorganizations or later loop relations.
 
-    \item \textbf{Semantic Equality}: \\
-    This is the coarsest level of equality, determined by the final \textbf{numerical evaluation} of the expression or by the \textbf{value of the assignment function $a$} in a geometric model. Two expressions might be distinct at the Relational/Algebraic level (representing different group elements) but still yield the same semantic value. This level directly corresponds to the computational output or the state within the geometric realization.
+    \item \textbf{Semantic equality.} Two expressions are semantically equal if they evaluate to the same number, or geometrically, if they reach the same assigned endpoint.
 \end{enumerate}
 
-\textbf{Hierarchy and Challenges}:
+These levels should not be collapsed too early. One of the main philosophical choices of AEG is to remember as much history as possible before passing to coarser notions of equality.
 
-We can view these levels of equality as forming a lattice or hierarchy based on refinement, ordered by implication from finer to coarser levels:
-$$ E_{\text{Literal}} \implies E_{\text{Op/Syn}} \implies E_{\text{Rel/Alg}} \implies E_{\text{Semantic}} $$
-where $E_X$ denotes "equality at level X", and $\implies$ means "implies". A finer equality necessarily satisfies any coarser equality.
+There is also an important warning already visible at the elementary level: evaluation is partial. Division by zero may render a syntactically valid expression semantically invalid. For this reason the present paper begins over $\mathbb{Q}$ and with evaluable expressions. Singularities and continuous extensions will be treated later, after the geometric picture has been built.
 
-It is important, however, to distinguish this lattice of \emph{equality relations} (ordered by refinement) from the relationship between the corresponding \emph{algebraic structures}. For instance, in the context of HNN extensions relevant to fibered knots (corresponding to the Relational/Algebraic level, e.g., the knot group $\pi_1(K)$), the structure typically contains the base group (corresponding to the finer Operational/Syntactic level, e.g., $\pi_1(F)$) as a (normal) \textbf{subgroup}. That is, the algebraic structure defined by the coarser ("higher" in the lattice) equality relation embeds the structure defined by the finer ("lower") relation. This is not a contradiction; it highlights that a coarser equivalence relation (identifying more pairs) can define a larger, more complex algebraic structure which contains the structure defined by the finer relation as a component.
+Finally, the present section points toward a further layer that will only be opened, not developed, in this paper. A point records a value; a path records a history; and a closed path records a relation. Such a relation may vanish in several different senses: it may evaluate to zero, act trivially as an operator, carry zero total charge, or have zero torsion. In other words, even ``zero'' is stratified. The systematic study of these neutralities belongs to the later loop theory, but the reader should already keep in mind that equality in AEG is layered rather than monolithic.
 
-Significant theoretical challenges arise from the "distance" between these different levels, particularly between the Relational/Algebraic structure and its Semantic/Geometric realization. For example:
-
-\begin{itemize}
-    \item \textbf{Role of Background Algebra}: While the AEG path operations themselves might be non-distributive, the discussion of Relational/Algebraic equality (e.g., involving $P(\lambda)=0$) relies on the parameters (like $\lambda$) residing within standard algebraic systems (fields, rings) where distributivity holds, allowing polynomials and minimal polynomials to be defined. These relations from standard algebra are then imposed as constraints on the non-distributive AEG operational structure.
-    \item \textbf{Singularity Problem}: Certain literally or syntactically valid expressions might be semantically invalid (e.g., involving division by zero), especially when extending definitions from $\mathbb{Q}$ to $\mathbb{R}$ or $\mathbb{C}$. How do these semantic singularities manifest in the geometric model? Do they correspond to singularities in the space or specific behaviors of the assignment function $a$?
-    \item \textbf{Symmetry Problem}: What is the relationship between the symmetries of the algebraic structure (e.g., automorphisms of the HNN group) and the symmetries of the final geometric space (e.g., isometries of the $\mathfrak{E}_1$ space)? How does the process of constructing the geometric space ("weaving the textures into a space") selectively realize or break the symmetries present at the algebraic level? Different levels of equality correspond to different "symmetry resources".
-\end{itemize}
-
-Exploring these problems is central to our research, aiming to develop a unified theoretical framework capable of accommodating these different structural levels and revealing the deep connections between arithmetic, algebra, geometry, and topology.
-
-\emph{Foundational problem}: A careful reader may have noticed that the definition~\ref{def:arithmetic-expression} is based on rational numbers $\mathbb{Q}$.
-Why can't we use real numbers $\mathbb{R}$ instead?
-The answer is that syntactically valid expressions may not be semantically valid.
-Dividing by zero can lead to invalid expressions, and the evaluation of the expression cannot be defined in this situation.
-Therefore, in real numbers, an expression may be syntactically valid but semantically not valid,
-and there is no algorithm that can decide whether an expression is semantically valid or not.
-How can we bridge this gap and provide a continuous geometry space?
-We will attempt to partially solve this problem in some special cases in section~\ref{sec:topology}.
-
-\emph{Singular point problem}: We have a very strong intuition that semantically invalid expressions lead to singular points.
-The way we discussed in complex analysis may be borrowed here: essential singularities and poles.
-
-\emph{Symmetry and classification problem}: We conjecture that the equality lattice may not only play a role in the construction of a space, but also determine the symmetry of that space.
-We can imagine that, at certain levels of the lattice, we weave syntactically generated substructures into points to form a space,
-and the weaving process uses up some symmetrical resources, leaving the rest to form a symmetry on the space.
-The structure within the total symmetry may provide us with a systematic way of constructing spaces, and allow us to classify spaces based on their symmetries.
+Appendix~\ref{app:equality-neutralities} records concrete examples that separate these levels and illustrate first neutralities.

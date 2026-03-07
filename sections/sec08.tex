@@ -1,28 +1,341 @@
+The previous section produced the horizontal differential calculus attached to the arithmetic contact structure. We now use that calculus to define the first analytic fields of AEG. The aim is not to transplant classical complex analysis unchanged, but to identify the first-order system that is naturally forced by the two horizontal arithmetic directions and to extract its first genuine second-order consequence \cite{Ahlfors1979ComplexAnalysis}.
 
-\subsection{Definition and Intuition}
-A pair of real-valued functions $(f,g)=(f(u,v,a),g(u,v,a))$ is said to be \textbf{arithmetic holomorphic} if it satisfies the AEG-Cauchy-Riemann equations:
+\subsection{Arithmetic Cauchy--Riemann equations}
+
+\begin{definition}
+A pair of smooth real-valued functions
+\[
+(f,g)=(f(u,v,a),g(u,v,a))
+\]
+is called \textbf{arithmetic holomorphic} if it satisfies the arithmetic Cauchy--Riemann equations
 \begin{equation}\label{eq:16}\tag{16}
-D_u f=D_v g,\qquad D_v f=-D_u g.
+D_u f=D_v g,
+\qquad
+D_v f=-D_u g.
 \end{equation}
-This definition lifts the classic Cauchy-Riemann conditions from the complex plane $\mathbb{C} \cong \mathbb{R}^2(u,v)$ to the horizontal geometry of the arithmetic expression contact structure.
+\end{definition}
 
-\subsection{Basic Properties and Proof Sketches}
-\begin{enumerate}
-    \item \textbf{Conformality and Modulus Equality}: The vectors $(D_uf,D_ug)$ and $(D_vf,D_vg)$ are orthogonal and have equal magnitude:
-    \[
-    (D_uf)^2+(D_ug)^2=(D_vf)^2+(D_vg)^2.
-    \]
-    The proof follows from direct substitution using Eq.~\eqref{eq:16}.
+If one writes
+\[
+F:=f+ig,
+\]
+then it is natural to introduce the complex first-order operators
+\begin{equation}\label{eq:17}\tag{17}
+\bar\partial_{\mathrm{AEG}}
+:=\frac12(D_u+iD_v),
+\qquad
+\partial_{\mathrm{AEG}}
+:=\frac12(D_u-iD_v).
+\end{equation}
+With this notation, \eqref{eq:16} is exactly the single complex equation
+\[
+\bar\partial_{\mathrm{AEG}}F=0.
+\]
 
-    \item \textbf{Closure Properties}: The set of arithmetic holomorphic pairs is closed under addition and an "AEG complex multiplication" defined as $(f,g)\odot(\tilde f,\tilde g)=(f\tilde f- g\tilde g,\ f\tilde g+\tilde f g)$. Furthermore, composition with a classic holomorphic function of $(u,v)$ preserves arithmetic holomorphicity.
+This is the correct analogue of the classical $\bar\partial$-equation, but now expressed in the arithmetic horizontal frame. In particular, when $f$ and $g$ are independent of $a$, one has
+\[
+D_u=\partial_u,
+\qquad
+D_v=\partial_v,
+\]
+so \eqref{eq:16} reduces to the ordinary Cauchy--Riemann equations on the $(u,v)$-plane.
 
-    \item \textbf{Classical Limit}: If $f$ and $g$ are independent of $a$, then $D_u=\partial_u$ and $D_v=\partial_v$, and the AEG-CR equations reduce to the standard Cauchy-Riemann equations.
+\subsection{Horizontal conformality and Jacobian}
 
-    \item \textbf{Rigidity}: If $f=f(a)$ and $g=g(a)$, the only solutions are constants. (\textit{Hint}: Eq.~\eqref{eq:16} forces the vectors $(f'(a), g'(a))$ and $(\mu, \lambda a)$ to be simultaneously orthogonal and equal in magnitude, which is impossible unless they are zero.)
+The first geometric consequence of \eqref{eq:16} is that the two horizontal derivative vectors are orthogonal and have the same size.
 
-    \item \textbf{Scaling of the Curvature Density}: In arithmetic holomorphic coordinates $(f,g)$, the curvature 2-form transforms as:
-    \begin{equation}\label{eq:17}\tag{17}
-    d\omega=\frac{\mu\lambda}{|F'|^2}\,df\wedge dg,\qquad \text{where } |F'|^2:=(D_uf)^2+(D_ug)^2.
-    \end{equation}
-    The area density scales by the Jacobian factor, but the total integral remains invariant. This provides an area formula for "expression conformal coordinates".
-\end{enumerate}
+\begin{proposition}\label{prop:arithmetic_holomorphic_conformality}
+If $F=f+ig$ is arithmetic holomorphic, then
+\[
+(D_u f,D_u g)\cdot(D_v f,D_v g)=0
+\]
+and
+\[
+(D_u f)^2+(D_u g)^2=(D_v f)^2+(D_v g)^2.
+\]
+Equivalently, the horizontal Jacobian
+\[
+J_H(F):=D_u f\,D_v g-D_v f\,D_u g
+\]
+satisfies
+\begin{equation}\label{eq:18}\tag{18}
+J_H(F)
+=(D_u f)^2+(D_v f)^2
+=(D_u g)^2+(D_v g)^2.
+\end{equation}
+Consequently,
+\[
+\delta f\wedge \delta g
+=
+J_H(F)\,du\wedge dv.
+\]
+\end{proposition}
+
+\begin{proof}
+Using \eqref{eq:16},
+\[
+(D_u f,D_u g)\cdot(D_v f,D_v g)
+=
+D_u f\,D_v f+D_u g\,D_v g
+=
+D_v g\,D_v f-D_v f\,D_v g
+=0.
+\]
+Likewise,
+\[
+(D_u f)^2+(D_u g)^2
+=
+(D_u f)^2+(D_v f)^2
+=
+(D_v g)^2+(D_v f)^2
+=
+(D_v f)^2+(D_v g)^2.
+\]
+The identity \eqref{eq:18} follows from
+\[
+J_H(F)=D_u f\,D_v g-D_v f\,D_u g
+\]
+together with \eqref{eq:16}. Finally,
+\[
+\delta f=(D_u f)\,du+(D_v f)\,dv,
+\qquad
+\delta g=(D_u g)\,du+(D_v g)\,dv,
+\]
+so
+\[
+\delta f\wedge \delta g
+=
+\bigl(D_u f\,D_v g-D_v f\,D_u g\bigr)\,du\wedge dv
+=
+J_H(F)\,du\wedge dv.
+\]
+\end{proof}
+
+Thus arithmetic holomorphic fields are horizontally conformal in exactly the sense relevant to the contact geometry developed above. The Jacobian density is no longer built from Euclidean derivatives alone; it is built from the horizontal pair $(D_u,D_v)$ selected by the propagation law.
+
+\subsection{Elementary examples, composition, and rigidity}
+
+\paragraph{Classical limit.}
+Every classical holomorphic function of $u+iv$ gives an arithmetic holomorphic field after pullback to the $(u,v,a)$-space with no $a$-dependence. This is the simplest consistency check.
+
+\paragraph{A genuinely arithmetic coordinate.}
+The first nontrivial example is
+\begin{equation}\label{eq:19}\tag{19}
+\zeta(u,v,a):=
+u+\frac{i}{\lambda}\log(\mu+i\lambda a),
+\end{equation}
+where the logarithm is taken on the right half-plane $\{\Re z>0\}$, which contains $\mu+i\lambda a$ because $\mu>0$.
+
+\begin{proposition}\label{prop:zeta_is_arithmetic_holomorphic}
+The field $\zeta$ defined by \eqref{eq:19} is arithmetic holomorphic.
+\end{proposition}
+
+\begin{proof}
+One has
+\[
+\partial_a\zeta
+=
+\frac{i}{\lambda}\cdot\frac{i\lambda}{\mu+i\lambda a}
+=
+-\frac{1}{\mu+i\lambda a}.
+\]
+Hence
+\[
+D_u\zeta
+=
+\partial_u\zeta+\mu\,\partial_a\zeta
+=
+1-\frac{\mu}{\mu+i\lambda a}
+=
+\frac{i\lambda a}{\mu+i\lambda a},
+\]
+and
+\[
+D_v\zeta
+=
+\lambda a\,\partial_a\zeta
+=
+-\frac{\lambda a}{\mu+i\lambda a}.
+\]
+Therefore
+\[
+D_u\zeta+iD_v\zeta
+=
+\frac{i\lambda a}{\mu+i\lambda a}
+-
+\frac{i\lambda a}{\mu+i\lambda a}
+=
+0,
+\]
+so $\bar\partial_{\mathrm{AEG}}\zeta=0$.
+\end{proof}
+
+This example is important because it depends genuinely on $a$. It is not a classical holomorphic function merely reinterpreted in arithmetic notation.
+
+\begin{proposition}\label{prop:holomorphic_composition_family}
+Let $\Phi$ be a classical holomorphic function on a complex domain containing the image of an arithmetic holomorphic field $F$. Then $\Phi\!\circ F$ is again arithmetic holomorphic.
+\end{proposition}
+
+\begin{proof}
+By the chain rule for the horizontal operators,
+\[
+\bar\partial_{\mathrm{AEG}}(\Phi(F))
+=
+\Phi'(F)\,\bar\partial_{\mathrm{AEG}}F.
+\]
+Hence $\bar\partial_{\mathrm{AEG}}F=0$ implies $\bar\partial_{\mathrm{AEG}}(\Phi(F))=0$.
+\end{proof}
+
+Applying Proposition~\ref{prop:holomorphic_composition_family} to the arithmetic coordinate $\zeta$ already yields a rich explicit family:
+\[
+\Phi(\zeta),
+\qquad
+\Phi\ \text{classically holomorphic},
+\]
+for example $\zeta^m$, $e^\zeta$, and local rational functions of $\zeta$ away from their poles.
+
+\begin{proposition}\label{prop:rigidity_a_only_holomorphic}
+If an arithmetic holomorphic field $F$ depends only on $a$, then $F$ is constant.
+\end{proposition}
+
+\begin{proof}
+If $F=F(a)$, then
+\[
+D_uF=\mu\,\partial_aF,
+\qquad
+D_vF=\lambda a\,\partial_aF.
+\]
+So
+\[
+\bar\partial_{\mathrm{AEG}}F
+=
+\frac12(\mu+i\lambda a)\,\partial_aF.
+\]
+Since $\mu>0$, the factor $\mu+i\lambda a$ never vanishes on the real $a$-axis. Thus $\bar\partial_{\mathrm{AEG}}F=0$ implies $\partial_aF=0$.
+\end{proof}
+
+The last proposition should be read as a first rigidity statement: in AEG, the new analytic freedom does not live in the vertical variable by itself, but in the coupling between the horizontal directions and the vertical sensitivity.
+
+\subsection{Factorization and twisted harmonicity}
+
+The first-order system already forces a natural second-order operator. Set
+\[
+\Delta_H:=D_u^2+D_v^2.
+\]
+
+\begin{theorem}[Factorization and twisted harmonicity]\label{thm:factorization_twisted_harmonicity}
+The arithmetic Cauchy--Riemann operators satisfy
+\begin{equation}\label{eq:20}\tag{20}
+4\partial_{\mathrm{AEG}}\bar\partial_{\mathrm{AEG}}
+=
+\Delta_H+i\mu\lambda\,\partial_a,
+\qquad
+4\bar\partial_{\mathrm{AEG}}\partial_{\mathrm{AEG}}
+=
+\Delta_H-i\mu\lambda\,\partial_a.
+\end{equation}
+Consequently, every arithmetic holomorphic field $F$ satisfies
+\[
+(\Delta_H+i\mu\lambda\,\partial_a)F=0.
+\]
+Equivalently, if $F=f+ig$, then
+\[
+\Delta_H f=\mu\lambda\,\partial_a g,
+\qquad
+\Delta_H g=-\mu\lambda\,\partial_a f.
+\]
+\end{theorem}
+
+\begin{proof}
+By definition,
+\[
+4\partial_{\mathrm{AEG}}\bar\partial_{\mathrm{AEG}}
+=
+(D_u-iD_v)(D_u+iD_v)
+=
+D_u^2+D_v^2+i(D_uD_v-D_vD_u).
+\]
+Section~\ref{ch:differential_calculus} established the bracket identity
+\[
+[D_u,D_v]=\mu\lambda\,\partial_a,
+\]
+hence
+\[
+4\partial_{\mathrm{AEG}}\bar\partial_{\mathrm{AEG}}
+=
+\Delta_H+i\mu\lambda\,\partial_a.
+\]
+The second formula in \eqref{eq:20} is obtained similarly from
+\[
+(D_u+iD_v)(D_u-iD_v)
+=
+D_u^2+D_v^2-i(D_uD_v-D_vD_u).
+\]
+If $F$ is arithmetic holomorphic, then $\bar\partial_{\mathrm{AEG}}F=0$, so applying $\partial_{\mathrm{AEG}}$ gives
+\[
+(\Delta_H+i\mu\lambda\,\partial_a)F=0.
+\]
+Separating real and imaginary parts yields the coupled system for $f$ and $g$.
+\end{proof}
+
+This theorem is the first real analytic payoff of the theory. In the classical flat case, holomorphicity implies ordinary harmonicity because the first-order operators commute in the required way. Here they do not: the constant arithmetic curvature $\mu\lambda$ survives as the vertical coupling term $i\mu\lambda\,\partial_a$. Thus the natural second-order consequence of arithmetic holomorphicity is a \emph{twisted} harmonic equation rather than the ordinary Laplace equation.
+
+\subsection{A calculable family: the affine--Appell basis}
+
+The theory would remain too formal if one had only abstract operators and no workable families. The basis developed in the previous section provides such a family.
+
+Let
+\[
+q:=e^{\lambda v},
+\qquad
+B_n(a,v):=q^{-n}a^n=e^{-n\lambda v}a^n
+\qquad (n\in\mathbb{N}).
+\]
+For finite sums of the form
+\[
+F=\sum_{n=0}^N P_n(u,v,q)\,B_n(a,v),
+\]
+with each $P_n$ smooth in $(v,q)$ and polynomial in $u$, the operators $\partial_{\mathrm{AEG}}$ and $\bar\partial_{\mathrm{AEG}}$ act triangularly.
+
+\begin{proposition}\label{prop:affine_appell_holomorphic_operators}
+For every coefficient $P=P(u,v,q)$ independent of $a$ and every $n\ge 0$,
+\[
+\bar\partial_{\mathrm{AEG}}(PB_n)
+=
+\frac12\Bigl[\partial_uP+i\bigl(\partial_vP+\lambda q\,\partial_qP\bigr)\Bigr]B_n
++
+\frac{\mu n}{2q}\,P\,B_{n-1},
+\]
+and
+\[
+\partial_{\mathrm{AEG}}(PB_n)
+=
+\frac12\Bigl[\partial_uP-i\bigl(\partial_vP+\lambda q\,\partial_qP\bigr)\Bigr]B_n
++
+\frac{\mu n}{2q}\,P\,B_{n-1}.
+\]
+In particular, every finite span generated by the basis $\{B_0,\dots,B_N\}$ is stable under $\partial_{\mathrm{AEG}}$, $\bar\partial_{\mathrm{AEG}}$, and therefore under $\Delta_H$ as well.
+\end{proposition}
+
+\begin{proof}
+From the previous section,
+\[
+D_u(PB_n)=(\partial_uP)B_n+\mu n q^{-1}P\,B_{n-1},
+\]
+\[
+D_v(PB_n)=\bigl(\partial_vP+\lambda q\,\partial_qP\bigr)B_n.
+\]
+Substituting these formulas into the definitions \eqref{eq:17} gives the stated identities. Stability under $\Delta_H$ follows because
+\[
+\Delta_H
+=
+4\partial_{\mathrm{AEG}}\bar\partial_{\mathrm{AEG}}-i\mu\lambda\,\partial_a,
+\]
+and $\partial_a(PB_n)$ is again a finite linear combination of basis elements of lower or equal index.
+\end{proof}
+
+This is the main computational reason that the analytic branch of AEG is already viable in a first paper. The theory is not merely formal: the first-order operators, the twisted second-order operator, and the explicit basis all close on concrete model families.
+
+\medskip
+
+The picture emerging from this section is therefore quite rigid. Arithmetic holomorphicity is a genuinely horizontal first-order condition. It has a classical limit, but it also has new $a$-dependent solutions. Most importantly, it already forces a nontrivial second-order equation. In that sense, the analytic route of AEG begins not with analogy, but with a structurally compelled operator package.

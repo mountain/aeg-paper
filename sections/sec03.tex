@@ -1,494 +1,391 @@
-This section derives the central flow equation governing how assignment values propagate through geometric space: $\frac{da}{ds} = \mu \cos \theta + a \lambda \sin \theta$, where $\theta$ represents the angle of movement. The flow equation can be reformulated in various ways, including its coordinate-free form ($||\nabla a|| = \sqrt{\mu^2 + a^2 \lambda^2}$), which is an Eikonal equation equivalent to a special Hamilton-Jacobi equation.
-
-The section demonstrates that the flow equation is consistent with discrete generating processes and can be expressed in contour-gradient form. It establishes a relationship between arithmetic torsion and geometric area ($d\tau = \mu \lambda du dv$), linking non-commutativity in arithmetic to measurable geometric properties. The flow equation is shown to have a geometric propagation interpretation, where assignment values correspond to wavefront evolution in hyperbolic space. The section concludes with a discussion of the existence of metrics that make functions satisfy the flow equation, presenting a local morphing process while noting that the global case remains unsettled.
+This section derives the differential law that governs the infinitesimal propagation of assignment values. Starting from the two elementary generators introduced in Section~\ref{subsec:generated-structure}, we pass from discrete zigzag histories to a first-order continuous equation. We then reinterpret that equation in the affine group $\mathrm{Aff}(1)$, rewrite it in contour--gradient and coordinate-free forms, and record a local metric-rectification statement that motivates the formal definition of an arithmetic expression space.
 
 \subsection{Derivation of the flow equation}\label{sec:equation}
 
-Consider an infinitesimal generating process on a Riemannian surface $M$ using two generators:
-one for an additional action $\mu$ and the other for a multiplicative action $e^\lambda$.
-These two generators are perpendicular.
-This generation process produces an assignment $A: M \to R$ over the surface.
+The simplest continuous picture is obtained by idealizing the two basic arithmetic moves as infinitesimal motions in two orthogonal directions. Let $(u,v)$ be a local orthogonal coordinate system in which the $u$-direction represents the additive generator and the $v$-direction represents the multiplicative generator. We fix constants $\mu,\lambda\in\mathbb{R}$ and interpret them as the infinitesimal intensities of these two actions.
 
-For any point with an assignment $a_0$, if we consider a movement of distance $\epsilon$ in a direction with angle $\theta$
-over a time period of $\delta$, we can establish the following:
-
+Let $a=a(s)$ be the current assignment value along a unit-speed path, and let $\theta$ denote the angle of the tangent vector with the positive $u$-direction. Then
 \[
-    a_{\delta} = (a_0 + \mu \epsilon \cos \theta)e^{\lambda \epsilon \sin \theta} + O(\epsilon^2)
+    du = \cos\theta\,ds,
+    \qquad
+    dv = \sin\theta\,ds.
 \]
-
+During the infinitesimal step $ds$, the additive generator contributes $\mu\,du$, while the multiplicative generator contributes the factor $e^{\lambda dv}$. There are two natural orderings of the two actions:
+\[
+    a(s+ds) = (a + \mu\,du)e^{\lambda dv} + O(ds^2)
+\]
 or
-
 \[
-    a_{\delta} = a_0 e^{\lambda \epsilon \sin \theta} + \mu \epsilon \cos \theta + O(\epsilon^2)
+    a(s+ds) = a e^{\lambda dv} + \mu\,du + O(ds^2).
 \]
-
-Both formula can be simplified to the same result:
-
+Their difference is second-order, exactly as suggested by the arithmetic torsion calculation of Section~\ref{subsec:generated-structure}. Expanding the exponential to first order gives
 \[
-    a_{\delta} = a_0 + \epsilon (a_0 \lambda \sin \theta + \mu \cos \theta) + O(\epsilon^2)
+    a(s+ds) = a + \mu\,du + a\lambda\,dv + O(ds^2)
+            = a + \bigl(\mu\cos\theta + a\lambda\sin\theta\bigr)ds + O(ds^2).
 \]
-
-Then, we have the following equation:
-
-\[
-    \frac{1}{\delta} (a_{\delta} - a_0) = \frac{\epsilon}{\delta} (\mu \cos \theta + a_0 \lambda \sin \theta)
-\]
-
-When both $\delta$ and $\epsilon$ are towards zero, we get $da / dt$, and hence
-
-\[
-    \frac{da}{dt} = u (\mu \cos \theta + a \lambda \sin \theta)
-\]
-
-Or, we can change it to another form
-
+Dividing by $ds$ and passing to the limit, we obtain the fundamental differential relation
 \begin{equation}
-    \frac{da}{ds} = \mu \cos \theta + a \lambda \sin \theta\label{eq:flow}
+    \frac{da}{ds} = \mu \cos \theta + a \lambda \sin \theta.
+    \label{eq:flow}
 \end{equation}
+We call \eqref{eq:flow} the \emph{flow equation}. It is the continuous counterpart of the discrete propagation formulas of Section~\ref{subsec:alternating}: the additive generator contributes linearly, while the multiplicative generator amplifies the current value itself.
 
-We name this equation~\eqref{eq:flow} as the flow equation.
-
-The left side of this equation is governed by the distance structure, while the right side is governed by the angle structure.
-So that the isometries of the surface keep the flow equation~\eqref{eq:flow}.
-
-We can also get a direct formal solution of the flow equation~\eqref{eq:flow}(details in Appendix~\ref{sec:directformalsolution}).
-
+For a fixed direction $\theta$, equation~\eqref{eq:flow} is a linear first-order ordinary differential equation. When $\lambda\sin\theta\neq 0$, its solution is
 \begin{equation}
-   a = (a_0 + \frac{\mu}{\lambda} \cot \theta) e^{\lambda s \sin \theta} - \frac{\mu}{\lambda} \cot \theta\label{eq:solution}
+   a(s) = \left(a_0 + \frac{\mu}{\lambda} \cot \theta\right) e^{\lambda s \sin \theta} - \frac{\mu}{\lambda} \cot \theta,
+   \label{eq:solution}
 \end{equation}
+with initial value $a(0)=a_0$. The axis directions $\theta=0,\pi$ are the purely additive cases and will be discussed again in Section~\ref{subsec:discrete-generating}.
 
 \subsection{The matrix Lie algebra perspective}
 \label{subsec:matrix_lie_algebra}
 
-To place the flow equation~\eqref{eq:flow} on a firm Lie--theoretic footing, we model each evaluation state as an element of the affine group $G = \mathrm{Aff}(1)$ acting on the line by $x \mapsto \Phi x + a$. In matrix form, this action is represented by the faithful representation $\rho: G \to \mathrm{GL}(2, \mathbb{R})$:
-\begin{equation}
-    \rho(g) =
-    \begin{pmatrix}
-        \Phi & a \\
-        0    & 1
-    \end{pmatrix},
-\end{equation}
-where $\Phi \in \mathbb{R}_{>0}$ is the accumulated multiplicative scaling (corresponding to the flow of $\lambda$) and $a \in \mathbb{R}$ is the current translation (corresponding to the flow of $\mu$). Group multiplication in $G$ is realized as ordinary matrix multiplication.
-
-The Lie algebra $\mathfrak{aff}(1)$ consists of all matrices of the form
+The flow equation admits a natural Lie-theoretic interpretation. We model an evaluation state by an element of the affine group of the line,
 \[
-X =
+G=\mathrm{Aff}(1)=\left\{
+\begin{pmatrix}
+\Phi & a\\
+0 & 1
+\end{pmatrix}
+\;\middle|\; \Phi\in\mathbb{R}_{>0},\ a\in\mathbb{R}
+\right\},
+\]
+acting on $x\in\mathbb{R}$ by $x\mapsto \Phi x + a$. Here $\Phi$ records accumulated multiplicative scaling, while $a$ records translation.
+
+Its Lie algebra consists of matrices of the form
+\[
+X=
 \begin{pmatrix}
 \alpha & \beta\\
-0      & 0
-\end{pmatrix}, \qquad \alpha,\beta \in \mathbb{R},
+0 & 0
+\end{pmatrix},
+\qquad \alpha,\beta\in\mathbb{R},
 \]
-with a basis given, for instance, by the dilation generator $E_{11}$ and the translation generator $E_{12}$. For a path $s \mapsto g(s)$ in $G$ with matrix representation $\rho(g(s))$, we prescribe an infinitesimal generator $\Omega \in \mathfrak{aff}(1)$ that combines the local multiplicative and additive intensities $\lambda$ and $\mu$ along a direction $\theta$:
+with basis given by the dilation generator $E_{11}$ and the translation generator $E_{12}$. For a path $s\mapsto g(s)\in G$, we prescribe the infinitesimal generator
+\[
+\Omega(\theta)
+= \lambda \sin\theta\,E_{11} + \mu\cos\theta\,E_{12}
+=
+\begin{pmatrix}
+\lambda\sin\theta & \mu\cos\theta\\
+0 & 0
+\end{pmatrix}.
+\]
+The corresponding left-invariant matrix equation is
 \begin{equation}
-    \Omega
-    = \lambda \sin\theta \, E_{11} + \mu \cos\theta \, E_{12}
-    =
-    \begin{pmatrix}
-        \lambda \sin\theta & \mu \cos\theta \\
-        0                  & 0
-    \end{pmatrix}.
+    \frac{d}{ds}g(s)=\Omega(\theta)\,g(s).
 \end{equation}
+Writing
+\[
+g(s)=
+\begin{pmatrix}
+\Phi(s) & a(s)\\
+0 & 1
+\end{pmatrix},
+\]
+we obtain
+\[
+\begin{pmatrix}
+\Phi'(s) & a'(s)\\
+0 & 0
+\end{pmatrix}
+=
+\begin{pmatrix}
+\lambda\sin\theta & \mu\cos\theta\\
+0 & 0
+\end{pmatrix}
+\begin{pmatrix}
+\Phi(s) & a(s)\\
+0 & 1
+\end{pmatrix}.
+\]
+Comparing the upper-right entries yields
+\[
+    \frac{da}{ds}=a\lambda\sin\theta + \mu\cos\theta,
+\]
+which is exactly equation~\eqref{eq:flow}. Thus the flow equation is the $a$-component of a linear evolution on $\mathrm{Aff}(1)$.
 
-The evolution of the arithmetic state is governed by the (right--invariant) differential equation:
+This affine-group picture also clarifies why the translation part behaves like a twisted derivative. If we write an element of $G$ as $(\Phi,D)$, then
+\[
+(\Phi_1,D_1)(\Phi_2,D_2)=(\Phi_1\Phi_2, D_1+\Phi_1D_2),
+\]
+so the translation component satisfies
 \begin{equation}
-    \frac{d}{ds}\rho(g(s)) = \Omega \,\rho(g(s)).
+    D(uv)=D(u)+\Phi(u)D(v).
 \end{equation}
-Substituting the matrix forms, we have:
-\begin{equation}
-    \begin{pmatrix}
-        d\Phi/ds & da/ds \\
-        0        & 0
-    \end{pmatrix}
-    =
-    \begin{pmatrix}
-        \lambda \sin\theta & \mu \cos\theta \\
-        0                  & 0
-    \end{pmatrix}
-    \begin{pmatrix}
-        \Phi & a \\
-        0    & 1
-    \end{pmatrix}.
-\end{equation}
-Performing the matrix multiplication on the right-hand side, the upper-right entry yields:
-\begin{equation}
-    \frac{da}{ds}
-    = (\lambda \sin\theta)\,a + (\mu \cos\theta)\cdot 1
-    = \mu \cos\theta + a \lambda \sin\theta,
-\end{equation}
-which is exactly the flow equation~\eqref{eq:flow} derived initially from the geometric propagation picture.
-
-\textbf{Mathematical Note.}
-In this formulation, the generator takes the form $\Omega = \lambda \sin\theta\,E_{11} + \mu \cos\theta\,E_{12}$, so the flow equation is structurally identical to the action of the Lie algebra $\mathfrak{aff}(1)$ on the affine line. The term $\mu \cos\theta$ is the contribution of the translation generator $E_{12}$, while the term $a \lambda \sin\theta$ arises from the interaction between the dilation generator $E_{11}$ and the current state $a$.
-
-Crucially, at the level of the affine-group representation, the translation component $D(g)$ (which corresponds to $a$) satisfies a twisted Leibniz rule:
-\begin{equation}
-    D(uv) = D(u) + \Phi(u) D(v).
-\end{equation}
-This is precisely the defining relation of the Fox differential calculus on the group ring. The "Leibniz-like" form of the flow equation is thus the continuous incarnation of this rule, with the off--diagonal entry in the product $\Omega\,\rho(g)$ playing the role of the Fox derivative of the current state. (See Section~\ref{sec:acs_and_fox} for further discussion on the connection between $Aff(1)$ representations and global arithmetic torsion).
+At the representation level, this is the same twisted Leibniz rule that lies behind Fox's free differential calculus \cite{Fox1953FreeDifferential}. In the present paper the rule appears in its simplest affine form; later sections will recover it geometrically through contact and differential structures.
 
 \subsection{Discrete generating}\label{subsec:discrete-generating}
 
-In section~\ref{subsec:generated-structure}, we have discussed a discrete generating process.
-Since flow equation governs an infinitesimal generating process,
-we will show the above discrete generating process can be emerged from the solution of the flow equation~\eqref{eq:solution} naturally.
-We expand the formula by the Taylor series:
-
+The infinitesimal flow should reproduce the discrete arithmetic generators when we move exactly along the coordinate directions. This is already visible by expanding the one-step propagation law to second order:
 \[
-    a =  a_0 e^{\lambda s \sin \theta} + \frac{\mu}{\lambda} [1 + \lambda s \sin \theta + \frac{1}{2!} (\lambda s \sin \theta)^2  + \frac{1}{3!} (\lambda s \sin \theta)^3 + \cdots - 1] \cot \theta
+    a(s)=a_0 e^{\lambda s\sin\theta} + \mu s\cos\theta + \frac{\mu\lambda}{2}s^2\Psi(s)\sin 2\theta,
 \]
-
-Change the formula slightly:
-\[
-    a = a_0 e^{\lambda s \sin \theta} + \mu s \cos \theta + \frac{\mu}{\lambda} \sin \theta \cos \theta (\frac{\lambda^2s^2}{2!} + \frac{\lambda^3s^3}{3!} \sin \theta + \frac{\lambda^4s^4}{4!} \sin^2 \theta + \cdots)
-\]
-
-By the formula of double angle, we have
-\[
-    a = a_0 e^{\lambda s \sin \theta} + \mu s \cos \theta + \frac{\mu}{2\lambda} \sin 2\theta (\frac{\lambda^2s^2}{2!} + \frac{\lambda^3s^3}{3!} \sin \theta + \frac{\lambda^4s^4}{4!} \sin^2 \theta + \cdots)
-\]
-
-We denote
-\begin{equation}
-    \Psi(s) = \frac{1}{2!} + \frac{\lambda s}{3!} \sin \theta + \frac{\lambda^2 s^2}{4!} \sin^2 \theta + \cdots
-\end{equation}
-
-Then we have
-\begin{equation}
-    a = a_0 e^{\lambda s \sin \theta} + \mu s \cos \theta + \frac{\mu\lambda}{2} s^2 \Psi(s) \sin 2\theta
-\end{equation}
-
-This formula gives the discrete generating process, when $\theta = \frac{k \pi}{2}, k = 0, 1, 2, 3\cdots, s = 0, 1, 2, 3\cdots$, we have
-
-\begin{equation}
-    a = a_0 e^{\lambda s \sin \theta} + \mu s \cos \theta
-\end{equation}
-
-Especially, we have the following four cases:
+where $\Psi(s)$ is analytic near $s=0$ and satisfies $\Psi(0)=\frac{1}{2!}$. The mixed term is proportional to $\sin 2\theta$, so it disappears when $\theta\in \frac{\pi}{2}\mathbb{Z}$. In those axis directions we recover the four basic motions:
 \begin{itemize}
-\item $\theta = 0$: $a_s = a_0 + \mu s$
-\item $\theta = \frac{\pi}{2}$: $a_s = a_0 e^{\lambda s}$
-\item $\theta = \pi$: $a_s = a_0 - \mu s$
-\item $\theta = \frac{3 \pi}{2}$: $a_s = a_0 e^{- \lambda s} $
+\item $\theta = 0$: $a_s = a_0 + \mu s$,
+\item $\theta = \frac{\pi}{2}$: $a_s = a_0 e^{\lambda s}$,
+\item $\theta = \pi$: $a_s = a_0 - \mu s$,
+\item $\theta = \frac{3\pi}{2}$: $a_s = a_0 e^{-\lambda s}$.
 \end{itemize}
-
-This result is straightforward, but it demonstrates that the infinitesimal generating process is consistent with the discrete generating process.
-And this expands our toolset, enabling us to explore the interplay between discrete and infinitesimal generating processes.
+These are precisely the continuous counterparts of ``add,'' ``multiply,'' ``subtract,'' and ``divide.'' In this sense the flow equation is not an external analytic decoration; it is the infinitesimal envelope of the discrete generator calculus developed in Section~\ref{subsec:generated-structure}.
 
 \subsection{The contour-gradient form of flow equation}\label{subsec:the-contour-gradient-form}
 
-It is easy to derive the contour equation in the local coordinate
+The scalar field $a$ determines two preferred local directions: the contour direction, along which $a$ is constant, and the gradient direction, along which $a$ changes most rapidly. The flow equation can be rewritten so that these directions become explicit.
 
+Let $\theta_c$ be the angle of a contour direction. Since $da/ds=0$ along a contour, equation~\eqref{eq:flow} gives
 \begin{equation}
-    \mu \cos \theta_c + a \lambda \sin \theta_c = 0\label{eq:contour}
+    \mu \cos \theta_c + a \lambda \sin \theta_c = 0.
+    \label{eq:contour}
 \end{equation}
-
-then we have
-
+Thus
 \begin{equation}
-    \theta_c = - \arctan \frac{\mu}{a \lambda}\label{eq:contourangle}
+    \theta_c = - \arctan \frac{\mu}{a \lambda}.
+    \label{eq:contourangle}
 \end{equation}
-
-the contour and the gradient are perpendicular to each other
-
+A gradient direction is perpendicular to the contour direction, so
 \begin{equation}
-    \theta_g = \pm \frac{\pi}{2} - \arctan \frac{\mu}{a \lambda}\label{eq:gradientangle}
+    \theta_g = \pm \frac{\pi}{2} - \arctan \frac{\mu}{a \lambda}.
+    \label{eq:gradientangle}
 \end{equation}
-
-then along $\theta_g$ we have
-
+Substituting this angle into the flow equation gives
 \begin{equation}
-    \frac{da}{ds} = \mu \cos (\pm \frac{\pi}{2} - \arctan \frac{\mu}{a \lambda}) + a \lambda \sin (\pm \frac{\pi}{2} - \arctan \frac{\mu}{a \lambda})
+    \frac{da}{ds} = \mu \cos \!\left(\pm \frac{\pi}{2} - \arctan \frac{\mu}{a \lambda}\right) + a \lambda \sin \!\left(\pm \frac{\pi}{2} - \arctan \frac{\mu}{a \lambda}\right),
     \label{eq:alonggradient}
 \end{equation}
-
+and therefore
 \begin{equation}
-    \frac{da}{ds} = \pm \sqrt{\mu^2 + \lambda^2 a^2}\label{eq:grad}
+    \frac{da}{ds} = \pm \sqrt{\mu^2 + \lambda^2 a^2}.
+    \label{eq:grad}
 \end{equation}
-
-By introducing the right-hand rotation angle $\phi$ along the gradient direction, we can establish a local polar coordinate system based on the gradient and contour lines.
-Then the growth rate of $a$ along the angle $\phi$ is
-
+Now rotate the positive gradient direction by an angle $\phi$. In the resulting contour--gradient frame, the flow equation becomes
 \begin{equation}
-    \frac{da}{ds} = \mu \cos (\frac{\pi}{2} - \arctan \frac{\mu}{a \lambda} + \phi) + a \lambda \sin (\frac{\pi}{2} - \arctan \frac{\mu}{a \lambda} + \phi)
+    \frac{da}{ds} = \mu \cos \!\left(\frac{\pi}{2} - \arctan \frac{\mu}{a \lambda} + \phi\right) + a \lambda \sin \!\left(\frac{\pi}{2} - \arctan \frac{\mu}{a \lambda} + \phi\right),
     \label{eq:fourfold}
 \end{equation}
-
-And the simplified equation is
-
+which simplifies to
 \begin{equation}
-    \frac{da}{ds} = \sqrt {\mu^2 + a^2 \lambda^2} \cos \phi\label{eq:contourgradient}
+    \frac{da}{ds} = \sqrt {\mu^2 + a^2 \lambda^2} \, \cos \phi.
+    \label{eq:contourgradient}
 \end{equation}
-
-or
-
+If we wish to emphasize the chosen direction, we may write equivalently
 \begin{equation}
-    \frac{da_{\phi}}{ds_{\phi}} = \sqrt {\mu^2 + a^2 \lambda^2} \cos \phi\label{eq:contourgradient2}
+    \frac{da_{\phi}}{ds_{\phi}} = \sqrt {\mu^2 + a^2 \lambda^2} \, \cos \phi.
+    \label{eq:contourgradient2}
 \end{equation}
+This is the flow equation in contour--gradient coordinates.
 
-if we want to emphasize the path is along the angle $\phi$.
-
-The equation~\eqref{eq:contourgradient} is the flow equation in the contour-gradient coordinate system.
-
-Equation~\eqref{eq:contourgradient} is solvable, and we get the relation between $a$ and $s$:
-
+Integrating \eqref{eq:contourgradient} for fixed $\phi$ yields
 \begin{equation}\label{eq:rel_a_s}
-    \tanh(\lambda s \cos \phi - c) = \frac{\lambda a}{\sqrt{\mu^2 + \lambda^2 a^2}}
+    \operatorname{arcsinh}\frac{\lambda a}{\mu} = \lambda s \cos \phi + c,
 \end{equation}
-
-we can further simplify the equation to
-
+so that
 \begin{equation}
-  a = \pm \frac{\mu}{\lambda} \sinh(\lambda s \cos \phi - c)\label{eq:gradevo}
+  a = \frac{\mu}{\lambda} \sinh(\lambda s \cos \phi + c).
+  \label{eq:gradevo}
 \end{equation}
-
-Under the initial condition $a = a_0$ when $s = 0$, we can get the following equation:
-
+With initial condition $a(0)=a_0$, we obtain
 \begin{equation}
-    a = \frac{\mu}{\lambda} \sinh(\lambda s \cos \phi + \arcsinh \frac{a_0 \lambda}{\mu})\label{eq:gradevo2}
+    a = \frac{\mu}{\lambda} \sinh\!\left(\lambda s \cos \phi + \operatorname{arcsinh} \frac{a_0 \lambda}{\mu}\right).
+    \label{eq:gradevo2}
 \end{equation}
-
-or
-
+The pure additive and pure multiplicative directions are also easy to identify in this frame. They satisfy, respectively,
 \begin{equation}
-    a = - \frac{\mu}{\lambda} \sinh(\lambda s \cos \phi - \arcsinh \frac{a_0 \lambda}{\mu})\label{eq:gradevo3}
+    \phi = \arccos \frac{\mu}{\sqrt {\mu^2 + a^2 \lambda^2}},
+    \label{eq:additionalline}
 \end{equation}
-
-In this coordinate system, the additional line and the multiplicative line are:
-
+and
 \begin{equation}
-    \phi = \arccos \frac{\mu}{\sqrt {\mu^2 + a^2 \lambda^2}} \label{eq:additionalline}
-\end{equation}
-
-\begin{equation}
-    \phi = \arcsin \frac{\mu}{\sqrt {\mu^2 + a^2 \lambda^2}}\label {eq:mulitiplcativeline}
+    \phi = \arcsin \frac{\mu}{\sqrt {\mu^2 + a^2 \lambda^2}}.
+    \label{eq:mulitiplcativeline}
 \end{equation}
 
 \subsection{Arithmetic coordinate and area formula}\label{subsec:descartes-coordinate}
-We begin our exploration by examining the flow equation~\eqref{eq:flow} within the framework of a local polar coordinate system:
 
+The contour--gradient discussion suggests another elementary rewriting. Resolve the tangent direction into orthogonal components by setting
+\[
+    du = \cos \theta\, ds,
+    \qquad
+    dv = \sin \theta\, ds.
+\]
+Then
 \begin{equation}
-    \frac{da}{ds} = \mu \cos \theta + a \lambda \sin \theta
+    ds^2 = du^2 + dv^2,
 \end{equation}
-
-In an effort to re-contextualize this equation, we set $du = \cos \theta ds$ and $dv = \sin \theta ds$,
-where $du$ and $dv$ are perpendicular infinitesimal movements.
-We can use these movements to construct a local Descartes coordinate system, and the first fundamental form of this system is:
-
+and the flow equation becomes the Pfaffian relation
 \begin{equation}
-    ds^2 = du^2 + dv^2
+    da = \mu \, du + a \lambda \, dv.
 \end{equation}
+This differential form will reappear in Section~\ref{sec:ecstructure} as the local model of the arithmetic contact form; in that sense it already lies in the classical Pfaffian lineage descending from Darboux \cite{Darboux1882Pfaff}.
 
-Thereby this enables us to express the flow equation in a different light:
-
+Now compare the two oriented infinitesimal two-step paths based at a value $a_0$:
+\[
+    (a_0 + \mu\,du)e^{\lambda dv}
+    \qquad\text{and}\qquad
+    a_0 e^{\lambda dv} + \mu\,du.
+\]
+Their difference is the infinitesimal torsion,
 \begin{equation}
-    da = \mu du + a \lambda dv
+    d\tau = (a_0 + \mu du) e^{\lambda dv} - (a_0 e^{\lambda dv} + \mu du).
 \end{equation}
-
-Our attention now turns to the concept of arithmetic torsion, particularly at an infinitesimal level.
-Delving into the interplay between two infinitesimal generating processes, we observe that:
-
+Expanding to the first nontrivial order gives
+\[
+    d\tau = \mu du \,(e^{\lambda dv}-1) = \mu\lambda \, du\,dv + O\bigl((ds)^3\bigr).
+\]
+Hence the second-order torsion density is
 \begin{equation}
-    d\tau = (a_0 + \mu du) e^{\lambda dv} - (a_0 e^{\lambda dv} + \mu du)
+    d\tau = \mu \lambda \, du \, dv.
+    \label{eq:area_formula}
 \end{equation}
-
-From this relationship, we deduce:
-
+Since the Euclidean area element in the $(u,v)$-frame is
 \begin{equation}
-    d\tau = \mu du (e^{\lambda dv} - 1)
+    dS = du \, dv,
+    \label{eq:area_element}
 \end{equation}
-
-This leads us to an area formula, capturing the essence of this interaction:
-
+we obtain the local identity
 \begin{equation}
-    d\tau = \mu \lambda du dv \label{eq:area_formula}
+    \frac{d\tau}{\mu \lambda} = dS.
+    \label{eq:area_formula2}
 \end{equation}
-
-and because the area element have a form
-
-\begin{equation}
-    dS = du dv \label{eq:area_element}
-\end{equation}
-
-Then we have
-\begin{equation}
-    \frac{d\tau}{\mu \lambda} = dS\label{eq:area_formula2}
-\end{equation}
-
-This formula is compelling as it establishes a link between area elements and arithmetic torsion.
-Such formulations find parallels in the realms of classic analysis and differential geometry.
-For instance, they resonate with concepts akin to Stokes' theorem or the Gauss-Bonnet theorem.
-We intend to expand upon this formula in the ensuing section\ref{sec:curvature},
-aiming to forge a connection with curvature and delve into the intricacies of the Gauss-Bonnet theorem.
-
-It's noteworthy to emphasize the distinctiveness of the local Descartes coordinate system.
-This system, by integrating the assignment, lays the foundation for a theoretical framework.
-We refer to this as the \emph{arithmetic coordinate system}, given its unique properties and alignment with arithmetic principles.
+This is the infinitesimal prototype of the global torsion formulas proved later in the accumulative commutative space.
 
 \subsection{The coordinate-free form of flow equation}\label{subsec:coordinate-free}
 
-From the contour-gradient form of the flow equation~\eqref{eq:contourgradient}, we can derive a coordinate-free form of the flow equation.
-Let's consider the direction of \(\phi = 0\) in the contour-gradient coordinate system, and we have
-
+Equation~\eqref{eq:contourgradient} immediately yields a coordinate-free version of the theory. Along the positive gradient direction we have $\phi=0$, and therefore
 \[
-    \frac{da}{ds}|_{\phi = 0} = \sqrt{\mu^2 + a^2 \lambda^2} \cos 0
+    \frac{da}{ds}\bigg|_{\phi=0} = \sqrt{\mu^2 + a^2 \lambda^2}.
 \]
-
-Notice the gradient of \(a\) is not dependent on the coordinate system, and we have the coordinate-free form of the flow equation:
-
+But along the unit gradient direction, $da/ds = \|\nabla a\|$. Hence
 \begin{equation}\label{eq:coordinate-free}
-||\nabla a|| = \sqrt{\mu^2 + a^2 \lambda^2}
+    ||\nabla a|| = \sqrt{\mu^2 + a^2 \lambda^2}.
 \end{equation}
-
-It should be noted that the coordinate-free form of the flow equation~\eqref{eq:coordinate-free} is an Eikonal equation,
-and can be viewed as a special Hamilton–Jacobi equation
+This is an eikonal equation, or equivalently a first-order Hamilton--Jacobi-type relation in the modern PDE sense \cite{Hamilton1834GeneralMethod,Evans2010PDE}. The corresponding Hamiltonian may be written as
 \[
-H(x, a, \nabla a) = 0
+H(x,a,p)=0,
 \]
-
-where the Hamiltonian is
-
+where
 \begin{equation}\label{eq:hamiltonian}
-    H(x, a, p) = ||p|| - \sqrt{\mu^2 + a^2 \lambda^2}
+    H(x, a, p) = ||p|| - \sqrt{\mu^2 + a^2 \lambda^2}.
 \end{equation}
+The coordinate-free form is especially useful conceptually: it shows that the flow equation depends only on the metric norm of the gradient and the current value of the assignment field.
 
-\subsection{Propagation and Rectification}\label{subsec:propagation}
+\subsection{Propagation and rectification}\label{subsec:propagation}\label{subsec:propagation-method}
 
-While Equation \eqref{eq:contourgradient} can be solved directly, its structure suggests a simplifying change of variables that "rectifies" the flow. Let us define a new variable $f$ by
+The coordinate-free form suggests a change of variables that rectifies the nonlinear growth. Define
 \[
 f = \operatorname{arcsinh}\left(\frac{\lambda a}{\mu}\right).
 \]
-This choice is motivated by the desire to find a variable whose gradient has a constant magnitude. Using the chain rule,
+Then by the chain rule,
 \[
-\nabla f = \frac{df}{da}\nabla a = \frac{\lambda/\mu}{\sqrt{1+(\lambda a/\mu)^2}}\nabla a = \frac{\lambda}{\sqrt{\mu^2+\lambda^2 a^2}}\nabla a.
+\nabla f
+= \frac{\lambda}{\sqrt{\mu^2+\lambda^2 a^2}}\,\nabla a.
 \]
-Taking the norm of both sides and using the Eikonal form \eqref{eq:coordinate-free}, we find
+Taking norms and using \eqref{eq:coordinate-free}, we obtain
 \[
-\|\nabla f\|=\frac{\lambda}{\sqrt{\mu^2+\lambda^2 a^2}}\|\nabla a\|=\lambda.
+\|\nabla f\| = \lambda.
 \]
-The rectified variable $f$ has a gradient of constant magnitude. Consequently, its rate of change along a direction at an angle $\phi$ to the gradient is simply
+Thus the rectified variable $f$ has constant gradient magnitude. Along a direction making angle $\phi$ with the positive gradient direction,
 \[
-\frac{df}{ds}=\langle \nabla f, T \rangle = \|\nabla f\|\cos\phi = \lambda\cos\phi.
+\frac{df}{ds} = \langle \nabla f, T\rangle = \|\nabla f\|\cos\phi = \lambda\cos\phi.
 \]
-This linearized equation is trivial to integrate: $f(s) = f_0 + \lambda s \cos\phi$. Substituting back for $a$ gives $a = (\mu/\lambda)\sinh(f)$, which yields the general solution for propagation from an initial value $f_0$:
+Integrating gives
+\[
+f(s) = f_0 + \lambda s\cos\phi,
+\qquad
+f_0 = \operatorname{arcsinh}\left(\frac{\lambda a_0}{\mu}\right).
+\]
+Returning to $a = (\mu/\lambda)\sinh f$, we recover the explicit propagation law
 \begin{equation}\label{eq:gradevo4}
 a=\frac{\mu}{\lambda}\sinh\!\Big(\lambda s\cos\phi+\operatorname{arcsinh}\frac{\lambda a_0}{\mu}\Big).
 \end{equation}
-In the case of propagation along the gradient ($\phi=0$) from a zero-value contour ($a_0=0$), this simplifies to
+In particular, when propagation starts from a zero contour ($a_0=0$) and follows the gradient direction ($\phi=0$),
 \[
-a=\pm\frac{\mu}{\lambda}\sinh(\lambda s).
+    a = \frac{\mu}{\lambda}\sinh(\lambda s).
 \]
-This form is reminiscent of the circumference of a hyperbolic circle of radius $s$, $C \propto \sinh(\sqrt{-k}s)$, suggesting that $a$ can be interpreted as a propagating wavefront in a space of constant negative curvature. A detailed geometric interpretation will be given in Section~\ref{sec:firstkind}.
+This hyperbolic-sine growth law will match the geometry of the zeroth kind space $\mathfrak{E}_0$ in the next section.
 
 \subsection{Flow and function}\label{subsec:flow-and-function}
 
-In this section, we aim to present novel insight into functions.
-Namely, the treatment of functions as flows will be discussed.
+The flow viewpoint suggests a simple but useful distinction between a map acting on values and a map acting on histories.
 
 \begin{definition}\label{def:projection}
-Given a function $k$ on the real domain $R$, we can introduce a mapping $l$ on the arithmetic expression space $H$ such that the following diagram commutes.
+Let $H$ be a space of expression histories equipped with an evaluation map $\nu:H\to\mathbb{R}$. Given a function $k:\mathbb{R}\to\mathbb{R}$, a map $\ell:H\to H$ is called a \emph{promotion} of $k$ if the following diagram commutes:
 
 \begin{center}
     \begin{tikzcd}
         H && H \\
-        R && R
-        \arrow["l", from=1-1, to=1-3]
+        \mathbb{R} && \mathbb{R}
+        \arrow["\ell", from=1-1, to=1-3]
         \arrow["\nu"', from=1-1, to=2-1]
         \arrow["\nu", from=1-3, to=2-3]
         \arrow["k"', from=2-1, to=2-3]
     \end{tikzcd}
 \end{center}
 
-where $\nu$ is the evaluation function of the expression. Then we call the mapping $l$ is the promotion of the function $k$,
-or function $k$ is the projection of the mapping $l$.
+In that case we also say that $k$ is the \emph{projection} of $\ell$.
 \end{definition}
 
-Giving an arithmetic expression space as definition at the beginning of the section\ref{subsec:meshgrid},
-we will show examples of flows as functions in the following Section~\ref{sec:firstkind}.
+The point of the definition is modest but important. A function on values forgets history; a promoted map on $H$ may retain or reorganize it. Concrete examples will appear once explicit arithmetic expression spaces have been constructed.
 
 \subsection{The existence theorem}\label{subsec:existence-theorem}
 
-There are two existence problems related to the flow equation~\eqref{eq:flow}.
-The first existence problem concerns the existence of a function $a$ on a Riemannian surface $S$ that satisfies the flow equation~\eqref{eq:flow}.
-The second existence problem concerns the existence of a metric $g$ on a Riemannian surface $S$ that makes a function $a$ satisfy the flow equation~\eqref{eq:flow}.
+There are two natural existence questions associated with the flow equation. The first asks for pairs $(M,a)$ that satisfy the equation for a fixed metric. The second asks whether, for a given smooth function $a$, one can modify the metric so that $a$ becomes a solution. In this paper we only record a local result of the second kind.
 
-We can proof there is a local morphing process over metric $g$ to make a function $a$ satisfy the flow equation~\eqref{eq:flow} locally.
-But the global morphing process is more complicated, and we need to consider the global structure of the surface $S$, which is still not settled.
-
-\begin{lemma}(By Le Zhang)
-    Given an oriented compact Riemannian surface $S$, and a smooth function $a$ over $S$, there exists a metric $g$ on $S$ that makes $a$
-    satisfying the flow equation~\eqref{eq:flow}.
+\begin{lemma}[Local metric rectification, after Le Zhang]
+    Let $S$ be a smooth oriented surface with a Riemannian metric $g_0$, and let $a\in C^{\infty}(S)$. If $p\in S$ satisfies $\nabla_{g_0}a(p)\neq 0$, then there exists a neighborhood $U\ni p$ and a conformally rescaled metric $g$ on $U$ such that $a$ satisfies the flow equation~\eqref{eq:flow} on $U$.
     \label{prop:existence2nd}
 \end{lemma}
 
 \begin{proof}
-    \emph{Local perspective}:
-
-    Consider a point \( p \) on the surface \( S \), and there is a neighborhood \( U \) around \( p \).
-    In this area, we can find a local isothermal coordinate system in which the metric takes the form:
-    \[ ds^2 = e^{2\rho}(du^2 + dv^2), \]
-    where \( u \) and \( v \) are the coordinates of \( U \), and \( \rho \) is a function of \( u, v \) in \( U \).
-    The gradient of \( a \) in this local isothermal coordinate system is expressed as:
-    \[ \nabla a = \frac{\partial a}{\partial u} du + \frac{\partial a}{\partial v} dv. \]
-    Using the definition of the directional derivative, we obtain:
-    \[ \frac{da_{\psi}}{ds_{\psi}} = ||\nabla a|| \cos \psi, \]
-    where \( ||\nabla a|| \) is the norm of \( \nabla a \), and \( \psi \) is the angle between \( \nabla a \) and the direction of movement.
-
-    Now, considering the flow equation~\ref{eq:contourgradient2} in the gradient-contour coordinate system, we have:
-    \[ \frac{da_{\phi}}{ds_{\phi}} = \sqrt{\mu^2 + a^2 \lambda^2} \cos \phi. \]
-
-    Note that \( ||\nabla a|| \) is fixed for the given function \( a \) and the local coordinate system, and \( \sqrt{\mu^2 + a^2 \lambda^2} \) is also fixed for the given function \( a \).
-    We can scale \( e^{2\rho} \) with a linear factor \( \alpha \) to make \( ||\nabla a|| \) match the fixed value of \( \sqrt{\mu^2 + a^2 \lambda^2} \),
-    thus we have a morphing process controlled by \( \alpha \) that
-    \begin{align}
-    ds^2 &= \alpha e^{2 \rho}(du^2 + dv^2)\label{eq:morphing} \\
-         &= e^{2 \rho + \ln \alpha}(du^2 + dv^2).
-    \end{align}
-
-    Under the morphing ratio \( \alpha \), we have:
-
-    \begin{equation}
-      ||\nabla_\alpha a|| = \alpha^{-1} ||\nabla a||,
-    \end{equation}
-
-    and when \( \alpha \) is set to the value of:
-
-    \[ ||\nabla_\alpha a|| = \sqrt{\mu^2 + a^2 \lambda^2}, \]
-
-    the flow equation~\eqref{eq:flow} is satisfied in the local coordinate system.
-
-    The morphing ratio \( \alpha \) is calculated as follows:
-    \begin{equation}
-        \alpha = \frac{||\nabla a||}{\sqrt{\mu^2 + a^2 \lambda^2}}\label{eq:ratio}.
-    \end{equation}
-    \qedhere
+By the standard existence of local isothermal coordinates on a surface \cite{doCarmo1976CurvesSurfaces}, after shrinking $U$ if necessary we may write
+\[
+    g_0 = e^{2\rho}(du^2+dv^2)
+\]
+on $U$. In these coordinates the norm of the gradient of $a$ is
+\[
+    ||\nabla_{g_0} a||.
+\]
+Now introduce a positive conformal factor $\alpha$ and define
+\begin{align}
+    g &= \alpha^2 e^{2\rho}(du^2+dv^2) \label{eq:morphing}\\
+      &= e^{2\rho+2\ln \alpha}(du^2+dv^2).
+\end{align}
+Under this rescaling,
+\[
+    ||\nabla_{g} a|| = \alpha^{-1} ||\nabla_{g_0} a||.
+\]
+Therefore, if we choose
+\begin{equation}
+    \alpha = \frac{||\nabla_{g_0} a||}{\sqrt{\mu^2 + a^2 \lambda^2}},
+    \label{eq:ratio}
+\end{equation}
+then
+\[
+    ||\nabla_g a|| = \sqrt{\mu^2 + a^2\lambda^2}.
+\]
+By the coordinate-free form \eqref{eq:coordinate-free}, this is exactly the flow equation on $U$.
 \end{proof}
 
-When we consider the broader scope of the surface \( S \), it's possible to extend the morphing process to every point,
-ensuring that the flow equation~\eqref{eq:flow} is satisfied on a global scale.
-However, this expansion necessitates a harmonious integration of the morphing process across neighboring locales.
-Specifically, this means that the morphing should not only preserve the circles centered at point \( p \) within its immediate local chart
-but also maintain the integrity of these circles within the adjacent charts of point \( p \).
-In essence, the morphing process must be seamlessly coordinated across the various local regions to achieve a unified global transformation.
-How to achieve this harmonious integration remains an open question, and further exploration is needed to address this challenge.
+The lemma is intentionally local. Extending the construction across an entire surface requires compatibility of the conformal factors across overlapping charts and control near critical or singular loci. Those global questions are left open here.
 
 \subsection{Defining the Arithmetic Expression Space}\label{subsec:aes-definition}
 
-The preceding sections have established the flow equation as the fundamental differential relation governing the interplay between arithmetic operations and a continuous geometric background. We have derived its various forms and established a local existence theorem (Lemma~\ref{prop:existence2nd}), showing that a metric can be morphed to accommodate a given scalar field as a valid assignment. This provides the necessary motivation to formally define the central object of our study.
+We now package the preceding discussion into the basic object of the paper.
 
 \begin{definition}[Arithmetic Expression Space]\label{def:aes}
-An \emph{Arithmetic Expression Space} (AES) is a pair $(M, a)$, where:
+An \emph{Arithmetic Expression Space} (AES) is a pair $(M,a)$ together with fixed constants $\mu,\lambda\in\mathbb{R}$ such that:
 \begin{itemize}
-    \item $M$ is a two-dimensional Riemannian manifold, equipped with a metric $g$.
-    \item $a: M \to \mathbb{R}$ is a smooth scalar field on $M$.
+    \item $M$ is a two-dimensional Riemannian manifold with metric $g$;
+    \item $a:M\to\mathbb{R}$ is a smooth scalar field;
+    \item $a$ satisfies the flow equation
+    \[
+        \frac{da}{ds} = \mu \cos \theta + a \lambda \sin \theta,
+    \]
+    equivalently, the coordinate-free relation
+    \[
+        ||\nabla a||_g = \sqrt{\mu^2 + a^2 \lambda^2}.
+    \]
 \end{itemize}
-such that for given constant parameters $\mu, \lambda \in \mathbb{R}$, the pair $(M, a)$ satisfies the flow equation:
-\[
-    \frac{da}{ds} = \mu \cos \theta + a \lambda \sin \theta
-\]
-or, equivalently, its coordinate-free Eikonal form:
-\[
-    ||\nabla a||_g = \sqrt{\mu^2 + a^2 \lambda^2}
-\]
-The manifold $M$ provides the geometric stage, defining distance and angles, while the scalar field $a$ embodies the arithmetic assignment. The flow equation enforces the core consistency condition that links the geometry of $M$ to the arithmetic propagation defined by $a$. In the subsequent sections, we will construct and analyze concrete examples of such spaces, beginning with the zeroth kind space $\mathfrak{E}_{0}$.
+The manifold $M$ provides the geometric stage, the scalar field $a$ records arithmetic assignment, and the flow equation expresses the consistency between the two. In the next section we construct the fundamental example $\mathfrak{E}_0$ and then use it as the first geometric laboratory of the theory.
 \end{definition}
-

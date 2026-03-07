@@ -1,20 +1,320 @@
+This appendix gathers the elementary examples that motivate the layered notion of equality from Section~\ref{sec:concepts} and the first loop-theoretic outlook announced there. Its purpose is pedagogical. The main text keeps only the shortest route from expressions to torsion; the present appendix records a small stock of explicit examples that can be used as calibration tests later on.
 
-\subsection{Foundation questions}\label{sec:foundation}
+\subsection{The equality ladder revisited through small examples}
+\label{appE:equality-ladder}
 
-\subsection{Classification problem}\label{sec:donaghey}
+Section~\ref{subsec:problems-on-equality-singularity-symmetries} distinguishes several levels of equality. The quickest way to keep those levels separate is to place a few concrete examples side by side.
 
-\subsection{Eigenfunction problem}\label{sec:eigenfunction}
+\paragraph{Literal versus operational equality.}
+The two expressions
+\[
+(x+1)+2,
+\qquad
+x+(1+2)
+\]
+are not literally identical as written strings. After currying, however, both determine the same operational history
+\[
+(\oplus_1,\oplus_2),
+\]
+so they are operationally equal.
 
-\subsection{Tube structure}\label{sec:tube}
+\paragraph{Operational versus relational equality.}
+The two expressions
+\[
+(x+1)\times 2,
+\qquad
+x\times 2+2
+\]
+are not produced by the same threaded history. The first corresponds to
+\[
+(\oplus_1,\otimes_{\log 2}),
+\]
+whereas the second corresponds to
+\[
+(\otimes_{\log 2},\oplus_2).
+\]
+Nevertheless, they induce the same affine map
+\[
+x\longmapsto 2x+2.
+\]
+So they are equal only after an additional algebraic relation is imposed; this is the first prototype of \emph{relational equality}.
 
-\subsection{Singular points and divergent series}\label{sec:singularity}
+\paragraph{Semantic equality at a chosen basepoint.}
+The expressions
+\[
+x+2,
+\qquad
+x\times 2
+\]
+are different both operationally and relationally, but at the chosen basepoint $x=2$ they have the same value $4$. This is the coarsest level of comparison: a single evaluation point can identify histories that the richer layers keep distinct.
 
-\subsection{Function and a new calculus?}\label{sec:caculus}
+\paragraph{A canonical warning.}
+The two histories
+\[
+(\oplus_1,\otimes_{\log 2})
+\qquad\text{and}\qquad
+(\otimes_{\log 2},\oplus_1)
+\]
+have the same generators and the same total endpoint data in the grid, but they induce different affine maps,
+\[
+x\longmapsto 2x+2,
+\qquad
+x\longmapsto 2x+1.
+\]
+This is the smallest example showing why AEG insists on remembering history before quotienting by coarser equalities.
 
-\subsection{Category of function theories?}\label{sec:function}
+\subsection{Affine normal form and fixed-point closure}
+\label{appE:fixed-point-closure}
 
-\subsection{Computation geometry}\label{sec:computation}
+Every threaded arithmetic history acts by an affine map. Writing this explicitly is the easiest way to separate basepoint closure from operator identity.
 
-\subsection{Logic geometry}\label{sec:logic}
+\begin{proposition}
+\label{prop:appE-affine-normal-form}
+Let
+\[
+\gamma=(g_1,\dots,g_n)
+\]
+be a history built from additive generators $\oplus_\mu:x\mapsto x+\mu$ and multiplicative generators $\otimes_\lambda:x\mapsto e^\lambda x$.
+Then there exist uniquely determined real numbers $M_\gamma$ and $B_\gamma$ such that
+\[
+\rho(\gamma)(x)=\nu_x(\gamma)=e^{M_\gamma}x+B_\gamma.
+\]
+Moreover:
+\begin{enumerate}
+    \item If $M_\gamma\neq 0$, then $\gamma$ has a unique fixed basepoint,
+    \[
+    x_\ast=\frac{B_\gamma}{1-e^{M_\gamma}}.
+    \]
+    \item If $M_\gamma=0$, then either $\rho(\gamma)=Id$ (when $B_\gamma=0$) or $\gamma$ has no fixed basepoint at all (when $B_\gamma\neq 0$).
+\end{enumerate}
+\end{proposition}
 
-\subsubsection{irrationality of $\sqrt{17}$}
+\begin{proof}
+The existence of the affine normal form follows by induction on the length of the history. The empty history gives $x\mapsto x$. Appending $\oplus_\mu$ changes only the translation term, while appending $\otimes_\lambda$ multiplies both coefficients by $e^\lambda$.
+
+Now solve the fixed-point equation
+\[
+x=e^{M_\gamma}x+B_\gamma.
+\]
+If $e^{M_\gamma}\neq 1$, there is exactly one solution,
+\[
+x_\ast=\frac{B_\gamma}{1-e^{M_\gamma}}.
+\]
+If $e^{M_\gamma}=1$, then the equation reduces to $B_\gamma=0$. In that case every basepoint is fixed and the affine map is the identity; otherwise there is no fixed point.
+\end{proof}
+
+This elementary proposition already distinguishes two notions that should not be conflated:
+\begin{itemize}
+    \item \emph{fixed-point closure} at a chosen basepoint,
+    \item \emph{operator triviality}, meaning $\rho(\gamma)=Id$.
+\end{itemize}
+A fixed-point loop may exist without the operator being trivial.
+
+\begin{example}
+\label{ex:appE-fixed-not-identity}
+Consider
+\[
+\gamma_{\mathrm{fp}}=(\oplus_1,\otimes_{\log 2},\oplus_{-1}).
+\]
+A direct computation gives
+\[
+\rho(\gamma_{\mathrm{fp}})(x)=2x+1.
+\]
+Hence $\gamma_{\mathrm{fp}}$ is not operator-trivial, but it does have the unique fixed basepoint
+\[
+x_\ast=\frac{1}{1-2}=-1.
+\]
+So this word closes at one distinguished value without being an identity.
+\end{example}
+
+\begin{example}
+\label{ex:appE-identity-word}
+Consider
+\[
+\gamma_{\mathrm{id}}=(\oplus_1,\otimes_{\log 2},\oplus_{-2},\otimes_{-\log 2}).
+\]
+Then
+\[
+x\xrightarrow{\oplus_1}x+1
+\xrightarrow{\otimes_{\log 2}}2x+2
+\xrightarrow{\oplus_{-2}}2x
+\xrightarrow{\otimes_{-\log 2}}x.
+\]
+So $\rho(\gamma_{\mathrm{id}})=Id$.
+This is a genuine operator relation, not merely a basepoint-dependent closure.
+\end{example}
+
+\subsection{First neutralities and separation examples}
+\label{appE:first-neutralities}
+
+The main text only opens the door to loop theory. At that stage the most useful thing is not a full taxonomy, but a small stock of examples separating the first few neutralities.
+
+Fix a basepoint $x_0$.
+For a history $\gamma$, define:
+\begin{itemize}
+    \item \textbf{value-zero at $x_0$}: $\nu_{x_0}(\gamma)=0$;
+    \item \textbf{operator-zero}: $\rho(\gamma)=Id$;
+    \item \textbf{charge-zero}: $(A_\gamma,M_\gamma)=(0,0)$;
+    \item \textbf{torsion-zero}: $\tau(\gamma)=0$.
+\end{itemize}
+Only the first notion depends on the chosen basepoint. The others are intrinsic to the history.
+
+\begin{proposition}
+\label{prop:appE-separation-examples}
+The following histories separate the four elementary neutralities.
+
+\smallskip
+\noindent
+\textbf{(i) Value-zero without the others.}
+At basepoint $x_0=0$,
+\[
+\gamma_{\mathrm{val}}=(\oplus_1,\otimes_{\log 2},\oplus_{-2})
+\]
+satisfies
+\[
+\nu_0(\gamma_{\mathrm{val}})=0,
+\qquad
+\rho(\gamma_{\mathrm{val}})(x)=2x,
+\qquad
+(A,M)=(-1,\log 2),
+\qquad
+\tau(\gamma_{\mathrm{val}})=3.
+\]
+
+\smallskip
+\noindent
+\textbf{(ii) Operator-zero without charge-zero or torsion-zero.}
+For
+\[
+\gamma_{\mathrm{op}}=(\oplus_1,\otimes_{\log 2},\oplus_{-2},\otimes_{-\log 2})
+\]
+one has
+\[
+\rho(\gamma_{\mathrm{op}})=Id,
+\qquad
+(A,M)=(-1,0),
+\qquad
+\tau(\gamma_{\mathrm{op}})=3.
+\]
+
+\smallskip
+\noindent
+\textbf{(iii) Charge-zero without operator-zero or torsion-zero.}
+For
+\[
+\gamma_{\mathrm{ch}}=(\oplus_1,\otimes_{\log 2},\oplus_{-1},\otimes_{-\log 2})
+\]
+one has
+\[
+\rho(\gamma_{\mathrm{ch}})(x)=x+\frac12,
+\qquad
+(A,M)=(0,0),
+\qquad
+\tau(\gamma_{\mathrm{ch}})=\frac32.
+\]
+
+\smallskip
+\noindent
+\textbf{(iv) Torsion-zero without the others.}
+For
+\[
+\gamma_{\mathrm{tor}}=(\oplus_1,\oplus_2)
+\]
+one has
+\[
+\rho(\gamma_{\mathrm{tor}})(x)=x+3,
+\qquad
+(A,M)=(3,0),
+\qquad
+\tau(\gamma_{\mathrm{tor}})=0.
+\]
+\end{proposition}
+
+\begin{proof}
+(i) Starting from $x$, the history $\gamma_{\mathrm{val}}$ gives
+\[
+x\xrightarrow{\oplus_1}x+1
+\xrightarrow{\otimes_{\log 2}}2x+2
+\xrightarrow{\oplus_{-2}}2x.
+\]
+Hence $\rho(\gamma_{\mathrm{val}})(x)=2x$, so at $x_0=0$ the value is $0$.
+The additive and multiplicative charges are visibly $-1$ and $\log 2$.
+For the reverse word,
+\[
+\bar\gamma_{\mathrm{val}}=(\oplus_{-2},\otimes_{\log 2},\oplus_1),
+\]
+and
+\[
+\rho(\bar\gamma_{\mathrm{val}})(x)=2x-3.
+\]
+Therefore
+\[
+\tau(\gamma_{\mathrm{val}})=2x-(2x-3)=3.
+\]
+
+(ii) Example~\ref{ex:appE-identity-word} already shows $\rho(\gamma_{\mathrm{op}})=Id$.
+The total charges are $A=-1$ and $M=0$.
+For the reverse word,
+\[
+\bar\gamma_{\mathrm{op}}=(\otimes_{-\log 2},\oplus_{-2},\otimes_{\log 2},\oplus_1),
+\]
+one gets
+\[
+\rho(\bar\gamma_{\mathrm{op}})(x)=x-3,
+\]
+so $\tau(\gamma_{\mathrm{op}})=3$.
+
+(iii) For $\gamma_{\mathrm{ch}}$,
+\[
+x\xrightarrow{\oplus_1}x+1
+\xrightarrow{\otimes_{\log 2}}2x+2
+\xrightarrow{\oplus_{-1}}2x+1
+\xrightarrow{\otimes_{-\log 2}}x+\frac12.
+\]
+Thus $\rho(\gamma_{\mathrm{ch}})(x)=x+\frac12$.
+The additive charges cancel and the multiplicative charges cancel, so $(A,M)=(0,0)$.
+For the reverse word,
+\[
+\bar\gamma_{\mathrm{ch}}=(\otimes_{-\log 2},\oplus_{-1},\otimes_{\log 2},\oplus_1),
+\]
+one obtains
+\[
+\rho(\bar\gamma_{\mathrm{ch}})(x)=x-1,
+\]
+so
+\[
+\tau(\gamma_{\mathrm{ch}})=\left(x+\frac12\right)-(x-1)=\frac32.
+\]
+
+(iv) For $\gamma_{\mathrm{tor}}=(\oplus_1,\oplus_2)$ one simply has
+\[
+\rho(\gamma_{\mathrm{tor}})(x)=x+3.
+\]
+Since the reversed word is $(\oplus_2,\oplus_1)$, the same map is obtained after reversal. Hence $\tau(\gamma_{\mathrm{tor}})=0$, while the operator and total additive charge are nontrivial.
+\end{proof}
+
+The point of the proposition is not that these four notions are the final taxonomy of zeros. It is only that even the first layer already separates, so later loop theory should record these distinctions before quotienting them away.
+
+\subsection{A first zero-signature table}
+\label{appE:zero-signature-table}
+
+For a quick bookkeeping device, define the binary signature at basepoint $x_0$ by
+\[
+Z_{x_0}(\gamma)=\bigl(Z_{\mathrm{val}},Z_{\mathrm{op}},Z_{\mathrm{ch}},Z_{\mathrm{tor}}\bigr),
+\]
+where each entry is $1$ if the corresponding neutrality holds and $0$ otherwise.
+Using the histories above at the basepoint $x_0=0$, one gets:
+\[
+\begin{array}{c|c}
+\text{history} & Z_0(\gamma)\\
+\hline
+\gamma_{\mathrm{val}} & (1,0,0,0)\\
+\gamma_{\mathrm{op}}  & (1,1,0,0)\\
+\gamma_{\mathrm{ch}}  & (0,0,1,0)\\
+\gamma_{\mathrm{tor}} & (0,0,0,1)\\
+(\oplus_1,\oplus_{-1}) & (1,1,1,1)
+\end{array}
+\]
+The first line shows pure value-zero at the chosen basepoint. The second line shows that operator-zero is stronger than value-zero at $x_0=0$, but still independent of charge-zero and torsion-zero. The third and fourth lines separate charge-zero and torsion-zero. The last line records the completely neutral cancellation.
+
+This small table is not yet a full loop theory. It is merely a reminder that ``zero'' in AEG is already stratified before one reaches the richer topological and local-holonomy layers suggested by the future loop program.

@@ -1,254 +1,264 @@
-In the preceding section, we introduced the Accumulative Commutative Space (ACS) as an abstract parameter plane essential for quantifying global arithmetic torsion. While powerful for global analysis, the ACS lacks an intrinsic mechanism to describe the \textit{local}, non-commutative dynamics of arithmetic operations.
+The ACS of Section~\ref{sec:acspace} solved the \emph{global} bookkeeping problem for torsion: two different evaluation histories with the same total charges can be compared on a commutative parameter plane. What is still missing is a \emph{local} geometric engine that remembers the current assignment value while keeping track of the two infinitesimal arithmetic directions. This is the role of the contact manifold introduced in the present section. Complementary computations are collected in Appendix~\ref{app:contact-delta-holomorphicity}.
 
-This section bridges that gap by endowing the ACS with a rich differential structure. We construct a three-dimensional \textbf{Arithmetic Contact Manifold}, whose two-dimensional base is precisely a local, differential version of the ACS. This framework provides the geometric engine for the arithmetic flow, unifying the global, commutative picture of torsion with the local, non-commutative nature of operations. It is here that the flow equation from Section~\ref{sec:flow_equation} finds its most natural home, and we develop the differential calculus necessary for its study.
+We work on the three-dimensional manifold
+\[
+    M:=\mathbb{R}^3_{(u,v,a)},
+\]
+where $u$ and $v$ are the local additive and multiplicative coordinates, and $a$ is the current assignment value. The pair $(u,v)$ plays the infinitesimal role that $(A,M)$ played globally in the ACS, but now the assignment coordinate is retained rather than forgotten.
 
-\subsection{Core definitions and the contact structure}\label{subsec:core_definitions}
+\subsection{The contact form and its horizontal distribution}
+\label{subsec:core_definitions}
 
-We begin by establishing our geometric space. Consider a 3-dimensional manifold with coordinates $(u,v,a) \in \mathbb{R}^3$, where the base plane spanned by $(u,v)$ is understood as the differential realization of the ACS. The geometry is built upon two fundamental 1-forms, defined using constant real parameters $\mu$ and $\lambda$:
+The basic Pfaffian datum is the pair of $1$-forms
 \begin{equation}\label{eq:contact_forms_def}
-\omega := \mu\,du + \lambda a\,dv, \qquad \alpha := da - \omega.
+\omega:=\mu\,du+\lambda a\,dv,
+\qquad
+\alpha:=da-\omega.
 \end{equation}
-The 1-form $\alpha$ is central to our construction. Its primary role is to define a ``horizontal'' plane at each point, known as the contact distribution. To see how it works, let's consider its action on an arbitrary vector field $X = x_u \partial_u + x_v \partial_v + x_a \partial_a$. Recalling that $da(X) = x_a$, $du(X) = x_u$, and $dv(X) = x_v$, the action is given by:
+The form $\alpha$ measures the failure of a tangent vector to follow the arithmetic propagation law. For a tangent vector
 \[
-\alpha(X) = da(X) - \mu\,du(X) - \lambda a\,dv(X) = x_a - \mu x_u - \lambda a x_v.
+    X=x_u\,\partial_u+x_v\,\partial_v+x_a\,\partial_a,
 \]
-The set of all vectors $X$ for which $\alpha(X)=0$ constitutes this horizontal plane.
-
-Throughout this work, we use two types of differentials in parallel: (i) the standard de Rham exterior derivative $d$, which is always nilpotent ($d^2=0$); and (ii) the \textbf{expression differential} $\delta$, which is axiomatically defined in Section~\ref{ch:differential_calculus}.
-
-\paragraph{The contact property.}
-A key property of $\alpha$ is that it defines a contact structure on our 3D space. This is verified by checking if the 3-form $\alpha \wedge d\alpha$ is a volume form (i.e., non-zero everywhere). First, we compute the exterior derivative of $\omega$:
+one has
 \[
-d\omega = d(\mu\,du + \lambda a\,dv) = \lambda\,da \wedge dv.
+    \alpha(X)=x_a-\mu x_u-\lambda a x_v.
 \]
-Then, the exterior derivative of $\alpha$ is simply $d\alpha = d(da - \omega) = -d\omega = -\lambda\,da \wedge dv$. Now, we can compute the wedge product:
-\begin{align*}
-\alpha \wedge d\alpha &= (da - \omega) \wedge (-\lambda\,da \wedge dv) \\
-&= -da \wedge (\lambda\,da \wedge dv) + \omega \wedge (\lambda\,da \wedge dv) \\
-&= 0 + (\mu\,du + \lambda a\,dv) \wedge (\lambda\,da \wedge dv) \\
-&= \mu\lambda\,du \wedge da \wedge dv + \lambda^2 a\,\underbrace{dv \wedge da \wedge dv}_{=0} \\
-&= \mu\lambda\,du \wedge da \wedge dv.
-\end{align*}
-Provided $\mu\lambda \neq 0$, this is a volume form, confirming that $\alpha$ is a \textbf{contact form}.
-
-\paragraph{Normal form, Reeb field, and contact distribution.}
-By introducing natural units $\tilde{u} = \mu u$ and $\tilde{v} = \lambda v$, the form $\alpha$ is reduced to its canonical form $\alpha_0 = da - d\tilde{u} - a\,d\tilde{v}$, which facilitates comparison with standard literature.
-
-The Reeb vector field $R$, defined by $i_R d\alpha = 0$ and $\alpha(R) = 1$, is $R = -(1/\mu)\partial_u$. The contact distribution $\mathcal{H}$, as introduced earlier, is formally the kernel of $\alpha$:
+Hence $\alpha(X)=0$ if and only if
 \[
-\mathcal{H} := \ker\alpha = \{X \in TM : \alpha(X) = 0\}.
+    x_a=\mu x_u+\lambda a x_v.
 \]
-Viewing the tangent bundle as a composition of the $(u,v)$-base and the $a$-fiber, the form $\alpha = da - \omega$ intrinsically links the ``vertical'' change $da$ to the ``horizontal'' displacement defined by $\omega$.
+This is exactly the infinitesimal propagation law: the vertical change of the assignment variable is determined by the additive and multiplicative components of the motion. The kernel of $\alpha$ is therefore the space of admissible infinitesimal arithmetic motions.
 
-\subsection{The geometry on the contact distribution \texorpdfstring{$\ker\alpha$}{ker(alpha)}} % Revised title for 6.2
+\begin{proposition}\label{prop:contact-form}
+If $\mu\lambda\neq 0$, then $\alpha$ is a contact form on $M$.
+\end{proposition}
+
+\begin{proof}
+Since $d\omega=\lambda\,da\wedge dv$, we have
+\[
+    d\alpha=-d\omega=-\lambda\,da\wedge dv.
+\]
+Therefore
+\[
+    \alpha\wedge d\alpha
+    =(da-\mu\,du-\lambda a\,dv)\wedge(-\lambda\,da\wedge dv)
+    =\mu\lambda\,du\wedge da\wedge dv,
+\]
+which is nonzero everywhere when $\mu\lambda\neq 0$. Hence $\alpha$ is a contact form.
+\end{proof}
+
+This is not an exotic new contact geometry, but an arithmetic coordinatization of the standard local model. Indeed, after rescaling
+\[
+    \tilde u=\mu u,
+    \qquad
+    \tilde v=\lambda v,
+\]
+and then setting
+\[
+    x:=\tilde v,
+    \qquad
+    y:=a,
+    \qquad
+    z:=a-\tilde u,
+\]
+one obtains
+\[
+    \alpha = dz-y\,dx,
+\]
+which is the standard Darboux form on $\mathbb{R}^3$ \cite{Darboux1882Pfaff,Geiges2008IntroContact}. In this sense, the arithmetic coordinates do not create a new contact structure; they single out the particular horizontal directions relevant to addition and multiplication.
+
+The corresponding Reeb field is immediate to compute. Since $i_Rd\alpha=0$ and $\alpha(R)=1$, one finds
+\[
+    R=-\frac{1}{\mu}\,\partial_u.
+\]
+So the distinguished transverse direction is not the vertical $a$-axis, but the $u$-direction corrected by the arithmetic normalization.
+
+\subsection{Horizontal lifts and Legendrian flow}
 \label{subsec:geometry_on_ker_alpha}
 
-We now define two special vector fields that form a basis for the horizontal plane $\mathcal{H}$ at every point. These are the horizontal lifts of the base coordinate vectors, which we term the \textbf{expression directional derivatives}:
-\begin{equation}\label{eq:directional_derivatives}
-D_u := \partial_u + \mu\,\partial_a, \qquad D_v := \partial_v + \lambda a\,\partial_a.
+The two basic arithmetic directions are the horizontal lifts of the base coordinate fields:
+\begin{equation}\label{eq:2}
+D_u:=\partial_u+\mu\,\partial_a,
+\qquad
+D_v:=\partial_v+\lambda a\,\partial_a.
 \end{equation}
-These fields are constructed specifically to be horizontal, a fact we can verify directly. For $D_u$, its coordinate components are $(x_u, x_v, x_a) = (1, 0, \mu)$. Applying the formula for $\alpha(X)$:
+They satisfy
 \[
-\alpha(D_u) = x_a - \mu x_u - \lambda a x_v = \mu - \mu(1) - \lambda a(0) = 0.
+    \alpha(D_u)=0,
+    \qquad
+    \alpha(D_v)=0,
 \]
-For $D_v$, its components are $(x_u, x_v, x_a) = (0, 1, \lambda a)$. Applying $\alpha$:
+so they form a basis of the rank-$2$ distribution
 \[
-\alpha(D_v) = x_a - \mu x_u - \lambda a x_v = \lambda a - \mu(0) - \lambda a(1) = 0.
+    \mathcal H:=\ker\alpha=\mathrm{span}\{D_u,D_v\}.
 \]
-Since both $D_u$ and $D_v$ are annihilated by $\alpha$, and they are clearly linearly independent, they form a basis for the 2-dimensional contact distribution:
-\[
-\ker\alpha = \text{span}\{D_u, D_v\}.
-\]
+Geometrically, $D_u$ is the infinitesimal ``add'' direction and $D_v$ is the infinitesimal ``multiply'' direction.
 
-For any smooth scalar field $F(u,v,a)$, we define its expression differential $\delta F$ and the directional derivative $D_\theta$ as:
+For any smooth scalar field $F(u,v,a)$ we define the horizontal differential and the synthesized direction field by
 \begin{equation}\label{eq:3}\tag{3}
-\delta F := (D_uF)\,du + (D_vF)\,dv, \qquad D_\theta := \cos\theta\,D_u + \sin\theta\,D_v.
+\delta F := (D_uF)\,du + (D_vF)\,dv,
+\qquad
+D_\theta:=\cos\theta\,D_u+\sin\theta\,D_v.
 \end{equation}
-This construction effectively reduces the geometry from the three-dimensional space $(u,v,a)$ to the two-dimensional contact distribution $\mathcal{H}$.
-
-\paragraph{Structural relation between d and $\delta$.}
-For any scalar field $F$, the two differentials are related by a fundamental identity:
+A direct expansion gives the basic identity
 \[
-\boxed{ \delta F = dF - (\partial_a F)\,\alpha }
+    \delta F = dF-(\partial_aF)\,\alpha.
 \]
-This identity can be interpreted as projecting $dF$ onto the horizontal distribution $\mathcal{H}$ by subtracting its vertical component along $\alpha$. Expanding this definition yields:
+Thus $\delta$ is simply the de Rham differential with its vertical component removed. The next section will take this formula as the starting point for the axiomatic differential calculus.
+
+A curve $\gamma(s)=(u(s),v(s),a(s))$ is \emph{Legendrian} if $\dot\gamma(s)\in\ker\alpha$. Equivalently, there exist functions $\xi(s)$ and $\eta(s)$ such that
 \[
-\delta F = (F_u + \mu F_a)\,du + (F_v + \lambda a F_a)\,dv,
+    \dot\gamma = \xi D_u + \eta D_v.
 \]
-which is consistent with Eq.~\eqref{eq:15}. In particular, we recover $\delta a = \omega$, $\delta u = du$, and $\delta v = dv$.
-
-\subsection{Legendrian flow and rectification}
-
-A curve $\gamma(s) = (u(s), v(s), a(s))$ is \textbf{Legendrian} if its tangent vector lies in the contact distribution, i.e., $\dot\gamma(s) \in \ker\alpha$. For such a curve, the evolution of $a$ is governed by the \textbf{flow equation}:
+Comparing the $u$-, $v$-, and $a$-components yields
+\[
+    \dot u = \xi,
+    \qquad
+    \dot v = \eta,
+    \qquad
+    \dot a = \mu\xi+\lambda a\eta.
+\]
+If the base projection is parametrized by unit speed and angle $\theta$, so that
+\[
+    \xi=\cos\theta,
+    \qquad
+    \eta=\sin\theta,
+\]
+then the Legendrian condition becomes
 \begin{equation}\label{eq:4}\tag{4}
-\frac{da}{ds} = D_\theta a = \mu\cos\theta + \lambda a\sin\theta,
+\frac{da}{ds}=\mu\cos\theta+\lambda a\sin\theta,
 \end{equation}
-where $\theta$ parameterizes the angle of the tangent vector in the basis $\{D_u,D_v\}$. With respect to a given metric on the base manifold, this flow equation can be written in its Eikonal form:
+which is exactly the flow equation of Section~\ref{sec:flowequation}. If one also adopts the Riemannian viewpoint used there on the $(u,v)$-base, then the same relation can be rewritten as
 \begin{equation}\label{eq:5}\tag{5}
-\|\nabla a\| = \sqrt{\mu^2 + \lambda^2 a^2}.
+\|\nabla a\|=\sqrt{\mu^2+\lambda^2a^2},
 \end{equation}
-We introduce a \textbf{rectifying variable} $y$:
+and the rectifying variable
 \begin{equation}\label{eq:6}\tag{6}
-y = \arcsinh\left(\frac{\lambda a}{\mu}\right) \quad\Rightarrow\quad \|\nabla y\| = \lambda.
+y=\arcsinh\!\left(\frac{\lambda a}{\mu}\right)
+\qquad\Longrightarrow\qquad
+\|\nabla y\|=\lambda.
 \end{equation}
-This rectification transforms the non-linear velocity field for $a$ into a constant-speed flow for $y$, which is advantageous for geometric constructions and enhances numerical stability.
+These formulas are recalled here only to stress their geometric meaning: the arithmetic flow is precisely the Legendrian propagation law determined by the contact form.
 
-\paragraph{Non-commutativity and curvature.}
-The commutator of the horizontal vector fields yields a purely vertical vector, reflecting the "curvature" of the contact distribution. This phenomenon can be described as a "vertical return":
+The two coordinate directions recover the expected elementary motions. Along $D_u$ one has $\dot a=\mu$, hence
+\[
+    a(s)=a_0+\mu s.
+\]
+Along $D_v$ one has $\dot a=\lambda a$, hence
+\[
+    a(s)=a_0e^{\lambda s}.
+\]
+Thus the contact distribution packages the additive and multiplicative generators into a single horizontal geometry.
+
+\subsection{Curvature and local torsion}
+\label{subsec:local-curvature-and-torsion}
+
+The horizontal distribution is not integrable. Its failure to close is exactly the local arithmetic torsion.
+
+\begin{proposition}\label{prop:local-curvature}
+The horizontal fields satisfy
 \begin{equation}\label{eq:7}\tag{7}
-[D_u,D_v] = \mu\lambda\,\partial_a,\qquad \delta^2F = \mu\lambda(\partial_a F)\,du\wedge dv,\qquad \delta^2 a = \mu\lambda\,du\wedge dv.
+[D_u,D_v]=\mu\lambda\,\partial_a,
+\qquad
+\delta^2F=\mu\lambda(\partial_aF)\,du\wedge dv,
+\qquad
+\delta^2a=\mu\lambda\,du\wedge dv.
 \end{equation}
-The circulation-area formula provides a tool for quantifying mesh singularities and global topological constraints:
+\end{proposition}
+
+\begin{proof}
+A direct computation gives
+\[
+    [D_u,D_v]
+    =[\partial_u+\mu\partial_a,\partial_v+\lambda a\partial_a]
+    =\mu\lambda\,\partial_a.
+\]
+Hence
+\[
+    \delta^2F
+    =([D_u,D_v]F)\,du\wedge dv
+    =\mu\lambda(\partial_aF)\,du\wedge dv,
+\]
+and taking $F=a$ yields the last identity.
+\end{proof}
+
+The meaning of \eqref{eq:7} is simple: an infinitesimal $u$-move followed by an infinitesimal $v$-move does not return to the same assignment value as the reversed order. The defect is purely vertical, so it is invisible on the base $(u,v)$-plane but measurable in the full contact manifold.
+
+\subsubsection*{A worked local commutator square}
+Let $\Phi_u^h$ and $\Phi_v^k$ denote the time-$h$ and time-$k$ flows of $D_u$ and $D_v$. They are
+\[
+    \Phi_u^h(u,v,a)=(u+h,v,a+\mu h),
+    \qquad
+    \Phi_v^k(u,v,a)=(u,v+k,e^{\lambda k}a).
+\]
+Before closing a loop, compare the two simplest two-step histories with the same endpoint in the base plane:
+\[
+    p_{uv}:=\Phi_v^k\!\circ\Phi_u^h(u,v,a)
+    =\bigl(u+h,v+k,e^{\lambda k}(a+\mu h)\bigr),
+\]
+\[
+    p_{vu}:=\Phi_u^h\!\circ\Phi_v^k(u,v,a)
+    =\bigl(u+h,v+k,e^{\lambda k}a+\mu h\bigr).
+\]
+Their assignment values differ by
+\[
+    a(p_{uv})-a(p_{vu})=\mu h(e^{\lambda k}-1).
+\]
+This is the exact finite torsion of a single local commutation square. Its first-order part is again $\mu\lambda hk$.
+
+If one now continues around the remaining two sides of the base rectangle and returns to the original $(u,v)$-point, the lifted loop acquires a vertical holonomy:
+\[
+    \bigl(\Phi_v^{-k}\circ\Phi_u^{-h}\circ\Phi_v^{k}\circ\Phi_u^{h}\bigr)(u,v,a)
+    = \bigl(u,v,a+\mu h(1-e^{-\lambda k})\bigr).
+\]
+So the closed-loop vertical drift is
+\[
+    \Delta_a(h,k)=\mu h(1-e^{-\lambda k})
+    =e^{-\lambda k}\,\mu h(e^{\lambda k}-1)
+    =\mu\lambda hk+O(hk^2).
+\]
+Thus the open-path torsion and the closed-loop holonomy are not identical at finite scale, but they carry the same infinitesimal density $\mu\lambda$. This distinction is worth keeping visible in a foundational paper, because the global ACS formula of Section~\ref{subsec:acs-triple-identity} keeps track of the exact exponential weighting rather than only its first-order shadow.
+
+This same closed-loop defect can be read as a boundary integral. If one closes the lifted loop by the final vertical segment (on which $\omega=0$), then Stokes' theorem gives
 \begin{equation}\label{eq:8}\tag{8}
-\oint_{\partial\Sigma}\omega = \iint_\Sigma d\omega = \mu\lambda\iint_\Sigma du\wedge dv.
+\oint_{\partial S}\omega=\iint_S d\omega,
+\qquad
+d\omega=\lambda\,da\wedge dv,
 \end{equation}
+for any smooth spanning surface $S$ of the closed loop. Along horizontal segments one has $\alpha=0$, hence $da=\omega$, so the left-hand side measures exactly the accumulated vertical drift. Equivalently, $d\alpha(D_u,D_v)=-\mu\lambda$, so the same constant is the curvature of the contact distribution when viewed on its horizontal frame. This is the local differential analogue of the boundary--interior identities from Section~\ref{subsec:acs-triple-identity}.
 
-\paragraph{Compatibility with de Rham cohomology.}
-The exterior derivative of $\omega$ is $d\omega = \lambda\,da\wedge dv$. By pulling this 2-form back to a section where $\alpha=0$ (i.e., substituting $da=\omega$), we obtain:
+\subsection{A short algebraic remark}
+\label{subsec:contact-algebra-remark}
+
+The paper mainly uses the bracket identities above, but it is useful to record the Lie algebra they generate. Let
 \[
-(d\omega)^* = \lambda\,\omega\wedge dv = \mu\lambda\,du\wedge dv,
+    \mathfrak g:=\mathrm{span}\{D_u,D_v,\partial_a\}.
 \]
-which is identical to $\delta^2 a$. This demonstrates the precise collaborative relationship between $d$ and $\delta$.
-
-\paragraph{Example: Basis Flows.}
-Flowing along $D_u$ implies $\dot{a} = \mu \Rightarrow a(s) = a_0 + \mu s$. Flowing along $D_v$ implies $\dot{a} = \lambda a \Rightarrow a(s) = a_0 e^{\lambda s}$. Linear combinations of these generate the general flow given by Eq.~\eqref{eq:4}.
-
-\subsection{Algebraic Structure and Classification of the AEG Lie Algebra}
-
-The contact geometry framework developed previously not only provides a dynamical system for the arithmetic flow but also reveals a deep underlying algebraic structure. The horizontal vector fields \(D_u\), \(D_v\), and the emergent vertical field \(\partial_a\) form a real Lie algebra under the Lie bracket. Classifying this algebra is essential for understanding the fundamental nature of the interplay between addition and multiplication.
-
-\subsubsection{Commutation Relations and Lie Algebra Verification}
-
-Let us define the basis for our Lie algebra, \(\mathfrak{g}\), as:
-\begin{itemize}
-    \item \(e_1 = D_u = \partial_u + \mu\partial_a\)
-    \item \(e_2 = D_v = \partial_v + \lambda a \partial_a\)
-    \item \(e_3 = \partial_a\)
-\end{itemize}
-Their commutation relations are directly computed as:
-\begin{align}
-    [e_1, e_2] &= \mu\lambda e_3 \\
-    [e_1, e_3] &= [\partial_u + \mu\partial_a, \partial_a] = 0 \\
-    [e_2, e_3] &= [\partial_v + \lambda a \partial_a, \partial_a] = -\lambda e_3
-\end{align}
-As vector fields on a smooth manifold, they are guaranteed to satisfy the Jacobi identity, \([X, [Y, Z]] + [Y, [Z, X]] + [Z, [X, Y]] = 0\), thus confirming that \(\mathfrak{g}\) is a bona fide Lie algebra.
-
-\subsubsection{Classification: Solvable but not Nilpotent}
-
-To classify \(\mathfrak{g}\), we examine its derived and lower central series.
-\begin{itemize}
-    \item \textbf{Solvability:} The derived series is \(\mathcal{D}^1\mathfrak{g} = [\mathfrak{g}, \mathfrak{g}] = \text{span}\{e_3\}\) and \(\mathcal{D}^2\mathfrak{g} = [\mathcal{D}^1\mathfrak{g}, \mathcal{D}^1\mathfrak{g}] = \{0\}\). Since the series terminates at zero, the algebra is \textbf{solvable}.
-    \item \textbf{Nilpotency:} The lower central series is \(\mathcal{L}^1\mathfrak{g} = [\mathfrak{g}, \mathfrak{g}] = \text{span}\{e_3\}\). However, the next term, \(\mathcal{L}^2\mathfrak{g} = [\mathfrak{g}, \mathcal{L}^1\mathfrak{g}]\), contains the non-zero bracket \([e_2, e_3] = -\lambda e_3\), which means \(\mathcal{L}^2\mathfrak{g} = \text{span}\{e_3\}\). The series stabilizes and never reaches zero, hence the algebra is \textbf{non-nilpotent}.
-\end{itemize}
-Thus, the AEG Lie algebra is a three-dimensional, solvable, non-nilpotent real Lie algebra.
-
-\subsubsection{Deeper Structure: A Central Extension of \(\mathfrak{aff}(1)\)}
-
-A more precise characterization comes from analyzing the algebra's internal structure.
-\begin{itemize}
-    \item \textbf{Center:} The center \(Z(\mathfrak{g})\) consists of elements that commute with all elements of \(\mathfrak{g}\). A direct calculation shows that \(Z(\mathfrak{g}) = \text{span}\{e_1 - \mu e_3\} = \text{span}\{\partial_u\}\).
-    \item \textbf{Quotient Algebra:} The quotient algebra \(\mathfrak{g}/Z(\mathfrak{g})\) is a two-dimensional Lie algebra spanned by the cosets \(\bar{e}_2\) and \(\bar{e}_3\). Their bracket is \([\bar{e}_2, \bar{e}_3] = -\lambda \bar{e}_3\). This is precisely the Lie algebra of the 1D affine group, \(\mathfrak{aff}(1)\).
-\end{itemize}
-This reveals a crucial insight: \textbf{the AEG Lie algebra \(\mathfrak{g}\) is a central extension of the affine Lie algebra \(\mathfrak{aff}(1)\) by a one-dimensional center}.
-
-Furthermore, this structure is "almost-abelian," as it contains both the 2D non-abelian subalgebra \(\text{span}\{e_2, e_3\} \cong \mathfrak{aff}(1)\) and the 2D abelian ideal \(\text{span}\{e_1, e_3\}\).
-
-\subsubsection{Isomorphism Class and Significance}
-
-For non-zero parameters \(\mu, \lambda\), we can normalize the basis via the linear transformation \(e'_2 = e_2 / \lambda\) and \(e'_3 = \mu e_3\). The commutation relations become:
-\begin{equation}
-    [e_1, e'_2] = e'_3, \quad [e_1, e'_3] = 0, \quad [e'_2, e'_3] = -e'_3
-\end{equation}
-This demonstrates that for any \(\mu\lambda \neq 0\), the resulting Lie algebra belongs to a \textbf{single isomorphism class} over \(\mathbb{R}\). The parameters \(\mu\) and \(\lambda\) only scale the basis, they do not change the intrinsic algebraic structure.
-
-In conclusion, the contact form \(\alpha=da-\mu\,du-\lambda a\,dv\), which in natural units \((\tilde{u}=\mu u, \tilde{v}=\lambda v)\) takes the canonical shape \(da-d\tilde{u}-a\,d\tilde{v}\), provides the precise geometric stage for this "geometrized affine algebra." The fact that this geometry realizes a central extension of \(\mathfrak{aff}(1)\) confirms that the AEG framework captures the fundamental algebraic signature of arithmetic—a structure born from the interaction of a translation-like operation (\(D_u\)) with a value-dependent scaling operation (\(D_v\)).
-
-\subsection{Computational spacetime duality: a de Rham and Poincar\'e-duality viewpoint}
-\label{subsec:spacetime_duality}
-
-A recurring theme in AEG is that the same non-commutative defect can be computed either from a
-\emph{one-dimensional boundary object} (a history) or from a \emph{two-dimensional interior object}
-(a filling).  In the ACS, global torsion admits a Stokes-type ``triple identity'' (Section~5); on the
-contact manifold, the circulation--area relation \eqref{eq:8} provides its local differential analogue.
-Both statements share the schematic form
+Besides \eqref{eq:7}, one has
 \[
-\text{(boundary holonomy)} \;=\; \text{(curvature flux through a spanning surface)}.
+    [D_u,\partial_a]=0,
+    \qquad
+    [D_v,\partial_a]=-\lambda\,\partial_a.
 \]
-This observation motivates a \textbf{computational spacetime duality}:
-\begin{itemize}
-\item \textbf{time-like objects:} $1$D evaluation histories (words/paths, i.e.\ ordered operation sequences);
-\item \textbf{space-like objects:} $2$D canonical structures (rewriting/proof surfaces that relate histories);
-\item \textbf{duality bridge:} torsion as a de Rham pairing (curvature flux equals boundary holonomy).
-\end{itemize}
-
-\paragraph{Adjoining $2$-cells to the path calculus.}
-A threadlike (or alternating) expression path can be viewed as a word in the generators
-$\oplus_{\mu}$ and $\otimes_{\lambda}$ (and inverses), hence as a $1$-morphism in a path groupoid.
-However, non-commutativity is not adequately captured by ordinary topological homotopy of curves.
-Instead, we \emph{adjoin explicit $2$-dimensional data}: the basic generating $2$-cell is the
-\emph{interchange square}
+Now set
 \[
-(\oplus_{\mu}\,\otimes_{\lambda}) \;\Rightarrow\; (\otimes_{\lambda}\,\oplus_{\mu}),
+    C:=\partial_u=D_u-\mu\partial_a.
 \]
-whose discrete label is the one-step torsion constant
+Then $C$ commutes with both $D_v$ and $\partial_a$, so
 \[
-\tau_{\mathrm{local}}
-:= \bigl(x \oplus_{\mu}\otimes_{\lambda}\bigr) - \bigl(x\otimes_{\lambda}\oplus_{\mu}\bigr)
-= \mu\,(e^{\lambda}-1),
+    \mathfrak g
+    =\mathrm{span}\{C\}\oplus\mathrm{span}\{D_v,\partial_a\}.
 \]
-independent of the initial value $x$.
-In the infinitesimal limit (arithmetic coordinates $(u,v)$), this label is replaced by the integral
-of the torsion/curvature density over the $2$-cell.  Concretely, we take the $2$-form
-\begin{equation}\label{eq:torsion_density_form}
-\Omega \;:=\; \delta^{2}a \;=\; \mu\lambda\,du\wedge dv,
-\end{equation}
-which already appeared as the curvature of the horizontal calculus in \eqref{eq:7}.
-A composite rewriting surface $\Sigma$ obtained by pasting interchange cells carries the additive label
+After rescaling $H:=\lambda^{-1}D_v$ (when $\lambda\neq 0$), the second summand satisfies
 \[
-\mathrm{label}(\Sigma) \;:=\; \iint_{\Sigma}\Omega,
+    [H,\partial_a]=-\partial_a,
 \]
-so the existence of a $2$-morphism (a rewriting surface) between two histories becomes the
-appropriate notion of ``arithmetic homotopy'' in this setting.
-
-\paragraph{de Rham pairing: curvature flux equals boundary holonomy.}
-The contact geometry provides a canonical potential $1$-form for the local density \eqref{eq:torsion_density_form}.
-Indeed, on the horizontal section $\alpha=0$ (equivalently $da=\omega$), we have
+which is the standard two-dimensional affine Lie algebra $\mathfrak{aff}(1)$. Hence
 \[
-(d\omega)^{*} = \mu\lambda\,du\wedge dv = \Omega,
+    \mathfrak g\cong \mathbb{R}\oplus\mathfrak{aff}(1).
 \]
-so $\Omega$ is the pulled-back curvature of the connection defined by $\alpha$.
-Consequently, for any oriented surface $\Sigma$ in the $(u,v)$-base with boundary $\partial\Sigma$,
-Stokes' theorem yields the de Rham pairing identity
-\begin{equation}\label{eq:de_rham_pairing_local}
-\iint_{\Sigma}\Omega
-\;=\;
-\iint_{\Sigma}(d\omega)^{*}
-\;=\;
-\oint_{\partial\Sigma}\omega,
-\end{equation}
-which is precisely the circulation--area relation \eqref{eq:8}.
-In the global ACS picture, the same structure reappears with the weighted forms
-$\eta_{\mathrm{ACS}}:= e^{M}\,dA$ and $\Omega_{\mathrm{ACS}}:= d\eta_{\mathrm{ACS}} = e^{M}\,dM\wedge dA$,
-so that torsion is again computed either from a boundary integral or an interior flux.
+In particular $\mathfrak g$ is solvable but not nilpotent. This remark is included only to place the contact model in familiar Lie-theoretic terms; the foundational narrative of the paper depends only on the explicit brackets, not on the full classification theory.
 
-\paragraph{A filling-cost functional.}
-Once $2$-morphisms are admitted, the natural quantitative object is a \emph{filling cost}:
-for two histories $\gamma$ and $\gamma'$ with the same semantic endpoints, define
-\begin{equation}\label{eq:filling_cost_def}
-\mathrm{Fill}(\gamma \Rightarrow \gamma')
-\;:=\;
-\inf_{\Sigma:\ \partial\Sigma=\gamma' - \gamma}\;
-\iint_{\Sigma}\Omega,
-\end{equation}
-where the infimum runs over admissible rewriting surfaces $\Sigma$ realizing $\gamma \Rightarrow \gamma'$.
-In the special case $\gamma'=\bar{\gamma}$ (reversal of the operation order), the ACS triple identity
-recovers a canonical filling and computes the same invariant as a weighted area.  The functional
-\eqref{eq:filling_cost_def} is therefore a natural extension from ``torsion as area'' to ``torsion as minimal filling.''
+\subsection{Conclusion and transition}
 
-\paragraph{Interpretation.}
-The message of this subsection is organizational rather than terminological: AEG naturally carries
-both $1$D ``history data'' (evaluation paths) and $2$D ``proof data'' (rewriting fillings), and the
-torsion invariant can be computed from either side.  This provides a geometric template for
-studying trade-offs between time-like costs (length/word length/energy of a history) and
-space-like costs (area or minimal filling cost of canonicalization), with torsion as the
-duality bridge.
+The contact manifold supplies the local geometric mechanism that the ACS deliberately forgot. In the ACS, torsion appeared as a weighted filling between two entire histories. Here, the same phenomenon appears infinitesimally as the curvature of a horizontal distribution and as the vertical drift of a lifted commutator square. The next section extracts from this geometry the operator $\delta$ and turns it into a usable differential calculus.

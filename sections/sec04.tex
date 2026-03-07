@@ -1,493 +1,218 @@
-This section introduces the zeroth kind arithmetic expression space ($\mathfrak{E}_0$), providing a geometric framework for analyzing arithmetic expressions. The space is constructed on the upper half-plane with a hyperbolic metric: $ds^2 = \frac{1}{y^2} (dx^2 + dy^2)$, where the assignment function $a = - \frac{x}{y}$ satisfies the flow equation and serves as an eigenfunction of the Laplacian with eigenvalue 2.
+This section constructs the first explicit arithmetic expression spaces. The main model is the smooth zeroth kind space $\mathfrak{E}_0$, where the flow equation from Section~\ref{sec:flowequation} is realized on a negatively curved surface. Three features of this model will matter later: a horocyclic coordinate picture, a rectilinear arithmetic grid, and the local torsion--area law. We then record a brief singular counterpart, the first kind space $\mathfrak{E}_1$, whose isolated zero introduces the first non-trivial loops. Questions about parameter families and tube structures are postponed to later work.
 
-Two equivalent examples of $\mathfrak{E}_0$ are presented: the upper half-plane model and a horocycle-based coordinate system, connected through Möbius transformation. The section explores geometric propagation mechanisms, showing how the assignment value propagates like expanding concentric circles in hyperbolic space. It examines grid structures in $\mathfrak{E}_0$, revealing dual grids reflecting the geometric structure of the Baumslag-Solitar group, and demonstrates how arithmetic torsion corresponds precisely to hyperbolic areas enclosed between evaluation paths. The section concludes by introducing tube structures, which extend $\mathfrak{E}_0$ to parameterized families, enabling analysis of how expressions evolve across parameter variations.
+\subsection{The zeroth kind arithmetic expression space}\label{subsec:motivexamples}\label{subsec:generalframework}
 
-At the end of this section, we establish the theoretical framework for the first kind arithmetic expression space $\mathfrak{E}_1$, highlighting its singular properties.
+\subsubsection{A normalized model}
 
-In earlier drafts, the smooth, non-singular arithmetic expression space was denoted by $\mathfrak{E}_1$. In the present work, we adopt a revised indexing: the non-singular case is denoted by $\mathfrak{E}_0$, while $\mathfrak{E}_1$ refers to the arithmetic expression space with a single isolated singularity.
-
-\subsection{Foundational exemplars}\label{subsec:motivexamples}
-
-We present two analytically equivalent examples that belong to the class of spaces designated as the zeroth kind arithmetic expression space $\mathfrak{E}_0$.
-
-\subsubsection{Zeroth kind example 1: Upper Half Plane Model}
-
-Consider the upper half plane ${\mathcal{H}: (x, y) \ | \ y > 0}$ equipped with the following inner product and metric tensor:
-
-$$
-\mathbf{a} \cdot \mathbf{b} = \begin{bmatrix} a_x & a_y \end{bmatrix} \begin{bmatrix} \frac{1}{y^2} & 0 \\ 0 & \frac{1}{y^2} \end{bmatrix} \begin{bmatrix} b_x \\ b_y \end{bmatrix}
-$$
-
-$$
-ds^2 = \frac{1}{y^2} (dx^2 + dy^2)
-$$
-
-On this manifold, we define an assignment field $a$ as follows:
-
+Let
+\[
+\mathcal H = \{(x,y)\in\mathbb R^2\mid y>0\}
+\]
+be the upper half-plane with the standard hyperbolic metric
 \begin{equation}\label{eq:exmp1}
-a = - \frac{x}{y}
+    g_0 = \frac{1}{y^2}(dx^2+dy^2).
+\end{equation}
+The upper half-plane model, its Möbius symmetries, and its horocycle foliations are standard in hyperbolic geometry; see, for example, Beardon \cite{Beardon1983DiscreteGroups}. On this surface define the assignment field
+\[
+    a(x,y) = -\frac{x}{y}.
+\]
+
+\begin{proposition}\label{thm:exmp1}
+The pair $(\mathcal H,a)$ with metric \eqref{eq:exmp1} satisfies the arithmetic flow equation.
+\end{proposition}
+
+\begin{proof}
+We compute
+\[
+    a_x = -\frac{1}{y},
+    \qquad
+    a_y = \frac{x}{y^2} = -\frac{a}{y}.
+\]
+Since the inverse metric is $g_0^{-1}=y^2(\partial_x^2+\partial_y^2)$, we obtain
+\[
+    \|\nabla a\|_{g_0}^2
+    = y^2 a_x^2 + y^2 a_y^2
+    = 1 + a^2.
+\]
+By the coordinate-free form \eqref{eq:coordinate-free} of the flow equation, this is exactly the case $\mu=\lambda=1$.
+\end{proof}
+
+The same field is also a Laplace eigenfunction:
+\[
+    \Delta a = y^2\Big(\frac{\partial^2 a}{\partial x^2} + \frac{\partial^2 a}{\partial y^2}\Big) = 2a.
+\]
+Thus the normalized model already exhibits the two basic features that motivate the whole theory: the flow equation and a natural second-order relation.
+
+\subsubsection{The general \texorpdfstring{$(\mu,\lambda)$}{(mu,lambda)}-model}
+
+For fixed parameters $\mu>0$ and $\lambda>0$, define on the same upper half-plane the metric
+\[
+    g_{\mu,\lambda}
+    = \frac{1}{y^2}\left(\frac{dx^2}{\mu^2}+\frac{dy^2}{\lambda^2}\right)
+\]
+and keep the same assignment formula
+\begin{equation}\label{eq:genassignment}
+    a(x,y) = -\frac{x}{y}.
 \end{equation}
 
-\begin{theorem}\label{thm:exmp1}
-The assignment $a$ defined by formula \eqref{eq:exmp1} satisfies the flow equation \eqref{eq:flow}.
+\begin{theorem}\label{thm:generalE1}
+The triple $(\mathcal H,g_{\mu,\lambda},a)$ is an arithmetic expression space in the sense of Definition~\ref{def:aes}. We call it the \emph{zeroth kind arithmetic expression space} and denote it by $\mathfrak{E}_0=\mathfrak{E}_0(\mu,\lambda)$.
 \end{theorem}
 
 \begin{proof}
-We initiate with the differential of the assignment:
-$$
-da = d\left(-\frac{x}{y}\right) = \frac{xdy - ydx}{y^2} = -\frac{dx + ady}{y}
-$$
-
-The differential of arc length is given by:
-$$
-ds = \frac{\sqrt{dx^2 + dy^2}}{y}
-$$
-
-Therefore:
-$$
-\frac{da}{ds} = - \frac{dx + ady}{y} \cdot \frac{y}{\sqrt{dx^2 + dy^2}} = - \frac{dx + ady}{\sqrt{dx^2 + dy^2}}
-$$
-
-In the local coordinate system determined by $(-1, 0)$ and $(0, -1)$ under the right-hand rule, we have:
-$$
-\cos \theta = \frac{-dx}{\sqrt{dx^2 + dy^2}} \quad \text{and} \quad \sin \theta = \frac{-dy}{\sqrt{dx^2 + dy^2}}
-$$
-
-Substituting these values:
-$$
-\frac{da}{ds} = \cos \theta + a \sin \theta
-$$
-
-This precisely corresponds to the flow equation \eqref{eq:flow} with $\mu=1$ and $\lambda=1$.
+The inverse metric is
+\[
+    g_{\mu,\lambda}^{-1}
+    = \mu^2 y^2\,\partial_x^2 + \lambda^2 y^2\,\partial_y^2.
+\]
+Using the same derivatives of $a$ as above, we find
+\[
+    \|\nabla a\|_{g_{\mu,\lambda}}^2
+    = \mu^2 y^2 a_x^2 + \lambda^2 y^2 a_y^2
+    = \mu^2 + \lambda^2 a^2.
+\]
+Again by \eqref{eq:coordinate-free}, this is precisely the flow equation.
 \end{proof}
 
-We can verify that $a$ constitutes an eigenfunction of the Laplacian operator:
-$$
-\Delta a = - y^2 \left(\frac{\partial^2 a}{\partial x^2} + \frac{\partial^2 a}{\partial y^2}\right) = y^2 \left(\frac{\partial}{\partial y} \left(\frac{\partial}{\partial y} \frac{x}{y}\right)\right) = 2a
-$$
-
-\subsubsection{Zeroth kind example 2: Horocycle-Based Coordinate System}
-
-For our second exemplar, we introduce a horocycle-based coordinate system for hyperbolic surfaces. This global coordinate system comprises two orthogonal families of curves: horocycles sharing the same ideal point, and geodesics perpendicular to these horocycles.
+Two remarks are useful.
+First, if one sets $u=x$ and $v=\lambda^{-1}\log y$, then
+\begin{equation}\label{eq:exmp2}
+    g_{\mu,\lambda} = e^{-2\lambda v}\frac{du^2}{\mu^2}+dv^2,
+    \qquad
+    a = -u e^{-\lambda v}.
+\end{equation}
+In these coordinates, the level sets $v=\text{const}$ are horocycles based at the ideal point $\infty$, while the lines $u=\text{const}$ are geodesics orthogonal to them \cite{Beardon1983DiscreteGroups}. Second, after the harmless rescaling $u\mapsto u/\mu$, the metric depends only on $\lambda$; geometrically, $\lambda$ fixes the curvature scale, while $\mu$ fixes the additive unit recorded by the assignment field.
 
 \begin{figure}[ht]
 \centering
 \resizebox{0.5\textwidth}{!}{\includegraphics{images/11-horocyclebased}}
-\caption{A horocycle-based coordinate system on the Poincaré disc. Blue curves represent horocycles tangent at ideal point $\Omega$, green lines depict perpendicular geodesics.}\label{fig:horocyclecoord}
+\caption{A horocyclic coordinate picture for $\mathfrak{E}_0$. Under the standard equivalence between the upper half-plane and the Poincaré disc, horocycles become circles tangent to a common ideal point, and the orthogonal geodesics remain visible as the transversal foliation.}\label{fig:horocyclecoord}
 \end{figure}
 
-On the Poincaré disc $\mathcal{P}$, the coordinates of a point $P$ are denoted by $(u,v)$, where:
-\begin{itemize}
-\item $u$ represents the signed length of $OQ$
-\item $v$ represents the signed length of $QP$
-\item The sign conventions adhere to the right-hand rule and orientation relative to the ideal point $\Omega$
-\end{itemize}
+\subsection{Propagation and grid structure in \texorpdfstring{$\mathfrak{E}_0$}{E0}}\label{subsec:geompropagation}
 
-We equip this coordinate system with the inner product:
-$$
-\mathbf{a} \cdot \mathbf{b} = \begin{bmatrix} a_u & a_v \end{bmatrix} \begin{bmatrix} e^{-2v} & 0 \\ 0 & 1 \end{bmatrix} \begin{bmatrix} b_u \\ b_v \end{bmatrix}
-$$
+The zeroth kind space is the first place where the abstract propagation law from Section~\ref{subsec:propagation} becomes a concrete geometry. Its zero set is the vertical geodesic
+\[
+    Z_0 = \{x=0,\ y>0\},
+\]
+and the assignment contours are the rays
+\[
+    a(x,y)=a_0
+    \quad\Longleftrightarrow\quad
+    x=-a_0 y.
+\]
+Thus the value of an arithmetic expression is read off by which ray through the origin the point lies on.
 
-And the corresponding metric tensor:
-$$
-ds^2 = e^{-2v} du^2 + dv^2
-$$
-
-The Laplacian operator in this coordinate system is expressed as:
-$$
-\Delta = e^{2v} \frac{\partial^2}{{\partial u}^2} + \frac{\partial^2}{{\partial v}^2} - \frac{\partial}{\partial v}
-$$
-
-In this coordinate framework, we define an assignment:
-
-\begin{equation}\label{eq:exmp2}
-a = u e^{-v}
+A particularly useful rectified variable is
+\[
+    f=\operatorname{arcsinh}\!\left(\frac{\lambda a}{\mu}\right)
+      = \operatorname{arcsinh}\!\left(-\frac{\lambda x}{\mu y}\right).
+\]
+By Section~\ref{subsec:propagation}, it satisfies $\|\nabla f\|=\lambda$. In this sense $f/\lambda$ plays the role of a signed distance coordinate measured from the zero line $Z_0$. Consequently, when propagation starts from $a=0$ and follows the positive gradient direction, the assignment grows according to
+\begin{equation}\label{eq:e0-propagation}
+    a(s)=\frac{\mu}{\lambda}\sinh(\lambda s),
 \end{equation}
+exactly as predicted by the general formula \eqref{eq:gradevo4}. The hyperbolic-sine law is therefore not an abstract consequence alone: in $\mathfrak{E}_0$ it becomes a visible distance-growth relation.
 
-\begin{theorem}\label{thm:exmp2}
-The assignment $a$ defined by formula \eqref{eq:exmp2} satisfies the flow equation \eqref{eq:flow}.
-\end{theorem}
+Supplementary computations for the horocyclic grid picture and related explicit formulas are collected in Appendix~\ref{app:model-acs}.
 
-\begin{proof}
-We establish this result by demonstrating that examples 1 and 2 are equivalent through a Möbius transformation. Consider the complex representation of the upper half plane:
-$$
-z = x + yi
-$$
+\subsubsection{The rectilinear arithmetic grid and the Baumslag--Solitar relation}\label{subsec:grids_revised}
 
-The Möbius transformation mapping the upper half plane to the Poincaré disc is given by:
-$$
-z \mapsto \frac{z-i}{z+i}
-$$
+The horocyclic coordinates also turn elementary arithmetic operations into concrete geometric moves. Fix an additive step $s\in\mathbb R$ and a multiplicative factor $k>0$. Define transformations of $\mathfrak{E}_0$ by
+\[
+    X_s(u,v) = \bigl(u-s e^{\lambda v},\, v\bigr),
+    \qquad
+    Y_k(u,v) = \bigl(u,\, v-\lambda^{-1}\log k\bigr).
+\]
+A direct substitution into \eqref{eq:exmp2} shows that
+\[
+    a\circ X_s = a+s,
+    \qquad
+    a\circ Y_k = ka.
+\]
+So motion along a horocycle realizes addition, while motion across horocycles realizes multiplication.
 
-\begin{figure}[ht]
-\centering
-\resizebox{0.8\textwidth}{!}{\includegraphics{images/12-proofbymapping}}
-\caption{Mapping between the upper half plane and Poincaré disc models}\label{fig:mapping}
-\end{figure}
-
-This conformal transformation maps horizontal lines in $\mathcal{H}$ to horocycles sharing the ideal point $\Omega = 1$ in $\mathcal{P}$, and vertical geodesics in $\mathcal{H}$ to perpendicular geodesics in $\mathcal{P}$.
-
-Expressed in the target coordinate system, this transformation yields:
-$$
-\begin{cases}
-x = u\\
-y = e^v \\
-\end{cases}
-$$
-
-Substituting into the assignment from Example 1:
-$$
-a = -\frac{x}{y} = -\frac{u}{e^v} = -u e^{-v}
-$$
-
-Since the Möbius transformation is conformal and preserves the flow equation, and accounting for the orientation change, we obtain $a = u e^{-v}$ satisfying the flow equation.
-\end{proof}
-
-As in Example 1, we can verify that $a$ constitutes an eigenfunction of the Laplacian:
-$$
-\Delta a = e^{2v} \frac{\partial^2(u e^{-v})}{{\partial u}^2} + \frac{\partial^2(u e^{-v})}{{\partial v}^2} - \frac{\partial(u e^{-v})}{\partial v} = 2a
-$$
-
-These two examples, emerging from the same geometric foundation but expressed in different coordinate systems, demonstrate the fundamental properties of the zeroth kind arithmetic expression space.
-
-\subsection{Theoretical framework of $\mathfrak{E}_0$ space}\label{subsec:generalframework}
-
-Building upon the foundational exemplars, we now establish a comprehensive theoretical framework for the zeroth kind arithmetic expression space $\mathfrak{E}_0$.
-
-Consider the upper half plane $\mathcal{B}$:
-$$
-\{\mathcal{B}: (x, y) | y > 0 \}
-$$
-
-equipped with an inner product and metric tensor parameterized by constants $\mu$ and $\lambda$:
-
-$$
-\mathbf{a} \cdot \mathbf{b} = \begin{bmatrix} a_x & a_y \end{bmatrix} \begin{bmatrix} \frac{1}{\mu^2 y^2} & 0 \\ 0 & \frac{1}{\lambda^2 y^2} \end{bmatrix} \begin{bmatrix} b_x \\ b_y \end{bmatrix}
-$$
-
-$$
-ds^2 = \frac{1}{y^2}\left(\frac{dx^2}{\mu^2} + \frac{dy^2}{\lambda^2}\right)
-$$
-
-The assignment function in this generalized framework maintains the form:
-
-\begin{equation}\label{eq:genassignment}
-a = - \frac{x}{y}
-\end{equation}
-
-This defines the zeroth kind arithmetic expression space $\mathfrak{E}_0$, characterized by the following theorem:
-
-\begin{theorem}\label{thm:generalE1}
-The assignment $a$ given by \eqref{eq:genassignment} satisfies the flow equation \eqref{eq:flow} with parameters $\mu$ and $\lambda$, independent of the specific values of these generators.
-\end{theorem}
-
-\begin{proof}
-The differential of the assignment is given by:
-$$
-da = d\left(-\frac{x}{y}\right) = \frac{xdy - ydx}{y^2} = -\frac{dx + a dy}{y}
-$$
-
-The differential of arc length is expressed as:
-$$
-ds = \frac{1}{y}\sqrt{\frac{dx^2}{\mu^2} + \frac{dy^2}{\lambda^2}}
-$$
-
-Therefore:
-$$
-\frac{da}{ds} = - \frac{dx + a dy}{y} \cdot \frac{y}{\sqrt{\frac{dx^2}{\mu^2} + \frac{dy^2}{\lambda^2}}} = -\frac{dx + a dy}{\sqrt{\frac{dx^2}{\mu^2} + \frac{dy^2}{\lambda^2}}}
-$$
-
-In the local coordinate system determined by $(-1, 0)$ and $(0, -1)$ according to the right-hand rule:
-
-$$
-\cos \theta = \frac{-\frac{dx}{\mu}}{\sqrt{\frac{dx^2}{\mu^2} + \frac{dy^2}{\lambda^2}}} \quad \text{and} \quad \sin \theta = \frac{-\frac{dy}{\lambda}}{\sqrt{\frac{dx^2}{\mu^2} + \frac{dy^2}{\lambda^2}}}
-$$
-
-Substituting these values:
-$$
-\frac{da}{ds} = \mu \cos \theta + a \lambda \sin \theta
-$$
-
-This precisely corresponds to the flow equation \eqref{eq:flow} with the given parameters $\mu$ and $\lambda$.
-\end{proof}
-
-The $\mathfrak{E}_0$ space is distinguished by its intrinsic connection to hyperbolic geometry and the property that the assignment function $a = -x/y$ constitutes an eigenfunction of the Laplacian operator with eigenvalue 2. This space provides a natural geometric framework for analyzing arithmetic expressions, particularly those involving addition and multiplication operations.
-
-\subsection{Geometric propagation mechanisms}\label{subsec:geompropagation}
-
-The flow equation \eqref{eq:flow} in the $\mathfrak{E}_0$ space, $da/ds = \mu \cos \theta + a \lambda \sin \theta$, provides a dynamic interpretation of arithmetic expression evaluation as a propagation process. This perspective extends the propagation method discussed in Section \ref{subsec:propagation-method}.
-
-We can visualize this process using the concept of wavefronts. Considering the locus where the assignment $a=0$ (the y-axis, $x=0$) as the initial source or baseline, the "information" or "value" propagates outwards into the upper half-plane $\mathcal{H}$. The flow equation governs how the assignment value $a$ changes as this propagation occurs.
-
-Points with the same assignment value form equipotential lines, or contours, defined by $a = -x/y = a_0$ (constant). In the $(x,y)$ coordinate chart of $\mathcal{H}$, these contours are rays emanating from the origin, described by the equation $x = -a_0 y$.
-
-A key insight arises when observing how these equipotential lines behave as the propagation proceeds. Propagation, fundamentally occurring along directions related to the gradient of $a$ (which are orthogonal to the contours), leads to an increase in the magnitude $|a|$ as points move further from the initial $a=0$ line.
-
-Now, consider the orientation of the contour ray $x = -a_0 y$. Its slope in the $(x,y)$ plane is $dy/dx = -1/a_0$.
-\begin{itemize}
-    \item When $|a_0|$ is very small (i.e., close to the initial $a=0$ state on the y-axis), the slope $-1/a_0$ is very large in magnitude, meaning the ray is nearly vertical, aligned closely with the y-axis.
-    \item As the wavefront propagates outwards, the magnitude $|a_0|$ increases. Consequently, the magnitude of the slope $|-1/a_0|$ decreases, approaching zero as $|a_0| \to \infty$. This means the ray becomes increasingly horizontal, aligning more closely with the x-axis.
-\end{itemize}
-Therefore, the geometric propagation driven by the flow equation manifests as a dynamic \textbf{sweeping or change in orientation of the equipotential rays} $a=a_0$. As the magnitude $|a|$ increases due to propagation away from the zero line, the corresponding ray appears to \textbf{rotate} from a near-vertical orientation (along the y-axis for $a=0$) towards a near-horizontal orientation (along the positive x-axis if $a \to -\infty$, or the negative x-axis if $a \to +\infty$).
-
-This increase in magnitude $|a|$ with the propagation distance $s$ along the gradient is quantified by the relationship $|a| = (\mu/\lambda) \sinh(\lambda s)$ (derived from \eqref{eq:gradevo4} for propagation from $a_0=0$), confirming that further propagation indeed leads to larger $|a|$ values and thus more horizontally oriented contour lines.
-
-This dynamic picture of equipotential rays sweeping from vertical towards horizontal alignment provides a core geometric interpretation of the propagation mechanism inherent in the flow equation within the $\mathfrak{E}_0$ space.
-
-\subsection{Grid structures, chirality, and their interrelation via conformal mapping}\label{subsec:grids_revised}
-
-A significant geometric characteristic of the zeroth kind arithmetic expression space ($\mathfrak{E}_0$) is the presence of two distinct yet interrelated grid structures. These structures provide a geometric realization for arithmetic operations and reveal a deep connection to the Baumslag--Solitar groups $BS(2,1)$ and $BS(1,2)$. Both grid types are constructed within the upper half-plane model $\mathcal{H} = \{(x,y) \mid y>0\}$, utilizing the assignment function $a = -x/y$ as the underlying scalar field that defines the meaning of arithmetic operations.
-
-\subsubsection{The Rectilinear Grid: Geometric Realization of $BS(2,1)$ and its Chirality}
-
-The first grid structure, the \textbf{rectilinear grid} (Figure~\ref{fig:grid1_revised}), is formed by lines parallel to the Cartesian axes. % Corresponds to original Figure 9
-
-\begin{itemize}
-    \item \textbf{Addition Loci (Horizontal Lines, $y=c_0$):} Movement along these blue lines, changing $x$, corresponds to an \textbf{addition} operation on the assignment value $a$. Specifically, an operation $a_{new} = a_{old} + s$ (where $s$ is the amount added) is realized by changing $x$ from $x_{old}$ to $x_{new} = x_{old} - s \cdot y_0$. The red numerals on these lines in the original Figure 9 (which this refers to) indicate the value of $a = -x/y$ at those points.
-    \item \textbf{Multiplication Loci (Vertical Lines, $x=c_0$):} Movement along these green lines, changing $y$, corresponds to a \textbf{multiplication} operation on $a$. An operation $a_{new} = a_{old} \cdot k$ (where $k$ is the multiplication factor) is realized by changing $y$ from $y_{old}$ to $y_{new} = y_{old}/k$. The blue numerals on these lines in the original Figure 9 indicate the value of $a = -x/y$ at those points. For this rectilinear grid, we consider a specific multiplication factor $k=2$.
-\end{itemize}
-The assignment $a = -x/y$ at grid intersections reflects the outcome of these operations. This rectilinear grid, with an addition step $s$ and multiplication factor $k=2$, serves as a geometric realization of the \textbf{Baumslag--Solitar group $BS(2,1)$}, defined by $\langle x_g, y_g \mid y_g^{-1}x_g^2y_g = x_g \rangle$. Using Currying-style operators $\oplus_s$ for $x_g$ (representing adding $s$) and $\otimes_k$ for $y_g$ (representing multiplying by $k$), the group relation $v + 2s/k = v+s$ is satisfied if $k=2$ (for $s \neq 0$). This confirms the consistency of the rectilinear grid with $BS(2,1)$ when the multiplication factor is 2.
+The orbit of a point under these two moves generates the familiar rectilinear grid. In particular, when $k=2$, the horizontal and vertical directions geometrize the two generators of a Baumslag--Solitar type relation. More generally, for any positive integer $k$ one has the exact identity
+\[
+    Y_k^{-1}X_s^{\,k}Y_k = X_s,
+\]
+where $X_s^{\,k}$ denotes $k$ successive additions by $s$. This is precisely the defining relation of $BS(k,1)$ in the form introduced by Baumslag and Solitar \cite{BaumslagSolitar1962NonHopfian}. Thus the arithmetic grid in $\mathfrak{E}_0$ is not merely mnemonic; it is a geometric realization of the same algebraic relation that already appears in the symbolic theory of expression histories.
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.8\textwidth]{images/01-grid-example-1.pdf}
-\caption{Rectilinear grid structure in $\mathfrak{E}_0$, a geometric realization of $BS(2,1)$ (with multiplication factor 2), exhibiting a clockwise (right-handed) operational chirality.}\label{fig:grid1_revised}
+\caption{The rectilinear arithmetic grid in $\mathfrak{E}_0$. Horizontal moves implement addition, vertical rescalings implement multiplication, and the grid records the $BS(2,1)$ relation in geometric form.}\label{fig:grid1_revised}
 \end{figure}
 
-\subsubsection{Chirality of the Rectilinear Grid}
-We define the \textbf{chirality} (handedness) of this operational system at any point as the sense of rotation from the local direction of ``increasing $a$ via addition'' to the local direction of ``increasing $a$ via multiplication (with factor $k>1$).''
-\begin{itemize}
-    \item \textbf{Direction of Increasing Addition ($V_{add}$):} To increase $a$ by $s>0$, $x$ must decrease (since $y>0$). $V_{add}$ is locally in the $-x$ direction (left).
-    \item \textbf{Direction of Increasing Multiplication ($V_{mul}$):} To increase $a$ by a factor $k=2$ (assuming $a \neq 0$), $y$ must decrease to $y/2$. $V_{mul}$ is locally in the $-y$ direction (down).
-\end{itemize}
-The rotation from $V_{add}$ (left) to $V_{mul}$ (down) in the $(x,y)$ plane is \textbf{clockwise}. We designate this $H_0$, and for this discussion, associate it with a ``right-handed system.''
+There is also a dual curved grid obtained from the Möbius inversion $w=-1/z$, which sends lines in the upper half-plane to semicircles and exchanges the two Baumslag--Solitar viewpoints $BS(k,1)$ and $BS(1,k)$. Since that duality is not needed later, we record it only as a geometric remark and do not develop it further here.
 
-\subsubsection{The Transformed Grid via $w = -1/z$: Emergence of $BS(1,2)$ through Chirality Preservation}
-The second grid structure, the \textbf{transformed (or curved) grid} (Figure~\ref{fig:grid2_revised}), results from applying the conformal transformation $w = -1/z$ to the rectilinear grid, where $z=x+iy$ and $w=u+iv$. % Corresponds to original Figure 10
-This specific M\"obius transformation maps $\mathcal{H}$ to itself, transforming horizontal lines ($y=c_0$) in the $z$-plane (addition lines) to semicircles $u^2 + (v - 1/(2c_0))^2 = (1/(2c_0))^2$ and vertical li*nes ($x=c_0$) in the $z$-plane (multiplication lines) to semicircles $(u + 1/(2c_0))^2 + v^2 = (1/(2c_0))^2$.
+\subsection{Torsion and enclosed area}\label{subsec:gridsandtorsion}
 
-The assignment function transforms as $a_{orig} = -x/y \to a_{new} = -u/v = x/y = -a_{orig}$. This sign inversion has a crucial impact on the interpretation of arithmetic operations and the system's chirality:
+The grid makes local non-commutativity directly visible. For one additive step $s$ followed by one multiplicative step $k$, the two evaluation orders give
+\[
+    k(a+s) - (ka+s) = (k-1)s.
+\]
+So even a single elementary cell already carries a non-trivial torsion. In the simplest case $k=2$ and $s=1$, this torsion has magnitude $1$.
 
-\begin{enumerate}
-    \item \textbf{Effect on Addition and Chirality (Intermediate State):}
-    The conformal map $w=-1/z$ is orientation-preserving. Let $J$ be its Jacobian.
-    An operation that increases $a_{orig}$ by $s$ (direction $V_{add}$) now changes $a_{new}$ by $-s$. Thus, to achieve an increase in $a_{new}$ by $s'$ (i.e., $a'_{new} = a'_{old} + s'$), the underlying operation corresponds to changing $a_{orig}$ by $-s'$. The local direction for this, $V'_{add}$, is $J(-V_{add})$.
-    If we provisionally keep the multiplication factor as $k=2$, the direction for increasing $a_{new}$ by this factor, $V'_{mul}$, is $J(V_{mul})$.
-    The rotation from $V'_{add} \sim J(-V_{add})$ to $V'_{mul} \sim J(V_{mul})$ is now \textbf{counter-clockwise} (an $H_1$ or ``left-handed'' chirality).
-
-    \item \textbf{Chirality Preservation and Adjustment of Multiplication:}
-    We posit that for the transformed system to maintain a consistent operational framework analogous to the original, the original chirality $H_0$ (clockwise) must be preserved. The observed flip to $H_1$ (counter-clockwise) in the intermediate state (due to the $a \to -a$ induced inversion of the effective addition direction) necessitates a compensatory ``logical inversion'' in the multiplication operation. This logical inversion is interpreted as changing the multiplication factor from $k$ to $1/k$.
-    Thus, the multiplication factor for the transformed grid becomes $1/2$ (the reciprocal of the original $k=2$).
-
-    \item \textbf{Final State of the Transformed Grid and $BS(1,2)$:}
-    The arithmetic operations for the transformed grid, principled by chirality preservation, are:
-    \begin{itemize}
-        \item Effective addition step for $a_{new}$: $-s$ (where $s$ was the step for $a_{orig}$).
-        \item Effective multiplication factor for $a_{new}$: $1/2$.
-    \end{itemize}
-    Let $V''_{add} \sim J(-V_{add})$ be the direction of increasing $a_{new}$ via an addition of (positive) $-s$.
-    Let $V''_{mul}$ be the direction of increasing $a_{new}$ via multiplication by $1/2$. Since $1/2 < 1$, for $a_{new}>0$, this operation decreases $a_{new}$. The direction corresponding to the operator ``multiply by $1/2$'' is thus opposite to that of ``multiply by $2$''. Hence, $V''_{mul} \sim J(-V_{mul})$.
-    The rotation $V''_{add} \to V''_{mul}$ (i.e., $J(-V_{add}) \to J(-V_{mul})$) is now \textbf{clockwise}, restoring the original chirality $H_0$.
-    A system with addition $\oplus_{-s}$ and multiplication $\otimes_{\ln(1/2)}$ (factor $1/2$) satisfies the $BS(1,2)$ relation $(y')^{-1}x'y' = (x')^2$, where $x'$ is $\oplus_{-s}$ and $y'$ is $\otimes_{\ln(1/2)}$. This is because $(-s)/(1/2) = 2(-s)$.
-    Therefore, the transformed grid, under this chirality-preserving reinterpretation of its operations, serves as a geometric realization of \textbf{$BS(1,2)$}.
-\end{enumerate}
-
-\begin{figure}[ht]
-\centering
-\includegraphics[width=0.8\textwidth]{images/18-grid-example-2.pdf}
-\caption{Transformed (curved) grid structure in $\mathfrak{E}_0$ via $w=-1/z$. Through chirality preservation, its operations (effective addition step $-s$, effective multiplication factor $1/2$) correspond to $BS(1,2)$.}\label{fig:grid2_revised}
-\end{figure}
-
-\subsubsection{Interrelation and Symmetry}
-The rectilinear grid (realizing $BS(2,1)$ with $k=2$) and the transformed curved grid (realizing $BS(1,2)$ with $k=1/2$) are intrinsically linked by the conformal map $w=-1/z$. This geometric transformation, when augmented by the principle of preserving a defined operational chirality, reveals a profound connection between these two distinct Baumslag--Solitar groups. It is not merely a visual transformation of grid lines but a process that systematically reinterprets the arithmetic operations (addition step $s \to -s$, multiplication factor $k \to 1/k$) to maintain a fundamental handedness. This framework elucidates how different algebraic structures can manifest from the same underlying geometric space $\mathfrak{E}_0$ and assignment field $a=-x/y$, connected by conformal symmetry and consistent operational principles.
-
-\subsection{Torsion under scale transformation}\label{subsec:gridsandtorsion}
-
-The addition-multiplication grid introduced in Section~\ref{subsec:meshgrid} has a natural embedding in the arithmetic expression space $\mathfrak{E}_0$. This grid consists of two orthogonal families of curves:
-
-\begin{enumerate}
-    \item \textbf{Addition curves} (blue lines): horizontal geodesics along which $y$ remains constant, representing iterated additions.
-    \item \textbf{Multiplication curves} (green lines): vertical or logarithmically scaled geodesics where the ratio $x/y$ remains constant, representing multiplicative transformations.
-\end{enumerate}
-
-This grid structure facilitates the geometric analysis of \emph{arithmetic torsion}—a quantity arising from the non-commutativity of certain additive and multiplicative expression sequences. Specifically, torsion quantifies the discrepancy between two seemingly equivalent but differently ordered expressions.
+The same phenomenon persists for longer staircase paths. For example,
+\[
+    x\times 2 + 1 - (x+1)\times 2 = -1,
+\]
+\[
+    x\times 4 + 2 - (x+2)\times 4 = -6,
+\]
+\[
+    x\times 8 + 3 - (x+3)\times 8 = -21.
+\]
+The absolute values $1,6,21$ are exactly the numbers of unit cells enclosed by the corresponding pairs of staircase paths in Figure~\ref{fig:area-formula}. More generally,
+\[
+    x\times 2^n + n - (x+n)\times 2^n = -n(2^n-1),
+\]
+so the torsion grows in step with the enclosed grid area.
 
 \begin{figure}[ht]
     \centering
     \resizebox{0.8\textwidth}{!}{\includegraphics{images/17-area-formula}}
-    \caption{Illustration of the correspondence between hyperbolic area and arithmetic torsion}\label{fig:area-formula}
+    \caption{Arithmetic torsion as enclosed area in the rectilinear grid. The examples with $1$, $6$, and $21$ unit cells already foreshadow the global torsion--area theorem developed later in the accumulative commutative space.}\label{fig:area-formula}
 \end{figure}
 
-Figure~\ref{fig:area-formula} illustrates the relationship between the area enclosed by expression paths in the grid and the resulting torsion. Consider the following expression identity comparisons:
-
-\begin{itemize}
-    \item One-step case:
-    \begin{equation}
-        x \times 2 + 1 - (x + 1) \times 2 = -1
-    \end{equation}
-
-    \item Two-step case:
-    \begin{equation}
-        x \times 4 + 2 - (x + 2) \times 4 = -6
-    \end{equation}
-
-    \item Three-step case:
-    \begin{equation}
-        x \times 8 + 3 - (x + 3) \times 8 = -21
-    \end{equation}
-\end{itemize}
-
-These differences correspond precisely to the hyperbolic areas enclosed between alternative evaluation paths within these specific grid examples:
-
-\begin{itemize}
-    \item The region $ABCD$ encompasses 1 unit cell.
-    \item The region $AEFG$ encompasses 6 unit cells.
-    \item The region $AHIJ$ encompasses 21 unit cells.
-\end{itemize}
-These examples compellingly suggest that arithmetic torsion accumulates in proportion to the area enclosed by the grid paths, indicating a potential connection between algebraic non-commutativity and geometric surface area.
-
-Further supporting this connection, we established a differential formulation:
-\begin{equation}
-    d\tau = \mu \lambda\, du\, dv \label{eq:area_formula}
-\end{equation}
-where $d\tau$ represents the infinitesimal arithmetic torsion, and $du\, dv$ denotes the area element in the $(u, v)$ coordinate system adapted to the grid. This equation provides the precise microscopic law linking infinitesimal torsion to the infinitesimal area element.
-
-However, while we possess both macroscopic observations suggesting a torsion-area relationship (from the scaled grid examples) and the exact microscopic differential law \eqref{eq:area_formula}, the explicit integral theorem rigorously bridging these scales is currently underdeveloped. Formulating how the microscopic torsion density $d\tau$ integrates over a finite region to yield the total accumulated torsion—potentially involving boundary terms in analogy with Stokes' theorem, or relating the total torsion to curvature and topology similarly to the Gauss-Bonnet theorem—remains a key objective for future work.
-
-The analogy with curvature in differential geometry therefore becomes particularly pertinent: just as Gaussian curvature encodes deviation from flatness, arithmetic torsion quantifies deviation from commutativity in arithmetic flow. In this sense, torsion constitutes a measure of the operational significance of evaluation order.
-
-The $\mathfrak{E}_0$ space thus provides a mathematical framework where algebraic non-commutativity manifests as measurable geometric distortion—establishing a novel interpretation of arithmetic structure as a form of discrete curvature. This opens avenues for investigating further geometric invariants such as torsion density, torsion-induced flow bifurcation, and \textbf{realizing} a Gauss–Bonnet-type integral identity for arithmetic surfaces.
-
-\subsection{Tube structure}\label{sec:tubestructure}
-
-In preceding sections, we introduced the zeroth kind arithmetic expression space $\mathfrak{E}_0$ as a geometric realization of arithmetic flow under \textbf{fixed} generator parameters $\mu$ and $\lambda$. However, more complex structures emerge when we consider the entire family of spaces indexed by the parameter $\lambda$ (or potentially both $\mu$ and $\lambda$) and analyze how expression behavior evolves across this family. This naturally leads to the concept of a \emph{tube structure}.
-
-\subsubsection{From Slices to Parameterized Families}\label{subsec:tube_slices}
-
-Each individual $\mathfrak{E}_0$ space, denoted $\mathfrak{E}_1^{(\lambda)}$, can be conceptualized as a single \emph{slice} or \emph{fiber} (in the sense of fiber bundles) within the family of expression spaces indexed by the parameter $\lambda$. Within each slice, the evaluation of arithmetic expressions is realized through traversal along (geodesic) paths, the result is governed by the scalar field $a$, and the flow is determined by the metric tensor corresponding to that slice.
-
-Consider a fixed algebraic structure—for instance, an alternating path (with a fixed internal multiplier) corresponding to a polynomial $P(x)$—and examine how its evaluation result $P(e^\lambda)$ evolves as the tube structure parameter $\lambda$ varies. For each value of $\lambda$, the evaluation $P(e^\lambda)$ corresponds to a point (or more accurately, the assignment value $a$ at that point) within the $\lambda$-slice $\mathfrak{E}_1^{(\lambda)}$. As $\lambda$ varies continuously, these points trace out a continuous trajectory through the family of spaces. We refer to such a trajectory generated by $P$ as a \emph{section} or a \emph{$\lambda$-trajectory}. The collection of all slices corresponding to the allowed $\lambda$ values, along with these structures upon them, together form a new, higher-dimensional entity: the tube structure.
-
-\subsubsection{Tube Structure as Total Space}\label{subsec:tube_total_space}
-
-We define a \textbf{tube structure $\mathcal{T}$} as the \emph{total space} formed by the family of $\mathfrak{E}_0$ spaces indexed by a continuous parameter $\lambda$ (typically $\lambda > 0$), which can be formally written as the disjoint union:
-\begin{equation}
-\mathcal{T} = \bigsqcup_{\lambda > 0} \mathfrak{E}_1^{(\lambda)}
-\end{equation}
-This total space needs to be endowed with an appropriate topology (and possibly a differential or fiber bundle structure) to support coherent analysis along the $\lambda$-direction.
-
-In this structure:
-\begin{itemize}
-    \item The \emph{base space} is the parameter domain $\Lambda$ for $\lambda$ (e.g., $\mathbb{R}^+$).
-    \item The \emph{fiber} over each point $\lambda$ in the base space is the geometric expression space $\mathfrak{E}_1^{(\lambda)}$.
-    \item Fixed algebraic expression structures (especially those corresponding to polynomials $P(x)$, via the evaluation $P(e^\lambda)$) trace \emph{canonical sections} or $\lambda$-trajectories through $\mathcal{T}$. These sections connect the fibers for different $\lambda$.
-\end{itemize}
-
-\subsubsection{Zero Loci and Nodal Evolution}\label{subsec:tube_zeros}
-
-A primary motivation for studying tube structures is to investigate how \emph{zero loci}—the sets of points where an expression evaluates to zero ($a=0$)—evolve with the parameter $\lambda$.
-
-\begin{itemize}
-    \item \textbf{In the Tube Structure $\mathcal{T}_1$ based on $\mathfrak{E}_0$}: For the $\mathfrak{E}_0$ space ($a=-x/y$) that we have discussed in detail, the zero locus within \textbf{each slice} $\mathfrak{E}_1^{(\lambda)}$ is always the \textbf{same simple} line: the y-axis ($x=0$). Consequently, in the tube structure $\mathcal{T}_1 = \bigsqcup \mathfrak{E}_1^{(\lambda)}$, the overall zero locus is the trivial hyperplane $x=0$.
-
-    \item \textbf{Outlook for Non-Trivial Spaces}: However, as our research suggests, the simplicity of the zero locus in $\mathfrak{E}_0$ might limit its capacity to explain more complex phenomena (like those observed in knot theory examples). Therefore, there is strong motivation to seek and construct \textbf{"non-trivial" arithmetic expression spaces $\mathfrak{E}_{NT}$}, where a single slice $\mathfrak{E}_{NT}^{(\lambda)}$ might possess \textbf{multiple or morphologically more complex zero lines}. In the tube structures $\mathcal{T}_{NT}$ built from such non-trivial spaces, the zero locus itself could evolve with $\lambda$, potentially exhibiting various interesting phenomena, such as:
-    \begin{itemize}
-        \item \textbf{Bifurcation}: New zero lines might emerge or merge with existing ones as $\lambda$ varies.
-        \item \textbf{Branching}: The zero locus of certain expressions might exhibit multi-valued behavior along the $\lambda$-direction.
-        \item \textbf{Topology change}: The overall zero surface might develop handles (genus), singularities, or undergo other changes in its topological structure.
-    \end{itemize}
-\end{itemize}
-The analysis of such complex zero loci and their evolution (potentially within $\mathcal{T}_{NT}$) constitutes a core direction for studying expression dynamics, particularly when considering families of expressions or differential equations involving $\lambda$.
-
-\subsubsection{Investigative Approaches and Outlook}\label{subsec:tube_outlook}
-
-The formalism of tube structures opens up multiple avenues for research in arithmetic expression geometry:
-
-\begin{itemize}
-    \item Examining the global properties of zero surfaces (in the general case where they might be non-trivial), such as their genus, regions of curvature concentration, and dependence on the parameter $\lambda$.
-    \item Studying the geometric properties of sections $\gamma_P$ corresponding to polynomials $P(e^\lambda)$ within the tube structure, and investigating whether imposing geometric continuity conditions leads to algebraic rigidity.
-    \item Exploring the possibility of establishing flow equations across the $\lambda$-family, perhaps defining a notion of \emph{connection} or \emph{parallel transport} between different $\lambda$-slices.
-    \item Defining \emph{moduli spaces} of expression geometries as structured fiber bundles over parameter spaces.
-\end{itemize}
-
-Ultimately, tube structures provide a mathematical framework wherein the dynamics of arithmetic expressions can be analyzed analogously to field theory. In this analogy, expressions (or their underlying algebraic structures) act as structured sections, while quantities like arithmetic torsion, curvature, and zero loci serve as local or global invariants.
-
-\subsection{The first kind arithmetic expression space $\mathfrak{E}_1$}\label{subsec:firstkindspace}
-
-We now introduce the \emph{first kind} arithmetic expression space, denoted
-$\mathfrak{E}_1$, which represents the simplest instance of an AEG space with
-a genuine topological singularity.
-
-In contrast to the zeroth kind space $\mathfrak{E}_0$, which is non-singular and
-typically features a line-like zero set (as in the upper half-plane model),
-$\mathfrak{E}_1$ is organized around a \emph{single isolated zero point}.
-This point acts as a source for arithmetic propagation and introduces the
-first non-trivial homological structure into the theory.
-
-\paragraph{Geometric setting.}
-The underlying manifold of $\mathfrak{E}_1$ is a hyperbolic plane of constant
-Gaussian curvature $K=-\lambda^2$, modeled here by the Poincaré disk
+At the infinitesimal level, this observation is exactly the local torsion law already derived in Section~\ref{sec:flowequation}:
 \[
-\mathbb{D}^2=\{w\in\mathbb{C}:|w|<1\}.
+    d\tau = \mu\lambda\,du\,dv.
 \]
-The center $w=0$ is designated as the unique zero of the assignment function,
-$a(0)=0$, and is treated as a singular point of the arithmetic geometry.
+Equivalently, torsion density is just the oriented area density in coordinates adapted to the arithmetic grid. At the level of $\mathfrak{E}_0$, however, this remains a \emph{local} statement. To turn it into a global theorem for arbitrary paths, one needs a commutative stage on which a path and its reverse genuinely bound a region. That is the role of the accumulative commutative space introduced in the next section.
 
-Let $s$ denote the hyperbolic distance from $w=0$.
-In the Poincaré disk model, if $r_e=|w|$ is the Euclidean radius, then
-\[
-s(r_e)=\frac{2}{\lambda}\operatorname{arctanh}(r_e),
-\qquad \lambda s = 2\operatorname{arctanh}(r_e),
-\]
-so that $s\to\infty$ as $r_e\to1$.
+\subsection{The first kind arithmetic expression space \texorpdfstring{$\mathfrak{E}_1$}{E1}}\label{subsec:firstkindspace}
 
-\paragraph{Assignment function.}
-By radial symmetry, the assignment depends only on $s$ and satisfies the
-AEG flow equation along the gradient direction,
-\[
-\frac{da}{ds}=\sqrt{\mu^2+(\lambda a)^2},
-\qquad a(0)=0.
-\]
-The solution is
-\[
-a(s)=\frac{\mu}{\lambda}\sinh(\lambda s),
-\]
-which, expressed in terms of the Euclidean radius $r_e$, becomes
-\[
-a(r_e)=\frac{\mu}{\lambda}\sinh\!\bigl(2\operatorname{arctanh}(r_e)\bigr)
-      =\frac{\mu}{\lambda}\frac{2r_e}{1-r_e^2}.
-\]
-Thus $a$ vanishes at the singular point $r_e=0$ and diverges as $r_e\to1$.
+The zeroth kind space is smooth and its zero set is a whole geodesic line. The next natural model collapses that zero set to a single isolated point. This leads to the \emph{first kind arithmetic expression space} $\mathfrak{E}_1$, the simplest singular arithmetic expression space.
 
-\paragraph{Characteristic lines.}
-The geometry of $\mathfrak{E}_1$ is organized by several canonical families of
-curves:
-\begin{itemize}
-\item \emph{Contour (similarity) lines} $a=\text{const}$ are Euclidean circles
-centered at the origin.
-\item \emph{Gradient (popularity) lines} are radial geodesics emanating from the
-singular point.
-\item \emph{Additive and multiplicative directions} are determined by the angle
+Take the Poincaré disc
 \[
-\alpha(a)=\arctan\!\left(\frac{\mu}{\lambda a}\right)
-        =\arctan\!\left(\frac{1-r_e^2}{2r_e}\right),
+    \mathbb D = \{w\in\mathbb C\mid |w|<1\}
 \]
-which depends only on $r_e$.
-Near $r_e\to0$, additive directions are tangential and multiplicative directions
-are radial; near the boundary $r_e\to1$, this behavior is reversed.
-\end{itemize}
-In this sense, the central zero acts as an \emph{additive singularity}, while the
-ideal boundary plays the role of an effective multiplicative singularity.
+with the hyperbolic metric of curvature $-\lambda^2$,
+\[
+    g_1 = \frac{4}{\lambda^2}\frac{dr^2+r^2d\vartheta^2}{(1-r^2)^2},
+\]
+where $(r,\vartheta)$ are Euclidean polar coordinates. The center $r=0$ is declared to be the unique zero of the assignment and is treated as a singular point. If $s$ denotes hyperbolic distance from the center, then
+\[
+    s(r)=\frac{2}{\lambda}\operatorname{arctanh}(r),
+\]
+and the radial flow equation gives
+\[
+    a(s)=\frac{\mu}{\lambda}\sinh(\lambda s).
+\]
+Hence, in the Euclidean radius variable,
+\[
+    a(r)=\frac{\mu}{\lambda}\frac{2r}{1-r^2}.
+\]
+Thus the contours of constant assignment are concentric circles, while the gradient lines are radial geodesics. In contrast to $\mathfrak{E}_0$, where the zero set is extended, here arithmetic propagation emanates from a single singular center.
 
-\paragraph{Topological feature.}
-Removing the singular point yields the punctured disk
-$\mathbb{D}^2\setminus\{0\}$, whose first homology group is
+Topologically, removing the singular point produces the punctured disc
 \[
-H_1(\mathbb{D}^2\setminus\{0\})\cong\mathbb{Z}.
+    \mathbb D\setminus\{0\},
 \]
-This is the first AEG example admitting non-contractible loops.
-As a result, arithmetic histories encircling the singularity form distinct
-homology classes, and the existence and cost of fillings become non-trivial.
-This feature makes $\mathfrak{E}_1$ the natural testing ground for arithmetic
-homotopy, filling cost, and the Stokes-type formulations developed later via the
-Accumulative Commutative Space.
+whose first homology group is $\mathbb Z$. This is the first arithmetic expression space admitting genuinely non-contractible loops. For that reason, $\mathfrak{E}_1$ is the natural testing ground for the loop, filling, and singularity questions that lie beyond the scope of the present paper. Here we record it only as the first singular model and as a bridge to the global torsion formalism of the next section.
+
+\paragraph{Remark on parameter families.}
+Varying $\lambda$ produces a family of such spaces and suggests a higher-dimensional ``tube'' picture in which one studies how sections and zero loci evolve with the parameter. That perspective is conceptually important, but it is not needed for the foundational arc of the present paper. We therefore postpone it to later work.

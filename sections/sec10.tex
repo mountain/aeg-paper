@@ -1,0 +1,375 @@
+This appendix collects a few explicit computations that support Sections~\ref{subsec:geompropagation} and~\ref{sec:global_torsion_acs_narrative_enhanced_lc}. The guiding principle is the same as in the main text: only calculations that clarify already-established structures are recorded here. No new program is introduced.
+
+\subsection{Horocyclic coordinates and the arithmetic grid in \texorpdfstring{$\mathfrak{E}_0$}{E0}}
+\label{appC:horocyclic-grid}
+
+Recall that on the upper half-plane
+\[
+\mathcal H=\{(x,y)\in\mathbb R^2\mid y>0\}
+\]
+we consider the metric and assignment field
+\[
+ g_{\mu,\lambda}=\frac1{y^2}\left(\frac{dx^2}{\mu^2}+\frac{dy^2}{\lambda^2}\right),
+ \qquad
+ a(x,y)=-\frac{x}{y}.
+\]
+Set
+\[
+ u=x,
+ \qquad
+ v=\lambda^{-1}\log y.
+\]
+Then $y=e^{\lambda v}$ and therefore
+\[
+ dx=du,
+ \qquad
+ dy=\lambda e^{\lambda v}\,dv.
+\]
+Substituting into the metric gives
+\[
+ g_{\mu,\lambda}
+ =\frac{1}{e^{2\lambda v}}\left(\frac{du^2}{\mu^2}+\frac{\lambda^2e^{2\lambda v}dv^2}{\lambda^2}\right)
+ =e^{-2\lambda v}\frac{du^2}{\mu^2}+dv^2,
+\]
+while the assignment becomes
+\[
+ a(u,v)=-\frac{u}{e^{\lambda v}}=-u e^{-\lambda v}.
+\]
+This is the horocyclic form used in Section~\ref{subsec:geompropagation}.
+
+The elementary arithmetic moves can now be read off directly.
+For an additive step $s\in\mathbb R$ and a multiplicative factor $k>0$, define
+\[
+ X_s(u,v)=(u-se^{\lambda v},v),
+ \qquad
+ Y_k(u,v)=\bigl(u,v-\lambda^{-1}\log k\bigr).
+\]
+Then
+\[
+ a\bigl(X_s(u,v)\bigr)
+ =-\bigl(u-se^{\lambda v}\bigr)e^{-\lambda v}
+ =-ue^{-\lambda v}+s
+ =a(u,v)+s,
+\]
+and
+\[
+ a\bigl(Y_k(u,v)\bigr)
+ =-u e^{-\lambda(v-\lambda^{-1}\log k)}
+ =-u e^{-\lambda v}e^{\log k}
+ =k a(u,v).
+\]
+So $X_s$ realizes addition and $Y_k$ realizes multiplication.
+
+\begin{proposition}
+\label{prop:appC-one-cell-torsion}
+For one additive step $s$ and one multiplicative factor $k=e^{\Lambda}$, the two elementary histories
+\[
+\gamma_{\square}=(\oplus_s,\otimes_{\Lambda}),
+\qquad
+\bar\gamma_{\square}=(\otimes_{\Lambda},\oplus_s)
+\]
+have torsion
+\[
+\tau(\gamma_{\square})=s(e^{\Lambda}-1)=s(k-1).
+\]
+Moreover, this torsion is exactly the weighted area of the rectangle
+$[0,s]\times[0,\Lambda]$ in the ACS:
+\[
+\tau(\gamma_{\square})
+ =\int_0^s\int_0^{\Lambda} e^M\,dM\,dA.
+\]
+\end{proposition}
+
+\begin{proof}
+Direct evaluation gives
+\[
+\nu_x(\gamma_{\square})=e^{\Lambda}(x+s),
+\qquad
+\nu_x(\bar\gamma_{\square})=e^{\Lambda}x+s,
+\]
+so
+\[
+\tau(\gamma_{\square})
+ =e^{\Lambda}(x+s)-(e^{\Lambda}x+s)
+ =s(e^{\Lambda}-1).
+\]
+On the other hand,
+\[
+\int_0^s\int_0^{\Lambda} e^M\,dM\,dA
+ =\int_0^s (e^{\Lambda}-1)\,dA
+ =s(e^{\Lambda}-1).
+\]
+The two expressions coincide.
+\end{proof}
+
+Thus the finite torsion carried by a single arithmetic cell is already the exact weighted-area quantity that later appears globally in the ACS. The infinitesimal law
+\[
+ d\tau = \mu\lambda\,du\,dv
+\]
+from Section~\ref{sec:flowequation} is simply the first-order expansion of this finite formula in coordinates adapted to the grid.
+
+\begin{corollary}
+\label{cor:appC-rectangular-family}
+Let
+\[
+\gamma_{m,n}=\bigl(\oplus_1\bigr)^m\bigl(\otimes_{\log 2}\bigr)^n,
+\qquad
+\bar\gamma_{m,n}=\bigl(\otimes_{\log 2}\bigr)^n\bigl(\oplus_1\bigr)^m.
+\]
+Then
+\[
+\tau(\gamma_{m,n})=m(2^n-1).
+\]
+In particular, taking $m=n$ recovers the sequence $1,6,21,\dots$ from Section~\ref{subsec:gridsandtorsion}.
+\end{corollary}
+
+\begin{proof}
+We have
+\[
+\nu_x(\gamma_{m,n})=2^n(x+m),
+\qquad
+\nu_x(\bar\gamma_{m,n})=2^n x+m.
+\]
+Hence
+\[
+\tau(\gamma_{m,n})=2^n(x+m)-(2^n x+m)=m(2^n-1).
+\]
+\end{proof}
+
+\subsection{The radial formula in \texorpdfstring{$\mathfrak{E}_1$}{E1}}
+\label{appC:first-kind-radial}
+
+Section~\ref{subsec:firstkindspace} records the first kind space $\mathfrak{E}_1$ in the Poincar\'e disc with a single isolated zero. The assignment formula there is a direct consequence of the hyperbolic distance function.
+
+\begin{lemma}
+\label{lem:appC-radial-formula}
+Let $r\in(0,1)$ be the Euclidean radial coordinate on the Poincar\'e disc with curvature $-\lambda^2$, and let
+\[
+ s(r)=\frac{2}{\lambda}\operatorname{arctanh}(r)
+\]
+be the hyperbolic distance from the center. If the radial arithmetic flow starts from the singular zero and satisfies
+\[
+ a(s)=\frac{\mu}{\lambda}\sinh(\lambda s),
+\]
+then
+\[
+ a(r)=\frac{\mu}{\lambda}\frac{2r}{1-r^2}.
+\]
+\end{lemma}
+
+\begin{proof}
+From
+\[
+ s(r)=\frac{2}{\lambda}\operatorname{arctanh}(r)
+\]
+we obtain
+\[
+ \lambda s = 2\operatorname{arctanh}(r).
+\]
+Hence
+\[
+ e^{\lambda s}=\frac{1+r}{1-r},
+ \qquad
+ e^{-\lambda s}=\frac{1-r}{1+r}.
+\]
+Therefore
+\[
+ \sinh(\lambda s)
+ =\frac{e^{\lambda s}-e^{-\lambda s}}{2}
+ =\frac12\left(\frac{1+r}{1-r}-\frac{1-r}{1+r}\right)
+ =\frac12\cdot\frac{(1+r)^2-(1-r)^2}{1-r^2}
+ =\frac{2r}{1-r^2}.
+\]
+Substituting this into $a(s)=\frac{\mu}{\lambda}\sinh(\lambda s)$ gives the claimed formula.
+\end{proof}
+
+Two asymptotic regimes are immediate:
+\[
+ a(r)\sim \frac{2\mu}{\lambda}r
+ \quad (r\to 0),
+ \qquad
+ a(r)\sim \frac{\mu}{\lambda}\frac{1}{1-r}
+ \quad (r\to 1^-).
+\]
+So the singular center behaves linearly to first order, while the assignment diverges at the ideal boundary.
+
+\subsection{An inductive derivation of the ACS evaluation formula}
+\label{appC:acs-induction}
+
+The proof in Section~\ref{sec:global_torsion_acs_narrative_enhanced_lc} explains the evaluation formula by reading off the future multiplicative charge of each additive edge. For later reference it is convenient to record the same statement in an inductive form.
+
+For a prefix
+\[
+\gamma^{(k)}=(g_1,\dots,g_k)
+\]
+of an arithmetic history, write
+\[
+ M_k:=\sum_{\substack{1\le j\le k\\ g_j=\otimes_{\lambda_j}}}\lambda_j
+\]
+for its total multiplicative charge. If $g_j=\oplus_{\mu_j}$ with $j\le k$, define the future multiplicative charge inside the prefix by
+\[
+ M^+_{j,k}:=\sum_{\substack{j<\ell\le k\\ g_\ell=\otimes_{\lambda_\ell}}}\lambda_\ell.
+\]
+
+\begin{proposition}
+\label{prop:appC-prefix-evaluation}
+For every prefix $\gamma^{(k)}$ and every initial value $x$,
+\[
+\nu_x\bigl(\gamma^{(k)}\bigr)
+ = e^{M_k}x
+   + \sum_{\substack{1\le j\le k\\ g_j=\oplus_{\mu_j}}}
+     \mu_j e^{M^+_{j,k}}.
+\]
+\end{proposition}
+
+\begin{proof}
+We argue by induction on $k$.
+
+For $k=0$ the history is empty, $M_0=0$, and the formula reads $\nu_x(\varnothing)=x$, which is true.
+
+Assume the formula holds for $k$ and consider $\gamma^{(k+1)}$.
+There are two cases.
+
+\smallskip
+\noindent
+\emph{Case 1:} $g_{k+1}=\oplus_{\mu_{k+1}}$.
+Then $M_{k+1}=M_k$, and
+\[
+\nu_x\bigl(\gamma^{(k+1)}\bigr)
+ =\nu_x\bigl(\gamma^{(k)}\bigr)+\mu_{k+1}.
+\]
+By the induction hypothesis,
+\[
+\nu_x\bigl(\gamma^{(k+1)}\bigr)
+ =e^{M_k}x
+ +\sum_{\substack{1\le j\le k\\ g_j=\oplus_{\mu_j}}}\mu_j e^{M^+_{j,k}}
+ +\mu_{k+1}.
+\]
+Since the new step is additive, the future multiplicative charges of all earlier additive steps remain unchanged, and the new additive term has future multiplicative charge $0$. Thus the required formula holds for $k+1$.
+
+\smallskip
+\noindent
+\emph{Case 2:} $g_{k+1}=\otimes_{\lambda_{k+1}}$.
+Then
+\[
+\nu_x\bigl(\gamma^{(k+1)}\bigr)
+ =e^{\lambda_{k+1}}\nu_x\bigl(\gamma^{(k)}\bigr).
+\]
+Applying the induction hypothesis gives
+\[
+\nu_x\bigl(\gamma^{(k+1)}\bigr)
+ =e^{\lambda_{k+1}}e^{M_k}x
+ +\sum_{\substack{1\le j\le k\\ g_j=\oplus_{\mu_j}}}
+   \mu_j e^{\lambda_{k+1}}e^{M^+_{j,k}}.
+\]
+Now $M_{k+1}=M_k+\lambda_{k+1}$, and every earlier additive step acquires one extra future multiplicative factor $e^{\lambda_{k+1}}$. Hence
+\[
+ e^{\lambda_{k+1}}e^{M^+_{j,k}} = e^{M^+_{j,k+1}},
+\]
+which yields the desired formula.
+\end{proof}
+
+Taking $k=n$ gives the evaluation formula from the main text. Reading the reversed history $\bar\gamma$ instead of $\gamma$ turns the same sum into a line integral along the reversed ACS path:
+\[
+\nu_x(\gamma)=e^{M_\gamma}x+\int_{C_{\bar\gamma}}e^M\,dA.
+\]
+The integral notation is simply a compact way to encode the same weighted sum.
+
+\subsection{Explicit torsion formulas in the ACS}
+\label{appC:explicit-torsion-formulas}
+
+Let
+\[
+\gamma=(g_1,\dots,g_n)
+\]
+be an arithmetic history. For each additive step $g_j=\oplus_{\mu_j}$, define both the future and past multiplicative charges by
+\[
+ M_j^+ := \sum_{\substack{k>j\\ g_k=\otimes_{\lambda_k}}}\lambda_k,
+ \qquad
+ M_j^- := \sum_{\substack{k<j\\ g_k=\otimes_{\lambda_k}}}\lambda_k.
+\]
+Then the forward and reversed evaluations read
+\[
+\nu_x(\gamma)=e^{M_\gamma}x+\sum_{j\in I_A}\mu_j e^{M_j^+},
+\qquad
+\nu_x(\bar\gamma)=e^{M_\gamma}x+\sum_{j\in I_A}\mu_j e^{M_j^-},
+\]
+where $I_A$ denotes the set of additive indices.
+
+\begin{corollary}
+\label{cor:appC-explicit-torsion-formula}
+For every arithmetic history $\gamma$,
+\[
+\tau(\gamma)
+ =\sum_{j\in I_A}\mu_j\bigl(e^{M_j^+}-e^{M_j^-}\bigr).
+\]
+\end{corollary}
+
+\begin{proof}
+Subtract the two formulas above. The common term $e^{M_\gamma}x$ cancels.
+\end{proof}
+
+This expression is often the fastest way to compute torsion in concrete examples. It also makes two structural facts transparent.
+First, only additive steps contribute directly to the sum; multiplicative steps act by reweighting those contributions. Second, a step contributes nothing precisely when its total multiplicative charge before and after are the same.
+
+\begin{corollary}
+\label{cor:appC-block-paths}
+Suppose $\gamma$ is a block path of the form
+\[
+\gamma=(\oplus_{\mu_1},\dots,\oplus_{\mu_r},\otimes_{\lambda_1},\dots,\otimes_{\lambda_s}),
+\]
+and let
+\[
+\Lambda:=\lambda_1+\cdots+\lambda_s.
+\]
+Then
+\[
+\tau(\gamma)=\bigl(e^{\Lambda}-1\bigr)(\mu_1+\cdots+\mu_r).
+\]
+\end{corollary}
+
+\begin{proof}
+For every additive step in such a block path one has $M_j^+=\Lambda$ and $M_j^-=0$. The previous corollary therefore gives
+\[
+\tau(\gamma)
+ =\sum_{j=1}^r \mu_j(e^{\Lambda}-1)
+ =\bigl(e^{\Lambda}-1\bigr)(\mu_1+\cdots+\mu_r).
+\]
+\end{proof}
+
+\paragraph{A signed example.}
+To illustrate the oriented nature of the ACS filling, consider
+\[
+\gamma=(\oplus_1,\otimes_{\log 2},\oplus_{-1}).
+\]
+Then
+\[
+\nu_x(\gamma)=2(x+1)-1=2x+1,
+\]
+whereas
+\[
+\nu_x(\bar\gamma)=(x-1)\cdot 2+1=2x-1.
+\]
+So
+\[
+\tau(\gamma)=2.
+\]
+In ACS language,
+\[
+C_\gamma:(0,0)\to(1,0)\to(1,\log 2)\to(0,\log 2),
+\]
+while
+\[
+C_{\bar\gamma}:(0,0)\to(-1,0)\to(-1,\log 2)\to(0,\log 2).
+\]
+These two paths together bound the rectangle
+\[
+[-1,1]\times[0,\log 2],
+\]
+so the triple identity becomes
+\[
+\tau(\gamma)
+ =\int_{-1}^1\int_0^{\log 2} e^M\,dM\,dA
+ =2.
+\]
+This is a useful reminder that the ACS formalism is not restricted to monotone positive staircases: the same weighted-area language also handles signed additive data through oriented chains.
