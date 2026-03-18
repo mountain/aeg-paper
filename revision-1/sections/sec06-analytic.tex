@@ -1,0 +1,125 @@
+% Focus: Treat this as a horizontal, contact-geometric first-order operator layer; avoid promising classical complex analysis machinery.
+
+\subsection{Horizontal holomorphic fields}\label{subsec:analytic-horizontal-holomorphic}
+% Focus: Define the arithmetic Cauchy--Riemann system intrinsically on the horizontal distribution and present basic examples.
+
+Section~\ref{sec:contact-delta} canonically associates to arithmetic propagation a contact manifold $\mathcal{C}=\mathbb{R}^3_{(u,v,a)}$ with horizontal distribution $\mathcal{H}=\ker\alpha$ spanned by the two distinguished horizontal fields $D_u$ and $D_v$. In this section we extract from $(\mathcal{H},D_u,D_v)$ a first-order analytic operator package. The emphasis is on what is forced by the horizontal geometry, not on importing the full classical function theory of complex analysis.
+
+We work with complex-valued fields $F:\mathcal{C}\to\mathbb{C}$ written as $F=f+ig$ with $f,g$ real-valued.
+
+\begin{definition}[Horizontal holomorphic fields]\label{def:horizontal-holomorphic}
+A complex-valued field $F=f+ig$ on $\mathcal{C}$ is \emph{horizontally holomorphic} if it satisfies the arithmetic Cauchy--Riemann system
+\begin{equation}\label{eq:analytic-cr}
+D_u f=D_v g,
+\qquad
+D_v f=-D_u g.
+\end{equation}
+\end{definition}
+
+This is the direct horizontal analogue of the classical Cauchy--Riemann equations: it equates the horizontal derivatives of $f$ and $g$ along the distinguished arithmetic directions.
+
+\begin{lemma}[Horizontal conformality]\label{lemma:analytic-horizontal-conformal}
+If $F=f+ig$ is horizontally holomorphic, then the two horizontal derivative vectors $(D_u f,D_u g)$ and $(D_v f,D_v g)$ are orthogonal and have the same length. Moreover,
+\begin{equation}\label{eq:analytic-jacobian}
+J_H(F)\coloneqq D_u f\,D_v g-D_v f\,D_u g
+=(D_u f)^2+(D_v f)^2=(D_u g)^2+(D_v g)^2,
+\end{equation}
+and
+\[
+\delta f\wedge \delta g=J_H(F)\,du\wedge dv,
+\]
+where $\delta$ is the horizontal differential of Section~\ref{subsec:contact-delta}.
+\end{lemma}
+
+\begin{proof}
+The orthogonality and equal-length statements follow immediately from \eqref{eq:analytic-cr}. For the Jacobian identity,
+substitute \eqref{eq:analytic-cr} into the definition of $J_H(F)$ to obtain $J_H(F)=(D_u f)^2+(D_v f)^2$, and similarly $J_H(F)=(D_u g)^2+(D_v g)^2$. The wedge identity is a direct expansion:
+\[
+\delta f\wedge \delta g
+=(D_u f\,du+D_v f\,dv)\wedge(D_u g\,du+D_v g\,dv)
+=(D_u f\,D_v g-D_v f\,D_u g)\,du\wedge dv.
+\]
+\end{proof}
+
+As a basic example, the field $F(u,v,a)=u+iv$ is horizontally holomorphic since $D_u u=1$, $D_v v=1$, and the mixed derivatives vanish.
+
+\subsection{Arithmetic Cauchy--Riemann operator package}\label{subsec:analytic-cr-operator}
+% Focus: Define $\partial_{AEG}$ and $\bar{\partial}_{AEG}$ (or the chosen notation) and state their basic algebraic/compatibility properties.
+
+Define the first-order operators on complex-valued fields by
+\begin{equation}\label{eq:analytic-dbar}
+\bar\partial_{\mathrm{AEG}}\coloneqq \frac12\bigl(D_u+iD_v\bigr),
+\qquad
+\partial_{\mathrm{AEG}}\coloneqq \frac12\bigl(D_u-iD_v\bigr).
+\end{equation}
+Then Definition~\ref{def:horizontal-holomorphic} is equivalently expressed as
+\begin{equation}\label{eq:analytic-dbar-equation}
+\bar\partial_{\mathrm{AEG}}F=0.
+\end{equation}
+
+The horizontal calculus provides a convenient differential-form presentation of \eqref{eq:analytic-dbar}. Let
+\[
+\delta F=(D_uF)\,du+(D_vF)\,dv.
+\]
+Writing $\zeta\coloneqq du+i\,dv$ and $\bar\zeta\coloneqq du-i\,dv$, one has the decomposition
+\begin{equation}\label{eq:analytic-delta-decomposition}
+\delta F=(\partial_{\mathrm{AEG}}F)\,\zeta+(\bar\partial_{\mathrm{AEG}}F)\,\bar\zeta.
+\end{equation}
+In particular, $F$ is horizontally holomorphic if and only if $\delta F$ is of type $(1,0)$ with respect to the horizontal splitting determined by $D_u$ and $D_v$.
+
+\subsection{Twisted harmonicity}\label{subsec:analytic-twisted-harmonicity}
+% Focus: Derive the twisted second-order equation forced by the first-order system; specify hypotheses and demonstrate nontriviality.
+
+The operators \eqref{eq:analytic-dbar} admit a second-order factorization whose defect is exactly the commutator curvature of the horizontal distribution.
+
+\begin{definition}[Horizontal Laplacian]\label{def:analytic-horizontal-laplacian}
+Define the horizontal Laplacian on scalar fields by
+\begin{equation}\label{eq:analytic-deltaH}
+\Delta_H\coloneqq D_u^2+D_v^2.
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Factorization]\label{prop:analytic-factorization}
+On complex-valued fields $F$,
+\begin{equation}\label{eq:analytic-factorization}
+4\,\partial_{\mathrm{AEG}}\bar\partial_{\mathrm{AEG}}F
+=\bigl(\Delta_H+i\mu\lambda\,\partial_a\bigr)F,
+\qquad
+4\,\bar\partial_{\mathrm{AEG}}\partial_{\mathrm{AEG}}F
+=\bigl(\Delta_H-i\mu\lambda\,\partial_a\bigr)F.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Expand
+\[
+4\,\partial_{\mathrm{AEG}}\bar\partial_{\mathrm{AEG}}F
+=(D_u-iD_v)(D_u+iD_v)F
+=(D_u^2+D_v^2)F+i(D_uD_v-D_vD_u)F.
+\]
+Using the bracket identity $[D_u,D_v]=\mu\lambda\,\partial_a$ from Proposition~\ref{prop:contact-bracket} gives the first formula. The second is analogous.
+\end{proof}
+
+\begin{theorem}[Twisted harmonicity]\label{thm:analytic-twisted-harmonicity}
+If $F$ is horizontally holomorphic, then it satisfies the twisted second-order equation
+\begin{equation}\label{eq:analytic-twisted-harmonicity}
+\bigl(\Delta_H+i\mu\lambda\,\partial_a\bigr)F=0.
+\end{equation}
+Equivalently, writing $F=f+ig$,
+\begin{equation}\label{eq:analytic-twisted-components}
+\Delta_H f=\mu\lambda\,\partial_a g,
+\qquad
+\Delta_H g=-\mu\lambda\,\partial_a f.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+If $\bar\partial_{\mathrm{AEG}}F=0$, then applying $\partial_{\mathrm{AEG}}$ and using Proposition~\ref{prop:analytic-factorization} yields \eqref{eq:analytic-twisted-harmonicity}. The component form follows by taking real and imaginary parts.
+\end{proof}
+
+Equation~\eqref{eq:analytic-twisted-harmonicity} exhibits the precise role of local torsion: the twisting term is the constant commutator density $\mu\lambda$ which already appeared as $\delta^2a$ in Proposition~\ref{prop:delta-square}.
+
+\subsection{Scope and limitations}\label{subsec:analytic-scope}
+% Focus: Explicitly list what is not proved here (contour kernels, boundary value theory, analytic continuation) and point to future work.
+
+The present section introduces a first-order operator package determined by the horizontal distribution and records its basic second-order consequence. We do not develop a global function theory parallel to classical complex analysis. In particular, we do not address boundary integral kernels, global boundary value problems, analytic continuation, or a full functional-analytic theory of solution spaces. These belong to later work building on the operators defined here.

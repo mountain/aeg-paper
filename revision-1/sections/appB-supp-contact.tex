@@ -1,0 +1,88 @@
+% Focus: Move technical computations supporting Sections 5--6 here; keep the main text clean and theorem-driven.
+
+\subsection{Contact computations and bracket identities}\label{subsec:appB-contact}
+% Focus: Provide full computations of $\alpha\wedge d\alpha$, horizontal frames, and commutator identities.
+
+We collect the computations used in Section~\ref{subsec:contact-form}--\ref{subsec:contact-horizontal}.
+
+\subsubsection*{Contact condition}
+With $\omega=\mu\,du+\lambda a\,dv$ and $\alpha=da-\omega$, we have
+\[
+d\omega=\lambda\,da\wedge dv,
+\qquad
+d\alpha=-\lambda\,da\wedge dv.
+\]
+Therefore
+\[
+\alpha\wedge d\alpha
+=(da-\mu\,du-\lambda a\,dv)\wedge(-\lambda\,da\wedge dv)
+=\mu\lambda\,du\wedge da\wedge dv.
+\]
+In particular, $\alpha$ is a contact form if and only if $\mu\lambda\neq 0$.
+
+\subsubsection*{Horizontal frame and bracket}
+The horizontal lifts $D_u=\partial_u+\mu\partial_a$ and $D_v=\partial_v+\lambda a\,\partial_a$ satisfy $\alpha(D_u)=\alpha(D_v)=0$. Their bracket is
+\[
+[D_u,D_v]=[\partial_u+\mu\partial_a,\partial_v+\lambda a\partial_a]=\mu\lambda\,\partial_a.
+\]
+
+\subsubsection*{Darboux coordinates}
+Rescale $\tilde u=\mu u$ and $\tilde v=\lambda v$, and set $x=\tilde v$, $y=a$, $z=a-\tilde u$. Then $dz=da-\mu\,du$ and $dx=\lambda\,dv$, so
+\[
+\alpha=da-\mu\,du-\lambda a\,dv=dz-y\,dx,
+\]
+which is the Darboux normal form.
+
+\subsection{Details of the \texorpdfstring{$\delta$}{delta}-calculus}\label{subsec:appB-delta}
+% Focus: Derive formulas for $\delta$, its algebraic properties, and its relation to $d$ on horizontal forms.
+
+For a smooth scalar field $F(u,v,a)$,
+\[
+\delta F=(D_uF)\,du+(D_vF)\,dv.
+\]
+Using $da=\alpha+\omega$ with $\omega=\mu\,du+\lambda a\,dv$, we obtain
+\[
+dF-(\partial_aF)\alpha
+=(\partial_uF+\mu\partial_aF)\,du+(\partial_vF+\lambda a\,\partial_aF)\,dv
+=(D_uF)\,du+(D_vF)\,dv
+=\delta F.
+\]
+Moreover,
+\[
+\delta^2F=([D_u,D_v]F)\,du\wedge dv=\mu\lambda(\partial_aF)\,du\wedge dv.
+\]
+
+\subsection{Model holomorphicity computations}\label{subsec:appB-holomorphic}
+% Focus: Collect explicit calculations for the first-order system and the associated twisted second-order equations.
+
+We record the algebra underlying Proposition~\ref{prop:analytic-factorization} and Theorem~\ref{thm:analytic-twisted-harmonicity}.
+
+For complex-valued $F$, define
+\[
+\bar\partial_{\mathrm{AEG}}=\frac12(D_u+iD_v),
+\qquad
+\partial_{\mathrm{AEG}}=\frac12(D_u-iD_v).
+\]
+Then
+\[
+4\,\partial_{\mathrm{AEG}}\bar\partial_{\mathrm{AEG}}F
+=(D_u-iD_v)(D_u+iD_v)F
+=(D_u^2+D_v^2)F+i(D_uD_v-D_vD_u)F.
+\]
+Using $[D_u,D_v]=\mu\lambda\,\partial_a$, we obtain
+\[
+4\,\partial_{\mathrm{AEG}}\bar\partial_{\mathrm{AEG}}F
+=\bigl(\Delta_H+i\mu\lambda\,\partial_a\bigr)F,
+\qquad
+\Delta_H=D_u^2+D_v^2.
+\]
+Similarly,
+\[
+4\,\bar\partial_{\mathrm{AEG}}\partial_{\mathrm{AEG}}F
+=\bigl(\Delta_H-i\mu\lambda\,\partial_a\bigr)F.
+\]
+If $F$ is horizontally holomorphic, i.e.\ $\bar\partial_{\mathrm{AEG}}F=0$, then applying $\partial_{\mathrm{AEG}}$ yields
+\[
+\bigl(\Delta_H+i\mu\lambda\,\partial_a\bigr)F=0,
+\]
+which is the twisted harmonicity equation.

@@ -1,0 +1,96 @@
+% Focus: Systematize normalization, covariance, and invariance; strengthen connections to established literature.
+
+\subsection{Normalization and parameter rescaling}\label{subsec:inv-normalization}
+% Focus: Explain changes of logarithmic base and unit rescalings; track how $\mu,\lambda,u,v$ and invariants transform.
+
+The constructions introduced so far carry two numerical parameters $\mu$ and $\lambda$ recording the additive and multiplicative propagation intensities. This section records the basic normalizations and invariances showing which combinations are geometric and which are choices of units.
+
+\subsubsection*{Natural units}
+On the contact manifold $\mathcal{C}=\mathbb{R}^3_{(u,v,a)}$ we introduce the dimensionless variables
+\begin{equation}\label{eq:inv-natural-units}
+\tilde u\coloneqq \mu u,
+\qquad
+\tilde v\coloneqq \lambda v.
+\end{equation}
+In these variables the contact form \eqref{eq:contact-forms} becomes
+\begin{equation}\label{eq:inv-alpha-natural}
+\alpha=da-d\tilde u-a\,d\tilde v,
+\end{equation}
+and the horizontal frame \eqref{eq:contact-horizontal-basis} becomes
+\begin{equation}\label{eq:inv-horizontal-natural}
+D_u=\mu\bigl(\partial_{\tilde u}+\partial_a\bigr),
+\qquad
+D_v=\lambda\bigl(\partial_{\tilde v}+a\,\partial_a\bigr).
+\end{equation}
+Thus the $\mu$- and $\lambda$-dependence is a pure scaling of the preferred horizontal directions.
+
+The fundamental curvature density is likewise unit-free:
+\begin{equation}\label{eq:inv-curvature-density}
+\mu\lambda\,du\wedge dv=d\tilde u\wedge d\tilde v.
+\end{equation}
+This is the geometric meaning of the constant $\mu\lambda$ appearing in $[D_u,D_v]=\mu\lambda\,\partial_a$ and in the twisted harmonicity term $(\Delta_H+i\mu\lambda\,\partial_a)$.
+
+\subsubsection*{Change of logarithmic base}
+The multiplicative coordinate $v$ is a logarithmic parameter. Choosing a different logarithmic base is equivalent to rescaling $v$ and $\lambda$ while keeping the product $M=\lambda v$ fixed. Concretely, if multiplicative propagation is written as
+\[
+x\mapsto b^{\lambda_b}\,x,
+\]
+then $\lambda=\lambda_b\log b$ in the conventions used here. Equivalently, one may replace $(\lambda,v)$ by $(c\lambda,v/c)$ for any $c>0$ without changing the multiplicative factors $e^{\lambda v}$ that appear in the generator calculus and in the ACS weight $e^M$.
+
+\subsection{Coordinate covariance of the flow and contact form}\label{subsec:inv-covariance}
+% Focus: State coordinate-free formulations and show how expressions transform under coordinate changes.
+
+The flow law admits equivalent coordinate-free formulations, and the local analytic operators are covariant under the normalizations above.
+
+\subsubsection*{Pfaff and horizontal formulations}
+On $\mathcal{C}$ the Pfaff equation $\alpha=0$ is equivalent to the propagation law: a curve $\gamma(s)$ is horizontal if and only if its tangent satisfies $\alpha(\dot\gamma)=0$, i.e.\ $da=\mu\,du+\lambda a\,dv$ along $\gamma$. This is the local, coordinate-free content of Proposition~\ref{prop:flow-equation}.
+
+The horizontal differential $\delta$ is similarly intrinsic: for a scalar field $F$,
+\[
+\delta F=dF-(\partial_aF)\alpha,
+\]
+so $\delta F(X)=dF(X)$ for every horizontal vector $X\in\ker\alpha$. In particular, the definitions of $\bar\partial_{\mathrm{AEG}}$ and $\partial_{\mathrm{AEG}}$ depend only on the distinguished ordered frame $(D_u,D_v)$ of the horizontal distribution.
+
+\subsubsection*{Covariance under unit rescaling}
+Under the natural-unit change \eqref{eq:inv-natural-units}, the operators scale as
+\[
+\bar\partial_{\mathrm{AEG}}
+=\frac12(D_u+iD_v)
+=\frac{\mu}{2}\bigl(\partial_{\tilde u}+\partial_a\bigr)
+\,+\,\frac{i\lambda}{2}\bigl(\partial_{\tilde v}+a\partial_a\bigr),
+\]
+and similarly for $\partial_{\mathrm{AEG}}$. The factorization identity
+\[
+4\,\partial_{\mathrm{AEG}}\bar\partial_{\mathrm{AEG}}
+=\Delta_H+i\mu\lambda\,\partial_a
+\]
+is therefore invariant in form: the only scalar datum it involves is the curvature density $\mu\lambda$, which becomes the unit-free density \eqref{eq:inv-curvature-density} in natural units.
+
+\subsection{Invariance properties of ACS quantities}\label{subsec:inv-acs}
+% Focus: Prove reparametrization invariance and clarify the status of the weight/measure in the triple identity.
+
+The ACS package is a global commutative shadow of the local contact geometry. Its basic objects depend only on charges and not on parameterizations.
+
+\subsubsection*{Reparametrization invariance}
+The ACS path $C_\gamma$ is a piecewise linear $1$-chain in the $(A,M)$-plane. Any reparametrization of its edges preserves the line integrals of the $1$-form $\eta=e^M\,dA$. Likewise, an ACS filling $\Sigma_\gamma$ is an oriented $2$-chain with boundary $C_{\bar\gamma}-C_\gamma$, and any reparametrization preserves the area integral of $d\eta=e^M\,dM\wedge dA$. This is the analytic content behind the statement that torsion depends only on the history, not on how one traverses its ACS shadow.
+
+\subsubsection*{Normalization of the weight}
+The exponential weight $e^M$ is forced by propagation: each additive increment is scaled by every later multiplicative increment. Writing the multiplicative charge coordinate as
+\[
+M=\sum \lambda_j
+\]
+means we have chosen the natural exponential coordinate on the multiplicative group. A change of logarithmic base is absorbed by rescaling the pair $(\lambda,v)$ while keeping $M=\lambda v$ invariant, and therefore does not change the weight in the triple identity.
+
+\subsection{Positioning relative to contact/CR/sub-Riemannian geometry and rewriting}\label{subsec:inv-positioning}
+% Focus: Provide precise comparisons (jet-space contactization, Heisenberg/CR, sub-Riemannian eikonal) and outline the rewriting/groupoid viewpoint.
+
+The foundational structures of AEG sit naturally among several established geometric languages. The point is not to rename the theory into an existing one, but to clarify what is standard and what is arithmetic-specific.
+
+\subsubsection*{Contact viewpoint and jet-space form}
+The Pfaff form $\alpha=da-\mu\,du-\lambda a\,dv$ is of the standard contact type $dz-p\,dx-q\,dy$. The Darboux reduction $\alpha=dz-y\,dx$ shows that, locally, the contact structure is not new; what is new is the arithmetic meaning of the preferred horizontal frame $(D_u,D_v)$ singled out by addition and multiplication.
+
+\subsubsection*{Horizontal/CR viewpoint}
+The operators $\bar\partial_{\mathrm{AEG}}$ and $\partial_{\mathrm{AEG}}$ are CR-type first-order operators built from an oriented horizontal frame. The associated second-order operator $\Delta_H=D_u^2+D_v^2$ is a horizontal Laplacian, and the twisting term $\pm i\mu\lambda\,\partial_a$ is the explicit curvature correction forced by non-integrability.
+
+\subsubsection*{Rewriting and groupoids}
+Section~\ref{subsec:flow-threadlike} packages evaluation histories as arrows in a path groupoid. The ACS is an abelianization of this noncommutative calculus, keeping only total charges. The torsion and its boundary/area formulas quantify precisely what is lost in passing to this commutative shadow. This is the organizing principle behind the equality ladder: endpoints may coincide while arrows remain distinct, and loops encode relations among histories.

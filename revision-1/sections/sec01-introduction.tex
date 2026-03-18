@@ -1,0 +1,41 @@
+% Focus: State the revised goals and contributions with precise scope; emphasize what is proved vs. deferred.
+
+\subsection{Motivation and guiding examples}\label{subsec:intro-motivation}
+% Focus: Reframe AEG as geometry of evaluation histories; give one concrete threadlike example and its two propagations.
+
+Arithmetic expressions come with a hidden combinatorial choice: an \emph{evaluation history}. Even when two evaluation histories give the same final value, intermediate values can differ, and commutators of elementary steps can carry systematic defects. Arithmetic Expression Geometry (AEG) is a proposal to treat such defects as geometric data.
+
+The present paper focuses on a distinguished class of \emph{threadlike} expressions, where evaluation histories naturally decompose into two elementary propagations: additive updates and multiplicative updates. Passing from discrete propagation to a continuous limit yields an arithmetic flow equation. The central theme is that the non-commutativity between these two propagations admits both global invariants and local differential-geometric incarnations.
+
+\subsection{Main results and structure of the paper}\label{subsec:intro-results}
+% Focus: List theorem-level contributions (flow, AES models, ACS identity, contact/horizontal calculus, horizontal holomorphic fields/twisted harmonicity, invariance).
+
+The paper establishes a first foundational layer of AEG. Its contributions are organized into the following theorem-level packages.
+
+\begin{itemize}
+    \item \emph{Arithmetic flow equation.} From infinitesimal additive and multiplicative propagations we derive a first-order propagation law and reformulate it in a Lie-theoretic \texorpdfstring{$\mathrm{Aff}(1)$}{Aff(1)} framework.
+    \item \emph{Arithmetic Expression Spaces (AES).} We define an AES as geometric data supporting an assignment field governed by the flow/eikonal law, and we construct the basic model spaces \texorpdfstring{$\mathfrak{E}_0$}{E0} and \texorpdfstring{$\mathfrak{E}_1$}{E1}, including verifiable computations in the upper half-plane.
+    \item \emph{Arithmetic torsion and the ACS triple identity.} We define arithmetic torsion as a commutator defect of additive and multiplicative propagation. We introduce the Accumulative Commutative Space (ACS) and prove a Stokes-type triple identity expressing torsion equivalently as an evaluation difference, a weighted area integral, and a boundary integral under explicit hypotheses.
+    \item \emph{Contact structure and horizontal calculus.} We lift the propagation data to a contact manifold whose horizontal distribution recovers the flow directions. This yields a horizontal differential calculus \texorpdfstring{$\delta$}{delta} and a local commutator curvature package reflecting the same arithmetic non-commutativity.
+    \item \emph{Horizontal holomorphic fields and twisted harmonicity.} On the horizontal distribution we define an arithmetic Cauchy--Riemann system and package it into first-order operators. We show that this first-order system forces a nontrivial twisted second-order equation, providing an intrinsic analytic operator layer associated to arithmetic propagation.
+    \item \emph{Normalization and invariance.} We systematize the effects of rescaling, change of logarithmic base, and coordinate changes, and we record the invariance properties of the core constructions and identities.
+\end{itemize}
+
+The remainder of the paper follows this structure. Sections~\ref{sec:paths-flow}--\ref{sec:aes} develop the propagation law and the definition and construction of AES. Section~\ref{sec:acs-torsion} develops arithmetic torsion and the ACS triple identity. Section~\ref{sec:contact-delta} develops the contact-geometric lift and the horizontal calculus. Section~\ref{sec:horizontal-holomorphic} introduces horizontal holomorphic fields and their induced twisted harmonicity. Section~\ref{sec:invariance-positioning} collects normalization, invariance, and mathematical positioning. Technical computations and examples are placed in the appendices.
+
+\subsection{What is established here and what is deferred}\label{subsec:intro-scope}
+% Focus: Explicitly separate proved statements from programmatic outlook (classification, full analysis, loop/relations theory).
+
+This paper is foundational and intentionally delimits its scope.
+
+\begin{itemize}
+    \item We give explicit definitions, model constructions, and complete proofs for the central identities claimed in the main text.
+    \item We do not attempt a global classification of AES beyond the model settings treated here. Classification and uniqueness problems are stated explicitly as open directions.
+    \item The horizontal holomorphic and twisted harmonic operators introduced here are not presented as a full replacement of classical complex analysis. In particular, boundary integral kernels, analytic continuation, and global potential theory are deferred to later work.
+    \item The multi-layered equality program and the associated loop/relations theory are only motivated by examples in this paper; a systematic global theory is deferred.
+\end{itemize}
+
+\subsection{Relation to existing frameworks}\label{subsec:intro-related}
+% Focus: Briefly position relative to contact/jet spaces, CR/sub-Riemannian viewpoints, and rewriting/groupoid semantics.
+
+Several parts of the construction naturally interface with established geometric structures. The contact form and horizontal calculus invite comparison with jet-space contact geometry and with CR/sub-Riemannian analysis on non-integrable distributions. From a combinatorial viewpoint, evaluation histories and their commutators suggest a groupoid language for rewriting systems and a holonomy-type organization of equality levels. Section~\ref{sec:invariance-positioning} records these comparisons at the level needed for the present foundational development.

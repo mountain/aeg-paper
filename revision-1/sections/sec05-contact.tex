@@ -1,0 +1,147 @@
+% Focus: Present the contact structure and the horizontal differential calculus as the local geometric layer.
+
+\subsection{The arithmetic expression contact form}\label{subsec:contact-form}
+% Focus: Define the contact manifold and form; prove the contact condition and connect to propagation directions.
+
+The ACS of Section~\ref{subsec:acs-definition} records additive and multiplicative charges but forgets the current assignment value. To localize torsion while retaining the assignment, we pass to a three-dimensional space with coordinates $(u,v,a)$, where $u$ and $v$ play the local additive and multiplicative roles and $a$ records the current assignment.
+
+We work on the manifold
+\[
+\mathcal{C}\coloneqq \mathbb{R}^3_{(u,v,a)}.
+\]
+Define the $1$-forms
+\begin{equation}\label{eq:contact-forms}
+\omega\coloneqq \mu\,du+\lambda a\,dv,
+\qquad
+\alpha\coloneqq da-\omega.
+\end{equation}
+For a tangent vector $X=x_u\partial_u+x_v\partial_v+x_a\partial_a$ one computes
+\[
+\alpha(X)=x_a-\mu x_u-\lambda a x_v.
+\]
+Thus $\alpha(X)=0$ if and only if $x_a=\mu x_u+\lambda a x_v$, which is exactly the infinitesimal propagation law from Proposition~\ref{prop:flow-equation} in Pfaff form.
+
+\begin{proposition}\label{prop:contact-form}
+If $\mu\lambda\neq 0$, then $\alpha$ is a contact form on $\mathcal{C}$.
+\end{proposition}
+
+\begin{proof}
+Since $d\omega=\lambda\,da\wedge dv$, we have $d\alpha=-\lambda\,da\wedge dv$ and therefore
+\[
+\alpha\wedge d\alpha
+=(da-\mu\,du-\lambda a\,dv)\wedge(-\lambda\,da\wedge dv)
+=\mu\lambda\,du\wedge da\wedge dv,
+\]
+which is nonzero everywhere when $\mu\lambda\neq 0$.
+\end{proof}
+
+The arithmetic form \eqref{eq:contact-forms} is a coordinatization of the standard local contact model. After rescaling $\tilde u=\mu u$ and $\tilde v=\lambda v$ and setting $x=\tilde v$, $y=a$, $z=a-\tilde u$, one obtains $\alpha=dz-y\,dx$ \cite{Darboux1882Pfaff,Geiges2008IntroContact}. The key point is not the existence of a contact structure, but the distinguished horizontal directions singled out by addition and multiplication.
+
+\subsection{Horizontal distribution and local non-integrability}\label{subsec:contact-horizontal}
+% Focus: Define the horizontal distribution; compute brackets and interpret local commutator curvature.
+
+The \emph{horizontal distribution} is the rank-$2$ distribution
+\[
+\mathcal{H}\coloneqq \ker\alpha\subset T\mathcal{C}.
+\]
+The two basic horizontal lifts of the coordinate fields on the $(u,v)$-plane are
+\begin{equation}\label{eq:contact-horizontal-basis}
+D_u\coloneqq \partial_u+\mu\,\partial_a,
+\qquad
+D_v\coloneqq \partial_v+\lambda a\,\partial_a.
+\end{equation}
+They satisfy $\alpha(D_u)=\alpha(D_v)=0$, hence $\mathcal{H}=\mathrm{span}\{D_u,D_v\}$. A horizontal curve $\gamma(s)$ is characterized by $\dot\gamma(s)\in\mathcal{H}$, equivalently by the Pfaff constraint $\alpha(\dot\gamma)=0$.
+
+\begin{proposition}\label{prop:contact-bracket}
+The horizontal distribution is not integrable. More precisely,
+\begin{equation}\label{eq:contact-bracket}
+[D_u,D_v]=\mu\lambda\,\partial_a.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Compute directly:
+\[
+[D_u,D_v]=[\partial_u+\mu\partial_a,\partial_v+\lambda a\partial_a]=\mu\lambda\,\partial_a.
+\]
+\end{proof}
+
+Equation~\eqref{eq:contact-bracket} is the local differential shadow of arithmetic torsion: an infinitesimal $u$-move followed by an infinitesimal $v$-move differs from the reversed order by a purely vertical drift. At finite scale this drift carries the same exponential weighting seen globally in the ACS.
+
+\subsubsection*{A finite commutator square}
+Let $\Phi_u^h$ and $\Phi_v^k$ denote the time-$h$ and time-$k$ flows of $D_u$ and $D_v$. They are
+\[
+\Phi_u^h(u,v,a)=(u+h,v,a+\mu h),
+\qquad
+\Phi_v^k(u,v,a)=(u,v+k,e^{\lambda k}a).
+\]
+Comparing the two two-step histories with the same base endpoint,
+\[
+p_{uv}\coloneqq \Phi_v^k\!\circ\Phi_u^h(u,v,a),
+\qquad
+p_{vu}\coloneqq \Phi_u^h\!\circ\Phi_v^k(u,v,a),
+\]
+one finds
+\begin{equation}\label{eq:contact-finite-torsion}
+a(p_{uv})-a(p_{vu})=\mu h\bigl(e^{\lambda k}-1\bigr),
+\end{equation}
+whose first-order part is $\mu\lambda hk$.
+
+\subsection{The horizontal differential \texorpdfstring{$\delta$}{delta}}\label{subsec:contact-delta}
+% Focus: Define the horizontal calculus; state basic identities; clarify dependence on the chosen structure.
+
+The horizontal distribution comes with a natural differential operator obtained by projecting the de Rham differential to the horizontal directions.
+
+\begin{definition}\label{def:delta}
+For a smooth scalar field $F(u,v,a)$ on $\mathcal{C}$, its \emph{horizontal differential} is
+\begin{equation}\label{eq:delta-def}
+\delta F\coloneqq (D_uF)\,du+(D_vF)\,dv.
+\end{equation}
+\end{definition}
+
+\begin{lemma}\label{lemma:delta-projection}
+For any smooth $F$,
+\begin{equation}\label{eq:delta-projection}
+\delta F=dF-(\partial_aF)\alpha.
+\end{equation}
+In particular, $\delta a=\omega$ and $\delta u=du$, $\delta v=dv$.
+\end{lemma}
+
+\begin{proof}
+Expand $dF=(\partial_uF)\,du+(\partial_vF)\,dv+(\partial_aF)\,da$ and use $da=\alpha+\omega$ with \eqref{eq:contact-forms}. Then
+\[
+dF-(\partial_aF)\alpha
+=(\partial_uF+\mu\partial_aF)\,du+(\partial_vF+\lambda a\,\partial_aF)\,dv
+=(D_uF)\,du+(D_vF)\,dv.
+\]
+The special cases follow by taking $F=a,u,v$.
+\end{proof}
+
+The operator $\delta$ is not nilpotent: its failure to square to zero is precisely the commutator curvature of the horizontal distribution.
+
+\begin{proposition}\label{prop:delta-square}
+For any smooth $F$,
+\begin{equation}\label{eq:delta-square}
+\delta^2F=\mu\lambda(\partial_aF)\,du\wedge dv.
+\end{equation}
+In particular, $\delta^2a=\mu\lambda\,du\wedge dv$.
+\end{proposition}
+
+\begin{proof}
+By definition, $\delta^2F=([D_u,D_v]F)\,du\wedge dv$. Using \eqref{eq:contact-bracket} gives \eqref{eq:delta-square}.
+\end{proof}
+
+This local $2$-form density $\mu\lambda\,du\wedge dv$ will later appear as the curvature term in the horizontal holomorphic and twisted harmonic operators.
+
+\subsection{Degenerate limits and the singular model}\label{subsec:contact-degenerate}
+% Focus: Analyze the cases $\mu=0$ or $\lambda=0$; describe the resulting precontact/foliated structures and what survives.
+
+The contact condition in Proposition~\ref{prop:contact-form} fails when one of the propagation intensities vanishes. This is consistent with arithmetic intuition: if one generator is missing, the commutator defect disappears.
+
+\subsubsection*{The additive-only limit \texorpdfstring{$\lambda=0$}{lambda=0}}
+If $\lambda=0$, then $\alpha=da-\mu\,du$ and $d\alpha=0$, so $\alpha\wedge d\alpha=0$. The horizontal distribution is spanned by $\partial_v$ and $\partial_u+\mu\partial_a$ and is integrable. In this limit, $D_v=\partial_v$ and $[D_u,D_v]=0$, hence $\delta^2=0$.
+
+\subsubsection*{The multiplicative-only limit \texorpdfstring{$\mu=0$}{mu=0}}
+If $\mu=0$, then $\alpha=da-\lambda a\,dv$ and again $\alpha\wedge d\alpha=0$. The horizontal distribution is spanned by $\partial_u$ and $\partial_v+\lambda a\partial_a$ and is integrable. Again $[D_u,D_v]=0$ and $\delta^2=0$.
+
+These degenerate limits are precontact/foliated structures rather than contact structures. They reflect the purely additive or purely multiplicative regimes where torsion vanishes. This degeneration should not be confused with the singular AES model $\mathfrak{E}_1$ of Section~\ref{subsec:aes-models}, where $\mu\lambda\neq 0$ but the assignment has a geometric singularity at its zero locus.

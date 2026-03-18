@@ -1,0 +1,59 @@
+% Focus: Move technical computations and verification details supporting Sections 3--4 here.
+
+\subsection{Model calculations for \texorpdfstring{$\mathfrak{E}_0$}{E0} and \texorpdfstring{$\mathfrak{E}_1$}{E1}}\label{subsec:appA-model}
+% Focus: Collect explicit metric/gradient/Laplacian computations used in the AES model proofs.
+
+\subsubsection*{Verification for \texorpdfstring{$\mathfrak{E}_1$}{E1}}
+We verify Lemma~\ref{lemma:aes-e1}. Recall the hyperbolic metric of curvature $-\lambda^2$ on the Poincaré disc,
+\[
+g_1=\frac{4}{\lambda^2}\frac{dr^2+r^2 d\vartheta^2}{(1-r^2)^2},
+\]
+and the radial assignment
+\[
+a(r)=\frac{\mu}{\lambda}\frac{2r}{1-r^2}.
+\]
+Since $a$ is independent of $\vartheta$, we have $da=a_r\,dr$ with
+\[
+a_r=\frac{2\mu}{\lambda}\frac{1+r^2}{(1-r^2)^2}.
+\]
+The inverse metric is
+\[
+g_1^{-1}=\frac{\lambda^2}{4}(1-r^2)^2\left(\partial_r^2+\frac{1}{r^2}\partial_\vartheta^2\right),
+\]
+so
+\[
+\|\nabla a\|_{g_1}^2=g_1^{-1}(da,da)=\frac{\lambda^2}{4}(1-r^2)^2 a_r^2
+=\mu^2\frac{(1+r^2)^2}{(1-r^2)^2}.
+\]
+On the other hand,
+\[
+\mu^2+\lambda^2 a^2
+=\mu^2+\mu^2\frac{4r^2}{(1-r^2)^2}
+=\mu^2\frac{(1-r^2)^2+4r^2}{(1-r^2)^2}
+=\mu^2\frac{(1+r^2)^2}{(1-r^2)^2}.
+\]
+Thus $\|\nabla a\|_{g_1}^2=\mu^2+\lambda^2 a^2$, which is equivalent to the eikonal relation \eqref{eq:aes-eikonal} on $\mathbb{D}\setminus\{0\}$.
+
+\subsection{ACS weight, area form, and boundary conventions}\label{subsec:appA-acs}
+% Focus: Provide full derivations of the weighted area and boundary terms and any sign/orientation checks.
+
+We record the sign and orientation conventions implicit in Section~\ref{subsec:acs-triple-identity}.
+
+The ACS is the $(A,M)$-plane equipped with its standard orientation. We write the oriented area form as
+\[
+dM\wedge dA.
+\]
+With this convention, the canonical $1$-form
+\[
+\eta=e^M\,dA
+\]
+satisfies
+\[
+d\eta=e^M\,dM\wedge dA.
+\]
+
+If $\Sigma$ is an oriented piecewise smooth $2$-chain in the plane, its boundary $\partial\Sigma$ is oriented by the ``outward normal first'' convention. Stokes' theorem then reads
+\[
+\oint_{\partial\Sigma}\eta=\iint_{\Sigma} d\eta.
+\]
+For the ACS triple identity, the required filling condition is $\partial\Sigma_\gamma=C_{\bar\gamma}-C_\gamma$ as oriented $1$-chains. Any reparameterization of the piecewise linear boundary paths preserves the value of the boundary integral.

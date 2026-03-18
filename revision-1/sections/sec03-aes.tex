@@ -1,0 +1,158 @@
+% Focus: Define AES precisely and present the model constructions with theorem-level statements and proofs.
+
+\subsection{Definition of an Arithmetic Expression Space}\label{subsec:aes-definition}
+% Focus: State the data (surface, metric, assignment field, parameters) and the governing first-order law.
+
+We now package the preceding discussion into the basic object of the paper.
+
+\begin{definition}[Arithmetic Expression Space]\label{def:aes}
+Fix constants $\mu,\lambda\in\mathbb{R}$. An \emph{Arithmetic Expression Space} (AES) is a pair $(M,a)$ such that:
+\begin{itemize}
+    \item $M$ is a two-dimensional Riemannian manifold with metric $g$;
+    \item $a:M\to\mathbb{R}$ is a smooth scalar field;
+    \item $a$ satisfies the arithmetic flow law, equivalently the eikonal relation
+    \begin{equation}\label{eq:aes-eikonal}
+        \|\nabla a\|_g = \sqrt{\mu^2+\lambda^2 a^2}.
+    \end{equation}
+\end{itemize}
+\end{definition}
+
+The manifold $M$ provides the geometric stage, the scalar field $a$ records arithmetic assignment, and the parameters $\mu,\lambda$ encode the two elementary propagation intensities. In the next subsection we record the equivalence between the eikonal form and the directional flow description of Section~\ref{subsec:flow-derivation}.
+
+\subsection{Compatibility and the eikonal form}\label{subsec:aes-eikonal}
+% Focus: Derive the eikonal/gradient formulation and record regularity and coordinate-independence assumptions.
+
+The differential law in Section~\ref{subsec:flow-derivation} is directional: it describes the evolution of $a$ along a curve whose tangent is resolved into additive and multiplicative directions. The eikonal form \eqref{eq:aes-eikonal} expresses the same content intrinsically.
+
+Let $(M,g)$ be a Riemannian surface and $a\in C^{\infty}(M)$. At any point where $\nabla a\neq 0$, the function $a$ determines two distinguished directions: the gradient direction (maximal increase) and the contour direction (level set direction). Along a unit-speed curve $\gamma(s)$ with unit tangent $T$, one has
+\[
+\frac{d}{ds}a(\gamma(s))=\langle \nabla a, T\rangle_g.
+\]
+Writing $\phi$ for the angle between $T$ and the unit gradient direction, this becomes
+\[
+\frac{d}{ds}a(\gamma(s))=\|\nabla a\|_g\cos\phi.
+\]
+If $a$ satisfies \eqref{eq:aes-eikonal}, then along such a curve
+\[
+\frac{d}{ds}a(\gamma(s))=\sqrt{\mu^2+\lambda^2 a^2}\,\cos\phi.
+\]
+This reproduces the contour--gradient description and shows that the flow depends only on the metric norm of the gradient and the current assignment value.
+
+The eikonal form also suggests a rectified variable in which propagation becomes linear.
+
+\begin{definition}\label{def:aes-rectification}
+Assume $\mu\neq 0$ and define the \emph{rectified assignment}
+\[
+f \coloneqq \operatorname{arcsinh}\!\left(\frac{\lambda a}{\mu}\right).
+\]
+\end{definition}
+
+\begin{lemma}\label{lemma:aes-rectified-gradient}
+If $a$ satisfies \eqref{eq:aes-eikonal} and $\mu\neq 0$, then $f$ satisfies $\|\nabla f\|_g=\lambda$ wherever $\nabla a\neq 0$.
+\end{lemma}
+
+\begin{proof}
+By the chain rule,
+\[
+\nabla f=\frac{\lambda}{\sqrt{\mu^2+\lambda^2 a^2}}\,\nabla a.
+\]
+Taking norms and using \eqref{eq:aes-eikonal} gives $\|\nabla f\|_g=\lambda$.
+\end{proof}
+
+In particular, when propagation starts from a zero contour and follows a gradient line parameterized by arclength $s$, one obtains the explicit hyperbolic-sine growth law
+\begin{equation}\label{eq:aes-hyperbolic-sine}
+a(s)=\frac{\mu}{\lambda}\sinh(\lambda s).
+\end{equation}
+This rectification will match the geometry of the fundamental model $\mathfrak{E}_0$.
+
+\subsection{Model spaces: \texorpdfstring{$\mathfrak{E}_0$}{E0} and \texorpdfstring{$\mathfrak{E}_1$}{E1}}\label{subsec:aes-models}
+% Focus: Construct E0/E1, specify the metric and assignment, and prove the claimed properties.
+
+\subsubsection*{The zeroth kind arithmetic expression space \texorpdfstring{$\mathfrak{E}_0$}{E0}}
+Let
+\[
+\mathcal{H}=\{(x,y)\in\mathbb{R}^2\mid y>0\}
+\]
+be the upper half-plane. For fixed parameters $\mu>0$ and $\lambda>0$, define the metric
+\begin{equation}\label{eq:e0-metric}
+g_{\mu,\lambda}=\frac{1}{y^2}\left(\frac{dx^2}{\mu^2}+\frac{dy^2}{\lambda^2}\right)
+\end{equation}
+and the assignment field
+\begin{equation}\label{eq:e0-assignment}
+a(x,y)=-\frac{x}{y}.
+\end{equation}
+
+\begin{theorem}\label{thm:aes-e0}
+The triple $(\mathcal{H},g_{\mu,\lambda},a)$ is an Arithmetic Expression Space in the sense of Definition~\ref{def:aes}. We call it the \emph{zeroth kind arithmetic expression space} and denote it by $\mathfrak{E}_0=\mathfrak{E}_0(\mu,\lambda)$.
+\end{theorem}
+
+\begin{proof}
+We compute
+\[
+a_x=-\frac{1}{y},
+\qquad
+a_y=\frac{x}{y^2}=-\frac{a}{y}.
+\]
+The inverse metric to \eqref{eq:e0-metric} is
+\[
+g_{\mu,\lambda}^{-1}=\mu^2 y^2\,\partial_x^2+\lambda^2 y^2\,\partial_y^2.
+\]
+Therefore
+\[
+\|\nabla a\|_{g_{\mu,\lambda}}^2
+=\mu^2 y^2 a_x^2+\lambda^2 y^2 a_y^2
+=\mu^2+\lambda^2 a^2,
+\]
+which is equivalent to \eqref{eq:aes-eikonal}.
+\end{proof}
+
+The rectified variable $f=\operatorname{arcsinh}(\lambda a/\mu)$ has $\|\nabla f\|=\lambda$ and therefore behaves like a signed distance coordinate measured from the zero locus $a=0$. In particular, the hyperbolic-sine propagation law \eqref{eq:aes-hyperbolic-sine} becomes visible in $\mathfrak{E}_0$ as growth along gradient geodesics.
+
+\subsubsection*{The first kind arithmetic expression space \texorpdfstring{$\mathfrak{E}_1$}{E1}}
+The zeroth kind space is smooth and its zero locus is an entire geodesic. A singular counterpart collapses the zero locus to an isolated point and thereby introduces the first genuinely nontrivial loops.
+
+Let
+\[
+\mathbb{D}=\{w\in\mathbb{C}\mid |w|<1\}
+\]
+be the Poincaré disc with the hyperbolic metric of curvature $-\lambda^2$,
+\begin{equation}\label{eq:e1-metric}
+g_1=\frac{4}{\lambda^2}\frac{dr^2+r^2 d\vartheta^2}{(1-r^2)^2},
+\end{equation}
+where $(r,\vartheta)$ are Euclidean polar coordinates. Declare the center $r=0$ to be the unique zero of the assignment and treat it as a singular point. If $s$ denotes hyperbolic distance from the center, then $a(s)=(\mu/\lambda)\sinh(\lambda s)$ suggests the explicit radial formula
+\begin{equation}\label{eq:e1-assignment}
+a(r)=\frac{\mu}{\lambda}\frac{2r}{1-r^2}.
+\end{equation}
+
+Away from $r=0$, this defines an AES on the punctured disc $\mathbb{D}\setminus\{0\}$.
+
+\begin{lemma}\label{lemma:aes-e1}
+On $\mathbb{D}\setminus\{0\}$, the pair $(\mathbb{D}\setminus\{0\},a)$ with metric \eqref{eq:e1-metric} satisfies the AES eikonal relation \eqref{eq:aes-eikonal}.
+\end{lemma}
+
+\begin{proof}
+Since $a$ is radial, the verification reduces to a one-variable computation in the metric \eqref{eq:e1-metric}; see Appendix~\ref{subsec:appA-model}.
+\end{proof}
+
+Its nontrivial fundamental group makes $\mathfrak{E}_1$ the first natural testing ground for the loop and singularity questions deferred to later work.
+
+\subsection{Existence in model settings and remarks on uniqueness}\label{subsec:aes-existence}
+% Focus: Provide a precise existence statement in the model class; state what classification/uniqueness remains open.
+
+The explicit spaces $\mathfrak{E}_0$ and $\mathfrak{E}_1$ show that the definition is nonempty and that concrete models exist for each choice of parameters $\mu,\lambda>0$. Beyond these models, the general existence and classification problem is open: one may ask for which Riemannian surfaces $(M,g)$ there exists a nontrivial assignment $a$ solving \eqref{eq:aes-eikonal}, and to what extent solutions are unique up to geometric equivalence.
+
+The eikonal form also shows that existence is flexible if one allows the metric to vary.
+
+\begin{lemma}[Local metric rectification]\label{lemma:aes-local-rectification}
+Let $S$ be a smooth surface with a Riemannian metric $g_0$, and let $a\in C^{\infty}(S)$. If $p\in S$ satisfies $\nabla_{g_0}a(p)\neq 0$, then there exists a neighborhood $U\ni p$ and a conformally rescaled metric $g$ on $U$ such that $a$ satisfies \eqref{eq:aes-eikonal} on $U$.
+\end{lemma}
+
+\begin{proof}
+On a surface, locally one may write $g_0$ in isothermal form $g_0=e^{2\rho}(du^2+dv^2)$. Introduce a positive conformal factor $\alpha$ and set $g=\alpha^2 g_0$. Under this rescaling, $\|\nabla_g a\|=\alpha^{-1}\|\nabla_{g_0}a\|$. Choosing
+\[
+\alpha=\frac{\|\nabla_{g_0}a\|}{\sqrt{\mu^2+\lambda^2 a^2}}
+\]
+forces \eqref{eq:aes-eikonal} on $U$.
+\end{proof}
+
+The lemma is intentionally local. Extending such constructions globally requires compatibility across charts and control near critical points and singular loci. These global classification and uniqueness questions will be addressed in later work.
