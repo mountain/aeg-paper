@@ -1,0 +1,133 @@
+% Focus: Package arithmetic torsion and the ACS triple identity with precise hypotheses and a complete proof.
+
+\subsection{Arithmetic torsion as commutator defect}\label{subsec:acs-torsion-def}
+% Focus: Define torsion in the discrete path language; clarify terminology vs. classical torsion/curvature.
+
+Arithmetic torsion is the first invariant measuring that two evaluation histories with the same total additive and multiplicative charges need not agree as arrows in the path groupoid of Section~\ref{subsec:flow-threadlike}. In this paper, it is defined as a commutator defect rather than as torsion of an affine connection.
+
+Let
+\[
+\gamma=(g_1,\dots,g_n)
+\]
+be a finite arithmetic path, applied in that order, where each step $g_j$ is either an additive update $g_j=\oplus_{\mu_j}:x\mapsto x+\mu_j$ or a multiplicative update $g_j=\otimes_{\lambda_j}:x\mapsto e^{\lambda_j}x$. The evaluation of $\gamma$ at an initial value $x$ is
+\[
+\nu_x(\gamma)\coloneqq g_n\circ\cdots\circ g_1(x).
+\]
+We write $\bar\gamma=(g_n,\dots,g_1)$ for the reversed history.
+
+\begin{definition}[Global arithmetic torsion]\label{def:acs-global-torsion}
+The \emph{global arithmetic torsion} of $\gamma$ is
+\begin{equation}\label{eq:acs-tau-alg}
+\tau_{\mathrm{alg}}(\gamma)\coloneqq \nu_x(\gamma)-\nu_x(\bar\gamma).
+\end{equation}
+\end{definition}
+
+At first sight \eqref{eq:acs-tau-alg} depends on the initial value $x$. The point of the ACS is that this dependence cancels: torsion depends only on the history, not on the basepoint.
+
+\subsection{The Accumulative Commutative Space (ACS)}\label{subsec:acs-definition}
+% Focus: Define the ACS coordinates and measures/weights; specify regularity assumptions on paths/domains.
+
+The accumulative commutative space is the plane of total charges. It forgets the current assignment value and remembers only the accumulated additive and multiplicative charges along a history.
+
+\begin{definition}[ACS path]\label{def:acs-path}
+The \emph{ACS} is the plane with coordinates $(A,M)$, where $A$ records accumulated additive charge and $M$ records accumulated logarithmic multiplicative charge. For each step $g_j$ of $\gamma$ define
+\[
+(\Delta A_j,\Delta M_j)=
+\begin{cases}
+(\mu_j,0), & g_j=\oplus_{\mu_j},\\[4pt]
+(0,\lambda_j), & g_j=\otimes_{\lambda_j}.
+\end{cases}
+\]
+Starting from $(A_0,M_0)=(0,0)$, set
+\[
+(A_k,M_k)\coloneqq\sum_{j=1}^k(\Delta A_j,\Delta M_j),
+\qquad 1\le k\le n.
+\]
+The broken line joining $(A_0,M_0),(A_1,M_1),\dots,(A_n,M_n)$ is the \emph{ACS path} of $\gamma$ and is denoted by $C_\gamma$.
+\end{definition}
+
+The endpoint $(A_n,M_n)$ depends only on the total charges and not on their order. Hence $C_\gamma$ and $C_{\bar\gamma}$ always have the same initial and terminal points. When all charges are nonnegative, these two monotone paths bound a canonical region between them. In general we use an oriented filling.
+
+\begin{definition}[ACS filling]\label{def:acs-filling}
+An \emph{ACS filling} for $\gamma$ is an oriented piecewise smooth $2$-chain $\Sigma_\gamma$ in the $(A,M)$-plane such that
+\begin{equation}\label{eq:acs-filling-boundary}
+\partial\Sigma_\gamma=C_{\bar\gamma}-C_\gamma
+\end{equation}
+as oriented $1$-chains.
+\end{definition}
+
+All integrals in this section are understood in the standard piecewise smooth sense. Changing the parameterization of the edges of $C_\gamma$ does not change the line integrals, and changing the parameterization of $\Sigma_\gamma$ does not change the area integrals.
+
+\subsection{Weighted area and boundary formulations}\label{subsec:acs-area-boundary}
+% Focus: Derive the weighted area integral and boundary integral expressions with full orientation conventions.
+
+The ACS does not evaluate an expression by itself; it records exactly the commutative data needed to compare two different histories of the same total charge. The basic observation is that evaluation is a weighted boundary integral on the reversed ACS path.
+
+\begin{proposition}[Evaluation as a weighted edge integral]\label{prop:acs-evaluation-formula}
+For every arithmetic path $\gamma$ and every initial value $x$,
+\begin{equation}\label{eq:acs-evaluation-formula}
+\nu_x(\gamma)=e^{M_\gamma}x+\int_{C_{\bar\gamma}} e^M\,dA,
+\end{equation}
+where $M_\gamma$ is the total multiplicative charge of $\gamma$. Consequently, $\tau_{\mathrm{alg}}(\gamma)$ is independent of $x$.
+\end{proposition}
+
+\begin{proof}
+Let $I_A\subseteq\{1,\dots,n\}$ be the set of additive indices, and for each $j\in I_A$ define the \emph{future multiplicative charge}
+\[
+M_j^+\coloneqq\sum_{\substack{k>j\\ g_k=\otimes_{\lambda_k}}}\lambda_k.
+\]
+When $\gamma$ is evaluated, the additive contribution $\mu_j$ is subsequently scaled by every later multiplicative step, hence by the factor $e^{M_j^+}$. Therefore
+\[
+\nu_x(\gamma)=e^{M_\gamma}x+\sum_{j\in I_A}\mu_j e^{M_j^+}.
+\]
+Now traverse the reversed history $\bar\gamma$. The edge corresponding to the original step $g_j=\oplus_{\mu_j}$ is traversed exactly when the current ACS height is $M_j^+$, because all multiplicative steps that were later in $\gamma$ have become earlier in $\bar\gamma$. Hence
+\[
+\int_{C_{\bar\gamma}} e^M\,dA=\sum_{j\in I_A}\mu_j e^{M_j^+},
+\]
+with the sign of $\mu_j$ incorporated by the orientation of the edge integral. This gives \eqref{eq:acs-evaluation-formula}.
+
+Applying the same argument to $\bar\gamma$ yields
+\[
+\nu_x(\bar\gamma)=e^{M_\gamma}x+\int_{C_{\gamma}} e^M\,dA,
+\]
+since $M_{\bar\gamma}=M_\gamma$. Subtracting cancels the $x$-term, so $\tau_{\mathrm{alg}}(\gamma)$ is independent of $x$.
+\end{proof}
+
+Two features are worth recording. First, the kernel $e^M$ is forced: every additive step feels all multiplicative steps that come after it. Second, the boundary expression makes torsion a purely commutative quantity on the ACS.
+
+Define the canonical $1$-form on the ACS by
+\begin{equation}\label{eq:acs-eta}
+\eta\coloneqq e^M\,dA.
+\end{equation}
+Then Proposition~\ref{prop:acs-evaluation-formula} implies
+\begin{equation}\label{eq:acs-tau-boundary}
+\tau_{\mathrm{alg}}(\gamma)=\int_{C_{\bar\gamma}}\eta-\int_{C_\gamma}\eta=\oint_{\partial\Sigma_\gamma}\eta,
+\end{equation}
+for any ACS filling $\Sigma_\gamma$.
+
+\subsection{The ACS triple identity}\label{subsec:acs-triple-identity}
+% Focus: State the triple identity as a theorem; give a complete proof; list invariance properties under reparametrization.
+
+\begin{theorem}[ACS triple identity]\label{thm:acs-triple-identity}
+Let $\eta=e^M\,dA$ be the canonical $1$-form on the ACS. For every arithmetic path $\gamma$ and every ACS filling $\Sigma_\gamma$,
+\begin{equation}\label{eq:acs-triple-identity}
+\tau_{\mathrm{alg}}(\gamma)
+=\oint_{\partial\Sigma_\gamma}\eta
+=\iint_{\Sigma_\gamma} d\eta
+=\iint_{\Sigma_\gamma} e^M\,dM\wedge dA.
+\end{equation}
+In particular, when all charges are nonnegative and $\Sigma_\gamma$ is the canonical region between the two monotone ACS paths, $\tau_{\mathrm{alg}}(\gamma)$ is the positive $e^M$-weighted area between $C_\gamma$ and $C_{\bar\gamma}$.
+\end{theorem}
+
+\begin{proof}
+Equation \eqref{eq:acs-tau-boundary} gives the boundary integral expression. Since $d\eta=e^M\,dM\wedge dA$, Stokes' theorem on the plane yields
+\[
+\oint_{\partial\Sigma_\gamma}\eta=\iint_{\Sigma_\gamma} d\eta
+=\iint_{\Sigma_\gamma} e^M\,dM\wedge dA,
+\]
+proving \eqref{eq:acs-triple-identity}.
+\end{proof}
+
+The right-hand side depends only on the oriented $2$-chain $\Sigma_\gamma$ with boundary \eqref{eq:acs-filling-boundary}; in particular it is invariant under reparameterizations of the boundary paths and of the filling.
+
+From an algebraic viewpoint, the ACS is the commutative shadow of the noncommutative path calculus: the charge map $\gamma\mapsto(A_n,M_n)$ is an abelianization of histories, while the torsion is the defect detected by comparing a word to its reverse.

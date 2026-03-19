@@ -276,4 +276,7 @@ TSWLatexianTemp*
 *.lpz
 
 .idea/
+**/.venv/
+**/.python-version
+
 

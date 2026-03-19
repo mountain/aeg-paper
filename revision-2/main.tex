@@ -1,0 +1,152 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+
+\usepackage{arxiv/arxiv}
+\usepackage{styles/quiver}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[hypertexnames=false]{hyperref}
+\usepackage{url}
+\usepackage{booktabs}
+\usepackage[english]{babel}
+\usepackage{nicefrac}
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{stmaryrd}
+
+\usepackage{tikz}
+\usetikzlibrary{angles,fit,arrows,calc,math,intersections,through,backgrounds}
+\usepackage{qtree}
+
+\usepackage{listings}
+\lstset{
+  basicstyle=\itshape,
+  xleftmargin=3em,
+  literate={->}{$\rightarrow$}{2}
+           {α}{$\alpha$}{1}
+           {δ}{$\delta$}{1}
+}
+
+\usepackage{xstring}
+\usepackage{stmaryrd}
+\usepackage{wasysym}
+\usepackage{textcomp}
+
+\newtheorem{definition}{Definition}
+\numberwithin{definition}{section}
+\newtheorem{lemma}{Lemma}
+\numberwithin{lemma}{section}
+\newtheorem{proposition}{Proposition}
+\numberwithin{proposition}{section}
+\newtheorem{corollary}{Corollary}
+\numberwithin{corollary}{section}
+\newtheorem{theorem}{Theorem}
+\numberwithin{theorem}{section}
+\newtheorem{example}{Example}
+\numberwithin{example}{section}
+
+\DeclareMathSymbol{\mathinvertedexclamationmark}{\mathclose}{operators}{'074}
+\DeclareMathSymbol{\mathexclamationmark}{\mathclose}{operators}{'041}
+\makeatletter
+\newcommand{\raisedmathinvertedexclamationmark}{%
+  \mathclose{\mathpalette\raised@mathinvertedexclamationmark\relax}%
+}
+\newcommand{\raised@mathinvertedexclamationmark}[2]{%
+  \raisebox{\depth}{$\m@th#1\mathinvertedexclamationmark$}%
+}
+\begingroup\lccode`~=`! \lowercase{\endgroup
+  \def~}{\@ifnextchar`{\raisedmathinvertedexclamationmark\@gobble}{\mathexclamationmark}}
+\mathcode`!="8000
+\makeatother
+
+\DeclareMathOperator{\arcsinh}{arcsinh}
+
+\title{Arithmetic Expression Geometry I: Foundations}
+\date{}
+
+\author{
+Mingli Yuan \\
+Swarma Research\\
+Beijing, 100083 \\
+\texttt{mingli.yuan@gmail.com}
+}
+
+\renewcommand{\headeright}{A preprint}
+\renewcommand{\undertitle}{A preprint}
+
+\graphicspath{{../images/}}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We introduce Arithmetic Expression Geometry (AEG), a framework in which arithmetic expressions are studied through the geometry of their evaluation histories. For a distinguished class of threadlike expressions, additive and multiplicative updates determine two generating directions of propagation, and their continuous limit yields an arithmetic flow equation with an \texorpdfstring{$\mathrm{Aff}(1)$}{Aff(1)} Lie-theoretic formulation.
+
+We define an \emph{Arithmetic Expression Space} (AES) as a Riemannian surface equipped with an assignment field satisfying the corresponding first-order law, and we construct basic model spaces \texorpdfstring{$\mathfrak{E}_0$}{E0} and \texorpdfstring{$\mathfrak{E}_1$}{E1}. The first intrinsic invariant of the theory is \emph{arithmetic torsion}, arising from the non-commutativity of additive and multiplicative propagation. To globalize this invariant, we introduce the \emph{Accumulative Commutative Space} (ACS) and prove a Stokes-type triple identity expressing torsion equivalently as an evaluation difference, a weighted area integral, and a boundary integral.
+
+To localize the same phenomenon, we construct a three-dimensional contact manifold with contact form $\alpha = da - (\mu\,du + \lambda a\,dv)$. Its horizontal distribution recovers the propagation directions, yields a natural horizontal differential calculus \texorpdfstring{$\delta$}{delta}, and produces a commutator curvature package proportional to $\mu\lambda\,du\wedge dv$. On this horizontal layer we define \emph{horizontal holomorphic fields} via an arithmetic Cauchy--Riemann system and show that it forces a nontrivial twisted second-order equation. Taken together, these results provide a theorem-driven foundational layer of AEG and clarify the normalization and invariance properties of its core structures.
+\end{abstract}
+
+\keywords{arithmetic expressions, hyperbolic geometry}
+
+\setcounter{tocdepth}{2}
+\tableofcontents
+\newpage
+
+\section{Introduction}\label{sec:introduction}
+\input{sections/sec01-introduction.tex}
+\newpage
+
+\section{Arithmetic paths and the flow equation}\label{sec:paths-flow}
+\input{sections/sec02-flow.tex}
+\newpage
+
+\section{Arithmetic Expression Spaces}\label{sec:aes}
+\input{sections/sec03-aes.tex}
+\newpage
+
+\section{The Accumulative Commutative Space and arithmetic torsion}\label{sec:acs-torsion}
+\input{sections/sec04-acs.tex}
+\newpage
+
+\section{Contact structure and horizontal differential calculus}\label{sec:contact-delta}
+\input{sections/sec05-contact.tex}
+\newpage
+
+\section{Horizontal holomorphic fields and twisted harmonicity}\label{sec:horizontal-holomorphic}
+\input{sections/sec06-analytic.tex}
+\newpage
+
+\section{Invariance and mathematical positioning}\label{sec:invariance-positioning}
+\input{sections/sec07-invariance.tex}
+\newpage
+
+\section{Outlook}\label{sec:outlook}
+\input{sections/sec08-outlook.tex}
+\newpage
+
+\bibliographystyle{plain}
+\bibliography{aeg-paper.bib}
+\newpage
+
+\appendix
+
+\section{Supplementary calculations for AES and ACS}\label{app:supp-aes-acs}
+\input{sections/appA-supp-aes-acs.tex}
+\newpage
+
+\section{Supplementary calculations for contact, \texorpdfstring{$\delta$}{delta}, and holomorphicity}\label{app:supp-contact}
+\input{sections/appB-supp-contact.tex}
+\newpage
+
+\section{Supplementary examples on equality levels and first neutralities}\label{app:supp-equality}
+\input{sections/appC-supp-equality.tex}
+\newpage
+
+\end{document}

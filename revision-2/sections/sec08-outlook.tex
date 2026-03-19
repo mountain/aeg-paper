@@ -1,0 +1,39 @@
+% Focus: Collect open problems and planned sequels without diluting the theorem/proof content of the main text.
+
+\subsection{Classification problems for AES}\label{subsec:outlook-classification}
+% Focus: State concrete classification/uniqueness questions and propose normalization targets.
+
+The definition of an Arithmetic Expression Space (Definition~\ref{def:aes}) is intentionally minimal. Beyond the explicit constructions $\mathfrak{E}_0$ and $\mathfrak{E}_1$, it is natural to ask how canonical these models are and what the correct notion of equivalence should be.
+
+\begin{enumerate}
+    \item \textbf{Existence with fixed background.} For a given Riemannian surface $(M,g)$ and fixed parameters $(\mu,\lambda)$, under what geometric hypotheses does there exist a nonconstant assignment $a$ satisfying the eikonal law \eqref{eq:aes-eikonal}? How does the answer change if one allows prescribed singularities (as in $\mathfrak{E}_1$)?
+    \item \textbf{Uniqueness up to equivalence.} If $(M,g,a)$ and $(M',g',a')$ are AES with the same parameters, what is the correct equivalence relation: isometry, conformal equivalence, or a weaker ``unit-change'' relation combining coordinate rescalings with parameter rescalings? Under such an equivalence, when are solutions unique?
+    \item \textbf{Normalization targets.} The contact geometry admits natural units \eqref{eq:inv-natural-units} and a Darboux reduction. On the AES side, one seeks analogous normalization statements: for example, in what sense can $(\mu,\lambda)$ be normalized, and which quantities (e.g.\ curvature scale) remain as genuine moduli?
+    \item \textbf{Model rigidity.} To what extent is $\mathfrak{E}_0$ characterized by the existence of an assignment simultaneously satisfying an eikonal law and a Laplace-eigenfunction relation? Is there a classification of AES models on constant-curvature backgrounds?
+\end{enumerate}
+
+Even partial answers in restricted model classes would strengthen the foundational layer by clarifying what is canonical and what is a choice.
+
+\subsection{Loop and relation theories}\label{subsec:outlook-loops}
+% Focus: Outline the equality ladder program via groupoids/holonomy; specify what torsion is expected to detect.
+
+This paper has focused on \emph{paths}: evaluation histories as arrows in a path groupoid. The next structural layer should focus on \emph{relations}: closed words and their residues across different levels of forgetting. The basic primitive is not equality alone, but \emph{neutrality}: the sense in which a nontrivial history returns to a null effect.
+
+\begin{enumerate}
+    \item \textbf{Four neutralities.} For a loop based at $x$, one may ask for value neutrality (same endpoint value), operator neutrality (the induced transformation is the identity on a domain), charge neutrality (its ACS endpoint is $(0,0)$), and torsion neutrality (its ACS weighted area vanishes). These notions are distinct and should be separated by explicit examples.
+    \item \textbf{Equality ladder via groupoids.} A natural organizing principle is to compare histories as arrows (strong equality), then mod out by chosen relations among loops (intermediate equalities), and finally forget arrows and retain only endpoints (weak equality). One goal is to define a minimal set of relations which captures common algebraic identities while preserving torsion as a meaningful obstruction.
+    \item \textbf{Holonomy and torsion detection.} The ACS triple identity already exhibits torsion as an area-type invariant of a commutative shadow. The contact picture exhibits a vertical holonomy for horizontal commutator loops. A central question is to unify these into a loop invariant that detects when a relation is invisible at the level of charges but still visible through torsion or curvature.
+    \item \textbf{Singular backgrounds.} The punctured model $\mathfrak{E}_1$ suggests that singular loci may generate nontrivial monodromy and new neutrality phenomena. Understanding which invariants survive and which are obstructed by singularities is a natural bridge between relation theory and analysis.
+\end{enumerate}
+
+\subsection{Further analytic directions}\label{subsec:outlook-analysis}
+% Focus: Identify the minimal analytic theorems to pursue next (existence/uniqueness, boundary theory, integral formulas) and model cases.
+
+Section~\ref{sec:horizontal-holomorphic} establishes a first-order operator package forced by the horizontal distribution and records its twisted second-order consequence. A realistic next analytic stage is to develop a small suite of results on the basic backgrounds before attempting a global theory.
+
+\begin{enumerate}
+    \item \textbf{Canonical second-order operators.} Besides $\Delta_H=D_u^2+D_v^2$, one may seek the correct self-adjoint horizontal Laplacian and sub-Laplacian variants compatible with the contact volume form, together with their Green-type identities on model domains.
+    \item \textbf{Explicit solution families.} Construct nontrivial families of horizontally holomorphic fields and twisted harmonic fields on the basic local model $\mathcal{C}$ and on the model AES backgrounds. Identify which families are stable under the unit rescalings of Section~\ref{subsec:inv-normalization}.
+    \item \textbf{Local solvability and normal forms.} Establish a local normal form for the arithmetic Cauchy--Riemann system and identify obstructions coming from the curvature density $\mu\lambda$. Determine when one can solve $\bar\partial_{\mathrm{AEG}}F=G$ locally with prescribed regularity.
+    \item \textbf{Boundary and kernel problems.} Formulate the first boundary value problems in model settings and identify whether there exist natural integral kernels adapted to the horizontal operators. Any such development should keep the arithmetic interpretation of $D_u$ and $D_v$ visible and should avoid becoming a generic theory detached from propagation.
+\end{enumerate}
