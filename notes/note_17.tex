@@ -1,0 +1,515 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+
+\newcommand{\maint}[2]{\mathfrak{M}_{#1}^{#2}}
+\newcommand{\ACS}{\mathrm{ACS}}
+\newcommand{\rev}{\mathrm{rev}}
+\newcommand{\dd}{\,\mathrm{d}}
+\newcommand{\ee}{\mathrm{e}}
+
+\title{A Note on Mixed Additive-Multiplicative Integration,\\ Continuous ACS Path Integrals, and the Future Multiplier}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This note records a line of ideas suggested by the discrete expansions of alternating threadlike expressions. The central observation is that in the discrete formula every additive increment is weighted not by the multiplicative history that lies behind it, but by the multiplicative charge that still lies ahead of it. This leads to a continuous mixed additive-multiplicative integral whose most natural form is
+\[
+\maint{a}{b}[u;v]
+:=
+\int_a^b u(x)\exp\!\left(\int_x^b v(s)\,\dd s\right)\dd x.
+\]
+We then explain three complementary viewpoints on this object. First, it is the non-homogeneous part of the affine transport equation $w'(t)=v(t)w(t)+u(t)$. Second, it is the line integral of the canonical $1$-form $\eta=\ee^M\dd A$ along the reversed continuous path in the accumulative commutative space (ACS). Third, in a right-endpoint or sliding-window parametrization it becomes a one-sided Volterra-type convolution, whose derivative naturally brings in the derivative of the additive profile. The same exponential weight also appears as a backward adjoint multiplier propagated from the future endpoint.
+\end{abstract}
+
+\section{Discrete motivation: future multiplicative weighting}
+
+Consider an alternating threadlike expression with additive data $\mu_1,\dots,\mu_l$, multiplicative data $\lambda_1,\dots,\lambda_l$, and initial value $\mu_0$. Its value after $l$ alternating steps may be written as
+\[
+a_l
+=
+\ee^{\lambda_1+\cdots+\lambda_l}\mu_0
++
+\ee^{\lambda_2+\cdots+\lambda_l}\mu_1
++
+\cdots
++
+\ee^{\lambda_l}\mu_{l-1}
++
+\mu_l.
+\]
+Equivalently,
+\begin{equation}
+\label{eq:discrete-future-weight}
+a_l
+=
+\sum_{i=0}^l \mu_i
+\exp\!\left(\sum_{j=i+1}^l \lambda_j\right),
+\end{equation}
+with the empty sum understood as $0$.
+
+The key point in \eqref{eq:discrete-future-weight} is conceptual: the contribution of $\mu_i$ is weighted by the multiplicative charge that lies \emph{after} $\mu_i$, not by the multiplicative charge that lies before it. In other words, addition is accumulated locally, but multiplication acts from the future and amplifies what has already been added.
+
+There is also a useful discrete difference identity. Define
+\[
+K_m:=\exp\!\left(\sum_{j=1}^m \lambda_j\right),
+\qquad
+K_0:=1,
+\qquad
+a_l=\sum_{i=0}^l \mu_i K_{l-i}.
+\]
+Then
+\begin{equation}
+\label{eq:discrete-difference}
+a_{l+1}-a_l
+=
+\mu_0K_{l+1}+\sum_{i=0}^{l}(\mu_{i+1}-\mu_i)K_{l-i}.
+\end{equation}
+Equivalently,
+\begin{equation}
+\label{eq:discrete-difference-kernel}
+a_{l+1}-a_l
+=
+\mu_{l+1}+\sum_{i=0}^{l}\mu_i\bigl(K_{l+1-i}-K_{l-i}\bigr).
+\end{equation}
+The two formulas are a discrete integration-by-parts pair: one places the difference on the additive data, the other on the multiplicative kernel. The continuous derivative formulas below are direct descendants of \eqref{eq:discrete-difference} and \eqref{eq:discrete-difference-kernel}.
+
+\section{Two continuous parametrizations}
+
+There are two natural continuous parametrizations of the same idea. They agree formally, but they hold fixed different data when the upper endpoint varies.
+
+\subsection{Absolute-time parametrization}
+
+Let $u,v$ be integrable functions on $[a,b]$. We define the mixed additive-multiplicative integral by
+\begin{equation}
+\label{eq:absolute-time-definition}
+\maint{a}{b}[u;v]
+:=
+\int_a^b u(x)\exp\!\left(\int_x^b v(s)\,\dd s\right)\dd x.
+\end{equation}
+
+This is the most direct continuous analogue of \eqref{eq:discrete-future-weight}: the additive density at $x$ is weighted by the multiplicative charge still remaining between $x$ and the terminal point $b$.
+
+\begin{remark}[A reflected version of the same formula]
+The expression
+\[
+\int_a^b u(x)\exp\!\left(\int_a^{a+b-x} \check v(y)\,\dd y\right)\dd x
+\]
+is equivalent to \eqref{eq:absolute-time-definition} if one defines the reflected density
+\[
+\check v(y):=v(a+b-y).
+\]
+Indeed,
+\[
+\int_a^{a+b-x} \check v(y)\,\dd y
+=
+\int_x^b v(s)\,\dd s.
+\]
+Thus the ``upper limit $a+b-x$'' form is correct precisely when the multiplicative density is read in reflected, or right-endpoint, coordinates.
+\end{remark}
+
+\subsection{Right-endpoint or sliding-window parametrization}
+
+If instead the data are indexed by their distance from the right endpoint, it is natural to fix profiles on $[0,w]$ and define
+\begin{equation}
+\label{eq:window-definition}
+\mathcal{A}(w)
+:=
+\int_0^w u(x)\exp\!\left(\int_0^{w-x} v(y)\,\dd y\right)\dd x.
+\end{equation}
+Set
+\[
+K(r):=\exp\!\left(\int_0^r v(y)\,\dd y\right).
+\]
+Then
+\begin{equation}
+\label{eq:window-convolution}
+\mathcal{A}(w)=\int_0^w u(x)K(w-x)\,\dd x.
+\end{equation}
+This is the form in which the derivative with respect to the window length $w$ becomes especially transparent.
+
+\begin{remark}[Why the two forms are different but compatible]
+Formulas \eqref{eq:absolute-time-definition} and \eqref{eq:window-definition} are not contradictory. They hold fixed different pieces of data.
+\begin{itemize}[leftmargin=1.5em]
+\item In \eqref{eq:absolute-time-definition}, the functions $u$ and $v$ are fixed as functions of the absolute variable $x\in[a,b]$.
+\item In \eqref{eq:window-definition}, the profiles are frozen relative to the right endpoint, so the variable $x$ measures distance from the right edge of the interval rather than absolute time.
+\end{itemize}
+Because different objects are held fixed, differentiating with respect to the upper endpoint produces different but compatible identities.
+\end{remark}
+
+\section{Basic identities}
+
+\subsection{Transport equation and splitting law}
+
+The absolute-time mixed integral is naturally tied to the affine transport equation
+\begin{equation}
+\label{eq:transport}
+w'(t)=v(t)w(t)+u(t).
+\end{equation}
+
+\begin{proposition}
+\label{prop:transport-solution}
+Let $w$ solve \eqref{eq:transport} on $[a,b]$. Then
+\begin{equation}
+\label{eq:transport-solution-formula}
+w(b)=\ee^{\int_a^b v(s)\,\dd s}w(a)+\maint{a}{b}[u;v].
+\end{equation}
+In particular, the mixed integral is the non-homogeneous part of affine propagation.
+\end{proposition}
+
+\begin{proof}
+Multiply \eqref{eq:transport} by $\exp(-\int_a^t v)$ and differentiate:
+\[
+\frac{\dd}{\dd t}\left(\ee^{-\int_a^t v(s)\,\dd s}w(t)\right)
+=
+\ee^{-\int_a^t v(s)\,\dd s}u(t).
+\]
+Integrating from $a$ to $b$ gives
+\[
+\ee^{-\int_a^b v}w(b)-w(a)
+=
+\int_a^b \ee^{-\int_a^x v(s)\,\dd s}u(x)\,\dd x.
+\]
+Multiplying by $\ee^{\int_a^b v}$ yields \eqref{eq:transport-solution-formula}.
+\end{proof}
+
+\begin{proposition}[Splitting law]
+\label{prop:splitting}
+For $a<b<c$ one has
+\begin{equation}
+\label{eq:splitting}
+\maint{a}{c}[u;v]
+=
+\ee^{\int_b^c v(s)\,\dd s}\maint{a}{b}[u;v]
++
+\maint{b}{c}[u;v].
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Split the defining integral at $b$:
+\[
+\int_a^c u(x)\ee^{\int_x^c v}\,\dd x
+=
+\int_a^b u(x)\ee^{\int_x^b v}\ee^{\int_b^c v}\,\dd x
++
+\int_b^c u(x)\ee^{\int_x^c v}\,\dd x.
+\]
+This is exactly \eqref{eq:splitting}.
+\end{proof}
+
+\begin{corollary}[Endpoint derivative in absolute time]
+\label{cor:absolute-derivative}
+If $u,v$ are continuous, then
+\begin{equation}
+\label{eq:absolute-derivative}
+\frac{\dd}{\dd b}\maint{a}{b}[u;v]
+=
+ u(b)+v(b)\maint{a}{b}[u;v].
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+Differentiate under the integral sign:
+\[
+\frac{\dd}{\dd b}\int_a^b u(x)\ee^{\int_x^b v(s)\,\dd s}\,\dd x
+=
+ u(b)+\int_a^b u(x)\ee^{\int_x^b v(s)\,\dd s}v(b)\,\dd x.
+\]
+This is \eqref{eq:absolute-derivative}.
+\end{proof}
+
+\subsection{The sliding-window derivative and the appearance of the derivative of the additive profile}
+
+We now return to the right-endpoint form \eqref{eq:window-definition}. This is the setting in which the derivative of the additive profile appears.
+
+\begin{proposition}[Difference identity for the sliding window]
+\label{prop:difference-identity}
+Let
+\[
+\mathcal{A}(w)=\int_0^w u(x)K(w-x)\,\dd x,
+\qquad
+K(r)=\exp\!\left(\int_0^r v(y)\,\dd y\right).
+\]
+Then for every $h>0$,
+\begin{equation}
+\label{eq:difference-identity}
+\mathcal{A}(w+h)-\mathcal{A}(w)
+=
+\int_0^h u(x)K(w+h-x)\,\dd x
++
+\int_0^w \bigl(u(x+h)-u(x)\bigr)K(w-x)\,\dd x.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Write
+\[
+\mathcal{A}(w+h)=\int_0^{w+h}u(x)K(w+h-x)\,\dd x.
+\]
+Split the interval into $[0,h]$ and $[h,w+h]$, then substitute $x=t+h$ in the second piece:
+\[
+\mathcal{A}(w+h)
+=
+\int_0^h u(x)K(w+h-x)\,\dd x
++
+\int_0^w u(t+h)K(w-t)\,\dd t.
+\]
+Subtract
+\[
+\mathcal{A}(w)=\int_0^w u(t)K(w-t)\,\dd t.
+\]
+This gives \eqref{eq:difference-identity}.
+\end{proof}
+
+\begin{corollary}[Derivative formula in window coordinates]
+\label{cor:window-derivative}
+Assume $u\in C^1([0,w])$ and $v\in C([0,w])$. Then
+\begin{equation}
+\label{eq:window-derivative}
+\mathcal{A}'(w)
+=
+ u(0)K(w)+\int_0^w u'(x)K(w-x)\,\dd x.
+\end{equation}
+Equivalently,
+\begin{equation}
+\label{eq:window-derivative-expanded}
+\mathcal{A}'(w)
+=
+ u(0)\exp\!\left(\int_0^w v(y)\,\dd y\right)
++
+\int_0^w u'(x)\exp\!\left(\int_0^{w-x} v(y)\,\dd y\right)\dd x.
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+Divide \eqref{eq:difference-identity} by $h$ and let $h\to0^+$. The first term converges to $u(0)K(w)$, while the second converges to the integral of $u'(x)K(w-x)$.
+\end{proof}
+
+The appearance of $u'$ in \eqref{eq:window-derivative} is one of the most suggestive features of the right-endpoint formalism: as the window grows, the entire additive profile is shifted, and this shift is detected infinitesimally by the derivative of the additive density.
+
+\begin{proposition}[Companion formula by integration by parts]
+\label{prop:parts-formula}
+Under the same assumptions,
+\begin{equation}
+\label{eq:parts-formula}
+\mathcal{A}'(w)
+=
+ u(w)+\int_0^w u(x)K'(w-x)\,\dd x
+=
+ u(w)+\int_0^w u(x)v(w-x)K(w-x)\,\dd x.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Integrate \eqref{eq:window-derivative} by parts:
+\[
+\int_0^w u'(x)K(w-x)\,\dd x
+=
+ u(w)K(0)-u(0)K(w)+\int_0^w u(x)K'(w-x)\,\dd x.
+\]
+Since $K(0)=1$, this gives \eqref{eq:parts-formula}.
+\end{proof}
+
+\subsection{A terminological remark: Volterra operators and one-sided convolution}
+
+The formula \eqref{eq:window-convolution}
+\[
+\mathcal{A}(w)=\int_0^w u(x)K(w-x)\,\dd x
+\]
+is a one-sided integral operator: the value at $w$ depends only on the interval $[0,w]$. In the language of integral equations, such an operator is called \emph{Volterra type}. If the kernel depends only on the difference $w-x$, as it does here, one also calls it a \emph{one-sided convolution} or \emph{Volterra convolution}. The point is purely structural: it is the convolution law appropriate to a causal, or endpoint-directed, accumulation process.
+
+\section{Continuous ACS interpretation}
+
+\subsection{Continuous ACS paths}
+
+Let $u,v\in L^1([a,b])$. Define a continuous path in the accumulative commutative space by
+\begin{equation}
+\label{eq:acs-path}
+A(t):=\int_a^t u(\xi)\,\dd\xi,
+\qquad
+M(t):=\int_a^t v(\xi)\,\dd\xi,
+\qquad
+C:t\mapsto \bigl(A(t),M(t)\bigr).
+\end{equation}
+The canonical $1$-form on $\ACS$ is
+\begin{equation}
+\label{eq:eta}
+\eta:=\ee^M\dd A.
+\end{equation}
+Then the direct line integral along $C$ is
+\begin{equation}
+\label{eq:direct-line-integral}
+\int_C \eta
+=
+\int_a^b u(t)\exp\!\left(\int_a^t v(s)\,\dd s\right)\dd t.
+\end{equation}
+This weights each additive contribution by the multiplicative history already accumulated in the past.
+
+To recover the desired future weighting, one must reverse the path.
+
+\begin{definition}[Reversed continuous ACS path]
+\label{def:reversed-path}
+Define the reversed densities by
+\[
+u^{\rev}(t):=u(a+b-t),
+\qquad
+v^{\rev}(t):=v(a+b-t),
+\]
+and let $C^{\rev}$ be the ACS path generated by $u^{\rev},v^{\rev}$ on $[a,b]$.
+\end{definition}
+
+\begin{proposition}[Mixed integral as an ACS line integral]
+\label{prop:acs-line-integral}
+One has
+\begin{equation}
+\label{eq:acs-line-integral}
+\maint{a}{b}[u;v]
+=
+\int_{C^{\rev}} \eta.
+\end{equation}
+In other words, the mixed additive-multiplicative integral is exactly the line integral of the canonical $1$-form $\eta=\ee^M\dd A$ along the reversed continuous ACS path.
+\end{proposition}
+
+\begin{proof}
+By definition of $C^{\rev}$,
+\[
+\int_{C^{\rev}} \eta
+=
+\int_a^b u^{\rev}(t)
+\exp\!\left(\int_a^t v^{\rev}(\sigma)\,\dd\sigma\right)
+\dd t.
+\]
+Substitute $u^{\rev}(t)=u(a+b-t)$ and $v^{\rev}(t)=v(a+b-t)$, then set $x=a+b-t$. We get
+\[
+\int_{C^{\rev}} \eta
+=
+\int_a^b u(x)
+\exp\!\left(\int_x^b v(s)\,\dd s\right)
+\dd x,
+\]
+which is exactly \eqref{eq:absolute-time-definition}.
+\end{proof}
+
+Thus the mixed integral is not merely analogous to an ACS path integral: it is the continuous ACS evaluation formula itself. The need for the reversed path is structural, not cosmetic. Integrating along the direct path weights by past multiplication; integrating along the reversed path weights by future multiplication.
+
+\subsection{Continuous torsion and the Stokes formula}
+
+Suppose $C_1$ and $C_2$ are two continuous ACS paths with the same endpoints. Let $\Sigma$ be an oriented region with boundary
+\[
+\partial\Sigma=C_2-C_1.
+\]
+Then the difference of their evaluations is
+\begin{equation}
+\label{eq:continuous-torsion}
+\tau(C_1,C_2)
+:=
+\int_{C_2}\eta-\int_{C_1}\eta
+=
+\oint_{\partial\Sigma}\eta
+=
+\iint_\Sigma \dd\eta.
+\end{equation}
+Since
+\[
+\dd\eta = \dd(\ee^M\dd A)=\ee^M\dd M\wedge \dd A,
+\]
+we obtain the continuous ACS triple identity
+\begin{equation}
+\label{eq:continuous-triple}
+\tau(C_1,C_2)
+=
+\oint_{\partial\Sigma} \ee^M\dd A
+=
+\iint_\Sigma \ee^M\dd M\wedge \dd A.
+\end{equation}
+This is the continuous counterpart of the discrete ACS torsion formula: a difference of histories becomes a boundary integral, and the boundary integral becomes a weighted area.
+
+\section{The future multiplier as a backward adjoint factor}
+
+The exponential weight in \eqref{eq:absolute-time-definition} also has a natural adjoint meaning.
+
+\begin{proposition}[Backward adjoint multiplier]
+\label{prop:adjoint}
+Consider again
+\[
+w'(t)=v(t)w(t)+u(t).
+\]
+Let $p$ solve the backward equation
+\begin{equation}
+\label{eq:adjoint-equation}
+-p'(t)=v(t)p(t),
+\qquad
+p(b)=1.
+\end{equation}
+Then
+\begin{equation}
+\label{eq:adjoint-solution}
+p(t)=\exp\!\left(\int_t^b v(s)\,\dd s\right),
+\end{equation}
+and
+\begin{equation}
+\label{eq:adjoint-pairing}
+\frac{\dd}{\dd t}\bigl(p(t)w(t)\bigr)=p(t)u(t).
+\end{equation}
+Consequently,
+\begin{equation}
+\label{eq:mixed-as-adjoint-pairing}
+\maint{a}{b}[u;v]=\int_a^b p(t)u(t)\,\dd t.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Equation \eqref{eq:adjoint-equation} is a scalar linear ODE, and its solution is immediate:
+\[
+p(t)=\exp\!\left(\int_t^b v(s)\,\dd s\right).
+\]
+Then
+\[
+\frac{\dd}{\dd t}\bigl(p(t)w(t)\bigr)=p'(t)w(t)+p(t)w'(t)
+=-v(t)p(t)w(t)+p(t)(v(t)w(t)+u(t))=p(t)u(t).
+\]
+Integrating from $a$ to $b$ gives
+\[
+w(b)-p(a)w(a)=\int_a^b p(t)u(t)\,\dd t,
+\]
+which is exactly \eqref{eq:mixed-as-adjoint-pairing}.
+\end{proof}
+
+This viewpoint clarifies the meaning of the future exponential weight. It is not an ad hoc correction factor. It is the backward multiplier obtained by propagating the terminal condition $p(b)=1$ from the future toward the present. In this sense, the mixed integral pairs a forward source $u$ with a backward adjoint field $p$.
+
+\section{Conceptual summary}
+
+The discussion above may be condensed into the following chain of ideas.
+
+\begin{enumerate}[leftmargin=1.5em]
+\item The discrete alternating expansion already shows that additive increments are weighted by \emph{future} multiplicative charge.
+\item The natural continuous evaluation functional is therefore
+\[
+\maint{a}{b}[u;v]=\int_a^b u(x)\exp\!\left(\int_x^b v(s)\,\dd s\right)\dd x.
+\]
+\item In absolute-time variables it is the non-homogeneous part of affine transport.
+\item In right-endpoint variables it becomes a one-sided Volterra-type convolution, and differentiating the growing window produces a boundary term together with an integral of $u'$.
+\item In ACS language it is exactly the line integral of $\eta=\ee^M\dd A$ along the reversed continuous path.
+\item The same exponential weight is also the solution of a backward adjoint equation. Thus the ``future multiplier'' is both an ACS-geometric and an adjoint-theoretic object.
+\end{enumerate}
+
+These are not separate analogies glued together after the fact. They are different manifestations of the same structure: addition is accumulated locally, multiplication acts as a transport law, and the correct weighting is imposed by what still remains in the future.
+
+\end{document}

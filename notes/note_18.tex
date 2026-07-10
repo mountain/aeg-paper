@@ -1,0 +1,539 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+
+\newcommand{\dd}{\,\mathrm{d}}
+\newcommand{\ee}{\mathrm{e}}
+\newcommand{\ACS}{\mathrm{ACS}}
+\newcommand{\AES}{\mathrm{AES}}
+\newcommand{\Aff}{\mathrm{Aff}}
+\newcommand{\rev}{\mathrm{rev}}
+\newcommand{\del}{\delta}
+\newcommand{\Ipath}{\mathcal{I}}
+\newcommand{\nab}{\nabla}
+
+\title{Further Notes on Mixed Additive-Multiplicative Integration:\
+$\delta$-Calculus, Adjoint Geometry, and the Two Realizations $\ACS/\AES$}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This note records the discussion that follows the first note on mixed additive-multiplicative integration. The emphasis is no longer the basic formula alone, but the structural questions around it: its algebraic rules, its correct geometric placement, its relation to the contact/$\delta$ formalism, the meaning of its adjoint multiplier, and the relation between the two geometric realizations $\ACS$ and $\AES$. The main claim is that the mixed integral does not belong to one specific geometry. It belongs to an underlying affine propagation structure of the form
+\[
+\dd a=\omega_A+a\,\omega_M,
+\]
+whose local/contact realization is encoded by $\alpha=\dd a-(\omega_A+a\,\omega_M)$, whose commutative shadow is $\ACS$, and whose metric/flow realization is an $\AES$. In the contact picture this leads naturally to a graded covariant $\delta$-calculus
+\[
+\nab^{(n)}f:=\del f-nf\,\dd M,
+\]
+with a graded Leibniz law. In the dual picture the future multiplier appears as the backward parallel transport of a terminal covector. In the algebraic picture the same structure may be flattened by a gauge transformation into ordinary integration, which explains the appearance of twisted Leibniz and Rota-Baxter-type identities.
+\end{abstract}
+
+\section{Scope and point of view}
+
+The mixed additive-multiplicative integral first arose from a purely arithmetic expansion: additive increments are not weighted by the multiplicative history that lies behind them, but by the multiplicative charge that still lies ahead of them. In the first note, this led to the continuous formula
+\[
+\int_a^b u(x)\exp\!\left(\int_x^b v(s)\,\dd s\right)\dd x,
+\]
+and to its two basic interpretations: affine transport and the reversed $\ACS$ line integral.
+
+The present note continues from there. The central question is no longer merely how to define the mixed integral, but how to place it in the existing AEG framework. Three issues dominate the discussion.
+\begin{enumerate}[leftmargin=1.5em]
+\item What algebraic rules does the mixed integral satisfy, and what algebraic structure sits behind those rules?
+\item What is the geometric origin of the ``adjoint'' multiplier coming from the future endpoint?
+\item Since the mixed integral was derived from arithmetic rather than from geometry, in what sense does it belong simultaneously to $\ACS$ and to the hyperbolic $\AES$ models?
+\end{enumerate}
+
+The answer proposed here is that the mixed integral should be viewed neither as a mysterious standalone integral nor as an artefact of one particular geometry. It is the finite propagation formula of an underlying affine differential law. Geometry then appears in two realizations: a local/contact/$\delta$ realization and a commutative/global one.
+
+\section{Underlying affine propagation}
+
+\subsection{The abstract differential law}
+
+Let $X$ be any smooth manifold, and let $\omega_A$ and $\omega_M$ be two smooth $1$-forms on $X$. Consider the affine differential law
+\begin{equation}
+\label{eq:affine-law}
+\dd a=\omega_A+a\,\omega_M.
+\end{equation}
+This is the differential shadow of the arithmetic rule
+\[
+a\longmapsto \ee^{\Delta M}a+\Delta A_{\text{transported}}.
+\]
+It already contains the mixed integral in embryo.
+
+Fix a $C^1$ curve $\gamma:[t_0,t_1]\to X$. Write
+\[
+\gamma^*\omega_A=U_\gamma(t)\,\dd t,
+\qquad
+\gamma^*\omega_M=V_\gamma(t)\,\dd t.
+\]
+Then along $\gamma$, equation \eqref{eq:affine-law} becomes the one-dimensional inhomogeneous equation
+\begin{equation}
+\label{eq:curve-ode}
+\frac{\dd}{\dd t}a(\gamma(t))=U_\gamma(t)+V_\gamma(t)a(\gamma(t)).
+\end{equation}
+
+\begin{definition}[Pathwise mixed integral]
+Define the propagation factor and the pathwise mixed integral by
+\[
+\Phi_\gamma(s,t):=\exp\!\left(\int_s^t V_\gamma(\tau)\,\dd\tau\right),
+\]
+and
+\begin{equation}
+\label{eq:pathwise-mixed}
+\Ipath_{\omega_M}[\omega_A;\gamma]
+:=
+\int_{t_0}^{t_1}
+\Phi_\gamma(s,t_1)U_\gamma(s)\,\dd s.
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Finite propagation formula]
+\label{prop:finite-propagation}
+Any solution of \eqref{eq:curve-ode} satisfies
+\begin{equation}
+\label{eq:finite-propagation}
+a(\gamma(t_1))=\Phi_\gamma(t_0,t_1)a(\gamma(t_0))+
+\Ipath_{\omega_M}[\omega_A;\gamma].
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Multiply \eqref{eq:curve-ode} by $\Phi_\gamma(t_0,t)^{-1}$ and differentiate:
+\[
+\frac{\dd}{\dd t}\Bigl(\Phi_\gamma(t_0,t)^{-1}a(\gamma(t))\Bigr)
+=
+\Phi_\gamma(t_0,t)^{-1}U_\gamma(t).
+\]
+Integrating from $t_0$ to $t_1$ and multiplying back by $\Phi_\gamma(t_0,t_1)$ yields \eqref{eq:finite-propagation}.
+\end{proof}
+
+\begin{proposition}[Concatenation and the affine propagator]
+\label{prop:affine-propagator}
+If a curve $\gamma$ is obtained by concatenating $\gamma_1$ followed by $\gamma_2$, then
+\begin{equation}
+\label{eq:concatenation-law}
+\Ipath_{\omega_M}[\omega_A;\gamma]
+=
+\Phi_{\gamma_2}\,\Ipath_{\omega_M}[\omega_A;\gamma_1]
++
+\Ipath_{\omega_M}[\omega_A;\gamma_2],
+\end{equation}
+where $\Phi_{\gamma_2}$ denotes the multiplicative transport along the second piece.
+Equivalently, the matrix
+\begin{equation}
+\label{eq:affine-matrix}
+\mathsf P_\gamma:=
+\begin{pmatrix}
+\Phi_\gamma & \Ipath_{\omega_M}[\omega_A;\gamma]\\
+0 & 1
+\end{pmatrix}
+\end{equation}
+satisfies
+\[
+\mathsf P_{\gamma_2\circ\gamma_1}=\mathsf P_{\gamma_2}\mathsf P_{\gamma_1}.
+\]
+\end{proposition}
+
+\begin{proof}
+Apply Proposition~\ref{prop:finite-propagation} first on $\gamma_1$ and then on $\gamma_2$.
+\end{proof}
+
+Thus the most basic structural statement is this: the mixed integral is the translation entry of a continuous $\Aff(1)$ propagator.
+
+\section{Contact lift and weighted $\delta$-calculus}
+
+\subsection{Natural units and the contact form}
+
+In the contact picture of AEG, after passing to natural arithmetic units
+\[
+A:=\mu u,
+\qquad
+M:=\lambda v,
+\]
+one reaches the local Pfaffian form
+\begin{equation}
+\label{eq:contact-form}
+\alpha=\dd a-(\dd A+a\,\dd M).
+\end{equation}
+The corresponding horizontal calculus is encoded by
+\begin{equation}
+\label{eq:delta-a}
+\del a=\dd A+a\,\dd M,
+\qquad
+\del A=\dd A,
+\qquad
+\del M=\dd M.
+\end{equation}
+On horizontal vectors, $\del$ agrees with the ordinary differential.
+
+From the present viewpoint, equation \eqref{eq:delta-a} is exactly the local form of \eqref{eq:affine-law} with
+\[
+\omega_A=\dd A,
+\qquad
+\omega_M=\dd M.
+\]
+The contact form is therefore not an additional decoration. It is the unifying local lift of the mixed propagation law.
+
+\subsection{A graded covariant differential}
+
+The correct algebraic closure is not obtained by treating all quantities as objects of the same weight. Instead one is led naturally to a graded family.
+
+\begin{definition}[Weight-$n$ covariant $\delta$-differential]
+For an integer $n$, define
+\begin{equation}
+\label{eq:nabla-n}
+\nab^{(n)}f:=\del f-nf\,\dd M.
+\end{equation}
+\end{definition}
+
+The weight-$1$ assignment satisfies the basic equation
+\begin{equation}
+\label{eq:weight-one}
+\nab^{(1)}a=\dd A.
+\end{equation}
+
+\begin{proposition}[Graded Leibniz law]
+\label{prop:graded-leibniz}
+For weights $m$ and $n$ one has
+\begin{equation}
+\label{eq:graded-leibniz}
+\nab^{(m+n)}(fg)=\bigl(\nab^{(m)}f\bigr)g+f\bigl(\nab^{(n)}g\bigr).
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Expand using the ordinary product rule for $\del$:
+\[
+\nab^{(m+n)}(fg)
+=\del(fg)-(m+n)fg\,\dd M
+=(\del f)g+f(\del g)-mfg\,\dd M-nfg\,\dd M.
+\]
+Grouping terms yields \eqref{eq:graded-leibniz}.
+\end{proof}
+
+This identity should be read as the true Leibniz law of the mixed calculus. If one insists on keeping every object in one ungraded space, extra terms appear. If one works instead in a graded line-bundle picture, the derivation rule closes naturally.
+
+\subsection{Gauge rectification}
+
+The weight-$1$ equation becomes ordinary after the natural gauge change
+\begin{equation}
+\label{eq:rectified-a}
+\widetilde a:=\ee^{-M}a.
+\end{equation}
+Then
+\begin{equation}
+\label{eq:delta-rectified}
+\del\widetilde a=\ee^{-M}\dd A.
+\end{equation}
+
+\begin{proof}
+Using \eqref{eq:delta-a} and $\del(\ee^{-M})=-\ee^{-M}\dd M$,
+\[
+\del(\ee^{-M}a)
+=\ee^{-M}(\dd A+a\,\dd M)-\ee^{-M}a\,\dd M
+=\ee^{-M}\dd A.
+\]
+\end{proof}
+
+Thus the mixed integral is rectified to an ordinary line integral after the gauge transformation $a\mapsto \ee^{-M}a$. Along a horizontal curve $\Gamma$ this gives
+\begin{equation}
+\label{eq:rectified-integral}
+\ee^{-M(q)}a(q)-\ee^{-M(p)}a(p)
+=
+\int_\Gamma \ee^{-M}\dd A,
+\end{equation}
+where $p$ and $q$ are the endpoints of $\Gamma$.
+Equivalently,
+\begin{equation}
+\label{eq:contact-finite-solution}
+a(q)=\ee^{M(q)-M(p)}a(p)+\ee^{M(q)}\int_\Gamma \ee^{-M}\dd A.
+\end{equation}
+This is precisely the contact version of the finite propagation formula.
+
+\section{Algebraic viewpoints}
+
+\subsection{Two closures: graded product or twisted product}
+
+There are two natural ways to organize the algebra.
+\begin{itemize}[leftmargin=1.5em]
+\item \textbf{Graded closure.} Keep the ordinary product, but allow weights to add. Then Proposition~\ref{prop:graded-leibniz} is the correct derivation rule.
+\item \textbf{Flattened closure.} Keep a single space of functions, but modify the product after rectification.
+\end{itemize}
+
+For the second option, along a one-dimensional parameter $t$ define
+\begin{equation}
+\label{eq:star-product}
+(F\star_M G)(t):=\ee^{-M(t)}F(t)G(t).
+\end{equation}
+Let
+\begin{equation}
+\label{eq:Dm}
+D_M:=\frac{\dd}{\dd t}-M'(t).
+\end{equation}
+Then $D_M$ is a genuine derivation for the twisted product:
+\begin{equation}
+\label{eq:star-derivation}
+D_M(F\star_M G)=D_MF\star_M G+F\star_M D_MG.
+\end{equation}
+This is simply the gauge-flattened form of the weight-$1$ calculus.
+
+\subsection{Gauge conjugation of ordinary integration}
+
+Define the mixed integral operator on a curve parameter by
+\begin{equation}
+\label{eq:IM-def}
+(I_Mf)(t):=\ee^{M(t)}\int_{t_0}^t \ee^{-M(s)}f(s)\,\dd s.
+\end{equation}
+Let $J$ denote ordinary integration,
+\[
+(Jg)(t):=\int_{t_0}^t g(s)\,\dd s.
+\]
+Then
+\begin{equation}
+\label{eq:gauge-conj}
+I_M=\ee^M\circ J\circ \ee^{-M},
+\qquad
+D_M=\ee^M\circ \frac{\dd}{\dd t}\circ \ee^{-M}.
+\end{equation}
+Thus the mixed calculus is not alien to ordinary calculus; it is a gauge-conjugated form of it.
+
+\begin{proposition}[Twisted Rota-Baxter identity]
+\label{prop:twisted-rb}
+With respect to $\star_M$, the operator $I_M$ satisfies
+\begin{equation}
+\label{eq:twisted-rb}
+I_M(f)\star_M I_M(g)
+=
+I_M\bigl(I_M(f)\star_M g+f\star_M I_M(g)\bigr).
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The ordinary integral $J$ satisfies
+\[
+J(F)J(G)=J\bigl(J(F)G+FJ(G)\bigr).
+\]
+Apply this identity to $F=\ee^{-M}f$ and $G=\ee^{-M}g$, and then conjugate back by \eqref{eq:gauge-conj}.
+\end{proof}
+
+\begin{remark}[The geometry behind the identity]
+The ordinary identity for $J$ comes from decomposing the square $[t_0,t]^2$ into the two order regions $s<\tau$ and $\tau<s$. In the present setting the same geometry survives, but it is seen through the gauge factor $\ee^{-M}$. Thus the mixed integral inherits a Rota-Baxter-type algebraic law because it is the transport-flattened image of ordinary integration.
+\end{remark}
+
+\section{Adjoint geometry and the nature of the duality}
+
+\subsection{Dual connection before integration by parts}
+
+The adjoint multiplier should not be understood first as a trick of integration by parts. Its geometric origin is earlier: it is the dual connection attached to the weight-$1$ propagation law.
+
+Let $L$ denote the weight-$1$ line, and let $L^{-1}$ denote its dual. The covariant differential on $L$ is $\nab^{(1)}$, while on $L^{-1}$ it is
+\begin{equation}
+\label{eq:dual-connection}
+\nab^{(-1)}p:=\del p+p\,\dd M.
+\end{equation}
+These two are defined so that the scalar pairing satisfies
+\begin{equation}
+\label{eq:pairing-rule}
+\del(pa)=\bigl(\nab^{(-1)}p\bigr)a+p\bigl(\nab^{(1)}a\bigr).
+\end{equation}
+If one imposes the homogeneous dual transport equation
+\begin{equation}
+\label{eq:dual-homogeneous}
+\nab^{(-1)}p=0,
+\end{equation}
+then, using \eqref{eq:weight-one},
+\begin{equation}
+\label{eq:dual-pairing}
+\del(pa)=p\,\dd A.
+\end{equation}
+Therefore the mixed integral is exactly the accumulation of the source term $\dd A$ paired with a backward-transported dual section.
+
+\subsection{The backward multiplier from the terminal covector}
+
+Along a parameterized curve, equation \eqref{eq:dual-homogeneous} becomes
+\[
+p'(t)+V_\gamma(t)p(t)=0.
+\]
+If the terminal covector is normalized by $p(t_1)=1$, then
+\begin{equation}
+\label{eq:backward-p}
+p(t)=\exp\!\left(\int_t^{t_1} V_\gamma(s)\,\dd s\right).
+\end{equation}
+This is exactly the ``future multiplier'' of the mixed integral. Thus the future exponential weight is the backward parallel transport of a terminal covector.
+
+This gives the intrinsic content of the adjoint statement:
+\begin{quote}
+The mixed integral pairs a forward cocycle $\dd A$ with a backward section of the dual weight line.
+\end{quote}
+Only after one writes everything in coordinate form does this same fact appear as integration by parts and the formal adjoint operator.
+
+\subsection{What kind of duality is involved?}
+
+The duality here is not the ordinary bilinear duality of the whole affine state space. The state propagation is affine, not purely linear. Its algebraic skeleton is the semidirect product
+\begin{equation}
+\label{eq:aff1}
+\Aff(1)\cong \mathbb R_A\rtimes \mathbb R_M.
+\end{equation}
+The multiplicative channel $M$ defines the weight-$1$ character
+\[
+\chi(M)=\ee^M,
+\]
+and the dual channel is the inverse character $\chi^{-1}(M)=\ee^{-M}$. The additive term $\dd A$ is not ``the dual variable''; it is a $1$-cocycle valued in the weight-$1$ representation.
+
+So the right description is:
+\begin{quote}
+traditional adjoint theory is the duality of linear spaces, whereas the present adjoint theory is the duality of weight line bundles inside an affine semidirect propagation structure, with the additive channel appearing as a cocycle.
+\end{quote}
+This explains why the geometry is close to, but not identical with, the usual bilinear picture.
+
+\section{The two geometric realizations}
+
+\subsection{$\ACS$ as the commutative shadow}
+
+In $\ACS$, one accumulates the additive and multiplicative charges into coordinates $(A,M)$ and uses the canonical $1$-form
+\begin{equation}
+\label{eq:eta-acs}
+\eta:=\ee^M\dd A.
+\end{equation}
+For a direct path, this weights each additive contribution by the multiplicative charge already accumulated in the past. To obtain the future weighting relevant to the mixed integral, one reverses the path. Thus the mixed integral becomes
+\begin{equation}
+\label{eq:mixed-acs}
+\Ipath=\int_{C^{\rev}}\eta.
+\end{equation}
+Comparing two histories with the same endpoints yields the weighted boundary/area formula
+\begin{equation}
+\label{eq:acs-stokes}
+\int_{C_2}\eta-\int_{C_1}\eta
+=
+\oint_{\partial\Sigma}\eta
+=
+\iint_\Sigma \ee^M\dd M\wedge \dd A.
+\end{equation}
+Thus $\ACS$ is the global, commutative, filling-friendly realization of the same propagation law.
+
+\subsection{$\AES$ as the local flow realization}
+
+The mixed integral, however, does not originate in $\ACS$. It already exists at the level of the local affine law \eqref{eq:affine-law}, and therefore admits a direct interpretation in an $\AES$.
+
+\begin{definition}[Local arithmetic coframe]
+A local arithmetic coframe is a pair of $1$-forms $(\omega_A,\omega_M)$ such that the assignment field satisfies
+\begin{equation}
+\label{eq:aes-affine-law}
+\dd a=\omega_A+a\,\omega_M.
+\end{equation}
+\end{definition}
+
+Along any curve in the $\AES$, the mixed integral is then nothing but the finite propagation formula of \eqref{eq:aes-affine-law}. So in $\AES$ the mixed integral is the pathwise solution of the arithmetic flow equation.
+
+\subsection{The hyperbolic model $E_0$}
+
+In the hyperbolic model $E_0$, with horocyclic coordinates $(u,v)$,
+\[
+a(u,v)=-u\,\ee^{-\lambda v}.
+\]
+Direct differentiation gives
+\begin{equation}
+\label{eq:e0-coframe}
+\dd a=-\ee^{-\lambda v}\dd u-\lambda a\,\dd v.
+\end{equation}
+Hence one may take
+\begin{equation}
+\label{eq:e0-omega}
+\omega_A:=-\ee^{-\lambda v}\dd u,
+\qquad
+\omega_M:=-\lambda\dd v.
+\end{equation}
+Then \eqref{eq:aes-affine-law} holds exactly:
+\[
+\dd a=\omega_A+a\,\omega_M.
+\]
+The mixed integral therefore has a direct hyperbolic meaning in $E_0$: an additive contribution made earlier along a path must be rescaled by the later displacement in the multiplicative direction before it is read at the endpoint.
+
+Moreover,
+\begin{equation}
+\label{eq:MC-e0}
+\dd\omega_M=0,
+\qquad
+\dd\omega_A=\omega_M\wedge\omega_A.
+\end{equation}
+This is the same local affine structure equation that appears in the $\ACS$ coframe if one sets
+\[
+\Omega_M:=\dd M,
+\qquad
+\Omega_A:=\ee^M\dd A.
+\]
+Indeed,
+\[
+\dd\Omega_M=0,
+\qquad
+\dd\Omega_A=\Omega_M\wedge\Omega_A.
+\]
+So $E_0$ and $\ACS$ are not parallel accidents. They are two realizations of one and the same affine propagation geometry.
+
+\subsection{How the two realizations fit together}
+
+The structural hierarchy is therefore
+\[
+\text{arithmetic propagation}
+\longrightarrow
+\text{affine differential law}
+\longrightarrow
+\begin{cases}
+\text{contact/$\delta$ local lift},\\
+\text{$\AES$ metric/flow realization},\\
+\text{$\ACS$ commutative/global realization}.
+\end{cases}
+\]
+The mixed integral should be placed at the middle level. It belongs neither exclusively to $\ACS$ nor exclusively to $\AES$.
+
+\section{Remarks on notation}
+
+The formula often appears as if it were a symmetric two-input integral in $(u,v)$. Structurally, however, the two channels are not symmetric.
+\begin{itemize}[leftmargin=1.5em]
+\item $\omega_A$ or $\dd A$ is the source/additive channel.
+\item $\omega_M$ or $\dd M$ is the connection/multiplicative channel.
+\item The response $a$ is a weight-$1$ quantity propagated by the second and driven by the first.
+\end{itemize}
+
+For this reason, the structurally faithful notation is not the fully symmetric two-slot form, but something closer to
+\[
+\Ipath_{\omega_M}[\omega_A;\gamma],
+\qquad
+I_M[\dd A;\Gamma],
+\qquad
+(\nab^{(1)})^{-1}_\Gamma(\dd A).
+\]
+A symmetric symbol may still be useful for exposition, but it should be understood as a shorthand hiding the asymmetry between source and connection.
+
+\section{Concluding perspective}
+
+The new content of this second note may be summarized as follows.
+\begin{enumerate}[leftmargin=1.5em]
+\item The mixed integral is best understood as the translation part of a continuous $\Aff(1)$ propagator.
+\item In the contact picture, the natural operator is not the bare integral but the graded covariant differential $\nab^{(n)}=\del-n\dd M$.
+\item The true Leibniz law is the graded one; a flattened single-level version is recovered by the twisted product $\star_M$.
+\item The future multiplier is not merely an integration-by-parts device. It is the backward parallel transport of a terminal covector in the dual weight line.
+\item The duality involved is therefore not the duality of the whole affine state space, but the duality of weight lines inside a semidirect affine propagation structure, with $\dd A$ playing the role of a cocycle.
+\item The mixed integral is not attached to one geometry only. It is realized globally and commutatively in $\ACS$, and locally and metrically in $\AES$, especially in the hyperbolic model $E_0$.
+\end{enumerate}
+
+This picture suggests that the next natural step is not to study the mixed integral in isolation, but to place it systematically inside the contact/$\delta$ formalism and to let its algebraic rules be read off from that larger geometric structure.
+
+\end{document}
