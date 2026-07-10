@@ -1,0 +1,1281 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,array,longtable}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+
+\setlength{\parskip}{0.45em}
+\setlength{\parindent}{1.4em}
+\setlist[itemize]{topsep=0.25em,itemsep=0.15em,leftmargin=1.8em}
+\setlist[enumerate]{topsep=0.25em,itemsep=0.15em,leftmargin=2em}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\PGL}{\operatorname{PGL}}
+\newcommand{\PSL}{\operatorname{PSL}}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\Aff}{\operatorname{Aff}}
+\newcommand{\Biv}{\operatorname{Biv}}
+\newcommand{\Hist}{\operatorname{Hist}}
+\newcommand{\Stab}{\operatorname{Stab}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\Ev}{\operatorname{Ev}}
+\newcommand{\Hol}{\operatorname{Hol}}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\F}{\mathbb F}
+\newcommand{\cH}{\mathcal H}
+\newcommand{\cG}{\mathcal G}
+\newcommand{\cB}{\mathcal B}
+\newcommand{\cC}{\mathcal C}
+\newcommand{\sslash}{\mathbin{/\mkern-6mu/}}
+
+\title{\textbf{Bilateral Arithmetic Histories and Projective Condensation}\\
+\large A Bridge from Arithmetic Expression Geometry to Projective Concept--Relation Geometry}
+\author{Mingli Yuan}
+\date{Working note, July 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Arithmetic Expression Geometry (AEG) starts from the principle that an
+expression is not exhausted by its final value: its ordered evaluation history
+is part of the object.  Existing AEG develops one constant-chirality,
+affine sector of a larger sequential syntax.  This note completes that syntax
+by allowing the active subexpression to occupy either input slot of each binary
+operation.  The resulting marked spinal histories have a non-degenerate
+projective evaluation whose image is exactly \(\PGL_2(K)\) over a field \(K\);
+the familiar affine theory is the stabilizer of one point at infinity.
+
+On the projective side, an ordered pair of distinct points of
+\(\PP^1(K)\) is equivalent to a rank-one idempotent projector on \(K^2\).
+Consequently, with \(G=\PGL_2(K)\) and \(H\) the stabilizer of an ordered
+pair, the bivaluation space is \(G/H\).  A third projective point supplies a
+full frame, hence a point of the \(H\)-torsor above the condensed result; only
+after a reference lift is chosen does this acquire an \(H\)-valued coordinate.
+This produces a precise process--result hierarchy:
+\[
+\text{marked history}
+\longrightarrow
+G
+\longrightarrow
+G/H
+\longrightarrow
+G/B_\pm,
+\]
+where each arrow forgets a different layer of process information.  The note
+also distinguishes syntactic chirality from point--predicate duality, derives
+the affine/Riccati double flow, gives a complete finite-field counting model,
+and identifies a telescoping obstruction in the current contextual-transport
+ansatz.  The final sections formulate the minimal connection and holonomy data
+needed to prevent process geometry from collapsing back to endpoint geometry.
+\end{abstract}
+
+\section{Thesis, scope, and proof status}
+
+The central thesis is that the projective layer need not be appended to AEG as
+an external completion.  It can be generated internally by completing the
+threadlike syntax that AEG already uses.
+
+The note separates three levels of assertion.
+
+\begin{enumerate}
+  \item \textbf{Proved algebraic statements.}
+  These include the classification of sequential expression trees, the
+  generation of \(\PGL_2(K)\) by bilateral arithmetic sections, the
+  identification of regular bivaluations with rank-one idempotents, the
+  homogeneous-space descriptions \(G/H\) and \(G/B_\pm\), the finite-field
+  counts, and the telescoping identity for an exact endpoint-defined
+  transport.
+
+  \item \textbf{Structural proposals.}
+  These include the word-decorated history groupoid, group-valued comparison
+  defects, and the use of the principal \(H\)-bundle \(G\to G/H\) as the
+  natural home of process residue after projective condensation.
+
+  \item \textbf{Open geometric bridges.}
+  These include a canonical comparison with the contact form used in AEG,
+  a projective replacement for the two-dimensional ACS area formula, and the
+  semantic interpretation of rank-one condensation as a concept or predicate.
+\end{enumerate}
+
+This ordering is deliberate.  The projective algebra is independent of any
+learning, probability, or epistemic interpretation.  Such interpretations
+should be added only after the underlying process geometry has been made
+functorial.
+
+\section{Marked spinal expressions}
+
+\subsection{Two one-hole sections of a binary operation}
+
+Let \(K\) be a field and let
+\[
+\Omega=\{+,-,\times,/\}
+\]
+be the arithmetic binary signature, with the usual partial-domain convention
+for division.  Given \(\omega\in\Omega\) and a constant \(c\in K\), define two
+one-hole contexts
+\begin{equation}
+ C^{(1)}_{\omega,c}[z]:=\omega(z,c),
+ \qquad
+ C^{(2)}_{\omega,c}[z]:=\omega(c,z).
+ \label{eq:two-sections}
+\end{equation}
+The superscript records the operand slot occupied by the active value.  This
+notation avoids the ambiguous phrases ``left-expanded'' and
+``right-expanded'', whose meanings reverse depending on whether one looks at
+the recursive subtree, the newly attached leaf, or the direction of written
+growth.
+
+\begin{definition}[Marked spinal history]
+A marked spinal history over \(K\) is data
+\[
+\gamma=
+\bigl(x_0;(\omega_i,c_i,\varepsilon_i)_{i=1}^{n}\bigr),
+\qquad
+\varepsilon_i\in\{1,2\},
+\]
+with recursive states
+\[
+x_i=C^{(\varepsilon_i)}_{\omega_i,c_i}[x_{i-1}].
+\]
+The word
+\[
+\varepsilon(\gamma)=\varepsilon_1\varepsilon_2\cdots\varepsilon_n
+\]
+is its \emph{chirality word}.  The same data without the initial state
+\(x_0\) is a free history.
+\end{definition}
+
+Pure slot-\(1\) and pure slot-\(2\) histories are the two combs.  Allowing an
+arbitrary chirality word gives all mixed combs without introducing a branching
+dependency.
+
+\subsection{Intrinsic tree characterization}
+
+For a binary expression tree \(T\), let \(I(T)\) be the set of its internal
+vertices, ordered by dependency: \(u<v\) when the output of \(u\) is required
+before \(v\) can be evaluated.
+
+\begin{theorem}[Sequential-tree classification]
+\label{thm:sequential-tree}
+For a finite binary expression tree \(T\), the following are equivalent.
+\begin{enumerate}
+  \item The dependency poset \(I(T)\) has a unique linear extension.
+  \item The dependency poset \(I(T)\) is a chain.
+  \item Every internal vertex has at most one internal child.
+  \item Either \(T\) is a single leaf, marked \(x\), or its internal vertices
+  form a single spine.  In the latter case, after choosing either leaf of the
+  innermost binary vertex as the marked accumulator \(x\), \(T\) can be
+  generated by the grammar
+  \[
+  T::=x\mid\omega(T,c)\mid\omega(c,T).
+  \]
+  Here each \(c\) is one of the remaining atomic leaves.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+A finite poset has a unique linear extension only if every two elements are
+comparable.  Indeed, for incomparable \(u,v\), adjoining \(u<v\) creates no
+cycle and hence extends to a linear order; adjoining \(v<u\) does likewise.
+The two resulting linear extensions are distinct.  Hence (1) implies (2),
+and the converse is immediate.
+
+For a binary tree, two internal children of the same vertex are incomparable
+in the dependency order.  Thus (2) implies (3).  If there are no internal
+vertices, mark the unique leaf.  Otherwise, if every internal vertex has at
+most one internal child, following that child from the root visits all
+internal vertices, so they form a spine; this gives (4).  Finally the grammar
+in (4) visibly gives one internal child at each stage and hence a chain of
+dependencies.
+\end{proof}
+
+\begin{remark}[Why the seed must be marked]
+An unmarked comb determines a unique order of internal evaluations, but the
+innermost binary node still has two leaves.  Marking the initial state specifies
+which leaf is the evolving accumulator and converts the tree unambiguously
+into a word of one-hole contexts.
+\end{remark}
+
+\subsection{Mirror is not reversal}
+
+\begin{definition}[Mirror and temporal reversal]
+The \emph{mirror} \(m\gamma\) flips every slot bit,
+\[
+1\longleftrightarrow 2,
+\]
+and mirrors the corresponding planar tree without changing the bottom-up time
+index \(i\).  The \emph{temporal reversal} \(r\gamma\) reverses the context word.
+When every step is invertible, the \emph{path inverse} additionally replaces
+each context by its inverse.
+\end{definition}
+
+Mirror and reversal are independent commuting involutions at the marked-word
+level.  For example,
+\[
+\gamma=((x+1)\times 2),\qquad
+m\gamma=2\times(1+x),\qquad
+r\gamma=(x\times2)+1.
+\]
+The first two induce \(2x+2\), whereas the reversed history induces \(2x+1\).
+Thus the current affine torsion is defined by comparison with reversal/order;
+it is not, without additional structure, a detector of tree mirror.
+
+\begin{remark}[Associativity as a 2-cell]
+If process is primary, associativity and commutativity should not erase marked
+histories at the moment of definition.  They are better represented by
+rewrite 2-cells between histories.  For one fixed infix order of atomic
+leaves, the ordinary left and right combs are the extremal vertices of the
+Tamari order.  Relating those extrema to the two pure \emph{marked} histories
+requires a corresponding relabeling of the seed and constants, since planar
+mirror alone reverses the leaf order.  Closing compatible spinal histories
+under rotations leads to the full associahedron and, in general, to branching
+evaluation schedules.
+\end{remark}
+
+\subsection{Bilateral resolvent recursion}
+
+The same distinction can appear in recursive closure, but only after enough
+noncommutative data have been retained.  A useful warning comes first.  For a
+single fixed element \(p\) and a common central initial value
+\(S_0=\widetilde S_0\) (for example \(0\) or \(1\)), the two recursions
+\[
+S_{n+1}=1+pS_n,
+\qquad
+\widetilde S_{n+1}=1+\widetilde S_n p
+\]
+produce the same polynomial in \(p\), even when \(p\) is a matrix or an
+operator.  If \(1-p\) is invertible, their fixed-point equations
+\[
+S=1+pS,
+\qquad
+\widetilde S=1+\widetilde S p
+\]
+also have the same solution \((1-p)^{-1}\).  Noncommutativity alone is not
+enough.
+
+A genuine bilateral recursion needs genuinely noncommuting retained data---for
+example, a seed that does not commute with \(p\), or step-dependent transports
+and offsets that do not all lie in one commuting subalgebra.  The cleanest
+placement test uses the same data on both sides:
+\[
+S_{n+1}=a_n+p_nS_n,
+\qquad
+\widetilde S_{n+1}=a_n+\widetilde S_np_n.
+\]
+Now the ordered products place new factors at opposite temporal ends, so the
+two histories need not agree.  This is the appropriate operator-level test
+case for bilateral process semantics before primitive division is introduced.
+
+\section{Projective evaluation of bilateral arithmetic}
+
+\subsection{Ordinary and projective semantics}
+
+Let
+\[
+\PP^1(K)=K\cup\{\infty\}.
+\]
+Every non-degenerate one-hole arithmetic section in
+\eqref{eq:two-sections} extends to a fractional linear transformation of
+\(\PP^1(K)\).  Using the convention
+\[
+\begin{pmatrix}\alpha&\beta\\ \gamma&\delta\end{pmatrix}\cdot z
+=\frac{\alpha z+\beta}{\gamma z+\delta},
+\]
+the elementary sections are represented as follows:
+\[
+\begin{array}{c@{\qquad}c@{\qquad}c}
+\toprule
+\text{section} & \text{map} & \text{projective matrix}\\
+\midrule
+C^{(1)}_{+,c}=C^{(2)}_{+,c}
+& z\mapsto z+c
+& \begin{pmatrix}1&c\\0&1\end{pmatrix}\\[3mm]
+C^{(1)}_{-,c}
+& z\mapsto z-c
+& \begin{pmatrix}1&-c\\0&1\end{pmatrix}\\[3mm]
+C^{(2)}_{-,c}
+& z\mapsto c-z
+& \begin{pmatrix}-1&c\\0&1\end{pmatrix}\\[3mm]
+C^{(1)}_{\times,c}=C^{(2)}_{\times,c}
+& z\mapsto cz
+& \begin{pmatrix}c&0\\0&1\end{pmatrix}\\[3mm]
+C^{(1)}_{/,c}
+& z\mapsto z/c
+& \begin{pmatrix}1&0\\0&c\end{pmatrix}\\[3mm]
+C^{(2)}_{/,c}
+& z\mapsto c/z
+& \begin{pmatrix}0&c\\1&0\end{pmatrix}\\
+\bottomrule
+\end{array}
+\]
+Here \(c\neq0\) whenever invertibility requires it.  If multiplication by zero
+or constant maps are admitted, the natural target is a projective matrix
+monoid, not \(\PGL_2(K)\).
+
+\begin{definition}[Non-degenerate bilateral history]
+Let \(\Hist_K^{\pm,\times}\) be the free history language generated by the
+invertible sections in the table above.  Projective evaluation is the monoid
+map
+\[
+\rho:\Hist_K^{\pm,\times}\longrightarrow\PGL_2(K)
+\]
+obtained by multiplying the corresponding matrices in chronological
+composition order.
+\end{definition}
+
+\begin{remark}[Projective continuation is not ordinary arithmetic]
+The projective map \(z\mapsto c/z\) sends \(0\) to \(\infty\), whereas ordinary
+arithmetic declares division by zero undefined.  A projective completion
+therefore changes the semantic category.  A sound theory should retain a
+domain label distinguishing a legitimate chart transition from an admissible
+ordinary-arithmetic evaluation.
+\end{remark}
+
+\subsection{The bilateral closure theorem}
+
+\begin{theorem}[Bilateral arithmetic generates \(\PGL_2\)]
+\label{thm:bilateral-pgl}
+Let \(K\) be a field.  The non-degenerate projective evaluations of bilateral
+four-operation spinal histories generate all of \(\PGL_2(K)\).
+\end{theorem}
+
+\begin{proof}
+Translations \(T_s(z)=z+s\), nonzero scalings \(D_q(z)=qz\), and the Weyl
+inversion \(J(z)=-1/z\) are bilateral arithmetic sections.  It suffices to
+show that they
+generate every fractional linear map
+\[
+f(z)=\frac{Az+B}{Cz+D},
+\qquad AD-BC\neq0.
+\]
+If \(C=0\), then \(f\) is affine and is a translation after a nonzero scaling.
+If \(C\neq0\), the identity
+\begin{equation}
+f(z)
+=
+\frac{A}{C}
++
+\frac{BC-AD}{C^2}\,
+\frac{1}{z+D/C}
+\label{eq:mobius-decomposition}
+\end{equation}
+equivalently gives the explicit composition
+\[
+f=T_{A/C}\circ D_{(AD-BC)/C^2}\circ J\circ T_{D/C}.
+\]
+Hence \(f\) lies in the evaluation image.
+\end{proof}
+
+\begin{corollary}[The algebraic slot-\(1\) sector is affine]
+If the bilateral language is restricted to the first operand slot, the
+non-degenerate four-operation sections are affine:
+\[
+z\mapsto az+b,\qquad a\in K^\times,\ b\in K.
+\]
+Their image is the Borel subgroup
+\[
+B_\infty=\Stab_{\PGL_2(K)}(\infty)\cong\Aff(1,K).
+\]
+The existing real AEG embeds in this sector; it fills the full Borel only after
+its allowed multipliers are enlarged to all of \(K^\times\).
+The second-slot division \(c/z\) is the elementary operation that leaves this
+subgroup.
+\end{corollary}
+
+\begin{remark}[The positive real sector]
+The current continuous AEG parameterizes multiplication as
+\(z\mapsto e^\lambda z\) with real \(\lambda\), so over \(\mathbb R\) it sees
+the orientation-preserving identity component \(\Aff^+(1,\mathbb R)\), not
+the entire real Borel with arbitrary nonzero slope.  The full algebraic Borel
+appears only after all multipliers in \(K^\times\) are admitted.
+\end{remark}
+
+\begin{corollary}[Bruhat interpretation]
+Let \(B=B_\infty\) and let \(J(z)=-1/z\).  Then
+\[
+\PGL_2(K)=B\sqcup BJB
+\]
+at the level of Bruhat cells, and \(B\) together with \(J\) generates the
+whole projective group.  Bilateral completion is therefore a syntactic
+realization of the rank-one Bruhat completion of the affine sector.
+\end{corollary}
+
+\begin{example}[Finite continued fractions]
+A pure slot-\(2\) nesting involving addition and division has the form
+\[
+a_0+\frac{c_1}{a_1+\dfrac{c_2}{a_2+\cdots}},
+\]
+so finite generalized continued fractions are a distinguished bilateral
+threadlike sublanguage.  Their convergent matrices are precisely products in
+\(\PGL_2(K)\).
+\end{example}
+
+\section{History before quotient}
+
+\subsection{The evaluation functor}
+
+Let \(\cH_K^\pm\) be the category whose arrows retain the full marked context
+word and whose objects are admissible values (or projective points).  An arrow
+\((\gamma,x):x\to\rho(\gamma)x\) is not identified with another word merely
+because both words induce the same transformation.  Evaluation gives a
+functor
+\[
+\Ev:\cH_K^\pm\longrightarrow \PP^1(K)\sslash\PGL_2(K).
+\]
+
+This yields the basic hierarchy
+\begin{equation}
+\text{marked syntax}
+\longrightarrow
+\text{one-hole context word}
+\longrightarrow
+\text{projective operator}
+\longrightarrow
+\text{endpoint value}.
+\label{eq:forgetful-syntax-tower}
+\end{equation}
+Each arrow forgets data.  The principle ``process before result'' means that
+the fibers and kernel pairs of these maps are themselves mathematical objects;
+it does not mean that no quotient may ever be taken.
+
+\begin{definition}[Relative projective defect]
+For two invertible histories \(\gamma,\delta\), define
+\[
+\mathcal K(\gamma,\delta)
+:=
+\rho(\delta)^{-1}\rho(\gamma)
+\in\PGL_2(K).
+\]
+This is a group-valued comparison with an explicit choice of reference
+history.  It equals the identity exactly when the two histories induce the
+same projective operator.
+\end{definition}
+
+\begin{proposition}[Affine scalar torsion as a special coordinate]
+Suppose
+\[
+\rho(\gamma)(x)=sx+A_\gamma,\qquad
+\rho(\delta)(x)=sx+A_\delta
+\]
+have the same nonzero linear part.  Then
+\[
+\rho(\delta)^{-1}\rho(\gamma)(x)
+=x+\frac{A_\gamma-A_\delta}{s}.
+\]
+The ordinary endpoint defect
+\[
+\rho(\gamma)(x)-\rho(\delta)(x)=A_\gamma-A_\delta
+\]
+is therefore the translation coordinate of the relative holonomy, up to the
+common scale \(s\).  The familiar quantity
+\(\mu(e^\lambda-1)\) is the elementary two-step instance of this reduction.
+\end{proposition}
+
+\begin{remark}
+Once inversion is admitted, a scalar subtraction of endpoints is no longer
+the natural invariant: it can depend on the base point and encounter poles.
+The group-valued defect \(\mathcal K\), or its conjugacy/stabilizer class under
+the relevant endpoint constraint, survives this enlargement.
+\end{remark}
+
+\section{Left and right affine velocities}
+
+Except for the discrete cocycle proposition below, this section works over
+\(K=\mathbb R\).  The same formulas may be read over \(\mathbb C\), or
+formally in characteristic zero after replacing analytic exponentials by an
+appropriate Lie parameter.  They are not assertions about arbitrary fields
+or finite-field differential calculus.
+
+\subsection{Two Maurer--Cartan readings}
+
+Write an affine element as
+\[
+g=
+\begin{pmatrix}
+e^\lambda&\xi\\
+0&1
+\end{pmatrix}.
+\]
+
+\begin{proposition}[Left and right affine differentials]
+The translation components of the left and right Maurer--Cartan forms are
+\[
+\bigl(g^{-1}dg\bigr)_{\rm tr}=e^{-\lambda}d\xi,
+\qquad
+\bigl(dg\,g^{-1}\bigr)_{\rm tr}=d\xi-\xi\,d\lambda.
+\]
+\end{proposition}
+
+\begin{proof}
+This follows by multiplying
+\[
+g^{-1}=
+\begin{pmatrix}
+e^{-\lambda}&-e^{-\lambda}\xi\\0&1
+\end{pmatrix}
+\]
+with \(dg\) on the appropriate side.
+\end{proof}
+
+The first form measures velocity in the body/source frame; the second measures
+it in the spatial/target frame.  They become the differential signatures of
+growth from opposite temporal ends when histories are represented by left or
+right group multiplication.  This multiplication-end axis is not identical
+to operand-slot chirality: a theorem connecting them requires an explicit
+representation of context insertion.  If
+\[
+\widehat\xi:=e^{-\lambda}\xi,
+\]
+then
+\[
+d\xi-\xi\,d\lambda=e^\lambda d\widehat\xi.
+\]
+Thus the standard translation \(\xi\) and the source-normalized translation
+\(\widehat\xi\) are not competing definitions; they are the two natural
+cocycle coordinates of the same process.
+
+\subsection{Future and past weighting}
+
+\begin{proposition}[Two affine cocycle sums]
+Let \(K\) be an arbitrary field, let
+\[
+f_i(x)=s_i x+t_i,\qquad s_i\in K^\times,
+\]
+and let \(f_n\circ\cdots\circ f_1(x)=\Phi_nx+\xi_n\).  Then
+\[
+\Phi_n=\prod_{i=1}^n s_i,
+\qquad
+\xi_n=\sum_{i=1}^n t_i\prod_{j=i+1}^n s_j,
+\]
+whereas the source-normalized translation is
+\[
+\widehat\xi_n:=\frac{\xi_n}{\Phi_n}
+=\sum_{i=1}^n\frac{t_i}{\prod_{j=1}^i s_j}.
+\]
+\end{proposition}
+
+\begin{proof}
+The first two identities follow by induction under postcomposition by
+\(f_{n+1}\).  Dividing the translation identity by
+\(\Phi_n=\prod_js_j\) gives the last formula.
+\end{proof}
+
+The coordinate \(\xi_n\) weights an additive event by all future scalings,
+whereas \(\widehat\xi_n\) discounts it by the accumulated past scale.  These
+are the discrete counterparts of the \(e^{M}\) and \(e^{-M}\) path weights
+that appear when the affine cocycles are written in charge coordinates.
+
+\subsection{From affine flow to Riccati flow}
+
+Return here to the real Lie setting (or its characteristic-zero formal
+analogue).  Let
+\[
+E=\partial_z,\qquad H=z\partial_z,\qquad F=z^2\partial_z.
+\]
+Up to sign conventions, these close under the \(\mathfrak{sl}_2\) brackets.
+The affine theory uses only \(E\) and \(H\).  Inversion supplies the missing
+direction because
+\[
+J\,T_s\,J^{-1}(z)=\frac{z}{1-sz}
+=z+s z^2+O(s^2),
+\qquad J(z)=-\frac1z.
+\]
+Consequently the general infinitesimal projective flow is Riccati:
+\begin{equation}
+\dot z=\beta+\alpha z+\kappa z^2.
+\label{eq:riccati-general}
+\end{equation}
+The current AEG flow is the Borel slice \(\kappa=0\).
+
+\section{Bivaluation as coupled point--predicate transport}
+
+\subsection{Projective points, copoints, and incidence}
+
+Let \(V=K^2\) and \(V^\vee\) be its algebraic dual.  A projective point and a
+projective copoint are denoted
+\[
+[v]\in\PP(V),\qquad [\varphi]\in\PP(V^\vee).
+\]
+They are incident when \(\varphi(v)=0\).  On the affine chart used in the
+bivaluation notes, use the sign-reversed coordinate
+\[
+\chi([x:y])=-x/y.
+\]
+Thus \(\chi=-z\) relative to the standard coordinate of the projective
+evaluation section.  Choose representatives
+\[
+v_a=\begin{pmatrix}-a\\1\end{pmatrix},
+\qquad
+\varphi_b=\begin{pmatrix}-b&1\end{pmatrix}.
+\]
+Their normalized local pairing is
+\[
+I(a,b)=\varphi_b(v_a)=1+ab.
+\]
+The kernel line of \(\varphi_b\) has bivaluation point coordinate
+\[
+p=-\frac1b.
+\]
+Its standard \(z\)-coordinate is \(1/b=-p\).  Thus the coordinate switch is
+explicit rather than an identification of \(a\) with the earlier \(z\).
+Thus \(a=p\), equivalently \(1+ab=0\), is the incidence divisor.
+
+\begin{definition}[Regular bivaluation]
+A regular bivaluation over \(K\) is an ordered pair
+\[
+(q^+,q^-)\in\PP^1(K)\times\PP^1(K),
+\qquad q^+\neq q^-.
+\]
+The first line is the image/prototype direction and the second is the
+kernel/predicate direction.  Write
+\[
+\Biv_K^{\rm reg}
+:=
+\PP^1(K)\times\PP^1(K)\setminus\Delta.
+\]
+\end{definition}
+
+\subsection{Rank-one projector theorem}
+
+\begin{theorem}[Bivaluations are rank-one idempotents]
+\label{thm:biv-idempotent}
+There is a natural bijection
+\[
+\Biv_K^{\rm reg}
+\longleftrightarrow
+\{\Pi\in\operatorname{End}(K^2):
+\Pi^2=\Pi,\ \operatorname{rank}\Pi=1\}.
+\]
+If \(q^+=[v]\), \(q^-=\PP(\ker\varphi)\), and
+\(\varphi(v)\neq0\), the corresponding projector is
+\begin{equation}
+\Pi_{v,\varphi}
+=\frac{v\otimes\varphi}{\varphi(v)}.
+\label{eq:rank-one-projector}
+\end{equation}
+In the local \((a,b)\)-chart this is
+\[
+\Pi_{a,b}
+=
+\frac{1}{1+ab}
+\begin{pmatrix}
+ab&-a\\
+-b&1
+\end{pmatrix}.
+\]
+\end{theorem}
+
+\begin{proof}
+Given distinct one-dimensional subspaces \(L^+,L^-\subset K^2\), one has
+\(K^2=L^+\oplus L^-\).  There is a unique projection onto \(L^+\) along
+\(L^-\), and it is a rank-one idempotent.  Choosing
+\(L^+=Kv\) and a nonzero covector \(\varphi\) with
+\(\ker\varphi=L^-\) gives \eqref{eq:rank-one-projector}.
+
+Conversely, if \(\Pi^2=\Pi\), then
+\[
+K^2=\im\Pi\oplus\ker\Pi.
+\]
+Rank one makes both summands lines, and they are distinct.  The two
+constructions are inverse.
+\end{proof}
+
+\subsection{Covariant and contravariant histories}
+
+For \(G\in\PGL(V)\), point and predicate representatives transform by
+\[
+v\longmapsto Gv,
+\qquad
+\varphi\longmapsto\varphi G^{-1}.
+\]
+Hence the unnormalized pairing is invariant:
+\[
+(\varphi G^{-1})(Gv)=\varphi(v),
+\]
+and the projector transforms by conjugation,
+\[
+\Pi_{v,\varphi}\longmapsto G\Pi_{v,\varphi}G^{-1}.
+\]
+
+\begin{proposition}[Local affine bivaluation law]
+Suppose the point coordinate transforms by
+\[
+a\longmapsto Aa+B,\qquad A\in K^\times.
+\]
+In the standard \(z=-a\) coordinate this is represented by
+\[
+G_{A,B}=\begin{pmatrix}A&-B\\0&1\end{pmatrix},
+\qquad z\longmapsto Az-B.
+\]
+Then the predicate zero and normalized covector coordinate transform as
+\begin{equation}
+p\longmapsto Ap+B,
+\qquad
+b\longmapsto\frac{b}{A-Bb},
+\qquad p=-\frac1b.
+\label{eq:bivaluation-affine-law}
+\end{equation}
+For infinitesimal addition and scaling over \(\mathbb R\) (or in a
+characteristic-zero formal differential setting),
+\[
+s=\mu\,du,\qquad k=e^{\lambda\,dv},
+\]
+the three local flows are
+\begin{equation}
+\begin{aligned}
+da&=\mu\,du+\lambda a\,dv,\\
+db&=\mu b^2\,du-\lambda b\,dv,\\
+dp&=\mu\,du+\lambda p\,dv.
+\end{aligned}
+\label{eq:bivaluation-double-flow}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The point \(p\) is a projective point and therefore obeys the same affine law
+as \(a\).  Substituting \(p=-1/b\) gives
+\[
+b'=-\frac1{Ap+B}=\frac{b}{A-Bb}.
+\]
+Expanding the addition update
+\[
+b\longmapsto\frac{b}{1-\mu b\,du}
+\]
+and the scaling update \(b\mapsto e^{-\lambda\,dv}b\) to first order gives
+\eqref{eq:bivaluation-double-flow}.
+\end{proof}
+
+\begin{remark}[Two distinct binary axes]
+Operand-slot chirality and point--predicate duality must not be identified.
+The former belongs to syntax:
+\[
+\omega(z,c)\quad\hbox{versus}\quad\omega(c,z).
+\]
+The latter belongs to a representation and its contragredient:
+\[
+v\mapsto Gv\quad\hbox{versus}\quad\varphi\mapsto\varphi G^{-1}.
+\]
+They meet naturally inside \(\PGL_2\), but a theorem relating mirror to
+transpose, inverse, or dual transport requires an explicit representation and
+an anti-involution.  It is not automatic.
+\end{remark}
+
+\section{Projective frames and the process--result bundle}
+
+\subsection{Homogeneous-space descriptions}
+
+Fix a reference regular pair \((q_0^+,q_0^-)\) and set
+\[
+G=\PGL_2(K),
+\qquad
+H=\Stab_G(q_0^+,q_0^-).
+\]
+Also write \(B_+=\Stab_G(q_0^+)\) and
+\(B_-=\Stab_G(q_0^-)\).  Then \(H=B_+\cap B_-\), and each \(B_\pm\) is a
+conjugate affine Borel subgroup.
+
+\begin{theorem}[Projective quotient tower]
+\label{thm:quotient-tower}
+There are natural identifications
+\[
+G/H\cong\Biv_K^{\rm reg},
+\qquad
+G/B_+\cong\PP^1(K),
+\qquad
+G/B_-\cong\PP^1(K).
+\]
+The maps
+\[
+G/H\longrightarrow G/B_+,
+\qquad
+G/H\longrightarrow G/B_-
+\]
+forget respectively the kernel or image member of the ordered pair.
+\end{theorem}
+
+\begin{proof}
+The action of \(\PGL_2(K)\) on ordered pairs of distinct projective points is
+transitive.  The stabilizer of the reference pair is exactly \(H\), so the
+orbit--stabilizer identification gives \(G/H\).  The same argument for a
+single point gives the two Borel quotients.  The forgetful maps are induced by
+the inclusions \(H\subset B_\pm\).
+\end{proof}
+
+\subsection{A third point restores a full frame}
+
+\begin{definition}[Framed bivaluation]
+A framed regular bivaluation is a pairwise distinct ordered triple
+\[
+(q^+,q^-,q^\infty)\in\bigl(\PP^1(K)\bigr)^3.
+\]
+The first two entries determine the projector result; the third specifies a
+projective arithmetic frame or chart.
+\end{definition}
+
+\begin{theorem}[Frame torsor]
+\label{thm:frame-torsor}
+After choosing one reference triple, the set of framed regular bivaluations is
+a \(G\)-torsor.  The projection
+\[
+(q^+,q^-,q^\infty)\longmapsto(q^+,q^-)
+\]
+has fibers on which \(H\) acts freely and transitively.  Equivalently,
+\[
+G\longrightarrow G/H
+\]
+is the process-frame bundle over the bivaluation result space.
+\end{theorem}
+
+\begin{proof}
+A projective transformation is uniquely determined by the images of three
+distinct points, so the \(G\)-action on ordered projective frames is simply
+transitive.  For a fixed ordered pair, its stabilizer is \(H\).  In coordinates
+where the pair is \((0,\infty)\), \(H\) consists of
+\[
+z\longmapsto\lambda z,\qquad\lambda\in K^\times,
+\]
+which acts freely and transitively on
+\(\PP^1(K)\setminus\{0,\infty\}=K^\times\).
+\end{proof}
+
+Over an arbitrary field, ``bundle'' here means the algebraic or set-theoretic
+\(H\)-torsor supplied by the quotient.  An Ehresmann connection on it belongs
+to the real/complex Lie-group realization and is additional structure.
+
+Combining syntax, operator, and condensation gives the precise forgetful
+tower
+\begin{equation}
+\boxed{
+\Hist_K^{\pm,\times}
+\xrightarrow{\ \rho\ }
+G
+\xrightarrow{\ \pi_H\ }
+G/H\cong\Biv_K^{\rm reg}
+\xrightarrow{\ \pi_+\ }
+G/B_+\cong\PP^1(K).
+}
+\label{eq:main-forgetful-tower}
+\end{equation}
+The algebraic slot-\(1\) completion is not the final quotient in this display;
+it is the Borel subgroup \(B_\infty=\Stab(q^\infty)\subset G\) obtained by
+holding one arithmetic frame point fixed.  The current positive-real AEG is
+the identity-component sector inside that Borel.
+
+\begin{proposition}[Same result, stabilizer-valued residue]
+Let
+\[
+\pi_H(g)=g\Pi_0g^{-1}
+\]
+for a reference rank-one projector \(\Pi_0\).  Then
+\[
+\pi_H(g_1)=\pi_H(g_2)
+\quad\Longleftrightarrow\quad
+g_2^{-1}g_1\in H.
+\]
+Thus two operator-level processes with the same condensed projector differ by
+an \(H\)-valued frame residue.
+\end{proposition}
+
+\begin{proof}
+Equality of the conjugated projectors is equivalent to
+\[
+(g_2^{-1}g_1)\Pi_0(g_2^{-1}g_1)^{-1}=\Pi_0,
+\]
+which says precisely that \(g_2^{-1}g_1\) stabilizes the ordered image and
+kernel lines of \(\Pi_0\).
+\end{proof}
+
+\begin{remark}[Where extension data can live]
+A static idempotent already splits the vector space:
+\[
+V=\im\Pi\oplus\ker\Pi.
+\]
+It therefore carries no nontrivial linear extension class by itself.  Process
+information discarded by condensation must instead live in such objects as
+\[
+\begin{gathered}
+\ker\rho,\qquad \text{the \(H\)-lift in }G\to G/H,\\
+\text{a connection and its holonomy},\qquad
+\text{subdominant spectral data}.
+\end{gathered}
+\]
+This is a sharper location for ``implicit'' or ``unsaid'' structure than the
+projector alone.
+\end{remark}
+
+\section{The finite-field calibration}
+
+\subsection{Exact counts}
+
+Let \(K=\F_q\).  Then
+\[
+|\PP^1(\F_q)|=q+1,
+\qquad
+|\Biv_{\F_q}^{\rm reg}|=(q+1)q.
+\]
+The projective group has order
+\[
+|\PGL_2(\F_q)|=q(q^2-1)=(q+1)q(q-1).
+\]
+For a regular ordered pair,
+\[
+H\cong\F_q^\times,
+\qquad |H|=q-1.
+\]
+These identities are not merely compatible counts: they are exactly the
+fiber cardinalities of
+\[
+\PGL_2(\F_q)\longrightarrow
+\Biv_{\F_q}^{\rm reg}.
+\]
+
+\begin{example}[\(\F_7\)]
+For \(q=7\),
+\[
+|\PGL_2(\F_7)|=336,
+\qquad
+|\Biv_{\F_7}^{\rm reg}|=56,
+\qquad
+|H|=6.
+\]
+Equivalently, there are \(8\cdot7\cdot6=336\) ordered projective frames,
+\(8\cdot7=56\) ordered image--kernel pairs, and six possible frame points
+above each projector result.  This is a fully enumerable model of process
+frame versus condensed result.
+\end{example}
+
+\subsection{Three failures that must not be conflated}
+
+\begin{enumerate}
+  \item \textbf{Incidence failure.}
+  If \(q^+=q^-\), or locally \(1+ab=0\), the projector
+  \eqref{eq:rank-one-projector} is undefined.  This is an intrinsic
+  degeneration of the transverse image--kernel splitting.  The unnormalized
+  rank-one operator \(v\otimes\varphi\) still exists there, but it satisfies
+  \((v\otimes\varphi)^2=0\) rather than defining a nonzero idempotent.
+
+  \item \textbf{Chart escape.}
+  A denominator such as \(A-Bb\) may vanish while the global ordered pair and
+  projector remain regular.  The correct response is a chart change, not a
+  declaration that the projective object has ceased to exist.
+
+  \item \textbf{Failure of attracting dynamics.}
+  A rank-one projector may exist algebraically even when no sequence of
+  projective transformations converges to it in the intended topology.
+\end{enumerate}
+
+\begin{proposition}[No automatic condensation over a finite field]
+The existence of a rank-one idempotent over \(\F_q\) does not imply dynamical
+condensation.  Powers of an element of \(\PGL_2(\F_q)\) are periodic, and a
+sequence in the discrete finite group converges only if it is eventually
+constant.
+\end{proposition}
+
+Thus algebraic condensation
+\[
+\Pi^2=\Pi,\qquad\operatorname{rank}\Pi=1
+\]
+must be distinguished from an analytic or probabilistic limit
+\[
+\frac{\widetilde G_n\cdots \widetilde G_1}{\rho_n}
+\longrightarrow\Pi
+\quad\text{in }\operatorname{End}(K^2),
+\]
+where compatible lifts \(\widetilde G_i\in\GL_2(K)\) have first been chosen.
+Such a singular limit does not occur inside \(\PGL_2(K)\) itself, and requires
+additional norm, topology, valuation, positivity, or stochastic structure.
+
+\subsection{Split, parabolic, and nonsplit process types}
+
+The conjugacy type of a projective operator gives a first finite failure and
+dynamics atlas:
+\begin{itemize}
+  \item the identity fixes all \(q+1\) projective points;
+  \item nonidentity split semisimple elements have two fixed points over
+  \(\F_q\);
+  \item parabolic/unipotent elements have one repeated fixed point;
+  \item nonsplit semisimple elements have no fixed point over \(\F_q\), but
+  acquire two over a quadratic extension;
+  \item all orbits remain finite and periodic.
+\end{itemize}
+The nonsplit case is especially instructive: absence of a pole in the base
+field is not absence of projective pole data.  It is an extension-field
+visibility phenomenon.
+
+\section{An exact-transport obstruction in the current relation ansatz}
+
+\subsection{The telescoping identity}
+
+Work here in the real positive-affine group, where the logarithmic scale
+\(\eta\in\mathbb R\) is single-valued.  Consider lifted vertices
+\((a_t,\eta_t)\) and define an affine frame
+\[
+h_t(z)=e^{\eta_t}z+a_t.
+\]
+We write \((b,\lambda)_{\rm aff}\) for the map
+\(z\mapsto e^\lambda z+b\).
+The endpoint-anchored relation used in the current relation-theory draft is
+\begin{equation}
+r_t(z)
+=e^{\eta_t-\eta_{t-1}}z
++a_t-e^{\eta_t-\eta_{t-1}}a_{t-1}.
+\label{eq:exact-edge}
+\end{equation}
+
+\begin{proposition}[Exact edge labels telescope]
+\label{prop:exact-telescope}
+The edge in \eqref{eq:exact-edge} is
+\[
+r_t=h_t h_{t-1}^{-1}.
+\]
+Consequently,
+\begin{equation}
+r_t r_{t-1}\cdots r_{s+1}
+=h_t h_s^{-1}
+=
+\left(
+a_t-e^{\eta_t-\eta_s}a_s,\,
+\eta_t-\eta_s
+\right)_{\rm aff},
+\label{eq:telescope}
+\end{equation}
+which is independent of all intermediate lifted vertices.
+\end{proposition}
+
+\begin{proof}
+The first identity follows by direct substitution.  The product then cancels
+pairwise:
+\[
+(h_t h_{t-1}^{-1})(h_{t-1}h_{t-2}^{-1})
+\cdots(h_{s+1}h_s^{-1})=h_t h_s^{-1}.
+\]
+\end{proof}
+
+\begin{corollary}
+For this exact ansatz, a closed lifted path has trivial holonomy.  A path whose
+base value closes but whose lift does not close records only the endpoint
+frame difference \(\eta_t-\eta_s\), not the intermediate path.
+\end{corollary}
+
+This does not invalidate the use of endpoint relations.  It shows that this
+\emph{globally exact}, single-frame ansatz defines a pure-gauge transport and
+therefore cannot by itself realize the desired principle that context residue
+depends on intermediate history.  It is not a claim that every flat local
+connection has trivial global monodromy: transition functions, multivalued
+frames, or a nontrivial bundle can retain it.
+
+\subsection{Minimal repairs}
+
+There are four compatible ways to retain process.
+
+\begin{enumerate}
+  \item \textbf{Word-decorated path groupoid.}
+  Keep the free marked history category and the evaluation functor
+  \[
+  \cH^\pm\xrightarrow{\Ev}\PP^1\sslash\PGL_2.
+  \]
+  Distinct histories remain distinct even when their evaluated morphisms
+  coincide.
+
+  \item \textbf{Independent edge connection.}
+  Do not force every edge label to be the exact coboundary
+  \(h_t h_{t-1}^{-1}\).  For example, write
+  \[
+  r_t=h_t k_t h_{t-1}^{-1}
+  \]
+  with an independently specified or learned transport \(k_t\).  If
+  \(a_t=h_tq_0\) and the prescribed point endpoints must be preserved, require
+  \(k_t\in\Stab_G(q_0)\); for a prescribed bivaluation path, require
+  \(k_t\in H\).  Without that stabilizer condition the construction changes
+  the base path as well as its transport.  Closed products can then retain the
+  conjugacy class of the \(k_t\)-product.
+
+  \item \textbf{Connection on \(G\to G/H\).}
+  Regard a bivaluation path as a path in \(G/H\), choose horizontal lifts in
+  \(G\), and measure the \(H\)-valued mismatch of a closed lift.  This is the
+  natural differential-geometric realization of the stabilizer residue for
+  real or complex Lie groups.  Over a general field, \(G\to G/H\) should first
+  be treated as an algebraic \(H\)-torsor; a connection requires additional
+  geometric structure.
+
+  \item \textbf{Rewrite 2-cells.}
+  Treat associativity, commutativity, distributivity, and admissible program
+  rewrites as 2-cells.  Their costs and coherence loops live above operator
+  equality rather than being erased by it.
+\end{enumerate}
+
+\begin{problem}[Projective torsion]
+Construct a projective comparison invariant that:
+\begin{enumerate}
+  \item reduces to the affine translation defect in the Borel sector;
+  \item is equivariant under change of projective frame;
+  \item records an \(H\)-valued holonomy when two histories have the same
+  bivaluation result; and
+  \item admits a surface or cocycle formula analogous to the ACS weighted-area
+  identity.
+\end{enumerate}
+\end{problem}
+
+\section{Hyperbolic and contact geometry: a precise test}
+
+Over \(K=\mathbb R\), the orientation-preserving projective group satisfies
+\[
+\PSL_2(\mathbb R)/\mathrm{SO}(2)\cong\mathbb H^2.
+\]
+Moreover, after choosing a reference oriented unit tangent vector,
+\[
+\PSL_2(\mathbb R)\cong T^1\mathbb H^2,
+\]
+and the unit tangent bundle carries its canonical contact form.  This gives a
+structural reason that a two-dimensional hyperbolic model and a
+three-dimensional contact model can arise from the same projective completion.
+
+\begin{conjecture}[Contact comparison]
+There is a Gauss or Iwasawa coordinate chart on an open cell of
+\(\PSL_2(\mathbb R)\) in which the canonical contact distribution on
+\(T^1\mathbb H^2\) is related, by an explicit bundle map and conformal factor,
+to the AEG horizontal distribution
+\[
+\ker\bigl(da-\mu\,du-\lambda a\,dv\bigr).
+\]
+\end{conjecture}
+
+Local contactomorphism alone would not establish this claim, because Darboux's
+theorem makes all three-dimensional contact structures locally equivalent.
+The required comparison must also intertwine:
+\begin{itemize}
+  \item the arithmetic generators with projective flows;
+  \item the affine bracket with the appropriate Maurer--Cartan equation;
+  \item the projection to the hyperbolic base;
+  \item and the group-valued holonomy of finite histories.
+\end{itemize}
+
+\section{A minimal theorem and experiment program}
+
+\subsection{The first rigorous package}
+
+The following package can be completed without invoking learning semantics.
+
+\begin{enumerate}
+  \item Formalize marked spinal expressions and prove the sequential-tree
+  classification.
+  \item Define ordinary partial evaluation and projective evaluation as
+  distinct functors.
+  \item Prove the bilateral closure theorem and its Bruhat refinement over an
+  arbitrary field.
+  \item Prove
+  \[
+  \Biv_K^{\rm reg}\cong G/H
+  \]
+  and the frame-torsor theorem.
+  \item Define relative group-valued defects at the history, operator,
+  point-result, and projector-result levels.
+  \item Prove the finite-field counts and generate complete tables for small
+  \(q\).
+  \item Replace the exact contextual transport by either a word-decorated
+  groupoid or a non-flat connection and exhibit the first nontrivial loop.
+\end{enumerate}
+
+\subsection{Finite falsification tests}
+
+Small finite fields provide exact unit tests:
+\begin{itemize}
+  \item enumerate \(\Hist^\pm\) up to a word-length cutoff and compare its
+  operator fibers under \(\rho\);
+  \item verify the surjection onto \(\PGL_2(\F_q)\);
+  \item enumerate all rank-one idempotents and their \(H\)-fibers;
+  \item classify history images as split, parabolic, or nonsplit;
+  \item lift nonsplit fixed points to \(\F_{q^2}\);
+  \item distinguish incidence failure from chart escape in every local chart.
+\end{itemize}
+These tests are finite, reproducible, and independent of analytic convergence.
+
+\subsection{Only then add semantic condensation}
+
+The interpretation
+\[
+\text{projector}=\text{concept}=\text{prototype}\otimes\text{predicate}
+\]
+is a substantive hypothesis, not a consequence of rank-one linear algebra.
+It becomes informative only if point--predicate models outperform appropriate
+point-only controls or explain new transport/holonomy observables.  The
+projective mathematics should therefore remain usable even if a particular
+learning hypothesis is inconclusive or refuted.
+
+\section{Relation to the two working projects}
+
+This note was motivated by two existing bodies of work.
+
+\begin{itemize}
+  \item In the AEG repository, the early syntax-tree material already displays
+  both pure combs and mixed combs, while the later affine theory develops only
+  one constant-chirality sector.  The Möbius grid \(z\mapsto-1/z\), the ACS
+  torsion formula, contact calculus, and loop/equality program supply the
+  local ingredients used here.
+
+  \item In the PCRG paper repository, the APG draft explicitly asks for a
+  projective completion of history-sensitive arithmetic; the bivaluation notes
+  identify
+  \[
+  \Biv_K^{\rm reg}
+  =\PP^1_K\times\PP^1_K\setminus\Delta
+  \]
+  with rank-one projectors; and the finite-field notes distinguish incidence,
+  chart, extension-field, and dynamical residues.  The present note supplies
+  a candidate arithmetic syntax for that projective completion and sharpens
+  the location of process residue.
+\end{itemize}
+
+The proposed division of labor is:
+\[
+\boxed{
+\begin{array}{c}
+\text{bilateral AEG explains where projective transport comes from},\\[1mm]
+\text{APG/PCRG explains what projective histories can condense into},\\[1mm]
+\text{the history and frame fibers explain what condensation forgets}.
+\end{array}}
+\]
+
+\section{Conclusion}
+
+The missing opposite-slot thread is not merely another family of examples.
+It changes the natural evaluation group from the affine stabilizer of one
+projective point to the full rank-one projective group.  Once this completion
+is made, the point--predicate bivaluation space appears as a homogeneous
+quotient, and a full projective frame becomes a lift of a condensed
+image--kernel result.
+
+The resulting hierarchy
+\[
+\Hist_K^{\pm,\times}
+\longrightarrow
+\PGL_2(K)
+\longrightarrow
+\Biv_K^{\rm reg}
+\longrightarrow
+\PP^1(K)
+\]
+is a concrete mathematical realization of the statement that process carries
+more information than result.  Its fibers are not philosophical decoration:
+they are word relations, stabilizer directions, chart choices, and potential
+holonomies.  A viable bridge between AEG and PCRG should be built on these
+fibers before it is built on semantic analogy.
+
+\end{document}

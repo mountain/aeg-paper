@@ -1,0 +1,533 @@
+\documentclass[12pt]{ctexart}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,bm}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{microtype}
+
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+\setlist[itemize]{leftmargin=2em}
+\setlist[enumerate]{leftmargin=2.2em}
+
+\newtheorem{definition}{定义}[section]
+\newtheorem{proposition}[definition]{命题}
+\newtheorem{conjecture}[definition]{猜想}
+\newtheorem{remark}[definition]{说明}
+\newtheorem{question}[definition]{问题}
+
+\newcommand{\IG}{\mathrm{IG}}
+\newcommand{\AEG}{\mathrm{AEG}}
+\newcommand{\ACS}{\mathrm{ACS}}
+\newcommand{\Conf}{\mathrm{Conf}}
+\newcommand{\RD}{\mathrm{RD}}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\ee}{\mathrm{e}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\TT}{\mathbb{T}}
+\newcommand{\cX}{\mathcal{X}}
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\cG}{\mathcal{G}}
+\newcommand{\cI}{\mathcal{I}}
+\newcommand{\ord}{\mathrm{ord}}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\rep}{\mathrm{rep}}
+\newcommand{\hex}{\mathrm{hex}}
+
+\title{AEG 视角下二维 Ideal Glass / Ideal Disk Packing 的协议几何\\
+四段式札记与数值实验方案（\TeX{} 草案）}
+\author{}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+本文给出一份四段式工作札记，目标是在 AEG（Arithmetic Expression Geometry）框架下，为二维 ideal glass / ideal disk packing 问题建立一个最小而可检验的协议几何模型。核心思想不是直接替代玻璃热力学，而是把原文中的构造协议重写为“缺陷--尺度”接触几何：一方面用组合缺陷与几何缺陷刻画 triangulated 边界及其接触约束，另一方面用 AEG 的局部接触形式与全局 ACS 面积积分刻画 repair 与 scale 的顺序不可交换性。在此基础上，本文提出若干可检验猜想，并给出一套可以直接实施的数值实验设计。
+\end{abstract}
+
+\tableofcontents
+
+\section{引言}
+
+二维 ideal glass / ideal disk packing 问题的关键，不在于再给出一个“高密度无序填充”的经验样本，而在于作者提供了一条构造性协议：通过临时引入可变半径自由度，先得到 radii-minimized 的 nearly triangulated state，再由 radical Delaunay triangulation 与接触约束把系统推到 fully triangulated、critically jammed 的 amorphous packing。该对象同时表现出以下特征：
+\begin{itemize}
+    \item 在接触图层面 fully triangulated；
+    \item 在有序度指标层面保持 amorphous，而非转化为晶体；
+    \item 在力学层面 strictly jammed，并在低压极限下具有有限的体模量与剪切模量；
+    \item 在结构层面表现出更强的 hyperuniformity；
+    \item 在热效应层面表现出较高的 melting temperature 与较低的 melting density。
+\end{itemize}
+这些性质表明，问题的核心并不只是“末态是什么”，而是“通过什么历史、以什么顺序、借助哪些临时自由度到达该末态”。
+
+AEG 在此处的自然切口，正是把这种历史依赖性几何化。AEG 的基本局部对象是接触形式
+\begin{equation}
+\alpha = \dd a - \bigl(\mu\,\dd u + \lambda a\,\dd v\bigr),
+\end{equation}
+它把“加法修正”与“乘法尺度”放入同一 Legendrian 约束之下；其全局对象是累积交换空间（ACS）上的面积型量
+\begin{equation}
+\tau = \oint e^{M}\,\dd A = \iint e^{M}\,\dd M \wedge \dd A,
+\end{equation}
+它刻画早先的加法步骤如何被后续的乘法历史重权。由此看来，ideal glass 的协议问题非常适合被重述为一个 AEG 协议几何问题：repair 与 scale 是否可交换？若不可交换，不同顺序的差异是否可以由某个 torsion-like quantity 统一描述？
+
+本文只追求一个“最小可行模型”。更具体地说，本文的目标是：
+\begin{enumerate}
+    \item 定义一组适合 ideal packing 问题的 AEG 变量，包括组合缺陷、几何缺陷与非晶约束场；
+    \item 给出若干初步命题，说明这些量与 triangulated 边界、尺度变换及顺序效应之间的关系；
+    \item 把原论文的协议压缩为一套 AEG 字母表，并提出一组可由数值实验直接检验的猜想；
+    \item 设计一套可执行的数值方案，用以判断 AEG 在该问题上究竟只是解释语言，还是具有预测力的组织框架。
+\end{enumerate}
+
+本文的立场是谨慎的：当前阶段，AEG 在这里最适合承担的工作，不是立即给出完整玻璃热力学，而是构造一个“零熵边界 + 协议挠率 + 非晶筛选”三者统一的几何骨架。
+
+\section{定义与命题}
+
+\subsection{扩展状态空间与协议}
+
+设系统含有 $N$ 个圆盘，周期边界由晶格矩阵 $\Lambda \in \mathrm{GL}^{+}(2,\RR)$ 给出。记
+\begin{equation}
+\mathbf{c}=(x_1,\dots,x_N;r_1,\dots,r_N;\Lambda),
+\end{equation}
+其中 $x_i \in \TT^2$ 表示粒子位置，$r_i>0$ 表示粒子半径。为适配 original ideal-packing protocol，我们考虑如下扩展状态空间：
+\begin{equation}
+\cX_N := \bigl\{\mathbf{c}\bigr\}/\!\sim,
+\end{equation}
+其中 $\sim$ 至少商去整体平移；在需要比较无量纲几何量时，还可以进一步商去整体旋转与整体尺度。
+
+\begin{definition}[协议]
+一个协议（protocol）是指扩展状态空间中的一条分段路径
+\begin{equation}
+\gamma : [0,1]\to \cX_N,
+\end{equation}
+其每一段对应某种可操作步骤，例如整体压缩或放缩、位置最小化、半径最小化、接触图更新、约束求解或缺陷注入。我们把这些步骤的有序串联称为协议历史。
+\end{definition}
+
+原 ideal-glass 构造中最值得保留的，不是某个单独步骤，而是“先扩维、再修复、后投影回物理切片”的整体逻辑。因此，在 AEG 中，我们不把状态只视为一个终点，而把它视为由协议历史生成的对象。
+
+\subsection{接触图、组合缺陷与几何缺陷}
+
+对任意状态 $\mathbf{c}$，令 $G(\mathbf{c})$ 表示其 radical Delaunay（或在数值上与之等价的接触）图，记顶点数为 $n=N$，边数为 $m=|E(G)|$，平均配位数为
+\begin{equation}
+ z(\mathbf{c}) = \frac{2m}{N},
+\end{equation}
+并记边密度为
+\begin{equation}
+ \mu_g(\mathbf{c}) = \frac{m}{N} = \frac{z(\mathbf{c})}{2}.
+\end{equation}
+
+\begin{definition}[组合缺陷]
+定义组合缺陷为
+\begin{equation}
+ a_C(\mathbf{c}) := 3 - \mu_g(\mathbf{c}) = 3 - \frac{m}{N} = \frac{6-z(\mathbf{c})}{2}.
+\end{equation}
+\end{definition}
+
+该定义的动机在于：在二维 torus 上，maximal triangulation 满足 $m=3N$，于是 ideal triangulated 边界恰好对应 $a_C=0$。
+
+\begin{proposition}[triangulated 边界的组合必要条件]
+若 $G$ 是二维 torus 上的 maximal triangulation，则
+\begin{equation}
+ m = 3N,\qquad \mu_g = 3,\qquad z=6,\qquad a_C=0.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+对 torus 有 Euler 关系 $N-m+F=0$。若 $G$ 是 maximal triangulation，则每个面都是三角形，因此 $3F=2m$。联立得
+\begin{equation}
+N-m+\frac{2m}{3}=0,
+\end{equation}
+即 $m=3N$。其余结论随即成立。
+\end{proof}
+
+不过，$a_C$ 只能看见“少了几条边”，并不能区分“图已经 triangulated，但几何上还没有真正接触”这一情形。因此还需要第二层主赋值。
+
+\begin{definition}[边约束与几何缺陷]
+对每条边 $e=\langle ij\rangle \in E(G)$，定义接触约束
+\begin{equation}
+ g_e(\mathbf{c}) := \|x_j-x_i+\Lambda z_{ij}\|^2-(r_i+r_j)^2,
+\end{equation}
+其中 $z_{ij}\in\mathbb{Z}^2$ 选取使周期镜像下的边向量连续。定义几何缺陷为
+\begin{equation}
+ a_G(\mathbf{c},G) := \left(\frac{1}{|E(G)|}\sum_{e\in E(G)} g_e(\mathbf{c})^2\right)^{1/2}.
+\end{equation}
+当 $a_G=0$ 时，图中所有边都满足接触约束。
+\end{definition}
+
+\begin{remark}
+在数值上，也可用加权版本
+\begin{equation}
+ a_{G,w} := \left(\frac{\sum_e w_e g_e^2}{\sum_e w_e}\right)^{1/2}
+\end{equation}
+来强调较长边、较大力链或某类局域缺陷。本文以等权版本作为首选。
+\end{remark}
+
+\begin{proposition}[几何缺陷的尺度齐次性]
+对任意 $\sigma\in\RR$，若作均匀尺度变换
+\begin{equation}
+(x_i,r_i,\Lambda)\mapsto (\ee^{\sigma}x_i,\ee^{\sigma}r_i,\ee^{\sigma}\Lambda),
+\end{equation}
+则有
+\begin{equation}
+ g_e \mapsto \ee^{2\sigma}g_e,
+\qquad
+ a_G \mapsto \ee^{2\sigma}a_G.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+$g_e$ 的两项都是长度平方，因此在均匀尺度变换下同乘 $\ee^{2\sigma}$，故 $a_G$ 亦同乘该因子。
+\end{proof}
+
+由此可见，对 $a_G$ 而言，尺度方向天然是“乘法方向”，且指数恰为 $2$。
+
+\subsection{非晶筛选场}
+
+单个 defect 标量不能区分“零缺陷晶体”与“零缺陷非晶态”，因此需要一个附加的非晶筛选场。
+
+\begin{definition}[非晶筛选场]
+定义
+\begin{equation}
+q_{\mathrm{am}} := (\xi_6,\beta_{\tr}),
+\end{equation}
+其中 $\xi_6$ 由六重取向关联函数的衰减
+\begin{equation}
+C_6(r)\sim \ee^{-r/\xi_6}
+\end{equation}
+确定，而 $\beta_{\tr}$ 由平移有序度指标的有限尺度律
+\begin{equation}
+\tau_{\tr}(N)\sim N^{\beta_{\tr}}
+\end{equation}
+定义。理想的 amorphous triangulated 态应满足 $\xi_6<\infty$ 且 $\beta_{\tr}\approx 0$。
+\end{definition}
+
+\begin{remark}
+若后续需要更细粒度地区分局部晶胚、准晶有序与无序背景，则 $q_{\mathrm{am}}$ 可扩展为向量值或场值可观测量。本文先采用最小二元描述。
+\end{remark}
+
+\subsection{AEG 接触形式与局部顺序效应}
+
+由上面的尺度齐次性，最小 AEG 模型自然取
+\begin{equation}
+ a := a_G,
+ \qquad v := \log \ell,
+ \qquad u := \text{累计 repair 坐标},
+\end{equation}
+其中 $\ell$ 为整体线性尺度。于是 ideal-glass 的最小接触形式定义为
+\begin{equation}
+\alpha_{\IG} := \dd a - \mu_{\rep}(u,v)\,\dd u - 2a\,\dd v.
+\end{equation}
+
+\begin{definition}[离散 repair 增量]
+设协议离散为一系列时刻 $t=0,1,2,\dots,T$，记
+\begin{equation}
+\Delta M_t := 2\,(v_t-v_{t-1}),
+\qquad
+r_t := a_t - \ee^{\Delta M_t}a_{t-1}.
+\end{equation}
+则 $r_t$ 表示第 $t$ 步的净 repair 增量。若 $r_t<0$，表示该步净修复了几何缺陷；若 $r_t>0$，表示该步净注入了几何缺陷。
+\end{definition}
+
+\begin{proposition}[局部协议顺序效应]
+设一次 repair 把缺陷减小 $\epsilon>0$，一次尺度变化对应线性尺度增量 $\sigma>0$。则两种顺序给出的末态差为
+\begin{equation}
+\tau_{\mathrm{loc}}
+:= a\bigl((\mathrm{scale})\circ(\mathrm{repair})\bigr)
+ - a\bigl((\mathrm{repair})\circ(\mathrm{scale})\bigr)
+= -\epsilon\bigl(\ee^{2\sigma}-1\bigr).
+\end{equation}
+因此，同样一次 repair，若发生在 scale 之前，其效果会被后续尺度变化放大；若发生在 scale 之后，则不会获得该放大。
+\end{proposition}
+
+\begin{proof}
+按定义有
+\begin{equation}
+(\mathrm{scale})\circ(\mathrm{repair}):
+\quad a\mapsto \ee^{2\sigma}(a-\epsilon),
+\end{equation}
+而
+\begin{equation}
+(\mathrm{repair})\circ(\mathrm{scale}):
+\quad a\mapsto \ee^{2\sigma}a-\epsilon.
+\end{equation}
+两者相减即得所述公式。
+\end{proof}
+
+这个命题说明：ideal-glass 协议中的顺序效应并不是附会，而是由 defect 的尺度齐次性直接推出的几何后果。
+
+\subsection{全局 ACS 挠率}
+
+在离散记录下，定义累积变量
+\begin{equation}
+A_t := \sum_{s\le t} r_s,
+\qquad
+M_t := \sum_{s\le t} \Delta M_s.
+\end{equation}
+这给出一条离散 ACS 路径 $t\mapsto (A_t,M_t)$。相应的全局协议挠率定义为
+\begin{equation}
+\tau_{\IG}(\gamma) := \oint_{\partial\Sigma_\gamma} \ee^M\,\dd A,
+\end{equation}
+若存在连续极限，则可写成
+\begin{equation}
+\tau_{\IG}(\gamma)
+= \iint_{\Sigma_\gamma} \ee^M\,\dd M\wedge\dd A.
+\end{equation}
+
+\begin{remark}
+这里的 $\ee^M$ 不应被理解为手工引入的权重，而应被理解为历史本身的产物：越早发生的 repair，越会受到后续 scale 历史的重权。因此，$\tau_{\IG}$ 描述的不是“总 repair 量”或“总 scale 量”，而是二者在协议时间上的非交换面积。
+\end{remark}
+
+\subsection{理想非晶边界}
+
+\begin{definition}[理想非晶边界]
+称一列状态 $\{\mathbf{c}^{(N)}\}$ 趋近于理想非晶边界，若在热力学极限下满足
+\begin{equation}
+ a_C\bigl(\mathbf{c}^{(N)}\bigr)\to 0,
+ \qquad
+ a_G\bigl(\mathbf{c}^{(N)}\bigr)\to 0,
+\end{equation}
+并同时满足
+\begin{equation}
+ \xi_6\bigl(\mathbf{c}^{(N)}\bigr) < \infty,
+ \qquad
+ \beta_{\tr}\bigl(\mathbf{c}^{(N)}\bigr) \approx 0.
+\end{equation}
+\end{definition}
+
+这个定义把“triangulated 零缺陷边界”与“非晶筛选条件”结合起来，以避免把 ideal amorphous packing 与 perfect crystal 混为一谈。
+
+\section{猜想}
+
+\begin{conjecture}[零熵边界猜想]
+在二维 periodic disk packing 的扩展状态空间中，
+\begin{equation}
+(a_C,a_G)\to(0,0)
+\end{equation}
+描述的是一个零熵边界；更准确地说，它对应接触图与几何约束同时塌缩到 fully triangulated 状态的极限。若再附加 $q_{\mathrm{am}}$ 的非晶条件，则该边界中的适当子集可被识别为 ideal amorphous packing 边界。
+\end{conjecture}
+
+\begin{remark}
+此处“零熵”首先应理解为构型类或接触图类的指数增长率趋零，而不必立即与完整玻璃热力学中的 configurational entropy 作一一对应。
+\end{remark}
+
+\begin{conjecture}[协议挠率猜想]
+在固定总尺度变化、固定总 repair 预算、固定初始 seed 的条件下，不同操作顺序对最终态的影响主要由 $\tau_{\IG}$ 控制。更具体地说，若两个协议满足总量相同但顺序不同，则
+\begin{equation}
+|a_G^{\mathrm{final}}(\gamma_1)-a_G^{\mathrm{final}}(\gamma_2)|
+\end{equation}
+与
+\begin{equation}
+|\tau_{\IG}(\gamma_1)-\tau_{\IG}(\gamma_2)|
+\end{equation}
+应存在稳定相关；其中更偏向“先 repair、后 scale”的协议，往往更容易压低最终的 $a_G$。
+\end{conjecture}
+
+\begin{conjecture}[可观测量关联猜想]
+当 $(a_C,a_G)$ 向零边界靠近，且 $q_{\mathrm{am}}$ 保持非晶时，系统将同时表现出更高的 jamming density $\phi_J$、更大的低压体模量与剪切模量 $K_0,G_0$、更接近 Debye 的低频振动态、更强的 hyperuniformity、更高的 melting temperature $T_m$ 与更低的 melting density $\phi_m$。
+\end{conjecture}
+
+\begin{conjecture}[双场必要性猜想]
+任何仅依赖单个标量 defect 的模型，都不足以区分“零缺陷晶体”与“零缺陷 ideal amorphous packing”。因此，任何试图把 AEG 完整推广到 ideal-glass 问题的理论，都至少需要一个 defect 场与一个有序度筛选场的双场结构；进一步的发展很可能要求向量值赋值或 bundle-like observables。
+\end{conjecture}
+
+\begin{question}
+若把 AEG 热力学草稿中的形式对应
+\begin{equation}
+(S,V;U,T,p)=(v,-u;a,\lambda a,\mu)
+\end{equation}
+引入本问题，那么此处的 $a$ 应被解释为 defect potential、barrier proxy，还是某种 coarse-grained free-energy surrogate？这一步目前仍是开放的，需要谨慎区分“形式一致”与“物理同一”。
+\end{question}
+
+\section{实验方案}
+
+\subsection{实验目标}
+
+实验的目标不是简单复述 original ideal-glass 论文的数值结果，而是检验以下三件事：
+\begin{enumerate}
+    \item $a_C$、$a_G$、$q_{\mathrm{am}}$ 是否能把 conventional、radii-minimized、triangulated、crystal 四类状态清晰分开；
+    \item $\tau_{\IG}$ 是否能稳定刻画协议顺序的不可交换性；
+    \item 这些 AEG 量是否对 $\phi_J, K, G, D(\omega), \tilde\chi(k), T_m, \phi_m$ 等物理可观测量具有预测力。
+\end{enumerate}
+
+\subsection{系统设定}
+
+建议首先尽量沿用 original protocol 的数值设定：
+\begin{itemize}
+    \item 二维周期边界；
+    \item 对数正态半径分布；
+    \item 初始多分散度约 $20\%$；
+    \item 初始 packing fraction 约 $\phi=0.915$；
+    \item 软球 harmonic interaction；
+    \item 先做 positions+radii 的最小化得到 nearly triangulated state；
+    \item 再由 radical Delaunay 图与边约束求解得到 fully triangulated final state。
+\end{itemize}
+
+系统大小建议取
+\begin{equation}
+N\in\{256,512,1024,2048,4096,8192\}.
+\end{equation}
+第一轮扫描可先做到 $N\le 2048$，待协议信号明确后再放大到 $N=4096,8192$ 做有限尺度分析。每个 $N$ 至少取 $20$ 个独立随机 seed；若资源允许，则建议做到 $50$ 个 seed 以获得更稳健的协议比较。
+
+\subsection{协议族}
+
+为检验 AEG 预言，建议比较以下六类协议：
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.13\textwidth} >{\raggedright\arraybackslash}p{0.79\textwidth}}
+\toprule
+协议 & 含义 \\
+\midrule
+\endfirsthead
+\toprule
+协议 & 含义 \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+$P_0$ & Conventional baseline：固定半径，只做位置最小化，得到普通 jammed packing。\\
+$P_1$ & Radii-minimized baseline：允许半径自由度，但不做最终 triangulation 约束，只取 nearly triangulated inherent state。\\
+$P_2$ & Paper triangulated protocol：尽量按原文实施 radical Delaunay + 约束求解，得到 fully triangulated final state。\\
+$P_3$ & Scale $\to$ Repair：先执行总体尺度变化，再执行 defect repair。\\
+$P_4$ & Repair $\to$ Scale：与 $P_3$ 保持总尺度变化和总 repair 预算相同，但把顺序调换。\\
+$P_5$ & Interleaved micro-steps：将总操作拆成许多小步交错执行，以检验 $\tau_{\IG}$ 的连续极限稳定性。\\
+$P_6$ & Reverse from ideal：从 ideal-like triangulated state 出发，系统注入缺陷，反向扫描其附近 landscape。\\
+\end{longtable}
+
+其中 $P_3/P_4$ 是检验局部顺序效应与全局协议挠率的核心对照组；$P_6$ 则有助于从 ideal 边界向外扫描，从而辨认 $(a_C,a_G,q_{\mathrm{am}})$ 的相图结构。
+
+\subsection{记录量与数据结构}
+
+对每个被记录的中间态 $t$，计算并存储以下量：
+\begin{equation}
+\mu_g(t)=\frac{m(t)}{N},
+\qquad
+z(t)=\frac{2m(t)}{N},
+\qquad
+a_C(t)=3-\mu_g(t)=\frac{6-z(t)}{2},
+\end{equation}
+以及
+\begin{equation}
+a_G(t)=\left(\frac{1}{|E_t|}\sum_{e\in E_t} g_e(t)^2\right)^{1/2}.
+\end{equation}
+
+尺度变量定义为
+\begin{equation}
+v_t := \log \ell_t,
+\end{equation}
+其中 $\ell_t$ 可取 simulation cell 的等效线性尺度，例如
+\begin{equation}
+\ell_t := \sqrt{\det \Lambda_t}^{\,1/2}
+\end{equation}
+或任何与面积等价的单调尺度。随后定义
+\begin{equation}
+\Delta M_t:=2(v_t-v_{t-1}),
+\qquad
+r_t:=a_G(t)-\ee^{\Delta M_t}a_G(t-1),
+\end{equation}
+并由此得到
+\begin{equation}
+A_t:=\sum_{s\le t} r_s,
+\qquad
+M_t:=\sum_{s\le t}\Delta M_s.
+\end{equation}
+在离散记录下，$\tau_{\IG}$ 可用如下和式近似：
+\begin{equation}
+\tau_{\IG}^{\mathrm{disc}}
+:=\sum_{t=1}^{T} \ee^{M_{t-1}}\bigl(A_t-A_{t-1}\bigr).
+\end{equation}
+若需要消除参数化依赖，也可同时保存基于闭合多边形的有向面积版本。
+
+除 AEG 变量外，还应测量以下结构与物理量：
+\begin{equation}
+\phi_J,\qquad K(P),\qquad G(P),\qquad D(\omega),\qquad \tilde\chi(k\to 0),
+\end{equation}
+以及
+\begin{equation}
+C_6(r),\qquad \tau_{\tr}(N),\qquad T_m,\qquad \phi_m.
+\end{equation}
+这些量与 original ideal-glass 论文中的判据一致，便于将 AEG 量与已知物理指标直接比对。
+
+\subsection{判据与统计分析}
+
+\paragraph{判据 A：零边界判据.}
+若某协议确实逼近 ideal amorphous 边界，则应同时满足
+\begin{equation}
+a_C\to 0,
+\qquad
+a_G\to 0,
+\qquad
+\xi_6<\infty,
+\qquad
+\beta_{\tr}\approx 0.
+\end{equation}
+也就是说，它必须“零缺陷但不结晶”。
+
+\paragraph{判据 B：协议几何判据.}
+在同一初值、同一总尺度变化、同一总 repair 预算下，比较 $P_3$ 与 $P_4$。若稳定观察到
+\begin{equation}
+a_G^{\mathrm{final}}(P_4) < a_G^{\mathrm{final}}(P_3),
+\end{equation}
+并且这一差值与 $\tau_{\IG}$ 的符号或大小显著相关，则 AEG 的顺序效应得到了直接支持。
+
+\paragraph{判据 C：可观测量关联判据.}
+以 seed 为匹配单位，对每个观测量 $O$ 进行回归，例如
+\begin{equation}
+O = \beta_0 + \beta_1 a_G + \beta_2 a_C + \beta_3 \frac{\tau_{\IG}}{N}
++ \beta_4 \xi_6 + \beta_5 \beta_{\tr} + \varepsilon,
+\end{equation}
+其中 $O$ 依次取
+\begin{equation}
+\phi_J,\ K_0,\ G_0,\ \tilde\chi_0,\ T_m,\ \phi_m.
+\end{equation}
+若 $\beta_1,\beta_2,\beta_3$ 稳定非零，则说明 AEG 量具有超出“叙述性标签”的预测价值。
+
+\paragraph{判据 D：有限尺度判据.}
+对不同 $N$ 检查
+\begin{equation}
+a_C(N),\qquad a_G(N),\qquad \tau_{\IG}(N)/N,
+\end{equation}
+是否趋于稳定极限。若某类协议在有限尺度放大后信号衰减迅速，则需谨慎判断其是否只是小系统效应。
+
+\subsection{最小实现流程}
+
+建议把第一轮实验压缩为以下流水线：
+\begin{enumerate}
+    \item 对每个 $N$ 与每个 seed 采样半径分布并生成随机初值；
+    \item 生成 $P_0,P_1,P_2$ 三条基线协议；
+    \item 在固定总量约束下生成 $P_3,P_4,P_5,P_6$ 四类变体；
+    \item 在每个记录时刻构造接触图，计算 $a_C,a_G,\Delta M_t,r_t,A_t,M_t,\tau_{\IG}$；
+    \item 对最终态计算 $\phi_J,K,G,D(\omega),\tilde\chi(k),C_6(r),\tau_{\tr}(N)$；
+    \item 在代表性样本上补做 thermal / hard-particle 模拟，以估计 $T_m,\phi_m$；
+    \item 汇总数据，进行 matched-pair comparison、有限尺度分析与多元回归。
+\end{enumerate}
+
+第一轮最值得优先执行的，不是全部观测量，而是以下四项：
+\begin{enumerate}
+    \item 复现 $P_0/P_1/P_2$ 的层次关系，确认 $a_C,a_G,\phi_J$ 的排序方向；
+    \item 做 $P_3/P_4$ 的顺序交换实验，直接测试局部 torsion 预言；
+    \item 在 $N=1024,2048,4096$ 上测 $C_6(r)$ 与 $\tau_{\tr}(N)$，建立 $q_{\mathrm{am}}$；
+    \item 在少量代表态上测 $K,G,\tilde\chi(k)$，检验 AEG 量对结构/力学量的预测力。
+\end{enumerate}
+
+\subsection{结语}
+
+这套方案的核心优点在于：它并不要求 AEG 立即给出完整玻璃热力学，而是先要求它在一个更朴素也更可检验的问题上站住脚：\emph{协议顺序是否具有稳定、可测、可预言的几何后果？} 若答案为是，则 AEG 至少在 ideal glass 问题上建立了一个真正可工作的中层框架；若答案为否，则当前模型中的 defect 选取、ACS 编码或非晶筛选方式仍需重构。
+
+\begin{thebibliography}{99}
+
+\bibitem{IG2024}
+T. Bolton-Lum, M. R. Dennis, P. K. Morse, and E. I. Corwin,
+\emph{The Ideal Glass and the Ideal Disk Packing in Two Dimensions},
+arXiv:2404.07492.
+
+\bibitem{AEGManuscript}
+Arithmetic Expression Geometry manuscript,
+working note supplied by the user in the present project.
+
+\bibitem{AEGThermal}
+AEG thermodynamics working note,
+working note supplied by the user in the present project.
+
+\end{thebibliography}
+
+\end{document}
