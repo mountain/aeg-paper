@@ -1,0 +1,708 @@
+The quadratic family of Section~\ref{sec:polynomial-threaded-carriers}
+shows that one polynomial can define both a real carrier and a finite complex
+thread.  Its two-strand monodromy is nevertheless abelian.  This section studies
+the first example in which the same mechanism has genuinely noncommutative
+range.  The point is not the degree six by itself.  It is the coexistence of
+three polynomial layers:
+\begin{equation}
+ P(x),
+ \qquad
+ P(x)-t,
+ \qquad
+ Q_P(t):=6^{-6}\operatorname{disc}_x(P(x)-t).
+ \label{eq:sextic-three-polynomial-layers}
+\end{equation}
+The first is a spatial polynomial, the second relates its slices, and the third
+records exactly where those slices become singular.  Passing from $P$ to $Q_P$
+extracts the event schedule while forgetting how the six sheets are attached.
+
+All Lyashko--Looijenga, braid, Birman--Hilden, Picard--Lefschetz, and
+Galois-theoretic inputs in this section are classical.  The purpose here is to
+put them in one auditable AEG example and to identify precisely which
+information each passage retains or forgets.  No claim is made that AEG
+created those classical monodromy theorems.
+
+\subsection{The event polynomial and a 1296-sheet forgetting map}
+
+Let
+\begin{align}
+ \mathcal P_6^{\mathrm{mc}}
+ &=\left\{
+ x^6+a_2x^4+a_3x^3+a_4x^2+a_5x+a_6
+ \right\}\cong\C^5,
+ \label{eq:monic-centered-sextic-space}\\
+ \mathcal Q_5
+ &=\left\{
+ t^5+b_1t^4+b_2t^3+b_3t^2+b_4t+b_5
+ \right\}\cong\C^5.
+ \label{eq:monic-quintic-event-space}
+\end{align}
+The superscript $\mathrm{mc}$ means monic with vanishing $x^5$ coefficient;
+it does not remove the constant term.  For $P\in\mathcal P_6^{\mathrm{mc}}$,
+define
+\begin{equation}
+ \operatorname{LL}_6(P)=Q_P(t)
+ :=6^{-6}\operatorname{disc}_x(P(x)-t).
+ \label{eq:sextic-ll-map}
+\end{equation}
+If $c_1,\ldots,c_5$ are the critical points of $P$, counted with
+multiplicity, then the resultant identity gives
+\begin{equation}
+ Q_P(t)=\prod_{i=1}^5\bigl(t-P(c_i)\bigr).
+ \label{eq:event-polynomial-critical-values}
+\end{equation}
+Thus $Q_P$ is the monic polynomial of critical values.  Let
+\begin{equation}
+ \mathcal U_5
+ =\{Q\in\mathcal Q_5:\operatorname{disc}_tQ\ne0\},
+ \qquad
+ \mathcal P_6^\circ=\operatorname{LL}_6^{-1}(\mathcal U_5).
+ \label{eq:ll-regular-loci}
+\end{equation}
+
+The completely explicit basepoint is
+\begin{equation}
+ P_0(x)=x^6-x.
+ \label{eq:sextic-base-polynomial}
+\end{equation}
+Write $\zeta=e^{2\pi i/5}$.
+
+\begin{theorem}[The sextic event schedule and its LL fiber]
+\label{thm:sextic-ll-event-schedule}
+The following statements hold.
+\begin{enumerate}
+\item The critical points and critical values of $P_0$ are
+  \begin{equation}
+   c_k=6^{-1/5}\zeta^k,
+   \qquad
+   v_k=P_0(c_k)=-5\,6^{-6/5}\zeta^k,
+   \qquad k\in\Z/5\Z.
+   \label{eq:sextic-critical-points-values}
+  \end{equation}
+  They are simple and pairwise distinct, and
+  \begin{equation}
+   \operatorname{disc}_x(x^6-x-t)=6^6t^5+5^5,
+   \qquad
+   Q_0(t)=t^5+\frac{5^5}{6^6}.
+   \label{eq:sextic-explicit-discriminant}
+  \end{equation}
+\item The restriction
+  \begin{equation}
+   \operatorname{LL}_6:\mathcal P_6^\circ\longrightarrow\mathcal U_5
+   \label{eq:sextic-ll-etale-cover}
+  \end{equation}
+  is a finite \`etale covering of degree
+  \begin{equation}
+   6^{6-2}=6^4=1296.
+   \label{eq:sextic-ll-degree}
+  \end{equation}
+  Consequently the particular fiber
+  $\operatorname{LL}_6^{-1}(Q_0)$ consists of exactly $1296$ reduced points.
+\item The group $\mu_6$ acts freely on $\mathcal P_6^\circ$ over
+  $\mathcal U_5$ by
+  \begin{equation}
+   (\xi\cdot P)(x)=P(\xi x),
+   \qquad \xi^6=1.
+   \label{eq:sextic-source-rotation-action}
+  \end{equation}
+  Hence the $1296$ coordinate-normalized lifts form $216$ orbits under the
+  residual source-coordinate rotations.  This is the first quotient by the
+  allowed source reparametrizations at fixed target; it is still not a count
+  of pairwise nonisomorphic genus-two curves.  In particular, $1296$ is not a
+  count of pairwise nonisomorphic curves or polynomial covers.
+\item After choosing a base fiber labeling and distinguished paths to the five
+  critical values, every LL lift determines a reduced factorization of a fixed
+  six-cycle into five transpositions.  There are $1296$ such factorizations;
+  the five transposition edges form a spanning tree on six labeled vertices.
+  This is a marked combinatorial description, not a canonical unlabeled tree
+  attached to $P$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+The equation $P_0'(c)=6c^5-1=0$ gives $c^5=1/6$, and then
+\begin{equation}
+ P_0(c)=c^6-c=\frac{c}{6}-c=-\frac56c.
+ \label{eq:sextic-critical-value-computation}
+\end{equation}
+Thus $v_k^5=-5^5/6^6$, proving the first formula and
+\eqref{eq:sextic-explicit-discriminant}.
+
+The finite covering statement and the degree $n^{n-2}$ for monic centered
+degree-$n$ polynomials are the classical Lyashko--Looijenga theorem
+\cite{Looijenga1974Bifurcation,Lyashko1984Bifurcation}.  For completeness, the
+degree is also visible from the weighted coordinates.  If $Q_P=t^5$, all
+critical values vanish; this forces $P=(x-r)^6$, and the missing $x^5$ term
+forces $r=0$.  Thus the quasihomogeneous LL map is finite.  The source coefficients
+$a_2,\ldots,a_6$ have weights $2,3,4,5,6$, whereas the five target coefficients
+have weights $6,12,18,24,30$.  Their product ratio is
+\begin{equation}
+ \frac{6\cdot12\cdot18\cdot24\cdot30}
+      {2\cdot3\cdot4\cdot5\cdot6}=1296.
+ \label{eq:sextic-ll-weighted-degree}
+\end{equation}
+At a polynomial with five distinct critical points, the differential of the
+ordered critical-value map sends a variation $\dot P\in\C[x]_{\le4}$ to
+$(\dot P(c_1),\ldots,\dot P(c_5))$.  This is a Vandermonde isomorphism, so the
+map is \`etale over $\mathcal U_5$.  Since $Q_0$ has five distinct roots, its
+fiber has the stated reduced cardinality.
+
+Equation \eqref{eq:sextic-source-rotation-action} preserves $Q_P$.  If a
+nontrivial $\xi$ fixes $P$, then $P$ is a polynomial in $x^r$ for
+$r=\operatorname{ord}(\xi)>1$.  Either zero is a degenerate critical point or
+distinct critical points share a critical value; hence such a $P$ does not lie
+in $\mathcal P_6^\circ$.  The action is therefore free there.  Finally, the
+factorization count is D\'enes' theorem
+\cite{Denes1959TranspositionFactorizations}; each factorization has a spanning
+tree as its edge graph.  The auxiliary ordering and labeling explain the last
+qualification.
+\end{proof}
+
+For $P_0$ itself the two pentagons have a simple geometric relation.  The six
+roots at $t=0$ are a central root and the fifth roots of unity, while each
+critical point lies on one of the five radial segments joining them.  The
+critical values form a smaller regular pentagon in the $t$-plane, rotated by
+$\pi$.
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}[scale=1.05,>=Stealth]
+  \begin{scope}[shift={(-3.15,0)}]
+    \node[font=\small\bfseries] at (0,2.0) {$x$-plane: roots and vanishing tree};
+    \fill (0,0) circle (2pt) node[below left] {$0$};
+    \foreach \k in {0,...,4} {
+      \coordinate (b\k) at ({1.55*cos(72*\k)},{1.55*sin(72*\k)});
+      \coordinate (c\k) at ({1.08*cos(72*\k)},{1.08*sin(72*\k)});
+      \draw[blue!55!black,thick] (0,0)--(b\k);
+      \fill (b\k) circle (2pt);
+      \fill[red!70!black] (c\k) circle (1.7pt);
+    }
+    \node[blue!55!black,font=\scriptsize] at (0,-1.93)
+      {five radial vanishing arcs};
+    \node[red!70!black,font=\scriptsize] at (0,-2.2)
+      {red points: $c_k$};
+  \end{scope}
+  \begin{scope}[shift={(3.15,0)}]
+    \node[font=\small\bfseries] at (0,2.0) {$t$-plane: event polynomial $Q_0$};
+    \draw[gray!55] (0,0) circle (1.25);
+    \foreach \k in {0,...,4} {
+      \coordinate (v\k) at ({1.25*cos(72*\k+180)},{1.25*sin(72*\k+180)});
+      \fill[red!70!black] (v\k) circle (2pt);
+      \draw[->,gray!55] (0,0)--(v\k);
+    }
+    \fill (0,0) circle (1.5pt) node[below left] {$t_*=0$};
+    \node[red!70!black,font=\scriptsize] at (0,-1.93)
+      {$Q_0(t)=0$ at the five $v_k$};
+  \end{scope}
+\end{tikzpicture}
+\caption{The explicit sextic calibration.  The left star records which two
+roots collide at each event; the right pentagon records when the events occur.
+The LL map retains the right-hand schedule and forgets the left-hand gluing
+data.}
+\label{fig:sextic-star-and-events}
+\end{figure}
+
+\subsection{A nested discriminant records events of events}
+
+The first discriminant produces $Q_P$.  Its value and its own discriminant
+then extract two further layers:
+\begin{equation}
+ Q_P(0)=6^{-6}\operatorname{disc}_xP,
+ \qquad
+ \Delta_{\mathrm{LL}}(P):=\operatorname{disc}_tQ_P.
+ \label{eq:sextic-nested-discriminants}
+\end{equation}
+The first equality detects whether the zero slice $P(x)=0$ has colliding roots.
+The second detects whether the event schedule itself has collided.
+
+Let $\mathcal C$ be the reduced caustic hypersurface on which $P'$ has a
+multiple root, and let $\mathcal M$ be the reduced Maxwell hypersurface on
+which two distinct critical points have the same critical value.  Choose
+reduced equations $C_6$ and $M_6$ for them.
+
+\begin{proposition}[The double-discriminant divisor]
+\label{prop:sextic-double-discriminant}
+There is a nonzero constant $\kappa$ such that
+\begin{equation}
+ \operatorname{disc}_tQ_P
+ =\kappa\,C_6(P)^3M_6(P)^2.
+ \label{eq:sextic-maxwell-caustic-factorization}
+\end{equation}
+Equivalently, the first divisor equality below holds.  Moreover, the
+ramification divisor is
+\begin{equation}
+ \operatorname{LL}_6^*(\text{target discriminant})
+ =3\mathcal C+2\mathcal M,
+ \qquad
+ R_{\operatorname{LL}_6}=2\mathcal C+\mathcal M.
+ \label{eq:sextic-ll-divisor-multiplicities}
+\end{equation}
+At a generic Maxwell point the pencil $y^2=P(x)-t$ has two nodes in one
+fiber.  At a generic caustic point it has a cusp modeled by $y^2=z^3$.
+For $P_0$, neither event occurs: its five singular spectral fibers each have
+exactly one node.
+\end{proposition}
+
+\begin{proof}
+Set-theoretically, two roots of $Q_P$ collide precisely when two distinct
+critical points share a value or when a critical point degenerates.  At a
+generic Maxwell point, the critical-value difference is a local parameter
+$u$, while the unordered target collision coordinate is its square $u^2$.
+At a generic caustic point the local polynomial is $z^3-uz$; its two critical
+values differ by a nonzero multiple of $u^{3/2}$, so their squared difference
+has order three.  These local models give the multiplicities two and three in
+\eqref{eq:sextic-maxwell-caustic-factorization}, and subtracting one gives the
+ramification multiplicities in \eqref{eq:sextic-ll-divisor-multiplicities}.
+This is the classical LL bifurcation calculation
+\cite{Looijenga1974Bifurcation,Lyashko1984Bifurcation}.
+
+For the pencil $y^2=P(x)-t$, a repeated critical value gives two distinct
+double roots at the same $t$, hence two nodes.  A double critical point gives
+the cubic local equation.  The explicit critical points in
+\eqref{eq:sextic-critical-points-values} are simple and their values are
+distinct, proving the last assertion.
+\end{proof}
+
+The scalar $\Delta_{\mathrm{LL}}$ forgets even more than $Q_P$: all $1296$
+points in an LL fiber have exactly the same $Q_P$ and the same second
+discriminant.  This makes the tower useful as an information filtration, but
+it cannot distinguish the realizations that it has forgotten.
+
+\subsection{The star generates every six-braid}
+
+At the regular parameter $t_*=0$ the roots of $P_0(x)-t_*$ are
+\begin{equation}
+ b_0=0,
+ \qquad
+ b_{k+1}=\zeta^k,
+ \qquad k=0,\ldots,4.
+ \label{eq:sextic-base-root-labels}
+\end{equation}
+Let $\gamma_k$ be the radial path from $0$ to $v_k$ in the $t$-plane, and let
+\begin{equation}
+ \alpha_k=\{r\zeta^k:0\le r\le1\}
+ \label{eq:sextic-star-vanishing-arcs}
+\end{equation}
+be the corresponding radial arc in the $x$-plane.
+
+\begin{theorem}[Full braid monodromy of one sextic pencil]
+\label{thm:sextic-full-braid-monodromy}
+Let $V=\{v_0,\ldots,v_4\}$.  The root monodromy of the single pencil
+$P_0(x)-t$ is a surjection
+\begin{equation}
+ \mu_{P_0}:\pi_1(\C\setminus V,0)\cong F_5
+ \twoheadrightarrow B_6.
+ \label{eq:sextic-root-monodromy-surjection}
+\end{equation}
+More precisely, a positive meridian about $v_k$ maps to the positive
+half-twist $h_k$ along $\alpha_k$, with permutation shadow
+$(0,k+1)$.  The five half-twists $h_0,\ldots,h_4$ generate $B_6$.
+\end{theorem}
+
+\begin{proof}
+Along the $k$th radial ray one has
+\begin{equation}
+ P_0(r\zeta^k)=\zeta^k(r^6-r).
+ \label{eq:sextic-radial-restriction}
+\end{equation}
+As $t$ moves from $0$ to $v_k$, the roots beginning at $0$ and $\zeta^k$
+therefore move along $\alpha_k$ and collide at $c_k$.  The critical point is
+simple, so Picard--Lefschetz local monodromy is the positive half-twist along
+that arc.  The five arcs form an embedded spanning star on the six roots.
+Half-twists along the edges of an embedded spanning tree generate the braid
+group: conjugating one star half-twist by another produces a half-twist between
+two outer vertices, from which a standard Artin chain is obtained
+\cite[Chapter~1]{Birman1974Braids}.  Hence the image is all of $B_6$.
+\end{proof}
+
+This is the first nonabelian universality statement in the paper that is
+generated by one fixed displayed polynomial rather than by an arbitrary
+supplied polynomial family.  Every six-braid occurs as the root transport of
+some loop in the five-punctured $t$-plane.  Closing that braid can realize every
+link of braid index at most six, but closure and Markov stabilization remain
+external topological operations; the theorem itself is a statement about
+embedded root transport.
+
+\subsection{One loop, four compatible geometric readings}
+
+Let $\gamma:S^1\to\C\setminus V$ be a smooth loop.  The same expression
+\begin{equation}
+ \mathcal P_\gamma(x,s)=P_0(x)-\gamma(s)
+ \label{eq:sextic-loop-polynomial}
+\end{equation}
+has four related zero objects:
+\begin{align}
+ A_\gamma(x,s)&=\im\mathcal P_\gamma(x,s),
+ &\Sigma_\gamma&=A_\gamma^{-1}(0),
+ \label{eq:sextic-real-carrier}\\
+ K_\gamma&=\mathcal P_\gamma^{-1}(0)\subset\Sigma_\gamma,
+ &C_s&:\ y^2=\mathcal P_\gamma(x,s).
+ \label{eq:sextic-thread-spectral-curve}
+\end{align}
+
+\begin{proposition}[Carrier, thread, and spectral mapping torus]
+\label{prop:sextic-carrier-thread-spectral}
+Assume that $\gamma$ meets each horizontal wall
+\begin{equation}
+ \{t\in\C:\im t=\im v_k\}
+ \label{eq:sextic-real-critical-walls}
+\end{equation}
+transversely whenever it meets it.  Then:
+\begin{enumerate}
+\item $K_\gamma\to S^1$ is a square-free six-sheet thread contained in
+  $\Sigma_\gamma$, and its braid is $\mu_{P_0}([\gamma])$.
+\item The projection $\Sigma_\gamma\to S^1$ is critical exactly at
+  $(c_k,s)$ with $\im(v_k-\gamma(s))=0$.  Each such point is a saddle
+  reconnection.  These real carrier events are wall crossings, not collisions
+  of the six roots.
+\item On the complement of the five spatial critical points, every slice is a
+  singular AES with
+  \begin{equation}
+   g_s=
+   \frac{|6x^5-1|^2}
+        {\mu^2+\lambda^2A_\gamma(x,s)^2}|\dd x|^2.
+   \label{eq:sextic-aeg-slice-metric}
+  \end{equation}
+\item Let $D\subset\C$ be a disc containing the six roots throughout the
+  loop.  The double cover of $D\times S^1$ branched over $K_\gamma$ is the
+  mapping torus of the Birman--Hilden lift of
+  $\mu_{P_0}([\gamma])$ to the genus-two surface with two boundary
+  components.  Capping the two boundary components gives the mapping torus of
+  the compact genus-two spectral monodromy.  This filling is along the two
+  fiber-boundary slopes; downstairs it fills $D\times S^1$ to
+  $S^2\times S^1$, not to the ordinary $S^3$ braid closure.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Because $\gamma$ avoids $V$, every root of $P_0(x)-\gamma(s)$ is simple;
+Proposition~\ref{prop:polynomial-carrier-thread} gives the finite thread and
+identifies the vertical critical points of the carrier.  A simple holomorphic
+critical point has local imaginary part equivalent to $\im(z^2)$, so a
+transverse parameter wall crossing gives a Morse saddle.  The metric is the
+specialization of \eqref{eq:polynomial-carrier-aeg-metric}.
+
+The double cover of a disc branched at six points has Euler characteristic
+$2\chi(D)-6=-4$ and two boundary components, hence it is $\Sigma_{2,2}$.
+Transporting this cover around $\gamma$ gives exactly the mapping torus of the
+lifted root braid.  Capping the two boundary circles compactifies
+$y^2=P_0(x)-\gamma(s)$ by its two points over infinity and fills the two
+boundary tori by $D^2\times S^1$ along the fiber-boundary slopes.
+\end{proof}
+
+The distinction in item~(2) is essential.  The spectral curve becomes nodal
+only at the point event $\gamma(s)=v_k$.  A loop avoiding $v_k$ can nevertheless
+cross its horizontal wall twice, producing two real carrier saddles, and can
+wind around $v_k$, producing nontrivial root and spectral monodromy.  The same
+event polynomial controls all three phenomena, but they are different strata.
+
+\subsection{Genus two sees the full mapping class and symplectic groups}
+
+Let $q:\Sigma_{2,2}\to D$ be the double cover branched at the six roots in
+\eqref{eq:sextic-base-root-labels}.  The lift of $\alpha_k$ is a simple closed
+curve $d_k=q^{-1}(\alpha_k)$, and the half-twist $h_k$ lifts to the right Dehn
+twist $T_{d_k}$.
+
+\begin{theorem}[Full genus-two and Gauss--Manin monodromy]
+\label{thm:sextic-full-genus-two-monodromy}
+The sextic pencil has the following monodromy filtration.
+\begin{equation}
+ F_5\twoheadrightarrow B_6
+ \hookrightarrow\operatorname{Mod}(\Sigma_{2,2};\partial)
+ \longrightarrow\operatorname{Mod}(\Sigma_2)
+ \longrightarrow\operatorname{Sp}_4(\Z)
+ \longrightarrow\operatorname{Sp}_4(\F_2)\cong S_6.
+ \label{eq:sextic-monodromy-filtration}
+\end{equation}
+The first arrow is Theorem~\ref{thm:sextic-full-braid-monodromy}; the second is
+the Birman--Hilden injection.  After capping the boundary, the composite
+\begin{equation}
+ F_5\twoheadrightarrow\operatorname{Mod}(\Sigma_2)
+ \label{eq:sextic-full-mapping-class-surjection}
+\end{equation}
+is surjective.  The integral Gauss--Manin image of the pencil is all of
+$\operatorname{Sp}_4(\Z)$.  Modulo two, the symplectic action is exactly the
+root permutation, so there is an exact sequence
+\begin{equation}
+ 1\longrightarrow PB_6\longrightarrow B_6
+ \longrightarrow\operatorname{Sp}_4(\F_2)\cong S_6
+ \longrightarrow1.
+ \label{eq:sextic-mod-two-forgetting-sequence}
+\end{equation}
+The compactified family first retains the two distinguished points
+$p_+,p_-$ over infinity.  Passing to the displayed unmarked mapping class group
+forgets them.  The kernel of the closed-surface map from $B_6$ is strictly
+larger than its center; in particular no isomorphism
+$B_6/Z(B_6)\cong\operatorname{Mod}(\Sigma_2)$ is asserted.
+\end{theorem}
+
+\begin{proof}
+The Birman--Hilden lifting theorem gives the injection for a double branched
+cover of the disc and sends half-twists to Dehn twists
+\cite{BirmanHilden1973Isotopies}.  The star half-twists generate all of $B_6$,
+so their image contains the lifts of a standard Artin chain.  After capping,
+those standard chain twists generate the full genus-two mapping class group;
+equivalently, every genus-two mapping class is hyperelliptic.  The classical
+integral symplectic representation of these twists is surjective onto
+$\operatorname{Sp}_4(\Z)$
+\cite{ACampo1979Tresses}.  Finally, the standard model
+\begin{equation}
+ H_1(\Sigma_2;\F_2)
+ \cong
+ \left\{(z_0,\ldots,z_5)\in\F_2^6:\sum z_i=0\right\}
+ \big/\langle(1,\ldots,1)\rangle
+ \label{eq:genus-two-mod-two-root-model}
+\end{equation}
+identifies a half-twist with the transvection induced by the corresponding
+root transposition.  This realizes the exceptional isomorphism
+$\operatorname{Sp}_4(\F_2)\cong S_6$ and proves
+\eqref{eq:sextic-mod-two-forgetting-sequence}.
+\end{proof}
+
+Thus one sparse integral pencil realizes every genus-two mapping class, and
+therefore periodic, reducible, and pseudo-Anosov monodromies all occur.  The
+smooth fibers are still all homeomorphic to one genus-two surface.  The
+diversity lies in gluing histories and their three-dimensional mapping tori,
+not in a changing fiber genus.
+
+As a concrete dynamical witness, the braid
+\begin{equation}
+ \beta=\sigma_1\sigma_3\sigma_5\sigma_2^{-1}\sigma_4^{-3}
+ \label{eq:sextic-penner-witness-braid}
+\end{equation}
+is realized by some loop in $\C\setminus V$.  Its lift is the product of
+positive twists on the odd curves of the standard five-chain and negative
+twists on the even curves, with every component represented.  Penner's
+criterion therefore makes it pseudo-Anosov
+\cite{Penner1988PseudoAnosov}.  In the standard symplectic representation its
+matrix, in the Digne--Kassel symplectic basis with column-vector convention
+\cite{DigneKassel2023SymplecticSteinberg}, is
+\begin{equation}
+ M_\beta=
+ \begin{pmatrix}
+ 3&-3&2&-1\\
+ -1&7&-1&2\\
+ 1&0&1&0\\
+ 0&3&0&1
+ \end{pmatrix}
+ \in\operatorname{Sp}_4(\Z)
+ \label{eq:sextic-penner-homological-matrix}
+\end{equation}
+Its characteristic polynomial is
+\begin{equation}
+ X^4-12X^3+31X^2-12X+1,
+ \label{eq:sextic-penner-homological-polynomial}
+\end{equation}
+which is irreducible over $\Q$: after division by $X^2$ and the substitution
+$Y=X+X^{-1}$ it becomes $Y^2-12Y+29$, whose discriminant is $28$.
+The alternative product of two monic quadratics with constant terms $-1$
+has opposite $X^3$ and $X$ coefficients, and $X=\pm1$ is not a root, so no
+other rational factorization occurs.
+Reversing braid or action conventions replaces the matrix by an inverse,
+transpose, or conjugate without changing this reciprocal characteristic
+polynomial.  This polynomial is a homological shadow; its
+spectral radius is only a lower bound for the pseudo-Anosov dilatation unless
+orientability of the invariant foliations is separately proved.
+
+\subsection{The exact interface between the two braid layers}
+
+There are two different fundamental groups in the example.  Moving the five
+critical values gives $B_5$ and permutes the $1296$ LL sheets.  Holding $P$
+fixed and moving $t$ in the complement of its critical values gives $F_5$ and
+then a six-root braid.  There is no canonical homomorphism $B_5\to B_6$ joining
+these two statements.
+
+The correct common object is the mixed configuration space
+\begin{equation}
+ \mathcal U_{5,1}
+ =\{(Q,t)\in\mathcal U_5\times\C:Q(t)\ne0\}.
+ \label{eq:mixed-critical-value-configuration}
+\end{equation}
+Its fundamental group $B_{5,1}$ is the mixed braid group of five unordered
+critical values and one distinguished moving parameter, and it fits into
+\begin{equation}
+ 1\longrightarrow F_5\longrightarrow B_{5,1}
+ \longrightarrow B_5\longrightarrow1.
+ \label{eq:mixed-braid-exact-sequence}
+\end{equation}
+This is the Fadell--Neuwirth configuration-space exact sequence
+\cite{FadellNeuwirth1962ConfigurationSpaces}.
+Pull it back along $\operatorname{LL}_6$:
+\begin{equation}
+ \mathcal E_6^\circ
+ =\{(P,t)\in\mathcal P_6^\circ\times\C:Q_P(t)\ne0\}.
+ \label{eq:sextic-ll-moving-parameter-space}
+\end{equation}
+With compatible basepoints, put
+\begin{equation}
+ H_6=\pi_1(\mathcal P_6^\circ),
+ \qquad
+ G_6=\pi_1(\mathcal E_6^\circ).
+ \label{eq:sextic-two-monodromy-groups}
+\end{equation}
+Then the covering pullback gives the exact diagram
+\begin{equation}
+\begin{array}{ccccccccc}
+1&\longrightarrow&F_5&\longrightarrow&G_6&\longrightarrow&H_6&\longrightarrow&1\\
+ &&\Vert&&\downarrow&&\downarrow&&\\
+1&\longrightarrow&F_5&\longrightarrow&B_{5,1}&\longrightarrow&B_5&\longrightarrow&1,
+\end{array}
+\label{eq:sextic-two-braid-exact-diagram}
+\end{equation}
+where the two nonidentity vertical inclusions have index $1296$.  The root map
+\begin{equation}
+ \mathcal E_6^\circ\longrightarrow\UConf_6(\C),
+ \qquad
+ (P,t)\longmapsto P^{-1}(t),
+ \label{eq:sextic-root-configuration-map}
+\end{equation}
+induces $G_6\to B_6$, whose restriction to the vertical $F_5$ over $P_0$ is
+the surjection \eqref{eq:sextic-root-monodromy-surjection}.
+
+Indeed, $H_6\subset B_5$ is the subgroup corresponding to the connected
+$1296$-sheet LL cover, and
+$G_6=(B_{5,1}\to B_5)^{-1}(H_6)$.  Surjectivity of
+$B_{5,1}\to B_5$ gives
+$[B_{5,1}:G_6]=[B_5:H_6]=1296$ and the exact top row.
+
+Diagram \eqref{eq:sextic-two-braid-exact-diagram} is the precise
+slice-to-slice relation in this example.  The lower row remembers only a moving
+event schedule and a distinguished test value.  Its LL pullback remembers
+which sextic realization is being transported.  The root map then extracts a
+six-strand history.  A future AEG history functor would have to land in this
+pullback or an equivalent groupoid; attaching a $B_6$ word after forgetting the
+LL sheet would lose exactly the information at issue.
+
+\subsection{An arithmetic fiber with no hidden endomorphisms}
+
+The regular value $t=1$ gives the genus-two curve
+\begin{equation}
+ C_1:\quad y^2=x^6-x-1,
+ \qquad
+ J_1=\operatorname{Jac}(C_1).
+ \label{eq:sextic-arithmetic-fiber}
+\end{equation}
+
+\begin{proposition}[Arithmetic maximality of one fiber]
+\label{prop:sextic-arithmetic-maximality}
+The arithmetic fiber satisfies
+\begin{equation}
+ \operatorname{Gal}(x^6-x-1/\Q)\cong S_6,
+ \qquad
+ \operatorname{End}_{\overline\Q}(J_1)=\Z.
+ \label{eq:sextic-galois-endomorphism}
+\end{equation}
+Consequently $J_1$ is absolutely simple and has no complex multiplication.
+The Galois action on $J_1[2]$ has full image
+\begin{equation}
+ S_6\cong\operatorname{Sp}_4(\F_2).
+ \label{eq:sextic-arithmetic-two-torsion}
+\end{equation}
+This is the same finite target as the topological reduction in
+\eqref{eq:sextic-mod-two-forgetting-sequence}, although the arithmetic Galois
+action and a chosen topological loop are not thereby canonically identified
+element by element.
+\end{proposition}
+
+\begin{proof}
+Selmer proved the irreducibility of $x^n-x-1$ over $\Q$
+\cite{Selmer1956IrreducibleTrinomials}.  Osada's trinomial criterion applies
+to $n=6$ and gives the full symmetric Galois group
+\cite{Osada1987GaloisTrinomials}; here its coprimality condition reduces to
+$\gcd(5,6)=1$.  The discriminant is
+\begin{equation}
+ 6^6+5^5=49781=67\cdot743,
+ \label{eq:sextic-arithmetic-discriminant}
+\end{equation}
+so the fiber is smooth.  Zarhin's theorem for a hyperelliptic curve whose
+defining polynomial has Galois group $S_n$ or $A_n$ gives the geometric
+endomorphism ring $\Z$ in characteristic zero
+\cite{Zarhin2000HyperellipticJacobians}.  The six Weierstrass points give the
+standard faithful action of $S_6$ on the four-dimensional symplectic
+$2$-torsion module, yielding \eqref{eq:sextic-arithmetic-two-torsion}.
+\end{proof}
+
+Independently, the integral Gauss--Manin image in
+Theorem~\ref{thm:sextic-full-genus-two-monodromy} is maximal, and one
+rational fiber has maximal mod-two arithmetic image and minimal possible
+geometric endomorphism ring.  This does not identify arithmetic Frobenius with
+topological monodromy without a comparison path and basepoint.  It says instead
+that neither side is made rich by an accidental extra symmetry of the chosen
+Jacobian.
+
+\subsection{What the conjunction proves, and the next falsifiable experiment}
+
+The strongest proved conclusion is not that one has listed many familiar
+objects.  It is the following conjunction for one sparse integral pencil:
+\begin{equation}
+ \boxed{
+ \begin{gathered}
+ Q_0(t)=6^{-6}\operatorname{disc}_x(x^6-x-t)
+ \text{ gives all singular parameter values},\\
+ \pi_1(\C\setminus V)\twoheadrightarrow B_6
+ \twoheadrightarrow\operatorname{Mod}(\Sigma_2),\\
+ \operatorname{im}\rho_{\mathrm{GM}}=\operatorname{Sp}_4(\Z),
+ \qquad
+ \operatorname{Gal}(x^6-x-1)=S_6,\\
+ A_\gamma=\im(P_0-\gamma)
+ \text{ and }K_\gamma=(P_0-\gamma)^{-1}(0)
+ \text{ are one carrier--thread pair.}
+ \end{gathered}}
+ \label{eq:sextic-conjunction}
+\end{equation}
+It realizes the carrier--thread--spectral part of the original tube intuition:
+one polynomial relation between slices supports all six-braids and all
+genus-two gluings while its real part undergoes controlled saddle
+reconnections.  It does not produce a proper zero tube, and it does not yet
+validate arithmetic-history naturality.  The loop $\gamma$, or the LL sheet
+$P$, has not yet been forced by a typed add--multiply history.
+
+The finite LL fiber makes that missing naturality test concrete.
+
+\begin{problem}[The LL--Igusa twin test]
+\label{prob:ll-igusa-twin-test}
+Solve the finite system
+\begin{equation}
+ 6^{-6}\operatorname{disc}_x(P(x)-t)
+ =t^5+\frac{5^5}{6^6}
+ \label{eq:ll-igusa-finite-system}
+\end{equation}
+for the $1296$ monic centered sextics, first quotienting the explicit $\mu_6$
+source rotations.  At the common regular value $t=1$, compare
+\begin{equation}
+ C_{P,1}:y^2=P(x)-1
+ \label{eq:ll-igusa-fiber-curves}
+\end{equation}
+and determine whether two LL sheets with the same $Q_0$ give distinct
+genus-two moduli points.  Compare their weighted-projective Igusa--Clebsch points
+$[I_2:I_4:I_6:I_{10}]$ \cite{Igusa1960ArithmeticVariety}; only on a chart where the chosen denominators are
+nonzero should these be replaced by absolute affine invariants.  For any such
+pair, place both polynomials in a common number field $K$, compare Frobenius
+characteristic polynomials at the same primes
+$\mathfrak p\subset\mathcal O_K$ where both have good
+reduction, and, after a complex embedding, compare reduced Siegel period
+matrices.  A difference at one good prime distinguishes the local arithmetic
+readings; agreement at finitely many primes is not an isomorphism proof.
+
+A stronger marked test first fixes a common ordering of the five critical
+values, a distinguished meridian path system, and a homology marking, then
+groups the LL sheets by simultaneous conjugacy of their five local
+$\operatorname{Sp}_4(\Z)$ transvections and searches inside one group for
+different Igusa points.  A coordinate-free version must additionally quotient
+by the Hurwitz action on the meridian system.  Success would prove that
+even
+\begin{equation}
+ Q_P+\text{coarse homological monodromy}
+ \label{eq:ll-igusa-strong-forgetting-test}
+\end{equation}
+does not recover the geometry that $P\mapsto Q_P$ forgets.  Until this
+calculation is done, the $1296$ sheets must not be described as $1296$
+nonisomorphic curves.
+\end{problem}
+
+This problem is deliberately narrower than a general history-to-divisor
+theory.  It asks first whether one completely explicit forgetting map has a
+geometric, arithmetic, and analytic kernel that can be measured in three
+complementary, layer-specific ways.  A positive answer would produce the requested profound
+example; a negative or highly collapsed answer would show exactly how much of
+the original tube intuition still needs a stronger carrier.
