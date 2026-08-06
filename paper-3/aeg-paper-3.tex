@@ -1,0 +1,164 @@
+% Canonical entry point for Arithmetic Expression Geometry III.
+\documentclass[11pt]{article}
+
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,decorations.pathreplacing,decorations.markings}
+\usepackage{url}
+\usepackage[
+  colorlinks=true,
+  linkcolor=blue!45!black,
+  citecolor=green!35!black,
+  urlcolor=blue!55!black,
+  pdfencoding=auto
+]{hyperref}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{convention}[theorem]{Convention}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{warning}[theorem]{Warning}
+\newtheorem{problem}[theorem]{Open problem}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\dd}{\,\mathrm{d}}
+\newcommand{\AEG}{\mathrm{AEG}}
+\newcommand{\Crit}{\operatorname{Crit}}
+\newcommand{\Conf}{\operatorname{Conf}}
+\newcommand{\UConf}{\operatorname{UConf}}
+\newcommand{\ord}{\operatorname{ord}}
+\newcommand{\Aff}{\operatorname{Aff}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\pr}{\operatorname{pr}}
+\newcommand{\im}{\operatorname{Im}}
+\newcommand{\re}{\operatorname{Re}}
+\newcommand{\calZ}{\mathcal Z}
+\newcommand{\calR}{\mathcal R}
+\newcommand{\calD}{\mathcal D}
+\newcommand{\sfP}{\mathcal P^{\mathrm{sf}}}
+
+\title{\textbf{Arithmetic Expression Geometry III:\\Singular Zero Geometry and Tubes}\\[0.45em]
+\large Multi-Zero Constructions, Discriminants, and Topological Transport}
+
+\author{
+Mingli Yuan\\
+Swarma Research\\
+Beijing 100083, China
+}
+
+\date{August 6, 2026\\[0.25em]
+\small Mathematical-review manuscript}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Arithmetic expression geometry associates a real assignment to an oriented
+Riemannian surface and imposes the eikonal identity
+$|\nabla a|_g^2=\mu^2+\lambda^2a^2$, with $\mu\ne0$.  Its regular zeros are
+curves, not isolated roots.  This paper develops the singular and parameterized
+zero geometry needed to turn those curves into genuine tubes, while separating
+them from the finite-root braids carried by complex-valued fields.
+
+We first prove a conformal realization theorem: every smooth submersion on a
+surface becomes a regular arithmetic expression space after an explicit metric
+rescaling.  This yields verified models with any prescribed finite number of
+parallel zero components and a logarithmic-cover model with countably many lifted
+sheets.  A rank-$r$ parameterized zero-section theorem then gives the exact
+transversality and properness hypotheses under which a zero incidence is a smooth
+fiber bundle.  For real assignments over a circle with globally oriented vertical
+tangent bundle, every compact boundaryless proper zero tube is a union of tori.  An
+explicit helical family computes its
+component permutation, mapping-torus decomposition, logarithmic deck shifts, and
+torus-link traces.
+
+Topology change is confined to a discriminant.  Conformal Morse families realize
+birth/death and reconnection in the singular category; the complex model
+$w^2=\tau$ instead describes a branched filling whose boundary is a regular
+half-twist.  Using the arithmetic-holomorphic coordinate of Paper II, every braid
+is realized by a square-free polynomial root family.  Finally, affine conjugation
+recovers an Alexander quandle.  Its ordinary torsion cocycle is exact, whereas a
+finite-field resonant twisted version represents a nonzero twisted cohomology
+class.  Nevertheless, we prove that its standard state sum for every planar
+classical link collapses to the Alexander-quandle coloring count.  Thus it is not
+evidence of a new invariant beyond Alexander or Burau.  Thread selection,
+Markov-normalized AEG decorations, and any stronger separation theorem remain open.
+\end{abstract}
+
+\noindent\textbf{Keywords:}
+arithmetic expression geometry; zero set; singularity; fiber bundle; braid group;
+logarithmic covering; twisted quandle cohomology; knot invariant
+
+\setcounter{tocdepth}{2}
+\tableofcontents
+\newpage
+
+\section{Singular AEG and the hierarchy of zero objects}
+\label{sec:singular-aeg}
+\input{sections/01-singular-aes.tex}
+
+\section{Local zero models and conformal realization}
+\label{sec:local-zero-models}
+\input{sections/02-local-zero-models.tex}
+
+\section{Multi-zero and logarithmic constructions}
+\label{sec:multi-zero}
+\input{sections/03-multi-zero-constructions.tex}
+
+\section{Parameterized incidence and discriminants}
+\label{sec:discriminants}
+\input{sections/04-parameter-discriminants.tex}
+
+\section{Proper zero tubes}
+\label{sec:regular-tubes}
+\input{sections/05-regular-tubes.tex}
+
+\section{Singular fibers and branched fillings}
+\label{sec:singular-fibers}
+\input{sections/06-singular-fibers.tex}
+
+\section{Complex roots, monodromy, and braids}
+\label{sec:braids}
+\input{sections/07-monodromy-and-braids.tex}
+
+\section{Threading, affine torsion, and the knot frontier}
+\label{sec:threading}
+\input{sections/08-threading-and-knot-questions.tex}
+
+\appendix
+
+\section{Metric, regularity, and properness calculations}
+\label{app:regularity}
+\input{appendices/app-A-regularity-and-properness.tex}
+
+\section{Configuration spaces, logarithmic lifts, and branch signs}
+\label{app:configuration}
+\input{appendices/app-B-configuration-and-braid-background.tex}
+
+\section{Affine and twisted-quandle calculations}
+\label{app:affine-quandle}
+\input{appendices/app-C-affine-quandle-calculations.tex}
+
+\bibliographystyle{plain}
+\bibliography{../aeg-paper}
+
+\end{document}

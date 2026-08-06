@@ -110,10 +110,9 @@ closure.
 
 - Source entry point: `paper-k/aeg-paper-k.tex`
 - Generated artifact: `paper-k/aeg-paper-k.pdf`
-- Current implementation: Papers I and II
-- Reserved future names: `paper-3/aeg-paper-3.tex` and
-  `paper-4/aeg-paper-4.tex`; no empty manuscript files are created before their
-  theorem sets stabilize
+- Current implementation: Papers I--III
+- Reserved future name: `paper-4/aeg-paper-4.tex`; no empty manuscript file is
+  created before its theorem set stabilizes
 
 ## Migration M-0003
 
@@ -155,3 +154,59 @@ closure.
   blocking formula or theorem defect after the trace-space summary was narrowed;
   the scope review confirmed the Paper I → Paper II dependency and no Paper III/IV
   leakage
+
+## Migration M-0004
+
+- **Date:** 2026-08-06
+- **Source:** the singular-zero and family interfaces in Paper I; the
+  arithmetic-holomorphic coordinate in Paper II; historical tube material in
+  `archive/paper4p/aeg.tex`; audited portions of `notes/note_02.tex`,
+  `notes/note_03.tex`, `notes/note_04.tex`, `notes/note_05.tex`,
+  `notes/note_08.tex`, `notes/note_11.tex`, `notes/loop_01.tex`, and
+  `notes/loop_02.tex`; knot calculations under `knots/` and
+  `misc/knot_4_1.tex`; the two subordinate Paper III discussions; and 249 commits
+  reachable from all refs in the local checkout
+- **Destination:** `paper-3/aeg-paper-3.tex`, eight files under
+  `paper-3/sections/`, three files under `paper-3/appendices/`, and the provenance
+  audit `restructure/paper-III-source-audit.md`
+- **Migration state:** CANONICAL / REDERIVED HERE; legacy, archived, knot, visual,
+  and discussion sources remain ARCHIVAL, HOLD, or MOTIVATION and are not active
+  TeX dependencies
+- **Negative provenance finding:** no verifiable general multi-zero AEG
+  construction, defined general `E_k`, or explicit historical AEG `E_log`
+  construction was found in the 249 reachable commit trees; current explicit
+  models are new derivations, not recovered theorems under those labels
+- **Claim treatment:** Paper I's regular-zero, singular-AES, incidence, and
+  properness interfaces are preserved; ambient families, zero incidences, proper
+  tubes, embedded tubes, threads, braid closures, and knot invariants are separated;
+  topology change includes nonproper and boundary mechanisms; knot claims stop at
+  the explicit Markov and choice-independence gate
+- **New constructions, all REDERIVED HERE:** conformal realization; cylindrical
+  and parallel multi-zero models; logarithmic zero lift; structural discriminant
+  and nonproper escape; proper real-zero and helical tubes; definite and indefinite
+  Morse families; the simple branch model; finite-root and logarithmic braid
+  transport; realization of every braid in the Paper II coordinate; finite zero
+  threads; the stateless-scalar, ordinary-exactness, resonant finite-field, planar
+  state-sum, and variable-multiplier obstruction calculations
+- **Historical calculations retained:** the HNN/Alexander linear system, selected
+  Fox and affine cocycle formulas, the figure-eight free-word computation, and the
+  6_2/6_3/7_6 tables, each only with the limitations and reproducibility fields
+  recorded in `paper-III-source-audit.md`
+- **Claims rejected or held:** canonical meaning for the old `E_k` index;
+  historical explicit status for `E_log`; smooth-incidence-implies-tube; irrational
+  lattice density in the plane; knot-group embedding into the displayed solvable
+  affine targets; presentation-independent raw torsion; automatic invariance from a
+  tube, thread, stronger braid representation, or nonflat defect
+- **Notation changes:** the old `E_k` and `E_log` symbols are not canonical model
+  names; descriptive names identify the proved constructions; `tube` is reserved
+  for the proper zero-incidence level; logarithmic sheet integers are distinguished
+  from gauge-invariant cycle sums
+- **Content retained in source:** all legacy sections, notes, knot files, figures,
+  archived manuscripts, and working discussions remain unchanged for comparison
+- **Content removed from source:** none
+- **Build result:** not certified by this provenance-only migration entry; build and
+  rendered-artifact evidence belong in the Paper III closure report
+- **Reviewer notes:** the active proof closure excludes every historical note and
+  discussion; any future external source for `E_k` or `E_log` must be added by
+  immutable revision and formula-level comparison before the provenance status can
+  change

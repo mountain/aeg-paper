@@ -2710,3 +2710,79 @@ questions or default rules.
 - **Downstream nodes rechecked:** build script and later-paper README files.
 - **Reviewer:** independent repository and scope reviews.
 - **Date:** 2026-08-06.
+
+## Paper III disposition — OQ-037 through OQ-046
+
+The canonical Paper III manuscript changes the disposition of this cluster as
+follows.  A disposition marked partial closes the printed construction problem but
+retains the stronger naturality or classification problem.
+
+### OQ-037 — partially resolved
+
+Paper III defines a structural discriminant with separate critical-zero, boundary,
+singular/metric, domain/category, and nonproper-escape loci.  It proves stability on
+proper vertically transverse regions.  A canonical Whitney stratification of the
+full union remains open.
+
+### OQ-038 — resolved by descriptive naming
+
+No canonical historical `E_k` indexing principle was found.  The manuscript removes
+the symbol from theorem names and calls the verified objects parallel `k`-zero,
+logarithmic-cover, product-tube, and helical models.  Whether a restricted natural
+category later supports an index remains open.
+
+### OQ-039 — resolved in the metric-flexible category
+
+The conformal realization theorem turns every smooth submersion into a regular AES.
+The explicit choice `a=e^x product_j(y-c_j)` realizes exactly `k` zero components,
+and `a=e^x sin y` realizes a locally finite countable family.  A canonical or
+complete universal model remains open and is separated from bare existence.
+
+### OQ-040 — remains open; a flexibility obstruction is proved
+
+Conformal realization disproves any unqualified uniqueness expectation when the
+metric may vary.  Uniqueness under a fixed metric, completeness, curvature,
+asymptotic, homogeneous, or history-natural constraints remains open.
+
+### OQ-041 — partially resolved by examples
+
+The definite and indefinite parameterized Morse functions give verified
+AEG-compatible birth/death and reconnection examples.  A transverse simple complex
+polynomial discriminant gives `w^2=tau`.  These are not claimed as a complete
+classification of AEG metric germs.
+
+### OQ-042 — partially resolved
+
+The cylindrical product and compact helical families are proved proper.  The
+escape-to-infinity family proves why no general properness inference is available.
+Criteria for broader noncompact families remain open.
+
+### OQ-043 — resolved for complex roots, open for real-zero functoriality
+
+The rank-two zero-section theorem and square-free polynomial interface produce
+`B_n`-valued monodromy, and every braid is realized on the basic hyperbolic AES by
+arithmetic-holomorphic fields.  A real assignment has curve zeros and does not
+automatically yield `B_n`; a natural assignment-to-root or probe functor remains
+open.
+
+### OQ-044 — definition fixed; intrinsic selection remains open
+
+A finite zero thread over a one-manifold base is now a properly embedded
+one-dimensional submanifold in a real zero tube whose parameter projection is a
+finite-sheeted covering, with the relative-boundary condition when needed.  The
+helical slices provide explicit chosen threads.  Functorial, probe-independent
+selection from AEG data remains open.
+
+### OQ-045 — remains open for a new AEG decoration
+
+The manuscript prints the conjugation and two stabilization gates, proves the
+stateless-scalar collapse, and imports the standard twisted-quandle state-sum
+invariance under exact finite-field hypotheses.  No new history-derived AEG
+decoration has passed Markov descent.
+
+### OQ-046 — remains open
+
+The fixed affine branch is an Alexander quandle.  Ordinary torsion is exact;
+resonant twisted torsion is a nonzero cohomology class, but its planar state sum
+collapses to the Alexander-quandle coloring count.  No closure-level separation
+beyond Alexander/Burau is claimed.

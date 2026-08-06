@@ -1,0 +1,162 @@
+\subsection{Conjugation in the affine group}
+
+From \eqref{eq:affine-group-law},
+\begin{align*}
+ (q,v)^{-1}(p,u)(q,v)
+ &=(q^{-1},-q^{-1}v)(p,u)(q,v)\\
+ &=\left(p,q^{-1}(u-v)+q^{-1}pv\right)\\
+ &=\left(p,q^{-1}\bigl(u+(p-1)v\bigr)\right),
+\end{align*}
+which proves \eqref{eq:affine-conjugation}.  The multiplier of the left input is
+preserved by conjugation.  Consequently each fixed-multiplier set is a subquandle,
+and taking $p=q=t$ gives \eqref{eq:alexander-quandle-operation}.
+
+The torsion expression can be recognized as the difference between the translation
+parts of the two affine products.  More precisely, define the translation-coordinate
+projection by $\operatorname{trans}(p,u)=u$.  Then
+\[
+ \operatorname{trans}\bigl((p,u)(q,v)\bigr)
+ -\operatorname{trans}\bigl((q,v)(p,u)\bigr)
+ =(1-q)u+(p-1)v.
+\]
+This verifies \eqref{eq:affine-torsion} and its fixed-branch restriction.
+
+\subsection{Twisted cocycle and primitive}
+
+Write $c=t-1$, $\alpha=t^{-1}$, and let the coefficient action be multiplication
+by $\beta$.  For $\phi(x,y)=c(y-x)$, the left-hand side of
+\eqref{eq:twisted-cocycle-equation}, divided by $c$, is
+\begin{align*}
+ \beta(y-x)+z-\bigl(\alpha x+(1-\alpha)y\bigr)
+ =z-(\alpha+\beta)x+(\alpha+\beta-1)y.
+\end{align*}
+The right-hand side is
+\begin{align*}
+ &\beta(z-x)+(1-\beta)(z-y)\\
+ &\quad+\bigl(\alpha y+(1-\alpha)z\bigr)
+       -\bigl(\alpha x+(1-\alpha)z\bigr)\\
+ &=z-(\alpha+\beta)x+(\alpha+\beta-1)y.
+\end{align*}
+Thus $\phi$ is a twisted cocycle for every $\beta$.
+
+For $f(x)=Cx$, convention \eqref{eq:twisted-coboundary-convention} gives
+\[
+ \delta_T^+f(x,y)=C(\alpha-\beta)(y-x).
+\]
+If $\alpha-\beta$ is invertible, choosing $C=c/(\alpha-\beta)$ proves
+nonresonant exactness.  At $\beta=\alpha$, this calculation vanishes for every
+linear $f$, but Theorem~\ref{thm:resonant-affine-class} is stronger: it excludes
+every set-theoretic one-cochain over the finite field.
+
+For completeness, the induction used there follows from
+$g(\alpha x)=\alpha g(x)+cx$:
+\begin{align*}
+ g(\alpha^{j+1}x)
+ &=\alpha g(\alpha^jx)+c\alpha^jx\\
+ &=\alpha^{j+1}g(x)+(j+1)c\alpha^jx.
+\end{align*}
+
+\subsection{The extension calculation}
+
+Relative to the ordered basis of $E=N\oplus X_t$, the operator in
+\eqref{eq:extension-action} is
+\[
+ [T_E]=
+ \begin{pmatrix}
+ \alpha&-(t-1)\\
+ 0&\alpha
+ \end{pmatrix},
+ \qquad
+ \det[T_E]=\alpha^2\ne0.
+\]
+Thus it defines an Alexander module.  With $s(x)=(0,x)$,
+\begin{align*}
+ T_Es(x)&=(-(t-1)x,\alpha x),\\
+ (1-T_E)s(y)&=((t-1)y,(1-\alpha)y).
+\end{align*}
+Their sum is $(\kappa_t(x,y),x\triangleright y)$, which proves
+\eqref{eq:kappa-obstruction}.  Equivalently, the Alexander operation on $E$ is
+\[
+ (a,x)*(b,y)
+ =\bigl(\alpha a+(1-\alpha)b+\kappa_t(x,y),
+         x\triangleright y\bigr).
+\]
+This is the explicit extension behind
+Theorem~\ref{thm:resonant-state-sum-collapse}.
+
+\subsection{Two coloring-count checks}
+
+The state sum uses crossing weights modified by the Alexander numbering of the
+source region.  The extension theorem makes the total weight zero for every planar
+coloring, so only the number of colorings remains.  Two small cases check the
+result.
+
+For the positive two-strand braid, use the coloring map
+\[
+ B(a,b)=(b,a\triangleright b).
+\]
+Writing $d=b-a$, iteration gives $d_{j+1}=-\alpha d_j$.
+
+The closure of $B^2$ is the positive Hopf link.  Its fixed-point equation forces
+$(1-\alpha)d=0$, so $d=0$ because $t\ne1$.  Hence
+\begin{equation}
+ \Phi_{\kappa_t}(H)=q[0].
+ \label{eq:hopf-collapsed-state-sum}
+\end{equation}
+
+The closure of $B^3$ is the positive trefoil.  Its fixed-point equation is
+$(\alpha^2-\alpha+1)d=0$, giving
+\begin{equation}
+ \Phi_{\kappa_t}(3_1)=
+ \begin{cases}
+  q^2[0],&\alpha^2-\alpha+1=0,\\
+  q[0],&\alpha^2-\alpha+1\ne0.
+ \end{cases}
+ \label{eq:trefoil-collapsed-state-sum}
+\end{equation}
+For $q=3$ and $t=\alpha=2$, the values are $3[0]$ and $9[0]$.  Their difference
+is entirely the Alexander-quandle coloring count, not a cocycle enhancement.
+
+\subsection{Variable-multiplier defect}
+
+Let $K=\kappa(x,y)$.  From \eqref{eq:affine-conjugation},
+\begin{align*}
+ \kappa(x\triangleright y,z)-\kappa(x,z)
+ &=\frac{1-r}{q}K,\\
+ \kappa(x\triangleright z,y\triangleright z)
+ &=\frac1rK.
+\end{align*}
+Therefore
+\begin{align*}
+ \mathfrak A_\kappa(x,y,z)
+ &=\left(1+\frac{1-r}{q}-\frac1r\right)K\\
+ &=\frac{(q-r)(r-1)}{qr}K,
+\end{align*}
+which proves \eqref{eq:variable-multiplier-anomaly}.  The translation coordinate
+$w$ of $z$ cancels identically; this does not provide the higher coherence absent
+from the construction.
+
+\subsection{The figure-eight word}
+
+With $a=(t,0)$, $b=(1,1)$, $A=a^{-1}$, and $B=b^{-1}$, multiply the letters of
+$abbbaBAAB$ from left to right using \eqref{eq:affine-group-law}:
+\begin{center}
+\small
+\begin{tabular}{ccc}
+\toprule
+Prefix & Multiplier & Translation \\
+\midrule
+$a$ & $t$ & $0$ \\
+$ab$ & $t$ & $t$ \\
+$abb$ & $t$ & $2t$ \\
+$abbb$ & $t$ & $3t$ \\
+$abbba$ & $t^2$ & $3t$ \\
+$abbbaB$ & $t^2$ & $3t-t^2$ \\
+$abbbaBA$ & $t$ & $3t-t^2$ \\
+$abbbaBAA$ & $1$ & $3t-t^2$ \\
+$abbbaBAAB$ & $1$ & $3t-t^2-1$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+The final translation is $-(t^2-3t+1)$, proving
+\eqref{eq:figure-eight-free-word} under the declared convention.

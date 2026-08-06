@@ -1,0 +1,370 @@
+\subsection{Threads are additional data}
+
+The real zero tube has curve fibers.  To obtain moving points one must select them.
+
+\begin{definition}[Finite zero thread]
+\label{def:finite-zero-thread}
+Let $\pi:\calZ\to B$ be an embedded real zero tube over a connected
+one-manifold.  A \emph{finite zero thread} is a properly embedded
+one-dimensional submanifold $K\subset\calZ$, with
+$\partial K=K\cap\pi^{-1}(\partial B)$ when the base has boundary, such that
+$\pi|_K:K\to B$ is a finite-sheeted covering.  For $B=S^1$, this forces $K$ to be
+a compact one-manifold without boundary.  The pair $(\calZ,K)$ is a
+\emph{threaded zero tube}.  A thread is \emph{intrinsic} only if its construction
+from the stated AEG data is functorial under the declared notion of AEG
+isomorphism.
+\end{definition}
+
+In the helical family, every slice $x=c$ gives
+\[
+ K_c=\calZ(A_{m,n})\cap\{x=c\},
+\]
+a degree-$2n$ finite thread.  Its homology and component structure are computed in
+\eqref{eq:helical-boundary-class}.  The choice of $c$ is a probe choice; if one uses
+$c=\pm L$, the boundary is part of the domain data but the choice of boundary
+component remains.  Selecting only one of the $2d$ components is another choice.
+
+A rank-two root incidence such as $\calR_F$ is already one-dimensional, so it plays
+the role of its own finite thread.  If its moving points lie in a disc, it is an
+ordinary geometric braid.  If they lie in an annulus or general surface, the
+relevant surface braid group and equivalence relation must be named.
+
+\subsection{A scalar Markov obstruction}
+
+The first novelty filter is independent of AEG.
+
+\begin{proposition}[Stateless additive collapse]
+\label{prop:stateless-additive-collapse}
+Let $A$ be an abelian group and $n\ge2$.  Every homomorphism
+$\Theta_n:B_n\to A$ factors through the exponent sum (writhe)
+$w:B_n\to\Z$:
+\[
+ \Theta_n(\beta)=w(\beta)c_n
+\]
+for a fixed $c_n\in A$.  If the family $\Theta_n$ is compatible with the standard
+inclusions $B_n\hookrightarrow B_{n+1}$ and is unchanged under both Markov
+stabilizations $\beta\mapsto\beta\sigma_n^{\pm1}$, then every $\Theta_n$ is zero.
+\end{proposition}
+
+\begin{proof}
+In an abelian target, the braid relation
+$\sigma_i\sigma_{i+1}\sigma_i=\sigma_{i+1}\sigma_i\sigma_{i+1}$ implies
+$\Theta_n(\sigma_i)=\Theta_n(\sigma_{i+1})$.  All standard generators therefore
+have the same image $c_n$, and the homomorphism is exponent sum times $c_n$.
+Inclusion compatibility identifies $c_n$ with $c_{n+1}$.  Positive stabilization
+then gives $c_{n+1}=0$; negative stabilization gives the same conclusion.  Hence
+the family vanishes.
+\end{proof}
+
+Allowing a normalization depending on strand number does not evade both signs.  If
+$I_n(\beta)=c\,w(\beta)+d n$ in an additive coefficient group, positive and
+negative stabilization require $c+d=0$ and $-c+d=0$.  Away from two-torsion this
+forces $c=d=0$, and in all cases it leaves no noncommutative information.  A useful
+AEG invariant must retain state, use a trace-like normalization, or belong to a
+more structured category.
+
+\subsection{Affine conjugation and the Alexander layer}
+
+Let $R$ be a commutative ring.  Write an affine transformation as $(p,u)$, with
+$p\in R^\times$ and $u\in R$, acting by $x\mapsto px+u$.  Thus all multipliers
+$p,q,r$ below are units and all translation coordinates $u,v,w$ lie in $R$.  We use
+\begin{equation}
+ (p,u)(q,v)=(pq,u+pv),
+ \qquad
+ (p,u)^{-1}=(p^{-1},-p^{-1}u).
+ \label{eq:affine-group-law}
+\end{equation}
+Right conjugation $x\triangleright y=y^{-1}xy$ is
+\begin{equation}
+ (p,u)\triangleright(q,v)
+ =\left(p,q^{-1}\bigl(u+(p-1)v\bigr)\right).
+ \label{eq:affine-conjugation}
+\end{equation}
+On the fixed-multiplier branch
+$X_t=\{(t,u):u\in R\}$ over a commutative ring in which $t$ is a unit, this becomes
+\begin{equation}
+ u\triangleright v=t^{-1}u+(1-t^{-1})v.
+ \label{eq:alexander-quandle-operation}
+\end{equation}
+It is exactly an Alexander quandle, not a structure beyond the Alexander layer.
+
+The affine torsion expression
+\begin{equation}
+ \kappa\bigl((p,u),(q,v)\bigr)=(1-q)u+(p-1)v
+ \label{eq:affine-torsion}
+\end{equation}
+restricts to
+\begin{equation}
+ \kappa_t(u,v)=(t-1)(v-u).
+ \label{eq:fixed-torsion}
+\end{equation}
+
+\begin{proposition}[Ordinary exactness]
+\label{prop:ordinary-affine-exactness}
+With the ordinary quandle coboundary convention
+$df(x,y)=f(x\triangleright y)-f(x)$, one has
+\[
+ \kappa_t=d(tf)
+ \qquad\text{for }f(u)=u.
+\]
+Thus the fixed-multiplier affine torsion represents the zero ordinary quandle
+cohomology class.
+\end{proposition}
+
+\begin{proof}
+Equation~\eqref{eq:alexander-quandle-operation} gives
+\[
+ df(u,v)=(t^{-1}-1)u+(1-t^{-1})v
+ =\frac{t-1}{t}(v-u).
+\]
+Multiplication by $t$ gives \eqref{eq:fixed-torsion}.
+\end{proof}
+
+\subsection{Twisting, resonance, and a nonzero class}
+
+We now use the twisted convention of Carter--Elhamdadi--Saito
+\cite{CarterElhamdadiSaito2002TwistedQuandle}.  Let the coefficient action be a
+scalar $T_{\mathrm{coef}}$.  A normalized twisted $2$-cocycle $\phi$ satisfies
+\begin{align}
+ T_{\mathrm{coef}}\phi(x,y)+\phi(x\triangleright y,z)
+ ={}&T_{\mathrm{coef}}\phi(x,z)
+ +(1-T_{\mathrm{coef}})\phi(y,z)\notag\\
+ &+\phi(x\triangleright z,y\triangleright z),
+ \label{eq:twisted-cocycle-equation}
+\end{align}
+and $\phi(x,x)=0$.  For coboundaries we choose the sign
+\begin{equation}
+ \delta_T^+f(x,y)=T_{\mathrm{coef}}f(x)
+ +(1-T_{\mathrm{coef}})f(y)-f(x\triangleright y).
+ \label{eq:twisted-coboundary-convention}
+\end{equation}
+The chain-level convention in the cited paper differs from
+\eqref{eq:twisted-coboundary-convention} by a global minus sign in one displayed
+definition, while its extension and state-sum calculations use the sign above.
+The coboundary subgroup is the same under either choice.
+
+Put $\alpha=t^{-1}$.  Direct substitution in
+\eqref{eq:twisted-cocycle-equation} shows that $\kappa_t$ is a twisted cocycle for
+every coefficient action.  If $\alpha-T_{\mathrm{coef}}$ is a unit in the
+coefficient ring, it is exact: for
+\[
+ f(u)=\frac{t-1}{\alpha-T_{\mathrm{coef}}}u
+\]
+one has $\delta_T^+f=\kappa_t$.  Over a field, only the resonance
+$T_{\mathrm{coef}}=\alpha$ survives this linear exactness test; over a general ring,
+a nonzero nonunit difference may also obstruct this particular linear primitive.
+
+\begin{theorem}[Finite-field resonant affine class]
+\label{thm:resonant-affine-class}
+Let $q$ be a prime power, let
+$t\in\F_q^\times\setminus\{1\}$, and put $\alpha=t^{-1}$.  Give
+$X_t=\F_q$ the Alexander operation
+$x\triangleright y=\alpha x+(1-\alpha)y$ and give the coefficient module
+$N=\F_q$ the resonant action $T_{\mathrm{coef}}=\alpha$.  Then
+\begin{equation}
+ \kappa_t(x,y)=(t-1)(y-x)
+ \label{eq:finite-field-kappa}
+\end{equation}
+is a normalized twisted $2$-cocycle representing a nonzero class in
+$H^2_{TQ}(X_t;N)$.
+\end{theorem}
+
+\begin{proof}
+Normalization is immediate, and substituting the Alexander operation into
+\eqref{eq:twisted-cocycle-equation} makes both sides equal
+\[
+ (t-1)\bigl[z-(\alpha+T_{\mathrm{coef}})x
+ +(\alpha+T_{\mathrm{coef}}-1)y\bigr].
+\]
+Suppose $\kappa_t=\delta_T^+f$.  Subtracting the constant $f(0)$ does not change
+the coboundary, so take $g(0)=0$.  Setting $y=0$ gives
+\begin{equation}
+ g(\alpha x)-\alpha g(x)=(t-1)x.
+ \label{eq:resonant-recurrence}
+\end{equation}
+Let $r=\ord(\alpha)$.  Iterating \eqref{eq:resonant-recurrence} yields
+\[
+ g(\alpha^r x)=\alpha^r g(x)+r(t-1)\alpha^{r-1}x.
+\]
+But $\alpha^r=1$ and $r$ divides $q-1$, so the characteristic of $\F_q$ does not
+divide $r$.  Taking $x\ne0$ contradicts $t\ne1$.  Hence no one-cochain has
+coboundary $\kappa_t$.
+\end{proof}
+
+This closes the algebraic resonance question, but it does not yet produce a
+stronger classical knot invariant.  In fact, a second calculation gives a sharp
+collapse theorem.
+
+We now fix the precise planar state-sum convention.  Give each oriented arc the
+normal for which the ordered pair (tangent, normal) agrees with the plane
+orientation, and give the unbounded region Alexander number zero.  At a crossing
+$\tau$, let $L(\tau)$ be the Alexander number of the source region from which both
+arc normals point.  Let $y_\tau$ be the over-arc color, and let its normal point
+from an under-arc colored $x_\tau$ to one colored
+$x_\tau\triangleright y_\tau$.  Define $\epsilon(\tau)=1$ when the ordered pair
+(over-arc normal, under-arc normal) agrees with the plane orientation and
+$\epsilon(\tau)=-1$ otherwise.  In additive coefficient notation the twisted
+Boltzmann weight is
+\begin{equation}
+ B_T(\tau,C)=
+ T_{\mathrm{coef}}^{-L(\tau)}
+ \bigl(\epsilon(\tau)\kappa_t(x_\tau,y_\tau)\bigr)\in N,
+ \label{eq:twisted-boltzmann-weight}
+\end{equation}
+and the state sum is
+\begin{equation}
+ \Phi_{\kappa_t}(D)
+ =\sum_{C\in\operatorname{Col}_{X_t}(D)}
+  \left[\sum_{\tau}B_T(\tau,C)\right]\in\Z[N].
+ \label{eq:twisted-state-sum}
+\end{equation}
+Here $[a]$ denotes the basis element of the integral group ring indexed by
+$a\in N$.  This is the additive form of the standard twisted convention.
+
+\begin{theorem}[Planar state-sum collapse]
+\label{thm:resonant-state-sum-collapse}
+Under the hypotheses of Theorem~\ref{thm:resonant-affine-class}, the standard
+twisted quandle cocycle state sum \eqref{eq:twisted-state-sum} is a Reidemeister
+invariant of oriented classical links, but for every planar link diagram $D$ it is
+\begin{equation}
+ \Phi_{\kappa_t}(D)=
+ \bigl|\operatorname{Col}_{X_t}(D)\bigr|[0].
+ \label{eq:planar-state-sum-collapse}
+\end{equation}
+Thus it provides no enhancement of the Alexander quandle coloring count.
+\end{theorem}
+
+\begin{proof}
+The Reidemeister invariance follows from the standard twisted-cocycle theorem
+\cite{CarterElhamdadiSaito2002TwistedQuandle}.  To identify the value, define the
+two-dimensional $\F_q$-vector space $E=N\oplus X_t$ with Laurent action
+\begin{equation}
+ T_E(a,x)=\bigl(\alpha a-(t-1)x,\alpha x\bigr).
+ \label{eq:extension-action}
+\end{equation}
+This is invertible and makes
+$0\to N\to E\to X_t\to0$ a short exact sequence of Alexander modules.  For the
+section $s(x)=(0,x)$,
+\begin{equation}
+ T_Es(x)+(1-T_E)s(y)-s(x\triangleright y)
+ =\bigl(\kappa_t(x,y),0\bigr).
+ \label{eq:kappa-obstruction}
+\end{equation}
+Hence $\kappa_t$ is the obstruction cocycle of an Alexander-module extension.
+The planar obstruction-cocycle cancellation theorem of
+Carter--Elhamdadi--Saito then makes every coloring contribute the identity weight.
+With convention \eqref{eq:twisted-state-sum}, the state sum is therefore exactly
+$|\operatorname{Col}_{X_t}(D)|[0]$.
+\end{proof}
+
+Theorems~\ref{thm:resonant-affine-class} and
+\ref{thm:resonant-state-sum-collapse} illustrate why cohomological nontriviality
+and knot-theoretic detection must be tested separately.  A nonzero class can have a
+trivial planar enhancement because its weights cancel through an extension.
+On diagrams in nonplanar surfaces, the same extension argument need not cancel;
+that is a different, surface-link question and is not promoted here to an ordinary
+$S^3$ invariant.
+
+\subsection{Variable multipliers and the Reidemeister-III anomaly}
+
+For the full affine quandle, the torsion
+\eqref{eq:affine-torsion} is generally not an ordinary $2$-cocycle.  With
+$x=(p,u)$, $y=(q,v)$, and $z=(r,w)$, define its type-III defect by
+\begin{align*}
+ \mathfrak A_\kappa(x,y,z)
+ ={}&\kappa(x,y)+\kappa(x\triangleright y,z)
+ -\kappa(x,z)-\kappa(x\triangleright z,y\triangleright z).
+\end{align*}
+A direct calculation gives
+\begin{equation}
+ \mathfrak A_\kappa(x,y,z)
+ =\frac{(q-r)(r-1)}{qr}\,\kappa(x,y).
+ \label{eq:variable-multiplier-anomaly}
+\end{equation}
+It vanishes on a fixed-multiplier branch, as it must.  On a one-component knot,
+conjugate meridians also have equal multipliers, so arbitrary multiplier variation
+along arcs is not legitimate coloring data.  Nonzero use of
+\eqref{eq:variable-multiplier-anomaly} would require additional region state, a
+multi-component setting, a dynamical quandle, or another declared structure.
+
+\begin{warning}[Anomaly is not associator]
+A failure of the ordinary type-III cocycle equation is not automatically a higher
+associator or a surface-holonomy invariant.  Such an interpretation requires
+separate pentagon/hexagon or equivalent coherence and filling-independence proofs.
+\end{warning}
+
+\subsection{A historical free-word calculation}
+
+One useful repository computation can be stated without overclaiming it.  Use the
+historical figure-eight knot-group presentation
+\[
+ G_{4_1}=\langle a,b\mid abbbaBAAB=1\rangle,
+ \qquad A=a^{-1},\quad B=b^{-1}.
+\]
+Under
+the convention that $a:x\mapsto tx$, $b:x\mapsto x+1$, uppercase letters denote
+inverses, and the displayed transformations compose in the fixed word order, the
+free-group word
+\[
+ abbbaBAAB
+\]
+has unit multiplier and translation coordinate
+\begin{equation}
+ -\Delta_{4_1}(t)=-(t^2-3t+1).
+ \label{eq:figure-eight-free-word}
+\end{equation}
+This is a verified affine word calculation.  The displayed generator assignment
+descends from the free group to $G_{4_1}$ only on the parameter locus
+$\Delta_{4_1}(t)=0$.  At generic $t$ it is not a knot invariant; it is the failure
+of the chosen generator assignment to satisfy the relator.
+
+\subsection{The remaining invariant gate}
+
+Theorem~\ref{thm:aeg-braid-realization} supplies every braid, and
+Definition~\ref{def:finite-zero-thread} supplies explicit threads in selected real
+tubes.  Neither result selects a choice-free numerical or algebraic decoration.
+For a family $I_n:B_n\to\mathcal A$ to descend to oriented links via Markov's
+theorem, it must at minimum satisfy
+\begin{equation}
+\begin{aligned}
+ I_n(\gamma\beta\gamma^{-1})&=I_n(\beta),\\
+ I_{n+1}(\iota_n\beta\,\sigma_n)&=I_n(\beta),\\
+ I_{n+1}(\iota_n\beta\,\sigma_n^{-1})&=I_n(\beta).
+\end{aligned}
+\label{eq:markov-gate}
+\end{equation}
+after any declared normalization \cite{Birman1974Braids}.  An AEG construction
+must additionally prove independence of logarithmic lift, probe, thread, spine,
+axis, basepoint, and expression presentation whenever those are auxiliary choices.
+
+\begin{problem}[AEG Markov descent]
+\label{prob:aeg-markov-descent}
+Construct a nonabelian or stateful decoration natural under AEG isomorphisms, prove
+the braid relations and all choice-independence statements, and find a Markov
+normalization satisfying \eqref{eq:markov-gate}.
+\end{problem}
+
+\begin{problem}[Separation beyond Alexander and Burau]
+\label{prob:beyond-alexander-burau}
+After Problem~\ref{prob:aeg-markov-descent} is solved, exhibit two oriented links
+with the same declared Alexander/Burau baseline but different AEG invariant.  A
+stronger braid representation without closure descent does not meet this criterion.
+\end{problem}
+
+\subsection{Conclusion}
+
+The tube programme now has a rigorous geometric core.  Regular real assignments
+produce curve tubes under properness; their compact circle-parameter total spaces
+are tori.  The helical family makes component transport, deck lifting, and selected
+threads explicit.  Singular AEG metrics realize the two elementary real Morse
+events, while complex root fillings isolate the branch half-twist.  Paper II's
+function theory realizes every braid by arithmetic-holomorphic roots.
+
+The same analysis locates the frontier.  Flexible metrics make existence abundant,
+and universal braid realization makes mere representability nondiscriminating.
+Stateless scalars collapse to writhe.  Fixed affine multipliers reduce to an
+Alexander quandle; their ordinary torsion is exact.  Resonant twisting gives a
+genuinely nonzero cohomology class, but its planar classical-link state sum still
+collapses to the coloring count.  The remaining original problem is therefore not
+to draw another tube, but to derive a natural decoration from arithmetic history
+and prove that it survives every quotient required to become a knot invariant.

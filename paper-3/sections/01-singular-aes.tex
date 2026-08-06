@@ -1,0 +1,186 @@
+\subsection{The question}
+
+Paper I associates to continuous affine evaluation a regular arithmetic expression
+space
+\[
+  (M,g,a;\mu,\lambda),
+  \qquad
+  |\nabla a|_g^2=\mu^2+\lambda^2a^2,
+  \qquad \mu\ne0,
+  \tag{AEG}
+  \label{eq:aeg-eikonal}
+\]
+where $M$ is an oriented smooth surface, $g$ is Riemannian, and $a$ is a
+real-valued assignment function \cite{Yuan2026AEGFoundations}.  The right-hand
+side of \eqref{eq:aeg-eikonal} is strictly positive.  Thus $a$ is a submersion,
+and every nonempty level set---in particular $a^{-1}(0)$---is a regular curve.
+An isolated zero, a crossing, a branch point, or a birth/death event cannot be a
+regular interior zero.
+
+The word \emph{tube} is nevertheless natural.  If an assignment varies with a
+parameter, its zero curves sweep a surface in the product of the arithmetic
+surface and the parameter space.  The central problem is to determine when that
+swept surface is more than a picture: when it is smooth, when its projection is a
+fiber bundle, where topology may change, and what additional data are needed
+before a braid or knot can be extracted.
+
+The historical AEG notes used ``tube'' for several disjoint unions of ambient
+geometries.  A source audit of the repository and its Git history found no
+verifiable general construction under the old symbols $E_k$ or $E_{\log}$.
+Accordingly, this paper does not import those symbols as established objects.
+It constructs descriptive finite-zero, logarithmic-cover, and helical models from
+first principles.  The distinction matters: an ambient family is not its zero
+incidence, and a smooth zero incidence is not automatically a tube.
+
+\subsection{Imported interfaces and new scope}
+
+We use three results of Papers I and II as interfaces rather than redefining them.
+
+\begin{enumerate}
+\item Paper I proves the regular-zero theorem just recalled and defines a
+  \emph{singular AES}.  Its singular set is closed, nowhere dense, and locally
+  essential, and the regular equation holds on the complement.
+\item Paper I proves that spatial regularity along the total zero set of a smooth
+  real family makes that total zero set a smooth submanifold and its parameter
+  projection a submersion.  It explicitly leaves global triviality open without
+  properness.
+\item Paper II equips every oriented regular AES with its underlying complex
+  structure.  On the complete basic hyperbolic model, the arithmetic-holomorphic
+  coordinate $w=X+iy$ is a global complex coordinate, and arithmetic
+  holomorphicity is ordinary holomorphicity in $w$
+  \cite{Yuan2026AEGFunctionTheory}.
+\end{enumerate}
+
+The first two interfaces concern a real scalar assignment and hence codimension-one
+zero curves.  The third permits complex-valued auxiliary fields and hence
+codimension-two isolated roots.  They must not be conflated.
+
+\begin{definition}[Stratified singular AES]
+\label{def:stratified-singular-aes}
+A \emph{stratified singular AES} is a singular AES in the sense of Paper I together
+with a specified locally finite Whitney stratification $\mathcal S$ of its singular
+set $S$.  A stratum is called a \emph{singular zero stratum} if it is contained in
+the closure of $a^{-1}(0)\cap(M\setminus S)$.  The stratification is additional
+control data; it is not claimed to be canonical.
+\end{definition}
+
+This refinement supplies a language for parameterized Morse examples and branched
+fillings.  It does not solve the classification of singular AEG germs.  Indeed, the
+conformal realization theorem in Section~\ref{sec:local-zero-models} shows that the
+bare singular-AES category is deliberately flexible.
+
+\subsection{Seven levels that must remain distinct}
+
+Let $q:X\to B$ be an ambient family and let $s$ be a real or vector-valued field on
+$X$.  The following hierarchy fixes our terminology.
+
+\begin{definition}[Zero-object hierarchy]
+\label{def:zero-object-hierarchy}
+Write $\calZ(s)=s^{-1}(0)$ and $\pi=q|_{\calZ(s)}$.
+\begin{enumerate}
+\item $\calZ(s)$ is the \emph{total zero set}; no regularity is implied.
+\item It is a \emph{smooth zero incidence} if it is a smooth submanifold of $X$.
+\item It is a \emph{proper zero tube} if $\pi$ is a surjective, proper smooth
+  submersion (with the corresponding neat boundary hypotheses when boundaries are
+  present).
+\item It is an \emph{embedded zero tube} when its inclusion in the specified
+  ambient family is retained as part of the data.
+\item A \emph{threaded zero tube} is an embedded zero tube together with a specified
+  finite multisection or other explicitly declared one-dimensional thread datum.
+\item A \emph{braid closure} is obtained only after a finite moving-point system,
+  an ambient surface, and a closure convention have been fixed.
+\item A \emph{knot invariant} is a quantity on closures that has been proved
+  independent of all presentation choices, in particular the appropriate
+  conjugation and stabilization moves.
+\end{enumerate}
+\end{definition}
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}[
+  node distance=7mm and 10mm,
+  box/.style={draw,rounded corners,align=center,minimum width=30mm,minimum height=8mm,
+    fill=blue!5},
+  arr/.style={-{Latex[length=2.2mm]},thick}
+]
+\node[box] (total) {total zero set};
+\node[box,right=of total] (smooth) {smooth incidence};
+\node[box,right=of smooth] (tube) {proper zero tube};
+\node[box,below=of tube] (embed) {embedded tube};
+\node[box,left=of embed] (thread) {threaded tube};
+\node[box,left=of thread] (braid) {braid closure};
+\node[box,below=of thread] (knot) {knot invariant};
+\draw[arr] (total)--node[above,font=\scriptsize]{transversality}(smooth);
+\draw[arr] (smooth)--node[above,font=\scriptsize]{properness}(tube);
+\draw[arr] (tube)--node[right,font=\scriptsize]{ambient data}(embed);
+\draw[arr] (embed)--node[above,font=\scriptsize]{selection}(thread);
+\draw[arr] (thread)--node[above,font=\scriptsize]{finite-point closure}(braid);
+\draw[arr] (braid)--node[below left,font=\scriptsize]{Markov/choice descent}(knot);
+\end{tikzpicture}
+\caption{Each arrow requires new hypotheses or data.  No arrow in the diagram is
+automatic from the object to its left.}
+\label{fig:zero-hierarchy}
+\end{figure}
+
+The hierarchy also exposes a dimension obstruction.  A real field on a surface has
+one-dimensional zero fibers; a complex field has zero-dimensional root fibers.
+Only the latter produces an ordinary geometric braid without an extra transverse
+probe.
+
+\subsection{Principal results}
+
+The paper proves the following claims.  Status qualifications are included to make
+the mathematical boundary visible.
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{p{0.22\textwidth}p{0.50\textwidth}p{0.18\textwidth}}
+\toprule
+Result & Content & Status \\
+\midrule
+Conformal realization & Every smooth submersion on a surface satisfies
+\eqref{eq:aeg-eikonal} for an explicit conformal metric. & Proved \\
+Multi-zero models & Explicit regular AESs have exactly $k$ parallel zero
+components, or countably many logarithmic lifts. & Proved \\
+Incidence theorem & Vertical transversality gives a smooth incidence and a
+submersion; properness gives a bundle. & Proved with stated hypotheses \\
+Real-tube structure & Compact boundaryless real zero tubes over $S^1$ with global
+vertical orientation are unions of tori. & Proved with stated hypotheses \\
+Helical tube & A compact family computes component permutation, logarithmic deck
+shift, and torus-link boundary traces. & Proved \\
+Singular models & Definite and indefinite Morse events satisfy the AEG equation
+off an essential singular point. & Proved examples \\
+Root monodromy & Square-free arithmetic-holomorphic polynomial families give
+proper root coverings and realize every braid. & Proved via Paper II \\
+Affine novelty filter & Stateless scalars collapse to writhe; ordinary affine
+torsion is exact; resonant finite-field twisted torsion is nonzero but its planar
+state sum collapses to coloring count. & Proved \\
+Beyond baselines & A Markov-descended, choice-free AEG decoration separates
+closures not separated by Alexander/Burau baselines. & Open \\
+\bottomrule
+\end{tabular}
+\caption{Claim ledger for the main results.}
+\label{tab:claim-ledger}
+\end{table}
+
+The positive and negative results are complementary.  The realization theorems
+show that tube and braid geometry genuinely occur inside AEG.  The flexibility and
+collapse theorems show that occurrence alone carries little discriminatory power.
+Any new invariant must come from a natural decoration tied to expression history,
+and that decoration must survive the relevant quotient.
+
+\subsection{Conventions}
+
+All manifolds are smooth, Hausdorff, and second countable.  Unless boundary
+hypotheses are stated, manifolds are boundaryless.  The parameters $\mu\ne0$ and
+$\lambda\in\R$ always belong to the AEG equation; family parameters are denoted by
+$b$, $t$, $\theta$, or $\tau$.  The letter $t$ is also used for an affine
+multiplier only in Section~\ref{sec:threading}, where it cannot be confused with a
+family coordinate.  A deck transformation is denoted $D$, while $T_{\mathrm{coef}}$
+denotes the Laurent-module action in twisted quandle cohomology.
+
+For a loop of configurations, a based loop determines a braid element and a free
+loop determines a conjugacy class.  ``Invariant'' without qualification means an
+ambient-isotopy invariant of oriented links; annular, transverse, framed, and
+presentation-dependent data are named explicitly.

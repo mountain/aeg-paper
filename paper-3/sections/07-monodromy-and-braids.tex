@@ -1,0 +1,196 @@
+\subsection{Square-free polynomials as a finite-root interface}
+
+Let $\mathcal P_n\cong\C^n$ be the space of monic degree-$n$ complex
+polynomials and let $\Delta_n\subset\mathcal P_n$ be its algebraic discriminant.
+The square-free locus is
+\[
+ \sfP_n=\mathcal P_n\setminus\Delta_n.
+\]
+Vieta's map identifies it with the unordered configuration space
+\begin{equation}
+ \sfP_n\cong\UConf_n(\C)
+ =\Conf_n(\C)/S_n.
+ \label{eq:vieta-configuration}
+\end{equation}
+Its fundamental group is the Artin braid group $B_n$
+\cite{Artin1925TheorieDerZoepfe,FadellNeuwirth1962ConfigurationSpaces,Birman1974Braids}.
+
+\begin{theorem}[Finite-root incidence and braid monodromy]
+\label{thm:finite-root-braid}
+Let $B$ be a connected smooth manifold and let
+\begin{equation}
+ F_b(w)=w^n+c_1(b)w^{n-1}+\cdots+c_n(b)
+ \label{eq:polynomial-family}
+\end{equation}
+be a smooth family of monic polynomials with nonvanishing discriminant.  Then
+\begin{equation}
+ \calR_F=\{(w,b)\in\C\times B:F_b(w)=0\}
+ \label{eq:root-incidence}
+\end{equation}
+is a smooth real codimension-two submanifold whose
+projection to $B$ is a proper $n$-sheeted covering.  The coefficient map
+$c:B\to\sfP_n$ induces
+$c_*:\pi_1(B,b_0)\to\pi_1(\sfP_n,c(b_0))$.  After choosing the usual path to a
+standard base configuration and the resulting identification of the target with
+$B_n$, this is braid monodromy
+\begin{equation}
+ c_*:\pi_1(B,b_0)\longrightarrow B_n.
+ \label{eq:braid-monodromy-map}
+\end{equation}
+Changing that identification conjugates the representation.
+Its composition with $B_n\to S_n$ is the ordinary permutation monodromy of the
+covering $\calR_F\to B$.
+\end{theorem}
+
+\begin{proof}
+At a root of a square-free polynomial,
+$\partial F_b/\partial w\ne0$.  The implicit-function theorem therefore writes the
+root incidence locally as $n$ disjoint graphs over $B$, so it is an $n$-sheeted
+covering.  A finite covering of locally compact Hausdorff spaces is proper.  The
+map to unordered root configurations is exactly the coefficient map under
+\eqref{eq:vieta-configuration}; functoriality of the fundamental group gives
+\eqref{eq:braid-monodromy-map}.  Forgetting paths and retaining only their endpoint
+labels is the standard quotient $B_n\to S_n$.
+\end{proof}
+
+For $B=S^1$, the incidence is a closed geometric braid in
+$\C\times S^1$.  A basepoint and an ordering above it give an element of $B_n$;
+changing the basepoint or ordering conjugates that element.  This is strictly more
+information than the endpoint permutation.
+
+\begin{warning}[Rank-one assignments do not yield $B_n$]
+\label{warn:rank-one-not-braid}
+The field $F$ in Theorem~\ref{thm:finite-root-braid} is complex-valued and has real
+rank two.  The theorem does not turn a real AEG assignment into a polynomial, nor
+does it promote a moving family of zero curves to a finite-root braid.  The two
+constructions share the parameterized zero-section theorem but have different
+codimensions.
+\end{warning}
+
+\subsection{Arithmetic-holomorphic braid realization}
+
+On the complete basic hyperbolic AES with $\mu,\lambda>0$, Paper II constructs a global coordinate
+$w=X+iy\in\HH$ in which arithmetic holomorphicity is ordinary holomorphicity.
+This supplies a precise AEG background for Theorem~\ref{thm:finite-root-braid}.
+
+\begin{theorem}[AEG realization of every braid]
+\label{thm:aeg-braid-realization}
+For every $\beta\in B_n$ and every complete basic hyperbolic AES with
+$\mu,\lambda>0$, there is a smooth loop of arithmetic-holomorphic fields
+$F_\theta$ such that:
+\begin{enumerate}
+\item every $F_\theta$ is a monic degree-$n$ polynomial in the arithmetic
+holomorphic coordinate $w$;
+\item all roots lie in a fixed disc $D\Subset\HH$ and remain simple;
+\item the root incidence realizes the geometric braid $\beta$.
+\end{enumerate}
+Consequently, every oriented link is the closure of the root incidence of such an
+arithmetic-holomorphic family.
+\end{theorem}
+
+\begin{proof}
+Represent $\beta$ by a smooth loop
+$\{z_1(\theta),\ldots,z_n(\theta)\}$ in
+$\UConf_n(\C)$.  On the parameter interval $[0,2\pi]$, choose a smooth ordered
+lift $(z_1(\theta),\ldots,z_n(\theta))$; its two endpoints may differ by the
+permutation underlying $\beta$.  An affine translation and positive rescaling
+place the compact unordered image in a disc $D\Subset\HH$ without changing its
+braid class.  Set
+\begin{equation}
+ F_\theta(w)=\prod_{j=1}^n\bigl(w-z_j(\theta)\bigr).
+ \label{eq:aeg-braid-polynomial}
+\end{equation}
+Because the endpoint lists differ only by a permutation, the coefficients are
+smooth and periodic in $\theta$.  The roots are simple, and
+each slice is holomorphic in $w$.  Paper II identifies it as an
+arithmetic-holomorphic field.  Its root incidence is the chosen loop of
+configurations.  The last statement follows from Alexander's closed-braid theorem
+\cite{Alexander1923KnottedCurves}.
+\end{proof}
+
+The theorem is a universality result, not an invariant.  Because every braid can
+be realized, the predicate ``admits an AEG root-tube realization'' cannot
+distinguish links.  New information would have to be supplied by a natural
+history-derived decoration or by a restricted class of allowed families.
+
+\subsection{Logarithmic lifting of root tubes}
+
+Suppose all roots avoid the origin.  Pull the root incidence back along
+$\exp:\C\to\C^\times$:
+\begin{equation}
+ \widetilde{\calR}_F
+ =\{(b,\omega):F_b(e^\omega)=0\}.
+ \label{eq:log-root-incidence}
+\end{equation}
+
+\begin{theorem}[Logarithmic root transport and gauge]
+\label{thm:log-root-transport}
+The map $\widetilde{\calR}_F\to\calR_F$ is the canonical principal
+$2\pi i\Z$-cover obtained by pullback of the exponential cover.  Its specified
+deck-translation action is $\omega\mapsto\omega+2\pi i k$.  Along a parameter
+loop, choose a labeling of the initial roots and
+logarithmic lifts.  If root continuation has permutation $\sigma$, then there are
+integers $k_i$ such that
+\begin{equation}
+ \omega_i(1)=\omega_{\sigma(i)}(0)+2\pi i k_i.
+ \label{eq:log-endpoint-shift}
+\end{equation}
+Changing the initial lifts by
+$\omega_i(0)\mapsto\omega_i(0)+2\pi i m_i$ changes the integers by
+\begin{equation}
+ k_i\longmapsto k_i+m_i-m_{\sigma(i)}.
+ \label{eq:log-gauge-law}
+\end{equation}
+For every cycle of $\sigma$, the sum of the $k_i$ on that cycle is gauge invariant.
+Relabeling the roots permutes these cycle sums, so their multiset, rather than an
+ordered list, is label-independent.  The total sum $\sum_i k_i$ is gauge and label
+invariant and equals the winding of the product of the roots around zero.
+\end{theorem}
+
+\begin{proof}
+Equation~\eqref{eq:log-root-incidence} is the pullback of the exponential cover,
+so the first claim is immediate.  Unique path lifting gives
+\eqref{eq:log-endpoint-shift}.  If the initial lift of the $i$th path is shifted by
+$2\pi im_i$, its entire lift is shifted by that amount.  Comparing the new endpoint
+with the new lift assigned to the root $\sigma(i)$ gives
+\eqref{eq:log-gauge-law}.  The $m_i$ terms telescope around each permutation cycle.
+Finally, the product of all roots is, up to sign, the constant coefficient of
+$F_b$; summing logarithmic increments computes its winding.
+\end{proof}
+
+Thus a vector $(k_i)$ is not an invariant before a lift gauge is fixed.  Cycle sums
+are invariant but abelian.  The full noncommutative information remains in the
+configuration path, more precisely in the annular braid group when roots are
+constrained to $\C^\times$.
+
+\subsection{Boundary braid and discriminant filling}
+
+Theorem~\ref{thm:finite-root-braid} applies only in the complement of
+$\Delta_n$.  A filling disc may meet the discriminant.  At a transverse simple
+intersection, Proposition~\ref{prop:simple-discriminant-normal-form} gives
+$w^2=\tau$, and its boundary loop contributes a conjugate of a standard positive
+or negative half-twist according to orientation.  The collision is therefore a
+two-cell event in the filling, while the boundary braid stays collision-free.
+
+This separation resolves an otherwise persistent ambiguity:
+\begin{center}
+\small
+\begin{tabular}{lll}
+\toprule
+Object & Allowed local event & Output \\
+\midrule
+regular real assignment family & no critical zero & curve tube \\
+singular real family & Morse critical zero & birth or reconnection \\
+square-free boundary root family & no repeated root & braid monodromy \\
+root filling through $\Delta_n$ & simple double root & branch half-twist \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{problem}[Natural braid monodromy]
+\label{prob:natural-braid-monodromy}
+Find a functorial procedure that assigns a finite complex-root field to an
+expression history or to a real zero tube, and prove that the resulting braid is
+independent of auxiliary coordinates and probes.  The arbitrary polynomial
+realization of Theorem~\ref{thm:aeg-braid-realization} does not solve this problem.
+\end{problem}

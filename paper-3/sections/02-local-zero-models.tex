@@ -1,0 +1,146 @@
+\subsection{The regular germ}
+
+At a regular zero $p$, the submersion theorem gives coordinates $(u,v)$ centered
+at $p$ in which $a=\mu u$: take $u=a/\mu$ and choose the sign of $v$ so that
+$(u,v)$ is positively oriented.
+This statement concerns the zero germ and the assignment; it does not put the
+metric into Euclidean form.  Equation~\eqref{eq:aeg-eikonal} further gives
+$|\nabla a|_g=|\mu|$ along $a=0$.  Thus a regular zero has one transverse
+direction with a fixed nonzero speed and one tangent direction.  No finite-order
+singularity can occur there.
+
+The simplest global realization keeps the metric fixed.
+
+\begin{example}[Cylindrical propagation]
+\label{ex:cylindrical-propagation}
+On $M=\R_r\times S^1_\phi$ with $g=\dd r^2+\dd\phi^2$, set
+\[
+ a_c(r,\phi)=
+ \begin{cases}
+  \dfrac{\mu}{\lambda}\sinh\!\bigl(\lambda(r-c)\bigr),&\lambda\ne0,\\[6pt]
+  \mu(r-c),&\lambda=0.
+ \end{cases}
+\]
+Then $|\nabla a_c|_g^2=\mu^2+\lambda^2a_c^2$ and
+$Z(a_c)=\{c\}\times S^1$.  This model will yield a proper product tube in
+Section~\ref{sec:regular-tubes}.
+\end{example}
+
+\subsection{Conformal realization}
+
+The following construction is elementary, but it determines the scope of every
+subsequent singularity claim.
+
+\begin{theorem}[Conformal realization]
+\label{thm:conformal-realization}
+Let $(M,h)$ be an oriented Riemannian surface, let $a\in C^\infty(M,\R)$ be a
+submersion, and fix $\mu\ne0$ and $\lambda\in\R$.  The conformal metric
+\begin{equation}
+ g_a=\frac{|\dd a|_h^2}{\mu^2+\lambda^2a^2}\,h
+ \label{eq:conformal-realization-metric}
+\end{equation}
+is smooth and positive definite, and $(M,g_a,a;\mu,\lambda)$ is a regular AES.
+\end{theorem}
+
+\begin{proof}
+Put $g_a=\rho h$.  Since $\dd a$ never vanishes and the denominator is positive,
+$\rho$ is a positive smooth function.  The inverse metric is
+$g_a^{-1}=\rho^{-1}h^{-1}$, so
+\[
+ |\nabla a|_{g_a}^2=|\dd a|_{g_a^{-1}}^2
+ =\rho^{-1}|\dd a|_h^2
+ =\mu^2+\lambda^2a^2.
+\]
+\end{proof}
+
+\begin{corollary}[Singular realization]
+\label{cor:singular-realization}
+Let $a\in C^\infty(M,\R)$ have a closed nowhere-dense critical set
+$S=\Crit(a)$.  On $M\setminus S$, define $g_a$ by
+\eqref{eq:conformal-realization-metric}.  Then
+$(M,S,g_a,a;\mu,\lambda)$ is a singular AES.  Every point of $S$ is locally
+essential.
+\end{corollary}
+
+\begin{proof}
+Theorem~\ref{thm:conformal-realization} applies on $M\setminus S$.  If a point
+$p\in S$ admitted a regular local extension agreeing with $a$, then
+$\dd a_p=0$ would imply $|\nabla a|^2(p)=0$ for the extended nondegenerate
+metric, whereas the right-hand side of \eqref{eq:aeg-eikonal} is at least
+$\mu^2>0$.  This is impossible.
+\end{proof}
+
+\begin{warning}[Flexibility boundary]
+\label{warn:flexibility}
+When the metric may be chosen as part of the construction, the regular AEG
+equation admits every smooth submersion, and the singular category admits every
+smooth function with closed nowhere-dense critical set.  Therefore the bare
+equation does not by itself select an AEG-specific list of singularity types.
+A classification theorem would require additional naturality or analytic
+hypotheses, such as a fixed ambient metric, completeness, curvature bounds,
+controlled metric asymptotics, homogeneity, or derivation from expression history.
+\end{warning}
+
+The warning is not a defect of the construction.  It is a precise division of
+labor.  The equation controls assignment speed relative to a chosen metric; it
+does not select that metric.  Later tube theorems are consequently topological
+theorems with explicit hypotheses, not rigidity theorems for arbitrary AEGs.
+
+\subsection{Singular zero mechanisms}
+
+There are at least four mechanisms by which the regular-zero conclusion can fail.
+
+\begin{enumerate}
+\item The assignment may fail to be differentiable at a point, even though the
+  metric extends there.
+\item The assignment may be smooth but critical, forcing the conformal realization
+  metric to degenerate or be removed at that point.
+\item The domain may have a boundary or a puncture through which a zero component
+  enters, exits, or escapes.
+\item In a parameterized family, the total incidence may remain smooth while its
+  projection to parameter space ceases to be a submersion.
+\end{enumerate}
+
+Paper I supplies a verified example of the first mechanism.  On the unit disc with
+$\rho=(\xi^2+\eta^2)^{1/2}$, it takes
+\begin{equation}
+ g_{\mathbb D}=\frac{4}{\lambda^2(1-\rho^2)^2}
+   (\dd\xi^2+\dd\eta^2),
+ \qquad
+ a_{\mathbb D}=\frac{2\mu}{\lambda}\frac{\rho}{1-\rho^2}
+ \quad(\rho>0),
+ \label{eq:imported-disc-model}
+\end{equation}
+with $a_{\mathbb D}(0)=0$ and $\mu,\lambda>0$.  The metric extends smoothly,
+the assignment is not $C^1$ at the center, and the center is its only zero.  This
+is an isolated singular zero, not a normal form for all isolated singular zeros.
+
+The second and fourth mechanisms will appear together in the Morse families of
+Section~\ref{sec:singular-fibers}.  The third is the reason properness and boundary
+control occur explicitly in Definition~\ref{def:zero-object-hierarchy}.
+
+\subsection{What local equivalence should preserve}
+
+For clarity, we distinguish three notions that are sometimes compressed into the
+phrase ``same singularity.''
+
+\begin{definition}[Three local equivalences]
+\label{def:three-local-equivalences}
+For two pointed singular AEGs, a \emph{zero-germ equivalence} is a local
+diffeomorphism carrying one zero germ to the other.  An \emph{assignment-germ
+equivalence} additionally intertwines the assignments up to a local diffeomorphism
+of the target fixing zero.  An \emph{AEG-germ isomorphism} preserves the assignment,
+the oriented metric, and the constants $(\mu,\lambda)$.
+\end{definition}
+
+The real Morse lemma classifies assignment germs up to a much coarser right-left
+equivalence.  Conformal realization then equips those germs with examples of AEG
+metrics.  It does not show that all AEG-germ isomorphism classes are represented by
+the displayed metrics, nor that the metric asymptotics are unique.
+
+\begin{problem}[Rigidity beyond conformal realization]
+\label{prob:singular-rigidity}
+Find natural hypotheses derived from arithmetic evaluation under which the local
+singular AEG germ has a finite classification, and determine which of the Morse and
+branch models of Section~\ref{sec:singular-fibers} survive that restriction.
+\end{problem}

@@ -1,0 +1,118 @@
+\subsection{Conformal scaling identity}
+
+If $g=\rho h$ on a surface, then $g^{-1}=\rho^{-1}h^{-1}$.  Therefore, for any
+smooth real function $a$,
+\begin{equation}
+ |\nabla a|_g^2=|\dd a|_{g^{-1}}^2
+ =\rho^{-1}|\dd a|_h^2.
+ \label{eq:appendix-conformal-scaling}
+\end{equation}
+Taking
+$\rho=|\dd a|_h^2/(\mu^2+\lambda^2a^2)$ proves
+Theorem~\ref{thm:conformal-realization}.  The construction is valid exactly where
+$\dd a\ne0$; at a critical point the displayed coefficient vanishes and is not a
+Riemannian metric.
+
+For $a_h=e^xh(y)$,
+\[
+ \partial_xa_h=e^xh,
+ \qquad
+ \partial_ya_h=e^xh',
+\]
+which gives Equation~\eqref{eq:parallel-metric}.  For the helical assignment,
+writing $\xi=ny-m\theta$ gives
+\[
+ \partial_xA=ne^{nx}\sin\xi,
+ \qquad
+ \partial_yA=ne^{nx}\cos\xi,
+\]
+so $|\dd^VA|^2=n^2e^{2nx}$ independently of $\xi$.  This cancellation is the
+reason the helical metric has the particularly simple numerator in
+\eqref{eq:helical-metric}.
+
+\subsection{Vertical transversality in coordinates}
+
+Locally trivialize $q:X\to B$ and $E\to X$ near a zero so that
+$X\cong U\times V$ and $E\cong(U\times V)\times\R^r$, with $U\subset\R^m$ a
+fiber chart and $V\subset\R^k$ a base chart.  The section becomes a map
+$s(u,b)\in\R^r$.  Vertical transversality says that the $r\times m$ matrix
+$D_us$ has rank $r$.  The full Jacobian $(D_us,D_bs)$ then has rank $r$, proving
+that $s^{-1}(0)$ has dimension $m+k-r$.
+
+To see the projection submersion explicitly, solve
+\[
+ D_us\,\dot u=-D_bs\,\dot b
+\]
+for $\dot u$ using surjectivity of $D_us$.  Then $(\dot u,\dot b)$ is tangent to
+the incidence and projects to the arbitrary vector $\dot b$.  This is the local
+linear-algebra content of Theorem~\ref{thm:parameterized-zero-section}.
+
+\subsection{Properness checks}
+
+For the helical model, $M_L\times S^1$ is compact and the zero incidence is the
+inverse image of the closed set $\{0\}$ under a continuous function.  It is
+therefore compact, and every map from it to the Hausdorff circle is proper.  At
+$x=\pm L$, the vertical normal to the boundary is $\partial_x$, while
+$\partial_yA\ne0$ on the zero set.  Hence the zero incidence is neat and its
+boundary projects submersively.
+
+For the escape family of Proposition~\ref{prop:nonproper-escape}, fix any
+$\varepsilon>0$ and set $t_j=\varepsilon/(j+1)$.  The sequence
+\[
+ (x_j,y_j,t_j)=(0,t_j^{-1},t_j)
+\]
+lies in the zero incidence above $[0,\varepsilon]$ and leaves every compact subset
+of $\R^2\times[0,\varepsilon]$.  This is a direct certificate that the incidence
+projection is not proper.
+
+\subsection{Audit records for the explicit models}
+
+The following records make all data and limitations explicit.
+
+\paragraph{Cylindrical product model.}
+Domain $\R\times S^1$; metric $\dd r^2+\dd\phi^2$; assignment
+$(\mu/\lambda)\sinh(\lambda(r-c))$ for $\lambda\ne0$ and $\mu(r-c)$ for
+$\lambda=0$; singular set empty; equation verified by differentiation; zero
+topology one circle; compact parameter base gives a proper product incidence;
+status: proved.
+
+\paragraph{Parallel multi-zero model.}
+Domain $\R^2$; metric \eqref{eq:parallel-metric}; assignment $e^xh(y)$; singular
+set empty when all zeros of $h$ are simple; equation verified by conformal
+realization; zero topology one line for each zero of $h$; no parameter required;
+completeness not asserted; status: proved, newly constructed in this paper.
+
+\paragraph{Logarithmic model.}
+Downstairs domain $\C^\times$, upstairs domain $\C$; metrics and assignments in
+\eqref{eq:punctured-plane-aes} and \eqref{eq:logarithmic-aes}; singular set empty;
+equation verified by pullback; two zero components downstairs and countably many
+upstairs; deck action $k\mapsto k+2$; missing origin removable; status: proved
+covering model, not an essential singular AES.
+
+\paragraph{Helical model.}
+Domain $[-L,L]\times S^1$; parameter $\theta\in S^1$; metric
+\eqref{eq:helical-metric}; assignment \eqref{eq:helical-assignment}; singular set
+empty; equation verified above; each zero fiber has $2n$ intervals; total incidence
+has $2\gcd(n,m)$ annuli and is proper with neat boundary; status: proved.
+
+\paragraph{Morse models.}
+Domain $\R^2$, singular set $\{0\}$, parameter $\tau\in\R$; metric
+\eqref{eq:morse-aeg-metric}; assignments \eqref{eq:morse-assignments}; equation
+verified on the punctured plane; definite birth/death and indefinite reconnection;
+the total zero incidence is smooth but its parameter projection is critical;
+status: proved examples, not universal AEG normal forms.
+
+\paragraph{Complex branch model.}
+Background is the basic hyperbolic AES from Paper II with $\mu,\lambda>0$; field
+$F_\tau(w)=w^2-\tau$ is complex-valued and arithmetic holomorphic in $w$; the
+field is not the real assignment; root incidence is smooth, projection has one
+simple branch point; boundary gives a half-twist; status: proved local root model.
+
+\subsection{Completeness warning}
+
+Conformal realization does not preserve completeness.  If a conformal coefficient
+$\rho$ decays rapidly along an end, an $h$-infinite path may have finite
+$g=\rho h$ length.  In the parallel examples, the factor $e^{2x}$ commonly makes
+$x\to-\infty$ a finite-distance end.  Any theorem that needs complete fibers must
+therefore add completeness as a hypothesis and recheck each model; it cannot infer
+it from the eikonal identity.

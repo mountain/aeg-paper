@@ -1,4 +1,4 @@
-# Papers I--II Restructuring Audit Report
+# Papers I--III Restructuring Audit Report
 
 **Baseline commit:** `134e70a74ed010024afa7439bd3931402731423a`  
 **Baseline date:** 2026-08-06  
@@ -181,3 +181,47 @@ evidence.  Paper II is a **mathematical-review manuscript**, not an author-appro
 public release.  General Green kernels, spectral completeness, contact-boundary
 representations, singular continuation, and clean-container verification remain
 outside this closure.
+
+## 8. Paper III integration evidence
+
+Paper III was integrated from baseline
+`24c1df0dd1feb38b691a50a6c6dc7a6aa613248a` under the authority of the
+restructuring specifications and the task-specific provenance record
+`paper-III-source-audit.md`.  Its active entry point is
+`paper-3/aeg-paper-3.tex`; it inputs eight canonical section files, three canonical
+appendix files, and the shared root bibliography.  It has no TeX dependency on a
+legacy section, note, knot file, working discussion, or archived manuscript.
+
+The historical audit covered all 249 commits reachable from the local refs and found
+no certifiable general `E_k`, `E_log`, or multi-zero construction.  The active
+parallel, logarithmic-cover, helical, Morse, branch, braid, and finite-field models
+are new audited derivations rather than silent migrations under unsupported names.
+Migration M-0004, status change S-0007, the Paper III decision record, and the
+closure report record their exact treatment.
+
+A cold Paper III build from an isolated source copy produced a 32-page US-letter PDF.
+The artifact is 453,986 bytes with SHA-256
+`a071d447ac751cc95801d60597b6cfc885675fa0de61b8a29e91bfe9ca43d13f`.
+An isolated `./build.sh all` invocation produced Papers I--III at 60, 39, and 32
+pages.  The Paper III active source has 100 unique labels, no duplicate or missing
+reference, and no missing citation key.  Its final LaTeX and BibTeX logs contain no
+warning, undefined reference or citation, fatal diagnostic, overfull box, or
+underfull box; all fonts are embedded.
+
+Poppler rendered all 32 pages.  Four contact-sheet passes and targeted full-page
+inspection covered the title, claim ledger, three TikZ figures, theorem page breaks,
+long tables, exact twisted state-sum convention, appendices, and bibliography.  No
+clipping, collision, blank content page, or unreadable element was found.
+
+Independent provenance, mathematical, LaTeX/static, and rendered-layout reviews
+found and repaired the translation-coordinate notation, root-incidence codimension,
+multi-parameter branch wording, vertical-orientation hypothesis, logarithmic deck
+terminology, basepoint and relabeling gauges, and exact
+Carter--Elhamdadi--Saito group-ring state sum.  Final review reports no blocking or
+major defect.
+
+Paper III is a **mathematical-review manuscript**, not an author-approved public
+release.  Intrinsic thread selection, AEG Markov descent, a new knot invariant, and
+separation beyond Alexander/Burau remain explicitly open.  Author metadata,
+DOI/version policy, Docker reproduction, and publication approval remain human
+release actions.

@@ -1,0 +1,199 @@
+\subsection{Ambient families and vertical transversality}
+
+An ambient family is the correct starting object; a tube is a conclusion about a
+particular incidence inside it.
+
+\begin{definition}[Ambient AEG family]
+\label{def:ambient-aeg-family}
+An \emph{ambient regular AEG family} over a smooth manifold $B$ consists of a
+smooth fiber bundle $q:X\to B$ whose vertical tangent bundle $T^VX$ carries a
+smooth orientation, a smooth vertical Riemannian metric $g^V$, and a smooth
+function $A:X\to\R$ such that
+$(M_b,g_b,A_b;\mu,\lambda)$ is a regular AES for every $b\in B$.  Its assignment
+incidence is $\calZ(A)=A^{-1}(0)$.
+
+Equivalently, the structure group of the surface bundle is reduced to
+orientation-preserving diffeomorphisms.  Merely choosing an orientation on each
+fiber without requiring those choices to vary continuously would not orient
+$T^VX$ and is not sufficient here.
+
+More generally, a \emph{field family over an AEG background} is a rank-$r$ real
+vector bundle $E\to X$ with a smooth section $s$.  It need not be the real
+assignment and need not satisfy the eikonal equation.  A complex-valued field is
+the case $r=2$ after forgetting complex scalar multiplication.
+\end{definition}
+
+Let $T^VX=\ker(\dd q)$ be the vertical tangent bundle.  At a zero of $s$, choose
+any connection to split $TX$ and define the vertical derivative
+\[
+ D^Vs:T^V_xX\longrightarrow E_x.
+\]
+Its value at a zero is independent of the chosen local trivialization or
+connection: it is the derivative of the restricted section on the fiber.
+
+\begin{theorem}[Parameterized zero-section theorem]
+\label{thm:parameterized-zero-section}
+Let $q:X\to B$ be a smooth fiber bundle and $E\to X$ a rank-$r$ vector bundle.
+Suppose the section $s\in\Gamma(E)$ is vertically transverse to the zero section,
+meaning that $D^Vs$ is surjective at every $x\in\calZ(s)$.  Then:
+\begin{enumerate}
+\item $\calZ(s)$ is a smooth submanifold of $X$ of codimension $r$;
+\item the restricted projection
+\[
+ \pi=q|_{\calZ(s)}:\calZ(s)\longrightarrow B
+ \]
+is a smooth submersion;
+\item if $\pi$ is surjective and proper, then it is a locally trivial smooth
+fiber bundle.
+\end{enumerate}
+The third conclusion has the standard relative form when $X$ has boundary and the
+zero incidence is neat, with the boundary restriction also a submersion.
+\end{theorem}
+
+\begin{proof}
+Vertical surjectivity implies surjectivity of the full derivative of $s$, so the
+zero-section transversality theorem gives the first conclusion.  To prove the
+second, take $\xi\in T_bB$ and a lift $w\in T_xX$.  Since $D^Vs$ is surjective,
+there is $v\in T_x^VX$ with $D^Vs(v)=-Ds(w)$.  Then
+$w+v\in T_x\calZ(s)$ and $Dq(w+v)=\xi$, so $D\pi$ is surjective.  The third
+conclusion is Ehresmann's fibration theorem; the neat relative version follows by
+the corresponding boundary argument \cite{Ehresmann1952Connexions}.
+\end{proof}
+
+The rank is decisive.  If the fibers of $q$ have dimension $m$, then a regular
+zero fiber has dimension $m-r$.
+
+\begin{center}
+\small
+\begin{tabular}{cccc}
+\toprule
+Fiber dimension & Field rank & Fiberwise zero & Natural transport \\
+\midrule
+$2$ & $1$ & curves & component and mapping-class monodromy \\
+$2$ & $2$ & points & permutation and braid monodromy \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+For an ambient regular AEG family, equation~\eqref{eq:aeg-eikonal} makes
+$D^VA=\dd A_b$ nonzero everywhere, so the first two conclusions are automatic at
+zero.  Properness is not.
+
+\subsection{The discriminant is not a single equation}
+
+For finite-dimensional polynomial root families, the algebraic discriminant
+detects repeated roots.  A general AEG family has more ways to lose topological
+stability.
+
+\begin{definition}[Structural discriminant]
+\label{def:structural-discriminant}
+For a parameterized zero problem, the \emph{structural discriminant} is the union
+of the following loci in the parameter space, whenever they are present:
+\begin{align*}
+ \calD_{\mathrm{crit}}
+   &=\{b:\text{$D^Vs$ fails to be surjective at some zero over $b$}\},\\
+ \calD_{\partial}
+   &=\{b:\text{the zero incidence fails the specified neat boundary condition}\},\\
+ \calD_{\mathrm{sing}}
+   &=\{b:\text{a zero meets the declared singular stratum or the metric degenerates}\},\\
+ \calD_{\mathrm{dom}}
+   &=\{b:\text{the domain, rank, or regularity class of the field changes}\},\\
+ \calD_{\infty}
+   &=\{b:\text{$\pi$ is not proper over any neighborhood of $b$}\}.
+\end{align*}
+If projective continuation is used, its ordinary poles and points at infinity are
+recorded separately rather than silently absorbed into $\calD_{\mathrm{sing}}$.
+\end{definition}
+
+This definition is a bookkeeping union, not a claim that every stratum is a smooth
+hypersurface.  The geometry of its intersections and a canonical Whitney
+stratification remain open in general.
+
+\begin{corollary}[Stability off the discriminant]
+\label{cor:stability-off-discriminant}
+Let $U\subset B$ be connected.  Over $U$, assume that $q:X\to B$ and the
+rank-$r$ bundle $E$ remain fixed smooth bundles, that $s$ is vertically transverse
+to zero, and that the incidence is surjective and locally proper over $U$.  If a
+boundary is present, also assume that the incidence is neat and that its boundary
+projection is a submersion.  Then
+$\pi:\calZ(s)|_U\to U$ is a smooth fiber bundle.  In particular, the diffeomorphism
+type and number of connected components of the fiber are locally constant on $U$.
+These are precisely the operative hypotheses encoded by saying that $U$ avoids
+the relevant pieces of the structural discriminant.
+\end{corollary}
+
+\begin{proof}
+For each $b\in U$, local properness supplies a neighborhood $V$ on which the
+restricted incidence projection is proper.  The other hypotheses make that
+restriction a surjective submersion, including the relative boundary condition
+when needed.  Theorem~\ref{thm:parameterized-zero-section} therefore gives a
+bundle chart over a possibly smaller neighborhood of $b$.  Such charts are exactly
+the local-triviality assertion.
+\end{proof}
+
+\subsection{Escape to infinity without a critical zero}
+
+The following regular AEG family shows why $\calD_\infty$ cannot be omitted.  Set
+\[
+ h_t(y)=y(ty-1),
+ \qquad
+ A(x,y,t)=e^x h_t(y),
+ \]
+and equip each copy of $\R^2$ with the smoothly varying conformal metric
+\begin{equation}
+ g_t=
+ \frac{e^{2x}\bigl(h_t(y)^2+(2ty-1)^2\bigr)}
+      {\mu^2+\lambda^2e^{2x}h_t(y)^2}
+ (\dd x^2+\dd y^2).
+ \label{eq:escape-family-metric}
+\end{equation}
+At a zero of $h_t$, its derivative $2ty-1$ equals $-1$ or $1$, so it never
+vanishes.  More strongly, $h_t$ and $2ty-1$ never vanish simultaneously anywhere.
+Thus every slice is a regular AES by Theorem~\ref{thm:conformal-realization}.
+
+Its zero fibers are
+\begin{equation}
+ Z(A_t)=
+ \begin{cases}
+  \{y=0\},&t=0,\\
+  \{y=0\}\amalg\{y=1/t\},&t\ne0.
+ \end{cases}
+ \label{eq:escape-zero-fibers}
+\end{equation}
+The total zero incidence is the disjoint union of the plane $y=0$ and the
+hyperbolic sheet $ty=1$.  It is smooth, and its projection to $t$ is a submersion.
+Nevertheless the second component escapes to spatial infinity as $t\to0$.
+
+\begin{proposition}[Nonproper topology change]
+\label{prop:nonproper-escape}
+The family \eqref{eq:escape-family-metric} has no critical zero and no singular
+metric, but the number of zero components changes at $t=0$.  Its incidence
+projection is not proper over any neighborhood of $0$.
+\end{proposition}
+
+\begin{proof}
+Only the last statement remains.  For $t_j\to0$ with $t_j\ne0$, the points
+$(0,1/t_j,t_j)$ lie in the incidence above a compact parameter interval and have
+no convergent subsequence.  Hence the inverse image of that interval is not
+compact.
+\end{proof}
+
+Thus topology change does not require $\dd A_t=0$ at a finite zero.  It may occur at
+infinity.  Conversely, a smooth total incidence does not imply a tube.
+
+\subsection{Boundary control}
+
+If a surface fiber has boundary, a zero curve may be closed or may end on the
+boundary.  For a stable relative tube one requires the incidence to meet
+$\partial^VX$ neatly and the restriction
+$\pi:\partial\calZ\to B$ to remain a proper submersion.  Without this condition a
+zero component can be created by tangency to the boundary even though the interior
+field remains regular.  Such a parameter lies in $\calD_\partial$, not in
+$\calD_{\mathrm{crit}}$.
+
+\begin{problem}[Stratified AEG discriminant]
+\label{prob:aeg-discriminant}
+Under natural completeness and asymptotic hypotheses, determine when the five
+loci in Definition~\ref{def:structural-discriminant} admit a locally finite Whitney
+stratification and when a Thom-type isotopy lemma applies to the combined AEG data.
+\end{problem}
