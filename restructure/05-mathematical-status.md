@@ -3256,6 +3256,13 @@ promote any later-paper programme.
 | P3-R3 | Every suitable AEG history has a functorial arithmetic relative zero divisor | **STRUCTURAL PROPOSAL / GENERAL PROBLEM OPEN** | P3-R4--P3-R5 are restricted supplied-register tests; the terminal quadratic divisor factors through (\rho), and tagged trace and pole data do not supply the general prime-divisor functor. |
 | P3-R4 | The forced quadratic register model has explicit equivariance, collapse kernel, and Frobenius cycles | **PROVED** | The register (u^2=t) is supplied input, and the abstract cover is operator-independent. |
 | P3-R5 | The forced quartic is arithmetically irreducible, constant-geometrically reducible, and has explicit discriminant, monodromy, and Frobenius | **PROVED** | Its registers are supplied; canonical origin from unrestricted AEG histories remains open. |
+| P3-H1 | One polynomial may define both a real carrier by (Im P=0) and an embedded complex root thread by (P=0) | **PROVED WITH TOTAL-REGULARITY AND SQUARE-FREE HYPOTHESES** | The thread is intrinsic to the supplied polynomial, not to an arbitrary real AEG assignment. |
+| P3-H2 | For (P_m=z^2-t^m), the carrier has four boundary components, (2m) saddles, and genus (m-1), while the thread closes to (T(2,m)) | **PROVED** | It is a smooth proper incidence but not a proper zero tube because its circle-valued projection has saddles. |
+| P3-H3 | Discriminant order and period, braid exponent, carrier-framing period, and negative half Euler characteristic agree in the (P_m) family | **PROVED WITH ORIENTATION/TRIVIALIZATION CONVENTIONS** | This is a family-specific horizontal identity, not a Markov invariant or Paper I torsion transgression. |
+| P3-H4 | The q=4 lifted cusp divisor has marked toric normal form (u^2=t^4) | **PROVED FROM THE EXISTING COVER LATTICE, DECK ACTION, AND SLOPES** | The coordinate-free object is the two-coset toric divisor; the ordered meridian marking is required to retain the exponent (4), and radial extension is supplied. |
+| P3-H5 | The marked compactified q=4 sign cover recovers the cusp binomial in its logarithmic-tangent section ring, and its circle bundle recovers the filled cusp link | **PROVED AS A COMPLEX ORBIFOLD / GRADED-ISOMORPHISM STATEMENT** | The arithmetic plus/minus quadratic twist requires a declared descent datum; the cone coordinate is not automatically an external AEG slice parameter. |
+| P3-H6 | The q=4 unit-tangent central extension is a pullback of the four-braid center extension, and the supplied relation character transgresses to its Euler class | **PROVED CALIBRATION** | The paths are supplied, the character is not Paper I affine torsion, no injectivity claim is needed, and the inverse full-twist closure (T(4,-4)) is not the cusp link (T(2,4)). |
+| P3-H7 | A general marked-history coefficient-path functor sends operator-kernel residue to a pure or framed braid | **STRUCTURAL PROPOSAL / OPEN** | The neutral word (omega_4) must be tested; P3-H6 matches an extension class but does not prove history-natural path selection. |
 
 ### Abstract-level authorization
 
@@ -3267,6 +3274,10 @@ classical lens-space, geodesic-flow, and template inputs; no new knot invariant 
 be inferred.  It may advertise the proved supplied-register quadratic and quartic
 models with their exact collapse and arithmetic boundaries.  The general
 history-to-divisor map must remain the principal open naturality problem.
+It may also advertise P3-H1--P3-H6 as supplied polynomial-carrier, marked q=4
+logarithmic-cone, and central-extension calibration theorems, provided P3-H7, the
+arithmetic-descent and radial-extension choices, the non-tube saddle boundary,
+and the distinction between two- and four-strand outputs remain explicit.
 
 ### Number-theoretic limitation
 

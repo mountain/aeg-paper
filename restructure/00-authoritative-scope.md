@@ -1377,3 +1377,78 @@ This amendment does not authorize a claim that:
   history;
 * a tagged trace is automatically invariant under expression equivalence, ambient
   isotopy, or Markov moves.
+
+---
+
+## 32. Polynomial relations across slices and horizontal kernel residue
+
+Paper III may use a supplied polynomial family (P(z,t)) in two compatible
+ways: the real equation (operatorname{Im}P=0) defines a zero carrier, and the
+complex equation (P=0) defines a finite root thread contained in that carrier.
+This interface is authorized only when total smoothness, boundary neatness,
+fiberwise singular strata, root square-freeness, and properness are checked
+separately.
+
+For (P_m(z,t)=z^2-t^m), (tin S^1), (mge 1), and a disc of radius
+(R>1), Paper III may prove:
+
+* the carrier is a compact connected smooth neat incidence with four boundary
+  components, (2m) Morse saddles, Euler characteristic (-2m), and genus
+  (m-1);
+* its slice metrics are singular AES metrics with a declared essential center and
+  (4pi) cone completion;
+* the root thread is the closed braid (sigma_1^m) with closure (T(2,m));
+* arithmetic prime components, thread components, and link components are counted
+  by (gcd(2,m));
+* discriminant order, logarithmic period, braid exponent, negative half Euler
+  characteristic, and the carrier-framing period agree with the printed sign
+  conventions.
+
+The carrier projection is not a proper zero tube because of its saddles.  The
+braid exponent and carrier framing are presentation- or trivialization-level data,
+not Markov invariants.
+
+For (m=4), the lifted q=4 cusp slopes and deck action may be used to derive the
+peripheral toric divisor (u^2=t^4), up to the ordered meridian marking, Laurent
+units, orientation, and character gauge.  Extending that torus divisor radially
+to the genus-three carrier is additional supplied data.  The ordinary pure-braid
+extension is not identified with the q=4 unit-tangent central extension or with
+Paper I's affine torsion.
+
+With the normalized Hauptmodul, residual orbifold marking, deck involution, and
+two cusp points retained, Paper III may strengthen the peripheral statement over
+the complex numbers.  The compactified sign cover is the marked weighted pair
+(mathbb P(2,1),V(U^2-V^4)); its logarithmic tangent is (mathcal O(-1)), its
+graded section ring is generated in weights one and two, and the cusp section is
+the degree-four binomial.  The weighted Hopf circle bundle gives the standard
+cusp filling and the (T(2,4)) link.  This is a graded-isomorphism statement, not a
+coordinate-free equality in a pre-existing affine plane.  Over
+(mathbb Q(sqrt2)), the split minus form and the nonsplit plus form are constant
+quadratic twists; neither arithmetic descent may be called canonical until its
+marking is declared.  The log-cone coordinate is not automatically the external
+slice parameter of the radial carrier.
+
+Paper III may also record a four-strand central-extension calibration.  For the
+supplied Garside half-twist and four-point rotation paths, the two q=4 elliptic
+relators have the same full-twist residue, and the pullback of the (B_4) center
+extension agrees with the unit-tangent central extension after the printed
+orientation convention.  The resulting conjugation-invariant integer character
+on the free-word operator kernel has, in the Lyndon--Hochschild--Serre five-term
+sequence, pushout class equal to the unit-tangent Euler extension class.  This is
+a genuine group-extension transgression, not a Serre transgression over the
+circle base, and the character is not Paper I's affine torsion.  This does not
+prove that those coefficient paths arise
+from unrestricted marked histories, does not require an injectivity claim, and
+does not identify the inverse full-twist closure (T(4,-4)) with the q=4 cusp link
+(T(2,4)).
+
+The correct information-loss statement is the exact sequence
+
+[
+1\longrightarrow P_2\longrightarrow B_2\longrightarrow S_2\longrightarrow1.
+]
+
+At (m=4), permutation monodromy is trivial while the pure-braid coordinate and
+mutual linking number are two.  A future history-to-path functor must act on full
+marked coefficient paths and pass the neutral-word test; attaching this residual
+after terminal projective evaluation is not authorized as a naturality theorem.

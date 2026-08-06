@@ -6,7 +6,7 @@
 **Paper I post-migration population:** 123 `.tex` sources
 
 **Current active source closures:** Paper I: 16 canonical `.tex` files; Paper II:
-13; Paper III: 15
+13; Paper III: 16
 
 This inventory classifies every top-level path family in the fixed baseline.  A
 family classification applies to every file beneath the named directory; exceptions
@@ -161,6 +161,7 @@ paper-3/
     04-arithmetic-zero-networks.tex
     04-parameter-discriminants.tex
     05-q4-geodesic-knots.tex
+    05-polynomial-threaded-carriers.tex
     05-history-divisor-naturality.tex
     05-regular-tubes.tex
     06-singular-fibers.tex
@@ -172,7 +173,7 @@ paper-3/
     app-C-affine-quandle-calculations.tex
 ```
 
-The entry point inputs only these fourteen section/appendix files and the shared root
+The entry point inputs only these fifteen section/appendix files and the shared root
 bibliography.  It imports Papers I and II by cited interfaces rather than by TeX
 inclusion.  No legacy `sections/sec*.tex`, note, knot file, miscellaneous figure
 source, archived manuscript, or restructuring discussion belongs to the active
@@ -208,6 +209,15 @@ Dehornoy--Pinsky supply the classical geodesic-flow inputs; the AEG cover
 identification and register synthesis are rederived in the active manuscript.
 Neither file changes the negative historical finding or closes the general
 history-to-prime-divisor and knot-invariant problems.
+
+The later `05-polynomial-threaded-carriers.tex` addition is a new derivation, not
+a recovered historical source.  It proves the supplied family
+`Im(z^2-t^m)=0` with intrinsic root thread `z^2=t^m`, its carrier topology,
+discriminant/framing/braid identity, the q=4 marked toric specialization, and the
+logarithmic-tangent weighted cone.  It also gives a supplied four-strand
+central-extension calibration while leaving the unrestricted marked-history
+coefficient-path functor open.  The arithmetic quadratic twist, radial carrier,
+and path-selection choices remain explicit claim boundaries.
 
 This addendum supersedes the earlier inventory statement that Paper III consisted
 only of a scope/provenance README.  It does not alter the fixed Paper I baseline

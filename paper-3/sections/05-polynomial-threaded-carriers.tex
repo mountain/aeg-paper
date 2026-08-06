@@ -1,0 +1,939 @@
+The preceding sections separate real zero curves from complex roots because they
+have different codimensions.  A polynomial family can nevertheless carry both
+objects at once.  Its imaginary part supplies a real zero carrier, while its full
+complex zero divisor supplies a finite thread inside that carrier.  This is the
+first construction in the paper in which the relation between slices, rather
+than only the geometry of one slice, is encoded by the same polynomial that
+selects the thread.
+
+\subsection{A polynomial defines both carrier and thread}
+
+Let $B$ be an oriented one-manifold, let $D\subset\C$ be a disc, and let
+\begin{equation}
+ P:D\times B\longrightarrow\C
+ \label{eq:polynomial-carrier-field}
+\end{equation}
+be smooth in the parameter and holomorphic in the spatial variable.  Put
+\begin{equation}
+ A=\im P,
+ \qquad
+ \Sigma_P=A^{-1}(0),
+ \qquad
+ K_P=P^{-1}(0).
+ \label{eq:polynomial-carrier-thread}
+\end{equation}
+Then $K_P\subset\Sigma_P$ tautologically, but the two projections to $B$ have
+different regularity conditions.
+
+\begin{proposition}[Polynomial carrier and intrinsic root thread]
+\label{prop:polynomial-carrier-thread}
+Assume that every root of $P_b$ is simple, remains in the interior of $D$, and
+that the number of roots is constant.  Then $K_P\to B$ is a proper finite
+covering.  Suppose in addition that $\dd A$ is nonzero on $\Sigma_P$.  Then
+$\Sigma_P$ is a smooth cooriented surface, and the critical points of
+$\Sigma_P\to B$ are exactly the points satisfying
+\begin{equation}
+ \partial_zP_b(z)=0,
+ \qquad
+ \im P_b(z)=0.
+ \label{eq:carrier-critical-value-real}
+\end{equation}
+In particular, the root thread avoids every such critical point.
+
+On the complement of the spatial critical set of $P_b$, for every $\mu\ne0$
+and every real $\lambda$, the metric
+\begin{equation}
+ g_b=
+ \frac{|\partial_zP_b|^2}
+      {\mu^2+\lambda^2(\im P_b)^2}|\dd z|^2
+ \label{eq:polynomial-carrier-aeg-metric}
+\end{equation}
+satisfies
+$|\nabla A_b|_{g_b}^2=\mu^2+\lambda^2A_b^2$.
+Thus a spatial critical point may be declared as an essential singular stratum,
+while the roots remain regular finite threads.
+\end{proposition}
+
+\begin{proof}
+At a root, simplicity says $\partial_zP_b\ne0$.  The real implicit-function
+theorem therefore writes $K_P$ locally as disjoint graphs over $B$.  The fixed
+finite degree and interior control make this covering proper.
+
+The hypothesis $\dd A\ne0$ gives the smooth cooriented carrier.  Its projection
+to $B$ is critical precisely when the vertical derivative of $A$ vanishes.
+Because $P_b$ is holomorphic, this vertical real one-form vanishes precisely
+when $\partial_zP_b=0$, proving \eqref{eq:carrier-critical-value-real}.  Such a
+point cannot be a root under the square-free hypothesis.  Finally,
+the Euclidean norm squared of $\dd\im P_b$ is
+$|\partial_zP_b|^2$.  Conformal inversion in
+\eqref{eq:polynomial-carrier-aeg-metric} proves the AEG equation.
+\end{proof}
+
+The proposition distinguishes two discriminants.  A collision of roots belongs
+to the algebraic discriminant of $P$.  A Morse carrier reconnection occurs
+instead when a nondegenerate critical value of a still square-free polynomial
+crosses the real axis transversely.
+The thread can therefore remain smooth while the real carrier passes through a
+Morse event.
+
+There is also a canonical geometric direction along the thread once the spatial
+complex coordinate has been declared.
+
+\begin{proposition}[Carrier framing and discriminant period]
+\label{prop:carrier-framing-discriminant}
+Under the hypotheses of Proposition~\ref{prop:polynomial-carrier-thread}, assume
+in addition that $B=S^1$ and every $P_b$ is a monic polynomial of one fixed
+degree $n$.  Write
+the roots locally as $r_1(b),\ldots,r_n(b)$ and define
+\begin{equation}
+ v_i(b)=\frac{1}{\partial_zP_b(r_i(b))}\in T_{r_i(b)}D\cong\C.
+ \label{eq:polynomial-carrier-framing-vector}
+\end{equation}
+Then $v_i$ is a nonzero vertical tangent vector to $\Sigma_P$ along the root
+thread.  It therefore frames the thread inside the carrier.  Around a parameter
+circle, the sum of its rotation numbers over the root cycles is
+\begin{equation}
+ \operatorname{Fr}_{\Sigma_P}(K_P)
+ =-\operatorname{wind}\!\left(\operatorname{disc}_zP\right).
+ \label{eq:carrier-framing-discriminant-period}
+\end{equation}
+The integer is relative to the declared complex trivialization of the spatial
+disc; in a nontrivial surface bundle it must be replaced by the corresponding
+relative Euler or framing class.
+\end{proposition}
+
+\begin{proof}
+At a root, $\dd P_b(v_i)=1$.  Its imaginary part vanishes, so
+$\dd A_b(v_i)=0$ and $v_i$ lies in the vertical tangent line of the carrier.
+For a monic polynomial,
+\begin{equation}
+ \prod_{i=1}^n\partial_zP_b(r_i)
+ =(-1)^{n(n-1)/2}\operatorname{disc}_zP_b.
+ \label{eq:derivative-product-discriminant}
+\end{equation}
+The constant sign has zero winding.  Taking inverses and summing the winding
+over every root cycle proves \eqref{eq:carrier-framing-discriminant-period}.
+\end{proof}
+
+\subsection{The quadratic threaded-carrier family}
+
+Fix an integer $m\ge1$ and a radius $R>1$.  Let
+$D_R=\{z\in\C:|z|\le R\}$ be the closed disc, and write
+$t=e^{i\theta}\in S^1$ and $z=x+iy\in D_R$.  Consider
+\begin{align}
+ P_m(z,t)&=z^2-t^m,
+ \label{eq:quadratic-thread-polynomial}\\
+ A_m(x,y,\theta)&=\im P_m
+                 =2xy-\sin(m\theta),
+ \label{eq:quadratic-thread-assignment}\\
+ \Sigma_m&=A_m^{-1}(0)\subset D_R\times S^1,
+ \qquad
+ K_m=P_m^{-1}(0)\subset\Sigma_m.
+ \label{eq:quadratic-thread-carrier}
+\end{align}
+The parameter $t$ is a deformation register.  It is neither the AEG strength
+$\lambda$ nor the fixed Hecke translation length $\sqrt2$.
+
+\begin{theorem}[Quadratic threaded carriers]
+\label{thm:quadratic-threaded-carriers}
+For every $m\ge1$ and $R>1$, the following statements hold.
+\begin{enumerate}
+\item The carrier $\Sigma_m$ is a smooth, compact, connected, cooriented surface
+  meeting $\partial D_R\times S^1$ neatly.  Its boundary has four connected
+  components.
+\item The projection $p_m:\Sigma_m\to S^1$ has exactly $2m$ critical points,
+  all Morse saddles.  They occur at
+  \begin{equation}
+   z=0,
+   \qquad
+   \theta=\frac{k\pi}{m},
+   \qquad 0\le k<2m.
+   \label{eq:quadratic-carrier-saddles}
+  \end{equation}
+  Consequently
+  \begin{equation}
+   \chi(\Sigma_m)=-2m,
+   \qquad
+   \Sigma_m\cong\Sigma_{g,4},
+   \qquad
+   g=m-1,
+   \label{eq:quadratic-carrier-genus}
+  \end{equation}
+  where $\Sigma_{g,4}$ denotes an oriented genus-$g$ surface with four boundary
+  components.
+\item On every punctured slice $D_R\setminus\{0\}$,
+  \begin{equation}
+   g_{m,\theta}
+   =\frac{4|z|^2}
+          {\mu^2+\lambda^2A_m(z,\theta)^2}|\dd z|^2
+   \label{eq:quadratic-carrier-singular-aeg}
+  \end{equation}
+  is an exact AEG metric.  The center is an essential metric singularity whose
+  metric completion has cone angle $4\pi$.  At
+  the parameters in \eqref{eq:quadratic-carrier-saddles}, the slice zero germ is
+  the four-pronged germ $2xy=0$.
+\item The root set $K_m\to S^1$ is a smooth two-sheeted finite thread disjoint
+  from all carrier saddles.  As a closed two-braid in $D_R\times S^1$, it is
+  \begin{equation}
+   \beta_m=\sigma_1^m,
+   \qquad
+   \widehat\beta_m=T(2,m).
+   \label{eq:quadratic-carrier-braid}
+  \end{equation}
+  It has $\gcd(2,m)$ connected components.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+The total gradient of $A_m$ is
+\begin{equation}
+ \dd A_m=(2y,2x,-m\cos(m\theta)).
+ \label{eq:quadratic-carrier-total-gradient}
+\end{equation}
+If its first two entries vanish at a point of $\Sigma_m$, then
+$\sin(m\theta)=0$ and the last entry is nonzero.  Hence $\Sigma_m$ is smooth;
+it is compact as a closed subset of $D_R\times S^1$, and it is cooriented by
+$\dd A_m$.
+
+Failure of neatness at $|z|=R$ would require the spatial part
+$(2y,2x)$ to be parallel to the radial vector $(x,y)$ and also
+$\cos(m\theta)=0$.  Parallelism forces $y=x$ or $y=-x$, while the carrier
+equation then forces $|z|=1$.  This contradicts $R>1$.  On the boundary write
+$z=Re^{i\phi}$.  The equation is
+\begin{equation}
+ R^2\sin(2\phi)=\sin(m\theta).
+ \label{eq:quadratic-carrier-boundary-equation}
+\end{equation}
+Since $R^{-2}<1$, its four solutions are four disjoint periodic graphs over
+$S^1$.  Thus the boundary has four components.
+
+The projection is critical exactly where the spatial derivative of $A_m$
+vanishes, giving \eqref{eq:quadratic-carrier-saddles}.  Near such a point, put
+$\theta=\theta_0+s$.  Solving the carrier equation for $s$ gives
+\begin{equation}
+ s=(-1)^k\frac{2}{m}xy+O\bigl((xy)^3\bigr).
+ \label{eq:quadratic-carrier-saddle-normal-form}
+\end{equation}
+The Hessian has one positive and one negative eigenvalue, so every critical
+point is an index-one saddle.
+
+At $\theta=0$, the slice zero is the union of the two coordinate diameters.
+Its four boundary points are joined at the central point, so all four boundary
+circles of the total carrier belong to one connected component.  Every regular
+fiber component is an interval ending on the boundary, and every critical point
+is one of the central saddles.  Hence every point of $\Sigma_m$ lies in that
+same component.
+
+Cut $\Sigma_m$ along a regular fiber $F$, which is the disjoint union of two
+closed intervals.  The product $F\times[0,1]$ has Euler characteristic two, and
+the circle-valued Morse movie attaches one one-handle for each of the $2m$
+saddles, giving Euler characteristic $2-2m$ before regluing.  Identifying the
+two end copies of $F$ subtracts $\chi(F)=2$.  Hence
+$\chi(\Sigma_m)=-2m$.  With four boundary components,
+$2-2g-4=-2m$, proving \eqref{eq:quadratic-carrier-genus}.
+
+The metric claim follows from Proposition~\ref{prop:polynomial-carrier-thread},
+since $|\partial_zP_m|^2=4|z|^2$.  The coefficient tends to zero at the center,
+so it cannot extend there as a positive-definite metric.  In the metric
+completion the substitution $\rho=C_\theta |z|^2/2+O(|z|^4)$ gives angular
+term $4\rho^2\dd\arg(z)^2$, hence cone angle $4\pi$.  When
+$\sin(m\theta)=0$, the zero equation is $2xy=0$.
+
+Finally, the two roots are
+\begin{equation}
+ z_\pm(\theta)=\pm e^{im\theta/2}.
+ \label{eq:quadratic-carrier-roots}
+\end{equation}
+They lie on $|z|=1$, avoid the center, and determine the standard closed
+two-braid $\sigma_1^m$.  Its closure is $T(2,m)$ and has
+$\gcd(2,m)$ components.
+\end{proof}
+
+Thus this single quadratic template produces carriers of every nonnegative
+genus, with a fixed four-component boundary.  It is not universal among all
+surfaces or all links: its threads are precisely the two-strand torus links.
+Its value is that the carrier reconnections and the thread are forced by one
+displayed polynomial rather than selected independently.
+Although $\Sigma_m\to S^1$ is proper and its total incidence is smooth and
+neat, it is not a proper zero tube in Definition~\ref{def:zero-object-hierarchy}:
+its $2m$ saddles are precisely the failures of the submersion condition.
+
+\subsection{Arithmetic components and the horizontal exact sequence}
+
+Let $k$ be a field of characteristic different from two and set
+$B=\mathbb G_{m,k}$.  The same formula defines a relative divisor
+\begin{equation}
+ \mathcal D_m
+ =V(u^2-t^m)\subset\mathbb A^1_u\times B.
+ \label{eq:quadratic-carrier-relative-divisor}
+\end{equation}
+
+\begin{proposition}[Arithmetic components of the thread]
+\label{prop:quadratic-thread-arithmetic-components}
+The projection $\mathcal D_m\to B$ is finite \'etale of degree two.  The polynomial
+$u^2-t^m$ is irreducible over $k(t)$ if and only if $m$ is odd.  If $m$ is even,
+then
+\begin{equation}
+ u^2-t^m=(u-t^{m/2})(u+t^{m/2}).
+ \label{eq:quadratic-thread-factorization}
+\end{equation}
+Let $\operatorname{Irr}_{k(t)}(\mathcal D_m)$ denote the irreducible components
+of the generic fiber.  Consequently, in this family the following three numbers
+agree:
+\begin{equation}
+ \#\operatorname{Irr}_{k(t)}(\mathcal D_m)
+ =\#\pi_0(K_m)
+ =\#\pi_0\bigl(T(2,m)\bigr)
+ =\gcd(2,m).
+ \label{eq:quadratic-thread-component-identity}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The polynomial is monic and its derivative is $2u$.  A common zero of the
+polynomial and its derivative would require $u=t=0$, which is impossible on
+$B$.  Thus the cover is finite \'etale.  If $m$ is odd, the $t$-adic valuation of
+$t^m$ is odd, so it is not a square in $k(t)$ and the quadratic is irreducible.
+For even $m$, \eqref{eq:quadratic-thread-factorization} proves the converse.
+The remaining equalities follow from Theorem~\ref{thm:quadratic-threaded-carriers}.
+\end{proof}
+
+The full horizontal information is finer than the component count.  The
+discriminant in $u$ is
+\begin{equation}
+ \Delta_m(t)=\operatorname{disc}_u(u^2-t^m)=4t^m.
+ \label{eq:quadratic-thread-discriminant}
+\end{equation}
+It never vanishes on $B$, so the roots never collide.  On the parameter circle,
+however, the $2m$ carrier saddles occur exactly when
+$\im\Delta_m(t)=0$.  They are real critical-value wall crossings, not points of
+the algebraic root discriminant.
+The standard exact sequence
+\begin{equation}
+ 1\longrightarrow P_2\longrightarrow B_2
+ \longrightarrow S_2\longrightarrow1
+ \label{eq:two-braid-forgetting-exact-sequence}
+\end{equation}
+records the loss from a two-strand braid to its root permutation.  Under the
+identifications
+\begin{equation}
+ P_2\cong\Z\langle\sigma_1^2\rangle,
+ \qquad
+ B_2\cong\Z\langle\sigma_1\rangle,
+ \qquad
+ S_2\cong\Z/2\Z,
+ \label{eq:two-braid-integer-identifications}
+\end{equation}
+it becomes
+\begin{equation}
+ 0\longrightarrow\Z\xrightarrow{\,\times2\,}\Z
+ \xrightarrow{\bmod 2}\Z/2\Z\longrightarrow0.
+ \label{eq:two-braid-integer-exact-sequence}
+\end{equation}
+
+\begin{theorem}[The threaded-carrier identity]
+\label{thm:threaded-carrier-identity}
+With the positive orientation conventions above,
+\begin{equation}
+ \boxed{
+ \operatorname{ord}_{t=0}\Delta_m
+ =\frac{1}{2\pi i}\int_{|t|=1}\dd\log\Delta_m
+ =\operatorname{exp}(\beta_m)
+ =-\operatorname{Fr}_{\Sigma_m}(K_m)
+ =-\frac12\chi(\Sigma_m)
+ =g(\Sigma_m)+1
+ =m.}
+ \label{eq:threaded-carrier-main-identity}
+\end{equation}
+The image of this integer in $S_2$ is $m\bmod2$, which is exactly the
+permutation monodromy and exactly the parity governing
+\eqref{eq:quadratic-thread-component-identity}.  If $m$ is even, then
+$\beta_m\in P_2$ and
+\begin{equation}
+ \operatorname{lk}(K_m^+,K_m^-)
+ =\frac12\operatorname{exp}(\beta_m)
+ =\frac m2,
+ \label{eq:quadratic-thread-linking}
+\end{equation}
+where the sign changes under orientation reversal.
+\end{theorem}
+
+\begin{proof}
+Equation \eqref{eq:quadratic-thread-discriminant} gives both its order at the
+missing point $t=0$ of the affine compactification and its logarithmic period.
+For two unordered roots, the discriminant map to $\C^\times$ sends the positive
+half-twist $\sigma_1$ to a loop of winding one.  It therefore identifies
+$B_2$ with $\pi_1(\C^\times)$, so the logarithmic period is the braid exponent.
+The surface equalities are \eqref{eq:quadratic-carrier-genus}.  Reduction modulo
+two is the right-hand map in \eqref{eq:two-braid-integer-exact-sequence}.
+Finally, the closure of $\sigma_1^{2r}$ has two components with linking number
+$r$, giving \eqref{eq:quadratic-thread-linking}.
+\end{proof}
+
+This theorem is a horizontal, parameter-dependent statement.  Arithmetic
+factorization and permutation monodromy retain only the parity layer.  The
+analytic logarithmic period retains the full braid exponent; on the pure-braid
+kernel, half of that period---equivalently, its coordinate relative to the
+generator $\sigma_1^2$---is mutual linking.  No cohomological transgression from
+Paper~I's
+slice torsion has been asserted.  Over a circle base, the relevant proved
+structure is the monodromy exact sequence
+\eqref{eq:two-braid-forgetting-exact-sequence}, not a Serre transgression.
+
+\subsection{The q=4 toric polynomial normal form}
+
+Theorem~\ref{thm:q4-sign-cover-torus-link} computed more than the abstract link
+type.  On the lifted median Heegaard torus, with the two filling meridians denoted
+$m_P,m_Q$, each component of the lifted cusp link has primitive slope
+\begin{equation}
+ a_\infty=2m_P+m_Q.
+ \label{eq:q4-thread-slope-recall}
+\end{equation}
+The marked slope and deck data select a binomial normal form.
+
+\begin{corollary}[q=4 cusp link as the polynomial thread]
+\label{cor:q4-polynomial-thread}
+Choose angular coordinates $(u,t)\in S^1\times S^1$ whose oriented circle
+classes are $(m_P,m_Q)$.  Then the two lifted cusp components are isotopic on
+the marked torus to
+\begin{equation}
+ \{u^2=t^4\}
+ =\{u=t^2\}\amalg\{u=-t^2\}.
+ \label{eq:q4-toric-binomial}
+\end{equation}
+Consequently, after choosing a meridional radial coordinate, pushing the two
+boundary curves slightly into the filling solid torus, and normalizing their
+radius to one in a closed disc $D_R$ with $R>1$, the resulting closed braid is
+the thread $K_4$ of Theorem~\ref{thm:quadratic-threaded-carriers}.  For this
+additional radial carrier choice,
+\begin{equation}
+ \begin{gathered}
+ \Sigma_4\cong\Sigma_{3,4},
+ \qquad
+ \#\operatorname{Crit}(p_4)=8,\\
+ \operatorname{wind}(\Delta_4)=4,
+ \qquad
+ \beta_4=\sigma_1^4\in P_2,
+ \qquad
+ \operatorname{lk}(K_4^+,K_4^-)=2.
+ \end{gathered}
+ \label{eq:q4-threaded-carrier-data}
+\end{equation}
+The root permutation is trivial even though its pure-braid class is nonzero.
+\end{corollary}
+
+\begin{proof}
+In the notation of the slope computation in
+Theorem~\ref{thm:q4-sign-cover-torus-link}, the covering lattice is
+\(
+ \Lambda=\{(x,y)\in\Z^2:x+y\equiv0\pmod2\}
+\), and $(m_P,m_Q)$ is a basis of $\Lambda$.  A nontrivial deck translation is
+represented by $(1,0)$ and hence, modulo $\Lambda$, by
+$(m_P+m_Q)/2$.  It acts on the dual torus characters as
+\begin{equation}
+ (u,t)\longmapsto(-u,-t).
+ \label{eq:q4-toric-deck-action}
+\end{equation}
+The primitive character annihilating the slope $2m_P+m_Q$ is
+$r=ut^{-2}$.  Thus one cusp lift is $r=c$, for some unit phase $c$, and the
+deck-related lift is $r=-c$.  Their union is
+$r^2=c^2$, or $u^2=c^2t^4$.  Rescaling the $u$ character gives
+\eqref{eq:q4-toric-binomial}.  Equivalently, the curves $u=\pm t^2$ each have
+class $2m_P+m_Q$ on the marked torus.
+
+The remaining statements are the case $m=4$ of
+Theorems~\ref{thm:quadratic-threaded-carriers} and
+\ref{thm:threaded-carrier-identity}.
+\end{proof}
+
+The binomial can in fact be recovered without first choosing a radial disc
+extension.  The intrinsic extension is the affine cone of the logarithmic tangent
+line of the compactified sign-cover orbifold.
+
+\begin{theorem}[The q=4 logarithmic tangent cone]
+\label{thm:q4-logarithmic-tangent-cone}
+Let $X$ be the compact complex orbifold obtained from
+$\mathcal O_4^\chi$ by adjoining its two cusp points, equipped with the
+inherited normalized Hauptmodul $\beta$ and deck involution $\iota$, and let
+$D_\infty\subset X$ be their reduced sum.  Then the following statements hold.
+\begin{enumerate}
+\item As a marked orbifold pair,
+  \begin{equation}
+   (X,D_\infty)
+   \cong
+   \bigl(\mathbb P(2,1),V(U^2-V^4)\bigr),
+   \label{eq:q4-weighted-orbifold-pair}
+  \end{equation}
+  where $U,V$ have weights two and one.  In these weighted coordinates,
+  \begin{equation}
+   \beta=\frac{U^2}{U^2-V^4}.
+   \label{eq:q4-weighted-hauptmodul}
+  \end{equation}
+  The residual order-two point is $[1:0]$, the regular point lying over the old
+  order-two elliptic point is $[0:1]$, and $\iota[U:V]=[-U:V]$.
+\item The logarithmic tangent line is
+  \begin{equation}
+   L:=T_X(-\log D_\infty)\cong\mathcal O_{\mathbb P(2,1)}(-1).
+   \label{eq:q4-log-tangent-line}
+  \end{equation}
+  Its canonical section ring is
+  \begin{equation}
+   R_L=\bigoplus_{d\ge0}H^0(X,L^{-d})
+   \cong\C[V,U],
+   \qquad \deg V=1,\quad\deg U=2,
+   \label{eq:q4-log-tangent-section-ring}
+  \end{equation}
+  and the section cutting out $D_\infty$ is, up to a nonzero scalar,
+  $U^2-V^4$.  Thus the graded affine cone of the marked pair canonically
+  recovers the binomial divisor as a graded-isomorphism class.
+\item The standard hyperbolic cusp compactification of
+  $T^1\mathcal O_4^\chi$ is fiber-preservingly diffeomorphic to the weighted
+  Hopf circle bundle
+  \begin{equation}
+   S^3\longrightarrow\mathbb P(2,1),
+   \qquad
+   e^{i\alpha}(U,V)=(e^{2i\alpha}U,e^{i\alpha}V).
+   \label{eq:q4-weighted-hopf-fibration}
+  \end{equation}
+  Under this diffeomorphism the two filled cusp fibers are exactly
+  \begin{equation}
+   S^3\cap V(U^2-V^4)=T(2,4).
+   \label{eq:q4-weighted-polynomial-link}
+  \end{equation}
+  The deck involution lifts to the antipodal map
+  $(U,V)\mapsto(-U,-V)$, which exchanges the two link components and has
+  quotient $\mathbb {RP}^3$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Put
+\(
+ r=(1+W)/(1-W)=-iF
+\).
+Since $F^2=\beta/(1-\beta)$,
+\begin{equation}
+ r^2=\frac{\beta}{\beta-1},
+ \qquad
+ \beta=\frac{r^2}{r^2-1}.
+ \label{eq:q4-r-beta-coordinate}
+\end{equation}
+Proposition~\ref{prop:q4-sign-cover-cylinder} shows that $r$ is a coarse
+coordinate on the compactified sign cover.  The residual order-two point is
+$r=\infty$, while the two cusps are $r=1$ and $r=-1$.  The weighted projective
+line
+\begin{equation}
+ \mathbb P(2,1)
+ =[(\C^2\setminus\{0\})/\C^\times],
+ \qquad
+ c\cdot(U,V)=(c^2U,cV),
+ \label{eq:weighted-projective-line-definition}
+\end{equation}
+has the same coarse coordinate $r=U/V^2$ and the same order-two stabilizer at
+$V=0$.  Substitution in \eqref{eq:q4-r-beta-coordinate} gives
+\eqref{eq:q4-weighted-hauptmodul}; its polar divisor is
+$U^2-V^4=0$.  This proves the marked-pair statement.
+
+The weighted Euler sequence is
+\begin{equation}
+ 0\longrightarrow\mathcal O
+ \longrightarrow\mathcal O(2)\oplus\mathcal O(1)
+ \longrightarrow T_X\longrightarrow0,
+ \label{eq:q4-weighted-euler-sequence}
+\end{equation}
+so $T_X\cong\mathcal O(3)$.  Each ordinary cusp point is cut out by a section
+of $\mathcal O(2)$, and their sum is the divisor of $U^2-V^4$, of class
+$\mathcal O(4)$.  On an orbifold curve the logarithmic tangent line is
+$T_X(-D_\infty)$; hence it is $\mathcal O(3-4)=\mathcal O(-1)$.  The global
+sections of $\mathcal O(d)$ are the weighted homogeneous polynomials of degree
+$d$, proving \eqref{eq:q4-log-tangent-section-ring} and the asserted equation
+of the canonical divisor section.
+
+The unit circle bundle of $\mathcal O(-1)$ is $S^3$ with the weighted action
+\eqref{eq:q4-weighted-hopf-fibration}.  Away from $D_\infty$, the logarithmic
+tangent line equals the ordinary tangent line.  Radial normalization from the
+hyperbolic norm to any smooth Hermitian norm on the logarithmic line gives a
+fiber-preserving identification of their unit-circle bundles over the punctured
+orbifold.  Near a cusp coordinate $q=0$, the logarithmic frame is
+$q\partial_q$, and the positively tangent horocycle vector is represented by
+$i q\partial_q$.  Its phase is therefore constant.  The horocycle-tangent loop
+is the boundary of the base disc at that fixed fiber phase when the logarithmic
+circle bundle is extended over $q=0$.  This is exactly the cusp-filling convention of
+Theorem~\ref{thm:q4-sign-cover-torus-link}, proving the fiber-preserving
+compactification statement.
+
+The preimage of $D_\infty$ is
+$S^3\cap V(U^2-V^4)$.  Its two branches $U=\pm V^2$ are regular weighted Hopf
+fibers and, on their common standard torus, have primitive slope $(2,1)$.
+Their union is $T(4,2)=T(2,4)$.
+
+It remains to identify the deck lift rather than merely its action on the base.
+On the affine $r$-chart, the logarithmic tangent is generated by
+\begin{equation}
+ e=(r^2-1)\partial_r.
+ \label{eq:q4-log-tangent-deck-frame}
+\end{equation}
+For $\iota(r)=-r$ one has $\dd\iota(e)=-e$.  Under
+$\mathcal O(-1)^\times\cong\C^2\setminus\{0\}$, write
+$(U,V)=(\ell^2r,\ell)$.  The derivative lift is
+$(r,\ell)\mapsto(-r,-\ell)$, equivalently
+$(U,V)\mapsto(-U,-V)$.  It is free, commutes with the weighted circle action,
+and exchanges the two branches, so it is the extended unit-tangent deck
+involution.  Its quotient is $\mathbb {RP}^3$.
+\end{proof}
+
+\begin{remark}[Arithmetic quadratic twist]
+\label{rem:q4-log-cone-arithmetic-twist}
+Theorem~\ref{thm:q4-logarithmic-tangent-cone} is a complex-orbifold statement.
+Over $K=\Q(\sqrt2)$, retaining the square-root coordinate $F=U/V^2$ gives
+instead
+\begin{equation}
+ \beta=\frac{U^2}{U^2+V^4},
+ \qquad
+ D_\infty=V(U^2+V^4).
+ \label{eq:q4-arithmetic-plus-twist}
+\end{equation}
+The change $r=-iF$ used above converts this to the split minus form only after
+adjoining $i$.  The plus form is prime over $K(V)$ and splits over $K(i)$ into
+$U=\pm iV^2$, whose two complex link components are exchanged by
+$\operatorname{Gal}(K(i)/K)$.  Alternatively, declaring the two geometric cusps
+individually $K$-rational supplies a split $K$-descent, which can be written in a
+$K$-coordinate $W$ with cusp values $0$ and $\infty$.  This is a different
+descent datum from the $F$-model above.  The complex sign cover alone does not
+choose between these constant quadratic twists.  A future arithmetic
+naturality theorem must declare the descent datum before claiming either
+$K$-primality or two $K$-rational cusp components.
+\end{remark}
+
+The normal form is canonical only at the correct level.  The two filling
+meridians determine the integral torus marking up to the declared orientation
+and unit changes, and the slope with its two deck-related components determines
+the Laurent binomial divisor up to those gauges.  Extending an angular coordinate
+radially to a disc is additional carrier data.  Accordingly,
+Corollary~\ref{cor:q4-polynomial-thread} does not identify $\Sigma_4$ with the
+two-dimensional Hecke zero dessin, nor does it derive a coefficient family from
+an unrestricted marked history.  It proves instead that the global q=4 filling
+data force a toric polynomial representative whose thread is the same cusp link.
+Theorem~\ref{thm:q4-logarithmic-tangent-cone} strengthens this to a canonical
+graded-isomorphism class: the binomial is the cusp-divisor section in the section
+ring of the logarithmic tangent line.  Its affine-cone vertex is not the Hecke
+order-four point and is not the local four-pronged AEG zero germ.  Passing from
+this complex cone to the real carrier $\Sigma_4$ by treating $V/|V|$ as an
+external slice parameter remains the radial extension choice just described.
+
+\begin{warning}[The pure-braid and unit-tangent extensions differ]
+\label{warn:q4-braid-versus-unit-tangent-extension}
+The exact sequence \eqref{eq:two-braid-forgetting-exact-sequence} has quotient
+$S_2$, not $\Gamma_4$.  The object that can be compared with a $q=4$ extension
+is its pullback
+\begin{equation}
+ \chi^*B_2
+ =\{(\gamma,b)\in\Gamma_4\times B_2:
+       \chi(\gamma)=\operatorname{perm}(b)\}.
+ \label{eq:q4-pullback-two-braid-extension}
+\end{equation}
+Write $\Gamma_4=\langle J,R\mid J^2=R^4=1\rangle$.  Any lifts of the two
+sign-odd generators to $B_2\cong\Z$ have odd exponents.  In the pure-braid
+coordinate where $\sigma_1^2$ is one, $J^2$ therefore contributes an odd
+integer and $R^4$ contributes twice an odd integer.  The latter is nonprimitive.
+By contrast, the natural elliptic lifts in the unit-tangent extension have
+relator powers $\widetilde J^{\,2}=f^{\pm1}$ and
+$\widetilde R^{\,4}=f^{\pm1}$, with signs fixed by rotation conventions and
+$f$ a primitive tangent-fiber class.  Thus the pullback two-braid extension is
+not the unit-tangent extension.  In particular, the $q=4$ linking number cannot
+be renamed unit-tangent fiber winding, or Paper~I torsion, without a new
+order-weighted framing construction.
+\end{warning}
+
+The parity obstruction is specific to two strands.  Four strands carry a
+central extension whose two elliptic relators have the same primitive residue.
+This gives a sharper exact-sequence calibration, although it still does not
+supply the desired history-to-coefficient-path functor.
+
+\begin{proposition}[Four-strand central-extension calibration]
+\label{prop:q4-four-strand-central-calibration}
+In $B_4$, put
+\begin{equation}
+ \delta_4=\sigma_1\sigma_2\sigma_3,
+ \qquad
+ \Delta_4=(\sigma_1\sigma_2\sigma_3)(\sigma_1\sigma_2)\sigma_1,
+ \qquad
+ z_4=\Delta_4^2=\delta_4^4.
+ \label{eq:q4-four-strand-garside-elements}
+\end{equation}
+Let $\overline B_4=B_4/\langle z_4\rangle$.  With the positive tangent-fiber
+class denoted by $f$, choose the standard determinant-one elliptic lifts, whose
+tangent rotations are clockwise.  The unit-tangent extension has presentation
+\begin{equation}
+ \widetilde\Gamma_4
+ =\left\langle \widetilde J,\widetilde R,f\ \middle|\
+ [f,\widetilde J]=[f,\widetilde R]=1,\
+ \widetilde J^2=\widetilde R^4=f^{-1}\right\rangle,
+\label{eq:q4-unit-tangent-central-presentation}
+\end{equation}
+and fits into
+$1\to\langle f\rangle\to\widetilde\Gamma_4\to\Gamma_4\to1$.
+Then
+\begin{equation}
+ \psi:\Gamma_4\longrightarrow\overline B_4,
+ \qquad
+ J\longmapsto[\Delta_4^{-1}],
+ \qquad
+ R\longmapsto[\delta_4^{-1}]
+ \label{eq:q4-four-strand-quotient-map}
+\end{equation}
+is a homomorphism, and the lift
+\begin{equation}
+ \widetilde J\longmapsto\Delta_4^{-1},
+ \qquad
+ \widetilde R\longmapsto\delta_4^{-1},
+ \qquad
+ f\longmapsto z_4
+ \label{eq:q4-four-strand-central-lift}
+\end{equation}
+identifies the unit-tangent extension with the pullback extension
+\begin{equation}
+ \widetilde\Gamma_4
+ \cong
+ \Gamma_4\mathbin{\times}_{\overline B_4}B_4.
+ \label{eq:q4-four-strand-pullback-extension}
+\end{equation}
+
+Choose a standard four-point root configuration and realize the braid words in
+\eqref{eq:q4-four-strand-garside-elements} by square-free monic polynomial
+coefficient loops.  Both elliptic relator loops then give the same inverse full
+twist $z_4^{-1}$, and
+\begin{equation}
+ \frac1{12}\frac1{2\pi i}\int\dd\log\operatorname{disc}P_{\widetilde J^2}
+ =
+ \frac1{12}\frac1{2\pi i}\int\dd\log\operatorname{disc}P_{\widetilde R^4}
+ =-1.
+ \label{eq:q4-four-strand-normalized-discriminant-period}
+\end{equation}
+This is their common exponent relative to the positive fiber generator.
+\end{proposition}
+
+\begin{proof}
+The standard Garside identities in $B_4$ give
+$\Delta_4^2=\delta_4^4=z_4$, the positive full twist
+\cite[Chapter~1]{Birman1974Braids}.  Therefore the two assignments in
+\eqref{eq:q4-four-strand-quotient-map} satisfy $J^2=R^4=1$ after quotienting by
+$\langle z_4\rangle$.  With the declared clockwise arguments, the local
+derivatives of $J$ and $R=JT$ have rotation angles $-\pi$ and $-\pi/2$,
+respectively.  Thus their clockwise lifts have the
+relations in \eqref{eq:q4-unit-tangent-central-presentation}, and
+\eqref{eq:q4-four-strand-central-lift} respects both relations because
+$\Delta_4^{-2}=\delta_4^{-4}=z_4^{-1}$.
+
+The resulting map to the pullback in
+\eqref{eq:q4-four-strand-pullback-extension} is an isomorphism on the central
+kernel, sending $f^k$ to $z_4^k$.  Given a pair $(\gamma,b)$ in the pullback,
+choose a lift $\widetilde\gamma$.  The braids $b$ and the image of
+$\widetilde\gamma$ differ by $z_4^k$ for some $k$, so multiplication by $f^k$
+gives a preimage.  If an element maps to the identity, its $\Gamma_4$ projection
+is trivial and it is therefore $f^k$ for some $k$; the image $z_4^k$ is trivial
+only when $k=0$.  This proves injectivity as well as surjectivity, hence the
+extension isomorphism.
+
+Finally, the braid exponent of $z_4$ is twelve.  The discriminant map on the
+space of square-free monic quartics sends each positive Artin generator to
+winding one.  The inverse full twist therefore has discriminant winding
+$-12$, proving \eqref{eq:q4-four-strand-normalized-discriminant-period}.
+\end{proof}
+
+\begin{corollary}[Central history residue and LHS transgression]
+\label{cor:q4-central-history-transgression}
+Let $\mathfrak F_4=\langle\mathbf j,\mathbf r\rangle$ be the free reversible
+word group, let
+\begin{equation}
+ \rho:\mathfrak F_4\longrightarrow\Gamma_4,
+ \qquad
+ \mathbf j\longmapsto J,
+ \qquad
+ \mathbf r\longmapsto R,
+ \qquad
+ N=\ker\rho,
+ \label{eq:q4-free-word-operator-extension}
+\end{equation}
+and supply the coefficient-path homomorphism
+\begin{equation}
+ \widehat\Psi_4:\mathfrak F_4\longrightarrow B_4,
+ \qquad
+ \mathbf j\longmapsto\Delta_4^{-1},
+ \qquad
+ \mathbf r\longmapsto\delta_4^{-1}.
+ \label{eq:q4-supplied-four-root-path-map}
+\end{equation}
+There is a unique integral character $\ell:N\to\Z$ such that
+\begin{equation}
+ \widehat\Psi_4(n)=z_4^{\ell(n)}.
+ \label{eq:q4-central-history-character}
+\end{equation}
+It is $\mathfrak F_4$-conjugation invariant, hence represents a class in
+$H^1(N;\Z)^{\Gamma_4}$, and satisfies
+\begin{equation}
+ \ell(\mathbf j^2)=\ell(\mathbf r^4)=-1,
+ \qquad
+ \ell(n)=\frac1{12}\operatorname{exp}(\widehat\Psi_4(n))
+ =\frac1{12}\frac1{2\pi i}\int_{P_n}\dd\log\operatorname{disc}P_n.
+ \label{eq:q4-central-history-period}
+\end{equation}
+Here $P_n$ is a square-free monic quartic coefficient loop realizing
+$\widehat\Psi_4(n)$.  If
+$\widetilde\rho:\mathfrak F_4\to\widetilde\Gamma_4$ sends the two generators
+to the selected clockwise elliptic lifts and
+\begin{equation}
+ \widetilde\rho(n)=f^{\operatorname{rot}_{\mathrm{UT}}(n)}
+ \qquad(n\in N),
+ \label{eq:q4-unit-tangent-relation-rotation}
+\end{equation}
+then the same integer has the cross-layer readings
+\begin{equation}
+ \operatorname{rot}_{\mathrm{UT}}(n)
+ =\ell(n)
+ =\frac1{12}\operatorname{exp}(\widehat\Psi_4(n))
+ =\frac1{12}\frac1{2\pi i}\int_{P_n}\dd\log\operatorname{disc}P_n.
+ \label{eq:q4-central-residue-cross-layer-identity}
+\end{equation}
+The pushout of
+$1\to N\to\mathfrak F_4\to\Gamma_4\to1$ along $\ell$ is canonically
+isomorphic to the unit-tangent extension
+$1\to\Z\to\widetilde\Gamma_4\to\Gamma_4\to1$.  Equivalently, with the
+Lyndon--Hochschild--Serre convention in which transgression is the class of this
+pushout,
+\begin{equation}
+ d_2[\ell]=e_{\mathrm{UT}}=\psi^*e_{B_4}
+ \quad\text{in}\quad H^2(\Gamma_4;\Z).
+ \label{eq:q4-central-history-transgression}
+\end{equation}
+Here $e_{B_4}$ is the class of
+$1\to\langle z_4\rangle\to B_4\to\overline B_4\to1$ under the
+identification $\langle z_4\rangle\cong\Z$.
+With the opposite convention for the LHS differential, the left side is written
+$-d_2[\ell]$.  Reversing the chosen generator of all three central copies of
+$\Z$ changes the three displayed classes simultaneously.
+\end{corollary}
+
+\begin{proof}
+The quotient of \eqref{eq:q4-supplied-four-root-path-map} by
+$\langle z_4\rangle$ is $\psi\circ\rho$.  Hence $N$ maps into
+$\langle z_4\rangle$, which defines the unique exponent $\ell$.  Centrality of
+$z_4$ makes $\ell$ invariant under conjugation.  The relator values follow from
+$\Delta_4^{-2}=\delta_4^{-4}=z_4^{-1}$, and the general period formula follows
+from $\operatorname{exp}(z_4)=12$.
+
+Write the pushout as the quotient of $\Z\times\mathfrak F_4$ by the normal
+relations $(-\ell(n),n)=1$ for $n\in N$.  The map
+\begin{equation}
+ (k,w)\longmapsto\bigl(\rho(w),z_4^k\widehat\Psi_4(w)\bigr)
+ \label{eq:q4-central-history-pushout-map}
+\end{equation}
+is well defined and identifies it with
+$\Gamma_4\mathbin{\times}_{\overline B_4}B_4$.  Given $(\gamma,b)$ in the
+pullback, choose $w\in\mathfrak F_4$ with $\rho(w)=\gamma$.  Since
+$b\widehat\Psi_4(w)^{-1}=z_4^k$ for a unique $k$, the class of $(k,w)$ maps to
+$(\gamma,b)$.  The kernel relation is exactly $k=-\ell(w)$ for $w\in N$.
+Proposition~\ref{prop:q4-four-strand-central-calibration}
+identifies this pullback with $\widetilde\Gamma_4$.  Under the pullback
+isomorphism, the two central generators are identified, so
+$\operatorname{rot}_{\mathrm{UT}}(n)=\ell(n)$ and
+\eqref{eq:q4-central-residue-cross-layer-identity} follows.  The five-term sequence for
+the Lyndon--Hochschild--Serre spectral sequence identifies the transgression of
+an invariant kernel character with its pushout extension class
+\cite[Chapter~VII]{Brown1982CohomologyGroups}, proving
+\eqref{eq:q4-central-history-transgression}.
+\end{proof}
+
+No injectivity of $\psi$ is needed here.  More importantly, the proposition
+and corollary start by supplying a standard root configuration and the paths
+$\Delta_4^{-1},\delta_4^{-1}$.  It proves equality of two central extension
+classes, not that the q=4 zero dessin or every marked arithmetic history forces
+those coefficient paths.  The positive full twist $z_4$ closes to $T(4,4)$,
+whereas the supplied inverse relator closes to its mirror $T(4,-4)$.  Both have
+four components, and neither is the two-component cusp link $T(2,4)$ of
+Theorem~\ref{thm:q4-sign-cover-torus-link}.
+
+The character $\ell$ is a new integral relation residue, not Paper~I's affine
+ACS torsion.  It is defined here for a one-object reversible word group.  A typed
+history category would require compatible characters on the isotropy kernels of
+its objects before an analogous exact sequence or transgression could be stated.
+
+There is nevertheless a direct information-filtration link to Paper~I.  Its
+determinant-one calculation, with
+$R_{\mathrm{mat}}:=\widetilde J_{\mathrm{mat}}\widetilde T$, gives
+$\widetilde J_{\mathrm{mat}}^{\,2}=R_{\mathrm{mat}}^{\,4}=-I$, while the
+projective quotient sends both scalars to the identity.  In the covering tower
+from the unit-tangent central extension through
+$\operatorname{SL}_2(\R)$ to $\operatorname{PSL}_2(\R)$, the positive fiber
+generator $f$ maps to $-I$.  Thus, on these central residues, for every
+$n\in N$ the three levels retain
+\begin{equation}
+ z_4^{\ell(n)}
+ \longmapsto
+ (-I)^{\ell(n)}
+ \longmapsto
+ 1,
+ \qquad
+ \Z\xrightarrow{\bmod 2}\Z/2\Z\longrightarrow0.
+ \label{eq:q4-central-residue-information-filtration}
+\end{equation}
+The quartic coefficient path and the unit-tangent lift retain the full integer;
+the determinant-one matrix retains its parity; projectivization forgets both.
+This is an exact process-residue filtration, but it still does not identify
+$\ell$ with the continuous affine torsion of Paper~I.
+
+\begin{problem}[Mixed slice--tube naturality]
+\label{prob:mixed-slice-tube-naturality}
+Construct a typed history family whose slice evaluations produce the coefficient
+path of a polynomial $P(z,t)$, and for which history equivalence acts by the
+declared toric and divisor gauges.  Determine whether a slice-level arithmetic
+torsion class has a well-typed monodromy variation or central-extension lift whose
+horizontal period equals the discriminant period of $P$.  The supplied family
+$z^2-t^m$, the q=4 toric normal form, and
+Proposition~\ref{prop:q4-four-strand-central-calibration} together with
+Corollary~\ref{cor:q4-central-history-transgression} prove geometric,
+horizontal, central-extension, and relation-residue identities, but not this
+unrestricted history-naturality statement.
+
+For an invertible marked-word group $F$ with operator quotient
+$1\to N\to F\xrightarrow{\rho}\Gamma_4\to1$, a precise two-sheet target is a
+commutative diagram of exact rows
+\begin{equation}
+\begin{array}{ccccccccc}
+1&\longrightarrow&N&\longrightarrow&F&\xrightarrow{\rho}&\Gamma_4&\longrightarrow&1\\
+ &&\downarrow&&\downarrow\widehat\Psi&&\downarrow\chi&&\\
+1&\longrightarrow&P_2&\longrightarrow&B_2&\longrightarrow&S_2&\longrightarrow&1.
+\end{array}
+\label{eq:history-to-pure-braid-target}
+\end{equation}
+The image in $P_2$ of two histories with the same operator would then be a
+well-typed horizontal kernel residue, not a Serre transgression.  This target
+tests the sign-cover cusp thread.
+
+The four-sheet unit-tangent target is different.  It asks instead for
+\begin{equation}
+\begin{array}{ccccccccc}
+1&\longrightarrow&N&\longrightarrow&F&\xrightarrow{\rho}&\Gamma_4&\longrightarrow&1\\
+ &&\downarrow&&\downarrow\widehat\Psi_4&&\downarrow\psi&&\\
+1&\longrightarrow&\langle z_4\rangle&\longrightarrow&B_4&\longrightarrow&
+\overline B_4&\longrightarrow&1.
+\end{array}
+\label{eq:history-to-four-braid-target}
+\end{equation}
+Proposition~\ref{prop:q4-four-strand-central-calibration} constructs this diagram
+for the free operator words after the two generator paths are supplied: the
+relations $J^2$ and $R^4$ both map to $z_4^{-1}$.  Extending it naturally to the
+typed arithmetic histories, their domains, and their declared equivalences is
+the open part.  The two-strand target tests the sign-cover cusp thread; the
+four-strand target tests the unit-tangent Euler class.  They are different
+functors and need not agree.
+\end{problem}
+
+The neutral history $\omega_4=(JT)^4$ is a decisive test.  The terminal divisor
+of Section~\ref{sec:history-divisor-naturality} sends it to the same endpoint
+object as the empty history.  A successful horizontal refinement would have to
+produce a coefficient or framed-configuration loop from the full marked
+history, prove its gauge independence, and then determine whether that loop is
+$\sigma_1^4$ in the two-sheet normalization and $z_4^{-1}$ in the four-sheet
+normalization.  Merely attaching either already known torus-link model after
+projective evaluation would not pass this test.

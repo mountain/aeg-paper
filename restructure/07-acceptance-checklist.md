@@ -1744,3 +1744,60 @@ These gates apply to the post-closure Papers I--III integration.
 - [x] The expanded Paper III PDF passes full-page visual inspection.
 - [x] Closure reports, source inventory, migration log, and audit report record
       the final page counts, sizes, and hashes.
+
+---
+
+## 108. Polynomial threaded-carrier gates
+
+### Carrier and thread
+
+- [x] The total carrier (\operatorname{Im}(z^2-t^m)=0) is proved smooth,
+      compact, connected, oriented, and neat for the printed (R>1) hypothesis.
+- [x] The (2m) projection critical points are verified as Morse saddles, and
+      the four-boundary, Euler-characteristic, and genus calculations agree.
+- [x] The slice metric is checked only on the punctured disc and the center is
+      declared an essential (4\pi)-cone singularity.
+- [x] The smooth proper incidence is not called a proper zero tube.
+- [x] The root thread avoids the saddles and is identified with
+      (sigma_1^m) and (T(2,m)) under a declared closure convention.
+
+### Arithmetic, period, and exactness
+
+- [x] Irreducibility of (z^2-t^m), arithmetic component count, and thread/link
+      component count are independently checked.
+- [x] The discriminant order, logarithmic period, braid exponent, carrier
+      framing, saddle/Euler data, and linking signs use one consistent orientation.
+- [x] The exact sequence (1\to P_2\to B_2\to S_2\to1) records the proved
+      forgetting; no Serre transgression over (S^1) is claimed.
+- [x] The braid exponent and disc framing are not called Markov invariants.
+
+### q=4 specialization and boundary
+
+- [x] The marked cover lattice, deck action, annihilator character, and two-coset
+      divisor derive the toric normal form (u^2=t^4).
+- [x] Ordered meridian marking, Laurent-unit/orientation gauge, and radial
+      extension are recorded as separate data.
+- [x] The compactified sign cover, logarithmic tangent line, weighted section
+      ring, cusp divisor, and weighted Hopf filling are checked as orbifold
+      statements; the affine cone is not confused with the Hecke elliptic germ.
+- [x] The split and nonsplit (mathbb Q(sqrt2))-forms are identified as arithmetic
+      quadratic twists, and no canonical descent is claimed without markings.
+- [x] The pure-braid extension is not identified with the unit-tangent central
+      extension or Paper I torsion.
+- [x] The four-strand Garside/rotation calibration has the correct clockwise
+      orientation, pullback-extension proof, normalized discriminant period, and
+      supplied-path boundary; (T(4,-4)) is not identified with (T(2,4)).
+- [x] The invariant kernel character and its LHS pushout/transgression are typed
+      as a group-extension result, not as a circle-base transgression or as Paper I
+      affine torsion.
+- [x] The neutral-word coefficient-path problem remains open.
+
+### Release evidence
+
+- [x] The full Paper III build has no undefined references/citations or box
+      warnings after the new section.
+- [x] Static labels, references, citations, source closure, and `git diff --check`
+      pass.
+- [x] Every page added to Paper III has been rendered and visually inspected.
+- [x] Source inventory, migration, status, scope, decision, audit, closure, PDF
+      size, and hash metadata are synchronized after the final build.

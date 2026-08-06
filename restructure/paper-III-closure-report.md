@@ -308,3 +308,56 @@ tables, appendices, bibliography, and final claim ledger received enlarged visua
 inspection; no clipping, collision, broken glyph, blank content page, or unreadable
 element was found.  Independent red-team review reports zero blocking and zero
 major mathematical findings after repair.
+
+## 12. M-0007 polynomial threaded-carrier amendment (2026-08-06)
+
+The active Paper III closure now consists of twelve sections and three appendices,
+or sixteen canonical TeX files including the entry point.  The new section
+`05-polynomial-threaded-carriers.tex` is inserted between the q=4 geodesic-knot
+section and the supplied-register section.
+
+The section proves that one supplied polynomial may simultaneously define a real
+carrier by `Im(P)=0` and an embedded finite root thread by `P=0`.  For
+`P_m(z,t)=z^2-t^m`, the carrier is a compact connected neat surface with four
+boundary components, `2m` Morse saddles, Euler characteristic `-2m`, and genus
+`m-1`; it is not called a proper zero tube.  The root thread closes to `T(2,m)`,
+and discriminant order, logarithmic period, braid exponent, negative carrier
+framing, and negative half Euler characteristic agree with the printed
+orientation conventions.
+
+At q=4, the marked peripheral lattice and deck involution recover the two-coset
+toric divisor `u^2=t^4`.  The marked compactified sign cover further recovers the
+same binomial as the cusp section in its logarithmic-tangent graded ring, while
+its weighted Hopf circle bundle recovers the filled `T(2,4)` cusp link.  The
+arithmetic split/nonsplit descent and radial carrier remain declared choices.
+
+A separate supplied four-root calibration identifies the q=4 unit-tangent
+central extension with the pullback of the four-braid center extension.  Its
+invariant integer relation character satisfies the normalized discriminant-period
+identity and, in the Lyndon--Hochschild--Serre five-term sequence, transgresses to
+the unit-tangent Euler extension class.  This is a group-extension transgression,
+not a Serre transgression over the circle, and the character is not Paper I's
+affine torsion.  The coefficient paths are supplied rather than history-natural;
+the inverse full-twist closure `T(4,-4)` is not identified with the cusp link
+`T(2,4)`, and no new knot invariant is claimed.
+
+The final unified repository build produced the following active artifact:
+
+| Property | M-0007 integration artifact |
+|---|---:|
+| Pages | 69 |
+| File size | 704,239 bytes |
+| SHA-256 | `f094bc5e70739fc0144fcefff78a877f03d420f39f2475be12aed6d938a9dd9e` |
+| Canonical TeX files | 16: entry point, 12 sections, 3 appendices |
+| Active labels | 266 unique |
+| Reference targets | 144 unique, all present |
+| Citation keys used | 20 unique, all present |
+
+The final `pdflatex`--BibTeX resolution sequence is clean: no LaTeX, package, or
+BibTeX warning; no undefined reference or citation; no duplicate label; no
+overfull or underfull box; and no fatal diagnostic.  All 69 pages were rendered
+in contact sheets.  Enlarged review covered the title and abstract, the complete
+threaded-carrier section, the logarithmic-tangent and LHS proofs, the conclusion,
+bibliography, and final claim ledger; no clipping, collision, broken glyph, blank
+content page, or unreadable element was found.  Independent mathematical and
+claim-boundary reviews report zero blocking and zero major findings after repair.

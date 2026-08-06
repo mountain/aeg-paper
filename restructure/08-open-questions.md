@@ -2931,3 +2931,49 @@ orbit that retains some of the tagged trace, ordinary-domain, divisor, framing, 
 local-system data, and prove its behavior under the declared history equivalence.
 Only after ambient-isotopy or Markov descent may such a decoration be called a new
 knot invariant.
+
+## OQ-077 — Mixed slice--tube naturality and the neutral-word test
+
+**State:** EXPLICIT HORIZONTAL MODEL PROVED; HISTORY-NATURAL LIFT OPEN
+
+The supplied family (P_m(z,t)=z^2-t^m) proves that a single polynomial can
+simultaneously control a real singular carrier, a finite root thread, a
+discriminant period, a braid, and, for even (m), a linking number.  It also
+exhibits the exact information loss
+
+[
+1\longrightarrow P_2\longrightarrow B_2\longrightarrow S_2\longrightarrow1.
+]
+
+This does not yet connect Paper I's slice torsion to tube monodromy.  Over a
+circle base, `Serre transgression' is not the correct language; the proved datum
+is monodromy and a pure-braid kernel residue.  Paper I's existing affine torsion
+is real-valued, is defined on a restricted add--scale kernel pair, vanishes when
+the full affine operator agrees, and does not extend automatically through the
+q=4 inversion generator.
+
+Construct an invertible marked-history group or groupoid with a coefficient-path
+assignment whose permutation action factors through the q=4 sign character and
+whose same-operator fibers map naturally to pure braids or framed braids.  The
+first hard test is the neutral word
+
+[
+\omega_4=(JT)^4.
+]
+
+Its terminal projective divisor equals that of the empty history.  Determine
+whether a canonical full-history coefficient path nevertheless gives
+(sigma_1^4) in the two-sheet cusp-thread target, (z_4^{-1}) in the four-sheet
+unit-tangent target, an order-weighted framed class, or zero.  The two targets
+are distinct and need not agree.  Prove invariance under
+the declared history relations and every coordinate/register gauge before using
+the output as an AEG datum.
+
+The ordinary two-braid extension cannot simultaneously identify both q=4
+elliptic relators with one unit-tangent fiber winding.  A positive solution must
+therefore use an orbifold-weighted normalization, a higher-strand framed
+configuration, or prove that the unit-tangent and polynomial residuals are
+genuinely different structures.  The supplied four-strand Garside/rotation
+calibration now matches the unit-tangent central extension exactly, but it does
+not derive those coefficient paths from the q=4 dessin or from unrestricted
+marked histories.  Naturality of that path selection is the remaining test.
