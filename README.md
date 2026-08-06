@@ -16,12 +16,16 @@ The active manuscripts are:
 > **Arithmetic Expression Geometry II: Hyperbolic Real Function Theory**
 > *Horizontal Operators, Boundary Problems, and Arithmetic Holomorphicity*
 
-Their canonical entry points are [`paper-1/aeg-paper-1.tex`](paper-1/aeg-paper-1.tex)
-and [`paper-2/aeg-paper-2.tex`](paper-2/aeg-paper-2.tex).  All four papers have
-top-level directories: [`paper-1/`](paper-1/),
-[`paper-2/`](paper-2/), [`paper-3/`](paper-3/), and [`paper-4/`](paper-4/).  The
-governing scope, mathematical-status register, migration map, and acceptance criteria
-are under [`restructure/`](restructure/README.md).
+> **Arithmetic Expression Geometry III: Singular Zero Geometry and Tubes**
+> *Multi-Zero Constructions, Discriminants, and Topological Transport*
+
+Their canonical entry points are [`paper-1/aeg-paper-1.tex`](paper-1/aeg-paper-1.tex),
+[`paper-2/aeg-paper-2.tex`](paper-2/aeg-paper-2.tex), and
+[`paper-3/aeg-paper-3.tex`](paper-3/aeg-paper-3.tex).  All four papers have top-level
+directories: [`paper-1/`](paper-1/), [`paper-2/`](paper-2/),
+[`paper-3/`](paper-3/), and [`paper-4/`](paper-4/).  The governing scope,
+mathematical-status register, migration map, and acceptance criteria are under
+[`restructure/`](restructure/README.md).
 
 ## Version and DOI
 
@@ -46,8 +50,10 @@ approval before its DOI metadata is changed.
    quotient structures, information loss under condensation, and complexity only
    after explicit state, metric, encoding, and cost models have been supplied.
 
-Paper II is now a mathematical-review manuscript.  Paper III and Paper IV remain
-scope and provenance records, not claims of completed papers.
+Papers I--III are mathematical-review manuscripts.  Paper III separates proved
+regular and conditional topological results from structural proposals and open
+problems.  Paper IV remains a scope and provenance record, not a claim of a
+completed paper.
 
 Paper entry points and generated PDFs follow the uniform convention
 `paper-k/aeg-paper-k.tex` and `paper-k/aeg-paper-k.pdf`, respectively.
@@ -60,9 +66,10 @@ The local build requires `pdflatex` and `bibtex`:
 ./build.sh
 ```
 
-This builds Papers I and II.  To build one manuscript only, run `./build.sh 1` or
-`./build.sh 2`.  The expected artifacts are `paper-1/aeg-paper-1.pdf` and
-`paper-2/aeg-paper-2.pdf`.  A container build remains available for environments
+This builds Papers I--III.  To build one manuscript only, run `./build.sh 1`,
+`./build.sh 2`, or `./build.sh 3`.  The expected artifacts are
+`paper-1/aeg-paper-1.pdf`, `paper-2/aeg-paper-2.pdf`, and
+`paper-3/aeg-paper-3.pdf`.  A container build remains available for environments
 with Docker:
 
 ```bash

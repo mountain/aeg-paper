@@ -1,0 +1,183 @@
+\subsection{A finite and locally finite construction}
+
+The regular-zero theorem is local and does not limit the number of connected
+components globally.  The next model gives a direct answer to the existence part
+of the multi-zero problem.
+
+\begin{theorem}[Parallel multi-zero model]
+\label{thm:parallel-multi-zero}
+Let $h\in C^\infty(\R)$ have only simple zeros.  On $M=\R^2$ define
+\begin{equation}
+ a_h(x,y)=e^x h(y)
+ \label{eq:parallel-assignment}
+\end{equation}
+and
+\begin{equation}
+ g_h=
+ \frac{e^{2x}\bigl(h(y)^2+h'(y)^2\bigr)}
+      {\mu^2+\lambda^2e^{2x}h(y)^2}
+ (\dd x^2+\dd y^2).
+ \label{eq:parallel-metric}
+\end{equation}
+Then $(M,g_h,a_h;\mu,\lambda)$ is a regular AES and
+\begin{equation}
+ Z(a_h)=\coprod_{h(c)=0}\R\times\{c\}.
+ \label{eq:parallel-zero-set}
+\end{equation}
+In particular, if
+$h_k(y)=\prod_{j=1}^k(y-c_j)$ with distinct $c_j$, the zero set has exactly
+$k$ connected components.
+\end{theorem}
+
+\begin{proof}
+One has
+\[
+ \dd a_h=e^x h(y)\,\dd x+e^x h'(y)\,\dd y,
+ \qquad
+ |\dd a_h|^2_{\mathrm{eucl}}
+ =e^{2x}\bigl(h^2+(h')^2\bigr).
+\]
+The simple-zero hypothesis implies that $h$ and $h'$ never vanish
+simultaneously.  The coefficient in \eqref{eq:parallel-metric} is therefore smooth
+and positive.  Theorem~\ref{thm:conformal-realization} proves the AEG identity,
+and $e^x$ never vanishes, so \eqref{eq:parallel-zero-set} is immediate.
+\end{proof}
+
+\begin{remark}[What the index counts]
+\label{rem:descriptive-index}
+The polynomial example proves existence of a regular AES with $k$ zero components.
+It does not prove uniqueness, completeness, homogeneity, or a canonical
+classification by $k$.  We therefore call it the \emph{parallel $k$-zero model},
+not $E_k$.  The old repository symbol $E_k$ had no stable definition: at different
+times its subscript suggested construction order, zero count, or singularity count.
+\end{remark}
+
+Taking $h(y)=\sin y$ gives a countable, locally finite zero family.  This example
+already suggests that countably many visible sheets may be repetitions under a
+covering group rather than independent components of downstairs geometry.
+
+\subsection{A downstairs model and its logarithmic pullback}
+
+Let $z=X+iY$ be the standard coordinate on $\C^\times$ and set
+\begin{equation}
+ a_\times(z)=Y,
+ \qquad
+ g_\times=\frac{\dd X^2+\dd Y^2}{\mu^2+\lambda^2Y^2}.
+ \label{eq:punctured-plane-aes}
+\end{equation}
+Since $|\dd Y|^2_{\mathrm{eucl}}=1$, this is a regular AES.  Its zero set is the
+punctured real axis, hence has two components.
+
+Pull \eqref{eq:punctured-plane-aes} back along the exponential covering
+\[
+ \exp:\C\longrightarrow\C^\times,
+ \qquad x+iy\longmapsto e^{x+iy}.
+\]
+The resulting data are
+\begin{equation}
+ \widetilde a(x,y)=e^x\sin y,
+ \qquad
+ \widetilde g=
+ \frac{e^{2x}}
+      {\mu^2+\lambda^2e^{2x}\sin^2y}
+ (\dd x^2+\dd y^2),
+ \label{eq:logarithmic-aes}
+\end{equation}
+and
+\begin{equation}
+ Z(\widetilde a)=\coprod_{k\in\Z}\{y=k\pi\}.
+ \label{eq:logarithmic-zero-lines}
+\end{equation}
+
+\begin{theorem}[Logarithmic zero lift]
+\label{thm:logarithmic-zero-lift}
+The data in \eqref{eq:logarithmic-aes} form a regular AES and are invariant under
+the deck transformation
+\[
+ D(x,y)=(x,y+2\pi).
+\]
+On the labels in \eqref{eq:logarithmic-zero-lines}, $D$ acts by $k\mapsto k+2$.
+Thus the countable upstairs zero family has exactly two deck orbits, corresponding
+to the positive and negative real half-axes downstairs.
+\end{theorem}
+
+\begin{proof}
+The formula is the pullback of the regular AES
+\eqref{eq:punctured-plane-aes}; it can also be checked directly from
+$|\dd\widetilde a|^2_{\mathrm{eucl}}=e^{2x}$.  Both $\sin y$ and the metric
+coefficient are $2\pi$-periodic.  Finally,
+$D(\{y=k\pi\})=\{y=(k+2)\pi\}$, proving the orbit statement.
+\end{proof}
+
+\begin{remark}[No singular spine at the missing origin]
+The coordinate $z=0$ is absent from $\C^\times$, but the formula
+$a_\times=Y$ and its metric extend regularly across it.  Hence the origin is not a
+locally essential singularity in the sense of Paper I.  The model is a
+\emph{logarithmic-domain model}, not an essential-singularity model.  Calling the
+missing point a singular spine would erase the local-essentiality condition.
+\end{remark}
+
+Theorem~\ref{thm:logarithmic-zero-lift} is the rigorous content we retain from the
+historical $E_{\log}$ intuition:
+\[
+ \text{countably many sheets upstairs}
+ \quad=\quad
+ \text{finite downstairs geometry plus deck labels}.
+\]
+No claim is made that it reconstructs every meaning previously attached to
+$E_{\log}$.
+
+\subsection{Sheet labels are not automatically topological states}
+
+The label $k\in\Z$ in \eqref{eq:logarithmic-zero-lines} depends on a choice of
+fundamental domain.  Its parity is invariant under the deck group in this model,
+but an absolute integer label is not downstairs data.  More generally, logarithms
+of moving complex roots acquire integer shifts whose individual values depend on
+the chosen lifts; only cycle sums survive the lift gauge.  This statement is proved
+in Section~\ref{sec:braids} and Appendix~\ref{app:configuration}.
+
+There is a second obstruction to interpreting the parallel model as a braid.  If
+$c_1(t)<\cdots<c_k(t)$ are distinct real zero positions throughout a one-parameter
+family, their order cannot change without a collision.  The configuration space of
+$k$ unordered points on a line has contractible components; it does not carry the
+Artin braid group.  Noncommutative braid monodromy requires motion in a surface,
+which in this paper comes from complex-valued fields, or else a separately declared
+transverse probe.
+
+\subsection{Metric completeness and provenance limits}
+
+The models above are exact solutions of the AEG equation, but completeness is not
+part of their claim.  For example, in the parallel model the conformal factor often
+decays like $e^{2x}$ as $x\to-\infty$, placing that end at finite metric distance.
+Completion can add boundary or singular strata and must be audited separately.
+This is one reason the model record must always list the domain and metric, not only
+the zero set.
+
+For reference, the construction record is:
+\begin{center}
+\small
+\begin{tabular}{p{0.17\textwidth}p{0.34\textwidth}p{0.34\textwidth}}
+\toprule
+Item & Parallel model & Logarithmic model \\
+\midrule
+Domain & $\R^2$ & $\C\to\C^\times$ \\
+Assignment & $e^xh(y)$ & $e^x\sin y=\im(e^{x+iy})$ \\
+Metric & Equation~\eqref{eq:parallel-metric} &
+Equation~\eqref{eq:logarithmic-aes} \\
+Singular set & empty & empty \\
+Zero topology & one line per simple zero of $h$ & countably many lines upstairs,
+two components downstairs \\
+Global status & regular; completeness not asserted & regular covering model;
+missing origin removable \\
+Provenance & constructed and proved here & constructed and proved here; historical
+name used only as motivation \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{problem}[Natural multi-zero metrics]
+\label{prob:natural-multizero}
+Classify multi-zero assignments when the metric is fixed by an independent AEG
+construction, or when completeness, curvature, or expression-history naturality is
+imposed.  Determine whether any canonical index survives those restrictions.
+\end{problem}

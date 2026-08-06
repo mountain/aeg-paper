@@ -3366,3 +3366,55 @@ promote any later-paper programme.
 - **Reviewer:** independent surface/operator, contact/boundary, whole-manuscript
   mathematics, and scope/provenance reviews.
 - **Date:** 2026-08-06.
+
+## Status change S-0007
+
+- **Claim ID:** Paper III tube, multi-zero, discriminant, braid, logarithmic, and
+  affine-filter results.
+- **Previous status:** no certifiable general multi-zero, `E_k`, or `E_log` model;
+  proper tubes, discriminants, finite-root braids, threading, Markov descent, and
+  knot invariants were conditional or open.  The discussion-level resonant twisted
+  affine class was open.
+- **New status:** the results listed below are `PROVED WITH STATED HYPOTHESES`;
+  natural threading, AEG Markov descent, and separation beyond Alexander/Burau
+  remain `OPEN`.
+- **Exact proved statements:**
+  1. every smooth surface submersion is a regular AES for an explicit conformal
+     metric, and every smooth function with closed nowhere-dense critical set gives
+     a singular AES off that set;
+  2. descriptive parallel models realize every finite zero-component count, and
+     the exponential-cover model realizes countably many sheets as two downstairs
+     zero components with deck action;
+  3. vertical zero-section transversality gives a smooth incidence and submersive
+     projection, while properness gives a smooth bundle;
+  4. with a smooth global vertical orientation, a compact boundaryless real zero
+     tube over `S^1` is a disjoint union of tori; the compact helical family computes its interval permutation, annular
+     components, logarithmic shifts, and boundary homology;
+  5. conformal Morse families realize definite birth/death and indefinite
+     reconnection, while a transverse simple complex polynomial discriminant has
+     local root model `w^2=tau`;
+  6. square-free arithmetic-holomorphic polynomial families have proper finite root
+     coverings and realize every braid on the basic hyperbolic AES;
+  7. logarithmic root endpoint shifts obey the printed lift-gauge law and have
+     invariant cycle sums;
+  8. stateless additive braid scalars collapse to writhe and to zero under compatible
+     two-sided Markov stabilization; fixed-multiplier affine torsion is an ordinary
+     coboundary;
+  9. finite-field resonant affine torsion is a nonzero twisted quandle cohomology
+     class, but its classical planar state sum is an Alexander-extension obstruction
+     state sum and equals the coloring count.
+- **Hypotheses:** exactly those printed theorem by theorem in Paper III; in
+  particular `mu != 0`, vertical transversality, properness and neat boundary where
+  invoked, square-free monic complex polynomials for braid monodromy, and finite
+  field with `t != 1` for the resonant theorem.
+- **Proof location:** Paper III Sections 2--8 and Appendices A--C.
+- **Provenance correction:** the multi-zero, logarithmic, and helical formulas are
+  new audited constructions in Paper III, not migrations of a missing historical
+  `E_k` or `E_log` theorem.  Historical ambient-tube notes remain motivation only.
+- **Claims deliberately not promoted:** canonical singular classification;
+  completeness of conformal models; intrinsic thread selection; a general
+  real-assignment-to-braid functor; a new knot invariant; any separation beyond
+  Alexander/Burau; an associator interpretation of the variable-multiplier anomaly.
+- **Papers affected:** Paper III; Paper I and Paper II are imported without changing
+  their theorems.
+- **Date:** 2026-08-06.

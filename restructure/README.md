@@ -43,6 +43,16 @@ The governing specifications are:
 
 When repository sources conflict, these documents determine the current scope, terminology, claim status, and migration policy.
 
+The completed mathematical-review integrations are documented in:
+
+* [`paper-I-closure-report.md`](paper-I-closure-report.md)
+* [`paper-II-closure-report.md`](paper-II-closure-report.md)
+* [`paper-III-closure-report.md`](paper-III-closure-report.md)
+
+Paper III's corrected historical provenance and theorem decisions are recorded in
+[`paper-III-source-audit.md`](paper-III-source-audit.md) and
+[`decisions-paper-III.md`](decisions-paper-III.md).
+
 ---
 
 # The AEG paper series

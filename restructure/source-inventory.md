@@ -138,3 +138,43 @@ not by TeX inclusion.  No legacy `sections/sec*.tex`, archive, note, Paper III, 
 Paper IV source belongs to its build dependency closure.  Formula-level provenance
 and claim treatment are recorded in `paper-II-source-audit.md` and
 `decisions-paper-II.md`.
+
+## 7. Paper III integration addendum
+
+The current Paper III source closure is:
+
+```text
+paper-3/
+  aeg-paper-3.tex
+  sections/
+    01-singular-aes.tex
+    02-local-zero-models.tex
+    03-multi-zero-constructions.tex
+    04-parameter-discriminants.tex
+    05-regular-tubes.tex
+    06-singular-fibers.tex
+    07-monodromy-and-braids.tex
+    08-threading-and-knot-questions.tex
+  appendices/
+    app-A-regularity-and-properness.tex
+    app-B-configuration-and-braid-background.tex
+    app-C-affine-quandle-calculations.tex
+```
+
+The entry point inputs only these eleven section/appendix files and the shared root
+bibliography.  It imports Papers I and II by cited interfaces rather than by TeX
+inclusion.  No legacy `sections/sec*.tex`, note, knot file, miscellaneous figure
+source, archived manuscript, or restructuring discussion belongs to the active
+Paper III TeX dependency closure.
+
+The historical-source and Git-history audit is recorded in
+`paper-III-source-audit.md`.  Its central provenance finding is that no verifiable
+general multi-zero construction, defined general `E_k`, or explicit historical AEG
+`E_log` construction occurs in the 249 reachable commits.  The parallel
+multi-zero, logarithmic-cover, helical-tube, Morse, branch, braid-realization, and
+finite-field constructions in the active manuscript are therefore
+`REDERIVED HERE`; legacy files remain `ARCHIVAL` or `HOLD`.
+
+This addendum supersedes the earlier inventory statement that Paper III consisted
+only of a scope/provenance README.  It does not alter the fixed Paper I baseline
+counts above.

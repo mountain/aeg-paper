@@ -1,0 +1,203 @@
+\subsection{The proper-tube theorem}
+
+Definition~\ref{def:zero-object-hierarchy} reserves the word tube for a proper
+submersion.  The resulting structure is strong and concrete.
+
+\begin{theorem}[Proper real-zero tube]
+\label{thm:proper-real-zero-tube}
+Let $q:X\to B$ be an ambient regular AEG family over a connected one-dimensional
+base, and suppose its assignment incidence $\calZ=A^{-1}(0)$ is nonempty and
+$\pi=q|_{\calZ}$ is proper and surjective.
+\begin{enumerate}
+\item The map $\pi:\calZ\to B$ is a smooth fiber bundle whose fibers are smooth
+one-manifolds.
+\item If the surface fibers have no boundary, every zero fiber is a finite disjoint
+union of circles.
+\item If $B$ is an interval, the bundle is globally trivial.  For a product
+ambient family $M\times B$, its compact zero curves over each compact subinterval
+form a smooth isotopy and hence extend to an ambient isotopy of $M$.  If $B$ itself
+is a compact interval, this applies over all of $B$.
+\item If $B=S^1$, the surface fibers are boundaryless, and the smooth vertical
+orientation required in Definition~\ref{def:ambient-aeg-family} is fixed, every
+connected component of $\calZ$ is a torus.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+The AEG equation makes the vertical derivative $\dd A_b$ nonzero at every point,
+so Theorem~\ref{thm:parameterized-zero-section} proves the bundle assertion.
+Properness makes every fiber compact.  A compact boundaryless one-manifold is a
+finite union of circles.
+
+A smooth bundle over an interval is trivial.  In a product ambient family, a
+trivialization expresses the inclusions of the compact fiber as a smooth isotopy of
+embeddings over each compact subinterval; the isotopy-extension theorem extends it
+to the ambient surface
+\cite{Hirsch1976DifferentialTopology}.
+
+Over $S^1$, the total space is the mapping torus of a diffeomorphism of a finite
+union of circles.  Each orbit of the induced component permutation produces one
+connected component.  After traversing the orbit, the return map is a
+diffeomorphism of $S^1$, so that component is either a torus or a Klein bottle.
+The smooth orientation of $T^VX$ and the orientation of the base orient $X$; the
+regular level set $A^{-1}(0)$ is cooriented by $\dd A$, hence orientable.  The
+Klein-bottle case is excluded, and every component is a torus.  This is where the
+global vertical-orientation hypothesis is essential: a mapping torus with
+orientation-reversing fiber monodromy need not be orientable.
+\end{proof}
+
+\begin{remark}[Why vertical orientability is necessary]
+If the global vertical orientation is dropped, the torus conclusion is false even
+for a product-type formula.  Let $M=\R_r\times S^1_\phi$ with
+$g=\dd r^2+\dd\phi^2$, $a=\mu r$, and $\lambda=0$, and form the mapping torus of
+the AEG isometry $(r,\phi)\mapsto(r,-\phi)$.  Its zero incidence is the mapping
+torus of an orientation-reversing circle map, hence a Klein bottle.  It is compact
+and proper over the parameter circle, but the resulting surface bundle has no
+smooth orientation of $T^VX$.
+\end{remark}
+
+\begin{remark}[What this theorem does not encode]
+The theorem classifies the abstract total surface under its hypotheses.  The
+embedding $\calZ\hookrightarrow X$ may still carry nontrivial ambient monodromy,
+and no preferred curve inside a torus component has been selected.  In particular,
+a union of zero tori is not yet a knot or link.
+\end{remark}
+
+Example~\ref{ex:cylindrical-propagation} gives an immediate nonempty instance.  If
+$B$ is compact and $c:B\to\R$ is smooth, set $a_b=a_{c(b)}$.  Then
+\[
+ \calZ=\{(r,\phi,b):r=c(b)\}\cong S^1\times B.
+\]
+It is compact and therefore proper over $B$.  The example is deliberately trivial:
+it verifies every hypothesis while isolating the content supplied by properness.
+
+\subsection{A compact helical AEG tube}
+
+The next family is still explicit but has nontrivial component transport.  Let
+\[
+ M_L=[-L,L]_x\times S^1_y,
+ \qquad B=S^1_\theta,
+ \qquad L>0,
+\]
+and choose integers $n\ge1$ and $m\in\Z$.  Define
+\begin{equation}
+ A_{m,n}(x,y,\theta)=e^{nx}\sin(ny-m\theta)
+ \label{eq:helical-assignment}
+\end{equation}
+and the vertical metric
+\begin{equation}
+ g_{m,n,\theta}=
+ \frac{n^2e^{2nx}}
+ {\mu^2+\lambda^2e^{2nx}\sin^2(ny-m\theta)}
+ (\dd x^2+\dd y^2).
+ \label{eq:helical-metric}
+\end{equation}
+
+\begin{theorem}[Helical zero-tube theorem]
+\label{thm:helical-zero-tube}
+The family \eqref{eq:helical-assignment}--\eqref{eq:helical-metric} is an ambient
+regular AEG family and its zero incidence is a proper neat tube over $S^1$.
+For every $\theta$, the zero fiber consists of $2n$ intervals
+\begin{equation}
+ y=\frac{m\theta+k\pi}{n},
+ \qquad k\in\Z/(2n).
+ \label{eq:helical-zero-fiber}
+\end{equation}
+Parameter monodromy acts on the component labels by
+\begin{equation}
+ k\longmapsto k+2m\pmod{2n}.
+ \label{eq:helical-permutation}
+\end{equation}
+If $d=\gcd(n,m)$, including $d=n$ when $m=0$, the total incidence is a disjoint
+union of $2d$ annuli, each containing $n/d$ zero intervals in its monodromy orbit.
+\end{theorem}
+
+\begin{proof}
+The spatial derivative is
+\[
+ \dd^VA_{m,n}
+ =ne^{nx}\sin(ny-m\theta)\,\dd x
+  +ne^{nx}\cos(ny-m\theta)\,\dd y,
+\]
+whose Euclidean norm squared is $n^2e^{2nx}$.  Thus
+\eqref{eq:helical-metric} is precisely the conformal realization metric, proving
+the AEG equation.  At a zero, the $y$-derivative is nonzero, so the incidence is
+smooth and meets $x=\pm L$ neatly.  It is closed in the compact manifold
+$M_L\times S^1$, hence compact and proper.
+
+Equation~\eqref{eq:helical-zero-fiber} follows from $ny-m\theta\in\pi\Z$.
+Increasing $\theta$ by $2\pi$ changes the label by $2m$, proving
+\eqref{eq:helical-permutation}.  Translation by $2m$ on the cyclic group of order
+$2n$ has $\gcd(2n,2m)=2d$ orbits, each of length $n/d$.  The transport fixes the
+$x$-coordinate, so the return map after a complete label orbit is the identity on
+the interval.  Its mapping torus is therefore an annulus, not a M\"obius band.
+\end{proof}
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}[x=0.95cm,y=0.95cm,>=Latex]
+  \draw[->] (0,0)--(7.1,0) node[right] {$\theta$};
+  \draw[->] (0,-0.2)--(0,4.7) node[above] {$y$};
+  \draw[dashed] (6,0)--(6,4.4);
+  \node[below] at (0,0) {$0$};
+  \node[below] at (6,0) {$2\pi$};
+  \foreach \j in {-1,0,1,2,3} {
+    \draw[blue!70!black,thick] (-0.2,{0.7+1.0*\j}) -- (6.2,{2.1+1.0*\j});
+  }
+  \draw[<->,red!70!black,thick] (6.35,0.7)--(6.35,2.7)
+    node[midway,right,align=left,font=\small]{label shift\\$k\mapsto k+2m$};
+  \node[align=center,font=\small] at (3.25,4.65)
+    {unwrapped zero sheets $ny-m\theta=k\pi$};
+\end{tikzpicture}
+\caption{The helical tube on the unwrapped $(\theta,y)$-plane.  Vertical boundary
+identification at $\theta=0,2\pi$ produces the permutation
+\eqref{eq:helical-permutation}; the drawing is schematic, while the slope is fixed
+exactly by $\dd y/\dd\theta=m/n$.}
+\label{fig:helical-unwrapped}
+\end{figure}
+
+\subsection{Boundary traces and logarithmic sheets}
+
+At either boundary component $x=\pm L$, the trace lies in the parameter-position
+torus $S^1_\theta\times S^1_y$ and satisfies
+\[
+ ny-m\theta\in\pi\Z.
+\]
+It has $2d$ connected components.  Each is a primitive curve with homology class
+\begin{equation}
+ \frac nd[S^1_\theta]+\frac md[S^1_y].
+ \label{eq:helical-boundary-class}
+\end{equation}
+If $T(p,q)$ denotes the torus link whose total homology data in these ordered
+coordinates are $(p,q)$, the full trace is $T(2n,2m)$, up to simultaneous
+orientation reversal.  This statement depends on the declared torus coordinates;
+it is not an intrinsic knot type before an embedding of that torus in a
+three-manifold is fixed.
+
+Unwrap the $y$-circle to $y\in\R$.  Formula~\eqref{eq:helical-zero-fiber} now has
+labels $k\in\Z$.  The parameter loop sends $k\mapsto k+2m$, while the deck
+transformation $y\mapsto y+2\pi$ sends $k\mapsto k+2n$.  The finite downstairs
+system is exactly the quotient of this countable label set by the deck action.
+This simultaneously realizes a proper tube and a nontrivial logarithmic shift.
+
+\begin{corollary}[Finite quotient of the helical lift]
+\label{cor:helical-finite-quotient}
+For the helical family, the countable lifted sheets contain no additional
+component permutation beyond the affine action generated by the two translations
+$2m$ and $2n$ on $\Z$.  Downstairs component monodromy is their reduction modulo
+$2n$.
+\end{corollary}
+
+\subsection{Embedded monodromy versus braid monodromy}
+
+The permutation \eqref{eq:helical-permutation} is honest monodromy, but it is not
+an element of $B_{2n}$.  Its fiber consists of intervals in a surface, not points in
+a disc.  Intersecting the zero tube with $x=c$ produces a one-dimensional trace in
+$S^1_y\times S^1_\theta$, but the choice of $c$ is additional probe data.  Section
+\ref{sec:threading} formalizes this distinction.
+
+Even for compact circle fibers in Theorem~\ref{thm:proper-real-zero-tube}, the
+abstract monodromy of the one-manifold fiber records only a permutation and
+orientation-preserving return maps of circles.  The embedding in the ambient
+surface can carry a richer mapping class, but that is a mapping-class problem for
+curves, not the ordinary braid group of moving points.
