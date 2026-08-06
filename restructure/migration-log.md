@@ -279,3 +279,53 @@ closure.
   Papers I--III contain 63, 44, and 43 pages.  The final sizes, SHA-256 values,
   label counts, citation counts, and clean-log evidence are recorded in
   `audit-report.md` Section 9 and in the three post-closure amendments.
+
+## Migration M-0006
+
+- **Date:** 2026-08-06
+- **Name:** q=4 sign-cover knots and finite-register divisor naturality
+- **Source:** the active q=4 Hauptmodul/sign construction; Paper I's chronological
+  projective evaluation and neutral word `omega_4`; the cited geodesic-flow,
+  lens-space, template, finite-etale, and arithmetic-Frobenius literature; and the
+  two-priority mathematical red-team record
+- **Active manuscript destinations:** new
+  `paper-3/sections/05-q4-geodesic-knots.tex` and
+  `paper-3/sections/05-history-divisor-naturality.tex`; the Paper III entry point,
+  abstract, introduction, README, and PDF; Paper I and II conclusion interfaces;
+  root README; and the shared bibliography
+- **Governance destinations:** `00-authoritative-scope.md`,
+  `05-mathematical-status.md`, `07-acceptance-checklist.md`,
+  `08-open-questions.md`, `decisions-paper-III.md`, `source-inventory.md`, this
+  migration log, the arithmetic--automorphic synthesis discussion, audit report,
+  and closure amendments
+- **Migration state:** CANONICAL / REDERIVED HERE / CLASSICAL EXTERNAL INPUT /
+  RESTRICTED NATURALITY MODEL / OPEN GENERAL FRONTIER
+- **q=4 topology treatment:** the sign kernel has signature
+  `(0;2;infinity,infinity)`; its completed coarse AEG carrier is `C*`.  Retaining
+  the hyperbolic orbifold, its unit tangent bundle is identified by peripheral
+  cover and slope calculation with `S^3 minus T(2,4)` under the declared filling.
+  The local four-prong germ is not identified with this global link.
+- **Knot treatment:** primitive hyperbolic operator classes give classical
+  geodesic-flow periodic-orbit knots.  Cyclic word shift acts by operator
+  conjugacy; path inverse gives the time-reversed orbit; the map is surjective but
+  collapses marked-history fibers.  The zero dessin is a coding spine, not the
+  three-dimensional template.  No new isotopy or Markov invariant is claimed.
+- **Register treatment:** `u^2=t` forces an equivariant projective quadratic
+  endpoint divisor and explicit Frobenius.  A tagged prefix trace and ordinary
+  pole cocycle distinguish `omega_4` from the empty history at `t=2` and `t=1/2`.
+  The tower `v^2=3`, `u^2=t+v` forces an arithmetically irreducible quartic with
+  two constant-geometric components, explicit discriminant, monodromy, and
+  Frobenius cycle types.
+- **Boundary:** both registers are supplied typed inputs.  Their terminal endpoint
+  data factor through projective evaluation and do not solve the general
+  history-to-prime-divisor functor, factorization-history problem, or knot
+  decoration descent.
+- **Theorem nodes affected:** P3-K1--P3-K4 and P3-R3--P3-R5; OQ-072--OQ-074 are
+  partially resolved as recorded, OQ-075 remains open, and OQ-076 records the new
+  marked-history knot-enhancement frontier
+- **Content removed from source:** none
+- **Unified build result:** `./build.sh all` completed the current
+  `pdflatex`--BibTeX--three-`pdflatex` sequence for all three manuscripts.  Papers
+  I--III contain 63, 44, and 58 pages.  Their final sizes, SHA-256 values, label,
+  reference, and citation counts, clean-log evidence, and visual audit are recorded
+  in `audit-report.md` Section 10 and in the M-0006 closure amendments.

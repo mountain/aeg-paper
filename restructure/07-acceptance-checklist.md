@@ -1702,3 +1702,45 @@ These gates apply to the post-closure Papers I--III integration.
 - [x] The source audit records the automorphic construction as rederived here, not
       as a recovered historical `E_k` or `E_log` theorem.
 - [x] Generated PDFs and closure metadata are refreshed after the final build.
+
+---
+
+## 107. Sign-cover knot and finite-register gates
+
+### q=4 cover and periodic-orbit knots
+
+- [x] The sign-cover signature is derived from stabilizer intersections and
+      orbifold Euler characteristic.
+- [x] The coarse flat cylinder is distinguished from the hyperbolic orbifold and
+      its unit tangent bundle.
+- [x] Extension over cusp filling is justified on the full peripheral subgroup.
+- [x] The (S^3\setminus T(2,4)) identification includes an explicit index-two
+      torus lattice and slope calculation.
+- [x] The local four-prong germ is not called the torus link.
+- [x] The zero dessin, dual tree, hyperbolic axis, admissible path, and
+      three-dimensional template are treated as distinct objects.
+- [x] The operator-history map states its conjugacy kernel and does not claim a
+      new knot invariant.
+
+### Finite register and divisor naturality
+
+- [x] The quadratic equation is homogeneous on (\mathbb P^1_B) and remains valid
+      when an affine root moves to infinity.
+- [x] Constant-field extension is distinguished from the nonconstant Kummer
+      splitting field.
+- [x] Chronological composition follows Paper I's antihomomorphism convention.
+- [x] The tagged trace and pole cocycle are typed over the register base.
+- [x] The (\omega_4) calculation distinguishes terminal equality from ordinary
+      admissibility and trace equality.
+- [x] The quartic arithmetic/geometric factorization, discriminant, monodromy,
+      and Frobenius cycle types are independently recomputed.
+- [x] The supplied registers are not advertised as canonical outputs of general
+      histories.
+
+### Release evidence
+
+- [x] Papers I--III pass the final unified build after these additions.
+- [x] All new references, labels, and citations pass static closure checks.
+- [x] The expanded Paper III PDF passes full-page visual inspection.
+- [x] Closure reports, source inventory, migration log, and audit report record
+      the final page counts, sizes, and hashes.

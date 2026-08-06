@@ -3247,16 +3247,26 @@ promote any later-paper programme.
 | P3-S2 | Local degree (m) gives a (2m)-prong zero germ and cone angle (2\pi m) | **PROVED BY LOCAL NORMAL FORM AND METRIC CALCULATION** | This is a singular metric completion, not a smooth regular AES point. |
 | P3-S3 | A normalized Hauptmodul has orbifold signature ((2,4,\infty)), finite ramification indices (2) and (4), and a simple pole at the cusp | **STANDARD EXTERNAL INPUT REQUIRING CITATION** | The chosen finite branch values and cusp normalization must be printed. |
 | P3-S4 | The square-root/Cayley/cylindrical construction has zero set (\beta^{-1}([0,1])) and four-valent (4\pi)-cone vertices upstairs | **PROVED CONDITIONAL ON P3-S3** | The sign character is explicit.  The completed full-orbifold length quotient is complete with an infinite-distance cusp and coarse angle (\pi) at each elliptic image; properness and tube conclusions are not automatic. |
+| P3-K1 | The sign cover has signature ((0;2;\infty,\infty)) and coarse AEG completion (\mathbb C^\times) | **PROVED** | The coarse flat cylinder forgets residual orbifold isotropy and is not the hyperbolic unit tangent bundle. |
+| P3-K2 | The hyperbolic unit tangent sign cover is (S^3\setminus T(2,4)) under the declared cusp filling | **PROVED FROM AN EXPLICIT COVER AND SLOPE CALCULATION, USING THE CITED LENS-SPACE INPUT** | The local four-prong germ and its four-point small-circle intersection are not being identified with the torus link. |
+| P3-K3 | Primitive hyperbolic Hecke classes give periodic-orbit knots with explicit cusp-linking turn sum | **CLASSICAL GEODESIC-FLOW/CODING THEOREM SPECIALIZED AND AUDITED** | This is not claimed as a new knot invariant. |
+| P3-K4 | The AEG zero dessin is the coding spine used to construct the classical template | **PROVED/CITED WITH OBJECT-TYPE DISTINCTION** | The bare two-dimensional zero graph is not the three-dimensional template or a zero tube. |
 | P3-R1 | Prime relative divisors normalize to finite covers away from discriminant and bad fibers | **STANDARD CONSEQUENCE WITH FINITENESS HYPOTHESES** | Arithmetic and geometric irreducibility must be separated. |
 | P3-R2 | Galois, inertia, reduction, and Frobenius may decorate the geometric sheets of an integral family | **STANDARD ARITHMETIC FRAMEWORK** | It applies only after a ring/field of definition and integral model are declared. |
-| P3-R3 | Every suitable AEG history has a functorial arithmetic relative zero divisor | **STRUCTURAL PROPOSAL / OPEN PROBLEM** | No existence, uniqueness, completeness, or Markov descent claim is authorized. |
+| P3-R3 | Every suitable AEG history has a functorial arithmetic relative zero divisor | **STRUCTURAL PROPOSAL / GENERAL PROBLEM OPEN** | P3-R4--P3-R5 are restricted supplied-register tests; the terminal quadratic divisor factors through (\rho), and tagged trace and pole data do not supply the general prime-divisor functor. |
+| P3-R4 | The forced quadratic register model has explicit equivariance, collapse kernel, and Frobenius cycles | **PROVED** | The register (u^2=t) is supplied input, and the abstract cover is operator-independent. |
+| P3-R5 | The forced quartic is arithmetically irreducible, constant-geometrically reducible, and has explicit discriminant, monodromy, and Frobenius | **PROVED** | Its registers are supplied; canonical origin from unrestricted AEG histories remains open. |
 
 ### Abstract-level authorization
 
 Papers I and II may advertise only their proved exports.  Paper III may advertise
 the branched-pullback theorem and the exact (q=4) automorphic example after their
-proofs and citations are present.  It may describe the history-to-divisor map only
-as the principal open naturality problem.
+proofs and citations are present.  It may advertise P3-K1--P3-K4 only with the
+printed distinction between the AEG sign-cover specialization and the cited
+classical lens-space, geodesic-flow, and template inputs; no new knot invariant may
+be inferred.  It may advertise the proved supplied-register quadratic and quartic
+models with their exact collapse and arithmetic boundaries.  The general
+history-to-divisor map must remain the principal open naturality problem.
 
 ### Number-theoretic limitation
 

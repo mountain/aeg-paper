@@ -79,9 +79,12 @@ The dependency architecture is:
 Paper I ──→ Paper II
 Paper I ──→ Paper III
 Paper I ──→ Paper IV
+Paper II ──→ Paper III  [bounded holomorphic-pullback interface]
 ```
 
-Paper II may later provide analytic tools used in Paper III, but the foundational architecture must remain acyclic.
+Paper II now provides the declared planar/cylindrical pullback interface used in
+Paper III.  The dependency is one-way and bounded: Paper II proves no singular,
+tube, or knot conclusion, so the foundational architecture remains acyclic.
 
 ---
 

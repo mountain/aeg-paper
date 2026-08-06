@@ -2825,7 +2825,7 @@ calculation.
 
 ## OQ-072 — Cusp, completion, and properness audit of the Hecke zero network
 
-**State:** PARTIALLY RESOLVED; PROPERNESS AND COVERWISE TOPOLOGY REMAIN OPEN
+**State:** PARTIALLY RESOLVED; GENERAL PROPERNESS REMAINS OPEN
 
 The active theorem proves that
 
@@ -2837,14 +2837,24 @@ has finite distance to the order-four orbit and infinite distance along the cusp
 Upstairs completion adds (4\pi) cone points; the completed full-orbifold length
 quotient is complete, and its coarse elliptic images have angle (\pi).
 
-It remains to prove or disprove local finiteness and properness statements on the
-universal cover and finite-index quotients, to state the precise coverwise topology,
-and to identify any parameter family for which the zero incidence is a proper tube.
-The quotient completion theorem alone may not be used as a proper-tube theorem.
+The sign-character cover is now completely identified in the model-specific sense.
+It has signature ((0;2;\infty,\infty)); after coarse AEG completion, (W) identifies
+it with the complete flat cylinder (\mathbb C^\times).  Retaining the hyperbolic
+orbifold structure, its unit tangent bundle is
+
+[
+T^1\mathcal O_4^\chi\cong S^3\setminus T(2,4)
+]
+
+under the declared cusp compactification.  This closes the topology of that one
+index-two cover.  It remains to prove or disprove local finiteness and properness on
+the universal cover and other finite-index quotients, and to identify any parameter
+family for which the zero incidence is a proper tube.  None of the completion or
+link-complement statements is a proper-tube theorem.
 
 ## OQ-073 — History-to-relative-divisor functor
 
-**State:** OPEN; PRINCIPAL NATURALITY PROBLEM
+**State:** PARTIALLY RESOLVED FOR SUPPLIED REGISTERS; GENERAL FUNCTOR OPEN
 
 Construct a functor from a declared category of marked arithmetic histories to
 arithmetic sections or polynomials over a parameter base,
@@ -2858,11 +2868,17 @@ and parameter concatenation are respected.  Determine which kernel of projective
 evaluation, if any, remains visible in the divisor.
 
 The (q=4) Hecke construction is currently a special operator-quotient example,
-not a solution for all histories.
+not a solution for all histories.  Paper III now gives a minimal finite test:
+the supplied register (u^2=t) forces an equivariant quadratic endpoint divisor,
+while its tagged prefix trace and pole cocycle retain strictly more information
+than the terminal operator.  In particular, they distinguish (\omega_4) from the
+empty history even though their terminal divisors agree.  The construction still
+depends on a supplied typed register and its terminal divisor factors through
+(\rho); it therefore does not close the general question.
 
 ## OQ-074 — Arithmetic versus geometric irreducibility of zero paths
 
-**State:** OPEN PROGRAM WITH STANDARD FRAMEWORK
+**State:** FINITE ALGEBRAIC TEST RESOLVED; CANONICAL AEG ORIGIN OPEN
 
 Find a finite integral AEG family for which:
 
@@ -2872,8 +2888,18 @@ Find a finite integral AEG family for which:
   can all be computed;
 * the resulting sheets admit an AEG interpretation not imposed after the fact.
 
-This is the first finite test required before an infinite arithmetic history
-divisor is attempted.
+The finite algebraic test is now explicit.  The quadratic register gives a
+constant-geometrically integral Kummer cover with computable Frobenius, while
+
+[
+(u^2-t)^2-3
+]
+
+is irreducible over (\mathbb Q(\sqrt2)(t)), splits into two irreducible geometric
+components after extending constants, and has discriminant
+(256\cdot3^2(t^2-3)), local sheet monodromy, and explicit Frobenius cycle types.
+What remains open is the last bullet above: these registers are supplied inputs,
+not yet canonical outputs of unrestricted AEG histories.
 
 ## OQ-075 — Factorization-theoretic zero histories
 
@@ -2888,3 +2914,20 @@ realized as labels or monodromy invariants of a relative AEG zero divisor.
 This question is distinct from the Hecke tessellation problem: the latter supplies
 arithmetic symmetry and automorphic uniformization, not nonunique factorization by
 itself.
+
+## OQ-076 — Marked-history enhancement of Hecke periodic-orbit knots
+
+**State:** OPEN AFTER AN OPERATOR-LEVEL SURJECTION
+
+For every (q=4) marked history whose projective operator is primitive hyperbolic,
+Paper III now defines the periodic-orbit knot (K_{\rho(h)}).  The map is surjective,
+is invariant under cyclic word shift at the operator-conjugacy level, and sends path
+inverse to the time-reversed orbit.  It necessarily collapses every insertion of
+the neutral word (\omega_4) and every other marked change preserving the operator
+conjugacy class.
+
+Construct a non-tautological decoration of the classical cutting code or periodic
+orbit that retains some of the tagged trace, ordinary-domain, divisor, framing, or
+local-system data, and prove its behavior under the declared history equivalence.
+Only after ambient-isotopy or Markov descent may such a decoration be called a new
+knot invariant.

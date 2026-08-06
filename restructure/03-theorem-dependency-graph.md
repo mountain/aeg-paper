@@ -1,4 +1,4 @@
-# Paper I Theorem Dependency Graph
+# Paper I Core Theorem Dependency Graph with Cross-Paper Extension Nodes
 
 **File:** `restructure/03-theorem-dependency-graph.md`
 **Status:** Authoritative
@@ -11,14 +11,17 @@
 * `restructure/01-paper-series-architecture.md`
 * `restructure/02-paper-I-outline.md`
 
-**Applies to:**
-**Arithmetic Expression Geometry I: Foundations**
+**Applies to:** the theorem core of **Arithmetic Expression Geometry I:
+Foundations**, together with the explicitly separated Paper II--III extension nodes
+in Part XX.
 
 ---
 
 ## 1. Purpose
 
-This document defines the logical dependency graph of the definitions, lemmas, propositions, and theorems required for Paper I.
+This document defines the logical dependency graph of the definitions, lemmas,
+propositions, and theorems required for Paper I and records downstream extension
+nodes without changing the Paper I proof order.
 
 Its purposes are to:
 
@@ -3365,9 +3368,16 @@ P3-S2  2m-prong / 2 pi m cone theorem
 P3-S3  normalized (2,4,infinity) Hauptmodul input
 P3-S4  exact Hecke zero-dessin AES
 
+P3-K1  sign-cover signature and coarse cylindrical completion
+P3-K2  hyperbolic unit-tangent sign cover as S3 minus T(2,4)
+P3-K3  primitive Hecke classes and periodic-orbit knots
+P3-K4  zero-dessin coding spine and template boundary
+
 P3-R1  relative prime-divisor normalization
 P3-R2  arithmetic/geometric irreducibility separation
-P3-R3  general history-to-divisor functor [OPEN]
+P3-R3  history-to-divisor naturality [RESTRICTED MODEL PROVED; GENERAL OPEN]
+P3-R4  quadratic supplied-register divisor, collapse kernel, and Frobenius
+P3-R5  quartic arithmetic/geometric splitting and Frobenius test
 ```
 
 The new dependency edges are:
@@ -3384,9 +3394,16 @@ P2-A3 -> P3-S1 -> P3-S2
 P2-A3 -> P3-S4
 P3-S3 -> P3-S4
 
+P3-S4 -> P3-K1
+P3-K1 + classical lens-space input -> P3-K2
+P1-H2 -> P3-K3
+P3-S4 + classical geodesic coding -> P3-K4
+
 P3-R1 -> P3-R2
-P1-H2 -. special operator-level example .-> P3-R3
-P3-R2 -. required framework .-> P3-R3
+P1-H2 + supplied quadratic register -> P3-R4
+P3-R1 + supplied quartic registers -> P3-R5
+P3-R4 -. restricted naturality evidence .-> P3-R3
+P3-R5 -. finite arithmetic test .-> P3-R3
 ```
 
 The dotted edges do not authorize a theorem.  In particular, `P3-R3` is not a
@@ -3405,14 +3422,29 @@ subgroup and its standard Hauptmodul without a general history functor.
 * `P3-S3` is an external standard uniformization input and must be cited.
 * `P3-S4` is an AEG construction proved conditional on the normalized input.
 * `P3-R1`--`P3-R2` are standard relative-divisor facts with hypotheses stated.
-* `P3-R3` remains a structural proposal and may not support a theorem, invariant,
-  or abstract-level claim of arithmetic naturality.
+* `P3-K1` is proved from the explicit sign character and the Hauptmodul--Cayley
+  coordinate.  Its coarse flat cylinder is not the hyperbolic unit tangent bundle.
+* `P3-K2` combines an explicit index-two cover and slope calculation with the cited
+  classical lens-space compactification.  The upstairs local cone angle is not a
+  torus-link invariant.
+* `P3-K3`--`P3-K4` specialize cited geodesic-flow coding theorems and prove the
+  object-type identifications needed here.  They produce no new knot invariant.
+* `P3-R4`--`P3-R5` are proved for explicitly supplied typed registers.  They test
+  divisor equivariance, collapse, irreducibility, monodromy, and Frobenius without
+  deriving those registers from unrestricted histories.
+* `P3-R3` is therefore partially resolved in the restricted models, while the
+  general history-to-divisor functor remains open and cannot support a general
+  naturality or faithfulness claim.
 
 The following implications are forbidden:
 
 ```text
 Hecke subgroup generation =/=> histories are tiles
 rich zero dessin          =/=> history-derived arithmetic divisor
+local four-prong cone      =/=> the global T(2,4) link
+bare zero dessin           =/=> the three-dimensional flow template
+primitive Hecke element    =/=> prime knot
+terminal endpoint divisor  =/=> marked-history faithfulness
 arithmetic divisor        =/=> proper zero tube
 singular zero tube        =/=> Markov invariant.
 ```
