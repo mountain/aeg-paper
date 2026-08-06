@@ -109,6 +109,21 @@ geometry developed in the rest of this paper is neither discarded nor promoted t
 the whole theory: it is identified precisely as the positive real affine component
 of a larger projective semantics.
 
+Inside that larger semantics, the two contexts
+\[
+  T(z)=z+\sqrt2,
+  \qquad
+  J(z)=-\frac1z
+\]
+generate the $q=4$ Hecke group.  Section~\ref{sec:projective-affine} verifies
+the relation $(JT)^4=1$ directly from the context matrices and formulates the
+resulting interface from arithmetic words to group operators and then to cell
+cosets.  This restricted alphabet is important because its hyperbolic
+cellulations are produced by arithmetic operator semantics rather than imposed
+after endpoint evaluation.  The interface is deliberately not a bijection:
+relations identify different histories, and stabilizers identify different
+operators at the level of cells or endpoints.
+
 Projective continuation does not repair an inadmissible ordinary computation.  For
 example, $c/z$ has a well-defined projective value at $z=0$, namely infinity, while
 ordinary division by zero remains undefined.  We keep the ordinary domain and the
@@ -116,8 +131,10 @@ projective extension as separate data throughout.
 
 \subsection{Main results}
 
-The first group of results is algebraic.  With a fixed chronological convention,
-an affine history
+The first group of results is algebraic.  The full bilateral language maps onto
+$\PGL_2(K)$, while the distinguished $\mathbb Q(\sqrt2)$-sublanguage above
+records an order-four relation inside a restricted projective subgroup.  With a
+fixed chronological convention, an affine history
 \[
  f_i(x)=s_i x+t_i,
  \qquad s_i\ne0,
@@ -169,9 +186,17 @@ earlier versions of the theory.  At a zero of $a$ one has
 $|\nabla a|=|\mu|$.  When $\mu\ne0$, zero is therefore a regular value, and the
 interior zero locus on a surface is a disjoint union of smooth curves.  Isolated
 zeros, crossings, and branch points cannot occur in the regular category.  We
-accordingly define singular arithmetic expression spaces by a closed nowhere-dense
-singular set with no local regular extension, and reclassify the radial isolated-zero
-example by its failure of differentiability at the center.
+also prove a global strengthening: on a connected, complete, boundaryless regular
+AES, rectifying the assignment produces a complete unit-gradient flow and a
+diffeomorphism
+\[
+  M\cong Z(a)\times\mathbb R.
+\]
+Thus the zero set is nonempty and connected; the statement is a smooth splitting,
+not necessarily a Riemannian product.  We accordingly define singular arithmetic
+expression spaces by a closed nowhere-dense singular set with no local regular
+extension, and reclassify the radial isolated-zero example by its failure of
+differentiability at the center.
 
 The third group of results compares order globally and locally.  The Accumulative
 Commutative Space (ACS) records the total additive charge $A$ and logarithmic scale
@@ -218,9 +243,11 @@ and contact background include \cite{KobayashiNomizu1963FDG1,Geiges2008IntroCont
 
 Four boundaries are enforced.  First, a horizontal contact distribution does not by
 itself select a unique complex structure, so arithmetic holomorphic and harmonic
-theories are deferred to Paper II.  Second, the regular-value theorem is only the
-starting point for singular families: multi-zero classification, discriminants,
-tubes, braids, and knots belong to Paper III.  Third, projective bivaluations,
+theories are deferred to Paper II; this includes any automorphic-function theory
+built on the $G_4$ action.  Second, the regular-value theorem is only the
+starting point for singular families: pulling analytic real loci back to the
+Hecke cellulation, and developing their multiple zeros, discriminants, tubes,
+braids, and knots, belong to Paper III.  Third, projective bivaluations,
 homogeneous quotient towers, and condensation belong to Paper IV.  Fourth, no
 computational lower bound follows from noncommutativity or negative curvature alone;
 complexity claims require an explicit state space, encoding, metric, and cost model.

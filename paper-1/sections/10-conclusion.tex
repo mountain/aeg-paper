@@ -24,6 +24,14 @@ chosen point at infinity.  This placement is important: projective semantics
 extends the operator domain, but it does not turn a pole into an admissible
 ordinary arithmetic operation.
 
+The smaller alphabet consisting of translation by $\pm\sqrt2$ and negative
+inversion realizes the $q=4$ Hecke group inside this projective semantics.  Its
+matrix relation $(JT)^4=1$ gives an explicit pair of different marked histories
+with the same operator.  The subsequent factorization through cell stabilizers
+then separates four levels that are needed downstream: history, operator, cell
+coset, and endpoint.  In particular, the arithmetic words are not identified
+one-to-one with tiles in a chosen Hecke cellulation.
+
 Within the affine sector, chronological composition yielded explicit cocycle
 coordinates and the continuous equation
 \[
@@ -35,7 +43,15 @@ a first regular arithmetic expression space.  Separately, the regular-value
 argument shows that a zero in a regular AES lies on
 a smooth codimension-one zero set.  Isolated or singular zeros must therefore
 arise from a failure of those regular hypotheses, not from the regular theory
-itself.
+itself.  Under the additional assumptions that the metric is complete and the
+manifold is connected and boundaryless, the unit-gradient rectification gives
+the stronger diffeomorphism
+\[
+  M\cong Z(a)\times\mathbb R.
+\]
+Hence the zero layer is nonempty and connected.  This is not asserted for
+incomplete models or manifolds with boundary, and it is not in general a
+Riemannian product decomposition.
 
 The final two chapters identified global and local forms of arithmetic order
 defect.  In the accumulative commutative space, a positive add--scale history
@@ -69,6 +85,12 @@ The proved logical spine may therefore be summarized as
     \operatorname{PGL}_2
       \supset \operatorname{Aff}(1)
       \longrightarrow \text{affine cocycle and flow},\\
+    \operatorname{Hist}_4
+      \longrightarrow G_4
+      \longrightarrow G_4/H_{\mathcal C}
+      \longrightarrow \text{Hecke cell},\\
+    \text{complete boundaryless regular AES}
+      \longrightarrow Z(a)\times\mathbb R,\\
     \text{charge-compatible positive add--scale defect}
       \longrightarrow \text{ACS weighted area},\\
     \text{infinitesimal defect}
@@ -88,7 +110,10 @@ compatible complex or almost-complex structures where appropriate,
 second-order operators, boundary-value constructions, and arithmetic
 holomorphicity.  None of these structures follows uniquely from the contact
 form alone, and no result of that prospective function theory is used in the
-proofs of Paper~I.
+proofs of Paper~I.  The $G_4$ sublanguage supplies an additional, explicitly
+arithmetic test case: an automorphic or equivariant function used there must be
+derived from the group action and must keep its analytic descent conditions
+separate from ordinary arithmetic admissibility of a history at a real input.
 
 \subsection{Interface to Paper III}
 
@@ -97,6 +122,15 @@ will study the boundary of the regular-zero theorem.  Its intended objects
 include singular and multiple zeros, parameter discriminants, regular and
 singular zero surfaces, and tube constructions.  Possible braid, monodromy,
 and knot structures require separate invariance and normalization arguments.
+The Hecke interface proved here offers a source-driven alternative to imposing
+a four-valent cellulation by hand: Paper~III may ask whether an analytic real
+locus associated with $G_4$ pulls back to a singular zero graph supported by a
+Hecke cellulation.  Neither that analytic realization nor the identification
+of its local singularities is a result of Paper~I.  The complete regular
+splitting theorem shows that such a branching network cannot be the zero set of
+one connected, complete, boundaryless regular scalar AES; any singularity,
+boundary, or incompleteness used in the construction must therefore be stated
+explicitly.
 In particular, the existence of a tube does not by itself produce a knot
 invariant, and no such general invariant is asserted here.
 
@@ -123,6 +157,9 @@ Several questions remain at the level of foundations.
     preferred point at infinity.
     \item Relate affine contact curvature to projective holonomy without
     conflating an infinitesimal bracket with a finite transport operator.
+    \item Construct a functorial analytic realization of the $G_4$ history--operator--coset
+    interface and determine which Hecke cellulation, if any, is recovered as a
+    real or zero locus.
     \item Produce fully verified singular multi-zero models and identify their
     stable local normal forms and discriminants.
     \item Formulate, and then test, a quantitative relation between geometric
