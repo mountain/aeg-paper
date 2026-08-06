@@ -251,3 +251,30 @@ relative-prime normalization statement on the finite-etale locus.
 This section supersedes only the active artifact metadata and integration-level QA.
 Sections 6--8 remain the preserved evidence for the original Paper I, II, and III
 closure snapshots.
+
+## 10. M-0006 q=4 knot and finite-register integration evidence
+
+Migration M-0006 adds two canonical Paper III sections and only downstream
+interface wording to Papers I and II.  The final repository build used
+`./build.sh all`, with `pdflatex`, BibTeX, and three resolving `pdflatex` passes per
+paper.
+
+| Paper | Pages | File size | SHA-256 | Unique labels | Unique refs | Unique citations |
+|---|---:|---:|---|---:|---:|---:|
+| I | 63 | 604,948 bytes | `9144f603f9452f09ecaf9e9c32e15029b33992cf0837073580a9d3f7188de2d9` | 177 | 88 | 6 |
+| II | 44 | 497,273 bytes | `751af9456607741da051e22c39c126cce280c2a4427fe88750d3023e7eb7fc04` | 227 | 97 | 4 |
+| III | 58 | 635,784 bytes | `9ceadc767f0edba48a64ead3ba50e6d37022cdbf90ea040c39bf62ee62c42bc0` | 193 | 111 | 19 |
+
+Every reference target and citation key exists; every label is unique within its
+paper.  All three canonical LaTeX and BibTeX logs are free of warnings, undefined
+references or citations, overfull or underfull boxes, and fatal diagnostics.  The
+PDFs are US letter, PDF 1.5, with embedded fonts.  `bash -n build.sh` and
+`git diff --check` pass.
+
+Paper III's 58 pages were all rendered and inspected through full contact sheets,
+with enlarged review of the title, contents, both new theorem sections, appendices,
+bibliography, and claim ledger.  The changed conclusion pages in Papers I and II
+were also rendered.  No visual defect was found.  Independent mathematical red-team
+review reports zero blocking and zero major findings.  The remaining general
+history-to-divisor functor, marked-history knot enhancement, and new knot invariant
+are explicitly open.

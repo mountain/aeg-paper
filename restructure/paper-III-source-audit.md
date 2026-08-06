@@ -402,3 +402,26 @@ The following formulas and conclusions are `REDERIVED HERE`:
 
 The general history-to-relative-divisor map is a `STRUCTURAL PROPOSAL`, not a
 recovered theorem and not a consequence of the historical tube conversations.
+
+## 15. Sign-cover knot and register addendum
+
+The files `sections/05-q4-geodesic-knots.tex` and
+`sections/05-history-divisor-naturality.tex` are 2026-08-06 derivations.  No
+historical repository source states their theorems.
+
+The lens-space compactification, median-torus slopes, cusp-linking formula, and
+periodic-orbit template are external classical inputs from Dehornoy and
+Dehornoy--Pinsky.  The active Paper III rederives and audits their (p,q)=(2,4)
+specialization, the index-two peripheral lattice, and the resulting
+`S^3 minus T(2,4)` cover.  The equality between the AEG zero dessin and the
+classical coding graph uses the already declared Hauptmodul normalization plus
+the cited graph definition.  It is not a recovered `E_log` tube or a new
+geodesic-flow template theorem.
+
+The quadratic and quartic register equations, tagged trace, pole cocycle,
+operator-collapse calculation, and Frobenius dictionaries are `REDERIVED HERE`.
+Hartshorne, SGA 1, and Neukirch supply standard algebraic-geometry and arithmetic
+background.  The typed registers are newly supplied inputs; the historical scan
+found no source assigning these covers canonically to AEG histories.  Consequently
+the general naturality functor and any knot decoration descended from it retain
+their open status.

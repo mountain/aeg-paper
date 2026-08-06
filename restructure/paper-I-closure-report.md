@@ -12,8 +12,8 @@ manuscript at the hypotheses actually printed in the paper.  It does not mean th
 Papers II--IV, author release approval, or DOI publication work is complete.
 
 **Post-closure notice:** Section 8 records the later arithmetic--automorphic
-integration and its 63-page checkpoint; Sections 1--7 retain the original 60-page
-closure evidence.
+integration and Section 9 records the M-0006 interface rebuild; Sections 1--7 retain
+the original 60-page closure evidence.
 
 ## 1. Acceptance outcome
 
@@ -192,3 +192,27 @@ The final log has no LaTeX or package warning, undefined reference or citation,
 overfull or underfull box, duplicate label, or fatal diagnostic.  This table
 supersedes only the artifact metadata for the active integration snapshot; the
 original 60-page closure evidence above remains a historical record.
+
+## 9. M-0006 interface rebuild (2026-08-06)
+
+Paper I receives no new theorem or source file in M-0006.  Section 10 now names the
+proved downstream use of its q=4 operator export: Paper III passes from primitive
+hyperbolic operator classes to classical periodic-orbit knots, while retaining the
+distinction between marked histories, operators, conjugacy classes, and knots.  This
+does not turn Paper I into a knot-theoretic paper and does not close the
+history-to-divisor problem.
+
+The unified repository build after that interface edit produced:
+
+| Property | M-0006 integration artifact |
+|---|---:|
+| Pages | 63 |
+| File size | 604,948 bytes |
+| SHA-256 | `9144f603f9452f09ecaf9e9c32e15029b33992cf0837073580a9d3f7188de2d9` |
+| Active labels | 177 unique |
+| Reference targets | 88 unique, all present |
+| Citation keys used | 6 unique, all present |
+
+The canonical log and BibTeX log contain no warning, undefined reference or
+citation, overfull or underfull box, or fatal diagnostic.  The three changed
+conclusion pages were rendered and visually checked without a layout defect.

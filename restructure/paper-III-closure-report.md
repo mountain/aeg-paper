@@ -24,9 +24,8 @@ thread-selection, Markov-descent, or beyond-Alexander/Burau programmes have been
 solved, or that a public release has been authorized.
 
 **Post-closure notice:** Section 10 records the later arithmetic zero-network
-integration, the current nine-section source closure and subtitle, and its 43-page
-checkpoint.  Sections 1--9 retain the original eight-section, 32-page closure
-evidence.
+integration and Section 11 records the q=4 knot/register extension.  Sections 1--9
+retain the original eight-section, 32-page closure evidence.
 
 ## 1. Acceptance outcome
 
@@ -267,3 +266,45 @@ The final log has no LaTeX or package warning, undefined reference or citation,
 overfull or underfull box, duplicate label, or fatal diagnostic.  This table
 supersedes only the artifact metadata for the active integration snapshot; the
 original 32-page closure evidence above remains a historical record.
+
+## 11. M-0006 q=4 knot and register amendment (2026-08-06)
+
+The active Paper III closure now consists of eleven sections and three appendices.
+Two new canonical sections are inserted after the arithmetic zero-network section:
+`05-q4-geodesic-knots.tex` and `05-history-divisor-naturality.tex`.
+
+The first proves the sign-cover signature and coarse-cylinder uniformization,
+identifies the corresponding hyperbolic unit-tangent cover with
+`S^3 minus T(2,4)` under the declared filling, and specializes the classical
+Hecke geodesic-flow coding to the q=4 zero dessin.  The slope calculation and
+covering character are internal; the lens-space compactification and flow template
+are cited classical inputs.  A local four-prong cone is not identified with the
+global torus link, and no new knot invariant is claimed.
+
+The second supplies typed quadratic and quartic register towers and proves their
+endpoint divisors, equivariance, trace/pole data, collapse kernel, discriminants,
+arithmetic/geometric splitting, monodromy, and Frobenius cycle types.  These
+registers are declared input.  The terminal endpoint divisor factors through the
+projective operator and therefore does not solve the general marked-history
+naturality problem.
+
+The final M-0006 artifact evidence is:
+
+| Property | M-0006 integration artifact |
+|---|---:|
+| Pages | 58 |
+| File size | 635,784 bytes |
+| SHA-256 | `9ceadc767f0edba48a64ead3ba50e6d37022cdbf90ea040c39bf62ee62c42bc0` |
+| Canonical TeX files | 15: entry point, 11 sections, 3 appendices |
+| Active labels | 193 unique |
+| Reference targets | 111 unique, all present |
+| Citation keys used | 19 unique, all present |
+
+The full `pdflatex`--BibTeX resolution sequence is clean: no LaTeX, package, or
+BibTeX warning; no undefined reference or citation; no duplicate label; no overfull
+or underfull box; and no fatal diagnostic.  All 58 pages were rendered in contact
+sheets.  The title, three-page contents, both new sections, long equations and
+tables, appendices, bibliography, and final claim ledger received enlarged visual
+inspection; no clipping, collision, broken glyph, blank content page, or unreadable
+element was found.  Independent red-team review reports zero blocking and zero
+major mathematical findings after repair.

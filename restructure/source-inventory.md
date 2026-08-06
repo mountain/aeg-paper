@@ -6,7 +6,7 @@
 **Paper I post-migration population:** 123 `.tex` sources
 
 **Current active source closures:** Paper I: 16 canonical `.tex` files; Paper II:
-13; Paper III: 13
+13; Paper III: 15
 
 This inventory classifies every top-level path family in the fixed baseline.  A
 family classification applies to every file beneath the named directory; exceptions
@@ -160,6 +160,8 @@ paper-3/
     03-multi-zero-constructions.tex
     04-arithmetic-zero-networks.tex
     04-parameter-discriminants.tex
+    05-q4-geodesic-knots.tex
+    05-history-divisor-naturality.tex
     05-regular-tubes.tex
     06-singular-fibers.tex
     07-monodromy-and-braids.tex
@@ -170,7 +172,7 @@ paper-3/
     app-C-affine-quandle-calculations.tex
 ```
 
-The entry point inputs only these twelve section/appendix files and the shared root
+The entry point inputs only these fourteen section/appendix files and the shared root
 bibliography.  It imports Papers I and II by cited interfaces rather than by TeX
 inclusion.  No legacy `sections/sec*.tex`, note, knot file, miscellaneous figure
 source, archived manuscript, or restructuring discussion belongs to the active
@@ -193,6 +195,19 @@ inputs; the AEG pullback and zero-network formulas are `REDERIVED HERE`.  No gen
 history-to-divisor functor is added to the proof closure: that arrow remains an open
 problem.  This addition does not change the negative historical finding for `E_k`
 or `E_log`.
+
+The subsequent `05-q4-geodesic-knots.tex` and
+`05-history-divisor-naturality.tex` additions form the sign-cover/register
+extension.  The first identifies the same sign-character cover with a complete
+coarse cylinder and, after retaining the hyperbolic orbifold and applying the
+declared cusp filling, with the complement of `T(2,4)` in `S^3`; it also records
+the operator-level periodic-orbit map and the cited zero-spine/template coding.
+The second proves the quadratic and quartic supplied-register models, tagged trace,
+pole cocycle, collapse kernel, and Frobenius dictionary.  Dehornoy and
+Dehornoy--Pinsky supply the classical geodesic-flow inputs; the AEG cover
+identification and register synthesis are rederived in the active manuscript.
+Neither file changes the negative historical finding or closes the general
+history-to-prime-divisor and knot-invariant problems.
 
 This addendum supersedes the earlier inventory statement that Paper III consisted
 only of a scope/provenance README.  It does not alter the fixed Paper I baseline

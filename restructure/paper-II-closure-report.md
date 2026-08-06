@@ -15,9 +15,9 @@ means closed at the hypotheses and operator domains printed in the mathematical-
 manuscript.  It does not mean that the remaining analytic programme or public-release
 work is complete.
 
-**Post-closure notice:** Section 9 records the later regular-pullback integration,
-the current nine-section source closure, and its 44-page checkpoint.  Sections 1--8
-retain the original eight-section, 39-page closure evidence.
+**Post-closure notice:** Section 9 records the later regular-pullback integration
+and Section 10 records the M-0006 interface rebuild.  Sections 1--8 retain the
+original eight-section, 39-page closure evidence.
 
 ## 1. Acceptance outcome
 
@@ -204,3 +204,26 @@ The final log has no LaTeX or package warning, undefined reference or citation,
 overfull or underfull box, duplicate label, or fatal diagnostic.  This table
 supersedes only the artifact metadata for the active integration snapshot; the
 original 39-page closure evidence above remains a historical record.
+
+## 10. M-0006 interface rebuild (2026-08-06)
+
+Paper II receives no new theorem or source file in M-0006.  Its conclusion now
+states the realized downstream boundary more precisely: Paper III uses the
+cylindrical pullback and sign descent to build the singular q=4 carrier, but the
+hyperbolic unit-tangent knot theory is a separate three-dimensional construction.
+Paper II still proves neither cone completion nor a knot theorem.
+
+The unified repository build after that interface edit produced:
+
+| Property | M-0006 integration artifact |
+|---|---:|
+| Pages | 44 |
+| File size | 497,273 bytes |
+| SHA-256 | `751af9456607741da051e22c39c126cce280c2a4427fe88750d3023e7eb7fc04` |
+| Active labels | 227 unique |
+| Reference targets | 97 unique, all present |
+| Citation keys used | 4 unique, all present |
+
+The canonical log and BibTeX log contain no warning, undefined reference or
+citation, overfull or underfull box, or fatal diagnostic.  The three conclusion
+pages were rendered and visually checked without a layout defect.

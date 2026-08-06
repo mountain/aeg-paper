@@ -1818,7 +1818,8 @@ Paper II:
 Paper III:
   critical-set singularities
   + Hecke-Hauptmodul zero dessin
-  + relative arithmetic zero divisors.
+  + sign-cover and geodesic-knot interfaces
+  + restricted relative arithmetic zero divisors.
 ```
 
 The dependency remains acyclic.  Paper II proves no singular conclusion, and Paper
@@ -1848,6 +1849,20 @@ It must prove all AEG-specific zero-set and cone calculations in the active sour
 It must distinguish a standard external Hauptmodul input from the newly derived
 AEG pullback construction.
 
+The q=4 sign cover has two distinct downstream realizations that must not be
+identified.  Its completed coarse AEG quotient is a flat cylinder.  The unit
+tangent bundle of the hyperbolic Hecke orbifold is instead the three-dimensional
+carrier for periodic-orbit knots; on the same index-two cover its cusp
+compactification produces the complement of the two-component torus link
+T(2,4).  The equality of the covering character is structural, but the classical
+geodesic-flow coding and lens-space compactification remain cited external inputs.
+
+At the operator quotient, primitive hyperbolic q=4 histories map onto oriented
+primitive periodic-orbit knots.  Cyclic history shifts become conjugacy, path
+inversion gives the time-reversed orbit, and neutral relators exhibit explicit
+collapse.  Any enhancement that remembers marked histories inside these fibers is
+still open.
+
 ### Arithmetic divisor layer
 
 The relative-divisor hierarchy is:
@@ -1862,4 +1877,9 @@ The relative-divisor hierarchy is:
 
 Arithmetic irreducibility over (K(B)), geometric irreducibility over
 (\overline K(B)), topological monodromy, and Galois action must not be identified.
-The general arrow from operator or history to arithmetic section remains open.
+For supplied typed quadratic and quartic registers, Paper III now proves explicit
+finite-flat models that are finite etale on the stated discriminant complements,
+together with equivariance, collapse kernels, discriminants, geometric splitting,
+and Frobenius cycle tests.  These are minimal naturality models, not a construction
+of the registers from arbitrary histories.  The general arrow from history syntax
+to a canonical arithmetic section therefore remains open.

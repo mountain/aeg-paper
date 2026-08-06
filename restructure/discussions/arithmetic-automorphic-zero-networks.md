@@ -279,6 +279,16 @@ restricted histories -> G_4 -> beta -> singular zero dessin.
 
 It does not yet supply a functor on all marked AEG histories.
 
+A finite supplied-register test is now proved.  Starting with `u^2=t`, every
+projective operator forces an equivariant binary quadratic endpoint divisor.  The
+terminal divisor factors through the operator, while a time-tagged prefix trace and
+ordinary pole cocycle distinguish the neutral word `omega_4` from the empty
+history.  The second tower `v^2=3`, `u^2=t+v` supplies an arithmetically prime
+quartic with two constant-geometric components and explicit monodromy and
+Frobenius.  This implements composition and information-loss tests in a restricted
+typed-register category; it does not provide the missing canonical register source
+or descent under a general history equivalence.
+
 ## 9. A number-theoretic boundary
 
 The ring of integers `Z[sqrt(2)]` has unique factorization.  Thus the `q = 4` model
@@ -301,7 +311,11 @@ factorization invariants, not merely different syntactic words.
 | a local degree-`m` branch gives `2m` prongs and cone angle `2 pi m` | proved by local normal form and metric calculation | Paper III |
 | normalized `(2,4,infinity)` Hauptmodul exists with stated ramification | standard triangle-group uniformization; cited | Paper III input |
 | the displayed `beta,F,W` model has the dessin as its zero set | proved conditional on the normalized Hauptmodul input | Paper III |
-| the full history-to-relative-divisor functor exists | structural proposal / open problem | Paper III frontier |
+| the sign cover has coarse completion `C*` and hyperbolic unit tangent complement `S^3 minus T(2,4)` | proved from stabilizers, cusp filling, and slopes | Paper III |
+| primitive hyperbolic operator histories map onto Hecke periodic-orbit knots | proved at the operator-conjugacy quotient | Paper III |
+| the zero dessin is the coding spine of the cited geodesic template | proved/cited with the graph/template distinction | Paper III |
+| the quadratic and quartic supplied-register divisor tests | proved, including collapse kernels and Frobenius | Paper III |
+| the full history-to-relative-divisor functor exists | partially tested; general structural proposal / open problem | Paper III frontier |
 | the resulting tube gives a new knot invariant | unsupported; excluded | none |
 
 ## 11. Current proof programme
@@ -312,11 +326,14 @@ factorization invariants, not merely different syntactic words.
 3. [x] Prove the Paper III local branch and exact `q=4` zero-graph theorems.
 4. [x] Compute the quotient sign character and the full-orbifold cusp/completion
    metric.  Coverwise local finiteness and properness remain OQ-072.
-5. [ ] Develop finite algebraic history families before attempting an infinite history
-   divisor.
-6. [ ] Test the history-functor axioms on the `q=4` sublanguage and on one integral
-   polynomial family with nontrivial Galois monodromy.
-7. [ ] Only after those steps, form parameterized singular tubes and ask which
+5. [x] Identify the sign cover topologically and construct the operator-quotient
+   periodic-orbit knot map, retaining the zero-spine/template distinction.
+6. [x] Develop finite supplied-register families before attempting an infinite
+   history divisor.
+7. [x] Test composition, collapse, arithmetic/geometric splitting, and Frobenius
+   on the `q=4` quadratic and quartic register models.  Canonical history origin
+   remains OQ-073/OQ-074.
+8. [ ] Only after those steps, form parameterized singular tubes and ask which
    arithmetic labels survive isotopy and Markov descent.
 
 ## 12. Sources and provenance
