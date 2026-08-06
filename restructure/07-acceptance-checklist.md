@@ -223,11 +223,11 @@ restructure/migration-log.md
 
 ### Paper II
 
-* [ ] Arithmetic Cauchy–Riemann material has a canonical Paper II destination.
-* [ ] Twisted harmonicity has a canonical Paper II destination.
-* [ ] Affine–Appell calculations have a canonical Paper II destination.
-* [ ] Horizontal analytic operator material has a canonical Paper II destination.
-* [ ] Paper I retains only the foundational horizontal differential.
+* [x] Arithmetic Cauchy–Riemann material has a canonical Paper II destination.
+* [x] Twisted harmonicity has a canonical Paper II destination.
+* [x] Affine–Appell calculations have a canonical Paper II destination.
+* [x] Horizontal analytic operator material has a canonical Paper II destination.
+* [x] Paper I retains only the foundational horizontal differential.
 
 ### Paper III
 

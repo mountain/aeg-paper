@@ -1,0 +1,169 @@
+% Canonical Paper II source.
+Because the Laplace--Beltrami equation in
+\eqref{eq:hyperbolic-laplace-beltrami} differs from the Euclidean Laplace
+equation only by the positive factor $\lambda^2y^2$, the ideal-boundary
+Dirichlet problem is governed by the ordinary upper-half-plane Poisson kernel.
+The content of this section is the exact transport to the AEG normalization
+and a domain statement that includes the point at infinity.
+
+\subsection{The kernel in both boundary coordinates}
+
+For $X,t\in\R$ and $y>0$, put
+\begin{equation}\label{eq:standard-poisson-kernel-X}
+ P_y(X-t)=\frac1\pi\frac{y}{(X-t)^2+y^2}.
+\end{equation}
+For the original $x$-coordinate, define
+\begin{equation}\label{eq:aeg-poisson-kernel-x}
+ P^{\mu,\lambda}_y(x-\xi)
+ :=\frac1\pi
+   \frac{(\mu/\lambda)y}
+        {(x-\xi)^2+(\mu y/\lambda)^2}
+ =\frac{\mu\lambda y}
+        {\pi\bigl(\lambda^2(x-\xi)^2+\mu^2y^2\bigr)}.
+\end{equation}
+
+\begin{lemma}[Kernel transport and normalization]
+\label{lem:poisson-kernel-transport}
+If $X=(\lambda/\mu)x$ and $t=(\lambda/\mu)\xi$, then
+\begin{equation}\label{eq:poisson-density-transport}
+ P_y(X-t)\,dt
+ =P^{\mu,\lambda}_y(x-\xi)\,d\xi.
+\end{equation}
+In particular,
+\[
+ P^{\mu,\lambda}_y\geq0,
+ \qquad
+ \int_{\R}P^{\mu,\lambda}_y(x-\xi)\,d\xi=1.
+\]
+For fixed $\xi$, the function $(x,y)\mapsto
+P^{\mu,\lambda}_y(x-\xi)$ is $\Delta_g$-harmonic on $\HH$.
+\end{lemma}
+
+\begin{proof}
+Substitute
+$X-t=(\lambda/\mu)(x-\xi)$ and
+$dt=(\lambda/\mu)d\xi$ into
+\eqref{eq:standard-poisson-kernel-X}.  This gives
+\eqref{eq:poisson-density-transport} and
+\eqref{eq:aeg-poisson-kernel-x}.  Positivity is immediate, and normalization
+follows either from the same change of variables or from
+\[
+ \frac1\pi\int_{\R}\frac{h}{s^2+h^2}\,ds=1
+ \qquad(h>0).
+\]
+Finally, $P_y(X-t)$ is Euclidean harmonic away from its boundary pole.
+Equation~\eqref{eq:hyperbolic-laplace-beltrami} transports that assertion to
+$\Delta_gP^{\mu,\lambda}_y=0$.
+\end{proof}
+
+\subsection{The ideal-boundary Dirichlet theorem}
+
+We write $C_0(\R)$ for the continuous functions satisfying
+$\varphi(\xi)\to0$ as $|\xi|\to\infty$.  Equivalently, such a function
+extends continuously to $\R\cup\{\infty\}$ with value zero at $\infty$.
+
+\begin{theorem}[$C_0$ ideal-boundary Dirichlet problem]
+\label{thm:C0-poisson-dirichlet}
+For every $\varphi\in C_0(\R)$, the function
+\begin{equation}\label{eq:poisson-extension-x}
+ (\mathcal P_{\mu,\lambda}\varphi)(x,y)
+ :=\int_{\R}P^{\mu,\lambda}_y(x-\xi)\varphi(\xi)\,d\xi
+\end{equation}
+has the following properties.
+\begin{enumerate}
+\item It belongs to $C^\infty(\HH)\cap
+ C(\overline\HH^{\,\mathrm{conf}})$ and is $\Delta_g$-harmonic.
+\item It takes the boundary values
+\[
+ (\mathcal P_{\mu,\lambda}\varphi)(\xi,0)=\varphi(\xi)
+ \quad(\xi\in\R),
+ \qquad
+ (\mathcal P_{\mu,\lambda}\varphi)(\infty)=0.
+\]
+\item It satisfies the contraction estimate
+\begin{equation}\label{eq:poisson-sup-contraction}
+ \|\mathcal P_{\mu,\lambda}\varphi\|_{L^\infty(\HH)}
+ \leq\|\varphi\|_{L^\infty(\R)}.
+\end{equation}
+\item It is the unique function in
+$C^2(\HH)\cap C(\overline\HH^{\,\mathrm{conf}})$ having these boundary
+values and satisfying $\Delta_gU=0$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Put
+\[
+ \psi(t)=\varphi\left(\frac{\mu}{\lambda}t\right).
+\]
+Then $\psi\in C_0(\R)$, and Lemma~\ref{lem:poisson-kernel-transport}
+rewrites \eqref{eq:poisson-extension-x} as
+\begin{equation}\label{eq:poisson-extension-X}
+ U(X,y)=\int_{\R}P_y(X-t)\psi(t)\,dt.
+\end{equation}
+For fixed $y>0$, derivatives of the kernel are integrable after localization,
+and the usual differentiation argument shows that $U$ is smooth and
+Euclidean harmonic.  Equivalently, one may first prove this for compactly
+supported smooth data and use local convergence of the differentiated
+kernels.  Equation~\eqref{eq:hyperbolic-laplace-beltrami} then gives
+$\Delta_gU=0$.  Positivity and unit mass of the kernel prove
+\eqref{eq:poisson-sup-contraction}.
+
+The kernels $P_y$ form an approximate identity.  Hence, at each
+$X_0\in\R$,
+\[
+ U(X,y)-\psi(X_0)
+ =\int_{\R}P_y(X-t)\bigl(\psi(t)-\psi(X_0)\bigr)\,dt
+ \longrightarrow0
+\]
+as $(X,y)\to(X_0,0)$.  To see the behavior at infinity without assuming
+differentiability of the data, choose $\psi_0\in C_c(\R)$ with
+$\|\psi-\psi_0\|_\infty<\varepsilon$.  The contraction estimate reduces the
+claim to $\psi_0$.  If $\operatorname{supp}\psi_0\subset[-R,R]$, then its
+Poisson integral tends to zero as $|X+iy|\to\infty$.  Indeed, for large $y$
+it is bounded by $\|\psi_0\|_{L^1}/(\pi y)$; for large $|X|$, maximizing
+$y/((X-t)^2+y^2)$ over $y>0$ gives a bound of order
+$(|X|-R)^{-1}$.  Thus $U$ extends continuously to the compactification with
+value zero at $\infty$.
+
+For uniqueness, let $V$ be the difference of two solutions.  A Cayley map
+sends $\HH$ to the unit disc and $\overline\HH^{\,\mathrm{conf}}$ to the
+closed disc.  The pullback of $V$ is harmonic in the disc, continuous on its
+closure, and zero on the entire boundary circle.  The maximum principle
+applied to its real and imaginary parts gives $V=0$.
+\end{proof}
+
+\begin{corollary}[Continuous data with a value at infinity]
+\label{cor:continuous-compactified-dirichlet}
+Let $\varphi\in C(\R\cup\{\infty\})$, so that
+\[
+ L:=\varphi(\infty)=\lim_{|\xi|\to\infty}\varphi(\xi).
+\]
+Then
+\[
+ U=L+\mathcal P_{\mu,\lambda}(\varphi-L)
+\]
+is the unique harmonic function continuous on
+$\overline\HH^{\,\mathrm{conf}}$ with boundary value $\varphi$.
+\end{corollary}
+
+\begin{proof}
+The function $\varphi-L$ belongs to $C_0(\R)$, while constants are harmonic.
+Apply Theorem~\ref{thm:C0-poisson-dirichlet}.
+\end{proof}
+
+\begin{warning}[Why the function class matters]
+\label{warn:dirichlet-uniqueness-class}
+If neither boundedness nor a condition at the ideal point is imposed,
+uniqueness fails.  The function $U(x,y)=y$ is nonzero and harmonic, extends
+continuously with value zero to every finite boundary point, and is unbounded
+at the ideal point.  A separately prescribed bounded boundary value at the
+single point $\infty$ also cannot alter a bounded Poisson solution: that point
+has zero harmonic measure.  Continuous data on the compactified boundary must
+have the same limit along both ends of the real line.
+\end{warning}
+
+The theorem is deliberately a boundary theorem, not an $L^2$ spectral
+statement.  Unless its boundary data vanish in a sufficiently strong sense, a
+Poisson extension is generally not in $L^2(\HH,d\vol_g)$ because the
+hyperbolic volume density grows like $y^{-2}$ near the ideal boundary.

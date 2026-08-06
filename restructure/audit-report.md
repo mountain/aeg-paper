@@ -1,4 +1,4 @@
-# Paper I Restructuring Audit Report
+# Papers I--II Restructuring Audit Report
 
 **Baseline commit:** `134e70a74ed010024afa7439bd3931402731423a`  
 **Baseline date:** 2026-08-06  
@@ -146,3 +146,38 @@ theorem inventory are in `paper-I-closure-report.md`.
 The result is classified as a **mathematical-review manuscript**, not an
 author-approved public release.  Docker was unavailable, and author metadata and the
 relationship to the earlier Zenodo DOI still require human approval.
+
+## 7. Paper II integration evidence
+
+Paper II was integrated from the fixed repository baseline `61ff60d` under the
+task-specific authority `paper-II-source-audit.md`.  Its active entry point is
+`paper-2/aeg-paper-2.tex`; it inputs eight canonical section files, three canonical
+appendix files, and the shared bibliography.  It has no TeX dependency on a legacy
+section, alternative revision, note, Paper III source, or Paper IV source.
+
+The final cold build used the same strict `pdflatex`, BibTeX, `pdflatex`, `pdflatex`
+sequence as Paper I and produced a 39-page US-letter PDF.  The artifact is 463,026
+bytes with SHA-256
+`489d21841f56e4a84f9c9179b804c4e6d2207d23c8367d98e00215829fb7bab3`.
+The active Paper II source contains 198 unique labels, with no duplicate or missing
+reference target and no missing citation key.  The final LaTeX and BibTeX logs contain
+no warning, undefined reference or citation, fatal diagnostic, overfull box, or
+underfull box.  Poppler rendered all 39 pages; the title, contents, analytic-branch
+diagram, displayed equations, theorem page breaks, comparison table, appendices, and
+bibliography were inspected for clipping and collisions.
+
+Independent reviews separately recomputed the surface adjoints and drift,
+Cauchy--Riemann factorizations, contact measure and Reeb twist, balanced-measure
+gauge, logarithmic and affine--Appell families, hyperbolic normalization, Poisson
+kernel, boundary uniqueness, Dirichlet-to-Neumann scale, energy constant, and
+assignment-only classification.  A separate scope/provenance review confirmed the
+Paper I to Paper II dependency and absence of Paper III/IV theorem leakage.  All
+blocking findings were repaired; the final reviews report no blocking mathematical,
+scope, or provenance defect.
+
+Migration M-0003, status change S-0006, the Paper II decision record, and
+`paper-II-closure-report.md` provide the detailed claim treatment and closure
+evidence.  Paper II is a **mathematical-review manuscript**, not an author-approved
+public release.  General Green kernels, spectral completeness, contact-boundary
+representations, singular continuation, and clean-container verification remain
+outside this closure.

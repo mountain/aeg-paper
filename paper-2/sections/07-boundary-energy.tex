@@ -1,0 +1,319 @@
+% Canonical Paper II source.
+The Poisson theorem has two complementary refinements.  Fourier analysis
+identifies its boundary energy operator exactly, while the assignment relation
+\eqref{eq:hyperbolic-assignment-w} produces explicit arithmetic families.  We
+keep their domains separate: a plane wave is a useful bounded Fourier mode but
+does not extend continuously to the single ideal point $\infty$, whereas the
+$C_0$ theorem of the preceding section does.
+
+\subsection{Fourier representation and the conormal derivative}
+
+Use the Fourier convention
+\begin{equation}\label{eq:fourier-convention-x}
+ \widehat\varphi(\kappa)
+ =\int_{\R}e^{-i\kappa x}\varphi(x)\,dx,
+ \qquad
+ \varphi(x)=\frac1{2\pi}\int_{\R}
+ e^{i\kappa x}\widehat\varphi(\kappa)\,d\kappa.
+\end{equation}
+Write $|D_x|$ for the multiplier with symbol $|\kappa|$.
+
+\begin{proposition}[Fourier formula for the Poisson extension]
+\label{prop:poisson-fourier-formula}
+If $\varphi\in\mathcal S(\R)$ and
+$U=\mathcal P_{\mu,\lambda}\varphi$, then
+\begin{equation}\label{eq:poisson-fourier-x}
+ U(x,y)=\frac1{2\pi}\int_{\R}
+ \widehat\varphi(\kappa)
+ e^{i\kappa x-(\mu/\lambda)|\kappa|y}\,d\kappa.
+\end{equation}
+Consequently,
+\begin{equation}\label{eq:raw-normal-fourier}
+ -\partial_yU(\,\cdot\,,0)
+ =\frac{\mu}{\lambda}|D_x|\varphi
+\end{equation}
+in $\mathcal S(\R)$ and in $L^2(\R)$.
+\end{proposition}
+
+\begin{proof}
+The Fourier transform in $x$ of
+$\pi^{-1}h/(x^2+h^2)$ is $e^{-h|\kappa|}$.  In
+\eqref{eq:aeg-poisson-kernel-x}, $h=(\mu/\lambda)y$.  The convolution theorem
+therefore gives \eqref{eq:poisson-fourier-x}.  Since the data are Schwartz,
+one may differentiate under the integral for $y\geq0$ in $L^2$; evaluation
+at $y=0$ yields \eqref{eq:raw-normal-fourier}.
+\end{proof}
+
+The raw derivative in \eqref{eq:raw-normal-fourier} is not yet the boundary
+operator paired with the Riemannian energy.  On the truncated domain
+$\{y\geq\varepsilon\}$, the outward $g$-unit normal and induced measure along
+$y=\varepsilon$ are
+\begin{equation}\label{eq:hyperbolic-boundary-normal-measure}
+ \nu=-\lambda y\partial_y,
+ \qquad
+ d\sigma_g=\frac{dx}{\mu y}.
+\end{equation}
+Thus
+\[
+ (\partial_\nu U)d\sigma_g
+ =-\frac{\lambda}{\mu}U_y\,dx.
+\]
+This fixes the conformal conormal scale.
+
+\begin{definition}[Conformal Dirichlet-to-Neumann operator]
+\label{def:conformal-DtN}
+For $\varphi\in\mathcal S(\R)$, define
+\begin{equation}\label{eq:conformal-DtN-x}
+ \mathcal N_x\varphi
+ :=-\frac{\lambda}{\mu}
+   \partial_y(\mathcal P_{\mu,\lambda}\varphi)(\,\cdot\,,0).
+\end{equation}
+\end{definition}
+
+\begin{theorem}[Dirichlet-to-Neumann and energy identity]
+\label{thm:DtN-energy-identity}
+For every $\varphi\in\mathcal S(\R)$,
+\begin{align}
+ \mathcal N_x\varphi&=|D_x|\varphi,
+ \label{eq:DtN-is-absolute-D}\\
+ \mathcal E_g(\mathcal P_{\mu,\lambda}\varphi)
+ &=\int_{\R}\overline{\varphi(x)}\,
+       \mathcal N_x\varphi(x)\,dx
+  =\frac1{2\pi}\int_{\R}
+       |\kappa|\,|\widehat\varphi(\kappa)|^2\,d\kappa.
+ \label{eq:poisson-energy-fourier}
+\end{align}
+For real-valued data the complex conjugate may be omitted.  In the normalized
+$X$-coordinate, the same statement reads
+\[
+ \mathcal N_X=-\partial_y\big|_{y=0}=|D_X|.
+\]
+\end{theorem}
+
+\begin{proof}
+Equation~\eqref{eq:DtN-is-absolute-D} follows immediately from
+\eqref{eq:raw-normal-fourier} and
+\eqref{eq:conformal-DtN-x}.  To calculate the energy, insert
+\eqref{eq:poisson-fourier-x} into
+\eqref{eq:hyperbolic-dirichlet-energy} and use Plancherel.  With
+$c=\mu/\lambda$,
+\begin{align*}
+ \mathcal E_g(U)
+ &=\frac1{2\pi}\int_{\R}\int_0^\infty
+   \left(c\kappa^2+c^{-1}c^2\kappa^2\right)
+   |\widehat\varphi(\kappa)|^2e^{-2c|\kappa|y}
+   \,dy\,d\kappa\\
+ &=\frac1{2\pi}\int_{\R}|\kappa|
+   |\widehat\varphi(\kappa)|^2\,d\kappa.
+\end{align*}
+Plancherel once more identifies this expression with
+$\int\overline\varphi\,|D_x|\varphi\,dx$.  Finally, if
+$\psi(X)=\varphi((\mu/\lambda)X)$, the $X$-Fourier solution decays as
+$e^{-|\xi|y}$, so its raw outward conformal derivative is $|D_X|$.
+\end{proof}
+
+The right side of \eqref{eq:poisson-energy-fourier} is the homogeneous
+$H^{1/2}(\R)$ quadratic form.  The identity therefore extends by completion
+from Schwartz data to boundary data with finite homogeneous
+$H^{1/2}$ seminorm, modulo the usual treatment of constants.
+
+\begin{theorem}[Energy-minimizing extension]
+\label{thm:poisson-energy-minimizer}
+Let $\varphi\in\mathcal S(\R)$ and
+$U=\mathcal P_{\mu,\lambda}\varphi$.  For every
+$h\in H_{0,\mathrm{Euc}}^1(\HH)$, where this denotes the Euclidean half-plane
+Sobolev space,
+the function $U+h$ has the same trace as $U$ and
+\begin{equation}\label{eq:energy-orthogonal-decomposition}
+ \mathcal E_g(U+h)=\mathcal E_g(U)+\mathcal E_g(h).
+\end{equation}
+Consequently, $U$ is the unique energy minimizer in the affine class
+\[
+ U+H_{0,\mathrm{Euc}}^1(\HH).
+\]
+It is also the unique weakly $\Delta_g$-harmonic member of that class.
+\end{theorem}
+
+\begin{proof}
+The anisotropic energy norm in
+\eqref{eq:hyperbolic-dirichlet-energy} is equivalent to the Euclidean
+gradient norm because $\mu,\lambda>0$.  For
+$h\in C_c^\infty(\HH)$, integration by parts and $\Delta_gU=0$ give
+\[
+ \int_{\HH}\left(
+  \frac{\mu}{\lambda}U_x\overline{h_x}
+ +\frac{\lambda}{\mu}U_y\overline{h_y}\right)dx\,dy=0.
+\]
+Density of $C_c^\infty(\HH)$ in $H_{0,\mathrm{Euc}}^1(\HH)$ extends this orthogonality to
+all admissible $h$.  Expanding the squared gradient proves
+\eqref{eq:energy-orthogonal-decomposition}.  Equality of energies forces
+$\nabla h=0$ almost everywhere; since
+$h\in H_{0,\mathrm{Euc}}^1(\HH)\subset L^2(\HH)$,
+the constant is zero.  This proves uniqueness of the minimizer.
+
+If $U+h$ is also weakly harmonic, subtract the weak equations for $U+h$ and
+$U$, and test the resulting equation for $h$ by $h$ itself, using density.
+Then $\mathcal E_g(h)=0$, so $h=0$.
+\end{proof}
+
+\subsection{Holomorphic and Fourier families in assignment coordinates}
+
+Equation~\eqref{eq:hyperbolic-dbar-coordinate} immediately gives a broad
+family, with an explicit arithmetic presentation.
+
+\begin{proposition}[Assignment presentation of holomorphic fields]
+\label{prop:assignment-holomorphic-family}
+Let $\Omega\subset\C$ be open and let $\Phi$ be holomorphic on $\Omega$.
+On every component of
+\[
+ \left\{(a,y)\in\R\times(0,\infty):
+ y\left(i-\frac{\lambda}{\mu}a\right)\in\Omega\right\},
+\]
+the field
+\begin{equation}\label{eq:assignment-holomorphic-composition}
+ F(a,y)=\Phi\!\left(y\left(i-\frac{\lambda}{\mu}a\right)\right)
+\end{equation}
+is arithmetic holomorphic.  Its real and imaginary parts are
+$\Delta_g$-harmonic.
+\end{proposition}
+
+\begin{proof}
+The argument of $\Phi$ is precisely $w$ by
+\eqref{eq:hyperbolic-assignment-w}.  Hence
+$\partial_{\bar w}\Phi(w)=0$, and
+\eqref{eq:hyperbolic-dbar-coordinate} gives $\dbarAEG F=0$.  Surface
+holomorphicity implies Laplace--Beltrami harmonicity by
+Section~\ref{sec:surface-operators}.
+\end{proof}
+
+Examples include polynomials in $w$ and rational functions $R(w)$ on domains
+avoiding their poles.  If all poles of $R$ lie in
+$\C\setminus\overline\HH$, then $R(w)$ is globally holomorphic on $\HH$.
+For example, for every $\tau>0$,
+\begin{equation}\label{eq:explicit-rational-assignment-family}
+ R_\tau(w)=\frac1{w+i\tau}
+ =\frac1{-(\lambda/\mu)ay+i(y+\tau)}
+\end{equation}
+is a global arithmetic holomorphic field; its pole $-i\tau$ lies in the lower
+half-plane.  Its real and imaginary parts are explicit rational harmonic
+functions of $(a,y)$.
+The positive-frequency modes are, for $\kappa>0$,
+\begin{equation}\label{eq:positive-holomorphic-mode}
+ H_\kappa(x,y)
+ =e^{i\kappa x-(\mu/\lambda)\kappa y}
+ =e^{i(\mu/\lambda)\kappa w}
+ =e^{-i\kappa ay-(\mu/\lambda)\kappa y}.
+\end{equation}
+They are holomorphic.  The decaying modes with negative frequency are
+anti-holomorphic.  Formula~\eqref{eq:poisson-fourier-x} is their
+superposition.  Individual plane waves have bounded boundary values but no
+limit at the compactification point $\infty$, so they are not examples in the
+$C_0$ theorem.
+
+\subsection{Assignment-only harmonic fields}
+
+The assignment itself is not harmonic, but one nonlinear rectification of it
+is.  In fact there are no others beyond affine recombination.
+
+\begin{theorem}[Assignment-only harmonic classification]
+\label{thm:a-only-harmonic-classification}
+Let $I\subset\R$ be an open interval, let $h\in C^2(I)$, and put
+$\Omega_I=a^{-1}(I)$.  Then
+\begin{equation}\label{eq:a-only-laplacian}
+ \Delta_g(h\circ a)
+ =(\mu^2+\lambda^2a^2)h''(a)
+  +2\lambda^2a h'(a).
+\end{equation}
+Consequently,
+\begin{equation}\label{eq:a-only-harmonic-family}
+ \Delta_g(h\circ a)=0
+ \quad\Longleftrightarrow\quad
+ h(a)=C_0+C_1\arctan\!\left(\frac{\lambda a}{\mu}\right)
+\end{equation}
+for constants $C_0,C_1\in\C$.
+\end{theorem}
+
+\begin{proof}
+The chain rule for the Laplace--Beltrami operator and
+\eqref{eq:hyperbolic-assignment-eigen-equation-II} give
+\[
+ \Delta_g(h\circ a)
+ =h''(a)|\nabla a|_g^2+h'(a)\Delta_ga,
+\]
+which is \eqref{eq:a-only-laplacian}.  If it vanishes and $p=h'$, then
+\[
+ (\mu^2+\lambda^2a^2)p'(a)+2\lambda^2a p(a)=0.
+\]
+Thus
+\[
+ p(a)=\frac{C}{\mu^2+\lambda^2a^2},
+\]
+and integration yields
+\[
+ h(a)=C_0+\frac{C}{\mu\lambda}
+       \arctan\!\left(\frac{\lambda a}{\mu}\right).
+\]
+Absorbing the nonzero constant $(\mu\lambda)^{-1}$ into $C_1$ proves the
+classification on $I$.  Here no values of $h$ are left untested: the assignment
+$a=-x/y$ maps $\Omega_I$ onto $I$.  The converse follows by differentiation.
+\end{proof}
+
+\begin{corollary}[A half-line harmonic measure]
+\label{cor:a-half-line-harmonic-measure}
+The bounded function
+\begin{equation}\label{eq:a-half-line-harmonic-measure}
+ \omega_-(a)
+ =\frac12+\frac1\pi
+  \arctan\!\left(\frac{\lambda a}{\mu}\right)
+\end{equation}
+is the Poisson extension of the almost-everywhere boundary datum
+$\mathbf 1_{(-\infty,0)}$ in the $x$-coordinate.  Equivalently,
+\begin{equation}\label{eq:a-angle-identity}
+ \omega_-(a)=\frac{\operatorname{Arg} w}{\pi},
+ \qquad 0<\operatorname{Arg} w<\pi.
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+Writing $w=re^{i\theta}$ with $0<\theta<\pi$, one has
+\[
+ \frac{\lambda a}{\mu}=-\frac{X}{y}=-\cot\theta.
+\]
+On this range,
+$\arctan(-\cot\theta)=\theta-\pi/2$, which proves
+\eqref{eq:a-angle-identity}.  The angle $\theta/\pi$ tends to zero on the
+positive half-line and to one on the negative half-line.  It is bounded and
+harmonic.  Directly, with $c=\mu/\lambda$,
+\begin{align*}
+ \int_{-\infty}^0P_y^{\mu,\lambda}(x-\xi)\,d\xi
+ &=\frac1\pi\left[
+   \arctan\!\left(\frac{\xi-x}{cy}\right)
+   \right]_{\xi=-\infty}^{\xi=0}\\
+ &=\frac12-\frac1\pi\arctan\!\left(\frac{x}{cy}\right)
+  =\frac12+\frac1\pi\arctan\!\left(\frac{\lambda a}{\mu}\right).
+\end{align*}
+This identifies it as the stated harmonic measure without imposing continuity
+at the jump point.
+\end{proof}
+
+The holomorphic function behind this corollary is the principal logarithm on
+the upper half-plane:
+\begin{equation}\label{eq:log-w-assignment}
+ \operatorname{Log} w
+ =\log y+\frac12\log\left(1+\frac{\lambda^2a^2}{\mu^2}\right)
+ +i\left[
+   \frac\pi2+\arctan\!\left(\frac{\lambda a}{\mu}\right)
+ \right].
+\end{equation}
+The example lies outside the continuous compactified-boundary and finite-energy
+classes.  Its boundary datum jumps at $x=0$ and has incompatible limits along
+the two ends that meet at $\infty$.  Moreover, in polar coordinates for $w$,
+\[
+ \int_{\HH}|\nabla(\operatorname{Arg} w)|^2\,dX\,dy
+ =\int_0^\pi\int_0^\infty\frac1{r^2}r\,dr\,d\theta
+ =\infty.
+\]
+Thus the half-line harmonic measure is a valid bounded Poisson solution for
+$L^\infty$ data, but not a member of the energy theorem above.  These domain
+distinctions also explain why the unbounded assignment $a=-x/y$ itself cannot
+serve as ideal-boundary Dirichlet data.

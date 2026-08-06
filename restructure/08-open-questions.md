@@ -1456,6 +1456,20 @@ Author
 
 # Part V. Paper II interface questions
 
+## Paper II resolution update — 2026-08-06
+
+The first canonical Paper II manuscript closes OQ-031--OQ-036 at the
+mathematical-review level.  The original questions remain below as provenance.
+
+| Question | State | Resolution |
+|---|---|---|
+| OQ-031 | **CLOSED** | The two-dimensional regular AES already has (g) and orientation.  The contact branch separately declares the horizontal metric making (D_u,D_v) orthonormal. |
+| OQ-032 | **CLOSED WITH SCOPE LIMIT** | Surface (J) is intrinsic.  Contact (J) is compatible with the declared normalized metric and horizontal orientation; no invariance under arbitrary contactomorphisms is claimed. |
+| OQ-033 | **CLOSED FOR THE CHOSEN REALIZATIONS** | Surface analysis uses Riemannian area and the minimal Dirichlet form.  Contact analysis uses positive contact volume and a Friedrichs realization of (-D_u^2-D_v^2-lambda D_v).  The raw sum of squares is treated separately and no essential-self-adjointness claim is made. |
+| OQ-034 | **CLOSED** | The corrected logarithmic contact field is verified on the branch half-plane containing (mu+ilambdamathbb R); its domain and CR equation are explicit. |
+| OQ-035 | **CLOSED BY CORRECTION** | The canonical object is a finite filtered (C^infty(u,v))-module, not an unspecified basis. |
+| OQ-036 | **CLOSED** | The decisive result is the (C_0) ideal-boundary Poisson--Dirichlet theorem on the basic hyperbolic AES, strengthened by the exact Dirichlet-to-Neumann and energy identity. |
+
 ## OQ-031 — Canonical horizontal metric for analysis
 
 **Priority:** P3
@@ -2378,7 +2392,14 @@ OQ-059–OQ-065
 ### Stage 7 — Later-paper research
 
 ```text
-OQ-031–OQ-058
+OQ-037–OQ-058
+```
+
+Paper II questions closed by the canonical mathematical-review manuscript and
+retained above only as provenance:
+
+```text
+OQ-031–OQ-036 — CLOSED
 ```
 
 ---

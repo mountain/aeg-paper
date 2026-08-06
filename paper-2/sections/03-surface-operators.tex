@@ -1,0 +1,425 @@
+% Canonical Paper II source.
+The preceding section fixed the measure and the real energy operator.  We now
+complexify the arithmetic frame.  Because $M$ is two-dimensional, the resulting
+Cauchy--Riemann equation is the ordinary Riemann-surface equation written in the
+assignment-adapted frame; its factorization nevertheless exposes exactly where the
+frame bracket and the Laplace--Beltrami drift enter.
+
+\subsection{Compatible complex structure and unitary gauge}
+
+Let $J$ be rotation by $+\pi/2$ in the oriented tangent planes.  Thus
+\begin{equation}\label{eq:surface-compatible-complex-structure}
+ J\Xu=\Xv,
+ \qquad
+ J\Xv=-\Xu.
+\end{equation}
+In real dimension two this almost-complex structure is integrable.  No additional
+complex structure is being imposed on the regular AES.
+
+\begin{definition}[Surface arithmetic Cauchy--Riemann operators]
+\label{def:surface-arithmetic-cr-operators}
+On complex-valued scalar fields define
+\begin{equation}\label{eq:surface-arithmetic-cr-operators}
+ \dbarAEG:=\frac12(\Xu+i\Xv),
+ \qquad
+ \dAEG:=\frac12(\Xu-i\Xv).
+\end{equation}
+These symbols denote first-order scalar coefficient operators.  Intrinsically,
+if $(\eta^u,\eta^v)$ is the coframe dual to $(\Xu,\Xv)$, then
+\begin{equation}\label{eq:surface-intrinsic-dbar}
+ \bar\partial_MF
+ =(\dbarAEG F)(\eta^u-i\eta^v).
+\end{equation}
+\end{definition}
+
+The scalar coefficient in~\eqref{eq:surface-intrinsic-dbar} depends on an
+orthonormal frame, while the $(0,1)$-form does not.
+
+\begin{proposition}[$U(1)$-gauge covariance]
+\label{prop:surface-u1-gauge}
+Let $(Y_u,Y_v)$ be another positively oriented orthonormal frame on an open set
+$U\subset M$, related
+to the arithmetic frame by a smooth angle $\vartheta$:
+\begin{equation}\label{eq:surface-frame-gauge-rotation}
+ Y_u=\cos\vartheta\,\Xu+\sin\vartheta\,\Xv,
+ \qquad
+ Y_v=-\sin\vartheta\,\Xu+\cos\vartheta\,\Xv.
+\end{equation}
+Then
+\begin{equation}\label{eq:surface-cr-gauge-law}
+ \frac12(Y_u+iY_v)=e^{-i\vartheta}\dbarAEG.
+\end{equation}
+Consequently, the equation $\dbarAEG F=0$ is independent of the chosen
+oriented orthonormal frame.  On the frame domain $U\subset M$, multiplication on
+$L^2(U,d\vol_g)$ by
+$e^{-i\vartheta}$ is unitary, so the quadratic operator
+$\dbarAEG^*\dbarAEG$ is gauge invariant on compactly supported test fields.
+\end{proposition}
+
+\begin{proof}
+Expanding~\eqref{eq:surface-frame-gauge-rotation} gives
+\[
+ Y_u+iY_v
+ =e^{-i\vartheta}(\Xu+i\Xv),
+\]
+which proves~\eqref{eq:surface-cr-gauge-law}.  The dual coframe transforms by
+\[
+ \theta^u-i\theta^v
+ =e^{i\vartheta}(\eta^u-i\eta^v),
+\]
+so the two gauge factors cancel in~\eqref{eq:surface-intrinsic-dbar}.  Finally,
+if $U_\vartheta$ is multiplication by $e^{-i\vartheta}$, then
+\[
+ (U_\vartheta\dbarAEG)^*(U_\vartheta\dbarAEG)
+ =\dbarAEG^*U_\vartheta^*U_\vartheta\dbarAEG
+ =\dbarAEG^*\dbarAEG
+\]
+as a formal-adjoint identity on $C_c^\infty$.
+\end{proof}
+
+The arithmetic frame has a more specific gauge relation to the gradient frame
+selected by the assignment itself.  This formula identifies exactly which part
+of the surface Cauchy--Riemann operator is AEG-specific.
+
+\begin{proposition}[Assignment-specific unitary gauge]
+\label{prop:surface-assignment-unitary-gauge}
+Let
+\begin{equation}\label{eq:surface-gradient-unit-vector}
+ q=(\mu^2+\lambda^2a^2)^{1/2},
+ \qquad
+ E=\frac{\nabla a}{q}.
+\end{equation}
+Then $(E,JE)$ is a positively oriented orthonormal frame and
+\begin{equation}\label{eq:surface-assignment-frame-complex-gauge}
+ \boxed{
+ \Xu+i\Xv
+ =\frac{\mu+i\lambda a}{q}(E+iJE).
+ }
+\end{equation}
+The coefficient
+\begin{equation}\label{eq:surface-assignment-u1-factor}
+ \chi_a:=\frac{\mu+i\lambda a}{q}
+\end{equation}
+has unit modulus.  Consequently, if
+\[
+ \bar Z_E:=\frac12(E+iJE),
+\]
+then
+\begin{equation}\label{eq:surface-assignment-dbar-gauge}
+ \dbarAEG=\chi_a\bar Z_E,
+ \qquad
+ \ker\dbarAEG=\ker\bar Z_E
+\end{equation}
+pointwise.  Thus the arithmetic Cauchy--Riemann equation has exactly the same
+local solution sheaf as the underlying Riemann-surface
+$\bar\partial$-equation.
+\end{proposition}
+
+\begin{proof}
+The eikonal identity~\eqref{eq:paper2-regular-eikonal} gives
+$|\nabla a|=q$, so $(E,JE)$ is positively oriented and orthonormal.  The
+canonical-frame formula imported from Paper~I is
+\[
+ \Xu=\frac{\mu}{q}E-\frac{\lambda a}{q}JE,
+ \qquad
+ \Xv=\frac{\lambda a}{q}E+\frac{\mu}{q}JE.
+\]
+Adding $i$ times the second identity to the first gives
+\begin{align*}
+ \Xu+i\Xv
+ &=\frac{\mu+i\lambda a}{q}E
+   +\frac{-\lambda a+i\mu}{q}JE\\
+ &=\frac{\mu+i\lambda a}{q}(E+iJE),
+\end{align*}
+because $i(\mu+i\lambda a)=i\mu-\lambda a$.  Finally,
+\[
+ |\chi_a|^2
+ =\frac{\mu^2+\lambda^2a^2}{q^2}=1.
+\]
+The kernel statement follows because $\chi_a$ never vanishes.
+\end{proof}
+
+\subsection{Raw factorization and the metric drift}
+
+Let $S_M=\Xu^2+\Xv^2$ as in
+\eqref{eq:surface-raw-sum-squares}.  Direct multiplication of the two
+first-order expressions gives a factorization which does not yet involve a
+measure.
+
+\begin{proposition}[Raw frame factorization]
+\label{prop:surface-raw-factorization}
+On $C^\infty(M;\C)$, pointwise as differential expressions,
+\begin{align}
+ 4\dAEG\dbarAEG
+ &=S_M+i[\Xu,\Xv]
+   =S_M+i(c_u\Xu+c_v\Xv),
+ \label{eq:surface-raw-factorization-plus}\\
+ 4\dbarAEG\dAEG
+ &=S_M-i[\Xu,\Xv]
+   =S_M-i(c_u\Xu+c_v\Xv).
+ \label{eq:surface-raw-factorization-minus}
+\end{align}
+The Laplace--Beltrami expression is instead
+\begin{equation}\label{eq:surface-laplacian-drift-comparison}
+ \Delta_g=S_M-c_v\Xu+c_u\Xv.
+\end{equation}
+Thus neither raw product in
+\eqref{eq:surface-raw-factorization-plus}--
+\eqref{eq:surface-raw-factorization-minus} is, by itself, the metric Laplacian.
+\end{proposition}
+
+\begin{proof}
+Expand
+\[
+ (\Xu-i\Xv)(\Xu+i\Xv)
+ =\Xu^2+\Xv^2+i(\Xu\Xv-\Xv\Xu)
+\]
+and reverse the order for the second formula.  Equation
+\eqref{eq:surface-laplacian-drift-comparison} is
+Proposition~\ref{prop:surface-frame-laplacian}.
+\end{proof}
+
+\begin{proposition}[Exact drift factorizations]
+\label{prop:surface-exact-drift-factorizations}
+The raw products can be written directly in terms of the metric Laplacian:
+\begin{align}
+ 4\dAEG\dbarAEG
+ &=\Delta_g+2(c_v+ic_u)\dbarAEG,
+ \label{eq:surface-exact-drift-factorization-plus}\\
+ 4\dbarAEG\dAEG
+ &=\Delta_g+2(c_v-ic_u)\dAEG.
+ \label{eq:surface-exact-drift-factorization-minus}
+\end{align}
+These are pointwise identities of differential expressions on
+$C^\infty(M;\C)$.
+\end{proposition}
+
+\begin{proof}
+Using~\eqref{eq:surface-laplacian-drift-comparison},
+\begin{align*}
+ \Delta_g+2(c_v+ic_u)\dbarAEG
+ &=S_M-c_v\Xu+c_u\Xv
+   +(c_v+ic_u)(\Xu+i\Xv)\\
+ &=S_M+i(c_u\Xu+c_v\Xv)\\
+ &=4\dAEG\dbarAEG
+\end{align*}
+by~\eqref{eq:surface-raw-factorization-plus}.  Complex conjugation of the
+coefficients, or the same expansion using
+\eqref{eq:surface-raw-factorization-minus}, proves the second identity.
+\end{proof}
+
+The distinction between the bracket term and the metric drift is essential.  The
+former records the non-coordinate arithmetic frame; the latter is forced by
+Riemannian divergence.  They agree in the precise way needed on the kernel of the
+Cauchy--Riemann operator, as the next theorem shows.
+
+\subsection{Formal-adjoint factorization}
+
+\begin{theorem}[Adjoint factorization of the surface Laplacian]
+\label{thm:surface-adjoint-factorization}
+On $C_c^\infty(M^\circ;\C)$, with respect to $d\vol_g$,
+\begin{align}
+ \dbarAEG^*
+ &=-\dAEG+\frac12(c_v+ic_u),
+ \label{eq:surface-dbar-formal-adjoint}\\
+ \dAEG^*
+ &=-\dbarAEG+\frac12(c_v-ic_u).
+ \label{eq:surface-d-formal-adjoint}
+\end{align}
+Consequently,
+\begin{equation}\label{eq:surface-adjoint-factorization}
+ \boxed{
+ 4\dbarAEG^*\dbarAEG
+ =4\dAEG^*\dAEG
+ =-\Delta_g.
+ }
+\end{equation}
+These are formal differential identities on the common test domain; no boundary
+condition or self-adjoint domain is implicit in the star notation.
+\end{theorem}
+
+\begin{proof}
+Using~\eqref{eq:surface-frame-formal-adjoints} and conjugating scalar
+coefficients when taking the adjoint,
+\begin{align*}
+ \dbarAEG^*
+ &=\frac12(\Xu^*-i\Xv^*)
+   =\frac12(-\Xu+c_v+i\Xv+ic_u)\\
+ &=-\dAEG+\frac12(c_v+ic_u),
+\end{align*}
+which proves~\eqref{eq:surface-dbar-formal-adjoint}; the other formula is its
+conjugate counterpart.  Now use
+\eqref{eq:surface-raw-factorization-plus}:
+\begin{align*}
+ 4\dbarAEG^*\dbarAEG
+ &=-4\dAEG\dbarAEG
+   +2(c_v+ic_u)\dbarAEG\\
+ &=-S_M-i(c_u\Xu+c_v\Xv)
+   +(c_v+ic_u)(\Xu+i\Xv)\\
+ &=-S_M+c_v\Xu-c_u\Xv\\
+ &=-\Delta_g.
+\end{align*}
+The calculation for $4\dAEG^*\dAEG$ is analogous.
+Appendix~\ref{app:frame-calculations} records both expansions term by term.
+\end{proof}
+
+The formal identity has a closed-operator consequence once the domain is stated.
+
+\begin{corollary}[Dirichlet realization by the CR energy]
+\label{cor:surface-dirichlet-cr-realization}
+Let $\overline{\dbarAEG}_0$ be the graph closure in
+$L^2(M,d\vol_g)$ of $\dbarAEG$ initially defined on
+$C_c^\infty(M^\circ;\C)$.  Then
+\begin{equation}\label{eq:surface-closed-cr-factorization}
+ -\Delta_{g,D}
+ =4(\overline{\dbarAEG}_0)^*\overline{\dbarAEG}_0.
+\end{equation}
+The equality is an equality of nonnegative self-adjoint operators represented by
+the same closed quadratic form, not merely an equality of pointwise formulas.
+\end{corollary}
+
+\begin{proof}
+For $f\in C_c^\infty(M^\circ;\C)$,
+Theorem~\ref{thm:surface-adjoint-factorization} gives
+\begin{equation}\label{eq:surface-cr-energy-equality}
+ 4\|\dbarAEG f\|_{L^2(d\vol_g)}^2
+ =\langle-\Delta_gf,f\rangle
+ =\mathcal E_0(f,f).
+\end{equation}
+Moreover,
+\[
+ \|f\|_{L^2(d\vol_g)}^2+4\|\dbarAEG f\|_{L^2(d\vol_g)}^2
+ =\|f\|_{\mathcal E}^2.
+\]
+Thus $\dbarAEG$ is closable with graph domain $H_0^1(M,g)$, and the closure
+of the form on the left of
+\eqref{eq:surface-cr-energy-equality} is exactly the Dirichlet form
+$\mathcal E$ from Definition~\ref{def:surface-energy-domain}.  The uniqueness
+of the self-adjoint operator represented by a closed nonnegative form proves
+\eqref{eq:surface-closed-cr-factorization}.
+\end{proof}
+
+\subsection{Arithmetic holomorphicity and harmonicity}
+
+\begin{definition}[Arithmetic holomorphic field on a regular AES]
+\label{def:surface-arithmetic-holomorphic}
+Let $\Omega\subset M$ be open.  A field $F\in C^1(\Omega;\C)$ is
+\emph{arithmetic holomorphic} if
+\begin{equation}\label{eq:surface-arithmetic-holomorphic-equation}
+ \dbarAEG F=0
+ \quad\text{on }\Omega.
+\end{equation}
+Equivalently, if $F=f+ih$, then
+\begin{equation}\label{eq:surface-arithmetic-cr-real-system}
+ \Xu f=\Xv h,
+ \qquad
+ \Xv f=-\Xu h.
+\end{equation}
+\end{definition}
+
+By Proposition~\ref{prop:surface-u1-gauge}, this definition is independent of
+the arithmetic frame used to write the coefficient equation.  By
+\eqref{eq:surface-intrinsic-dbar}, it is exactly ordinary holomorphicity for the
+Riemann surface $(M,J)$.
+
+\begin{proposition}[Elementary holomorphic calculus]
+\label{prop:surface-elementary-holomorphic-calculus}
+Let $F=f+ih$ be arithmetic holomorphic on an open set $\Omega\subset M$.
+Then the following statements hold.
+\begin{enumerate}
+ \item If $\Phi$ is classically holomorphic on a complex neighborhood of
+ $F(\Omega)$, then $\Phi\circ F$ is arithmetic holomorphic.
+ \item The two surface derivative vectors are orthogonal and have equal length:
+ \begin{align}
+  (\Xu f)(\Xv f)+(\Xu h)(\Xv h)&=0,
+  \label{eq:surface-holomorphic-orthogonality}\\
+  (\Xu f)^2+(\Xu h)^2
+  &=(\Xv f)^2+(\Xv h)^2.
+  \label{eq:surface-holomorphic-equal-length}
+ \end{align}
+ The oriented Jacobian satisfies
+ \begin{equation}\label{eq:surface-holomorphic-jacobian}
+  J_g(F)
+  :=(\Xu f)(\Xv h)-(\Xv f)(\Xu h)
+  =(\Xu f)^2+(\Xv f)^2\ge0.
+ \end{equation}
+ \item If $\Omega$ is connected and $F=H\circ a$ for a
+ $C^1$ function $H$ on an interval containing $a(\Omega)$, then $F$
+ is constant.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+The real vector fields $(\Xu,\Xv)$ obey the ordinary chain rule.  Since
+$\Phi$ is holomorphic, its complex derivative gives
+\[
+ \dbarAEG(\Phi\circ F)
+ =\Phi'(F)\dbarAEG F=0,
+\]
+which proves the first statement.  The real Cauchy--Riemann system
+\eqref{eq:surface-arithmetic-cr-real-system} says
+\[
+ \Xu f=\Xv h,
+ \qquad
+ \Xu h=-\Xv f.
+\]
+Substitution proves
+\eqref{eq:surface-holomorphic-orthogonality}--
+\eqref{eq:surface-holomorphic-jacobian}.
+
+For the final statement, the assignment derivative rules
+\eqref{eq:paper2-assignment-frame-rules} give
+\begin{equation}\label{eq:surface-a-only-holomorphic-rigidity}
+ 2\dbarAEG(H\circ a)
+ =(\mu+i\lambda a)H'(a).
+\end{equation}
+The factor $\mu+i\lambda a$ never vanishes for real $a$, because
+$\mu\ne0$.  Hence $H'(a)=0$ throughout $\Omega$, so
+$d(H\circ a)=0$.  Connectedness makes $F$ constant.
+\end{proof}
+
+\begin{theorem}[Holomorphic fields are Laplace--Beltrami harmonic]
+\label{thm:surface-holomorphic-implies-harmonic}
+If $F\in C^2(\Omega;\C)$ is arithmetic holomorphic, then
+\begin{equation}\label{eq:surface-holomorphic-harmonic-equation}
+ \Delta_gF=0
+ \quad\text{pointwise on }\Omega.
+\end{equation}
+Hence the real and imaginary parts of $F$ are real
+Laplace--Beltrami harmonic functions.
+\end{theorem}
+
+\begin{proof}
+The formal-adjoint formula
+\eqref{eq:surface-dbar-formal-adjoint} is also an identity of local
+differential expressions.  Therefore
+\[
+ -\Delta_gF
+ =4\dbarAEG^*(\dbarAEG F)=0
+\]
+pointwise.  Taking real and imaginary parts proves the final statement.
+
+Equivalently, the raw factorization gives
+\[
+ 0=4\dAEG\dbarAEG F
+   =S_MF+i(c_u\Xu+c_v\Xv)F.
+\]
+On the Cauchy--Riemann kernel, $\Xu F=-i\Xv F$, and hence
+\[
+ i(c_u\Xu+c_v\Xv)F
+ =(-c_v\Xu+c_u\Xv)F.
+\]
+The right-hand side converts $S_MF$ exactly into $\Delta_gF$ through
+\eqref{eq:surface-laplacian-drift-comparison}.
+\end{proof}
+
+\begin{remark}[Local equation versus Hilbert-space kernel]
+\label{rem:surface-local-versus-l2-kernel}
+Theorem~\ref{thm:surface-holomorphic-implies-harmonic} is local and pointwise;
+it does not require $F\in L^2$.  By contrast, a statement such as
+$F\in\ker(-\Delta_{g,D})$ requires
+$F\in\Dom(-\Delta_{g,D})$ and the
+chosen Dirichlet boundary condition.  Many holomorphic fields used later for
+ideal-boundary data are not square-integrable with respect to hyperbolic volume,
+so the two assertions must not be interchanged.
+\end{remark}

@@ -1,0 +1,287 @@
+% Canonical Paper II source.
+This appendix records the coordinate calculations behind
+Section~\ref{sec:contact-analysis}.  They concern only the three-dimensional
+contact state space $\mathcal C$; none of the fields below is a surface frame
+field $X_u$ or $X_v$.
+
+\subsection{Contact volume, brackets, and divergence}
+
+From
+\[
+ \alpha=da-\mu\,du-\lambda a\,dv,
+ \qquad d\alpha=-\lambda\,da\wedge dv,
+\]
+one obtains
+\begin{equation}\label{eq:app-contact-volume-signed}
+ \alpha\wedge d\alpha
+ =-\mu\lambda\,du\wedge dv\wedge da.
+\end{equation}
+Thus $\alpha$ is a contact form precisely when $\mu\lambda\ne0$, and its
+positive contact density is
+$d\nu_{\mathrm c}=|\mu\lambda|\,du\,dv\,da$.
+
+For completeness, the bracket calculation is
+\begin{align}
+ [D_u,D_v]
+ &=[\partial_u+\mu\partial_a,
+       \partial_v+\lambda a\partial_a]\notag\\
+ &=\mu\,\partial_a(\lambda a)\partial_a
+ =\mu\lambda T.\label{eq:app-contact-bracket}
+\end{align}
+In particular, $D_u,D_v,[D_u,D_v]$ have coefficient matrix
+\[
+ \begin{pmatrix}
+  1&0&0\\
+  0&1&0\\
+  \mu&\lambda a&\mu\lambda
+ \end{pmatrix}
+\]
+relative to $\partial_u,\partial_v,\partial_a$, and its determinant is
+$\mu\lambda$.  This also verifies the step-two bracket condition directly.
+
+Because $d\nu_{\mathrm c}$ has constant coordinate density,
+\begin{equation}\label{eq:app-contact-coordinate-divergence}
+ \diver_{\nu_{\mathrm c}}D_u
+ =\partial_u(1)+\partial_a(\mu)=0,
+ \qquad
+ \diver_{\nu_{\mathrm c}}D_v
+ =\partial_v(1)+\partial_a(\lambda a)=\lambda.
+\end{equation}
+For $f,g\in C_c^\infty(\mathcal C)$ and a real vector field $Y$,
+integration of $\diver(f\overline gY)$ gives
+\begin{equation}\label{eq:app-vector-field-adjoint}
+ \int(Yf)\overline g\,d\nu_{\mathrm c}
+ =\int f\,\overline{(-Y-\diver_{\nu_{\mathrm c}}Y)g}
+      \,d\nu_{\mathrm c}.
+\end{equation}
+Equations~\eqref{eq:app-contact-coordinate-divergence} and
+\eqref{eq:app-vector-field-adjoint} prove the adjoint formulas in
+Proposition~\ref{prop:contact-divergence-adjoints}.
+
+\subsection{Expansion of the variational operator}
+
+The two squares expand as
+\begin{align*}
+ D_u^2
+ &=\partial_u^2+2\mu\partial_u\partial_a+\mu^2\partial_a^2,\\
+ D_v^2
+ &=\partial_v^2+2\lambda a\partial_v\partial_a
+   +\lambda^2a^2\partial_a^2+\lambda^2a\partial_a.
+\end{align*}
+Consequently the raw sum of squares is
+\begin{equation}\label{eq:app-contact-raw-expanded}
+ Q_{\mathcal C}
+ =\partial_u^2+\partial_v^2
+  +2\mu\partial_u\partial_a+2\lambda a\partial_v\partial_a
+  +(\mu^2+\lambda^2a^2)\partial_a^2
+  +\lambda^2a\partial_a,
+\end{equation}
+whereas the divergence-of-gradient expression is
+\begin{equation}\label{eq:app-contact-variational-expanded}
+ \Delta_{\mathcal C}
+ =Q_{\mathcal C}+\lambda\partial_v+\lambda^2a\partial_a.
+\end{equation}
+The last two terms are the contact-volume drift.  In particular,
+$Q_{\mathcal C}$ and $\Delta_{\mathcal C}$ are distinct when $\lambda\ne0$.
+
+For compactly supported $f$,
+\begin{align}
+ \langle-\Delta_{\mathcal C}f,f\rangle_{\nu_{\mathrm c}}
+ &=\langle D_u^*D_uf+D_v^*D_vf,f\rangle_{\nu_{\mathrm c}}\notag\\
+ &=\|D_uf\|_{L^2(\nu_{\mathrm c})}^2
+   +\|D_vf\|_{L^2(\nu_{\mathrm c})}^2.
+ \label{eq:app-contact-energy}
+\end{align}
+This calculation identifies the differential expression represented by the
+closed energy form; it does not by itself assert essential self-adjointness of
+the minimal differential operator.
+
+\subsection{Raw and adjoint CR products}
+
+Writing $\dbarC=\frac12(D_u+iD_v)$ and
+$\dC=\frac12(D_u-iD_v)$, direct multiplication gives
+\begin{align}
+ 4\dC\dbarC
+ &=(D_u-iD_v)(D_u+iD_v)
+   =Q_{\mathcal C}+i[D_u,D_v]
+   =Q_{\mathcal C}+i\mu\lambda T,
+ \label{eq:app-contact-raw-product-plus}\\
+ 4\dbarC\dC
+ &=(D_u+iD_v)(D_u-iD_v)
+   =Q_{\mathcal C}-i[D_u,D_v]
+   =Q_{\mathcal C}-i\mu\lambda T.
+ \label{eq:app-contact-raw-product-minus}
+\end{align}
+These are algebraic identities and do not depend on a measure.
+
+The contact-volume adjoints do depend on the measure.  Conjugating scalar
+coefficients and using $D_u^*=-D_u$ and $D_v^*=-D_v-\lambda$ yields
+\[
+ \dbarC^*=\frac12(-D_u+iD_v+i\lambda),
+ \qquad
+ \dC^*=\frac12(-D_u-iD_v-i\lambda).
+\]
+The first energy product is
+\begin{align}
+ 4\dbarC^*\dbarC
+ &=(-D_u+iD_v+i\lambda)(D_u+iD_v)\notag\\
+ &=-D_u^2-D_v^2-\lambda D_v
+   +i\lambda D_u-i[D_u,D_v]\notag\\
+ &=A_{\mathcal C}+i\lambda D_u-i\mu\lambda T.
+ \label{eq:app-contact-adjoint-product-dbar}
+\end{align}
+Similarly,
+\begin{align}
+ 4\dC^*\dC
+ &=(-D_u-iD_v-i\lambda)(D_u-iD_v)\notag\\
+ &=-D_u^2-D_v^2-\lambda D_v
+   -i\lambda D_u+i[D_u,D_v]\notag\\
+ &=A_{\mathcal C}-i\lambda D_u+i\mu\lambda T.
+ \label{eq:app-contact-adjoint-product-d}
+\end{align}
+Since $\Reeb=-\mu^{-1}\partial_u$ and
+$D_u=\partial_u+\mu T$, these formulas are equivalently
+\begin{equation}\label{eq:app-contact-adjoint-products-Reeb}
+ 4\dbarC^*\dbarC=A_{\mathcal C}-i\mu\lambda\Reeb,
+ \qquad
+ 4\dC^*\dC=A_{\mathcal C}+i\mu\lambda\Reeb.
+\end{equation}
+The difference between
+Equations~\eqref{eq:app-contact-raw-product-plus}--\eqref{eq:app-contact-raw-product-minus}
+and
+Equations~\eqref{eq:app-contact-adjoint-product-dbar}--\eqref{eq:app-contact-adjoint-product-d}
+is therefore not a sign convention: the latter products incorporate the
+contact-volume adjoints.
+
+\subsection{The balanced-measure conjugation}
+
+Let $d\nu_{\mathrm b}=e^{-\lambda v}d\nu_{\mathrm c}$.  For a weighted
+density $e^\phi d\nu_{\mathrm c}$,
+\begin{equation}\label{eq:app-weighted-divergence}
+ \diver_{e^\phi\nu_{\mathrm c}}Y
+ =\diver_{\nu_{\mathrm c}}Y+Y\phi.
+\end{equation}
+Taking $\phi=-\lambda v$ gives
+$D_u\phi=0$ and $D_v\phi=-\lambda$, so both horizontal divergences vanish
+for $d\nu_{\mathrm b}$.  Hence the balanced-measure energy operator is the
+formal expression $-Q_{\mathcal C}$.
+
+The unitary map
+\[
+ U:L^2(d\nu_{\mathrm b})\longrightarrow L^2(d\nu_{\mathrm c}),
+ \qquad Uf=e^{-\lambda v/2}f,
+\]
+satisfies, on test functions,
+\begin{align}
+ UD_uU^{-1}f&=D_uf,\label{eq:app-gauge-Du}\\
+ UD_vU^{-1}f&=D_vf+\frac{\lambda}{2}f.
+ \label{eq:app-gauge-Dv}
+\end{align}
+It follows that
+\begin{align}
+ U(-Q_{\mathcal C})U^{-1}
+ &=-D_u^2-\left(D_v+\frac{\lambda}{2}\right)^2\notag\\
+ &=-D_u^2-D_v^2-\lambda D_v-\frac{\lambda^2}{4}\notag\\
+ &=A_{\mathcal C}-\frac{\lambda^2}{4}.
+ \label{eq:app-gauge-energy}
+\end{align}
+Thus changing the measure and applying its unitary gauge produces the constant
+zeroth-order shift in Equation~\eqref{eq:gauge-sum-squares}; it does not identify the
+two unitarily conjugate differential expressions without that shift.
+
+\subsection{Logarithmic first integrals}
+
+Put $W(a)=\mu+i\lambda a$.  Since $\mu\ne0$, the image of $W$ is contained
+in the half-plane $\Omega_\mu$ used in
+Proposition~\ref{prop:contact-logarithmic-first-integrals}; therefore the chosen
+branch $\mathrm{Log}_\mu W$ is smooth for every real $a$.  For
+\[
+ z=u+iv,
+ \qquad
+ \zeta=u+\frac{i}{\lambda}\mathrm{Log}_\mu W(a),
+\]
+one has
+\begin{align}
+ D_uz&=1,&D_vz&=i,\label{eq:app-z-derivatives}\\
+ \partial_a\zeta&=-\frac1W,&
+ D_u\zeta&=1-\frac{\mu}{W}=\frac{i\lambda a}{W},&
+ D_v\zeta&=-\frac{\lambda a}{W}.
+ \label{eq:app-zeta-derivatives}
+\end{align}
+Hence $D_uz+iD_vz=0$ and
+$D_u\zeta+iD_v\zeta=0$.  This proves the CR assertions without treating
+$\zeta$ as a real coordinate on $\mathcal C$.  Indeed, the useful global
+object is the rank-three map $(z,\zeta):\mathcal C\to\C^2$.
+
+For $\rho,\sigma\in\C$, the same branch convention gives
+\begin{align}
+ e^{\rho z+\sigma\zeta}
+ &=e^{(\rho+\sigma)u+i\rho v}
+   \exp\left(\frac{i\sigma}{\lambda}\mathrm{Log}_\mu W(a)\right)\notag\\
+ &=e^{(\rho+\sigma)u+i\rho v}
+   W(a)^{i\sigma/\lambda}.
+ \label{eq:app-contact-mode-expanded}
+\end{align}
+This is a pointwise CR family.  The calculation supplies no Hilbert-space
+orthogonality or completeness statement.
+
+\subsection{Filtered affine--Appell calculations}
+
+Let $r=e^{\lambda v}$ and $B_n=r^{-n}a^n$.  Since
+$D_vr=\lambda r$, $D_va=\lambda a$, and $D_ua=\mu$, one finds
+\begin{align}
+ D_uB_n&=\mu n r^{-1}B_{n-1},\label{eq:app-Appell-Du}\\
+ D_vB_n&=0,\label{eq:app-Appell-Dv}\\
+ TB_n&=nr^{-1}B_{n-1}.
+ \label{eq:app-Appell-T}
+\end{align}
+If $P\in C^\infty(\R^2_{(u,v)},\C)$, Leibniz' rule therefore gives the
+module actions in Proposition~\ref{prop:contact-filtered-appell-module}.
+The factor $r^{-1}$ is a smooth coefficient, but it is not a complex scalar;
+this is exactly why the correct structure is a filtered
+$C^\infty(\R^2_{(u,v)},\C)$-module rather than a finite-dimensional basis.
+
+There is nevertheless a finite algebraic antiderivative for coefficients of
+finite $u$-degree.  Write
+$(n+1)_0=1$ and
+$(n+1)_k=(n+1)(n+2)\cdots(n+k)$ for $k\ge1$.
+
+\begin{proposition}[Finite upward sweep]\label{prop:app-contact-upward-sweep}
+Let $P\in C^\infty(\R^2_{(u,v)},\C)$ satisfy
+$\partial_u^{m+1}P=0$ for some $m\ge0$.  For $n\ge0$, define
+\begin{equation}\label{eq:app-contact-upward-sweep}
+ \mathcal I_u(PB_n)
+ =\sum_{k=0}^{m}(-1)^k
+  \frac{r^{k+1}\partial_u^kP}
+       {\mu^{k+1}(n+1)_{k+1}}B_{n+k+1}.
+\end{equation}
+Then $\mathcal I_u(PB_n)$ belongs to $\mathcal M_{n+m+1}$ and
+\begin{equation}\label{eq:app-contact-upward-sweep-identity}
+ D_u\mathcal I_u(PB_n)=PB_n.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Denote the $k$th summand in
+Equation~\eqref{eq:app-contact-upward-sweep} by $S_k$.  Because $D_ur=0$,
+Leibniz' rule and Equation~\eqref{eq:app-Appell-Du} give
+\begin{align*}
+ D_uS_k
+ &=(-1)^k
+   \frac{r^{k+1}\partial_u^{k+1}P}
+        {\mu^{k+1}(n+1)_{k+1}}B_{n+k+1}\\
+ &\quad+(-1)^k
+   \frac{r^k\partial_u^kP}
+        {\mu^k(n+1)_k}B_{n+k}.
+\end{align*}
+The second term for $k=0$ is $PB_n$.  For
+$0\le k<m$, the first term for $k$ cancels the second term for $k+1$.
+The only remaining first term is the one with $k=m$, and it vanishes because
+$\partial_u^{m+1}P=0$.  This proves
+Equation~\eqref{eq:app-contact-upward-sweep-identity}.
+\end{proof}
+
+The operator $\mathcal I_u$ in this proposition is only a finite algebraic
+right inverse on the stated polynomial-in-$u$ coefficient class.  It is not a
+bounded inverse on either contact $L^2$ space and gives no density, basis, or
+completeness theorem for the filtered module.

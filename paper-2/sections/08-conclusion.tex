@@ -1,0 +1,135 @@
+% Canonical Paper II source.
+The analytic question posed at the beginning of this paper has two answers, because
+Paper I supplies two geometrically different carriers for analysis.  A regular AES
+is an oriented Riemannian surface whose metric, orientation, assignment, and
+arithmetic frame are already fixed.  Its complex analysis is elliptic and intrinsic.
+The contact state space is three-dimensional and nonintegrable; its CR and
+sub-Riemannian analysis starts only after a horizontal metric and a measure have
+been declared.  Keeping these carriers separate is the main organizing decision of
+the paper.
+
+On the surface branch, the arithmetic frame makes the first-order drift of the
+Laplace--Beltrami operator visible.  If
+$[X_u,X_v]=c_uX_u+c_vX_v$, then
+\[
+ \Delta_g=X_u^2+X_v^2-c_vX_u+c_uX_v.
+\]
+This formula resolves the ambiguity between a raw sum of squares and the
+divergence-form operator selected by Riemannian volume.  The same structure
+coefficients give an exact Cauchy--Riemann factorization, and hence a direct proof
+that arithmetic holomorphic fields are Laplace--Beltrami harmonic.  The unitary
+gauge relation with the ordinary Riemann-surface $\overline\partial$-operator also
+fixes the strength of this statement: arithmetic holomorphicity is not a new
+holomorphic function class.  It is the classical class expressed in the canonical
+frame selected by the assignment law.
+
+On the contact branch, contact volume selects
+\[
+ \Delta_{\mathcal C}=D_u^2+D_v^2+\lambda D_v,
+\]
+whereas the raw sum $D_u^2+D_v^2$ is the expression appearing in the elementary
+CR product.  The two roles are compatible but not interchangeable.  The adjoint
+factorization displays the Reeb correction, while the raw factorization displays
+the vertical curvature $\mu\lambda\partial_a$.  The logarithmic first integrals
+and affine--Appell modules are consequently explicit CR constructions on the
+contact space, not harmonic functions on a hidden horizontal surface.
+
+\subsection{What is established on the basic model}
+
+The complete basic hyperbolic AES provides the global test case.  After the fixed
+normalization $X=(\lambda/\mu)x$, it is a constant curvature rescaling of the
+standard upper half-plane.  This observation is elementary, but its consequences
+for the AEG variables are precise.  The arithmetic coordinate is
+\[
+ w=X+iy=y\left(i-\frac{\lambda}{\mu}a\right),
+\]
+the ideal-boundary Poisson kernel solves the $C_0$ Dirichlet problem uniquely, and
+the variational conormal derivative has symbol $|D|$.  For Poisson extensions, the
+exact energy identity is precisely the homogeneous $H^{1/2}$ boundary quadratic
+form and extends by completion from Schwartz data.  Thus the basic model supports
+more than a formal differential calculus: it has a proved boundary kernel, a
+uniqueness class, a Fourier-multiplier Dirichlet-to-Neumann map on Schwartz data,
+and a variational interpretation.
+
+The assignment does not merely relabel these results.  In the $(a,y)$ chart it
+turns every admissible holomorphic function of $w$ into an explicitly
+assignment-dependent field.  Positive-frequency modes and rational fields supply
+concrete families, while the ordinary differential equation for $h(a)$ gives the
+complete classification
+\[
+ h(a)=A+B\arctan\!\left(\frac{\lambda a}{\mu}\right)
+\]
+of harmonic fields depending only on the assignment.  The nonconstant member is a
+boundary half-line harmonic measure.  Its discontinuous trace also shows why the
+function class must be stated in every boundary theorem.
+
+Table~\ref{tab:final-branch-comparison} summarizes the two analytic branches and the
+operator choices proved in this paper.
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{@{}p{0.21\textwidth}p{0.35\textwidth}p{0.35\textwidth}@{}}
+\toprule
+Feature & Regular-AES surface & Contact state space \\
+\midrule
+Carrier & oriented Riemannian surface $(M,g)$ & contact three-manifold
+$(\mathcal C,\ker\alpha)$ \\
+Preferred fields & tangent frame $(X_u,X_v)$ & horizontal lifts
+$(D_u,D_v)$ \\
+Complex datum & determined by $g$ and orientation & chosen from the normalized
+horizontal metric and orientation \\
+Natural measure & Riemannian area $d\vol_g$ & positive contact volume
+$|\alpha\wedge d\alpha|$ \\
+Variational operator & $\Delta_g$, including structure drift &
+$\Delta_{\mathcal C}=D_u^2+D_v^2+\lambda D_v$ \\
+First-order kernel & ordinary holomorphic class in arithmetic gauge & contact-CR
+class with Reeb/vertical twist \\
+Global result here & Poisson, Dirichlet, energy, and DtN on the basic model &
+Friedrichs realization, hypoellipticity, and explicit CR fields \\
+\bottomrule
+\end{tabular}
+\caption{Analytic data and conclusions on the two carriers.  Similar first-order
+notation does not identify the two geometries.}
+\label{tab:final-branch-comparison}
+\end{table}
+
+\subsection{Analytic frontier}
+
+The results above close the first function-theoretic layer, but they do not close the
+programme.  The following problems remain genuinely open within the scope of Paper
+II.
+
+\begin{problem}[General boundary theory]
+Identify geometric hypotheses on a complete regular AES under which a meaningful
+ideal boundary, harmonic measure, Green kernel, and a well-posed Dirichlet class can
+be constructed.  The assignment law alone does not provide such a compactification.
+\end{problem}
+
+\begin{problem}[Spectral realization beyond the basic model]
+Determine the self-adjoint spectral theory of $-\Delta_g$ and of the contact
+Friedrichs operator for geometrically controlled nonhomogeneous examples.  In
+particular, separate pointwise eigen-equations from $L^2$ eigenvectors and specify
+the boundary conditions of every realization.
+\end{problem}
+
+\begin{problem}[Contact boundary and completeness]
+Develop a boundary-value theory for the normalized contact-CR structure and decide
+whether an appropriate completion of the explicit logarithmic and Fourier--CR
+families gives a useful representation theorem.  No completeness assertion is made
+here.
+\end{problem}
+
+\begin{problem}[Degenerate and singular assignments]
+Extend the analytic definitions across points where the regular frame ceases to
+exist.  This requires the singular geometric input assigned to Paper III; the
+present paper neither assumes nor proves a removable-singularity theorem there.
+\end{problem}
+
+The dependency boundary is therefore explicit.  Paper II uses only the regular
+surface, hyperbolic model, and contact connection proved in Paper I.  It exports
+elliptic and contact analytic tools that may later be tested on singular families,
+but it does not import tube topology from Paper III or projective-complexity claims
+from Paper IV.  Within that boundary, every advertised result is backed by a stated
+measure, the relevant test-function or variational domain, and a proof.  This is the
+appropriate starting point for a broader arithmetic real function theory.

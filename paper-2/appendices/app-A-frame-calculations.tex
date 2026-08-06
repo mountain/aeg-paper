@@ -1,0 +1,223 @@
+% Canonical Paper II appendix.
+This appendix gives the sign-sensitive calculations behind
+Propositions~\ref{prop:surface-frame-divergence} and
+\ref{prop:surface-frame-laplacian} and
+Theorem~\ref{thm:surface-adjoint-factorization}.  All calculations are local, but the
+resulting identities are intrinsic.
+
+\subsection{Connection coefficients from the frame bracket}
+
+Let $e_1=\Xu$, $e_2=\Xv$, and write
+\begin{equation}\label{eq:appendix-frame-bracket}
+ [e_1,e_2]=c_ue_1+c_ve_2.
+\end{equation}
+Let $\omega$ be the Levi--Civita connection one-form in the convention
+\begin{equation}\label{eq:appendix-connection-form-convention}
+ \nabla_Ye_1=\omega(Y)e_2,
+ \qquad
+ \nabla_Ye_2=-\omega(Y)e_1.
+\end{equation}
+Torsion freeness gives
+\begin{align*}
+ [e_1,e_2]
+ &=\nabla_{e_1}e_2-\nabla_{e_2}e_1\\
+ &=-\omega(e_1)e_1-\omega(e_2)e_2.
+\end{align*}
+Comparison with~\eqref{eq:appendix-frame-bracket} yields
+\begin{equation}\label{eq:appendix-connection-structure-coefficients}
+ \omega(e_1)=-c_u,
+ \qquad
+ \omega(e_2)=-c_v.
+\end{equation}
+Therefore
+\begin{align}
+ \nabla_{e_1}e_1&=-c_u e_2,
+ &\nabla_{e_1}e_2&=c_u e_1,
+ \label{eq:appendix-connection-first-row}\\
+ \nabla_{e_2}e_1&=-c_v e_2,
+ &\nabla_{e_2}e_2&=c_v e_1.
+ \label{eq:appendix-connection-second-row}
+\end{align}
+Taking traces gives
+\begin{align*}
+ \diver_ge_1
+ &=\langle\nabla_{e_1}e_1,e_1\rangle
+   +\langle\nabla_{e_2}e_1,e_2\rangle
+ =-c_v,\\
+ \diver_ge_2
+ &=\langle\nabla_{e_1}e_2,e_1\rangle
+   +\langle\nabla_{e_2}e_2,e_2\rangle
+ =c_u.
+\end{align*}
+This proves the divergence signs in
+\eqref{eq:surface-frame-divergences} without a coordinate choice.
+
+\subsection{Integration by parts and the real energy operator}
+
+For a real vector field $X$ and compactly supported complex-valued functions
+$f,h$, apply the divergence theorem to $f\overline h X$:
+\begin{align*}
+ 0
+ &=\int_M\diver_g(f\overline h X)\,d\vol_g\\
+ &=\int_M
+   \bigl((Xf)\overline h+f\,X(\overline h)
+         +f\overline h\,\diver_gX\bigr)\,d\vol_g.
+\end{align*}
+Since $X(\overline h)=\overline{Xh}$,
+\begin{equation}\label{eq:appendix-vector-field-adjoint}
+ \int_M(Xf)\overline h\,d\vol_g
+ =\int_M f\,
+  \overline{(-X-\diver_gX)h}\,d\vol_g.
+\end{equation}
+Thus $X^*=-X-\diver_gX$.  Inserting the two divergences above gives
+\[
+ e_1^*=-e_1+c_v,
+ \qquad
+ e_2^*=-e_2-c_u.
+\]
+Consequently,
+\begin{align*}
+ e_1^*e_1+e_2^*e_2
+ &=-e_1^2-e_2^2+c_ve_1-c_ue_2\\
+ &=-\bigl(e_1^2+e_2^2-c_ve_1+c_ue_2\bigr).
+\end{align*}
+On the other hand,
+\begin{align*}
+ \Delta_gf
+ &=\diver_g\bigl((e_1f)e_1+(e_2f)e_2\bigr)\\
+ &=e_1^2f+e_2^2f
+   +(\diver_ge_1)e_1f+(\diver_ge_2)e_2f\\
+ &=e_1^2f+e_2^2f-c_ve_1f+c_ue_2f.
+\end{align*}
+This verifies both
+\eqref{eq:surface-frame-laplacian} and
+\eqref{eq:surface-real-energy-factorization}.
+
+\subsection{Raw complex products}
+
+Put
+\[
+ A=e_1-ie_2=2\dAEG,
+ \qquad
+ B=e_1+ie_2=2\dbarAEG.
+\]
+Then
+\begin{align}
+ AB
+ &=(e_1-ie_2)(e_1+ie_2)\notag\\
+ &=e_1^2+e_2^2+i(e_1e_2-e_2e_1)\notag\\
+ &=S_M+i(c_ue_1+c_ve_2),
+ \label{eq:appendix-raw-product-ab}
+\end{align}
+whereas
+\begin{equation}\label{eq:appendix-raw-product-ba}
+ BA=S_M-i(c_ue_1+c_ve_2).
+\end{equation}
+These formulas use only the differential expressions; neither a volume measure
+nor a domain has entered.
+
+\subsection{Complex formal adjoints and cancellation of the drift}
+
+With the complex $L^2$ inner product, scalar coefficients are conjugated when
+an adjoint is taken.  Therefore
+\begin{align*}
+ \dbarAEG^*
+ &=\frac12(e_1^*-ie_2^*)\\
+ &=\frac12(-e_1+c_v+ie_2+ic_u)\\
+ &=-\dAEG+\frac12(c_v+ic_u),
+\end{align*}
+and
+\begin{align*}
+ \dAEG^*
+ &=\frac12(e_1^*+ie_2^*)\\
+ &=-\dbarAEG+\frac12(c_v-ic_u).
+\end{align*}
+For the first quadratic product, use
+~\eqref{eq:appendix-raw-product-ab}:
+\begin{align*}
+ 4\dbarAEG^*\dbarAEG
+ &=(-A+c_v+ic_u)B\\
+ &=-AB+(c_v+ic_u)(e_1+ie_2)\\
+ &=-S_M-i(c_ue_1+c_ve_2)\\
+ &\hspace{1.5em}{}+c_ve_1+ic_ve_2+ic_ue_1-c_ue_2\\
+ &=-S_M+c_ve_1-c_ue_2\\
+ &=-\Delta_g.
+\end{align*}
+For the conjugate product, use
+~\eqref{eq:appendix-raw-product-ba}:
+\begin{align*}
+ 4\dAEG^*\dAEG
+ &=(-B+c_v-ic_u)A\\
+ &=-BA+(c_v-ic_u)(e_1-ie_2)\\
+ &=-S_M+i(c_ue_1+c_ve_2)\\
+ &\hspace{1.5em}{}+c_ve_1-ic_ve_2-ic_ue_1-c_ue_2\\
+ &=-S_M+c_ve_1-c_ue_2\\
+ &=-\Delta_g.
+\end{align*}
+This term-by-term cancellation is the reason the raw bracket twist and the
+Riemannian drift must not be treated as competing definitions of a Laplacian.
+
+\subsection{Gauge check}
+
+Let
+\[
+ e_1'=\cos\vartheta\,e_1+\sin\vartheta\,e_2,
+ \qquad
+ e_2'=-\sin\vartheta\,e_1+\cos\vartheta\,e_2.
+\]
+Then
+\begin{align*}
+ e_1'+ie_2'
+ &=(\cos\vartheta-i\sin\vartheta)e_1
+   +(\sin\vartheta+i\cos\vartheta)e_2\\
+ &=e^{-i\vartheta}(e_1+ie_2).
+\end{align*}
+If $(\eta^1,\eta^2)$ and $(\eta^{1'},\eta^{2'})$ are the corresponding
+dual coframes, direct inversion of the rotation matrix gives
+\[
+ \eta^{1'}-i\eta^{2'}
+ =e^{i\vartheta}(\eta^1-i\eta^2).
+\]
+Hence
+\[
+ \left(\frac12(e_1'+ie_2')F\right)
+ (\eta^{1'}-i\eta^{2'})
+ =
+ \left(\frac12(e_1+ie_2)F\right)
+ (\eta^1-i\eta^2),
+\]
+which is the explicit $U(1)$-gauge invariance of the intrinsic
+$\bar\partial_MF$.
+
+\subsection{Hyperbolic sign check}
+
+On the basic hyperbolic AES,
+\[
+ e_1=-\mu y\partial_x,
+ \qquad
+ e_2=-\lambda y\partial_y,
+ \qquad
+ [e_1,e_2]=\lambda e_1.
+\]
+Thus $c_u=\lambda$ and $c_v=0$.  The general formulas reduce to
+\begin{align*}
+ e_1^*&=-e_1,
+ &e_2^*&=-e_2-\lambda,\\
+ \Delta_g&=e_1^2+e_2^2+\lambda e_2,
+ &\dbarAEG^*&=-\dAEG+\frac{i\lambda}{2}.
+\end{align*}
+Since
+\[
+ e_1^2=\mu^2y^2\partial_x^2,
+ \qquad
+ e_2^2=\lambda^2y^2\partial_y^2
+          +\lambda^2y\partial_y,
+ \qquad
+ \lambda e_2=-\lambda^2y\partial_y,
+\]
+the two first-order $y$-terms cancel and
+\[
+ \Delta_g
+ =\mu^2y^2\partial_x^2+\lambda^2y^2\partial_y^2,
+\]
+in agreement with the coordinate calculation in Paper~I.

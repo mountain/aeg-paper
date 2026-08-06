@@ -1,0 +1,185 @@
+% Canonical Paper II appendix.
+This appendix collects the scale and Fourier checks underlying
+Sections~\ref{sec:hyperbolic-analysis}--\ref{sec:boundary-energy}.  They are
+included to make the boundary normalization independently auditable.
+
+\subsection{Metric, volume, and Laplacian under the scaled coordinate}
+
+Set $X=(\lambda/\mu)x$.  Then
+\[
+ dx=\frac{\mu}{\lambda}dX,
+ \qquad
+ \frac{dx^2}{\mu^2}=\frac{dX^2}{\lambda^2},
+\]
+and hence
+\[
+ g_{\mu,\lambda}
+ =\frac1{\lambda^2y^2}(dX^2+dy^2).
+\]
+The inverse matrix and volume density in $(x,y)$ are
+\[
+ g^{xx}=\mu^2y^2,
+ \qquad
+ g^{yy}=\lambda^2y^2,
+ \qquad
+ \sqrt{\det g}=\frac1{\mu\lambda y^2}.
+\]
+Since
+\[
+ \sqrt{\det g}\,g^{xx}=\frac\mu\lambda,
+ \qquad
+ \sqrt{\det g}\,g^{yy}=\frac\lambda\mu,
+\]
+the divergence-of-gradient formula gives
+\[
+ \Delta_g
+ =\mu^2y^2\partial_x^2+\lambda^2y^2\partial_y^2
+ =\lambda^2y^2(\partial_X^2+\partial_y^2).
+\]
+Similarly,
+\begin{align*}
+ |dF|_g^2d\vol_g
+ &=\left(\mu^2y^2|F_x|^2+\lambda^2y^2|F_y|^2\right)
+   \frac{dx\,dy}{\mu\lambda y^2}\\
+ &=\left(\frac\mu\lambda|F_x|^2
+         +\frac\lambda\mu|F_y|^2\right)dx\,dy\\
+ &=(|F_X|^2+|F_y|^2)dX\,dy.
+\end{align*}
+
+\subsection{Transport of the Poisson density}
+
+Starting from
+\[
+ P_y(X-t)dt=\frac1\pi\frac{y}{(X-t)^2+y^2}\,dt,
+\]
+substitute
+\[
+ X=\frac\lambda\mu x,
+ \qquad
+ t=\frac\lambda\mu\xi,
+ \qquad
+ dt=\frac\lambda\mu d\xi.
+\]
+Then
+\begin{align*}
+ P_y(X-t)dt
+ &=\frac1\pi
+   \frac{y(\lambda/\mu)}
+   {(\lambda^2/\mu^2)(x-\xi)^2+y^2}\,d\xi\\
+ &=\frac{\mu\lambda y}
+   {\pi\bigl(\lambda^2(x-\xi)^2+\mu^2y^2\bigr)}\,d\xi.
+\end{align*}
+This proves both the original-coordinate formula and its normalization, because
+the change of boundary coordinate includes the density factor $dt$.
+
+\subsection{Fourier transform of the kernel}
+
+For $h>0$, direct inversion gives
+\begin{align*}
+ \frac1{2\pi}\int_{\R}e^{i\kappa s}e^{-h|\kappa|}\,d\kappa
+ &=\frac1\pi\operatorname{Re}
+   \int_0^\infty e^{-(h-is)\kappa}\,d\kappa\\
+ &=\frac1\pi\operatorname{Re}\frac1{h-is}
+  =\frac1\pi\frac{h}{s^2+h^2}.
+\end{align*}
+Equivalently,
+\begin{equation}\label{eq:appendix-cauchy-fourier-pair}
+ \int_{\R}e^{-i\kappa s}\frac1\pi\frac{h}{s^2+h^2}\,ds
+ =e^{-h|\kappa|}.
+\end{equation}
+Taking $h=(\mu/\lambda)y$ shows that
+\[
+ \widehat{P^{\mu,\lambda}_y}(\kappa)
+ =e^{-(\mu/\lambda)|\kappa|y}.
+\]
+Thus, for Schwartz data,
+\[
+ \widehat U(\kappa,y)
+ =\widehat\varphi(\kappa)e^{-(\mu/\lambda)|\kappa|y}.
+\]
+Each mode satisfies
+\begin{align*}
+ \left(\mu^2y^2\partial_x^2
+       +\lambda^2y^2\partial_y^2\right)
+ e^{i\kappa x-(\mu/\lambda)|\kappa|y}
+ &=y^2\left(-\mu^2\kappa^2
+       +\lambda^2\frac{\mu^2}{\lambda^2}\kappa^2\right)
+   e^{i\kappa x-(\mu/\lambda)|\kappa|y}\\
+ &=0,
+\end{align*}
+which is a direct Fourier verification of harmonicity.
+
+\subsection{Energy and conormal scale}
+
+Put $c=\mu/\lambda$.  Plancherel and the preceding transform give
+\begin{align*}
+ \mathcal E_g(U)
+ &=\frac1{2\pi}\int_{\R}\int_0^\infty
+ \left(c|i\kappa\widehat U|^2
+      +c^{-1}|\partial_y\widehat U|^2\right)dy\,d\kappa\\
+ &=\frac1{2\pi}\int_{\R}\int_0^\infty
+ 2c\kappa^2|\widehat\varphi(\kappa)|^2
+ e^{-2c|\kappa|y}\,dy\,d\kappa\\
+ &=\frac1{2\pi}\int_{\R}
+ |\kappa|\,|\widehat\varphi(\kappa)|^2\,d\kappa.
+\end{align*}
+The raw vertical derivative is
+\[
+ -U_y(\,\cdot\,,0)=c|D_x|\varphi.
+\]
+On $y=\varepsilon$, however,
+\[
+ \nu=-\lambda y\partial_y,
+ \qquad
+ d\sigma_g=\frac{dx}{\mu y},
+\]
+so the boundary term in Green's identity is
+\[
+ (\partial_\nu U)d\sigma_g
+ =-\frac\lambda\mu U_y\,dx.
+\]
+Consequently the variational conormal derivative is
+\[
+ \mathcal N_x\varphi
+ =-\frac\lambda\mu U_y(\,\cdot\,,0)
+ =|D_x|\varphi,
+\]
+with no remaining $\mu$ or $\lambda$ factor.  In the normalized $X$-coordinate,
+the same cancellation appears as the familiar identity
+$-U_y(\cdot,0)=|D_X|\psi$.
+
+\subsection{Assignment-only fields and the logarithmic example}
+
+For completeness, the direct chain-rule calculation is
+\[
+ \Delta_g(h(a))
+ =h''(a)|\nabla a|_g^2+h'(a)\Delta_ga
+ =(\mu^2+\lambda^2a^2)h''(a)+2\lambda^2ah'(a).
+\]
+Writing $p=h'$ reduces the harmonic equation to
+\[
+ \frac{p'}p=-\frac{2\lambda^2a}{\mu^2+\lambda^2a^2},
+\]
+whence
+\[
+ p(a)=\frac{C}{\mu^2+\lambda^2a^2},
+ \qquad
+ h(a)=C_0+C_1\arctan\left(\frac{\lambda a}{\mu}\right).
+\]
+Finally, since
+\[
+ w=y\left(i-\frac\lambda\mu a\right),
+\]
+the principal logarithm on $\HH$ is
+\[
+ \operatorname{Log} w
+ =\log y+\frac12\log\left(1+\frac{\lambda^2a^2}{\mu^2}\right)
+ +i\left(\frac\pi2+\arctan\frac{\lambda a}{\mu}\right).
+\]
+Its imaginary part divided by $\pi$ is the negative-half-line harmonic
+measure.  The polar-coordinate energy calculation
+\[
+ \int_0^\pi\int_0^\infty r^{-2}r\,dr\,d\theta=\infty
+\]
+confirms directly that this bounded solution is not in the global finite-energy
+class used for the Dirichlet-to-Neumann theorem.
