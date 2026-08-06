@@ -1,0 +1,172 @@
+% Canonical Paper II source.
+We now specialize the surface theory to the complete model imported from
+Paper~I.  The calculation is elementary, but fixing every scale at this point is
+essential: the same constants enter the Poisson kernel, the conormal derivative,
+and the boundary energy in the next two sections.
+
+Throughout this section and Sections~\ref{sec:poisson-dirichlet}--
+\ref{sec:boundary-energy}, assume
+\[
+ \mu>0,\qquad \lambda>0,
+\]
+and let
+\[
+ \HH=\{(x,y)\in\R^2:y>0\},\qquad
+ g_{\mu,\lambda}
+ =\frac1{y^2}\left(\frac{dx^2}{\mu^2}
+                    +\frac{dy^2}{\lambda^2}\right),
+ \qquad
+ a(x,y)=-\frac{x}{y}.
+\]
+The orientation is that of $dx\wedge dy$.  We continue to use the
+divergence-of-gradient convention for $\Delta_g$.
+
+\subsection{Conformal normalization and the arithmetic frame}
+
+Define the globally scaled coordinate and its complexification by
+\begin{equation}\label{eq:hyperbolic-scaled-coordinate}
+ X=\frac{\lambda}{\mu}x,
+ \qquad
+ w=X+iy.
+\end{equation}
+
+\begin{proposition}[Analytic normalization of the basic model]
+\label{prop:hyperbolic-analytic-normalization}
+In the coordinates \eqref{eq:hyperbolic-scaled-coordinate},
+\begin{align}
+ g_{\mu,\lambda}
+   &=\frac1{\lambda^2}\frac{dX^2+dy^2}{y^2},
+   \label{eq:hyperbolic-conformal-metric}\\
+ d\vol_g
+   &=\frac{dx\,dy}{\mu\lambda y^2}
+    =\frac{dX\,dy}{\lambda^2y^2},
+   \label{eq:hyperbolic-volume}\\
+ \Delta_g
+   &=\mu^2y^2\partial_x^2+\lambda^2y^2\partial_y^2
+    =\lambda^2y^2(\partial_X^2+\partial_y^2).
+   \label{eq:hyperbolic-laplace-beltrami}
+\end{align}
+For $F\in C^1(\HH;\C)$, its Dirichlet energy, without a factor $1/2$, is
+\begin{equation}\label{eq:hyperbolic-dirichlet-energy}
+\begin{aligned}
+ \mathcal E_g(F)
+ :=\int_{\HH}|dF|_g^2\,d\vol_g
+ &=\int_{\HH}
+   \left(\frac{\mu}{\lambda}|F_x|^2
+        +\frac{\lambda}{\mu}|F_y|^2\right)dx\,dy
+ \\
+ &=\int_{\HH}(|F_X|^2+|F_y|^2)\,dX\,dy,
+\end{aligned}
+\end{equation}
+whenever any one of these integrals is finite.
+\end{proposition}
+
+\begin{proof}
+Since $dx=(\mu/\lambda)dX$, substitution into the metric gives
+\eqref{eq:hyperbolic-conformal-metric}.  In the original coordinates,
+\[
+ (g_{ij})=
+ \begin{pmatrix}
+  (\mu^2y^2)^{-1}&0\\
+  0&(\lambda^2y^2)^{-1}
+ \end{pmatrix},
+ \qquad
+ \sqrt{\det g}=\frac1{\mu\lambda y^2}.
+\]
+This proves \eqref{eq:hyperbolic-volume}.  Moreover,
+\[
+ \sqrt{\det g}\,g^{xx}=\frac{\mu}{\lambda},
+ \qquad
+ \sqrt{\det g}\,g^{yy}=\frac{\lambda}{\mu}
+\]
+are constant.  The coordinate formula
+\[
+ \Delta_gF
+ =\frac1{\sqrt{\det g}}
+   \partial_i\bigl(\sqrt{\det g}\,g^{ij}\partial_jF\bigr)
+\]
+therefore gives the first expression in
+\eqref{eq:hyperbolic-laplace-beltrami}; the identity
+$\partial_x=(\lambda/\mu)\partial_X$ gives the second.  Finally,
+contracting $dF$ with the inverse metric and then multiplying by
+$d\vol_g$ proves the first integral in
+\eqref{eq:hyperbolic-dirichlet-energy}.  Changing from $x$ to $X$ proves the
+last one.  This is the two-dimensional conformal invariance of Dirichlet
+energy written with all AEG scale factors visible.
+\end{proof}
+
+The positively oriented orthonormal arithmetic frame is
+\begin{equation}\label{eq:hyperbolic-arithmetic-frame-II}
+ \Xu=-\mu y\partial_x=-\lambda y\partial_X,
+ \qquad
+ \Xv=-\lambda y\partial_y.
+\end{equation}
+It satisfies
+\begin{equation}\label{eq:hyperbolic-frame-bracket-II}
+ [\Xu,\Xv]=\lambda\Xu.
+\end{equation}
+Consequently, the general surface formula of
+Section~\ref{sec:surface-operators} becomes
+\begin{equation}\label{eq:hyperbolic-laplacian-frame}
+ \Delta_g=\Xu^2+\Xv^2+\lambda\Xv.
+\end{equation}
+The drift $\lambda\Xv$ cancels the first-order term created when $\Xv^2$
+is expanded in the $y$-coordinate.  Thus the bare sum
+$\Xu^2+\Xv^2$ is not the Laplace--Beltrami operator on this surface.
+
+\subsection{Complex structure and the assignment}
+
+Let
+\[
+ \partial_{\bar w}=\frac12(\partial_X+i\partial_y),
+ \qquad
+ \partial_w=\frac12(\partial_X-i\partial_y).
+\]
+Equations \eqref{eq:hyperbolic-arithmetic-frame-II} give
+\begin{equation}\label{eq:hyperbolic-dbar-coordinate}
+ \dbarAEG
+ =\frac12(\Xu+i\Xv)
+ =-\lambda y\,\partial_{\bar w},
+ \qquad
+ \dAEG=-\lambda y\,\partial_w.
+\end{equation}
+Since $\lambda y$ never vanishes, arithmetic holomorphicity on the basic
+model is exactly ordinary holomorphicity in $w$.  In particular, its real and
+imaginary parts are $\Delta_g$-harmonic.
+
+The assignment has the following two useful forms:
+\begin{equation}\label{eq:hyperbolic-assignment-w}
+ a=-\frac{\mu}{\lambda}\frac{X}{y},
+ \qquad
+ w=y\left(i-\frac{\lambda}{\mu}a\right).
+\end{equation}
+It is not itself harmonic.  Directly from
+\eqref{eq:hyperbolic-laplace-beltrami},
+\begin{equation}\label{eq:hyperbolic-assignment-eigen-equation-II}
+ |\nabla a|_g^2=\mu^2+\lambda^2a^2,
+ \qquad
+ \Delta_ga=2\lambda^2a.
+\end{equation}
+The second identity is a pointwise eigen-equation in the sign convention of
+Paper~I.  It is not an $L^2$ spectral assertion: $a$ is unbounded, has no
+finite continuous trace on the ideal boundary, and does not have finite global
+Dirichlet energy.
+
+\subsection{The ideal boundary}
+
+The conformal compactification is
+\[
+ \overline\HH^{\,\mathrm{conf}}
+ =\HH\cup\R\cup\{\infty\},
+\]
+where $\R$ is represented by $y=0$ and the two ends of that line meet at the
+single point $\infty$.  This is the closed disc after a Cayley transform.  The
+line $y=0$ is not a finite Riemannian boundary component: it lies at infinite
+$g_{\mu,\lambda}$-distance.  Boundary conditions below are therefore
+conformal or ideal-boundary conditions.
+
+The normalized coordinate $X=(\lambda/\mu)x$ extends to a homeomorphism of
+the compactified boundary and fixes the point $\infty$.  Thus the classical
+upper-half-plane kernels may be transported to the original arithmetic
+$x$-coordinate, but the boundary density must be transformed as well.  That
+transformation is carried out explicitly in the next section.

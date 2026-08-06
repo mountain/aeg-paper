@@ -1,18 +1,36 @@
 # Arithmetic Expression Geometry II — Hyperbolic Real Function Theory
 
-The top-level `paper-2/` directory is the declared destination for analytic material
-removed from Paper I.
-It is a scope and provenance record, not a claim that Paper II is complete.
+This directory contains the mathematical-review manuscript
 
-When the manuscript entry point is created, its canonical source and artifact names
-will be `aeg-paper-2.tex` and `aeg-paper-2.pdf` in this directory.
+> **Arithmetic Expression Geometry II: Hyperbolic Real Function Theory**
+> *Horizontal Operators, Boundary Problems, and Arithmetic Holomorphicity*
+
+The canonical source and generated artifact are [`aeg-paper-2.tex`](aeg-paper-2.tex)
+and `aeg-paper-2.pdf`.
+
+## Main results
+
+- a measure-sensitive Laplace--Beltrami formula in the canonical arithmetic frame;
+- exact surface Cauchy--Riemann factorizations and holomorphic-to-harmonic
+  implication;
+- a separate contact-CR normalization, variational sub-Laplacian, and Friedrichs
+  realization;
+- a Poisson kernel and well-posed ideal-boundary `C_0` Dirichlet problem on the
+  complete basic hyperbolic AES;
+- an exact boundary energy identity and Dirichlet-to-Neumann multiplier;
+- explicit assignment-dependent holomorphic, harmonic, and contact-CR families.
+
+Build this manuscript from the repository root with:
+
+```bash
+./build.sh 2
+```
 
 ## Imports from Paper I
 
 - the regular-AES definition and arithmetic frame;
 - the basic hyperbolic model;
-- the arithmetic contact model and horizontal connection;
-- the scalar horizontal covariant differential and its curvature identity.
+- the arithmetic contact model, horizontal lifts, and bracket curvature.
 
 ## Migrated source families
 
@@ -22,8 +40,8 @@ will be `aeg-paper-2.tex` and `aeg-paper-2.pdf` in this directory.
 
 ## Status boundary
 
-Horizontal Cauchy–Riemann equations and factorization identities are formal results
-after a horizontal metric, orientation, and compatible complex structure are chosen.
-Poisson kernels, Green functions, maximum principles, boundary-value theory, spectral
-realizations, and global continuation remain open until proved with operator domains
-and function spaces stated explicitly.
+The manuscript proves a Poisson--Dirichlet theorem and an exact boundary energy
+identity on the basic hyperbolic model.  It does not claim general Green kernels,
+spectral completeness, contact-boundary representation, or continuation across
+singular AES points.  The two-dimensional regular-AES complex theory and
+three-dimensional contact-CR theory are kept strictly separate.

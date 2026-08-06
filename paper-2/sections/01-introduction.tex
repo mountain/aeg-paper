@@ -1,0 +1,201 @@
+% Canonical Paper II source.
+Paper I develops Arithmetic Expression Geometry (AEG) from ordered evaluation
+histories to affine flow, regular expression surfaces, and contact curvature
+\cite{Yuan2026AEGFoundations}.  The present paper asks the next question: once the
+geometric data have been fixed, what analysis do they actually support?  We answer it
+first on a general regular arithmetic expression space and then completely enough on
+the basic hyperbolic model to obtain a boundary kernel, a Dirichlet theorem, and an
+exact boundary energy operator.
+
+This question has two layers which must not be conflated.  A regular AES
+\[
+  \mathfrak E=(M,g,a;\mu,\lambda)
+\]
+is an oriented Riemannian \emph{surface}.  Its metric and orientation already
+determine rotation by $+\pi/2$, hence the usual complex structure of an oriented
+Riemannian surface.  The assignment $a$ selects a distinguished positively oriented
+orthonormal frame $(X_u,X_v)$.  Complex and elliptic analysis on this surface are
+therefore intrinsic to the data imported from Paper I.
+
+The contact state space is instead
+\[
+ \mathcal C=\R^3_{(u,v,a)},\qquad
+ \alpha=da-\mu\,du-\lambda a\,dv,
+\]
+with preferred horizontal lifts
+\[
+ D_u=\partial_u+\mu\partial_a,
+ \qquad
+ D_v=\partial_v+\lambda a\partial_a.
+\]
+When $\mu\lambda\ne0$, its horizontal distribution is nonintegrable.  To do
+analysis there one must additionally choose a horizontal metric, its compatible
+complex structure, a positive measure, and operator domains.  The resulting object
+is a three-dimensional contact-CR problem, not another presentation of the
+two-dimensional surface problem.
+
+Figure~\ref{fig:two-analytic-layers} records this separation.  Both branches retain
+the arithmetic derivative rules
+\[
+ X_ua=\mu,\quad X_va=\lambda a,
+ \qquad
+ D_ua=\mu,\quad D_va=\lambda a,
+\]
+but their brackets have different geometric meanings.  On a surface the bracket is
+tangent.  On $\mathcal C$ one has
+$[D_u,D_v]=\mu\lambda\partial_a$, a vertical curvature term.
+
+\begin{figure}[t]
+\centering
+\resizebox{0.95\textwidth}{!}{%
+\begin{tikzpicture}[
+  node distance=8mm and 8mm,
+  box/.style={draw,rounded corners,align=center,minimum width=4.3cm,
+    minimum height=1.05cm,fill=blue!3},
+  result/.style={draw,rounded corners,align=center,minimum width=4.3cm,
+    minimum height=1.05cm,fill=green!5},
+  arr/.style={-{Latex[length=2mm]},thick},
+  warn/.style={font=\scriptsize,align=center,text=red!60!black}
+]
+  \node[box] (paperi) {Paper I affine propagation\\and assignment derivative rules};
+  \node[box,below left=of paperi] (surface) {regular AES surface\\$(M,g,a;\mu,\lambda)$};
+  \node[box,below right=of paperi] (contact) {contact state space\\$(\mathcal C,\alpha,D_u,D_v)$};
+  \node[result,below=of surface] (elliptic) {canonical surface\\complex structure\\Laplace--Beltrami and Poisson theory};
+  \node[result,below=of contact] (cr) {chosen horizontal\\metric and measure\\CR and sub-Laplacian theory};
+  \draw[arr] (paperi)--(surface);
+  \draw[arr] (paperi)--(contact);
+  \draw[arr] (surface)--(elliptic);
+  \draw[arr] (contact)--(cr);
+  \draw[<->,very thick,dashed,gray!65] (elliptic)--(cr)
+    node[midway,above,warn] {structural comparison\\not identification};
+\end{tikzpicture}%
+}
+\caption{The two analytic objects carried forward from Paper I.  The surface branch
+is elliptic and has an intrinsic complex structure.  The contact branch is
+subelliptic and requires an analytic normalization.  Nonintegrability prevents the
+contact distribution from being identified with a regular AES surface.}
+\label{fig:two-analytic-layers}
+\end{figure}
+
+\subsection{Principal results}
+
+Our first result fixes the real operator theory on a regular AES.  If
+\[
+ [X_u,X_v]=c_uX_u+c_vX_v,
+\]
+then, with the divergence-of-gradient convention,
+\begin{equation}\label{eq:intro-surface-laplacian}
+ \Delta_g=X_u^2+X_v^2-c_vX_u+c_uX_v.
+\end{equation}
+The first-order drift is forced by the Riemannian volume and cannot be discarded.
+The compatible Cauchy--Riemann operator
+\[
+ \dbarAEG=\frac12(X_u+iX_v)
+\]
+then satisfies an adjoint factorization of $-\Delta_g$.  In particular,
+arithmetic holomorphic fields are genuinely Laplace--Beltrami harmonic.  We also
+show that $\dbarAEG$ differs from the ordinary Riemann-surface operator only by a
+nowhere-zero unitary gauge factor.  Thus the surface theory does not manufacture a
+new class of holomorphic functions: its AEG content is the assignment-adapted frame,
+the distinguished solution families, and their arithmetic interpretation.
+
+Our second result fixes the corresponding ambiguity on the contact state space.
+We normalize the horizontal metric by declaring $(D_u,D_v)$ orthonormal and use the
+positive contact volume.  On compactly supported smooth fields,
+\begin{equation}\label{eq:intro-contact-adjoints}
+ D_u^*=-D_u,
+ \qquad
+ D_v^*=-D_v-\lambda.
+\end{equation}
+Consequently the variational sub-Laplacian is
+\begin{equation}\label{eq:intro-contact-laplacian}
+ \Delta_{\mathcal C}
+ =D_u^2+D_v^2+\lambda D_v,
+ \qquad
+ -\Delta_{\mathcal C}=D_u^*D_u+D_v^*D_v.
+\end{equation}
+The legacy expression $D_u^2+D_v^2$ remains useful, but only as the raw sum of
+squares occurring in the formal CR factorization.  We prove both the raw and adjoint
+factorizations, relate two natural measures by a unitary gauge transformation, and
+give a Friedrichs realization of the nonnegative energy operator.  H\"ormander's
+bracket criterion supplies hypoellipticity of the differential expression
+\cite{Hormander1967Hypoelliptic}.
+
+Our decisive global theorem concerns the basic hyperbolic AES.  For
+$\mu,\lambda>0$, put
+\[
+ X=\frac{\lambda}{\mu}x,
+ \qquad
+ w=X+iy.
+\]
+Then
+\[
+ g_{\mu,\lambda}
+ =\frac1{\lambda^2}\frac{dX^2+dy^2}{y^2},
+ \qquad
+ \Delta_g=\lambda^2y^2(\partial_X^2+\partial_y^2),
+\]
+and the arithmetic holomorphic equation is precisely
+$\partial_{\bar w}F=0$.  The standard upper-half-plane Poisson kernel therefore
+transports exactly to the AEG normalization.  For every
+$\varphi\in C_0(\R)$ we prove existence and uniqueness in the class
+$C^2(\HH)\cap C(\overline\HH^{\,\mathrm{conf}})$ with the prescribed value zero at
+$\infty$.  For Schwartz data,
+the conformal-boundary Dirichlet-to-Neumann map is
+\[
+ \mathcal N=|D_X|,
+\]
+and the hyperbolic Dirichlet energy is exactly its homogeneous
+$H^{1/2}$ quadratic form.  This is the first exact boundary-operator statement of
+the AEG analytic programme.  Its classical analytic ingredients are
+standard \cite{Ahlfors1979ComplexAnalysis,CaffarelliSilvestre2007Extension}; the
+result here is their explicit transport, domain statement, and assignment-coordinate
+interpretation on the Paper I model.
+
+The same model supplies several genuinely assignment-dependent fields because
+\begin{equation}\label{eq:intro-w-assignment}
+ w=y\left(i-\frac{\lambda}{\mu}a\right).
+\end{equation}
+Thus every holomorphic $\Phi(w)$ is an explicit field in $(a,y)$ coordinates.
+We also classify all scalar harmonic fields depending only on $a$:
+\[
+ h(a)=C_0+C_1\arctan\!\left(\frac{\lambda a}{\mu}\right).
+\]
+The nonconstant member is the harmonic measure of a boundary half-line.  In the
+contact branch, logarithmic CR first integrals and finite filtered affine--Appell
+modules provide a separate collection of assignment-dependent solutions.
+
+\subsection{Boundaries of the claim}
+
+Several restrictions are essential.
+
+\begin{itemize}
+\item The line $y=0$ is the conformal or ideal boundary of the complete hyperbolic
+metric, not a finite Riemannian boundary component.
+\item Poisson extensions with nonzero ideal-boundary values are generally not in
+$L^2(\HH,d\vol_g)$.  The boundary-energy theorem and the $L^2$ Friedrichs
+realization therefore occupy different analytic domains.
+\item The identity $\Delta_ga=2\lambda^2a$ from Paper I is pointwise.  The assignment
+$a=-x/y$ is not an $L^2$ eigenvector.
+\item We do not claim that the normalized contact CR structure is invariant under all
+contactomorphisms, nor that its explicit CR families are complete in a Hilbert or
+Banach space.
+\item We do not establish Green kernels, spectral completeness, or continuation on a
+general regular or singular AES.
+\end{itemize}
+
+These limitations are not peripheral.  They separate proved function theory from
+the open analytic programme and keep the interfaces to singular geometry and
+projective complexity acyclic.
+
+\subsection{Organization}
+
+Section~\ref{sec:analytic-data} fixes measures, domains, structure coefficients, and
+energies on a regular AES.  Section~\ref{sec:surface-operators} develops the
+intrinsic surface Cauchy--Riemann theory and proves holomorphicity implies
+Laplace--Beltrami harmonicity.  Section~\ref{sec:contact-analysis} treats the
+distinct contact-CR problem.  Section~\ref{sec:hyperbolic-analysis} identifies all
+operators on the basic model.  Sections~\ref{sec:poisson-dirichlet} and
+\ref{sec:boundary-energy} prove the boundary theorems and construct explicit
+assignment-dependent families.  The appendices contain the full frame, contact, and
+Fourier calculations.

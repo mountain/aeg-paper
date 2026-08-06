@@ -1,0 +1,435 @@
+% Canonical Paper II source.
+The analytic object considered in this section is the three-dimensional contact
+state space of Paper I.  It is not a regular AES surface.  We use $D_u,D_v$ for
+its horizontal lifts and reserve $X_u,X_v$ for the canonical frame of a
+two-dimensional regular AES.  No identification of these frames or of their
+associated Laplacians is made here.
+
+Assume throughout that $\mu,\lambda\in\R$ and $\mu\lambda\ne0$, and put
+\[
+ \mathcal C=\R^3_{(u,v,a)},\qquad
+ \alpha=da-\mu\,du-\lambda a\,dv,
+\]
+\begin{equation}\label{eq:contact-horizontal-data}
+ \mathcal D=\ker\alpha,\qquad
+ D_u=\partial_u+\mu\partial_a,\qquad
+ D_v=\partial_v+\lambda a\partial_a,\qquad T=\partial_a.
+\end{equation}
+The conventions agree with Paper I, in particular
+\begin{equation}\label{eq:contact-bracket-import}
+ [D_u,D_v]=\mu\lambda T.
+\end{equation}
+
+\subsection{Horizontal metric, complex structure, and Frobenius obstruction}
+
+The contact form alone does not select the analytic normalization below.  We make
+the additional choice explicit.
+
+\begin{definition}[Normalized arithmetic contact data]
+\label{def:normalized-contact-analytic-data}
+The normalized arithmetic contact data consist of $\mathcal D$, the horizontal
+metric $h$, and the endomorphism $J$ defined by
+\begin{equation}\label{eq:contact-h-and-J}
+ h(D_i,D_j)=\delta_{ij},\qquad JD_u=D_v,\qquad JD_v=-D_u.
+\end{equation}
+The ordered frame $(D_u,D_v)$ fixes the horizontal orientation.  The associated
+positive contact measure is
+\begin{equation}\label{eq:positive-contact-measure}
+ d\nu_{\mathrm c}:=|\alpha\wedge d\alpha|
+ =|\mu\lambda|\,du\,dv\,da,
+\end{equation}
+where the last expression denotes a positive density.
+\end{definition}
+
+Thus $J$ is compatible with the chosen horizontal metric and orientation.  We do
+not claim that it is selected by the contact distribution without this
+normalization, or that it is invariant under arbitrary contactomorphisms.
+
+\begin{proposition}[Frobenius nonintegrability]
+\label{prop:contact-frobenius-obstruction}
+The distribution $\mathcal D$ is bracket generating of step two and is not
+Frobenius integrable.  At every $p\in\mathcal C$,
+\[
+ \mathcal D_p+[\,\mathcal D,\mathcal D\,]_p=T_p\mathcal C,\qquad
+ \alpha([D_u,D_v])=\mu\lambda\ne0.
+\]
+Consequently no immersed surface in $\mathcal C$ can have tangent bundle equal to
+$\mathcal D$ on a nonempty open set.
+\end{proposition}
+
+\begin{proof}
+The horizontal fields are independent and project to
+$\partial_u,\partial_v$.  Equation~\eqref{eq:contact-bracket-import} supplies the
+vertical field $T$, so $D_u,D_v,[D_u,D_v]$ span every tangent space.  Since
+$\alpha(T)=1$, the bracket is not horizontal.  The Frobenius theorem gives the
+remaining assertions.
+\end{proof}
+
+This is the sharp reason that the contact branch cannot be regarded as another
+coordinate presentation of the surface branch in
+Sections~\ref{sec:analytic-data}--\ref{sec:surface-operators}.
+
+\subsection{Adjoints and the variational sub-Laplacian}
+
+Formal-adjoint statements are initially made on
+$C_c^\infty(\mathcal C)\subset L^2(\mathcal C,d\nu_{\mathrm c})$, with the inner
+product complex linear in its first entry.
+
+\begin{proposition}[Contact-volume divergences and adjoints]
+\label{prop:contact-divergence-adjoints}
+With respect to $d\nu_{\mathrm c}$,
+\begin{equation}\label{eq:contact-divergences}
+ \diver_{\nu_{\mathrm c}}D_u=0,\qquad
+ \diver_{\nu_{\mathrm c}}D_v=\lambda.
+\end{equation}
+Consequently,
+\begin{equation}\label{eq:contact-first-order-adjoints}
+ D_u^*=-D_u,\qquad D_v^*=-D_v-\lambda.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The density in \eqref{eq:positive-contact-measure} is a nonzero constant multiple
+of Lebesgue measure.  The coordinate divergence of
+$D_u=\partial_u+\mu\partial_a$ is zero, whereas that of
+$D_v=\partial_v+\lambda a\partial_a$ is
+$\partial_a(\lambda a)=\lambda$.  Integration by parts gives
+$Y^*=-Y-\diver Y$ for a real vector field $Y$.
+\end{proof}
+
+\begin{definition}[Contact energy and variational sub-Laplacian]
+\label{def:contact-variational-sublaplacian}
+For $f,g\in C_c^\infty(\mathcal C)$, set
+\begin{equation}\label{eq:contact-dirichlet-form}
+ \mathcal E_{\mathrm c}(f,g)
+ =\int_{\mathcal C}
+ \bigl(D_uf\,\overline{D_ug}+D_vf\,\overline{D_vg}\bigr)\,d\nu_{\mathrm c}.
+\end{equation}
+The divergence-of-horizontal-gradient operator and its nonnegative energy operator
+are
+\begin{align}
+ \Delta_{\mathcal C}
+   &:=D_u^2+D_v^2+\lambda D_v,\label{eq:contact-variational-laplacian}\\
+ A_{\mathcal C}
+   &:=-\Delta_{\mathcal C}
+     =D_u^*D_u+D_v^*D_v.\label{eq:contact-energy-operator}
+\end{align}
+\end{definition}
+
+\begin{proposition}[Energy identity and Friedrichs realization]
+\label{prop:contact-friedrichs-realization}
+The form $\mathcal E_{\mathrm c}$ is densely defined, nonnegative, and closable in
+$L^2(\mathcal C,d\nu_{\mathrm c})$.  Its closure determines a unique nonnegative
+self-adjoint Friedrichs operator $A_{\mathcal C}^{\mathrm F}$.  On
+$C_c^\infty(\mathcal C)$ its differential expression is $A_{\mathcal C}$, and
+\begin{equation}\label{eq:contact-energy-identity}
+ \langle A_{\mathcal C}f,f\rangle
+ =\mathcal E_{\mathrm c}(f,f)
+ =\|D_uf\|_2^2+\|D_vf\|_2^2.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Define
+\[
+ \mathsf D:C_c^\infty(\mathcal C)\longrightarrow L^2(d\nu_{\mathrm c})^2,
+ \qquad \mathsf Df=(D_uf,D_vf).
+\]
+Proposition~\ref{prop:contact-divergence-adjoints} shows that
+$\Dom(\mathsf D^*)$ contains the dense subspace
+$C_c^\infty(\mathcal C)^2$.  Hence $\mathsf D$ is closable, and so is the
+quadratic form $\|\mathsf Df\|_2^2$.  The representation theorem for closed
+nonnegative forms gives the Friedrichs operator.  Integration by parts gives
+\[
+ \mathcal E_{\mathrm c}(f,g)
+ =\langle(D_u^*D_u+D_v^*D_v)f,g\rangle
+ =\langle A_{\mathcal C}f,g\rangle,
+\]
+which proves the differential expression and the energy identity.
+\end{proof}
+
+\begin{theorem}[H\"ormander hypoellipticity]
+\label{thm:contact-hormander-hypoellipticity}
+The differential expressions $A_{\mathcal C}$ and
+$\Delta_{\mathcal C}$ are hypoelliptic.  If $A_{\mathcal C}f$ is smooth on
+an open set in the distributional sense, then $f$ is smooth there.
+\end{theorem}
+
+\begin{proof}
+Proposition~\ref{prop:contact-frobenius-obstruction} verifies H\"ormander's bracket
+condition for $D_u,D_v$.  The second-order part is their sum of squares and the
+remaining term is first order, so the sum-of-squares theorem applies
+\cite{Hormander1967Hypoelliptic}.
+\end{proof}
+
+\begin{remark}
+This is a local regularity statement.  It does not assert essential
+self-adjointness on $C_c^\infty(\mathcal C)$, identify the Friedrichs spectrum,
+or solve a boundary problem on an arbitrary contact domain.
+\end{remark}
+
+\subsection{Raw and adjoint CR factorizations}
+
+\begin{definition}[Contact CR operators]\label{def:contact-cr-operators}
+Set
+\begin{equation}\label{eq:contact-cr-definition}
+ \dbarC=\frac12(D_u+iD_v),\qquad
+ \dC=\frac12(D_u-iD_v),\qquad
+ Q_{\mathcal C}=D_u^2+D_v^2.
+\end{equation}
+A smooth complex field $F$ is contact arithmetic CR when $\dbarC F=0$.
+\end{definition}
+
+\begin{proposition}[Raw curvature-twisted factorization]
+\label{prop:contact-raw-cr-factorization}
+On smooth complex fields,
+\begin{align}
+ 4\dC\dbarC
+   &=Q_{\mathcal C}+i\mu\lambda T,\label{eq:contact-raw-factorization-plus}\\
+ 4\dbarC\dC
+   &=Q_{\mathcal C}-i\mu\lambda T.\label{eq:contact-raw-factorization-minus}
+\end{align}
+Every contact arithmetic CR field therefore satisfies
+\begin{equation}\label{eq:contact-twisted-equation}
+ \bigl(\Delta_{\mathcal C}-\lambda D_v+i\mu\lambda T\bigr)F=0.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Expansion gives
+\[
+ 4\dC\dbarC=(D_u-iD_v)(D_u+iD_v)
+ =D_u^2+D_v^2+i[D_u,D_v].
+\]
+This proves the first identity; reversing the order proves the second.  For a CR
+field, apply $\dC$ and use
+$Q_{\mathcal C}=\Delta_{\mathcal C}-\lambda D_v$.
+\end{proof}
+
+\begin{proposition}[Contact-volume adjoint factorizations]
+\label{prop:contact-adjoint-cr-factorization}
+As formal identities on
+$C_c^\infty(\mathcal C)\subset L^2(d\nu_{\mathrm c})$,
+\begin{equation}\label{eq:contact-cr-adjoints}
+ \dbarC^*=\frac12(-D_u+iD_v+i\lambda),\qquad
+ \dC^*=\frac12(-D_u-iD_v-i\lambda),
+\end{equation}
+and
+\begin{align}
+ 4\dbarC^*\dbarC
+   &=A_{\mathcal C}+i\lambda D_u-i\mu\lambda T,\label{eq:contact-adjoint-factorization-dbar}\\
+ 4\dC^*\dC
+   &=A_{\mathcal C}-i\lambda D_u+i\mu\lambda T.\label{eq:contact-adjoint-factorization-d}
+\end{align}
+The Reeb field of $\alpha$ is
+\begin{equation}\label{eq:contact-Reeb-field}
+ \Reeb=-\mu^{-1}\partial_u,
+\end{equation}
+and the same identities therefore take the intrinsic contact form
+\begin{align}
+ 4\dbarC^*\dbarC
+   &=A_{\mathcal C}-i\mu\lambda\Reeb,
+   \label{eq:contact-adjoint-factorization-Reeb-dbar}\\
+ 4\dC^*\dC
+   &=A_{\mathcal C}+i\mu\lambda\Reeb.
+   \label{eq:contact-adjoint-factorization-Reeb-d}
+\end{align}
+\end{proposition}
+
+\begin{proof}
+The adjoints follow from \eqref{eq:contact-first-order-adjoints}, with scalar
+coefficients conjugated.  Expanding the first product,
+\begin{align*}
+4\dbarC^*\dbarC
+ &=(-D_u+iD_v+i\lambda)(D_u+iD_v)\\
+ &=-D_u^2-D_v^2-\lambda D_v+i\lambda D_u-i[D_u,D_v]\\
+ &=A_{\mathcal C}+i\lambda D_u-i\mu\lambda T.
+\end{align*}
+The second calculation is analogous and gives the stated signs.
+Finally, $d\alpha=-\lambda\,da\wedge dv$ has kernel spanned by
+$\partial_u$, and $\alpha(-\mu^{-1}\partial_u)=1$; hence
+$\Reeb=-\mu^{-1}\partial_u$.  Substitution of
+$D_u=\partial_u+\mu T$ into the two preceding formulas gives their Reeb forms.
+\end{proof}
+
+The raw identities display vertical curvature.  The adjoint identities also contain
+the measure-dependent drift required by the contact energy.  In particular, every
+smooth contact arithmetic CR field satisfies the pointwise equation
+\begin{equation}\label{eq:contact-Reeb-twisted-equation}
+ (A_{\mathcal C}-i\mu\lambda\Reeb)F=0,
+ \qquad\text{equivalently}\qquad
+ (\Delta_{\mathcal C}+i\mu\lambda\Reeb)F=0.
+\end{equation}
+This differential consequence does not assert that $F$ belongs to the
+$L^2$-domain of the Friedrichs operator.
+
+\subsection{The balanced measure and its unitary gauge}
+
+\begin{definition}[Balanced horizontal measure]\label{def:contact-balanced-measure}
+Define
+\begin{equation}\label{eq:contact-balanced-measure}
+ d\nu_{\mathrm b}=e^{-\lambda v}\,d\nu_{\mathrm c}.
+\end{equation}
+Multiplication by
+\begin{equation}\label{eq:contact-measure-unitary}
+ Uf=e^{-\lambda v/2}f
+\end{equation}
+defines a unitary map from $L^2(d\nu_{\mathrm b})$ to
+$L^2(d\nu_{\mathrm c})$.
+\end{definition}
+
+\begin{proposition}[Two-measure gauge identities]
+\label{prop:contact-two-measure-gauge}
+With respect to $d\nu_{\mathrm b}$, both horizontal fields are divergence free.
+Thus $D_u^{*,\mathrm b}=-D_u$, $D_v^{*,\mathrm b}=-D_v$, and
+$-Q_{\mathcal C}$ is the balanced-measure energy expression.  Moreover,
+\begin{align}
+ U D_uU^{-1}&=D_u,\label{eq:gauge-Du}\\
+ U D_vU^{-1}&=D_v+\frac{\lambda}{2},\label{eq:gauge-Dv}\\
+ U(-Q_{\mathcal C})U^{-1}
+   &=A_{\mathcal C}-\frac{\lambda^2}{4},\label{eq:gauge-sum-squares}\\
+ U\dbarC U^{-1}&=\dbarC+\frac{i\lambda}{4},\qquad
+ U\dC U^{-1}=\dC-\frac{i\lambda}{4}.\label{eq:gauge-cr}
+\end{align}
+\end{proposition}
+
+\begin{proof}
+For $e^\phi d\nu_{\mathrm c}$,
+$\diver_{e^\phi\nu_{\mathrm c}}Y=\diver_{\nu_{\mathrm c}}Y+Y\phi$.
+With $\phi=-\lambda v$, one has $D_u\phi=0$ and $D_v\phi=-\lambda$,
+which cancels \eqref{eq:contact-divergences}.  Unitarity follows directly from
+\[
+ \int|Uf|^2d\nu_{\mathrm c}
+ =\int|f|^2e^{-\lambda v}d\nu_{\mathrm c}.
+\]
+Since $D_uv=0$ and $D_vv=1$, differentiating
+$U^{-1}f=e^{\lambda v/2}f$ proves the first two conjugation formulas.  Hence
+\[
+ U(-Q_{\mathcal C})U^{-1}
+ =-D_u^2-\left(D_v+\frac{\lambda}{2}\right)^2
+ =A_{\mathcal C}-\frac{\lambda^2}{4}.
+\]
+The CR formulas follow from their definitions.
+\end{proof}
+
+\begin{warning}
+The balanced measure is an arithmetic-coordinate gauge, not the positive contact
+measure.  Every statement about adjoints, spectra, or $L^2$-membership must name
+the measure used.
+\end{warning}
+
+\subsection{Logarithmic CR first integrals and modes}
+
+Choose a holomorphic branch $\mathrm{Log}_{\mu}$ on
+\[
+ \Omega_\mu=\{w\in\C:\sgn(\mu)\Re w>0\}.
+\]
+The line $\mu+i\lambda\R$ lies in this half-plane.
+
+\begin{proposition}[Two CR first integrals]
+\label{prop:contact-logarithmic-first-integrals}
+The fields
+\begin{equation}\label{eq:contact-first-integrals}
+ z=u+iv,\qquad
+ \zeta=u+\frac{i}{\lambda}\mathrm{Log}_{\mu}(\mu+i\lambda a)
+\end{equation}
+satisfy $\dbarC z=\dbarC\zeta=0$.  The map
+\begin{equation}\label{eq:contact-cr-embedding}
+ \Psi:\mathcal C\longrightarrow\C^2,\qquad \Psi=(z,\zeta),
+\end{equation}
+has real rank three everywhere.
+\end{proposition}
+
+\begin{proof}
+One has $D_uz=1$, $D_vz=i$, and hence
+$\dbarC z=\tfrac12(1+i^2)=0$.  Further,
+\[
+ \partial_a\zeta=-\frac1{\mu+i\lambda a},\quad
+ D_u\zeta=\frac{i\lambda a}{\mu+i\lambda a},\quad
+ D_v\zeta=-\frac{\lambda a}{\mu+i\lambda a},
+\]
+so $D_u\zeta+iD_v\zeta=0$.  Finally,
+\[
+ dz=du+i\,dv,\qquad d\zeta=du-\frac{da}{\mu+i\lambda a}.
+\]
+If a real tangent vector is killed by both differentials, the first forces its
+$u,v$ components to vanish and the second forces its $a$ component to vanish.
+Thus $d\Psi$ is injective.
+\end{proof}
+
+\begin{corollary}[Explicit contact CR modes]\label{cor:contact-cr-modes}
+If $\Phi$ is holomorphic on a neighborhood of $\Psi(\mathcal C)$, then
+$\Phi(z,\zeta)$ is contact arithmetic CR.  In particular, for
+$\rho,\sigma\in\C$,
+\begin{equation}\label{eq:contact-exponential-modes}
+ F_{\rho,\sigma}
+ =e^{\rho z+\sigma\zeta}
+ =e^{(\rho+\sigma)u+i\rho v}
+   (\mu+i\lambda a)^{\,i\sigma/\lambda}
+\end{equation}
+is a smooth CR field in the chosen logarithmic branch and depends genuinely on
+$a$ when $\sigma\ne0$.
+\end{corollary}
+
+\begin{proof}
+The chain rule and Proposition~\ref{prop:contact-logarithmic-first-integrals} give
+\[
+ \dbarC\Phi(z,\zeta)
+ =\Phi_1\dbarC z+\Phi_2\dbarC\zeta=0.
+\]
+The displayed modes use $\Phi(w_1,w_2)=e^{\rho w_1+\sigma w_2}$.
+\end{proof}
+
+No square-integrability, orthogonality, spanning, or completeness assertion is made
+for these modes.
+
+\subsection{The filtered affine--Appell module}
+
+Let $r=e^{\lambda v}$, set
+\begin{equation}\label{eq:contact-appell-generators}
+ B_n=r^{-n}a^n,\qquad n\ge0,
+\end{equation}
+and let $\mathcal A=C^\infty(\R^2_{(u,v)},\C)$, pulled back to
+$\mathcal C$.  Define
+\begin{equation}\label{eq:contact-filtered-modules}
+ \mathcal M_N
+ =\left\{\sum_{n=0}^NP_n(u,v)B_n:P_n\in\mathcal A\right\}.
+\end{equation}
+We also set $\mathcal M_{-1}=\{0\}$.
+
+\begin{proposition}[Filtered affine--Appell stability]
+\label{prop:contact-filtered-appell-module}
+The modules $\mathcal M_N$ form an increasing filtration and
+$\mathcal M_N\mathcal M_M\subseteq\mathcal M_{N+M}$.  For
+$P\in\mathcal A$, with $B_{-1}=0$,
+\begin{align}
+ D_u(PB_n)
+  &=(\partial_uP)B_n+\mu nr^{-1}PB_{n-1},\label{eq:contact-module-Du}\\
+ D_v(PB_n)
+  &=(\partial_vP)B_n,\label{eq:contact-module-Dv}\\
+ T(PB_n)&=nr^{-1}PB_{n-1}.\label{eq:contact-module-T}
+\end{align}
+Each $\mathcal M_N$ is stable under
+$D_u,D_v,\dbarC,\dC,Q_{\mathcal C},\Delta_{\mathcal C}$, and
+$A_{\mathcal C}$, while $T\mathcal M_N\subseteq\mathcal M_{N-1}$.
+\end{proposition}
+
+\begin{proof}
+The product assertion follows from $B_nB_m=B_{n+m}$.  Direct differentiation
+gives
+\[
+ D_uB_n=\mu nr^{-1}B_{n-1},\qquad D_vB_n=0,\qquad
+ TB_n=nr^{-1}B_{n-1}.
+\]
+Since $r^{-1}$ is smooth in $v$, the coefficients remain in $\mathcal A$.
+First-order stability follows by linear combination and second-order stability by
+iteration.
+\end{proof}
+
+\begin{remark}
+The term \emph{module} is essential.  The finite-dimensional complex span of
+$B_0,\ldots,B_N$ is not stable under $D_u$, because $r^{-1}$ appears in
+\eqref{eq:contact-module-Du}.  No density or completeness claim is made.  The
+finite upward-sweep antiderivative is proved in
+Appendix~\ref{app:contact-calculations}.
+\end{remark}

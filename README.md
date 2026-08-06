@@ -8,13 +8,17 @@ equivalent to a bounded marked history.  From that history, operator evaluation 
 charge/geometric shadows form separate branches, and only an operator together with
 an initial value determines an endpoint.  The repository keeps these levels distinct.
 
-The active manuscript is:
+The active manuscripts are:
 
 > **Arithmetic Expression Geometry I: Foundations**  
 > *Sequential Histories, Affine Flow, Torsion, and Contact Geometry*
 
-Its canonical entry point is [`paper-1/aeg-paper-1.tex`](paper-1/aeg-paper-1.tex).  All
-four papers have top-level directories: [`paper-1/`](paper-1/),
+> **Arithmetic Expression Geometry II: Hyperbolic Real Function Theory**
+> *Horizontal Operators, Boundary Problems, and Arithmetic Holomorphicity*
+
+Their canonical entry points are [`paper-1/aeg-paper-1.tex`](paper-1/aeg-paper-1.tex)
+and [`paper-2/aeg-paper-2.tex`](paper-2/aeg-paper-2.tex).  All four papers have
+top-level directories: [`paper-1/`](paper-1/),
 [`paper-2/`](paper-2/), [`paper-3/`](paper-3/), and [`paper-4/`](paper-4/).  The
 governing scope, mathematical-status register, migration map, and acceptance criteria
 are under [`restructure/`](restructure/README.md).
@@ -42,13 +46,13 @@ approval before its DOI metadata is changed.
    quotient structures, information loss under condensation, and complexity only
    after explicit state, metric, encoding, and cost models have been supplied.
 
-The later-paper directories currently record scope and provenance; they are not yet
-claims of completed papers.
+Paper II is now a mathematical-review manuscript.  Paper III and Paper IV remain
+scope and provenance records, not claims of completed papers.
 
 Paper entry points and generated PDFs follow the uniform convention
 `paper-k/aeg-paper-k.tex` and `paper-k/aeg-paper-k.pdf`, respectively.
 
-## Building Paper I
+## Building the manuscripts
 
 The local build requires `pdflatex` and `bibtex`:
 
@@ -56,8 +60,10 @@ The local build requires `pdflatex` and `bibtex`:
 ./build.sh
 ```
 
-The expected artifact is `paper-1/aeg-paper-1.pdf`.  A container build remains
-available for environments with Docker:
+This builds Papers I and II.  To build one manuscript only, run `./build.sh 1` or
+`./build.sh 2`.  The expected artifacts are `paper-1/aeg-paper-1.pdf` and
+`paper-2/aeg-paper-2.pdf`.  A container build remains available for environments
+with Docker:
 
 ```bash
 docker build -t aeg-paper .

@@ -1,0 +1,199 @@
+% Canonical Paper II source.
+Throughout this section
+\[
+ \mathfrak E=(M,g,a;\mu,\lambda)
+\]
+is a regular arithmetic expression space in the sense of Paper~I, with real
+constants $\mu,\lambda$.  Thus $M$
+is an oriented smooth surface, possibly with boundary, $g$ is a smooth
+Riemannian metric, $a\in C^\infty(M,\R)$, $\mu\ne0$, and
+\begin{equation}\label{eq:paper2-regular-eikonal}
+ |\nabla a|_g^2=\mu^2+\lambda^2a^2.
+\end{equation}
+The metric and orientation are part of the imported structure.  In particular,
+they are not reconstructed from an analytic operator introduced later.
+
+\subsection{The arithmetic frame and its structure functions}
+
+Write
+\[
+ q=(\mu^2+\lambda^2a^2)^{1/2}.
+\]
+Since $\mu\ne0$, $q$ never vanishes.  Paper~I therefore supplies the unique
+positively oriented orthonormal frame $(\Xu,\Xv)$ satisfying
+\begin{equation}\label{eq:paper2-assignment-frame-rules}
+ \Xu a=\mu,
+ \qquad
+ \Xv a=\lambda a.
+\end{equation}
+No coordinate interpretation is implicit here: the frame is generally
+noncommuting.  Define its smooth structure functions
+$c_u,c_v\in C^\infty(M)$
+by
+\begin{equation}\label{eq:surface-frame-bracket}
+ [\Xu,\Xv]=c_u\Xu+c_v\Xv.
+\end{equation}
+Applying this identity to the assignment gives the constraint
+\begin{equation}\label{eq:surface-structure-assignment-constraint}
+ \mu c_u+\lambda a c_v=\mu\lambda.
+\end{equation}
+Equation~\eqref{eq:surface-structure-assignment-constraint} is only one scalar
+relation.  It does not determine $c_u,c_v$, the Gaussian curvature, or
+$\Delta_ga$ on a general regular AES.
+
+Let $d\vol_g$ be the positive Riemannian measure.  The structure functions
+also determine the divergences of the arithmetic frame.
+
+\begin{proposition}[Structure functions and divergence]
+\label{prop:surface-frame-divergence}
+The arithmetic frame satisfies
+\begin{equation}\label{eq:surface-frame-divergences}
+ \diver_g\Xu=-c_v,
+ \qquad
+ \diver_g\Xv=c_u.
+\end{equation}
+Consequently, on compactly supported smooth scalar fields in the interior
+$M^\circ=M\setminus\partial M$, its formal adjoints are
+\begin{equation}\label{eq:surface-frame-formal-adjoints}
+ \Xu^*=-\Xu+c_v,
+ \qquad
+ \Xv^*=-\Xv-c_u.
+\end{equation}
+Here the star denotes a formal adjoint on
+$C_c^\infty(M^\circ)\subset L^2(M,d\vol_g)$, not a choice of a closed
+Hilbert-space realization.
+\end{proposition}
+
+\begin{proof}
+For a positively oriented orthonormal frame on a surface, metric compatibility
+and vanishing torsion give
+\[
+ \langle\nabla_{\Xv}\Xu,\Xv\rangle=-c_v,
+ \qquad
+ \langle\nabla_{\Xu}\Xv,\Xu\rangle=c_u.
+\]
+The remaining diagonal terms vanish because the frame has unit length.  Taking
+the trace of $Y\mapsto\nabla_Y\Xu$ and of
+$Y\mapsto\nabla_Y\Xv$ proves
+\eqref{eq:surface-frame-divergences}.  If $X$ is a real vector field and
+$f,h\in C_c^\infty(M^\circ;\C)$, the divergence theorem gives
+\[
+ \int_M (Xf)\,\overline h\,d\vol_g
+ =-\int_M f\,\overline{(X+\diver_gX)h}\,d\vol_g.
+\]
+Substituting~\eqref{eq:surface-frame-divergences} yields
+\eqref{eq:surface-frame-formal-adjoints}.  A coordinate-free sign check is
+recorded in Appendix~\ref{app:frame-calculations}.
+\end{proof}
+
+\subsection{The Laplace--Beltrami expression and energy}
+
+We retain the divergence-of-gradient convention
+\begin{equation}\label{eq:surface-laplacian-convention}
+ \Delta_gf=\diver_g(\nabla f).
+\end{equation}
+With this convention $\Delta_g$ is nonpositive in the $L^2$ quadratic-form
+sense on compactly supported functions.
+
+\begin{proposition}[Arithmetic-frame Laplacian]
+\label{prop:surface-frame-laplacian}
+For every $f\in C^\infty(M)$, the following pointwise identity holds:
+\begin{equation}\label{eq:surface-frame-laplacian}
+ \boxed{
+ \Delta_gf
+ =\Xu^2f+\Xv^2f-c_v\Xu f+c_u\Xv f.
+ }
+\end{equation}
+On $C_c^\infty(M^\circ)$, the same differential expression has the formal
+energy factorization
+\begin{equation}\label{eq:surface-real-energy-factorization}
+ -\Delta_g=\Xu^*\Xu+\Xv^*\Xv.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Because the frame is orthonormal,
+\[
+ \nabla f=(\Xu f)\Xu+(\Xv f)\Xv.
+\]
+Using
+$\diver(\phi X)=X\phi+\phi\diver X$ and
+Proposition~\ref{prop:surface-frame-divergence} gives
+\eqref{eq:surface-frame-laplacian}.  Substitution of the formal adjoints
+\eqref{eq:surface-frame-formal-adjoints} gives
+\eqref{eq:surface-real-energy-factorization} directly.
+\end{proof}
+
+In particular, the raw sum of squares
+\begin{equation}\label{eq:surface-raw-sum-squares}
+ S_M:=\Xu^2+\Xv^2
+\end{equation}
+is not the Laplace--Beltrami operator unless
+$-c_v\Xu+c_u\Xv=0$.  The drift in
+\eqref{eq:surface-frame-laplacian} is fixed by $d\vol_g$; it is not an
+optional lower-order perturbation.
+
+For later operator statements, define the densely defined nonnegative form
+\begin{equation}\label{eq:surface-dirichlet-preform}
+ \mathcal E_0(f,h)
+ :=\int_M
+ \bigl((\Xu f)\overline{\Xu h}
+       +(\Xv f)\overline{\Xv h}\bigr)\,d\vol_g,
+ \qquad
+ f,h\in C_c^\infty(M^\circ;\C).
+\end{equation}
+Its form norm is
+\[
+ \|f\|_{\mathcal E}^2
+ :=\|f\|_{L^2(d\vol_g)}^2+\mathcal E_0(f,f).
+\]
+
+\begin{definition}[Minimal energy domain and Dirichlet realization]
+\label{def:surface-energy-domain}
+Let $H_0^1(M,g)$ denote the completion of
+$C_c^\infty(M^\circ)$ in the form norm above.  The closure
+$\mathcal E$ of $\mathcal E_0$ is the Dirichlet energy form.  We denote by
+$-\Delta_{g,D}$ the nonnegative self-adjoint operator associated with
+$\mathcal E$ by the representation theorem for closed forms.
+\end{definition}
+
+This notation makes no assertion that the minimal differential operator is
+essentially self-adjoint.  If $M$ has boundary, it selects the Dirichlet form
+domain; Neumann, Robin, and mixed realizations require different form domains.
+If $M$ is complete without boundary, standard completeness results may identify
+this realization with the unique self-adjoint closure, but no such conclusion is
+needed for the local identities below.
+
+\begin{proposition}[Weak and operator meanings]
+\label{prop:surface-weak-operator-meanings}
+For $f\in C_c^\infty(M^\circ)$,
+\begin{equation}\label{eq:surface-green-identity-compact-support}
+ \mathcal E_0(f,h)
+ =\langle-\Delta_gf,h\rangle_{L^2(d\vol_g)}
+ \qquad
+ (h\in C_c^\infty(M^\circ)).
+\end{equation}
+More generally, $f\in\Dom(-\Delta_{g,D})$ precisely when there is
+$k\in L^2(M,d\vol_g)$ such that
+\[
+ \mathcal E(f,h)=\langle k,h\rangle_{L^2(d\vol_g)}
+ \quad\text{for every }h\in H_0^1(M,g),
+\]
+in which case $-\Delta_{g,D}f=k$.
+\end{proposition}
+
+\begin{proof}
+Equation~\eqref{eq:surface-green-identity-compact-support} follows from
+\eqref{eq:surface-real-energy-factorization} and integration by parts; compact
+support removes all boundary terms.  The second statement is the defining
+characterization of the operator represented by the closed form
+$\mathcal E$.
+\end{proof}
+
+Thus three levels will be kept separate throughout the paper:
+\begin{enumerate}
+ \item pointwise identities of differential expressions on $C^\infty$;
+ \item formal-adjoint identities on $C_c^\infty(M^\circ)$;
+ \item statements about a closed operator on a declared Hilbert-space domain.
+\end{enumerate}
+Only the third level supports spectral terminology.

@@ -1,0 +1,160 @@
+% Canonical entry point for Arithmetic Expression Geometry II.
+\documentclass[11pt]{article}
+
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,decorations.pathreplacing}
+\usepackage{url}
+\usepackage[
+  colorlinks=true,
+  linkcolor=blue!45!black,
+  citecolor=green!35!black,
+  urlcolor=blue!55!black,
+  pdfencoding=auto
+]{hyperref}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{convention}[theorem]{Convention}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{warning}[theorem]{Warning}
+\newtheorem{problem}[theorem]{Open problem}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\dd}{\,\mathrm{d}}
+\newcommand{\Span}{\operatorname{span}}
+\newcommand{\diver}{\operatorname{div}}
+\newcommand{\Dom}{\operatorname{Dom}}
+\newcommand{\sgn}{\operatorname{sgn}}
+\newcommand{\AEG}{\mathrm{AEG}}
+\newcommand{\vol}{\mathrm{vol}}
+\newcommand{\Reeb}{\mathcal R}
+\newcommand{\Xu}{X_u}
+\newcommand{\Xv}{X_v}
+\newcommand{\Du}{D_u}
+\newcommand{\Dv}{D_v}
+\newcommand{\dbarAEG}{\overline\partial_{\!\AEG}}
+\newcommand{\dAEG}{\partial_{\!\AEG}}
+\newcommand{\dbarC}{\overline L}
+\newcommand{\dC}{L}
+
+\title{\textbf{Arithmetic Expression Geometry II:\\Hyperbolic Real Function Theory}\\[0.45em]
+\large Horizontal Operators, Boundary Problems, and Arithmetic Holomorphicity}
+
+\author{
+Mingli Yuan\\
+Swarma Research\\
+Beijing 100083, China
+}
+
+\date{August 6, 2026\\[0.25em]
+\small Mathematical-review manuscript}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Paper I of Arithmetic Expression Geometry associates an oriented Riemannian surface,
+an assignment function, and a canonical arithmetic frame to continuous affine
+evaluation, and separately constructs a three-dimensional contact state space for
+ordered additive and multiplicative motion.  We develop the analytic structures of
+these two objects without identifying them.  On a regular arithmetic expression
+space, the metric and orientation determine a complex structure.  Writing the frame
+bracket as $[X_u,X_v]=c_uX_u+c_vX_v$, we compute the formal adjoints and prove the
+exact frame formula
+\[
+ \Delta_g=X_u^2+X_v^2-c_vX_u+c_uX_v.
+\]
+The arithmetic Cauchy--Riemann operator then factors the Laplace--Beltrami operator
+up to a first-order multiple of itself; consequently every arithmetic holomorphic
+field is harmonic.  On the contact state space we instead normalize the horizontal
+metric by the preferred lifts.  Contact volume gives
+$D_u^*=-D_u$ and $D_v^*=-D_v-\lambda$, so the variational sub-Laplacian contains a
+drift omitted by the raw sum of squares.  The latter still admits a curvature-twisted
+factorization, an explicit logarithmic CR field, and finite filtered
+affine--Appell modules.
+
+For the complete basic hyperbolic AES, the scaled coordinate
+$X=(\lambda/\mu)x$ identifies the metric with a constant multiple of the standard
+upper-half-plane metric and turns its arithmetic holomorphic coordinate into
+$w=X+iy=y(i-(\lambda/\mu)a)$.  We prove a $C_0$ Dirichlet theorem using the Poisson
+kernel, identify the conformal-boundary Dirichlet-to-Neumann map with the Fourier
+multiplier $|D|$, and derive its exact energy identity.  Rational functions and
+positive-frequency modes of $w$ give explicit families depending genuinely on the
+assignment.  These results establish a first function theory on the regular
+hyperbolic model; general Green kernels, spectral completeness, and singular
+continuation remain open.
+\end{abstract}
+
+\noindent\textbf{Keywords:}
+arithmetic expression geometry; hyperbolic plane; Poisson kernel; Dirichlet problem;
+Dirichlet-to-Neumann map; Cauchy--Riemann equations; contact CR geometry;
+sub-Laplacian
+
+\setcounter{tocdepth}{2}
+\tableofcontents
+\newpage
+
+\section{Introduction and principal results}\label{sec:introduction}
+\input{sections/01-introduction.tex}
+
+\section{Analytic data on a regular arithmetic expression space}
+\label{sec:analytic-data}
+\input{sections/02-analytic-data.tex}
+
+\section{Arithmetic Cauchy--Riemann and Laplace operators}
+\label{sec:surface-operators}
+\input{sections/03-surface-operators.tex}
+
+\section{The contact-CR analytic layer}\label{sec:contact-analysis}
+\input{sections/04-contact-analysis.tex}
+
+\section{The basic hyperbolic analytic model}\label{sec:hyperbolic-analysis}
+\input{sections/05-hyperbolic-analysis.tex}
+
+\section{Poisson kernels and the ideal-boundary Dirichlet problem}
+\label{sec:poisson-dirichlet}
+\input{sections/06-poisson-dirichlet.tex}
+
+\section{Boundary energy and explicit arithmetic families}
+\label{sec:boundary-energy}
+\input{sections/07-boundary-energy.tex}
+
+\section{Conclusions and analytic frontier}\label{sec:conclusion}
+\input{sections/08-conclusion.tex}
+
+\appendix
+
+\section{Frame, adjoint, and factorization calculations}
+\label{app:frame-calculations}
+\input{appendices/app-A-frame-calculations.tex}
+
+\section{Contact-CR and affine--Appell calculations}
+\label{app:contact-calculations}
+\input{appendices/app-B-contact-calculations.tex}
+
+\section{Poisson and Fourier calculations}
+\label{app:poisson-fourier}
+\input{appendices/app-C-poisson-fourier.tex}
+
+\bibliographystyle{plain}
+\bibliography{../aeg-paper}
+
+\end{document}
