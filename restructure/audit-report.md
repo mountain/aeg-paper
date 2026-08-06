@@ -1,0 +1,146 @@
+# Paper I Restructuring Audit Report
+
+**Baseline commit:** `134e70a74ed010024afa7439bd3931402731423a`  
+**Baseline date:** 2026-08-06  
+**Audit date:** 2026-08-06  
+**Canonical baseline entry point:** `aeg-paper.tex`  
+**Canonical target entry point:** `aeg-paper.tex`
+
+## 1. Scope of the audit
+
+The audit covered all tracked paths in the baseline archive, the root manuscript and
+its twelve legacy section files, alternative manuscript trees, bibliography, styles,
+figures, build scripts, research notes, and all authoritative files under
+`restructure/`.  The detailed path classification is maintained in
+`source-inventory.md`; movement and claim treatment are maintained in
+`migration-log.md`.
+
+The baseline contains 207 tracked paths and 107 TeX sources.  Several independent
+build trees coexist:
+
+- root `aeg-paper.tex`;
+- `revision-1/main.tex`;
+- `revision-2/main.tex`;
+- `arxiv/main.tex`;
+- `paper4p/aeg.tex`;
+- legacy `aeg-lemma.tex`;
+- standalone material under `misc/`, `notes/`, `knots/`, and `ideal_glass/`.
+
+Only the root entry point is treated as the active Paper I during restructuring.
+
+## 2. Baseline build
+
+The unmodified baseline build command was:
+
+```bash
+bash build.sh
+```
+
+The script invoked `pdflatex`, `bibtex`, and two further `pdflatex` passes.  On the
+available TeX Live 2023 installation it returned status 1 because
+`stmaryrd.sty` was unavailable.  Since the script had neither a shebang nor
+`set -e`, it continued after the first failure.  The repository already contained a
+stale `aeg-paper.pdf`; its presence was therefore not evidence of a successful local
+build.
+
+Baseline artifact metadata before the attempted build:
+
+| Property | Value |
+|---|---:|
+| Pages | 54 |
+| Page size | US letter (612 × 792 pt) |
+| File size | 495,462 bytes |
+| PDF version | 1.7 |
+
+Observed fatal diagnostic:
+
+```text
+LaTeX Error: File `stmaryrd.sty' not found.
+Fatal error occurred, no output PDF file produced.
+```
+
+Docker was not available in the execution environment (`docker: command not found`).
+The final task report must therefore distinguish the verified local build from the
+unexecuted container path.
+
+## 3. Baseline mathematical conflicts
+
+The following release-relevant conflicts were found before modification:
+
+1. The legacy definition “every left child is a leaf” was orientation-dependent and
+   inconsistent with examples; it must be replaced by the dependency-poset/spine
+   classification.
+2. Operand-slot mirror, temporal reversal, and inverse path were not defined as
+   separate operations.
+3. The root manuscript did not contain bilateral projective semantics or the
+   `PGL_2` generation theorem, although these are required to place the affine theory.
+4. Function composition, chronological words, and matrix multiplication were not
+   governed by one explicit convention.
+5. The legacy regular-AES definition conflated a framed directional law with an
+   intrinsic eikonal equation.
+6. The hyperbolic model was verified directly but not derived from a normalized
+   invariant affine metric; generalized curvature and Laplacian normalizations were
+   not fully audited.
+7. A regular-zero theorem was absent.  The isolated-zero disc model was described as
+   an AES without fully recording its non-differentiable center.
+8. ACS torsion was centered on path reversal rather than arbitrary compatible
+   two-history comparison, and its direct-path sign convention was not fixed.
+9. Open endpoint defect, closed commutator holonomy, and infinitesimal contact
+   curvature were related narratively but not kept mathematically distinct.
+10. A complete arithmetic-holomorphic section remained in Paper I although the
+    contact structure alone does not choose a unique horizontal complex structure.
+11. Tube, knot, projective-condensation, and complexity programmes were not fully
+    separated from the foundational manuscript.
+12. The theorem environment printed examples as “Theorem”.
+13. The root README called the upper-half-plane model `E_1`, whereas the manuscript
+    used `E_0`; the model index had no invariant definition.
+14. The DOI badge did not distinguish the archived DOI version from the active
+    restructuring manuscript.
+
+## 4. Baseline editorial and repository findings
+
+- `aeg-lemma.tex` refers to absent `sections/sec13.tex` through `sec17.tex` and uses a
+  suspect style path; it is retained for later audit and excluded from Paper I.
+- `revision-1`, `revision-2`, `arxiv`, and `paper4p` are retained as historical or
+  alternative manuscripts, not parallel canonical sources.
+- The root paper loaded `stmaryrd` twice but did not use its distinctive symbols.
+- Semantic labels were incomplete and several legacy labels encoded editorial prose
+  rather than mathematical objects.
+- Generated PDFs are present in the historical tree.  Their provenance is retained,
+  but successful compilation must be established from source for the target paper.
+
+## 5. Target audit gates
+
+The target manuscript is accepted for mathematical review only after:
+
+- all required theorem labels in `02-paper-I-outline.md` occur in the active source;
+- all P0 decisions are recorded with exact conventions and proof locations;
+- analytic, tube, projective-condensation, and complexity developments are absent
+  from the Paper I theorem sequence;
+- labels, references, citations, and figure paths pass static checks;
+- a fresh non-stale PDF is produced by the active build;
+- the abstract and conclusion are traceable to proved body results;
+- independent mathematical and scope reviews are recorded.
+
+Final evidence is appended to this report after integration and review.
+
+## 6. Final integration evidence
+
+The active ten-section manuscript and five appendices now build to a fresh 60-page
+US-letter PDF.  The final artifact is 603,202 bytes, uses PDF 1.5, and has SHA-256
+`2810aa61b9b3969a4b7ff39f685e08381312ce62404861c5ffdab2e06eb9061e`.
+
+The final active-source audit found 166 unique labels, no duplicate or missing
+references, no missing citation keys, and eight reproducible TikZ figures.  The
+LaTeX and BibTeX logs contain no warnings, undefined references, overfull boxes, or
+underfull boxes.  Poppler rendered all 60 pages; the title, abstract, contents, every
+figure page, appendices, and bibliography were visually checked.
+
+All named theorem/definition slots from the Paper I outline are in the active source.
+Independent algebra, geometry, torsion/contact, whole-manuscript mathematics, and
+scope reviews report zero remaining blocking defects.  The detailed evidence and
+theorem inventory are in `paper-I-closure-report.md`.
+
+The result is classified as a **mathematical-review manuscript**, not an
+author-approved public release.  Docker was unavailable, and author metadata and the
+relationship to the earlier Zenodo DOI still require human approval.
