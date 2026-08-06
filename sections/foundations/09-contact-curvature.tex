@@ -1,0 +1,377 @@
+The ACS records the ordered add--scale charge path needed for evaluation while
+forgetting the current assignment value and some syntactic provenance.  A local
+model should retain that value and should distinguish the infinitesimal additive
+and multiplicative directions.  The resulting three-dimensional state space carries
+both an Ehresmann connection over the two-dimensional direction plane and, in the
+nondegenerate case, a contact form.
+
+Fix real constants \(\mu\) and \(\lambda\), and let
+\[
+    \mathcal C=\mathbb R^3_{(u,v,a)},
+    \qquad
+    \pi:\mathcal C\longrightarrow\mathbb R^2_{(u,v)}.
+\]
+Here \(a\) is the current assignment value, while \(u\) and \(v\) parametrize
+additive and multiplicative motion.  We orient \(\mathcal C\) by
+\[
+    du\wedge da\wedge dv.
+\]
+
+\subsection{The arithmetic contact form}
+
+Define
+\begin{equation}
+    \alpha:=da-\mu\,du-\lambda a\,dv.
+    \label{eq:arithmetic-contact-form}
+\end{equation}
+The equation \(\alpha=0\) says that a lifted base motion obeys the affine
+propagation law.
+
+\begin{proposition}[Contact nondegeneracy]
+\label{prop:contact-form}
+With the orientation \(du\wedge da\wedge dv\),
+\begin{equation}
+    \alpha\wedge d\alpha
+       =\mu\lambda\,du\wedge da\wedge dv.
+    \label{eq:contact-volume-sign}
+\end{equation}
+Hence \(\alpha\) is a contact form if and only if \(\mu\lambda\ne0\).
+\end{proposition}
+
+\begin{proof}
+Since \(\mu\) and \(\lambda\) are constant,
+\[
+    d\alpha=-\lambda\,da\wedge dv.
+\]
+It follows that
+\begin{align*}
+    \alpha\wedge d\alpha
+      &=(da-\mu\,du-\lambda a\,dv)
+        \wedge(-\lambda\,da\wedge dv)\\
+      &=\mu\lambda\,du\wedge da\wedge dv.
+\end{align*}
+This three-form is nowhere zero exactly when \(\mu\lambda\ne0\).
+\end{proof}
+
+The contact-isomorphism class is the standard local one; the arithmetic content
+lies in the coordinates and in the preferred horizontal frame introduced
+next.  Even in a degenerate case, \(\ker\alpha\) remains a well-defined
+horizontal distribution, although it is then not contact.
+
+\subsection{Horizontal lifts and the affine flow}
+
+Set
+\begin{equation}
+    D_u:=\partial_u+\mu\partial_a,
+    \qquad
+    D_v:=\partial_v+\lambda a\partial_a.
+    \label{eq:horizontal-arithmetic-fields}
+\end{equation}
+Then
+\[
+    \alpha(D_u)=\alpha(D_v)=0,
+\]
+and the two fields project respectively to \(\partial_u\) and \(\partial_v\).
+Thus
+\[
+    \mathcal D:=\ker\alpha
+       =\operatorname{span}\{D_u,D_v\}
+\]
+is an Ehresmann connection for \(\pi\).  Its additive and multiplicative flows
+are
+\begin{align}
+    \Phi_u^h(u,v,a)&=(u+h,v,a+\mu h),
+       \label{eq:additive-horizontal-flow}\\
+    \Phi_v^k(u,v,a)&=(u,v+k,e^{\lambda k}a).
+       \label{eq:multiplicative-horizontal-flow}
+\end{align}
+
+For a direction angle \(\theta\), define
+\[
+    D_\theta=\cos\theta\,D_u+\sin\theta\,D_v.
+\]
+If \((u(s),v(s),a(s))\) is tangent to \(D_\theta\), then
+\[
+    \frac{du}{ds}=\cos\theta,
+    \qquad
+    \frac{dv}{ds}=\sin\theta,
+\]
+and
+\begin{equation}
+    \frac{da}{ds}
+       =\mu\cos\theta+\lambda a\sin\theta.
+    \label{eq:contact-realizes-affine-flow}
+\end{equation}
+Thus the horizontal lift reproduces the continuous affine flow rather than
+postulating a separate dynamics.
+
+\subsection{Horizontal curvature}
+
+\begin{theorem}[Contact curvature]
+\label{thm:contact-curvature}
+The preferred horizontal fields satisfy
+\begin{equation}
+    [D_u,D_v]=\mu\lambda\partial_a.
+    \label{eq:horizontal-curvature-bracket}
+\end{equation}
+In particular, when \(\mu\lambda\ne0\), the horizontal distribution is not
+integrable.  Its bracket defect is vertical and has constant coefficient
+\(\mu\lambda\) in the arithmetic frame.
+\end{theorem}
+
+\begin{proof}
+Using \eqref{eq:horizontal-arithmetic-fields},
+\begin{align*}
+    [D_u,D_v]
+      &=[\partial_u+\mu\partial_a,
+          \partial_v+\lambda a\partial_a]\\
+      &=\mu\,\partial_a(\lambda a)\partial_a
+        -\lambda a\,\partial_a(\mu)\partial_a\\
+      &=\mu\lambda\partial_a.
+\end{align*}
+All remaining coordinate brackets vanish.  Since \(\partial_a\) is vertical
+and is not contained in \(\ker\alpha\), the bracket is the vertical failure of
+horizontal closure.
+\end{proof}
+
+The sign in \eqref{eq:horizontal-curvature-bracket} agrees with the
+chronological convention of the preceding chapter.  Equivalently,
+\[
+    \alpha([D_u,D_v])=\mu\lambda,
+    \qquad
+    d\alpha(D_u,D_v)=-\mu\lambda.
+\]
+The two formulas have opposite signs by the identity
+\(d\alpha(X,Y)=-\alpha([X,Y])\) for horizontal fields \(X,Y\).
+
+\subsection{Open defects and closed horizontal loops}
+
+The bracket is infinitesimal.  At finite scale there are two related, but
+different, quantities.  First compare the two open lifts from \((u,v)\) to
+\((u+h,v+k)\):
+\begin{align*}
+    \Phi_v^k\circ\Phi_u^h(u,v,a)
+      &=(u+h,v+k,e^{\lambda k}(a+\mu h)),\\
+    \Phi_u^h\circ\Phi_v^k(u,v,a)
+      &=(u+h,v+k,e^{\lambda k}a+\mu h).
+\end{align*}
+Their assignment difference, with ``add then multiply'' taken first, is
+\begin{equation}
+    T_{\mathrm{open}}(h,k)
+      =\mu h(e^{\lambda k}-1).
+    \label{eq:exact-open-contact-defect}
+\end{equation}
+This is exactly the elementary ACS rectangle torsion with charge increments
+\((\mu h,\lambda k)\).
+
+Now perform the chronological four-step history
+\[
+    \mathsf A_h,\quad \mathsf M_k,\quad
+    \mathsf A_{-h},\quad \mathsf M_{-k},
+\]
+where \(\mathsf A_h\) denotes the flow \(\Phi_u^h\) and
+\(\mathsf M_k\) denotes \(\Phi_v^k\).  The base point returns to \((u,v)\),
+and direct substitution gives
+\begin{align*}
+    a&\longmapsto a+\mu h
+      \longmapsto e^{\lambda k}(a+\mu h)\\
+     &\longmapsto e^{\lambda k}(a+\mu h)-\mu h
+      \longmapsto a+\mu h(1-e^{-\lambda k}).
+\end{align*}
+The closed-loop vertical drift is therefore
+\begin{equation}
+    T_{\mathrm{closed}}(h,k)
+       =\mu h(1-e^{-\lambda k})
+       =e^{-\lambda k}T_{\mathrm{open}}(h,k).
+    \label{eq:exact-closed-contact-drift}
+\end{equation}
+Thus the finite open comparison and the finite closed holonomy are not equal.
+Here \(T_{\mathrm{closed}}\) is the source-normalized relative translation.
+Converting it to the target frame gives
+\(e^{\lambda k}T_{\mathrm{closed}}=T_{\mathrm{open}}\) exactly.
+
+Figure~\ref{fig:contact-open-closed-commutator} keeps the two finite
+constructions visually separate.  The square is drawn in the $(u,v)$ base;
+the short vertical segments represent assignment fibers, not additional base
+edges.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[
+  x=1cm,y=1cm,
+  openone/.style={-{Latex[length=2mm]},very thick,red!65!black},
+  opentwo/.style={-{Latex[length=2mm]},very thick,blue!65!black},
+  loop/.style={-{Latex[length=2mm]},very thick,green!45!black},
+  fiber/.style={thick,black!55},
+  every node/.style={font=\small}
+]
+  \node[font=\bfseries] at (-3.6,2.0) {open two-path comparison};
+  \coordinate (o) at (-5,-0.45);
+  \coordinate (ou) at (-3.45,-0.45);
+  \coordinate (ouv) at (-3.45,1.1);
+  \coordinate (ov) at (-5,1.1);
+  \draw[openone] (o)--node[below,font=\scriptsize] {$\mathsf A_h$} (ou);
+  \draw[openone] (ou)--node[right,font=\scriptsize] {$\mathsf M_k$} (ouv);
+  \draw[opentwo] (o)--node[left,font=\scriptsize] {$\mathsf M_k$} (ov);
+  \draw[opentwo] (ov)--node[below,font=\scriptsize] {$\mathsf A_h$} (ouv);
+  \fill (o) circle (1.6pt) node[below left] {$(u,v)$};
+  \fill (ouv) circle (1.6pt)
+    node[above left,yshift=3pt,font=\scriptsize] {$(u+h,v+k)$};
+  \draw[densely dotted,black!45] (ouv)--(-2.72,1.1);
+  \draw[fiber] (-2.62,0.35)--(-2.62,1.45);
+  \fill[blue!65!black] (-2.62,0.62) circle (1.7pt)
+    node[right,font=\scriptsize] {$a_{\mathsf M\mathsf A}$};
+  \fill[red!65!black] (-2.62,1.2) circle (1.7pt)
+    node[right,font=\scriptsize] {$a_{\mathsf A\mathsf M}$};
+  \draw[{Latex[length=1.6mm]}-{Latex[length=1.6mm]},black!60]
+    (-2.82,0.62)--(-2.82,1.2)
+    node[midway,left,font=\scriptsize] {$T_{\mathrm{open}}$};
+
+  \node[font=\bfseries] at (2.6,2.0) {closed chronological lift};
+  \coordinate (c0) at (1.2,-0.45);
+  \coordinate (cu) at (2.75,-0.45);
+  \coordinate (cuv) at (2.75,1.1);
+  \coordinate (cv) at (1.2,1.1);
+  \draw[loop] (c0)--node[below,font=\scriptsize] {$\mathsf A_h$} (cu);
+  \draw[loop] (cu)--node[right,font=\scriptsize] {$\mathsf M_k$} (cuv);
+  \draw[loop] (cuv)--node[above,font=\scriptsize] {$\mathsf A_{-h}$} (cv);
+  \draw[loop] (cv)--node[left,font=\scriptsize] {$\mathsf M_{-k}$} (c0);
+  \fill (c0) circle (1.6pt) node[below left] {$(u,v)$};
+  \draw[densely dotted,black!45] (c0)--(3.48,-0.45);
+  \draw[fiber] (3.58,-0.75)--(3.58,0.55);
+  \fill (3.58,-0.48) circle (1.7pt)
+    node[right,font=\scriptsize] {$a$};
+  \fill[green!45!black] (3.58,0.25) circle (1.7pt)
+    node[right,font=\scriptsize] {$a+T_{\mathrm{closed}}$};
+  \draw[{Latex[length=1.6mm]}-{Latex[length=1.6mm]},black!60]
+    (3.36,-0.48)--(3.36,0.25)
+    node[midway,left,font=\scriptsize] {$T_{\mathrm{closed}}$};
+  \node[align=center,font=\scriptsize] at (2.45,-1.5)
+    {$T_{\mathrm{closed}}=e^{-\lambda k}T_{\mathrm{open}}$\\
+     same infinitesimal density $\mu\lambda$};
+\end{tikzpicture}
+\caption{Open defect and closed holonomy in the contact model.  The two open
+horizontal lifts have the same base endpoint but different assignment values.
+The four-step closed base loop returns to its starting base point with a raw
+vertical drift.  These finite quantities differ by the displayed scale factor;
+converting the closed drift to the target frame gives the open defect, while
+their infinitesimal densities agree as stated in the text.}
+\label{fig:contact-open-closed-commutator}
+\end{figure}
+
+\subsection{The scalar horizontal differential}
+
+For a smooth scalar field \(F\in C^\infty(\mathcal C)\), define
+\begin{equation}
+    \delta_HF
+       :=dF-(\partial_aF)\alpha
+       =(D_uF)\,du+(D_vF)\,dv.
+    \label{eq:scalar-horizontal-differential}
+\end{equation}
+This is the ordinary differential restricted to horizontal directions and
+written on the base coframe.  In particular,
+\[
+    \delta_Ha=\mu\,du+\lambda a\,dv.
+\]
+
+For scalar fields only, define the antisymmetrized second horizontal derivative
+by
+\begin{equation}
+    \mathcal R_H(F)
+      :=(D_uD_vF-D_vD_uF)\,du\wedge dv.
+    \label{eq:horizontal-scalar-curvature-definition}
+\end{equation}
+This notation deliberately avoids presupposing an extension of \(\delta_H\) to
+a graded complex.
+
+\begin{proposition}[Curvature on scalar fields]
+\label{prop:horizontal-differential-curvature}
+For every \(F\in C^\infty(\mathcal C)\),
+\begin{equation}
+    \mathcal R_H(F)
+      =\mu\lambda(\partial_aF)\,du\wedge dv.
+    \label{eq:horizontal-scalar-curvature}
+\end{equation}
+In particular,
+\[
+    \mathcal R_H(a)=\mu\lambda\,du\wedge dv.
+\]
+\end{proposition}
+
+\begin{proof}
+By definition and Theorem~\ref{thm:contact-curvature},
+\[
+    \mathcal R_H(F)
+       =[D_u,D_v](F)\,du\wedge dv
+       =\mu\lambda(\partial_aF)\,du\wedge dv.
+\]
+Taking \(F=a\) proves the final formula.
+\end{proof}
+
+One may use \(\delta_H^2F\) as shorthand for
+\(\mathcal R_H(F)\) after declaring this antisymmetrization convention.  It
+does not mean that \(\delta_H\) has been defined on horizontal forms, nor does
+it assert the existence of a nilpotent differential complex.  No such graded
+calculus is required for the foundational result.
+
+\subsection{Three levels of the same order defect}
+
+\begin{proposition}[Finite and infinitesimal comparison]
+\label{prop:torsion-curvature-synthesis}
+For the elementary rectangle with additive side \(\mu h\) and logarithmic
+multiplicative side \(\lambda k\), the following statements hold.
+\begin{enumerate}
+    \item The open affine defect equals the ACS weighted area exactly:
+    \[
+        T_{\mathrm{open}}(h,k)
+          =\int_{[0,\mu h]\times[0,\lambda k]}
+              e^{\lambda k-M}\,dA\wedge dM
+          =\mu h(e^{\lambda k}-1),
+    \]
+    with oriented-chain interpretation when a side is negative.
+    \item The closed chronological lift has exact drift
+    \[
+        T_{\mathrm{closed}}(h,k)
+          =e^{-\lambda k}T_{\mathrm{open}}(h,k).
+    \]
+    Thus \(T_{\mathrm{closed}}\) is the source-normalized relative translation;
+    its target-frame conversion agrees with the open defect, but the raw finite
+    values generally differ.
+    \item Both defects have the common infinitesimal density
+    \[
+        \lim_{(h,k)\to(0,0)}
+          \frac{T_{\mathrm{open}}(h,k)}{hk}
+        =\lim_{(h,k)\to(0,0)}
+          \frac{T_{\mathrm{closed}}(h,k)}{hk}
+        =\mu\lambda,
+    \]
+    where the quotients are taken for \(hk\ne0\).  This is the coefficient of
+    \([D_u,D_v]\) and of \(\mathcal R_H(a)\).
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+The first identity is Theorem~\ref{thm:torsion-stokes} applied to the elementary
+rectangle, and its integral evaluates to
+\[
+    \mu h\int_0^{\lambda k}e^{\lambda k-M}\,dM
+       =\mu h(e^{\lambda k}-1).
+\]
+The second identity is \eqref{eq:exact-closed-contact-drift}.  Finally,
+\[
+    \frac{e^{\lambda k}-1}{k}\longrightarrow\lambda,
+    \qquad
+    \frac{1-e^{-\lambda k}}{k}\longrightarrow\lambda,
+\]
+which proves the two limits.  The curvature identifications follow from
+Theorem~\ref{thm:contact-curvature} and
+Proposition~\ref{prop:horizontal-differential-curvature}.
+\end{proof}
+
+The synthesis has three layers, not one finite equality: exact target-frame open
+affine torsion is measured by ACS weighted area; source-normalized closed horizontal
+holonomy differs by an exact frame-conversion factor; and contact curvature is their common
+infinitesimal limit.  The contact distribution alone supplies neither a
+preferred complex structure nor a full analytic function theory.  The present
+paper uses only the horizontal connection, its scalar differential, and its
+curvature.

@@ -1,0 +1,136 @@
+This paper has established a foundational passage from sequential arithmetic
+syntax to geometry.  The organizing principle is that an expression should not
+be identified prematurely with its endpoint value.  An unmarked sequential tree
+requires a choice of accumulator; the resulting fully marked planar tree is
+equivalent to a bounded marked history.  From that history, operator evaluation
+and the ACS charge shadow form separate branches, while an initial value turns an
+operator into an endpoint.  The non-bijective forgetful maps lose information, and
+several of the structures developed here measure precisely what is lost.
+
+\subsection{Results of the foundational construction}
+
+The first part of the paper classified binary expression trees with a unique
+legal internal evaluation order and represented them by marked spinal
+histories.  Operand-slot data made it possible to distinguish planar mirror,
+temporal reversal, and path inverse.  These operations act at different levels
+and need not induce the same operator comparison.
+
+For nondegenerate bilateral one-hole contexts, projective continuation produced
+M\"obius transformations.  Under the algebraic hypotheses stated there, the
+elementary contexts generate \(\operatorname{PGL}_2\), while ordinary
+addition and nonzero scaling form the affine, or Borel, sector stabilizing the
+chosen point at infinity.  This placement is important: projective semantics
+extends the operator domain, but it does not turn a pole into an admissible
+ordinary arithmetic operation.
+
+Within the affine sector, chronological composition yielded explicit cocycle
+coordinates and the continuous equation
+\[
+    \frac{da}{ds}
+       =\mu\cos\theta+\lambda a\sin\theta.
+\]
+The basic upper-half-plane model realizes this equation geometrically and gives
+a first regular arithmetic expression space.  Separately, the regular-value
+argument shows that a zero in a regular AES lies on
+a smooth codimension-one zero set.  Isolated or singular zeros must therefore
+arise from a failure of those regular hypotheses, not from the regular theory
+itself.
+
+The final two chapters identified global and local forms of arithmetic order
+defect.  In the accumulative commutative space, a positive add--scale history
+\(\gamma\) satisfies
+\[
+    \nu_x(\gamma)
+      =e^{M_\gamma}
+        \left(x+\int_{C_\gamma}e^{-M}\,dA\right),
+\]
+and any charge-compatible pair of such histories has relative torsion equal to the
+integral of the weighted area form over an oriented filling chain.  On the local state
+space, the horizontal fields associated with
+\[
+    \alpha=da-\mu\,du-\lambda a\,dv
+\]
+satisfy
+\[
+    [D_u,D_v]=\mu\lambda\partial_a.
+\]
+The exact target-frame open defect, the source-normalized closed-loop drift, and the
+infinitesimal curvature were kept distinct.  Converting the closed drift back to the
+target frame gives the open defect; the two raw defects share only the stated
+infinitesimal limit.
+
+The proved logical spine may therefore be summarized as
+\[
+\begin{gathered}
+    \text{marked planar sequential tree}
+      \longleftrightarrow \text{bounded marked history}
+      \longrightarrow \text{projective operator},\\
+    \operatorname{PGL}_2
+      \supset \operatorname{Aff}(1)
+      \longrightarrow \text{affine cocycle and flow},\\
+    \text{charge-compatible positive add--scale defect}
+      \longrightarrow \text{ACS weighted area},\\
+    \text{infinitesimal defect}
+      \longrightarrow \text{contact curvature}.
+\end{gathered}
+\]
+This is a foundation for later developments, not a claim that every arithmetic
+expression, singularity, or computational phenomenon is already captured by
+the affine theory.
+
+\subsection{Interface to Paper II}
+
+\emph{Arithmetic Expression Geometry II: Hyperbolic Real Function Theory}
+will begin where the present horizontal connection stops.  Its program is to
+choose and analyze additional metric and analytic data: a horizontal metric,
+compatible complex or almost-complex structures where appropriate,
+second-order operators, boundary-value constructions, and arithmetic
+holomorphicity.  None of these structures follows uniquely from the contact
+form alone, and no result of that prospective function theory is used in the
+proofs of Paper~I.
+
+\subsection{Interface to Paper III}
+
+\emph{Arithmetic Expression Geometry III: Singular Zero Geometry and Tubes}
+will study the boundary of the regular-zero theorem.  Its intended objects
+include singular and multiple zeros, parameter discriminants, regular and
+singular zero surfaces, and tube constructions.  Possible braid, monodromy,
+and knot structures require separate invariance and normalization arguments.
+In particular, the existence of a tube does not by itself produce a knot
+invariant, and no such general invariant is asserted here.
+
+\subsection{Interface to Paper IV}
+
+\emph{Arithmetic Expression Geometry IV: Projective Condensation and
+Computational Complexity} will return to the full projective process--result
+hierarchy.  Its proposed scope includes bivaluation, quotient and condensation
+constructions, representation complexity, and the relation between geometric
+and computational resources.  The affine embedding in projective semantics
+proved in this paper supplies an entry point, but it does not establish any
+general complexity theorem.  Those claims remain open until precise models of
+representation, input size, and computation are fixed.
+
+\subsection{Open foundational problems}
+
+Several questions remain at the level of foundations.
+\begin{enumerate}
+    \item Classify regular affine arithmetic expression spaces beyond the basic
+    model on the upper half-plane, including the hypotheses under which two
+    models should count as equivalent.
+    \item Construct a genuinely projective replacement for the affine ACS and
+    determine which part of the weighted torsion formula survives without a
+    preferred point at infinity.
+    \item Relate affine contact curvature to projective holonomy without
+    conflating an infinitesimal bracket with a finite transport operator.
+    \item Produce fully verified singular multi-zero models and identify their
+    stable local normal forms and discriminants.
+    \item Formulate, and then test, a quantitative relation between geometric
+    history complexity, representation complexity, and computational
+    complexity.
+\end{enumerate}
+
+These are research interfaces rather than consequences of the present paper.
+The stable conclusion is narrower and more concrete: sequential arithmetic
+histories possess projective operator semantics; their affine sector carries a
+natural cocycle and flow; and the failure of additive and multiplicative order
+to commute admits exact global and infinitesimal geometric descriptions.
