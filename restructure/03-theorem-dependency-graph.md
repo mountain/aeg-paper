@@ -3386,6 +3386,16 @@ P3-H4  q=4 marked peripheral toric binomial
 P3-H5  q=4 logarithmic-tangent weighted cone and cusp link
 P3-H6  supplied four-strand braid-center and LHS-transgression calibration
 P3-H7  unrestricted history-to-coefficient-path naturality [OPEN]
+
+P3-L1  supplied sextic event-polynomial calculation
+P3-L2  regular sextic LL cover: 1296 normalized sheets / 216 rotation orbits
+P3-L3  caustic-cubed / Maxwell-squared bifurcation divisor
+P3-L4  displayed spanning-star surjection onto B6
+P3-L5  compatible carrier, six-root thread, and genus-two mapping torus
+P3-L6  genus-two mapping-class and symplectic monodromy specialization
+P3-L7  mixed-braid exact sequence and LL pullback
+P3-L8  displayed arithmetic fiber: S6 Galois and geometric End = Z
+P3-L9  LL--Igusa twin test [OPEN]
 ```
 
 The new dependency edges are:
@@ -3421,6 +3431,18 @@ P1-H2 + braid-center input -> P3-H6
 P3-H4 -. marked toric evidence .-> P3-H7
 P3-H5 -. logarithmic-cone evidence .-> P3-H7
 P3-H6 -. extension-class evidence .-> P3-H7
+
+supplied P0 + direct discriminant calculation -> P3-L1
+classical LL theorem + normalized sextic space -> P3-L2
+classical LL local bifurcation models -> P3-L3
+P3-L1 + classical local half-twist input -> P3-L4
+P3-H1 + P3-L1 + collision-free loop -> P3-L5
+P3-L4 + classical Birman--Hilden/symplectic input -> P3-L6
+P3-L2 + mixed configuration-space extension -> P3-L7
+P3-L4 -> P3-L7
+supplied arithmetic fiber + classical Galois/Zarhin criteria -> P3-L8
+P3-L2 -. finite moduli experiment .-> P3-L9
+P3-L7 -. typed path target evidence .-> P3-H7
 ```
 
 The dotted edges do not authorize a theorem.  In particular, `P3-R3` is not a
@@ -3452,6 +3474,19 @@ subgroup and its standard Hauptmodul without a general history functor.
 * `P3-R3` is therefore partially resolved in the restricted models, while the
   general history-to-divisor functor remains open and cannot support a general
   naturality or faithfulness claim.
+* `P3-L1`, `P3-L4`, `P3-L5`, and `P3-L7` are proved for the supplied sextic and
+  the printed loop/configuration hypotheses.  They do not define a construction
+  on unrestricted histories.
+* `P3-L2`, `P3-L3`, `P3-L6`, and `P3-L8` are classical results or criteria
+  specialized and audited in the sextic laboratory.  The (1296) normalized LL
+  sheets and their (216) source-rotation orbits are not counts of nonisomorphic
+  curves.
+* `P3-L9` is open.  No distinct Igusa points in one LL fiber are asserted.
+* The solid edge into `P3-L7` is a pullback of the mixed braid extension.  It is
+  not, and must not be redrawn as, a homomorphism (B_5\to B_6) after the LL sheet
+  is forgotten.
+* The dotted edge from `P3-L7` to `P3-H7` records a typed target for a future
+  history functor, not existence or naturality of that functor.
 
 The following implications are forbidden:
 
@@ -3463,5 +3498,10 @@ bare zero dessin           =/=> the three-dimensional flow template
 primitive Hecke element    =/=> prime knot
 terminal endpoint divisor  =/=> marked-history faithfulness
 arithmetic divisor        =/=> proper zero tube
-singular zero tube        =/=> Markov invariant.
+singular zero tube        =/=> Markov invariant
+1296 normalized LL sheets =/=> 1296 nonisomorphic genus-two curves
+216 source-rotation orbits =/=> 216 nonisomorphic genus-two curves
+critical-value braid      =/=> unmarked B5-to-B6 homomorphism
+common Sp4(F2) = S6 target =/=> Frobenius/topological-loop identification
+full B6 monodromy         =/=> new knot invariant.
 ```

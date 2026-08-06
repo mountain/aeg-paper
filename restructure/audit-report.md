@@ -308,3 +308,39 @@ report zero blocking and zero major mathematical findings after repair.
 The proved result is a supplied polynomial/history calibration.  General typed
 history-to-coefficient-path naturality, identification with Paper I affine torsion,
 Markov descent, and a new knot invariant remain explicitly open.
+
+## 12. M-0008 sextic LL laboratory integration evidence
+
+Migration M-0008 adds `paper-3/sections/05-sextic-ll-laboratory.tex`.  The
+canonical Paper III source closure is now 17 TeX files: one entry point, 13
+sections, and 3 appendices.
+
+The mathematical audit separates three layers.  Direct supplied-pencil results
+include the critical-value quintic for (x^6-x), the spanning-star generation of
+(B_6), the carrier/thread/mapping-torus construction, and the mixed exact-sequence
+model.  Classical inputs include the LL covering theorem and degree, the
+caustic/Maxwell divisor multiplicities, Birman--Hilden and symplectic monodromy,
+and the Galois/endomorphism criteria for the displayed arithmetic fiber.  The
+LL--Igusa twin test and unrestricted AEG-history naturality remain open.
+
+The counting audit records (1296) as normalized monic-centered LL sheets and
+(216) as their free residual source-rotation orbits.  Neither is a count of
+pairwise nonisomorphic genus-two curves.  The interface audit requires the mixed
+braid pullback or equivalent Hurwitz groupoid, not a canonical (B_5\to B_6)
+homomorphism after forgetting the LL sheet.  It also prevents carrier walls from
+being identified with collision divisors and prevents the common abstract target
+(\operatorname{Sp}_4(\mathbb F_2)\cong S_6) from being used as an elementwise
+arithmetic/topological identification.
+
+The final canonical Paper III build and static/visual audits give:
+
+| Paper | Pages | File size | SHA-256 | Canonical TeX | Unique labels | Unique refs | Unique citations |
+|---|---:|---:|---|---:|---:|---:|---:|
+| III | 78 | 809,341 bytes | `d5bf667041dc6ce52189f840a5a691c4d8c6eed1126705911937a907fb74f816` | 17 | 322 | 157 | 30 |
+
+The final log has no warning, undefined reference/citation, or over/underfull box
+diagnostic.  Every citation resolves in the 48-key shared bibliography; the PDF is
+version 1.5 with embedded fonts.  All 78 pages were rendered and inspected,
+including the repaginated introduction, claim ledger, new sextic figure and exact
+diagrams, open-experiment box, conclusion, and bibliography.  No clipping,
+collision, blank content page, unreadable element, or broken glyph was found.

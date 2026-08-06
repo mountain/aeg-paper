@@ -1801,3 +1801,50 @@ These gates apply to the post-closure Papers I--III integration.
 - [x] Every page added to Paper III has been rendered and visually inspected.
 - [x] Source inventory, migration, status, scope, decision, audit, closure, PDF
       size, and hash metadata are synchronized after the final build.
+
+---
+
+## 109. Sextic LL laboratory gates
+
+### Explicit calculation and classical inputs
+
+- [x] The event polynomial of (P_0=x^6-x) and its five simple critical values
+      are verified directly.
+- [x] The LL theorem is cited as a classical input; (1296) is the number of
+      normalized monic-centered sheets and (216) is the number of free residual
+      source-rotation orbits, not a count of nonisomorphic curves.
+- [x] The caustic multiplicity three and Maxwell multiplicity two are stated with
+      their local models, while root collision, critical-value collision,
+      spectral degeneration, and carrier wall crossing remain distinct.
+- [x] The displayed star of vanishing arcs generates (B_6), and no knot or
+      Markov invariant is inferred merely from that pre-closure braid
+      surjectivity.
+
+### Carrier, genus two, arithmetic, and forgetting
+
+- [x] The carrier, six-root thread, spectral double cover, two points over
+      infinity, and chosen filling are separately typed; the filling is not
+      identified with ordinary braid closure in (S^3).
+- [x] Birman--Hilden lifting, genus-two mapping-class surjectivity, integral
+      symplectic monodromy, and the mod-two (S_6) shadow are attributed and use
+      the printed marked/unmarked conventions.
+- [x] The mixed exact sequence and its index-(1296) LL pullback mediate between
+      critical-value and root braids; no canonical (B_5\to B_6) map is asserted
+      after forgetting the LL sheet.
+- [x] The arithmetic (S_6) and endomorphism conclusions use cited classical
+      criteria, and the common target (\operatorname{Sp}_4(\mathbb F_2)\cong
+      S_6) is not used to identify individual Frobenius elements with
+      topological loops.
+- [x] The LL--Igusa twin test and unrestricted AEG-history naturality remain
+      explicit open problems.
+
+### Release evidence for M-0008
+
+- [x] The final canonical Paper III build after the sextic section has no
+      undefined references/citations or box warnings.
+- [x] Static labels, references, citations, and source closure pass against the
+      final source state.
+- [x] Every Paper III page added or repaginated by M-0008 is rendered and
+      visually inspected.
+- [x] Source inventory, closure report, audit report, final page count, file
+      size, hash, and static counts are synchronized to the built artifact.

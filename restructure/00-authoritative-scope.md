@@ -1452,3 +1452,64 @@ At (m=4), permutation monodromy is trivial while the pure-braid coordinate and
 mutual linking number are two.  A future history-to-path functor must act on full
 marked coefficient paths and pass the neutral-word test; attaching this residual
 after terminal projective evaluation is not authorized as a naturality theorem.
+
+---
+
+## 33. Bounded sextic Lyashko--Looijenga laboratory
+
+Migration M-0008 authorizes one bounded Paper III laboratory based on the supplied
+monic centered sextic
+
+[
+P_0(x)=x^6-x.
+]
+
+Paper III may directly compute its critical-value polynomial, prove that the five
+displayed local half-twists form a spanning star generating (B_6), and construct
+the compatible real carrier, six-root thread, and genus-two branched-cover mapping
+torus for collision-free loops.  It may also prove the mixed critical-value/test-
+parameter exact-sequence model and specialize cited arithmetic criteria to the
+fiber (y^2=x^6-x-1).
+
+The following remain cited classical inputs rather than new AEG theorems:
+
+* finiteness and etaleness of the regular Lyashko--Looijenga map and its degree;
+* the caustic and Maxwell multiplicities;
+* transposition-factorization counts and local Picard--Lefschetz monodromy;
+* Birman--Hilden lifting and genus-two symplectic monodromy;
+* the irreducibility, Galois-group, and hyperelliptic-endomorphism criteria used
+  for the displayed arithmetic fiber.
+
+The count (6^4=1296) refers to normalized monic-centered LL sheets.  The free
+residual (\mu_6) source rotations give (216) orbits.  Neither number is authorized
+as a count of pairwise nonisomorphic genus-two curves.
+
+The two braid layers must remain typed.  Critical-value transport acts through the
+LL cover, while motion of the test parameter supplies a vertical (F_5) and then a
+six-root braid.  Their interface is the pullback of
+
+[
+1\longrightarrow F_5\longrightarrow B_{5,1}\longrightarrow B_5
+\longrightarrow1
+]
+
+along the LL cover, or the equivalent Hurwitz groupoid.  Forgetting the LL sheet
+does not authorize a homomorphism (B_5\to B_6).
+
+The sextic carrier may have saddle walls and is not thereby a proper zero tube.
+Carrier-wall crossings, root collisions, critical-value collisions, and singular
+hyperelliptic fibers must not be identified.  Likewise, the common abstract target
+(\operatorname{Sp}_4(\mathbb F_2)\cong S_6) does not canonically identify an
+arithmetic Frobenius element with a topological loop.
+
+The following remain open:
+
+* the LL--Igusa twin test for distinct genus-two moduli points in one LL fiber;
+* any functor from unrestricted AEG histories to a canonical sextic, LL sheet,
+  mixed-braid path, or six-root braid;
+* a proper-zero-tube theorem for this singular carrier;
+* Markov descent or a new knot invariant extracted from the laboratory.
+
+Thus P3-L1--P3-L8 are authorized only with their supplied/calculated versus
+classical-input statuses displayed, while P3-L9 and the general history
+naturality arrows remain open.

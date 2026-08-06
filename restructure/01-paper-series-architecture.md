@@ -1883,3 +1883,65 @@ together with equivariance, collapse kernels, discriminants, geometric splitting
 and Frobenius cycle tests.  These are minimal naturality models, not a construction
 of the registers from arbitrary histories.  The general arrow from history syntax
 to a canonical arithmetic section therefore remains open.
+
+---
+
+## 51. M-0008 bounded sextic laboratory interface
+
+The sextic Lyashko--Looijenga addition extends Paper III horizontally across four
+typed layers without changing the import contracts of Papers I or II:
+
+```text
+supplied monic-centered sextic
+  |-- critical-value polynomial and LL sheet
+  |-- real carrier and six-root thread
+  |-- genus-two branched-cover monodromy
+  `-- one arithmetic genus-two fiber.
+```
+
+The direct Paper III contribution is bounded: it computes the event polynomial
+for (x^6-x), proves the displayed spanning-star (B_6) monodromy, constructs the
+carrier/thread/mapping-torus readings, and installs the mixed-braid pullback.
+LL degree and bifurcation theory, Birman--Hilden and symplectic monodromy, and the
+Galois/endomorphism criteria remain cited classical inputs.
+
+There are two successive forgetting operations and they must not be collapsed:
+
+[
+\text{normalized sextic sheet}
+\longrightarrow
+\text{critical-value configuration}
+\longrightarrow
+\text{double LL discriminant}.
+]
+
+The first regular fiber has (1296) coordinate-normalized sheets and (216) free
+source-rotation orbits, not (1296) or (216) nonisomorphic genus-two curves.  The
+second arrow forgets still more event data.  A future moduli comparison must pass
+the finite LL--Igusa twin test before either count acquires a curve-theoretic
+interpretation.
+
+Critical-value braiding and root braiding occupy different levels.  Their
+architectural interface is the mixed configuration-space extension and its LL
+pullback (or the equivalent Hurwitz groupoid), never an unmarked homomorphism
+(B_5\to B_6).  This preserves the information-loss direction:
+
+[
+\text{LL sheet plus moving test parameter}
+\longrightarrow
+\text{mixed braid path}
+\longrightarrow
+\text{six-root braid}.
+]
+
+The genus-two mapping-class, integral symplectic, mod-two permutation, and
+arithmetic Galois layers may be compared only through their declared maps.  The
+abstract isomorphism (\operatorname{Sp}_4(\mathbb F_2)\cong S_6) is a common
+finite target, not a canonical matching between individual Frobenius elements and
+topological loops.
+
+This laboratory supplies strong evidence that one polynomial can coordinate real,
+complex, topological, and arithmetic readings.  It does not supply a functor from
+general histories to LL sheets, a proper zero tube, an LL--Igusa twin pair, Markov
+descent, or a new knot invariant.  Those arrows remain dotted/open and cannot be
+used as dependencies of the proved P3-L1--P3-L8 nodes.

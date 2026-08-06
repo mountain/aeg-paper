@@ -3263,6 +3263,15 @@ promote any later-paper programme.
 | P3-H5 | The marked compactified q=4 sign cover recovers the cusp binomial in its logarithmic-tangent section ring, and its circle bundle recovers the filled cusp link | **PROVED AS A COMPLEX ORBIFOLD / GRADED-ISOMORPHISM STATEMENT** | The arithmetic plus/minus quadratic twist requires a declared descent datum; the cone coordinate is not automatically an external AEG slice parameter. |
 | P3-H6 | The q=4 unit-tangent central extension is a pullback of the four-braid center extension, and the supplied relation character transgresses to its Euler class | **PROVED CALIBRATION** | The paths are supplied, the character is not Paper I affine torsion, no injectivity claim is needed, and the inverse full-twist closure (T(4,-4)) is not the cusp link (T(2,4)). |
 | P3-H7 | A general marked-history coefficient-path functor sends operator-kernel residue to a pure or framed braid | **STRUCTURAL PROPOSAL / OPEN** | The neutral word (omega_4) must be tested; P3-H6 matches an extension class but does not prove history-natural path selection. |
+| P3-L1 | For the supplied sextic (P_0=x^6-x), the event polynomial is (Q_0(t)=t^5+5^5/6^6), with five simple critical points and values | **PROVED BY DIRECT CALCULATION** | The event polynomial records singular parameters of the pencil (P_0-t); it is not the root polynomial of (P_0) itself. |
+| P3-L2 | The regular sextic Lyashko--Looijenga map is a finite etale cover of degree (1296), with (216) free residual source-rotation orbits | **CLASSICAL LL THEOREM SPECIALIZED AND AUDITED** | The (1296) points are monic-centered coordinate sheets.  Neither (1296) nor (216) counts pairwise nonisomorphic genus-two curves. |
+| P3-L3 | The nested LL discriminant has caustic multiplicity three and Maxwell multiplicity two | **CLASSICAL LL BIFURCATION INPUT WITH LOCAL MODELS CHECKED** | Root collision, critical-value collision, caustic degeneration, and a real carrier wall are different strata. |
+| P3-L4 | Meridians of the five critical values of (P_0) act by half-twists along a spanning star and generate (B_6) | **PROVED FOR THE DISPLAYED PENCIL USING CLASSICAL LOCAL MONODROMY** | This realizes six-braids before closure; no Markov invariant follows. |
+| P3-L5 | A loop avoiding the critical values gives one compatible real carrier, six-sheet root thread, and genus-two branched-cover mapping torus | **PROVED WITH THE PRINTED TRANSVERSALITY, DISC, AND FILLING CONVENTIONS** | Carrier saddles are horizontal-wall crossings; the compactifying filling is not the ordinary (S^3) braid closure. |
+| P3-L6 | The sextic pencil surjects onto the genus-two mapping class group and has full integral symplectic monodromy; modulo two the shadow is the six-root permutation | **CLASSICAL BIRMAN--HILDEN / SYMPLECTIC INPUT SPECIALIZED AND AUDITED** | The compactification first retains the two points over infinity; no false identification (B_6/Z(B_6)=Mod(Sigma_2)) is made. |
+| P3-L7 | The mixed critical-value/test-parameter braid extension pulls back along LL and maps to the six-root braid group | **PROVED EXACT-SEQUENCE MODEL** | There is no canonical homomorphism (B_5 to B_6) after the LL sheet is forgotten; the pullback or the equivalent Hurwitz groupoid is required. |
+| P3-L8 | The fiber (y^2=x^6-x-1) has full (S_6) root Galois group, geometric endomorphism ring (Z), and full mod-two Jacobian image | **PROVED FROM CITED CLASSICAL IRREDUCIBILITY, GALOIS, AND ZARHIN CRITERIA** | The common target (Sp_4(F_2) isomorphic to S_6) does not canonically identify arithmetic Frobenius with a topological loop. |
+| P3-L9 | Two source-rotation orbits in one explicit LL fiber give distinct genus-two Igusa points and different arithmetic/period data | **FINITE LL--IGUSA TWIN TEST / OPEN** | The finite system has not been solved and no pair of nonisomorphic curves has yet been certified. |
 
 ### Abstract-level authorization
 
@@ -3278,6 +3287,11 @@ It may also advertise P3-H1--P3-H6 as supplied polynomial-carrier, marked q=4
 logarithmic-cone, and central-extension calibration theorems, provided P3-H7, the
 arithmetic-descent and radial-extension choices, the non-tube saddle boundary,
 and the distinction between two- and four-strand outputs remain explicit.
+It may advertise P3-L1--P3-L8 as one explicit sextic/LL laboratory only when the
+classical inputs are attributed, the two braid layers and their mixed pullback are
+kept typed, and the normalized-sheet count is not converted into a curve count.
+P3-L9 and every unrestricted AEG-history selection of an LL sheet or coefficient
+path remain open.
 
 ### Number-theoretic limitation
 
@@ -3473,4 +3487,43 @@ class or factorization data.
   Alexander/Burau; an associator interpretation of the variable-multiplier anomaly.
 - **Papers affected:** Paper III; Paper I and Paper II are imported without changing
   their theorems.
+- **Date:** 2026-08-06.
+
+## Status change S-0008
+
+- **Claim ID:** P3-L1--P3-L9; P3-H7; P3-R3.
+- **Previous status:** the quadratic threaded-carrier family supplied only
+  two-strand abelian monodromy; no fixed displayed polynomial had been shown to
+  generate every braid in a nonabelian braid group, and no LL forgetting map had
+  been integrated with the carrier/thread and arithmetic layers.
+- **New status:** P3-L1 and P3-L4--P3-L5 and P3-L7 are `PROVED WITH STATED
+  HYPOTHESES`; P3-L2--P3-L3, P3-L6, and P3-L8 are `CLASSICAL INPUTS
+  SPECIALIZED AND AUDITED`; P3-L9, P3-H7, and P3-R3 remain `OPEN`.
+- **Exact proved statements:** the supplied pencil `x^6-x-t` has the displayed
+  critical-value quintic; its five local half-twists form a spanning star and
+  generate `B_6`; every collision-free loop defines the printed carrier, root
+  thread, and genus-two branched-cover mapping torus; and the mixed braid extension
+  and its LL pullback give the typed relation between critical-value transport and
+  six-root transport.
+- **Classical inputs:** LL finiteness, etaleness and degree `1296`; the free
+  `mu_6` source-rotation quotient to `216` orbits; caustic/Maxwell multiplicities;
+  transposition factorizations; Birman--Hilden lifting; genus-two mapping-class and
+  symplectic surjectivity; and the irreducibility, Galois, and endomorphism criteria
+  for `y^2=x^6-x-1`.
+- **Counting boundary:** `1296` counts normalized LL sheets and `216` counts their
+  source-rotation orbits.  No statement counts nonisomorphic genus-two curves until
+  P3-L9 is completed.
+- **Claims deliberately not promoted:** a canonical `B_5 -> B_6` homomorphism;
+  equality of carrier wall crossings with root collisions; a generic dessin
+  interpretation; elementwise identification of Frobenius and topological
+  monodromy; LL--Igusa twins; an unrestricted AEG-history functor; Markov descent;
+  or a new knot invariant.
+- **Proof location:** Paper III section `05-sextic-ll-laboratory.tex`.
+- **Papers affected:** Paper III only; Papers I and II are imported without theorem
+  changes.
+- **Artifact verification:** the canonical `./build.sh 3` release build is clean;
+  the 78-page, 809,341-byte PDF has SHA-256
+  `d5bf667041dc6ce52189f840a5a691c4d8c6eed1126705911937a907fb74f816`.
+  Static closure and all-page visual inspection pass as recorded in the audit and
+  Paper III closure reports.
 - **Date:** 2026-08-06.

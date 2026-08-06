@@ -389,3 +389,55 @@ the circle parameter.  These
 root paths are supplied data; their inverse full-twist closure is (T(4,-4)), not
 the cusp link (T(2,4)), and no general history-natural coefficient-path functor
 follows.
+
+## D3-26 — The sextic LL laboratory is a typed forgetting map, not a curve count
+
+The supplied sparse sextic
+
+[
+P_0(x)=x^6-x
+]
+
+now gives Paper III one explicit nonabelian laboratory.  Its event polynomial is
+the critical-value quintic
+
+[
+Q_0(t)=6^{-6}\operatorname{Disc}_x(P_0(x)-t)
+=t^5+\frac{5^5}{6^6}.
+]
+
+The five local vanishing arcs form a six-vertex spanning star and their
+half-twists generate (B_6).  A collision-free parameter loop simultaneously
+produces the printed real carrier, the six-root thread, and a genus-two
+branched-cover mapping torus.  Carrier saddle walls, root collisions,
+critical-value collisions, caustic/Maxwell events, and singular fibers of the
+hyperelliptic pencil are retained as distinct strata.
+
+The Lyashko--Looijenga theorem, its degree calculation, the
+caustic/Maxwell multiplicities, Birman--Hilden lifting, symplectic monodromy,
+and the arithmetic Galois/endomorphism criteria are classical inputs, not AEG
+theorems.  In the chosen monic-centered coordinates the regular LL fiber has
+(6^4=1296) normalized sheets.  The residual free source rotation by (\mu_6)
+gives (216) orbits.  Neither number counts pairwise nonisomorphic genus-two
+curves.
+
+Critical-value braiding and six-root braiding are joined only on the typed
+mixed configuration space.  Paper III uses
+
+[
+1\longrightarrow F_5\longrightarrow B_{5,1}\longrightarrow B_5
+\longrightarrow1
+]
+
+and its pullback along the LL cover (equivalently, the corresponding Hurwitz
+groupoid).  It does not assert a canonical homomorphism (B_5\to B_6) after the
+LL sheet has been forgotten.
+
+The full genus-two mapping-class, integral symplectic, mod-two permutation, and
+displayed arithmetic-fiber conclusions are available through the stated
+specializations.  Nevertheless, the common abstract target
+(\operatorname{Sp}_4(\mathbb F_2)\cong S_6) does not canonically identify a
+Frobenius element with a topological loop.  The LL--Igusa twin calculation and
+the natural selection of an LL sheet or mixed-braid path by an unrestricted AEG
+history remain open.  Until those tests are completed, no new moduli invariant,
+history-natural knot invariant, or count of nonisomorphic curves is claimed.

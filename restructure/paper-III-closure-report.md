@@ -361,3 +361,43 @@ threaded-carrier section, the logarithmic-tangent and LHS proofs, the conclusion
 bibliography, and final claim ledger; no clipping, collision, broken glyph, blank
 content page, or unreadable element was found.  Independent mathematical and
 claim-boundary reviews report zero blocking and zero major findings after repair.
+
+## 13. M-0008 sextic LL laboratory amendment (2026-08-06)
+
+Migration M-0008 inserts `05-sextic-ll-laboratory.tex` after the polynomial
+threaded-carrier section.  The canonical Paper III closure is therefore now 17
+TeX files: the entry point, 13 sections, and 3 appendices.
+
+The new section directly computes the event polynomial for (P_0=x^6-x), proves
+the spanning-star (B_6) monodromy for the displayed pencil, and constructs its
+compatible real carrier, six-root thread, mixed-braid pullback, and genus-two
+mapping tori.  LL finiteness and degree, the (1296)-sheet normalized fiber and
+(216) residual source-rotation orbits, caustic/Maxwell multiplicities,
+Birman--Hilden and symplectic results, and the arithmetic Galois/endomorphism
+criteria are explicitly classical inputs.  Neither (1296) nor (216) is a count
+of nonisomorphic curves.
+
+The mixed exact sequence replaces any putative canonical (B_5\to B_6) map.
+Carrier wall crossings, root collisions, and spectral degenerations are not
+identified.  The isomorphism (\operatorname{Sp}_4(\mathbb F_2)\cong S_6) is a
+common finite target, not an elementwise identification of arithmetic and
+topological monodromy.  The LL--Igusa twin test and selection of an LL sheet or
+coefficient path by an unrestricted AEG history remain open.
+
+The canonical `./build.sh 3` release build and visual audit give:
+
+| Property | M-0008 integration artifact |
+|---|---:|
+| Pages | 78 |
+| File size | 809,341 bytes |
+| SHA-256 | `d5bf667041dc6ce52189f840a5a691c4d8c6eed1126705911937a907fb74f816` |
+| Canonical TeX files | 17: entry point, 13 sections, 3 appendices |
+| Active labels | 322, all unique |
+| Reference targets | 157, all resolved |
+| Citation keys used | 30, all present in the 48-key shared bibliography |
+| Build-log status | Clean: no warning, undefined reference/citation, or over/underfull box diagnostic |
+| Visual-review status | All 78 pages rendered; the repaginated manuscript, new figure, exact diagrams, claim ledger, and bibliography were inspected with no clipping, collision, blank content page, or broken glyph found |
+
+This amendment does not supersede the verified M-0007 artifact above.  It records
+the later M-0008 release snapshot and its stricter mathematical and provenance
+boundary.
