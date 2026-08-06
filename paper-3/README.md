@@ -64,10 +64,24 @@ The manuscript proves:
   `Q_0(t)=t^5+5^5/6^6` has exactly `1296` coordinate-normalized sextic lifts,
   or `216` residual source-rotation orbits; these counts are not advertised as
   counts of nonisomorphic curves;
+- an explicit LL--Igusa twin: a second lift outside the source-rotation orbit of
+  `x^6-x` has the same `Q_0`, but its `t=1` genus-two curve has a different
+  absolute ratio built from the quadratic Igusa--Clebsch invariant and the
+  discriminant, proving that the event polynomial forgets genuine complex
+  moduli;
+- the degree-`216` quotient-cover observable packages its sheet values into a
+  single-valued spectral polynomial with trace--norm descent; canonical averaging
+  splits off constants and gives a monodromy-invariant finite-fiber variance with
+  an exact positive lower bound at `Q_0`, without claiming constancy along every
+  open path in the LL base;
+- along the two explicit `t`-pencils the ratio is `((t-beta)/t)^5`, with balanced
+  divisor charge `5[beta]-5[0]` at two regular fibers; this is a logarithmic
+  charge, not a finite Dirichlet energy;
 - the arithmetic fiber `y^2=x^6-x-1`, whose branch polynomial has Galois group
   `S_6` and whose Jacobian has geometric endomorphism ring `Z`, together with an
-  explicit open LL--Igusa test for geometry, Frobenius, and periods forgotten by
-  the event polynomial;
+  open full `216`-orbit census and arithmetic, period, and marked-monodromy
+  refinements of the proved geometric twin; a Hodge- or Siegel-metric energy
+  comparison also remains open;
 - a surjective operator-quotient map from primitive hyperbolic `q=4` histories
   to Hecke periodic-orbit knots, together with the explicit cusp-linking turn
   sum and the zero-dessin coding-spine theorem;
@@ -111,7 +125,9 @@ particular:
   matches the central extension only after its root paths have been supplied;
 - the `1296` LL lifts are normalized polynomial realizations, not `1296`
   pairwise nonisomorphic curves, and neither an LL sheet nor a parameter loop has
-  yet been selected by a general marked arithmetic history;
+  yet been selected by a general marked arithmetic history; the twin theorem
+  proves only that at least two source-rotation orbits give different moduli, not
+  a classification of all `216` orbits;
 - a smooth total zero set is not automatically a tube;
 - a tube is not automatically an embedded or threaded tube;
 - braid-level data are not automatically knot invariants;

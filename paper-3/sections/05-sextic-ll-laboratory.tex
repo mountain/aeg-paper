@@ -630,7 +630,7 @@ topological monodromy without a comparison path and basepoint.  It says instead
 that neither side is made rich by an accidental extra symmetry of the chosen
 Jacobian.
 
-\subsection{What the conjunction proves, and the next falsifiable experiment}
+\subsection{What the conjunction proves, and an explicit LL--Igusa twin}
 
 The strongest proved conclusion is not that one has listed many familiar
 objects.  It is the following conjunction for one sparse integral pencil:
@@ -657,52 +657,381 @@ reconnections.  It does not produce a proper zero tube, and it does not yet
 validate arithmetic-history naturality.  The loop $\gamma$, or the LL sheet
 $P$, has not yet been forced by a typed add--multiply history.
 
-The finite LL fiber makes that missing naturality test concrete.
+The finite LL fiber makes that missing naturality test concrete.  Its first
+geometric part can in fact be completed without enumerating all $1296$ sheets.
 
-\begin{problem}[The LL--Igusa twin test]
+Put
+\begin{equation}
+ R=-\frac{3^{12}5^{10}}{2^{14}},
+ \qquad
+ \alpha<0,
+ \qquad
+ \alpha^{15}=R,
+ \qquad
+ \delta\in\C,
+ \qquad
+ \delta^2=\frac{64\alpha^5}{253125},
+ \label{eq:explicit-ll-twin-parameters}
+\end{equation}
+and choose either square root $\delta$.  Define
+\begin{equation}
+ P_1(x)=x^6+\alpha x^4+\frac4{15}\alpha^2x^2
+       +\delta x+\frac8{675}\alpha^3.
+ \label{eq:explicit-ll-twin-polynomial}
+\end{equation}
+
+\begin{theorem}[An explicit LL--Igusa twin]
+\label{thm:explicit-ll-igusa-twin}
+The two monic centered sextics $P_0=x^6-x$ and $P_1$ belong to distinct
+$\mu_6$-orbits in the same reduced LL fiber:
+\begin{equation}
+ Q_{P_0}(t)=Q_{P_1}(t)=t^5+\frac{5^5}{6^6}.
+ \label{eq:explicit-ll-twin-same-event-polynomial}
+\end{equation}
+Nevertheless the common regular slice $t=1$ gives nonisomorphic complex
+genus-two curves:
+\begin{equation}
+ C_0:y^2=x^6-x-1,
+ \qquad
+ C_1:y^2=P_1(x)-1,
+ \qquad
+ C_0\not\cong_{\C}C_1.
+ \label{eq:explicit-ll-twin-curves}
+\end{equation}
+Consequently the genus-two moduli reading of the slice does not factor through
+the LL event polynomial, even on the single finite fiber over $Q_0$.
+\end{theorem}
+
+\begin{proof}
+The sparse normalized polynomial
+\begin{equation}
+ S(x)=x^6+x^4+\frac4{15}x^2
+      +\frac8{225\sqrt5}x+\frac8{675}
+ \label{eq:explicit-ll-twin-normalized-polynomial}
+\end{equation}
+satisfies the exact Sylvester-resultant identity
+\begin{equation}
+ 6^{-6}\operatorname{disc}_x(S(x)-t)
+ =t^5-\frac{256}{3^{18}5^5}.
+ \label{eq:explicit-ll-twin-normalized-resultant}
+\end{equation}
+One way to find it is to start with
+$x^6+x^4+cx^2+dx+e$, set the four nonconstant lower coefficients of
+its event quintic to zero, and eliminate: the reduced equations give
+$15c-4=0$, $253125d^2-64=0$, and $e=8/675$.
+
+For a scalar $\lambda\ne0$, the polynomial
+$\lambda^6S(x/\lambda)$ has critical values $\lambda^6$ times those of
+$S$.  Hence
+\begin{equation}
+ Q_{\lambda^6S(x/\lambda)}(t)
+ =\lambda^{30}Q_S(t/\lambda^6)
+ =t^5-\frac{256\lambda^{30}}{3^{18}5^5}.
+ \label{eq:explicit-ll-twin-scaling}
+\end{equation}
+Choose $\lambda^2=\alpha$ and the sign of $\lambda$ so that
+$\frac8{225\sqrt5}\lambda^5=\delta$.  The relation on $\delta^2$ makes
+this possible, and $\lambda^{30}=\alpha^{15}=R$.  Equations
+\eqref{eq:explicit-ll-twin-normalized-resultant}--
+\eqref{eq:explicit-ll-twin-scaling} then give
+\eqref{eq:explicit-ll-twin-same-event-polynomial}.  Since $Q_0$ is
+square-free, $P_1$ lies in the finite \`etale locus and is a reduced LL sheet.
+Its $x^4$ coefficient is nonzero, whereas every source rotation of $P_0$ has
+zero $x^4$ coefficient, so the two sheets lie in distinct $\mu_6$-orbits.
+
+It remains to compare the curves without choosing numerical roots.  For a
+binary sextic
+\begin{equation}
+ F(X,Z)=\sum_{k=0}^6 c_kX^{6-k}Z^k
+ \label{eq:binary-sextic-for-twin}
+\end{equation}
+set
+\begin{equation}
+ A(F)=\sum_{k=0}^6
+       \frac{(-1)^kc_kc_{6-k}}{\binom6k},
+ \qquad
+ \mathcal J(F)=\frac{A(F)^5}{\operatorname{disc}(F)}.
+ \label{eq:quadratic-clebsch-absolute-ratio}
+\end{equation}
+Up to one fixed nonzero normalization, $A$ is the quadratic
+Igusa--Clebsch invariant $I_2$: explicitly,
+$(F,F)_6=(6!)^2A(F)$.  Under a $\operatorname{GL}_2$ change of variables,
+$A$ has determinant weight $6$ and the discriminant has determinant weight
+$30$; under $F\mapsto rF$ they have degrees $2$ and $10$.  Thus
+$\mathcal J$ is unchanged by both operations and is an absolute genus-two
+isomorphism invariant \cite{Igusa1960ArithmeticVariety}.
+
+Both sextics at $t=1$ have discriminant
+\begin{equation}
+ 6^6Q_0(1)=6^6+5^5=49781,
+ \label{eq:explicit-ll-twin-common-discriminant}
+\end{equation}
+whereas direct substitution in \eqref{eq:quadratic-clebsch-absolute-ratio}
+gives
+\begin{equation}
+ A(P_0-1)=-2,
+ \qquad
+ A(P_1-1)=-2+\frac8{135}\alpha^3<-2.
+ \label{eq:explicit-ll-twin-clebsch-values}
+\end{equation}
+The two values of $\mathcal J$ are therefore different.  Every isomorphism
+between complex genus-two curves descends, by uniqueness of the hyperelliptic
+involution, to a projective transformation of their branch lines.  The
+$\mathcal J$ discrepancy consequently proves
+\eqref{eq:explicit-ll-twin-curves}.  The exact resultant and invariant checks
+are reproduced by
+\texttt{paper-3/computations/ll-igusa-twin/verify-explicit-twin.py}.
+\end{proof}
+
+\subsection{What forgetting preserves: spectrum, variance, and divisor charge}
+
+The explicit pair also gives a precise, limited sense in which information
+forgotten by the LL map reappears as an energy.  Put
+\begin{equation}
+ \mathcal U_5^{(1)}
+ =\{Q\in\mathcal U_5:Q(1)\ne0\},
+ \qquad N=216,
+ \label{eq:ll-energy-base}
+\end{equation}
+and quotient the degree-$1296$ LL cover by the free source-rotation action:
+\begin{equation}
+ \overline{\operatorname{LL}}_6:
+ \overline{\mathcal P}_6^{(1)}
+ =\operatorname{LL}_6^{-1}(\mathcal U_5^{(1)})/\mu_6
+ \longrightarrow \mathcal U_5^{(1)}.
+ \label{eq:ll-quotient-cover-for-energy}
+\end{equation}
+This is a finite \`etale cover of degree $N$.  For a point $[P]$ of its fiber,
+let
+\begin{equation}
+ \jmath([P])
+ =\mathcal J(P(x)-1)
+ =\frac{A(P(x)-1)^5}{\operatorname{disc}(P(x)-1)}.
+ \label{eq:ll-sheet-moduli-observable}
+\end{equation}
+The ratio is unchanged by $P(x)\mapsto P(\xi x)$, so it is well defined on
+the quotient.
+
+\begin{proposition}[Spectral descent and finite-fiber forgetting energy]
+\label{prop:ll-forgetting-energy}
+For $Q\in\mathcal U_5^{(1)}$, write
+$\mathcal F_Q=\overline{\operatorname{LL}}_6^{-1}(Q)$ and set
+\begin{equation}
+ V_Q=\operatorname{Map}(\mathcal F_Q,\C),
+ \qquad
+ \operatorname{av}_Q(f)=\frac1N\sum_{p\in\mathcal F_Q}f(p),
+ \qquad
+ V_Q^0=\ker(\operatorname{av}_Q).
+ \label{eq:ll-averaging-space}
+\end{equation}
+Then the permutation representation of LL monodromy preserves the canonically
+split exact sequence
+\begin{equation}
+ 0\longrightarrow V_Q^0\longrightarrow V_Q
+ \xrightarrow{\ \operatorname{av}_Q\ }\C\longrightarrow0.
+ \label{eq:ll-averaging-exact-sequence}
+\end{equation}
+The sheet observable $\jmath_Q=(\jmath(p))_{p\in\mathcal F_Q}$ has the
+monodromy-invariant, nonnegative variance
+\begin{align}
+ \mathcal E_{\mathrm{LL}}(Q)
+ &=\frac1N\sum_{p\in\mathcal F_Q}
+   \left|\jmath(p)-\operatorname{av}_Q(\jmath_Q)\right|^2
+ \label{eq:ll-forgetting-energy}\\
+ &=\frac1{N^2}\sum_{\{p,q\}\subset\mathcal F_Q}
+   |\jmath(p)-\jmath(q)|^2.
+ \label{eq:ll-forgetting-energy-pairwise}
+\end{align}
+It vanishes exactly when this moduli reading is constant on the fiber.
+
+The algebraic object retained after forgetting the sheet is the spectral
+polynomial
+\begin{equation}
+ \Theta_Q(T)
+ =\operatorname{Nm}_{\overline{\mathcal P}_6^{(1)}/\mathcal U_5^{(1)}}
+   (T-\jmath)
+ =\prod_{p\in\mathcal F_Q}(T-\jmath(p)).
+ \label{eq:ll-moduli-spectral-polynomial}
+\end{equation}
+Its coefficients are regular single-valued functions of $Q$, given by traces,
+norms, and higher symmetric functions of the sheet values.
+
+At $Q_0$, Theorem~\ref{thm:explicit-ll-igusa-twin} gives the exact positive
+lower bound
+\begin{equation}
+ \mathcal E_{\mathrm{LL}}(Q_0)
+ \ge
+ \frac{1}{216^2\,49781^2}
+ \left|
+  \left(-2+\frac8{135}\alpha^3\right)^5+32
+ \right|^2
+ >0.
+ \label{eq:ll-forgetting-energy-lower-bound}
+\end{equation}
+In particular, $\Theta_{Q_0}$ is not a $216$th power of one linear factor.
+\end{proposition}
+
+\begin{proof}
+The source-rotation action is free by
+Theorem~\ref{thm:sextic-ll-event-schedule}, so
+\eqref{eq:ll-quotient-cover-for-energy} is finite \`etale of degree $216$.
+Moreover
+\begin{equation}
+ \operatorname{disc}(P(x)-1)=6^6Q(1),
+ \label{eq:ll-energy-common-denominator}
+\end{equation}
+and the numerator in \eqref{eq:ll-sheet-moduli-observable} is polynomial in
+the coefficients of $P$.  Thus $\jmath$ is regular on the stated open set.
+Its invariance under source rotations follows from the
+$\operatorname{GL}_2$ invariance proved in
+Theorem~\ref{thm:explicit-ll-igusa-twin}.
+
+Monodromy only permutes the $N$ points.  It therefore preserves averaging,
+the constant functions, the zero-sum kernel, and the Hermitian product
+\begin{equation}
+ \langle f,g\rangle_Q
+ =\frac1N\sum_{p\in\mathcal F_Q}f(p)\overline{g(p)}.
+ \label{eq:ll-permutation-hermitian-product}
+\end{equation}
+Orthogonal projection onto the constants gives
+\eqref{eq:ll-forgetting-energy}; the standard variance identity gives
+\eqref{eq:ll-forgetting-energy-pairwise}.  Finite-flat norm descent gives
+\eqref{eq:ll-moduli-spectral-polynomial}.
+
+Finally, the two distinct source-rotation orbits already exhibited have values
+\begin{equation}
+ \jmath([P_0])=-\frac{32}{49781},
+ \qquad
+ \jmath([P_1])
+ =\frac{\left(-2+\frac8{135}\alpha^3\right)^5}{49781}.
+ \label{eq:ll-twin-sheet-observable-values}
+\end{equation}
+Their pair is one term of the nonnegative sum in
+\eqref{eq:ll-forgetting-energy-pairwise}, proving
+\eqref{eq:ll-forgetting-energy-lower-bound}.
+\end{proof}
+
+The word \emph{energy} in Proposition~\ref{prop:ll-forgetting-energy} has a
+strict boundary.  The function $\mathcal E_{\mathrm{LL}}$ is independent of
+sheet labels and returns to the same value around a closed LL loop, but it need
+not be constant along an arbitrary open path in $\mathcal U_5^{(1)}$ because
+$\jmath_Q-\operatorname{av}_Q(\jmath_Q)\mathbf1$ is not generally a flat
+section.  On genus-two homology, the genuinely Gauss--Manin-conserved form is
+the alternating intersection pairing.  Full
+$\operatorname{Sp}_4(\Z)$ monodromy precludes a positive-definite form fixed by
+all monodromy.  Thus \eqref{eq:ll-forgetting-energy} is a finite-fiber
+information variance, not a Noether or Dirichlet energy.
+
+There is nevertheless an exact conserved charge along the two displayed
+$t$-pencils.  Let
+\begin{equation}
+ \mathcal J_i(t)=\mathcal J(P_i(x)-t),
+ \qquad
+ \beta=\frac4{135}\alpha^3<0.
+ \label{eq:ll-twin-moving-invariants}
+\end{equation}
+
+\begin{corollary}[Displaced invariant divisor]
+\label{cor:ll-twin-displaced-invariant-divisor}
+The two pencils satisfy
+\begin{equation}
+ A(P_0-t)=-2t,
+ \qquad
+ A(P_1-t)=-2(t-\beta),
+ \qquad
+ \frac{\mathcal J_1(t)}{\mathcal J_0(t)}
+ =\left(\frac{t-\beta}{t}\right)^5.
+ \label{eq:ll-twin-moving-invariant-ratio}
+\end{equation}
+Both $t=0$ and $t=\beta$ are regular fibers, and on $\P^1_t$
+\begin{equation}
+ \operatorname{div}\!\left(\frac{\mathcal J_1}{\mathcal J_0}\right)
+ =5[\beta]-5[0].
+ \label{eq:ll-twin-divisor-charge}
+\end{equation}
+Equivalently, the logarithmic derivative has residues $+5$ and $-5$ and total
+residue zero.
+\end{corollary}
+
+\begin{proof}
+Direct substitution into \eqref{eq:quadratic-clebsch-absolute-ratio} gives the
+first two formulas.  The discriminants cancel because both event polynomials
+are $Q_0$.  Also $Q_0(0)\ne0$, while
+\begin{equation}
+ \beta^5
+ =-\frac{5^5}{2^4 3^3}
+ \ne-\frac{5^5}{6^6},
+ \label{eq:ll-twin-beta-not-discriminant}
+\end{equation}
+so $Q_0(\beta)\ne0$.  The divisor and residue statements follow from the
+last expression in \eqref{eq:ll-twin-moving-invariant-ratio}.
+\end{proof}
+
+Thus one and the same forgotten difference has two complementary forms.  Across
+the finite LL fiber it is the zero-sum component in
+\eqref{eq:ll-averaging-exact-sequence}, with positive norm
+\eqref{eq:ll-forgetting-energy}; along the slice parameter it is the displacement
+of a smooth internal invariant divisor, with the balanced charge
+\eqref{eq:ll-twin-divisor-charge}.  A Hodge- or Siegel-metric energy comparison
+would be a deeper analytic refinement and remains part of
+Problem~\ref{prob:ll-igusa-twin-test}.
+
+\begin{remark}[Relation to recent work of Farb and collaborators]
+\label{rem:sextic-farb-relation}
+Farb--Kisin--Wolfson relate the general sextic to level-$2$
+hyperelliptic modular functions and use the exceptional
+$S_6\cong\operatorname{Sp}_4(\F_2)$ representation in resolvent problems
+\cite{FarbKisinWolfson2023Modular}.  Farb--Wolfson study the resolvent degree
+of the same sextic/configuration-space geometry
+\cite{FarbWolfson2019Resolvent}, while Farb--Looijenga's Wiman--Edge work is a
+model for reading geometry, monodromy, arithmetic, and periods from one pencil
+\cite{FarbLooijenga2021WimanEdge}.  By conceptual analogy, Farb's rigidity
+program supplies a broader language for asking when a moduli reading might
+factor through a coarser algebro-geometric construction
+\cite{Farb2024ModuliRigidity}.
+Their more recent relative-essential-dimension framework asks how much finite
+branched auxiliary data can compress a covering problem
+\cite{FarbWolfson2025RelativeEssentialDimension}; applying that question to the
+LL forgetting cover is a possible next step, not an input used below.
+
+Those works cover much of the lower passage from six branch points to
+genus-two modular and symplectic data.  They do not compute the LL fiber used
+here.  The statement established in
+Theorem~\ref{thm:explicit-ll-igusa-twin} is the
+upper, fiberwise nonfactorization: one fixed critical-value event polynomial
+has two explicit LL realizations with distinct genus-two moduli readings.  The
+Igusa quartic occurring in the level-$2$ Satake compactification and the
+Igusa--Clebsch invariant used in \eqref{eq:quadratic-clebsch-absolute-ratio}
+belong to the same genus-two invariant geometry but are not the same object.
+\end{remark}
+
+\begin{problem}[The full LL--Igusa census and deeper twins]
 \label{prob:ll-igusa-twin-test}
-Solve the finite system
-\begin{equation}
- 6^{-6}\operatorname{disc}_x(P(x)-t)
- =t^5+\frac{5^5}{6^6}
- \label{eq:ll-igusa-finite-system}
-\end{equation}
-for the $1296$ monic centered sextics, first quotienting the explicit $\mu_6$
-source rotations.  At the common regular value $t=1$, compare
-\begin{equation}
- C_{P,1}:y^2=P(x)-1
- \label{eq:ll-igusa-fiber-curves}
-\end{equation}
-and determine whether two LL sheets with the same $Q_0$ give distinct
-genus-two moduli points.  Compare their weighted-projective Igusa--Clebsch points
-$[I_2:I_4:I_6:I_{10}]$ \cite{Igusa1960ArithmeticVariety}; only on a chart where the chosen denominators are
-nonzero should these be replaced by absolute affine invariants.  For any such
-pair, place both polynomials in a common number field $K$, compare Frobenius
-characteristic polynomials at the same primes
-$\mathfrak p\subset\mathcal O_K$ where both have good
-reduction, and, after a complex embedding, compare reduced Siegel period
-matrices.  A difference at one good prime distinguishes the local arithmetic
-readings; agreement at finitely many primes is not an isomorphism proof.
+Enumerate the $1296$ monic centered sheets over $Q_0$, quotient the explicit
+$\mu_6$ source rotations, and determine the full image of the resulting $216$
+orbits in $\mathcal M_2$ at $t=1$.  Compare their complete
+weighted-projective Igusa--Clebsch points
+$[I_2:I_4:I_6:I_{10}]$; only on a chart where the chosen denominators are
+nonzero should these be replaced by absolute affine invariants.
 
-A stronger marked test first fixes a common ordering of the five critical
-values, a distinguished meridian path system, and a homology marking, then
-groups the LL sheets by simultaneous conjugacy of their five local
-$\operatorname{Sp}_4(\Z)$ transvections and searches inside one group for
-different Igusa points.  A coordinate-free version must additionally quotient
-by the Hurwitz action on the meridian system.  Success would prove that
-even
+Theorem~\ref{thm:explicit-ll-igusa-twin} settles existence of distinct
+geometric moduli points.  Still open is the finer census: place candidate
+pairs in a common number field, compare Frobenius characteristic polynomials
+at the same good primes, and compare reduced Siegel period matrices after a
+complex embedding.  A stronger marked test fixes a common critical-value
+ordering, meridian system, and homology marking, groups sheets by simultaneous
+conjugacy of their local $\operatorname{Sp}_4(\Z)$ transvections, and asks
+whether distinct Igusa points survive inside one such group after quotienting
+the Hurwitz action.  This would test whether even
 \begin{equation}
  Q_P+\text{coarse homological monodromy}
  \label{eq:ll-igusa-strong-forgetting-test}
 \end{equation}
-does not recover the geometry that $P\mapsto Q_P$ forgets.  Until this
-calculation is done, the $1296$ sheets must not be described as $1296$
-nonisomorphic curves.
+fails to recover the geometry forgotten by $P\mapsto Q_P$.
 \end{problem}
 
-This problem is deliberately narrower than a general history-to-divisor
-theory.  It asks first whether one completely explicit forgetting map has a
-geometric, arithmetic, and analytic kernel that can be measured in three
-complementary, layer-specific ways.  A positive answer would produce the requested profound
-example; a negative or highly collapsed answer would show exactly how much of
-the original tube intuition still needs a stronger carrier.
+The explicit twin is a genuine finite, exact instance of information loss:
+the event schedule does not determine the slice's complex geometry.  It does
+not yet make the sextic or its LL sheet natural in unrestricted AEG history,
+and it does not turn the remaining arithmetic and period comparisons into
+automatic consequences.
