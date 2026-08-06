@@ -1,7 +1,8 @@
 # Paper I Migration Log
 
 **Baseline:** `134e70a74ed010024afa7439bd3931402731423a`  
-**Canonical active manuscript:** `aeg-paper.tex` and `sections/foundations/`  
+**Canonical active manuscript:** `paper-1/aeg-paper-1.tex`, `paper-1/sections/`, and
+`paper-1/appendices/`
 **Rule:** legacy sources are retained until human review; exclusion from the active
 build is not deletion.
 
@@ -16,8 +17,8 @@ build is not deletion.
 
 | Source | State | Destination / treatment | Claim treatment |
 |---|---|---|---|
-| `aeg-paper.tex` | CANONICAL | Rewritten as the ten-section Paper I entry point | Claims limited to proved foundational results |
-| `sections/sec01.tex`–`sec12.tex` | ARCHIVAL | Replaced in the active build by `sections/foundations/` | Reused only after formula-level audit |
+| `paper-1/aeg-paper-1.tex` | CANONICAL | Rewritten as the ten-section Paper I entry point | Claims limited to proved foundational results |
+| `sections/sec01.tex`–`sec12.tex` | ARCHIVAL | Replaced in the active build by `paper-1/sections/` | Reused only after formula-level audit |
 | `../archive/revision-1/` | ARCHIVAL | Historical eight-section draft | Analytic material assigned to Paper II |
 | `../archive/revision-2/` | ARCHIVAL | Historical eight-section and Lean-support draft | Not a canonical Paper I source |
 | `../archive/arxiv/` | ARCHIVAL | Earlier distribution snapshot | DOI/release provenance retained |
@@ -89,3 +90,27 @@ The final artifact and all closure evidence are recorded in
 `paper-I-closure-report.md`.  Paper II--IV material remains in the legacy tree or its
 explicit destination record and is not imported through the active Paper I input
 closure.
+
+## Migration M-0002
+
+- Date: 2026-08-06
+- Source: `aeg-paper.tex`, `sections/foundations/`, and
+  `paper-II/`--`paper-IV/`
+- Destination: `paper-1/`--`paper-4/`
+- Migration state: CANONICAL / EXPORTED
+- Claim treatment: no mathematical claims changed
+- Theorem nodes affected: none
+- Notation changes: none
+- Content retained in source: legacy root `sections/sec*.tex` files remain archival
+- Content removed from source: none; canonical files were moved without mathematical edits
+- Build result: passed; `paper-1/aeg-paper-1.pdf` produced (60 pages)
+- Reviewer notes: Arabic-numbered top-level directories are now canonical
+
+## Naming convention N-0001
+
+- Source entry point: `paper-k/aeg-paper-k.tex`
+- Generated artifact: `paper-k/aeg-paper-k.pdf`
+- Current implementation: Paper I
+- Reserved future names: `paper-2/aeg-paper-2.tex` through
+  `paper-4/aeg-paper-4.tex`; no empty manuscript files are created before their
+  theorem sets stabilize

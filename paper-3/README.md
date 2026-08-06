@@ -1,7 +1,11 @@
 # Arithmetic Expression Geometry III — Singular Zero Geometry and Tubes
 
-This directory records the destination of singular, multi-zero, tube, braid, and knot
-material removed from Paper I.  It is not yet a completed manuscript.
+The top-level `paper-3/` directory records the destination of singular, multi-zero,
+tube, braid, and knot material removed from Paper I.  It is not yet a completed
+manuscript.
+
+When the manuscript entry point is created, its canonical source and artifact names
+will be `aeg-paper-3.tex` and `aeg-paper-3.pdf` in this directory.
 
 ## Imports from Paper I
 

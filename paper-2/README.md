@@ -1,7 +1,11 @@
 # Arithmetic Expression Geometry II — Hyperbolic Real Function Theory
 
-This directory is the declared destination for analytic material removed from Paper I.
+The top-level `paper-2/` directory is the declared destination for analytic material
+removed from Paper I.
 It is a scope and provenance record, not a claim that Paper II is complete.
+
+When the manuscript entry point is created, its canonical source and artifact names
+will be `aeg-paper-2.tex` and `aeg-paper-2.pdf` in this directory.
 
 ## Imports from Paper I
 

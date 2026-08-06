@@ -27,7 +27,8 @@ This document fixes the target structure of Paper I at the level of:
 * exclusions;
 * validation criteria.
 
-It is the authoritative chapter-level specification for restructuring the current `aeg-paper.tex`.
+It is the authoritative chapter-level specification for the current
+`paper-1/aeg-paper-1.tex`.
 
 It does not determine the final wording of the paper. It determines what the paper must establish, in what dependency order, and what material must be moved elsewhere.
 
@@ -343,7 +344,7 @@ The reader should understand:
 Primary sources:
 
 * `sections/sec01.tex`
-* abstract and introduction in `aeg-paper.tex`
+* abstract and introduction in `paper-1/aeg-paper-1.tex`
 * selected introductory material from `notes/bilateral_projective_condensation.tex`
 
 ---
@@ -2196,8 +2197,8 @@ Do not develop full loop theory.
 A possible target organization is:
 
 ```text
-paper-I/
-├── paper-I.tex
+paper-1/
+├── aeg-paper-1.tex
 ├── sections/
 │   ├── 01-introduction.tex
 │   ├── 02-sequential-histories.tex
@@ -2218,7 +2219,8 @@ paper-I/
 └── images/
 ```
 
-If the repository retains `aeg-paper.tex` as the Paper I entry point, the same logical division should be used under the existing paths.
+The repository now uses this logical division under `paper-1/`, with the appendices
+stored in the sibling `paper-1/appendices/` directory.
 
 The restructuring task must not rename every file before the mathematical audit is complete.
 

@@ -31,15 +31,15 @@ Do not treat every file as equally authoritative.
 The governing specifications are:
 
 * [`AGENTS.md`](AGENTS.md)
-* [`restructure/00-authoritative-scope.md`](restructure/00-authoritative-scope.md)
-* [`restructure/01-paper-series-architecture.md`](restructure/01-paper-series-architecture.md)
-* [`restructure/02-paper-I-outline.md`](restructure/02-paper-I-outline.md)
-* [`restructure/03-theorem-dependency-graph.md`](restructure/03-theorem-dependency-graph.md)
-* [`restructure/04-current-to-target-map.md`](restructure/04-current-to-target-map.md)
-* [`restructure/05-mathematical-status.md`](restructure/05-mathematical-status.md)
-* [`restructure/06-editorial-rules.md`](restructure/06-editorial-rules.md)
-* [`restructure/07-acceptance-checklist.md`](restructure/07-acceptance-checklist.md)
-* [`restructure/08-open-questions.md`](restructure/08-open-questions.md)
+* [`restructure/00-authoritative-scope.md`](00-authoritative-scope.md)
+* [`restructure/01-paper-series-architecture.md`](01-paper-series-architecture.md)
+* [`restructure/02-paper-I-outline.md`](02-paper-I-outline.md)
+* [`restructure/03-theorem-dependency-graph.md`](03-theorem-dependency-graph.md)
+* [`restructure/04-current-to-target-map.md`](04-current-to-target-map.md)
+* [`restructure/05-mathematical-status.md`](05-mathematical-status.md)
+* [`restructure/06-editorial-rules.md`](06-editorial-rules.md)
+* [`restructure/07-acceptance-checklist.md`](07-acceptance-checklist.md)
+* [`restructure/08-open-questions.md`](08-open-questions.md)
 
 When repository sources conflict, these documents determine the current scope, terminology, claim status, and migration policy.
 
@@ -534,11 +534,11 @@ Important results still requiring integration, convention checks, or proof compl
 
 The complete status register is:
 
-[`restructure/05-mathematical-status.md`](restructure/05-mathematical-status.md)
+[`restructure/05-mathematical-status.md`](05-mathematical-status.md)
 
 The unresolved decision register is:
 
-[`restructure/08-open-questions.md`](restructure/08-open-questions.md)
+[`restructure/08-open-questions.md`](08-open-questions.md)
 
 ---
 
@@ -607,12 +607,10 @@ aeg-paper/
 ├── README.md
 ├── build.sh
 ├── Dockerfile
-├── aeg-paper.bib
-│
-├── paper-I/
-├── paper-II/
-├── paper-III/
-├── paper-IV/
+├── paper-1/
+├── paper-2/
+├── paper-3/
+├── paper-4/
 │
 ├── shared/
 ├── notes/
@@ -621,7 +619,7 @@ aeg-paper/
 
 The current-to-target mapping is defined in:
 
-[`restructure/04-current-to-target-map.md`](restructure/04-current-to-target-map.md)
+[`restructure/04-current-to-target-map.md`](04-current-to-target-map.md)
 
 Substantive research material is moved or archived, not silently deleted.
 
@@ -661,13 +659,13 @@ Build warnings that must be reviewed include:
 The build system may later be extended to support:
 
 ```bash
-./build.sh paper-I
-./build.sh paper-II
-./build.sh paper-III
-./build.sh paper-IV
+./build.sh
 ```
 
-Paper I build stability takes priority during the transition.
+This builds the canonical Paper I source at `paper-1/aeg-paper-1.tex`.  Later paper
+entry points can be added when their theorem sets stabilize.  Every paper uses the
+uniform source/artifact names `paper-k/aeg-paper-k.tex` and
+`paper-k/aeg-paper-k.pdf`.
 
 ---
 
@@ -783,7 +781,7 @@ Paper I progresses through five acceptance levels:
 
 The complete checklist is:
 
-[`restructure/07-acceptance-checklist.md`](restructure/07-acceptance-checklist.md)
+[`restructure/07-acceptance-checklist.md`](07-acceptance-checklist.md)
 
 Paper I is release-ready only when:
 

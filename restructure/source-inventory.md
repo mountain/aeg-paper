@@ -19,35 +19,38 @@ legacy source.  Claim-level provenance is recorded in `migration-log.md`.
 | `LICENSE` | KEEP | Unchanged |
 | `README.md` | REWRITE | Four-paper entry point and DOI distinction |
 | `AGENTS.md` | NEW | Discovery pointer to `restructure/AGENTS.md` |
-| `aeg-paper.tex` | REWRITE / CANONICAL | Sole active Paper I entry point |
+| `paper-1/aeg-paper-1.tex` | REWRITE / CANONICAL | Sole active Paper I entry point |
 | `aeg-paper.bib` | KEEP / CLEAN | Shared bibliography; used entries audited |
-| `aeg-paper.pdf` | REBUILD | Fresh artifact from the canonical source |
+| `paper-1/aeg-paper-1.pdf` | REBUILD | Fresh artifact from the canonical source |
 | `build.sh` | STABILIZE | Strict four-pass Paper I build |
 | `aeg-lemma.tex` | HOLD | References absent sections 13--17; no Paper I dependency |
 
 The new canonical source tree is exactly:
 
 ```text
-sections/foundations/
-  01-introduction.tex
-  02-sequential-histories.tex
-  03-projective-affine.tex
-  04-affine-cocycles.tex
-  05-affine-flow.tex
-  06-hyperbolic-model.tex
-  07-zero-geometry.tex
-  08-acs-torsion.tex
-  09-contact-curvature.tex
-  10-conclusion.tex
-  appendices/app-A-conventions.tex
-  appendices/app-B-affine-cocycles.tex
-  appendices/app-C-hyperbolic-calculations.tex
-  appendices/app-D-acs-contact.tex
-  appendices/app-E-equality-neutrality.tex
+paper-1/
+  aeg-paper-1.tex
+  sections/
+    01-introduction.tex
+    02-sequential-histories.tex
+    03-projective-affine.tex
+    04-affine-cocycles.tex
+    05-affine-flow.tex
+    06-hyperbolic-model.tex
+    07-zero-geometry.tex
+    08-acs-torsion.tex
+    09-contact-curvature.tex
+    10-conclusion.tex
+  appendices/
+    app-A-conventions.tex
+    app-B-affine-cocycles.tex
+    app-C-hyperbolic-calculations.tex
+    app-D-acs-contact.tex
+    app-E-equality-neutrality.tex
 ```
 
-The later-paper destination records `paper-II/README.md`, `paper-III/README.md`, and
-`paper-IV/README.md` are new.  They define scope and provenance only; they are not
+The later-paper destination records `paper-2/README.md`, `paper-3/README.md`, and
+`paper-4/README.md` are new.  They define scope and provenance only; they are not
 additional build entry points.
 
 ## 2. Exhaustive baseline family classification
@@ -55,7 +58,7 @@ additional build entry points.
 | Baseline family | Files | Contents | State | Canonical destination |
 |---|---:|---|---|---|
 | root | 11 | metadata, Paper I entry, bibliography, PDF, build | mixed, itemized above | Paper I / repository |
-| `sections/` | 13 | legacy `sec01.tex`--`sec12.tex` | ARCHIVAL | audited portions rederived in `sections/foundations/`; analytic → II; tube → III; quotient → IV |
+| `sections/` | 13 | legacy `sec01.tex`--`sec12.tex` | ARCHIVAL | audited portions rederived in `paper-1/sections/`; analytic → II; tube → III; quotient → IV |
 | `restructure/` | 13 | authority, scope, dependency, status, editorial, acceptance, discussions | KEEP / AUTHORITATIVE | restructuring control plane |
 | `../archive/revision-1/` | 13 | alternate eight-section TeX build | ARCHIVAL | no active theorem authority |
 | `../archive/revision-2/` | 26 | alternate TeX build, PDF, Lean experiment and reports | ARCHIVAL / HOLD | formalization may be audited separately |
@@ -91,8 +94,9 @@ missing tracked files.
 
 ## 4. Active dependency closure
 
-The active `aeg-paper.tex` includes only the 15 files under
-`sections/foundations/`, followed by `aeg-paper.bib`.  It includes no legacy
+The active `paper-1/aeg-paper-1.tex` includes only the 15 files under
+`paper-1/sections/` and `paper-1/appendices/`, followed by the shared root
+`aeg-paper.bib`.  It includes no legacy
 `sections/sec*.tex`, no alternative manuscript, no external image, and no historical
 style.  This makes the Paper I build dependency closure explicit and prevents
 later-paper material from re-entering through an implicit include.

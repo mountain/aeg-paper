@@ -186,27 +186,27 @@ aeg-paper/
 ├── Dockerfile
 ├── aeg-paper.bib
 │
-├── paper-I/
-│   ├── paper-I.tex
+├── paper-1/
+│   ├── aeg-paper-1.tex
 │   ├── sections/
 │   ├── appendices/
 │   └── images/
 │
-├── paper-II/
+├── paper-2/
 │   ├── README.md
-│   ├── paper-II.tex
+│   ├── aeg-paper-2.tex
 │   ├── sections/
 │   └── notes/
 │
-├── paper-III/
+├── paper-3/
 │   ├── README.md
-│   ├── paper-III.tex
+│   ├── aeg-paper-3.tex
 │   ├── sections/
 │   └── notes/
 │
-├── paper-IV/
+├── paper-4/
 │   ├── README.md
-│   ├── paper-IV.tex
+│   ├── aeg-paper-4.tex
 │   ├── sections/
 │   └── notes/
 │
@@ -255,9 +255,9 @@ as active legacy paths.
 
 In that case:
 
-* `aeg-paper.tex` remains the Paper I entry point;
-* new target section names may be introduced under `sections/foundations/`;
-* migrated material may first be copied into `paper-II/`, `paper-III/`, and `paper-IV/`;
+* `paper-1/aeg-paper-1.tex` is the Paper I entry point;
+* canonical Paper I sections are under `paper-1/sections/` and `paper-1/appendices/`;
+* migrated material may be copied into `paper-2/`, `paper-3/`, and `paper-4/`;
 * the old source must remain until the new destination builds and has been reviewed.
 
 No source should be deleted merely because a target directory has been created.
@@ -316,7 +316,7 @@ The README must not claim that all arithmetic expressions have been embedded int
 
 ---
 
-## 7. `aeg-paper.tex`
+## 7. `paper-1/aeg-paper-1.tex`
 
 ### Current role
 
@@ -332,7 +332,7 @@ Main Paper I entry point, including:
 ### Migration state
 
 ```text
-REWRITE, then optionally MOVE to paper-I/paper-I.tex
+REWRITE, then MOVE to `paper-1/aeg-paper-1.tex`
 ```
 
 ### Target role
@@ -460,10 +460,7 @@ During transition it must continue to build Paper I.
 Later it may support:
 
 ```bash
-./build.sh paper-I
-./build.sh paper-II
-./build.sh paper-III
-./build.sh paper-IV
+./build.sh
 ```
 
 ### Validation
@@ -1152,7 +1149,7 @@ MOVE to Paper II
 Suggested:
 
 ```text
-paper-II/sections/
+paper-2/sections/
 ├── 01-analytic-data.tex
 ├── 02-horizontal-operators.tex
 ├── 05-arithmetic-holomorphicity.tex
@@ -1477,9 +1474,9 @@ MOVE to Paper II
 ### Target organization
 
 ```text
-paper-II/
+paper-2/
 ├── README.md
-├── paper-II.tex
+├── aeg-paper-2.tex
 ├── sections/
 │   ├── 01-analytic-data.tex
 │   ├── 02-horizontal-operators.tex
@@ -1546,7 +1543,7 @@ Otherwise it is moved entirely to Paper III.
 ### Paper III target organization
 
 ```text
-paper-III/sections/
+paper-3/sections/
 ├── 01-singular-aes.tex
 ├── 02-local-zero-models.tex
 ├── 03-multi-zero-constructions.tex
@@ -1681,7 +1678,7 @@ MOVE to Paper IV
 Suggested:
 
 ```text
-paper-IV/sections/
+paper-4/sections/
 ├── 06-representation-growth.tex
 ├── 07-cost-models.tex
 └── 08-time-space-relations.tex
@@ -2078,7 +2075,7 @@ Their mathematical claims must be restated and proved separately.
 Recommended creation:
 
 ```text
-sections/foundations/
+paper-1/sections/
 ├── 01-introduction.tex
 ├── 02-sequential-histories.tex
 ├── 03-projective-affine.tex
@@ -2107,7 +2104,7 @@ The legacy files must not be deleted until:
 Create as needed:
 
 ```text
-sections/foundations/appendices/
+paper-1/appendices/
 ├── app-A-conventions.tex
 ├── app-B-affine-cocycles.tex
 ├── app-C-hyperbolic-calculations.tex
@@ -2122,9 +2119,9 @@ sections/foundations/appendices/
 Create lightweight entry points:
 
 ```text
-paper-II/README.md
-paper-III/README.md
-paper-IV/README.md
+paper-2/README.md
+paper-3/README.md
+paper-4/README.md
 ```
 
 Each README must include:
@@ -2147,7 +2144,7 @@ Do not create polished abstracts for Papers II–IV before their theorem sets st
 | Current path                                  | Primary state  | Canonical target                           |
 | --------------------------------------------- | -------------- | ------------------------------------------ |
 | `README.md`                                   | REWRITE        | Root series README                         |
-| `aeg-paper.tex`                               | REWRITE        | Paper I entry point                        |
+| `paper-1/aeg-paper-1.tex`                     | REWRITE        | Paper I entry point                        |
 | `aeg-lemma.tex`                               | HOLD           | Audit, appendix, or archive                |
 | `aeg-paper.bib`                               | KEEP/CLEAN     | Shared bibliography                        |
 | `build.sh`                                    | KEEP/EXTEND    | Multi-paper build                          |

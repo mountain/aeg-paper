@@ -3,7 +3,7 @@
 **Status:** Active Paper I decision record  
 **Date:** 2026-08-06  
 **Baseline:** `134e70a74ed010024afa7439bd3931402731423a`  
-**Applies to:** the active `aeg-paper.tex` manuscript only
+**Applies to:** the active `paper-1/aeg-paper-1.tex` manuscript only
 
 This file records the conservative choices required to turn the Paper I status
 register into a coherent manuscript.  It does not change the scope of Papers IIâ€“IV.
@@ -181,8 +181,7 @@ register into a coherent manuscript.  It does not change the scope of Papers IIâ
 
 ## Repository and release decisions
 
-- **OQ-059:** mathematical restructuring remains at the root `aeg-paper.tex` path;
-  large path renaming is deferred.
+- **OQ-059:** superseded by the authorized move to the top-level `paper-1/` directory.
 - **OQ-060:** one shared bibliography is retained during migration.
 - **OQ-064:** the root README and manuscript explicitly distinguish the prior Zenodo
   DOI from the active restructured manuscript.

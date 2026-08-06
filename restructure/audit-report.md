@@ -4,7 +4,7 @@
 **Baseline date:** 2026-08-06  
 **Audit date:** 2026-08-06  
 **Canonical baseline entry point:** `aeg-paper.tex`  
-**Canonical target entry point:** `aeg-paper.tex`
+**Canonical target entry point:** `paper-1/aeg-paper-1.tex`
 
 ## 1. Scope of the audit
 
@@ -26,7 +26,8 @@ build trees coexist:
 - legacy `aeg-lemma.tex`;
 - standalone material under `misc/`, `notes/`, `knots/`, and `../archive/ideal_glass/`.
 
-Only the root entry point is treated as the active Paper I during restructuring.
+The audited root entry point was subsequently moved to `paper-1/aeg-paper-1.tex` after
+the structural migration was explicitly authorized.
 
 ## 2. Baseline build
 
@@ -127,8 +128,9 @@ Final evidence is appended to this report after integration and review.
 ## 6. Final integration evidence
 
 The active ten-section manuscript and five appendices now build to a fresh 60-page
-US-letter PDF.  The final artifact is 582,862 bytes, uses PDF 1.5, and has SHA-256
-`d557279a2e6e244ca29409906f65136bca3e7c298906c86502cdd72271d1f447`.
+US-letter PDF.  After the directory migration, the final artifact is 575,584 bytes
+and has SHA-256
+`98a8a9a2f35cbb2252cfc9576d447ca427a27f95815deaab03d3e3c9f7c04911`.
 
 The final active-source audit found 166 unique labels, no duplicate or missing
 references, no missing citation keys, and eight reproducible TikZ figures.  The

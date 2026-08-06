@@ -13,9 +13,11 @@ The active manuscript is:
 > **Arithmetic Expression Geometry I: Foundations**  
 > *Sequential Histories, Affine Flow, Torsion, and Contact Geometry*
 
-Its canonical entry point is [`aeg-paper.tex`](aeg-paper.tex).  The governing scope,
-mathematical-status register, migration map, and acceptance criteria are under
-[`restructure/`](restructure/README.md).
+Its canonical entry point is [`paper-1/aeg-paper-1.tex`](paper-1/aeg-paper-1.tex).  All
+four papers have top-level directories: [`paper-1/`](paper-1/),
+[`paper-2/`](paper-2/), [`paper-3/`](paper-3/), and [`paper-4/`](paper-4/).  The
+governing scope, mathematical-status register, migration map, and acceptance criteria
+are under [`restructure/`](restructure/README.md).
 
 ## Version and DOI
 
@@ -43,6 +45,9 @@ approval before its DOI metadata is changed.
 The later-paper directories currently record scope and provenance; they are not yet
 claims of completed papers.
 
+Paper entry points and generated PDFs follow the uniform convention
+`paper-k/aeg-paper-k.tex` and `paper-k/aeg-paper-k.pdf`, respectively.
+
 ## Building Paper I
 
 The local build requires `pdflatex` and `bibtex`:
@@ -51,8 +56,8 @@ The local build requires `pdflatex` and `bibtex`:
 ./build.sh
 ```
 
-The expected artifact is `aeg-paper.pdf`.  A container build remains available for
-environments with Docker:
+The expected artifact is `paper-1/aeg-paper-1.pdf`.  A container build remains
+available for environments with Docker:
 
 ```bash
 docker build -t aeg-paper .

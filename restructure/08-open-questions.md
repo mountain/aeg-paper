@@ -2023,7 +2023,7 @@ Choose examples with explicit state space, metric, and cost theorem.
 ## OQ-059 — Final repository layout
 
 **Priority:** P1
-**State:** CLOSED FOR PAPER I — root canonical entry retained
+**State:** CLOSED — top-level `paper-1/` canonical entry adopted
 
 ### Question
 
@@ -2034,7 +2034,7 @@ aeg-paper.tex
 sections/
 ```
 
-to:
+to the then-proposed Roman-numbered form:
 
 ```text
 paper-I/paper-I.tex
@@ -2054,6 +2054,12 @@ Complete the audit and confirm the build strategy.
 ### Owner
 
 Repository maintainer
+
+### Final resolution
+
+After the mathematical audit and build closure, the repository maintainer authorized
+the Arabic-numbered top-level layout.  The canonical paths are now
+`paper-1/aeg-paper-1.tex`, `paper-1/sections/`, and `paper-1/appendices/`.
 
 ---
 
@@ -2672,7 +2678,7 @@ questions or default rules.
 
 ## Resolution — OQ-059 and OQ-064
 
-- **Decision:** Retain `aeg-paper.tex` as the root canonical Paper I entry during
+- **Decision:** During mathematical restructuring, retain `aeg-paper.tex` as the root canonical Paper I entry; after closure, move it to `paper-1/aeg-paper-1.tex` during
   mathematical restructuring.  Identify the Zenodo DOI as an earlier archived
   version, not the current manuscript.
 - **Mathematical justification:** this minimizes path churn and prevents release

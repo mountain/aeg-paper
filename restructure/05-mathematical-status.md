@@ -3177,7 +3177,8 @@ A successful Paper I will be narrower than the full AEG vision, but mathematical
 # Part XX. Paper I integration status changes (2026-08-06)
 
 These entries supersede the integration-audit qualifiers in the earlier node records
-for the canonical source `aeg-paper.tex` and `sections/foundations/`.  They do not
+for the canonical source `paper-1/aeg-paper-1.tex`, `paper-1/sections/`, and
+`paper-1/appendices/`.  They do not
 promote any later-paper programme.
 
 ## Status change S-0001

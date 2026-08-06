@@ -1,7 +1,11 @@
 # Arithmetic Expression Geometry IV — Projective Condensation and Computational Complexity
 
-This directory records the destination of projective quotient, condensation, and
-complexity material outside Paper I.  It is not yet a completed manuscript.
+The top-level `paper-4/` directory records the destination of projective quotient,
+condensation, and complexity material outside Paper I.  It is not yet a completed
+manuscript.
+
+When the manuscript entry point is created, its canonical source and artifact names
+will be `aeg-paper-4.tex` and `aeg-paper-4.pdf` in this directory.
 
 ## Imports from Paper I
 

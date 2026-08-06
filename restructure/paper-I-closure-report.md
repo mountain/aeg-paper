@@ -19,7 +19,7 @@ Papers II--IV, author release approval, or DOI publication work is complete.
   build script was changed.
 - **Structural migration:** closed.  The active entry point contains ten foundational
   sections and five appendices, and it inputs only the new
-  `sections/foundations/` tree.  No legacy source was deleted.
+  `paper-1/sections/` and `paper-1/appendices/` trees.  No legacy source was deleted.
 - **Mathematical closure:** closed for Paper I.  Every named foundational theorem and
   definition slot is present with exact hypotheses; theorem-like results have proofs
   in the active manuscript or a supporting appendix.
@@ -72,10 +72,10 @@ chapter-blocking P1 items used in this manuscript.  In particular:
 The strict command sequence encoded by `build.sh` was executed with TeX Live 2023:
 
 ```text
-pdflatex -halt-on-error -file-line-error -interaction=nonstopmode aeg-paper.tex
-bibtex aeg-paper
-pdflatex -halt-on-error -file-line-error -interaction=nonstopmode aeg-paper.tex
-pdflatex -halt-on-error -file-line-error -interaction=nonstopmode aeg-paper.tex
+pdflatex -halt-on-error -file-line-error -interaction=nonstopmode aeg-paper-1.tex
+bibtex aeg-paper-1
+pdflatex -halt-on-error -file-line-error -interaction=nonstopmode aeg-paper-1.tex
+pdflatex -halt-on-error -file-line-error -interaction=nonstopmode aeg-paper-1.tex
 ```
 
 The task runner materializes repeated writes to a generated binary at sandbox exit,
@@ -87,18 +87,18 @@ Final artifact:
 
 | Property | Value |
 |---|---:|
-| PDF | `aeg-paper.pdf` |
+| PDF | `paper-1/aeg-paper-1.pdf` |
 | Pages | 60 |
 | Page size | US letter, 612 x 792 pt |
 | PDF version | 1.5 |
-| File size | 582,862 bytes |
-| SHA-256 | `d557279a2e6e244ca29409906f65136bca3e7c298906c86502cdd72271d1f447` |
+| File size | 575,584 bytes |
+| SHA-256 | `98a8a9a2f35cbb2252cfc9576d447ca427a27f95815deaab03d3e3c9f7c04911` |
 
 Static and rendered checks:
 
 - 166 unique active labels; no duplicate labels;
 - every active `ref`, `eqref`, and `autoref` target exists;
-- every citation key exists in `aeg-paper.bib`;
+- every citation key exists in the shared root `aeg-paper.bib`;
 - every named stable theorem/definition slot is present;
 - 8 figure environments, all inline TikZ, with no missing assets;
 - no LaTeX or BibTeX warnings, undefined references, undefined citations,
