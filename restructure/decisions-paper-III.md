@@ -2,7 +2,7 @@
 
 **Paper:** *Arithmetic Expression Geometry III: Singular Zero Geometry and Tubes*
 
-**Subtitle:** *Multi-Zero Constructions, Discriminants, and Topological Transport*
+**Subtitle:** *Branched Pullbacks, Arithmetic Zero Networks, and Topological Transport*
 
 **Decision date:** 2026-08-06
 
@@ -167,3 +167,88 @@ Under the printed affine convention, the free word `abbbaBAAB` has translation
 `-(t^2-3t+1)`.  It descends to the corresponding knot-group representation only on
 the zero locus of that polynomial.  At generic `t` it is a relator failure, not an
 intrinsic knot invariant.
+
+## D3-17 — Branched holomorphic pullback is the controlled singular subclass
+
+Paper III distinguishes arbitrary conformal realization from the more constrained
+holomorphic-pullback subclass exported by Paper II.  If the local holomorphic degree
+is (m\ge2) and the critical value lies on the target zero line, the singular zero
+germ has (2m) prongs and the pullback metric completion has cone angle (2\pi m).
+The critical point is locally essential because its assignment differential
+vanishes while the regular AES eikonal right-hand side is positive.
+
+The result classifies this pullback germ only.  It is not advertised as a
+classification of all singular AES germs.
+
+## D3-18 — The order-four apeirogonal model is automorphic and equivariant
+
+Paper III uses a normalized ((2,4,\infty)) Hauptmodul (\beta) as a cited standard
+input and derives
+
+[
+F^2=\frac{\beta}{1-\beta},
+\qquad
+W=\frac{F-i}{F+i},
+\qquad
+a=\frac{\mu}{\lambda}\sinh(\lambda\log|W|),
+\qquad
+g=\left|\frac{dW}{W}\right|^2.
+]
+
+On the regular locus its zero graph is exactly
+(\beta^{-1}([0,1])).  Points over the order-four branch value become four-valent
+zeros with (4\pi) cone completion; order-two points are ordinary edge midpoints
+after the square-root step.  Suppressing those midpoints gives the
+(\{\infty,4\}) skeleton.
+
+The exact sign character is
+
+[
+\chi(J)=-1,\qquad \chi(JT)=-1,\qquad \chi(T)=+1.
+]
+
+The metric and zero graph descend to the full group quotient.  The assignment is
+therefore treated either as a scalar on the sign-character kernel or as a real
+line-bundle section on the full quotient.  Upstairs, order-four points complete to
+(4\pi) cones; the coarse full quotient has angle (\pi) at each elliptic image.  The
+full quotient length metric is complete after the finite-distance singular orbit is
+adjoined, and its cusp is at infinite distance.  This model-specific metric
+completion does not imply universal-cover or finite-index properness, a proper zero
+tube, or smooth regular-AES geodesic completeness.
+
+## D3-19 — Arithmetic zero paths are relative prime divisors, not labelled roots
+
+For a family defined over an integral domain, Paper III distinguishes:
+
+1. literal histories and their projective operators;
+2. arithmetic irreducibility over (K(B));
+3. geometric irreducibility over (\overline K(B));
+4. local complex sheets;
+5. geometric monodromy;
+6. Galois, inertia, reduction, and Frobenius actions.
+
+An irreducible zero-path system is represented by the normalization of a prime
+relative divisor, not by one arbitrarily labelled local root.  Transitive complex
+monodromy requires geometric irreducibility; arithmetic irreducibility alone is not
+silently substituted.
+
+## D3-20 — The general history functor remains open
+
+The desired arrow
+
+[
+H\longmapsto P_H\longmapsto (P_H)_0
+]
+
+is a structural proposal.  It must preserve a declared history equivalence,
+composition, chirality, field of definition, and parameter concatenation before it
+can support an AEG-natural braid or invariant.  The (q=4) construction solves a
+restricted projective-operator case; it does not solve the general problem.
+
+## D3-21 — Hecke arithmetic and factorization arithmetic are separate
+
+The (q=4) model supplies arithmetic group symmetry, continued-fraction structure,
+and automorphic uniformization over (\mathbb Q(\sqrt2)).  It does not supply
+nonunique factorization in (\mathbb Z[\sqrt2]).  Any factorization-theoretic
+version of inequivalent routes to zero requires a separate integral family with
+nontrivial ideal-class or factorization data.

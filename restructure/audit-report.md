@@ -225,3 +225,29 @@ release.  Intrinsic thread selection, AEG Markov descent, a new knot invariant, 
 separation beyond Alexander/Burau remain explicitly open.  Author metadata,
 DOI/version policy, Docker reproduction, and publication approval remain human
 release actions.
+
+## 9. Post-closure arithmetic--automorphic integration evidence
+
+On 2026-08-06, Papers I--III received the coordinated arithmetic--automorphic
+extension recorded in Migration M-0005 and in the three post-closure amendments.
+The final repository build used `./build.sh all`, whose per-paper sequence is
+`pdflatex`, BibTeX, and three resolving `pdflatex` passes.  The extra resolving pass
+ensures that a cold Paper III build reaches a stable contents and label state.
+
+| Paper | Pages | File size | SHA-256 | Unique labels | Unique citations |
+|---|---:|---:|---|---:|---:|
+| I | 63 | 604,976 bytes | `bbcb16fa720c26f837555ff2387ee7205884a8f07963c6f949e19cb636710fd5` | 177 | 6 |
+| II | 44 | 497,142 bytes | `a7f76c6c834ac20fb6ee1780366fe819b1a0e0802d6d6facdfd4e49d152d9592` | 227 | 4 |
+| III | 43 | 538,915 bytes | `6aeb931203283f44fef2a2a27b30a92c90c0bea8a35a2205e6a8cae0b9db8f0e` | 126 | 17 |
+
+All three final logs are free of LaTeX and package warnings, undefined references
+or citations, duplicate labels, overfull or underfull boxes, and fatal diagnostics.
+All PDFs are US letter, PDF 1.5, with embedded fonts.  `bash -n build.sh` and
+`git diff --check` pass.  The final mathematical red-team review reports zero
+blocking and zero major findings after separating the upstairs `4 pi` cone from the
+coarse quotient angle `pi`, computing the exact sign character, and proving the
+relative-prime normalization statement on the finite-etale locus.
+
+This section supersedes only the active artifact metadata and integration-level QA.
+Sections 6--8 remain the preserved evidence for the original Paper I, II, and III
+closure snapshots.

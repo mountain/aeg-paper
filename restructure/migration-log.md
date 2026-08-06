@@ -210,3 +210,72 @@ closure.
   discussion; any future external source for `E_k` or `E_log` must be added by
   immutable revision and formula-level comparison before the provenance status can
   change
+
+## Migration M-0005
+
+- **Date:** 2026-08-06
+- **Name:** arithmetic--automorphic zero-network integration across Papers I--III
+- **Source:** Paper I's bilateral projective contexts and regular-AES equation;
+  Paper II's oriented-surface complex structure; Paper III's singular-pullback,
+  discriminant, tube, and braid interfaces; the new synthesis record
+  `restructure/discussions/arithmetic-automorphic-zero-networks.md`; and the cited
+  standard literature on Hecke groups, Rosen continued fractions, triangle-group
+  Hauptmoduls, relative divisors, and algebraic number theory
+- **Active manuscript destinations:** `paper-1/aeg-paper-1.tex` and Paper I
+  Sections 1, 3, 7, and 10; `paper-2/aeg-paper-2.tex`, Paper II Sections 1 and 8,
+  and the new `paper-2/sections/05-pullback-cylinder.tex`;
+  `paper-3/aeg-paper-3.tex`, Paper III Sections 1--3, the new
+  `paper-3/sections/04-arithmetic-zero-networks.tex`, the existing parameter,
+  singular-fiber, braid, and threading sections, and Appendix A; the Paper II and
+  III README files; the root `README.md`; and `aeg-paper.bib`
+- **Governance destinations:** `00-authoritative-scope.md`,
+  `01-paper-series-architecture.md`, `02-paper-I-outline.md`,
+  `03-theorem-dependency-graph.md`, `05-mathematical-status.md`,
+  `07-acceptance-checklist.md`, `08-open-questions.md`, the three paper decision
+  records, `paper-III-source-audit.md`, `source-inventory.md`, this migration log,
+  the three closure reports, and the new synthesis discussion under `restructure/`
+- **Migration state:** CANONICAL / REDERIVED HERE / STANDARD EXTERNAL INPUT / OPEN
+  FRONTIER.  Legacy notes and discussions remain provenance or motivation and are
+  not active proof dependencies.
+- **Paper I claim treatment:** the arithmetic contexts
+  `T_sqrt(2)(z)=z+sqrt(2)` and `J(z)=-1/z` are evaluated projectively; their matrix
+  relations identify the generated operator group with the `q=4` Hecke triangle
+  group.  Literal words, marked histories, projective operators, stabilizer cosets,
+  and endpoints remain distinct.  A connected complete boundaryless regular scalar
+  AES is globally diffeomorphic to `Z(a) x R`; this is a smooth, not Riemannian,
+  splitting and excludes a multi-component or branching zero network only under
+  those exact hypotheses.
+- **Paper II claim treatment:** the rotated-imaginary-part planar target is a
+  harmonic regular AES with the printed curvature law; the logarithmic cylinder is
+  a complete flat regular AES; and holomorphic local biholomorphisms pull these
+  targets back functorially.  Critical points, algebraic branch points, zeros or
+  poles of the cylindrical coordinate, degenerate metrics, and cone completion are
+  outside the theorem and pass to Paper III.  Analytic pullback naturality is not a
+  history-to-function functor.
+- **Paper III claim treatment:** a holomorphic local degree `m` over the target zero
+  line gives a locally essential `2m`-prong zero and cone angle `2 pi m`.  Conditional
+  on the cited normalized `(2,4,infinity)` Hauptmodul, the square-root/Cayley/
+  cylindrical construction has zero set `beta^{-1}([0,1])`; order-four points are
+  four-valent `4 pi` cone zeros, order-two points are bivalent edge midpoints, and
+  the assignment descends either on the sign-character kernel or as a real sign-line
+  section.  The relative-divisor theorem applies only after a monic generically
+  square-free polynomial over a declared integral domain is supplied.
+- **Arithmetic boundary:** factorization over the coefficient field, geometric
+  sheets, analytic monodromy, and Galois/Frobenius data are different layers.  The
+  `q=4` construction supplies operator arithmetic and automorphic uniformization,
+  not nonunique factorization in `Z[sqrt(2)]`.  A general functor from marked
+  histories to arithmetic relative zero divisors remains open.
+- **Theorem nodes affected:** P1-H1, P1-H2, P1-Z9; P2-A1--P2-A3;
+  P3-S1--P3-S4; P3-R1--P3-R3, with P3-S3 a cited standard input and P3-R3 still an
+  open structural proposal
+- **Provenance:** the AEG matrix, splitting, pullback, branch, Cayley, sign-descent,
+  and zero-network calculations are proved or rederived in the active papers.  The
+  Hecke-group and Hauptmodul geometry and the algebraic/arithmetic background are
+  externally cited inputs.  The negative historical finding for general `E_k` and
+  explicit AEG `E_log` is unchanged.
+- **Content removed from source:** none
+- **Unified build result:** `./build.sh all` completed the current four-LaTeX-pass
+  per-paper sequence (`pdflatex`, BibTeX, and three resolving `pdflatex` passes).
+  Papers I--III contain 63, 44, and 43 pages.  The final sizes, SHA-256 values,
+  label counts, citation counts, and clean-log evidence are recorded in
+  `audit-report.md` Section 9 and in the three post-closure amendments.

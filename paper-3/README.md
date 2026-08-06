@@ -1,11 +1,11 @@
 # Arithmetic Expression Geometry III: Singular Zero Geometry and Tubes
 
-*Multi-Zero Constructions, Discriminants, and Topological Transport*
+*Branched Pullbacks, Arithmetic Zero Networks, and Topological Transport*
 
 This directory contains the mathematical-review manuscript
 
 > **Arithmetic Expression Geometry III: Singular Zero Geometry and Tubes**
-> *Multi-Zero Constructions, Discriminants, and Topological Transport*
+> *Branched Pullbacks, Arithmetic Zero Networks, and Topological Transport*
 
 Its canonical source and generated artifact are `aeg-paper-3.tex` and
 `aeg-paper-3.pdf`.
@@ -22,12 +22,25 @@ level is inferred merely from an earlier one.
 - the regular-zero theorem;
 - the smooth total-zero-set and projection-submersion proposition;
 - the properness warning.
+- the bilateral projective operators $z\mapsto z+s$ and $z\mapsto-1/z$.
+
+Paper II supplies the regular-locus identification of arithmetic holomorphicity
+with ordinary holomorphicity.  All singular pullback and cone calculations used in
+this manuscript are re-proved here.
 
 ## Proved results and strict boundary
 
 The manuscript proves:
 
 - an explicit conformal realization theorem and finite/countable multi-zero models;
+- a holomorphic branched-pullback theorem: local degree `m` gives `2m` zero prongs,
+  cone angle `2 pi m`, and an essential critical point;
+- an exact `q=4` Hecke--Hauptmodul singular AES whose zero set is the
+  `{infinity,4}` Hecke network, including sign-character descent and cusp/cone
+  completeness boundaries;
+- a relative zero-divisor theorem separating raw histories, projective operators,
+  endpoint equality, coefficient-field prime components, geometric sheets,
+  Galois action, and analytic monodromy;
 - a rank-`r` parameterized zero-section and proper-tube theorem;
 - a torus-structure theorem for compact boundaryless real zero tubes over a circle
   with globally oriented vertical tangent bundle;
@@ -46,6 +59,9 @@ family, an intrinsic real-zero-to-braid functor, functorial thread selection, a 
 Markov-normalized AEG knot invariant, or separation beyond Alexander/Burau.  In
 particular:
 
+- the `q=4` construction is history-derived at the projective-operator quotient
+  level; a general functor from marked histories to relative zero divisors remains
+  open;
 - a smooth total zero set is not automatically a tube;
 - a tube is not automatically an embedded or threaded tube;
 - braid-level data are not automatically knot invariants;
@@ -74,6 +90,7 @@ paper-3/
 │   ├── 01-singular-aes.tex
 │   ├── 02-local-zero-models.tex
 │   ├── 03-multi-zero-constructions.tex
+│   ├── 04-arithmetic-zero-networks.tex
 │   ├── 04-parameter-discriminants.tex
 │   ├── 05-regular-tubes.tex
 │   ├── 06-singular-fibers.tex

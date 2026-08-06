@@ -63,6 +63,37 @@ of harmonic fields depending only on the assignment.  The nonconstant member is 
 boundary half-line harmonic measure.  Its discontinuous trace also shows why the
 function class must be stated in every boundary theorem.
 
+\subsection{Holomorphic pullback as an analytic export}
+
+The planar and cylindrical constructions add a second kind of conclusion to the
+global boundary theorem.  They show that regular AES data can be transported
+functorially by a locally biholomorphic map.  For the planar harmonic base, the
+pullback preserves
+\[
+ \Delta_g a=0,
+ \qquad
+ K_g=\lambda^2
+ \frac{\mu^2-\lambda^2a^2}{\mu^2+\lambda^2a^2}.
+\]
+For the complete flat cylinder, it preserves
+\[
+ \Delta_g a=\lambda^2a,
+ \qquad
+ Z(a)=W^{-1}(S^1).
+\]
+These formulas give an analytic interface to automorphic constructions: unitary
+multipliers preserve the full AES data, while inversion preserves the metric and
+zero set and reverses the assignment.  The latter case is naturally expressed by a
+sign line bundle on the quotient rather than by silently forcing a scalar-valued
+assignment.
+
+This export has a strict boundary.  At a critical point of the holomorphic map the
+pullback metric degenerates.  At a zero or pole of the cylindrical target map the
+logarithmic assignment ceases to be finite, and an algebraic branch point requires
+a choice of local sheet.  Paper II proves no continuation through these sets.  It
+supplies the exact formulas on their complement; Paper III must determine which
+completions are admissible and how the preimage zero curves meet there.
+
 Table~\ref{tab:final-branch-comparison} summarizes the two analytic branches and the
 operator choices proved in this paper.
 
@@ -126,10 +157,19 @@ exist.  This requires the singular geometric input assigned to Paper III; the
 present paper neither assumes nor proves a removable-singularity theorem there.
 \end{problem}
 
+\begin{problem}[Automorphic singular completion]
+Let an automorphic or algebraic function produce a cylindrical pullback on the
+regular locus defined by \(0<|W|<\infty\) and \(dW\ne0\).  Determine local and
+global conditions under which the metric, assignment, or assignment line bundle
+admits a singular AES completion.  Relate ramification indices to zero-graph
+valence without assuming that every critical point lies over the unit circle.
+\end{problem}
+
 The dependency boundary is therefore explicit.  Paper II uses only the regular
 surface, hyperbolic model, and contact connection proved in Paper I.  It exports
-elliptic and contact analytic tools that may later be tested on singular families,
-but it does not import tube topology from Paper III or projective-complexity claims
-from Paper IV.  Within that boundary, every advertised result is backed by a stated
-measure, the relevant test-function or variational domain, and a proof.  This is the
-appropriate starting point for a broader arithmetic real function theory.
+elliptic and contact analytic tools, together with planar and cylindrical pullback
+formulas, that may later be tested on singular families.  It does not import tube
+topology from Paper III or projective-complexity claims from Paper IV.  Within that
+boundary, every advertised result is backed by a stated measure, regular locus, the
+relevant test-function or variational domain, and a proof.  This is the appropriate
+starting point for a broader arithmetic real function theory.

@@ -39,6 +39,7 @@
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\F}{\mathbb{F}}
 \newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
 \newcommand{\HH}{\mathbb{H}}
 \newcommand{\dd}{\,\mathrm{d}}
 \newcommand{\AEG}{\mathrm{AEG}}
@@ -55,9 +56,11 @@
 \newcommand{\calR}{\mathcal R}
 \newcommand{\calD}{\mathcal D}
 \newcommand{\sfP}{\mathcal P^{\mathrm{sf}}}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\Gal}{\operatorname{Gal}}
 
 \title{\textbf{Arithmetic Expression Geometry III:\\Singular Zero Geometry and Tubes}\\[0.45em]
-\large Multi-Zero Constructions, Discriminants, and Topological Transport}
+\large Branched Pullbacks, Arithmetic Zero Networks, and Topological Transport}
 
 \author{
 Mingli Yuan\\
@@ -79,17 +82,31 @@ curves, not isolated roots.  This paper develops the singular and parameterized
 zero geometry needed to turn those curves into genuine tubes, while separating
 them from the finite-root braids carried by complex-valued fields.
 
-We first prove a conformal realization theorem: every smooth submersion on a
-surface becomes a regular arithmetic expression space after an explicit metric
-rescaling.  This yields verified models with any prescribed finite number of
-parallel zero components and a logarithmic-cover model with countably many lifted
-sheets.  A rank-$r$ parameterized zero-section theorem then gives the exact
-transversality and properness hypotheses under which a zero incidence is a smooth
-fiber bundle.  For real assignments over a circle with globally oriented vertical
-tangent bundle, every compact boundaryless proper zero tube is a union of tori.  An
-explicit helical family computes its
-component permutation, mapping-torus decomposition, logarithmic deck shifts, and
-torus-link traces.
+We first prove two complementary realization theorems.  Conformal rescaling makes
+every surface submersion into a regular arithmetic expression space.  Holomorphic
+branched pullback is more rigid: a local branch of degree $m$ produces a
+$2m$-pronged singular zero and a metric cone of angle $2\pi m$.  The latter
+mechanism yields an arithmetic global model.  The projective arithmetic operators
+$z\mapsto z+\sqrt2$ and $z\mapsto-1/z$ generate the $(2,4,\infty)$ Hecke triangle
+group.  From its normalized Hauptmodul we construct a singular AES whose zero set
+is the Hecke dessin; after suppressing bivalent vertices it is the
+$\{\infty,4\}$ zero network, with four-valent nodes and cone angle $4\pi$.
+
+To separate arithmetic multiplicity from geometric branching, we introduce a
+zero-history hierarchy and prove the standard relative-divisor decomposition for
+a supplied monic generically square-free arithmetic polynomial.  Irreducible
+factors over the
+coefficient field, geometric sheets after scalar extension, and monodromy orbits
+are distinct levels.  A functor assigning such a polynomial or divisor to a
+general arithmetic history remains an open problem; the Hecke construction is
+established at the projective-operator quotient level only.
+
+A rank-$r$ parameterized zero-section theorem then gives the exact transversality
+and properness hypotheses under which a zero incidence is a smooth fiber bundle.
+For real assignments over a circle with globally oriented vertical tangent bundle,
+every compact boundaryless proper zero tube is a union of tori.  An explicit
+helical family computes component permutation, mapping-torus decomposition,
+logarithmic deck shifts, and torus-link traces.
 
 Topology change is confined to a discriminant.  Conformal Morse families realize
 birth/death and reconnection in the singular category; the complex model
@@ -105,8 +122,9 @@ Markov-normalized AEG decorations, and any stronger separation theorem remain op
 \end{abstract}
 
 \noindent\textbf{Keywords:}
-arithmetic expression geometry; zero set; singularity; fiber bundle; braid group;
-logarithmic covering; twisted quandle cohomology; knot invariant
+arithmetic expression geometry; branched pullback; Hecke triangle group;
+Hauptmodul; relative divisor; zero set; singularity; fiber bundle; braid group;
+logarithmic covering
 
 \setcounter{tocdepth}{2}
 \tableofcontents
@@ -123,6 +141,10 @@ logarithmic covering; twisted quandle cohomology; knot invariant
 \section{Multi-zero and logarithmic constructions}
 \label{sec:multi-zero}
 \input{sections/03-multi-zero-constructions.tex}
+
+\section{Arithmetic zero networks and relative divisors}
+\label{sec:arithmetic-zero-networks}
+\input{sections/04-arithmetic-zero-networks.tex}
 
 \section{Parameterized incidence and discriminants}
 \label{sec:discriminants}

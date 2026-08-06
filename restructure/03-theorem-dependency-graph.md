@@ -2,7 +2,7 @@
 
 **File:** `restructure/03-theorem-dependency-graph.md`
 **Status:** Authoritative
-**Version:** 1.0
+**Version:** 1.1
 **Date:** 2026-08-06
 **Depends on:**
 
@@ -3343,3 +3343,76 @@ The paper culminates by joining the global and local branches:
 ]
 
 with exact finite identities and infinitesimal correspondences stated separately.
+
+---
+
+## 81. Arithmetic--automorphic extension nodes
+
+The following nodes extend the closed Paper I graph without changing its internal
+proof order.
+
+```text
+P1-H1  Paper I projective arithmetic contexts T_s and J
+P1-H2  q=4 Hecke subgroup identification
+P1-Z9  complete boundaryless regular-AES splitting
+
+P2-A1  planar harmonic AES target
+P2-A2  cylindrical AES target
+P2-A3  holomorphic local-diffeomorphism pullback
+
+P3-S1  critical-point essentiality
+P3-S2  2m-prong / 2 pi m cone theorem
+P3-S3  normalized (2,4,infinity) Hauptmodul input
+P3-S4  exact Hecke zero-dessin AES
+
+P3-R1  relative prime-divisor normalization
+P3-R2  arithmetic/geometric irreducibility separation
+P3-R3  general history-to-divisor functor [OPEN]
+```
+
+The new dependency edges are:
+
+```text
+P1-H1 -> P1-H2
+T7 regular zero theorem -> P1-Z9
+complete metric + boundaryless carrier -> P1-Z9
+P1-H2 -> P3-S3
+
+P2-A1 -> P2-A3
+P2-A2 -> P2-A3
+P2-A3 -> P3-S1 -> P3-S2
+P2-A3 -> P3-S4
+P3-S3 -> P3-S4
+
+P3-R1 -> P3-R2
+P1-H2 -. special operator-level example .-> P3-R3
+P3-R2 -. required framework .-> P3-R3
+```
+
+The dotted edges do not authorize a theorem.  In particular, `P3-R3` is not a
+dependency for `P3-S4`: the exact Hecke model is constructed from the operator
+subgroup and its standard Hauptmodul without a general history functor.
+
+## 82. Status and non-implication gates
+
+* `P1-H2` is proved by an elementary matrix calculation and a cited standard Hecke
+  group identification.
+* `P1-Z9` is proved by rectifying the assignment, completeness of bounded vector
+  fields on a complete Riemannian manifold, and the global flow map.  It gives only
+  a diffeomorphic product, not an isometric splitting.
+* `P2-A1`--`P2-A3` are direct analytic calculations on the regular locus.
+* `P3-S1`--`P3-S2` are local calculations in the singular-AES category.
+* `P3-S3` is an external standard uniformization input and must be cited.
+* `P3-S4` is an AEG construction proved conditional on the normalized input.
+* `P3-R1`--`P3-R2` are standard relative-divisor facts with hypotheses stated.
+* `P3-R3` remains a structural proposal and may not support a theorem, invariant,
+  or abstract-level claim of arithmetic naturality.
+
+The following implications are forbidden:
+
+```text
+Hecke subgroup generation =/=> histories are tiles
+rich zero dessin          =/=> history-derived arithmetic divisor
+arithmetic divisor        =/=> proper zero tube
+singular zero tube        =/=> Markov invariant.
+```

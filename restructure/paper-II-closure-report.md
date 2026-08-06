@@ -15,6 +15,10 @@ means closed at the hypotheses and operator domains printed in the mathematical-
 manuscript.  It does not mean that the remaining analytic programme or public-release
 work is complete.
 
+**Post-closure notice:** Section 9 records the later regular-pullback integration,
+the current nine-section source closure, and its 44-page checkpoint.  Sections 1--8
+retain the original eight-section, 39-page closure evidence.
+
 ## 1. Acceptance outcome
 
 - **Source and dependency closure:** closed.  The active entry point contains eight
@@ -156,3 +160,47 @@ Before treating Paper II as a public release candidate, an author should:
 2. approve author, affiliation, date, title, subtitle, and version metadata;
 3. decide the DOI/version relationship between Papers I and II and earlier archives;
 4. review the draft pull request and authorize any non-draft release state.
+
+## 9. Post-closure regular-pullback amendment (2026-08-06)
+
+This amendment records the analytic part of the arithmetic--automorphic integration.
+It supersedes only the original active-section count and artifact metadata: Paper II
+now has nine sections and three appendices because
+`sections/05-pullback-cylinder.tex` has been added between the contact layer and the
+basic hyperbolic model.  The 39-page table in Section 4 remains the evidence for the
+original closure run and is not silently relabelled as the current artifact.
+
+| Extension node | Active statement | Status and boundary |
+|---|---|---|
+| P2-A1 | The planar assignment `A_phi(w)=Im(e^{-i phi}w)` with its printed conformal metric is a harmonic regular AES and satisfies the stated curvature law | proved by direct calculation; `mu != 0` |
+| P2-A2 | The logarithmic cylinder with metric `|dW/W|^2` and the hyperbolic-sine assignment is a complete flat regular AES with zero circle `|W|=1` | proved, including the linear `lambda=0` limit |
+| P2-A3 | A holomorphic local biholomorphism pulls either regular target back to a regular AES | proved only where the derivative is nonzero and all required branches are chosen |
+
+The same section proves unitary and inversion descent for the cylindrical metric and
+zero circle.  Inversion reverses the assignment, so quotient descent is either to an
+index-two scalar cover or to the associated real sign line bundle.  The printed
+square-root/Cayley formula converts an automorphic interval into the unit-circle
+preimage, but Paper II does not infer a global graph type from that formula.
+
+Critical points, degenerate pullback metrics, algebraic branch points, cone
+completion, zeros or poles of the cylindrical coordinate, Hauptmodul ramification,
+and singular zero networks remain outside the Paper II theorem.  They are passed in
+one direction to Paper III.  Likewise, functorial analytic pullback does not prove
+that the pulling map is generated naturally by an arithmetic history.
+
+The planar, cylindrical, pullback, and descent calculations are `REDERIVED HERE`;
+no historical `E_log` formula is promoted.  The final unified repository build
+produced the amended Paper II artifact with the following current evidence:
+
+| Property | Current integration artifact |
+|---|---:|
+| Pages | 44 |
+| File size | 497,142 bytes |
+| SHA-256 | `a7f76c6c834ac20fb6ee1780366fe819b1a0e0802d6d6facdfd4e49d152d9592` |
+| Active labels | 227 unique |
+| Citation keys used | 4 unique |
+
+The final log has no LaTeX or package warning, undefined reference or citation,
+overfull or underfull box, duplicate label, or fatal diagnostic.  This table
+supersedes only the artifact metadata for the active integration snapshot; the
+original 39-page closure evidence above remains a historical record.

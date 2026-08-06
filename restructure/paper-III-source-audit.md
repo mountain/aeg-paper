@@ -360,3 +360,45 @@ This audit is the provenance authority for the Paper III integration record.  Th
 mathematical truth status of individual claims remains governed by
 restructure/05-mathematical-status.md as corrected by the explicit negative
 provenance finding above and by proofs in the active manuscript.
+
+## 14. Post-audit arithmetic--automorphic addendum
+
+The 2026-08-06 arithmetic--automorphic integration does not change the negative
+historical finding for `E_k` or `E_log`.  Its provenance is instead split into three
+explicit layers.
+
+### Internal AEG source
+
+Paper I's bilateral projective semantics already supplies the arithmetic contexts
+
+```text
+T_s(z) = z+s,
+J(z)   = -1/z.
+```
+
+The specialization `s=sqrt(2)`, its order-four matrix relation, and the complete
+regular-AES splitting theorem are newly integrated proofs in the active Paper I.
+
+### External standard input
+
+The definition and geometry of the (q=4) Hecke group, Rosen continued fractions,
+and the normalized triangle-group Hauptmodul use the primary sources newly added to
+the shared bibliography.  These sources establish the group/uniformization input;
+they do not contain the AEG pullback metric or the claimed AEG history functor.
+
+### Rederived in the active series
+
+The following formulas and conclusions are `REDERIVED HERE`:
+
+- the planar and cylindrical regular AES targets in Paper II;
+- functorial pullback on the local-biholomorphism locus;
+- essential critical points, (2m)-prong zero germs, and (2\pi m) cone
+  completions in Paper III;
+- the square-root and Cayley realification of the normalized (q=4) Hauptmodul;
+- the equality of the resulting AEG zero graph with
+  (\beta^{-1}([0,1]));
+- the sign-character descent boundary;
+- the AEG hierarchy from arithmetic prime relative divisors to geometric sheets.
+
+The general history-to-relative-divisor map is a `STRUCTURAL PROPOSAL`, not a
+recovered theorem and not a consequence of the historical tube conversations.

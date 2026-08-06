@@ -3,7 +3,11 @@
 **Manuscript:** *Arithmetic Expression Geometry III: Singular Zero Geometry and
 Tubes*
 
-**Subtitle:** *Multi-Zero Constructions, Discriminants, and Topological Transport*
+**Subtitle at original closure:** *Multi-Zero Constructions, Discriminants, and
+Topological Transport*
+
+**Current subtitle after post-closure integration:** *Branched Pullbacks,
+Arithmetic Zero Networks, and Topological Transport*
 
 **Status:** Mathematical-review manuscript
 
@@ -18,6 +22,11 @@ should be read with `paper-III-source-audit.md`, `decisions-paper-III.md`,
 printed in the mathematical-review manuscript.  It does not mean that the open
 thread-selection, Markov-descent, or beyond-Alexander/Burau programmes have been
 solved, or that a public release has been authorized.
+
+**Post-closure notice:** Section 10 records the later arithmetic zero-network
+integration, the current nine-section source closure and subtitle, and its 43-page
+checkpoint.  Sections 1--9 retain the original eight-section, 32-page closure
+evidence.
 
 ## 1. Acceptance outcome
 
@@ -200,3 +209,61 @@ Before treating Paper III as a public release candidate, an author should:
    labels;
 4. decide the DOI/version relationship among Papers I--III and earlier archives;
 5. review the final branch or pull request and authorize any public release state.
+
+## 10. Post-closure arithmetic zero-network amendment (2026-08-06)
+
+This amendment records the Paper III part of the cross-paper integration.  It
+supersedes the original active-section count and current subtitle, but it preserves
+the 32-page artifact table and rendered review above as evidence for the original
+closure run.  The active source closure now contains nine sections and three
+appendices, with the new
+`sections/04-arithmetic-zero-networks.tex` inserted between the multi-zero and
+parameter/discriminant sections.
+
+| Extension node | Active statement | Status and proof boundary |
+|---|---|---|
+| P3-S1 / P3-S2 | A holomorphic local degree `m` whose critical value lies on the target zero line gives a locally essential `2m`-prong zero and cone angle `2 pi m` | proved by local normal form and metric calculation; a controlled pullback subclass, not a classification of all singular AES germs |
+| P3-S3 | A normalized `(2,4,infinity)` Hauptmodul has the printed branch data | standard external triangle-group uniformization input; normalization and citations are explicit |
+| P3-S4 | The displayed square-root/Cayley/cylindrical data give the exact zero set `beta^{-1}([0,1])`, with bivalent order-two points and four-valent `4 pi` cone points over the order-four orbit | proved conditional on P3-S3; the metric and zero graph descend, while the assignment is scalar only on the sign-character cover or is a sign-line section on the full quotient |
+| P3-R1 / P3-R2 | A supplied monic polynomial with nonzero discriminant defines a finite flat relative divisor; its field-prime components, geometric sheets, Galois orbits, etale locus, analytic monodromy, and good-reduction data occupy distinct layers | standard algebraic and arithmetic consequences with the printed finiteness, domain, characteristic, and integral-model hypotheses |
+| P3-R3 | A functor from general marked histories to arithmetic relative zero divisors | open structural proposal; not used to prove the Hecke example |
+
+After bivalent vertices are suppressed, the Hecke zero graph is the
+`{infinity,4}` network.  Its regular locus is incomplete at the order-four points.
+Upstairs completion adjoins finite-distance `4 pi` cone points; the coarse full
+quotient has angle `pi` at each elliptic image and is a complete length space with
+an infinite-distance cusp.  This is singular length-metric completeness, not a
+smooth complete regular-AES theorem and not automatically a proper zero tube.
+
+The local section also adds two controls on scope.  Finite Blaschke products link a
+finite divisor, a real zero network, and root braids without making any of them
+canonical arithmetic history data.  The example `sin(1/z)` shows that an essential
+singularity can support countably many four-valent nodes and zero circles
+accumulating at the puncture; it proves analytic capacity, not arithmetic
+naturality or a recovered `E_log` construction.
+
+The exact AEG branch, Cayley, metric, zero-set, cone, and sign-descent calculations
+are `REDERIVED HERE`.  Hecke-group geometry, the normalized Hauptmodul, relative
+divisor background, and the arithmetic reduction dictionary are cited standard
+inputs.  The negative historical findings for general `E_k`, explicit AEG `E_log`,
+and a recovered general multi-zero theorem remain unchanged.  Moreover,
+`Z[sqrt(2)]` is a unique-factorization domain, so the `q=4` model represents
+noncommuting operator paths and automorphic uniformization rather than nonunique
+factorization; any factorization-theoretic version requires a separate arithmetic
+family.
+
+The final unified repository build produced the amended Paper III artifact with the
+following current evidence:
+
+| Property | Current integration artifact |
+|---|---:|
+| Pages | 43 |
+| File size | 538,915 bytes |
+| SHA-256 | `6aeb931203283f44fef2a2a27b30a92c90c0bea8a35a2205e6a8cae0b9db8f0e` |
+| Active labels | 126 unique |
+| Citation keys used | 17 unique |
+
+The final log has no LaTeX or package warning, undefined reference or citation,
+overfull or underfull box, duplicate label, or fatal diagnostic.  This table
+supersedes only the artifact metadata for the active integration snapshot; the
+original 32-page closure evidence above remains a historical record.

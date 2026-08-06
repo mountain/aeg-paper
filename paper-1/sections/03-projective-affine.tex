@@ -233,6 +233,126 @@ projective word acting as the identity, but the two-step ordinary evaluation
 at $0$ is still inadmissible because its first step is undefined.
 \end{example}
 
+\subsection{A distinguished arithmetic sublanguage: the q=4 Hecke group}
+\label{subsec:hecke-four-interface}
+
+The surjectivity theorem allows arbitrary constants and produces the whole
+projective group.  A much smaller constant alphabet already carries a useful
+discrete geometry.  Work in
+\(\mathbb Q(\sqrt2)\subset\mathbb R\), and let
+\(\operatorname{Hist}_4\) be the symmetric marked history language generated
+by the three elementary contexts
+\[
+  \mathsf t_+[z]=z+\sqrt2,
+  \qquad
+  \mathsf t_-[z]=z-\sqrt2,
+  \qquad
+  \mathsf j[z]=-\frac1z.
+\]
+Here ``symmetric'' means that the inverse translation is retained as a
+generator; \(\mathsf j\) is its own projective inverse.  Write
+\[
+  T=T_{\sqrt2},
+  \qquad
+  G_4=\rho(\operatorname{Hist}_4)
+      =\langle T,J\rangle
+      \leq \operatorname{PGL}_2(\mathbb R).
+\]
+This is the standard projective realization of the $q=4$ Hecke group
+\cite{Rosen1954ContinuedFractions,LangLang2016HeckeGroups}.
+
+\begin{proposition}[The order-four arithmetic relation]
+\label{prop:hecke-four-arithmetic-relation}
+With the column action and chronological convention fixed above, the generators
+have determinant-one representatives
+\[
+  \widetilde T=
+  \begin{pmatrix}1&\sqrt2\\0&1\end{pmatrix},
+  \qquad
+  \widetilde J=
+  \begin{pmatrix}0&-1\\1&0\end{pmatrix}
+  \quad\text{in }\operatorname{SL}_2(\mathbb Z[\sqrt2]).
+\]
+Consequently $G_4$ is defined by matrices over $\mathbb Z[\sqrt2]$.  In
+$\operatorname{PGL}_2(\mathbb R)$ one has
+\begin{equation}
+  J^2=1,
+  \qquad
+  (JT)^4=1,
+  \label{eq:hecke-four-relations}
+\end{equation}
+and $JT$ has exact projective order four.  The second relation is the
+projective evaluation of the chronological eight-step history
+\begin{equation}
+  \omega_4=(\mathsf t_+,\mathsf j,
+             \mathsf t_+,\mathsf j,
+             \mathsf t_+,\mathsf j,
+             \mathsf t_+,\mathsf j).
+  \label{eq:hecke-four-history}
+\end{equation}
+Thus $\omega_4$ and the empty history are distinct marked histories with the
+same projective operator.
+\end{proposition}
+
+\begin{proof}
+Both displayed matrices have determinant one and entries in
+$\mathbb Z[\sqrt2]$; their inverses have the same property.  Moreover,
+\[
+  \widetilde J^2=-I,
+  \qquad
+  R:=\widetilde J\widetilde T
+    =\begin{pmatrix}0&-1\\1&\sqrt2\end{pmatrix},
+  \qquad
+  R^2=\begin{pmatrix}-1&-\sqrt2\\
+                       \sqrt2&1\end{pmatrix}.
+\]
+A second multiplication gives $R^4=-I$.  Hence the scalar classes satisfy
+\eqref{eq:hecke-four-relations}.  Neither $R$ nor $R^2$ is scalar, so the
+projective order of $JT$ is exactly four.  Finally, each chronological pair
+$(\mathsf t_+,\mathsf j)$ evaluates as $J\circ T$ and is represented by
+$\widetilde J\widetilde T=R$.  Four such pairs therefore evaluate as $R^4$,
+which is the identity in the projective group.
+\end{proof}
+
+The proposition is an operator statement, not a universal statement about
+ordinary real arithmetic.  Every letter of $\operatorname{Hist}_4$ is
+projectively non-degenerate, but a bounded history is ordinarily admissible
+only if the evolving affine value is nonzero whenever $\mathsf j$ is applied.
+For example, $\omega_4$ is projectively neutral but is not ordinarily
+admissible at $x=-\sqrt2$: its first translation reaches zero, after which
+$\mathsf j$ requests division by zero.  In contrast, the same matrices act
+without an interior pole on the upper half-plane $\mathbb H^2$.  The Fuchsian
+action and ordinary evaluation on a specified real input are therefore two
+related but distinct uses of the same context word.
+
+\begin{remark}[From histories to Hecke cells]
+\label{rem:hecke-history-operator-coset}
+The conventional action of $G_4$ on $\mathbb H^2$ supplies its Hecke
+tessellations and derived dual cellulations.  Paper~I needs only the following
+formal interface.  If $\mathcal C$ is a chosen cell in such a
+$G_4$-equivariant cellulation and
+\(H_{\mathcal C}=\operatorname{Stab}_{G_4}(\mathcal C)\), then the cell reached
+by a history factors as
+\begin{equation}
+  \operatorname{Hist}_4
+    \xrightarrow{\ \rho\ }G_4
+    \longrightarrow G_4/H_{\mathcal C},
+  \qquad
+  \gamma\longmapsto\rho(\gamma)H_{\mathcal C}.
+  \label{eq:hecke-history-coset-interface}
+\end{equation}
+Neither arrow is generally injective.  Relations such as
+\eqref{eq:hecke-four-history} identify distinct histories at the operator
+level, and distinct operators in one coset act on $\mathcal C$ as the same
+cell.  Passing instead to one endpoint uses the stabilizer of that
+point and forgets still more information.  Thus arithmetic histories,
+projective operators, cells, and endpoints must not be placed in one-to-one
+correspondence.  The order-four relation provides an arithmetic entry point
+for the fourfold incidence visible in the $q=4$ geometry; the construction of
+analytic functions and singular zero sets on that cellulation is deferred to
+Papers~II and~III.
+\end{remark}
+
 \subsection{The affine syntactic sector}
 
 Let $B_\infty$ be the stabilizer of the chosen point at infinity:

@@ -14,6 +14,7 @@ build_paper() {
     bibtex "${main}"
     pdflatex -halt-on-error -file-line-error -interaction=nonstopmode "${main}.tex"
     pdflatex -halt-on-error -file-line-error -interaction=nonstopmode "${main}.tex"
+    pdflatex -halt-on-error -file-line-error -interaction=nonstopmode "${main}.tex"
     test -s "${main}.pdf"
   )
 }

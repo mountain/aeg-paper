@@ -2,7 +2,7 @@
 
 **File:** `restructure/02-paper-I-outline.md`
 **Status:** Authoritative
-**Version:** 1.0
+**Version:** 1.1
 **Date:** 2026-08-06
 **Depends on:**
 
@@ -663,7 +663,33 @@ State precisely which restricted history language maps to this subgroup.
 
 ---
 
-## 3.6 Positive real sector
+## 3.6 The (q=4) Hecke arithmetic sublanguage
+
+Over (K=\mathbb Q(\sqrt2)), isolate the projective contexts
+
+[
+T(z)=z+\sqrt2,
+\qquad
+J(z)=-1/z.
+]
+
+Prove the matrix relation (J^2=(JT)^4=1) in the projective group and cite the
+standard identification of their image with the (q=4) Hecke triangle group.
+Record the factorization
+
+[
+\text{marked history}
+\longrightarrow G_4
+\longrightarrow G_4/H_{\mathcal C}
+]
+
+for a chosen cell stabilizer.  Neither arrow is generally injective.  Ordinary
+arithmetic admissibility at a real seed remains separate from the projective
+Fuchsian action.
+
+---
+
+## 3.7 Positive real sector
 
 Explain that the current continuous parameterization:
 
@@ -683,7 +709,7 @@ not automatically to all of (\operatorname{Aff}(1,\mathbb R)).
 
 ---
 
-## 3.7 Bruhat placement
+## 3.8 Bruhat placement
 
 A concise remark may state:
 
@@ -697,7 +723,7 @@ Do not develop representation theory beyond what is needed for placement.
 
 ---
 
-## 3.8 Riccati outlook
+## 3.9 Riccati outlook
 
 State without full development that the Lie algebra of projective vector fields includes:
 
@@ -1430,7 +1456,29 @@ Each statement must be formulated under the correct hypotheses.
 
 ---
 
-## 7.4 Singular arithmetic expression spaces
+## 7.4 Complete regular splitting
+
+For a connected, complete, boundaryless regular AES, define
+
+[
+r(a)=\int_0^a\frac{ds}{\sqrt{\mu^2+\lambda^2s^2}}.
+]
+
+Prove that (|\nabla r|=1), that its gradient field has a complete flow, and that
+
+[
+Z(a)\times\mathbb R\longrightarrow M,
+\qquad
+(q,t)\longmapsto\Phi_t(q)
+]
+
+is a diffeomorphism.  State explicitly that this need not be a Riemannian product.
+Conclude that (a) is surjective and (Z(a)) is nonempty and connected.  Explain
+why a boundary or incomplete metric invalidates the global-flow proof.
+
+---
+
+## 7.5 Singular arithmetic expression spaces
 
 Define a singular AES:
 
@@ -1455,7 +1503,7 @@ Allow singular behavior in:
 
 ---
 
-## 7.5 Regular and singular zero sets
+## 7.6 Regular and singular zero sets
 
 Define:
 
@@ -1469,7 +1517,7 @@ Clarify that a point may lie in the zero set but fail to be a regular zero becau
 
 ---
 
-## 7.6 The isolated-zero model
+## 7.7 The isolated-zero model
 
 Reassess the current model denoted (\mathfrak E_1).
 
@@ -1486,7 +1534,7 @@ Do not present it as a regular AES with an isolated zero.
 
 ---
 
-## 7.7 Minimal multi-zero example
+## 7.8 Minimal multi-zero example
 
 Include only if fully verified.
 
@@ -1503,7 +1551,7 @@ If no example passes this checklist, omit it from the main body and state the co
 
 ---
 
-## 7.8 Parameter families
+## 7.9 Parameter families
 
 Let:
 
@@ -1525,7 +1573,7 @@ Define:
 
 ---
 
-## 7.9 Regular total-zero-set lemma
+## 7.10 Regular total-zero-set lemma
 
 ### Proposition slot
 
@@ -1549,7 +1597,7 @@ Do not yet call it a globally trivial tube.
 
 ---
 
-## 7.10 Properness warning
+## 7.11 Properness warning
 
 State that topology preservation or local triviality of:
 

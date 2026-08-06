@@ -17,7 +17,7 @@ The active manuscripts are:
 > *Horizontal Operators, Boundary Problems, and Arithmetic Holomorphicity*
 
 > **Arithmetic Expression Geometry III: Singular Zero Geometry and Tubes**
-> *Multi-Zero Constructions, Discriminants, and Topological Transport*
+> *Branched Pullbacks, Arithmetic Zero Networks, and Topological Transport*
 
 Their canonical entry points are [`paper-1/aeg-paper-1.tex`](paper-1/aeg-paper-1.tex),
 [`paper-2/aeg-paper-2.tex`](paper-2/aeg-paper-2.tex), and
@@ -39,12 +39,15 @@ approval before its DOI metadata is changed.
 ## Four-paper architecture
 
 1. **Paper I — Foundations.** Sequential histories, bilateral projective semantics,
-   the affine sector, cocycles, continuous flow, the basic hyperbolic model, regular
-   and singular zero foundations, global torsion, and contact curvature.
+   the affine sector, the (q=4) Hecke arithmetic sublanguage, cocycles, continuous
+   flow, the basic hyperbolic model, complete regular-zero rigidity, global torsion,
+   and contact curvature.
 2. **Paper II — Hyperbolic Real Function Theory.** Horizontal complex and analytic
-   structures, operator domains, kernels, boundary problems, and spectral questions.
+   structures, operator domains, kernels, boundary problems, planar and cylindrical
+   holomorphic pullbacks, and spectral questions.
 3. **Paper III — Singular Zero Geometry and Tubes.** Multi-zero constructions,
-   singularities, discriminants, proper tube families, monodromy, and the conditional
+   holomorphic branch singularities, the order-four Hecke zero network, arithmetic
+   relative zero divisors, discriminants, proper tubes, monodromy, and the conditional
    braid/knot programme.
 4. **Paper IV — Projective Condensation and Computational Complexity.** Projective
    quotient structures, information loss under condensation, and complexity only
@@ -57,6 +60,25 @@ completed paper.
 
 Paper entry points and generated PDFs follow the uniform convention
 `paper-k/aeg-paper-k.tex` and `paper-k/aeg-paper-k.pdf`, respectively.
+
+## Arithmetic--automorphic research spine
+
+The current cross-paper development activates the following one-way interface:
+
+```text
+Paper I arithmetic histories
+  -> q=4 Hecke projective operators
+  -> Paper II holomorphic pullback targets
+  -> Paper III branched automorphic zero networks
+  -> relative arithmetic zero divisors and monodromy.
+```
+
+Each arrow has a different information level.  Literal histories are not identified
+with projective operators, group elements, cells, endpoints, or geometric sheets.
+The exact Hecke example reaches the automorphic zero graph at the operator-quotient
+level; a general functor from marked histories to arithmetic relative divisors
+remains an open problem.  The active synthesis and claim ledger are recorded in
+[`restructure/discussions/arithmetic-automorphic-zero-networks.md`](restructure/discussions/arithmetic-automorphic-zero-networks.md).
 
 ## Building the manuscripts
 

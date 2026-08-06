@@ -195,3 +195,38 @@ promoted only if its final statement and proof occur in the active manuscript an
 independent mathematical review records no blocking defect.  The companion closure
 report lists those promotions after review; this decision file alone does not promote
 a theorem.
+
+## D-0007 — The (q=4) Hecke subgroup is an operator-level arithmetic interface
+
+- **Decision:** Paper I includes the two projective arithmetic contexts
+  (T_{\sqrt2}(z)=z+\sqrt2) and (J(z)=-1/z), and identifies their generated
+  subgroup with the (q=4) Hecke triangle group.
+- **Equality level:** the identification occurs after projective evaluation and
+  quotient by the Hecke relations.  Literal words, marked histories, induced
+  operators, stabilizer cosets, and ordinary endpoints remain distinct.
+- **Ordinary arithmetic boundary:** a projective orbit may pass through (0) or
+  (\infty).  This does not certify every representative word as an ordinary
+  arithmetic computation.
+- **Scope boundary:** Paper I exports the subgroup and its generator semantics.  It
+  does not develop Hauptmoduls, dessins, branched metrics, or tube topology.
+- **Downstream interface:** Paper III may combine this export with the regular
+  holomorphic-pullback interface proved in Paper II.
+- **Date:** 2026-08-06.
+
+## D-0008 — Completeness gives a global smooth splitting
+
+- **Decision:** If a regular AES is connected, complete, and boundaryless, Paper I
+  rectifies its assignment by
+
+  [
+  r(a)=\int_0^a\frac{ds}{\sqrt{\mu^2+\lambda^2s^2}}
+  ]
+
+  and proves (M\cong Z(a)\times\mathbb R) using the complete unit-gradient flow.
+- **Consequences:** the assignment is surjective and the zero layer is nonempty and
+  connected; the manifold is noncompact.
+- **Boundary:** the splitting is diffeomorphic, not necessarily Riemannian.  It is
+  not asserted for manifolds with boundary or incomplete metrics.
+- **Downstream use:** a connected complete boundaryless regular scalar AES cannot
+  carry a multi-component or branching Hecke zero network.  Paper III must declare
+  the relevant singular, incomplete, boundary, or higher-rank mechanism.

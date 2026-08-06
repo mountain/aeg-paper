@@ -48,10 +48,97 @@ admits smooth coordinates in which \(a^{-1}(0)\) is a coordinate line.  Such a
 germ has none of the listed configurations.
 \end{proof}
 
-This conclusion is local.  It does not classify the number or global topology of
-the components.  In the basic hyperbolic model, for example,
-\(Z(a)=\{x=0,y>0\}\), but a general regular AES need not have a single zero
-component.
+This conclusion is local.  Without additional global hypotheses, it does not
+classify the number or topology of the components.  In the basic hyperbolic
+model, for example, \(Z(a)=\{x=0,y>0\}\).  Completeness and the absence of a
+boundary strengthen the conclusion substantially.
+
+\subsection{Complete regular splitting and a global no-go theorem}
+
+\begin{theorem}[Complete regular AES splitting]
+\label{thm:complete-regular-aes-splitting}
+Let \(\mathfrak E=(M,g,a;\mu,\lambda)\) be a regular AES for which \(M\) is
+connected, has no boundary, and is complete as a Riemannian manifold.  Define
+\begin{equation}
+  \mathcal R(t)
+    =\int_0^t\frac{ds}{\sqrt{\mu^2+\lambda^2s^2}},
+  \qquad
+  r=\mathcal R\circ a.
+  \label{eq:complete-aes-rectification}
+\end{equation}
+Then \(|\nabla r|_g=1\), the vector field \(X=\nabla r\) has a global flow
+\(\Phi:\mathbb R\times M\to M\), and
+\begin{equation}
+  F:Z(a)\times\mathbb R\longrightarrow M,
+  \qquad
+  F(q,t)=\Phi_t(q),
+  \label{eq:complete-aes-splitting-map}
+\end{equation}
+is a diffeomorphism.  In particular, \(a\) is surjective, \(Z(a)\) is nonempty
+and connected, and \(M\) is noncompact.
+
+The conclusion is a smooth product decomposition.  It does not assert that
+\(F\) is an isometry from a Riemannian product.
+\end{theorem}
+
+\begin{proof}
+Put \(q(a)=\sqrt{\mu^2+\lambda^2a^2}\).  Since \(\mu\ne0\), this is everywhere
+positive.  The chain rule and the regular-AES equation give
+\[
+  \nabla r=\frac{\nabla a}{q(a)},
+  \qquad
+  |\nabla r|_g^2
+    =\frac{|\nabla a|_g^2}{q(a)^2}=1.
+\]
+Thus \(X=\nabla r\) is a smooth bounded vector field.  To see that its flow is
+complete, let an integral curve be defined on a finite time interval.  Its speed
+is one, so over every bounded time interval it remains in a closed metric ball.
+By Hopf--Rinow, closed bounded balls in the complete connected Riemannian
+manifold \(M\) are compact.  The standard local existence theorem for smooth
+vector fields then extends the integral curve past every finite endpoint.
+Hence \(\Phi_t\) exists for all \(t\in\mathbb R\).
+
+Along this flow,
+\begin{equation}
+  \frac{d}{dt}r(\Phi_t(p))
+    =dr(X)=|\nabla r|_g^2=1,
+  \qquad
+  r(\Phi_t(p))=r(p)+t.
+  \label{eq:complete-aes-flow-translation}
+\end{equation}
+It follows that every orbit meets \(r^{-1}(0)=a^{-1}(0)\) exactly once, namely
+at \(\Phi_{-r(p)}(p)\).  Therefore the inverse of
+\eqref{eq:complete-aes-splitting-map} is
+\[
+  p\longmapsto
+  \bigl(\Phi_{-r(p)}(p),r(p)\bigr).
+\]
+Both maps are smooth, so \(F\) is a diffeomorphism.  Equation
+\eqref{eq:complete-aes-flow-translation} also shows that \(r(M)=\mathbb R\).
+The function \(\mathcal R:\mathbb R\to\mathbb R\) is a strictly increasing
+diffeomorphism (linear when \(\lambda=0\), and an inverse-hyperbolic-sine
+rescaling when \(\lambda\ne0\)); hence \(a\) is surjective.  Finally,
+\(Z(a)\times\mathbb R\cong M\) is connected only if \(Z(a)\) is connected,
+and the displayed product cannot be compact.
+\end{proof}
+
+\begin{remark}[Why the global hypotheses matter]
+\label{rem:complete-splitting-boundary-warning}
+If a boundary is present, the unit vector field \(\nabla r\) may reach it in
+finite time.  If the metric is incomplete, an integral curve may escape the
+manifold in finite time.  In either case the global flow argument fails, so the
+theorem must not be applied to domains with boundary or to incomplete regular
+models without a separate extension analysis.
+\end{remark}
+
+Theorem~\ref{thm:complete-regular-aes-splitting} is a global obstruction, not
+merely a local regular-value statement.  A connected complete boundaryless
+regular scalar AES cannot have several zero components, let alone a branching
+or four-valent zero network.  Consequently, a Hecke cellulation used as a zero
+graph must enter through singular points, a failure of completeness or
+boundarylessness, or data richer than one regular scalar assignment.  Paper~I
+records this no-go boundary; the corresponding singular constructions belong
+to Paper~III.
 
 Figure~\ref{fig:regular-versus-singular-zero} summarizes the categorical
 distinction.  It illustrates the local conclusions already proved; it does not
