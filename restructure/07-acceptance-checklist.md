@@ -2,7 +2,7 @@
 
 **File:** `restructure/07-acceptance-checklist.md`
 **Status:** Authoritative
-**Version:** 1.0
+**Version:** 1.1
 **Date:** 2026-08-06
 **Depends on:**
 
@@ -1649,3 +1649,56 @@ A polished manuscript that fails a mathematical gate is not acceptable.
 A mathematically correct manuscript with unresolved source migration is not release-ready.
 
 A complete release requires both.
+
+---
+
+## 106. Arithmetic--automorphic integration gates
+
+These gates apply to the post-closure Papers I--III integration.
+
+### Paper I
+
+- [x] The matrices for (T_{\sqrt2}) and (J) use the declared chronological
+      convention.
+- [x] The exact order-four calculation is printed.
+- [x] The standard Hecke identification is cited rather than inferred from one
+      relation alone.
+- [x] Histories, operators, cosets, and endpoints are not declared bijective.
+- [x] The complete splitting theorem states connectedness, completeness, no
+      boundary, and (\mu\ne0).
+- [x] The splitting is described as diffeomorphic, not automatically isometric.
+
+### Paper II
+
+- [x] The planar and cylindrical AES identities are calculated explicitly.
+- [x] Pullback is restricted to the local-biholomorphism locus.
+- [x] Critical points, branch points, zeros/poles of the cylindrical coordinate,
+      and singular completion are exported to Paper III rather than solved by
+      assertion.
+- [x] Sign-changing descent is formulated as a line-bundle or index-two-cover
+      statement.
+
+### Paper III
+
+- [x] The local degree-(m) normal form proves both (2m) prongs and cone angle
+      (2\pi m).
+- [x] The normalized ((2,4,\infty)) Hauptmodul and its ramification data are cited.
+- [x] Existence of the global square root is justified by its even divisor on
+      (\mathbb H).
+- [x] The equality (Z(a)=\beta^{-1}([0,1])) is proved in both directions.
+- [x] Bivalent and four-valent elliptic orbits are treated separately.
+- [x] Cusp distance, finite cone distance, quotient descent, and properness are not
+      conflated.
+- [x] Arithmetic irreducibility, constant-field geometric splitting, local sheets,
+      Galois action, and topological monodromy are distinguished.
+- [x] The history-to-relative-divisor functor is labelled open.
+- [x] No knot or factorization invariant is inferred merely from the zero dessin.
+
+### Shared build and provenance
+
+- [x] All new citation keys occur in the shared bibliography.
+- [x] All Papers I--III complete the full LaTeX/BibTeX build without undefined
+      references or citations.
+- [x] The source audit records the automorphic construction as rederived here, not
+      as a recovered historical `E_k` or `E_log` theorem.
+- [x] Generated PDFs and closure metadata are refreshed after the final build.

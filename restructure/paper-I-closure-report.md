@@ -11,6 +11,10 @@ with `audit-report.md`, `source-inventory.md`, `migration-log.md`, and
 manuscript at the hypotheses actually printed in the paper.  It does not mean that
 Papers II--IV, author release approval, or DOI publication work is complete.
 
+**Post-closure notice:** Section 8 records the later arithmetic--automorphic
+integration and its 63-page checkpoint; Sections 1--7 retain the original 60-page
+closure evidence.
+
 ## 1. Acceptance outcome
 
 - **Repository baseline:** closed.  The fixed baseline, alternate manuscript trees,
@@ -143,3 +147,48 @@ Before calling this manuscript a public release candidate, an author should:
 2. approve author, affiliation, email, date, and version metadata;
 3. decide whether and how the prior Zenodo record should point to the new version;
 4. review the draft pull request and authorize a non-draft release state.
+
+## 8. Post-closure arithmetic--automorphic amendment (2026-08-06)
+
+This amendment records a later integration checkpoint and does not rewrite the
+60-page artifact evidence in Section 4, which remains the evidence for the original
+closure run.  The active dependency shape is still ten sections and five appendices;
+no additional Paper I source file was introduced.  The entry point and Sections 1,
+3, 7, and 10 now make the arithmetic--automorphic export explicit.
+
+| Extension node | Active statement | Source and status |
+|---|---|---|
+| P1-H1 / P1-H2 | The projective contexts `T_sqrt(2)` and `J=-1/z` generate the `q=4` Hecke operator subgroup, with exact projective order four | `prop:hecke-four-arithmetic-relation`, Section 3; matrix calculation plus cited standard group identification |
+| P1-Z9 | Every connected, complete, boundaryless regular AES is diffeomorphic to `Z(a) x R`; its assignment is surjective and its zero set is nonempty and connected | `thm:complete-regular-aes-splitting`, Section 7; proved by rectification and complete unit-gradient flow |
+
+The equality levels remain part of the theorem boundary: literal words, marked
+histories, induced projective operators, Hecke relations, cell-stabilizer cosets, and
+endpoints are not identified.  Projective continuation through `0` or infinity does
+not certify an ordinary arithmetic computation.  The splitting is smooth rather
+than isometric and does not apply to incomplete metrics or manifolds with boundary.
+It therefore supplies the precise global no-go result needed downstream: a
+branching Hecke zero network cannot be the zero set of one connected, complete,
+boundaryless regular scalar AES, but it may occur after a declared singular,
+incomplete, boundary, or higher-rank mechanism.
+
+The specialization to `sqrt(2)`, the matrix relation, and the splitting proof are
+internal active-manuscript results.  The conventional Hecke-group identification
+and continued-fraction background use the new cited primary sources.  Paper I does
+not claim a Hauptmodul, a dessin, a branched metric, or a history-to-divisor functor;
+those are downstream interfaces.
+
+The final unified repository build produced the amended Paper I artifact with the
+following current evidence:
+
+| Property | Current integration artifact |
+|---|---:|
+| Pages | 63 |
+| File size | 604,976 bytes |
+| SHA-256 | `bbcb16fa720c26f837555ff2387ee7205884a8f07963c6f949e19cb636710fd5` |
+| Active labels | 177 unique |
+| Citation keys used | 6 unique |
+
+The final log has no LaTeX or package warning, undefined reference or citation,
+overfull or underfull box, duplicate label, or fatal diagnostic.  This table
+supersedes only the artifact metadata for the active integration snapshot; the
+original 60-page closure evidence above remains a historical record.

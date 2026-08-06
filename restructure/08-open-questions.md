@@ -2,7 +2,7 @@
 
 **File:** `restructure/08-open-questions.md`
 **Status:** Authoritative issue register
-**Version:** 1.0
+**Version:** 1.1
 **Date:** 2026-08-06
 **Depends on:**
 
@@ -1041,7 +1041,7 @@ Differential-topology reviewer
 ## OQ-019 — Number and global topology of regular zero components
 
 **Priority:** P2
-**State:** OPEN
+**State:** PARTIALLY RESOLVED BY THE COMPLETE REGULAR SPLITTING THEOREM
 
 ### Question
 
@@ -1053,11 +1053,21 @@ Under what hypotheses can one conclude that zero components are:
 
 ### Current evidence
 
-The regular-value theorem only gives a one-dimensional submanifold locally.
+The regular-value theorem only gives a one-dimensional submanifold locally.  The
+new global result proves that if the AES is connected, complete, and boundaryless,
+then
+
+[
+M\cong Z(a)\times\mathbb R,
+]
+
+so the zero layer is nonempty and connected.  This does not classify its intrinsic
+one-manifold topology in higher-dimensional carriers, nor does it apply to
+incomplete models or manifolds with boundary.
 
 ### Default rule while open
 
-Make no global classification.
+Outside the complete boundaryless hypotheses, make no global classification.
 
 ### Resolution condition
 
@@ -2786,3 +2796,95 @@ The fixed affine branch is an Alexander quandle.  Ordinary torsion is exact;
 resonant twisted torsion is a nonzero cohomology class, but its planar state sum
 collapses to the Alexander-quandle coloring count.  No closure-level separation
 beyond Alexander/Burau is claimed.
+
+---
+
+## OQ-071 — Exact descent of the (q=4) automorphic assignment
+
+**State:** CLOSED WITH AN OBJECT-TYPE DISTINCTION
+
+Paper III computes the sign character on the arithmetic generators:
+
+[
+\chi(J)=-1,
+\qquad
+\chi(JT)=-1,
+\qquad
+\chi(T)=+1.
+]
+
+Consequently no scalar normalization on the full orbifold quotient can remove the
+nontrivial character.  The mathematically natural alternatives are now fixed:
+
+1. a scalar assignment on (\ker\chi\backslash\mathbb H); or
+2. a section of the associated real sign line bundle on the full quotient.
+
+The metric and zero graph descend to the full quotient.  Choosing between the two
+equivalent presentations is an object-type convention, not an unresolved character
+calculation.
+
+## OQ-072 — Cusp, completion, and properness audit of the Hecke zero network
+
+**State:** PARTIALLY RESOLVED; PROPERNESS AND COVERWISE TOPOLOGY REMAIN OPEN
+
+The active theorem proves that
+
+[
+g=|dW/W|^2
+]
+
+has finite distance to the order-four orbit and infinite distance along the cusp.
+Upstairs completion adds (4\pi) cone points; the completed full-orbifold length
+quotient is complete, and its coarse elliptic images have angle (\pi).
+
+It remains to prove or disprove local finiteness and properness statements on the
+universal cover and finite-index quotients, to state the precise coverwise topology,
+and to identify any parameter family for which the zero incidence is a proper tube.
+The quotient completion theorem alone may not be used as a proper-tube theorem.
+
+## OQ-073 — History-to-relative-divisor functor
+
+**State:** OPEN; PRINCIPAL NATURALITY PROBLEM
+
+Construct a functor from a declared category of marked arithmetic histories to
+arithmetic sections or polynomials over a parameter base,
+
+[
+H\longmapsto P_H\longmapsto (P_H)_0,
+]
+
+such that expression equivalence, composition, field of definition, chirality,
+and parameter concatenation are respected.  Determine which kernel of projective
+evaluation, if any, remains visible in the divisor.
+
+The (q=4) Hecke construction is currently a special operator-quotient example,
+not a solution for all histories.
+
+## OQ-074 — Arithmetic versus geometric irreducibility of zero paths
+
+**State:** OPEN PROGRAM WITH STANDARD FRAMEWORK
+
+Find a finite integral AEG family for which:
+
+* the generic polynomial or section is irreducible over (K(B));
+* its geometric factorization over (\overline K(B)) is explicit;
+* geometric monodromy, arithmetic Galois action, inertia, and Frobenius cycle types
+  can all be computed;
+* the resulting sheets admit an AEG interpretation not imposed after the fact.
+
+This is the first finite test required before an infinite arithmetic history
+divisor is attempted.
+
+## OQ-075 — Factorization-theoretic zero histories
+
+**State:** OPEN
+
+If inequivalent routes to zero are meant to encode inequivalent irreducible
+factorizations, replace the unique-factorization (\mathbb Z[\sqrt2]) test case by
+an integral domain or order with nontrivial class or factorization data.  Determine
+whether ideal classes, sets of lengths, elasticity, or catenary structure can be
+realized as labels or monodromy invariants of a relative AEG zero divisor.
+
+This question is distinct from the Hecke tessellation problem: the latter supplies
+arithmetic symmetry and automorphic uniformization, not nonunique factorization by
+itself.

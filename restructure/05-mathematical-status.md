@@ -2,7 +2,7 @@
 
 **File:** `restructure/05-mathematical-status.md`
 **Status:** Authoritative
-**Version:** 1.0
+**Version:** 1.1
 **Date:** 2026-08-06
 **Depends on:**
 
@@ -3230,6 +3230,41 @@ promote any later-paper programme.
 - **Papers affected:** Paper I; exported syntax interface to Paper IV.
 - **Reviewer:** independent algebra, mathematical, and scope reviews.
 - **Date:** 2026-08-06.
+
+---
+
+## Arithmetic--automorphic integration update — 2026-08-06
+
+| ID | Claim | Status | Required boundary |
+|---|---|---|---|
+| P1-H1 | (T_{\sqrt2}) and (J=-1/z) are projective evaluations of explicit bilateral arithmetic contexts | **PROVED WITH ORDINARY/PROJECTIVE DOMAIN DISTINCTION** | The history word may cross (0) or (\infty) projectively without being an ordinary admissible evaluation. |
+| P1-H2 | Their projective image is the (q=4) Hecke triangle group | **PROVED / STANDARD GROUP IDENTIFICATION** | Equality is at the operator quotient; histories are not identified with group elements or tiles before quotienting. |
+| P1-Z9 | A connected complete boundaryless regular AES splits as (Z(a)\times\mathbb R) | **PROVED WITH STATED HYPOTHESES** | The product is diffeomorphic, not necessarily isometric; a boundary or incomplete metric invalidates the global-flow argument. |
+| P2-A1 | The planar rotated-imaginary-part target is a harmonic regular AES with the printed curvature law | **PROVED BY DIRECT CALCULATION** | (\mu\ne0); the metric and phase are explicitly declared. |
+| P2-A2 | The logarithmic cylindrical target is a regular AES | **PROVED BY DIRECT CALCULATION** | Use the linear limiting definition when (\lambda=0). |
+| P2-A3 | Holomorphic local diffeomorphisms pull back either target to a regular AES | **PROVED** | The derivative must be nonzero; no statement is made at a branch point. |
+| P3-S1 | A holomorphic critical point in the pullback is locally essential | **PROVED WITH STATED HYPOTHESES** | The target assignment must obey the positive-(\mu^2) eikonal identity and its zero line must meet the critical value for the prong conclusion. |
+| P3-S2 | Local degree (m) gives a (2m)-prong zero germ and cone angle (2\pi m) | **PROVED BY LOCAL NORMAL FORM AND METRIC CALCULATION** | This is a singular metric completion, not a smooth regular AES point. |
+| P3-S3 | A normalized Hauptmodul has orbifold signature ((2,4,\infty)), finite ramification indices (2) and (4), and a simple pole at the cusp | **STANDARD EXTERNAL INPUT REQUIRING CITATION** | The chosen finite branch values and cusp normalization must be printed. |
+| P3-S4 | The square-root/Cayley/cylindrical construction has zero set (\beta^{-1}([0,1])) and four-valent (4\pi)-cone vertices upstairs | **PROVED CONDITIONAL ON P3-S3** | The sign character is explicit.  The completed full-orbifold length quotient is complete with an infinite-distance cusp and coarse angle (\pi) at each elliptic image; properness and tube conclusions are not automatic. |
+| P3-R1 | Prime relative divisors normalize to finite covers away from discriminant and bad fibers | **STANDARD CONSEQUENCE WITH FINITENESS HYPOTHESES** | Arithmetic and geometric irreducibility must be separated. |
+| P3-R2 | Galois, inertia, reduction, and Frobenius may decorate the geometric sheets of an integral family | **STANDARD ARITHMETIC FRAMEWORK** | It applies only after a ring/field of definition and integral model are declared. |
+| P3-R3 | Every suitable AEG history has a functorial arithmetic relative zero divisor | **STRUCTURAL PROPOSAL / OPEN PROBLEM** | No existence, uniqueness, completeness, or Markov descent claim is authorized. |
+
+### Abstract-level authorization
+
+Papers I and II may advertise only their proved exports.  Paper III may advertise
+the branched-pullback theorem and the exact (q=4) automorphic example after their
+proofs and citations are present.  It may describe the history-to-divisor map only
+as the principal open naturality problem.
+
+### Number-theoretic limitation
+
+The (q=4) model is defined over the Hecke arithmetic associated with
+(\mathbb Q(\sqrt2)), but it does not demonstrate nonunique factorization in
+(\mathbb Z[\sqrt2]).  A factorization-theoretic version of inequivalent zero
+histories requires a separate integral model, preferably with nontrivial ideal
+class or factorization data.
 
 ## Status change S-0002
 

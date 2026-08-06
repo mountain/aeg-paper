@@ -2,7 +2,7 @@
 
 **File:** `restructure/01-paper-series-architecture.md`
 **Status:** Authoritative
-**Version:** 1.0
+**Version:** 1.1
 **Date:** 2026-08-06
 **Depends on:** `restructure/00-authoritative-scope.md`
 **Applies to:** Papers I–IV of the Arithmetic Expression Geometry series
@@ -1797,3 +1797,69 @@ Paper III asks how that geometry becomes singular and topologically nontrivial.
 Paper IV asks what information is lost when histories are quotiented and how that loss relates to representation and computation.
 
 The architecture is successful only if each later paper extends Paper I without forcing Paper I’s foundational objects to be redefined.
+
+---
+
+## 50. Activated Paper I--II--III analytic interface
+
+The optional Paper II to Paper III dependency is now activated for one bounded
+interface only:
+
+```text
+Paper I:
+  projective histories and the q=4 Hecke subgroup
+          |
+          v
+Paper II:
+  planar/cylindrical regular AES targets
+  + holomorphic local-diffeomorphism pullback
+          |
+          v
+Paper III:
+  critical-set singularities
+  + Hecke-Hauptmodul zero dessin
+  + relative arithmetic zero divisors.
+```
+
+The dependency remains acyclic.  Paper II proves no singular conclusion, and Paper
+I uses no analytic or automorphic theorem from Papers II or III.
+
+### Export contract from Paper I
+
+Paper I exports the explicit projective operators (T_{\sqrt2}) and (J), their
+matrix relation, and the identification of the generated subgroup with (G_4).
+It does not export a history-to-zero-set functor.
+
+### Export contract from Paper II
+
+Paper II exports:
+
+1. the planar harmonic AES target;
+2. the cylindrical AES target;
+3. functorial pullback by a holomorphic local diffeomorphism;
+4. the associated regular-locus Laplacian and curvature identities.
+
+The export explicitly excludes critical points and singular metric completion.
+
+### Paper III additions
+
+Paper III may combine those exports with standard triangle-group uniformization.
+It must prove all AEG-specific zero-set and cone calculations in the active source.
+It must distinguish a standard external Hauptmodul input from the newly derived
+AEG pullback construction.
+
+### Arithmetic divisor layer
+
+The relative-divisor hierarchy is:
+
+[
+\text{history presentation}
+\to \text{operator}
+\to \text{section over a field of definition}
+\to \text{relative prime divisor}
+\to \text{geometric sheets}.
+]
+
+Arithmetic irreducibility over (K(B)), geometric irreducibility over
+(\overline K(B)), topological monodromy, and Galois action must not be identified.
+The general arrow from operator or history to arithmetic section remains open.

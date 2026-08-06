@@ -53,6 +53,13 @@ Paper III's corrected historical provenance and theorem decisions are recorded i
 [`paper-III-source-audit.md`](paper-III-source-audit.md) and
 [`decisions-paper-III.md`](decisions-paper-III.md).
 
+The post-closure arithmetic--automorphic integration across Papers I--III is
+documented in
+[`discussions/arithmetic-automorphic-zero-networks.md`](discussions/arithmetic-automorphic-zero-networks.md).
+Its proved components are promoted only through the authoritative scope,
+dependency, status, and per-paper decision records; the general history-to-divisor
+functor remains an open problem.
+
 ---
 
 # The AEG paper series

@@ -2,7 +2,7 @@
 
 **File:** `restructure/00-authoritative-scope.md`
 **Status:** Authoritative
-**Version:** 1.0
+**Version:** 1.1
 **Date:** 2026-08-06
 **Applies to:** The restructuring of the Arithmetic Expression Geometry paper repository
 
@@ -765,7 +765,7 @@ Nodal-set results may appear when analytically relevant, but global singular-zer
 
 Recommended subtitle:
 
-**Multi-Zero Constructions, Discriminants, and Topological Transport**
+**Branched Pullbacks, Arithmetic Zero Networks, and Topological Transport**
 
 ### Role
 
@@ -1236,3 +1236,88 @@ The four-paper series is fixed as follows:
 ]
 
 Paper I must remain foundational and restrained. Its success is measured not by how many AEG directions it mentions, but by whether Papers II–IV can depend on it without redefining its objects, repairing its conventions, or weakening its claims.
+
+---
+
+## 30. Arithmetic--automorphic zero-network amendment
+
+The following cross-paper interface is authorized as of 2026-08-06:
+
+[
+\text{restricted arithmetic histories}
+\longrightarrow G_4
+\longrightarrow \text{regular holomorphic pullback}
+\longrightarrow \text{singular automorphic zero network}.
+]
+
+Its ownership is fixed as follows.
+
+### Paper I
+
+Paper I may prove that the projective contexts
+
+[
+T_{\sqrt2}(z)=z+\sqrt2,
+\qquad
+J(z)=-1/z
+]
+
+generate the (q=4) Hecke triangle subgroup of
+(\operatorname{PGL}_2(\mathbb Q(\sqrt2))).  This is an operator-level example
+of the process-to-operator quotient.  Paper I must retain the distinctions among
+literal histories, marked histories, projective operators, Hecke group elements,
+stabilizer cosets, and ordinary admissible endpoints.  It must not develop
+Hauptmoduls, dessins, or singular zero networks as Paper I theory.
+
+Paper I also owns the complete regular splitting theorem: on a connected,
+complete, boundaryless regular AES with (\mu\ne0), the rectified assignment has
+unit gradient and its complete flow gives
+
+[
+M\cong Z(a)\times\mathbb R.
+]
+
+The conclusion is a smooth, not necessarily Riemannian, product.  It implies that
+the zero layer is nonempty and connected under these hypotheses and supplies the
+global no-go boundary motivating the singular automorphic model.
+
+### Paper II
+
+Paper II owns the regular analytic pullback interface.  It may prove the planar and
+cylindrical target AES formulas and their preservation under holomorphic local
+diffeomorphisms.  It must state that critical points, degenerate pullback metrics,
+cone completions, and branching zero sets lie outside the regular locus and are
+treated in Paper III.
+
+### Paper III
+
+Paper III owns:
+
+* holomorphic branched-pullback singularities;
+* the (2m)-prong and (2\pi m)-cone local theorem;
+* the normalized ((2,4,\infty)) Hecke--Hauptmodul zero-network model;
+* sign-equivariant assignments and their line-bundle or index-two descent;
+* arithmetic relative zero divisors, their normalizations, discriminants, and
+  geometric monodromy;
+* the proposed history-to-relative-divisor functor.
+
+The last item remains a structural proposal until a functor respecting declared
+history equivalence, composition, field of definition, and parameter base is
+constructed.  The automorphic model must not be advertised as such a functor for
+all AEG histories.
+
+### Claim boundary
+
+This amendment does not authorize any claim that:
+
+* all histories are in bijection with tiles or zero branches;
+* an arbitrary complex zero network is number-theoretic;
+* projective equality implies ordinary arithmetic admissibility;
+* the (q=4) model supplies nonunique factorization in
+  (\mathbb Z[\sqrt2]);
+* a singular zero network automatically gives a proper tube, finite braid, or knot
+  invariant.
+
+The detailed proof and status ledger is maintained in
+`restructure/discussions/arithmetic-automorphic-zero-networks.md` and the
+mathematical-status register.
