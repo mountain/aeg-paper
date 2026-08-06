@@ -110,7 +110,48 @@ closure.
 
 - Source entry point: `paper-k/aeg-paper-k.tex`
 - Generated artifact: `paper-k/aeg-paper-k.pdf`
-- Current implementation: Paper I
-- Reserved future names: `paper-2/aeg-paper-2.tex` through
+- Current implementation: Papers I and II
+- Reserved future names: `paper-3/aeg-paper-3.tex` and
   `paper-4/aeg-paper-4.tex`; no empty manuscript files are created before their
   theorem sets stabilize
+
+## Migration M-0003
+
+- **Date:** 2026-08-06
+- **Source:** analytic portions of `sections/sec07.tex`, `sections/sec08.tex`,
+  `sections/sec09.tex`, and `sections/sec11.tex`; corresponding revision-1 and
+  revision-2 analytic sections; `notes/analysis_01.tex`; the regular-AES,
+  hyperbolic-model, and contact interfaces in Paper I Sections 5, 6, and 9
+- **Destination:** `paper-2/aeg-paper-2.tex`, eight files under
+  `paper-2/sections/`, and three files under `paper-2/appendices/`
+- **Migration state:** CANONICAL / REDERIVED; legacy and alternative sources remain
+  ARCHIVAL or HOLD and are not active TeX dependencies
+- **Claim treatment:** surface and contact analysis are separated; raw sums of
+  squares are distinguished from measure-selected variational Laplacians; formal,
+  pointwise, and closed-operator statements receive separate domains; the legacy
+  affine--Appell “basis” is corrected to a filtered `C^infty(u,v)`-module; the
+  Poisson--Dirichlet and Dirichlet-to-Neumann theorems are newly proved on the basic
+  model with classical provenance stated explicitly
+- **Formula/source-family destinations:** general surface adjoints and CR
+  factorization → Sections 2--3 and Appendix A; contact adjoints, twisted
+  factorization, logarithmic fields, and affine--Appell calculations → Section 4 and
+  Appendix B; hyperbolic normalization, Poisson kernel, boundary uniqueness,
+  Fourier energy, and assignment-dependent fields → Sections 5--7 and Appendix C;
+  limitations and Papers III--IV boundary → Sections 1 and 8
+- **Theorem nodes affected:** P2-D1--P2-D2 and P2-T1--P2-T9
+- **Notation changes:** `X_u,X_v` are reserved for the regular-AES tangent frame;
+  `D_u,D_v` for contact lifts; `Delta_g` and `Delta_C` name the variational
+  operators; `Q_C` names the raw contact sum of squares; the contact Appell scale is
+  `r=e^{lambda v}`, distinct from the surface eikonal norm `q`
+- **Citations:** Paper I provenance plus Ahlfors, H\"ormander, and
+  Caffarelli--Silvestre; no legacy source is treated as external proof authority
+- **Content retained in source:** every legacy, revision, and note file remains
+  unchanged for comparison
+- **Content removed from source:** none
+- **Build result:** passed locally; Paper II produces a 39-page US-letter PDF with
+  clean LaTeX and BibTeX logs; exact artifact metadata and hash are recorded in
+  `paper-II-closure-report.md`
+- **Reviewer notes:** independent cross-branch mathematical reviews found no
+  blocking formula or theorem defect after the trace-space summary was narrowed;
+  the scope review confirmed the Paper I → Paper II dependency and no Paper III/IV
+  leakage

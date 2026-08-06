@@ -1,0 +1,158 @@
+# Paper II Closure Report
+
+**Manuscript:** *Arithmetic Expression Geometry II: Hyperbolic Real Function Theory*
+
+**Status:** Mathematical-review manuscript
+
+**Closure date:** 2026-08-06
+
+**Audited baseline:** `61ff60d`
+
+This report records the result of the Paper II writing and restructuring task.  It
+should be read with `paper-II-source-audit.md`, `decisions-paper-II.md`,
+`source-inventory.md`, `migration-log.md`, and `audit-report.md`.  “Closed” below
+means closed at the hypotheses and operator domains printed in the mathematical-review
+manuscript.  It does not mean that the remaining analytic programme or public-release
+work is complete.
+
+## 1. Acceptance outcome
+
+- **Source and dependency closure:** closed.  The active entry point contains eight
+  sections and three appendices and imports Paper I by citation and restatement.  No
+  legacy, alternative-revision, note, Paper III, or Paper IV source is an active TeX
+  dependency.
+- **Mathematical closure:** closed for P2-D1--P2-D2 and P2-T1--P2-T9.  The manuscript
+  separates the intrinsic surface theory from the normalized contact-CR theory,
+  declares measures and domains, and proves the basic-model boundary results it
+  advertises.
+- **Claim-status and provenance closure:** closed.  Migration M-0003 records every
+  migrated source family and treatment; status change S-0006 records the authorized
+  theorem promotion; the remaining questions are explicitly retained as open.
+- **Editorial and rendered closure:** closed for mathematical review.  The abstract,
+  introduction, theorem statements, comparison table, conclusion, appendices, and
+  bibliography are traceable to the proved body results and were visually inspected.
+- **Release status:** not an author-approved public release.  Author metadata,
+  clean-container verification, DOI/version policy, and final publication judgment
+  remain human release actions.
+
+## 2. Theorem inventory
+
+| Node | Result | Active location | Closure |
+|---|---|---|---|
+| P2-D1 / P2-T1 | regular-AES analytic data, frame adjoints, energy, and Laplace--Beltrami drift | Section 2; Appendix A | defined / proved |
+| P2-T2 | intrinsic arithmetic CR operator, gauge law, exact factorizations, and holomorphic implies harmonic | Section 3; Appendix A | proved |
+| P2-D2 / P2-T3 | normalized contact analytic data, contact adjoints, variational sub-Laplacian, Friedrichs realization, and bracket generation | Section 4; Appendix B | defined / proved |
+| P2-T4 | raw and adjoint/Reeb contact-CR twists and logarithmic CR fields | Section 4; Appendix B | proved with branch hypotheses |
+| P2-T5 | finite filtered affine--Appell modules and finite upward sweep | Section 4; Appendix B | proved; no basis or completeness claim |
+| P2-T6 | exact arithmetic-frame and hyperbolic Laplacian comparison | Section 5; Appendices A and C | proved |
+| P2-T7 | transported Poisson kernel and compactified `C_0` Dirichlet theorem | Section 6; Appendix C | proved with stated boundary class |
+| P2-T8 | Fourier multiplier, variational conormal, energy identity, and minimization | Section 7; Appendix C | proved on the stated Schwartz/Sobolev classes |
+| P2-T9 | rational, Fourier, assignment-only harmonic, harmonic-measure, and contact-CR families | Sections 4 and 7; Appendices B and C | proved with stated domains |
+
+The paper does not identify the raw contact sum of squares with the variational
+sub-Laplacian, or the contact-CR twisted equation with surface harmonicity.  It does
+not promote the affine--Appell family to a Hilbert or Schauder basis.
+
+## 3. Mathematical decisions closed
+
+The Paper II decision record fixes the following release-relevant distinctions:
+
+1. surface fields `X_u,X_v` and contact lifts `D_u,D_v` live on different analytic
+   carriers;
+2. the divergence-of-gradient sign makes `-Delta_g` and `-Delta_C` the nonnegative
+   energy operators;
+3. Riemannian area and positive contact volume force the displayed first-order drift
+   terms;
+4. formal test-function identities, pointwise differential consequences, and closed
+   Friedrichs operators are stated on separate domains;
+5. surface arithmetic holomorphicity is a unitary gauge of ordinary oriented-surface
+   holomorphicity, while contact CR factorization has a Reeb/curvature twist;
+6. the global model uses `X=(lambda/mu)x`, with every original-coordinate Poisson and
+   conormal scale shown explicitly;
+7. the decisive uniqueness class is continuous data on the conformal compactification,
+   with `C_0(R)` denoting zero value at its ideal point;
+8. explicit solution families are claims of construction, not mode completeness.
+
+## 4. Build and static validation
+
+The repository command `./build.sh 2` executes the strict sequence
+
+```text
+pdflatex -halt-on-error -file-line-error -interaction=nonstopmode aeg-paper-2.tex
+bibtex aeg-paper-2
+pdflatex -halt-on-error -file-line-error -interaction=nonstopmode aeg-paper-2.tex
+pdflatex -halt-on-error -file-line-error -interaction=nonstopmode aeg-paper-2.tex
+```
+
+A cold build after deleting Paper II's generated auxiliaries succeeded.  The task
+runner can expose an overlay race when repeatedly replacing the same generated
+binary, so the verified complete PDF was promoted by an atomic rename after the
+four stages completed.  This affects only artifact materialization, not the source or
+the repository build procedure.
+
+Final artifact:
+
+| Property | Value |
+|---|---:|
+| PDF | `paper-2/aeg-paper-2.pdf` |
+| Pages | 39 |
+| Page size | US letter, 612 x 792 pt |
+| PDF version | 1.5 |
+| File size | 463,026 bytes |
+| SHA-256 | `489d21841f56e4a84f9c9179b804c4e6d2207d23c8367d98e00215829fb7bab3` |
+
+Static checks:
+
+- 198 labels and 198 unique labels;
+- 83 unique `ref`, `eqref`, `pageref`, or `autoref` targets, all present;
+- 4 citation keys, all present in the shared root bibliography;
+- no control character or unresolved TODO/FIXME marker in the active TeX source;
+- no LaTeX or BibTeX warning, undefined reference or citation, fatal diagnostic,
+  overfull box, or underfull box in the final logs;
+- `git diff --check` passes.
+
+## 5. Rendered review
+
+The final 39-page artifact was rendered with Poppler.  Every page was included in
+four contact-sheet passes, followed by full-page inspection of the title and abstract,
+introduction and analytic-branch figure, surface/contact transition, contact gauge,
+hyperbolic coordinate transition, Poisson uniqueness proof, explicit assignment
+families, conclusion, both calculation appendices, and bibliography.  No clipping,
+collision, unreadable figure label, malformed equation, blank content page, or broken
+page transition was found.
+
+## 6. Independent review record
+
+Three separate read-only review tracks covered:
+
+- surface-frame divergence, adjoints, Laplace drift, unitary gauge, raw/exact/adjoint
+  CR factorizations, and the closed Dirichlet realization;
+- contact volume and divergences, raw and Reeb-twisted products, balanced measure,
+  logarithmic first integrals, affine--Appell filtration, Poisson and Fourier scales,
+  energy constants, and explicit assignment-dependent fields;
+- whole-manuscript mathematical consistency, source provenance, Paper I dependency,
+  required-topic coverage, and exclusion of Paper III/IV theorem claims.
+
+The reviews initially found one blocking overstatement: the conclusion described a
+complete finite-energy trace-space identification although the body proves the exact
+identity for Poisson extensions and completion from Schwartz data.  The conclusion
+was narrowed to that proved statement.  All other findings concerned domain wording,
+normalization transparency, terminology, or provenance and were repaired.  Final
+review disposition: no blocking mathematical, scope, or provenance defect.
+
+## 7. Deliberately open frontier
+
+The closure does not include general Green kernels on regular AESs, spectral
+completeness, a contact-boundary representation theorem, continuation across singular
+AES points, multi-zero/tube topology, projective condensation, or computational
+complexity.  These remain open or assigned to Papers III--IV exactly as recorded in
+the status and architecture files.
+
+## 8. Remaining human release actions
+
+Before treating Paper II as a public release candidate, an author should:
+
+1. build the submitted commit in a clean checkout and with the retained Dockerfile;
+2. approve author, affiliation, date, title, subtitle, and version metadata;
+3. decide the DOI/version relationship between Papers I and II and earlier archives;
+4. review the draft pull request and authorize any non-draft release state.

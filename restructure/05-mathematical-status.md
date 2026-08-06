@@ -1948,6 +1948,28 @@ The arithmetic significance lies in the chosen coordinates and horizontal frame,
 
 # Part XII. Paper II analytic status
 
+## Paper II integration update — 2026-08-06
+
+The canonical manuscript `paper-2/aeg-paper-2.tex` now resolves the analytic
+inventory below.  This table supersedes the pre-manuscript status descriptions in
+Items 64--73, which are retained afterward as provenance for the original open
+questions.
+
+| Item | Integrated status | Canonical resolution |
+|---|---|---|
+| 64. Compatible horizontal complex structure | **PROVED / DATA DECLARED** | On a regular AES surface, the metric and orientation already determine (J).  On the contact space, Paper II explicitly chooses the metric making (D_u,D_v) orthonormal, the compatible rotation, positive contact volume, and test domain.  No contactomorphism-canonicity is claimed. |
+| 65. Arithmetic Cauchy--Riemann equations | **PROVED IN TWO DISTINCT SETTINGS** | Surface operators (X_u,X_v) and contact lifts (D_u,D_v) use different notation, measures, and harmonic consequences. |
+| 66. Horizontal conformality identities | **PROVED LOCALLY** | The surface CR system gives the equal-length, orthogonality, and nonnegative-Jacobian identities.  No global mapping theorem is inferred. |
+| 67. Arithmetic holomorphic coordinate | **PROVED WITH A BRANCH DOMAIN** | On the contact space, (z=u+iv) and (zeta=u+(i/lambda)operatorname{Log}_mu(mu+ilambda a)) are verified CR first integrals on a named half-plane branch. |
+| 68. Composition | **PROVED WITH DOMAIN HYPOTHESIS** | Holomorphic postcomposition follows by the chain rule when the image lies in the classical holomorphic domain. |
+| 69. Assignment-only fields | **PROVED / CLASSIFIED** | Surface arithmetic-holomorphic fields of the form (H(a)) are constant.  On the basic hyperbolic AES, all harmonic (h(a)) are (C_0+C_1arctan(lambda a/mu)). |
+| 70. Factorization and twisted harmonicity | **PROVED WITH MEASURE AND DOMAIN LEVELS** | The manuscript separates raw, exact-drift, formal-adjoint, and closed-operator identities.  Surface holomorphicity implies (Delta_gF=0); contact CR gives separately named vertical/Reeb-twisted equations. |
+| 71. Affine--Appell family | **PROVED AS A FILTERED MODULE** | The constant span is not asserted invariant.  The corrected (C^infty(u,v))-module is operator-stable; no Hilbert, Schauder, density, or completeness claim is made. |
+| 72. Hyperbolic real function theory | **PROVED ON THE BASIC MODEL** | Paper II proves the normalized Poisson kernel, the compactified-(C_0) Dirichlet theorem, exact Fourier/energy identity, variational Dirichlet-to-Neumann operator, and explicit assignment-dependent families.  General Green, spectral-resolution, and continuation theories remain open. |
+| 73. Relation to classical complex analysis | **RESOLVED ON SURFACES; DISTINCT ON CONTACT SPACE** | The surface arithmetic operator differs from the ordinary Riemann-surface operator by a nowhere-zero (U(1)) gauge, so their kernels agree.  The three-dimensional contact-CR branch is not identified with that surface theory. |
+
+### Pre-manuscript inventory retained for provenance
+
 ## 64. Compatible horizontal complex structure
 
 ### Current status
@@ -3039,7 +3061,7 @@ Complete only when:
 * [ ] open and closed finite defects are separated;
 * [ ] (\delta_H) is restricted to its defined scope;
 * [ ] T17 is formulated without false finite equalities;
-* [ ] analytic complex-structure claims have moved to Paper II.
+* [x] analytic complex-structure claims have moved to Paper II.
 
 ---
 
@@ -3140,7 +3162,12 @@ integrated Paper I core.
 
 ### Paper II
 
-Contains a promising formal operator package, but not yet a complete function theory.
+The canonical mathematical-review manuscript now contains a proved function theory
+on the basic hyperbolic AES: measure-sensitive surface and contact operators,
+factorizations with declared domains, a Poisson--Dirichlet theorem, an exact
+Dirichlet-to-Neumann energy identity on Schwartz data, and explicit
+assignment-dependent families.  General Green kernels, spectral completeness,
+contact boundary representations, and singular continuation remain open.
 
 ### Paper III
 
@@ -3298,4 +3325,44 @@ promote any later-paper programme.
 - **Papers affected:** Paper I; scalar horizontal interface to Paper II.
 - **Reviewer:** independent geometry, torsion/contact, mathematical, and scope
   reviews.
+- **Date:** 2026-08-06.
+
+## Status change S-0006
+
+- **Claim ID:** Paper II Items 64--73; P2-T1--P2-T9 in the Paper II source audit.
+- **Previous status:** compatible contact analytic data were structural proposals;
+  CR and factorization statements were formal or partially proved; the
+  affine--Appell family lacked a correct ambient structure; hyperbolic real function
+  theory and its relation to classical complex analysis remained open.
+- **New status:** `PROVED WITH STATED HYPOTHESES` on the declared regular-surface,
+  normalized-contact, and basic-hyperbolic settings; general boundary, Green,
+  spectral-completeness, contact-representation, and singular-continuation claims
+  remain `OPEN`.
+- **Exact statement:** Riemannian area determines the structure-coefficient drift and
+  the surface Laplace--Beltrami adjoints; the surface arithmetic CR operator is a
+  unitary gauge of the Riemann-surface operator and its kernel is harmonic; positive
+  contact volume determines a distinct variational sub-Laplacian and Reeb-twisted CR
+  factorization; the corrected affine--Appell object is a finite filtered module; on
+  the complete basic hyperbolic AES, the transported Poisson kernel solves the
+  compactified `C_0` Dirichlet problem uniquely, its Schwartz-data variational
+  conormal is `|D_x|`, its energy is the homogeneous `H^{1/2}` quadratic form, and
+  explicit assignment-dependent holomorphic, harmonic, and contact-CR families are
+  constructed.
+- **Hypotheses:** real constants with `mu != 0` on a regular AES; `mu lambda != 0`
+  for contact nondegeneracy; the declared normalized horizontal metric, rotation,
+  positive contact measure, and test/Friedrichs domains; `mu,lambda>0` for the global
+  hyperbolic model; `C_0`, Schwartz, Sobolev, or branch-domain hypotheses as stated
+  theorem by theorem.
+- **Proof location:** Paper II Sections 2--7 and Appendices A--C.
+- **Verification performed:** every frame, adjoint, drift, factorization, gauge,
+  Poisson, Fourier, conormal, energy, logarithmic, and finite upward-sweep formula was
+  independently recomputed; labels and citations were checked; LaTeX/BibTeX built a
+  clean PDF; all pages were rendered and visually inspected; independent
+  cross-branch mathematical and scope reviews were completed.
+- **Downstream nodes affected:** the Paper II analytic interface and possible future
+  analytic tools for Paper III; no Paper III or Paper IV theorem is imported.
+- **Papers affected:** Paper II; Paper I remains unchanged apart from the documented
+  export interface.
+- **Reviewer:** independent surface/operator, contact/boundary, whole-manuscript
+  mathematics, and scope/provenance reviews.
 - **Date:** 2026-08-06.

@@ -3,7 +3,8 @@
 **Fixed baseline:** `134e70a74ed010024afa7439bd3931402731423a`  
 **Inventory date:** 2026-08-06  
 **Baseline population:** 207 tracked files, including 107 `.tex` sources  
-**Post-migration population:** 122 `.tex` sources (15 new Paper I chapter/appendix files)
+**Paper I post-migration population:** 123 `.tex` sources
+**Paper II target population:** 135 `.tex` sources after the 12 canonical Paper II files are added
 
 This inventory classifies every top-level path family in the fixed baseline.  A
 family classification applies to every file beneath the named directory; exceptions
@@ -50,7 +51,9 @@ paper-1/
 ```
 
 The later-paper destination records `paper-2/README.md`, `paper-3/README.md`, and
-`paper-4/README.md` are new.  They define scope and provenance only; they are not
+`paper-4/README.md` are new relative to the fixed baseline.  Paper II has since
+advanced to the canonical active source closure recorded in Section 6 below.
+The Paper III and Paper IV files remain scope and provenance records only and are not
 additional build entry points.
 
 ## 2. Exhaustive baseline family classification
@@ -106,3 +109,32 @@ later-paper material from re-entering through an implicit include.
 `ARCHIVAL`, `EXPORTED`, and `HOLD` mean “excluded from the canonical Paper I build,”
 not “discarded.”  Old paths remain intact so that an author or reviewer can compare
 every migrated statement with its provenance before any future archival move.
+
+## 6. Canonical Paper II source tree
+
+The controlled Paper II migration adds exactly the following active source closure:
+
+```text
+paper-2/
+  aeg-paper-2.tex
+  sections/
+    01-introduction.tex
+    02-analytic-data.tex
+    03-surface-operators.tex
+    04-contact-analysis.tex
+    05-hyperbolic-analysis.tex
+    06-poisson-dirichlet.tex
+    07-boundary-energy.tex
+    08-conclusion.tex
+  appendices/
+    app-A-frame-calculations.tex
+    app-B-contact-calculations.tex
+    app-C-poisson-fourier.tex
+```
+
+The Paper II entry point inputs only these eleven section/appendix files and the
+shared root bibliography.  It imports Paper I statements by citation and restatement,
+not by TeX inclusion.  No legacy `sections/sec*.tex`, archive, note, Paper III, or
+Paper IV source belongs to its build dependency closure.  Formula-level provenance
+and claim treatment are recorded in `paper-II-source-audit.md` and
+`decisions-paper-II.md`.

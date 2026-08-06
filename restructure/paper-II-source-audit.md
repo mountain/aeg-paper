@@ -1,9 +1,12 @@
 # Paper II Source and Theorem Audit
 
-**Paper:** *Arithmetic Expression Geometry II: Hyperbolic Real Function Theory*  
-**Audited baseline:** `61ff60d`  
-**Audit date:** 2026-08-06  
-**Status:** task specification and pre-manuscript audit
+**Paper:** *Arithmetic Expression Geometry II: Hyperbolic Real Function Theory*
+
+**Audited baseline:** `61ff60d`
+
+**Audit date:** 2026-08-06
+
+**Status:** closed for the mathematical-review manuscript
 
 This file records the controlled scope of the Paper II writing task.  It is subordinate
 to `AGENTS.md`, `00-authoritative-scope.md`, and
@@ -32,6 +35,7 @@ consequences.
 - `restructure/paper-II-source-audit.md`;
 - `restructure/decisions-paper-II.md`;
 - `restructure/paper-II-closure-report.md`;
+- `restructure/audit-report.md`;
 - `restructure/05-mathematical-status.md`;
 - `restructure/07-acceptance-checklist.md`;
 - `restructure/08-open-questions.md`;
@@ -118,15 +122,15 @@ contact-CR factorization produces a separately named twisted equation.
 
 ## 7. Required validation
 
-1. build Paper I and Paper II independently;
-2. confirm that both expected PDFs are nonempty;
-3. run BibTeX and check undefined citations and references;
-4. check duplicate labels and missing assets;
-5. verify every formula in P2-T1--P2-T9 independently;
-6. render every Paper II page and inspect title, equations, figures, page breaks, and
-   bibliography;
-7. perform independent mathematical and scope reviews;
-8. record remaining limitations rather than promoting them.
+1. [x] build Paper I and Paper II independently;
+2. [x] confirm that both expected PDFs are nonempty;
+3. [x] run BibTeX and check undefined citations and references;
+4. [x] check duplicate labels and missing assets;
+5. [x] verify every formula in P2-T1--P2-T9 independently;
+6. [x] render every Paper II page and inspect title, equations, figures, page breaks,
+   and bibliography;
+7. [x] perform independent mathematical and scope reviews;
+8. [x] record remaining limitations rather than promoting them.
 
 ## 8. Expected output
 
@@ -136,3 +140,7 @@ contact-CR factorization produces a separately named twisted equation.
 - a Paper II decision record and closure report;
 - updated repository build and provenance records.
 
+All expected outputs now exist.  Exact artifact metadata, static checks, rendered
+review, independent-review dispositions, and the remaining release actions are
+recorded in `paper-II-closure-report.md`.  Migration M-0003 and status change S-0006
+close the provenance and claim-status ledgers for this manuscript.
