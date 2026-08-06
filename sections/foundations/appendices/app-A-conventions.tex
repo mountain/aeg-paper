@@ -1,0 +1,241 @@
+This appendix collects the convention-sensitive choices used in
+Sections~\ref{sec:sequential-histories}--\ref{sec:affine-cocycles}.  The choices
+are not mathematical assertions, but every composition, sign, and coordinate
+formula depends on them.
+
+\subsection{Chronological words and functional composition}
+
+\begin{convention}[Order inside a history]
+\label{conv:history-order}
+A history
+\[
+  \gamma=(g_1,\ldots,g_n)
+\]
+performs $g_1$ first and $g_n$ last.  Its functional evaluation is therefore
+\[
+  \ev(\gamma)=g_n\circ\cdots\circ g_1
+\]
+when the $g_i$ are viewed as maps.
+\end{convention}
+
+\begin{convention}[Chronological concatenation]
+\label{conv:chronological-concatenation}
+The written product $\gamma\delta$ means first perform $\gamma$ and then
+perform $\delta$.  Thus
+\[
+  \ev(\gamma\delta)=\ev(\delta)\circ\ev(\gamma).
+\]
+The notation is chronological rather than functional: the earlier process is
+written on the left.
+\end{convention}
+
+For example, if $g(z)=z+\mu$ and $h(z)=qz$, then the word
+$\gamma=(g,h)$ and the chronological product of the one-step histories $gh$
+both act as
+\[
+  h\circ g(z)=qz+q\mu.
+\]
+The reverse chronological word $hg$ acts as $g\circ h(z)=qz+\mu$.  This
+two-step check fixes the sign of their endpoint difference:
+\[
+  \ev(gh)(z)-\ev(hg)(z)=\mu(q-1).
+\]
+
+\subsection{Column-vector projective action}
+
+\begin{convention}[Matrix action]
+\label{conv:column-projective-action}
+Homogeneous coordinates are columns, and matrices act from the left:
+\[
+  \begin{pmatrix}A&B\\C&D\end{pmatrix}
+  \begin{pmatrix}u\\v\end{pmatrix}
+  =\begin{pmatrix}Au+Bv\\Cu+Dv\end{pmatrix}.
+\]
+On the affine chart $z=[z:1]$, this gives
+\[
+  M\cdot z=\frac{Az+B}{Cz+D}.
+\]
+\end{convention}
+
+If $M_i$ represents $g_i$, the history $(g_1,\ldots,g_n)$ is represented by
+\[
+  M_n\cdots M_1.
+\]
+Consequently, for chronological concatenation,
+\begin{equation}
+  \rho(\gamma\delta)=\rho(\delta)\rho(\gamma).
+  \label{eq:appendix-rho-composition-order}
+\end{equation}
+This is the matrix version of
+Convention~\ref{conv:chronological-concatenation}.  A row-vector right action
+would require a different product convention; it is not used in this paper.
+
+Projective matrices are scalar classes.  If $M$ and $aM$ differ by
+$a\in K^\times$, they represent the same element of
+$\operatorname{PGL}_2(K)$.  Matrix identities used for projective maps may
+therefore be checked either exactly in $\operatorname{GL}_2(K)$ or up to one
+overall nonzero scalar, provided the choice is stated.
+
+\subsection{Ordinary and projective domains}
+
+The following table records the domain distinction for the contexts involving
+division.  Here $c\in K$ and $z$ is the evolving affine value.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.35}
+\begin{tabular}{llll}
+\toprule
+Context & Ordinary rule & Ordinary condition & Projective status \\
+\midrule
+$C_{/,c}^{(1)}[z]=z/c$
+& divide by fixed $c$
+& $c\ne0$
+& invertible if $c\ne0$ \\
+$C_{/,c}^{(2)}[z]=c/z$
+& divide by evolving $z$
+& $z\ne0$
+& invertible if $c\ne0$ \\
+$C_{\times,c}^{(\varepsilon)}[z]=cz$
+& multiply by $c$
+& none
+& invertible if $c\ne0$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Two different exclusions appear in the table.  The parameter condition
+$c\ne0$ ensures that the context has an invertible projective matrix.  The
+state condition $z\ne0$ ensures that an ordinary second-slot division is
+defined at that step.  Projectively, a non-degenerate $c/z$ sends $0$ to
+$\infty$; this is a chart transition, not an ordinary quotient in $K$.
+
+For a composite history, ordinary admissibility is checked at every
+intermediate state.  It is not enough that the final projective point lies in
+the affine chart.  In particular, two projective inversions compose to the
+identity operator, but the corresponding ordinary two-step word is not
+admissible at zero.
+
+\subsection{Left and right group data}
+
+The affine group is represented by
+\[
+  g(\Phi,\xi)=
+  \begin{pmatrix}\Phi&\xi\\0&1\end{pmatrix},
+  \qquad \Phi\in K^\times.
+\]
+With the column action, matrix multiplication gives
+\begin{equation}
+  g(\Phi_2,\xi_2)g(\Phi_1,\xi_1)
+  =g(\Phi_2\Phi_1,\Phi_2\xi_1+\xi_2).
+  \label{eq:appendix-affine-group-law}
+\end{equation}
+Thus the earlier translation is rescaled by the later affine map.  Equation
+\eqref{eq:appendix-affine-group-law} is the two-factor origin of the
+target-frame cocycle.
+
+Over the positive real component, write $\Phi=e^M$.  The two
+Maurer--Cartan forms used in Section~\ref{sec:affine-cocycles} have the
+following readings.
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+Form & Translation component & Frame \\
+\midrule
+$g^{-1}dg$ & $e^{-M}d\xi$ & body/source \\
+$dg\,g^{-1}$ & $d\xi-\xi dM$ & spatial/target \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The words ``left'' and ``right'' here refer to invariant differential forms on
+the affine group.  They do not refer to first and second operand slots.  The
+operand-slot mirror is syntactic; the Maurer--Cartan distinction is
+group-theoretic.
+
+\subsection{Target and source-normalized translation coordinates}
+
+For $x\mapsto\Phi x+\xi$, the symbol $\xi$ always denotes target-frame
+translation.  The source-normalized coordinate is
+\[
+  \widehat\xi=\Phi^{-1}\xi.
+\]
+Their discrete and differential conversions are
+\[
+  \xi=\Phi\widehat\xi,
+  \qquad
+  \widehat\xi=\Phi^{-1}\xi,
+\]
+and, when $\Phi=e^M$,
+\[
+  d\xi=\xi\,dM+e^M d\widehat\xi.
+\]
+No formula in the main text changes from $\xi$ to $\widehat\xi$ without this
+normalization being displayed.
+
+\subsection{Mirror, reversal, and inverse notation}
+
+For $\gamma=(g_1,\ldots,g_n)$, the three operations are summarized by
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+Operation & Resulting word & Required hypothesis \\
+\midrule
+Mirror $m\gamma$
+& $(m(g_1),\ldots,m(g_n))$
+& none \\
+Temporal reversal $r\gamma$
+& $(g_n,\ldots,g_1)$
+& none \\
+Path inverse $\gamma^{-1}$
+& $(g_n^{-1},\ldots,g_1^{-1})$
+& every $g_i$ invertible \\
+\bottomrule
+\end{tabular}
+\end{center}
+Mirror exchanges operand slots and retains time.  Temporal reversal changes
+time and retains the original contexts.  Path inverse reverses time and
+inverts every operator.  Accordingly,
+\[
+  \rho(\gamma^{-1})=\rho(\gamma)^{-1},
+\]
+whereas no analogous identity holds for $r\gamma$ in general.
+
+\subsection{Notation conversion summary}
+
+The table below lists older or potentially ambiguous descriptions and the
+notation used in Paper~I.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{ll}
+\toprule
+Potentially ambiguous description & Paper~I notation \\
+\midrule
+evolving value in operand slot one
+& $C_{\omega,c}^{(1)}[z]=\omega(z,c)$ \\
+evolving value in operand slot two
+& $C_{\omega,c}^{(2)}[z]=\omega(c,z)$ \\
+chronological context word
+& $\gamma=(g_1,\ldots,g_n)$, $g_1$ first \\
+history product
+& $\gamma\delta$, first $\gamma$, then $\delta$ \\
+operator evaluation
+& $\rho(\gamma)$ \\
+ordinary endpoint at $x$
+& $\nu_x(\gamma)$ \\
+accumulated scale
+& $\Phi_\gamma$ \\
+target-frame translation
+& $\xi_\gamma$ \\
+source-normalized translation
+& $\widehat\xi_\gamma=\Phi_\gamma^{-1}\xi_\gamma$ \\
+operand-slot exchange
+& $m\gamma$ \\
+time-order reversal
+& $r\gamma$ \\
+inverse operator path
+& $\gamma^{-1}$ \\
+\bottomrule
+\end{tabular}
+\end{center}

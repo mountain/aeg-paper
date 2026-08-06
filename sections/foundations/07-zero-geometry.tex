@@ -1,0 +1,315 @@
+The eikonal equation imposes an immediate restriction on the zero set of a regular
+assignment: its gradient cannot vanish there.  This separates regular zero geometry
+from isolated zeros, crossings, and the parameter-dependent singular phenomena
+reserved for later work.
+
+\subsection{Regular zero loci}
+
+For an assignment function \(a\), write
+\[
+ Z(a)=a^{-1}(0).
+\]
+
+\begin{theorem}[Regular zero locus]\label{thm:regular-zero-locus}
+Let \(\mathfrak E=(M,g,a;\mu,\lambda)\) be a regular AES.
+\begin{enumerate}
+\item If \(M\) has no boundary, then \(Z(a)\) is a smooth embedded
+      codimension-one submanifold of \(M\).
+\item If \(M\) has boundary, then
+      \(Z(a)\cap\operatorname{int}M\) is a smooth embedded
+      codimension-one submanifold of \(\operatorname{int}M\).
+\end{enumerate}
+In particular, for a surface the indicated zero locus is a disjoint union of
+smooth one-dimensional components.  No assertion is made here about finiteness,
+properness, compactness, or behavior at \(\partial M\).
+\end{theorem}
+
+\begin{proof}
+At every \(p\in Z(a)\), the defining eikonal identity gives
+\[
+ |\nabla a(p)|_g^2=\mu^2.
+\]
+Because \(\mu\ne0\), one has \(da_p\ne0\).  Thus \(0\) is a regular value of
+\(a\) when \(M\) is boundaryless, and of
+\(a|_{\operatorname{int}M}\) for interior zeros when a boundary is present.
+The regular-value theorem gives the stated embedded submanifolds.
+\end{proof}
+
+\begin{corollary}[Local rigidity of regular zeros]\label{cor:regular-zero-rigidity}
+Within the interior of a regular two-dimensional AES, the zero locus has no
+isolated point, crossing, branch point, or endpoint.  None of these configurations
+can occur as the germ of \(Z(a)\) at an interior point.
+\end{corollary}
+
+\begin{proof}
+By Theorem~\ref{thm:regular-zero-locus}, a neighborhood of every interior zero
+admits smooth coordinates in which \(a^{-1}(0)\) is a coordinate line.  Such a
+germ has none of the listed configurations.
+\end{proof}
+
+This conclusion is local.  It does not classify the number or global topology of
+the components.  In the basic hyperbolic model, for example,
+\(Z(a)=\{x=0,y>0\}\), but a general regular AES need not have a single zero
+component.
+
+Figure~\ref{fig:regular-versus-singular-zero} summarizes the categorical
+distinction.  It illustrates the local conclusions already proved; it does not
+classify singular zero germs.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[
+  every node/.style={font=\small},
+  grad/.style={-{Latex[length=2mm]},thick,blue!60!black}
+]
+  \node[font=\bfseries] at (-3.1,1.8) {regular zero};
+  \draw[rounded corners=3pt,draw=black!55,fill=blue!3]
+    (-5.25,-1.35) rectangle (-0.95,1.35);
+  \draw[very thick,red!65!black]
+    plot[smooth] coordinates {(-3.9,-1.2) (-3.75,-0.55) (-3.8,0.05)
+                              (-3.55,0.65) (-3.65,1.2)};
+  \node[red!65!black,anchor=west] at (-3.5,0.85) {$Z(a)$};
+  \draw[grad] (-4.7,-0.55) -- (-4.05,-0.55);
+  \draw[grad] (-3.45,-0.55) -- (-2.8,-0.55);
+  \node[align=center,font=\scriptsize] at (-2.0,-0.75)
+    {$|\nabla a|=|\mu|>0$\\smooth zero line};
+
+  \node[font=\bfseries] at (2.8,1.8) {singular isolated zero};
+  \fill[orange!3] (2.8,0) circle (1.42);
+  \draw[draw=black!55] (2.8,0) circle (1.42);
+  \foreach \rad in {0.48,0.88,1.2}
+    {\draw[dashed,orange!55!black] (2.8,0) circle (\rad);}
+  \fill[red!70!black] (2.8,0) circle (2.2pt);
+  \node[anchor=west,red!70!black] at (2.92,0.05) {$p\in S$};
+  \node[align=center,font=\scriptsize] at (2.8,-1.75)
+    {$a(p)=0$ isolated\\regular axioms not imposed at $p$};
+\end{tikzpicture}
+\caption{Regular and singular zero geometry.  In a regular AES with
+$\mu\ne0$, the assignment crosses zero with nonvanishing gradient, so the
+interior zero germ is a smooth curve.  The radial disc model instead has an
+isolated zero at its declared singular point, where the assignment is not
+$C^1$ and the regular structure has no local extension.}
+\label{fig:regular-versus-singular-zero}
+\end{figure}
+
+\subsection{Singular arithmetic expression spaces}
+
+The preceding theorem makes a singular framework unavoidable if one wishes to
+admit isolated or branching zeros.
+
+\begin{definition}[Singular arithmetic expression space]\label{def:singular-aes}
+A \emph{singular arithmetic expression space} is a tuple
+\[
+ \mathfrak E_{\mathrm{sing}}=(M,S,g,a;\mu,\lambda)
+\]
+with the following data:
+\begin{enumerate}
+\item \(M\) is a nonempty oriented smooth surface, possibly with boundary, and
+      \(S\subset M\) is a closed nowhere-dense singular set;
+\item \(g\) is a smooth Riemannian metric on \(M\setminus S\);
+\item \(a:M\to\mathbb R\) is a specified function whose restriction to
+      \(M\setminus S\) is smooth;
+\item \(\mu\in\mathbb R\setminus\{0\}\), \(\lambda\in\mathbb R\), and
+      \[
+      (M\setminus S,g,a|_{M\setminus S};\mu,\lambda)
+      \]
+      is a regular AES.
+\item Every \(p\in S\) is locally essential: there is no neighborhood \(U\) of
+      \(p\) on which \(g|_{U\setminus S}\) and \(a|_{U\setminus S}\) admit
+      smooth extensions \(\widetilde g\) and \(\widetilde a\), with
+      \(\widetilde g\) nondegenerate, such that
+      \((U,\widetilde g,\widetilde a;\mu,\lambda)\) is a regular AES.
+\end{enumerate}
+The metric or assignment may possess weaker extensions across \(S\); their precise
+regularity and local behavior must be checked in each example.
+\end{definition}
+
+The set \(S\) need not consist entirely of zeros.  Nowhere density keeps the regular
+locus nonempty and dense, while local essentiality prevents an arbitrary enlargement
+of \(S\) by points at which the regular structure extends.  For a singular AES define
+\begin{equation}\label{eq:regular-singular-zero-parts}
+ Z_{\mathrm{reg}}(a)=Z(a)\cap(M\setminus S),
+ \qquad
+ Z_{\mathrm{sing}}(a)=Z(a)\cap S.
+\end{equation}
+Every point of \(Z_{\mathrm{reg}}(a)\) is a regular zero by
+Theorem~\ref{thm:regular-zero-locus}; a point of
+\(Z_{\mathrm{sing}}(a)\) is called singular because the regular structure is not
+asserted there, even when some of the underlying data happen to extend smoothly.
+
+\subsection{A verified isolated-zero singular model}
+
+Let
+\[
+ \mathbb D=\{(\xi,\eta)\in\mathbb R^2:\xi^2+\eta^2<1\},
+ \qquad
+ \rho=\sqrt{\xi^2+\eta^2},
+\]
+and fix \(\mu,\lambda>0\).  Equip the disc with
+\begin{equation}\label{eq:isolated-zero-disc-metric}
+ g_{\mathbb D}
+ =\frac4{\lambda^2(1-\rho^2)^2}
+  \bigl(d\xi^2+d\eta^2\bigr)
+\end{equation}
+and define
+\begin{equation}\label{eq:isolated-zero-disc-assignment}
+ a_{\mathbb D}(\xi,\eta)
+ =
+ \begin{cases}
+  \displaystyle\frac{2\mu}{\lambda}
+  \frac{\rho}{1-\rho^2},&(\xi,\eta)\ne(0,0),\\[7pt]
+  0,&(\xi,\eta)=(0,0).
+ \end{cases}
+\end{equation}
+
+\begin{proposition}[Classification of the isolated-zero disc]\label{prop:isolated-zero-singular-model}
+The tuple
+\[
+ (\mathbb D,\{0\},g_{\mathbb D},a_{\mathbb D};\mu,\lambda)
+\]
+is a singular AES with the following properties.
+\begin{enumerate}
+\item The metric \(g_{\mathbb D}\) extends smoothly and
+      nondegenerately across the center.
+\item The assignment \(a_{\mathbb D}\) is smooth on
+      \(\mathbb D\setminus\{0\}\) but is not \(C^1\) at the center.
+\item The punctured disc is a regular AES:
+      \[
+      |\nabla a_{\mathbb D}|_{g_{\mathbb D}}^2
+      =\mu^2+\lambda^2a_{\mathbb D}^2.
+      \]
+\item Its zero decomposition is
+      \[
+      Z_{\mathrm{reg}}(a_{\mathbb D})=\varnothing,
+      \qquad
+      Z_{\mathrm{sing}}(a_{\mathbb D})=\{0\}.
+      \]
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Formula \eqref{eq:isolated-zero-disc-metric} is written in Cartesian
+coordinates.  Its conformal factor is a positive smooth function on all of
+\(\mathbb D\), proving the first claim.
+
+Away from the origin, \(\rho\) and hence \(a_{\mathbb D}\) are smooth.  On the
+\(\xi\)-axis, however,
+\[
+ \frac{a_{\mathbb D}(t,0)-a_{\mathbb D}(0,0)}{t}
+ =\frac{2\mu}{\lambda}
+  \frac{|t|}{t(1-t^2)}.
+\]
+The one-sided limits are \(2\mu/\lambda\) and
+\(-2\mu/\lambda\).  Thus even the partial derivative in the \(\xi\)-direction
+does not exist at the center, so the assignment is not \(C^1\) there.  Moreover,
+the punctured assignment tends to zero at the center, so its continuous extension
+is unique.  The same calculation therefore rules out every smooth local extension
+agreeing with the punctured assignment and proves that the declared singular point
+is locally essential.
+
+On the punctured disc the assignment is radial, and
+\[
+ \frac{da_{\mathbb D}}{d\rho}
+ =\frac{2\mu}{\lambda}
+  \frac{1+\rho^2}{(1-\rho^2)^2}.
+\]
+The inverse radial metric coefficient is
+\[
+ g_{\mathbb D}^{\rho\rho}
+ =\frac{\lambda^2(1-\rho^2)^2}{4}.
+\]
+Consequently,
+\begin{align*}
+ |\nabla a_{\mathbb D}|_{g_{\mathbb D}}^2
+ &=g_{\mathbb D}^{\rho\rho}
+   \left(\frac{da_{\mathbb D}}{d\rho}\right)^2\\
+ &=\mu^2\frac{(1+\rho^2)^2}{(1-\rho^2)^2}\\
+ &=\mu^2+
+   \lambda^2
+   \left(\frac{2\mu}{\lambda}
+         \frac{\rho}{1-\rho^2}\right)^2,
+\end{align*}
+which is the regular-AES equation on
+\(\mathbb D\setminus\{0\}\).  Finally,
+\(a_{\mathbb D}>0\) for \(0<\rho<1\), while its declared value at the
+center is zero.  The claimed zero decomposition follows.
+\end{proof}
+
+If \(s=(2/\lambda)\operatorname{arctanh}\rho\) denotes hyperbolic distance
+from the center, then
+\[
+ a_{\mathbb D}=\frac{\mu}{\lambda}\sinh(\lambda s).
+\]
+This identity describes radial propagation on the punctured regular part; it
+does not repair the failure of differentiability at the center.  The metric is
+regular there, while the assignment is singular.
+
+\subsection{Smooth parameter families and their total zero sets}
+
+Let \(I\subset\mathbb R\) be an open interval, let \(M\) be a smooth
+\(m\)-manifold without boundary, and let
+\[
+ A:M\times I\longrightarrow\mathbb R
+\]
+be smooth.  Write \(a_t(p)=A(p,t)\) and
+\[
+ \mathcal Z=A^{-1}(0)
+ =\{(p,t)\in M\times I:a_t(p)=0\}.
+\]
+
+\begin{proposition}[Regular total zero set]\label{prop:regular-total-zero-set}
+Assume that
+\begin{equation}\label{eq:spatial-regular-family-hypothesis}
+ d_pa_t\ne0
+ \qquad\text{whenever }a_t(p)=0.
+\end{equation}
+Then \(\mathcal Z\) is a smooth embedded codimension-one submanifold of
+\(M\times I\), and the restriction
+\begin{equation}\label{eq:zero-family-projection}
+ \pi:\mathcal Z\longrightarrow I,
+ \qquad
+ \pi(p,t)=t,
+\end{equation}
+is a submersion.  In particular, if \(\dim M=2\), then
+\(\mathcal Z\) is a smooth surface.
+\end{proposition}
+
+\begin{proof}
+At a point \((p,t)\in\mathcal Z\), the total differential is
+\[
+ dA_{(p,t)}(v,\tau)
+ =d_pa_t(v)+d_tA_{(p,t)}(\tau).
+\]
+Hypothesis \eqref{eq:spatial-regular-family-hypothesis} implies that
+\(dA_{(p,t)}\ne0\), so \(0\) is a regular value of \(A\).  The regular-value
+theorem proves that \(\mathcal Z\) is a codimension-one embedded submanifold.
+
+It remains to prove the stronger assertion about the projection.  Given an
+arbitrary \(\tau\in T_tI\), put
+\(c=d_tA_{(p,t)}(\tau)\), and choose \(w\in T_pM\) with
+\(d_pa_t(w)=1\), which is possible because \(d_pa_t\ne0\).  Set
+\[
+ v=-c\,w.
+\]
+Then \(dA_{(p,t)}(v,\tau)=0\), so
+\((v,\tau)\in T_{(p,t)}\mathcal Z\), while
+\(d\pi_{(p,t)}(v,\tau)=\tau\).  Hence \(d\pi\) is surjective at every
+point of \(\mathcal Z\), proving that \(\pi\) is a submersion.
+\end{proof}
+
+\begin{remark}[Properness warning]\label{rem:zero-family-properness}
+Proposition~\ref{prop:regular-total-zero-set} gives pointwise product charts
+for the projection, but it does not make \(\pi:\mathcal Z\to I\) a globally
+trivial family, or even a fiber bundle over an entire parameter neighborhood
+when noncompact fibers are present.  A standard sufficient hypothesis for local
+triviality as a smooth fiber bundle is that the projection onto the relevant
+parameter interval be a proper surjective submersion (with the usual additional
+care if boundaries are introduced).  Without properness, components may escape
+to or arrive from infinity.  Accordingly, \(\mathcal Z\) is called the
+\emph{total zero set} here, not a zero tube.
+\end{remark}
+
+No multi-zero model is included in this foundational chapter.  Constructing and
+classifying such models requires a complete audit of the domain, metric,
+assignment, singular set, flow equation, and exact zero topology; that problem
+belongs to the singular-zero theory developed after Paper~I.

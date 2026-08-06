@@ -1,0 +1,185 @@
+This appendix records sign checks and coordinate calculations used in
+Sections~8 and~9.  The chronological convention is unchanged: entries in a
+history are performed from left to right.  The ACS is oriented by
+\(dA\wedge dM\), and the contact state space is oriented by
+\(du\wedge da\wedge dv\).
+
+\subsection{The oriented ACS rectangle}
+
+Let
+\[
+    \gamma=(\mathsf A_p,\mathsf M_q),
+    \qquad
+    \delta=(\mathsf M_q,\mathsf A_p).
+\]
+Their common terminal multiplicative charge is \(M_*=q\).  The chain
+\(C_\gamma-C_\delta\) traverses the bottom edge from \((0,0)\) to \((p,0)\),
+the right edge to \((p,q)\), the top edge back to \((0,q)\), and the left edge
+back to the origin.  For \(p,q>0\) this is the positive boundary convention
+for \(dA\wedge dM\).  Since vertical edges do not contribute to
+\(\eta_*=e^{q-M}dA\),
+\begin{align*}
+    \int_{C_\gamma-C_\delta}\eta_*
+      &=\int_0^p e^q\,dA+\int_p^0 1\,dA\\
+      &=p(e^q-1).
+\end{align*}
+On the other hand,
+\[
+    \int_{[0,p]\times[0,q]}e^{q-M}\,dA\wedge dM
+      =p\int_0^q e^{q-M}\,dM
+      =p(e^q-1).
+\]
+This verifies both the sign and the target-frame weight.
+
+The same formula holds for signed \(p\) and \(q\).  More precisely, regard the
+rectangle as the oriented singular chain parametrized by
+\[
+    R_{p,q}(s,t)=(sp,tq),
+    \qquad 0\le s,t\le1.
+\]
+Its pulled-back orientation form is \(pq\,ds\wedge dt\), so orientation
+reverses automatically when exactly one side is negative.  Direct integration
+still gives
+\[
+    \int_{R_{p,q}}e^{q-M}\,dA\wedge dM=p(e^q-1).
+\]
+Thus no separate ``unsigned area'' convention is needed.
+
+\subsection{A closed charge path with nonzero evaluation defect}
+
+Consider the chronological loop
+\[
+    \ell=(\mathsf A_p,\mathsf M_q,
+           \mathsf A_{-p},\mathsf M_{-q}).
+\]
+Its total ACS charge is \((0,0)\), the same as the empty history
+\(\varnothing\), but
+\begin{align*}
+    \nu_x(\ell)
+      &=e^{-q}\bigl(e^q(x+p)-p\bigr)\\
+      &=x+p(1-e^{-q}).
+\end{align*}
+Hence
+\[
+    \tau(\ell,\varnothing)=p(1-e^{-q}).
+\]
+Here \(M_*=0\), so \(\eta_*=e^{-M}dA\).  The ACS path of \(\ell\) is the
+oriented rectangle boundary itself, and
+\[
+    \int_{C_\ell}e^{-M}\,dA
+      =p-p e^{-q}
+      =p(1-e^{-q}).
+\]
+This example simultaneously checks the closed-loop sign and shows why zero
+total charge is weaker than operator neutrality.
+
+For a self-intersecting charge path, the same computation is performed on a
+singular two-chain with integer multiplicities.  Decomposing a filling into
+oriented rectangles adds their signed weighted integrals; overlap is counted
+with the sum of multiplicities.  This is the precise replacement for speaking
+of ``the region enclosed'' by a self-intersecting loop.
+
+\subsection{Finite contact compositions}
+
+Write \(p=\mu h\) and \(q=\lambda k\).  On the assignment coordinate, the two
+horizontal flows act by
+\[
+    A_h(a)=a+p,
+    \qquad
+    M_k(a)=e^q a.
+\]
+The open comparison is
+\begin{align*}
+    (M_k\circ A_h)(a)&=e^q(a+p),\\
+    (A_h\circ M_k)(a)&=e^q a+p,
+\end{align*}
+and therefore
+\[
+    (M_k\circ A_h)(a)-(A_h\circ M_k)(a)
+      =p(e^q-1).
+\]
+For the closed chronological word \(A_h,M_k,A_{-h},M_{-k}\), the induced
+composition is
+\[
+    M_{-k}\circ A_{-h}\circ M_k\circ A_h,
+\]
+and
+\begin{align*}
+    (M_{-k}\circ A_{-h}\circ M_k\circ A_h)(a)
+      &=e^{-q}\bigl(e^q(a+p)-p\bigr)\\
+      &=a+p(1-e^{-q}).
+\end{align*}
+Consequently
+\[
+    T_{\mathrm{closed}}
+      =p(1-e^{-q})
+      =e^{-q}p(e^q-1)
+      =e^{-q}T_{\mathrm{open}}.
+\]
+The equality after multiplication by \(e^q\) is a change to the common target
+frame, not an equality of the two raw finite defects.
+
+\subsection{Darboux coordinates and the Reeb field}
+
+Assume \(\mu\lambda\ne0\) and introduce natural coordinates
+\[
+    \widetilde u=\mu u,
+    \qquad
+    \widetilde v=\lambda v.
+\]
+Then
+\[
+    \alpha=da-d\widetilde u-a\,d\widetilde v.
+\]
+Set
+\[
+    x=\widetilde v,
+    \qquad y=a,
+    \qquad z=a-\widetilde u.
+\]
+This is a global affine change of coordinates on \(\mathbb R^3\), and
+\[
+    dz-y\,dx
+      =da-d\widetilde u-a\,d\widetilde v
+      =\alpha.
+\]
+Thus the contact form is in the standard Darboux form.  The arithmetic
+structure is not a new local contact-isomorphism class; it is the distinguished
+frame \((D_u,D_v)\) and its interpretation by addition and scaling.
+
+For completeness, the Reeb field \(R\) is determined by
+\[
+    \alpha(R)=1,
+    \qquad
+    \iota_Rd\alpha=0.
+\]
+Since \(d\alpha=-\lambda da\wedge dv\), its kernel is spanned by
+\(\partial_u\).  Hence
+\[
+    R=-\frac1\mu\partial_u.
+\]
+In the Darboux coordinates above this is \(R=\partial_z\), as expected.
+
+\subsection{Expanded scalar-curvature calculation}
+
+Let \(F=F(u,v,a)\).  Expanding the two ordered derivatives gives
+\begin{align*}
+    D_uD_vF
+       &=F_{uv}+\lambda aF_{ua}+\mu F_{av}
+         +\mu\lambda F_a+\mu\lambda aF_{aa},\\
+    D_vD_uF
+       &=F_{vu}+\mu F_{va}+\lambda aF_{au}
+         +\mu\lambda aF_{aa}.
+\end{align*}
+Equality of the mixed coordinate derivatives leaves
+\[
+    D_uD_vF-D_vD_uF=\mu\lambda F_a.
+\]
+Multiplying by \(du\wedge dv\) yields
+\[
+    \mathcal R_H(F)
+       =\mu\lambda(\partial_aF)\,du\wedge dv.
+\]
+This is an antisymmetrized calculation on scalar fields.  It neither defines
+\(\delta_H\) on one-forms nor claims that a graded differential has been
+constructed.

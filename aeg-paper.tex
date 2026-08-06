@@ -1,195 +1,155 @@
-\documentclass{article}
+\documentclass[11pt]{article}
 
-\usepackage{amsmath}
-\usepackage{amsthm}
-\usepackage{amssymb}
-\usepackage{amsfonts}
-\usepackage{mathtools}
-
-\usepackage{arxiv/arxiv}
-\usepackage{styles/quiver}
-
-\usepackage[utf8]{inputenc} % allow utf-8 input
-\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
-\usepackage[hypertexnames=false]{hyperref}       % hyperlinks
-\usepackage{url}            % simple URL typesetting
-\usepackage{booktabs}       % professional-quality tables
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
-\usepackage{nicefrac}       % compact symbols for 1/2, etc.
-\usepackage{microtype}      % microtypography
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs}
 \usepackage{graphicx}
-\usepackage{stmaryrd}
-
+\usepackage{microtype}
+\usepackage{xcolor}
 \usepackage{tikz}
-\usetikzlibrary{angles,fit,arrows,calc,math,intersections,through,backgrounds}
-\usepackage{qtree}
+\usetikzlibrary{arrows.meta,positioning,calc}
+\usepackage{url}
+\usepackage[
+  colorlinks=true,
+  linkcolor=blue!45!black,
+  citecolor=green!35!black,
+  urlcolor=blue!55!black,
+  pdfencoding=auto
+]{hyperref}
 
-\usepackage{listings}
-\lstset{
-  basicstyle=\itshape,
-  xleftmargin=3em,
-  literate={->}{$\rightarrow$}{2}
-           {α}{$\alpha$}{1}
-           {δ}{$\delta$}{1}
-}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{convention}[theorem]{Convention}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{warning}[theorem]{Warning}
 
-\usepackage{xstring}
-\usepackage{stmaryrd}
-\usepackage{wasysym}
-\usepackage{textcomp}
-\usepackage{blindtext}
-\usepackage{subfiles}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\Aff}{\operatorname{Aff}}
+\newcommand{\PGL}{\operatorname{PGL}}
+\newcommand{\Hist}{\operatorname{Hist}}
+\newcommand{\ev}{\operatorname{ev}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\Span}{\operatorname{span}}
+\newcommand{\dd}{\,\mathrm{d}}
+\newcommand{\Lie}{\mathcal{L}}
+\newcommand{\reg}{\mathrm{reg}}
+\newcommand{\sing}{\mathrm{sing}}
 
-\newtheorem{definition}{Definition}
-\numberwithin{definition}{section}
-\newtheorem{lemma}{Lemma}
-\numberwithin{lemma}{section}
-\newtheorem{proposition}{Proposition}
-\numberwithin{proposition}{section}
-\newtheorem{corollary}{Corollary}
-\numberwithin{corollary}{section}
-\newtheorem{theorem}{Theorem}
-\numberwithin{theorem}{section}
-\newtheorem{example}{Theorem}
-\numberwithin{example}{section}
-
-\DeclareMathSymbol{\mathinvertedexclamationmark}{\mathclose}{operators}{'074}
-\DeclareMathSymbol{\mathexclamationmark}{\mathclose}{operators}{'041}
-\makeatletter
-\newcommand{\raisedmathinvertedexclamationmark}{%
-  \mathclose{\mathpalette\raised@mathinvertedexclamationmark\relax}%
-}
-\newcommand{\raised@mathinvertedexclamationmark}[2]{%
-  \raisebox{\depth}{$\m@th#1\mathinvertedexclamationmark$}%
-}
-\begingroup\lccode`~=`! \lowercase{\endgroup
-  \def~}{\@ifnextchar`{\raisedmathinvertedexclamationmark\@gobble}{\mathexclamationmark}}
-\mathcode`!="8000
-\makeatother
-
-\DeclareMathOperator{\arcsinh}{arcsinh}
-\DeclareMathOperator{\Tr}{Tr} % Example, if trace was needed
-
-\title{Arithmetic Expression Geometry I: Foundations}
-
-\date{} 				% Or removing it
+\title{\textbf{Arithmetic Expression Geometry I: Foundations}\\[0.45em]
+\large Sequential Histories, Affine Flow, Torsion, and Contact Geometry}
 
 \author{
-Mingli Yuan \\
+Mingli Yuan\\
 Swarma Research\\
-Beijing, 100083 \\
-\texttt{mingli.yuan@gmail.com}
+Beijing 100083, China
 }
 
-\renewcommand{\headeright}{A preprint}
-\renewcommand{\undertitle}{A preprint}
+\date{August 6, 2026\\[0.25em]
+\small Mathematical-review manuscript. The repository's existing Zenodo DOI refers to an earlier version.}
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-We introduce Arithmetic Expression Geometry (AEG), a framework in which arithmetic expressions are studied through
-the geometry of their evaluation histories rather than only through their final numerical values. For a distinguished
-class of threadlike expressions, additive and multiplicative updates determine two generating directions of propagation,
-and their infinitesimal interplay yields the arithmetic flow equation
+Arithmetic Expression Geometry (AEG) retains the ordered history of an arithmetic
+evaluation instead of identifying an expression with its endpoint value.  We first
+classify the finite binary expression trees having a unique legal order of internal
+evaluation: their internal vertices form a single spine.  Marking an accumulator on
+such a tree produces a chronological word of one-hole arithmetic contexts, with
+operand-slot chirality kept distinct from temporal reversal and path inverse.
+Non-degenerate bilateral contexts act projectively on $\PP^1(K)$.  Over an arbitrary
+field $K$, translations, nonzero scalings, and inversion generate $\PGL_2(K)$; the
+contexts fixing infinity form its affine Borel sector.  The positive real component
+of that sector carries two affine translation cocycles and yields the continuous law
 \[
-    \frac{da}{ds}=\mu\cos\theta + a\lambda\sin\theta.
+  \frac{da}{ds}=\mu\cos\theta+\lambda a\sin\theta.
 \]
-This leads to the notion of an Arithmetic Expression Space: a Riemannian surface equipped with an assignment field
-satisfying the corresponding first-order law. We construct the basic model $\mathfrak{E}_0$ on the upper half-plane,
-where $a=-x/y$ satisfies both the flow equation and a Laplace eigenvalue equation, and we record the first singular
-model $\mathfrak{E}_1$.
-
-The first intrinsic invariant of the theory is \emph{arithmetic torsion}, arising from the non-commutativity of additive
-and multiplicative propagation. To globalize this invariant, we introduce the \emph{Accumulative Commutative Space}
-(ACS), a plane of total additive and logarithmic multiplicative charges, and prove a Stokes--type triple identity that
-expresses global torsion equivalently as an evaluation difference, an $e^M$-weighted area integral, and a boundary
-integral.
-
-To localize the same phenomenon, we construct a three-dimensional \emph{arithmetic expression contact manifold}
-with contact form $\alpha = da - (\mu\,du + \lambda a\,dv)$. Its horizontal distribution recovers the arithmetic flow,
-yields a natural horizontal differential calculus $\delta$, and produces a curvature package proportional to
-$\mu\lambda\,du\wedge dv$. We then define \emph{arithmetic holomorphic fields} by an arithmetic Cauchy--Riemann
-system and show that they satisfy a twisted second-order equation, providing the first analytic structure of the theory.
-Taken together, these results establish the first foundational layer of AEG: arithmetic evaluation admits a path
-language, intrinsic invariants, local and global geometric structures, and the beginnings of a function theory.
+We formulate regular arithmetic expression spaces intrinsically, derive their
+arithmetic frame, and, for $\mu,\lambda>0$, construct a complete homogeneous upper-half-plane model of
+curvature $-\lambda^2$ with assignment $a=-x/y$.  Its regular zero set illustrates a
+general theorem: when $\mu\ne0$, zero is a regular value.  Isolated zeros must
+therefore be treated outside the regular class, within the singular framework defined
+below.  For positive add--scale histories,
+the Accumulative Commutative Space records additive and logarithmic scale charges.
+A direct cocycle formula gives charge-compatible pairs a torsion invariant and an
+exact weighted Stokes identity.  Finally, when $\mu\lambda\ne0$, the contact form
+$\alpha=da-\mu\,du-\lambda a\,dv$ localizes the same order defect through
+$[D_u,D_v]=\mu\lambda\partial_a$.  Exact open and closed finite defects are separated
+from their common infinitesimal curvature.  These results establish the affine
+foundational sector of AEG inside its projective semantics; analytic function theory,
+singular tube topology, projective condensation, and complexity are left to later
+papers.
 \end{abstract}
 
-\keywords{arithmetic expressions, hyperbolic geometry}
+\noindent\textbf{Keywords:}
+arithmetic expressions; evaluation histories; projective linear group; affine group;
+hyperbolic geometry; cocycles; contact geometry; regular zero sets
 
 \setcounter{tocdepth}{2}
 \tableofcontents
 \newpage
 
 \section{Introduction}\label{sec:introduction}
+\input{sections/foundations/01-introduction.tex}
 
-\input{sections/sec01.tex}
-\newpage
+\section{Sequential Arithmetic Histories}\label{sec:sequential-histories}
+\input{sections/foundations/02-sequential-histories.tex}
 
-\section{Basic concepts}\label{sec:concepts}
+\section{Projective Semantics and the Affine Sector}\label{sec:projective-affine}
+\input{sections/foundations/03-projective-affine.tex}
 
-\input{sections/sec02-00.tex}
-\input{sections/sec02-01.tex}
-\newpage
+\section{Affine Cocycles and Relative Defects}\label{sec:affine-cocycles}
+\input{sections/foundations/04-affine-cocycles.tex}
 
-\section{Flow equation}\label{sec:flowequation}
+\section{Continuous Arithmetic Flow}\label{sec:affine-flow}
+\input{sections/foundations/05-affine-flow.tex}
 
-\input{sections/sec03.tex}
-\newpage
+\section{The Basic Hyperbolic Expression Space}\label{sec:hyperbolic-model}
+\input{sections/foundations/06-hyperbolic-model.tex}
 
-\section{The zeroth and first kind spaces: \texorpdfstring{$\mathfrak{E}_0$}{E0} and \texorpdfstring{$\mathfrak{E}_1$}{E1}}\label{sec:01kind}
+\section{Zero Loci and Singular Expression Spaces}\label{sec:zero-geometry}
+\input{sections/foundations/07-zero-geometry.tex}
 
-\input{sections/sec04.tex}
-\newpage
+\section{Global Torsion and the Accumulative Commutative Space}\label{sec:acs-torsion}
+\input{sections/foundations/08-acs-torsion.tex}
 
-\section{The accumulative commutative space}\label{sec:acspace}
+\section{Contact Connection and Horizontal Curvature}\label{sec:contact-curvature}
+\input{sections/foundations/09-contact-curvature.tex}
 
-\input{sections/sec05.tex}
-\newpage
-
-\section{Arithmetic expression contact structure}\label{sec:ecstructure}
-
-\input{sections/sec06.tex}
-\newpage
-
-\section{Differential calculus on the contact structure}\label{ch:differential_calculus}
-
-\input{sections/sec07.tex}
-\newpage
-
-\section{Arithmetic holomorphic function}\label{ch:holomorphic}
-
-\input{sections/sec08.tex}
-\newpage
-
-
-\section{Outlook: relation theory, meaningful zeros, and analytic future}\label{sec:outlook}
-
-\input{sections/sec09.tex}
-\newpage
-
-\bibliographystyle{plain}
-\bibliography{aeg-paper.bib}
-\newpage
+\section{Conclusions and Research Interfaces}\label{sec:conclusion}
+\input{sections/foundations/10-conclusion.tex}
 
 \appendix
 
-The appendices collect computations and examples that support the main text, with explicit cross-references from the relevant sections.
+\section{Composition, action, and domain conventions}\label{app:conventions}
+\input{sections/foundations/appendices/app-A-conventions.tex}
 
-\section{Supplementary calculations for the model spaces and the ACS}\label{app:model-acs}
+\section{Affine cocycle calculations}\label{app:affine-cocycles}
+\input{sections/foundations/appendices/app-B-affine-cocycles.tex}
 
-\input{sections/sec10.tex}
-\newpage
+\section{Hyperbolic-model calculations}\label{app:hyperbolic-calculations}
+\input{sections/foundations/appendices/app-C-hyperbolic-calculations.tex}
 
-\section{Supplementary calculations for contact / delta / holomorphicity}\label{app:contact-delta-holomorphicity}
+\section{ACS and contact calculations}\label{app:acs-contact}
+\input{sections/foundations/appendices/app-D-acs-contact.tex}
 
-\input{sections/sec11.tex}
-\newpage
+\section{Equality and elementary neutrality examples}\label{app:equality-neutrality}
+\input{sections/foundations/appendices/app-E-equality-neutrality.tex}
 
-\section{Supplementary examples on equality levels and first neutralities}\label{app:equality-neutralities}
-
-\input{sections/sec12.tex}
-\newpage
-
+\bibliographystyle{plain}
+\bibliography{aeg-paper}
 
 \end{document}

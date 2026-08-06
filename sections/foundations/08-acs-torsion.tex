@@ -1,0 +1,369 @@
+The affine cocycle retains the effect of order on evaluation.  We now place the
+same information over a commutative charge plane.  This construction has two
+distinct uses.  For a positive add--scale history, it records the total additive and
+logarithmic multiplicative charges, and it supplies a weighted integral whose value restores
+the translation part that the charge endpoint alone forgets.  The distinction
+between these two roles is essential: the accumulative commutative space is a
+shadow of the presented history, not another presentation of its full arithmetic
+syntax.
+
+Throughout this section an elementary additive step and an elementary scaling
+step are denoted by
+\[
+    \mathsf A_p(x)=x+p,
+    \qquad
+    \mathsf M_q(x)=e^q x,
+    \qquad p,q\in\mathbb R.
+\]
+For a history \(\gamma=(g_1,\ldots,g_n)\), the entries are performed from left
+to right, so that
+\[
+    \nu_x(\gamma)=g_n\circ\cdots\circ g_1(x).
+\]
+Negative values of \(p\) and \(q\) are allowed.  Thus the same notation covers
+inverse translations and inverse positive scalings.
+In this section an \emph{add--scale history} means a finite word in these two
+families of generators.  Such a word evaluates in
+\(\operatorname{Aff}^+(1,\mathbb R)\).  The ACS construction is attached to
+this presented word; it is not asserted for negative multipliers or for an
+arbitrary affine syntax before that syntax has been written in add--scale form.
+
+\subsection{The charge path}
+
+\begin{definition}[Accumulative commutative space and charge path]
+\label{def:acs}
+The \emph{accumulative commutative space}, abbreviated ACS, is the oriented
+plane
+\[
+    \mathcal A=\mathbb R^2_{(A,M)},
+    \qquad \text{with orientation } dA\wedge dM.
+\]
+An additive step \(\mathsf A_p\) has charge increment \((p,0)\), and a scaling
+step \(\mathsf M_q\) has charge increment \((0,q)\).  Starting at
+\((A_0,M_0)=(0,0)\), accumulate these increments in chronological order.  The
+resulting oriented broken path is denoted by \(C_\gamma\), and its terminal
+point by
+\[
+    (A_\gamma,M_\gamma)
+      =\left(\sum_{g_i=\mathsf A_{p_i}}p_i,
+              \sum_{g_i=\mathsf M_{q_i}}q_i\right).
+\]
+\end{definition}
+
+The terminal charge is insensitive to order, whereas the broken path generally
+is not.  In particular, two histories may have the same ACS endpoint while
+inducing different affine maps.  The missing information is recovered by the
+following integral formula.
+
+\begin{proposition}[Direct ACS evaluation]
+\label{prop:acs-evaluation}
+For every add--scale history \(\gamma\) and every initial value \(x\),
+\begin{equation}
+    \nu_x(\gamma)
+      =e^{M_\gamma}
+        \left(x+\int_{C_\gamma}e^{-M}\,dA\right).
+    \label{eq:direct-acs-evaluation}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Let an additive step \(\mathsf A_{p_i}\) occur when the cumulative
+multiplicative charge is \(M_{i-1}\).  Along the corresponding horizontal edge
+of \(C_\gamma\),
+\[
+    \int e^{-M}\,dA=p_i e^{-M_{i-1}}.
+\]
+After that addition, the remaining multiplicative steps have total charge
+\(M_\gamma-M_{i-1}\).  Consequently the contribution of \(p_i\) to the final
+value is
+\[
+    p_i e^{M_\gamma-M_{i-1}}
+      =e^{M_\gamma}p_i e^{-M_{i-1}}.
+\]
+The initial value contributes \(e^{M_\gamma}x\), and vertical ACS edges
+contribute nothing to the \(dA\)-integral.  Summing over the additive steps
+gives \eqref{eq:direct-acs-evaluation}.  The argument uses oriented edge
+integrals, so it also covers negative increments.
+\end{proof}
+
+The kernel \(e^{-M}\) is therefore forced by the affine cocycle: it normalizes
+an additive contribution to the source frame, before the common terminal scale
+\(e^{M_\gamma}\) returns it to the target frame.
+
+\subsection{Compatibility and relative torsion}
+
+There are two useful compatibility conditions, and they should not be
+conflated.  Histories \(\gamma\) and \(\delta\) are \emph{scale-compatible} if
+\[
+    M_\gamma=M_\delta.
+\]
+They are \emph{charge-compatible} if, in addition,
+\[
+    A_\gamma=A_\delta.
+\]
+Scale compatibility makes their affine maps have the same linear part.  Charge
+compatibility makes their ACS paths have both endpoints in common and hence
+makes \(C_\gamma-C_\delta\) a closed oriented one-chain.
+
+\begin{definition}[Relative arithmetic torsion]
+\label{def:relative-torsion}
+For scale-compatible add--scale histories \(\gamma\) and \(\delta\), their \emph{relative
+arithmetic torsion} is
+\begin{equation}
+    \tau(\gamma,\delta)
+       :=\xi_\gamma-\xi_\delta,
+    \label{eq:relative-torsion}
+\end{equation}
+where \(\xi_\gamma\) and \(\xi_\delta\) are the target-frame translation
+terms of the two affine operators.  This relative translation defect is the
+primary torsion invariant used below.
+\end{definition}
+
+\begin{proposition}
+\label{prop:relative-torsion-independent}
+For every initial value \(x\), relative arithmetic torsion equals the endpoint
+difference
+\[
+    \tau(\gamma,\delta)
+      =\nu_x(\gamma)-\nu_x(\delta),
+\]
+and is therefore independent of \(x\).
+If \(M_\gamma=M_\delta=M_*\), then
+\begin{equation}
+    \tau(\gamma,\delta)
+      =e^{M_*}
+        \left(
+          \int_{C_\gamma}e^{-M}\,dA
+          -\int_{C_\delta}e^{-M}\,dA
+        \right).
+    \label{eq:relative-torsion-boundary-preparation}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Apply Proposition~\ref{prop:acs-evaluation} to both histories.  Their initial
+terms are respectively \(e^{M_\gamma}x\) and \(e^{M_\delta}x\), which cancel
+under scale compatibility.  The remaining terms give
+\eqref{eq:relative-torsion-boundary-preparation}.
+\end{proof}
+
+Temporal reversal gives one possible comparison, but it is not built into the
+definition.  The pair \((\gamma,\delta)\) may consist of any two
+scale-compatible add--scale histories.  This extension is important because order defects
+occur between histories that are neither reversals nor planar mirrors of one
+another.
+
+\subsection{The torsion--Stokes formula}
+
+Suppose now that \(\gamma\) and \(\delta\) are charge-compatible, with common
+terminal charge \((A_*,M_*)\).  Define the target-normalized one-form
+\begin{equation}
+    \eta_*:=e^{M_*-M}\,dA
+    \label{eq:target-normalized-acs-form}
+\end{equation}
+on the ACS.  Relative torsion is then the integral of \(\eta_*\) over the
+closed one-chain \(C_\gamma-C_\delta\).  The chosen order of the two paths
+fixes the sign.
+
+\begin{theorem}[Weighted torsion--Stokes theorem]
+\label{thm:torsion-stokes}
+Let \(\gamma\) and \(\delta\) be charge-compatible add--scale histories with
+common terminal multiplicative charge \(M_*\).  Let
+\(\Sigma_{\gamma,\delta}\) be any oriented piecewise smooth singular
+two-chain in the ACS satisfying
+\[
+    \partial\Sigma_{\gamma,\delta}=C_\gamma-C_\delta.
+\]
+Then
+\begin{align}
+    \tau(\gamma,\delta)
+      &=\int_{C_\gamma-C_\delta}\eta_*
+        \label{eq:torsion-boundary-integral}\\
+      &=\int_{\Sigma_{\gamma,\delta}}
+          e^{M_*-M}\,dA\wedge dM.
+        \label{eq:torsion-area-integral}
+\end{align}
+The value of the area integral is independent of the chosen filling chain.
+\end{theorem}
+
+\begin{proof}
+Equation \eqref{eq:relative-torsion-boundary-preparation} and charge
+compatibility give
+\[
+    \tau(\gamma,\delta)
+       =\int_{C_\gamma-C_\delta}e^{M_*-M}\,dA
+       =\int_{C_\gamma-C_\delta}\eta_*.
+\]
+With the orientation \(dA\wedge dM\), direct differentiation yields
+\[
+    d\eta_*
+      =d(e^{M_*-M})\wedge dA
+      =-e^{M_*-M}dM\wedge dA
+      =e^{M_*-M}dA\wedge dM.
+\]
+Stokes' theorem for piecewise smooth chains therefore gives
+\[
+    \int_{C_\gamma-C_\delta}\eta_*
+      =\int_{\partial\Sigma_{\gamma,\delta}}\eta_*
+      =\int_{\Sigma_{\gamma,\delta}}d\eta_*,
+\]
+which is \eqref{eq:torsion-area-integral}.  Such a filling exists because the
+ACS plane is contractible.  Finally, if \(\Sigma\) and \(\Sigma'\) have the
+same boundary, applying Stokes' theorem to each shows
+\[
+    \int_\Sigma d\eta_*
+       =\int_{\partial\Sigma}\eta_*
+       =\int_{\partial\Sigma'}\eta_*
+       =\int_{\Sigma'}d\eta_*.
+\]
+This also proves filling independence.  The chain formulation remains valid
+when the broken paths self-intersect or carry signed increments; no informal
+notion of an enclosed region is required.
+\end{proof}
+
+Charge compatibility is needed for the closed-chain and area formulas, but not
+for Definition~\ref{def:relative-torsion}.  A merely scale-compatible pair
+still has a well-defined translation defect, even when the endpoints of its ACS
+paths have different \(A\)-coordinates.
+
+Figure~\ref{fig:acs-compatible-paths-weighted-filling} depicts the chain
+orientation used in Theorem~\ref{thm:torsion-stokes}.  It is a schematic of
+the theorem's data rather than an argument for filling independence.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[
+  x=1.15cm,y=1.05cm,
+  axis/.style={-{Latex[length=2mm]},thick,black!70},
+  gamma/.style={-{Latex[length=2mm]},very thick,red!65!black},
+  delta/.style={-{Latex[length=2mm]},very thick,blue!65!black},
+  every node/.style={font=\small}
+]
+  \coordinate (O) at (0,0);
+  \coordinate (g1) at (2.2,0);
+  \coordinate (g2) at (2.2,0.9);
+  \coordinate (g3) at (4,0.9);
+  \coordinate (P) at (4,2.7);
+  \coordinate (d1) at (0,1.5);
+  \coordinate (d2) at (1.3,1.5);
+  \coordinate (d3) at (1.3,2.7);
+
+  \path[fill=violet!11,draw=none]
+    (O)--(g1)--(g2)--(g3)--(P)--(d3)--(d2)--(d1)--cycle;
+  \draw[axis] (-0.25,0) -- (4.75,0) node[right] {$A$};
+  \draw[axis] (0,-0.25) -- (0,3.25) node[above] {$M$};
+
+  \draw[gamma] (O)--(g1);
+  \draw[gamma] (g1)--(g2);
+  \draw[gamma] (g2)--(g3);
+  \draw[gamma] (g3)--(P);
+  \draw[delta] (O)--(d1);
+  \draw[delta] (d1)--(d2);
+  \draw[delta] (d2)--(d3);
+  \draw[delta] (d3)--(P);
+
+  \fill (O) circle (1.7pt) node[below left] {$(0,0)$};
+  \fill (P) circle (1.7pt) node[above right] {$(A_*,M_*)$};
+  \node[red!65!black,fill=white,inner sep=1pt] at (3.3,0.72) {$C_\gamma$};
+  \node[blue!65!black,fill=white,inner sep=1pt] at (0.72,1.75) {$C_\delta$};
+  \node[align=center,violet!55!black] at (2.55,1.8)
+    {$\Sigma_{\gamma,\delta}$\\
+     $e^{M_*-M}\,dA\wedge dM$};
+  \node[font=\scriptsize,anchor=west] at (4.35,1.72)
+    {$\partial\Sigma=C_\gamma-C_\delta$};
+
+  \draw[-{Latex[length=1.7mm]},black!55] (4.55,0.35)--(4.95,0.35)
+    node[right,font=\scriptsize] {$dA$};
+  \draw[-{Latex[length=1.7mm]},black!55] (4.55,0.35)--(4.55,0.8)
+    node[above,font=\scriptsize] {$dM$};
+\end{tikzpicture}
+\caption{Two charge-compatible ACS histories.  Both paths run from $(0,0)$
+to the common charge endpoint $(A_*,M_*)$.  Traversing $C_\gamma$ forward and
+$C_\delta$ backward gives the positive boundary of the displayed filling for
+the orientation $dA\wedge dM$; the density is weighted by $e^{M_*-M}$.}
+\label{fig:acs-compatible-paths-weighted-filling}
+\end{figure}
+
+\subsection{Explicit order comparisons}
+
+\paragraph{The elementary rectangle.}
+Let
+\[
+    \gamma=(\mathsf A_p,\mathsf M_q),
+    \qquad
+    \delta=(\mathsf M_q,\mathsf A_p).
+\]
+The path \(C_\gamma-C_\delta\) is the positively oriented boundary of the
+rectangle \([0,p]\times[0,q]\) when \(p,q>0\).  Direct evaluation and the
+weighted-area formula agree:
+\begin{align*}
+    \tau(\gamma,\delta)
+      &=e^q(x+p)-(e^q x+p)\\
+      &=p(e^q-1)\\
+      &=\int_0^p\int_0^q e^{q-M}\,dM\,dA.
+\end{align*}
+Thus ``add, then multiply'' minus ``multiply, then add'' is positive under the
+orientation fixed in Definition~\ref{def:acs}.  In the flow notation used in
+the next chapter, \(p=\mu h\) and \(q=\lambda k\), so the defect is
+\[
+    \mu h(e^{\lambda k}-1).
+\]
+
+\paragraph{A four-step staircase.}
+For
+\[
+    \gamma=(\mathsf A_p,\mathsf M_r,\mathsf A_q,\mathsf M_s),
+    \qquad
+    \delta=(\mathsf M_r,\mathsf A_p,\mathsf M_s,\mathsf A_q),
+\]
+the histories have the same total charge \((p+q,r+s)\), but \(\delta\) is not
+the temporal reversal of \(\gamma\).  Their evaluations are
+\[
+    \nu_x(\gamma)=e^{r+s}x+p e^{r+s}+q e^s,
+\]
+\[
+    \nu_x(\delta)=e^{r+s}x+p e^s+q.
+\]
+Consequently
+\begin{equation}
+    \tau(\gamma,\delta)
+      =p e^s(e^r-1)+q(e^s-1).
+    \label{eq:four-step-staircase-torsion}
+\end{equation}
+For positive \(p,q,r,s\), both terms are positive weighted strips in an ACS
+filling.  Formula \eqref{eq:four-step-staircase-torsion} also shows how a later
+scale changes the weight of an earlier commutation defect.
+
+\paragraph{Equal charges without reversal.}
+The pair
+\[
+    (\mathsf A_p,\mathsf M_r,\mathsf A_q),
+    \qquad
+    (\mathsf A_q,\mathsf M_r,\mathsf A_p)
+\]
+has common charge \((p+q,r)\), and its relative torsion is
+\[
+    (p-q)(e^r-1).
+\]
+It may be positive, negative, or zero.  In particular, equal charge does not
+determine torsion, while zero torsion does not imply equality of marked
+histories.
+
+\subsection{What the ACS forgets}
+
+At the formal level, the map
+\[
+    \gamma\longmapsto(A_\gamma,M_\gamma)
+\]
+is an order-forgetting charge homomorphism from concatenated marked histories
+to the additive group \(\mathbb R^2\).  It is therefore analogous to an
+abelianization map.  This statement concerns the formal charge language only.
+It does not identify the symbolic history space with the evaluated affine
+group, and it does not assert that either object is a free group without an
+additional choice of formal generators and relations.
+
+The content of Theorem~\ref{thm:torsion-stokes} is precisely what survives this
+loss of order: the endpoint charges specify a common frame, while the weighted
+filling measures the translation defect between two histories.  The next
+chapter retains the current value as a third coordinate and identifies the
+infinitesimal form of the same defect with contact curvature.

@@ -1,0 +1,91 @@
+The examples below separate several equality tests without developing a general
+relation or loop theory.  In each case, histories are marked chronological
+words, operators are affine maps, and endpoint values are obtained only after
+choosing an input.
+
+\subsection{Same value, different operators}
+
+Let
+\[
+    \gamma=(\mathsf A_1),
+    \qquad
+    \delta=(\mathsf M_{\log 2}).
+\]
+At the input \(x=1\), both histories have endpoint value \(2\).  Their induced
+operators are nevertheless
+\[
+    \nu_x(\gamma)=x+1,
+    \qquad
+    \nu_x(\delta)=2x,
+\]
+which are unequal.  Equality at one input therefore does not imply operator
+equality.
+
+\subsection{Same operator, different histories}
+
+The marked histories
+\[
+    \gamma=(\mathsf A_1,\mathsf A_2),
+    \qquad
+    \delta=(\mathsf A_2,\mathsf A_1)
+\]
+are different chronological words, but both induce \(x\mapsto x+3\).  They
+also have the same total charge.  Thus operator equality does not recover a
+marked history, even when charge data are retained.
+
+\subsection{Same charge, nonzero relative torsion}
+
+For \(p,q\ne0\), the histories
+\[
+    \gamma=(\mathsf A_p,\mathsf M_q),
+    \qquad
+    \delta=(\mathsf M_q,\mathsf A_p)
+\]
+have the same ACS endpoint \((p,q)\).  Their operators differ by the translation
+\[
+    \tau(\gamma,\delta)=p(e^q-1).
+\]
+The ACS endpoint is therefore insensitive to order, whereas evaluation is not.
+The weighted filling, rather than the terminal charge, detects the difference.
+
+\subsection{Zero endpoint defect, nontrivial history}
+
+For \(p\ne0\), the nonempty history
+\[
+    \ell=(\mathsf A_p,\mathsf A_{-p})
+\]
+induces the identity operator and hence has zero endpoint defect for every
+input.  It is nevertheless not the empty marked history.  In particular,
+operator neutrality does not imply literal or historical equality.
+
+A slightly different phenomenon occurs for
+\[
+    (\mathsf A_p,\mathsf M_q,\mathsf A_{-p},\mathsf M_{-q}).
+\]
+This history has zero total ACS charge but induces translation by
+\(p(1-e^{-q})\).  Thus charge neutrality does not imply operator neutrality.
+
+\subsection{Open torsion and closed-loop drift}
+
+For additive side \(p=\mu h\) and logarithmic multiplicative side
+\(q=\lambda k\), the two open orders differ by
+\[
+    T_{\mathrm{open}}=p(e^q-1),
+\]
+whereas the chronological closed loop has vertical drift
+\[
+    T_{\mathrm{closed}}=p(1-e^{-q})=e^{-q}T_{\mathrm{open}}.
+\]
+They have the common first-order density \(\mu\lambda\), but they are distinct
+finite quantities.  Consequently local order torsion, raw closed-loop
+holonomy, and infinitesimal curvature should not be used as interchangeable
+notions without the normalization or limiting operation that relates them.
+
+These examples exhibit the hierarchy needed in the main text:
+\[
+    \text{marked history}
+      \longrightarrow \text{operator}
+      \longrightarrow \text{endpoint value},
+\]
+with total charge providing an additional, order-forgetting projection.  No
+converse implication between adjacent levels holds in general.

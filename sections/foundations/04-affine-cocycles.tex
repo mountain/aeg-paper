@@ -1,0 +1,396 @@
+We now restrict projective evaluation to the affine syntactic sector.  Every
+evaluated history then has the form
+\[
+  x\longmapsto \Phi x+\xi,
+  \qquad \Phi\in K^\times,\quad \xi\in K.
+\]
+The accumulated scale $\Phi$ and translation $\xi$ retain more of the process
+than an endpoint value.  Their composition law forces two natural translation
+coordinates.  The target-frame coordinate $\xi$ weights each translation by
+the scales that occur after it; the source-normalized coordinate
+$\widehat\xi=\Phi^{-1}\xi$ discounts it by the scales accumulated up to that
+point.
+
+Throughout Subsections~\ref{subsec:discrete-affine-cocycles}--
+\ref{subsec:relative-affine-defect}, $K$ is an arbitrary field and every
+affine multiplier is nonzero.  The differential calculation in
+Subsection~\ref{subsec:affine-maurer-cartan} is over $\mathbb R$.
+
+\subsection{Discrete affine evaluation}
+\label{subsec:discrete-affine-cocycles}
+
+Let
+\[
+  f_i(x)=s_i x+t_i,
+  \qquad s_i\in K^\times,\quad t_i\in K,
+\]
+and regard $(f_1,\ldots,f_n)$ as a chronological history: $f_1$ acts first.
+Write
+\begin{equation}
+  f_n\circ\cdots\circ f_1(x)=\Phi_nx+\xi_n.
+  \label{eq:affine-history-normal-form}
+\end{equation}
+For the empty history we set $\Phi_0=1$ and $\xi_0=0$.
+
+\begin{proposition}[Affine cocycle formulas]
+\label{prop:affine-cocycle-formulas}
+\label{prop:target-affine-cocycle}
+\label{prop:source-normalized-cocycle}
+For a chronological affine history $(f_1,\ldots,f_n)$,
+\begin{align}
+  \Phi_n&=\prod_{i=1}^{n}s_i,
+  \label{eq:accumulated-affine-scale}\\
+  \xi_n&=\sum_{i=1}^{n}t_i\prod_{j=i+1}^{n}s_j.
+  \label{eq:target-affine-cocycle}
+\end{align}
+The empty product is $1$.  Defining the source-normalized translation by
+\begin{equation}
+  \widehat\xi_n=\Phi_n^{-1}\xi_n,
+  \label{eq:source-normalized-translation-definition}
+\end{equation}
+one also has
+\begin{equation}
+  \widehat\xi_n
+  =\sum_{i=1}^{n}\frac{t_i}{\prod_{j=1}^{i}s_j}.
+  \label{eq:source-normalized-affine-cocycle}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+We prove the first two identities simultaneously by induction on $n$.  They
+hold for $n=0$.  Suppose
+\[
+  f_n\circ\cdots\circ f_1(x)=\Phi_nx+\xi_n.
+\]
+Postcomposing chronologically by $f_{n+1}$ gives
+\[
+  f_{n+1}(\Phi_nx+\xi_n)
+  =s_{n+1}\Phi_nx+(s_{n+1}\xi_n+t_{n+1}).
+\]
+Therefore
+\[
+  \Phi_{n+1}=s_{n+1}\Phi_n
+  =\prod_{i=1}^{n+1}s_i.
+\]
+Using the induction hypothesis for $\xi_n$,
+\begin{align*}
+  \xi_{n+1}
+  &=s_{n+1}\sum_{i=1}^{n}t_i
+       \prod_{j=i+1}^{n}s_j+t_{n+1}\\
+  &=\sum_{i=1}^{n}t_i
+       \prod_{j=i+1}^{n+1}s_j
+    +t_{n+1}\prod_{j=n+2}^{n+1}s_j,
+\end{align*}
+which is exactly \eqref{eq:target-affine-cocycle} for $n+1$.
+
+Every $s_i$ is nonzero, so $\Phi_n$ is invertible.  Dividing the $i$th term of
+\eqref{eq:target-affine-cocycle} by
+$\Phi_n=\prod_{j=1}^{n}s_j$ gives
+\[
+  \frac{t_i\prod_{j=i+1}^{n}s_j}
+       {\prod_{j=1}^{n}s_j}
+  =\frac{t_i}{\prod_{j=1}^{i}s_j}.
+\]
+Summation proves \eqref{eq:source-normalized-affine-cocycle}.
+\end{proof}
+
+Formula \eqref{eq:target-affine-cocycle} is a future-weighting rule.  A
+translation $t_i$ is expressed in target coordinates only after every later
+scale $s_{i+1},\ldots,s_n$ has acted.  Formula
+\eqref{eq:source-normalized-affine-cocycle} is a past-normalization rule: the
+same translation is transported back through the scale accumulated from the
+source through step $i$.  Neither formula is an additional geometric
+postulate.
+
+\begin{example}[Three steps]
+For
+\[
+  f_1(x)=s_1x+t_1,
+  \quad f_2(x)=s_2x+t_2,
+  \quad f_3(x)=s_3x+t_3,
+\]
+direct substitution gives
+\[
+  f_3f_2f_1(x)
+  =s_3s_2s_1x+s_3s_2t_1+s_3t_2+t_3.
+\]
+Here and below juxtaposition of the displayed functions means ordinary
+functional composition $f_3\circ f_2\circ f_1$, not chronological word
+concatenation.  The formula makes the future scales attached to each
+translation visible.
+\end{example}
+
+\subsection{Cocycle laws under chronological concatenation}
+
+For an affine history $\gamma$, write
+\[
+  \rho(\gamma)(x)=\Phi_\gamma x+\xi_\gamma,
+  \qquad
+  \widehat\xi_\gamma=\Phi_\gamma^{-1}\xi_\gamma.
+\]
+Recall that $\gamma\delta$ means first $\gamma$ and then $\delta$, so
+$\rho(\gamma\delta)=\rho(\delta)\rho(\gamma)$.
+
+\begin{proposition}[Chronological affine cocycle law]
+\label{prop:chronological-affine-cocycle-law}
+For affine histories $\gamma$ and $\delta$,
+\begin{align}
+  \Phi_{\gamma\delta}
+    &=\Phi_\delta\Phi_\gamma,
+  \label{eq:scale-concatenation-law}\\
+  \xi_{\gamma\delta}
+    &=\Phi_\delta\xi_\gamma+\xi_\delta,
+  \label{eq:target-concatenation-law}\\
+  \widehat\xi_{\gamma\delta}
+    &=\widehat\xi_\gamma
+      +\Phi_\gamma^{-1}\widehat\xi_\delta.
+  \label{eq:source-concatenation-law}
+\end{align}
+If $\gamma$ is invertible, then
+\begin{equation}
+  \Phi_{\gamma^{-1}}=\Phi_\gamma^{-1},
+  \qquad
+  \xi_{\gamma^{-1}}=-\Phi_\gamma^{-1}\xi_\gamma
+  =-\widehat\xi_\gamma.
+  \label{eq:affine-inverse-coordinates}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Apply $\rho(\delta)$ to $\rho(\gamma)(x)$:
+\[
+  \rho(\delta)(\Phi_\gamma x+\xi_\gamma)
+  =\Phi_\delta\Phi_\gamma x
+   +\Phi_\delta\xi_\gamma+\xi_\delta.
+\]
+This proves \eqref{eq:scale-concatenation-law} and
+\eqref{eq:target-concatenation-law}.  Since $K$ is commutative,
+\begin{align*}
+  \widehat\xi_{\gamma\delta}
+  &=(\Phi_\delta\Phi_\gamma)^{-1}
+    (\Phi_\delta\xi_\gamma+\xi_\delta)\\
+  &=\Phi_\gamma^{-1}\xi_\gamma
+    +\Phi_\gamma^{-1}\Phi_\delta^{-1}\xi_\delta,
+\end{align*}
+which is \eqref{eq:source-concatenation-law}.  Finally, solving
+$y=\Phi_\gamma x+\xi_\gamma$ for $x$ yields
+\[
+  \rho(\gamma)^{-1}(y)
+  =\Phi_\gamma^{-1}y-\Phi_\gamma^{-1}\xi_\gamma,
+\]
+and hence \eqref{eq:affine-inverse-coordinates}.
+\end{proof}
+
+These formulas show why the translation coordinate is a cocycle rather than
+an additive homomorphism.  The semidirect-product action of scale on
+translation is part of the arithmetic composition law.
+
+\subsection{Left and right affine differentials}
+\label{subsec:affine-maurer-cartan}
+
+We now pass to the positive real affine group and write
+\begin{equation}
+  g(M,\xi)
+  =\begin{pmatrix}e^M&\xi\\0&1\end{pmatrix}.
+  \label{eq:positive-affine-matrix-coordinates}
+\end{equation}
+The symbol $M$ denotes accumulated logarithmic scale; it is distinct from the
+fixed infinitesimal intensity $\lambda$ used in later flow equations.
+
+\begin{proposition}[Left and right affine differentials]
+\label{prop:left-right-affine-differentials}
+For the matrix $g$ in \eqref{eq:positive-affine-matrix-coordinates}, the
+translation components of the left and right Maurer--Cartan forms are
+\begin{align}
+  \bigl(g^{-1}dg\bigr)_{\mathrm{tr}}
+    &=e^{-M}\,d\xi,
+  \label{eq:left-maurer-cartan-translation}\\
+  \bigl(dg\,g^{-1}\bigr)_{\mathrm{tr}}
+    &=d\xi-\xi\,dM.
+  \label{eq:right-maurer-cartan-translation}
+\end{align}
+If $\widehat\xi=e^{-M}\xi$, then
+\begin{equation}
+  d\xi-\xi\,dM=e^M d\widehat\xi.
+  \label{eq:maurer-cartan-coordinate-conversion}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+We have
+\[
+  g^{-1}
+  =\begin{pmatrix}
+      e^{-M}&-e^{-M}\xi\\0&1
+    \end{pmatrix},
+  \qquad
+  dg
+  =\begin{pmatrix}
+      e^M dM&d\xi\\0&0
+    \end{pmatrix}.
+\]
+Multiplication on the two sides gives
+\[
+  g^{-1}dg
+  =\begin{pmatrix}
+      dM&e^{-M}d\xi\\0&0
+    \end{pmatrix}
+\]
+and
+\[
+  dg\,g^{-1}
+  =\begin{pmatrix}
+      dM&d\xi-\xi dM\\0&0
+    \end{pmatrix}.
+\]
+The upper-right entries prove
+\eqref{eq:left-maurer-cartan-translation} and
+\eqref{eq:right-maurer-cartan-translation}.  Differentiating
+$\widehat\xi=e^{-M}\xi$ gives
+\[
+  d\widehat\xi=e^{-M}(d\xi-\xi dM),
+\]
+which is equivalent to
+\eqref{eq:maurer-cartan-coordinate-conversion}.
+\end{proof}
+
+The left Maurer--Cartan form $g^{-1}dg$ measures velocity in body or source
+coordinates; the right form $dg\,g^{-1}$ measures it in spatial or target
+coordinates.  This left--right group distinction is not the same as
+operand-slot chirality.  Relating a slot choice to left or right group
+multiplication requires an additional rule specifying how a new context is
+inserted into a represented history.  No such identification is assumed here.
+
+There are likewise two separate coordinate statements.  The matrix coordinate
+$\xi$ is the target-frame translation in $x\mapsto e^M x+\xi$, whereas
+$\widehat\xi=e^{-M}\xi$ is its source-normalized value.  Equations
+\eqref{eq:left-maurer-cartan-translation}--
+\eqref{eq:maurer-cartan-coordinate-conversion} relate their differentials but
+do not make the two coordinates interchangeable.
+
+\subsection{Relative affine defect}
+\label{subsec:relative-affine-defect}
+
+The affine cocycle permits a comparison of two histories before any global
+torsion theory is introduced.
+
+\begin{definition}[Relative affine defect]
+\label{def:relative-affine-defect}
+For two affine histories $\gamma$ and $\delta$, the \emph{relative affine
+defect of $\gamma$ with reference $\delta$} is
+\begin{equation}
+  \mathcal K_{\mathrm{aff}}(\gamma,\delta)
+  =\rho(\delta)^{-1}\rho(\gamma)
+  \in\operatorname{Aff}(1,K).
+  \label{eq:relative-affine-defect}
+\end{equation}
+The pair is \emph{scale-compatible} when
+$\Phi_\gamma=\Phi_\delta$.
+\end{definition}
+
+The order of the arguments in
+\eqref{eq:relative-affine-defect} is part of the convention.  Interchanging
+$\gamma$ and $\delta$ inverts the group-valued defect.
+
+\begin{proposition}[Coordinates of the relative affine defect]
+\label{prop:relative-affine-defect-coordinates}
+For arbitrary affine histories $\gamma$ and $\delta$,
+\begin{equation}
+  \mathcal K_{\mathrm{aff}}(\gamma,\delta)(x)
+  =\frac{\Phi_\gamma}{\Phi_\delta}x
+   +\frac{\xi_\gamma-\xi_\delta}{\Phi_\delta}.
+  \label{eq:relative-affine-defect-coordinates}
+\end{equation}
+If the pair is scale-compatible with common scale $\Phi$, then
+\begin{align}
+  \nu_x(\gamma)-\nu_x(\delta)
+    &=\xi_\gamma-\xi_\delta,
+  \label{eq:scale-compatible-endpoint-defect}\\
+  \mathcal K_{\mathrm{aff}}(\gamma,\delta)(x)
+    &=x+\frac{\xi_\gamma-\xi_\delta}{\Phi}.
+  \label{eq:scale-compatible-relative-translation}
+\end{align}
+In particular, the endpoint difference is then independent of $x$.
+\end{proposition}
+
+\begin{proof}
+The inverse of $y\mapsto\Phi_\delta y+\xi_\delta$ is
+$y\mapsto\Phi_\delta^{-1}(y-\xi_\delta)$.  Applying it after
+$x\mapsto\Phi_\gamma x+\xi_\gamma$ gives
+\eqref{eq:relative-affine-defect-coordinates}.  If
+$\Phi_\gamma=\Phi_\delta=\Phi$, direct subtraction of the two endpoint formulas
+gives \eqref{eq:scale-compatible-endpoint-defect}, and substituting the common
+scale into \eqref{eq:relative-affine-defect-coordinates} gives
+\eqref{eq:scale-compatible-relative-translation}.
+\end{proof}
+
+For unequal scales, the endpoint difference contains
+$(\Phi_\gamma-\Phi_\delta)x$ and depends on the initial value.  In that case the
+group-valued comparison remains defined, but there is no base-point-independent
+scalar translation defect of the form
+\eqref{eq:scale-compatible-endpoint-defect}.
+
+\begin{example}[The elementary affine order defect]
+\label{ex:elementary-affine-order-defect}
+Fix $\mu\in K$ and $q\in K^\times$.  Let $\gamma$ first add $\mu$ and then
+scale by $q$, while $\delta$ first scales by $q$ and then adds $\mu$.  Then
+\[
+  \rho(\gamma)(x)=q(x+\mu)=qx+q\mu,
+  \qquad
+  \rho(\delta)(x)=qx+\mu.
+\]
+The histories have the same scale $q$, and hence
+\begin{equation}
+  \nu_x(\gamma)-\nu_x(\delta)=\mu(q-1),
+  \qquad
+  \mathcal K_{\mathrm{aff}}(\gamma,\delta)(x)
+  =x+\mu(1-q^{-1}).
+  \label{eq:elementary-affine-order-defect}
+\end{equation}
+Over the positive real group, writing $q=e^M$ gives the endpoint defect
+$\mu(e^M-1)$.
+\end{example}
+
+Equation \eqref{eq:elementary-affine-order-defect} is an open comparison of two
+chronological histories.  It is not a closed commutator-loop holonomy, a
+comparison with path inverse, or a mirror invariant.  Section~\ref{sec:acs-torsion}
+will place compatible two-history defects in the global torsion framework.
+
+\subsection{Propagation of a change in the initial accumulator}
+
+The accumulated scale also controls sensitivity to the initial value.
+
+\begin{proposition}[Exact affine perturbation propagation]
+\label{prop:affine-perturbation-propagation}
+Let $\gamma$ be an affine history with scale $\Phi_\gamma$.  For any
+$x,\widetilde x\in K$,
+\begin{equation}
+  \nu_{\widetilde x}(\gamma)-\nu_x(\gamma)
+  =\Phi_\gamma(\widetilde x-x).
+  \label{eq:exact-affine-perturbation}
+\end{equation}
+When $\widetilde x\ne x$,
+\begin{equation}
+  \frac{\nu_{\widetilde x}(\gamma)-\nu_x(\gamma)}
+       {\widetilde x-x}
+  =\Phi_\gamma.
+  \label{eq:affine-perturbation-ratio}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The affine normal form gives
+\[
+  \nu_{\widetilde x}(\gamma)=\Phi_\gamma\widetilde x+\xi_\gamma,
+  \qquad
+  \nu_x(\gamma)=\Phi_\gamma x+\xi_\gamma.
+\]
+Subtracting cancels the translation cocycle and proves
+\eqref{eq:exact-affine-perturbation}.  Division by the nonzero element
+$\widetilde x-x$ proves \eqref{eq:affine-perturbation-ratio}.
+\end{proof}
+
+This is an exact discrete identity, not a linear approximation.  The
+continuous affine flow of the next section is obtained by differentiating the
+same semidirect-product action.  Supplementary expansions and convention
+checks appear in Appendix~\ref{app:affine-cocycles}.

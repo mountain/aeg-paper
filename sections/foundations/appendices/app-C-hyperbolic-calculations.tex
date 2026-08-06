@@ -1,0 +1,288 @@
+This appendix records the coordinate checks used for the basic hyperbolic
+arithmetic expression space.  Throughout, \(\mu,\lambda>0\),
+\[
+ G=\{(x,y):x\in\mathbb R,\ y>0\},
+ \qquad
+ (x,y)(x',y')=(x+yx',yy'),
+\]
+and
+\[
+ g_{\mu,\lambda}
+ =\frac1{y^2}
+  \left(\frac{dx^2}{\mu^2}+\frac{dy^2}{\lambda^2}\right),
+ \qquad
+ a=-\frac xy.
+\]
+
+\subsection{Group coordinates and the invariant frame}
+
+The identity of \(G\) is \((0,1)\), and
+\[
+ (x,y)^{-1}=\left(-\frac xy,\frac1y\right).
+\]
+For \(g_0=(x_0,y_0)\), left translation and its differential are
+\[
+ L_{g_0}(x,y)=(x_0+y_0x,y_0y),
+ \qquad
+ dL_{g_0}(\partial_x)=y_0\partial_x,
+ \qquad
+ dL_{g_0}(\partial_y)=y_0\partial_y.
+\]
+It follows that \(y\partial_x\) and \(y\partial_y\) are left-invariant.
+The normalized arithmetic frame
+\[
+ X_u=-\mu y\partial_x,
+ \qquad
+ X_v=-\lambda y\partial_y
+\]
+is therefore left-invariant, and its dual coframe is
+\[
+ -\frac{dx}{\mu y},
+ \qquad
+ -\frac{dy}{\lambda y}.
+\]
+The sum of their squares is \(g_{\mu,\lambda}\).  The bracket is
+\begin{align*}
+ [X_u,X_v]
+ &=[-\mu y\partial_x,-\lambda y\partial_y]\\
+ &=-\mu\lambda y\partial_x
+ =\lambda X_u,
+\end{align*}
+and hence \([X_u,X_v]a=\mu\lambda\), as required by the general
+arithmetic-frame identity.
+
+The same invariance can be checked directly:
+\begin{align*}
+ L_{(x_0,y_0)}^*g_{\mu,\lambda}
+ &=
+ \frac1{(y_0y)^2}
+ \left(
+  \frac{(y_0dx)^2}{\mu^2}
+  +\frac{(y_0dy)^2}{\lambda^2}
+ \right)\\
+ &=g_{\mu,\lambda}.
+\end{align*}
+
+For a horocyclic chart, set
+\[
+ u=x,\qquad y=e^{\lambda v}.
+\]
+Then
+\[
+ (u,v)(u',v')
+ =\bigl(u+e^{\lambda v}u',v+v'\bigr),
+\]
+and
+\[
+ X_u=-\mu e^{\lambda v}\partial_u,
+ \qquad
+ X_v=-\partial_v,
+\]
+while
+\[
+ g_{\mu,\lambda}
+ =e^{-2\lambda v}\frac{du^2}{\mu^2}+dv^2,
+ \qquad
+ a=-u e^{-\lambda v}.
+\]
+The letters \(u,v\) in this chart are genuine coordinates, but the arithmetic
+frame is not the coordinate frame.
+
+\subsection{Inverse metric, gradient, and the eikonal identity}
+
+In the \((x,y)\)-chart,
+\[
+ (g_{ij})
+ =
+ \begin{pmatrix}
+  \dfrac1{\mu^2y^2}&0\\[5pt]
+  0&\dfrac1{\lambda^2y^2}
+ \end{pmatrix},
+ \qquad
+ (g^{ij})
+ =
+ \begin{pmatrix}
+  \mu^2y^2&0\\
+  0&\lambda^2y^2
+ \end{pmatrix},
+\]
+and
+\[
+ \det(g_{ij})=\frac1{\mu^2\lambda^2y^4},
+ \qquad
+ d\operatorname{vol}_g
+ =\frac{dx\wedge dy}{\mu\lambda y^2}.
+\]
+Since
+\[
+ a_x=-\frac1y,
+ \qquad
+ a_y=\frac{x}{y^2}=-\frac ay,
+\]
+the gradient is
+\begin{align*}
+ \nabla a
+ &=g^{xx}a_x\partial_x+g^{yy}a_y\partial_y\\
+ &=-\mu^2y\,\partial_x+\lambda^2x\,\partial_y.
+\end{align*}
+Its squared norm is
+\begin{align*}
+ |\nabla a|_g^2
+ &=g^{xx}a_x^2+g^{yy}a_y^2\\
+ &=\mu^2+\lambda^2\frac{x^2}{y^2}\\
+ &=\mu^2+\lambda^2a^2.
+\end{align*}
+Alternatively,
+\[
+ X_u a=(-\mu y)\left(-\frac1y\right)=\mu,
+ \qquad
+ X_v a=(-\lambda y)\left(\frac{x}{y^2}\right)=\lambda a,
+\]
+so the framed and eikonal verifications agree.
+
+\subsection{Curvature and completeness}
+
+Two calculations give the curvature normalization.  First set
+\[
+ X=\frac{\lambda}{\mu}x.
+\]
+This is a global diffeomorphism of upper half-planes, and
+\[
+ g_{\mu,\lambda}
+ =\frac1{\lambda^2}
+  \frac{dX^2+dy^2}{y^2}.
+\]
+The standard metric \((dX^2+dy^2)/y^2\) is complete with curvature
+\(-1\).  Constant rescaling by \(\lambda^{-2}\) gives a complete metric
+of curvature \(-\lambda^2\).
+
+For a direct Cartan calculation, use the positively oriented orthonormal coframe
+\[
+ \omega^1=\frac{dx}{\mu y},
+ \qquad
+ \omega^2=\frac{dy}{\lambda y}.
+\]
+Then
+\[
+ d\omega^1=\lambda\,\omega^1\wedge\omega^2,
+ \qquad
+ d\omega^2=0.
+\]
+The Levi--Civita connection form
+\(\omega^1_{\ 2}=-\lambda\omega^1\) satisfies
+\[
+ d\omega^1=-\omega^1_{\ 2}\wedge\omega^2,
+ \qquad
+ d\omega^2=\omega^1_{\ 2}\wedge\omega^1.
+\]
+Its curvature form is
+\[
+ d\omega^1_{\ 2}
+ =-\lambda\,d\omega^1
+ =-\lambda^2\,\omega^1\wedge\omega^2.
+\]
+Thus \(K=-\lambda^2\), consistently with the coordinate rescaling.
+
+\subsection{The Laplace--Beltrami operator}
+
+With the divergence-of-gradient convention,
+\[
+ \Delta_g f
+ =\frac1{\sqrt{\det g}}\,
+  \partial_i\!\left(\sqrt{\det g}\,g^{ij}\partial_jf\right).
+\]
+Here
+\[
+ \sqrt{\det g}=\frac1{\mu\lambda y^2},
+ \quad
+ \sqrt{\det g}\,g^{xx}=\frac{\mu}{\lambda},
+ \quad
+ \sqrt{\det g}\,g^{yy}=\frac{\lambda}{\mu}.
+\]
+The last two coefficients are constant, so
+\begin{equation}\label{eq:appendix-hyperbolic-laplacian}
+ \Delta_{g_{\mu,\lambda}}f
+ =\mu^2y^2f_{xx}+\lambda^2y^2f_{yy}.
+\end{equation}
+For \(a=-x/y\),
+\[
+ a_{xx}=0,
+ \qquad
+ a_{yy}=-\frac{2x}{y^3}=\frac{2a}{y^2}.
+\]
+Equation~\eqref{eq:appendix-hyperbolic-laplacian} therefore gives
+\[
+ \Delta_{g_{\mu,\lambda}}a=2\lambda^2a.
+\]
+
+\subsection{Grid maps and their metric pullbacks}
+
+For
+\[
+ \mathsf X_s(x,y)=(x-sy,y),
+ \qquad
+ \mathsf Y_k(x,y)=\left(x,\frac yk\right),
+\]
+one computes
+\[
+ (a\circ\mathsf X_s)(x,y)
+ =-\frac{x-sy}{y}=a(x,y)+s
+\]
+and
+\[
+ (a\circ\mathsf Y_k)(x,y)
+ =-\frac{x}{y/k}=k\,a(x,y).
+\]
+On differentials,
+\[
+ \mathsf X_s^*dx=dx-s\,dy,\qquad
+ \mathsf X_s^*dy=dy,
+\]
+and the transformed \(y\)-coordinate is still \(y\).  Hence
+\[
+ \mathsf X_s^*g_{\mu,\lambda}
+ =\frac1{y^2}
+  \left(
+   \frac{(dx-s\,dy)^2}{\mu^2}
+   +\frac{dy^2}{\lambda^2}
+  \right).
+\]
+For \(\mathsf Y_k\), the transformed coordinate and differentials are
+\[
+ y'=\frac yk,\qquad dx'=dx,\qquad dy'=\frac{dy}{k},
+\]
+so
+\[
+ \mathsf Y_k^*g_{\mu,\lambda}
+ =\frac1{y^2}
+  \left(
+   \frac{k^2dx^2}{\mu^2}
+   +\frac{dy^2}{\lambda^2}
+  \right).
+\]
+The cross term in the first formula and the unequal horizontal coefficient in
+the second show that these grid maps are not general isometries.
+
+\subsection{The Baumslag--Solitar composition check}
+
+For a positive integer \(n\),
+\[
+ \mathsf X_s^n(x,y)=(x-nsy,y).
+\]
+Using the standard right-to-left convention for composition,
+\begin{align*}
+ (\mathsf Y_n^{-1}\circ\mathsf X_s^n\circ\mathsf Y_n)(x,y)
+ &=(\mathsf Y_n^{-1}\circ\mathsf X_s^n)
+   \left(x,\frac yn\right)\\
+ &=\mathsf Y_n^{-1}(x-sy,y/n)\\
+ &=(x-sy,y)\\
+ &=\mathsf X_s(x,y).
+\end{align*}
+Equivalently,
+\[
+ \mathsf Y_n\circ\mathsf X_s\circ\mathsf Y_n^{-1}
+ =\mathsf X_s^n.
+\]
+These are identities in the diffeomorphism group of \(\mathbb H^2\).  The metric
+pullback calculation above is why they are stated as grid relations rather than
+as relations in the hyperbolic isometry group.

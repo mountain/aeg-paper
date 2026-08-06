@@ -1,0 +1,250 @@
+The affine cocycles of the preceding section have an infinitesimal counterpart.
+Translation and dilation generate the Lie algebra of the positive affine group, and
+their linear combinations give the continuous propagation law.  The metric
+formulation introduced below is intrinsic: the symbols \(u\) and \(v\) label
+arithmetic directions, but need not be coordinates.
+
+\subsection{The affine Lie algebra and its flow}
+
+On the assignment line with coordinate \(z\), let
+\[
+ E=\partial_z,
+ \qquad
+ H=z\partial_z .
+\]
+These are respectively the infinitesimal generators of translation and positive
+dilation, and they satisfy \([E,H]=E\).  Fix constants
+\(\mu,\lambda\in\mathbb R\), with \(\mu\ne0\).  The generator selected by an angle
+\(\theta\) is
+\begin{equation}\label{eq:angular-affine-generator}
+ \Omega_\theta
+ =\mu\cos\theta\,E+\lambda\sin\theta\,H .
+\end{equation}
+Consequently, an integral curve \(z=z(s)\) satisfies
+\begin{equation}\label{eq:continuous-affine-flow}
+ \frac{dz}{ds}
+ =\mu\cos\theta+\lambda z\sin\theta .
+\end{equation}
+This Lie-algebra calculation is the primary derivation of the continuous AEG
+equation.  It also fixes the convention: the translation coefficient is
+\(\mu\cos\theta\), while the dilation coefficient is
+\(\lambda\sin\theta\).
+
+When \(\theta\) is constant, set \(b=\lambda\sin\theta\).  The solution through
+\(z(0)=z_0\) is
+\begin{equation}\label{eq:directional-affine-solution}
+ z(s)=
+ \begin{cases}
+  e^{bs}z_0+\displaystyle\mu\cos\theta\,\frac{e^{bs}-1}{b},
+     & b\ne0,\\[7pt]
+  z_0+\mu s\cos\theta, & b=0.
+ \end{cases}
+\end{equation}
+In particular, the positive arithmetic axes give
+\[
+ \theta=0:\quad z(s)=z_0+\mu s,
+ \qquad
+ \theta=\frac{\pi}{2}:\quad z(s)=e^{\lambda s}z_0.
+\]
+The opposite axes give subtraction and inverse dilation.
+
+\subsection{The Pfaffian propagation constraint}
+
+There is a useful three-dimensional local state space with coordinates
+\((u,v,z)\).  On it define
+\begin{equation}\label{eq:affine-pfaffian-form}
+ \alpha=dz-\mu\,du-\lambda z\,dv
+\end{equation}
+and the two horizontal vector fields
+\begin{equation}\label{eq:affine-horizontal-fields}
+ D_u=\partial_u+\mu\partial_z,
+ \qquad
+ D_v=\partial_v+\lambda z\partial_z.
+\end{equation}
+A curve tangent to
+\(\cos\theta\,D_u+\sin\theta\,D_v\) satisfies
+\eqref{eq:continuous-affine-flow}.  Thus the frequently used notation
+\[
+ dz=\mu\,du+\lambda z\,dv
+\]
+means that \(\alpha\) vanishes on admissible tangent vectors.  It is not an
+identity asserting that \(z\) is a function of two independent coordinates whose
+ordinary partial derivatives are simultaneously \(\mu\) and \(\lambda z\).
+Indeed,
+\begin{equation}\label{eq:horizontal-noncommutation}
+ [D_u,D_v]=\mu\lambda\,\partial_z.
+\end{equation}
+When \(\mu\lambda\ne0\), this bracket already rules out such an integrable
+coordinate interpretation.
+
+\subsection{Regular arithmetic expression spaces}
+
+\begin{definition}[Regular arithmetic expression space]\label{def:regular-aes}
+A \emph{regular arithmetic expression space}, or regular AES, is a tuple
+\[
+ \mathfrak E=(M,g,a;\mu,\lambda)
+\]
+such that \(M\) is an oriented smooth surface, possibly with boundary, \(g\) is a smooth Riemannian
+metric, \(a\in C^\infty(M,\mathbb R)\), \(\mu\in\mathbb R\setminus\{0\}\),
+\(\lambda\in\mathbb R\), and
+\begin{equation}\label{eq:regular-aes-eikonal}
+ |\nabla a|_g^2=\mu^2+\lambda^2a^2
+\end{equation}
+everywhere on \(M\).  The function \(a\) is called the
+\emph{assignment function}.
+\end{definition}
+
+The metric in Definition~\ref{def:regular-aes} is part of the structure.
+Equation~\eqref{eq:regular-aes-eikonal} is therefore an eikonal equation on a
+specified Riemannian surface, not a metric-free identity.
+
+Let \(J\) denote rotation by \(+\pi/2\) in the oriented tangent planes.  Since
+\(\mu\ne0\), the quantity
+\[
+ q=\sqrt{\mu^2+\lambda^2a^2}
+\]
+is everywhere positive.  The next proposition shows that the eikonal definition
+contains exactly the oriented orthonormal directional data used in the flow
+equation.
+
+\begin{proposition}[Canonical arithmetic frame]\label{prop:canonical-arithmetic-frame}
+For an oriented Riemannian surface \((M,g)\), a smooth function \(a\), and
+constants \(\mu\ne0\) and \(\lambda\), the following are equivalent.
+\begin{enumerate}
+\item The eikonal identity \eqref{eq:regular-aes-eikonal} holds.
+\item There is a unique positively oriented orthonormal frame
+      \((X_u,X_v)\) satisfying
+      \begin{equation}\label{eq:arithmetic-frame-derivatives}
+       X_u a=\mu,
+       \qquad
+       X_v a=\lambda a.
+      \end{equation}
+\end{enumerate}
+When these conditions hold, put \(E_a=\nabla a/q\).  The frame is
+\begin{equation}\label{eq:explicit-arithmetic-frame}
+ \boxed{
+ \begin{aligned}
+ X_u&=\frac{\mu}{q}E_a-\frac{\lambda a}{q}J E_a,\\
+ X_v&=\frac{\lambda a}{q}E_a+\frac{\mu}{q}J E_a.
+ \end{aligned}}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Assume the eikonal identity.  Then \(|\nabla a|=q>0\), so \(E_a\) and
+\(JE_a\) form a smooth positively oriented orthonormal frame.  The coefficient
+matrix in \eqref{eq:explicit-arithmetic-frame} is
+\[
+ \frac1q
+ \begin{pmatrix}
+  \mu&\lambda a\\
+  -\lambda a&\mu
+ \end{pmatrix},
+\]
+whose columns are orthonormal and whose determinant is one.  Hence
+\((X_u,X_v)\) is positively oriented and orthonormal.  Since
+\(da(E_a)=q\) and \(da(JE_a)=0\), the two identities in
+\eqref{eq:arithmetic-frame-derivatives} follow.
+
+For uniqueness, write any positively oriented orthonormal frame in the form
+\[
+ X_u=cE_a+sJE_a,
+ \qquad
+ X_v=-sE_a+cJE_a,
+ \qquad c^2+s^2=1.
+\]
+The two directional identities force \(qc=\mu\) and \(-qs=\lambda a\).
+Thus \(c=\mu/q\) and \(s=-\lambda a/q\), which gives
+\eqref{eq:explicit-arithmetic-frame}.
+
+Conversely, if an orthonormal frame satisfies
+\eqref{eq:arithmetic-frame-derivatives}, then
+\[
+ |\nabla a|^2=(X_u a)^2+(X_v a)^2
+ =\mu^2+\lambda^2a^2.
+\]
+\end{proof}
+
+The frame is generally non-coordinate.  Applying its bracket to the assignment
+function gives
+\begin{equation}\label{eq:arithmetic-frame-bracket-on-a}
+ [X_u,X_v]a
+ =X_u(\lambda a)-X_v(\mu)
+ =\mu\lambda.
+\end{equation}
+Thus, when \(\lambda\ne0\), the fields cannot commute.  If
+\((\eta^u,\eta^v)\) is their dual coframe, the valid intrinsic Pfaffian statement is
+\[
+ da=\mu\,\eta^u+\lambda a\,\eta^v;
+\]
+the one-forms \(\eta^u,\eta^v\) are not presumed exact.
+
+\begin{theorem}[Continuous affine flow]\label{thm:continuous-affine-flow}
+Let \(\mathfrak E=(M,g,a;\mu,\lambda)\) be a regular AES with its canonical
+arithmetic frame.  If a unit-speed curve \(\gamma\) has tangent
+\[
+ \dot\gamma
+ =\cos\theta\,X_u+\sin\theta\,X_v,
+\]
+where \(\theta\) may vary along the curve, then
+\begin{equation}\label{eq:intrinsic-continuous-affine-flow}
+ \frac{d}{ds}(a\circ\gamma)
+ =\mu\cos\theta+\lambda(a\circ\gamma)\sin\theta.
+\end{equation}
+For constant \(\theta\), its solutions are given by
+\eqref{eq:directional-affine-solution}.
+\end{theorem}
+
+\begin{proof}
+By the chain rule and \eqref{eq:arithmetic-frame-derivatives},
+\[
+ \frac{d}{ds}(a\circ\gamma)
+ =da(\dot\gamma)
+ =\cos\theta\,X_u a+\sin\theta\,X_v a
+ =\mu\cos\theta+\lambda a\sin\theta.
+\]
+For constant \(\theta\), this is the linear equation already integrated in
+\eqref{eq:directional-affine-solution}.
+\end{proof}
+
+\subsection{Rectification and the local order defect}
+
+For \(\lambda\ne0\), define
+\begin{equation}\label{eq:rectifying-assignment}
+ r=\operatorname{arcsinh}\!\left(\frac{\lambda a}{\mu}\right).
+\end{equation}
+The chain rule and \eqref{eq:regular-aes-eikonal} give
+\begin{equation}\label{eq:rectified-eikonal}
+ |\nabla r|=|\lambda|.
+\end{equation}
+Thus \(r\) has constant gradient magnitude.  When \(\lambda=0\), the original
+equation already reduces to \(|\nabla a|=|\mu|\), and \(a/\mu\) is a
+unit-gradient rectifying function.
+
+The same affine convention fixes the sign of the elementary local order defect.
+For small increments \(h\) and \(k\), let
+\[
+ A_h(z)=z+\mu h,
+ \qquad
+ M_k(z)=e^{\lambda k}z.
+\]
+Then
+\begin{align}
+ (M_k\circ A_h)(z)-(A_h\circ M_k)(z)
+ &=\mu h\bigl(e^{\lambda k}-1\bigr)\notag\\
+ &=\mu\lambda\,hk+O\!\left(\lVert(h,k)\rVert^3\right).
+ \label{eq:infinitesimal-order-defect}
+\end{align}
+This is an infinitesimal two-order comparison, not an exact area formula for an
+arbitrary finite region.
+
+\subsection{Affine flow inside projective flow}
+
+An infinitesimal projective transformation of the line has the Riccati form
+\[
+ \dot z=\beta+\alpha z+\kappa z^2.
+\]
+The theory developed in this section is the affine slice \(\kappa=0\), with
+\(\beta=\mu\cos\theta\) and \(\alpha=\lambda\sin\theta\).  Results proved for
+regular affine AESs below do not automatically extend to the quadratic projective
+flow.

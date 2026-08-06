@@ -1,0 +1,241 @@
+An arithmetic expression has several mathematically distinct lives.  It is a finite
+syntax tree; it may be equipped with a legal order of evaluation; a chosen running
+value turns that order into a marked history; the history induces an operator; and
+the operator sends an initial value to an endpoint.  Ordinary arithmetic usually
+passes through these levels as quickly as possible.  AEG instead asks what is lost
+at each passage.
+
+The guiding structure of this paper is
+\begin{equation}\label{eq:process-result-hierarchy}
+\begin{gathered}
+\text{unmarked sequential tree}
+  \xrightarrow{\text{choose an accumulator}}
+\text{marked planar sequential tree},\\
+\text{marked planar sequential tree}
+  \longleftrightarrow
+\text{bounded marked history},\\
+\text{bounded marked history}
+  \longrightarrow \text{operator}
+  \longrightarrow \text{endpoint value},\\
+\text{bounded marked history}
+  \longrightarrow \text{charge shadow}.
+\end{gathered}
+\end{equation}
+The first arrow denotes a choice, not a canonical map.  When the planar structure,
+mark, operation labels, constants, and slots are retained, the double arrow is the
+bijection proved in Section~\ref{sec:sequential-histories}.  The two arrows leaving a
+history are separate forgetful maps: charge is not a function of the evaluated
+operator, and an endpoint is not a function of charge alone.  Different histories
+may nevertheless induce the same operator, and different operators may agree at one
+chosen initial value.  The geometry below belongs primarily to these intermediate
+levels, before endpoint evaluation has erased the order of construction.
+
+Figure~\ref{fig:process-result-structure} renders this structure explicitly.
+It is a map of the distinctions used in the paper, not a claim that any
+forgetful arrow is injective.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[
+  stage/.style={draw=black!60,rounded corners=3pt,fill=blue!5,
+                minimum height=9mm,align=center,font=\small,inner xsep=5pt},
+  forget/.style={-{Latex[length=2mm]},thick,black!65},
+  choice/.style={-{Latex[length=2mm]},thick,dashed,orange!70!black},
+  bij/.style={{Latex[length=2mm]}-{Latex[length=2mm]},thick,blue!60!black}
+]
+  \node[stage] (tree) at (-4.5,1.25) {unmarked\\sequential tree};
+  \node[stage] (marked) at (-1.0,1.25) {marked planar\\sequential tree};
+  \node[stage,fill=blue!10] (history) at (2.6,1.25)
+    {bounded marked\\history};
+  \node[stage,fill=violet!8] (charge) at (0,-0.8) {charge shadow};
+  \node[stage] (operator) at (3.35,-0.8) {operator};
+  \node[stage] (endpoint) at (5.75,-0.8) {endpoint\\value};
+
+  \draw[choice] (tree)--node[above=5pt,font=\scriptsize] {choose accumulator} (marked);
+  \draw[bij] (marked)--node[above=5pt,font=\scriptsize] {encode/reconstruct} (history);
+  \draw[forget] (history)--node[pos=0.58,right=3pt,font=\scriptsize]
+    {evaluate word} (operator);
+  \draw[forget] (operator)--(endpoint);
+  \draw[forget] (history)--node[pos=0.55,left=4pt,font=\scriptsize]
+    {record charges} (charge);
+\end{tikzpicture}
+\caption{The process-to-result structure.  Choosing an accumulator marks an
+unmarked sequential tree; a fully marked planar tree and a bounded marked
+history determine one another.  From the history, operator evaluation and the
+charge map are separate information-losing branches, while an endpoint is
+obtained by applying the operator to an initial value.}
+\label{fig:process-result-structure}
+\end{figure}
+
+\subsection{Sequential histories}
+
+Not every expression tree determines a unique history.  Independent subexpressions
+may be evaluated in either order, so a single tree can have many legal linear
+extensions of its dependency order.  Section~\ref{sec:sequential-histories} isolates
+the precise exception.  For a finite binary tree, uniqueness of the internal
+evaluation order is equivalent to the internal vertices forming one chain, or
+equivalently one spine.  A marked accumulator on that spine determines a word of
+one-hole contexts
+\[
+ C_{\omega,c}^{(1)}[z]=\omega(z,c),
+ \qquad
+ C_{\omega,c}^{(2)}[z]=\omega(c,z).
+\]
+The superscript records the operand slot occupied by the current value.  It is not a
+time direction.  This distinction prevents three operations that are often blurred
+in informal tree pictures---planar mirror, temporal reversal, and path inverse---from
+being identified.
+
+This use of syntax is modest.  Formal generation and rewriting have long histories
+in logic and theoretical computer science; classical points of reference include
+Post's work on combinatorial reduction and Chomsky's generative hierarchies
+\cite{Post1943FormalRO,Chomsky1956ThreeMF}.  Here the purpose is different: the
+sequential fragment supplies a controlled domain on which evaluation can be treated
+as a path without pretending that every arithmetic tree has a unique path.
+
+\subsection{Why bilateral completion matters}
+
+Earlier affine calculations use the current value in one distinguished operand slot.
+That fragment is closed under translations and nonzero scalings and is therefore
+naturally represented by the affine group of the line.  Once both operand slots are
+allowed, the context $z\mapsto c/z$ introduces inversion.  The correct algebraic
+ambient space is then the projective line and its fractional linear transformations.
+
+Section~\ref{sec:projective-affine} proves, over an arbitrary field $K$, that the
+non-degenerate bilateral contexts generate $\PGL_2(K)$.  The affine transformations
+are exactly the stabilizer of the projective point at infinity.  Thus the continuous
+geometry developed in the rest of this paper is neither discarded nor promoted to
+the whole theory: it is identified precisely as the positive real affine component
+of a larger projective semantics.
+
+Projective continuation does not repair an inadmissible ordinary computation.  For
+example, $c/z$ has a well-defined projective value at $z=0$, namely infinity, while
+ordinary division by zero remains undefined.  We keep the ordinary domain and the
+projective extension as separate data throughout.
+
+\subsection{Main results}
+
+The first group of results is algebraic.  With a fixed chronological convention,
+an affine history
+\[
+ f_i(x)=s_i x+t_i,
+ \qquad s_i\ne0,
+\]
+has total scale and translation
+\[
+ \Phi_n=\prod_{i=1}^n s_i,
+ \qquad
+ \xi_n=\sum_{i=1}^n t_i\prod_{j=i+1}^n s_j.
+\]
+The normalized coordinate $\widehat\xi_n=\xi_n/\Phi_n$ gives a second, source-frame
+cocycle.  These two coordinates make explicit which portion of a past translation is
+rescaled by future multiplication.  Equal total scale is exactly the condition under
+which the endpoint difference of two affine histories is independent of the initial
+value.
+
+The second group of results passes from finite histories to continuous propagation.
+After choosing additive and multiplicative intensities $\mu$ and $\lambda$, the
+affine Lie algebra yields
+\begin{equation}\label{eq:intro-flow}
+ \frac{da}{ds}=\mu\cos\theta+\lambda a\sin\theta.
+\end{equation}
+The angle is measured in an oriented orthonormal arithmetic frame, not in an
+arbitrary coordinate chart.  We give an intrinsic metric definition of a regular
+arithmetic expression space and prove its equivalence, when $\mu\ne0$, to the framed
+directional formulation.  The eikonal identity
+\[
+ |\nabla a|_g^2=\mu^2+\lambda^2a^2
+\]
+is consequently metric-dependent rather than a coordinate-free statement without
+geometric data.
+
+The basic homogeneous realization is the upper half-plane with
+\[
+ g_{\mu,\lambda}
+ =\frac{1}{y^2}
+   \left(\frac{dx^2}{\mu^2}+\frac{dy^2}{\lambda^2}\right),
+ \qquad
+ a(x,y)=-\frac{x}{y},
+ \qquad \mu,\lambda>0.
+\]
+We derive this metric from a normalized left-invariant frame on
+$\Aff^+(1,\R)$, verify the eikonal equation, and compute its curvature and
+Laplacian.  This is a basic homogeneous model after normalization, not a uniqueness
+theorem.
+
+The eikonal identity has an immediate topological consequence that was absent from
+earlier versions of the theory.  At a zero of $a$ one has
+$|\nabla a|=|\mu|$.  When $\mu\ne0$, zero is therefore a regular value, and the
+interior zero locus on a surface is a disjoint union of smooth curves.  Isolated
+zeros, crossings, and branch points cannot occur in the regular category.  We
+accordingly define singular arithmetic expression spaces by a closed nowhere-dense
+singular set with no local regular extension, and reclassify the radial isolated-zero
+example by its failure of differentiability at the center.
+
+The third group of results compares order globally and locally.  The Accumulative
+Commutative Space (ACS) records the total additive charge $A$ and logarithmic scale
+charge $M$ of a positive add--scale history.  Its terminal charge forgets order, but
+the ordered path traced in the $(A,M)$-plane retains enough information to reconstruct
+evaluation:
+\[
+ \nu_x(\gamma)
+ =e^{M_\gamma}
+   \left(x+\int_{C_\gamma}e^{-M}\,dA\right).
+\]
+For a charge-compatible pair of such histories, their relative affine defect is a
+weighted boundary integral and, by Stokes' theorem, a weighted area integral.  This
+is the exact global meaning of arithmetic torsion used here.  The term denotes an
+order defect; it is not the torsion tensor of an affine connection.
+
+Finally, when \(\mu\lambda\ne0\), the three-dimensional state space with contact form
+\[
+ \alpha=da-\mu\,du-\lambda a\,dv
+\]
+provides the local history model.  Its preferred horizontal lifts satisfy
+\[
+ D_u=\partial_u+\mu\partial_a,
+ \qquad
+ D_v=\partial_v+\lambda a\partial_a,
+ \qquad
+ [D_u,D_v]=\mu\lambda\partial_a.
+\]
+We distinguish a target-frame open two-path endpoint defect, a source-normalized
+closed commutator holonomy, and the common infinitesimal curvature density.  The associated horizontal
+covariant differential on scalar fields is curvature-sensitive and is not a
+nilpotent de Rham complex.
+
+\subsection{Scope and relation to standard geometry}
+
+Several ingredients used here are standard: fractional linear transformations,
+semidirect-product cocycles, left-invariant metrics, the regular-value theorem,
+Stokes' theorem, and contact structures.  The mathematical contribution sought in
+Paper I is their history-sensitive arithmetic organization and the exact interfaces
+among them.  In particular, the contact form is locally a standard contact form; its
+distinctive feature here is the interpretation of its chosen horizontal frame, not a
+new contact-isomorphism class.  Standard references for the differential-geometric
+and contact background include \cite{KobayashiNomizu1963FDG1,Geiges2008IntroContact}.
+
+Four boundaries are enforced.  First, a horizontal contact distribution does not by
+itself select a unique complex structure, so arithmetic holomorphic and harmonic
+theories are deferred to Paper II.  Second, the regular-value theorem is only the
+starting point for singular families: multi-zero classification, discriminants,
+tubes, braids, and knots belong to Paper III.  Third, projective bivaluations,
+homogeneous quotient towers, and condensation belong to Paper IV.  Fourth, no
+computational lower bound follows from noncommutativity or negative curvature alone;
+complexity claims require an explicit state space, encoding, metric, and cost model.
+
+\subsection{Organization}
+
+Section~\ref{sec:sequential-histories} develops sequential trees and marked histories.
+Section~\ref{sec:projective-affine} gives the bilateral projective semantics and
+locates the affine sector.  Section~\ref{sec:affine-cocycles} proves the affine
+cocycle formulas and defines relative affine defects.  Section~\ref{sec:affine-flow}
+derives the continuous flow and fixes the regular-AES definition.
+Section~\ref{sec:hyperbolic-model} constructs the homogeneous hyperbolic model, and
+Section~\ref{sec:zero-geometry} develops its regular and singular zero geometry.
+Section~\ref{sec:acs-torsion} proves the global weighted Stokes identity.
+Section~\ref{sec:contact-curvature} gives the contact localization and the exact
+finite-to-infinitesimal comparison.  Section~\ref{sec:conclusion} records the proved
+interface exported to the later papers.  The appendices collect convention checks,
+cocycle derivations, model calculations, and small examples separating equality
+levels.

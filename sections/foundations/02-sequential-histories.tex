@@ -1,0 +1,472 @@
+Arithmetic evaluation is usually presented as a map from a syntactic expression
+to its value.  This description suppresses the order in which intermediate
+values are formed.  We begin by isolating the finite binary trees for which the
+internal operations have only one legal temporal order.  Such a tree is not yet
+a history: one must also mark which leaf of its innermost operation is to be
+carried forward as the evolving value.  The resulting object, a marked spinal
+history, is the syntactic unit used in the remainder of the paper.
+
+Throughout this section, $K$ is a field and
+\[
+  \Omega=\{+,-,\times,/\}
+\]
+is the binary arithmetic signature.  Division is interpreted as a partial
+operation in ordinary arithmetic.  The combinatorial statements below apply
+to any binary signature; the choice of $\Omega$ is needed only when histories
+are evaluated.
+
+\subsection{Expression trees and dependency}
+
+\begin{definition}[Arithmetic expression tree]
+\label{def:arithmetic-expression-tree}
+An \emph{arithmetic expression tree over $K$} is a finite rooted planar binary
+tree whose leaves are labelled by elements of $K$ or by formal variables and
+whose internal vertices are labelled by elements of $\Omega$.  Its set of
+internal vertices is denoted by $I(T)$.
+\end{definition}
+
+The planar structure records the first and second operand slots.  It does not,
+by itself, specify a temporal order between operations on disjoint subtrees.
+That order is recorded by the dependency relation.
+
+\begin{definition}[Internal dependency poset]
+\label{def:internal-dependency-poset}
+For $u,v\in I(T)$, write $u\preccurlyeq_T v$ when either $u=v$ or the value
+produced at $u$ is required as an input at $v$.  Equivalently, $v$ lies on the
+path from $u$ to the root.  A \emph{legal internal evaluation order} is a
+linear extension of the finite poset $(I(T),\preccurlyeq_T)$.
+\end{definition}
+
+Leaves are not included in $I(T)$.  Thus a tree with no internal vertex has the
+unique empty internal evaluation order.  This convention separates the order
+of operations from the prior availability of atomic inputs.
+
+We shall use the following elementary finite-poset fact in both directions.
+
+\begin{lemma}[Unique linear extensions]
+\label{lem:unique-linear-extension}
+A finite poset has a unique linear extension if and only if it is a chain.
+\end{lemma}
+
+\begin{proof}
+Every linear extension of a chain is its given total order, so a chain has a
+unique linear extension.  Conversely, let $P$ be a finite poset and suppose
+that $u,v\in P$ are incomparable.  Adding the relation $u<v$ and taking its
+transitive closure cannot create a directed cycle: such a cycle would contain
+a pre-existing path $v\leq u$, contrary to incomparability.  The resulting
+finite partial order has a linear extension.  The same argument with $v<u$
+gives a second linear extension.  One orders $u$ before $v$ and the other
+orders $v$ before $u$, so the extension of $P$ is not unique.  Hence a poset
+with a unique linear extension contains no incomparable pair and is a chain.
+\end{proof}
+
+\begin{theorem}[Sequential-tree classification]
+\label{thm:sequential-tree-classification}
+For a finite binary expression tree $T$, the following conditions are
+equivalent.
+\begin{enumerate}
+  \item The dependency poset $I(T)$ has a unique linear extension.
+  \item The dependency poset $I(T)$ is a chain.
+  \item Every internal vertex has at most one internal child.
+  \item The internal vertices form a single spine: either $I(T)$ is empty, or
+  there is a path from the root to an innermost internal vertex containing
+  every internal vertex of $T$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+The equivalence of the first two conditions is
+Lemma~\ref{lem:unique-linear-extension}.
+
+Suppose that $I(T)$ is a chain.  If an internal vertex had two internal
+children, neither child could depend on the other, since they lie in disjoint
+subtrees.  They would therefore be incomparable in $I(T)$, a contradiction.
+Thus (2) implies (3).
+
+Assume (3).  If $I(T)$ is empty there is nothing to prove.  Otherwise begin at
+the root.  Whenever the current internal vertex has an internal child, that
+child is unique.  Following these children produces a path ending at an
+internal vertex with two leaf children.  Every internal vertex lies on this
+path: an internal vertex off the path would occur in the other child-subtree
+of some vertex on the path, giving that vertex two internal children.  Hence
+the path contains all internal vertices, proving (4).
+
+Finally, if all internal vertices lie on one root-to-leaf path, their ancestor
+relation is total.  Read from the innermost vertex towards the root, each
+operation depends on its predecessor.  Thus $I(T)$ is a chain, proving
+(4)$\Rightarrow$(2) and completing the equivalence.
+\end{proof}
+
+Figure~\ref{fig:sequential-branching-dependency} contrasts the two possible
+local patterns at the level of internal dependencies.  It is only a visual
+summary of the order relation; the classification rests on the preceding
+proof.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[
+  scale=0.92,
+  every node/.style={font=\small},
+  iv/.style={circle,draw=black!70,fill=blue!7,minimum size=7mm,inner sep=0pt},
+  dep/.style={-{Latex[length=2mm]},thick,black!65}
+]
+  \node[font=\small\bfseries] at (-2.4,1.45) {Sequential spine};
+  \node[iv] (s3) at (-2.4,0.85) {$v_3$};
+  \node[iv] (s2) at (-2.4,0) {$v_2$};
+  \node[iv] (s1) at (-2.4,-0.85) {$v_1$};
+  \draw[dep] (s1) -- (s2);
+  \draw[dep] (s2) -- (s3);
+  \node[below=3pt of s1,font=\scriptsize] {first};
+
+  \node[font=\small\bfseries] at (2.4,1.45) {Branching dependency};
+  \node[iv] (b3) at (2.4,0.65) {$u_3$};
+  \node[iv] (b1) at (1.65,-0.55) {$u_1$};
+  \node[iv] (b2) at (3.15,-0.55) {$u_2$};
+  \draw[dep] (b1) -- (b3);
+  \draw[dep] (b2) -- (b3);
+  \node[anchor=north east,font=\scriptsize] at (1.45,-0.92) {incomparable};
+  \node[anchor=north west,font=\scriptsize] at (3.35,-1.18) {incomparable};
+\end{tikzpicture}
+\caption{A sequential tree has a chain of internal dependencies (left).  A
+branching tree contains incomparable internal operations and therefore admits
+more than one legal internal evaluation order (right).}
+\label{fig:sequential-branching-dependency}
+\end{figure}
+
+\begin{definition}[Sequential tree]
+\label{def:sequential-tree}
+A finite binary expression tree satisfying the equivalent conditions of
+Theorem~\ref{thm:sequential-tree-classification} is called a
+\emph{sequential tree}.
+\end{definition}
+
+The adjective refers only to internal evaluation.  It does not choose an
+active leaf, and it does not assert that ordinary arithmetic evaluation is
+defined.  For example,
+\[
+  (a+b)(c+d)
+\]
+is not sequential: the two additions are incomparable dependencies of the
+final multiplication.  By contrast,
+\[
+  \bigl((a+b)c-d\bigr)/e
+\]
+is sequential, because its internal vertices lie on one spine.
+
+\subsection{One-hole contexts and the marked accumulator}
+
+Let $z$ denote a hole rather than an arithmetic variable.  For
+$\omega\in\Omega$ and $c\in K$, define the two elementary one-hole contexts
+\begin{equation}
+  C_{\omega,c}^{(1)}[z]=\omega(z,c),
+  \qquad
+  C_{\omega,c}^{(2)}[z]=\omega(c,z).
+  \label{eq:elementary-one-hole-contexts}
+\end{equation}
+The superscript gives the operand slot occupied by the evolving value.  It is
+therefore intrinsic to the marked process and should not be replaced by a
+description based on how a planar drawing happens to expand.
+
+At the innermost internal vertex of a nontrivial sequential tree, both children
+are leaves.  The dependency poset determines that this operation is performed
+first, but it does not determine which of its two inputs is the value to be
+carried along the spine.  Choosing one of those leaves as the initial
+accumulator removes this ambiguity.
+
+\begin{definition}[Marked spinal history]
+\label{def:marked-spinal-history}
+A \emph{free marked spinal history over $K$} is a finite chronological word
+\[
+  \gamma=(g_1,\ldots,g_n),
+  \qquad
+  g_i=C_{\omega_i,c_i}^{(\varepsilon_i)},
+  \quad \varepsilon_i\in\{1,2\}.
+\]
+The context $g_1$ is applied first and $g_n$ last.  Its \emph{chirality word}
+is
+\[
+  \varepsilon(\gamma)=\varepsilon_1\cdots\varepsilon_n.
+\]
+A \emph{bounded marked spinal history} is a pair $(x_0;\gamma)$ consisting of
+an initial accumulator $x_0$ and a free history.  The empty word is allowed;
+its bounded form represents the marked single-leaf tree.
+\end{definition}
+
+When no confusion is possible, we call either form a marked spinal history and
+state explicitly whether an initial value is present.  Earlier drafts called
+certain pure-chirality cases threadlike expressions.  The present definition
+also includes mixed chirality and makes the marking part of the data.
+
+Figure~\ref{fig:slot-chirality-histories} displays operand-slot chirality
+directly in the one-hole contexts.  The diagram is a notation guide, not a
+substitute for the marked-tree correspondence proved below.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[
+  box/.style={draw=black!65,rounded corners=2pt,fill=blue!5,
+              minimum height=8mm,inner xsep=6pt,font=\small},
+  chronarrow/.style={-{Latex[length=2mm]},thick,black!60},
+  rowlabel/.style={font=\small\bfseries,anchor=east}
+]
+  \node[rowlabel] at (-3.6,1.25) {slot-(1)};
+  \node[box] (a11) at (-1.9,1.25) {$\omega_1(\bullet,c_1)$};
+  \node[box] (a12) at (0.55,1.25) {$\omega_2(\bullet,c_2)$};
+  \draw[chronarrow] (a11) -- (a12);
+  \node[anchor=west,font=\small] at (2.05,1.25) {$\varepsilon=11$};
+
+  \node[rowlabel] at (-3.6,0) {slot-(2)};
+  \node[box] (a21) at (-1.9,0) {$\omega_1(c_1,\bullet)$};
+  \node[box] (a22) at (0.55,0) {$\omega_2(c_2,\bullet)$};
+  \draw[chronarrow] (a21) -- (a22);
+  \node[anchor=west,font=\small] at (2.05,0) {$\varepsilon=22$};
+
+  \node[rowlabel] at (-3.6,-1.25) {mixed};
+  \node[box] (am1) at (-2.35,-1.25) {$\omega_1(\bullet,c_1)$};
+  \node[box] (am2) at (0,-1.25) {$\omega_2(c_2,\bullet)$};
+  \node[box] (am3) at (2.35,-1.25) {$\omega_3(\bullet,c_3)$};
+  \draw[chronarrow] (am1) -- (am2);
+  \draw[chronarrow] (am2) -- (am3);
+  \node[anchor=west,font=\small] at (3.25,-1.25) {$\varepsilon=121$};
+\end{tikzpicture}
+\caption{Pure slot-(1), pure slot-(2), and mixed marked histories.  In each
+box, $\bullet$ is the current accumulator---the marked seed in the first box
+and the preceding output thereafter.  Its displayed position is the operand
+slot, while time always runs along the arrows.}
+\label{fig:slot-chirality-histories}
+\end{figure}
+
+\begin{proposition}[Marked-tree--history correspondence]
+\label{prop:marked-tree-history-correspondence}
+Let $T$ be a sequential tree all of whose leaves are labelled by elements of
+$K$.
+\begin{enumerate}
+  \item If $T$ is a single leaf, marking that leaf determines the empty bounded
+  history.
+  \item If $T$ is nontrivial, a choice of one leaf at its innermost internal
+  vertex as the initial accumulator determines a unique bounded marked spinal
+  history.
+  \item Conversely, a bounded marked spinal history determines a unique marked
+  planar sequential tree.
+\end{enumerate}
+These two constructions are mutually inverse when operation labels, constants,
+operand slots, and the initial mark are retained.
+\end{proposition}
+
+\begin{proof}
+The single-leaf case is immediate.  Suppose $T$ is nontrivial.  By
+Theorem~\ref{thm:sequential-tree-classification}, its internal vertices form a
+unique spine.  At the innermost vertex, mark one leaf $x_0$ and denote the
+other by $c_1$.  The operation label and the slot containing $x_0$ determine
+$g_1=C_{\omega_1,c_1}^{(\varepsilon_1)}$.  Move one vertex towards the root.
+Its off-spine child must be a leaf, since otherwise it would be a second
+internal child.  Its label $c_2$, the operation label, and the slot occupied by
+the spine determine $g_2$.  Repeating this procedure reaches the root and
+produces a unique chronological word $(g_1,\ldots,g_n)$.
+
+Conversely, start with a marked leaf $x_0$.  Replace it by the planar binary
+tree $C_{\omega_1,c_1}^{(\varepsilon_1)}[x_0]$, then place the resulting tree
+in slot $\varepsilon_2$ of the next context, and continue.  Exactly one child
+at every new internal vertex is internal, so the result is sequential.  Each
+step records the operation, off-spine leaf, and slot used in the forward
+construction.  The constructions therefore recover one another.
+\end{proof}
+
+The proposition concerns fully labelled planar trees.  If parentheses,
+constant labels, or the marked seed are forgotten, the correspondence is no
+longer injective.
+
+\subsection{Composition and ordinary evaluation}
+
+If
+\[
+  \gamma=(g_1,\ldots,g_m),
+  \qquad
+  \delta=(h_1,\ldots,h_n),
+\]
+their chronological concatenation is
+\begin{equation}
+  \gamma\delta=(g_1,\ldots,g_m,h_1,\ldots,h_n),
+  \label{eq:chronological-history-concatenation}
+\end{equation}
+so $\gamma$ is performed first and $\delta$ second.  This convention is fixed
+for the entire paper and is summarized again in Appendix~\ref{app:conventions}.
+
+Each elementary context determines a partial function $g_i\colon K\dashrightarrow
+K$.  Starting from $x\in K$, define recursively
+\[
+  x_0=x,
+  \qquad
+  x_i=g_i(x_{i-1}).
+\]
+The bounded history is \emph{ordinarily admissible at $x$} when every $x_i$
+is defined in ordinary field arithmetic.  In that case its endpoint is
+\begin{equation}
+  \nu_x(\gamma)
+  =g_n\circ\cdots\circ g_1(x).
+  \label{eq:ordinary-history-evaluation}
+\end{equation}
+The admissible domain of a free history is the set of such $x$.  In particular,
+a second-slot division $c/z$ excludes any state at which the evolving value is
+zero, while a first-slot division $z/c$ requires $c\neq0$.
+
+The concatenation convention gives
+\begin{equation}
+  \nu_x(\gamma\delta)
+  =\nu_{\nu_x(\gamma)}(\delta)
+  \label{eq:ordinary-evaluation-concatenation}
+\end{equation}
+whenever both sides are ordinarily admissible.  Equation
+\eqref{eq:ordinary-evaluation-concatenation} is a statement about partial
+functions.  Chapter~\ref{sec:projective-affine} introduces a projective
+evaluation with a different domain convention.
+
+\subsection{Mirror, temporal reversal, and path inverse}
+
+Three operations on a context word must be kept separate.
+
+\begin{definition}[Mirror and temporal reversal]
+\label{def:mirror-temporal-reversal}
+For $g=C_{\omega,c}^{(\varepsilon)}$, let
+\[
+  m(g)=C_{\omega,c}^{(3-\varepsilon)}.
+\]
+The \emph{mirror} and \emph{temporal reversal} of
+$\gamma=(g_1,\ldots,g_n)$ are respectively
+\[
+  m\gamma=(m(g_1),\ldots,m(g_n)),
+  \qquad
+  r\gamma=(g_n,\ldots,g_1).
+\]
+The mirror exchanges operand slots while retaining chronological order;
+temporal reversal reverses chronological order while retaining the contexts.
+\end{definition}
+
+Both operations are involutions on marked words, and they commute:
+$m(r\gamma)=r(m\gamma)$.  This is a syntactic statement; ordinary domains of
+the evaluated words need not agree.
+
+\begin{definition}[Path inverse]
+\label{def:path-inverse}
+Suppose every context $g_i$ in $\gamma$ acts as an invertible function on a
+declared domain.  The \emph{path inverse} is the functional word
+\[
+  \gamma^{-1}=(g_n^{-1},\ldots,g_1^{-1}).
+\]
+It is defined only under this invertibility hypothesis and need not have the
+same operation labels or ordinary admissible domain as $r\gamma$.
+\end{definition}
+
+For example, let $g_1[z]=z+1$ and $g_2[z]=2z$.  Then
+\[
+  \gamma=(g_1,g_2)\colon x\longmapsto2x+2.
+\]
+Because addition and multiplication are symmetric operations,
+$m\gamma$ has the displayed expression $2(1+x)$ and induces the same operator
+$2x+2$.  In contrast,
+\[
+  r\gamma=(g_2,g_1)\colon x\longmapsto2x+1,
+\]
+while
+\[
+  \gamma^{-1}=(z\mapsto z/2,\ z\mapsto z-1)
+  \colon x\longmapsto x/2-1.
+\]
+Thus equality with a mirror in this example is caused by the symmetry of the
+chosen elementary operations; it does not identify mirror, reversal, and
+inverse.  The affine order defect studied later compares temporal orders.  It
+is not automatically an invariant of planar mirror.
+
+\subsection{Information retained and information forgotten}
+
+Several equivalence relations occur naturally, and the remainder of the paper
+uses them at different stages.  It is useful to order them by the information
+they forget.
+
+\begin{enumerate}
+  \item \emph{Literal syntactic equality} retains the fully parenthesized
+  written expression.
+  \item \emph{Marked-history equality} retains the initial mark, the
+  chronological context word, and every operand-slot label.  It may forget
+  inessential typography but not process data.
+  \item \emph{Operator equality} identifies histories inducing the same
+  partial function on a stated ordinary domain, or the same projective
+  transformation after projective evaluation.
+  \item \emph{Charge equality}, when a charge map has been specified, retains
+  only the chosen abelian totals of a history.
+  \item \emph{Endpoint equality} at $x$ asks only whether the admissible values
+  $\nu_x(\gamma)$ and $\nu_x(\delta)$ coincide.
+  \item \emph{Quotient or relational equality} is any further identification
+  imposed by an explicitly declared rewriting or condensation relation.
+\end{enumerate}
+
+This list is not a claim that every adjacent pair gives a strict quotient in
+all languages.  It is a discipline for stating which level is being used.
+For example, the two histories
+\[
+  \gamma=(z\mapsto z+1,\ z\mapsto2z),
+  \qquad
+  \delta=(z\mapsto3z,\ z\mapsto z+1)
+\]
+are distinct marked histories and induce the distinct operators $2z+2$ and
+$3z+1$, but at the initial value $x=1$ both have endpoint $4$.
+
+\subsection{Representative chirality patterns}
+
+The slot notation exposes examples that the older comb terminology obscured.
+
+\begin{example}[Pure slot-(1) history]
+The word
+\[
+  C_{+,2}^{(1)},\quad C_{\times,3}^{(1)},\quad C_{-,4}^{(1)}
+\]
+has chirality word $111$ and evaluates ordinarily as
+$x\mapsto (x+2)3-4$.
+\end{example}
+
+\begin{example}[Pure slot-(2) history]
+The word
+\[
+  C_{-,2}^{(2)},\quad C_{/,3}^{(2)}
+\]
+has chirality word $22$ and evaluates as
+\[
+  x\longmapsto \frac{3}{2-x},
+\]
+on the ordinary domain $K\setminus\{2\}$.  The accumulator occupies the
+second operand slot at both steps.
+\end{example}
+
+\begin{example}[Mixed chirality]
+The word
+\[
+  C_{-,1}^{(1)},\quad C_{/,2}^{(2)},\quad C_{+,3}^{(1)}
+\]
+has chirality word $121$ and evaluates as
+\[
+  x\longmapsto \frac{2}{x-1}+3,
+\]
+on its ordinary domain.  Its dependency poset is still a chain; mixed
+chirality does not introduce branching.
+\end{example}
+
+The syntactic passage is therefore
+\[
+  \begin{gathered}
+    \text{unmarked sequential tree}
+    \xrightarrow{\text{choice of accumulator}}
+    \text{marked planar sequential tree},\\
+    \text{marked planar sequential tree}
+    \longleftrightarrow
+    \text{bounded marked spinal history},\\
+    \text{bounded marked spinal history}
+    \longrightarrow
+    \text{operator}
+    \longrightarrow
+    \text{endpoint}.
+  \end{gathered}
+\]
+when the history is bounded and all planar labels are retained.  The first arrow is a
+choice and the double arrow is a bijection; only the later evaluation arrows forget
+process data.  Chapter~\ref{sec:projective-affine}
+constructs the operator stage for all non-degenerate bilateral contexts.
