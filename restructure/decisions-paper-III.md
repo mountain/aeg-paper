@@ -441,3 +441,50 @@ Frobenius element with a topological loop.  The LL--Igusa twin calculation and
 the natural selection of an LL sheet or mixed-braid path by an unrestricted AEG
 history remain open.  Until those tests are completed, no new moduli invariant,
 history-natural knot invariant, or count of nonisomorphic curves is claimed.
+
+## D3-27 — The explicit LL--Igusa twin proves geometric information loss, not a fiber census
+
+Decision D3-26 recorded the LL--Igusa comparison as open.  Migration M-0009
+supersedes that part of the decision: the displayed second monic-centered sextic
+(P_1) is certified to lie outside the residual (\mu_6)-orbit of (P_0), while
+
+[
+Q_{P_1}=Q_{P_0}=Q_0.
+]
+
+At the common regular slice (t=1), the two binary sextics have the same nonzero
+discriminant but different values of the absolute ratio formed from the
+quadratic Clebsch invariant.  Their genus-two curves are therefore not isomorphic
+over (\mathbb C).  Paper III may state the exact nonfactorization
+
+[
+\text{genus-two slice moduli}\not\longleftarrow\text{LL event polynomial alone}.
+]
+
+This proved P3-L9 statement is established by the manuscript's displayed
+calculation and is not attributed to Farb's, Looijenga's, Igusa's, or the
+classical LL literature.  Those works provide the surrounding
+sextic/configuration/modular language and the invariant theory; the manuscript
+asserts only the explicit fiberwise pair and its verified nonfactorization.
+
+The same P3-L9 calculation has two direct forms and does not open a separate
+theory node.  On the degree-(216) source-rotation quotient, the sheet observable
+has a finite-flat norm spectral polynomial; its traces, norm, and higher symmetric
+functions descend to the LL base.  Canonical averaging gives the split sequence
+(0\to V_Q^0\to V_Q\to\mathbb C\to0), and the zero-sum Hermitian norm is a
+permutation-monodromy-invariant forgetting variance.  The displayed twin gives
+the printed exact positive lower bound at (Q_0).  This loop invariance does not
+make the variance constant along an arbitrary open (Q)-path.
+
+Along the two explicit slice pencils the absolute-ratio quotient is
+((t-\beta)/t)^5.  Both (0) and (\beta) are regular fibers, and the divisor is
+(5[\beta]-5[0]) with total logarithmic residue zero.  The resulting charge is
+balanced but is not a finite Dirichlet energy.
+
+The decision does not authorize (1296) or (216) as counts of nonisomorphic
+curves.  The full (216)-orbit moduli census, same-field Frobenius comparison,
+reduced Siegel-period comparison, and survival of distinct Igusa points after
+fixing marked local symplectic monodromy and quotienting Hurwitz moves are grouped
+as P3-L10 and remain open.  A Hodge- or Siegel-metric energy comparison likewise
+remains open.  Unrestricted history-natural selection of (P_0),
+(P_1), or either LL sheet also remains open.

@@ -401,3 +401,46 @@ The canonical `./build.sh 3` release build and visual audit give:
 This amendment does not supersede the verified M-0007 artifact above.  It records
 the later M-0008 release snapshot and its stricter mathematical and provenance
 boundary.
+
+## 14. M-0009 explicit LL--Igusa twin source amendment (2026-08-06)
+
+The source now contains an exact second LL sheet over (Q_0) whose common (t=1)
+slice is separated from that of (P_0) by an absolute ratio built from the
+quadratic Igusa--Clebsch invariant and the discriminant.
+Accordingly, P3-L9 is proved: the genus-two moduli reading does not factor through
+the event polynomial on this finite fiber.
+
+The same source theorem package records the degree-(216) sheet observable's norm
+spectral polynomial and trace--norm descent, the canonically split averaging
+sequence, and its permutation-monodromy-invariant finite-fiber variance.  The
+explicit pair gives an exact positive lower bound at (Q_0), without implying
+constancy along arbitrary open LL paths.  For the two explicit slice pencils the
+ratio is ((t-\beta)/t)^5, supported by the balanced divisor
+(5[\beta]-5[0]) at regular fibers.  This is a logarithmic charge, not a finite
+Dirichlet energy.
+
+The closure boundary is deliberately narrower than a census.  P3-L10 remains
+open for enumeration of all (216) source-rotation orbits, same-field Frobenius
+comparison, reduced Siegel periods, and marked-monodromy/Hurwitz grouping.  The
+Hodge- or Siegel-metric energy comparison and the unrestricted
+history-to-LL-sheet arrow also remain open.  Neither (1296) nor
+(216) is promoted to a count of nonisomorphic curves.
+
+The table in Section 13 remains the historical M-0008 artifact.  The completed
+M-0009 release closure is:
+
+| Property | M-0009 integration artifact |
+|---|---:|
+| Pages | 83 |
+| File size | 859,662 bytes |
+| SHA-256 | `f9cf579734cbf2a5c70794470ba3baf3b79c2fc1144926513f291b7a2462c858` |
+| Canonical TeX files | 17: entry point, 13 sections, 3 appendices |
+| Active labels | 351, all unique |
+| Reference targets | 175, all resolved |
+| Citation keys used | 36, all present in the 53-entry shared bibliography |
+| Build-log status | Clean: no warning, undefined reference/citation, or over/underfull box diagnostic |
+| Exact-computation status | Dependency-free verification script passes all printed resultant, scaling, Clebsch, discriminant, and moving-divisor checks |
+| Visual-review status | All 83 pages rendered; higher-resolution checks covered the new twin/energy pages and bibliography, with no clipping, collision, blank content page, unreadable element, or broken glyph found |
+
+This closes the M-0009 source, computation, static, build, and visual gates while
+leaving P3-L10 and the unrestricted history-naturality questions open.

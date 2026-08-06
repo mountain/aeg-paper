@@ -1835,8 +1835,10 @@ These gates apply to the post-closure Papers I--III integration.
       criteria, and the common target (\operatorname{Sp}_4(\mathbb F_2)\cong
       S_6) is not used to identify individual Frobenius elements with
       topological loops.
-- [x] The LL--Igusa twin test and unrestricted AEG-history naturality remain
-      explicit open problems.
+- [x] The explicit geometric LL--Igusa twin is proved by exact same-event and
+      Igusa--Clebsch calculations; the full (216)-orbit census, arithmetic/period
+      comparison, marked-monodromy refinement, and unrestricted AEG-history
+      naturality remain explicit open problems.
 
 ### Release evidence for M-0008
 
@@ -1848,3 +1850,43 @@ These gates apply to the post-closure Papers I--III integration.
       visually inspected.
 - [x] Source inventory, closure report, audit report, final page count, file
       size, hash, and static counts are synchronized to the built artifact.
+
+---
+
+## 110. M-0009 explicit LL--Igusa twin source gates
+
+- [x] The second sextic is monic centered and its exact defining algebraic
+      parameters are stated.
+- [x] Equality with (Q_0) is proved by a printed exact resultant identity and
+      scaling law, and square-freeness places both points in the reduced LL fiber.
+- [x] The nonzero (x^4)-coefficient separates the second sheet from the residual
+      source-rotation orbit of (P_0).
+- [x] The common slice (t=1) is regular and the two binary sextics have the same
+      printed nonzero discriminant.
+- [x] The quadratic Clebsch invariant and its determinant/scalar weights are
+      stated, so the absolute ratio used to separate the curves is coordinate
+      invariant.
+- [x] The exact Clebsch values are different, certifying nonisomorphic complex
+      genus-two curves and nonfactorization of the moduli reading through LL.
+- [x] The repository verification script reproduces the exact resultant and
+      invariant checks.
+- [x] On the degree-(216) quotient cover, the sheet observable's spectral
+      polynomial and trace--norm/symmetric descent are defined on the LL base.
+- [x] The canonical averaging exact sequence is split and preserved by
+      permutation monodromy; the zero-sum norm gives the stated nonnegative
+      forgetting variance.
+- [x] The explicit twin gives the printed exact positive lower bound at (Q_0),
+      while the text explicitly refuses constancy along arbitrary open LL paths.
+- [x] Along the two explicit pencils the ratio is ((t-\beta)/t)^5; both support
+      points are regular and its divisor is (5[\beta]-5[0]).
+- [x] The balanced logarithmic charge is distinguished from a finite Dirichlet,
+      Hodge, or Siegel energy.
+- [x] P3-L9 contains the geometric twin and these two direct corollaries; P3-L10
+      retains the full (216)-orbit census, Frobenius, period,
+      marked-monodromy/Hurwitz, Hodge/Siegel-energy, and history-naturality
+      questions.
+- [x] The relation to recent work of Farb and collaborators is described as a
+      close lower sextic/modular interface, not as provenance for the explicit LL-fiber
+      nonfactorization.
+- [x] Rebuild the canonical Paper III PDF after M-0009, recount static closure,
+      render every page, and synchronize release size/hash/page metadata.

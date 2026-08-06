@@ -90,8 +90,19 @@ discriminant winding, braid exponent, and linking, while its coefficient path is
 still supplied rather than history-derived.  The fixed pencil `x^6-x-t` upgrades
 this to nonabelian transport: one event polynomial controls real carrier walls,
 all six-braids, all genus-two mapping classes, full symplectic monodromy, and a
-finite 1296-sheet LL forgetting problem.  Neither the LL sheet nor its parameter
-loop is yet selected by a general arithmetic history.  A general functor from marked histories to
+finite 1296-sheet LL forgetting problem.  Two explicit sheets in distinct
+residual source-rotation orbits have the same event polynomial but different
+genus-two Igusa moduli at `t=1`; thus this forgetting provably loses genuine
+complex geometry.  On the 216-sheet quotient cover, the moduli observable has a
+single-valued spectral polynomial, trace--norm descent, a canonical
+constant/zero-sum splitting, and a monodromy-invariant forgetting variance with
+an exact positive lower bound at `Q_0`; it need not be constant along arbitrary
+open paths in the event-polynomial base.  The two explicit slice pencils have
+ratio `((t-beta)/t)^5` and balanced regular-fiber divisor charge
+`5[beta]-5[0]`, a logarithmic charge rather than a finite Dirichlet energy.  The
+full 216-orbit census, arithmetic/period comparison, marked-monodromy refinement,
+and Hodge/Siegel-energy interpretation remain open.  Neither the LL sheet nor its
+parameter loop is yet selected by a general arithmetic history.  A general functor from marked histories to
 arithmetic prime divisors remains open.  The active synthesis and claim ledger are
 recorded in
 [`restructure/discussions/arithmetic-automorphic-zero-networks.md`](restructure/discussions/arithmetic-automorphic-zero-networks.md).

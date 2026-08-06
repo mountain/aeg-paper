@@ -3271,7 +3271,8 @@ promote any later-paper programme.
 | P3-L6 | The sextic pencil surjects onto the genus-two mapping class group and has full integral symplectic monodromy; modulo two the shadow is the six-root permutation | **CLASSICAL BIRMAN--HILDEN / SYMPLECTIC INPUT SPECIALIZED AND AUDITED** | The compactification first retains the two points over infinity; no false identification (B_6/Z(B_6)=Mod(Sigma_2)) is made. |
 | P3-L7 | The mixed critical-value/test-parameter braid extension pulls back along LL and maps to the six-root braid group | **PROVED EXACT-SEQUENCE MODEL** | There is no canonical homomorphism (B_5 to B_6) after the LL sheet is forgotten; the pullback or the equivalent Hurwitz groupoid is required. |
 | P3-L8 | The fiber (y^2=x^6-x-1) has full (S_6) root Galois group, geometric endomorphism ring (Z), and full mod-two Jacobian image | **PROVED FROM CITED CLASSICAL IRREDUCIBILITY, GALOIS, AND ZARHIN CRITERIA** | The common target (Sp_4(F_2) isomorphic to S_6) does not canonically identify arithmetic Frobenius with a topological loop. |
-| P3-L9 | Two source-rotation orbits in one explicit LL fiber give distinct genus-two Igusa points and different arithmetic/period data | **FINITE LL--IGUSA TWIN TEST / OPEN** | The finite system has not been solved and no pair of nonisomorphic curves has yet been certified. |
+| P3-L9 | Two source-rotation orbits in the explicit fiber over (Q_0) give distinct genus-two Igusa points; their sheet observable has spectral descent, positive forgetting variance, and a balanced moving-slice divisor charge | **PROVED BY EXPLICIT EXACT CALCULATION** | The (216)-sheet quotient has the canonical average/zero-sum split and trace--norm spectral polynomial.  The displayed pair gives an exact positive variance lower bound and ratio ((t-beta)/t)^5 with divisor (5[beta]-5[0]) at regular fibers.  The variance is not asserted constant on arbitrary open LL paths, and the charge is not a finite Dirichlet energy. |
+| P3-L10 | Determine all genus-two moduli points among the (216) source-rotation orbits and compare arithmetic, period, marked-monodromy, and Hodge/Siegel-energy data | **FINITE CENSUS / OPEN** | Existence and its finite-fiber information variance are settled; full orbit enumeration, Frobenius comparison, Siegel periods, survival after marked-monodromy/Hurwitz grouping, and any Hodge- or Siegel-metric energy remain open. |
 
 ### Abstract-level authorization
 
@@ -3287,10 +3288,11 @@ It may also advertise P3-H1--P3-H6 as supplied polynomial-carrier, marked q=4
 logarithmic-cone, and central-extension calibration theorems, provided P3-H7, the
 arithmetic-descent and radial-extension choices, the non-tube saddle boundary,
 and the distinction between two- and four-strand outputs remain explicit.
-It may advertise P3-L1--P3-L8 as one explicit sextic/LL laboratory only when the
+It may advertise P3-L1--P3-L9 as one explicit sextic/LL laboratory only when the
 classical inputs are attributed, the two braid layers and their mixed pullback are
-kept typed, and the normalized-sheet count is not converted into a curve count.
-P3-L9 and every unrestricted AEG-history selection of an LL sheet or coefficient
+kept typed, the normalized-sheet count is not converted into a curve count, and
+the P3-L9 claim is limited to the displayed two-sheet geometric nonfactorization.
+P3-L10 and every unrestricted AEG-history selection of an LL sheet or coefficient
 path remain open.
 
 ### Number-theoretic limitation
@@ -3526,4 +3528,56 @@ class or factorization data.
   `d5bf667041dc6ce52189f840a5a691c4d8c6eed1126705911937a907fb74f816`.
   Static closure and all-page visual inspection pass as recorded in the audit and
   Paper III closure reports.
+- **Date:** 2026-08-06.
+
+## Status change S-0009
+
+- **Claim ID:** P3-L9; new P3-L10.
+- **Previous status:** P3-L9 was an open finite LL--Igusa experiment; no two
+  source-rotation orbits in one LL fiber were known to give nonisomorphic
+  genus-two curves.
+- **New status:** P3-L9 is `PROVED BY AN EXPLICIT EXACT TWIN`; P3-L10 is `OPEN`.
+- **Exact proved statement:** besides (P_0=x^6-x), the displayed monic-centered
+  sextic (P_1) lies over the same square-free event quintic
+  (Q_0=t^5+5^5/6^6), lies outside the residual (mu_6)-orbit of (P_0), and at the
+  common regular slice (t=1) gives a genus-two curve with a different absolute
+  Igusa--Clebsch ratio.  Consequently the genus-two moduli reading does not
+  factor through the LL event polynomial on this finite fiber.
+- **Verification:** the same-event identity is reduced to an exact Sylvester
+  resultant for a sparse normalized sextic and an exact scaling relation.  The
+  moduli separation uses the explicit quadratic Clebsch invariant divided by
+  the common nonzero discriminant; the repository verification script reproduces
+  both symbolic checks.
+- **Direct corollary 1 (finite-sheet descent):** on the degree-(216) quotient
+  cover over (Q(1)\ne0), the sheet observable has a norm spectral polynomial
+  whose coefficients are descended traces, norms, and higher symmetric
+  functions.  LL monodromy preserves the canonically split averaging sequence
+  (0\to V_Q^0\to V_Q\to\mathbb C\to0) and its finite-fiber Hermitian variance.
+  The explicit pair contributes one exact positive summand and hence the printed
+  strict lower bound at (Q_0).  Monodromy invariance around loops does not imply
+  that this variance is constant along arbitrary open paths in the LL base.
+- **Direct corollary 2 (moving-slice charge):** along the two displayed pencils,
+  (\mathcal J_1/\mathcal J_0)=((t-\beta)/t)^5), where both (0) and (\beta) are
+  regular fibers.  Its divisor is (5[\beta]-5[0]) and its logarithmic residues
+  are balanced.  This is a logarithmic divisor charge, not a finite Dirichlet
+  energy.
+- **Claims deliberately not promoted:** enumeration of all (1296) normalized
+  sheets or all (216) source-rotation orbits; a lower bound larger than two for
+  the number of moduli points; distinct Frobenius or Siegel-period data for the
+  displayed pair; persistence after fixing marked local symplectic monodromy and
+  quotienting Hurwitz moves; a history-natural choice of sextic or LL sheet.
+- **Analytic boundary:** a Hodge- or Siegel-metric energy comparison is not
+  supplied by the finite permutation variance or by the balanced logarithmic
+  charge and remains open under P3-L10.
+- **Relation to prior counting boundary:** the statements that (1296) and (216)
+  are not counts of nonisomorphic curves remain in force.  P3-L9 proves only that
+  the moduli image has cardinality at least two.
+- **Proof location:** Paper III section `05-sextic-ll-laboratory.tex`, theorem
+  `thm:explicit-ll-igusa-twin`.
+- **Artifact verification:** the canonical `./build.sh 3` release build is
+  clean; the 83-page, 859,662-byte PDF has SHA-256
+  `f9cf579734cbf2a5c70794470ba3baf3b79c2fc1144926513f291b7a2462c858`.
+  Static closure and all-page visual inspection pass as recorded in the audit
+  and Paper III closure reports.
+- **Papers affected:** Paper III only.
 - **Date:** 2026-08-06.

@@ -1502,14 +1502,36 @@ hyperelliptic fibers must not be identified.  Likewise, the common abstract targ
 (\operatorname{Sp}_4(\mathbb F_2)\cong S_6) does not canonically identify an
 arithmetic Frobenius element with a topological loop.
 
+The source amendment M-0009 additionally authorizes the explicit geometric
+LL--Igusa twin theorem.  The displayed second monic-centered sextic has the same
+event polynomial (Q_0) as (P_0), lies outside its residual (\mu_6)-orbit, and at
+(t=1) has a different absolute Igusa--Clebsch ratio.  Paper III may therefore
+state that the genus-two moduli reading does not factor through the LL event
+polynomial on this fiber.  This is P3-L9 and is a direct exact calculation, not a
+classical LL theorem.
+
+P3-L9 also authorizes two bounded direct corollaries.  First, the degree-(216)
+source-rotation quotient carries the sheet observable's norm spectral polynomial,
+trace--norm and symmetric-function descent, and the canonically split averaging
+sequence.  Its zero-sum norm is a nonnegative monodromy-invariant finite-fiber
+variance, with the printed exact positive lower bound at (Q_0).  This loop
+invariance must not be strengthened to constancy along arbitrary open paths in
+the LL base.  Second, along the two displayed (t)-pencils, the ratio
+((t-\beta)/t)^5 has divisor (5[\beta]-5[0]) at two regular fibers.  Its balanced
+logarithmic residues are not a finite Dirichlet energy.
+
 The following remain open:
 
-* the LL--Igusa twin test for distinct genus-two moduli points in one LL fiber;
+* the full (216)-orbit moduli census, arithmetic/Frobenius and period comparison,
+  the stronger marked-monodromy/Hurwitz twin test, and any Hodge- or Siegel-metric
+  energy comparison (P3-L10);
 * any functor from unrestricted AEG histories to a canonical sextic, LL sheet,
   mixed-braid path, or six-root braid;
 * a proper-zero-tube theorem for this singular carrier;
 * Markov descent or a new knot invariant extracted from the laboratory.
 
-Thus P3-L1--P3-L8 are authorized only with their supplied/calculated versus
-classical-input statuses displayed, while P3-L9 and the general history
-naturality arrows remain open.
+Thus P3-L1--P3-L9 are authorized only with their supplied/calculated versus
+classical-input statuses displayed, while P3-L10 and the general history
+naturality arrows remain open.  The counts (1296) and (216) remain sheet/orbit
+counts, not curve counts; P3-L9 proves only that the moduli image contains at
+least two points.

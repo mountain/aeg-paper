@@ -3395,7 +3395,9 @@ P3-L5  compatible carrier, six-root thread, and genus-two mapping torus
 P3-L6  genus-two mapping-class and symplectic monodromy specialization
 P3-L7  mixed-braid exact sequence and LL pullback
 P3-L8  displayed arithmetic fiber: S6 Galois and geometric End = Z
-P3-L9  LL--Igusa twin test [OPEN]
+P3-L9  explicit geometric LL--Igusa twin; spectral descent, forgetting variance,
+       and balanced moving-slice divisor charge [PROVED]
+P3-L10 full 216-orbit census; arithmetic/period/marked/Hodge-energy refinements [OPEN]
 ```
 
 The new dependency edges are:
@@ -3441,7 +3443,10 @@ P3-L4 + classical Birman--Hilden/symplectic input -> P3-L6
 P3-L2 + mixed configuration-space extension -> P3-L7
 P3-L4 -> P3-L7
 supplied arithmetic fiber + classical Galois/Zarhin criteria -> P3-L8
-P3-L2 -. finite moduli experiment .-> P3-L9
+P3-L2 + exact sparse resultant + Clebsch invariant -> P3-L9
+P3-L2 + finite-etale quotient + sheet observable -> P3-L9
+P3-L9 + moving t-slices -> P3-L9 divisor charge
+P3-L9 -. existence input for deeper census .-> P3-L10
 P3-L7 -. typed path target evidence .-> P3-H7
 ```
 
@@ -3481,7 +3486,23 @@ subgroup and its standard Hauptmodul without a general history functor.
   specialized and audited in the sextic laboratory.  The (1296) normalized LL
   sheets and their (216) source-rotation orbits are not counts of nonisomorphic
   curves.
-* `P3-L9` is open.  No distinct Igusa points in one LL fiber are asserted.
+* `P3-L9` is proved by the displayed exact second sheet: equality of the LL
+  event polynomial follows from an exact resultant and scaling identity, while
+  a distinct absolute Igusa--Clebsch ratio at (t=1) proves that the two curves
+  are not isomorphic over (\mathbb C).  On the degree-(216) quotient cover,
+  finite-flat norm descent gives the spectral polynomial and permutation
+  averaging gives the canonical constant/zero-sum exact sequence and
+  monodromy-invariant variance.  The twin supplies its exact positive lower
+  bound.  Along the two explicit slice pencils, the same invariant ratio has
+  divisor (5[\beta]-5[0]) at regular fibers.
+* `P3-L10` remains open.  The theorem does not enumerate all (216) rotation
+  orbits, compare Frobenius polynomials or reduced Siegel periods, or fix and
+  quotient marked local symplectic monodromy/Hurwitz data.  It also does not
+  construct a Hodge- or Siegel-metric energy.
+* The P3-L9 variance is invariant under the permutation monodromy of a closed
+  loop but need not be constant along an arbitrary open path of event
+  polynomials.  The moving-slice divisor is a balanced logarithmic charge, not a
+  finite Dirichlet energy.
 * The solid edge into `P3-L7` is a pullback of the mixed braid extension.  It is
   not, and must not be redrawn as, a homomorphism (B_5\to B_6) after the LL sheet
   is forgotten.

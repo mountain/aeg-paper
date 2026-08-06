@@ -230,8 +230,24 @@ Picard--Lefschetz and symplectic monodromy, and the arithmetic Galois/endomorphi
 criteria are cited classical inputs.  The `1296` points in a regular LL fiber are
 coordinate-normalized monic-centered sextics; the free residual `mu_6` source
 rotation has `216` orbits.  Neither number is asserted to count nonisomorphic
-genus-two curves.  The LL--Igusa twin calculation and every functor from unrestricted
-AEG histories to the LL pullback or its Hurwitz groupoid remain open.
+genus-two curves.  An exact second sheet now proves that the moduli image contains
+at least two points: it has the same event polynomial as (x^6-x) but a different
+genus-two Igusa reading at (t=1).  The same source gives the quotient-cover
+spectral polynomial and trace--norm descent, the canonical average/zero-sum
+sequence, and a monodromy-invariant forgetting variance with an exact positive
+lower bound.  It does not assert constancy along arbitrary open LL paths.  Along
+the two explicit slice pencils the invariant ratio is ((t-\beta)/t)^5 with
+balanced regular-fiber divisor (5[\beta]-5[0]); this is a logarithmic charge, not
+a finite Dirichlet energy.  The full (216)-orbit census, arithmetic/period
+comparison, marked-monodromy and Hodge/Siegel-energy refinements, and every
+functor from unrestricted AEG histories to the LL pullback or its Hurwitz
+groupoid remain open.
+
+The exact certificate for the displayed pair is tracked separately from the TeX
+closure at
+`paper-3/computations/ll-igusa-twin/verify-explicit-twin.py`, with its invocation
+and claim boundary in the adjacent `README.md`.  This reproducibility artifact
+does not alter the count of canonical Paper III TeX inputs.
 
 This addendum supersedes the earlier inventory statement that Paper III consisted
 only of a scope/provenance README.  It does not alter the fixed Paper I baseline

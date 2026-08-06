@@ -1917,9 +1917,20 @@ There are two successive forgetting operations and they must not be collapsed:
 
 The first regular fiber has (1296) coordinate-normalized sheets and (216) free
 source-rotation orbits, not (1296) or (216) nonisomorphic genus-two curves.  The
-second arrow forgets still more event data.  A future moduli comparison must pass
-the finite LL--Igusa twin test before either count acquires a curve-theoretic
-interpretation.
+second arrow forgets still more event data.  The explicit P3-L9 twin now proves
+that the first forgetting arrow loses genuine genus-two complex moduli: two
+source-rotation orbits above one event quintic give distinct Igusa points at the
+same regular slice.  This does not turn either sheet count into a curve count;
+the full (216)-orbit image is the open P3-L10 census.
+
+The quotient cover nevertheless has a canonical information decomposition.  The
+sheetwise moduli ratio descends through its norm spectral polynomial and symmetric
+trace data, while averaging splits constants from the zero-sum permutation
+representation.  The squared zero-sum norm is monodromy invariant and strictly
+positive at (Q_0), but is not a flat energy along arbitrary open paths.  In the
+orthogonal slice direction, the two displayed pencils give ratio
+((t-\beta)/t)^5 and balanced regular-fiber divisor (5[\beta]-5[0]).  This is a
+logarithmic charge rather than a finite Dirichlet or Hodge energy.
 
 Critical-value braiding and root braiding occupy different levels.  Their
 architectural interface is the mixed configuration-space extension and its LL
@@ -1941,7 +1952,10 @@ finite target, not a canonical matching between individual Frobenius elements an
 topological loops.
 
 This laboratory supplies strong evidence that one polynomial can coordinate real,
-complex, topological, and arithmetic readings.  It does not supply a functor from
-general histories to LL sheets, a proper zero tube, an LL--Igusa twin pair, Markov
-descent, or a new knot invariant.  Those arrows remain dotted/open and cannot be
-used as dependencies of the proved P3-L1--P3-L8 nodes.
+complex, topological, and arithmetic readings.  It now supplies an explicit
+geometric LL--Igusa twin and hence a fiberwise nonfactorization theorem.  It does
+not supply a functor from general histories to LL sheets, a proper zero tube, a
+full (216)-orbit census, arithmetic or period twins, a marked-monodromy twin,
+Hodge/Siegel-metric energy, Markov descent, or a new knot invariant.  Those
+remaining arrows stay dotted/open
+and cannot be used as dependencies of the proved P3-L1--P3-L9 nodes.

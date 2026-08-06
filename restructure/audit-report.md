@@ -344,3 +344,55 @@ version 1.5 with embedded fonts.  All 78 pages were rendered and inspected,
 including the repaginated introduction, claim ledger, new sextic figure and exact
 diagrams, open-experiment box, conclusion, and bibliography.  No clipping,
 collision, blank content page, unreadable element, or broken glyph was found.
+
+## 13. M-0009 explicit LL--Igusa twin source audit
+
+The source amendment promotes only geometric twin existence.  It gives an exact
+second monic-centered sextic over the same square-free event quintic as (x^6-x),
+separates its residual source-rotation orbit by the nonzero (x^4)-coefficient,
+and separates the common (t=1) genus-two curves by an absolute ratio of the
+quadratic Clebsch invariant to the common discriminant.  The exact resultant,
+scaling, discriminant, and invariant calculations are printed and independently
+reproducible by the checked-in verification script.
+
+The claim-boundary audit keeps four stronger tasks open: the complete (216)-orbit
+moduli census, arithmetic/Frobenius comparison, reduced Siegel-period comparison,
+and the marked local-monodromy/Hurwitz refinement.  It also preserves the general
+history-naturality gate.  Thus (1296) and (216) remain sheet/orbit counts, while
+the only curve-count consequence established by M-0009 is that the moduli image
+contains at least two points.
+
+The direct-corollary audit also verifies object type.  On the degree-(216)
+quotient cover, finite-flat norm descent produces a single-valued spectral
+polynomial and canonical averaging produces a monodromy-stable
+constant/zero-sum split.  The corresponding squared norm is a finite-fiber
+information variance; the exact twin supplies its positive lower bound at
+(Q_0).  It is invariant under sheet permutation around a loop, not asserted
+constant along arbitrary open paths in the LL base.  Along the two explicit
+(t)-pencils, the ratio ((t-\beta)/t)^5 has divisor (5[\beta]-5[0]) supported on
+regular fibers.  Its residues balance, but it is not a finite Dirichlet energy.
+
+The complete census, Frobenius comparison, reduced Siegel periods,
+marked-monodromy/Hurwitz refinement, and any Hodge- or Siegel-metric energy remain
+open under P3-L10.
+
+Recent work of Farb and collaborators is relevant to the lower passage from six
+branch points to genus-two modular, symplectic, arithmetic, and period data.  The
+audit does not attribute the explicit LL-fiber pair or its nonfactorization result
+to that literature.
+
+The M-0008 row above remains historical release evidence.  The final M-0009
+canonical build and closure audit give:
+
+| Paper | Pages | File size | SHA-256 | Canonical TeX | Unique labels | Unique refs | Unique citations |
+|---|---:|---:|---|---:|---:|---:|---:|
+| III | 83 | 859,662 bytes | `f9cf579734cbf2a5c70794470ba3baf3b79c2fc1144926513f291b7a2462c858` | 17 | 351 | 175 | 36 |
+
+The final log has no warning, undefined reference/citation, or over/underfull
+box diagnostic.  Every cited key resolves in the 53-entry shared bibliography;
+the PDF is version 1.5 with embedded fonts.  All 83 pages were rendered and
+inspected, with higher-resolution checks of the explicit twin, spectral descent,
+forgetting variance, divisor charge, Farb comparison, and bibliography pages.
+No clipping, collision, blank content page, unreadable element, or broken glyph
+was found.  The dependency-free exact verification script also passes in the
+recorded source state.
