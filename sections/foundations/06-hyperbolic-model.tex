@@ -1,0 +1,294 @@
+The regular-AES axioms admit a homogeneous realization on the positive affine
+group.  This construction explains the upper-half-plane metric from the group
+action and the normalization of the arithmetic frame; it does not assert that
+every regular AES is homogeneous or that the model is unique.
+
+\subsection{The positive affine group}
+
+Write
+\[
+ G=\operatorname{Aff}^{+}(1,\mathbb R)
+   =\{(x,y):x\in\mathbb R,\ y>0\}
+\]
+with multiplication
+\begin{equation}\label{eq:positive-affine-group-law}
+ (x,y)(x',y')=(x+yx',yy').
+\end{equation}
+The element \((x,y)\) represents the affine map \(t\mapsto x+yt\).
+Left translation by \((x_0,y_0)\) is
+\[
+ L_{(x_0,y_0)}(x,y)=(x_0+y_0x,y_0y).
+\]
+For fixed \(\mu,\lambda>0\), consider the left-invariant vector fields
+\begin{equation}\label{eq:hyperbolic-arithmetic-frame}
+ X_u=-\mu y\,\partial_x,
+ \qquad
+ X_v=-\lambda y\,\partial_y .
+\end{equation}
+Both signs are chosen so that the frame is positively oriented for
+\(dx\wedge dy\) and has the desired action on the assignment below.
+
+\begin{proposition}[Invariant affine metric]\label{prop:invariant-affine-metric}
+The Riemannian metric for which the frame
+\eqref{eq:hyperbolic-arithmetic-frame} is orthonormal is
+\begin{equation}\label{eq:hyperbolic-aes-metric}
+ g_{\mu,\lambda}
+ =\frac1{y^2}
+  \left(\frac{dx^2}{\mu^2}+\frac{dy^2}{\lambda^2}\right).
+\end{equation}
+It is invariant under every left translation of \(G\).
+\end{proposition}
+
+\begin{proof}
+The coframe dual to \((X_u,X_v)\) is
+\[
+ -\frac{dx}{\mu y},
+ \qquad
+ -\frac{dy}{\lambda y},
+\]
+whose sum of squares is \eqref{eq:hyperbolic-aes-metric}.  Under
+\(L_{(x_0,y_0)}\), one has
+\[
+ x\longmapsto x_0+y_0x,\qquad
+ y\longmapsto y_0y,\qquad
+ dx\longmapsto y_0dx,\qquad
+ dy\longmapsto y_0dy.
+\]
+Substitution in \eqref{eq:hyperbolic-aes-metric} shows
+\(L_{(x_0,y_0)}^*g_{\mu,\lambda}=g_{\mu,\lambda}\).
+\end{proof}
+
+\subsection{The basic hyperbolic arithmetic expression space}
+
+Let
+\[
+ \mathbb H^2=\{(x,y)\in\mathbb R^2:y>0\}
+\]
+with its standard orientation, and define
+\begin{equation}\label{eq:basic-hyperbolic-assignment}
+ a(x,y)=-\frac{x}{y}.
+\end{equation}
+
+\begin{theorem}[Basic hyperbolic AES]\label{thm:basic-hyperbolic-aes}
+For every \(\mu,\lambda>0\), the tuple
+\[
+ \mathfrak E_{\mathrm{hyp}}(\mu,\lambda)
+ =(\mathbb H^2,g_{\mu,\lambda},a;\mu,\lambda)
+\]
+is a regular arithmetic expression space.  Its canonical arithmetic frame is
+the left-invariant frame \eqref{eq:hyperbolic-arithmetic-frame}.  Moreover,
+\((\mathbb H^2,g_{\mu,\lambda})\) is complete and has constant Gaussian
+curvature
+\[
+ K=-\lambda^2.
+\]
+\end{theorem}
+
+\begin{proof}
+Direct differentiation gives
+\[
+ a_x=-\frac1y,
+ \qquad
+ a_y=\frac{x}{y^2}=-\frac ay.
+\]
+Therefore the frame \eqref{eq:hyperbolic-arithmetic-frame} satisfies
+\[
+ X_u a=\mu,
+ \qquad
+ X_v a=\lambda a.
+\]
+It is positively oriented and orthonormal by
+Proposition~\ref{prop:invariant-affine-metric}.  The frame equivalence of
+Proposition~\ref{prop:canonical-arithmetic-frame} now proves the regular-AES
+identity.  Equivalently, using
+\[
+ g_{\mu,\lambda}^{-1}
+ =\mu^2y^2\,\partial_x\otimes\partial_x
+  +\lambda^2y^2\,\partial_y\otimes\partial_y,
+\]
+one obtains directly
+\[
+ |\nabla a|_{g_{\mu,\lambda}}^2
+ =\mu^2y^2a_x^2+\lambda^2y^2a_y^2
+ =\mu^2+\lambda^2a^2.
+\]
+
+For completeness and curvature, introduce the global coordinate
+\[
+ X=\frac{\lambda}{\mu}x.
+\]
+Then
+\begin{equation}\label{eq:scaled-standard-hyperbolic-metric}
+ g_{\mu,\lambda}
+ =\frac1{\lambda^2}\frac{dX^2+dy^2}{y^2}.
+\end{equation}
+The metric in parentheses is the complete standard upper-half-plane metric of
+curvature \(-1\).  Multiplication of a Riemannian metric by
+\(\lambda^{-2}\) preserves completeness and multiplies Gaussian curvature by
+\(\lambda^2\).  Hence \(g_{\mu,\lambda}\) is complete and has curvature
+\(-\lambda^2\).
+\end{proof}
+
+The parameters have different geometric roles.  The change
+\(X=(\lambda/\mu)x\) removes \(\mu\) from the metric, so \(\mu\) fixes the
+additive normalization of the assignment frame.  The parameter \(\lambda\)
+sets the curvature scale.  No uniqueness claim for regular AESs follows from
+this normalization.
+
+\subsection{Horocyclic coordinates and assignment contours}
+
+Set \(y=e^{\lambda v}\) and \(u=x\).  Then
+\begin{equation}\label{eq:horocyclic-affine-coordinates}
+ g_{\mu,\lambda}
+ =e^{-2\lambda v}\frac{du^2}{\mu^2}+dv^2,
+ \qquad
+ a(u,v)=-u e^{-\lambda v}.
+\end{equation}
+The curves \(y=\mathrm{constant}\) are horocycles based at the ideal point
+\(\infty\), and the vertical lines \(x=\mathrm{constant}\) are their
+orthogonal geodesics.  The assignment contour of value \(c\) is
+\[
+ a^{-1}(c)=\{x=-cy,\ y>0\}.
+\]
+In particular, the zero locus in this model is the vertical geodesic
+\(\{x=0,\ y>0\}\).
+
+\subsection{The Laplace eigenfunction}
+
+We use the divergence-of-gradient sign convention
+\begin{equation}\label{eq:laplacian-sign-convention}
+ \Delta_g f
+ =\frac1{\sqrt{\det g}}\,
+  \partial_i\!\left(\sqrt{\det g}\,g^{ij}\partial_jf\right).
+\end{equation}
+
+\begin{proposition}[Laplace eigenfunction]\label{prop:laplace-eigenfunction}
+The assignment function of the basic hyperbolic AES satisfies
+\begin{equation}\label{eq:hyperbolic-assignment-laplacian}
+ \Delta_{g_{\mu,\lambda}}a=2\lambda^2a.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Since
+\[
+ \sqrt{\det g_{\mu,\lambda}}=\frac1{\mu\lambda y^2},
+\]
+the products
+\(\sqrt{\det g}\,g^{xx}=\mu/\lambda\) and
+\(\sqrt{\det g}\,g^{yy}=\lambda/\mu\) are constant.  Thus
+\[
+ \Delta_{g_{\mu,\lambda}}f
+ =\mu^2y^2 f_{xx}+\lambda^2y^2 f_{yy}.
+\]
+For \(a=-x/y\), one has \(a_{xx}=0\) and
+\(a_{yy}=-2x/y^3=2a/y^2\).  Substitution gives
+\eqref{eq:hyperbolic-assignment-laplacian}.
+\end{proof}
+
+\subsection{Assignment-compatible grid transformations}
+
+For \(s\in\mathbb R\) and \(k>0\), define
+\begin{equation}\label{eq:assignment-grid-transformations}
+ \mathsf X_s(x,y)=(x-sy,y),
+ \qquad
+ \mathsf Y_k(x,y)=\left(x,\frac yk\right).
+\end{equation}
+They implement addition and positive multiplication at the level of the
+assignment:
+\begin{equation}\label{eq:grid-assignment-action}
+ a\circ\mathsf X_s=a+s,
+ \qquad
+ a\circ\mathsf Y_k=ka.
+\end{equation}
+Figure~\ref{fig:hyperbolic-arithmetic-grid} separates the assignment contours
+from the horocyclic background and also marks the two assignment-compatible
+motions.  The pullback calculation following the figure determines their
+metric status.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[
+  x=1.15cm,y=1.05cm,
+  axis/.style={-{Latex[length=2mm]},thick,black!70},
+  gridline/.style={thin,gray!35},
+  contour/.style={very thick,red!65!black},
+  move/.style={-{Latex[length=2.2mm]},very thick,blue!65!black},
+  every node/.style={font=\small}
+]
+  \fill[blue!2] (-3.25,0) rectangle (3.25,3.15);
+  \draw[axis] (-3.4,0) -- (3.5,0) node[right] {$x$};
+  \draw[axis] (0,-0.05) -- (0,3.35) node[above] {$y$};
+  \node[anchor=north west,font=\scriptsize] at (-3.25,-0.08) {$y=0$};
+
+  \foreach \yy in {0.65,1.3,1.95,2.6}
+    {\draw[gridline] (-3.2,\yy) -- (3.2,\yy);}
+  \foreach \xx in {-2.4,-1.2,1.2,2.4}
+    {\draw[gridline] (\xx,0.05) -- (\xx,3.1);}
+  \draw[contour] (0,0.03) -- (-3.05,3.08);
+  \draw[contour] (0,0.03) -- (0,3.1);
+  \draw[contour] (0,0.03) -- (3.05,3.08);
+  \node[red!65!black,anchor=south east,font=\scriptsize] at (-3.0,3.05)
+    {$a=1$};
+  \node[red!65!black,anchor=south west,font=\scriptsize] at (0.05,3.0)
+    {$a=0$};
+  \node[red!65!black,anchor=south west,font=\scriptsize] at (3.0,3.05)
+    {$a=-1$};
+  \node[red!65!black,font=\scriptsize,fill=white,inner sep=1pt]
+    at (-1.75,1.15) {contour $a=c$: $x=-cy$};
+
+  \coordinate (p) at (1.85,2.3);
+  \coordinate (px) at (0.75,2.3);
+  \coordinate (py) at (1.85,1.15);
+  \fill (p) circle (1.6pt) node[above right] {$p$};
+  \draw[move] (p) -- (px)
+    node[midway,above,fill=white,inner sep=1pt,font=\scriptsize]
+    {$\mathsf X_s:\ a\mapsto a+s$};
+  \draw[move,dashed] (p) -- (py)
+    node[midway,right,fill=white,inner sep=1pt,font=\scriptsize]
+    {$\mathsf Y_k:\ a\mapsto ka$};
+  \fill[blue!65!black] (px) circle (1.3pt);
+  \fill[blue!65!black] (py) circle (1.3pt);
+\end{tikzpicture}
+\caption{The basic hyperbolic arithmetic grid on the upper half-plane.  Gray
+lines show the horocycle--geodesic background; red rays are the level sets
+$a=-x/y$.  The blue motions implement addition and positive multiplication on
+the assignment.  They preserve the indicated assignment rules but are not, in
+general, isometries of $g_{\mu,\lambda}$.}
+\label{fig:hyperbolic-arithmetic-grid}
+\end{figure}
+
+These maps are \emph{assignment-compatible transformations}; in general they
+are not isometries of \(g_{\mu,\lambda}\).  Indeed,
+\begin{align}
+ \mathsf X_s^*g_{\mu,\lambda}
+ &=\frac1{y^2}
+   \left(\frac{(dx-s\,dy)^2}{\mu^2}
+         +\frac{dy^2}{\lambda^2}\right),\label{eq:additive-grid-pullback}\\
+ \mathsf Y_k^*g_{\mu,\lambda}
+ &=\frac1{y^2}
+   \left(\frac{k^2dx^2}{\mu^2}
+         +\frac{dy^2}{\lambda^2}\right).
+ \label{eq:multiplicative-grid-pullback}
+\end{align}
+Consequently \(\mathsf X_s\) is an isometry only for \(s=0\), and
+\(\mathsf Y_k\) only for \(k=1\).
+
+\begin{remark}[A Baumslag--Solitar relation]\label{rem:hyperbolic-bs-relation}
+For an integer \(n\ge2\),
+\(\mathsf X_s^n=\mathsf X_{ns}\), and direct composition gives
+\begin{equation}\label{eq:hyperbolic-bs-relation}
+ \mathsf Y_n^{-1}\circ\mathsf X_s^n\circ\mathsf Y_n
+ =\mathsf X_s.
+\end{equation}
+With stable letter \(T=\mathsf Y_n^{-1}\), this reads
+\(T\mathsf X_s^nT^{-1}=\mathsf X_s\), a
+Baumslag--Solitar relation in the \(BS(n,1)\) convention.  Equation
+\eqref{eq:hyperbolic-bs-relation} is an identity among
+assignment-compatible diffeomorphisms, not a claim that the arithmetic grid acts
+by hyperbolic isometries.  No complexity conclusion is inferred from it.
+\end{remark}
+
+Coordinate derivations of the group chart, gradient, curvature, Laplacian, metric
+pullbacks, and relation \eqref{eq:hyperbolic-bs-relation} are collected in
+Appendix~\ref{app:hyperbolic-calculations}.
