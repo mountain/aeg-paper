@@ -1,0 +1,314 @@
+This appendix supplements Proposition~\ref{prop:affine-cocycle-formulas} with
+expanded calculations.  All discrete formulas hold over an arbitrary field
+$K$, and every multiplier is assumed nonzero.
+
+\subsection{Prefix recursion and closed form}
+
+For the prefix history $(f_1,\ldots,f_k)$, write
+\[
+  F_k=f_k\circ\cdots\circ f_1,
+  \qquad
+  F_k(x)=\Phi_kx+\xi_k,
+\]
+with $F_0(x)=x$.  If $f_{k+1}(x)=s_{k+1}x+t_{k+1}$, then
+\begin{equation}
+  \Phi_{k+1}=s_{k+1}\Phi_k,
+  \qquad
+  \xi_{k+1}=s_{k+1}\xi_k+t_{k+1}.
+  \label{eq:appendix-prefix-affine-recursion}
+\end{equation}
+Iterating the first recursion gives
+\[
+  \Phi_k=s_k\cdots s_1.
+\]
+Iterating the second one gives
+\begin{align*}
+  \xi_1&=t_1,\\
+  \xi_2&=s_2t_1+t_2,\\
+  \xi_3&=s_3s_2t_1+s_3t_2+t_3,\\
+  \xi_4&=s_4s_3s_2t_1+s_4s_3t_2+s_4t_3+t_4.
+\end{align*}
+The pattern is
+\[
+  \xi_k=\sum_{i=1}^{k}t_i\prod_{j=i+1}^{k}s_j.
+\]
+Substitution in \eqref{eq:appendix-prefix-affine-recursion} proves this formula
+inductively, including the final term through the empty-product convention.
+
+The source-normalized prefix coordinate
+$\widehat\xi_k=\Phi_k^{-1}\xi_k$ obeys a different recursion.  From
+\eqref{eq:appendix-prefix-affine-recursion},
+\begin{align}
+  \widehat\xi_{k+1}
+  &=\frac{s_{k+1}\xi_k+t_{k+1}}
+          {s_{k+1}\Phi_k}
+   =\widehat\xi_k+\frac{t_{k+1}}{\Phi_{k+1}}.
+  \label{eq:appendix-normalized-prefix-recursion}
+\end{align}
+Starting from $\widehat\xi_0=0$ therefore gives
+\[
+  \widehat\xi_k
+  =\sum_{i=1}^{k}\frac{t_i}{\Phi_i}
+  =\sum_{i=1}^{k}\frac{t_i}{\prod_{j=1}^{i}s_j}.
+\]
+This second derivation makes the past normalization explicit at every prefix.
+
+\subsection{Suffix transport and the future-weight kernel}
+
+For $0\le i\le n$, define the scale of the strict suffix after step $i$ by
+\[
+  S_{i\to n}=\prod_{j=i+1}^{n}s_j,
+  \qquad S_{n\to n}=1.
+\]
+Then the target-frame translation is simply
+\begin{equation}
+  \xi_n=\sum_{i=1}^{n}S_{i\to n}t_i.
+  \label{eq:appendix-suffix-transport}
+\end{equation}
+To verify the interpretation, replace only $t_i$ by $t_i+\epsilon$.  All
+states before step $i$ are unchanged.  At step $i$ the output gains
+$\epsilon$, and every later affine map multiplies this change by its scale.
+Thus the final endpoint changes by
+\[
+  \epsilon s_{i+1}\cdots s_n
+  =\epsilon S_{i\to n}.
+\]
+The coefficient in \eqref{eq:appendix-suffix-transport} is therefore exactly
+the transport of an additive event to the target frame.
+
+\subsection{Alternating addition--scale histories}
+
+Consider a positive real alternating history with pairs
+\[
+  x\xmapsto{\,e^{m_i}\,}e^{m_i}x
+  \xmapsto{\,+\mu_i\,}e^{m_i}x+\mu_i,
+  \qquad i=1,\ldots,n,
+\]
+applied from $i=1$ to $i=n$.  At the level of affine steps this has
+$s_i=e^{m_i}$ and $t_i=\mu_i$.  Define prefix and suffix logarithmic
+scales by
+\[
+  M_i=\sum_{j=1}^{i}m_j,
+  \qquad
+  M_{i+1:n}=\sum_{j=i+1}^{n}m_j.
+\]
+Proposition~\ref{prop:affine-cocycle-formulas} becomes
+\begin{align}
+  \Phi_n&=e^{M_n},
+  \label{eq:appendix-alternating-scale}\\
+  \xi_n&=\sum_{i=1}^{n}\mu_i e^{M_{i+1:n}},
+  \label{eq:appendix-alternating-target}\\
+  \widehat\xi_n&=\sum_{i=1}^{n}\mu_i e^{-M_i}.
+  \label{eq:appendix-alternating-source}
+\end{align}
+For $n=3$, direct expansion checks the target formula:
+\begin{align*}
+  x
+  &\longmapsto e^{m_1}x+\mu_1\\
+  &\longmapsto e^{m_2+m_1}x
+      +e^{m_2}\mu_1+\mu_2\\
+  &\longmapsto e^{m_3+m_2+m_1}x
+      +e^{m_3+m_2}\mu_1
+      +e^{m_3}\mu_2+\mu_3.
+\end{align*}
+Dividing the translation line by
+$e^{m_1+m_2+m_3}$ gives
+\[
+  \widehat\xi_3
+  =\mu_1e^{-m_1}
+   +\mu_2e^{-(m_1+m_2)}
+   +\mu_3e^{-(m_1+m_2+m_3)},
+\]
+in agreement with \eqref{eq:appendix-alternating-source}.
+
+The convention in this example is ``scale, then add'' within each pair.  If a
+source instead groups the elementary operations as ``add, then scale'', the
+translation attached to that pair is $e^{m_i}\mu_i$, not $\mu_i$.
+Converting the pair to the common affine form $s_ix+t_i$ before using the
+cocycle formulas prevents this convention change from being hidden.
+
+\subsection{Concatenation in target and normalized coordinates}
+
+Let
+\[
+  \rho(\gamma)=g(\Phi_\gamma,\xi_\gamma),
+  \qquad
+  \rho(\delta)=g(\Phi_\delta,\xi_\delta),
+\]
+where $g(\Phi,\xi)(x)=\Phi x+\xi$.  Since $\gamma\delta$ performs $\gamma$
+first,
+\begin{align*}
+  \rho(\gamma\delta)(x)
+  &=\rho(\delta)(\rho(\gamma)(x))\\
+  &=\Phi_\delta(\Phi_\gamma x+\xi_\gamma)+\xi_\delta\\
+  &=\Phi_\delta\Phi_\gamma x
+    +\Phi_\delta\xi_\gamma+\xi_\delta.
+\end{align*}
+This yields the target-coordinate pair
+\[
+  (\Phi_{\gamma\delta},\xi_{\gamma\delta})
+  =(\Phi_\delta\Phi_\gamma,
+    \Phi_\delta\xi_\gamma+\xi_\delta).
+\]
+For normalized coordinates,
+\begin{align*}
+  \widehat\xi_{\gamma\delta}
+  &=\frac{\Phi_\delta\xi_\gamma+\xi_\delta}
+          {\Phi_\delta\Phi_\gamma}\\
+  &=\widehat\xi_\gamma
+    +\Phi_\gamma^{-1}\widehat\xi_\delta.
+\end{align*}
+The first formula transports the earlier translation forward by the later
+scale.  The second transports the later normalized translation back through
+the earlier scale.
+
+For three histories, repeated use gives
+\begin{align*}
+  \xi_{\gamma\delta\epsilon}
+  &=\Phi_\epsilon\Phi_\delta\xi_\gamma
+    +\Phi_\epsilon\xi_\delta+\xi_\epsilon,\\
+  \widehat\xi_{\gamma\delta\epsilon}
+  &=\widehat\xi_\gamma
+    +\Phi_\gamma^{-1}\widehat\xi_\delta
+    +(\Phi_\delta\Phi_\gamma)^{-1}
+      \widehat\xi_\epsilon.
+\end{align*}
+These are the block-history versions of future weighting and past
+normalization.
+
+\subsection{Inverse histories and relative comparison}
+
+The affine inverse is
+\begin{equation}
+  g(\Phi,\xi)^{-1}
+  =g(\Phi^{-1},-\Phi^{-1}\xi).
+  \label{eq:appendix-affine-inverse}
+\end{equation}
+Indeed,
+\begin{align*}
+  g(\Phi^{-1},-\Phi^{-1}\xi)
+  \bigl(\Phi x+\xi\bigr)
+  &=x+\Phi^{-1}\xi-\Phi^{-1}\xi=x.
+\end{align*}
+Using \eqref{eq:appendix-affine-inverse}, the relative affine defect is
+\begin{align}
+  \rho(\delta)^{-1}\rho(\gamma)
+  &=g\left(
+      \frac{\Phi_\gamma}{\Phi_\delta},
+      \frac{\xi_\gamma-\xi_\delta}{\Phi_\delta}
+    \right).
+  \label{eq:appendix-relative-affine-matrix}
+\end{align}
+In matrices, the same computation is
+\[
+  \begin{pmatrix}
+    \Phi_\delta^{-1}&-\Phi_\delta^{-1}\xi_\delta\\0&1
+  \end{pmatrix}
+  \begin{pmatrix}
+    \Phi_\gamma&\xi_\gamma\\0&1
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    \Phi_\delta^{-1}\Phi_\gamma&
+    \Phi_\delta^{-1}(\xi_\gamma-\xi_\delta)\\0&1
+  \end{pmatrix}.
+\]
+If $\Phi_\gamma=\Phi_\delta=\Phi$, the relative element is a pure translation
+by $(\xi_\gamma-\xi_\delta)/\Phi$.  The unnormalized endpoint difference is
+$\xi_\gamma-\xi_\delta$.  These two scalar quantities differ by the common
+scale and should not be identified.
+
+\subsection{The elementary order square}
+
+Let
+\[
+  A_\mu=
+  \begin{pmatrix}1&\mu\\0&1\end{pmatrix},
+  \qquad
+  S_q=
+  \begin{pmatrix}q&0\\0&1\end{pmatrix}.
+\]
+Under the chronological convention, first adding and then scaling has matrix
+\[
+  S_qA_\mu
+  =\begin{pmatrix}q&q\mu\\0&1\end{pmatrix},
+\]
+whereas first scaling and then adding has matrix
+\[
+  A_\mu S_q
+  =\begin{pmatrix}q&\mu\\0&1\end{pmatrix}.
+\]
+Their endpoint difference is
+\[
+  (qx+q\mu)-(qx+\mu)=\mu(q-1).
+\]
+Taking the second history as reference gives
+\begin{align*}
+  (A_\mu S_q)^{-1}(S_qA_\mu)
+  &=\begin{pmatrix}1&\mu(1-q^{-1})\\0&1\end{pmatrix}.
+\end{align*}
+Thus the relative group translation is $\mu(1-q^{-1})$, while the open
+endpoint defect is $\mu(q-1)$.  The latter is the former multiplied by the
+common target scale $q$.
+
+Closing the comparison into a group commutator produces yet another ordered
+quantity.  For example,
+\begin{align*}
+  S_qA_\mu S_q^{-1}A_\mu^{-1}
+  &=\begin{pmatrix}1&(q-1)\mu\\0&1\end{pmatrix},\\
+  A_\mu S_qA_\mu^{-1}S_q^{-1}
+  &=\begin{pmatrix}1&(1-q)\mu\\0&1\end{pmatrix}.
+\end{align*}
+The signs differ because the loop orientations differ.  These closed-loop
+calculations are recorded only to audit conventions; the torsion theory and
+its orientation choices are introduced in Section~\ref{sec:acs-torsion}.
+
+\subsection{Exact perturbation propagation at every prefix}
+
+Let $x$ and $\widetilde x$ be two initial values, and propagate both through
+the same history.  Set
+\[
+  x_k=F_k(x),
+  \qquad
+  \widetilde x_k=F_k(\widetilde x).
+\]
+From the prefix recursion,
+\begin{align*}
+  \widetilde x_{k+1}-x_{k+1}
+  &=\bigl(s_{k+1}\widetilde x_k+t_{k+1}\bigr)
+    -\bigl(s_{k+1}x_k+t_{k+1}\bigr)\\
+  &=s_{k+1}(\widetilde x_k-x_k).
+\end{align*}
+Induction gives
+\begin{equation}
+  \widetilde x_k-x_k
+  =\left(\prod_{i=1}^{k}s_i\right)(\widetilde x-x)
+  =\Phi_k(\widetilde x-x).
+  \label{eq:appendix-prefix-perturbation}
+\end{equation}
+The translations cancel at each step; only the scale cocycle propagates the
+initial difference.  Over $\mathbb R$, if $s_i=e^{\lambda_i}$, then
+\[
+  \frac{\widetilde x_k-x_k}{\widetilde x-x}
+  =e^{\lambda_1+\cdots+\lambda_k}.
+\]
+No limiting process is involved in this identity.
+
+\subsection{Differential conversion check}
+
+Finally, on the positive real affine group let $\Phi=e^M$ and
+$\widehat\xi=e^{-M}\xi$.  The product rule gives
+\begin{align*}
+  d\widehat\xi
+  &=d(e^{-M}\xi)\\
+  &=-e^{-M}\xi\,dM+e^{-M}d\xi\\
+  &=e^{-M}(d\xi-\xi dM).
+\end{align*}
+Therefore
+\[
+  d\xi-\xi dM=e^M d\widehat\xi.
+\]
+This verifies that the translation component of $dg\,g^{-1}$ is the target
+scale times the differential of the source-normalized coordinate.  It does
+not identify $dg\,g^{-1}$ with $g^{-1}dg$, whose translation component is
+$e^{-M}d\xi$.
