@@ -127,8 +127,8 @@ Final evidence is appended to this report after integration and review.
 ## 6. Final integration evidence
 
 The active ten-section manuscript and five appendices now build to a fresh 60-page
-US-letter PDF.  The final artifact is 603,202 bytes, uses PDF 1.5, and has SHA-256
-`2810aa61b9b3969a4b7ff39f685e08381312ce62404861c5ffdab2e06eb9061e`.
+US-letter PDF.  The final artifact is 582,862 bytes, uses PDF 1.5, and has SHA-256
+`d557279a2e6e244ca29409906f65136bca3e7c298906c86502cdd72271d1f447`.
 
 The final active-source audit found 166 unique labels, no duplicate or missing
 references, no missing citation keys, and eight reproducible TikZ figures.  The

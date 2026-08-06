@@ -125,7 +125,7 @@ Do not delete resolved issues. They form the decision history of the restructuri
 ## OQ-001 — Canonical definition of a regular AES
 
 **Priority:** P0
-**State:** OPEN
+**State:** CLOSED — resolved in Paper I on 2026-08-06
 
 ### Question
 
@@ -210,7 +210,7 @@ Pending.
 ## OQ-002 — Chronological composition convention
 
 **Priority:** P0
-**State:** OPEN
+**State:** CLOSED — resolved in Paper I on 2026-08-06
 
 ### Question
 
@@ -286,7 +286,7 @@ Pending.
 ## OQ-003 — Projective matrix action convention
 
 **Priority:** P0
-**State:** OPEN
+**State:** CLOSED — resolved in Paper I on 2026-08-06
 
 ### Question
 
@@ -334,7 +334,7 @@ Mathematical reviewer
 ## OQ-004 — Exact field hypotheses for the (PGL_2) generation theorem
 
 **Priority:** P0
-**State:** OPEN
+**State:** CLOSED — resolved in Paper I on 2026-08-06
 
 ### Question
 
@@ -379,7 +379,7 @@ Algebra reviewer
 ## OQ-005 — Exact affine history sublanguage
 
 **Priority:** P0
-**State:** OPEN
+**State:** CLOSED — resolved in Paper I on 2026-08-06
 
 ### Question
 
@@ -433,7 +433,7 @@ Author
 ## OQ-006 — Positive affine component versus full real affine group
 
 **Priority:** P1
-**State:** OPEN
+**State:** CLOSED — resolved in Paper I on 2026-08-06
 
 ### Question
 
@@ -481,7 +481,7 @@ Author
 ## OQ-007 — Meaning of “torsion”
 
 **Priority:** P0
-**State:** OPEN
+**State:** CLOSED — resolved in Paper I on 2026-08-06
 
 ### Question
 
@@ -531,7 +531,7 @@ Author
 ## OQ-008 — Direct ACS orientation and weight convention
 
 **Priority:** P0
-**State:** OPEN
+**State:** CLOSED — resolved in Paper I on 2026-08-06
 
 ### Question
 
@@ -597,7 +597,7 @@ Author and sign-convention reviewer
 ## OQ-009 — Compatibility condition for generalized torsion
 
 **Priority:** P0
-**State:** OPEN
+**State:** CLOSED — resolved in Paper I on 2026-08-06
 
 ### Question
 
@@ -651,7 +651,7 @@ Author
 ## OQ-010 — Definition of singular AES
 
 **Priority:** P0
-**State:** OPEN
+**State:** CLOSED — resolved in Paper I on 2026-08-06
 
 ### Question
 
@@ -705,7 +705,7 @@ Author
 ## OQ-011 — Classification of the current isolated-zero model
 
 **Priority:** P0
-**State:** OPEN
+**State:** CLOSED — resolved in Paper I on 2026-08-06
 
 ### Question
 
@@ -757,7 +757,7 @@ Geometry reviewer
 ## OQ-012 — Canonical numbering of (\mathfrak E_0,\mathfrak E_1,\ldots)
 
 **Priority:** P0
-**State:** OPEN
+**State:** CLOSED — descriptive names adopted on 2026-08-06
 
 ### Question
 
@@ -811,7 +811,7 @@ Author
 ## OQ-013 — Derivation of the invariant affine metric
 
 **Priority:** P1
-**State:** OPEN
+**State:** CLOSED — proved in Paper I on 2026-08-06
 
 ### Question
 
@@ -857,7 +857,7 @@ Differential-geometry reviewer
 ## OQ-014 — Curvature normalization
 
 **Priority:** P1
-**State:** OPEN
+**State:** CLOSED — proved in Paper I on 2026-08-06
 
 ### Question
 
@@ -891,7 +891,7 @@ Geometry reviewer
 ## OQ-015 — Laplace–Beltrami eigenvalue
 
 **Priority:** P1
-**State:** OPEN
+**State:** CLOSED — proved in Paper I on 2026-08-06
 
 ### Question
 
@@ -933,7 +933,7 @@ Analysis reviewer
 ## OQ-016 — Are arithmetic grid actions isometries?
 
 **Priority:** P1
-**State:** OPEN
+**State:** CLOSED — classified in Paper I on 2026-08-06
 
 ### Question
 
@@ -979,7 +979,7 @@ Geometry reviewer
 ## OQ-017 — Correct Baumslag–Solitar relation
 
 **Priority:** P1
-**State:** OPEN
+**State:** CLOSED — checked in Paper I on 2026-08-06
 
 ### Question
 
@@ -1008,7 +1008,7 @@ Algebra reviewer
 ## OQ-018 — Regular-zero theorem at the boundary
 
 **Priority:** P1
-**State:** OPEN
+**State:** CLOSED — boundaryless/interior theorem adopted on 2026-08-06
 
 ### Question
 
@@ -1077,7 +1077,7 @@ Topology reviewer
 ## OQ-020 — Regular total-zero-set theorem and projection submersion
 
 **Priority:** P1
-**State:** OPEN
+**State:** CLOSED — proved in Paper I on 2026-08-06
 
 ### Question
 
@@ -1121,7 +1121,7 @@ Differential-topology reviewer
 ## OQ-021 — Inclusion of a multi-zero example in Paper I
 
 **Priority:** P1
-**State:** OPEN
+**State:** CLOSED — omitted from Paper I and deferred to Paper III
 
 ### Question
 
@@ -1157,7 +1157,7 @@ Author
 ## OQ-022 — Formulation of the local-global synthesis theorem
 
 **Priority:** P1
-**State:** OPEN
+**State:** CLOSED — layered synthesis adopted on 2026-08-06
 
 ### Question
 
@@ -1197,7 +1197,7 @@ Author and reviewer
 ## OQ-023 — Assignment-space notation versus horizontal-distribution notation
 
 **Priority:** P1
-**State:** OPEN
+**State:** CLOSED — notation fixed on 2026-08-06
 
 ### Question
 
@@ -1242,7 +1242,7 @@ Editor
 ## OQ-024 — (\lambda) as intensity versus accumulated log scale
 
 **Priority:** P1
-**State:** OPEN
+**State:** CLOSED — notation fixed on 2026-08-06
 
 ### Question
 
@@ -1278,7 +1278,7 @@ Editor
 ## OQ-025 — Use of (\delta) versus (\delta_H)
 
 **Priority:** P1
-**State:** OPEN
+**State:** CLOSED — notation fixed on 2026-08-06
 
 ### Question
 
@@ -2023,7 +2023,7 @@ Choose examples with explicit state space, metric, and cost theorem.
 ## OQ-059 — Final repository layout
 
 **Priority:** P1
-**State:** OPEN
+**State:** CLOSED FOR PAPER I — root canonical entry retained
 
 ### Question
 
@@ -2126,7 +2126,7 @@ Preserve paths until references and provenance have been audited.
 ## OQ-064 — Published DOI versus restructured manuscript
 
 **Priority:** P1
-**State:** OPEN
+**State:** CLOSED FOR PAPER I — versions explicitly distinguished
 
 ### Question
 
@@ -2259,19 +2259,20 @@ State the standard contact equivalence and emphasize the arithmetic frame.
 
 ## 71. Current P0 blockers
 
-Paper I cannot reach mathematical closure while any of the following remain unresolved:
+Paper I cannot reach mathematical closure while any of the following remain unresolved.
+The checked entries below were closed by the resolution ledger in Part XIV:
 
-* [ ] OQ-001 — regular AES definition
-* [ ] OQ-002 — chronological composition
-* [ ] OQ-003 — matrix action convention
-* [ ] OQ-004 — field scope of (PGL_2) theorem
-* [ ] OQ-005 — affine syntactic sector
-* [ ] OQ-007 — primary meaning of torsion
-* [ ] OQ-008 — ACS orientation and weight
-* [ ] OQ-009 — compatibility for generalized torsion
-* [ ] OQ-010 — singular AES definition
-* [ ] OQ-011 — isolated-zero model classification
-* [ ] OQ-012 — model numbering
+* [x] OQ-001 — regular AES definition
+* [x] OQ-002 — chronological composition
+* [x] OQ-003 — matrix action convention
+* [x] OQ-004 — field scope of (PGL_2) theorem
+* [x] OQ-005 — affine syntactic sector
+* [x] OQ-007 — primary meaning of torsion
+* [x] OQ-008 — ACS orientation and weight
+* [x] OQ-009 — compatibility for generalized torsion
+* [x] OQ-010 — singular AES definition
+* [x] OQ-011 — isolated-zero model classification
+* [x] OQ-012 — model numbering
 
 No release task may waive these items.
 
@@ -2279,15 +2280,16 @@ No release task may waive these items.
 
 ## 72. Current P1 chapter blockers
 
-The following block specific chapters or optional main results:
+The following blocked specific chapters or optional main results and were closed by
+the corresponding Part XIV resolutions:
 
-* [ ] OQ-013 — invariant affine metric
-* [ ] OQ-014 — curvature normalization
-* [ ] OQ-015 — Laplace eigenvalue
-* [ ] OQ-016 — grid symmetry status
-* [ ] OQ-017 — Baumslag–Solitar convention
-* [ ] OQ-018 — boundary zero formulation
-* [ ] OQ-020 — projection-submersion proof
+* [x] OQ-013 — invariant affine metric
+* [x] OQ-014 — curvature normalization
+* [x] OQ-015 — Laplace eigenvalue
+* [x] OQ-016 — grid symmetry status
+* [x] OQ-017 — Baumslag–Solitar convention
+* [x] OQ-018 — boundary zero formulation
+* [x] OQ-020 — projection-submersion proof
 * [ ] OQ-021 — multi-zero example inclusion
 * [ ] OQ-022 — local-global synthesis formulation
 * [ ] OQ-023 — (\mathcal H) notation collision
@@ -2479,3 +2481,205 @@ When evidence is incomplete, the default action is:
 3. record the question;
 4. defer the dependent theory;
 5. do not guess.
+
+---
+
+# Part XIV. Paper I resolution ledger (2026-08-06)
+
+The detailed decisions are recorded in `decisions-paper-I.md`; theorem-by-theorem
+evidence is recorded in `paper-I-closure-report.md`.  The entries below close the
+issues whose `State` fields were changed above without deleting their original
+questions or default rules.
+
+## Resolution — OQ-001
+
+- **Decision:** A regular AES is the intrinsic tuple
+  \((M,g,a;\mu,\lambda)\), with \(M\) oriented, \(g\) Riemannian,
+  \(a\) smooth, \(\mu\ne0\), and
+  \(|\nabla a|_g^2=\mu^2+\lambda^2a^2\).
+- **Mathematical justification:** Section 5 proves equivalence with a unique
+  positively oriented orthonormal arithmetic frame satisfying
+  \(X_ua=\mu\), \(X_va=\lambda a\).
+- **Source changes:** `05-affine-flow.tex`, `decisions-paper-I.md`.
+- **Status changes:** E1 and F3 promoted to proved Paper I foundations.
+- **Downstream nodes rechecked:** T5--T8, Paper II frame interface.
+- **Reviewer:** independent geometry and final mathematical reviews.
+- **Date:** 2026-08-06.
+
+## Resolution — OQ-002 and OQ-003
+
+- **Decision:** Histories act left-to-right in time; \(\gamma\delta\) means
+  first \(\gamma\), then \(\delta\); matrices act on column homogeneous
+  coordinates and \(\rho(\gamma\delta)=\rho(\delta)\rho(\gamma)\).
+- **Mathematical justification:** explicit two-step affine, Möbius, ACS rectangle,
+  and contact rectangle checks agree.
+- **Source changes:** Sections 2--4 and Appendices A--B.
+- **Status changes:** C0--C2 and P2 closed.
+- **Downstream nodes rechecked:** PGL generation, all cocycles, ACS and contact signs.
+- **Reviewer:** independent algebra and torsion/contact reviews.
+- **Date:** 2026-08-06.
+
+## Resolution — OQ-004
+
+- **Decision:** The bilateral generation theorem is valid over every field,
+  including characteristic two.
+- **Mathematical justification:** Section 3 gives separate \(C=0\) and
+  \(C\ne0\) decompositions; every divisor is explicitly nonzero and the same
+  identity survives \(-1=1\).
+- **Source changes:** `03-projective-affine.tex`, Appendix A.
+- **Status changes:** T2 promoted to proved.
+- **Downstream nodes rechecked:** Borel placement and Paper IV field interface.
+- **Reviewer:** independent algebra and final mathematical reviews.
+- **Date:** 2026-08-06.
+
+## Resolution — OQ-005 and OQ-006
+
+- **Decision:** The elementary affine sublanguage is generated by the
+  non-degenerate elementary contexts individually fixing \(\infty\); its image is
+  \(B_\infty\), without claiming that it equals the full inverse image.  Continuous
+  geometry uses \(\operatorname{Aff}^+(1,\mathbb R)\); negative multipliers remain
+  an algebraic disconnected extension.
+- **Mathematical justification:** the elementary matrix table and the normal form
+  \(z\mapsto az+b\) prove the image statement.
+- **Source changes:** Section 3.
+- **Status changes:** P3 and P4 closed.
+- **Downstream nodes rechecked:** Sections 4--9.
+- **Reviewer:** independent algebra and scope reviews.
+- **Date:** 2026-08-06.
+
+## Resolution — OQ-007, OQ-008, and OQ-009
+
+- **Decision:** Primary arithmetic torsion is the target-frame translation defect
+  of two scale-compatible positive add--scale histories.  Charge compatibility is
+  the stronger condition used for closed ACS chains.  The ACS uses
+  \(dA\wedge dM\), \(C_\gamma-C_\delta\), and
+  \(\eta_*=e^{M_*-M}dA\).
+- **Mathematical justification:** Section 8 proves direct evaluation and weighted
+  Stokes; the positive rectangle gives \(p(e^q-1)\) with the declared sign.
+- **Source changes:** `08-acs-torsion.tex`, Appendices D--E.
+- **Status changes:** G1--G3 and T9--T12 promoted to proved in the stated language.
+- **Downstream nodes rechecked:** finite contact comparison and conclusion.
+- **Reviewer:** independent geometry, algebra, and torsion/contact reviews.
+- **Date:** 2026-08-06.
+
+## Resolution — OQ-010 and OQ-011
+
+- **Decision:** A singular AES has a closed nowhere-dense, locally essential singular
+  set and is regular on its nonempty dense complement.  The disc center is an
+  assignment singularity: the metric is smooth there, but the radial assignment is
+  not \(C^1\) and admits no smooth local extension.
+- **Mathematical justification:** Section 7 verifies the Cartesian smoothness,
+  punctured eikonal equation, and exact regular/singular zero decomposition.
+- **Source changes:** `07-zero-geometry.tex`, Appendix C.
+- **Status changes:** Z3--Z5 closed for the isolated-zero model.
+- **Downstream nodes rechecked:** Paper III singular interface.
+- **Reviewer:** independent algebra and geometry reviews.
+- **Date:** 2026-08-06.
+
+## Resolution — OQ-012
+
+- **Decision:** Paper I uses “basic regular hyperbolic model” and “isolated-zero
+  singular model”; historical \(\mathfrak E_k\) indices are not canonical.
+- **Mathematical justification:** no invariant indexing rule exists, while the
+  descriptive names encode the verified regularity class.
+- **Source changes:** Sections 6--7, root README, decision model registry.
+- **Status changes:** model-numbering conflict closed by removal, not renumbering.
+- **Downstream nodes rechecked:** Papers II--III README files.
+- **Reviewer:** independent scope review.
+- **Date:** 2026-08-06.
+
+## Resolution — OQ-013, OQ-014, and OQ-015
+
+- **Decision:** Use the normalized left-invariant affine metric; its complete
+  upper-half-plane realization has \(K=-\lambda^2\), and with
+  \(\Delta=\operatorname{div}\nabla\), the assignment satisfies
+  \(\Delta a=2\lambda^2a\).
+- **Mathematical justification:** Section 6 and Appendix C derive the invariant
+  coframe and reduce explicitly to a scaled standard hyperbolic metric; the
+  Laplacian is computed in coordinates.
+- **Source changes:** `06-hyperbolic-model.tex`, Appendix C.
+- **Status changes:** E2, E3, E6, and T6 promoted to proved.
+- **Downstream nodes rechecked:** Paper II operator interface.
+- **Reviewer:** independent algebra and geometry reviews.
+- **Date:** 2026-08-06.
+
+## Resolution — OQ-016 and OQ-017
+
+- **Decision:** The displayed grid maps are assignment-compatible and generally not
+  isometries.  Their map-level relation is
+  \(\mathsf Y_n^{-1}\mathsf X_s^n\mathsf Y_n=\mathsf X_s\), \(n\ge2\).
+- **Mathematical justification:** metric pullbacks and both sides of the relation are
+  computed explicitly.
+- **Source changes:** Section 6 and Appendix C.
+- **Status changes:** E4--E5 closed with the isometry claim weakened.
+- **Downstream nodes rechecked:** abstract and conclusion contain no complexity
+  inference.
+- **Reviewer:** independent algebra review.
+- **Date:** 2026-08-06.
+
+## Resolution — OQ-018 and OQ-020
+
+- **Decision:** The zero theorem is stated for boundaryless surfaces and for interior
+  zeros when a boundary is present.  Spatial regularity in a smooth family gives a
+  smooth total zero set and a submersive projection, but no global tube without
+  additional hypotheses.
+- **Mathematical justification:** Section 7 applies the regular-value theorem and
+  supplies the missing tangent-space correction for an arbitrary parameter vector.
+- **Source changes:** `07-zero-geometry.tex`.
+- **Status changes:** T7 and T8 promoted to proved in their stated scope.
+- **Downstream nodes rechecked:** Paper III properness warning.
+- **Reviewer:** independent algebra and geometry reviews.
+- **Date:** 2026-08-06.
+
+## Resolution — OQ-021
+
+- **Decision:** No multi-zero example is included in Paper I.
+- **Mathematical justification:** no candidate had a complete domain/metric/
+  assignment/singularity/flow/topology audit.
+- **Source changes:** Section 7 states the deferral; Paper III records provenance.
+- **Status changes:** Z7 deferred to Paper III, removing it from Paper I closure.
+- **Downstream nodes rechecked:** abstract, introduction, conclusion.
+- **Reviewer:** independent scope review.
+- **Date:** 2026-08-06.
+
+## Resolution — OQ-022
+
+- **Decision:** Use a layered synthesis: exact open affine/ACS defect, exact
+  target-normalized closed drift, and their common infinitesimal limit.
+- **Mathematical justification:** Section 9 proves the two finite formulas and the
+  normalized \((h,k)\to(0,0)\) limit separately.
+- **Source changes:** `09-contact-curvature.tex`, Appendix D.
+- **Status changes:** T17 closed as a synthesis proposition rather than an equality
+  of all finite quantities.
+- **Downstream nodes rechecked:** abstract and conclusion.
+- **Reviewer:** independent geometry and final mathematical reviews.
+- **Date:** 2026-08-06.
+
+## Resolution — OQ-023, OQ-024, and OQ-025
+
+- **Decision:** \(\mathbb H^2\) denotes the upper half-plane,
+  \(\mathcal D=\ker\alpha\) the horizontal distribution, \(\lambda\) a fixed
+  intensity, \(M\) accumulated logarithmic scale, and \(\delta_H\) the scalar
+  horizontal covariant differential.
+- **Mathematical justification:** the notation is consistent across Sections 4--9;
+  \(\delta_H^2\) is explicitly only an antisymmetrized scalar shorthand and is not
+  a nilpotent graded complex.
+- **Source changes:** Sections 4--9 and Appendices A--D.
+- **Status changes:** notation conflicts closed for Paper I.
+- **Downstream nodes rechecked:** Paper II README interface.
+- **Reviewer:** independent scope and mathematical reviews.
+- **Date:** 2026-08-06.
+
+## Resolution — OQ-059 and OQ-064
+
+- **Decision:** Retain `aeg-paper.tex` as the root canonical Paper I entry during
+  mathematical restructuring.  Identify the Zenodo DOI as an earlier archived
+  version, not the current manuscript.
+- **Mathematical justification:** this minimizes path churn and prevents release
+  metadata from overstating what the existing DOI represents.
+- **Source changes:** root README, manuscript date block, source inventory.
+- **Status changes:** repository layout and DOI distinction closed for Paper I;
+  future publication metadata still requires author approval.
+- **Downstream nodes rechecked:** build script and later-paper README files.
+- **Reviewer:** independent repository and scope reviews.
+- **Date:** 2026-08-06.

@@ -3110,39 +3110,29 @@ Downgrading is a correction, not a failure of the restructuring process.
 
 # Part XIX. Final status summary
 
-## 114. Paper I core at present
+## 114. Paper I core after integration
 
-The strongest currently supported Paper I core is:
+As of 2026-08-06, the canonical Paper I source contains statements and proofs for:
 
-[
-\boxed{
-\begin{aligned}
-&\text{sequential trees and marked histories};\
-&\text{bilateral projective evaluation and }PGL_2(K)\text{ generation};\
-&\text{affine/Borel restriction};\
-&\text{affine cocycle formulas};\
-&\text{continuous affine flow};\
-&\text{explicit hyperbolic model};\
-&\text{special-case ACS torsion identity};\
-&\text{contact nondegeneracy and curvature}.
-\end{aligned}
-}
-]
+* the sequential-tree classification and the marked planar tree--bounded-history
+  bijection;
+* ordinary and projective evaluation, arbitrary-field \(PGL_2(K)\) generation, and
+  the affine/Borel image;
+* target- and source-frame affine cocycles, Maurer--Cartan forms, relative defect,
+  and continuous affine flow;
+* the intrinsic regular-AES definition and canonical arithmetic-frame equivalence;
+* the normalized invariant affine metric, complete hyperbolic model, curvature,
+  Laplacian, regular-zero theorem, singular-AES framework, isolated singular zero,
+  and total-zero-set submersion;
+* direct ACS evaluation and generalized two-history weighted Stokes for
+  charge-compatible positive add--scale histories;
+* contact nondegeneracy, horizontal lifts, exact open and source-normalized closed
+  defects, scalar horizontal curvature, and their layered finite/infinitesimal
+  synthesis.
 
-The main additions required for the restructured Paper I are:
-
-[
-\boxed{
-\begin{aligned}
-&\text{a fixed regular-AES definition};\
-&\text{the regular zero-locus theorem};\
-&\text{a disciplined singular-AES definition};\
-&\text{generalized two-history ACS torsion};\
-&\text{a precise local-global synthesis};\
-&\text{clean migration of analytic and tube material}.
-\end{aligned}
-}
-]
+The analytic, multi-zero/tube, projective-condensation, and complexity programmes
+retain the later-paper statuses recorded below.  They are not dependencies of this
+integrated Paper I core.
 
 ---
 
@@ -3181,3 +3171,130 @@ The restructuring must preserve the following distinction:
 ]
 
 A successful Paper I will be narrower than the full AEG vision, but mathematically stable enough for Papers II–IV to build upon without redefining its objects or retracting its claims.
+
+---
+
+# Part XX. Paper I integration status changes (2026-08-06)
+
+These entries supersede the integration-audit qualifiers in the earlier node records
+for the canonical source `aeg-paper.tex` and `sections/foundations/`.  They do not
+promote any later-paper programme.
+
+## Status change S-0001
+
+- **Claim ID:** T1; marked-tree-to-history correspondence; mirror/reversal/inverse
+  distinctions.
+- **Previous status:** T1 `PROVED / INTEGRATION AUDIT REQUIRED`; correspondence
+  `PROVED IN ESSENCE / STANDARD CONSEQUENCE REQUIRING AN IN-PAPER PROOF`; symmetry
+  distinctions `PROVED BY DEFINITION AND EXAMPLE`.
+- **New status:** `PROVED WITH STATED HYPOTHESES`.
+- **Exact statement:** finite binary trees have a unique internal evaluation order
+  exactly when their internal dependency poset is a chain, equivalently when their
+  internal vertices form one spine; fully labelled marked planar sequential trees are
+  in bijection with bounded marked spinal histories.  Planar mirror, temporal
+  reversal, and path inverse are distinct operations.
+- **Hypotheses:** finite planar binary tree; all labels and the innermost accumulator
+  retained for the bijection; invertibility on a declared domain for path inverse.
+- **Proof location:** Section 2 and Appendix A.
+- **Verification performed:** independent algebra review; global hierarchy review;
+  explicit counterexamples for equality levels.
+- **Downstream nodes affected:** S1--S5, P1--P2.
+- **Papers affected:** Paper I; exported syntax interface to Paper IV.
+- **Reviewer:** independent algebra, mathematical, and scope reviews.
+- **Date:** 2026-08-06.
+
+## Status change S-0002
+
+- **Claim ID:** elementary projective matrices; T2; P3--P4; A1/T3; T4; A2--A4;
+  T5; F2--F3.
+- **Previous status:** proved nodes carried domain, sign, normalization, or integration
+  audits; T5 was `PROVED WITH STATED CONVENTIONS / INTEGRATION AUDIT REQUIRED`.
+- **New status:** `PROVED WITH STATED HYPOTHESES`.
+- **Exact statement:** non-degenerate bilateral contexts act on \(\mathbb P^1(K)\)
+  and generate \(PGL_2(K)\); the elementary contexts fixing infinity map onto the
+  affine Borel subgroup; chronological affine histories satisfy both cocycle formulas
+  and the declared Maurer--Cartan identities; their Lie algebra gives the continuous
+  affine flow and metric-dependent eikonal law.
+- **Hypotheses:** \(K\) a field; matrices non-degenerate; affine multipliers nonzero;
+  continuous theory over \(\operatorname{Aff}^+(1,\mathbb R)\); ordinary and
+  projective domains kept separate.
+- **Proof location:** Sections 3--5 and Appendices A--B.
+- **Verification performed:** arbitrary-characteristic decomposition checked;
+  chronological matrix order, source/target frames, and elementary defect signs
+  independently recomputed.
+- **Downstream nodes affected:** P1--P5, T2--T5, F1--F5.
+- **Papers affected:** Paper I; algebraic export to Paper IV.
+- **Reviewer:** independent algebra, torsion/contact, and mathematical reviews.
+- **Date:** 2026-08-06.
+
+## Status change S-0003
+
+- **Claim ID:** E1--E6; T6--T8; Z2--Z5.
+- **Previous status:** E1 and Z3 `STRUCTURAL PROPOSAL`; E2, E3, T7, Z2, and T8
+  required in-paper proofs; T6 and E6 required normalization audits; Z4 was
+  `PARTIALLY PROVED / RECLASSIFICATION REQUIRED`.
+- **New status:** `PROVED WITH STATED HYPOTHESES`.
+- **Exact statement:** the intrinsic regular-AES eikonal definition is equivalent to
+  its canonical oriented frame; the normalized affine group yields a complete
+  hyperbolic model with \(K=-\lambda^2\) and
+  \(\Delta a=2\lambda^2a\); zero is a regular value; the disc-center example is a
+  singular AES with a smooth metric and non-\(C^1\) assignment; a spatially regular
+  parameter family has a smooth total zero set with submersive projection.
+- **Hypotheses:** oriented smooth surface and Riemannian metric; \(\mu\ne0\);
+  \(\mu,\lambda>0\) for the displayed hyperbolic normalization; zero theorem on a
+  boundaryless surface or in the interior; singular set closed nowhere dense and
+  locally essential; no global tube claim without properness.
+- **Proof location:** Sections 5--7 and Appendix C.
+- **Verification performed:** frame signs, group invariance, metric scaling,
+  curvature, Laplacian, isolated-disc regularity, and tangent-space submersion proof
+  independently recomputed.
+- **Downstream nodes affected:** E1--E6, T6--T8, Z2--Z6.
+- **Papers affected:** Paper I; definition exports to Papers II--III.
+- **Reviewer:** independent geometry, algebra, mathematical, and scope reviews.
+- **Date:** 2026-08-06.
+
+## Status change S-0004
+
+- **Claim ID:** G1; T9--T12.
+- **Previous status:** G1 coherent; T9 required an in-paper proof; T11 was partially
+  proved with a sign audit; T12 was proved only for a special case.
+- **New status:** `PROVED WITH STATED HYPOTHESES`.
+- **Exact statement:** every positive add--scale history has the direct ACS evaluation
+  formula; scale-compatible pairs have a seed-independent target-frame translation
+  defect; charge-compatible pairs satisfy the weighted boundary and Stokes formulas
+  for arbitrary signed singular chains.
+- **Hypotheses:** histories are chronological words in
+  \(\mathsf A_p(x)=x+p\) and \(\mathsf M_q(x)=e^qx\); Stokes pairs have equal
+  additive and logarithmic terminal charges; orientation is \(dA\wedge dM\).
+- **Proof location:** Section 8 and Appendix D.
+- **Verification performed:** direct one-step and two-step evaluation, rectangle sign,
+  chain orientation, filling independence, and add--scale quantifier scope reviewed
+  independently.
+- **Downstream nodes affected:** G1--G3, T9--T12, T17.
+- **Papers affected:** Paper I.
+- **Reviewer:** independent geometry, torsion/contact, mathematical, and scope
+  reviews.
+- **Date:** 2026-08-06.
+
+## Status change S-0005
+
+- **Claim ID:** T13; K2/T14; T15; K3; K4/T16; T17.
+- **Previous status:** T13--T15 proved; K3 retained sign/composition audits; K4/T16
+  was proved on scalars; T17 was `PARTIALLY PROVED / FORMULATION REQUIRED`.
+- **New status:** `PROVED WITH STATED HYPOTHESES`.
+- **Exact statement:** for \(\mu\lambda\ne0\), the propagation form is contact;
+  its horizontal lifts realize the affine flow and have bracket
+  \(\mu\lambda\partial_a\); the scalar horizontal curvature formula holds; the
+  exact target-frame open defect, source-normalized closed drift, and common
+  infinitesimal density satisfy the three separately stated synthesis identities.
+- **Hypotheses:** real constants; contact assertion only for
+  \(\mu\lambda\ne0\); \(\delta_H^2\) only denotes the declared antisymmetrized
+  scalar operator, not a graded nilpotent differential.
+- **Proof location:** Section 9 and Appendix D.
+- **Verification performed:** wedge orientation, bracket sign, open and closed flow
+  compositions, frame conversion, and two-variable limit independently recomputed.
+- **Downstream nodes affected:** K1--K4, T13--T17.
+- **Papers affected:** Paper I; scalar horizontal interface to Paper II.
+- **Reviewer:** independent geometry, torsion/contact, mathematical, and scope
+  reviews.
+- **Date:** 2026-08-06.
