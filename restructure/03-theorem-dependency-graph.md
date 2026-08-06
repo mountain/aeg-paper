@@ -3378,6 +3378,14 @@ P3-R2  arithmetic/geometric irreducibility separation
 P3-R3  history-to-divisor naturality [RESTRICTED MODEL PROVED; GENERAL OPEN]
 P3-R4  quadratic supplied-register divisor, collapse kernel, and Frobenius
 P3-R5  quartic arithmetic/geometric splitting and Frobenius test
+
+P3-H1  polynomial carrier and intrinsic root thread
+P3-H2  quadratic threaded-carrier topology and torus-link thread
+P3-H3  discriminant--framing--braid--Euler identity
+P3-H4  q=4 marked peripheral toric binomial
+P3-H5  q=4 logarithmic-tangent weighted cone and cusp link
+P3-H6  supplied four-strand braid-center and LHS-transgression calibration
+P3-H7  unrestricted history-to-coefficient-path naturality [OPEN]
 ```
 
 The new dependency edges are:
@@ -3404,6 +3412,15 @@ P1-H2 + supplied quadratic register -> P3-R4
 P3-R1 + supplied quartic registers -> P3-R5
 P3-R4 -. restricted naturality evidence .-> P3-R3
 P3-R5 -. finite arithmetic test .-> P3-R3
+
+P2-A3 -> P3-H1 -> P3-H2
+P3-H1 -> P3-H3
+P3-K2 -> P3-H4 -> P3-H5
+P3-K1 -> P3-H5
+P1-H2 + braid-center input -> P3-H6
+P3-H4 -. marked toric evidence .-> P3-H7
+P3-H5 -. logarithmic-cone evidence .-> P3-H7
+P3-H6 -. extension-class evidence .-> P3-H7
 ```
 
 The dotted edges do not authorize a theorem.  In particular, `P3-R3` is not a

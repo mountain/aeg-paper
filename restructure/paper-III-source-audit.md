@@ -425,3 +425,32 @@ background.  The typed registers are newly supplied inputs; the historical scan
 found no source assigning these covers canonically to AEG histories.  Consequently
 the general naturality functor and any knot decoration descended from it retain
 their open status.
+
+## 16. Polynomial threaded-carrier addendum
+
+The file `sections/05-polynomial-threaded-carriers.tex` is a new 2026-08-06
+derivation.  The historical repository scan found no source for the family
+`Im(z^2-t^m)=0`, its carrier topology, or the horizontal identity proved there.
+The following claims are therefore `REDERIVED HERE` from their displayed
+equations:
+
+- smoothness, neatness, four boundary components, `2m` Morse saddles, Euler
+  characteristic `-2m`, and genus `m-1` of the carrier;
+- the singular-AES slice metric and `4 pi` cone completion;
+- the intrinsic root thread, braid `sigma_1^m`, and closure `T(2,m)`;
+- equality of discriminant order and period, braid exponent, negative carrier
+  framing, and negative half Euler characteristic;
+- the q=4 peripheral binomial from the marked cover lattice, deck action, and
+  cusp slope;
+- the weighted logarithmic-tangent cone and its arithmetic quadratic-twist
+  boundary;
+- the supplied four-strand pullback of the braid-center extension, its integral
+  relation character, and its LHS transgression/normalized period.
+
+The configuration-space, Garside, torus-link, group-cohomology, and
+weighted-projective background is standard; the manuscript either cites it or
+includes the needed calculation.  No historical source makes the radial carrier,
+the split arithmetic descent, or the four-root coefficient paths canonical.
+Those choices are not promoted to a general AEG history functor, the new relation
+character is not identified with Paper I affine torsion, and the two- and
+four-strand torus links are not identified with one another.

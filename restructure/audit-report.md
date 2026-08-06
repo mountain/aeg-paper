@@ -278,3 +278,33 @@ were also rendered.  No visual defect was found.  Independent mathematical red-t
 review reports zero blocking and zero major findings.  The remaining general
 history-to-divisor functor, marked-history knot enhancement, and new knot invariant
 are explicitly open.
+
+## 11. M-0007 polynomial threaded-carrier integration evidence
+
+Migration M-0007 adds one canonical Paper III section and the shared Brown
+group-cohomology reference.  The final repository build used `./build.sh all`,
+with `pdflatex`, BibTeX, and three resolving `pdflatex` passes per paper.
+
+| Paper | Pages | File size | SHA-256 | Canonical TeX | Unique labels | Unique refs | Unique citations |
+|---|---:|---:|---|---:|---:|---:|---:|
+| I | 63 | 604,948 bytes | `c777fc655c185535e9078cc16a0f18e526eeb241f6cc5d663b38b0c3d1fc011c` | 16 | 177 | 88 | 6 |
+| II | 44 | 497,273 bytes | `887ab9a1819d671bb53d313276346e4f93572055641e70fc892fd2184626e22f` | 13 | 227 | 97 | 4 |
+| III | 69 | 704,239 bytes | `f094bc5e70739fc0144fcefff78a877f03d420f39f2475be12aed6d938a9dd9e` | 16 | 266 | 144 | 20 |
+
+Every reference target and citation key exists; every label is unique within its
+paper.  All three final LaTeX and BibTeX logs are free of warnings, undefined
+references or citations, overfull or underfull boxes, and fatal diagnostics.  The
+PDFs are US letter, PDF 1.5, with embedded fonts.  `bash -n build.sh` and
+`git diff --check` pass.
+
+All 69 Paper III pages were rendered after the final source repair and reviewed in
+contact sheets.  Enlarged inspection covered the abstract, every page of the new
+threaded-carrier section, the q=4 logarithmic-tangent cone, four-strand pullback and
+LHS transgression proofs, conclusion, bibliography, and claim ledger.  No clipping,
+collision, blank content page, broken glyph, or unreadable element was found.
+Independent carrier, exact-sequence, q=4 naturality, and claim-boundary reviews
+report zero blocking and zero major mathematical findings after repair.
+
+The proved result is a supplied polynomial/history calibration.  General typed
+history-to-coefficient-path naturality, identification with Paper I affine torsion,
+Markov descent, and a new knot invariant remain explicitly open.

@@ -329,3 +329,58 @@ closure.
   I--III contain 63, 44, and 58 pages.  Their final sizes, SHA-256 values, label,
   reference, and citation counts, clean-log evidence, and visual audit are recorded
   in `audit-report.md` Section 10 and in the M-0006 closure amendments.
+
+## Migration M-0007
+
+- **Date:** 2026-08-06
+- **Name:** polynomial relations across slices and threaded carriers
+- **Source:** the user-specified tube intuition; the active q=4 sign-cover lattice
+  and cusp-slope calculation; the supplied family `P_m(z,t)=z^2-t^m`; Paper III's
+  existing singular-AES, relative-divisor, finite-root, and braid interfaces; and
+  independent carrier, exact-sequence, q4 naturality, and mathematical red-team
+  calculations
+- **Active manuscript destinations:** new
+  `paper-3/sections/05-polynomial-threaded-carriers.tex`; Paper III entry point,
+  abstract, introduction, conclusion, README, and generated PDF; root README
+- **Governance destinations:** `00-authoritative-scope.md`,
+  `05-mathematical-status.md`, `07-acceptance-checklist.md`,
+  `08-open-questions.md`, `decisions-paper-III.md`, `source-inventory.md`, this
+  migration log, audit report, and Paper III closure amendment
+- **Migration state:** PROVED EXPLICIT HORIZONTAL MODEL / MARKED TORIC q=4
+  SPECIALIZATION / OPEN HISTORY-NATURAL LIFT
+- **Carrier treatment:** `Im(P_m)=0` is a compact connected neat smooth incidence
+  with four boundary circles and `2m` circle-valued Morse saddles; it has genus
+  `m-1` and singular-AES slice metrics.  It is not called a proper zero tube.
+- **Thread treatment:** `P_m=0` is an embedded finite root thread with braid
+  `sigma_1^m` and closure `T(2,m)`.  Its arithmetic prime components, geometric
+  components, and link components agree in this family, but the embedded braid
+  retains the full integer `m` beyond the permutation parity.
+- **Horizontal identity:** discriminant order, logarithmic period, braid exponent,
+  carrier-framing period, and negative half Euler characteristic agree.  At
+  `m=4`, the pure-braid coordinate and mutual linking number are two although the
+  polynomial splits and its sheet permutation is trivial.
+- **q=4 treatment:** the ordered filling meridians, index-two lattice, deck
+  translation, and cusp slope derive the two-coset toric divisor `u^2=t^4` up to
+  toric gauge.  The compactified marked sign cover further recovers the binomial
+  as its logarithmic-tangent cusp section and realizes its link in the weighted
+  Hopf circle bundle.  Arithmetic quadratic descent and radial extension to the
+  genus-three carrier remain separate declared choices.
+- **Extension calibration:** supplied four-root Garside and rotation paths pull the
+  braid-center extension back to the q=4 unit-tangent extension; their common
+  full-twist residue and normalized discriminant period are proved.  The induced
+  invariant kernel character has LHS transgression equal to the unit-tangent Euler
+  extension class, but is not Paper I affine torsion and has no history-natural
+  origin yet.
+- **Boundary:** the pure-braid exact sequence is not the unit-tangent central
+  extension, no Paper I torsion transgression is claimed, and the neutral history
+  `omega_4` remains the hard coefficient-path naturality test.
+- **Theorem nodes affected:** P3-H1--P3-H7; OQ-072 receives a marked peripheral
+  refinement; OQ-073 and OQ-076 remain open; OQ-077 records the mixed
+  slice--tube naturality problem.
+- **Content removed from source:** none
+- **Unified build result:** Papers I--III build cleanly at 63, 44, and 69 pages.
+  The final Paper III artifact is 704,239 bytes with SHA-256
+  `f094bc5e70739fc0144fcefff78a877f03d420f39f2475be12aed6d938a9dd9e`;
+  static, mathematical, and all-page visual audits report no blocking or major
+  finding after repair.  Full unified evidence is recorded in `audit-report.md`
+  and `paper-III-closure-report.md`.
