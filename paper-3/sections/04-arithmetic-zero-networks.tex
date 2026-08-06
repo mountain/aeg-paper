@@ -1,0 +1,466 @@
+\subsection{The projective arithmetic source}
+
+Paper I separates literal histories from their induced projective operators.  That
+distinction is decisive here.  Over
+\[
+ K_4=\Q(\sqrt2)
+\]
+the bilateral projective history language contains the two operators
+\begin{equation}
+ \mathsf T(\tau)=\tau+\sqrt2,
+ \qquad
+ \mathsf J(\tau)=-\frac1\tau,
+ \label{eq:q4-projective-generators}
+\end{equation}
+represented by
+\[
+ T=\begin{pmatrix}1&\sqrt2\\0&1\end{pmatrix},
+ \qquad
+ J=\begin{pmatrix}0&-1\\1&0\end{pmatrix}.
+\]
+Projective evaluation therefore contains the operator subgroup
+\begin{equation}
+ \Gamma_4=\langle J,T\rangle<\operatorname{PSL}_2(\R),
+ \qquad J^2=(JT)^4=1.
+ \label{eq:q4-hecke-group}
+\end{equation}
+It is the Hecke triangle group of signature $(2,4,\infty)$.  Its parabolic
+translation is $T$, and the elliptic generators have orders $2$ and $4$.
+The associated Hecke--Farey and continued-fraction paths are arithmetic paths in
+the operator quotient, not distinct merely because they have different word
+spellings \cite{Rosen1954ContinuedFractions,LangLang2016HeckeGroups}.
+
+Let
+\[
+ \beta:\HH\longrightarrow\mathbb P^1(\C)
+\]
+be the normalized $\Gamma_4$-invariant Hauptmodul.  We choose the normalization
+for which the order-$2$ elliptic orbit maps to $0$, the order-$4$ elliptic orbit
+maps to $1$, and the cusp orbit maps to $\infty$.  Thus
+\begin{equation}
+ \Gamma_4\backslash\HH^*\cong\mathbb P^1,
+ \qquad
+ (\mathcal E_2,\mathcal E_4,\mathcal C)
+ \longmapsto(0,1,\infty),
+ \label{eq:q4-hauptmodul-normalization}
+\end{equation}
+with finite ramification indices $2$ and $4$ at the elliptic orbits and a cusp over
+$\infty$.  The existence and normalization are standard for the triangle orbifold
+\cite{Beardon1983DiscreteGroups,DoranEtAl2013TriangleForms}.  If a cited convention
+interchanges the two finite branch values, we replace its Hauptmodul by $1-\beta$;
+this is the only renormalization being made.  In particular, in
+suitable local coordinates,
+\begin{align}
+ \beta(z)&=c_2z^2+O(z^3) &&\text{at }\mathcal E_2,\notag\\
+ 1-\beta(z)&=c_4z^4+O(z^5) &&\text{at }\mathcal E_4,
+ \label{eq:q4-elliptic-expansions}
+\end{align}
+where $c_2c_4\ne0$.  In a quotient cusp coordinate $q$, the Hauptmodul has a
+simple pole,
+\begin{equation}
+ \beta(q)=c_\infty q^{-1}+O(1),
+ \qquad c_\infty\ne0.
+ \label{eq:q4-cusp-expansion}
+\end{equation}
+
+\subsection{The Hecke--Hauptmodul singular AES}
+
+The interval $[0,1]$ is the edge between the two finite orbifold branch values.
+The next construction turns its full preimage into an exact AEG zero network.
+
+\begin{theorem}[$q=4$ Hecke zero network]
+\label{thm:q4-hecke-zero-network}
+Let $\beta$ have the normalization
+\eqref{eq:q4-hauptmodul-normalization}, fix $\mu\ne0$ and $\lambda\in\R$, and
+choose a meromorphic square root on $\HH$
+\begin{equation}
+ F^2=\frac{\beta}{1-\beta}.
+ \label{eq:q4-square-root}
+\end{equation}
+Define
+\begin{equation}
+ W=\frac{F-i}{F+i},
+ \qquad
+ s=\log|W|,
+ \label{eq:q4-cayley-coordinate}
+\end{equation}
+and
+\begin{equation}
+ a_4=
+ \begin{cases}
+ \dfrac{\mu}{\lambda}\sinh(\lambda s),&\lambda\ne0,\\[6pt]
+ \mu s,&\lambda=0,
+ \end{cases}
+ \qquad
+ g_4=\left|\frac{\dd W}{W}\right|^2
+ \quad\text{on }\HH\setminus\mathcal E_4.
+ \label{eq:q4-aeg-data}
+\end{equation}
+Then:
+\begin{enumerate}
+\item $(\HH,\mathcal E_4,g_4,a_4;\mu,\lambda)$ is a singular AES, and every
+point of $\mathcal E_4$ is locally essential;
+\item its total zero set is exactly
+\begin{equation}
+ Z(a_4)=\beta^{-1}([0,1]);
+ \label{eq:q4-zero-dessin}
+\end{equation}
+\item points of $\mathcal E_2$ are bivalent regular points of the zero set, while
+points of $\mathcal E_4$ are four-valent singular zeros; the metric completion at
+each latter point has cone angle $4\pi$;
+\item after suppressing the bivalent $\mathcal E_2$ vertices,
+$\beta^{-1}([0,1])$ is the $\{\infty,4\}$ Hecke zero network: every vertex has
+valence four and every face runs out to a parabolic cusp and has infinitely many
+sides;
+\item the punctured regular metric on $\HH\setminus\mathcal E_4$ is incomplete at
+$\mathcal E_4$, whose points are at finite distance.  Its upstairs completion adds
+$4\pi$ cone points.  The induced $\Gamma_4$-orbifold length metric, after those
+points are adjoined, is complete and has its cusp at infinite distance.  The
+underlying coarse quotient has angle $\pi$ at the image of an order-$4$ point;
+none of these statements is smooth geodesic completeness across a regular AES
+point.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+The divisor of $\beta/(1-\beta)$ on $\HH$ has zeros of order $2$ along
+$\mathcal E_2$ and poles of order $4$ along $\mathcal E_4$.  It is therefore
+even.  Since $\HH$ is simply connected, it admits the meromorphic square root
+\eqref{eq:q4-square-root}, unique up to sign.  The equation $F=\pm i$ would imply
+$F^2=-1=\beta/(1-\beta)$, which is impossible.  Hence the Cayley transform $W$
+extends holomorphically through the poles of $F$ and is a nowhere-zero finite
+holomorphic function on $\HH$.
+
+Away from $\mathcal E_4$, $\dd W$ is nonzero: $\beta$ has no ramification away
+from the two elliptic orbits, the square root cancels the order-$2$ ramification
+at $\mathcal E_2$, and the Cayley map has nonzero derivative.  Locally choose a
+logarithm $\zeta=\log W$.  Equations~\eqref{eq:q4-cayley-coordinate} and
+\eqref{eq:q4-aeg-data} become
+\[
+ s=\re\zeta,
+ \qquad g_4=|\dd\zeta|^2.
+\]
+Thus $|\nabla s|_{g_4}=1$.  If $\lambda\ne0$, then
+\[
+ \frac{\dd a_4}{\dd s}=\mu\cosh(\lambda s),
+ \qquad
+ |\nabla a_4|_{g_4}^2
+ =\mu^2\cosh^2(\lambda s)
+ =\mu^2+\lambda^2a_4^2.
+\]
+The calculation for $\lambda=0$ is immediate.
+
+The function of $s$ defining $a_4$ is odd and vanishes only at $s=0$.  Moreover,
+the Cayley transform carries $\mathbb P^1(\R)$ to the unit circle, so
+\begin{align*}
+ a_4=0
+ &\iff |W|=1
+ \iff F\in\mathbb P^1(\R)\\
+ &\iff \frac{\beta}{1-\beta}\in[0,\infty]
+ \iff \beta\in[0,1].
+\end{align*}
+This proves \eqref{eq:q4-zero-dessin}.
+
+At a point of $\mathcal E_2$, expansion
+\eqref{eq:q4-elliptic-expansions} gives $F=c z+O(z^2)$ and
+$W=-1+c'z+O(z^2)$ with $cc'\ne0$.  The zero set is therefore a smooth arc.
+At a point of $\mathcal E_4$, one has
+$F=c z^{-2}(1+O(z))$ and hence
+\[
+ W=1+c'z^2+O(z^3),
+ \qquad c'\ne0.
+\]
+Thus $\log W$ has local degree $2$.  Its real zero has four prongs, and the local
+metric is the pullback of $|\dd\zeta|^2$ by a degree-$2$ branch.  The cone-angle
+calculation in Theorem~\ref{thm:branched-pullback-zero-germ} gives $4\pi$.
+The assignment is critical there, so local essentiality follows from the same
+$|\nabla a|^2\ge\mu^2$ obstruction.
+
+The graph $\beta^{-1}([0,1])$ is the orbit of the finite edge in a
+$(2,4,\infty)$ triangle.  Four such edge germs meet at an order-$4$ vertex; an
+order-$2$ point merely subdivides an edge.  Suppressing those subdivisions gives
+the standard $\{\infty,4\}$ Hecke graph.  Its complementary regions are the
+parabolic cusp regions and have infinitely many boundary edges
+\cite{LangLang2016HeckeGroups}.
+
+Finally, Proposition~\ref{prop:q4-sign-descent} below shows that $g_4$ descends
+and that $\chi(T)=+1$ for the cusp stabilizer.  Thus $F$ and $W$ are single-valued
+in the quotient cusp coordinate $q$.  The cone calculation places every point of $\mathcal E_4$ at finite
+distance upstairs, with angle $4\pi$.  Dividing by its order-$4$ stabilizer gives
+angle $\pi$ on the underlying coarse quotient.  At a cusp,
+\eqref{eq:q4-cusp-expansion} gives
+\[
+ W=Cq^{\pm1}(1+O(q)),
+ \qquad
+ \frac{\dd W}{W}=\pm\frac{\dd q}{q}+O(\dd q).
+\]
+The radial integral $\int|\dd q|/|q|$ diverges.  The completed orbifold quotient
+has a compact core after cusp neighborhoods are removed, so adjoining the
+finite-distance singular orbit and retaining the infinite cusp end gives the
+asserted length-metric completeness.  The order-$2$ orbit is smooth upstairs but
+also has coarse quotient angle $\pi$ because of its isotropy; its bivalent zero
+germ distinguishes it from the order-$4$ singular orbit.
+\end{proof}
+
+\subsection{Sign-character descent}
+
+The square root in \eqref{eq:q4-square-root} is not $\Gamma_4$-invariant.  This
+is not an ambiguity to be hidden; it records a natural signed assignment.
+
+\begin{proposition}[Character-valued descent]
+\label{prop:q4-sign-descent}
+There is a nontrivial character
+\[
+ \chi:\Gamma_4\longrightarrow\{\pm1\}
+\]
+with
+\begin{equation}
+ \chi(J)=-1,
+ \qquad \chi(JT)=-1,
+ \qquad \chi(T)=+1,
+ \label{eq:q4-sign-character-values}
+\end{equation}
+such that
+\begin{equation}
+ F(\gamma\tau)=\chi(\gamma)F(\tau),
+ \quad
+ W(\gamma\tau)=
+ \begin{cases}W(\tau),&\chi(\gamma)=1,\\W(\tau)^{-1},&\chi(\gamma)=-1,
+ \end{cases}
+ \label{eq:q4-sign-action}
+\end{equation}
+and consequently
+\begin{equation}
+ \gamma^*g_4=g_4,
+ \qquad
+ a_4(\gamma\tau)=\chi(\gamma)a_4(\tau).
+ \label{eq:q4-sign-descent}
+\end{equation}
+Thus the metric and zero network descend to the triangle orbifold, while $a_4$
+descends as a section of the real line bundle associated with $\chi$.  It becomes
+an ordinary scalar assignment on the index-two cover associated with
+$\ker\chi$.
+\end{proposition}
+
+\begin{proof}
+Both $F\circ\gamma$ and $F$ square to the same meromorphic function.  Their ratio
+is therefore a constant in $\{\pm1\}$ on the connected surface $\HH$.  Composition
+makes that sign a character.  The order-$2$ stabilizer $J$ acts by $z\mapsto-z$
+in the local coordinate for which $F\sim z$, so $\chi(J)=-1$.  At the order-$4$
+orbit, $JT$ acts by $z\mapsto\pm iz$ while $F\sim cz^{-2}$, and hence
+$\chi(JT)=-1$.  Since $\chi(JT)=\chi(J)\chi(T)$, this gives $\chi(T)=+1$ and proves
+\eqref{eq:q4-sign-character-values}.  Substitution in the Cayley transform gives
+\eqref{eq:q4-sign-action}; logarithmic modulus then
+sends $s$ to $\chi(\gamma)s$.  The metric is unchanged and the odd assignment
+transforms by the same sign.
+\end{proof}
+
+This descent statement is one point at which the signed arithmetic history is
+strictly richer than the unlabelled zero set.  It also fixes the global status of
+the construction: on the orbifold the natural assignment is line-bundle valued,
+not a silently single-valued real function.
+
+\subsection{From zero histories to relative divisors}
+
+The Hecke model supplies an arithmetic source for a zero network, but the phrase
+``different paths to zero'' still has several inequivalent meanings.  We use the
+following audit hierarchy.
+
+\begin{center}
+\small
+\begin{tabular}{p{0.22\textwidth}p{0.67\textwidth}}
+\toprule
+Level & Equality being imposed \\
+\midrule
+raw word & literal equality of operation symbols and parentheses \\
+marked history & equality of the sequential tree, accumulator, and operand slots \\
+projective operator & equality after the Paper I evaluation map to
+$\operatorname{PGL}_2(K)$ \\
+endpoint & equality after applying an operator to a declared seed or parameter \\
+prime over $K$ & equality inside one irreducible component defined over
+the coefficient field $K$ \\
+geometric sheet & equality only after extension to $\overline K$ or along a local
+analytic branch \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The first four levels form successively coarser process data.  The last two are
+not further syntactic quotients: they are decompositions of the endpoint equation.
+Distinct operators can agree at one endpoint, while one $K$-irreducible component
+can split into several geometric sheets permuted by Galois or monodromy.
+
+Let $B$ be an integral parameter space over a characteristic-zero field $K$.  If
+a marked history $h$ and a chosen seed produce a nonzero rational endpoint function
+$\nu_h\in K(B)^\times$, define its codimension-one zero datum to be the zero part
+of the principal divisor $(\nu_h)$.  The exceptional case $\nu_h\equiv0$ is not a
+codimension-one divisor: the entire generic base is a zero condition and must be
+recorded separately.  Operator-equivalent histories give the same endpoint
+function, but the converse need not hold.  For a finite set $A$ of operator
+classes, one possible encoding on a common regular domain is
+\begin{equation}
+ P_A(b,z)=\prod_{[h]\in A}\bigl(z-\nu_h(b)\bigr).
+ \label{eq:finite-history-polynomial}
+\end{equation}
+The vanishing condition $P_A(b,0)=0$ records that at least one selected operator
+history reaches zero.  Formula~\eqref{eq:finite-history-polynomial} is useful but not
+canonical: it depends on the seed, the finite selection, multiplicities, and the
+chosen operator quotient.
+
+The following standard algebraic fact identifies the precise irreducible layer
+once a monic arithmetic polynomial encoding a declared finite history selection
+has been supplied.
+
+\begin{theorem}[Arithmetic and geometric zero components]
+\label{thm:relative-zero-divisor-decomposition}
+Let $R$ be a normal finitely generated domain over a characteristic-zero field
+$k$,
+let $B=\Spec R$, let $K=\operatorname{Frac}(R)$, and let
+\[
+ P(z)=z^n+c_1z^{n-1}+\cdots+c_n\in R[z]
+\]
+have nonzero discriminant.  Write
+\[
+ \mathcal D_P=V(P)\subset\mathbb A^1_B.
+\]
+Then:
+\begin{enumerate}
+\item $\mathcal D_P$ is an effective relative Cartier divisor, finite flat of
+degree $n$ over $B$;
+\item the distinct irreducible factorization
+\begin{equation}
+ P=\prod_{i=1}^r P_i\quad\text{in }K[z]
+ \label{eq:generic-history-factorization}
+\end{equation}
+is the unique decomposition of the generic zero divisor into $K$-prime
+components; their closures are the horizontal prime components of the associated
+Weil divisor on $\mathbb A^1_B$;
+\item over a separable closure $K^{\mathrm{sep}}$, the roots of each $P_i$ form
+one transitive $\Gal(K^{\mathrm{sep}}/K)$-orbit, although they may be several
+geometric sheets;
+\item on the open set
+$B^\circ=B\setminus V(\operatorname{disc}P)$, the map
+$\mathcal D_P^\circ\to B^\circ$ is finite \'etale.  If an embedding $k\hookrightarrow
+\C$ is fixed, set $B_\C^\circ=B^\circ\times_k\C$ and
+$\mathcal D_{P,\C}^\circ=\mathcal D_P^\circ\times_k\C$.  On each connected
+component of $(B_\C^\circ)^{\mathrm{an}}$, the analytic covering components of
+$(\mathcal D_{P,\C}^\circ)^{\mathrm{an}}$ are exactly the orbits of topological
+monodromy on one fiber.
+\item if $D_i$ denotes the horizontal prime closure belonging to $P_i$ and
+$\widetilde D_i$ its normalization, then $\widetilde D_i\to B$ is finite and its
+restriction over $B^\circ$ agrees with the corresponding finite \'etale covering
+component.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Because $P$ is monic, $R[z]/(P)$ is a free $R$-module with basis
+$1,z,\ldots,z^{n-1}$; hence the zero scheme is finite flat of degree $n$.
+The element $P$ is a non-zero-divisor in $R[z]$, so its vanishing defines an
+effective Cartier divisor.  Unique factorization in the principal ideal domain
+$K[z]$ gives \eqref{eq:generic-history-factorization}.  Taking closures of the
+generic prime divisors gives all horizontal codimension-one components; monicity
+precludes a vertical component.  Characteristic zero makes every $P_i$ separable,
+and irreducibility is equivalent to transitivity of the absolute Galois action on
+its roots.  After inverting the discriminant, $P$ and $P'$ generate the unit ideal
+in the finite algebra, which is the finite-\'etale criterion.  The monodromy
+assertion is the standard classification of covering components by their orbits.
+For item~(5), schemes of finite type over a field are excellent, so the
+normalization of each $D_i$ is finite.  Over $B^\circ$, the prime component is
+already normal because it is finite \'etale over the normal base; hence
+normalization changes nothing there
+\cite{Hartshorne1977AlgebraicGeometry,GrothendieckRaynaud1971SGA1}.
+\end{proof}
+
+The theorem makes ``irreducible paths to zero'' field-relative.  A $K$-prime
+component is an arithmetic unit of zero behavior; its geometric branches need not
+be individually defined over $K$.  The discriminant records finite collisions and
+ramification in this monic setting.  It does not detect the boundary, metric,
+domain, or nonproper escape mechanisms included in the structural discriminant of
+Section~\ref{sec:discriminants}.
+
+\begin{remark}[Arithmetic reduction interface]
+\label{rem:arithmetic-reduction-interface}
+Suppose in addition that the family is given by an integral model over a number
+ring.  Let $b$ be a closed point of the parameter base with finite residue field,
+lying away from the discriminant and every declared bad-reduction locus.  Then the
+degrees of the irreducible factors of the specialized polynomial $P_b$ are the
+cycle lengths of geometric Frobenius on the corresponding finite \'etale fiber.
+At a discriminant point, the local discriminant records failure of \'etaleness.
+After normalizing in a splitting field, inertia records the ramified part, while
+nonmaximality of an order or a bad integral presentation may contribute additional
+discriminant factors.
+Thus discriminant primes, inertia, and reduction factorization are genuinely
+arithmetic zero data, not merely another drawing of complex monodromy.  Using
+them for AEG histories still presupposes the functorial integral polynomial whose
+construction is posed below \cite{Neukirch1999AlgebraicNumberTheory}.
+\end{remark}
+
+\subsection{What is proved, and what remains a program}
+
+For the $q=4$ model, the arithmetic-to-geometric chain established in this paper
+is
+\begin{equation}
+ \frac{\text{projective arithmetic histories over }K_4}
+      {\text{operator equality}}
+ \supset \Gamma_4
+ \longrightarrow \beta^{-1}([0,1])
+ \longrightarrow (g_4,a_4).
+ \label{eq:q4-established-chain}
+\end{equation}
+If $e$ is one reference edge from an order-$2$ point to an order-$4$ point, the
+edges are translates $\gamma e$.  Equality of two edge labels is equality of the
+corresponding cosets of the edge stabilizer.  Four distinct incident cosets meet
+at an order-$4$ endpoint.  Raw words representing the same $\gamma$ have already
+been identified.  Thus the four prongs have an exact operator-coset meaning, but
+not yet a canonical prime-divisor meaning.
+
+\begin{remark}[Symmetry is not nonunique factorization]
+The matrices of $\Gamma_4$ are defined over $\Z[\sqrt2]$, which is
+norm-Euclidean and hence a unique factorization domain.  The arithmetic richness
+proved by Theorem~\ref{thm:q4-hecke-zero-network} comes from noncommuting
+projective operators, Hecke continued-fraction paths, and automorphic
+uniformization; it does not come from nonunique factorization of elements.  If
+``irreducible paths'' is intended specifically to mean inequivalent irreducible
+factorizations, one must pass to a number ring or order with nontrivial
+factorization theory, for example a nontrivial class group, and declare whether
+elements, ideals, units, and order are being quotiented.  That extension is not a
+claim of the present $q=4$ model.
+
+For completeness, norm-Euclideanity follows directly.  Given
+$x+y\sqrt2\in\Q(\sqrt2)$, choose $a,b\in\Z$ with
+$|x-a|,|y-b|\le1/2$.  Then
+\[
+ \left|N\bigl((x-a)+(y-b)\sqrt2\bigr)\right|
+ =\left|(x-a)^2-2(y-b)^2\right|\le\frac12<1.
+\]
+Applying this to a quotient gives Euclidean division by the absolute norm.
+\end{remark}
+
+\begin{problem}[History-to-divisor functor]
+\label{prob:history-to-divisor-functor}
+Construct a functorial rule
+\[
+ \mathfrak H\longmapsto
+ (B_{\mathfrak H},P_{\mathfrak H},\mathcal D_{\mathfrak H})
+\]
+from a declared category of marked arithmetic histories to parameter spaces,
+history polynomials, and relative zero divisors, satisfying all of the following:
+\begin{enumerate}
+\item marked-history equivalences and operator equalities act by specified
+isomorphisms rather than by accidental duplicate factors;
+\item ordinary admissibility, projective poles, and chart changes remain visible;
+\item composition of histories has a compatible operation on divisors;
+\item base change gives the expected Galois and analytic monodromy actions;
+\item finite truncations admit a controlled locally finite limit when infinitely
+many history classes are present.
+\end{enumerate}
+Determine whether the Hecke zero network is a natural infinite or automorphic
+instance of this functor, rather than merely its operator-level precursor.
+\end{problem}
+
+This problem is the main arithmetic naturality gate of the paper.  The relative
+divisor theorem does not solve it: that theorem starts after $P_{\mathfrak H}$ has
+been given.  Conversely, the exact Hecke model does not solve it either: it
+derives a zero network from a projective operator group, but it does not yet
+associate a finite monic endpoint polynomial to arbitrary AEG histories.

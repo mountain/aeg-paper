@@ -70,6 +70,180 @@ metric, whereas the right-hand side of \eqref{eq:aeg-eikonal} is at least
 $\mu^2>0$.  This is impossible.
 \end{proof}
 
+\subsection{Holomorphic branched pullback}
+
+Paper II identifies arithmetic holomorphicity with ordinary holomorphicity in
+the complex structure carried by an oriented regular AES.  The next theorem uses
+that interface, but the singular metric and its local completion are proved here.
+The statement therefore does not depend on an unproved singular extension of the
+function theory.
+
+\begin{theorem}[Branched-pullback zero germ]
+\label{thm:branched-pullback-zero-germ}
+Let $\Sigma$ be a Riemann surface, let $\Phi:\Sigma\to\C$ be a nonconstant
+holomorphic map, and write $\Phi=U+iV$.  Fix $\mu\ne0$ and $\lambda\in\R$.  Put
+\begin{equation}
+ a_\Phi=V,
+ \qquad
+ g_\Phi=
+ \frac{|\dd\Phi|^2}{\mu^2+\lambda^2V^2}
+ \quad\text{on }\Sigma\setminus\Crit(\Phi),
+ \label{eq:holomorphic-pullback-metric}
+\end{equation}
+where $|\dd\Phi|^2=|\Phi'(z)|^2|\dd z|^2$ in a holomorphic coordinate.
+Then
+\[
+ (\Sigma,\Crit(\Phi),g_\Phi,a_\Phi;\mu,\lambda)
+\]
+is a singular AES.  Every critical point is locally essential.
+
+Suppose $p\in\Crit(\Phi)$, $\Phi(p)\in\R$, and the local degree of $\Phi$ at
+$p$ is $m\ge2$.  Then:
+\begin{enumerate}
+\item the zero germ $a_\Phi^{-1}(0)$ has exactly $2m$ half-branches, equally
+spaced in a suitable holomorphic coordinate;
+\item the metric completion of the punctured germ adds one cone point of angle
+$2\pi m$;
+\item $p$ is a critical zero of the smooth assignment $a_\Phi$, and no smooth
+nondegenerate regular-AES metric can extend across it.
+\end{enumerate}
+For $m=2$ this is a four-pronged zero with cone angle $4\pi$.
+\end{theorem}
+
+\begin{proof}
+On the target plane consider
+\[
+ b(U+iV)=V,
+ \qquad
+ h_{\mathrm{lin}}=
+ \frac{\dd U^2+\dd V^2}{\mu^2+\lambda^2V^2}.
+\]
+It satisfies
+$|\nabla b|_{h_{\mathrm{lin}}}^2=\mu^2+\lambda^2b^2$.
+Away from $\Crit(\Phi)$, formula
+\eqref{eq:holomorphic-pullback-metric} is exactly $\Phi^*h_{\mathrm{lin}}$,
+and $a_\Phi=b\circ\Phi$.  A holomorphic local diffeomorphism preserves the
+eikonal identity under pullback, proving regularity on the complement.
+
+At a critical point, $\dd a_\Phi=0$.  A smooth nondegenerate extension satisfying
+the regular AEG equation would give
+$0=|\nabla a_\Phi|^2\ge\mu^2$, which is impossible.  Thus every critical point is
+locally essential in the sense of Paper I.
+
+At a critical zero of local degree $m$, the holomorphic local-mapping theorem
+provides coordinates centered at $p$ and $\Phi(p)$ in which
+\[
+ \Phi(z)-\Phi(p)=z^m.
+\]
+Consequently the zero germ is
+\[
+ \im(z^m)=0,
+\]
+which consists of the $2m$ rays
+$\arg z=k\pi/m$, $k=0,\ldots,2m-1$.
+The target metric is smooth and positive at $\Phi(p)$.  If it is written locally
+as $e^{2\psi(w)}|\dd w|^2$, its pullback is
+\[
+ m^2|z|^{2m-2}e^{2\psi(z^m)}|\dd z|^2.
+\]
+For a circle $|z|=r$, the ratio of its length to the radial distance from the
+missing point tends to $2\pi m$.  The completion therefore has cone angle
+$2\pi m$.  The last assertion is the essentiality argument already given.
+\end{proof}
+
+\begin{remark}[Pullback naturality and its limit]
+The theorem is more structured than arbitrary conformal realization: the metric,
+assignment, zero germ, and cone angle are all pulled back from one holomorphic map.
+It still does not make every such map arithmetic-natural.  A history-derived
+source for the map is an additional requirement, supplied at the projective
+operator level by the Hecke construction in
+Section~\ref{sec:arithmetic-zero-networks} and left open in greater generality.
+\end{remark}
+
+\begin{example}[Finite Blaschke bridge]
+\label{ex:blaschke-bridge}
+Let
+\[
+ B(z)=e^{i\theta}\prod_{j=1}^n
+ \frac{z-\alpha_j}{1-\overline{\alpha_j}z},
+ \qquad |\alpha_j|<1,
+\]
+be a finite Blaschke product.  The single holomorphic map $B:\mathbb D\to
+\mathbb D$ supports three related zero objects.
+
+First, $B^{-1}(0)$ is an effective finite divisor of degree $n$, counted with
+multiplicity.  A family of such products whose roots remain distinct produces the
+finite root incidence of Section~\ref{sec:braids}.  Second, for every phase
+$\phi$, the real assignment
+\[
+ a_\phi=\im(e^{-i\phi}B),
+ \qquad
+ g_\phi=
+ \frac{|B'(z)|^2}{\mu^2+\lambda^2a_\phi^2}|\dd z|^2
+\]
+has zero network
+\[
+ Z(a_\phi)=B^{-1}(e^{i\phi}\R).
+\]
+At a critical point of local degree $m$ lying over this diameter, the network has
+$2m$ prongs and the metric completion has cone angle $2\pi m$.
+
+Third, pull back the isolated-zero disc of Paper I,
+Equation~\eqref{eq:imported-disc-model}, along $B$.  The assignment
+$a_{\mathbb D}\circ B$ has the finite isolated zero set $B^{-1}(0)$, while
+$B^*g_{\mathbb D}$ has cone angle $2\pi m$ at a critical point of local degree
+$m$.  The declared singular set is
+$B^{-1}(0)\cup\Crit(B)$.  At a simple root the pulled-back radial assignment is
+nonsmooth.  At a multiple root an even power of the radius can become smooth, but
+the zero still cannot be a regular AES point: its differential vanishes and the
+pulled-back metric is degenerate there.  Thus one holomorphic object links an
+isolated divisor, phase-dependent real zero networks, and, after parameterization,
+finite threads or braids.
+
+The roots $\alpha_j$ are arbitrary data.  This bridge is a finite universality
+mechanism, not a proof that an expression history canonically selects $B$.
+\end{example}
+
+\begin{example}[An analytic-capacity control]
+\label{ex:sin-essential-zero-network}
+Let $M=\{|z|<\varepsilon\}$ and, for $z\ne0$, set
+\[
+ \Phi(z)=\sin(1/z),
+ \qquad a(z)=\im\Phi(z),
+ \qquad
+ g=\frac{|\Phi'(z)|^2}{\mu^2+\lambda^2a(z)^2}|\dd z|^2.
+\]
+Assign any value, say $a(0)=0$, at the origin and declare
+\[
+ S=\{0\}\cup
+ \left\{z_k=\frac1{\pi/2+k\pi}:k\in\Z,\ |z_k|<\varepsilon\right\}.
+\]
+Since $\Phi'(z)=-\cos(1/z)/z^2$, this is precisely the singular set in $M$.
+Writing $z=x+iy$ and $c_k=\pi/2+k\pi$, the zero set away from the origin is
+\begin{align}
+ Z(a)={}&\{y=0\}\notag\\
+ &\quad\cup\bigcup_{k\in\Z}
+ \left\{
+   \left(x-\frac1{2c_k}\right)^2+y^2=\frac1{4c_k^2}
+ \right\},
+ \label{eq:sin-essential-zero-network}
+\end{align}
+with all sets restricted to $0<|z|<\varepsilon$.
+Indeed,
+$\im\sin(u+iv)=\cos u\sinh v$, and inversion sends the vertical lines
+$u=c_k$ to the displayed circles.  Each circle meets the real axis at the simple
+critical point $z_k$, where Theorem~\ref{thm:branched-pullback-zero-germ} gives a
+four-pronged zero and cone angle $4\pi$.  The nodes and circles accumulate at the
+essential singularity $0$.  Indeed, $\im\sin(1/z)$ is unbounded in every punctured
+neighborhood of the origin, so the arbitrarily assigned value $a(0)$ admits no
+continuous, hence no regular-AES, local extension.
+
+This example proves analytic capacity: singular AEGs can carry an infinite
+four-valent zero network.  It is not promoted to the arithmetic model of the
+paper, because the formula does not distinguish expression histories or induce a
+canonical arithmetic quotient.
+\end{example}
+
 \begin{warning}[Flexibility boundary]
 \label{warn:flexibility}
 When the metric may be chosen as part of the construction, the regular AEG

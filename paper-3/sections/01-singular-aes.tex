@@ -24,6 +24,16 @@ swept surface is more than a picture: when it is smooth, when its projection is 
 fiber bundle, where topology may change, and what additional data are needed
 before a braid or knot can be extracted.
 
+There is a second problem, logically prior to the tube: why should a complicated
+zero set be attached to arithmetic expressions at all?  Conformal realization can
+manufacture almost any regular zero pattern, so geometric abundance alone does not
+answer this question.  The main analytic--arithmetic construction of this paper
+starts instead from the projective operators of Paper I.  Translation by
+$\sqrt2$ and negative inversion generate the $q=4$ Hecke group; its Hauptmodul
+then produces a branched zero network whose four-valent vertices are forced by the
+elliptic ramification.  This supplies an exact model in which arithmetic operator
+paths, holomorphic branching, and singular AEG geometry meet.
+
 The historical AEG notes used ``tube'' for several disjoint unions of ambient
 geometries.  A source audit of the repository and its Git history found no
 verifiable general construction under the old symbols $E_k$ or $E_{\log}$.
@@ -34,7 +44,7 @@ incidence, and a smooth zero incidence is not automatically a tube.
 
 \subsection{Imported interfaces and new scope}
 
-We use three results of Papers I and II as interfaces rather than redefining them.
+We use four results of Papers I and II as interfaces rather than redefining them.
 
 \begin{enumerate}
 \item Paper I proves the regular-zero theorem just recalled and defines a
@@ -49,6 +59,12 @@ We use three results of Papers I and II as interfaces rather than redefining the
   coordinate $w=X+iy$ is a global complex coordinate, and arithmetic
   holomorphicity is ordinary holomorphicity in $w$
   \cite{Yuan2026AEGFunctionTheory}.
+\item Paper I's bilateral projective evaluation contains translations and negative
+  inversion in $\operatorname{PGL}_2(K)$.  Over $K=\Q(\sqrt2)$ these operators
+  generate the Hecke subgroup used in
+  Section~\ref{sec:arithmetic-zero-networks}.  This import is at the operator
+  quotient level and does not identify different raw history words or ordinary
+  arithmetic domains \cite{Yuan2026AEGFoundations}.
 \end{enumerate}
 
 The first two interfaces concern a real scalar assignment and hence codimension-one
@@ -141,8 +157,14 @@ Result & Content & Status \\
 \midrule
 Conformal realization & Every smooth submersion on a surface satisfies
 \eqref{eq:aeg-eikonal} for an explicit conformal metric. & Proved \\
+Branched pullback & A holomorphic branch of degree $m$ gives a $2m$-pronged
+essential zero and cone angle $2\pi m$. & Proved \\
 Multi-zero models & Explicit regular AESs have exactly $k$ parallel zero
 components, or countably many logarithmic lifts. & Proved \\
+$q=4$ arithmetic network & A Hecke Hauptmodul gives the $\{\infty,4\}$ zero
+network, $4\pi$ cone nodes, and sign-character descent. & Proved \\
+Relative zero divisor & A supplied monic generically square-free arithmetic polynomial has
+distinct $K$-prime, geometric-sheet, Galois, and monodromy levels. & Proved \\
 Incidence theorem & Vertical transversality gives a smooth incidence and a
 submersion; properness gives a bundle. & Proved with stated hypotheses \\
 Real-tube structure & Compact boundaryless real zero tubes over $S^1$ with global
@@ -169,6 +191,27 @@ show that tube and braid geometry genuinely occur inside AEG.  The flexibility a
 collapse theorems show that occurrence alone carries little discriminatory power.
 Any new invariant must come from a natural decoration tied to expression history,
 and that decoration must survive the relevant quotient.
+
+\subsection{Organization}
+
+Section~\ref{sec:local-zero-models} proves conformal and holomorphic pullback
+realization, including finite Blaschke and essential-singularity controls.
+Section~\ref{sec:multi-zero} records the flexible parallel and logarithmic models.
+Section~\ref{sec:arithmetic-zero-networks} is the arithmetic core: it constructs
+the $q=4$ Hecke--Hauptmodul singular AES, proves its character-valued descent, and
+separates zero histories from relative prime divisors.  Sections
+\ref{sec:discriminants}--\ref{sec:singular-fibers} develop parameterized incidence,
+proper tubes, and singular change.  Section~\ref{sec:braids} treats rank-two root
+monodromy, and Section~\ref{sec:threading} applies the Markov and Alexander/Burau
+novelty gates.  The logical order is therefore
+\[
+ \begin{gathered}
+ \text{branched analytic germ}
+ \longrightarrow\text{arithmetic zero network}\\
+ \longrightarrow\text{relative divisor and discriminant}\\
+ \longrightarrow\text{tube and monodromy}.
+ \end{gathered}
+\]
 
 \subsection{Conventions}
 

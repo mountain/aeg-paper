@@ -89,6 +89,44 @@ equation verified by pullback; two zero components downstairs and countably many
 upstairs; deck action $k\mapsto k+2$; missing origin removable; status: proved
 covering model, not an essential singular AES.
 
+\paragraph{Holomorphic branched pullback.}
+Domain a Riemann surface $\Sigma$; map a nonconstant holomorphic
+$\Phi:\Sigma\to\C$; assignment $\im\Phi$; metric
+\eqref{eq:holomorphic-pullback-metric}; singular set $\Crit(\Phi)$; equation
+verified by pullback from the linear target AES; a degree-$m$ critical zero has
+$2m$ prongs and a $2\pi m$ metric cone; status: proved local theorem, with no
+claim that an arbitrary $\Phi$ is history-natural.
+
+\paragraph{Finite Blaschke bridge.}
+Domain $\mathbb D$; map a finite Blaschke product $B$; finite divisor
+$B^{-1}(0)$; phase assignments and metrics as in
+Example~\ref{ex:blaschke-bridge}; singular set $\Crit(B)$ for the phase model and
+$B^{-1}(0)\cup\Crit(B)$ for the pulled-back radial disc model; zero topology a
+finite holomorphic divisor or the preimage of a real diameter, depending on field
+rank; status: proved finite bridge, but its freely selected roots are not a
+history-derived invariant.
+
+\paragraph{Essential sine control.}
+Domain a disc with declared singular set
+$\{0\}\cup\{(\pi/2+k\pi)^{-1}\}$; assignment
+$\im\sin(1/z)$ and metric in Example~\ref{ex:sin-essential-zero-network}; zero
+topology one real-axis branch and countably many circles, with four-pronged
+$4\pi$ cone nodes accumulating at the essential singularity; status: proved
+analytic-capacity example, not the arithmetic model.
+
+\paragraph{$q=4$ Hecke--Hauptmodul model.}
+Domain $\HH$; normalized Hauptmodul $\beta$ with orbifold signature
+$(2,4,\infty)$, finite ramification indices $2$ and $4$, and a simple pole at the
+cusp; singular set $\mathcal E_4=\beta^{-1}(1)$; assignment and metric
+\eqref{eq:q4-aeg-data}; equation verified in the local coordinate $\log W$;
+zero topology $\beta^{-1}([0,1])$, which becomes the $\{\infty,4\}$ Hecke graph
+after bivalent vertices are suppressed; order-$4$ nodes have four prongs and cone
+angle $4\pi$ upstairs; the metric descends while the assignment descends as a
+sign-line-bundle section; regular locus incomplete at the cone nodes, completed
+full quotient a complete length space with its cusp at infinite distance; status:
+proved from the normalized automorphic quotient, at the projective-operator history
+level only.
+
 \paragraph{Helical model.}
 Domain $[-L,L]\times S^1$; parameter $\theta\in S^1$; metric
 \eqref{eq:helical-metric}; assignment \eqref{eq:helical-assignment}; singular set
@@ -116,3 +154,9 @@ $g=\rho h$ length.  In the parallel examples, the factor $e^{2x}$ commonly makes
 $x\to-\infty$ a finite-distance end.  Any theorem that needs complete fibers must
 therefore add completeness as a hypothesis and recheck each model; it cannot infer
 it from the eikonal identity.
+
+The Hecke model illustrates the required distinction.  Its regular locus is
+incomplete because the deleted order-$4$ points lie at finite distance.  The
+singular length completion adjoins $4\pi$ cone points, while the cusp coordinate
+has metric asymptotic to $|\dd q/q|^2$ and is at infinite distance.  This audited
+completion does not turn a cone point into a smooth regular AES point.
