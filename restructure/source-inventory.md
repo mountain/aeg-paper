@@ -6,7 +6,7 @@
 **Paper I post-migration population:** 123 `.tex` sources
 
 **Current active source closures:** Paper I: 16 canonical `.tex` files; Paper II:
-13; Paper III: 16
+13; Paper III: 17
 
 This inventory classifies every top-level path family in the fixed baseline.  A
 family classification applies to every file beneath the named directory; exceptions
@@ -162,6 +162,7 @@ paper-3/
     04-parameter-discriminants.tex
     05-q4-geodesic-knots.tex
     05-polynomial-threaded-carriers.tex
+    05-sextic-ll-laboratory.tex
     05-history-divisor-naturality.tex
     05-regular-tubes.tex
     06-singular-fibers.tex
@@ -173,7 +174,7 @@ paper-3/
     app-C-affine-quandle-calculations.tex
 ```
 
-The entry point inputs only these fifteen section/appendix files and the shared root
+The entry point inputs only these sixteen section/appendix files and the shared root
 bibliography.  It imports Papers I and II by cited interfaces rather than by TeX
 inclusion.  No legacy `sections/sec*.tex`, note, knot file, miscellaneous figure
 source, archived manuscript, or restructuring discussion belongs to the active
@@ -218,6 +219,19 @@ logarithmic-tangent weighted cone.  It also gives a supplied four-strand
 central-extension calibration while leaving the unrestricted marked-history
 coefficient-path functor open.  The arithmetic quadratic twist, radial carrier,
 and path-selection choices remain explicit claim boundaries.
+
+The subsequent `05-sextic-ll-laboratory.tex` addition is an explicit laboratory,
+not a recovered historical source and not a general theory of polynomial families.
+It starts from the supplied sparse sextic `P_0(x)=x^6-x`, computes its critical-value
+quintic, carrier walls, six-root thread, genus-two double covers, mixed braid exact
+sequence, and one arithmetic fiber.  The finite-etale Lyashko--Looijenga covering,
+its degree, transposition-factorization count, Birman--Hilden lifting,
+Picard--Lefschetz and symplectic monodromy, and the arithmetic Galois/endomorphism
+criteria are cited classical inputs.  The `1296` points in a regular LL fiber are
+coordinate-normalized monic-centered sextics; the free residual `mu_6` source
+rotation has `216` orbits.  Neither number is asserted to count nonisomorphic
+genus-two curves.  The LL--Igusa twin calculation and every functor from unrestricted
+AEG histories to the LL pullback or its Hurwitz groupoid remain open.
 
 This addendum supersedes the earlier inventory statement that Paper III consisted
 only of a scope/provenance README.  It does not alter the fixed Paper I baseline

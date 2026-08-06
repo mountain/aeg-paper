@@ -50,8 +50,9 @@ approval before its DOI metadata is changed.
    register correspondences, the sign-cover realization of the `T(2,4)` link
    complement, its marked toric and logarithmic-tangent polynomial normal form
    `u^2=t^4`, polynomially threaded carrier surfaces, a four-strand central
-   extension and group-cohomological residue calibration, Hecke periodic-orbit
-   knots, discriminants, proper
+   extension and group-cohomological residue calibration, the sextic
+   Lyashko--Looijenga laboratory with full six-braid and genus-two monodromy,
+   Hecke periodic-orbit knots, discriminants, proper
    tubes, monodromy, and the conditional knot-invariant programme.
 4. **Paper IV — Projective Condensation and Computational Complexity.** Projective
    quotient structures, information loss under condensation, and complexity only
@@ -86,7 +87,11 @@ relative divisors, Frobenius actions, and a tagged trace that detects some domai
 history lost by the terminal operator.  The family `z^2=t^m` gives an exact
 cross-slice comparison among arithmetic components, carrier topology,
 discriminant winding, braid exponent, and linking, while its coefficient path is
-still supplied rather than history-derived.  A general functor from marked histories to
+still supplied rather than history-derived.  The fixed pencil `x^6-x-t` upgrades
+this to nonabelian transport: one event polynomial controls real carrier walls,
+all six-braids, all genus-two mapping classes, full symplectic monodromy, and a
+finite 1296-sheet LL forgetting problem.  Neither the LL sheet nor its parameter
+loop is yet selected by a general arithmetic history.  A general functor from marked histories to
 arithmetic prime divisors remains open.  The active synthesis and claim ledger are
 recorded in
 [`restructure/discussions/arithmetic-automorphic-zero-networks.md`](restructure/discussions/arithmetic-automorphic-zero-networks.md).

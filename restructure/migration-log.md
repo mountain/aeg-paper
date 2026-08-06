@@ -384,3 +384,56 @@ closure.
   static, mathematical, and all-page visual audits report no blocking or major
   finding after repair.  Full unified evidence is recorded in `audit-report.md`
   and `paper-III-closure-report.md`.
+
+## Migration M-0008
+
+- **Date:** 2026-08-06
+- **Name:** sextic Lyashko--Looijenga forgetting laboratory
+- **Source:** the supplied sparse sextic `P_0(x)=x^6-x`; the active
+  polynomial-carrier/thread interface; the classical Lyashko--Looijenga,
+  transposition-factorization, Birman--Hilden, Picard--Lefschetz, symplectic
+  monodromy, and hyperelliptic arithmetic literature; and independent
+  root/critical-value braid and claim-boundary red teams
+- **Active manuscript destinations:** new
+  `paper-3/sections/05-sextic-ll-laboratory.tex`; Paper III entry point,
+  introduction/claim ledger, conclusion, README, and generated PDF; root README
+- **Governance destinations:** `05-mathematical-status.md`,
+  `07-acceptance-checklist.md`, `decisions-paper-III.md`, `source-inventory.md`,
+  this migration log, audit report, and Paper III closure amendment
+- **Migration state:** PROVED EXPLICIT SEXTIC LABORATORY / CLASSICAL LL AND
+  GENUS-TWO INPUTS / OPEN LL--IGUSA TWIN TEST / OPEN AEG-HISTORY NATURALITY
+- **Event-polynomial treatment:** for a monic centered sextic `P`,
+  `Q_P(t)=6^{-6} disc_x(P(x)-t)` is the monic quintic of critical values.  The
+  regular LL map is a finite etale cover of degree `6^4=1296`.  These are
+  coordinate-normalized sheets; the free residual source rotation by `mu_6`
+  gives `216` orbits, not `1296` or `216` pairwise nonisomorphic curves.
+- **Explicit-pencil treatment:** `P_0=x^6-x` has five simple critical values and
+  event polynomial `Q_0=t^5+5^5/6^6`.  Meridians about those values lift to
+  half-twists along a six-vertex spanning star, generating `B_6`.  The associated
+  real carrier has saddle walls, its complex zeros give the intrinsic six-sheet
+  thread, and its double branched cover gives genus-two mapping tori.  Real wall
+  crossings, root collisions, and spectral degenerations remain distinct strata.
+- **Two-braid treatment:** critical-value transport acts through the LL
+  `1296`-sheet cover, while the moving test value gives a separate vertical
+  `F_5` and six-root braid.  The manuscript uses the mixed braid extension and
+  its LL pullback; it does not assert a canonical homomorphism `B_5 -> B_6` after
+  forgetting the LL sheet.
+- **Genus-two and arithmetic treatment:** the displayed pencil surjects onto the
+  genus-two mapping class group and has full integral symplectic monodromy through
+  cited classical lifting and monodromy theorems.  The fiber
+  `y^2=x^6-x-1` has the printed `S_6` Galois and geometric-endomorphism conclusions
+  by cited classical criteria.  The common finite target
+  `Sp_4(F_2) isomorphic to S_6` does not canonically identify Frobenius elements
+  with topological loops.
+- **Open boundary:** the LL--Igusa twin test has not established two
+  nonisomorphic genus-two curves in one LL fiber.  No unrestricted arithmetic
+  history canonically selects a sextic, an LL sheet, a mixed-braid path, or a
+  six-root braid.  No new knot invariant or Markov descent is claimed.
+- **Theorem nodes affected:** P3-L1--P3-L9; P3-H7 and P3-R3 remain open.
+- **Content removed from source:** none
+- **Canonical build result:** `./build.sh 3` produced a clean 78-page,
+  809,341-byte PDF with SHA-256
+  `d5bf667041dc6ce52189f840a5a691c4d8c6eed1126705911937a907fb74f816`.
+  Static closure has 17 TeX files, 322 unique labels, 157 resolved reference
+  targets, and 30 resolved citation keys.  All 78 pages were rendered and
+  visually inspected without a blocking layout defect.
