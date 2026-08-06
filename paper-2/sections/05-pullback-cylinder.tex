@@ -1,0 +1,294 @@
+% Canonical Paper II source.
+The intrinsic complex structure of a regular AES makes holomorphic pullback a
+natural source of new regular examples.  This section records the construction in
+the form needed by Paper III.  Every statement below is confined to the locus on
+which the relevant holomorphic map is a local biholomorphism.  No assertion is made
+about extending through a critical or branch set, or through a zero or pole of the
+cylindrical target map.
+
+\subsection{A planar harmonic base AES}
+
+Fix \(\phi\in\R\), write \(w=\xi+i\eta\), and define
+\begin{equation}\label{eq:planar-base-assignment}
+ A_\phi(w):=\operatorname{Im}(e^{-i\phi}w),
+ \qquad
+ Q_\phi(w)^2:=\mu^2+\lambda^2A_\phi(w)^2,
+\end{equation}
+where \(\mu\ne0\) and \(\lambda\in\R\).  On \(\C\), set
+\begin{equation}\label{eq:planar-base-metric}
+ h_\phi:=\frac{|dw|^2}{Q_\phi(w)^2}.
+\end{equation}
+The phase merely rotates the Euclidean coordinate in which the assignment is the
+second coordinate, but retaining it makes the zero direction explicit.
+
+\begin{proposition}[Planar harmonic AES and curvature law]
+\label{prop:planar-harmonic-aes}
+The tuple \((\C,h_\phi,A_\phi;\mu,\lambda)\) is a regular AES and
+\begin{align}
+ |\nabla A_\phi|_{h_\phi}^2
+ &=\mu^2+\lambda^2A_\phi^2,
+ \label{eq:planar-base-eikonal}\\
+ \Delta_{h_\phi}A_\phi&=0,
+ \label{eq:planar-base-harmonicity}\\
+ K_{h_\phi}
+ &=\lambda^2
+   \frac{\mu^2-\lambda^2A_\phi^2}
+        {\mu^2+\lambda^2A_\phi^2}.
+ \label{eq:planar-base-curvature}
+\end{align}
+In particular, the AES equation by itself neither determines the curvature nor
+forces the assignment to satisfy the pointwise equation
+\(\Delta_g a=2\lambda^2a\) of the basic hyperbolic model.
+\end{proposition}
+
+\begin{proof}
+After the Euclidean rotation \(u+i v=e^{-i\phi}w\), one has
+\(A_\phi=v\) and
+\[
+ h_\phi=e^{2\rho(v)}(du^2+dv^2),
+ \qquad
+ \rho(v)=-\frac12\log(\mu^2+\lambda^2v^2).
+\]
+Since the inverse metric is \(e^{-2\rho}\) times the Euclidean inverse metric,
+\[
+ |\nabla v|_{h_\phi}^2=e^{-2\rho}
+ =\mu^2+\lambda^2v^2.
+\]
+In real dimension two the scalar Laplacian obeys
+\(\Delta_{e^{2\rho}g_0}f=e^{-2\rho}\Delta_{g_0}f\); hence
+\(\Delta_{h_\phi}v=0\).  Finally,
+\[
+ \rho''(v)
+ =-\lambda^2\frac{\mu^2-\lambda^2v^2}
+                         {(\mu^2+\lambda^2v^2)^2},
+\]
+and the conformal curvature formula
+\(K=-e^{-2\rho}\Delta_{g_0}\rho\) gives
+\eqref{eq:planar-base-curvature}.
+\end{proof}
+
+The zero locus is the Euclidean line
+\begin{equation}\label{eq:planar-base-zero-line}
+ Z(A_\phi)=e^{i\phi}\R.
+\end{equation}
+It is regular because \(|\nabla A_\phi|_{h_\phi}=|\mu|\) there.  The next theorem
+shows that its inverse images give all zero curves produced by this base model on
+the regular locus.
+
+\subsection{Locally biholomorphic pullback}
+
+\begin{theorem}[Holomorphic pullback of the planar base]
+\label{thm:planar-holomorphic-pullback}
+Let \(\Sigma\) be a Riemann surface, \(U\subset\Sigma\) open, and
+\(F:U\to\C\) holomorphic with \(dF_p\ne0\) for every \(p\in U\).  Define
+\begin{equation}\label{eq:planar-pullback-data}
+ a_F:=A_\phi\circ F,
+ \qquad
+ g_F:=F^*h_\phi.
+\end{equation}
+Then \((U,g_F,a_F;\mu,\lambda)\) is a regular AES.  Moreover,
+\begin{align}
+ \Delta_{g_F}a_F&=0,
+ \label{eq:planar-pullback-harmonicity}\\
+ K_{g_F}
+ &=\lambda^2
+   \frac{\mu^2-\lambda^2a_F^2}
+        {\mu^2+\lambda^2a_F^2}.
+ \label{eq:planar-pullback-curvature}
+\end{align}
+If \(z\) is a local complex coordinate on \(U\), then
+\begin{equation}\label{eq:planar-pullback-local-form}
+ g_F=
+ \frac{|F'(z)|^2}{\mu^2+\lambda^2a_F(z)^2}|dz|^2,
+ \qquad
+ Z(a_F)=F^{-1}(e^{i\phi}\R).
+\end{equation}
+Finally, every holomorphic field \(\Psi\) on an open neighborhood of \(F(U)\)
+pulls back to the arithmetic holomorphic field \(\Psi\circ F\) on \(U\).
+\end{theorem}
+
+\begin{proof}
+The nonvanishing of \(dF\) makes \(F:(U,g_F)\to(\C,h_\phi)\) a local oriented
+isometry.  The norm of the gradient, the scalar Laplacian, and Gaussian curvature
+are preserved under local isometries, so
+Proposition~\ref{prop:planar-harmonic-aes} gives the AES equation and
+\eqref{eq:planar-pullback-harmonicity}--\eqref{eq:planar-pullback-curvature}.
+The coordinate expression follows directly from
+\(F^*|dw|^2=|F'(z)|^2|dz|^2\), and the zero-set identity follows from
+\eqref{eq:planar-base-zero-line}.  Since \(F\) is holomorphic for the given
+Riemann-surface structures, so is \(\Psi\circ F\); by
+Definition~\ref{def:surface-arithmetic-holomorphic}, this is arithmetic
+holomorphicity for \(g_F\).
+\end{proof}
+
+\begin{warning}[The critical set is not part of the theorem]
+\label{warn:planar-pullback-critical-set}
+If \(F'(p)=0\), formula~\eqref{eq:planar-pullback-local-form} defines a degenerate
+quadratic form at \(p\), not a Riemannian metric.  If, in addition,
+\(A_\phi(F(p))=0\), the inverse image of the target zero line may have several
+local branches.  Such a point cannot be regular: the AES equation would require
+\(|\nabla a_F|=|\mu|\) on its zero set.  Branched pullbacks and their zero-graph
+normal forms belong to the singular theory of Paper III.
+\end{warning}
+
+\subsection{The complete cylindrical AES}
+
+The planar construction is adapted to inverse images of a line.  For inverse images
+of a circle, the appropriate regular base is the logarithmic cylinder.  Let
+\(W\) denote the standard coordinate on \(\C^*=\C\setminus\{0\}\), and put
+\begin{equation}\label{eq:cylinder-s-coordinate}
+ s(W):=\log|W|,
+ \qquad
+ g_{\mathrm{cyl}}:=\left|\frac{dW}{W}\right|^2.
+\end{equation}
+Define
+\begin{equation}\label{eq:cylinder-assignment}
+ a_{\mathrm{cyl}}(W):=
+ \begin{cases}
+  \dfrac{\mu}{\lambda}\sinh(\lambda s(W)),&\lambda\ne0,\\[6pt]
+  \mu s(W),&\lambda=0.
+ \end{cases}
+\end{equation}
+
+\begin{proposition}[Cylindrical AES]
+\label{prop:cylindrical-aes}
+The tuple
+\((\C^*,g_{\mathrm{cyl}},a_{\mathrm{cyl}};\mu,\lambda)\) is a complete regular
+AES.  It is flat and satisfies
+\begin{align}
+ |\nabla a_{\mathrm{cyl}}|_{g_{\mathrm{cyl}}}^2
+ &=\mu^2+\lambda^2a_{\mathrm{cyl}}^2,
+ \label{eq:cylinder-eikonal}\\
+ \Delta_{g_{\mathrm{cyl}}}a_{\mathrm{cyl}}
+ &=\lambda^2a_{\mathrm{cyl}},
+ \label{eq:cylinder-laplacian}\\
+ Z(a_{\mathrm{cyl}})&=\{|W|=1\}.
+ \label{eq:cylinder-zero-circle}
+\end{align}
+For \(\lambda=0\), equation~\eqref{eq:cylinder-laplacian} has the stated limiting
+meaning \(\Delta a_{\mathrm{cyl}}=0\).
+\end{proposition}
+
+\begin{proof}
+Locally choose a logarithm \(\zeta=\log W=s+i\theta\).  Then
+\[
+ g_{\mathrm{cyl}}=|d\zeta|^2=ds^2+d\theta^2.
+\]
+The universal covering map identifies this metric with the quotient of the
+Euclidean plane by \(\theta\mapsto\theta+2\pi\), so it is complete and flat.  For
+\(\lambda\ne0\),
+\[
+ \frac{da_{\mathrm{cyl}}}{ds}=\mu\cosh(\lambda s),
+ \qquad
+ \frac{d^2a_{\mathrm{cyl}}}{ds^2}
+ =\lambda^2a_{\mathrm{cyl}}.
+\]
+The identity \(\cosh^2t=1+\sinh^2t\) proves
+\eqref{eq:cylinder-eikonal}, while the flat-cylinder Laplacian proves
+\eqref{eq:cylinder-laplacian}.  The formulas for \(\lambda=0\) follow directly.
+Since \(\sinh t=0\) only at \(t=0\), the zero set is \(s=0\), equivalently
+\(|W|=1\).
+\end{proof}
+
+As in Theorem~\ref{thm:planar-holomorphic-pullback}, any holomorphic local
+biholomorphism \(W:U\to\C^*\) gives a regular pullback AES
+\begin{equation}\label{eq:cylinder-pullback-data}
+ g_W=\left|\frac{dW}{W}\right|^2,
+ \qquad
+ a_W=
+ \begin{cases}
+  \dfrac{\mu}{\lambda}\sinh(\lambda\log|W|),&\lambda\ne0,\\[6pt]
+  \mu\log|W|,&\lambda=0,
+ \end{cases}
+\end{equation}
+with regular zero locus
+\begin{equation}\label{eq:cylinder-pullback-zero-set}
+ Z(a_W)=W^{-1}(S^1).
+\end{equation}
+On this pullback one has
+\(K_{g_W}=0\) and \(\Delta_{g_W}a_W=\lambda^2a_W\).
+
+\subsection{Automorphic descent and the Paper III interface}
+
+The preceding formula is useful when \(W\) is constructed from an automorphic or
+meromorphic function.  The following elementary descent statement isolates what is
+already regular analysis from what remains singular geometry.
+
+\begin{proposition}[Unitary automorphy and descent]
+\label{prop:cylinder-automorphic-descent}
+Let a group \(\Gamma\) act biholomorphically on a Riemann surface \(U\), and let
+\(W:U\to\C^*\) be a holomorphic local biholomorphism.  Suppose there is a character
+\(\chi:\Gamma\to S^1\) such that
+\begin{equation}\label{eq:cylinder-unitary-automorphy}
+ W(\gamma p)=\chi(\gamma)W(p).
+\end{equation}
+Then \(g_W\), \(a_W\), and \(Z(a_W)\) are \(\Gamma\)-invariant and descend to every
+smooth quotient on which the action is free and properly discontinuous.
+
+More generally, suppose the target transformations define an action and have the
+form
+\begin{equation}\label{eq:cylinder-dihedral-automorphy}
+ W(\gamma p)=\chi_\gamma W(p)^{\varepsilon(\gamma)},
+ \qquad
+ |\chi_\gamma|=1,
+ \qquad
+ \varepsilon(\gamma)\in\{1,-1\}.
+\end{equation}
+Then \(\varepsilon:\Gamma\to\{1,-1\}\) is a homomorphism, \(g_W\) and
+\(Z(a_W)\) are invariant, and \(a_W\) is multiplied by \(\varepsilon(\gamma)\).
+It therefore descends as a scalar only on the sign-preserving subgroup; on the full
+quotient it is naturally a section of the corresponding real sign line bundle.
+\end{proposition}
+
+\begin{proof}
+Multiplication by a unit complex number preserves \(\log|W|\) and \(dW/W\).
+Inversion sends these quantities to \(-\log|W|\) and \(-dW/W\), respectively.
+Thus the metric and the unit-circle preimage are unchanged, whereas the odd
+function in~\eqref{eq:cylinder-assignment} changes sign.  Standard quotient descent
+then proves the statement.
+\end{proof}
+
+\begin{remark}[Converting an automorphic interval into the zero circle]
+\label{rem:automorphic-interval-cayley}
+Let \(\beta\) be a meromorphic automorphic function.  On an open sheet avoiding its
+branch values, choose \(R\) and define \(W\) by
+\begin{equation}\label{eq:automorphic-cayley-interface}
+ R^2=\frac{\beta}{1-\beta},
+ \qquad
+ W=\frac{R-i}{R+i}.
+\end{equation}
+Where these expressions are finite and locally biholomorphic,
+\begin{equation}\label{eq:automorphic-interval-zero-equivalence}
+ |W|=1
+ \quad\Longleftrightarrow\quad
+ R\in\R\cup\{\infty\}
+ \quad\Longleftrightarrow\quad
+ \beta\in[0,1].
+\end{equation}
+Changing the square-root sheet sends \(R\) to \(-R\) and \(W\) to \(W^{-1}\).
+Thus the cylindrical metric and zero locus are independent of that sheet change,
+whereas the assignment changes sign.  This observation supplies the exact regular
+analytic interface for a normalized Hauptmodul or similar automorphic coordinate.
+It does not assert that \(\beta^{-1}([0,1])\) has any particular global graph type;
+that conclusion requires separate ramification and tessellation data.
+\end{remark}
+
+For a meromorphic or algebraic automorphic construction, define its Paper II
+regular locus to be the union of open sheets on which
+\begin{equation}\label{eq:automorphic-regular-locus}
+ 0<|W|<\infty,
+ \qquad
+ dW\ne0,
+\end{equation}
+and on which a required algebraic branch has been chosen.  Equations
+\eqref{eq:cylinder-pullback-data}--\eqref{eq:cylinder-pullback-zero-set} apply on
+that locus without change.  Zeros and poles of \(W\) are excluded because
+\(\log|W|\) is not a finite smooth assignment there.  Critical points are excluded
+because the pulled-back metric degenerates, and algebraic branch points require a
+separate local uniformization.  These excluded sets are among the natural loci at
+which inverse images of \(S^1\) may meet or branch, and at which they may
+accumulate.
+Boundary escape and nonproperness can also cause accumulation without appearing
+in this local list.  Paper II exports the regular formula and the descent criterion;
+Paper III owns the completion, local branching, singular zero graph, and
+parameterized tube topology.

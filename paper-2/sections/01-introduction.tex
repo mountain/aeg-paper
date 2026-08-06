@@ -121,6 +121,33 @@ give a Friedrichs realization of the nonnegative energy operator.  H\"ormander's
 bracket criterion supplies hypoellipticity of the differential expression
 \cite{Hormander1967Hypoelliptic}.
 
+Between the local operator theory and the global hyperbolic boundary problem, we
+establish a functorial construction that will be used by the singular theory.  The
+planar data
+\[
+ A_\phi(w)=\operatorname{Im}(e^{-i\phi}w),
+ \qquad
+ h_\phi=\frac{|dw|^2}{\mu^2+\lambda^2A_\phi(w)^2}
+\]
+form a regular AES with harmonic assignment.  Every locally biholomorphic map
+\(F\) pulls this data back to a regular AES; its Gaussian curvature is
+\[
+ K=\lambda^2\frac{\mu^2-\lambda^2a^2}{\mu^2+\lambda^2a^2}.
+\]
+We also construct the complete flat model on \(\C^*\),
+\[
+ s=\log|W|,\qquad
+ a=\frac{\mu}{\lambda}\sinh(\lambda s),
+ \qquad
+ g=\left|\frac{dW}{W}\right|^2,
+\]
+with the continuous limiting formula \(a=\mu s\) when \(\lambda=0\).  Its zero
+set is the unit circle, and a locally biholomorphic pullback has zero set
+\(W^{-1}(S^1)\).  A descent proposition covers unitary automorphy and the possible
+sign character arising from inversion.  The construction is deliberately stated
+only away from critical points and branch points; the cylindrical construction is
+in addition restricted away from zeros and poles of $W$.
+
 Our decisive global theorem concerns the basic hyperbolic AES.  For
 $\mu,\lambda>0$, put
 \[
@@ -182,6 +209,10 @@ contactomorphisms, nor that its explicit CR families are complete in a Hilbert o
 Banach space.
 \item We do not establish Green kernels, spectral completeness, or continuation on a
 general regular or singular AES.
+\item Holomorphic pullbacks are regular AES constructions only where the map is
+locally biholomorphic.  For the cylindrical target, its coordinate $W$ must in
+addition be finite and nonzero.  Critical points, poles, algebraic branch points,
+and singular zero-graph completion belong to Paper III.
 \end{itemize}
 
 These limitations are not peripheral.  They separate proved function theory from
@@ -194,8 +225,10 @@ Section~\ref{sec:analytic-data} fixes measures, domains, structure coefficients,
 energies on a regular AES.  Section~\ref{sec:surface-operators} develops the
 intrinsic surface Cauchy--Riemann theory and proves holomorphicity implies
 Laplace--Beltrami harmonicity.  Section~\ref{sec:contact-analysis} treats the
-distinct contact-CR problem.  Section~\ref{sec:hyperbolic-analysis} identifies all
-operators on the basic model.  Sections~\ref{sec:poisson-dirichlet} and
+distinct contact-CR problem.  Section~\ref{sec:pullback-cylinder} proves the planar
+pullback theorem, constructs the complete cylindrical AES, and states the regular
+automorphic descent interface.  Section~\ref{sec:hyperbolic-analysis} identifies
+all operators on the basic model.  Sections~\ref{sec:poisson-dirichlet} and
 \ref{sec:boundary-energy} prove the boundary theorems and construct explicit
 assignment-dependent families.  The appendices contain the full frame, contact, and
 Fourier calculations.

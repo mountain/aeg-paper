@@ -13,6 +13,10 @@ and `aeg-paper-2.pdf`.
 - a measure-sensitive Laplace--Beltrami formula in the canonical arithmetic frame;
 - exact surface Cauchy--Riemann factorizations and holomorphic-to-harmonic
   implication;
+- a locally biholomorphic pullback theorem for a planar harmonic AES, with an
+  explicit curvature law;
+- a complete flat cylindrical AES whose pullbacks have zero set
+  `W^{-1}(S^1)`, together with the regular automorphic descent criterion;
 - a separate contact-CR normalization, variational sub-Laplacian, and Friedrichs
   realization;
 - a Poisson kernel and well-posed ideal-boundary `C_0` Dirichlet problem on the
@@ -43,5 +47,6 @@ Build this manuscript from the repository root with:
 The manuscript proves a Poisson--Dirichlet theorem and an exact boundary energy
 identity on the basic hyperbolic model.  It does not claim general Green kernels,
 spectral completeness, contact-boundary representation, or continuation across
-singular AES points.  The two-dimensional regular-AES complex theory and
-three-dimensional contact-CR theory are kept strictly separate.
+singular AES points.  Critical points, poles, and algebraic branch points of the
+pullback constructions are reserved for Paper III.  The two-dimensional regular-AES
+complex theory and three-dimensional contact-CR theory are kept strictly separate.
