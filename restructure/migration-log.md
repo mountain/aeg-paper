@@ -437,3 +437,67 @@ closure.
   Static closure has 17 TeX files, 322 unique labels, 157 resolved reference
   targets, and 30 resolved citation keys.  All 78 pages were rendered and
   visually inspected without a blocking layout defect.
+
+## Migration M-0009
+
+- **Date:** 2026-08-06
+- **Name:** explicit geometric LL--Igusa twin and fiberwise nonfactorization
+- **Source:** exact elimination in the sparse even-coefficient sextic ansatz;
+  scaling of critical values; the quadratic Igusa--Clebsch invariant and binary
+  sextic discriminant; and the surrounding sextic-moduli comparison with recent
+  work of Farb and collaborators
+- **Active manuscript destinations:** Paper III abstract, introduction, sextic
+  LL laboratory, conclusion, README, and root README
+- **Governance destinations:** `00-authoritative-scope.md`,
+  `01-paper-series-architecture.md`, `03-theorem-dependency-graph.md`,
+  `05-mathematical-status.md`, `07-acceptance-checklist.md`,
+  `decisions-paper-III.md`, `source-inventory.md`, this migration log,
+  `audit-report.md`, and `paper-III-closure-report.md`
+- **Migration state:** EXPLICIT GEOMETRIC TWIN PROVED / FULL 216-ORBIT CENSUS,
+  ARITHMETIC-PERIOD COMPARISON, MARKED-MONODROMY REFINEMENT, HODGE/SIEGEL
+  ENERGY, AND HISTORY NATURALITY OPEN
+- **Exact pair:** (P_0=x^6-x) and the displayed algebraic monic-centered (P_1)
+  have identical event quintic (Q_0=t^5+5^5/6^6) and lie in distinct residual
+  source-rotation orbits.
+- **Geometric separation:** at the common regular slice (t=1), both sextics have
+  discriminant (6^6+5^5), but their exact quadratic Clebsch values give distinct
+  absolute Igusa--Clebsch ratios.  Their genus-two curves are nonisomorphic over
+  (\mathbb C), so the slice-moduli reading does not factor through the LL event
+  polynomial.
+- **Computation provenance:** the same-event identity is proved from a printed
+  exact Sylvester-resultant identity and scaling law; the moduli separation is
+  an exact symbolic invariant comparison.  The repository script reproduces the
+  two calculations and is verification evidence rather than a substitute for
+  the proof.
+- **Finite-sheet descent:** over (Q(1)\ne0), the residual-rotation quotient is a
+  degree-(216) finite etale cover.  The moduli sheet observable has a norm
+  spectral polynomial with descended trace, norm, and higher symmetric
+  coefficients.  Canonical averaging splits constants from the zero-sum
+  permutation representation; its squared norm is a monodromy-invariant
+  forgetting variance.  The explicit twin supplies the printed exact positive
+  lower bound at (Q_0).  No constancy along arbitrary open LL paths is asserted.
+- **Moving-slice charge:** for the two explicit pencils,
+  (\mathcal J_1/\mathcal J_0)=((t-\beta)/t)^5), both (0) and (\beta) are regular,
+  and the divisor is (5[\beta]-5[0]).  Its logarithmic residues balance, but this
+  is not a finite Dirichlet energy.
+- **Farb boundary:** recent Farb--Kisin--Wolfson, Farb--Wolfson,
+  Farb--Looijenga, and rigidity work supplies closely related sextic,
+  configuration-space, modular, monodromy, arithmetic, and period frameworks.
+  It does not supply this LL-fiber pair; Paper III claims only the explicit
+  upper fiberwise nonfactorization.
+- **Open boundary / P3-L10:** no full solution of all (1296) sheets or (216)
+  rotation orbits; no assertion that either number counts curves; no certified
+  Frobenius or reduced Siegel-period distinction for the pair; no result after
+  grouping by marked local (\operatorname{Sp}_4(\mathbb Z)) transvections and
+  Hurwitz action; no Hodge- or Siegel-metric energy; no history-natural sheet
+  selection.
+- **Theorem nodes affected:** P3-L9 is promoted from open to proved; P3-L10 is
+  introduced as the remaining finite census and deeper-twin problem.
+- **Content removed from source:** none
+- **Canonical build result:** `./build.sh 3` produced a clean 83-page,
+  859,662-byte PDF with SHA-256
+  `f9cf579734cbf2a5c70794470ba3baf3b79c2fc1144926513f291b7a2462c858`.
+  Static closure has 17 canonical TeX files, 351 unique labels, 175 resolved
+  reference targets, and 36 resolved citation keys in a 53-entry shared
+  bibliography.  All 83 pages were rendered and visually inspected without a
+  blocking layout or glyph defect.
