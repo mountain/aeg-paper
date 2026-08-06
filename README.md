@@ -47,8 +47,9 @@ approval before its DOI metadata is changed.
    holomorphic pullbacks, and spectral questions.
 3. **Paper III — Singular Zero Geometry and Tubes.** Multi-zero constructions,
    holomorphic branch singularities, the order-four Hecke zero network, arithmetic
-   relative zero divisors, discriminants, proper tubes, monodromy, and the conditional
-   braid/knot programme.
+   register correspondences, the sign-cover realization of the `T(2,4)` link
+   complement, Hecke periodic-orbit knots, discriminants, proper tubes, monodromy,
+   and the conditional knot-invariant programme.
 4. **Paper IV — Projective Condensation and Computational Complexity.** Projective
    quotient structures, information loss under condensation, and complexity only
    after explicit state, metric, encoding, and cost models have been supplied.
@@ -70,14 +71,17 @@ Paper I arithmetic histories
   -> q=4 Hecke projective operators
   -> Paper II holomorphic pullback targets
   -> Paper III branched automorphic zero networks
-  -> relative arithmetic zero divisors and monodromy.
+  -> sign-cover geodesic knots and register-decorated relative divisors.
 ```
 
 Each arrow has a different information level.  Literal histories are not identified
 with projective operators, group elements, cells, endpoints, or geometric sheets.
-The exact Hecke example reaches the automorphic zero graph at the operator-quotient
-level; a general functor from marked histories to arithmetic relative divisors
-remains an open problem.  The active synthesis and claim ledger are recorded in
+The exact Hecke example now reaches its automorphic zero graph and geodesic-flow
+knots at the operator-quotient level.  Finite typed registers give explicit
+relative divisors, Frobenius actions, and a tagged trace that detects some domain
+history lost by the terminal operator.  A general functor from marked histories to
+arithmetic prime divisors remains open.  The active synthesis and claim ledger are
+recorded in
 [`restructure/discussions/arithmetic-automorphic-zero-networks.md`](restructure/discussions/arithmetic-automorphic-zero-networks.md).
 
 ## Building the manuscripts

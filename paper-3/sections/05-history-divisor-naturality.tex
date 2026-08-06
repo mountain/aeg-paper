@@ -1,0 +1,538 @@
+\subsection{A quadratic register model for history naturality}
+\label{subsec:quadratic-register-history}
+
+The relative-divisor theorem starts with a polynomial already supplied.  The
+following restricted model runs in the other direction: a declared algebraic
+register and a projective arithmetic operator force the polynomial by
+elimination.  It is deliberately smaller than
+Problem~\ref{prob:history-to-divisor-functor}.  In particular, the divisor below
+records the possible \emph{endpoint values} of a register; it is not, by itself,
+the divisor of histories that reach zero, and its two sheets are not two
+inequivalent marked histories.
+
+Put
+\[
+ k=\Q(\sqrt2),\qquad R=k[t,t^{-1}],\qquad B=\Spec R,
+\]
+and supply the quadratic register cover
+\begin{equation}
+ \pi:\widetilde B=\Spec k[u,u^{-1}]\longrightarrow B,
+ \qquad t=u^2.
+ \label{eq:quadratic-register-cover}
+\end{equation}
+This cover is extra typed input: extracting a square root is not one of the four
+elementary contexts of Paper~I.  Let \(\gamma\in\operatorname{Hist}_4\) be a
+marked history in the distinguished Hecke sublanguage and set
+\(h=\rho(\gamma)\in\Gamma_4\).  Choose a determinant-one representative
+\[
+ M_h=\begin{pmatrix}a&b\\c&d\end{pmatrix}
+ \in\operatorname{SL}_2(\Z[\sqrt2]).
+\]
+The endpoint part of the computation graph is the \(B\)-morphism
+\begin{equation}
+ \iota_h:\widetilde B\longrightarrow\mathbb P^1_B,
+ \qquad
+ u\longmapsto[au+b:cu+d].
+ \label{eq:register-endpoint-map}
+\end{equation}
+We call the triple \((\widetilde B,u,\iota_h)\) the
+\emph{register-decorated endpoint correspondence}, and denote its
+scheme-theoretic image by \(D_h\).
+
+\begin{theorem}[Forced projective quadratic]
+\label{thm:forced-projective-quadratic}
+With the notation above, the following statements hold.
+\begin{enumerate}
+\item The endpoint divisor is cut out in \(\mathbb P^1_B\), with homogeneous
+coordinates \([Z:W]\), by the binary quadratic
+\begin{equation}
+ \mathcal P_h(Z,W;t)
+  =(dZ-bW)^2-t(aW-cZ)^2.
+ \label{eq:forced-homogeneous-quadratic}
+\end{equation}
+It is independent of the scalar representative of \(h\), up to multiplication
+by a unit of \(R\).
+\item The morphism \(\iota_h\) identifies \(\widetilde B\) with \(D_h\).
+Consequently \(D_h\to B\) is an integral finite \(\acute{e}\)tale cover of
+degree two, hence finite flat.
+\item On the chart \(W=1\), its equation is
+\begin{equation}
+ P_h(z,t)=(dz-b)^2-t(a-cz)^2.
+ \label{eq:forced-affine-quadratic}
+\end{equation}
+As a polynomial in \(z\) over \(k(t)\), it is quadratic and irreducible, and
+\begin{equation}
+ \operatorname{disc}_z(P_h)=4t(ad-bc)^2=4t.
+ \label{eq:forced-quadratic-discriminant}
+\end{equation}
+Its leading coefficient is \(d^2-tc^2\), which need not be a unit of \(R\).
+Thus the affine equation must not be inserted directly into the monic affine
+relative-divisor theorem.
+\item After the nonconstant Kummer base change
+\(\widetilde B\to B\), the divisor splits into two disjoint sections:
+\begin{align}
+ \mathcal P_h
+  ={}&\bigl(dZ-bW-u(aW-cZ)\bigr)\notag\\
+    &\cdot\bigl(dZ-bW+u(aW-cZ)\bigr),
+ \label{eq:forced-quadratic-splitting}
+\end{align}
+whose values are respectively \(h(u)\) and \(h(-u)\).
+Extension of the constant field from \(k\) to \(\overline k\) does not split
+the generic polynomial: \(t\) is still nonsquare in \(\overline k(t)\).
+\item If \(g\in\Gamma_4\), then
+\begin{equation}
+ D_{g\circ h}=g_{B*}D_h.
+ \label{eq:register-divisor-equivariance}
+\end{equation}
+More explicitly, for
+\(M_g=\left(\begin{smallmatrix}p&q\\r&s\end{smallmatrix}\right)\),
+\begin{equation}
+ \mathcal P_{g\circ h}(Z,W;t)
+ =\mathcal P_h(sZ-qW,pW-rZ;t).
+ \label{eq:forced-quadratic-composition}
+\end{equation}
+Hence, for chronological concatenation---first \(\gamma\), then \(\delta\)---
+\begin{equation}
+ D_{\gamma\delta}=\rho(\delta)_{B*}D_\gamma,
+ \qquad
+ \rho(\gamma\delta)=\rho(\delta)\rho(\gamma).
+ \label{eq:history-divisor-chronology}
+\end{equation}
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Write \(\Delta=ad-bc\).  At the projective point
+\([Z:W]=[au+b:cu+d]\), the two rows of the adjugate matrix give
+\[
+ dZ-bW=\Delta u,
+ \qquad
+ aW-cZ=\Delta.
+\]
+Eliminating \(u\) from these equations and \(u^2=t\) gives
+\eqref{eq:forced-homogeneous-quadratic}.  Scaling \(M_h\) by
+\(q\in k^\times\) scales \(\mathcal P_h\) by \(q^2\), so its Cartier divisor
+is unchanged.
+
+For the identity operator, the divisor is
+\[
+ D_1=V(Z^2-tW^2).
+\]
+It misses \(W=0\), and on \(W=1\) its coordinate ring is
+\[
+ R[z]/(z^2-t)\cong k[u,u^{-1}].
+\]
+It is therefore integral and finite free of rank two over \(R\).  Since
+\(4t\in R^\times\), it is also \(\acute{e}\)tale.  The automorphism \(h_B\) of
+\(\mathbb P^1_B\) carries \(D_1\) to \(D_h\), proving the first two claims.
+
+Expanding \eqref{eq:forced-affine-quadratic} gives coefficients
+\[
+ A=d^2-tc^2,\qquad B=2(tac-bd),\qquad C=b^2-ta^2.
+\]
+The leading coefficient is nonzero in \(k(t)\), since otherwise the
+transcendence of \(t\) would force \(c=d=0\).  Direct calculation yields
+\(B^2-4AC=4t\Delta^2\).  The polynomial \(z^2-t\) is irreducible over
+\(k(t)\), and an invertible projective change of coordinates preserves
+irreducibility, proving the generic assertion.  Factoring after \(t=u^2\)
+gives \eqref{eq:forced-quadratic-splitting}.  The two factors are disjoint
+because \(2u\) is a unit.  The same nonsquare argument over
+\(\overline k(t)\) proves the constant-field qualification.
+
+Finally, \(D_h=h_B(D_1)\), so \(D_{g\circ h}=g_B(D_h)\).  Substituting the
+inverse coordinates
+\([sZ-qW:-rZ+pW]\) gives
+\eqref{eq:forced-quadratic-composition}.  The chronological rule is precisely
+the convention of Paper~I.  These are elementary instances of finite-flat and
+finite-\(\acute{e}\)tale base change
+\cite{Hartshorne1977AlgebraicGeometry,GrothendieckRaynaud1971SGA1}.
+\end{proof}
+
+The geometric generic fiber has two points over
+\(\overline{k(t)}\), but the total cover remains integral after extending only
+the constants to \(\overline k\).  Equation
+\eqref{eq:forced-quadratic-splitting} is instead a splitting after the
+nonconstant register cover itself.
+
+\begin{remark}[The affine pole is not a collision]
+\label{rem:quadratic-affine-pole}
+The projective endpoint is finite on a chosen register branch precisely when
+\(cu+d\ne0\).  Requiring both conjugate branches to be finite removes
+\[
+ V\bigl(\mathrm N_{k(u)/k(t)}(cu+d)\bigr)
+ =V(d^2-c^2t)
+\]
+from \(B\).  If \(c,d\ne0\), then at \(t=(d/c)^2\) one endpoint moves to
+infinity and the affine polynomial loses degree.  Its discriminant remains
+nonzero, so no two projective roots collide.  The homogeneous divisor is still
+finite \(\acute{e}\)tale there.
+
+If instead one compactifies the base to \(\overline B=\Spec k[t]\), the same
+projective equation remains integral and finite flat, but it is ramified at
+\(t=0\).  Its fiber there is a nonreduced double point, and the ramification is
+tame of index two.  Thus the \(\mathbb G_m\)-model has Frobenius but no inertia,
+whereas this boundary compactification supplies the single Kummer inertia point.
+\end{remark}
+
+\subsection{Time-tagged traces, zero hits, and ordinary poles}
+\label{subsec:tagged-history-trace}
+
+The endpoint divisor forgets the intermediate computation.  There is, however,
+a restricted decorated object which is still forced by the same marked history.
+For
+\(\gamma=(g_1,\ldots,g_n)\), write
+\[
+ h_0=1,
+ \qquad
+ h_j=\rho(g_1,\ldots,g_j)
+      =g_j\circ\cdots\circ g_1.
+\]
+Define the \emph{time-tagged register trace}
+\begin{equation}
+ \mathcal T_\gamma
+ =\bigsqcup_{j=0}^n
+   \bigl(D_{h_j}\times\{j\}\bigr),
+ \label{eq:time-tagged-register-trace}
+\end{equation}
+together with the transition label \(g_{j+1}\) from time \(j\) to time
+\(j+1\).  The tags are part of the object; forgetting them merely superposes
+endpoint divisors and destroys chronology.
+
+For ordinary arithmetic, define first a divisor on the projective input line.
+Every letter \(\mathsf j[x]=-1/x\) requests division by the current value.  Put
+\begin{equation}
+ \Pi_\gamma
+ =\sum_{\{j:\,g_{j+1}=\mathsf j\}} h_j^*[0]
+ \quad\text{on }\mathbb P^1_k,
+ \label{eq:universal-history-pole-divisor}
+\end{equation}
+Let \(\Pi_{\gamma,B}=\Pi_\gamma\times_k B\) on \(\mathbb P^1_B\), and let
+\(\Pi_\gamma^{(u)}=\iota_1^*\Pi_{\gamma,B}\) be its pullback to the register
+cover.  Multiplicity records repeated requests at the same input.
+
+\begin{proposition}[Restricted trace composition and pole cocycle]
+\label{prop:trace-pole-cocycle}
+For \(q=4\) histories the following hold.
+\begin{enumerate}
+\item Chronological concatenation appends the trace of \(\delta\), evaluated
+from the terminal state of \(\gamma\), to the tagged trace of \(\gamma\).
+The transition labels and time reindexing determine this operation uniquely.
+\item The ordinary pole divisors satisfy the exact cocycle identity
+\begin{equation}
+ \Pi_{\gamma\delta}
+ =\Pi_\gamma+\rho(\gamma)^*\Pi_\delta.
+ \label{eq:history-pole-cocycle}
+\end{equation}
+The branchwise ordinary-admissible locus is
+\(\widetilde B\setminus\operatorname{Supp}(\Pi_\gamma^{(u)})\).
+\item If
+\(M_{h_j}=\left(\begin{smallmatrix}a_j&b_j\\c_j&d_j\end{smallmatrix}\right)\),
+then the parameters at which time \(j\) reaches zero are the intersection of
+\(D_{h_j}\) with the zero section \([0:1]\), hence are cut out on \(B\) by
+\begin{equation}
+ b_j^2-t a_j^2=0.
+ \label{eq:stage-zero-hit-locus}
+\end{equation}
+On \(B=\mathbb G_{m,k}\) this locus is empty when \(a_jb_j=0\), and otherwise
+is the single divisor \(t=(b_j/a_j)^2\).
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+The prefix operators of \(\gamma\delta\) are first those of \(\gamma\), and
+then the maps \(q_j\circ\rho(\gamma)\), where \(q_j\) runs through the prefixes
+of \(\delta\).  This proves the trace statement.  A pole occurring in the
+second block has input divisor
+\(\rho(\gamma)^*(q_j^*[0])\); summing the first and second blocks gives
+\eqref{eq:history-pole-cocycle}.  Since translations have no finite pole and
+every inversion pole is listed, the complement of the pulled-back support is
+exactly the ordinary-admissible locus for a chosen register branch.  Finally,
+substitution of \([Z:W]=[0:1]\) in
+\eqref{eq:forced-homogeneous-quadratic} gives
+\eqref{eq:stage-zero-hit-locus}.
+\end{proof}
+
+The proposition supplies a genuine composition law for a \emph{restricted,
+decorated correspondence}: the quadratic seed cover is fixed in advance, every
+time is tagged, and every transition and pole request is retained.  It is not a
+functor from arbitrary marked histories to prime divisors.  In particular,
+\(\mathcal T_\gamma\) is generally a disconnected multisection, while
+\(D_{\rho(\gamma)}\) is only its terminal prime divisor.
+
+\begin{example}[A neutral operator with nonneutral trace]
+\label{ex:omega-four-register-trace}
+Let \(\lambda=\sqrt2\), and let
+\[
+ \omega_4=(\mathsf t_+,\mathsf j,
+            \mathsf t_+,\mathsf j,
+            \mathsf t_+,\mathsf j,
+            \mathsf t_+,\mathsf j).
+\]
+With the chronological convention of Paper~I,
+\(\rho(\omega_4)=(JT)^4=1\).  Hence \(D_{\omega_4}=D_1\), and even the
+register-decorated terminal map is the same as for the empty history.  The four
+universal inversion requests occur at
+\[
+ x=-\sqrt2,\qquad x=-1/\sqrt2,\qquad x=0,\qquad x=\infty.
+\]
+The register \(u\in\mathbb G_m\) omits the last two, so
+\begin{equation}
+ \Pi_{\omega_4}^{(u)}=[u=-\sqrt2]+[u=-1/\sqrt2],
+ \qquad
+ \Pi_{\varnothing}^{(u)}=0.
+ \label{eq:omega-four-register-poles}
+\end{equation}
+The maximal base open on which both conjugate register branches are ordinarily
+admissible therefore removes \(t=2\) and \(t=1/2\).  The tagged traces are also
+different: one has nine time slices and the other only its initial slice.  Thus
+endpoint equality does not imply equality of ordinary domains or computation
+traces.
+\end{example}
+
+\subsection{What the divisor retains, and what it necessarily forgets}
+\label{subsec:register-divisor-kernels}
+
+\begin{proposition}[Exact collapse levels in the quadratic model]
+\label{prop:quadratic-register-collapse}
+Let \(h_1,h_2\in\Gamma_4\).
+\begin{enumerate}
+\item As abstract covers of \(B\), all \(D_h\to B\) are isomorphic to the same
+Kummer cover \(\widetilde B\to B\).  Their monodromy, ramification behavior, and
+Frobenius cycle types therefore do not depend on \(h\).  The operator enters only
+through the embedding into the fixed output line \(\mathbb P^1_B\).
+\item Let \(\epsilon(z)=-z\).  Then
+\begin{equation}
+ D_{h_1}=D_{h_2}
+ \quad\Longleftrightarrow\quad
+ h_2^{-1}h_1\in\{1,\epsilon\}
+ \quad\text{in }\operatorname{PGL}_2(k).
+ \label{eq:embedded-divisor-kernel}
+\end{equation}
+Since \(\epsilon\) sends the upper half-plane to the lower half-plane,
+\(\Gamma_4\cap\{1,\epsilon\}=\{1\}\).  Thus the embedded divisor recovers the
+operator inside \(\Gamma_4\), although the abstract cover does not.
+\item Equality of register-decorated endpoint maps
+\(\iota_{h_1}=\iota_{h_2}\) implies \(h_1=h_2\).  Nevertheless the assignment
+\(\gamma\mapsto(\widetilde B,u,\iota_{\rho(\gamma)})\) factors through
+\(\rho\).  Every pair of distinct histories with the same projective operator,
+including \(\omega_4\) and the empty word, has the same terminal
+correspondence.
+\item At a single chosen geometric register value \(u_0\), endpoint equality is
+coarser:
+\begin{equation}
+ h_1(u_0)=h_2(u_0)
+ \quad\Longleftrightarrow\quad
+ h_2^{-1}h_1\in\operatorname{Stab}_{\Gamma_4}(u_0).
+ \label{eq:closed-endpoint-kernel}
+\end{equation}
+By contrast, equality at the generic register \(u\) forces operator equality.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+The first assertion follows from \(D_h=h_B(D_1)\).  A constant projective
+automorphism preserving \(D_1\) restricts to a \(B\)-automorphism of the quadratic
+cover.  That cover has only the identity and the deck involution \(u\mapsto-u\).
+Because \(u\) is transcendental over \(k\), the corresponding rational maps are
+respectively \(z\mapsto z\) and \(z\mapsto-z\).  This proves
+\eqref{eq:embedded-divisor-kernel}.  The orientation statement gives its
+intersection with \(\Gamma_4\).  If \(h_1(u)=h_2(u)\) in \(k(u)\), two
+fractional linear maps agree as rational functions and hence define the same
+projective operator.  The final assertion is the usual orbit--stabilizer
+criterion.
+\end{proof}
+
+This proposition is the plain-divisor no-go in its precise form.  Forgetting the
+embedding collapses all operators.  Keeping the embedding can recover the
+restricted \(\Gamma_4\) operator, but not a marked word in its evaluation fiber.
+Keeping the register distinguishes the two Kummer lifts; keeping the tagged
+prefix trace and pole divisor additionally retains intermediate states and
+ordinary domain failures.  None of these statements proves that the trace is a
+complete invariant of literal or marked-history equality.
+
+\subsection{Frobenius in the quadratic model}
+\label{subsec:quadratic-register-frobenius}
+
+Let \(\mathcal O_k=\Z[\sqrt2]\).  Because the standard generators of
+\(\Gamma_4\) lie in \(\operatorname{SL}_2(\mathcal O_k)\), the preceding
+construction has an integral model over
+\(\mathcal O_k[1/2,t,t^{-1}]\).
+
+\begin{proposition}[Quadratic Frobenius cycle]
+\label{prop:quadratic-register-frobenius}
+Let \(b\) be a closed point of this integral base, let
+\(\kappa(b)=\F_q\), and write \(t_b\in\F_q^\times\) for the value of the
+register parameter.  On the two geometric endpoint values of \(D_h\), either
+arithmetic or geometric Frobenius has cycle type
+\begin{equation}
+ \begin{cases}
+ (1)(1),&t_b\text{ is a square in }\F_q,\\
+ (12),&t_b\text{ is a nonsquare in }\F_q.
+ \end{cases}
+ \label{eq:quadratic-frobenius-cycle}
+\end{equation}
+This cycle type is independent of \(h\); the embedding merely sends
+\(\{\pm\sqrt{t_b}\}\) to \(\{h(\pm\sqrt{t_b})\}\).
+\end{proposition}
+
+\begin{proof}
+For a root \(r^2=t_b\) in \(\overline{\F}_q\), one has
+\(r^q=t_b^{(q-1)/2}r\).  Thus Frobenius fixes the two signs when the quadratic
+character is \(+1\) and interchanges them when it is \(-1\).  In a two-element
+permutation group arithmetic and geometric Frobenius have the same cycle type.
+The coefficients of \(h\) lie in the residue field, so Frobenius commutes with
+the projective coordinate change \cite{Neukirch1999AlgebraicNumberTheory}.
+\end{proof}
+
+For example, at the prime
+\((7,\sqrt2-3)\) the residue field is \(\F_7\).  The specialization \(t=2\)
+splits because \(2=3^2\), whereas \(t=3\) gives a transposition.  This arithmetic
+cycle belongs to the supplied register cover, not to a new history invariant.
+
+\subsection{A quartic test separating constant and geometric components}
+\label{subsec:quartic-register-test}
+
+The quadratic model is arithmetically prime and remains integral after every
+extension of constants.  A second forced register graph exhibits a genuinely
+different layer.  Retain \(k=\Q(\sqrt2)\), put \(\eta=3\), and supply registers
+\begin{equation}
+ v^2=\eta,
+ \qquad
+ u^2=t+v.
+ \label{eq:quartic-register-tower}
+\end{equation}
+The constant \(\eta\) is not a square in \(k\).  Eliminating \(v\) forces
+\begin{equation}
+ Q(u,t)=(u^2-t)^2-\eta
+       =u^4-2tu^2+t^2-\eta.
+ \label{eq:forced-register-quartic}
+\end{equation}
+
+\begin{theorem}[Arithmetic prime with two constant-geometric components]
+\label{thm:forced-register-quartic}
+Let \(E\subset\mathbb P^1_B\) be cut out by
+\begin{equation}
+ \mathcal Q(U,V;t)=(U^2-tV^2)^2-\eta V^4.
+ \label{eq:forced-binary-quartic}
+\end{equation}
+Then:
+\begin{enumerate}
+\item \(E\to B\) is an integral finite flat cover of degree four, and
+\(Q(u,t)\) is irreducible over \(k(t)\).
+\item Over \(\overline k(t)\), it has exactly two irreducible quadratic factors
+\begin{equation}
+ Q=(u^2-(t+\sqrt\eta))(u^2-(t-\sqrt\eta)).
+ \label{eq:quartic-constant-factorization}
+\end{equation}
+Each factor remains irreducible over \(\overline k(t)\).  It splits into two
+sections only after the further nonconstant Kummer base change adjoining
+\(\sqrt{t\pm\sqrt\eta}\).
+\item Its discriminant in \(u\) is
+\begin{equation}
+ \operatorname{disc}_u Q
+ =256\eta^2(t^2-\eta).
+ \label{eq:quartic-register-discriminant}
+\end{equation}
+Thus the cover is finite \(\acute{e}\)tale away from \(t^2=\eta\).  Constant
+Galois interchanges the two factors in
+\eqref{eq:quartic-constant-factorization}, while analytic monodromy around
+\(t=-\sqrt\eta\) or \(t=+\sqrt\eta\) acts within the corresponding quadratic
+cover by \(u\mapsto-u\).
+\item For \(h\) represented by \(M_h\), put
+\(L_1=dZ-bW\) and \(L_0=aW-cZ\).  The projective endpoint divisor of
+\(h(u)\) is the binary quartic
+\begin{equation}
+ \mathcal Q_h(Z,W;t)
+ =\bigl(L_1^2-tL_0^2\bigr)^2-\eta L_0^4.
+ \label{eq:quartic-projective-pushforward}
+\end{equation}
+It equals \(h_{B*}E\), so the same composition rule as
+\eqref{eq:register-divisor-equivariance} holds.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+The form \(\mathcal Q\) has no point over \(V=0\), and its affine coordinate
+ring is the free rank-four \(R\)-module defined by the monic polynomial \(Q\).
+In the tower
+\[
+ k(t)\subset k(\sqrt\eta)(t)
+ \subset k(\sqrt\eta)(t)\bigl(\sqrt{t+\sqrt\eta}\bigr),
+\]
+the first extension has degree two because \(\eta\) is nonsquare in \(k\), and
+the second has degree two because \(t+\sqrt\eta\) has a simple zero and hence is
+not a square.  The total degree is four, so \(Q\) is the minimal polynomial of
+\(u\) over \(k(t)\).  This also proves integrality.
+
+After extending constants, \(\sqrt\eta\) is available and gives
+\eqref{eq:quartic-constant-factorization}; the simple-zero argument proves that
+both quadratics remain irreducible.  For a polynomial \(u^4+pu^2+r\), the
+discriminant is \(16r(p^2-4r)^2\).  Substitution of
+\(p=-2t\) and \(r=t^2-\eta\) gives
+\eqref{eq:quartic-register-discriminant}.  The Galois and local monodromy
+statements follow directly from the two displayed square roots.  Finally,
+\([L_1:L_0]=[u:1]\) on the graph of \(h(u)\); homogenized elimination gives
+\eqref{eq:quartic-projective-pushforward}.
+\end{proof}
+
+There is also an explicit good-reduction dictionary.  Work over
+\(\mathcal O_k[1/6,t,t^{-1}]\) and away from \(t^2=\eta\).  At a closed point
+with residue field \(\F_q\), let \(\chi\) denote its quadratic character.
+If \(\chi(\eta)=+1\), choose \(s\in\F_q\) with \(s^2=\eta\).  Frobenius
+preserves the two quadratic components, and on the component
+\(u^2=t_b\pm s\) it is the identity or a transposition according as
+\(\chi(t_b\pm s)=+1\) or \(-1\).  If \(\chi(\eta)=-1\), Frobenius exchanges
+the two constant components.  Choosing \(s\in\F_{q^2}\) with \(s^2=\eta\),
+its square acts within \(u^2=t_b+s\) by the character
+\begin{equation}
+ \chi_{\F_{q^2}}(t_b+s)=\chi_{\F_q}(t_b^2-\eta).
+ \label{eq:quartic-frobenius-inner-character}
+\end{equation}
+Consequently Frobenius has cycle type \((2)(2)\) when the right-hand side is
+\(+1\), and a four-cycle when it is \(-1\).  Projective pushforward by \(h\)
+does not change these cycle types.
+
+The quartic example supplies the algebraic part of the test requested in the
+arithmetic-versus-geometric zero-path problem: arithmetic irreducibility,
+constant-field components, local sheet monodromy, discriminant, and Frobenius
+are all explicit.  It does not yet supply an AEG assignment or prove that these
+registers arise canonically from unrestricted expression histories.
+
+\subsection{Boundary of the restricted result}
+\label{subsec:history-divisor-restricted-boundary}
+
+The two constructions establish an exact but narrow chain
+\[
+ \boxed{
+ \begin{gathered}
+ \text{supplied algebraic register}
+ \longrightarrow
+ \text{marked }q=4\text{ projective computation}\\
+ \mathord\downarrow\\[-2pt]
+ \text{tagged trace and pole divisor}
+ \longrightarrow
+ \text{projective endpoint divisor}
+ \end{gathered}}
+\]
+The first three arrows retain the declared register, time, transitions, and
+ordinary-domain audit.  Forgetting to the final divisor retains at most the
+embedded projective operator and its arithmetic cover; forgetting the embedding
+retains only the cover.  Thus this section gives a restricted
+\(\Gamma_4\)-equivariant assignment, not the general history-to-divisor functor.
+
+\begin{problem}[Descent of trace data without tautological history labels]
+\label{prob:trace-decoration-descent}
+Find a category of typed algebraic registers and marked arithmetic histories in
+which the tagged trace and pole cocycle descend under a declared nontrivial
+history equivalence, while retaining enough information to distinguish ordinary
+domain failures and zero-hit stages.  Determine whether any finite prime divisor,
+normalization, or stateful local system can carry this information without simply
+reattaching the complete word as a label.  Then compare the resulting construction
+with the automorphic \(q=4\) zero network and with parameter concatenation.
+\end{problem}
+
+Until this descent problem is solved, the present results should be read as a
+proved minimal naturality model and a proved obstruction: the terminal endpoint
+divisor constructed here, because it factors through \(\rho\), cannot be
+history-faithful, even though a computation-graph decoration can retain strictly
+more than its terminal operator.

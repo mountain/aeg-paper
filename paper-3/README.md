@@ -38,9 +38,21 @@ The manuscript proves:
 - an exact `q=4` Hecke--Hauptmodul singular AES whose zero set is the
   `{infinity,4}` Hecke network, including sign-character descent and cusp/cone
   completeness boundaries;
+- a global identification of the completed coarse AEG surface of the sign cover
+  with the cylinder `C*`; after retaining the hyperbolic orbifold, its unit tangent
+  bundle is `S^3 minus T(2,4)` under the standard cusp compactification;
+- a surjective operator-quotient map from primitive hyperbolic `q=4` histories
+  to Hecke periodic-orbit knots, together with the explicit cusp-linking turn
+  sum and the zero-dessin coding-spine theorem;
 - a relative zero-divisor theorem separating raw histories, projective operators,
   endpoint equality, coefficient-field prime components, geometric sheets,
   Galois action, and analytic monodromy;
+- two supplied-register models with forced endpoint equations: the quadratic
+  cover `u^2=t`, whose endpoint divisor forgets marked history, and the quartic
+  `(u^2-t)^2-3`, whose arithmetic irreducibility, geometric components,
+  discriminant, monodromy, and Frobenius cycles are explicit;
+- a tagged-prefix trace and ordinary pole cocycle that distinguish the
+  projectively neutral word `omega_4` from the empty history;
 - a rank-`r` parameterized zero-section and proper-tube theorem;
 - a torus-structure theorem for compact boundaryless real zero tubes over a circle
   with globally oriented vertical tangent bundle;
@@ -59,9 +71,13 @@ family, an intrinsic real-zero-to-braid functor, functorial thread selection, a 
 Markov-normalized AEG knot invariant, or separation beyond Alexander/Burau.  In
 particular:
 
-- the `q=4` construction is history-derived at the projective-operator quotient
-  level; a general functor from marked histories to relative zero divisors remains
-  open;
+- the `q=4` knot map and the finite register constructions factor through the
+  projective operator at their terminal level; a general functor from marked
+  histories to relative prime divisors remains open;
+- the two-dimensional zero dessin is a coding spine for the classical template,
+  not itself a knot, link, zero tube, or three-dimensional template;
+- the geodesic-flow template and cusp-linking formula are classical inputs; no
+  new knot invariant is inferred from their AEG realization;
 - a smooth total zero set is not automatically a tube;
 - a tube is not automatically an embedded or threaded tube;
 - braid-level data are not automatically knot invariants;
@@ -92,6 +108,8 @@ paper-3/
 │   ├── 03-multi-zero-constructions.tex
 │   ├── 04-arithmetic-zero-networks.tex
 │   ├── 04-parameter-discriminants.tex
+│   ├── 05-q4-geodesic-knots.tex
+│   ├── 05-history-divisor-naturality.tex
 │   ├── 05-regular-tubes.tex
 │   ├── 06-singular-fibers.tex
 │   ├── 07-monodromy-and-braids.tex

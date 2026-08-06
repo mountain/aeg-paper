@@ -1,0 +1,593 @@
+The four-pronged zero germ of Theorem~\ref{thm:q4-hecke-zero-network}
+suggests a knot-theoretic question, but it is not itself a knot.  The germ lives
+in a real surface, and its intersection with a sufficiently small circle consists
+of four points.  A knot appears only after passing to the three-dimensional unit
+tangent bundle of the global Hecke orbifold.  This section makes that passage and
+keeps the local and global constructions separate.
+
+\subsection{The sign cover as an orbifold}
+
+Write
+\[
+ \mathcal O_4=\Gamma_4\backslash\HH,
+ \qquad
+ R=JT,
+ \qquad
+ H_4=\ker\chi.
+\]
+Thus
+\begin{equation}
+ \Gamma_4=\langle J,R\mid J^2=R^4=1\rangle,
+ \qquad
+ \chi(J)=\chi(R)=-1,
+ \qquad
+ T=JR\in H_4.
+ \label{eq:q4-sign-kernel-presentation}
+\end{equation}
+The quotient
+\(\mathcal O_4^\chi=H_4\backslash\HH\) is the orbifold on which the
+assignment \(a_4\) of Proposition~\ref{prop:q4-sign-descent} becomes scalar.
+
+\begin{proposition}[Signature of the sign cover]
+\label{prop:q4-sign-cover-signature}
+The index-two orbifold cover
+\[
+ \mathcal O_4^\chi\longrightarrow\mathcal O_4
+\]
+has signature
+\[
+ (0;2;\infty,\infty).
+\]
+More precisely, the order-two point of \(\mathcal O_4\) has one regular
+preimage, the order-four point has one preimage of order two, and the cusp has
+two unramified preimages.
+\end{proposition}
+
+\begin{proof}
+The relevant stabilizer intersections follow immediately from
+\eqref{eq:q4-sign-kernel-presentation}:
+\[
+ H_4\cap\langle J\rangle=1,
+ \qquad
+ H_4\cap\langle R\rangle=\langle R^2\rangle,
+ \qquad
+ \langle T\rangle\subset H_4.
+\]
+Since \(J\) and \(R\) lie outside \(H_4\), the first two orbifold points each
+have one preimage.  Their new stabilizer orders are respectively \(1\) and
+\(2\).  Since the entire parabolic stabilizer lies in \(H_4\), the number of
+cusp preimages is
+\([\Gamma_4:H_4\langle T\rangle]=2\), and both peripheral covering degrees
+are one.
+
+It remains only to determine the genus.  The orbifold Euler characteristic of
+the base is
+\[
+ \chi_{\mathrm{orb}}(\mathcal O_4)
+ =2-1-\left(1-\frac12\right)-\left(1-\frac14\right)
+ =-\frac14.
+\]
+It is multiplied by two under the cover.  A genus-\(g\) orbifold with one
+order-two point and two cusps has Euler characteristic
+\[
+ 2-2g-2-\left(1-\frac12\right)=-2g-\frac12.
+\]
+Equating this with \(-1/2\) gives \(g=0\).
+\end{proof}
+
+\begin{proposition}[Global scalar-cover uniformization]
+\label{prop:q4-sign-cover-cylinder}
+Let \(\widehat{\mathcal O}_4^\chi\) be the coarse AEG surface obtained by
+adjoining the finite-distance point over the order-four orbit to the regular
+locus of \(H_4\backslash\HH\), while leaving its two cusps open.  Then \(W\)
+descends to a biholomorphism
+\begin{equation}
+ W:\widehat{\mathcal O}_4^\chi\longrightarrow\C^\times.
+ \label{eq:q4-sign-cover-cstar}
+\end{equation}
+Under this identification,
+\[
+ g_4=\left|\frac{\dd W}{W}\right|^2
+\]
+is the complete flat cylindrical metric and the scalar zero set is the single
+circle
+\[
+ Z(a_4)/H_4=\{|W|=1\}.
+\]
+\end{proposition}
+
+\begin{proof}
+Proposition~\ref{prop:q4-sign-cover-signature} identifies the compactified
+coarse surface with \(\mathbb P^1\), with two punctures coming from the cusps.
+The \(H_4\)-invariance of \(F\) makes \(W\) single-valued on this surface.
+It has neither a zero nor a pole in the interior.  At the two cusps the
+expansion in the proof of Theorem~\ref{thm:q4-hecke-zero-network} is
+\[
+ W=Cq^{\pm1}(1+O(q)).
+\]
+The two signs are opposite: an element of
+\(\Gamma_4\setminus H_4\) interchanges the two cusp lifts and sends
+\(W\) to \(W^{-1}\).  Hence the meromorphic extension of \(W\) to the
+compact coarse sphere has one simple zero and one simple pole, so it has degree
+one.
+
+At the remaining order-two orbifold point of the cover, an upstairs coordinate
+\(z\) satisfies \(W=1+cz^2+O(z^4)\), with \(c\ne0\).  Thus in the coarse
+coordinate \(z^2\), \(W\) is unramified.  It is also unramified at the regular
+preimage of the old order-two point and everywhere else.  This proves
+\eqref{eq:q4-sign-cover-cstar}.  The metric and zero-circle statements now
+follow directly, and completeness is the divergence of
+\(\int |\dd W|/|W|\) at \(0\) and \(\infty\).
+\end{proof}
+
+\begin{remark}[The zero circle is not a hyperbolic periodic orbit]
+\label{rem:q4-zero-circle-not-geodesic-knot}
+The circle in Proposition~\ref{prop:q4-sign-cover-cylinder} is a zero level and
+a geodesic for the flat AEG metric.  No claim is made that it is a closed
+geodesic for the original hyperbolic orbifold metric.  The periodic-orbit knots
+below instead come from unit-tangent lifts of hyperbolic axes.  In particular,
+Proposition~\ref{prop:q4-sign-cover-cylinder} forgets the residual order-two
+orbifold isotropy in the coarse coordinate, whereas $T^1\mathcal O_4^\chi$
+below retains that isotropy.  The flat unit tangent bundle of the coarse
+cylinder is not being identified with the Hecke unit tangent bundle.
+\end{remark}
+
+\subsection{Hyperbolic compactification and the cusp link}
+
+Let
+\[
+ M_4=T^1\mathcal O_4,
+ \qquad
+ M_4^\chi=T^1\mathcal O_4^\chi.
+\]
+The unit tangent bundle of an orientable hyperbolic orbifold is a genuine
+oriented three-manifold: the rotations at an orbifold point act freely on unit
+tangent vectors.
+
+\begin{definition}[Hyperbolic cusp compactification]
+For a cusp of an oriented hyperbolic two-orbifold, the \emph{hyperbolic
+compactification} of its unit tangent bundle is the Dehn filling in which the
+circle of vectors tangent to a horocycle bounds a meridian disc.  The core of
+the attached solid torus is denoted by \(K_\infty\).  This convention is part of
+the definition; changing the filling slope can change the ambient lens space.
+\end{definition}
+
+\begin{theorem}[The \(q=4\) cusp knot and its sign-cover link]
+\label{thm:q4-sign-cover-torus-link}
+With the preceding compactification convention:
+\begin{enumerate}
+\item the compactification of \(M_4\) is
+\begin{equation}
+ \overline M_4\cong L(2,1)\cong\mathbb {RP}^3,
+ \qquad
+ M_4\cong\mathbb {RP}^3\setminus K_\infty,
+ \label{eq:q4-rp3-cusp-complement}
+\end{equation}
+and \(K_\infty\) is null-homologous in \(\mathbb {RP}^3\);
+\item the covering \(M_4^\chi\to M_4\) extends over the cusp fillings to the
+universal double cover
+\[
+ S^3\longrightarrow\mathbb {RP}^3;
+\]
+\item the full inverse image of \(K_\infty\) is the two-component torus link
+\(T(2,4)\), and hence
+\begin{equation}
+ M_4^\chi\cong S^3\setminus T(2,4).
+ \label{eq:q4-sign-cover-link-complement}
+\end{equation}
+The two components have absolute mutual linking number \(2\).
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+For the triangle orbifold of signature \((p,q,\infty)\), the standard unit-tangent
+bundle calculation gives
+\begin{equation}
+ \overline{T^1\mathcal O_{p,q}}
+ \cong L(pq-p-q,p-1).
+ \label{eq:dehornoy-lens-compactification}
+\end{equation}
+In the same calculation the added cusp fiber lies on the median Heegaard torus.
+If \((c_P,c_Q)\) is the basis used there, the two meridians and the cusp fiber
+have classes
+\begin{equation}
+ m_P=(p-1,-1),
+ \qquad
+ m_Q=(-1,q-1),
+ \qquad
+ a_\infty=(1,1).
+ \label{eq:dehornoy-median-slopes}
+\end{equation}
+These statements are the lens-space and slope computation of
+\cite[Lemmas~5.2 and~5.3]{Dehornoy2015GeodesicFlow}.  Setting \(p=2\) and \(q=4\)
+gives
+\(L(2,1)\cong\mathbb {RP}^3\), and deleting the added core recovers \(M_4\).
+Moreover, for these values,
+\[
+ a_\infty=2m_P+m_Q.
+\]
+Both meridians vanish after the two solid tori are attached, so
+\([K_\infty]=0\) in \(H_1(\mathbb {RP}^3;\Z)\).
+
+By Proposition~\ref{prop:q4-sign-cover-signature}, each cusp has two lifts and
+each peripheral covering degree is one.  More explicitly, both the parabolic
+class \(T\) and the central unit-tangent fiber class lie in the covering
+subgroup.  Therefore every peripheral torus maps homeomorphically to the base
+peripheral torus and the chosen meridian slope lifts unchanged.  The double
+cover consequently extends, without branching, over the two solid tori used
+for hyperbolic filling.  The extended cover is connected, so it is the universal double cover
+\(S^3\to\mathbb {RP}^3\).
+
+It remains to identify the lifted link; this is where the non-coprime pair
+\((2,4)\) requires an explicit slope check.  For \(p=2,q=4\), equations
+\eqref{eq:dehornoy-median-slopes} read
+\[
+ m_P=(1,-1),
+ \qquad m_Q=(-1,3),
+ \qquad a_\infty=(1,1).
+\]
+The compactified first homology is
+$\Z^2/\langle m_P,m_Q\rangle$, whose order is
+\(|\det(m_P,m_Q)|=2\).  The homomorphism
+\((x,y)\mapsto x+y\pmod 2\) kills both meridians, so it is the restriction to
+the median torus of the quotient map to
+\(H_1(\mathbb {RP}^3;\Z)\cong\Z/2\Z\).  Therefore the universal cover of the
+median torus corresponds to the index-two lattice
+\[
+ \Lambda=\{(x,y)\in\Z^2:x+y\equiv0\pmod2\}.
+\]
+The pair \((a_\infty,m_P)\) is a basis of \(\Lambda\), and in that basis
+\[
+ m_P=(0,1),
+ \qquad
+ m_Q=(1,-2),
+ \qquad
+ a_\infty=(1,0).
+\]
+Thus the lifted Heegaard splitting is the standard genus-one splitting of \(S^3\).
+Moreover \(a_\infty=m_Q+2m_P\).  Since \(a_\infty\) is trivial in the deck
+quotient, its inverse image has two components, each mapping homeomorphically
+to \(K_\infty\).  On the lifted Heegaard torus these are two parallel copies of
+the primitive slope \(2m_P+m_Q\).  They form \(T(4,2)\), which is isotopic to
+\(T(2,4)\).  The usual torus framing gives absolute mutual linking number \(2\);
+its sign depends on the orientation convention.
+Removing the link proves \eqref{eq:q4-sign-cover-link-complement}.
+\end{proof}
+
+\begin{warning}[What has and has not produced the link]
+\label{warn:q4-local-global-link}
+Theorem~\ref{thm:q4-sign-cover-torus-link} is global.  It uses the
+\((2,4,\infty)\) orbifold, its unit tangent bundle, the character cover, and a
+specified cusp filling.  It does not identify the small link of the real
+four-pronged surface germ with \(T(2,4)\).  Nor can one obtain the conclusion by
+substituting \(p=2,q=4\) into an \(S^3\) torus-\emph{knot} theorem that assumes
+\(p\) and \(q\) coprime.  In particular, the central-extension presentation
+\(\langle x,y\mid x^2=y^4\rangle\) has abelianization
+\(\Z\oplus\Z/2\Z\), whereas the complement of a two-component link in \(S^3\)
+has first homology \(\Z^2\).  The passage to the index-two cover in
+Theorem~\ref{thm:q4-sign-cover-torus-link} is essential.
+\end{warning}
+
+\subsection{Primitive Hecke classes and geodesic knots}
+
+\begin{definition}[Oriented Hecke geodesic knot]
+Let \(\gamma\in\Gamma_4\) be primitive and hyperbolic.  Its invariant axis
+\(A_\gamma\subset\HH\) is oriented from the repelling to the attracting fixed
+point.  The corresponding closed geodesic in \(\mathcal O_4\) is denoted
+\(C_\gamma\).  Its unit-tangent lift is
+\begin{equation}
+ K_\gamma
+ =\{(x,\dot C_\gamma(x)):x\in C_\gamma\}
+ \subset M_4.
+ \label{eq:q4-unit-tangent-knot}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Arithmetic class to periodic-orbit knot]
+\label{prop:q4-hyperbolic-class-knot}
+Primitive hyperbolic conjugacy classes in \(\Gamma_4\) are in bijection with
+primitive oriented periodic orbits of the geodesic flow on \(M_4\).  Under this
+correspondence \(K_\gamma\) is an embedded oriented circle.  Replacing
+\(\gamma\) by \(\gamma^{-1}\) reverses the orientation of the base geodesic and
+in general gives the oppositely directed periodic orbit rather than the same
+oriented knot.
+
+If
+\[
+ \widetilde\gamma=
+ \begin{pmatrix}a&b\\c&d\end{pmatrix}
+ \in\operatorname{SL}_2(\Q(\sqrt2))
+\]
+is a lift, then its fixed points satisfy
+\begin{equation}
+ cx^2+(d-a)x-b=0,
+ \qquad
+ \Delta_\gamma=(\operatorname{tr}\widetilde\gamma)^2-4,
+ \label{eq:q4-axis-quadratic-data}
+\end{equation}
+and the geodesic length is
+\begin{equation}
+ \ell(K_\gamma)
+ =2\operatorname{arcosh}
+ \frac{|\operatorname{tr}\widetilde\gamma|}{2}.
+ \label{eq:q4-geodesic-length-trace}
+\end{equation}
+Thus the knot is canonically labelled by quadratic Hecke data, although its
+ambient isotopy type need not be determined by the trace or discriminant alone.
+\end{proposition}
+
+\begin{proof}
+A hyperbolic element acts by translation along its oriented axis.  Taking the
+axis modulo the cyclic subgroup it generates gives a closed geodesic; conjugation
+only changes its lift in \(\HH\).  Conversely, lifting an oriented closed geodesic
+to \(\HH\) gives an axis and its primitive deck translation.  Primitivity removes
+multiple traversal.  A primitive periodic orbit of a nonsingular flow is an
+embedded circle, even when its projection to the base orbifold self-intersects.
+The fixed-point equation follows by solving
+\(x=(ax+b)/(cx+d)\), and the trace--length formula is the standard eigenvalue
+calculation for a hyperbolic element of \(\operatorname{PSL}_2(\R)\).
+\end{proof}
+
+The sign character has an immediate three-dimensional meaning for these knots.
+
+\begin{proposition}[Sign-controlled lifting]
+\label{prop:q4-sign-controlled-knot-lift}
+Let \(\pi:M_4^\chi\to M_4\) be the sign cover and let \(K_\gamma\) be as above.
+Then
+\[
+ \pi^{-1}(K_\gamma)
+ \quad\text{has}\quad
+ \begin{cases}
+ 2\text{ components, each of degree }1,&\chi(\gamma)=+1,\\
+ 1\text{ component of degree }2,&\chi(\gamma)=-1.
+ \end{cases}
+\]
+In the second case the lifted periodic orbit is represented by
+\(\gamma^2\in H_4\).
+\end{proposition}
+
+\begin{proof}
+The monodromy of the double cover around the periodic orbit is the image of its
+projected deck transformation in
+\(\Gamma_4/H_4\cong\{\pm1\}\), namely \(\chi(\gamma)\).  The two alternatives
+are the elementary lifting alternatives for a connected double cover.  If the
+monodromy is nontrivial, traversing the base orbit twice closes the lift, and the
+corresponding element is \(\gamma^2\).
+\end{proof}
+
+\subsection{The classical cutting code and a linking formula}
+
+We next record the precise part of the arithmetic--knot relation that is already
+available from the classical Hecke tessellation.  Choose the standard adapted
+\((2,4,\infty)\) tessellation and the orientations used in
+\cite{Dehornoy2015GeodesicFlow}.  A periodic geodesic has a reduced cyclic
+cutting code
+\begin{equation}
+ \bigl(u v^{j_1}u v^{j_2}\cdots u v^{j_m}\bigr)^{\Z},
+ \qquad j_k\in\{1,2,3\},
+ \label{eq:q4-reduced-cutting-code}
+\end{equation}
+unique up to cyclic permutation.
+Because \(K_\infty\) is null-homologous by
+Theorem~\ref{thm:q4-sign-cover-torus-link}, its linking number with any disjoint
+oriented knot is defined using an integral Seifert surface and is integer-valued.
+
+\begin{theorem}[The \(q=4\) cusp-linking formula]
+\label{thm:q4-cusp-linking-code}
+For a periodic orbit \(K_\gamma\) with reduced code
+\eqref{eq:q4-reduced-cutting-code}, the integer linking number in
+\(\overline M_4\cong\mathbb {RP}^3\) is
+\begin{equation}
+ \operatorname{Lk}_{\overline M_4}(K_\gamma,K_\infty)
+ =\sum_{k=1}^m(j_k-2)
+ =\#\{k:j_k=3\}-\#\{k:j_k=1\}.
+ \label{eq:q4-cusp-linking-specialized}
+\end{equation}
+The sign is tied to the displayed orientation convention; reversing one component
+reverses the sign.
+\end{theorem}
+
+\begin{proof}
+For a \((p,q,\infty)\) orbifold, define the wheel turn of a reduced code
+\(u^{i_1}v^{j_1}\cdots u^{i_m}v^{j_m}\) by
+\[
+ \Theta_{\mathrm{wheel}}
+ =\sum_{k=1}^m
+ \left(\frac{i_k-p/2}{p}+\frac{j_k-q/2}{q}\right).
+\]
+The classical cusp-linking theorem gives
+\[
+ \operatorname{Lk}(K_\gamma,K_\infty)
+ =\frac{pq}{pq-p-q}\,\Theta_{\mathrm{wheel}}
+ \qquad\text{\cite[Proposition~5.7]{Dehornoy2015GeodesicFlow}}.
+\]
+For \(p=2\), every \(i_k\) equals \(1\), so its contribution vanishes.  For
+\(q=4\), the remaining contribution is
+\(\Theta_{\mathrm{wheel}}=\frac14\sum_k(j_k-2)\), while
+\(pq/(pq-p-q)=4\).  Substitution proves
+\eqref{eq:q4-cusp-linking-specialized}.
+\end{proof}
+
+\begin{corollary}[Parity of linking and splitting in the sign cover]
+\label{cor:q4-linking-sign-parity}
+For the geometric cutting code
+\eqref{eq:q4-reduced-cutting-code}, the standard turn-to-deck-transformation
+calibration gives
+\begin{equation}
+ \chi(\gamma)
+ =(-1)^{m+\sum_k j_k}
+ =(-1)^{m+\operatorname{Lk}(K_\gamma,K_\infty)}.
+ \label{eq:q4-sign-linking-parity}
+\end{equation}
+Consequently, the full inverse image of \(K_\gamma\) in
+\(S^3\setminus T(2,4)\) has two components when
+\(m+\operatorname{Lk}(K_\gamma,K_\infty)\) is even and one component when it
+is odd.
+\end{corollary}
+
+\begin{proof}
+Every \(u\)-turn is the nontrivial rotation at an order-two vertex, hence a
+conjugate of \(J\).  Every \(v^{j_k}\)-turn is, in the moving vertex frame, a
+conjugate of \(R^{j_k}\) or \(R^{-j_k}\), according to the clockwise
+orientation convention.  Because \(\chi\) is conjugacy invariant and
+\(\chi(R^{\pm j_k})=(-1)^{j_k}\), multiplying the turn contributions gives
+\(\chi(\gamma)=\prod_k(-1)^{1+j_k}\).  This argument uses the classical
+geometric code-to-group calibration; it does not identify the code with a
+literal Paper~I history word.
+On the other hand, Theorem~\ref{thm:q4-cusp-linking-code} gives
+\[
+ \operatorname{Lk}(K_\gamma,K_\infty)
+ =\sum_k j_k-2m\equiv\sum_k j_k\pmod2.
+\]
+The last assertion follows from
+Proposition~\ref{prop:q4-sign-controlled-knot-lift}.
+\end{proof}
+
+\begin{theorem}[The zero dessin as the classical coding spine]
+\label{thm:q4-zero-dessin-coding-spine}
+Match the fundamental triangle used to normalize \(\beta\) with the triangle
+used in the classical \((2,4,\infty)\) cutting construction.  Then:
+\begin{enumerate}
+\item the Dehornoy--Pinsky graph \(G[2,4,\infty]\) is exactly the AEG zero
+dessin,
+\begin{equation}
+ G[2,4,\infty]
+ =\beta^{-1}([0,1])
+ =Z(a_4),
+ \label{eq:q4-coding-graph-zero-graph}
+\end{equation}
+as an embedded \(\Gamma_4\)-graph in \(\HH\);
+\item this graph is the barycentric subdivision of the four-regular tree dual
+to the adapted tessellation by ideal quadrilaterals; suppressing its bivalent
+order-two vertices recovers that dual tree;
+\item the two endpoints of a hyperbolic axis determine the unique
+Dehornoy--Pinsky admissible bi-infinite path when \(r=\infty\).  For an axis
+stabilized by \(\gamma\), this path is periodic modulo \(\gamma\); after
+suppressing the bivalent vertices it is a no-backtracking path in the dual zero
+tree, and its turns give the cyclic code
+\eqref{eq:q4-reduced-cutting-code};
+\item replacing the admissible graph path by the classical roundabout path and
+then thickening the allowed visual-direction intervals produces the template.
+The unit-tangent knot \(K_\gamma\) is isotopic to the corresponding template
+orbit, simultaneously for every finite collection of periodic orbits.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+The graph \(G[2,4,\infty]\) is defined as the
+\(\Gamma_4\)-orbit of the geodesic segment joining the order-two and order-four
+vertices.  The proof of Theorem~\ref{thm:q4-hecke-zero-network} identifies
+\(\beta^{-1}([0,1])\) with the orbit of the same segment, which proves
+\eqref{eq:q4-coding-graph-zero-graph}.  Suppressing the order-two midpoint of
+each pair of adjacent ideal quadrilaterals gives their ordinary dual tree.
+
+The remaining assertions are the classical coding and template theorems.
+For \(r=\infty\) the coding graph is a tree and the spectacles choice is unique.
+It assigns to the two ideal endpoints of every geodesic an admissible graph
+path, including the boundary cases for which a naive crossed-tile itinerary
+would be ambiguous.  Periodicity of the geodesic is equivalent to periodicity
+of the reduced path code.  The classical roundabout replacement records the
+entry and exit data inside each tile; retaining the corresponding interval of
+unit tangent directions produces the ribbons.  The tearing construction then
+gives the asserted simultaneous isotopy
+\cite{Dehornoy2015GeodesicFlow,DehornoyPinsky2018Coding}.
+\end{proof}
+
+\begin{warning}[The spine is not the template]
+\label{warn:q4-spine-not-template}
+The hyperbolic axis is not literally contained in \(Z(a_4)\).  Its tile
+itinerary is represented on the dual zero tree.  Moreover, the bare tree does
+not remember the visual direction needed to select the chord and the
+over--under placement of ribbons in the unit tangent bundle.  Thus
+Theorem~\ref{thm:q4-zero-dessin-coding-spine} does not identify an AEG zero tube
+with the classical template; it identifies the AEG zero dessin with the
+one-dimensional coding spine from which the directed template is constructed.
+\end{warning}
+
+\begin{proposition}[The operator-quotient history-to-knot map]
+\label{prop:q4-operator-history-knot-map}
+Let \(\operatorname{Hist}_{4}^{\mathrm{ph}}\) be the Paper~I words in
+\(\mathsf t_+,\mathsf t_-\), and \(\mathsf j\) whose projective operator is
+primitive and hyperbolic.  Then
+\begin{equation}
+ \mathcal K_{\mathrm{op}}:
+ \operatorname{Hist}_{4}^{\mathrm{ph}}
+ \longrightarrow
+ \{\text{oriented primitive geodesic-flow periodic orbits in }M_4\},
+ \qquad
+ h\longmapsto K_{\rho(h)},
+ \label{eq:q4-operator-history-knot-map}
+\end{equation}
+is surjective and has the following invariance properties.
+\begin{enumerate}
+\item A cyclic shift of the chronological word does not change the oriented
+knot: its operator is conjugate to \(\rho(h)\).
+\item Reversing the word and inverting every letter replaces the orbit by the
+time-reversed orbit \(K_{\rho(h)^{-1}}\), which in general is not merely the
+same embedded circle with its orientation reversed.
+\item The map factors through the conjugacy class of the projective operator.
+In particular, inserting Paper~I's neutral eight-letter word \(\omega_4\), or
+making any other marked-history change that preserves that conjugacy class,
+cannot be detected by the unframed knot.
+\end{enumerate}
+No ordinary real-input admissibility is asserted by
+\eqref{eq:q4-operator-history-knot-map}.
+\end{proposition}
+
+\begin{proof}
+Write a chronological word as \(h=(g_1,\ldots,g_n)\), with matrix
+representatives \(M_i\).  Paper~I's convention gives
+\(\rho(h)=[M_n\cdots M_1]\).  The cyclic shift
+\((g_2,\ldots,g_n,g_1)\) has operator
+\[
+ [M_1M_n\cdots M_2]
+ =[M_1]\rho(h)[M_1]^{-1},
+\]
+so Proposition~\ref{prop:q4-hyperbolic-class-knot} proves the first claim.
+The path inverse evaluates to the inverse projective operator, proving the
+second.  The third is then immediate, and
+\(\rho(\omega_4)=1\) by Paper~I.  Finally, every element of \(\Gamma_4\) is
+represented by this history alphabet; hence every primitive hyperbolic class,
+and therefore every knot in the target, has a preimage.
+\end{proof}
+
+\begin{problem}[Enhancing operator histories beyond the knot quotient]
+\label{prob:q4-history-geodesic-naturality}
+Proposition~\ref{prop:q4-operator-history-knot-map} settles the unadorned
+operator-level map but also exhibits its large kernel.  Construct a declared
+marked cyclic equivalence and a canonical enhancement
+\[
+ \operatorname{Hist}_{4}^{\mathrm{ph}}/\mathord{\sim}_{\mathrm{cyc}}
+ \longrightarrow
+ \{\text{classical cyclic cutting codes with AEG history decoration}\}
+\]
+that specifies ordinary-arithmetic admissibility, base edge, orientation, and
+the residual data carried by histories with conjugate operators.  It must prove
+compatibility with the cutting construction of
+Theorem~\ref{thm:q4-zero-dessin-coding-spine} and characterize the marked and
+syntactic residual structure inside the conjugacy-class fibers of
+\(\mathcal K_{\mathrm{op}}\), or the still larger fibers after forgetting to
+ambient isotopy type.  Without such an enhancement, the classical code
+is an intrinsic code of the Hecke operator class, not of the full marked AEG
+history.
+\end{problem}
+
+\begin{remark}[Current novelty boundary]
+Theorems~\ref{thm:q4-sign-cover-torus-link} and
+\ref{thm:q4-cusp-linking-code} give a rigorous route
+\[
+ \begin{gathered}
+ \text{Hecke conjugacy and cutting data}
+ \longrightarrow \text{closed geodesics}\\
+ \longrightarrow \text{knots and linking numbers}.
+ \end{gathered}
+\]
+The character \(\chi\) additionally controls how the knots split in the natural
+\(S^3\) cover.  The classical geodesic-flow and linking parts are not new knot
+invariants.  The AEG-specific frontier is to enhance
+Proposition~\ref{prop:q4-operator-history-knot-map} as required by
+Problem~\ref{prob:q4-history-geodesic-naturality}, and then determine whether the
+assignment, cone, sign, divisor, or history data define an isotopy invariant not
+already determined by the classical Hecke code or its known Rademacher-type
+functions.  Nothing in this section asserts such a separation theorem.
+\end{remark}
