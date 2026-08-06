@@ -5,7 +5,7 @@ import argparse
 from pathlib import Path
 
 from aeg_ideal_glass.config import ExperimentConfig
-from aeg_ideal_glass.runner import run_experiment
+from aeg_ideal_glass import run_experiment
 
 
 def parse_args() -> argparse.Namespace:

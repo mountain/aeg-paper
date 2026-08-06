@@ -8,8 +8,8 @@ from typing import Any
 import numpy as np
 import pandas as pd
 
-from .config import ExperimentConfig
-from .protocols import (
+from aeg_ideal_glass.config import ExperimentConfig
+from aeg_ideal_glass.protocols import (
     ProtocolRun,
     run_protocol_p0,
     run_protocol_p1,
@@ -19,10 +19,9 @@ from .protocols import (
     run_protocol_p5,
     run_protocol_p6,
 )
-from .state import PackingState
-from .utils import (
+from aeg_ideal_glass.state import PackingState
+from aeg_ideal_glass.utils import (
     compute_box_length_from_phi,
-    dataclass_to_jsonable,
     dump_json,
     ensure_dir,
     initialize_positions_grid_jitter,

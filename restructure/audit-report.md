@@ -19,12 +19,12 @@ The baseline contains 207 tracked paths and 107 TeX sources.  Several independen
 build trees coexist:
 
 - root `aeg-paper.tex`;
-- `revision-1/main.tex`;
-- `revision-2/main.tex`;
-- `arxiv/main.tex`;
-- `paper4p/aeg.tex`;
+- `../archive/revision-1/main.tex`;
+- `../archive/revision-2/main.tex`;
+- `../archive/arxiv/main.tex`;
+- `../archive/paper4p/aeg.tex`;
 - legacy `aeg-lemma.tex`;
-- standalone material under `misc/`, `notes/`, `knots/`, and `ideal_glass/`.
+- standalone material under `misc/`, `notes/`, `knots/`, and `../archive/ideal_glass/`.
 
 Only the root entry point is treated as the active Paper I during restructuring.
 

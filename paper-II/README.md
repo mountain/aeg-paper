@@ -14,7 +14,7 @@ It is a scope and provenance record, not a claim that Paper II is complete.
 
 - legacy `sections/sec08.tex`;
 - analytic portions of `sections/sec07.tex`, `sec09.tex`, and `sec11.tex`;
-- corresponding material under `revision-1/`, `revision-2/`, and `notes/`.
+- corresponding material under `../archive/revision-1/`, `../archive/revision-2/`, and `notes/`.
 
 ## Status boundary
 

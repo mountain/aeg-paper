@@ -6,8 +6,8 @@ from typing import Any
 import numpy as np
 from scipy.spatial import cKDTree
 
-from .config import ObservableConfig, ProtocolConfig, RelaxConfig
-from .core import (
+from aeg_ideal_glass.config import ObservableConfig, ProtocolConfig, RelaxConfig
+from aeg_ideal_glass.core import (
     build_contact_pairs,
     build_neighbor_pairs,
     build_repair_graph,
@@ -15,7 +15,7 @@ from .core import (
     isotropic_box_rescale,
     relax_state,
 )
-from .state import PackingState
+from aeg_ideal_glass.state import PackingState
 
 
 @dataclass(slots=True)

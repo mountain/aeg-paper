@@ -5,10 +5,10 @@ from typing import Any
 
 import numpy as np
 
-from .config import ExperimentConfig
-from .core import build_repair_graph, inject_defects, isotropic_box_rescale, relax_state
-from .metrics import ACSAccumulator, compute_final_observables, stage_metrics
-from .state import PackingState
+from aeg_ideal_glass.config import ExperimentConfig
+from aeg_ideal_glass.core import build_repair_graph, inject_defects, isotropic_box_rescale, relax_state
+from aeg_ideal_glass.metrics import ACSAccumulator, compute_final_observables, stage_metrics
+from aeg_ideal_glass.state import PackingState
 
 
 @dataclass(slots=True)

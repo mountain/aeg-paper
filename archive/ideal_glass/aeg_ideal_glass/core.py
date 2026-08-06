@@ -8,8 +8,8 @@ import numpy as np
 from numba import njit
 from scipy.spatial import cKDTree
 
-from .config import ProtocolConfig, RelaxConfig
-from .state import PackingState
+from aeg_ideal_glass.config import ProtocolConfig, RelaxConfig
+from aeg_ideal_glass.state import PackingState
 
 
 @dataclass(slots=True)

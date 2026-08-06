@@ -66,6 +66,6 @@ The restructuring audit records baseline and current build results in
 
 Not every note in this repository is current mathematics.  When sources conflict,
 use the order specified in [`restructure/AGENTS.md`](restructure/AGENTS.md).  In
-particular, `notes/`, `misc/`, `revision-*`, `arxiv/`, `paper4p/`, and `knots/` retain
+particular, `notes/`, `misc/`, `revision-*`, `archive/arxiv/`, `archive/paper4p/`, and `knots/` retain
 historical or exploratory material and are not canonical Paper I sources unless the
 migration log says otherwise.

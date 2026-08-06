@@ -23,7 +23,7 @@ When instructions conflict, use the following priority order:
 2. This `AGENTS.md`.
 3. Authoritative files under `restructure/`.
 4. The current main paper source.
-5. Research notes under `notes/`, `gpt/`, `plans/`, or other archival directories.
+5. Research notes under `notes/`, `gpt/`, `../archive/plans/`, or other archival directories.
 
 Files under `restructure/` should explicitly identify whether they are authoritative specifications, status records, audits, or archival discussions.
 

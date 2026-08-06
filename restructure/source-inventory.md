@@ -57,18 +57,18 @@ additional build entry points.
 | root | 11 | metadata, Paper I entry, bibliography, PDF, build | mixed, itemized above | Paper I / repository |
 | `sections/` | 13 | legacy `sec01.tex`--`sec12.tex` | ARCHIVAL | audited portions rederived in `sections/foundations/`; analytic → II; tube → III; quotient → IV |
 | `restructure/` | 13 | authority, scope, dependency, status, editorial, acceptance, discussions | KEEP / AUTHORITATIVE | restructuring control plane |
-| `revision-1/` | 13 | alternate eight-section TeX build | ARCHIVAL | no active theorem authority |
-| `revision-2/` | 26 | alternate TeX build, PDF, Lean experiment and reports | ARCHIVAL / HOLD | formalization may be audited separately |
-| `arxiv/` | 14 | prior distribution snapshot, styles, figures, bibliography | ARCHIVAL | DOI/version provenance |
-| `paper4p/` | 2 | short alternative manuscript and build | ARCHIVAL | no active theorem authority |
+| `../archive/revision-1/` | 13 | alternate eight-section TeX build | ARCHIVAL | no active theorem authority |
+| `../archive/revision-2/` | 26 | alternate TeX build, PDF, Lean experiment and reports | ARCHIVAL / HOLD | formalization may be audited separately |
+| `../archive/arxiv/` | 14 | prior distribution snapshot, styles, figures, bibliography | ARCHIVAL | DOI/version provenance |
+| `../archive/paper4p/` | 2 | short alternative manuscript and build | ARCHIVAL | no active theorem authority |
 | `notes/` | 32 | bilateral, analytic, loop, thermal, ring, resource notes | HOLD / PARTIAL EXPORT | audited algebra → I; analysis → II; singularity → III; quotient/complexity → IV |
 | `misc/` | 28 | standalone diagram/model TeX and image experiments | HOLD / ARCHIVAL | reuse only after formula and asset audit |
 | `images/` | 26 | 21 PDF and 5 PNG rendered assets | HOLD / SHARED ASSET ARCHIVE | none is required by the active Paper I build |
 | `knots/` | 6 | knot/problem TeX plus one PDF | EXPORTED / ARCHIVAL | Paper III research archive; no invariant claim |
-| `ideal_glass/` | 18 | independent PDF, TeX, Python package, experiment tooling | HOLD / INDEPENDENT | not a Paper I dependency |
-| `plans/` | 2 | historical principles and study plan | ARCHIVAL | active plans live in `restructure/` |
+| `../archive/ideal_glass/` | 18 | independent PDF, TeX, Python package, experiment tooling | HOLD / INDEPENDENT | not a Paper I dependency |
+| `../archive/plans/` | 2 | historical principles and study plan | ARCHIVAL | active plans live in `restructure/` |
 | `styles/` | 2 | arXiv and quiver styles | KEEP / ARCHIVAL | not loaded by active Paper I |
-| `peddle/` | 1 | standalone HTML laboratory | HOLD / INDEPENDENT | not a Paper I dependency |
+| `../archive/peddle/` | 1 | standalone HTML laboratory | HOLD / INDEPENDENT | not a Paper I dependency |
 
 The fixed baseline contains no tracked `gpt/` directory.  References to `gpt/` in
 planning documents are therefore treated as a general archival rule, not evidence of

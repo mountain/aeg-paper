@@ -75,7 +75,7 @@ Paper I must pass each level in order.
 * [ ] Every file under `sections/` has been inventoried.
 * [ ] Every file under `notes/` has been classified by topic.
 * [ ] Every file under `gpt/` has been classified as archival or active.
-* [ ] Every file under `plans/` has been classified.
+* [ ] Every file under `../archive/plans/` has been classified.
 * [ ] Every figure and image asset has been inventoried.
 * [ ] Every interactive or generated artifact has been inventoried.
 * [ ] Every current build entry point has been identified.

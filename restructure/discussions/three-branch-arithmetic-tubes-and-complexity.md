@@ -991,7 +991,7 @@ Find a common coefficient system or functor relating affine/contact curvature, p
 \to
 \text{knot invariant}.
 \]
-**Files or passages still using the old form:** Historical tube passages in `../../paper4p/aeg.tex`, `../../notes/note_02.tex`, and exploratory knot notes require audit or archival classification.
+**Files or passages still using the old form:** Historical tube passages in `../../archive/paper4p/aeg.tex`, `../../notes/note_02.tex`, and exploratory knot notes require audit or archival classification.
 
 ### Rejected formulation 11
 
@@ -1272,7 +1272,7 @@ No committed source for the signed-curvature three-branch construction was found
 | `../../sections/sec06.tex` | Contact form, horizontal fields, bracket, finite defects | Stable core with composition/sign audit | Paper I Chapter 9 | Keep; separate open two-path, closed-loop, and infinitesimal quantities. |
 | `../../sections/sec07.tex` | \(\delta_H\), curvature-sensitive square, analytic extensions | Scalar core proved; analytic material later | Split: Papers I and II | Keep scalar horizontal formula in I; move analysis to II. |
 | `../../sections/sec08.tex` | Arithmetic Cauchy–Riemann and factorization proposals | Later analytic theory | Paper II | Move; do not use to prove Paper I. |
-| `../../paper4p/aeg.tex` | “Tube structure”: \(\bigsqcup_{\lambda>0}E_1^{(\lambda)}\), sections \(P(e^\lambda)\), and acknowledgement that the basic zero tube is trivial | Historical, outdated naming, conjectural topology | Paper III history / archive | Extract the parameter-family intuition and negative observation; rewrite, then archive original. |
+| `../../archive/paper4p/aeg.tex` | “Tube structure”: \(\bigsqcup_{\lambda>0}E_1^{(\lambda)}\), sections \(P(e^\lambda)\), and acknowledgement that the basic zero tube is trivial | Historical, outdated naming, conjectural topology | Paper III history / archive | Extract the parameter-family intuition and negative observation; rewrite, then archive original. |
 | `../../notes/note_02.tex` | Distinction between algebraic/evaluation-parameter and geometric-family meanings of tube | Useful conceptual distinction with old naming | Paper III notes | Extract distinction; archive source after provenance is secured. |
 | `../../notes/affine_torus.tex` | Discrete affine holonomy toy model and weighted Stokes formula | Computational/structural example; sign audit needed | Paper IV or conditional Paper III example | Extract only after recalculation; do not call it a knot invariant. |
 | `../../knots/knots_01.tex` | Figure-eight relator experiment; Alexander-polynomial specialization | Reproducible experiment candidate, not invariant | Paper III notes / supplement | Audit scripts and presentation dependence; preserve computation. |
@@ -1291,7 +1291,7 @@ No committed source for the signed-curvature three-branch construction was found
 | `../../notes/note_13.tex`, `../../notes/note_14.tex` | Weighted resource plane and pebble-game toy calculations | Structural/computational proposals | Paper IV experiments | Audit realizability, pebble legality, scheduling, and meaning of \(M\). |
 | `../../notes/note_15.tex` | Staged representation/time/space/filling program with explicit cautions | Most mature complexity working note | Paper IV active note | Use as the primary complexity seed; retain all warnings. |
 | `../../notes/note_16.tex` | Path/2-groupoid, cohomology, ACS/contact pairings | Structural proposal requiring proof audit | Paper IV | Migrate selectively; reprove cohomological statements. |
-| `../../peddle/peddle_lab.html` | Interactive pebble-game experiment | Supplement only | Paper IV experiments | Validate before treating outputs as evidence; consider correcting directory name in a separate task. |
+| `../../archive/peddle/peddle_lab.html` | Interactive pebble-game experiment | Supplement only | Paper IV experiments | Validate before treating outputs as evidence; consider correcting directory name in a separate task. |
 
 No verifiable general \(E_k\), \(E_{\log}\), multi-zero construction file, intrinsic threading definition, braid lift, or Markov-normalized invariant was located. Their absence must not be filled by inference from the status documents.
 
@@ -1769,7 +1769,7 @@ The mathematical discussion was supplied in the current ChatGPT thread and was n
 | §4.4, four-step bilateral realization | 2026-08-05 three-branch derivation, bilateral-history section | `../../notes/bilateral_projective_condensation.tex`, projective generation theorem |
 | §4.5, two-step residue and small-area expansion | 2026-08-05 three-branch derivation, frame-residue section | No committed source; compare Paper IV status §§83, 88, 90 |
 | §§4.6–4.7, real forms, metrics, assignment, and negative branch | 2026-08-05 three-branch derivation and subsequent significance review | `../../sections/sec04.tex`; `P5`, `T6`, `E3`; no committed three-branch theorem |
-| §4.8, tube/knot success criterion | Tube and threading discussions, 2026-07-25–2026-07-29; 2026-08-05 significance review | `../../paper4p/aeg.tex`; `../../notes/note_02.tex`; `../../knots`; status §§74–81 |
+| §4.8, tube/knot success criterion | Tube and threading discussions, 2026-07-25–2026-07-29; 2026-08-05 significance review | `../../archive/paper4p/aeg.tex`; `../../notes/note_02.tex`; `../../knots`; status §§74–81 |
 | §4.9, four growth quantities and calibration family | Complexity discussion, 2026-07-28; 2026-08-05 significance review | `../../notes/note_15.tex`; `../../notes/rg_en.tex`; status §§93–100 |
 | §4.10, weak versus strong unification | 2026-08-05 final synthesis | `../../README.md`, research frontier; `T17`; Paper IV quotient/complexity status |
 | Results R-1, R-2, R-9–R-11 | Imported authoritative repository results, not new discussion discoveries | `../../notes/bilateral_projective_condensation.tex`; `../../sections/sec06.tex`; `restructure/03`, `05` |

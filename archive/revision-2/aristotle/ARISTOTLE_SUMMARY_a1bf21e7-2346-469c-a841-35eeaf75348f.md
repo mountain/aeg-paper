@@ -1,7 +1,7 @@
 # Summary of changes
 I have fully formalized the core theorems and identities from the paper "Arithmetic Expression Geometry I: Foundations" into Lean 4 with Mathlib. The formalization spans 6 files covering all major sections of the paper, with every theorem fully proved (zero `sorry`, no non-standard axioms).
 
-## Files created in `RequestProject/`:
+## Files created in `RequestProject`:
 
 ### `Defs.lean` — Core Definitions & Torsion (§2)
 - **Definitions**: `AEG.oplus`, `AEG.ominus`, `AEG.otimes`, `AEG.oslash` (the four curried operators)

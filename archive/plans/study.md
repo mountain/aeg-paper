@@ -1,6 +1,6 @@
 # Literature Search Notes for AEG Project (2025-05-21)
 
-**Context:** Reviewing literature relevant to Arithmetic Expression Geometry (AEG), focusing on connections to knot theory (esp. 4_1 knot), group representations, arithmetization, complexity, RG flow, and HNN extensions, informed by recent work in `knots/` and `notes/` folders.
+**Context:** Reviewing literature relevant to Arithmetic Expression Geometry (AEG), focusing on connections to knot theory (esp. 4_1 knot), group representations, arithmetization, complexity, RG flow, and HNN extensions, informed by recent work in `../../knots` and `../../notes` folders.
 
 ## 1. Arithmetic Topology & Knot Group Representations
 
@@ -56,7 +56,7 @@
     *   Important for understanding group structure and embeddings.
 *   **Modeling Iteration:**
     *   The structure `t*a*t^-1 = phi(a)` inherently models iterative processes.
-    *   **Relevance:** Directly applicable to "HNN arithmetization" mentioned in `notes/`. Useful for modeling iterative examples within AEG.
+    *   **Relevance:** Directly applicable to "HNN arithmetization" mentioned in `../../notes`. Useful for modeling iterative examples within AEG.
 *   **Actionable:**
     *   Develop the "HNN arithmetization" concept within the AEG framework.
     *   Use HNN extensions to formalize iterative constructions in AEG.

@@ -2031,7 +2031,7 @@ It must not override authoritative restructuring documents.
 
 ---
 
-## 39. `plans/`
+## 39. `../archive/plans/`
 
 ### Migration state
 
@@ -2177,7 +2177,7 @@ Do not create polished abstracts for Papers II–IV before their theorem sets st
 | analysis notes                                | MOVE           | Paper II                                   |
 | complexity/resource notes                     | MOVE           | Paper IV                                   |
 | `gpt/`                                        | ARCHIVE        | Generated-discussion archive               |
-| `plans/`                                      | ARCHIVE/SPLIT  | Restructure or paper READMEs               |
+| `../archive/plans/`                                      | ARCHIVE/SPLIT  | Restructure or paper READMEs               |
 | `images/`                                     | AUDIT          | Papers I–IV by figure role                 |
 
 ---

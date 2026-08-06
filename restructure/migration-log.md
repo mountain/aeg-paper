@@ -18,10 +18,10 @@ build is not deletion.
 |---|---|---|---|
 | `aeg-paper.tex` | CANONICAL | Rewritten as the ten-section Paper I entry point | Claims limited to proved foundational results |
 | `sections/sec01.tex`–`sec12.tex` | ARCHIVAL | Replaced in the active build by `sections/foundations/` | Reused only after formula-level audit |
-| `revision-1/` | ARCHIVAL | Historical eight-section draft | Analytic material assigned to Paper II |
-| `revision-2/` | ARCHIVAL | Historical eight-section and Lean-support draft | Not a canonical Paper I source |
-| `arxiv/` | ARCHIVAL | Earlier distribution snapshot | DOI/release provenance retained |
-| `paper4p/` | ARCHIVAL | Earlier short manuscript | Tube claims not imported |
+| `../archive/revision-1/` | ARCHIVAL | Historical eight-section draft | Analytic material assigned to Paper II |
+| `../archive/revision-2/` | ARCHIVAL | Historical eight-section and Lean-support draft | Not a canonical Paper I source |
+| `../archive/arxiv/` | ARCHIVAL | Earlier distribution snapshot | DOI/release provenance retained |
+| `../archive/paper4p/` | ARCHIVAL | Earlier short manuscript | Tube claims not imported |
 | `aeg-lemma.tex` | HOLD | Separate source/proof audit required | No Paper I dependency |
 
 ## Legacy section disposition
@@ -51,7 +51,7 @@ build is not deletion.
 | Multi-zero, `E_k`, `E_log`, singularity, and tube notes | EXPORTED | Paper III |
 | `knots/` and knot-related `misc/` | EXPORTED | Paper III research archive; no invariant claim yet |
 | `notes/rg_*` and complexity/resource notes | EXPORTED | Paper IV |
-| Remaining `notes/`, `misc/`, and `plans/` | HOLD/ARCHIVAL | Retain provenance; no automatic theorem authority |
+| Remaining `notes/`, `misc/`, and `../archive/plans/` | HOLD/ARCHIVAL | Retain provenance; no automatic theorem authority |
 
 ## New canonical source map
 
