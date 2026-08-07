@@ -60,7 +60,7 @@ rederived rather than silently edited in place.
 | `sections/sec09.tex` | analytic research interface | replace programme language by proved Paper II results and a delimited frontier |
 | `sections/sec11.tex` | extended contact, factorization, logarithmic, and finite-family calculations | audit formulas; reuse only in canonical Paper II proofs or appendices |
 | `archive/revision-1/sections/sec06-analytic.tex` and revision 2 counterpart | compact formal operator package | provenance only; no independent theorem authority |
-| `notes/analysis-and-calculus/analysis_01.tex` | distinction between factorization and variational operators | resolve the distinction through explicit adjoints and the hyperbolic-model calculation |
+| `notes/analysis-and-calculus/01-horizontal-analysis-program.tex` | distinction between factorization and variational operators | resolve the distinction through explicit adjoints and the hyperbolic-model calculation |
 | Paper I Sections 5, 6, and 9 | regular AES, canonical frame, hyperbolic metric, contact distribution and bracket | imported proved interface; definitions are enriched, not changed |
 
 The audit found four blocking defects in the legacy analytic presentation:

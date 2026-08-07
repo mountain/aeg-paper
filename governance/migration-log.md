@@ -47,7 +47,7 @@ build is not deletion.
 
 | Source class | State | Canonical destination |
 |---|---|---|
-| `notes/projective-condensation/bilateral_projective_condensation.tex` | EXPORTED/PARTIAL IMPORT | Sequential/projective/affine proofs → Paper I Chapters 2–4; quotient and condensation theory → Paper IV |
+| `notes/projective-condensation/01-bilateral-projective-condensation.tex` | EXPORTED/PARTIAL IMPORT | Sequential/projective/affine proofs → Paper I Chapters 2–4; quotient and condensation theory → Paper IV |
 | Analysis, horizontal-CR, Appell, and operator notes | EXPORTED | Paper II |
 | Multi-zero, `E_k`, `E_log`, singularity, and tube notes | EXPORTED | Paper III |
 | `notes/knots-and-loops/` and knot-related `images/sources/` | EXPORTED | Paper III research archive; no invariant claim yet |
@@ -119,7 +119,7 @@ closure.
 - **Date:** 2026-08-06
 - **Source:** analytic portions of `sections/sec07.tex`, `sections/sec08.tex`,
   `sections/sec09.tex`, and `sections/sec11.tex`; corresponding revision-1 and
-  revision-2 analytic sections; `notes/analysis-and-calculus/analysis_01.tex`; the regular-AES,
+  revision-2 analytic sections; `notes/analysis-and-calculus/01-horizontal-analysis-program.tex`; the regular-AES,
   hyperbolic-model, and contact interfaces in Paper I Sections 5, 6, and 9
 - **Destination:** `paper-2/aeg-paper-2.tex`, eight files under
   `paper-2/sections/`, and three files under `paper-2/appendices/`
@@ -160,10 +160,10 @@ closure.
 - **Date:** 2026-08-06
 - **Source:** the singular-zero and family interfaces in Paper I; the
   arithmetic-holomorphic coordinate in Paper II; historical tube material in
-  `archive/paper4p/aeg.tex`; audited portions of `notes/foundations-and-geometry/note_02.tex`,
-  `notes/knots-and-loops/note_03.tex`, `notes/knots-and-loops/note_04.tex`, `notes/knots-and-loops/note_05.tex`,
-  `notes/foundations-and-geometry/note_08.tex`, `notes/knots-and-loops/note_11.tex`, `notes/knots-and-loops/loop_01.tex`, and
-  `notes/knots-and-loops/loop_02.tex`; knot calculations under `notes/knots-and-loops/` and
+  `archive/paper4p/aeg.tex`; audited portions of `notes/foundations-and-geometry/02-parameterized-evaluation-frameworks.tex`,
+  `notes/knots-and-loops/03-figure-eight-aeg-summary.tex`, `notes/knots-and-loops/04-figure-eight-hnn-arithmetization.tex`, `notes/knots-and-loops/05-figure-eight-modulo-arithmetization.tex`,
+  `notes/foundations-and-geometry/03-single-zero-diffusion-model.tex`, `notes/knots-and-loops/06-fox-calculus-and-alexander-modules.tex`, `notes/knots-and-loops/01-figure-eight-arithmetic-loop.tex`, and
+  `notes/knots-and-loops/02-zero-taxonomy-and-arithmetic-loops.tex`; knot calculations under `notes/knots-and-loops/` and
   `images/sources/knot_4_1.tex`; the two subordinate Paper III discussions; and 249 commits
   reachable from all refs in the local checkout
 - **Destination:** `paper-3/aeg-paper-3.tex`, eight files under
@@ -616,3 +616,21 @@ closure.
   references, undefined citations, or duplicate labels; every first page was rendered
   and checked to confirm that the notice is visible before the abstract without
   clipping or overlap
+
+## Migration M-0017
+
+- Date: 2026-08-07
+- Source: the six categorized subdirectories under `notes/`
+- Destination: the same subject directories with normalized filenames
+- Migration state: NOTE NAMING AND ORDER NORMALIZATION
+- Naming rule: `NN-descriptive-topic-slug`, with an independent two-digit reading
+  order inside each subject; companion artifacts share the source basename
+- Claim treatment: no note content or mathematical status was promoted; the numeric
+  code is explicitly not an authority, chronology, or theorem-status code
+- Reference treatment: governance records and note-to-note references were updated to
+  the descriptive filenames; former names survive only where explicitly marked as
+  historical provenance
+- Content removed from source: none
+- Build result: all 39 note sources satisfy the naming rule with no duplicate
+  per-directory code; 27 unique repository note-path references and all companion
+  basenames resolve; `./build.sh` rebuilt all four canonical PDFs successfully

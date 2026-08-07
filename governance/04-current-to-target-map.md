@@ -1351,7 +1351,7 @@ PRESERVE examples after reclassification
 
 # Part V. Bilateral and projective notes
 
-## 25. `notes/projective-condensation/bilateral_projective_condensation.tex`
+## 25. `notes/projective-condensation/01-bilateral-projective-condensation.tex`
 
 ### Current content
 
@@ -1657,7 +1657,7 @@ Without this, retain as:
 
 # Part VIII. Complexity and resource-geometry notes
 
-## 30. `notes/thermodynamics-and-renormalization/rg_en.tex`
+## 30. `notes/thermodynamics-and-renormalization/02-aeg-flow-and-renormalization-en.tex`
 
 ### Current role
 
@@ -1693,7 +1693,7 @@ No Paper I theorem may depend on this note.
 
 ---
 
-## 31. `notes/thermodynamics-and-renormalization/rg_zh.tex`
+## 31. `notes/thermodynamics-and-renormalization/03-aeg-flow-and-renormalization-zh.tex`
 
 ### Migration state
 
@@ -1703,7 +1703,7 @@ MOVE to Paper IV notes or archive as Chinese source
 
 ### Required treatment
 
-* compare with `notes/thermodynamics-and-renormalization/rg_en.tex`;
+* compare with `notes/thermodynamics-and-renormalization/02-aeg-flow-and-renormalization-en.tex`;
 * identify unique content;
 * retain provenance;
 * avoid maintaining two divergent theorem versions.
@@ -1754,7 +1754,7 @@ Do not use these notes to justify:
 
 ---
 
-## 33. `notes/projective-condensation/note_06.tex`
+## 33. `notes/projective-condensation/02-projective-geometric-frameworks.tex`
 
 ### Current content
 
@@ -1803,7 +1803,7 @@ RETAIN as research motivation only
 
 ---
 
-## 34. `notes/projective-condensation/note_09.tex`
+## 34. `notes/projective-condensation/03-canonical-forms-and-condensation.tex`
 
 ### Current content
 
@@ -1848,7 +1848,7 @@ None, except possibly a short historical note on ACS as a charge shadow.
 
 # Part IX. Loop and relation notes
 
-## 35. `notes/knots-and-loops/loop_02.tex`
+## 35. `notes/knots-and-loops/02-zero-taxonomy-and-arithmetic-loops.tex`
 
 ### Current role
 
@@ -2163,12 +2163,12 @@ Do not create polished abstracts for Papers II–IV before their theorem sets st
 | `sections/sec10.tex`                          | SPLIT/APPENDIX | Paper I Appendices C–D                     |
 | `sections/sec11.tex`                          | SPLIT          | Paper I Appendix D; Paper II               |
 | `sections/sec12.tex`                          | SPLIT/APPENDIX | Paper I Appendix E; future relation theory |
-| `notes/projective-condensation/bilateral_projective_condensation.tex` | SPLIT          | Paper I Chapters 2–4; Paper IV             |
-| `notes/thermodynamics-and-renormalization/rg_en.tex`                             | MOVE           | Paper IV                                   |
-| `notes/thermodynamics-and-renormalization/rg_zh.tex`                             | MOVE/ARCHIVE   | Paper IV notes                             |
-| `notes/projective-condensation/note_06.tex`                           | SPLIT          | Paper I motivation; Paper IV               |
-| `notes/projective-condensation/note_09.tex`                           | MOVE/ARCHIVE   | Paper IV                                   |
-| `notes/knots-and-loops/loop_02.tex`                           | SPLIT/HOLD     | Paper I Appendix E; future relation theory |
+| `notes/projective-condensation/01-bilateral-projective-condensation.tex` | SPLIT          | Paper I Chapters 2–4; Paper IV             |
+| `notes/thermodynamics-and-renormalization/02-aeg-flow-and-renormalization-en.tex`                             | MOVE           | Paper IV                                   |
+| `notes/thermodynamics-and-renormalization/03-aeg-flow-and-renormalization-zh.tex`                             | MOVE/ARCHIVE   | Paper IV notes                             |
+| `notes/projective-condensation/02-projective-geometric-frameworks.tex`                           | SPLIT          | Paper I motivation; Paper IV               |
+| `notes/projective-condensation/03-canonical-forms-and-condensation.tex`                           | MOVE/ARCHIVE   | Paper IV                                   |
+| `notes/knots-and-loops/02-zero-taxonomy-and-arithmetic-loops.tex`                           | SPLIT/HOLD     | Paper I Appendix E; future relation theory |
 | multi-zero notes                              | MOVE           | Paper III                                  |
 | tube notes                                    | MOVE           | Paper III                                  |
 | knot notes                                    | MOVE/HOLD      | Paper III notes                            |

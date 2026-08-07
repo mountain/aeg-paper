@@ -1168,7 +1168,7 @@ ordered-pair stabilizer.
 **Argument or proof location:** Direct multiplication and stabilizer
 membership in §4.5.  
 **Repository source:** Quotient background in
-<code>notes/projective-condensation/bilateral_projective_condensation.tex</code>; butterfly statement
+<code>notes/projective-condensation/01-bilateral-projective-condensation.tex</code>; butterfly statement
 from the current discussion.  
 **Relevant theorem nodes:** <code>P2</code>, <code>T2</code>, candidate
 <code>PIV-FFT1</code>; Paper IV status 87–90.  
@@ -1271,7 +1271,7 @@ an additive abelian group or vector space, and the sum is taken along a
 finite oriented closed path.  
 **Argument or proof location:** Telescoping.  
 **Repository source:** Current discussion; analogous proposition in
-<code>notes/projective-condensation/bilateral_projective_condensation.tex</code>, “Exact edge labels
+<code>notes/projective-condensation/01-bilateral-projective-condensation.tex</code>, “Exact edge labels
  telescope.”  
 **Relevant theorem nodes:** Candidate <code>PIV-RW1</code>; Paper IV status
 92.  
@@ -1344,7 +1344,7 @@ D_uB_0=0.
 **Hypotheses:** Current natural-unit definitions of \(D_u,D_v,\widetilde v\),
 and \(B_n\).  
 **Argument or proof location:** Direct differentiation in the analytic notes.  
-**Repository source:** <code>notes/analysis-and-calculus/analysis_01.tex</code> and the sources
+**Repository source:** <code>notes/analysis-and-calculus/01-horizontal-analysis-program.tex</code> and the sources
 mapped by authoritative status item 71.  The displayed identities are the
 proved part; the broader analytic basis program remains PARTIALLY PROVED.  
 **Relevant theorem nodes:** Paper II analytic candidates; Paper I input
@@ -1505,9 +1505,9 @@ tensor, an OBDD node index, and the whole OBDD have different sizes.
 **Replacement formulation:** Separate \(V_C\), \(H_C\), live workspace, and
 static representation size.  
 **Files or passages still using the old form:** Historical resource notes,
-especially <code>notes/projective-condensation/note_09.tex</code>,
-<code>notes/computation-and-resources/note_13.tex</code>, and
-<code>notes/computation-and-resources/note_15.tex</code>, require audit.
+especially <code>notes/projective-condensation/03-canonical-forms-and-condensation.tex</code>,
+<code>notes/computation-and-resources/03-turing-machine-resource-geometry.tex</code>, and
+<code>notes/computation-and-resources/05-computational-spacetime-geometry-program.tex</code>, require audit.
 
 ### Rejected formulation 2
 
@@ -1521,8 +1521,8 @@ missing bridge.
 explicit comparisons.  
 **Files or passages still using the old form:** No file is asserted to contain
 this exact equation.  Broader complexity-to-hyperbolicity motivation in
-<code>notes/projective-condensation/note_06.tex</code> and
-<code>notes/projective-condensation/note_09.tex</code> requires audit.
+<code>notes/projective-condensation/02-projective-geometric-frameworks.tex</code> and
+<code>notes/projective-condensation/03-canonical-forms-and-condensation.tex</code> requires audit.
 
 ### Rejected formulation 3
 
@@ -1570,7 +1570,7 @@ associahedral pentagon.
 **Replacement formulation:** Keep distance/filling separate; require an
 independent connection before holonomy.  
 **Files or passages still using the old form:** Compare the endpoint transport
-in <code>notes/projective-condensation/bilateral_projective_condensation.tex</code>.
+in <code>notes/projective-condensation/01-bilateral-projective-condensation.tex</code>.
 
 ### Rejected formulation 7
 
@@ -1632,7 +1632,7 @@ are unproved.
 71.  
 **Replacement formulation:** Call it an algebraically stable family or a
 basis only of a declared finite span.  
-**Files or passages still using the old form:** <code>notes/analysis-and-calculus/analysis_01.tex</code>
+**Files or passages still using the old form:** <code>notes/analysis-and-calculus/01-horizontal-analysis-program.tex</code>
 and older analytic sources.
 
 ### Rejected formulation 12
@@ -1931,16 +1931,16 @@ governance/08-open-questions.md control the current editorial state.
 | --- | --- | --- | --- | --- |
 | governance/discussions/three-branch-arithmetic-tubes-and-complexity.md | Earlier complexity taxonomy, projective-condensation questions, and rejected general implications | Subordinate working note | Paper IV discussion provenance | Audit and narrow; the present note corrects its resource-geometry branch. |
 | governance/discussions/aeg-tube-braid-markov-invariants.md | Fiber, transport, loop-data, and status terminology | Subordinate working note | Paper III / cross-paper provenance | Audit terminology only; do not extract tube or braid claims into this note. |
-| notes/projective-condensation/bilateral_projective_condensation.tex | History groupoid, evaluation, quotient tower, bivaluation, process residue, associativity 2-cell, and the formula “exact edge labels telescope” | SPLIT; status items 82–92 control | Paper IV | Extract and rewrite with explicit quotient side, reference lift, and gauge caveat. |
-| notes/projective-condensation/note_06.tex | Projective compactification and broader complexity-to-hyperbolicity motivation | SPLIT | Paper IV / archive | Extract projective motivation; reject any unproved implication that complexity makes hyperbolicity unavoidable; preserve the original. |
-| notes/projective-condensation/note_09.tex | Canonical forms, condensation, and early space-from-time intuition | MOVE to Paper IV; preserve original | Paper IV / archive | Extract definitions; reject unproved growth lower-bound implications; archive original. |
-| notes/computation-and-resources/note_10.tex | Early space-as-curvature and computational-mass language | Archival or motivational | Archive / beyond Paper IV | Preserve and cite only in the superseded trajectory. |
-| notes/computation-and-resources/note_13.tex | Resource Geometry of Turing Machines; checkpointing and recomputation | HOLD pending semantic audit | Paper IV candidate | Audit and rewrite using live configurations before reuse. |
-| notes/computation-and-resources/note_14.tex | Y-shaped DAG, pebbling, waiting, and recomputation | HOLD pending semantic audit | Paper IV candidate | Audit examples; do not treat ghost waiting as a canonical completion. |
-| notes/computation-and-resources/note_15.tex | Complexity, torsion, volume, representation, time, space, and filling distinctions | Legacy Paper IV proposal | Paper IV | Audit, split into model results/proposals/rejections, and rewrite. |
-| notes/computation-and-resources/note_16.tex | Computational spacetime and time–space duality proposals | HOLD pending semantic audit | Paper IV candidate | Preserve as motivation; require a computational model before extraction. |
-| notes/thermodynamics-and-renormalization/rg_en.tex and notes/thermodynamics-and-renormalization/rg_zh.tex | Earlier resource-geometry programs | MOVE / ARCHIVE | Paper IV / archive | Compare versions, extract one audited line, and preserve both originals. |
-| notes/analysis-and-calculus/analysis_01.tex | Affine–Appell formula \(B_n=e^{-n\widetilde v}a^n\) and lowering action | Legacy analytic prototype | Paper II | Extract the finite-span calculation; rewrite all function-space claims. |
+| notes/projective-condensation/01-bilateral-projective-condensation.tex | History groupoid, evaluation, quotient tower, bivaluation, process residue, associativity 2-cell, and the formula “exact edge labels telescope” | SPLIT; status items 82–92 control | Paper IV | Extract and rewrite with explicit quotient side, reference lift, and gauge caveat. |
+| notes/projective-condensation/02-projective-geometric-frameworks.tex | Projective compactification and broader complexity-to-hyperbolicity motivation | SPLIT | Paper IV / archive | Extract projective motivation; reject any unproved implication that complexity makes hyperbolicity unavoidable; preserve the original. |
+| notes/projective-condensation/03-canonical-forms-and-condensation.tex | Canonical forms, condensation, and early space-from-time intuition | MOVE to Paper IV; preserve original | Paper IV / archive | Extract definitions; reject unproved growth lower-bound implications; archive original. |
+| notes/computation-and-resources/01-binary-expression-complexity-program.tex | Early space-as-curvature and computational-mass language | Archival or motivational | Archive / beyond Paper IV | Preserve and cite only in the superseded trajectory. |
+| notes/computation-and-resources/03-turing-machine-resource-geometry.tex | Resource Geometry of Turing Machines; checkpointing and recomputation | HOLD pending semantic audit | Paper IV candidate | Audit and rewrite using live configurations before reuse. |
+| notes/computation-and-resources/04-resource-geometry-progress-memo.tex | Y-shaped DAG, pebbling, waiting, and recomputation | HOLD pending semantic audit | Paper IV candidate | Audit examples; do not treat ghost waiting as a canonical completion. |
+| notes/computation-and-resources/05-computational-spacetime-geometry-program.tex | Complexity, torsion, volume, representation, time, space, and filling distinctions | Legacy Paper IV proposal | Paper IV | Audit, split into model results/proposals/rejections, and rewrite. |
+| notes/computation-and-resources/06-computational-spacetime-duality.tex | Computational spacetime and time–space duality proposals | HOLD pending semantic audit | Paper IV candidate | Preserve as motivation; require a computational model before extraction. |
+| notes/thermodynamics-and-renormalization/02-aeg-flow-and-renormalization-en.tex and notes/thermodynamics-and-renormalization/03-aeg-flow-and-renormalization-zh.tex | Earlier resource-geometry programs | MOVE / ARCHIVE | Paper IV / archive | Compare versions, extract one audited line, and preserve both originals. |
+| notes/analysis-and-calculus/01-horizontal-analysis-program.tex | Affine–Appell formula \(B_n=e^{-n\widetilde v}a^n\) and lowering action | Legacy analytic prototype | Paper II | Extract the finite-span calculation; rewrite all function-space claims. |
 | sections/sec07.tex and sections/sec08.tex | Affine–Appell formulas and analytic prototypes | SPLIT / MOVE | Paper II | Source-audit and migrate only after analytic hypotheses are fixed. |
 | sections/sec02-01.tex, sections/sec05.tex, sections/sec09.tex, and sections/sec12.tex | Free histories, equality levels, ACS, loops, and quotient material | SPLIT / REWRITE under the migration map | Papers I and IV | Extract only through authoritative node boundaries; preserve current sources. |
 
@@ -2609,18 +2609,18 @@ blocks:
 
 | Note section or claim | Discussion source | Related repository source |
 | --- | --- | --- |
-| §§2, 4.17, 7, and 9: volume, growth, and curvature limits | Topic block “representation volume, noncommutative order, and hyperbolic growth”; general volume-to-space inference rejected | notes/projective-condensation/note_06.tex, notes/projective-condensation/note_09.tex, notes/computation-and-resources/note_15.tex, and status items 95–99 |
-| §§3, 4.2, 4.5, 6, and 13: projective process residue | Topic block “projective condensation and the \(G/H\) process residue”; noncanonical-section warning retained | notes/projective-condensation/bilateral_projective_condensation.tex and status items 82–92 |
+| §§2, 4.17, 7, and 9: volume, growth, and curvature limits | Topic block “representation volume, noncommutative order, and hyperbolic growth”; general volume-to-space inference rejected | notes/projective-condensation/02-projective-geometric-frameworks.tex, notes/projective-condensation/03-canonical-forms-and-condensation.tex, notes/computation-and-resources/05-computational-spacetime-geometry-program.tex, and status items 95–99 |
+| §§3, 4.2, 4.5, 6, and 13: projective process residue | Topic block “projective condensation and the \(G/H\) process residue”; noncanonical-section warning retained | notes/projective-condensation/01-bilateral-projective-condensation.tex and status items 82–92 |
 | §4.4, R-2, and PO-04: binary Horner charge-fiber count | Topic block “binary Horner/ACS count”; characteristic-zero and probability qualifications added | G1 in governance/03-theorem-dependency-graph.md and ACS material mapped from sections/sec05.tex |
 | §§4.5–4.6, R-1, R-8, PO-05, and PO-06: butterfly/NTT | Topic block “FFT/NTT butterfly and \(\mathbb F_{257}\) proposal”; local torus-coset lemma retained and static/dynamic data separated | OQ-058; no prior repository butterfly proof was located |
 | §§4.15, 6, and 7: transform-dependent complexity | Topic block “representation-dependent complexity and large-integer multiplication”; padding, reconstruction, carry, precision, and bit cost added as gates | Complexity status items 93–99 and OQ-054–OQ-058 |
-| §4.9, R-5, R-6, and PO-08: matrix chain and exactness | Topic block “matrix chain and associativity 2-cells”; endpoint differences shown to telescope | notes/projective-condensation/bilateral_projective_condensation.tex and status item 92 |
+| §4.9, R-5, R-6, and PO-08: matrix chain and exactness | Topic block “matrix chain and associativity 2-cells”; endpoint differences shown to telescope | notes/projective-condensation/01-bilateral-projective-condensation.tex and status item 92 |
 | §4.10, R-7, and PO-07: OBDD equality | Topic block “OBDD equality and variable order”; online width separated from static graph size | No repository proof; Bryant primary source is in §11.3 |
-| §4.11, PO-03, and Task 5: reverse AD checkpointing | Topic block “reverse AD and checkpointing”; monotone cut replaced by live actions | notes/computation-and-resources/note_13.tex, notes/computation-and-resources/note_14.tex, status item 100, and the revolve source in §11.3 |
+| §4.11, PO-03, and Task 5: reverse AD checkpointing | Topic block “reverse AD and checkpointing”; monotone cut replaced by live actions | notes/computation-and-resources/03-turing-machine-resource-geometry.tex, notes/computation-and-resources/04-resource-geometry-progress-memo.tex, status item 100, and the revolve source in §11.3 |
 | §4.12 and PO-09: tensor residuals | Topic block “tensor contraction and boundary residuals”; index address separated from the complete residual tensor | OQ-052–OQ-055 and the Markov–Shi source in §11.3 |
-| §4.13: proof space, reversible computation, and e-graphs | Topic block with the same name; retained as calibrations, not AEG equivalences | notes/computation-and-resources/note_13.tex, status item 100, and primary sources in §11.3 |
-| §4.14 and Rejected formulation 12: order effects | Topic block “three proposed kinds of curvature”; renamed pending connection data | notes/projective-condensation/bilateral_projective_condensation.tex and status item 92 |
-| §6.3 O-5, §13, and §16: Rosetta Stone graphs and Pareto costs | Topic block “Rosetta Stone graph family and resource Pareto object”; time/depth and rewrite geometry separated | notes/computation-and-resources/note_14.tex, notes/computation-and-resources/note_15.tex, and OQ-054–OQ-058 |
+| §4.13: proof space, reversible computation, and e-graphs | Topic block with the same name; retained as calibrations, not AEG equivalences | notes/computation-and-resources/03-turing-machine-resource-geometry.tex, status item 100, and primary sources in §11.3 |
+| §4.14 and Rejected formulation 12: order effects | Topic block “three proposed kinds of curvature”; renamed pending connection data | notes/projective-condensation/01-bilateral-projective-condensation.tex and status item 92 |
+| §6.3 O-5, §13, and §16: Rosetta Stone graphs and Pareto costs | Topic block “Rosetta Stone graph family and resource Pareto object”; time/depth and rewrite geometry separated | notes/computation-and-resources/04-resource-geometry-progress-memo.tex, notes/computation-and-resources/05-computational-spacetime-geometry-program.tex, and OQ-054–OQ-058 |
 | §§1, 3, 4.18, 6, and 18: final HRC synthesis | Final discussion synthesis; rebuilt as semantic cut, operational realization, and rewrite fiber | Paper IV architecture in governance/01-paper-series-architecture.md and open questions OQ-047–OQ-058 |
 
 The task context contained a compacted export rather than stable external

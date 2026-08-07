@@ -581,7 +581,7 @@ This section records only exact calculations completed in the discussion, import
 T_{A/C}\circ D_{(AD-BC)/C^2}\circ J\circ T_{D/C}
 \]
 for \(C\neq0\), together with the affine case \(C=0\).  
-**Repository source:** `../../notes/projective-condensation/bilateral_projective_condensation.tex`, “Projective evaluation”; status audited in `../05-mathematical-status.md`, §16.  
+**Repository source:** `../../notes/projective-condensation/01-bilateral-projective-condensation.tex`, “Projective evaluation”; status audited in `../05-mathematical-status.md`, §16.  
 **Relevant theorem nodes:** `P1`, `P2`, `T2`.  
 **Paper destination:** Concise theorem in Paper I; full projective use in Paper IV.  
 **Remaining integration work:** Resolve OQ-002–OQ-004; audit characteristic two, signs, scalar equivalence, and ordinary intermediate domains. The theorem gives existence of a word, not a canonical or shortest history.
@@ -603,7 +603,7 @@ span the local Riccati flow
 \]
 **Hypotheses:** The exact history sublanguage and action domain must be stated; the geometric completion beyond the Lie algebra is not included.  
 **Argument or proof location:** The affine stabilizer calculation and the inversion-conjugated translation expansion \(JT_sJ^{-1}(z)=z/(1-sz)=z+sz^2+\cdots\).  
-**Repository source:** `../../notes/projective-condensation/bilateral_projective_condensation.tex`; `../05-mathematical-status.md`, §§17 and 20.  
+**Repository source:** `../../notes/projective-condensation/01-bilateral-projective-condensation.tex`; `../05-mathematical-status.md`, §§17 and 20.  
 **Relevant theorem nodes:** `P3`, `P5`, `F1`.  
 **Paper destination:** Paper I for the affine sector and brief Riccati placement; Paper IV for the full projective geometry.  
 **Remaining integration work:** Do not infer a projective AES, projective metric, contact connection, or three-real-form theorem from this local statement.
@@ -647,7 +647,7 @@ and
 \]
 **Hypotheses:** Local chart away from the denominator pole; real \(t\) near zero; the stated vector-field bracket convention.  
 **Argument or proof location:** First-order expansion and \([E,F]=2H_{\mathrm{Lie}}\).  
-**Repository source:** Current discussion; the \(E,H_{\mathrm{Lie}},F\) basis is imported from `../../notes/projective-condensation/bilateral_projective_condensation.tex`.  
+**Repository source:** Current discussion; the \(E,H_{\mathrm{Lie}},F\) basis is imported from `../../notes/projective-condensation/01-bilateral-projective-condensation.tex`.  
 **Relevant theorem nodes:** `P5`.  
 **Paper destination:** Paper IV; at most a short outlook in Paper I.  
 **Remaining integration work:** Determine whether these vector fields arise from specified arithmetic history primitives rather than only from projective dynamics.
@@ -669,7 +669,7 @@ A_{-1/(ct)}.
 \]
 **Hypotheses:** \(c,t\in\mathbb R\), \(ct\neq0\), and \(1+ct^2\neq0\). The last condition is the determinant/nonzero-dilation condition and excludes the hyperbolic-chart boundary.  
 **Argument or proof location:** Specialization of the `T2` Möbius decomposition.  
-**Repository source:** Current discussion, using the proof pattern in `../../notes/projective-condensation/bilateral_projective_condensation.tex`.  
+**Repository source:** Current discussion, using the proof pattern in `../../notes/projective-condensation/01-bilateral-projective-condensation.tex`.  
 **Relevant theorem nodes:** `T2`.  
 **Paper destination:** Paper IV.  
 **Remaining integration work:** Treat \(c=0\), \(t=0\), and complex \(\xi\) separately; audit ordinary admissibility and composition order; do not call this word canonical or minimal.
@@ -804,7 +804,7 @@ one has
 and proves in a working construction that endpoint-anchored increments of the form \(h_th_{t-1}^{-1}\) telescope around a closed lifted path. Such exact endpoint transport cannot by itself retain history-sensitive holonomy.  
 **Hypotheses:** The stated group action, selected stabilizers and reference data, and the exact endpoint-increment ansatz.  
 **Argument or proof location:** “History before quotient,” quotient/frame sections, and “transport obstruction” in the bilateral note.  
-**Repository source:** `../../notes/projective-condensation/bilateral_projective_condensation.tex`; source extraction still required by `../05-mathematical-status.md`, §§87–92.  
+**Repository source:** `../../notes/projective-condensation/01-bilateral-projective-condensation.tex`; source extraction still required by `../05-mathematical-status.md`, §§87–92.  
 **Relevant theorem nodes:** `P2`, `T2`, `P3`; no Paper IV node graph yet exists.  
 **Paper destination:** Paper IV.  
 **Remaining integration work:** Fix the history category, partial domains, stabilizers, and gauge data. The constant-curvature bundle \(G_c/L_c\) is a different quotient and must not be substituted for \(G/H_{\mathrm{pair}}\).
@@ -946,7 +946,7 @@ Find a common coefficient system or functor relating affine/contact curvature, p
 **Problem:** The bilateral ordered-pair stabilizer \(H_{\mathrm{pair}}\) and the compact isotropy \(L_c\) are different subgroups and generally not conjugate.  
 **Counterexample, contradiction, or missing hypothesis:** In the negative branch, the ordered-pair stabilizer is split-torus-like while point isotropy is rotation-like. `PSU(2)` is also not transitive on all ordered distinct pairs because spherical distance is preserved.  
 **Replacement formulation:** Distinguish \(G/H_{\mathrm{pair}}\), \(G_c/L_c\), and \(G/B\); relate them only through an explicit complexification, real-form orbit decomposition, or correspondence space.  
-**Files or passages still using the old form:** Potential ambiguity in the cross-paper discussion; `../../notes/projective-condensation/bilateral_projective_condensation.tex` itself must retain its own stabilizer meaning.
+**Files or passages still using the old form:** Potential ambiguity in the cross-paper discussion; `../../notes/projective-condensation/01-bilateral-projective-condensation.tex` itself must retain its own stabilizer meaning.
 
 ### Rejected formulation 7
 
@@ -991,7 +991,7 @@ Find a common coefficient system or functor relating affine/contact curvature, p
 \to
 \text{knot invariant}.
 \]
-**Files or passages still using the old form:** Historical tube passages in `../../archive/paper4p/aeg.tex`, `../../notes/foundations-and-geometry/note_02.tex`, and exploratory knot notes require audit or archival classification.
+**Files or passages still using the old form:** Historical tube passages in `../../archive/paper4p/aeg.tex`, `../../notes/foundations-and-geometry/02-parameterized-evaluation-frameworks.tex`, and exploratory knot notes require audit or archival classification.
 
 ### Rejected formulation 11
 
@@ -999,7 +999,7 @@ Find a common coefficient system or functor relating affine/contact curvature, p
 **Problem:** The factor can arise from Laurent-unit normalization and reversal shift.  
 **Counterexample, contradiction, or missing hypothesis:** Presentation, Markov, and choice independence were not proved; existing calculations remain at Alexander/Fox-like or representation-variety levels.  
 **Replacement formulation:** Move to group-valued holonomy or a precisely normalized representation-level quantity and compare against known invariants.  
-**Files or passages still using the old form:** `../../notes/knots-and-loops/knots_03.tex`; related tables in `../../notes/knots-and-loops/results.tex` retain computational provenance but not invariant status.
+**Files or passages still using the old form:** `../../notes/knots-and-loops/09-knot-torsion-and-cyclotomic-fields.tex`; related tables in `../../notes/knots-and-loops/13-knot-torsion-results.tex` retain computational provenance but not invariant status.
 
 ### Rejected formulation 12
 
@@ -1007,7 +1007,7 @@ Find a common coefficient system or functor relating affine/contact curvature, p
 **Problem:** Each arrow fails in general.  
 **Counterexample, contradiction, or missing hypothesis:** The discrete Heisenberg group is noncommutative with polynomial growth; free/hyperbolic groups can have exponential growth with tractable word problems.  
 **Replacement formulation:** Define and separately measure raw word growth, quotient/operator growth, fiber multiplicity, filling cost, search, time, and space. Prove only model-specific comparisons.  
-**Files or passages still using the old form:** `../../notes/projective-condensation/note_06.tex`, `../../notes/projective-condensation/note_09.tex`, and other resource-geometry notes contain motivational or overstrong versions; authoritative rejection R10 controls them.
+**Files or passages still using the old form:** `../../notes/projective-condensation/02-projective-geometric-frameworks.tex`, `../../notes/projective-condensation/03-canonical-forms-and-condensation.tex`, and other resource-geometry notes contain motivational or overstrong versions; authoritative rejection R10 controls them.
 
 ### Rejected formulation 13
 
@@ -1023,7 +1023,7 @@ Find a common coefficient system or functor relating affine/contact curvature, p
 **Problem:** A local contactomorphism need not preserve arithmetic generators, Maurer–Cartan data, base projection, or finite process residues.  
 **Counterexample, contradiction, or missing hypothesis:** No intertwining map has been constructed.  
 **Replacement formulation:** Require a bundle-level comparison that matches the relevant fields, bracket, projection, and finite transport.  
-**Files or passages still using the old form:** `../../notes/projective-condensation/bilateral_projective_condensation.tex` contains only an open contact-comparison proposal.
+**Files or passages still using the old form:** `../../notes/projective-condensation/01-bilateral-projective-condensation.tex` contains only an open contact-comparison proposal.
 
 ## 8. Decision register
 
@@ -1265,7 +1265,7 @@ No committed source for the signed-curvature three-branch construction was found
 | `../06-editorial-rules.md` | Status wording, notation, local/global and exact/asymptotic discipline | Authoritative editorial rules | Cross-paper | No change. |
 | `../07-acceptance-checklist.md` | Paper I acceptance gates and source controls | Authoritative checklist | Paper I | No change. |
 | `../08-open-questions.md` | OQ-001–070, especially OQ-007, OQ-022, OQ-037–058, OQ-068 | Authoritative open-question register | Cross-paper | Reference existing IDs; candidate new questions remain unregistered. |
-| `../../notes/projective-condensation/bilateral_projective_condensation.tex` | “Marked spinal expressions”; “Projective evaluation”; affine cocycles and Maurer–Cartan forms; Riccati completion; quotient/frame tower; transport obstruction | Mixed: proved algebraic core plus structural proposals | Split: Papers I and IV | Extract `P1`–`P5` and cocycles; migrate quotient/process-residue material; audit left/right and composition conventions; preserve the telescoping negative result. |
+| `../../notes/projective-condensation/01-bilateral-projective-condensation.tex` | “Marked spinal expressions”; “Projective evaluation”; affine cocycles and Maurer–Cartan forms; Riccati completion; quotient/frame tower; transport obstruction | Mixed: proved algebraic core plus structural proposals | Split: Papers I and IV | Extract `P1`–`P5` and cocycles; migrate quotient/process-residue material; audit left/right and composition conventions; preserve the telescoping negative result. |
 | `../../sections/sec03.tex` | \(da/ds=\mu\cos\theta+\lambda a\sin\theta\), Pfaffian and eikonal forms | Foundational but requires definition and convention audit | Paper I Chapters 4–5 | Rewrite under OQ-001 and final left/right convention; keep Riccati only as interface. |
 | `../../sections/sec04.tex` | Basic upper-half-plane metric and assignment; eikonal and Laplacian; singular disk model; historical tube paragraph | Mixed foundational and later-paper material | Split: Paper I Chapters 6–7 and Paper III | Extract basic model; audit curvature, Laplacian, and naming; migrate tube material. |
 | `../../sections/sec05.tex` | ACS evaluation, boundary integral, weighted area | Partially proved; sign/orientation audit required | Paper I Chapter 8 | Rewrite and test scale/charge compatibility. |
@@ -1273,24 +1273,24 @@ No committed source for the signed-curvature three-branch construction was found
 | `../../sections/sec07.tex` | \(\delta_H\), curvature-sensitive square, analytic extensions | Scalar core proved; analytic material later | Split: Papers I and II | Keep scalar horizontal formula in I; move analysis to II. |
 | `../../sections/sec08.tex` | Arithmetic Cauchy–Riemann and factorization proposals | Later analytic theory | Paper II | Move; do not use to prove Paper I. |
 | `../../archive/paper4p/aeg.tex` | “Tube structure”: \(\bigsqcup_{\lambda>0}E_1^{(\lambda)}\), sections \(P(e^\lambda)\), and acknowledgement that the basic zero tube is trivial | Historical, outdated naming, conjectural topology | Paper III history / archive | Extract the parameter-family intuition and negative observation; rewrite, then archive original. |
-| `../../notes/foundations-and-geometry/note_02.tex` | Distinction between algebraic/evaluation-parameter and geometric-family meanings of tube | Useful conceptual distinction with old naming | Paper III notes | Extract distinction; archive source after provenance is secured. |
-| `../../notes/foundations-and-geometry/affine_torus.tex` | Discrete affine holonomy toy model and weighted Stokes formula | Computational/structural example; sign audit needed | Paper IV or conditional Paper III example | Extract only after recalculation; do not call it a knot invariant. |
-| `../../notes/knots-and-loops/knots_01.tex` | Figure-eight relator experiment; Alexander-polynomial specialization | Reproducible experiment candidate, not invariant | Paper III notes / supplement | Audit scripts and presentation dependence; preserve computation. |
-| `../../notes/knots-and-loops/knots_02.tex` | Solvable-group formulas for several knots | Exploratory | Paper III archive or notes | Audit group/action definition before reuse. |
-| `../../notes/knots-and-loops/knots_03.tex` | Scalar reverse-path torsion and Laurent factor | Explicitly experimental; proposed novelty not established | Archive with provenance | Preserve tables; reject invariant interpretation without normalization and Markov proof. |
-| `../../notes/knots-and-loops/results.tex` | Relator/torsion tables for several knots | Raw dataset | Paper III supplement | Preserve; locate or reconstruct generation scripts; audit presentation invariance. |
-| `../../notes/knots-and-loops/note_11.tex` | Affine matrices and Fox-like cocycle analogy | Structural analogy, overstrong conclusions | Papers III–IV bridge note | Extract cocycle calculation; weaken or reprove identification claims. |
-| `../../notes/knots-and-loops/loop_01.tex` | Figure-eight operator-loop examples | Example only; old notation | Paper III/IV notes | Extract after notation audit; no invariant status. |
-| `../../notes/knots-and-loops/note_03.tex`, `../../notes/knots-and-loops/note_04.tex` | Hyperbolic knot-complement and HNN attempts | Structural proposals and a recorded non-faithfulness failure | Archive / Paper III exploratory note | Preserve negative path and determinant calculations; do not migrate as theorem. |
-| `../../notes/knots-and-loops/note_05.tex` | Claim that a two-generator lattice in \(\mathbb R^2\) is dense | Mathematically incorrect | Archive / rejection record | Reject the two-dimensional density claim; only a one-dimensional projection may be dense. |
-| `../../notes/thermodynamics-and-renormalization/rg_en.tex`, `../../notes/thermodynamics-and-renormalization/rg_zh.tex` | Early resource geometry and time–space proposals | Motivational, partly duplicated | Paper IV notes / archive | Make English version canonical after audit; preserve Chinese provenance; add cost models. |
-| `../../notes/projective-condensation/note_06.tex` | Projective boundary, hyperbolicity, combinatorial complexity | Mixed motivation and overclaim | Paper IV motivation / archive | Extract homogeneous/projective ideas; reject “complexity makes hyperbolicity unavoidable” as theorem. |
-| `../../notes/projective-condensation/note_09.tex` | Free-group complexity, condensation, canonical forms, computational mass/curvature analogies | Structural proposals plus unsupported analogies | Paper IV / archive | Extract quotient and normalization questions; archive physical overclaims. |
-| `../../notes/computation-and-resources/note_10.tex` | Catalan/binary-expression experiment program | Experiment agenda | Paper IV experiments | Define state and cost model before use. |
-| `../../notes/computation-and-resources/note_12.tex` | Rewrite graph and a mod-2 Thue–Morse cochain | Proposed theorem is incorrect for \(DT=T^2D\) | Archive / corrected rewrite scaffold | Reject the cochain claim; salvage only the 2-cell framework after correction. |
-| `../../notes/computation-and-resources/note_13.tex`, `../../notes/computation-and-resources/note_14.tex` | Weighted resource plane and pebble-game toy calculations | Structural/computational proposals | Paper IV experiments | Audit realizability, pebble legality, scheduling, and meaning of \(M\). |
-| `../../notes/computation-and-resources/note_15.tex` | Staged representation/time/space/filling program with explicit cautions | Most mature complexity working note | Paper IV active note | Use as the primary complexity seed; retain all warnings. |
-| `../../notes/computation-and-resources/note_16.tex` | Path/2-groupoid, cohomology, ACS/contact pairings | Structural proposal requiring proof audit | Paper IV | Migrate selectively; reprove cohomological statements. |
+| `../../notes/foundations-and-geometry/02-parameterized-evaluation-frameworks.tex` | Distinction between algebraic/evaluation-parameter and geometric-family meanings of tube | Useful conceptual distinction with old naming | Paper III notes | Extract distinction; archive source after provenance is secured. |
+| `../../notes/foundations-and-geometry/04-affine-torus-holonomy.tex` | Discrete affine holonomy toy model and weighted Stokes formula | Computational/structural example; sign audit needed | Paper IV or conditional Paper III example | Extract only after recalculation; do not call it a knot invariant. |
+| `../../notes/knots-and-loops/07-figure-eight-arithmetic-interpretation.tex` | Figure-eight relator experiment; Alexander-polynomial specialization | Reproducible experiment candidate, not invariant | Paper III notes / supplement | Audit scripts and presentation dependence; preserve computation. |
+| `../../notes/knots-and-loops/08-small-knot-group-embeddings.tex` | Solvable-group formulas for several knots | Exploratory | Paper III archive or notes | Audit group/action definition before reuse. |
+| `../../notes/knots-and-loops/09-knot-torsion-and-cyclotomic-fields.tex` | Scalar reverse-path torsion and Laurent factor | Explicitly experimental; proposed novelty not established | Archive with provenance | Preserve tables; reject invariant interpretation without normalization and Markov proof. |
+| `../../notes/knots-and-loops/13-knot-torsion-results.tex` | Relator/torsion tables for several knots | Raw dataset | Paper III supplement | Preserve; locate or reconstruct generation scripts; audit presentation invariance. |
+| `../../notes/knots-and-loops/06-fox-calculus-and-alexander-modules.tex` | Affine matrices and Fox-like cocycle analogy | Structural analogy, overstrong conclusions | Papers III–IV bridge note | Extract cocycle calculation; weaken or reprove identification claims. |
+| `../../notes/knots-and-loops/01-figure-eight-arithmetic-loop.tex` | Figure-eight operator-loop examples | Example only; old notation | Paper III/IV notes | Extract after notation audit; no invariant status. |
+| `../../notes/knots-and-loops/03-figure-eight-aeg-summary.tex`, `../../notes/knots-and-loops/04-figure-eight-hnn-arithmetization.tex` | Hyperbolic knot-complement and HNN attempts | Structural proposals and a recorded non-faithfulness failure | Archive / Paper III exploratory note | Preserve negative path and determinant calculations; do not migrate as theorem. |
+| `../../notes/knots-and-loops/05-figure-eight-modulo-arithmetization.tex` | Claim that a two-generator lattice in \(\mathbb R^2\) is dense | Mathematically incorrect | Archive / rejection record | Reject the two-dimensional density claim; only a one-dimensional projection may be dense. |
+| `../../notes/thermodynamics-and-renormalization/02-aeg-flow-and-renormalization-en.tex`, `../../notes/thermodynamics-and-renormalization/03-aeg-flow-and-renormalization-zh.tex` | Early resource geometry and time–space proposals | Motivational, partly duplicated | Paper IV notes / archive | Make English version canonical after audit; preserve Chinese provenance; add cost models. |
+| `../../notes/projective-condensation/02-projective-geometric-frameworks.tex` | Projective boundary, hyperbolicity, combinatorial complexity | Mixed motivation and overclaim | Paper IV motivation / archive | Extract homogeneous/projective ideas; reject “complexity makes hyperbolicity unavoidable” as theorem. |
+| `../../notes/projective-condensation/03-canonical-forms-and-condensation.tex` | Free-group complexity, condensation, canonical forms, computational mass/curvature analogies | Structural proposals plus unsupported analogies | Paper IV / archive | Extract quotient and normalization questions; archive physical overclaims. |
+| `../../notes/computation-and-resources/01-binary-expression-complexity-program.tex` | Catalan/binary-expression experiment program | Experiment agenda | Paper IV experiments | Define state and cost model before use. |
+| `../../notes/computation-and-resources/02-path-loop-homology-toy-model.tex` | Rewrite graph and a mod-2 Thue–Morse cochain | Proposed theorem is incorrect for \(DT=T^2D\) | Archive / corrected rewrite scaffold | Reject the cochain claim; salvage only the 2-cell framework after correction. |
+| `../../notes/computation-and-resources/03-turing-machine-resource-geometry.tex`, `../../notes/computation-and-resources/04-resource-geometry-progress-memo.tex` | Weighted resource plane and pebble-game toy calculations | Structural/computational proposals | Paper IV experiments | Audit realizability, pebble legality, scheduling, and meaning of \(M\). |
+| `../../notes/computation-and-resources/05-computational-spacetime-geometry-program.tex` | Staged representation/time/space/filling program with explicit cautions | Most mature complexity working note | Paper IV active note | Use as the primary complexity seed; retain all warnings. |
+| `../../notes/computation-and-resources/06-computational-spacetime-duality.tex` | Path/2-groupoid, cohomology, ACS/contact pairings | Structural proposal requiring proof audit | Paper IV | Migrate selectively; reprove cohomological statements. |
 | `../../archive/peddle/peddle_lab.html` | Interactive pebble-game experiment | Supplement only | Paper IV experiments | Validate before treating outputs as evidence; consider correcting directory name in a separate task. |
 
 No verifiable general \(E_k\), \(E_{\log}\), multi-zero construction file, intrinsic threading definition, braid lift, or Markov-normalized invariant was located. Their absence must not be filled by inference from the status documents.
@@ -1449,7 +1449,7 @@ No verifiable general \(E_k\), \(E_{\log}\), multi-zero construction file, intri
 **Required hypotheses:** PO-13 and an explicit comparison class.  
 **Dependencies:** OQ-046.  
 **Failure consequence:** The outcome should be presented as a new realization or interpretation of an existing invariant, not a new invariant.  
-**Recommended next action:** Audit `../../notes/knots-and-loops/results.tex` and generation provenance before new computation.
+**Recommended next action:** Audit `../../notes/knots-and-loops/13-knot-torsion-results.tex` and generation provenance before new computation.
 
 ### PO-15: Finite history-growth definitions and calibration
 
@@ -1764,17 +1764,17 @@ The mathematical discussion was supplied in the current ChatGPT thread and was n
 | Note section or claim | Discussion source | Related repository source |
 | --- | --- | --- |
 | §§1–2, strategic ordering of the three directions | 2026-08-05 exchange, “meaning assessment of three branches, tube, and complexity” | `../00-authoritative-scope.md`, §§13–18; `../05-mathematical-status.md`, §§74–102 |
-| §4.1, replacement of \(E,H_{\mathrm{Lie}}\) by \(E,F\) at the symmetric level | 2026-08-05 three-branch derivation, generator discussion | `../../notes/projective-condensation/bilateral_projective_condensation.tex`, Riccati completion; status `P5` |
+| §4.1, replacement of \(E,H_{\mathrm{Lie}}\) by \(E,F\) at the symmetric level | 2026-08-05 three-branch derivation, generator discussion | `../../notes/projective-condensation/01-bilateral-projective-condensation.tex`, Riccati completion; status `P5` |
 | §§4.2–4.3, \(\mathbb A_c\), \(M_c\), \(P_\xi^c\), and brackets | 2026-08-05 three-branch derivation | No committed three-branch file; projective Lie seed in the bilateral note |
-| §4.4, four-step bilateral realization | 2026-08-05 three-branch derivation, bilateral-history section | `../../notes/projective-condensation/bilateral_projective_condensation.tex`, projective generation theorem |
+| §4.4, four-step bilateral realization | 2026-08-05 three-branch derivation, bilateral-history section | `../../notes/projective-condensation/01-bilateral-projective-condensation.tex`, projective generation theorem |
 | §4.5, two-step residue and small-area expansion | 2026-08-05 three-branch derivation, frame-residue section | No committed source; compare Paper IV status §§83, 88, 90 |
 | §§4.6–4.7, real forms, metrics, assignment, and negative branch | 2026-08-05 three-branch derivation and subsequent significance review | `../../sections/sec04.tex`; `P5`, `T6`, `E3`; no committed three-branch theorem |
-| §4.8, tube/knot success criterion | Tube and threading discussions, 2026-07-25–2026-07-29; 2026-08-05 significance review | `../../archive/paper4p/aeg.tex`; `../../notes/foundations-and-geometry/note_02.tex`; `../../notes/knots-and-loops/`; status §§74–81 |
-| §4.9, four growth quantities and calibration family | Complexity discussion, 2026-07-28; 2026-08-05 significance review | `../../notes/computation-and-resources/note_15.tex`; `../../notes/thermodynamics-and-renormalization/rg_en.tex`; status §§93–100 |
+| §4.8, tube/knot success criterion | Tube and threading discussions, 2026-07-25–2026-07-29; 2026-08-05 significance review | `../../archive/paper4p/aeg.tex`; `../../notes/foundations-and-geometry/02-parameterized-evaluation-frameworks.tex`; `../../notes/knots-and-loops/`; status §§74–81 |
+| §4.9, four growth quantities and calibration family | Complexity discussion, 2026-07-28; 2026-08-05 significance review | `../../notes/computation-and-resources/05-computational-spacetime-geometry-program.tex`; `../../notes/thermodynamics-and-renormalization/02-aeg-flow-and-renormalization-en.tex`; status §§93–100 |
 | §4.10, weak versus strong unification | 2026-08-05 final synthesis | `../../README.md`, research frontier; `T17`; Paper IV quotient/complexity status |
-| Results R-1, R-2, R-9–R-11 | Imported authoritative repository results, not new discussion discoveries | `../../notes/projective-condensation/bilateral_projective_condensation.tex`; `../../sections/sec06.tex`; `governance/03`, `05` |
-| Rejected knot formulations | 2026-08-05 significance review plus source audit | `../../notes/knots-and-loops/knots_01.tex`–`../../notes/knots-and-loops/knots_03.tex`, `../../notes/knots-and-loops/results.tex`, `../../notes/knots-and-loops/note_11.tex` |
-| Rejected complexity implications | 2026-07-28 and 2026-08-05 discussions | `../../notes/projective-condensation/note_06.tex`, `../../notes/projective-condensation/note_09.tex`, `../../notes/computation-and-resources/note_15.tex`; authoritative rejection R10 |
+| Results R-1, R-2, R-9–R-11 | Imported authoritative repository results, not new discussion discoveries | `../../notes/projective-condensation/01-bilateral-projective-condensation.tex`; `../../sections/sec06.tex`; `governance/03`, `05` |
+| Rejected knot formulations | 2026-08-05 significance review plus source audit | `../../notes/knots-and-loops/07-figure-eight-arithmetic-interpretation.tex`–`../../notes/knots-and-loops/09-knot-torsion-and-cyclotomic-fields.tex`, `../../notes/knots-and-loops/13-knot-torsion-results.tex`, `../../notes/knots-and-loops/06-fox-calculus-and-alexander-modules.tex` |
+| Rejected complexity implications | 2026-07-28 and 2026-08-05 discussions | `../../notes/projective-condensation/02-projective-geometric-frameworks.tex`, `../../notes/projective-condensation/03-canonical-forms-and-condensation.tex`, `../../notes/computation-and-resources/05-computational-spacetime-geometry-program.tex`; authoritative rejection R10 |
 | Repository instruction and source-map findings | Current GitHub read-only audit | Root `../AGENTS.md` absent; `../AGENTS.md`, `../../README.md`, `../../README.md`, `governance/00–08` read |
 
 Where the exact earlier chat message boundary is unavailable, provenance is intentionally marked by topic and date rather than an invented message identifier.

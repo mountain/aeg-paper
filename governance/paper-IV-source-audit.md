@@ -45,7 +45,7 @@ Paper IV source or are imported by an exact citation.
 
 ### Paper IV working sources
 
-- `notes/projective-condensation/bilateral_projective_condensation.tex`: bivaluation/projector formulas,
+- `notes/projective-condensation/01-bilateral-projective-condensation.tex`: bivaluation/projector formulas,
   quotient towers, dual transport, and projective-condensation motivation.
 - `governance/discussions/history-residual-cut-resource-geometry.md`: the
   history--residual--cut framework, Horner, butterfly, OBDD, checkpointing,

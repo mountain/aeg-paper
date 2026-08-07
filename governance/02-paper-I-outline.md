@@ -345,7 +345,7 @@ Primary sources:
 
 * `sections/sec01.tex`
 * abstract and introduction in `paper-1/aeg-paper-1.tex`
-* selected introductory material from `notes/projective-condensation/bilateral_projective_condensation.tex`
+* selected introductory material from `notes/projective-condensation/01-bilateral-projective-condensation.tex`
 
 ---
 
@@ -551,7 +551,7 @@ Primary sources:
 
 * `sections/sec02-00.tex`
 * `sections/sec02-01.tex`
-* `notes/projective-condensation/bilateral_projective_condensation.tex`
+* `notes/projective-condensation/01-bilateral-projective-condensation.tex`
 
 ---
 
@@ -769,7 +769,7 @@ The reader should understand:
 
 Primary source:
 
-* `notes/projective-condensation/bilateral_projective_condensation.tex`
+* `notes/projective-condensation/01-bilateral-projective-condensation.tex`
 
 Supporting source:
 
@@ -981,7 +981,7 @@ Primary sources:
 
 * `sections/sec02-01.tex`
 * `sections/sec03.tex`
-* `notes/projective-condensation/bilateral_projective_condensation.tex`
+* `notes/projective-condensation/01-bilateral-projective-condensation.tex`
 
 ---
 
@@ -1190,7 +1190,7 @@ Primary source:
 
 Supporting source:
 
-* `notes/projective-condensation/bilateral_projective_condensation.tex`
+* `notes/projective-condensation/01-bilateral-projective-condensation.tex`
 
 ---
 
@@ -1378,7 +1378,7 @@ Supporting sources:
 
 * `sections/sec02-00.tex`
 * `sections/sec03.tex`
-* `notes/projective-condensation/note_06.tex`
+* `notes/projective-condensation/02-projective-geometric-frameworks.tex`
 
 ---
 
@@ -2290,7 +2290,7 @@ The restructuring task must not rename every file before the mathematical audit 
 | `sections/sec07.tex`                          | Foundational part to Chapter 9; analytic material to Paper II |
 | `sections/sec08.tex`                          | Move to Paper II                                              |
 | `sections/sec09.tex`                          | Replace with Chapter 10                                       |
-| `notes/projective-condensation/bilateral_projective_condensation.tex` | Chapter 2 and 3 foundations; remainder to Paper IV            |
+| `notes/projective-condensation/01-bilateral-projective-condensation.tex` | Chapter 2 and 3 foundations; remainder to Paper IV            |
 | multi-zero and tube notes                     | Chapter 7 definitions only; remainder to Paper III            |
 | resource/complexity notes                     | Paper IV                                                      |
 | old loop notes                                | Appendix E or later relation-theory work                      |

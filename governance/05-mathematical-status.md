@@ -305,7 +305,7 @@ INTEGRATION AUDIT REQUIRED
 A complete proof appears in:
 
 ```text id="bxj5pu"
-notes/projective-condensation/bilateral_projective_condensation.tex
+notes/projective-condensation/01-bilateral-projective-condensation.tex
 ```
 
 ### Remaining obligations

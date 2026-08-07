@@ -192,3 +192,6 @@ conflict, use the order specified in
 `notes/knots-and-loops/` retain historical or exploratory material and are not
 canonical paper sources unless the migration log or a per-paper source audit says
 otherwise.
+
+The subject classification and per-directory filename ordering for research notes
+are documented in [`notes/README.md`](notes/README.md).

@@ -406,7 +406,7 @@ x=(p,u),\quad y=(q,v),\quad z=(r,w),
 **Statement:** 对右共轭 \(x\triangleright y=y^{-1}xy\)，固定 multiplier 子 quandle \(X_t\subset\operatorname{Aff}(1,R)\) 同构于参数 \(t^{-1}\) 的 Alexander quandle。  
 **Hypotheses:** \(R\) 为交换环；\(t\in R^\times\)。称为完整共轭类还需额外条件，例如域上 \(t\neq1\)。  
 **Argument or proof location:** 本笔记 §4.8 的直接群运算。  
-**Repository source:** <code>notes/knots-and-loops/knots_01.tex</code>、<code>notes/knots-and-loops/note_11.tex</code> 提供 affine/knot 动机；精确子 quandle 限定来自本讨论审计。  
+**Repository source:** <code>notes/knots-and-loops/07-figure-eight-arithmetic-interpretation.tex</code>、<code>notes/knots-and-loops/06-fox-calculus-and-alexander-modules.tex</code> 提供 affine/knot 动机；精确子 quandle 限定来自本讨论审计。  
 **Relevant theorem nodes:** A1, A4。  
 **Paper destination:** Paper III，代数输入回引 Paper I。  
 **Remaining integration work:** 与仓库全局左右共轭和 composition conventions 对齐。
@@ -417,7 +417,7 @@ x=(p,u),\quad y=(q,v),\quad z=(r,w),
 **Statement:** 在 \(X_t\) 上，\(\kappa_t(u,v)=(t-1)(v-u)=d(tf)\)，其中 \(f(u)=u\)。因此 raw torsion 在平凡系数的普通 quandle cohomology 中为 coboundary。  
 **Hypotheses:** 同 R-2；采用 §4.8 的 coboundary 符号约定。  
 **Argument or proof location:** 本笔记 §4.8。  
-**Repository source:** <code>notes/knots-and-loops/note_11.tex</code> 中的相关强表述需要据此收缩；<code>notes/knots-and-loops/results.tex</code> 的计算不能替代上同调证明。  
+**Repository source:** <code>notes/knots-and-loops/06-fox-calculus-and-alexander-modules.tex</code> 中的相关强表述需要据此收缩；<code>notes/knots-and-loops/13-knot-torsion-results.tex</code> 的计算不能替代上同调证明。  
 **Relevant theorem nodes:** A4, T17。  
 **Paper destination:** Paper III。  
 **Remaining integration work:** 审计符号；明确“raw torsion 未增加新类”不等于 Alexander coloring count 平凡。
@@ -454,7 +454,7 @@ x=(p,u),\quad y=(q,v),\quad z=(r,w),
 **Statement:** embedded root braid 的 boundary loop 位于 \(\mathcal P_n^{\mathrm{sf}}\)，故无碰撞；generic filling 与 discriminant 的 simple transverse intersection 局部为 \(w^2=\tau\)，其 monodromy 是 half-twist。  
 **Hypotheses:** coefficient family 至少具有所需 smooth/holomorphic regularity；discriminant crossing 为简单横截；其余 roots 保持简单。  
 **Argument or proof location:** 配置空间与 simple branched-cover 的标准局部论证。  
-**Repository source:** <code>notes/foundations-and-geometry/note_02.tex</code>、<code>notes/knots-and-loops/note_03.tex</code>、<code>notes/computation-and-resources/note_13.tex</code> 的 Tube/branch 动机需迁移审计。  
+**Repository source:** <code>notes/foundations-and-geometry/02-parameterized-evaluation-frameworks.tex</code>、<code>notes/knots-and-loops/03-figure-eight-aeg-summary.tex</code>、<code>notes/computation-and-resources/03-turing-machine-resource-geometry.tex</code> 的 Tube/branch 动机需迁移审计。  
 **Relevant theorem nodes:** Z3, Z5, T8, Z6；候选 discriminant 节点。  
 **Paper destination:** Paper III。  
 **Remaining integration work:** 正式引用或写出局部正规形证明，并补 properness/compactness 条件。
@@ -462,10 +462,10 @@ x=(p,u),\quad y=(q,v),\quad z=(r,w),
 ### Result R-7: Figure-eight affine relator calculation
 
 **Status:** COMPUTATIONALLY VERIFIED EXAMPLE  
-**Statement:** 在 <code>notes/knots-and-loops/knots_01.tex</code> 的约定中，令 \(a:x\mapsto tx\)、\(b:x\mapsto x+1\)，词 \(abbbaBAAB\) 的 translation coordinate 为 \(-\Delta_{4_1}(t)\)。  
+**Statement:** 在 <code>notes/knots-and-loops/07-figure-eight-arithmetic-interpretation.tex</code> 的约定中，令 \(a:x\mapsto tx\)、\(b:x\mapsto x+1\)，词 \(abbbaBAAB\) 的 translation coordinate 为 \(-\Delta_{4_1}(t)\)。  
 **Hypotheses:** 保留该文件的 word order、逆元、表示与 normalization convention。  
-**Argument or proof location:** <code>notes/knots-and-loops/knots_01.tex</code> 的逐词 affine composition。  
-**Repository source:** <code>notes/knots-and-loops/knots_01.tex</code>。  
+**Argument or proof location:** <code>notes/knots-and-loops/07-figure-eight-arithmetic-interpretation.tex</code> 的逐词 affine composition。  
+**Repository source:** <code>notes/knots-and-loops/07-figure-eight-arithmetic-interpretation.tex</code>。  
 **Relevant theorem nodes:** A1, A4。  
 **Paper destination:** Paper III 的受限例子或档案计算。  
 **Remaining integration work:** 明确它先是自由群 word calculation；只有在 relator image 为 identity 的参数 locus 上才下降到 knot group representation。不得把 generic \(t\) 的结果直接称为内在 knot invariant。
@@ -570,7 +570,7 @@ d-\hbar\sum_{i<j}
 **Problem:** deck-layer count 首先是交换的 winding 数据；一般 braid complexity 来自有限 moving points 的非交换 monodromy。  
 **Counterexample, contradiction, or missing hypothesis:** 不同 braid 可有同一总 deck shift。  
 **Replacement formulation:** 把 logarithmic winding 与 finite-strand braid history 分层记录。  
-**Files or passages still using the old form:** <code>notes/foundations-and-geometry/note_02.tex</code>、<code>notes/knots-and-loops/note_03.tex</code>、<code>notes/computation-and-resources/note_13.tex</code> 需审计。
+**Files or passages still using the old form:** <code>notes/foundations-and-geometry/02-parameterized-evaluation-frameworks.tex</code>、<code>notes/knots-and-loops/03-figure-eight-aeg-summary.tex</code>、<code>notes/computation-and-resources/03-turing-machine-resource-geometry.tex</code> 需审计。
 
 ### Rejected formulation X-2
 
@@ -594,7 +594,7 @@ d-\hbar\sum_{i<j}
 **Problem:** 尚未证明 isotopy、gauge、spine change 或 Markov invariance。  
 **Counterexample, contradiction, or missing hypothesis:** 同一 link 有不同 braid presentations；distinguished axis 可能保留 presentation data。  
 **Replacement formulation:** 在下降前称 \(\mathcal D_{\mathrm{AEG}}(\beta)\) 为 presentation datum。  
-**Files or passages still using the old form:** <code>notes/knots-and-loops/results.tex</code>、<code>notes/knots-and-loops/knots_03.tex</code> 与 Tube notes 需限定措辞。
+**Files or passages still using the old form:** <code>notes/knots-and-loops/13-knot-torsion-results.tex</code>、<code>notes/knots-and-loops/09-knot-torsion-and-cyclotomic-fields.tex</code> 与 Tube notes 需限定措辞。
 
 ### Rejected formulation X-5
 
@@ -610,7 +610,7 @@ d-\hbar\sum_{i<j}
 **Problem:** 只有固定 multiplier 子 quandle \(X_t\) 具有该形式。  
 **Counterexample, contradiction, or missing hypothesis:** 变化 multiplier 的共轭运算保留第一坐标但依赖另一元素的 multiplier。  
 **Replacement formulation:** 明确写 \(X_t\subset\operatorname{Aff}(1,R)\)，并固定右共轭 convention。  
-**Files or passages still using the old form:** <code>notes/knots-and-loops/note_11.tex</code> 及未来 knot notes。
+**Files or passages still using the old form:** <code>notes/knots-and-loops/06-fox-calculus-and-alexander-modules.tex</code> 及未来 knot notes。
 
 ### Rejected formulation X-7
 
@@ -618,7 +618,7 @@ d-\hbar\sum_{i<j}
 **Problem:** \(\kappa_t=d(tf)\) 是 coboundary。  
 **Counterexample, contradiction, or missing hypothesis:** §4.8 的显式 primitive。  
 **Replacement formulation:** 普通系数下记录 collapse；twisted 共振非平凡性另行计算。  
-**Files or passages still using the old form:** <code>notes/knots-and-loops/note_11.tex</code> 的“intrinsic topological invariant”等强表述需审计。
+**Files or passages still using the old form:** <code>notes/knots-and-loops/06-fox-calculus-and-alexander-modules.tex</code> 的“intrinsic topological invariant”等强表述需审计。
 
 ### Rejected formulation X-8
 
@@ -642,7 +642,7 @@ d-\hbar\sum_{i<j}
 **Problem:** 一般 non-flat parallel transport 首先导致 homotopy dependence；associator 还需 coherence。  
 **Counterexample, contradiction, or missing hypothesis:** 缺少 pentagon、hexagon、fake-flatness 与 filling-independence。  
 **Replacement formulation:** anomaly 仅是 higher cocycle 的候选输入。  
-**Files or passages still using the old form:** <code>notes/knots-and-loops/loop_02.tex</code> 及 future holonomy drafts 需审计。
+**Files or passages still using the old form:** <code>notes/knots-and-loops/02-zero-taxonomy-and-arithmetic-loops.tex</code> 及 future holonomy drafts 需审计。
 
 ### Rejected formulation X-11
 
@@ -650,7 +650,7 @@ d-\hbar\sum_{i<j}
 **Problem:** 计算首先定义在自由群 words 上；要下降到 knot group representation，需满足 relator image 为 identity。  
 **Counterexample, contradiction, or missing hypothesis:** generic \(t\) 下 translation coordinate 为 \(-\Delta_{4_1}(t)\)，并不自动为零。  
 **Replacement formulation:** 把它保留为 presentation-dependent word calculation，并明确有效 parameter locus 与 normalization。  
-**Files or passages still using the old form:** <code>notes/knots-and-loops/knots_01.tex</code>、<code>notes/knots-and-loops/results.tex</code>。
+**Files or passages still using the old form:** <code>notes/knots-and-loops/07-figure-eight-arithmetic-interpretation.tex</code>、<code>notes/knots-and-loops/13-knot-torsion-results.tex</code>。
 
 ## 8. Decision register
 
@@ -792,14 +792,14 @@ Paper III 拥有 discriminant、\(E_k\)、\(E_{\log}\)、Tube、branched filling
 | <code>governance/04-current-to-target-map.md</code> | zero set 到 knot invariant 的七层区分 | authoritative | Paper III | 用作迁移门槛 |
 | <code>governance/05-mathematical-status.md</code> | items 74–81 及 R8/R9 exclusions | authoritative | Paper III | 保持状态词 |
 | <code>governance/08-open-questions.md</code> | OQ-037—OQ-046 | authoritative issue register | Paper III | 仅交叉引用，不在本任务修改 |
-| <code>notes/knots-and-loops/knots_01.tex</code> | figure-eight word \(abbbaBAAB\)，translation \(-\Delta_{4_1}\) | COMPUTATIONALLY VERIFIED EXAMPLE | Paper III | 审计 descent 与 parameter locus |
-| <code>notes/knots-and-loops/knots_03.tex</code> | reverse-word torsion 与 \(\Delta(t)(t^K-1)\) 型因子 | presentation-dependent computation | Paper III / archive | 保留计算，重写 invariant 语言 |
-| <code>notes/knots-and-loops/results.tex</code> | knot/torsion 结果汇总 | mixed, requires audit | Paper III | 逐条重标 status |
-| <code>notes/foundations-and-geometry/note_02.tex</code> | multi-zero/Tube 动机 | exploratory | Paper III | 抽取，保留 provenance |
-| <code>notes/knots-and-loops/note_03.tex</code> | singular/tube extensions | exploratory | Paper III | 审计 regular/singular 边界 |
-| <code>notes/knots-and-loops/note_11.tex</code> | torsion、Fox/cohomology 强解释 | overstated in places | Paper III / Paper I input | 保留公式，收缩 intrinsic invariant 主张 |
-| <code>notes/computation-and-resources/note_13.tex</code> | logarithmic/tube 几何 | exploratory | Paper III | 对照 deck-cover 解释重写 |
-| <code>notes/knots-and-loops/loop_02.tex</code> | loops、holonomy、relation-level 动机 | exploratory | Paper III / beyond | 不把 non-flatness 当 coherence |
+| <code>notes/knots-and-loops/07-figure-eight-arithmetic-interpretation.tex</code> | figure-eight word \(abbbaBAAB\)，translation \(-\Delta_{4_1}\) | COMPUTATIONALLY VERIFIED EXAMPLE | Paper III | 审计 descent 与 parameter locus |
+| <code>notes/knots-and-loops/09-knot-torsion-and-cyclotomic-fields.tex</code> | reverse-word torsion 与 \(\Delta(t)(t^K-1)\) 型因子 | presentation-dependent computation | Paper III / archive | 保留计算，重写 invariant 语言 |
+| <code>notes/knots-and-loops/13-knot-torsion-results.tex</code> | knot/torsion 结果汇总 | mixed, requires audit | Paper III | 逐条重标 status |
+| <code>notes/foundations-and-geometry/02-parameterized-evaluation-frameworks.tex</code> | multi-zero/Tube 动机 | exploratory | Paper III | 抽取，保留 provenance |
+| <code>notes/knots-and-loops/03-figure-eight-aeg-summary.tex</code> | singular/tube extensions | exploratory | Paper III | 审计 regular/singular 边界 |
+| <code>notes/knots-and-loops/06-fox-calculus-and-alexander-modules.tex</code> | torsion、Fox/cohomology 强解释 | overstated in places | Paper III / Paper I input | 保留公式，收缩 intrinsic invariant 主张 |
+| <code>notes/computation-and-resources/03-turing-machine-resource-geometry.tex</code> | logarithmic/tube 几何 | exploratory | Paper III | 对照 deck-cover 解释重写 |
+| <code>notes/knots-and-loops/02-zero-taxonomy-and-arithmetic-loops.tex</code> | loops、holonomy、relation-level 动机 | exploratory | Paper III / beyond | 不把 non-flatness 当 coherence |
 | <code>paper4p/aeg.tex</code>、<code>sections/sec04.tex</code> | current foundational geometry | current paper source | Paper I | 不引入 knot 主理论 |
 
 ## 12. Proof obligations
@@ -1128,7 +1128,7 @@ Paper III 拥有 discriminant、\(E_k\)、\(E_{\log}\)、Tube、branched filling
 ### Task 2: Affine formulas 与 RIII defect 的 convention audit
 
 **Goal:** 对左右共轭、word order、正负 crossing 生成一张完整公式表。  
-**Allowed files:** 新 computation note；只读 <code>notes/knots-and-loops/</code>、<code>notes/knots-and-loops/note_11.tex</code>、A1/A4。  
+**Allowed files:** 新 computation note；只读 <code>notes/knots-and-loops/</code>、<code>notes/knots-and-loops/06-fox-calculus-and-alexander-modules.tex</code>、A1/A4。  
 **Forbidden files:** 主 paper 与 authoritative register。  
 **Theorem nodes:** A1, A4, candidate N2。  
 **Expected output:** 手算、CAS verification 与 regression tests。  
@@ -1148,7 +1148,7 @@ Paper III 拥有 discriminant、\(E_k\)、\(E_{\log}\)、Tube、branched filling
 ### Task 4: Figure-eight 与 reverse-word source audit
 
 **Goal:** 区分自由群 word calculation、knot-group representation locus 与 presentation-dependent torsion。  
-**Allowed files:** 新 audit note；只读 <code>notes/knots-and-loops/knots_01.tex</code>、<code>notes/knots-and-loops/knots_03.tex</code>、<code>notes/knots-and-loops/results.tex</code>。  
+**Allowed files:** 新 audit note；只读 <code>notes/knots-and-loops/07-figure-eight-arithmetic-interpretation.tex</code>、<code>notes/knots-and-loops/09-knot-torsion-and-cyclotomic-fields.tex</code>、<code>notes/knots-and-loops/13-knot-torsion-results.tex</code>。  
 **Forbidden files:** 原始 notes，除非后续单独授权修改。  
 **Theorem nodes:** A1, A4。  
 **Expected output:** 假设表、符号表、可保留 example 与必须撤回的 invariant language。  
@@ -1191,16 +1191,16 @@ Paper III 拥有 discriminant、\(E_k\)、\(E_{\log}\)、Tube、branched filling
 
 | Note section or claim | Discussion source | Related repository source |
 |---|---|---|
-| finite braid monodromy 与 logarithmic winding 分层 | 讨论中的“Tube 如何容纳不同纽结”与“穿线有两层” | <code>notes/foundations-and-geometry/note_02.tex</code>, <code>notes/computation-and-resources/note_13.tex</code>, <code>governance/04-current-to-target-map.md</code> |
+| finite braid monodromy 与 logarithmic winding 分层 | 讨论中的“Tube 如何容纳不同纽结”与“穿线有两层” | <code>notes/foundations-and-geometry/02-parameterized-evaluation-frameworks.tex</code>, <code>notes/computation-and-resources/03-turing-machine-resource-geometry.tex</code>, <code>governance/04-current-to-target-map.md</code> |
 | boundary/filling/order-4 correction | 讨论中的“order-4 分支应当出现在 Tube filling 中” | Z3, Z5, T8, Z6；Tube notes |
 | classical originality boundary | 讨论中的“最接近的既有数学对象” | <code>governance/00-authoritative-scope.md</code>, Paper III allocation |
 | Markov sieve | 讨论中的“成败点应写成三次下降” | <code>governance/05-mathematical-status.md</code> items 78–81 |
 | scalar additive collapse | 讨论中的第一条 no-go 与后续红队修正 | 本讨论新证明 |
-| affine subquandle/coboundary | 讨论中的第二条 no-go 与公式复核 | A1, A4；<code>notes/knots-and-loops/note_11.tex</code> |
+| affine subquandle/coboundary | 讨论中的第二条 no-go 与公式复核 | A1, A4；<code>notes/knots-and-loops/06-fox-calculus-and-alexander-modules.tex</code> |
 | twisted resonance | 后续红队核查对普通/twisted coboundary 的修正 | 本讨论新计算；twisted quandle literature |
 | variable multiplier anomaly | 讨论中的 RIII defect 与单分支限制 | 本讨论新计算 |
 | two-probe route | 讨论中的 multi-probe 配置空间路线 | Paper III open program；Lawrence/Bigelow literature |
-| figure-eight caveat | 讨论后的 repository source audit | <code>notes/knots-and-loops/knots_01.tex</code>, <code>notes/knots-and-loops/results.tex</code> |
+| figure-eight caveat | 讨论后的 repository source audit | <code>notes/knots-and-loops/07-figure-eight-arithmetic-interpretation.tex</code>, <code>notes/knots-and-loops/13-knot-torsion-results.tex</code> |
 | paper allocation | 讨论结论与 task-required restructuring audit | <code>governance/00–08</code> |
 | proof and definition registers | 本次讨论压缩 | 本笔记 §§12–16 |
 
