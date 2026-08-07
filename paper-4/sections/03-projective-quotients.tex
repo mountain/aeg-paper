@@ -1,0 +1,271 @@
+% Canonical Paper IV section.
+The projective operator in Section~\ref{sec:history-equality} is already a
+condensation of a marked history.  We now introduce a second, algebraic
+condensation: an operator is replaced by the image--kernel pair of a rank-one
+projector.  No topology, norm, probability, or limiting dynamics is used in
+this section.
+
+\subsection{Points, copoints, and regular bivaluations}
+
+Let $V=K^2$ and let $V^\vee$ be its algebraic dual.  A nonzero vector $v$
+defines a point $[v]\in\PP(V)$, while a nonzero covector $\varphi$ defines the
+projective line $\PP(\ker\varphi)\in\PP(V)$.  The pair is transverse when
+$\varphi(v)\ne0$.
+
+\begin{definition}[Regular bivaluation]
+A regular bivaluation over $K$ is an ordered pair
+\[
+  (q^+,q^-)\in\PP^1(K)\times\PP^1(K),
+  \qquad q^+\ne q^-.
+\]
+The first member is called the image direction and the second the kernel
+direction.  We write
+\[
+  \Biv_K^{\mathrm{reg}}
+  \defeq \PP^1(K)\times\PP^1(K)\setminus\Delta.
+\]
+\end{definition}
+
+The order matters.  Interchanging image and kernel replaces a projector by its
+complement.
+
+\begin{theorem}[Bivaluation--projector correspondence]
+\label{thm:bivaluation-projector}
+There is a natural bijection
+\[
+  \Biv_K^{\mathrm{reg}}
+  \longleftrightarrow
+  \{\Pi\in\End(V):\Pi^2=\Pi,\ \rank\Pi=1\}.
+\]
+If $q^+=[v]$, $q^-=\PP(\ker\varphi)$, and $\varphi(v)\ne0$, the
+corresponding projector is
+\begin{equation}
+  \Pi_{v,\varphi}=\frac{v\otimes\varphi}{\varphi(v)}.
+  \label{eq:rank-one-projector}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+For transverse lines $L^+$ and $L^-$ one has $V=L^+\oplus L^-$.  There is a
+unique linear projection onto $L^+$ along $L^-$.  Formula
+\eqref{eq:rank-one-projector} gives it and is unchanged if $v$ or $\varphi$
+is rescaled.  Conversely, an idempotent splits
+$V=\im\Pi\oplus\ker\Pi$.  Rank one makes both summands distinct projective
+lines.  The two constructions are inverse.
+\end{proof}
+
+In the affine chart
+\[
+  v_a=\begin{pmatrix}-a\\1\end{pmatrix},
+  \qquad
+  \varphi_b=\begin{pmatrix}-b&1\end{pmatrix},
+\]
+one has $\varphi_b(v_a)=1+ab$ and hence
+\begin{equation}
+  \Pi_{a,b}
+  =\frac{1}{1+ab}
+    \begin{pmatrix}ab&-a\\-b&1\end{pmatrix}.
+  \label{eq:local-projector}
+\end{equation}
+The divisor $1+ab=0$ is a genuine incidence failure of the transverse
+splitting.  It must not be confused with the pole of one particular coordinate
+chart.
+
+\subsection{The homogeneous-space tower}
+
+Fix a reference ordered pair $(q_0^+,q_0^-)$ and set
+\[
+  G=\PGL_2(K),
+  \qquad
+  H=\Stab_G(q_0^+,q_0^-),
+\]
+\[
+  B_+=\Stab_G(q_0^+),
+  \qquad
+  B_-=\Stab_G(q_0^-).
+\]
+Then $H=B_+\cap B_-$.  We use right cosets in $G/H$ and $G/B_\pm$.
+
+\begin{theorem}[Projective quotient tower]
+\label{thm:projective-quotient-tower}
+There are natural identifications
+\[
+  G/H\cong\Biv_K^{\mathrm{reg}},
+  \qquad
+  G/B_+\cong\PP^1(K),
+  \qquad
+  G/B_-\cong\PP^1(K).
+\]
+Under these identifications, the maps induced by
+$H\subseteq B_\pm$ forget respectively the kernel or image member of the
+ordered pair.
+\end{theorem}
+
+\begin{proof}
+The group $G$ acts transitively on ordered pairs of distinct projective points.
+The stabilizer of the reference pair is exactly $H$, so orbit--stabilizer gives
+$G/H$.  The same argument for a single projective point gives the two Borel
+quotients.  The descriptions of the forgetful maps follow from the subgroup
+inclusions.
+\end{proof}
+
+Combining this result with projective evaluation gives the central algebraic
+tower
+\begin{equation}
+\boxed{
+  \Hist_K
+  \xrightarrow{\ \rho\ }
+  G
+  \xrightarrow{\ \pi_H\ }
+  G/H\cong\Biv_K^{\mathrm{reg}}
+  \longrightarrow
+  G/B_\pm\cong\PP^1(K).
+}
+\label{eq:paper4-main-tower}
+\end{equation}
+The first fiber consists of literal histories inducing one operator.  The
+second consists of projective frames over one image--kernel result.  These are
+different kinds of forgotten data.
+
+\subsection{A third point restores the projective frame}
+
+\begin{definition}[Framed bivaluation]
+A framed regular bivaluation is a pairwise distinct ordered triple
+$(q^+,q^-,q^\infty)$ of points of $\PP^1(K)$.  The first two determine the
+rank-one projector; the third selects a projective frame above it.
+\end{definition}
+
+\begin{theorem}[Frame torsor]
+\label{thm:frame-torsor}
+After a reference triple has been chosen, the set of framed regular
+bivaluations is a $G$-torsor.  The projection
+\[
+  (q^+,q^-,q^\infty)\longmapsto(q^+,q^-)
+\]
+has fibers on which $H$ acts freely and transitively.  Equivalently,
+$G\to G/H$ is an $H$-torsor.
+\end{theorem}
+
+\begin{proof}
+A projective transformation is uniquely determined by its values on three
+distinct projective points.  Hence $G$ acts simply transitively on ordered
+projective frames.  Holding the first two points fixed leaves exactly their
+stabilizer $H$, which acts simply transitively on the allowed third points.
+\end{proof}
+
+For a Lie group this torsor may be equipped with a connection, but no such
+connection is canonical over an arbitrary field.  A coordinate in $H$ also
+requires a reference lift or local section.
+
+\begin{proposition}[Stabilizer-valued operator residue]
+\label{prop:stabilizer-residue}
+Let $\Pi_0$ be the projector of the reference bivaluation and define
+$\pi_H(g)=g\Pi_0g^{-1}$.  Then
+\[
+  \pi_H(g_1)=\pi_H(g_2)
+  \quad\Longleftrightarrow\quad
+  g_2^{-1}g_1\in H.
+\]
+Thus two operator-level processes with the same condensed projector differ by
+an $H$-valued frame residue.
+\end{proposition}
+
+\begin{proof}
+Equality of the two conjugated projectors is equivalent to
+\[
+  (g_2^{-1}g_1)\Pi_0(g_2^{-1}g_1)^{-1}=\Pi_0.
+\]
+The stabilizer of a rank-one projector is precisely the stabilizer of its
+ordered image and kernel lines, namely $H$.
+\end{proof}
+
+A static idempotent already splits $V=\im\Pi\oplus\ker\Pi$.  It therefore does
+not carry a nontrivial linear extension class by itself.  Process information
+discarded by $G\to G/H$ belongs instead to a lift, a connection and its
+holonomy, or some additional decoration of the history.
+
+\subsection{Finite-field calibration}
+
+\begin{proposition}[Exact finite-field fiber counts]
+\label{prop:finite-field-counts}
+For $K=\F_q$,
+\[
+  |\PP^1(\F_q)|=q+1,
+  \qquad
+  |\Biv_{\F_q}^{\mathrm{reg}}|=q(q+1),
+\]
+\[
+  |\PGL_2(\F_q)|=q(q^2-1),
+  \qquad
+  |H|=q-1.
+\]
+Consequently every fiber of
+$\PGL_2(\F_q)\to\Biv_{\F_q}^{\mathrm{reg}}$ has $q-1$ elements.
+\end{proposition}
+
+\begin{proof}
+There are $q+1$ projective points and then $q$ choices for a distinct second
+point.  Moreover
+$|\GL_2(\F_q)|=(q^2-1)(q^2-q)$; quotienting by the $q-1$ nonzero scalar
+matrices gives $q(q^2-1)$.  The stabilizer of $(0,\infty)$ consists of
+$z\mapsto az$ with $a\in\F_q^\times$, and hence has order $q-1$.
+\end{proof}
+
+\begin{example}[The field $\F_7$]
+One obtains
+\[
+  |G|=336,
+  \qquad |G/H|=56,
+  \qquad |H|=6.
+\]
+The 336 ordered projective frames condense to 56 ordered image--kernel pairs,
+with six frame lifts above each pair.
+\end{example}
+
+\begin{corollary}[Uniform finite-frame information]
+\label{cor:finite-frame-entropy}
+Let $G=\PGL_2(\F_q)$ be uniformly distributed and let $Q=gH$.  Then
+\[
+  H(g\mid Q)=\log_2(q-1).
+\]
+This is the exact conditional information in the uniformly distributed frame
+coordinate above a bivaluation.
+\end{corollary}
+
+\begin{proof}
+Every quotient fiber has $q-1$ elements and the conditional distribution on
+that fiber is uniform.
+\end{proof}
+
+The corollary is an algebraic information statement.  Whether these bits are
+needed by an online computation depends on the continuation experiment of the
+next section.
+
+\subsection{Algebraic and dynamical condensation}
+
+\begin{definition}[Algebraic condensation]
+Algebraic condensation is passage to an idempotent or quotient state, such as
+$g\mapsto gH$ or $g\mapsto g\Pi_0g^{-1}$.  It requires no limiting sequence.
+\end{definition}
+
+\begin{definition}[Dynamical condensation]
+Dynamical condensation is convergence, after a declared normalization, of a
+sequence of linear lifts to a singular rank-one operator, for example
+\[
+  \frac{\widetilde g_n\cdots\widetilde g_1}{r_n}
+  \longrightarrow \Pi
+  \quad\text{in }\End(V).
+\]
+It requires a topology or valuation, a choice of lifts, and a normalization.
+\end{definition}
+
+\begin{proposition}[No automatic dynamical condensation over a finite field]
+In the discrete topology on $\PGL_2(\F_q)$, every sequence of powers is
+periodic and convergence occurs only when the sequence is eventually constant.
+Thus the existence of rank-one idempotents over $\F_q$ does not imply a
+nontrivial attracting limit in $G$.
+\end{proposition}
+
+The distinction will remain active throughout the paper.  The quotient
+$G/H$ is an exact algebraic state space; whether it is sufficient for future
+computation is a separate question.

@@ -1,0 +1,198 @@
+% Canonical Paper IV section.
+Paper~I defines a marked spinal history as a chronological word of one-hole
+arithmetic contexts.  We recall only the structure needed to discuss quotient
+fibers and continuation.  Throughout this section $K$ is a field, and all
+projective contexts are assumed non-degenerate.
+
+\subsection{Free histories and two semantic categories}
+
+Let $\Sigma_K$ be a selected set of invertible one-hole arithmetic contexts.
+It may contain translations, nonzero scalings, sign changes, and inversion.
+A free history is a word
+\[
+  \gamma=s_1s_2\cdots s_n,
+  \qquad s_i\in\Sigma_K,
+\]
+listed in chronological order.  Its induced transformation is
+\begin{equation}
+  \rho(\gamma)=\rho(s_n)\cdots\rho(s_2)\rho(s_1)
+  \in G:=\PGL_2(K).
+  \label{eq:chronological-evaluation}
+\end{equation}
+Thus a newly appended future context acts by left multiplication.  This
+chronology convention is essential in Section~\ref{sec:condensation-continuation}.
+
+\begin{definition}[Ordinary and projective evaluation]
+For an initial value $x\in K$, ordinary evaluation $\nu_x(\gamma)$ is defined
+only when every intermediate arithmetic operation is defined in $K$.
+Projective evaluation is the everywhere-defined action of $\rho(\gamma)$ on
+$\PP^1(K)$.  We write
+\[
+  \operatorname{dom}_{\mathrm{ord}}(\gamma)\subseteq K
+\]
+for the ordinary domain.
+\end{definition}
+
+For example, the projective continuation $z\mapsto c/z$ sends $0$ to
+$\infty$, while ordinary division by zero is undefined.  The projective target
+therefore does not erase the ordinary-domain label.  Later residual definitions
+will assign a distinguished observation $\bot$ to an illegal ordinary
+continuation.
+
+\begin{definition}[Word-labelled history category]
+Let $\cH_K$ have objects $q\in\PP^1(K)$.  A morphism from $q$ to $q'$ is a
+pair $(\gamma,q)$ consisting of a literal context word with
+$\rho(\gamma)q=q'$.  If $\gamma$ is followed chronologically by $\delta$,
+the composite is labelled by the concatenated history $\gamma\star\delta$
+and satisfies
+\[
+  \rho(\gamma\star\delta)=\rho(\delta)\rho(\gamma).
+\]
+Formal inverses of context symbols give a groupoid completion
+$\cH_K^{\mathrm{inv}}$.  Projective evaluation defines a functor
+\[
+  \rho:\cH_K^{\mathrm{inv}}
+  \longrightarrow
+  \PP^1(K)\sslash G,
+\]
+to the action groupoid by forgetting the literal word and retaining its
+projective operator.  Distinct word-labelled arrows are not identified merely
+because they have the same image in $G$.
+\end{definition}
+
+This construction is intentionally modest.  Associativity, commutativity,
+distributivity, and program transformations may later be added as rewrite
+$2$-cells between word-labelled arrows.  They are not imposed as literal
+history equality.
+
+\subsection{The equality tower}
+
+A bounded history $(x,\gamma)$ supports several non-equivalent equality tests.
+For compatible histories $\gamma$ and $\delta$, consider:
+\begin{align*}
+  \gamma&=\delta &&\text{literal history equality},\\
+  \rho(\gamma)&=\rho(\delta) &&\text{projective operator equality},\\
+  \rho(\gamma)q&=\rho(\delta)q &&\text{equality at a projective state $q$},\\
+  \nu_x(\gamma)&=\nu_x(\delta) &&\text{ordinary endpoint equality},\\
+  \chi(\gamma)&=\chi(\delta) &&\text{equality of a selected charge shadow}.
+\end{align*}
+Only the forward implications forced by the selected maps are automatic.
+Endpoint equality at one input does not imply operator equality; operator
+equality does not imply history equality; and charge equality need not imply
+operator equality.  These failures are not pathologies.  They are the fibers
+that the present paper studies.
+
+\begin{proposition}[Nested kernel pairs]
+Let $X\xrightarrow{f}Y\xrightarrow{g}Z$ be maps.  The kernel pair of $f$ is
+contained in the kernel pair of $g\circ f$:
+\[
+  f(x)=f(x')\quad\Longrightarrow\quad g(f(x))=g(f(x')).
+\]
+The converse holds exactly when $g$ is injective on $f(X)$.
+\end{proposition}
+\begin{proof}
+The forward implication is functoriality of equality.  If $g$ is injective on
+$f(X)$, equality after $g$ implies equality before $g$.  Conversely, if the
+converse implication holds for all $x,x'$, then $g$ is injective on the image
+of $f$.
+\end{proof}
+
+This proposition is the set-theoretic skeleton of the full tower.  Its
+computational interpretation requires a future class, developed in
+Section~\ref{sec:contextual-residuals}.
+
+\subsection{Group-valued relative defects}
+
+Endpoint subtraction is natural in an affine chart but not projectively
+invariant.  The operator group supplies a comparison that survives inversion.
+
+\begin{definition}[Relative projective defect]
+For invertible histories $\gamma$ and $\delta$, define
+\begin{equation}
+  \cK(\gamma,\delta)
+  \defeq \rho(\delta)^{-1}\rho(\gamma)\in G.
+  \label{eq:relative-projective-defect}
+\end{equation}
+\end{definition}
+It satisfies
+\[
+  \cK(\gamma,\gamma)=1,
+  \qquad
+  \cK(\gamma,\delta)^{-1}=\cK(\delta,\gamma),
+\]
+and the cocycle identity
+\begin{equation}
+  \cK(\gamma,\eta)
+  =\cK(\delta,\eta)\cK(\gamma,\delta).
+  \label{eq:defect-cocycle}
+\end{equation}
+
+\begin{proposition}[Affine torsion as a coordinate of the relative defect]
+Suppose
+\[
+  \rho(\gamma)(x)=sx+A_\gamma,
+  \qquad
+  \rho(\delta)(x)=sx+A_\delta,
+  \qquad s\ne0.
+\]
+Then
+\[
+  \cK(\gamma,\delta)(x)=x+\frac{A_\gamma-A_\delta}{s}.
+\]
+The ordinary endpoint defect $A_\gamma-A_\delta$ is therefore the translation
+coordinate of the projective relative defect, multiplied by the common scale.
+\end{proposition}
+\begin{proof}
+The inverse of $x\mapsto sx+A_\delta$ is
+$x\mapsto s^{-1}(x-A_\delta)$.  Composition with the first affine map gives
+the formula.
+\end{proof}
+
+Once the two operators do not have the same affine linear part, a scalar
+endpoint difference depends on the initial value.  Once inversion is admitted,
+it may also cross poles.  The group-valued defect remains defined at the
+operator level, while its endpoint observation still requires domain data.
+
+\subsection{Relations, neutral histories, and fibers}
+
+\begin{definition}[Operator relation and neutrality]
+An ordered pair $(\gamma,\delta)$ is an operator relation when
+$\rho(\gamma)=\rho(\delta)$.  A history $\gamma$ is operator-neutral when
+$\rho(\gamma)=1$.  It is charge-neutral relative to a charge map $\chi$ when
+$\chi(\gamma)$ equals the charge of the empty history.
+\end{definition}
+
+Operator-neutral histories form the kernel of $\rho$ only when the history
+language has been given a compatible group structure.  In the free monoid they
+form a submonoid preimage of the identity; in the formal groupoid they form
+isotropy arrows above the relevant object.  Charge-neutral and
+operator-neutral histories need not coincide.
+
+\begin{example}[Four elementary separations]
+The following examples use affine maps and are proved by direct composition.
+\begin{enumerate}
+  \item $x\mapsto x+1$ and $x\mapsto2x$ agree at $x=1$ but are different
+  operators.
+  \item The words ``add $1$, then add $2$'' and ``add $2$, then add $1$'' are
+  distinct histories inducing the same map $x\mapsto x+3$.
+  \item ``add $p$, then scale by $e^q$'' and the opposite order have the same
+  ACS endpoint but differ by translation $p(e^q-1)$.
+  \item ``add $p$, then add $-p$'' is a nonempty operator-neutral history.
+\end{enumerate}
+\end{example}
+
+The operator fiber $\rho^{-1}(g)$ and the endpoint fiber
+$\{\gamma:\nu_x(\gamma)=y\}$ are therefore distinct objects.  The first is
+independent of $x$; the second need not be.  Paper~IV uses ``history fiber''
+only after naming the map whose fiber is intended.
+
+\subsection{Chronological end versus operand slot}
+
+The side on which a future operator is multiplied is not the operand-slot
+chirality of an arithmetic context.  Operand-slot chirality records whether
+the evolving value occupies the first or second input of one binary operation.
+Chronological side records whether a new operator is composed before or after
+an existing product.  In the convention \eqref{eq:chronological-evaluation}, a
+future context acts on the left regardless of its operand slot.  A theorem
+relating slot mirror, matrix transpose, inverse, or right continuation would
+require additional structure and is not assumed here.

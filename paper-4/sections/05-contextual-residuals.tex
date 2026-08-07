@@ -1,0 +1,234 @@
+% Canonical Paper IV section.
+The projective quotient in Section~\ref{sec:condensation-continuation} is one
+instance of a more general construction.  A past is relevant only through the
+effects it can still have on legal futures.  The definition must therefore
+name the interface, the future class, the observation, and the treatment of
+partial domains.
+
+\subsection{Typed interfaces and totalized partial action}
+
+Fix a typed interface $C$.  Let $P_C$ be the set of admissible pasts reaching
+that interface and let $M_C$ be a monoid of future continuations.  Composition
+is written as a right action $p\cdot\eta$ and may initially be partial because
+ordinary arithmetic, typing, or resource rules can make a continuation
+illegal.
+
+If the action is partial, introduce an absorbing state $\bot$ and put
+\[
+  P_C^\bot=P_C\sqcup\{\bot\}.
+\]
+If the action is already total, use the convention $P_C^\bot=P_C$ and adjoin
+nothing.  In the partial case, totalize the action by declaring an illegal
+continuation to have value $\bot$ and by setting
+$\bot\cdot\eta=\bot$.  Let
+\[
+  O_C:P_C^\bot\longrightarrow Y_C^\bot
+\]
+be the current observation, with $O_C(\bot)=\bot$ when the absorbing state
+is present.  Depending on the problem,
+$O_C$ may record an endpoint, a projective state, a Boolean answer, a tensor, a
+trace, or a distribution.
+
+\begin{definition}[Contextual continuation equivalence]
+\label{def:contextual-equivalence}
+For $p,p'\in P_C^\bot$, define
+\begin{equation}
+  p\equiv_C p'
+  \quad\Longleftrightarrow\quad
+  O_C(p\cdot\eta)=O_C(p'\cdot\eta)
+  \quad\text{for every }\eta\in M_C.
+  \label{eq:contextual-equivalence}
+\end{equation}
+The quotient
+\[
+  \cR_C=P_C^\bot/{\equiv_C}
+\]
+is the contextual continuation-residual space at $C$.
+\end{definition}
+
+The absorbing outcome is essential for partial arithmetic.  Two pasts are not
+identified merely because all common legal continuations agree if one of them
+admits a future that the other does not.
+
+\begin{proposition}[Equivalence, refinement, and observation monotonicity]
+\label{prop:residual-basic-properties}
+The relation $\equiv_C$ is an equivalence relation.  Enlarging the continuation
+class can only refine it.  Replacing $O_C$ by a coarser observation
+$f\circ O_C$ can only coarsen it.
+\end{proposition}
+
+\begin{proof}
+Reflexivity, symmetry, and transitivity hold pointwise for every continuation.
+A larger family supplies more equality tests.  Applying a function to equal
+observations preserves equality and can identify previously distinct values.
+\end{proof}
+
+Thus a residual is never absolute.  It is relative to a declared experimental
+interface.
+
+\subsection{Residuals form the canonical continuation machine}
+
+\begin{proposition}[Right congruence]
+\label{prop:residual-right-congruence}
+If $p\equiv_Cp'$, then for every $\zeta\in M_C$,
+\[
+  p\cdot\zeta\equiv_Cp'\cdot\zeta.
+\]
+Consequently the formula
+\[
+  [p]\cdot\zeta=[p\cdot\zeta]
+\]
+defines a right action of $M_C$ on $\cR_C$.
+\end{proposition}
+
+\begin{proof}
+For every further continuation $\eta$,
+\[
+  O_C((p\cdot\zeta)\cdot\eta)
+  =O_C(p\cdot(\zeta\eta))
+  =O_C(p'\cdot(\zeta\eta))
+  =O_C((p'\cdot\zeta)\cdot\eta).
+\]
+\end{proof}
+
+The identity continuation shows that
+\[
+  \overline O_C([p])=O_C(p)
+\]
+is well defined.  Hence $(\cR_C,M_C,\overline O_C)$ is itself an exact
+deterministic continuation machine.
+
+\begin{definition}[Exact deterministic online realization]
+An exact deterministic online realization of the experiment at $C$ consists
+of a state set $S$, a right action of $M_C$ on $S$, an encoding
+$e:P_C^\bot\to S$, and an output map $o:S\to Y_C^\bot$ such that
+\begin{equation}
+  e(p\cdot\eta)=e(p)\cdot\eta,
+  \qquad
+  o(e(p))=O_C(p).
+  \label{eq:exact-machine-equivariance}
+\end{equation}
+The first identity includes the totalized invalid state when necessary.
+\end{definition}
+
+The equivariance requirement prevents a representation from being called an
+online state merely because a separate external procedure knows the entire
+past and recomputes transitions from it.
+
+\begin{theorem}[Canonical minimal exact state]
+\label{thm:minimal-exact-residual}
+For every exact deterministic online realization there is a unique surjective
+$M_C$-equivariant map
+\[
+  \phi:e(P_C^\bot)\longrightarrow\cR_C
+  \qquad\text{with}\qquad
+  \phi(e(p))=[p].
+\]
+It also preserves outputs.  Therefore $\cR_C$ is the canonical minimal
+reachable exact state space, up to isomorphism.
+\end{theorem}
+
+\begin{proof}
+If $e(p)=e(p')$, then for every $\eta$ equivariance and output correctness give
+\[
+ O_C(p\cdot\eta)
+ =o(e(p)\cdot\eta)
+ =o(e(p')\cdot\eta)
+ =O_C(p'\cdot\eta).
+\]
+Hence $p\equiv_Cp'$, so $\phi$ is well defined.  It is surjective by definition
+of $\cR_C$.  Equivariance follows from
+Proposition~\ref{prop:residual-right-congruence}, and output preservation follows
+from the identity continuation.  Uniqueness is forced on every reachable state
+$e(p)$.
+\end{proof}
+
+This is the finite-state principle behind the classical theory of residual
+languages and automata~\cite{Nerode1958}, but the present formulation permits
+arbitrary typed observations and partial arithmetic domains.
+
+\subsection{Finite-state information lower bound}
+
+\begin{corollary}[Fixed-width exact-state bound]
+\label{cor:residual-bit-bound}
+Assume $\cR_C$ is finite.  If an exact reachable state is stored in a fixed
+$b$-bit register, then
+\begin{equation}
+  b\ge \left\lceil\log_2|\cR_C|\right\rceil.
+  \label{eq:residual-bit-bound}
+\end{equation}
+The same conclusion holds for a prefix-free variable-length encoding whose
+maximum codeword length is $b$.
+\end{corollary}
+
+\begin{proof}
+Theorem~\ref{thm:minimal-exact-residual} requires at least $|\cR_C|$ reachable
+code states.  A fixed $b$-bit register has at most $2^b$ states.  For a
+prefix-free code of maximum length $b$, Kraft's inequality also gives at most
+$2^b$ codewords.
+\end{proof}
+
+The theorem is a state-selection lower bound.  It does not determine the size
+of a transition table, the cost of computing the encoding, the time needed to
+apply a continuation, or the materialized size of a structured value.
+
+\begin{corollary}[Fixed-register capacity--time bound]
+\label{cor:capacity-time-bound}
+Consider declared cuts $C_0,\ldots,C_T$.  Suppose that at cut $C_t$ a complete
+exact state for every admissible past must fit in a fixed-width register of
+capacity $b_t$ bits, and charge one full register snapshot at each cut.  Then
+\begin{equation}
+  \sum_{t=0}^{T} b_t
+  \ge
+  \sum_{t=0}^{T}
+  \left\lceil\log_2|\cR_{C_t}|\right\rceil.
+  \label{eq:capacity-time-bound}
+\end{equation}
+If $|\cR_{C_t}|\ge c t^d$ eventually, the right side is
+$\Omega(T\log T)$; if $|\cR_{C_t}|\ge c a^t$ with $a>1$, it is
+$\Omega(T^2)$.
+\end{corollary}
+
+\begin{proof}
+Apply Corollary~\ref{cor:residual-bit-bound} at each cut and sum.  The two
+asymptotic statements follow from summing $\log t$ and $t$, respectively.
+\end{proof}
+
+Equation~\eqref{eq:capacity-time-bound} is deliberately called a
+capacity--time bound.  It becomes an actual memory--time bound for a run only
+when the operational model charges the complete register as live memory at
+each snapshot.  Variable-size structured states, compression, communication,
+and recomputation require the model of Section~\ref{sec:operational-resources}.
+
+\subsection{Three projective residual experiments}
+
+The quotient tower supplies three different experiments.
+
+\begin{enumerate}
+  \item If pasts are operators $g\in G$, futures act on the left, and the
+  observation is the bivaluation $gH$, then
+  $\cR\cong G/H$ by Corollary~\ref{cor:left-continuation-exact}.
+
+  \item If the observation remembers only $gq_0^+$ and futures continue to act
+  on the left, then the residual is $G/B_+$.  The kernel direction has become
+  observationally irrelevant.
+
+  \item If arbitrary reversible futures act on the right, $G/H$ does not
+  support the action unless the futures lie in $N_G(H)$.  A full operator lift,
+  or another state carrying the missing frame information, is then required.
+\end{enumerate}
+
+Thus projective process residue can coincide with a continuation residual, map
+to one, or be necessary to refine one.  Which case occurs is a theorem about
+the chosen action and observation, not a property of the static fiber alone.
+
+\subsection{Randomized and approximate boundaries}
+
+Definition~\ref{def:contextual-equivalence} uses exact deterministic equality.
+A randomized algorithm may permit equal output distributions rather than equal
+outputs; an approximate algorithm may identify observations within a metric or
+loss tolerance; a statistical model may retain only a sufficient statistic for
+a declared distribution family.  Each change alters the residual relation and
+its lower bound.  No such approximation theorem is inferred from
+Corollary~\ref{cor:residual-bit-bound}; approximate residual geometry remains an
+open programme.

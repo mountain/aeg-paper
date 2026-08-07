@@ -1,0 +1,112 @@
+% Canonical Paper IV section.
+Ordered binary decision diagrams give a finite model in which contextual
+residual classes are represented directly as graph nodes.  The example also
+shows that exponential cut sensitivity does not require noncommuting semantic
+operations.
+
+\subsection{Residual functions after a variable prefix}
+
+Let $F:\{0,1\}^N\to\{0,1\}$ and fix a variable order $\pi$.  After assigning
+the first $t$ variables according to a prefix $\alpha$, the remaining behavior
+is the restricted function $F|_\alpha$.
+
+\begin{proposition}[Residual-width lower bound]
+\label{prop:obdd-residual-lower-bound}
+Every deterministic OBDD respecting $\pi$ has, at the cut after the first $t$
+variables, at least as many distinct reachable nodes as there are distinct
+restricted functions $F|_\alpha$.
+\end{proposition}
+
+\begin{proof}
+If two prefixes reach the same node, every common continuation follows the same
+remaining subgraph and therefore gives the same Boolean answer.  Hence the two
+restricted functions are equal.  Distinct residual functions must reach
+distinct nodes.
+\end{proof}
+
+For reduced OBDDs the converse also holds: isomorphic remaining subfunctions
+are merged.  This is the decision-diagram instance of
+Theorem~\ref{thm:minimal-exact-residual}; see~\cite{Bryant1986,Wegener2000}.
+
+\subsection{Equality under block order}
+
+Define
+\[
+  \operatorname{EQ}_n(x,y)=1
+  \quad\Longleftrightarrow\quad
+  x=y,
+  \qquad x,y\in\{0,1\}^n.
+\]
+Consider the block order
+\[
+  x_1,\ldots,x_n,y_1,\ldots,y_n.
+\]
+After all $x$-variables have been assigned to a string $a$, the residual
+function is
+\[
+  g_a(y)=\mathbf1[y=a].
+\]
+
+\begin{theorem}[Exponential middle width]
+\label{thm:eq-block-width}
+Every OBDD for $\operatorname{EQ}_n$ in block order has width at least $2^n$
+at the middle cut.
+\end{theorem}
+
+\begin{proof}
+The functions $g_a$, $a\in\{0,1\}^n$, are pairwise distinct.  Apply
+Proposition~\ref{prop:obdd-residual-lower-bound}.
+\end{proof}
+
+The logarithm of this width is $n$ bits, exactly the information needed to
+remember the first block for arbitrary comparison with the second.
+
+\subsection{Equality under interleaved order}
+
+Now use
+\[
+  x_1,y_1,x_2,y_2,\ldots,x_n,y_n.
+\]
+While equality has not failed, reading $x_i$ creates one of two pending states,
+``the next $y_i$ must be $0$'' or ``the next $y_i$ must be $1$''.  Reading
+$y_i$ returns to the matching state or goes permanently to the zero terminal.
+
+\begin{theorem}[Constant interleaved width]
+\label{thm:eq-interleaved-width}
+There is an OBDD for $\operatorname{EQ}_n$ in interleaved order with maximum
+width at most three and total size $O(n)$.
+\end{theorem}
+
+\begin{proof}
+Use the matching state, the two pending-bit states, and the shared zero
+terminal as described above.  At any variable level at most three nonterminal
+or active residual states are needed, and each pair of variables contributes
+only a constant number of nodes.
+\end{proof}
+
+The two orders therefore expose exponentially different residual widths for
+the same Boolean function and representation language.
+
+\subsection{The restrictions commute}
+
+Assignments to two distinct variables commute as semantic restriction
+operators:
+\[
+  (F|_{x_i=a})|_{x_j=b}
+  =(F|_{x_j=b})|_{x_i=a}.
+\]
+Nevertheless, the order in which variables cross the cut changes which partial
+information must remain available.  The exponential separation in
+Theorems~\ref{thm:eq-block-width} and
+\ref{thm:eq-interleaved-width} is therefore a schedule and representation
+phenomenon, not a consequence of operator noncommutativity.
+
+\subsection{What the width theorem measures}
+
+At one cut, $\log_2(\text{width})$ lower-bounds the number of bits needed to
+select a residual node.  The entire OBDD also stores transitions for all input
+prefixes, so its static node count is a different resource.  Moreover, a
+program outside the OBDD model might compute equality with a different state
+organization.  The theorem is exact for fixed variable order and the OBDD
+representation class; it is not a model-independent lower bound for every
+algorithm computing equality.

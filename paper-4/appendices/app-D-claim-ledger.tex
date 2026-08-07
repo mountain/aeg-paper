@@ -1,0 +1,94 @@
+% Canonical Paper IV appendix.
+This ledger records the status and boundary of the principal Paper~IV claims.
+``Proved'' means that a proof appears in the active manuscript under the stated
+hypotheses.  ``Framework'' denotes a definition or proposed architecture, not
+a theorem of machine independence.
+
+\subsection{Claim ledger}
+
+\begingroup\setlength{\tabcolsep}{4pt}\begin{longtable}{L{0.10\textwidth}L{0.36\textwidth}L{0.13\textwidth}L{0.24\textwidth}}
+\toprule
+ID & Claim & Status & Boundary\\
+\midrule
+\endfirsthead
+\toprule
+ID & Claim & Status & Boundary\\
+\midrule
+\endhead
+PIV-H0 & Histories, operators, bivaluations, projective points, and endpoints form distinct equality levels. & Proved by definitions and examples & Ordinary-domain labels remain separate from projective continuation.\\
+PIV-P1 & Regular bivaluations are rank-one idempotents. & Proved, Theorem~\ref{thm:bivaluation-projector} & Requires transverse ordered lines.\\
+PIV-P2 & $G/H\cong\Biv_K^{\mathrm{reg}}$ and $G\to G/H$ is a frame torsor. & Proved & No canonical connection over an arbitrary field.\\
+PIV-P3 & Finite-field quotient and fiber counts are exact. & Proved & Algebraic count, not dynamical attraction.\\
+PIV-C1 & A left-equivariant quotient with injective identity observation is the exact residual. & Proved & Depends on descended action and observation.\\
+PIV-C2 & One right update descends iff $k^{-1}Hk\subseteq H$. & Proved & Inclusion need not be equality for infinite $H$.\\
+PIV-C3 & Reversible right continuation acts iff it lies in $N_G(H)$. & Proved & Applies to right action on the selected right-coset quotient.\\
+PIV-R1 & Contextual residual equivalence is a right congruence. & Proved & Requires totalized partial action.\\
+PIV-R2 & The residual quotient is the canonical minimal exact deterministic state. & Proved & Exact deterministic online model only.\\
+PIV-R3 & Finite residuals lower-bound fixed-width or prefix-free maximum state length. & Proved & Not transition-table or average-code size.\\
+PIV-R4 & Summed residual bounds give fixed-register capacity--time. & Proved & Actual memory--time only under the declared snapshot charging rule.\\
+PIV-O1 & Ever-computed node sets do not determine workspace with erasure or recomputation. & Proved & Requires a positive-size optional live value.\\
+PIV-G1 & Maximum fiber size is at least raw words divided by image size. & Proved & Cardinality only.\\
+PIV-G2 & Conditional lost information obeys Equation~\eqref{eq:conditional-information-loss}. & Proved & Uniform word distribution in the displayed form.\\
+PIV-W1 & Additive potential labels telescope. & Proved & Single-valued additive potential.\\
+PIV-W2 & Pure-gauge group labels telescope. & Proved & Does not exclude non-flat connections.\\
+PIV-H1 & Fixed digit histograms give multinomially many distinct Horner operators with one ACS charge. & Proved & Characteristic zero; fixed radix and length.\\
+PIV-B1 & Equality OBDD width is exponential in block order and constant in interleaved order. & Proved & Fixed OBDD model and variable order.\\
+PIV-N1 & $\mathsf B_\omega=\mathsf B_1D_\omega$ and all twiddles share one right $H$-coset. & Proved & Local $2\times2$ statement, $\operatorname{char}K\ne2$.\\
+PIV-N2 & Radix-two layer, cell, and invertible layer-state counts are exact. & Proved & Fixed breadth-first topology and full input range.\\
+PIV-T1 & Matrix chains and reverse schedules realize exact work--space tradeoffs. & Proved in stated elementary models & Not a universal optimality theorem.\\
+PIV-F1 & Pareto resource geometry organizes uniform realizations. & Framework & Model, units, precision, and simulations must be fixed.\\
+PIV-F2 & Multi-wire AEG should contain transform networks. & Structural proposal & No completed category or embedding theorem is claimed.\\
+PIV-F3 & Projective rewrite holonomy should extend affine torsion. & Open problem & Exact frame and potential labels are known to telescope.\\
+PIV-X1 & Noncommutativity, curvature, group growth, and raw fibers imply hardness. & Excluded & No such implication appears in the active claims.\\
+\bottomrule
+\end{longtable}
+\endgroup
+
+\subsection{Cost-model checklist}
+
+Before any complexity comparison is promoted to a theorem, the manuscript or
+experiment must state:
+
+\begin{enumerate}
+  \item the input family and size parameter;
+  \item the semantic task and exact, randomized, or approximate success rule;
+  \item the history, circuit, network, proof, or machine language;
+  \item uniformity and preprocessing;
+  \item ordinary-domain and type-error conventions;
+  \item value, instruction, constant, and output encodings;
+  \item atomic actions and their weights;
+  \item processor, memory, and communication topology;
+  \item live-state legality, erasure, and recomputation rules;
+  \item whether input, output, tables, code, and constants count toward space;
+  \item precision, conditioning, and numerical stability when applicable;
+  \item the continuation class and observation defining residuals;
+  \item the exact comparison or simulation relating the models.
+\end{enumerate}
+
+A missing item does not make a calculation useless; it limits which resource
+claim the calculation can support.
+
+\subsection{Case-study matrix}
+
+\begin{center}
+\begin{tabular}{L{0.17\textwidth}L{0.23\textwidth}L{0.23\textwidth}L{0.25\textwidth}}
+\toprule
+Example & Semantic quotient & Operational object & Main lesson\\
+\midrule
+Horner & word $\to$ operator $\to$ ACS charge & streaming accumulator & large charge class can be easy to evaluate\\
+OBDD equality & prefixes $\to$ residual Boolean functions & decision-diagram nodes & cut order can change width exponentially\\
+NTT & dense transform $\to$ factored network; local $G/H$ coset & wire layers and twiddle storage & static labels and dynamic state differ\\
+matrix chain & parenthesizations of one product & intermediate matrices & equal semantics have incomparable resource vectors\\
+reverse chain & one derivative map & checkpoints and recomputation trace & completed sets do not encode live space\\
+rewrite loop & semantic fiber & edge actions and $2$-cells & exact potentials are not holonomy\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Release status}
+
+This manuscript is a mathematical-review integration.  It promotes the proved
+finite and algebraic results listed above, while keeping machine-independent
+complexity, multi-wire AEG, projective holonomy, and approximate residuals open.
+It does not alter the release or DOI status of Papers~I--III.  Public release,
+author metadata, and DOI assignment remain subject to explicit author approval.

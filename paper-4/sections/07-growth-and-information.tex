@@ -1,0 +1,150 @@
+% Canonical Paper IV section.
+A quotient fiber can grow with word length, but cardinality, information, and
+running time are different measurements.  This section records the exact
+counting statements that survive without a machine model.
+
+\subsection{Words, image growth, and fiber multiplicity}
+
+Let $\Sigma$ be a finite alphabet with $s=|\Sigma|\ge2$.  For each $n$, let
+\[
+  \rho_n:\Sigma^n\longrightarrow Y_n
+\]
+be an evaluation or condensation map.  Define
+\[
+  N_n=|\rho_n(\Sigma^n)|,
+  \qquad
+  M_n=\max_{y\in Y_n}|\rho_n^{-1}(y)|.
+\]
+
+\begin{proposition}[Fiber--image inequality]
+\label{prop:fiber-image-inequality}
+For every $n$,
+\begin{equation}
+  M_n\ge \frac{s^n}{N_n}.
+  \label{eq:fiber-image-inequality}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The $s^n$ words are partitioned among $N_n$ nonempty fibers.  At least one
+fiber has size at least the average.
+\end{proof}
+
+The inequality does not require a group, metric, or probability model.  It
+shows only that small image growth forces some large history fiber.
+
+\subsection{A conditional-information form}
+
+Let $W_n$ be uniformly distributed on $\Sigma^n$ and put
+$Y_n=\rho_n(W_n)$.  Shannon entropy is measured in bits~\cite{Shannon1948}.
+
+\begin{proposition}[Evaluation information loss]
+\label{prop:evaluation-information-loss}
+One has
+\begin{equation}
+ H(W_n\mid Y_n)
+ =n\log_2s-H(Y_n)
+ \ge n\log_2s-\log_2N_n,
+ \label{eq:conditional-information-loss}
+\end{equation}
+and
+\[
+  H(W_n\mid Y_n)\le\log_2M_n.
+\]
+\end{proposition}
+
+\begin{proof}
+Because $Y_n$ is a deterministic function of $W_n$,
+$H(W_n,Y_n)=H(W_n)=n\log_2s$, while the chain rule gives
+$H(W_n,Y_n)=H(Y_n)+H(W_n\mid Y_n)$.  Also
+$H(Y_n)\le\log_2N_n$.  Conditional on $Y_n=y$, the word lies in a set of size
+at most $M_n$, so its conditional entropy is at most $\log_2M_n$; averaging
+preserves the bound.
+\end{proof}
+
+For a nonuniform distribution, the lost information depends on the fiber
+weights, not only their cardinalities.  For an individual word, Kolmogorov or
+description complexity would introduce another model and is not being used
+here.
+
+\subsection{Word metrics and coarse growth}
+
+Let $G$ be a finitely generated group with finite symmetric generating set
+$S$.  Write $|g|_S$ for word length and
+\[
+  \beta_S(n)=|\{g\in G:|g|_S\le n\}|.
+\]
+
+\begin{proposition}[Finite generating sets give comparable growth]
+\label{prop:word-metric-comparison}
+If $S$ and $T$ are finite generating sets, there are constants $A,B\ge1$ such
+that
+\[
+  |g|_T\le A|g|_S,
+  \qquad
+  |g|_S\le B|g|_T
+\]
+for all $g\in G$.  Consequently
+\[
+  \beta_T(n)\le\beta_S(Bn),
+  \qquad
+  \beta_S(n)\le\beta_T(An).
+\]
+\end{proposition}
+
+\begin{proof}
+Every generator in one finite set is a bounded-length word in the other.  Let
+$A$ and $B$ be the corresponding maximum lengths and substitute each letter in
+a shortest word.
+\end{proof}
+
+Polynomial versus exponential group growth is therefore a coarse property of
+the finitely generated group, not of one particular generating set.  Deep
+structure theorems classify polynomial growth~\cite{Gromov1981}; the present
+paper needs only the elementary comparison above.
+
+\subsection{Four growth functions that must not be merged}
+
+For a history language and evaluation map one may encounter:
+\begin{align*}
+  W(n)&=\#\{\text{literal words of length at most }n\},\\
+  N_\rho(n)&=\#\{\text{distinct evaluated operators reached by those words}\},\\
+  M_\rho(n)&=\max_g\#\{\text{words of length at most }n\text{ evaluating to }g\},\\
+  R_C(n)&=\#\{\text{contextual residual classes exposed at a selected cut}\}.
+\end{align*}
+A search algorithm adds still another quantity: the number of states it
+actually explores under a specified strategy.  None of these functions is the
+running time by definition.
+
+\begin{example}[Free reduction]
+The ball of radius $n$ in a free group of rank at least two grows
+exponentially, but a given word can be freely reduced by a stack in time linear
+in its input length.  Exponential group growth therefore does not imply
+exponential evaluation time.
+\end{example}
+
+\begin{example}[Finite projective image]
+For fixed $q$, every sufficiently long bilateral word over a finite generating
+alphabet evaluates into the finite group $\PGL_2(\F_q)$.  Literal word counts
+continue to grow, while $N_\rho(n)$ eventually saturates at at most
+$q(q^2-1)$.  The growing fibers measure many realizations of a finite semantic
+state, not unbounded state-space size.
+\end{example}
+
+\subsection{Geometry requires a comparison map}
+
+Hyperbolic spaces and many groups have exponential ball growth.  A history
+language may also have exponential word growth.  Equality of the adjectives
+``exponential'' does not provide a quasi-isometry, coding theorem, or
+simulation.  A geometric complexity theorem would need at least:
+
+\begin{enumerate}
+  \item a map from histories or live states into the geometric space;
+  \item upper and lower distortion estimates for the selected metrics;
+  \item a simulation relating geometric steps to machine actions;
+  \item a representation theorem linking geometric volume to encoded states.
+\end{enumerate}
+
+Without these data, curvature and volume remain motivating analogies.  The
+fixed-model identities in the case studies below are not promoted to a general
+curvature--complexity law.

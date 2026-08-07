@@ -1,0 +1,181 @@
+% Canonical Paper IV section.
+The preceding sections prove a collection of comparison theorems, not a
+universal complexity law.  This section gathers the claim boundary in one
+place and formulates the remaining AEG programme in falsifiable terms.
+
+\subsection{The four layers}
+
+The completed framework distinguishes:
+\begin{equation}
+\boxed{
+\begin{array}{c}
+\text{projective quotient fibers}\\[1mm]
+\Hist_K\to G\to G/H\to G/B_\pm
+\end{array}}
+\qquad
+\boxed{
+\begin{array}{c}
+\text{contextual residuals}\\[1mm]
+(P_C,M_C,O_C)\mapsto\cR_C
+\end{array}}
+\label{eq:four-layer-first-pair}
+\end{equation}
+\begin{equation}
+\boxed{
+\begin{array}{c}
+\text{operational live configurations}\\[1mm]
+(\cM,\Gamma,\sigma)\mapsto\mathbf C_\cM
+\end{array}}
+\qquad
+\boxed{
+\begin{array}{c}
+\text{rewrite fibers}\\[1mm]
+\rho^{-1}(y),\mathcal R\mapsto d_\mathcal R,\Fill_\mathcal R
+\end{array}}.
+\label{eq:four-layer-second-pair}
+\end{equation}
+
+The projective fiber is algebraic.  The contextual residual is semantic and
+future-relative.  The live configuration is machine-dependent and dynamic.
+The rewrite fiber organizes equal semantic realizations.  The paper proves
+bridges only when the required actions and observations have been supplied.
+
+\subsection{Principal proved statements}
+
+\begin{center}
+\begin{longtable}{L{0.16\textwidth}L{0.46\textwidth}L{0.27\textwidth}}
+\toprule
+Layer & Proved statement & Active boundary\\
+\midrule
+\endfirsthead
+\toprule
+Layer & Proved statement & Active boundary\\
+\midrule
+\endhead
+projective & Regular bivaluations are rank-one idempotents and form $G/H$; projective frames form an $H$-torsor. & No canonical connection or semantic interpretation of a projector is inferred.\\
+continuation & Left futures descend to $G/H$; one right update descends iff $k^{-1}Hk\subseteq H$; reversible right action requires the normalizer. & The conclusion depends on chronology and the selected quotient observation.\\
+residual & $\cR_C$ is the canonical minimal exact deterministic state; finite residuals give a fixed-width bit lower bound. & Randomized, approximate, infinite, and lossy models require new definitions.\\
+operational & Live configurations, not ever-computed sets, determine workspace when erase or recompute actions exist. & Actual resources remain model-, encoding-, and schedule-dependent.\\
+growth & Fiber--image and conditional-entropy inequalities are exact. & Word growth and fiber growth are not running-time lower bounds.\\
+rewrite & Potential differences and pure-gauge labels telescope on closed loops. & Nontrivial holonomy needs non-exact transport and a gauge law.\\
+Horner & A fixed digit histogram has a multinomial number of distinct operators with one ACS charge in characteristic zero. & The count is not a hardness result and can collide in finite characteristic.\\
+OBDD & Equality has exponential block-order width and constant interleaved-order width. & This is a representation- and order-specific theorem.\\
+transform & Butterflies occupy one projective torus coset; radix networks have exact layer and cell counts. & A full FFT/NTT is multi-wire $\GL$ data with scalar, precision, and communication costs.\\
+time--space & Matrix chains and checkpoint schedules give equal semantics with incomparable resource vectors. & No machine-independent scalar unifies the coordinates.\\
+\bottomrule
+\end{longtable}
+\end{center}
+
+The detailed hypothesis ledger appears in Appendix~\ref{app:ledger}.
+
+\subsection{Excluded implications}
+
+The following implications are neither proved nor used:
+\[
+  \text{noncommutativity}\Longrightarrow\text{negative curvature},
+  \qquad
+  \text{negative curvature}\Longrightarrow\text{algorithmic hardness},
+\]
+\[
+  \text{exponential group growth}\Longrightarrow\text{exponential evaluation time},
+\]
+\[
+  \text{large history fiber}\Longrightarrow\text{large shared representation},
+  \qquad
+  \text{endpoint cost difference}\Longrightarrow\text{holonomy}.
+\]
+Counter-calibrations occur inside the paper: free reduction is linear despite
+exponential free-group growth; OBDD order can create exponential width although
+variable restrictions commute; exact edge potentials telescope; and one
+streaming Horner accumulator evaluates a charge fiber containing many distinct
+operators.
+
+\subsection{Interfaces with Papers I--III}
+
+Paper~I supplies marked spinal histories, bilateral projective evaluation, the
+affine/Borel sector, ACS charge, torsion, and contact curvature
+\cite{Yuan2026AEGFoundations}.  Paper~IV imports those objects but does not
+rewrite their foundational proofs.  The quotient tower and residual theory
+begin after operator evaluation.
+
+Paper~II supplies analytic representations and finite affine--Appell families
+\cite{Yuan2026AEGFunctionTheory}.  They motivate the search for coordinates in
+which selected operators become sparse or triangular.  Paper~IV does not claim
+function-space completeness or a new asymptotically fast transform from those
+families.
+
+Paper~III supplies singular zero networks, arithmetic register fibers,
+monodromy, and explicit forgetting phenomena~\cite{Yuan2026AEGZeroGeometry}.
+Those examples demonstrate that finite forgetting maps can lose geometric
+information.  Paper~IV does not identify the Lyashko--Looijenga forgetting
+variance, braid monodromy, or tube energy with computational complexity.
+
+The dependency remains one-way:
+\[
+  \text{Papers I--III provide typed examples}
+  \longrightarrow
+  \text{Paper IV supplies quotient and resource comparisons}.
+\]
+
+\subsection{Open problems}
+
+\begin{problem}[Projective torsion]
+Construct a gauge-equivariant comparison on $G\to G/H$ that reduces to affine
+translation torsion in the Borel sector and has a nontrivial closed-loop
+observable not forced to telescope.
+\end{problem}
+
+\begin{problem}[Projective-to-contextual bridge]
+Classify continuation experiments for which an $H$-lift, a quotient point
+$gH$, or a conjugacy class of relative defects is a complete contextual
+residual.  Determine sharp refinements when right and left futures are both
+allowed.
+\end{problem}
+
+\begin{problem}[Multi-wire AEG]
+Define a symmetric monoidal category or PROP of typed arithmetic networks whose
+one-wire subcategory is the marked-history formalism, whose linear sector
+contains butterfly networks, and whose semantics retains central scalars and
+ordinary-domain data.
+\end{problem}
+
+\begin{problem}[Costed representation change]
+For a declared transform class $\Phi$, define and analyze
+\[
+  \cC(F;\Phi)
+  =\cC(\Phi)+\cC(\Phi F\Phi^{-1})+\cC(\Phi^{-1})
+\]
+with precision, conditioning, static constants, communication, and uniformity
+included.  Exhibit an AEG-native family for which the optimized representation
+provably improves a baseline model.
+\end{problem}
+
+\begin{problem}[Approximate residuals]
+Replace exact equality in Definition~\ref{def:contextual-equivalence} by a
+metric, probabilistic, or decision-theoretic tolerance.  Determine which
+covering, packing, mutual-information, or rate--distortion quantities replace
+$\log_2|\cR_C|$.
+\end{problem}
+
+\begin{problem}[History-natural cost functor]
+Construct a functor from a typed history or network category to a resource
+category that records legal simulation, composition, erasure, and
+recomputation.  Prove which resource coordinates are subadditive, additive, or
+monotone under composition.
+\end{problem}
+
+\begin{problem}[Model robustness]
+Identify a class of machine models connected by efficient simulations for which
+the Pareto geometry in Equation~\eqref{eq:pareto-resource-geometry} is stable up
+to declared distortions.
+\end{problem}
+
+\begin{problem}[Rosetta graph families]
+Use chains, trees, diamonds, grids, and butterflies as common graph topologies
+for expression evaluation, proof search, tensor contraction, differentiation,
+and transforms.  Determine which residual and resource quantities are graph
+invariants and which depend essentially on values, futures, or representations.
+\end{problem}
+
+These problems are deliberately separated.  Solving one does not automatically
+solve the others.

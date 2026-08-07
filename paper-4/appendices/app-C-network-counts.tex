@@ -1,0 +1,116 @@
+% Canonical Paper IV appendix.
+The tables below make the finite calibrations reproducible without changing
+their interpretation.
+
+\subsection{The finite-field projective tower}
+
+\[
+\begin{array}{c@{\qquad}c@{\qquad}c}
+|\PP^1(\F_7)|=8,
+&|\Biv_{\F_7}^{\mathrm{reg}}|=8\cdot7=56,
+&|\PGL_2(\F_7)|=8\cdot7\cdot6=336.
+\end{array}
+\]
+Every bivaluation has six projective-frame lifts.
+
+\subsection{Binary Horner words of length four}
+
+For $k=2$, $n=4$, and Hamming weight two:
+\[
+\begin{array}{c@{\qquad}c}
+\toprule
+\text{word }(d_1d_2d_3d_4) & \text{constant in }16x+c\\
+\midrule
+0011&3\\
+0101&5\\
+0110&6\\
+1001&9\\
+1010&10\\
+1100&12\\
+\bottomrule
+\end{array}
+\]
+All six words have charge $(2,4\log2)$.
+
+For $n=8$, the fixed-weight counts are:
+\[
+\begin{array}{c|rrrrrrrrr}
+m&0&1&2&3&4&5&6&7&8\\
+\hline
+\binom{8}{m}&1&8&28&56&70&56&28&8&1
+\end{array}
+\]
+The central charge class therefore contains seventy distinct affine operators
+in characteristic zero.
+
+\subsection{Free-group ball count}
+
+For the free group $F_r$ with the standard symmetric alphabet of size $2r$,
+the sphere of radius $n\ge1$ has
+\[
+  2r(2r-1)^{n-1}
+\]
+reduced words.  Hence
+\[
+  |B(n)|
+  =1+2r\frac{(2r-1)^n-1}{2r-2}.
+\]
+The exponential metric growth coexists with the linear-time stack algorithm
+for freely reducing one input word.
+
+\subsection{Finite-field roots and transform networks}
+
+Repeated squaring gives
+\[
+  3^{128}\equiv256\equiv-1\pmod{257},
+  \qquad 3^{256}\equiv1\pmod{257}.
+\]
+Thus $3$ has order $256$.  The selected roots and network counts are:
+
+\begin{center}
+\begin{tabular}{rrrrrr}
+\toprule
+$N$ & $\zeta_N=3^{256/N}$ & layers & butterflies & $\log_2$ state count & direct bits\\
+\midrule
+8  &64  &3&12&$8\log_2 257$&72\\
+16 &249 &4&32&$16\log_2 257$&144\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The ``direct bits'' column uses nine bits per field element.  The logarithmic
+cardinality is smaller because $257$ is not a power of two.  Twiddle constants
+are not included in either dynamic-state column.
+
+\subsection{Matrix-chain calibration}
+
+For dimensions $(100,10,1,2)$:
+\[
+\begin{array}{c@{\qquad}c@{\qquad}c}
+\toprule
+plan & \text{scalar multiplications} & \text{principal intermediate entries}\\
+\midrule
+$(AB)C$ &100\cdot10\cdot1+100\cdot1\cdot2=1200&100\\
+$A(BC)$ &10\cdot1\cdot2+100\cdot10\cdot2=2020&20\\
+\bottomrule
+\end{array}
+\]
+Peak memory cannot be recovered from the last column without an allocation and
+retention policy.
+
+\subsection{Reverse-chain endpoint schedules}
+
+Using Proposition~\ref{prop:reverse-chain-extremes}:
+\[
+\begin{array}{c@{\qquad}c@{\qquad}c@{\qquad}c}
+\toprule
+$N$ & \text{store-all work} & \text{naive recompute work} & \text{extra prefix work}\\
+\midrule
+8  &16&44&28\\
+16 &32&152&120\\
+\bottomrule
+\end{array}
+\]
+The work convention charges one unit per forward local evaluation and one per
+reverse local step.  It excludes instruction, communication, and variable-size
+state costs.

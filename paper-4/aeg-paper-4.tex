@@ -1,0 +1,211 @@
+% Canonical entry point for Arithmetic Expression Geometry IV.
+\documentclass[11pt]{article}
+
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,longtable,array}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,decorations.pathreplacing}
+\usepackage{enumitem}
+\usepackage{url}
+\usepackage[
+  colorlinks=true,
+  linkcolor=blue!45!black,
+  citecolor=green!35!black,
+  urlcolor=blue!55!black,
+  pdfencoding=auto
+]{hyperref}
+\hypersetup{
+  pdftitle={Arithmetic Expression Geometry IV: Projective Condensation and Computational Complexity},
+  pdfauthor={Mingli Yuan},
+  pdfsubject={From Histories and Quotients to Representation and Cost},
+  pdfkeywords={arithmetic expression geometry, projective condensation, residual equivalence, computational complexity}
+}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{convention}[theorem]{Convention}
+\newtheorem{construction}[theorem]{Construction}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{warning}[theorem]{Warning}
+\newtheorem{problem}[theorem]{Open problem}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\PGL}{\operatorname{PGL}}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\Aff}{\operatorname{Aff}}
+\newcommand{\Hist}{\operatorname{Hist}}
+\newcommand{\Biv}{\operatorname{Biv}}
+\newcommand{\Stab}{\operatorname{Stab}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\Obs}{\operatorname{Obs}}
+\newcommand{\Pareto}{\operatorname{Pareto}}
+\newcommand{\Fill}{\operatorname{Fill}}
+\newcommand{\dd}{\,\mathrm{d}}
+\newcommand{\cH}{\mathcal H}
+\newcommand{\cR}{\mathcal R}
+\newcommand{\cC}{\mathcal C}
+\newcommand{\cM}{\mathcal M}
+\newcommand{\cW}{\mathcal W}
+\newcommand{\cS}{\mathcal S}
+\newcommand{\cK}{\mathcal K}
+\newcommand{\sslash}{\mathbin{/\mkern-6mu/}}
+\newcommand{\bits}{\operatorname{bits}}
+\newcommand{\ST}{\operatorname{ST}}
+\newcommand{\defeq}{\mathrel{:=}}
+
+\setlist[itemize]{topsep=0.35em,itemsep=0.2em,leftmargin=1.8em}
+\setlist[enumerate]{topsep=0.35em,itemsep=0.2em,leftmargin=2.1em}
+
+\title{\textbf{Arithmetic Expression Geometry IV:\\Projective Condensation and Computational Complexity}\\[0.45em]
+\large From Histories and Quotients to Representation and Cost}
+
+\author{Mingli Yuan\\Swarma Research\\Beijing 100083, China}
+\date{August 7, 2026\\[0.25em]\small Mathematical-review manuscript}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Arithmetic Expression Geometry retains the ordered evaluation history of an
+expression before passing to its induced operator or endpoint.  Papers~I--III
+develop the affine, analytic, and singular-zero sectors of this programme.  We
+study here the quotient architecture itself and ask when information forgotten
+by a quotient can be related to representation or computational resources.
+
+For non-degenerate bilateral arithmetic over a field $K$, projective evaluation
+lands in $G=\PGL_2(K)$.  A regular bivaluation is an ordered pair of distinct
+points of $\PP^1(K)$ and is equivalently a rank-one idempotent on $K^2$.  If
+$H$ stabilizes a reference ordered pair and $B_\pm$ stabilize its two members,
+then
+\[
+  \Hist_K\longrightarrow G\longrightarrow G/H
+  \longrightarrow G/B_\pm
+\]
+separates literal histories, projective operators, image--kernel projectors, and
+single projective points.  The fibers have different meanings: the first is a
+relation fiber of words, while the second is an $H$-torsor of projective frames.
+Over $\F_q$ their sizes are completely explicit.
+
+The central result identifies the exact condition under which a quotient state
+is sufficient for future continuation.  Left continuation acts canonically on
+$G/H$, and, with identity continuation and an injective observation, its
+contextual residual classes are exactly the points of $G/H$.  A single right
+update by $k$ descends exactly when $k^{-1}Hk\subseteq H$, and reversible right
+continuation descends exactly through the normalizer $N_G(H)$.  Thus a quotient
+can be a complete online state for one chronology while the same discarded
+stabilizer direction becomes observable for the opposite chronology.  This
+gives a precise bridge from projective condensation to future-sensitive
+information; quotient cardinality alone is not such a bridge.
+
+We then define contextual continuation residuals for a typed interface, a class
+of legal futures, and a declared observation, including a distinguished
+undefined outcome for partial arithmetic.  In a finite deterministic exact
+model the residual quotient is the canonical minimal online state space.  Any
+lossless implementation therefore needs at least
+$\lceil\log_2|\cR_C|\rceil$ bits at the cut $C$.  Under a declared fixed-register
+snapshot convention, the same argument gives a corresponding capacity--time
+lower bound.  This semantic bound is kept separate from an operational trace of
+live configurations, whose actions may compute, erase, communicate, checkpoint,
+or recompute.  A monotone set of nodes ever computed cannot determine workspace
+once erasure and recomputation are allowed.
+
+Several exact calibrations show both the reach and the limits of the framework.
+Binary Horner histories with fixed length and Hamming weight have one ACS charge
+but $\binom nm$ distinct affine operators.  For a finite alphabet, a simple
+fiber--entropy inequality relates raw word growth to evaluation-image growth,
+without turning either into a runtime lower bound.  The equality function has
+OBDD width at least $2^n$ under a block order but constant width under an
+interleaved order, although variable restrictions commute.  A radix-2
+butterfly factors as a common matrix times a diagonal torus label; a full NTT
+still requires a multi-wire linear category, central-scalar bookkeeping, and a
+cost model distinguishing static twiddles from dynamic states.  Matrix-chain
+parenthesizations and reverse-mode checkpointing exhibit genuine work--space
+tradeoffs among equal semantic realizations.  Potential-difference labels and
+pure-gauge group labels telescope on every rewrite loop, so they cannot by
+themselves define a nontrivial process holonomy.
+
+The resulting theory has four layers: projective quotient fibers, contextual
+residuals, operational live configurations, and rewrite fibers.  We prove
+comparison theorems among them only when the required actions and observations
+are specified.  We do not infer computational hardness from noncommutativity,
+negative curvature, exponential group growth, or the size of a raw history
+fiber.  The remaining programme is to construct non-flat projective transport,
+a multi-wire AEG semantics, costed AEG-native representation changes, and
+approximate residual theories.
+\end{abstract}
+
+\noindent\textbf{Keywords:}
+arithmetic expression geometry; projective linear group; homogeneous space;
+rank-one idempotent; quotient information; residual equivalence; online state;
+word growth; decision diagram; FFT; checkpointing; time--space tradeoff
+
+\setcounter{tocdepth}{2}
+\tableofcontents
+\newpage
+
+\section{Introduction}\label{sec:introduction}
+\input{sections/01-introduction.tex}
+\section{Histories, evaluations, and equality levels}\label{sec:history-equality}
+\input{sections/02-histories-and-equality.tex}
+\section{Bivaluations and the projective quotient tower}\label{sec:projective-quotients}
+\input{sections/03-projective-quotients.tex}
+\section{Condensation and future continuation}\label{sec:condensation-continuation}
+\input{sections/04-condensation-and-continuation.tex}
+\section{Contextual residuals and minimal exact state}\label{sec:contextual-residuals}
+\input{sections/05-contextual-residuals.tex}
+\section{Operational resource geometry}\label{sec:operational-resources}
+\input{sections/06-operational-resource-geometry.tex}
+\section{Word growth, fibers, and information loss}\label{sec:growth-information}
+\input{sections/07-growth-and-information.tex}
+\section{Rewrite fibers, normal forms, and exactness obstructions}\label{sec:rewrite-fibers}
+\input{sections/08-rewrite-fibers.tex}
+\section{Horner histories and ACS condensation}\label{sec:horner}
+\input{sections/09-horner-acs.tex}
+\section{Cut order and residual width in decision diagrams}\label{sec:obdd}
+\input{sections/10-obdd-residual-width.tex}
+\section{Butterflies, transform representations, and NTT states}\label{sec:butterfly-ntt}
+\input{sections/11-butterfly-and-ntt.tex}
+\section{Equal semantics with different work and space}\label{sec:time-space}
+\input{sections/12-matrix-chain-and-checkpointing.tex}
+\section{Claim boundaries and the remaining programme}\label{sec:boundaries}
+\input{sections/13-boundaries-and-programme.tex}
+\section{Conclusion}\label{sec:conclusion}
+\input{sections/14-conclusion.tex}
+
+\appendix
+\section{Projective and homogeneous-space calculations}\label{app:projective}
+\input{appendices/app-A-projective-calculations.tex}
+\section{Residual proofs and partial-domain conventions}\label{app:residual}
+\input{appendices/app-B-residual-proofs.tex}
+\section{Finite network and resource counts}\label{app:network}
+\input{appendices/app-C-network-counts.tex}
+\section{Claim ledger and cost-model checklist}\label{app:ledger}
+\input{appendices/app-D-claim-ledger.tex}
+
+\bibliographystyle{plain}
+\bibliography{aeg-paper-4}
+\end{document}

@@ -1,0 +1,131 @@
+% Canonical Paper IV section.
+The first calibration stays inside the affine sector of AEG.  It shows exactly
+how a commutative charge shadow can forget positional information while the
+evaluated operators remain distinct.
+
+\subsection{Radix histories}
+
+Fix an integer radix $k\ge2$ and the digit alphabet
+$D_k=\{0,1,\ldots,k-1\}$.  For $d\in D_k$, let
+\[
+  h_d(x)=kx+d.
+\]
+A chronological word $w=d_1d_2\cdots d_n$ acts by
+\[
+  \rho(w)=h_{d_n}\circ\cdots\circ h_{d_1}.
+\]
+
+\begin{proposition}[Horner evaluation formula]
+\label{prop:horner-evaluation}
+For every length-$n$ word,
+\begin{equation}
+  \rho(w)(x)
+  =k^n x+\sum_{i=1}^{n}d_i k^{n-i}.
+  \label{eq:horner-evaluation}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Induction on $n$.  Appending $d_{n+1}$ sends the current value $y$ to
+$ky+d_{n+1}$, multiplying all previous coefficients by $k$ and adding the new
+least significant digit.
+\end{proof}
+
+\begin{theorem}[Radix-word injectivity]
+\label{thm:radix-word-injectivity}
+Over $\Z$, or over a characteristic-zero field containing the displayed
+integers, distinct words in $D_k^n$ induce distinct affine operators.
+\end{theorem}
+
+\begin{proof}
+All operators have slope $k^n$.  Equality would force equality of the constants
+in Equation~\eqref{eq:horner-evaluation}.  These constants are the integers
+$0,1,\ldots,k^n-1$ written uniquely in length-$n$ base-$k$ notation, allowing
+leading zeros.
+\end{proof}
+
+The characteristic-zero hypothesis is active.  Over a finite field, distinct
+integer constants may coincide after reduction; Section~\ref{sec:butterfly-ntt}
+uses such modular identification deliberately.
+
+\subsection{Condensation by ACS charge}
+
+Realize $h_d$ as a scale by $k$ followed by an addition of $d$.  The ACS of
+Paper~I~\cite{Yuan2026AEGFoundations} records only total additive and
+logarithmic multiplicative charge.  Hence
+\begin{equation}
+  \chi(w)=\left(\sum_{i=1}^{n}d_i,\ n\log k\right).
+  \label{eq:horner-charge}
+\end{equation}
+
+\begin{theorem}[Fixed-histogram operator count]
+\label{thm:horner-histogram-count}
+Let $m_r$ be the number of occurrences of digit $r$, with
+$\sum_{r=0}^{k-1}m_r=n$.  All words with this histogram have the same ACS
+charge, and they induce exactly
+\begin{equation}
+  \frac{n!}{\prod_{r=0}^{k-1}m_r!}
+  \label{eq:multinomial-horner-count}
+\end{equation}
+distinct affine operators.
+\end{theorem}
+
+\begin{proof}
+Equation~\eqref{eq:horner-charge} depends only on the histogram.  The number of
+words with the histogram is the multinomial coefficient.  They give distinct
+operators by Theorem~\ref{thm:radix-word-injectivity}.
+\end{proof}
+
+\begin{corollary}[Binary fixed-weight fiber]
+\label{cor:binary-horner-count}
+For $k=2$, the length-$n$ words with exactly $m$ ones have one ACS charge and
+$\binom nm$ distinct operator images.  Under the uniform distribution on that
+set, conditioning only on the charge loses
+\[
+  \log_2\binom nm
+\]
+bits of word information.
+\end{corollary}
+
+For $n=4$ and $m=2$, the six constants are
+\[
+  3,5,6,9,10,12,
+\]
+corresponding to the six placements of two ones.  The charge remembers their
+number but not their positions.
+
+\subsection{Which state is sufficient?}
+
+For all future affine continuations, the current affine operator is sufficient:
+composition depends only on its slope and translation.  The ACS charge is not
+sufficient, because two words with one charge can already have different
+translations before any future is applied.  If the observation is deliberately
+coarsened to ACS charge and all future updates act only on charge, then the
+charge becomes an exact residual for that smaller experiment.
+
+This illustrates the hierarchy
+\[
+  \text{word}
+  \longrightarrow
+  \text{affine operator}
+  \longrightarrow
+  \text{ACS charge}.
+\]
+The size in Theorem~\ref{thm:horner-histogram-count} is the operator image of a
+charge fiber.  It is not a fiber of operator evaluation.
+
+\subsection{Streaming cost and encoding cost}
+
+The recurrence
+\[
+  a_i=ka_{i-1}+d_i
+\]
+evaluates a word in $n$ affine steps while storing one current field element.
+In a unit-cost field-operation model this is $O(n)$ work and $O(1)$ field
+elements of workspace.  Over the integers, however, the bit length of $a_i$
+is $\Theta(i\log k)$ in the worst case.  Thus ``one accumulator'' does not mean
+constant bit space in a bit-complexity model.
+
+The example therefore supplies an exact condensation count but no generic
+search or hardness theorem.  Positional information can be large while direct
+streaming evaluation remains simple.
