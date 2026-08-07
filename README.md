@@ -188,7 +188,7 @@ closure reports.
 Not every note in this repository is current mathematics. When sources
 conflict, use the order specified in
 [`AGENTS.md`](AGENTS.md). In particular, `notes/`,
-`images/sources/`, `revision-*`, `archive/arxiv/`, `archive/paper4p/`, and
+`images/sources/`, `archive/revision-*`, `archive/arxiv/`, `archive/paper4p/`, and
 `notes/knots-and-loops/` retain historical or exploratory material and are not
 canonical paper sources unless the migration log or a per-paper source audit says
 otherwise.

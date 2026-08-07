@@ -2141,15 +2141,20 @@ Compare every lemma against active sections and notes.
 ## OQ-063 — Status of generated discussion files
 
 **Priority:** P2
-**State:** OPEN
+**State:** CLOSED — no tracked `gpt/` directory exists in the fixed baseline or
+current tree
 
 ### Question
 
-Should `gpt/` remain in place with archival status or move under `governance/archive/`?
+Should a tracked `gpt/` directory remain in place with archival status or move under
+`governance/archive/`?
 
-### Default rule
+### Resolution
 
-Preserve paths until references and provenance have been audited.
+The source inventory found no tracked `gpt/` directory to migrate. Historical
+references to such a directory remain provenance only. Any future generated
+discussion material must be classified when added rather than creating an implied
+current path.
 
 ---
 
@@ -2179,15 +2184,17 @@ Author
 ## OQ-065 — Multi-paper build system
 
 **Priority:** P2
-**State:** OPEN
+**State:** CLOSED — root selector-based build implemented
 
 ### Question
 
 Should `build.sh` support paper selection, or should each paper have its own build script?
 
-### Default rule
+### Resolution
 
-Keep Paper I build stable first.
+The root `build.sh` accepts `1`, `2`, `3`, `4`, or `all` and retains one canonical
+build interface for the series. Per-paper scripts are unnecessary unless a future
+paper develops genuinely different tooling requirements.
 
 ---
 
@@ -2320,13 +2327,13 @@ the corresponding Part XIV resolutions:
 * [x] OQ-017 — Baumslag–Solitar convention
 * [x] OQ-018 — boundary zero formulation
 * [x] OQ-020 — projection-submersion proof
-* [ ] OQ-021 — multi-zero example inclusion
-* [ ] OQ-022 — local-global synthesis formulation
-* [ ] OQ-023 — (\mathcal H) notation collision
-* [ ] OQ-024 — (\lambda/M) notation
-* [ ] OQ-025 — (\delta/\delta_H) notation
-* [ ] OQ-059 — repository migration timing
-* [ ] OQ-064 — DOI/version distinction
+* [x] OQ-021 — multi-zero example inclusion
+* [x] OQ-022 — local-global synthesis formulation
+* [x] OQ-023 — (\mathcal H) notation collision
+* [x] OQ-024 — (\lambda/M) notation
+* [x] OQ-025 — (\delta/\delta_H) notation
+* [x] OQ-059 — repository migration timing
+* [x] OQ-064 — DOI/version distinction
 
 Optional results may be removed rather than blocking release where authorized by scope.
 

@@ -109,7 +109,7 @@ Static checks:
 
 - 198 labels and 198 unique labels;
 - 83 unique `ref`, `eqref`, `pageref`, or `autoref` targets, all present;
-- 4 citation keys, all present in the shared root bibliography;
+- 4 citation keys, all present in the then-root shared bibliography;
 - no control character or unresolved TODO/FIXME marker in the active TeX source;
 - no LaTeX or BibTeX warning, undefined reference or citation, fatal diagnostic,
   overfull box, or underfull box in the final logs;

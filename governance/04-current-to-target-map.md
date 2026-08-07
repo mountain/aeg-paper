@@ -14,6 +14,13 @@
 
 **Applies to:** The migration and restructuring of all existing material in the `aeg-paper` repository.
 
+**Current-state notice (2026-08-07):** The migration described by this map has been
+executed. Historical phrases such as “current path,” “target,” and “transitional”
+below refer to the fixed migration baseline, not to the present working tree. The
+current layout and active source closures are recorded in `README.md`,
+`governance/README.md`, and `governance/source-inventory.md`; completed path changes
+are recorded in migrations M-0010--M-0017 of `governance/migration-log.md`.
+
 ---
 
 ## 1. Purpose
@@ -172,16 +179,17 @@ governance/05-mathematical-status.md
 
 ---
 
-# Part II. Target repository structure
+# Part II. Implemented repository structure
 
-## 4. Recommended top-level structure
+## 4. Current top-level structure
 
-The restructuring should converge toward:
+The implemented organization is:
 
 ```text
 aeg-paper/
 ├── AGENTS.md
 ├── README.md
+├── LICENSE
 ├── build.sh
 ├── Dockerfile
 ├── bibliography/
@@ -190,60 +198,45 @@ aeg-paper/
 ├── paper-1/
 │   ├── aeg-paper-1.tex
 │   ├── sections/
-│   ├── appendices/
-│   └── images/
+│   └── appendices/
 │
 ├── paper-2/
 │   ├── README.md
 │   ├── aeg-paper-2.tex
 │   ├── sections/
-│   └── notes/
+│   └── appendices/
 │
 ├── paper-3/
 │   ├── README.md
 │   ├── aeg-paper-3.tex
 │   ├── sections/
-│   └── notes/
+│   ├── appendices/
+│   └── computations/
 │
 ├── paper-4/
 │   ├── README.md
 │   ├── aeg-paper-4.tex
 │   ├── sections/
-│   └── notes/
-│
-├── shared/
-│   ├── styles/
-│   ├── bibliography/
-│   └── images/
+│   ├── appendices/
+│   └── scripts/
 │
 ├── notes/
-│   ├── active/
-│   └── archive/
-│
-└── governance/
-    ├── 00-authoritative-scope.md
-    ├── 01-paper-series-architecture.md
-    ├── 02-paper-I-outline.md
-    ├── 03-theorem-dependency-graph.md
-    ├── 04-current-to-target-map.md
-    ├── 05-mathematical-status.md
-    ├── 06-editorial-rules.md
-    ├── 07-acceptance-checklist.md
-    ├── 08-open-questions.md
-    ├── migration-log.md
-    ├── discussions/
-    └── archive/
+├── images/
+│   └── sources/
+├── governance/
+│   └── discussions/
+└── archive/
 ```
 
-This structure is a target, not an instruction to rename every file immediately.
-
-The audit must precede large-scale path changes.
+The shared bibliography is `bibliography/aeg-paper.bib`; historical styles are
+archived at `archive/legacy-latex-styles/`. Research notes are classified by subject
+under `notes/` and are outside all canonical TeX dependency closures.
 
 ---
 
-## 5. Transitional structure
+## 5. Historical transitional structure
 
-During restructuring, the repository may retain:
+During restructuring, the repository temporarily retained:
 
 ```text
 aeg-paper.tex
@@ -252,14 +245,16 @@ notes/
 images/
 ```
 
-as active legacy paths.
+as active legacy paths. They are no longer active paths: the old root manuscript is
+under `archive/legacy-root-manuscript/`, and its former `sections/` tree moved with
+it.
 
 In that case:
 
-* `paper-1/aeg-paper-1.tex` is the Paper I entry point;
-* canonical Paper I sections are under `paper-1/sections/` and `paper-1/appendices/`;
-* migrated material may be copied into `paper-2/`, `paper-3/`, and `paper-4/`;
-* the old source must remain until the new destination builds and has been reviewed.
+* `paper-1/aeg-paper-1.tex` became the Paper I entry point;
+* canonical Paper I sections moved under `paper-1/sections/` and `paper-1/appendices/`;
+* migrated material was assigned to `paper-2/`, `paper-3/`, and `paper-4/`;
+* the old source was preserved until the new destinations built and were reviewed.
 
 No source should be deleted merely because a target directory has been created.
 
@@ -2444,20 +2439,21 @@ may remain in Paper I.
 
 ## 58. Paper I migration completeness
 
-The current-to-target migration for Paper I is complete only when:
+The current-to-target migration for Paper I is complete. Its closure report records
+the evidence for the following criteria:
 
-* [ ] every current `sec*.tex` file has a recorded disposition;
-* [ ] all Paper I target chapters exist;
-* [ ] all retained mathematical content has one canonical location;
-* [ ] Paper II analytic material has been moved or clearly isolated;
-* [ ] Paper III singular/tube material has been moved or clearly isolated;
-* [ ] Paper IV quotient/complexity material has been moved or clearly isolated;
-* [ ] no legacy section is still included accidentally;
-* [ ] no theorem is lost during migration;
-* [ ] model numbering is consistent;
-* [ ] ACS signs are consistent;
-* [ ] the Paper I PDF builds;
-* [ ] abstract and conclusion match the migrated theorem set.
+* [x] every baseline `sec*.tex` file has a recorded disposition;
+* [x] all Paper I target chapters exist;
+* [x] all retained mathematical content has one canonical location;
+* [x] Paper II analytic material has been moved or clearly isolated;
+* [x] Paper III singular/tube material has been moved or clearly isolated;
+* [x] Paper IV quotient/complexity material has been moved or clearly isolated;
+* [x] no legacy section is still included accidentally;
+* [x] no theorem is lost during migration;
+* [x] model numbering is consistent;
+* [x] ACS signs are consistent;
+* [x] the Paper I PDF builds;
+* [x] abstract and conclusion match the migrated theorem set.
 
 ---
 

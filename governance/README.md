@@ -22,7 +22,8 @@ Each arrow forgets information. AEG investigates the algebraic, geometric, analy
 
 ## Repository status
 
-> **This repository is undergoing a controlled restructuring into a four-paper series.**
+> **The controlled restructuring has produced four canonical mathematical-review
+> manuscripts. All four remain editorial and publication drafts.**
 
 The current source contains material developed at different stages of the research program. Some notes are proved mathematics; others are exploratory constructions, structural proposals, conjectures, superseded formulations, or open problems.
 
@@ -48,10 +49,15 @@ The completed mathematical-review integrations are documented in:
 * [`paper-I-closure-report.md`](paper-I-closure-report.md)
 * [`paper-II-closure-report.md`](paper-II-closure-report.md)
 * [`paper-III-closure-report.md`](paper-III-closure-report.md)
+* [`paper-IV-closure-report.md`](paper-IV-closure-report.md)
 
 Paper III's corrected historical provenance and theorem decisions are recorded in
 [`paper-III-source-audit.md`](paper-III-source-audit.md) and
 [`decisions-paper-III.md`](decisions-paper-III.md).
+Paper IV's corresponding records are
+[`paper-IV-source-audit.md`](paper-IV-source-audit.md),
+[`decisions-paper-IV.md`](decisions-paper-IV.md), and
+[`paper-IV-red-team-report.md`](paper-IV-red-team-report.md).
 
 The post-closure arithmetic--automorphic integration across Papers I--III is
 documented in
@@ -66,7 +72,7 @@ functor remains an open problem.
 
 The first phase of the program is organized into four papers.
 
-| Paper | Provisional title                                                                           | Primary question                                                                                                   |
+| Paper | Current manuscript title                                                                    | Primary question                                                                                                   |
 | ----- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
 | I     | **Arithmetic Expression Geometry I: Foundations**                                           | How do sequential arithmetic histories acquire affine and geometric structure?                                     |
 | II    | **Arithmetic Expression Geometry II: Hyperbolic Real Function Theory**                      | What analytic and function-theoretic structures exist on regular AEG spaces?                                       |
@@ -529,28 +535,15 @@ Paper II adds the horizontal metric, compatible complex structure, analytic doma
 
 # Current mathematical status
 
-The current repository contains a comparatively stable algebraic and local-geometric core, including:
+Papers I--IV now have canonical mathematical-review manuscripts and per-paper closure
+records. This does not make every research programme complete or authorize a public
+release. Open questions retained by the manuscripts and governance register remain
+open, and exploratory notes retain no automatic theorem authority.
 
-* the sequential-tree classification;
-* projective matrices for bilateral arithmetic contexts;
-* the (PGL_2(K)) generation argument;
-* the affine/Borel identification;
-* affine cocycle formulas;
-* the affine flow equation;
-* explicit verification of the upper-half-plane model;
-* contact nondegeneracy;
-* the horizontal bracket-curvature identity.
-
-Important results still requiring integration, convention checks, or proof completion include:
-
-* the canonical definition of a regular AES;
-* the direct invariant-metric derivation;
-* the generalized two-history ACS formula;
-* the final ACS sign convention;
-* the regular zero-locus theorem in the paper;
-* the singular-AES definition;
-* the classification of the isolated-zero model;
-* the precise local-global torsion synthesis.
+Claim-level status, including the hypotheses and boundaries of proved, conditional,
+proposed, conjectural, and excluded statements, is controlled by the mathematical
+status register and the per-paper closure and decision records rather than by the
+manuscripts' editorial `draft` labels.
 
 The complete status register is:
 
@@ -604,48 +597,37 @@ These are either false in general, require additional hypotheses, or remain open
 
 ## Current active layout
 
-The repository currently uses paths such as:
-
-```text
-aeg-paper.tex
-sections/
-notes/
-images/
-gpt/
-plans/
-```
-
-Large path changes should occur only after the baseline audit.
-
-## Target layout
-
-The intended long-term organization is:
+The repository currently uses the following top-level organization:
 
 ```text
 aeg-paper/
 ├── AGENTS.md
 ├── README.md
+├── LICENSE
 ├── build.sh
 ├── Dockerfile
+├── bibliography/
+├── governance/
+├── images/
+│   └── sources/
+├── notes/
 ├── paper-1/
 ├── paper-2/
 ├── paper-3/
 ├── paper-4/
-│
-├── shared/
-├── notes/
-└── governance/
+└── archive/
 ```
 
-The current-to-target mapping is defined in:
+The completed migration from the historical layout is documented in:
 
 [`governance/04-current-to-target-map.md`](04-current-to-target-map.md)
+and [`migration-log.md`](migration-log.md).
 
 Substantive research material is moved or archived, not silently deleted.
 
 ---
 
-# Building the current manuscript
+# Building the canonical manuscripts
 
 A working LaTeX installation should provide at least:
 
@@ -653,11 +635,15 @@ A working LaTeX installation should provide at least:
 * `bibtex`;
 * the packages imported by the manuscript.
 
-Build the current Paper I source with:
+Build all four canonical manuscripts with:
 
 ```bash
 ./build.sh
 ```
+
+To build one manuscript, run `./build.sh 1`, `./build.sh 2`, `./build.sh 3`, or
+`./build.sh 4`. The corresponding entry point and artifact are
+`paper-k/aeg-paper-k.tex` and `paper-k/aeg-paper-k.pdf`.
 
 ## Docker build
 
@@ -675,19 +661,6 @@ Build warnings that must be reviewed include:
 * duplicate labels;
 * missing figures;
 * normalization or numbering inconsistencies.
-
-The build system may later be extended to support:
-
-```bash
-./build.sh
-```
-
-This builds the canonical Paper I source at `paper-1/aeg-paper-1.tex`.  Later paper
-entry points can be added when their theorem sets stabilize.  Every paper uses the
-uniform source/artifact names `paper-k/aeg-paper-k.tex` and
-`paper-k/aeg-paper-k.pdf`.
-
----
 
 # Working with Codex
 

@@ -18,6 +18,11 @@
 **Applies to:**
 **Arithmetic Expression Geometry I: Foundations**
 
+**Completion record:** This file preserves the acceptance specification and the
+per-migration gates used during restructuring. The verified Paper I outcome is
+recorded in `paper-I-closure-report.md`; unchecked prohibition boxes below mean that
+the prohibited event did not occur, not that closure is pending.
+
 ---
 
 ## 1. Purpose

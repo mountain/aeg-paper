@@ -102,7 +102,7 @@ Static and rendered checks:
 
 - 166 unique active labels; no duplicate labels;
 - every active `ref`, `eqref`, and `autoref` target exists;
-- every citation key exists in the shared `bibliography/aeg-paper.bib`;
+- every citation key exists in the then-root shared `aeg-paper.bib`;
 - every named stable theorem/definition slot is present;
 - 8 figure environments, all inline TikZ, with no missing assets;
 - no LaTeX or BibTeX warnings, undefined references, undefined citations,

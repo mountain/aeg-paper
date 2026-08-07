@@ -30,10 +30,11 @@ retain the original eight-section, 32-page closure evidence.
 ## 1. Acceptance outcome
 
 - **Source and dependency closure:** closed.  The active entry point contains eight
-  sections and three appendices, imports Papers I and II by explicit interfaces, and
-  uses only the shared root bibliography beyond its own source tree.  No legacy
-  section, note, knot file, working discussion, or archived manuscript is an active
-  TeX dependency.
+  sections at original closure and now contains thirteen sections after post-closure
+  integrations, together with three appendices. It imports Papers I and II by
+  explicit interfaces and uses only `bibliography/aeg-paper.bib` beyond its own
+  source tree. No legacy section, note, knot file, working discussion, or archived
+  manuscript is an active TeX dependency.
 - **Mathematical closure:** closed for the stated conformal, multi-zero, incidence,
   proper-tube, helical, singular-event, finite-root, logarithmic-gauge, and affine
   novelty-filter results.  Every global statement displays the needed
@@ -43,8 +44,9 @@ retain the original eight-section, 32-page closure evidence.
   S-0007, the Paper III decision record, and the source audit record all imports,
   new derivations, rejected promotions, and retained open questions.
 - **Editorial and rendered closure:** closed for mathematical review.  The abstract,
-  claim ledger, eight-section argument, three calculation appendices, figures, and
-  bibliography were checked against the proved body results and visually inspected.
+  claim ledger, canonical multi-section argument, three calculation appendices,
+  figures, and bibliography were checked against the proved body results and visually
+  inspected.
 - **Release status:** not an author-approved public release.  Author metadata,
   DOI/version policy, clean-checkout reproduction of the eventual commit, and final
   publication judgment remain human release actions.
@@ -131,7 +133,7 @@ Static checks:
 
 - 100 labels and 100 unique labels;
 - 58 unique `ref`, `eqref`, `pageref`, or `autoref` targets, all present;
-- 10 citation keys, all present in the shared root bibliography;
+- 10 citation keys, all present in the then-root shared bibliography;
 - no control character, non-ASCII byte, or unresolved TODO/FIXME marker in the
   active TeX source;
 - no LaTeX or BibTeX warning, undefined reference or citation, fatal diagnostic,

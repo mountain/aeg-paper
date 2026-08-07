@@ -6,12 +6,17 @@
 **Canonical baseline entry point:** `aeg-paper.tex`  
 **Canonical target entry point:** `paper-1/aeg-paper-1.tex`
 
+**Snapshot notice:** Counts, paths, hashes, and phrases such as “active entry point”
+in this report describe the dated audit stages below. The current four-paper source
+closures and repository layout are maintained in `source-inventory.md`, the per-paper
+closure reports, and the root and governance READMEs.
+
 ## 1. Scope of the audit
 
 The audit covered all tracked paths in the baseline archive, the root manuscript and
 its twelve legacy section files, alternative manuscript trees, bibliography, styles,
 figures, build scripts, research notes, and all authoritative files under
-`governance/`.  The detailed path classification is maintained in
+`restructure/`.  The detailed path classification is maintained in
 `source-inventory.md`; movement and claim treatment are maintained in
 `migration-log.md`.
 
@@ -19,12 +24,12 @@ The baseline contains 207 tracked paths and 107 TeX sources.  Several independen
 build trees coexist:
 
 - root `aeg-paper.tex`;
-- `../archive/revision-1/main.tex`;
-- `../archive/revision-2/main.tex`;
-- `../archive/arxiv/main.tex`;
-- `../archive/paper4p/aeg.tex`;
+- `revision-1/main.tex`;
+- `revision-2/main.tex`;
+- `arxiv/main.tex`;
+- `paper4p/aeg.tex`;
 - legacy `aeg-lemma.tex`;
-- standalone material under `images/sources/`, `notes/`, `notes/knots-and-loops/`, and `../archive/ideal_glass/`.
+- standalone material under `misc/`, `notes/`, `knots/`, and `ideal_glass/`.
 
 The audited root entry point was subsequently moved to `paper-1/aeg-paper-1.tex` after
 the structural migration was explicitly authorized.
@@ -189,8 +194,8 @@ Paper III was integrated from baseline
 restructuring specifications and the task-specific provenance record
 `paper-III-source-audit.md`.  Its active entry point is
 `paper-3/aeg-paper-3.tex`; it inputs eight canonical section files, three canonical
-appendix files, and the shared root bibliography.  It has no TeX dependency on a
-legacy section, note, knot file, working discussion, or archived manuscript.
+appendix files, and the then-root shared bibliography.  It has no TeX dependency on
+a legacy section, note, knot file, working discussion, or archived manuscript.
 
 The historical audit covered all 249 commits reachable from the local refs and found
 no certifiable general `E_k`, `E_log`, or multi-zero construction.  The active

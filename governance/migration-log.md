@@ -634,3 +634,27 @@ closure.
 - Build result: all 39 note sources satisfy the naming rule with no duplicate
   per-directory code; 27 unique repository note-path references and all companion
   basenames resolve; `./build.sh` rebuilt all four canonical PDFs successfully
+
+## Migration M-0018
+
+- Date: 2026-08-07
+- Name: final repository-state consistency audit
+- Scope: root and governance overviews, current-to-target map, source inventory,
+  dated audit/closure records, open-question register, and the Paper I--III interface
+  paragraphs in Papers I and II
+- Migration state: DOCUMENTATION AND CROSS-PAPER CONSISTENCY RECONCILIATION
+- Claim treatment: no theorem, hypothesis, proof, or mathematical claim status
+  changed; editorial `draft`, mathematical-review closure, historical audit snapshots,
+  and unresolved research programmes remain distinct
+- Repository treatment: current layout, four canonical source closures, shared
+  bibliography location, multi-paper build interface, and completed migrations are
+  synchronized; historical baseline paths and dated artifact evidence remain marked
+  as historical
+- Hygiene treatment: `.DS_Store` is ignored repository-wide; existing local copies
+  are neither tracked nor deleted
+- Reference treatment: Papers I and II now cite the existing Paper II/III manuscript
+  records where they describe downstream results; all Markdown links, TeX inputs,
+  bibliography paths, citation keys, labels, and references resolve
+- Build result: `./build.sh` rebuilt all four canonical PDFs; final logs contain no
+  undefined references, undefined citations, duplicate labels, or missing assets.
+  Paper IV's seven-group finite verification suite also passes
