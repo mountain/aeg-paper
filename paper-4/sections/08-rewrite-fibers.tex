@@ -1,0 +1,140 @@
+% Canonical Paper IV section.
+Evaluation fibers contain realizations with equal semantics.  A rewrite system
+organizes paths inside such a fiber.  The cost of traversing a rewrite path,
+the distance between two realizations, the filling of a coherence loop, and a
+possible holonomy are distinct structures.
+
+\subsection{Rewrite graphs and normal forms}
+
+Let $X$ be a set of realizations and $\rho:X\to Y$ their semantics.  For
+$y\in Y$, write
+\[
+  \mathcal F_y=\rho^{-1}(y).
+\]
+A semantics-preserving rewrite relation $\mathcal R$ has directed edges
+$x\to x'$ only when $\rho(x)=\rho(x')$.  It therefore decomposes into graphs
+on the fibers $\mathcal F_y$.
+
+\begin{definition}[Rewrite distance and filling]
+For two vertices in the same undirected rewrite component, let
+$d_\mathcal R(x,x')$ be the shortest number or declared weight of rewrite
+edges connecting them.  If rewrite relations are supplied as $2$-cells, let
+$\Fill_\mathcal R(\ell)$ be the minimum number or weight of $2$-cells filling
+a closed rewrite loop $\ell$, when such a filling exists.
+\end{definition}
+
+A terminating and confluent rewrite system selects a unique normal form in
+each connected semantic class.  Termination plus local confluence is sufficient
+for confluence by Newman's lemma~\cite{Newman1942}.  A normal form may make
+equality testing efficient, but its construction cost and output size still
+require a computational model.
+
+\subsection{Potential labels are exact}
+
+Let $A$ be an additive abelian group and let $C:X\to A$ be any single-valued
+potential, for example a cost assigned to a completed realization.
+
+\begin{proposition}[Additive exactness obstruction]
+\label{prop:additive-exactness-obstruction}
+If a rewrite edge is labelled
+\[
+  \omega_C(x\to x')=C(x')-C(x),
+\]
+then every finite closed rewrite loop satisfies
+\[
+  \sum_{e\in\ell}\omega_C(e)=0.
+\]
+\end{proposition}
+
+\begin{proof}
+The sum telescopes; every intermediate potential occurs once with each sign,
+and the initial and terminal vertices coincide.
+\end{proof}
+
+The same obstruction holds noncommutatively for pure-gauge labels.
+
+\begin{proposition}[Group-valued pure-gauge obstruction]
+\label{prop:pure-gauge-obstruction}
+Let $h:X\to L$ take values in a group and label an edge by
+\[
+  r(x\to x')=h(x')h(x)^{-1}.
+\]
+With chronological multiplication, the ordered product around every closed
+loop is the identity.
+\end{proposition}
+
+\begin{proof}
+For a path $x_0\to x_1\to\cdots\to x_m$, the chronological product is
+\[
+ r(x_{m-1}\to x_m)\cdots r(x_0\to x_1)
+ =h(x_m)h(x_0)^{-1}.
+\]
+The factors cancel successively.  On a closed loop $x_m=x_0$, this is the
+identity.
+\end{proof}
+
+These propositions apply to endpoint-potential differences on an associahedron
+and to the exact frame transport of
+Proposition~\ref{prop:exact-transport-telescope}.  They do not say that every
+connection is flat; they say that a globally exact label cannot certify
+nontrivial holonomy.
+
+\subsection{Action is not holonomy}
+
+A closed rewrite plan may have positive accumulated work even when its exact
+potential sum and pure-gauge product vanish.  Work charges actions, whereas
+holonomy compares transported frames after quotienting by gauge.  Calling
+positive loop work ``curvature'' would erase this distinction.
+
+For a weighted directed rewrite path
+$x=x_0\to x_1\to\cdots\to x_m=x'$, define
+\[
+  \operatorname{Act}(x_\bullet)=\sum_{i=0}^{m-1}c(x_i\to x_{i+1}),
+  \qquad c\ge0.
+\]
+Even when $x=x'$, the action can be positive.  This records dissipation or work
+under the selected rewriting algorithm, not a group-valued failure of exact
+transport.
+
+\subsection{Large fibers can have shared representations}
+
+A semantic fiber may contain exponentially many words while admitting a small
+DAG, grammar, circuit, or congruence-closed representation that shares common
+substructure.  Conversely, a small semantic set can require large intermediate
+objects in a restricted representation language.  Therefore
+\[
+  |\mathcal F_y|\ \text{large}
+  \quad\not\Longrightarrow\quad
+  L_{\mathrm{desc}}\ \text{large}
+\]
+without a lower-bound theorem for the chosen representation class.
+
+The case studies make the separation concrete:
+
+\begin{itemize}
+  \item Horner words have an exactly countable charge fiber of distinct
+  operators;
+  \item OBDDs share equal residual functions but can still have exponentially
+  different widths under different variable orders;
+  \item matrix-chain parenthesizations are vertices of an associahedral
+  rewrite fiber with different arithmetic costs;
+  \item checkpoint schedules realize one derivative computation with different
+  live-state traces.
+\end{itemize}
+
+\subsection{The non-exact transport problem}
+
+A future projective rewrite geometry would need:
+
+\begin{enumerate}
+  \item a category or $2$-category of histories and semantics-preserving
+  rewrites;
+  \item an edge transport not forced to be an endpoint coboundary;
+  \item a gauge transformation law and a class of coherence $2$-cells;
+  \item at least one closed loop with a gauge-invariant nontrivial residue;
+  \item a comparison with the affine torsion of Paper~I on the Borel sector.
+\end{enumerate}
+
+Until these conditions are met, rewrite distance and filling are legitimate
+geometric quantities, while ``projective rewrite curvature'' remains an open
+programme.

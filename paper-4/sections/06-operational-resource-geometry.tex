@@ -1,0 +1,183 @@
+% Canonical Paper IV section.
+Contextual residuals measure semantic distinguishability.  An execution uses
+concrete data structures, schedules, memories, and communication links.  The
+two layers meet only after a machine model says where a complete residual state
+is represented.
+
+\subsection{Logical cuts and live configurations}
+
+Let $\Gamma$ be a typed acyclic computation network.  A logical cut separates
+operations already licensed by causality from operations not yet licensed.  A
+set of nodes that have ever been computed may record causal progress, but it
+does not say which values are currently present.
+
+\begin{definition}[Operational machine model]
+An operational model $\cM$ specifies:
+\begin{enumerate}
+  \item the admissible input family and uniformity convention;
+  \item value, instruction, and constant encodings;
+  \item atomic compute, erase, move, communicate, checkpoint, and recompute
+  actions;
+  \item legal live configurations and their sizes;
+  \item the cost of each action and the processor or memory topology;
+  \item whether input, output, constants, tables, and code count toward space.
+\end{enumerate}
+\end{definition}
+
+An execution is a legal trace
+\begin{equation}
+  L_0\xrightarrow{a_1}L_1\xrightarrow{a_2}\cdots
+  \xrightarrow{a_T}L_T,
+  \label{eq:live-configuration-trace}
+\end{equation}
+where $L_t$ lists the values and control records currently materialized.
+Write $S_\sigma(t)=\operatorname{size}_{\cM}(L_t)$.
+
+\begin{definition}[Resource vector]
+For a realization $\Gamma$ and schedule $\sigma$, define
+\begin{equation}
+ \mathbf C_{\cM}(\Gamma,\sigma)
+ =\bigl(
+ L_{\mathrm{desc}},W,T,D_{\mathrm{caus}},S_{\max},\ST,Q
+ \bigr),
+ \label{eq:resource-vector}
+\end{equation}
+where
+\[
+ S_{\max}=\max_t S_\sigma(t),
+ \qquad
+ \ST=\sum_{t=0}^{T}S_\sigma(t).
+\]
+Here $L_{\mathrm{desc}}$ is static description size, $W$ weighted work,
+$T$ scheduled time, $D_{\mathrm{caus}}$ intrinsic causal depth in the declared
+parallel model, and $Q$ communication or I/O.
+\end{definition}
+
+These coordinates generally have different units.  A theorem comparing them
+must state the simulation, charging, and encoding convention; adding them into
+one scalar without such a rule has no invariant meaning.
+
+\subsection{Why completed-node sets do not determine space}
+
+\begin{theorem}[Completed-set insufficiency]
+\label{thm:completed-set-insufficient}
+Suppose a computation has a positive-size intermediate value that may legally
+be retained or erased after its last immediate use.  Then the set of nodes ever
+computed does not determine the current workspace.
+\end{theorem}
+
+\begin{proof}
+Execute through the last use of the intermediate.  In one legal execution keep
+its value; in another erase it.  The two executions have computed exactly the
+same nodes, but their live configurations differ by a positive-size object.
+\end{proof}
+
+With recomputation the discrepancy is stronger: a value may disappear and
+later be recreated while the ever-computed set remains unchanged.  Therefore a
+monotone chain of down-sets cannot serve as a general pebble or checkpoint
+state.
+
+\begin{proposition}[Restricted frontier model]
+\label{prop:restricted-frontier}
+In a no-recomputation node-value model in which each value is retained exactly
+until its last successor has executed, a down-closed completed set $I$ does
+determine the live frontier
+\[
+  \partial^+ I
+  =\{u\in I:\text{some successor of $u$ lies outside $I$}\}.
+\]
+If node $u$ occupies $b(u)$ units, then the corresponding workspace is
+$\sum_{u\in\partial^+I}b(u)$, up to the separately declared input, output, and
+control conventions.
+\end{proposition}
+
+The proposition remains useful, but only inside its restricted retention
+policy.
+
+\subsection{Embedding the residual lower bound}
+
+A live configuration may carry much more than the minimal residual class.  It
+may include redundant values, caches, checksums, code pointers, or a convenient
+structured representation.  Nevertheless, when it is the complete exact online
+state, it must distinguish residual classes.
+
+\begin{proposition}[Live-state residual bound]
+\label{prop:live-residual-bound}
+At a cut $C$, suppose the charged live configuration contains a complete exact
+state and is encoded either in a fixed-width $b$-bit slot or by a prefix-free
+code of maximum length $b$.  Then
+\[
+  b\ge\left\lceil\log_2|\cR_C|\right\rceil.
+\]
+\end{proposition}
+
+\begin{proof}
+The live-state encoding is an exact online realization, so
+Theorem~\ref{thm:minimal-exact-residual} maps its reachable states onto
+$\cR_C$.  Apply the counting argument of
+Corollary~\ref{cor:residual-bit-bound}.
+\end{proof}
+
+The following quantities must remain distinct:
+
+\begin{center}
+\begin{tabular}{L{0.25\textwidth}L{0.65\textwidth}}
+\toprule
+Quantity & Question answered\\
+\midrule
+$|\cR_C|$ & How many future behaviors remain semantically distinguishable?\\
+$\lceil\log_2|\cR_C|\rceil$ & How many bits select one exact residual class in a fixed-width model?\\
+$S_\sigma(t)$ & How large is the materialized configuration in this execution?\\
+$L_{\mathrm{desc}}$ & How large is the program, circuit, table, or shared representation?\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+A dense tensor with $D$ field entries, a low-rank factorization of the same
+tensor, an index into a decision diagram, and the whole decision diagram are
+four different representations.  Their sizes are not determined by the
+cardinality of one abstract residual space.
+
+\subsection{Uniform families and Pareto resource geometry}
+
+Complexity belongs to input families rather than to one hard-coded finite map.
+Let $F=(F_n)_{n\ge1}$ be a family and let
+$\operatorname{Adm}^{\mathrm{unif}}_{\cM}(F)$ be the realization families
+produced by one declared uniform constructor.  Define the fixed-size achievable
+frontier
+\begin{equation}
+ \mathfrak C_{\cM}^{\mathrm{unif}}(F;n)
+ =\Pareto\left\{
+ \mathbf C_{\cM}(\Gamma_n,\sigma_n):
+ ((\Gamma_j,\sigma_j))_{j\ge1}
+ \in\operatorname{Adm}^{\mathrm{unif}}_{\cM}(F)
+ \right\}.
+ \label{eq:pareto-resource-geometry}
+\end{equation}
+Here $\Pareto$ retains nondominated vectors under coordinatewise comparison.
+If limits are not attained, a closure may be needed.
+
+Equation~\eqref{eq:pareto-resource-geometry} is a structural framework, not a
+machine-independent invariant.  Its value changes with the model, units,
+precision, uniformity, preprocessing, and allowed representations.  A robust
+comparison across models would require explicit efficient simulations.
+
+\subsection{Three distinct order effects}
+
+The examples of this paper separate three phenomena:
+
+\begin{center}
+\begin{tabular}{L{0.25\textwidth}L{0.35\textwidth}L{0.28\textwidth}}
+\toprule
+Order effect & Meaning & Calibration\\
+\midrule
+semantic noncommutation & Order changes the induced operator or endpoint & affine add--scale histories\\
+rewrite-plan variation & Semantics agree but factorization and costs differ & matrix-chain parenthesization\\
+schedule or cut sensitivity & One computation exposes different live or residual widths & OBDD order and checkpointing\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Only the first already has the contact-curvature interpretation developed in
+Paper~I~\cite{Yuan2026AEGFoundations}.  The other two should not be called
+curvature until a connection, gauge law, or $2$-cell defect has been supplied.

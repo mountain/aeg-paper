@@ -1,0 +1,126 @@
+% Canonical Paper IV appendix.
+This appendix expands the residual construction, especially the partial-domain
+and encoding conventions suppressed in the main flow.
+
+\subsection{Why an invalid outcome is necessary}
+
+Suppose a continuation class contains the ordinary future $z\mapsto1/z$ but
+one compares only outputs on futures legal for both pasts.  The current value
+$0$ has no legal output for this future.  A common-domain convention can then
+make its comparison vacuous.  Totalization instead records
+\[
+  O(0\cdot(1/z))=\bot,
+  \qquad
+  O(1\cdot(1/z))=1,
+\]
+so the two pasts are correctly distinguished.  The same device handles type
+errors, missing registers, and forbidden resource actions.
+
+Associativity remains valid after totalization: once a computation enters
+$\bot$, every further continuation stays there.  Therefore the proof of the
+right-congruence proposition requires no special cases.
+
+\subsection{The factorization diagram}
+
+For an exact deterministic machine, Theorem~\ref{thm:minimal-exact-residual}
+produces the commutative diagram
+\[
+\begin{tikzpicture}[baseline=(current bounding box.center),node distance=18mm and 25mm]
+\node (P) {$P_C$};
+\node[right=of P] (S) {$e(P_C)$};
+\node[below=of S] (R) {$\cR_C$};
+\draw[-{Latex}] (P) -- node[above] {$e$} (S);
+\draw[-{Latex}] (P) -- node[below left] {$p\mapsto[p]$} (R);
+\draw[-{Latex}] (S) -- node[right] {$\phi$} (R);
+\end{tikzpicture}
+\]
+Every transition commutes with $\phi$, and the output factors through
+$\cR_C$.  Thus a larger exact state representation may contain caches or
+redundancy, but it cannot merge two residual classes.
+
+\subsection{One-way communication interpretation}
+
+At a cut, let Alice know the past $p$ and Bob choose the future $\eta$.  Alice
+sends one deterministic message $m(p)$; Bob must output
+$O_C(p\cdot\eta)$ for every legal pair.
+
+\begin{proposition}[Deterministic one-way lower bound]
+\label{prop:one-way-residual-bound}
+Any such exact protocol uses distinct messages for distinct residual classes.
+A fixed-width worst-case message therefore has length at least
+$\lceil\log_2|\cR_C|\rceil$.
+\end{proposition}
+
+\begin{proof}
+If $m(p)=m(p')$, Bob behaves identically for every chosen future.  Exactness
+then gives $p\equiv_Cp'$.  The counting bound follows.
+\end{proof}
+
+This interpretation makes clear why the future class matters: it is Bob's set
+of allowed tests.
+
+\subsection{Dense tensor boundary example}
+
+Let the state exposed at a cut be a dense tensor represented as a vector
+$T\in\F_q^D$.  If every linear functional
+$\ell\in(\F_q^D)^\vee$ is an allowed future observation, then two states are
+residually equivalent exactly when they are equal.  Indeed, if $T-T'\ne0$, a
+coordinate functional detects a nonzero component.  Hence
+\[
+  |\cR_C|=q^D,
+  \qquad
+  \log_2|\cR_C|=D\log_2q.
+\]
+A direct fixed-width residue encoding uses $D\lceil\log_2q\rceil$ bits.
+
+If only one nonzero functional $\ell$ is allowed, the residual quotient is
+instead $\F_q^D/\ker\ell$, which has $q$ classes.  The boundary dimension did
+not change; the legal future class did.  Sparse, low-rank, symmetric, or
+approximate tensor models change the representation again.
+
+\subsection{Prefix-free variable-length states}
+
+Let $N$ residual classes receive a prefix-free binary code with maximum length
+$b$.  Kraft's inequality gives
+\[
+  1\ge\sum_{i=1}^{N}2^{-\ell_i}
+  \ge N2^{-b},
+\]
+so $b\ge\lceil\log_2N\rceil$.  Without prefix-freeness or another decoding
+convention, a raw collection of variable-length strings cannot be counted as a
+self-delimiting state code.
+
+Average code length obeys distribution-sensitive entropy bounds, while the
+main theorem is a worst-case state-selection statement.  The two should not be
+interchanged.
+
+\subsection{Infinite residual spaces}
+
+When $\cR_C$ is infinite, cardinal logarithms do not directly give finite bit
+bounds.  One may need:
+\begin{itemize}
+  \item a topology and covering or packing numbers at scale $\varepsilon$;
+  \item a measure and Shannon or mutual information;
+  \item a metric loss and rate--distortion function;
+  \item an algebraic dimension or rank;
+  \item a computable presentation and description-length convention.
+\end{itemize}
+No one of these is canonical without an application-specific observation and
+approximation criterion.
+
+\subsection{Changing future classes}
+
+Let $M_1\subseteq M_2$ be future classes with the same pasts and observation.
+Then
+\[
+  p\equiv_{M_2}p'
+  \Longrightarrow
+  p\equiv_{M_1}p'.
+\]
+Thus there is a natural surjection
+\[
+  P/{\equiv_{M_2}}\longrightarrow P/{\equiv_{M_1}}.
+\]
+Adding tests refines the residual space; removing tests condenses it.  The
+projective passage from left-only futures to arbitrary two-sided futures is a
+group-theoretic instance of this general refinement.

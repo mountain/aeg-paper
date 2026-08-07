@@ -1,0 +1,195 @@
+% Canonical Paper IV section.
+A quotient forgets distinctions by definition.  It becomes a computationally
+meaningful state only after a future action and an observation have been
+specified.  This section gives the exact group-theoretic test for the
+projective quotient $G/H$.
+
+\subsection{Equivariant quotients and future sufficiency}
+
+Let a monoid $M$ act on a set $X$ from the left, let $q:X\to Q$ be a
+surjection, and suppose an action of $M$ on $Q$ satisfies
+\[
+  q(mx)=m q(x).
+\]
+Let $o:Q\to Y$ be an observation.  For $x,x'\in X$, define
+\[
+  x\equiv_{M,o}x'
+  \quad\Longleftrightarrow\quad
+  o(mq(x))=o(mq(x'))\quad\text{for every }m\in M.
+\]
+
+\begin{theorem}[Equivariant quotient as a residual state]
+\label{thm:equivariant-quotient-residual}
+If $q(x)=q(x')$, then $x\equiv_{M,o}x'$.  If the identity belongs to $M$ and
+$o$ is injective, then the converse also holds.  Under those hypotheses the
+future-residual quotient of $X$ is exactly $Q$.
+\end{theorem}
+
+\begin{proof}
+Equivariance gives $q(mx)=mq(x)=mq(x')=q(mx')$, and applying $o$ proves the
+first statement.  For the converse, test the identity continuation.  Then
+$o(q(x))=o(q(x'))$, and injectivity of $o$ gives $q(x)=q(x')$.
+\end{proof}
+
+The theorem does not say that every quotient is sufficient.  It says that
+sufficiency follows from a declared descended action; minimality additionally
+uses an observation that can distinguish quotient states.
+
+\subsection{Left continuation on the bivaluation quotient}
+
+For the chronology convention of Equation~\eqref{eq:chronological-evaluation},
+a future operator $k$ acts on the current operator $g$ by left multiplication:
+$g\mapsto kg$.  The right-coset quotient therefore has the canonical action
+\[
+  k\cdot(gH)=(kg)H.
+\]
+
+\begin{corollary}[Exact left-continuation state]
+\label{cor:left-continuation-exact}
+Let all elements of $G$ be allowed as left futures, include the identity
+future, and observe the resulting point of $G/H$ through an injective map.
+Then two operators have the same future behavior exactly when they lie in the
+same right coset:
+\[
+  g\equiv g'\quad\Longleftrightarrow\quad gH=g'H.
+\]
+Thus $G/H$ is the canonical minimal exact state space for this continuation
+experiment.
+\end{corollary}
+
+In particular, the $H$-coordinate discarded by projective condensation is
+invisible to every left continuation whose observation factors through the
+same quotient.
+
+\subsection{Right continuation and the normalizer boundary}
+
+Opposite chronology replaces $g$ by $gk$.  Unlike left multiplication, this
+does not automatically act on right cosets.
+
+\begin{theorem}[Descent of one right update]
+\label{thm:right-update-descent}
+For a fixed $k\in G$, the formula
+\[
+  R_k(gH)=gkH
+\]
+defines a well-defined map $G/H\to G/H$ if and only if
+\begin{equation}
+  k^{-1}Hk\subseteq H.
+  \label{eq:right-descent-inclusion}
+\end{equation}
+It is a bijection with inverse induced by $k^{-1}$ if and only if
+$k\in N_G(H)$.
+\end{theorem}
+
+\begin{proof}
+If $gH=ghH$ with $h\in H$, well-definedness requires
+$ghkH=gkH$.  Cancelling $gk$ on the left gives
+$k^{-1}hk\in H$ for every $h\in H$, which is
+\eqref{eq:right-descent-inclusion}.  The same argument for $k^{-1}$ gives the
+reverse inclusion.  Both hold exactly when $k^{-1}Hk=H$, equivalently
+$k\in N_G(H)$.
+\end{proof}
+
+\begin{corollary}[Reversible right continuation]
+\label{cor:right-group-normalizer}
+A subgroup $L\le G$ acts on $G/H$ by right multiplication if and only if
+$L\subseteq N_G(H)$.
+\end{corollary}
+
+For an infinite group, the inclusion in
+\eqref{eq:right-descent-inclusion} may be strict, so the single-update and
+reversible statements must not be conflated.  For finite $H$, equal
+cardinality turns the inclusion into equality.
+
+\begin{corollary}[Chronology-dependent visibility]
+Suppose $h\in H$ is discarded by $g\mapsto gH$.  Under left continuation one
+always has $kghH=k gH$, so $h$ remains invisible.  Under a right continuation
+$k$ for which $k^{-1}hk\notin H$, the two representatives $g$ and $gh$ no
+longer determine the same quotient state after continuation.  The discarded
+frame direction has become observable.
+\end{corollary}
+
+This is the first rigorous bridge between projective process residue and a
+future-sensitive residual.  The bridge is not the cardinality of $H$ alone;
+it is the interaction between $H$ and the declared continuation side.
+
+\subsection{The split-torus normalizer in rank one}
+
+Take the reference pair $(0,\infty)$.  Then
+\[
+  H=\{z\mapsto az:a\in K^\times\}.
+\]
+Let $J(z)=1/z$; the sign is irrelevant projectively.
+
+\begin{proposition}[Normalizer of the ordered-pair stabilizer]
+\label{prop:split-torus-normalizer}
+If $|K|>2$, then
+\[
+  N_G(H)=H\sqcup JH.
+\]
+Equivalently, a projective map normalizes $H$ exactly when it preserves the
+unordered set $\{0,\infty\}$; it either fixes the two points or interchanges
+them.
+\end{proposition}
+
+\begin{proof}
+Because $|K|>2$, choose $a\ne1$.  The map $z\mapsto az$ has fixed set exactly
+$\{0,\infty\}$.  Hence the common fixed set of $H$ is $\{0,\infty\}$.  A
+normalizer sends this common fixed set to itself.  If it fixes both points it
+lies in $H$; if it swaps them, composition with $J$ fixes both and lies in
+$H$.  Conversely, $H$ normalizes itself and $J(z)=1/z$ conjugates
+$z\mapsto az$ to $z\mapsto a^{-1}z$.
+\end{proof}
+
+Thus most right projective futures do not descend to the bivaluation quotient.
+Remembering only the rank-one projector is sufficient for the left chronology,
+but generally insufficient for arbitrary two-sided process composition.
+
+\subsection{Sufficient, exact, and minimal condensations}
+
+\begin{definition}[Future-sufficient condensation]
+For a past space $P$, a continuation class $M$, and an observation $\Obs$, a
+map $q:P\to Q$ is future-sufficient if there exist descended transitions on
+$Q$ and an output map $o:Q\to Y$ such that every observation after every
+continuation can be computed from $q(p)$.
+\end{definition}
+
+\begin{definition}[Exact and minimal condensation]
+A future-sufficient condensation is exact when
+$q(p)=q(p')$ precisely for pasts indistinguishable by all allowed futures.  It
+is minimal when every other exact deterministic state representation maps
+surjectively onto it.
+\end{definition}
+
+Theorem~\ref{thm:equivariant-quotient-residual} proves exactness for the
+projective left-action experiment.  Section~\ref{sec:contextual-residuals}
+gives the general residual construction and proves minimality without assuming
+a group quotient.
+
+\subsection{An exact-transport obstruction}
+
+A tempting way to label a path of states is to choose frames $h_t\in G$ and
+put
+\[
+  r_t=h_t h_{t-1}^{-1}.
+\]
+This transport contains no independent edge information.
+
+\begin{proposition}[Exact edge labels telescope]
+\label{prop:exact-transport-telescope}
+For $s<t$,
+\[
+  r_t r_{t-1}\cdots r_{s+1}=h_t h_s^{-1}.
+\]
+Every closed lifted path therefore has trivial product.
+\end{proposition}
+
+\begin{proof}
+All intermediate factors cancel pairwise.
+\end{proof}
+
+A nontrivial projective process holonomy consequently requires more than an
+endpoint potential.  Possible additional data include an independent
+stabilizer-valued factor in each edge, a connection on $G\to G/H$, a
+multivalued frame, or rewrite $2$-cells.  None is supplied automatically by the
+static quotient.

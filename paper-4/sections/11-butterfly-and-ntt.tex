@@ -1,0 +1,151 @@
+% Canonical Paper IV section.
+Fast transforms illustrate representation change rather than endpoint
+shortcuts.  A local butterfly has a precise projective quotient description,
+but a full transform is a multi-wire linear network and must retain data that
+one-wire projective semantics discards.
+
+\subsection{The butterfly torus-coset lemma}
+
+Let $K$ be a field with $\operatorname{char}K\ne2$ and let
+$\omega\in K^\times$.  Define
+\[
+  \mathsf B_\omega=
+  \begin{pmatrix}1&\omega\\1&-\omega\end{pmatrix},
+  \qquad
+  \mathsf B_1=
+  \begin{pmatrix}1&1\\1&-1\end{pmatrix},
+  \qquad
+  D_\omega=
+  \begin{pmatrix}1&0\\0&\omega\end{pmatrix}.
+\]
+
+\begin{proposition}[Butterfly torus coset]
+\label{prop:butterfly-coset}
+In $\GL_2(K)$,
+\begin{equation}
+  \mathsf B_\omega=\mathsf B_1D_\omega.
+  \label{eq:butterfly-factorization}
+\end{equation}
+After projectivization, if $H$ is the diagonal stabilizer of
+$(0,\infty)$, then
+\[
+  \mathsf B_\omega H=\mathsf B_1H.
+\]
+Thus all nonzero twiddle butterflies have one quotient skeleton and a
+lift-dependent diagonal label.
+\end{proposition}
+
+\begin{proof}
+Equation~\eqref{eq:butterfly-factorization} is direct multiplication, and
+$D_\omega\in H$ after projectivization.  The determinant
+$-2\omega$ is nonzero under the hypotheses.
+\end{proof}
+
+This is a right-$H$-coset statement.  It does not identify the two-wire gate
+with a one-hole arithmetic context, nor does it make the diagonal coordinate a
+canonical gauge-independent residue.
+
+\subsection{Why linear-group data remain necessary}
+
+The inverse is
+\[
+  \mathsf B_\omega^{-1}
+  =\frac12
+  \begin{pmatrix}1&1\\\omega^{-1}&-\omega^{-1}\end{pmatrix}.
+\]
+Projectivization forgets the common scalar, but exact inverse transforms and
+integer or finite-field arithmetic must retain normalization factors.  A full
+FFT or NTT therefore belongs naturally to a linear multi-wire category with
+objects $K^N$, not solely to $\PGL_2(K)$.
+
+\begin{construction}[Network AEG interface]
+A prospective multi-wire extension would have wire arities as objects,
+linear or arithmetic gates as morphisms, tensor product as parallel
+composition, and ordinary composition as layer gluing.  It should contain the
+one-wire marked histories as a subcategory and admit a semantics functor to
+maps $K^m\to K^n$.
+\end{construction}
+
+This construction is a structural proposal.  Proposition~\ref{prop:butterfly-coset}
+is the proved local interface.
+
+\subsection{Transform factorization of convolution}
+
+For a field containing a primitive $N$-th root of unity and with $N$ invertible,
+the discrete Fourier transform $F_N$ converts cyclic convolution into
+pointwise multiplication:
+\begin{equation}
+  x*y
+  =F_N^{-1}\bigl(F_Nx\odot F_Ny\bigr).
+  \label{eq:convolution-transform}
+\end{equation}
+Radix factorizations reduce the transform from a dense matrix-vector product to
+$O(N\log N)$ local butterflies in the standard algebraic operation model; the
+classical radix-two algorithm is due to Cooley and Tukey~\cite{CooleyTukey1965}.
+
+For $N=2^m$, a fixed breadth-first radix-two network has
+\begin{equation}
+  D_{\mathrm{net}}=m,
+  \qquad
+  W_{\mathrm{cell}}=\frac N2m
+  \label{eq:radix2-network-counts}
+\end{equation}
+synchronous layers and butterfly cells, respectively.
+
+Integer multiplication requires more than
+Equation~\eqref{eq:convolution-transform}: coefficient encoding, padding or a
+noncyclic construction, carry recovery, sufficiently large moduli or CRT, and
+bit-complexity analysis must also be charged.
+
+\subsection{A finite NTT calibration}
+
+Take $K=\F_{257}$.  Fermat's theorem gives $3^{256}=1$, while direct repeated
+squaring gives
+\[
+  3^{128}=-1\pmod{257}.
+\]
+Hence $3$ has order $256$.  For $N\mid256$ put
+\[
+  \zeta_N=3^{256/N};
+\]
+then $\zeta_N$ is a primitive $N$-th root.  In particular,
+$\zeta_8=64$ and $\zeta_{16}=249$.
+
+\begin{proposition}[Layer-state count]
+\label{prop:ntt-layer-states}
+Let a fixed radix-two NTT layer be invertible on $\F_{257}^N$ and let the input
+range be all of $\F_{257}^N$.  Then the reachable state set at that layer has
+exactly $257^N$ elements.  Its logarithmic cardinality is
+$N\log_2 257$ bits, while the direct fixed-width encoding by residues
+$0,\ldots,256$ uses $9N$ bits.
+\end{proposition}
+
+\begin{proof}
+An invertible layer is a bijection of $\F_{257}^N$, so its image is the whole
+space.  Cardinality and the two encodings follow immediately.
+\end{proof}
+
+For $N=8$ the network has three layers and twelve butterflies; for $N=16$ it
+has four layers and thirty-two butterflies.
+
+\subsection{Static labels versus dynamic states}
+
+A fixed transform's twiddle factors are program constants.  They may be stored
+in a table, represented by a primitive root and exponent schedule, or generated
+on demand.  Their storage--reconstruction tradeoff concerns
+$L_{\mathrm{desc}}$, work, and perhaps cache traffic.  It is not dynamic input
+entropy.  Conversely, the $N$ wire values vary with the input and belong to the
+live state.
+
+The safe representation principle is therefore:
+
+\begin{quote}
+Seek a declared change of representation in which the core operation is
+diagonal, block-diagonal, sparse, or low-bandwidth, while charging the forward
+transform, inverse transform, static constants, numerical precision, and
+communication.
+\end{quote}
+
+This principle motivates AEG-native representation search, but it is not a
+definition of every fast algorithm and does not prove an asymptotic improvement
+by itself.

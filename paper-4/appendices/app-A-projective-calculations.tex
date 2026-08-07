@@ -1,0 +1,172 @@
+% Canonical Paper IV appendix.
+This appendix fixes matrix, action, and chart conventions used in the
+projective chapters.
+
+\subsection{One-hole arithmetic contexts}
+
+Matrices act on the standard affine coordinate $z$ by
+\[
+  \begin{pmatrix}\alpha&\beta\\\gamma&\delta\end{pmatrix}\cdot z
+  =\frac{\alpha z+\beta}{\gamma z+\delta}.
+\]
+For $c\ne0$ when required, the elementary contexts have representatives
+\[
+\begin{array}{c@{\qquad}c@{\qquad}c}
+\toprule
+context & map & matrix\\
+\midrule
+z+c & z\mapsto z+c & \begin{pmatrix}1&c\\0&1\end{pmatrix}\\[2mm]
+z-c & z\mapsto z-c & \begin{pmatrix}1&-c\\0&1\end{pmatrix}\\[2mm]
+c-z & z\mapsto c-z & \begin{pmatrix}-1&c\\0&1\end{pmatrix}\\[2mm]
+cz & z\mapsto cz & \begin{pmatrix}c&0\\0&1\end{pmatrix}\\[2mm]
+z/c & z\mapsto z/c & \begin{pmatrix}1&0\\0&c\end{pmatrix}\\[2mm]
+c/z & z\mapsto c/z & \begin{pmatrix}0&c\\1&0\end{pmatrix}\\
+\bottomrule
+\end{array}
+\]
+Ordinary arithmetic retains the domain restriction for $c/z$ at $z=0$;
+projective evaluation sends $0$ to $\infty$.  A zero multiplier or a constant
+map belongs to a projective matrix monoid rather than $\PGL_2(K)$.
+
+\subsection{Generation of the projective group}
+
+Let
+\[
+  T_b(z)=z+b,
+  \qquad D_a(z)=az,
+  \qquad J(z)=-1/z.
+\]
+
+\begin{theorem}[Bilateral generators]
+\label{thm:appendix-pgl-generation}
+Translations $T_b$, nonzero scalings $D_a$, and $J$ generate
+$\PGL_2(K)$.
+\end{theorem}
+
+\begin{proof}
+Let
+\[
+  f(z)=\frac{Az+B}{Cz+D},
+  \qquad AD-BC\ne0.
+\]
+If $C=0$, then $f$ is a nonzero scaling followed by a translation.  If
+$C\ne0$, direct substitution gives
+\begin{equation}
+ f
+ =T_{A/C}\circ
+ D_{(AD-BC)/C^2}\circ
+ J\circ T_{D/C}.
+ \label{eq:mobius-factorization-appendix}
+\end{equation}
+Indeed the right side is
+\[
+  \frac AC-\frac{AD-BC}{C^2(z+D/C)}
+  =\frac{Az+B}{Cz+D}.
+\]
+\end{proof}
+
+The contexts that fix $\infty$ form the affine Borel
+\[
+  B_\infty=\Stab_G(\infty)
+  \cong\Aff(1,K).
+\]
+The second-slot division $c/z$ is the elementary arithmetic context that leaves
+this Borel and enters the other Bruhat cell.
+
+\subsection{Point--predicate covariance}
+
+For $g\in\GL(V)$, point and copoint representatives transform by
+\[
+  v\longmapsto gv,
+  \qquad
+  \varphi\longmapsto\varphi g^{-1}.
+\]
+Hence the pairing is invariant:
+\[
+  (\varphi g^{-1})(gv)=\varphi(v),
+\]
+and the rank-one projector is conjugated:
+\begin{equation}
+  \Pi_{gv,\varphi g^{-1}}
+  =g\Pi_{v,\varphi}g^{-1}.
+  \label{eq:projector-covariance}
+\end{equation}
+This explains why a bivaluation is an image--kernel result rather than two
+independent scalar coordinates.
+
+\subsection{Local affine bivaluation law}
+
+Use the local representatives of Equation~\eqref{eq:local-projector}.  Suppose
+the point coordinate obeys
+\[
+  a\longmapsto Aa+B,
+  \qquad A\ne0.
+\]
+In the standard coordinate $z=-a$, a representative is
+\[
+  G_{A,B}=\begin{pmatrix}A&-B\\0&1\end{pmatrix}.
+\]
+Let $p=-1/b$ be the projective point whose line is the kernel of
+$\varphi_b$.  Since $p$ transforms as a point,
+\[
+  p\longmapsto Ap+B.
+\]
+Solving again for $b$ gives
+\begin{equation}
+  b\longmapsto\frac{b}{A-Bb}.
+  \label{eq:local-dual-affine-law}
+\end{equation}
+A zero denominator in Equation~\eqref{eq:local-dual-affine-law} can be a chart
+escape even when the global ordered pair remains transverse.  Incidence
+failure is instead $1+ab=0$.
+
+For infinitesimal positive-real affine parameters
+$A=e^{\lambda\,\mathrm{d}v}$ and $B=\mu\,\mathrm{d}u$, the first-order laws are
+\[
+  \mathrm{d}a=\mu\,\mathrm{d}u+\lambda a\,\mathrm{d}v,
+  \qquad
+  \mathrm{d}b=\mu b^2\,\mathrm{d}u-\lambda b\,\mathrm{d}v,
+  \qquad
+  \mathrm{d}p=\mu\,\mathrm{d}u+\lambda p\,\mathrm{d}v.
+\]
+These are a point/dual-point transport pair.  They are not the same binary axis
+as operand-slot chirality.
+
+\subsection{Frame coordinate above a bivaluation}
+
+Choose the reference ordered pair $(0,\infty)$.  A third point is then any
+$t\in K^\times$.  The stabilizer
+\[
+  H=\{z\mapsto az:a\in K^\times\}
+\]
+acts by $t\mapsto at$, freely and transitively.  Thus the frame fiber is a copy
+of $K^\times$ only after this reference pair and affine coordinate have been
+chosen.  Under a different local section, the displayed $H$-coordinate changes
+by the usual gauge multiplication.
+
+\subsection{Direct normalizer calculation}
+
+Assume $|K|>2$ and let a projective matrix $g$ normalize the diagonal torus.
+The common fixed set of the torus is $\{0,\infty\}$, so $g$ preserves this set.
+If it fixes both points, it has a diagonal representative
+\[
+  \begin{pmatrix}a&0\\0&d\end{pmatrix};
+\]
+if it interchanges them, it has an antidiagonal representative
+\[
+  \begin{pmatrix}0&b\\c&0\end{pmatrix}.
+\]
+Modulo scalars these are respectively $H$ and $JH$.  This is the matrix form of
+Proposition~\ref{prop:split-torus-normalizer}.
+
+\subsection{Finite-field count from ordered frames}
+
+An ordered projective frame over $\F_q$ is a triple of pairwise distinct points.
+There are
+\[
+  (q+1)q(q-1)=q(q^2-1)
+\]
+such triples, exactly $|\PGL_2(\F_q)|$.  Forgetting the third point leaves
+$(q+1)q$ bivaluations and a fiber of $q-1$ possible frame points.  This gives a
+second proof of Proposition~\ref{prop:finite-field-counts} without counting
+invertible matrices.

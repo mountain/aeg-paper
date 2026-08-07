@@ -1,0 +1,132 @@
+% Canonical Paper IV section.
+The preceding examples varied semantic quotients and cut order.  We now keep
+the final map fixed and vary its realization.  Matrix parenthesization changes
+arithmetic work and intermediate shape; reverse-mode checkpointing exchanges
+stored history for recomputation.
+
+\subsection{Matrix-chain parenthesization}
+
+Let
+\[
+  A\in K^{d_0\times d_1},
+  \qquad B\in K^{d_1\times d_2},
+  \qquad C\in K^{d_2\times d_3}.
+\]
+Both $(AB)C$ and $A(BC)$ evaluate to the same linear map whenever the products
+are defined.
+
+\begin{proposition}[Three-matrix work and principal intermediates]
+\label{prop:matrix-chain-costs}
+Under ordinary dense multiplication, counting scalar multiplications,
+\[
+  W_L=d_0d_1d_2+d_0d_2d_3,
+  \qquad
+  R_L=d_0d_2,
+\]
+\[
+  W_R=d_1d_2d_3+d_0d_1d_3,
+  \qquad
+  R_R=d_1d_3,
+\]
+where $R_L$ and $R_R$ are the numbers of scalar entries in the principal
+intermediate matrices $AB$ and $BC$.
+\end{proposition}
+
+\begin{proof}
+Multiplying an $r\times s$ matrix by an $s\times t$ matrix uses $rst$ scalar
+multiplications in the stated algorithm and produces an $r\times t$ matrix.
+Apply this twice in each order.
+\end{proof}
+
+For $(d_0,d_1,d_2,d_3)=(100,10,1,2)$,
+\[
+  (W_L,R_L)=(1200,100),
+  \qquad
+  (W_R,R_R)=(2020,20).
+\]
+The lower-work plan has the larger principal intermediate.  The $R$ values are
+not complete peak-memory formulas: input retention, output allocation,
+overwrite policy, blocking, and temporaries still need to be declared.
+
+For four matrices, the five parenthesizations form the vertices of an
+associahedral pentagon.  If an edge is labelled by the difference of endpoint
+costs, Proposition~\ref{prop:additive-exactness-obstruction} makes its sum around
+the pentagon zero.  Positive work spent traversing the pentagon is action, not
+holonomy.
+
+\subsection{A chain and its reverse sweep}
+
+Consider a length-$N$ composition
+\[
+  x_{i+1}=f_i(x_i),
+  \qquad 0\le i<N,
+\]
+and its reverse accumulation
+\[
+  \bar x_i=Df_i(x_i)^*\bar x_{i+1}.
+\]
+The reverse step requires the corresponding forward state $x_i$.
+
+Assume each forward evaluation and each reverse local step has unit cost and
+each state has fixed size.
+
+\begin{proposition}[Two exact endpoint schedules]
+\label{prop:reverse-chain-extremes}
+The following schedules compute the same reverse result.
+\begin{enumerate}
+  \item Store all forward states.  The total local work is $2N$ and the number
+  of stored forward states is $\Theta(N)$.
+  \item Store only the input and recompute each required prefix.  The total
+  local work is
+  \begin{equation}
+    2N+\frac{N(N-1)}2,
+    \label{eq:naive-recompute-work}
+  \end{equation}
+  and only $\Theta(1)$ states need be live, apart from the declared input,
+  output, and control records.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+The store-all schedule performs $N$ forward and $N$ reverse local operations.
+For the second schedule, the initial forward pass still costs $N$, the reverse
+steps cost $N$, and reconstructing $x_i$ from $x_0$ costs $i$ forward steps.
+Summing $i=0,\ldots,N-1$ gives Equation~\eqref{eq:naive-recompute-work}.
+\end{proof}
+
+Checkpointing interpolates between these extremes.  Under a specified number
+of checkpoints and a uniform linear chain, schedules such as
+\textsc{Revolve} optimize the recomputation pattern for their declared model
+and objective~\cite{GriewankWalther2000}.
+
+\subsection{History condensation and re-expansion}
+
+A checkpoint is a materialized summary of the forward history sufficient to
+restart from that point.  Erasing it condenses the live trace further;
+recomputation re-expands the missing segment from an earlier checkpoint.  This
+interpretation is structurally compatible with AEG's process-before-result
+principle, but it does not identify a nonlinear derivative pullback with one
+global projective inverse.
+
+The example validates the live-configuration correction of
+Theorem~\ref{thm:completed-set-insufficient}.  Both schedules eventually compute
+the same forward nodes and the same reverse result, yet their live states and
+work differ.  No monotone set of ever-computed nodes can encode that tradeoff.
+
+\subsection{Reversible computation boundary}
+
+A logically reversible realization must retain or reconstruct information that
+a many-to-one step would otherwise erase.  General reversible simulations
+therefore exhibit time--space tradeoffs; Bennett's pebbling construction is a
+classical model~\cite{Bennett1989}.  The present paper uses this as an external
+calibration, not as a theorem that every AEG condensation has the same optimal
+tradeoff.
+
+\subsection{What equal semantics permits us to conclude}
+
+Matrix chains and checkpoint schedules prove that one semantic map can have
+incomparable resource vectors.  They support the Pareto viewpoint of
+Equation~\eqref{eq:pareto-resource-geometry}.  They do not show that all time
+and space costs are coordinates of one scalar ``representation volume.''  A
+unification would require a model-specific theorem relating semantic residuals,
+live encodings, and allowed re-expansions.

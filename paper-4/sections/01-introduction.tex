@@ -1,0 +1,169 @@
+% Canonical Paper IV section.
+Arithmetic evaluation is ordinarily described by a map from an expression to
+its value.  Arithmetic Expression Geometry begins one level earlier.  It treats
+an ordered evaluation history as mathematical data and asks what survives when
+that history is replaced successively by an operator, a quotient state, or an
+endpoint.  Paper~I supplies the marked-history formalism, projective evaluation,
+the affine sector, and the ACS charge shadow \cite{Yuan2026AEGFoundations}.
+Paper~II develops analysis on the regular affine spaces
+\cite{Yuan2026AEGFunctionTheory}, and Paper~III studies singular zero geometry
+and topological transport \cite{Yuan2026AEGZeroGeometry}.  The present paper
+returns to the forgetful maps themselves.
+
+The motivating hierarchy is
+\begin{equation}
+  \text{marked history}
+  \longrightarrow
+  \text{projective operator}
+  \longrightarrow
+  \text{quotient state}
+  \longrightarrow
+  \text{endpoint or observation}.
+  \label{eq:intro-hierarchy}
+\end{equation}
+Every arrow can identify distinct inputs.  It is tempting to call the resulting
+fiber ``lost information'' and to identify its logarithmic size with memory,
+representation complexity, or reconstruction time.  Such an identification is
+not valid without further data.  A fiber is an algebraic or set-theoretic
+object.  Computational complexity belongs to an encoded family of tasks in a
+specified machine model.  The missing bridge is a theorem saying which
+distinctions in a fiber can still affect an allowed future.
+
+\subsection{Four layers}
+
+We organize the subject into four layers.
+\begin{enumerate}
+  \item \textbf{Projective quotient fibers.}
+  Bilateral arithmetic histories evaluate in $G=\PGL_2(K)$.  Homogeneous
+  quotients such as $G/H$ forget a projective frame direction while retaining
+  an image--kernel projector.
+
+  \item \textbf{Contextual residuals.}
+  At a typed cut $C$, two pasts are equivalent when every common legal future
+  gives the same declared observation.  This equivalence depends on the future
+  class, the observation, and the treatment of undefined arithmetic.
+
+  \item \textbf{Operational live configurations.}
+  A run stores concrete values, checkpoints, messages, or clauses.  Its space
+  is the encoded size of what is live, not the size of an abstract quotient
+  fiber and not the set of nodes that have ever been computed.
+
+  \item \textbf{Rewrite fibers.}
+  Equal semantic objects may have many factorizations, parenthesizations, or
+  schedules.  Rewrite distance, normal-form cost, filling area, and possible
+  holonomy are properties of this realization fiber, not coordinates of an
+  endpoint alone.
+\end{enumerate}
+
+Figure~\ref{fig:intro-four-layers} records the direction of comparison used in
+this paper.  The vertical arrows are not asserted to be isomorphisms.
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}[
+  node distance=7mm and 13mm,
+  box/.style={draw,rounded corners,align=center,minimum width=38mm,minimum height=10mm},
+  arr/.style={-{Latex[length=2.2mm]},thick}
+]
+\node[box] (hist) {marked histories\\and operators};
+\node[box,right=of hist] (quot) {projective\\quotient fibers};
+\node[box,below=of quot] (res) {contextual\\residual classes};
+\node[box,left=of res] (live) {operational\\live configurations};
+\node[box,below=of live] (rew) {rewrite fibers\\and schedules};
+\draw[arr] (hist) -- node[above]{evaluation / quotient} (quot);
+\draw[arr] (quot) -- node[right,align=left]{sufficiency requires\\a compatible future action} (res);
+\draw[arr] (res) -- node[above,sloped]{encoding and realization} (live);
+\draw[arr] (rew) -- node[left]{choose a run} (live);
+\draw[arr,dashed] (hist) -- (rew);
+\end{tikzpicture}
+\caption{The four layers of Paper~IV.  A projective quotient becomes a
+future-sensitive state only after the future action and observation are fixed;
+a residual lower bound becomes operational space only after encoding and
+machine conventions are fixed.}
+\label{fig:intro-four-layers}
+\end{figure}
+
+\subsection{Main results}
+
+The paper establishes six groups of results.
+
+First, we complete the algebraic quotient layer.  A regular bivaluation---an
+ordered pair of distinct projective points---is naturally a rank-one
+idempotent.  For the ordered-pair stabilizer $H$ and the two point stabilizers
+$B_\pm$,
+\[
+  G/H\cong\Biv_K^{\mathrm{reg}},
+  \qquad
+  G/B_\pm\cong\PP^1(K).
+\]
+The principal $H$-torsor $G\to G/H$ is the projective-frame residue over a
+condensed projector.  This is algebraic condensation.  It must be distinguished
+from convergence of normalized matrix products to a singular rank-one map.
+
+Second, we prove a continuation-side theorem.  Left multiplication by every
+future operator descends to $G/H$.  A single right update by $k$ descends
+exactly when $k^{-1}Hk\subseteq H$; a reversible right action descends exactly
+when $k$ normalizes $H$.  Consequently, the same quotient may be sufficient
+for chronological continuation by left composition and insufficient for a
+right-composition convention.  The theorem gives an exact meaning to the
+statement that forgotten frame data can become visible again.
+
+Third, we define contextual continuation residuals and prove the finite exact
+minimal-state theorem.  The quotient by residual equivalence is a canonical
+deterministic online state space, in the same structural tradition as the
+Nerode equivalence for automata \cite{Nerode1958}.  Any exact implementation
+must inject this quotient into its encoded states.  This yields a bit lower
+bound and, under an explicit fixed-register snapshot convention, a
+capacity--time lower bound.
+
+Fourth, we introduce a live-configuration cost vector separating static
+description, work, elapsed steps, causal depth, peak workspace, memory--time,
+and communication.  We prove that a monotone completed-node set cannot encode
+space in models allowing deletion or recomputation.
+
+Fifth, we give a word-fiber and conditional-entropy inequality.  Exponential
+raw history growth combined with small evaluation-image growth forces large
+operator fibers and large conditional information.  The conclusion is about
+an evaluation map.  It is not a time lower bound.  Finite generating sets give
+quasi-isometric word metrics, so polynomial versus exponential group growth is
+stable under that restricted change of generators, while computational costs
+remain model-dependent.
+
+Sixth, exact case studies calibrate the distinctions.  Horner words exhibit
+charge condensation; OBDDs exhibit future-residual sensitivity to variable
+order; butterflies and NTTs exhibit representation change and static torus
+labels; matrix chains and checkpointing exhibit equal semantics with different
+work and space; and rewrite potentials exhibit a telescoping obstruction to
+nontrivial holonomy.
+
+\subsection{What is not claimed}
+
+No result in this paper asserts any of the implications
+\[
+  \text{noncommutativity}\Longrightarrow\text{negative curvature},
+  \qquad
+  \text{negative curvature}\Longrightarrow\text{exponential time},
+\]
+\[
+  \text{exponential word growth}\Longrightarrow\text{NP-hardness},
+  \qquad
+  \log|\text{fiber}|=\text{workspace}.
+\]
+The free group already has exponential metric growth while free reduction is
+linear in the input-word length.  Conversely, the OBDD example in
+Section~\ref{sec:obdd} has an exponential cut-width separation although the
+underlying variable restrictions commute.  The appropriate conclusions are
+therefore conditional comparison theorems, not a universal scalar complexity
+law.
+
+\subsection{Roadmap}
+
+Sections~\ref{sec:history-equality}--\ref{sec:projective-quotients} establish
+the history and homogeneous-space layers.  Section~\ref{sec:condensation-continuation}
+proves the quotient-continuation results.  Section~\ref{sec:contextual-residuals}
+develops residual semantics, and Section~\ref{sec:operational-resources}
+separates it from operational resources.  Sections~\ref{sec:growth-information}
+and \ref{sec:rewrite-fibers} treat growth and rewriting.  The four case-study
+sections follow.  The final two sections state the claim boundary and the
+remaining research programme.  Appendices collect calculations, proof variants,
+finite counts, and a theorem-level claim ledger.
