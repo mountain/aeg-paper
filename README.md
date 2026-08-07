@@ -29,7 +29,23 @@ Their canonical entry points are
 [`paper-3/aeg-paper-3.tex`](paper-3/aeg-paper-3.tex), and
 [`paper-4/aeg-paper-4.tex`](paper-4/aeg-paper-4.tex). The governing scope,
 mathematical-status register, migration map, and acceptance criteria are under
-[`restructure/`](restructure/README.md).
+[`governance/`](governance/README.md).
+
+## Draft status
+
+All four active manuscripts are **drafts** in the ordinary editorial and
+publication sense. Their conceptual organization, exposition, figures, and
+text--figure integration remain under development and are not yet presented as
+release-quality replacements for the archived legacy manuscript. In particular,
+[`archive/legacy-root-manuscript/`](archive/legacy-root-manuscript/) may currently
+offer a more polished reading and visual experience even where the active series has
+the newer mathematical organization.
+
+Here **draft** is a maturity label for the manuscripts as complete scholarly and
+visual works. It is not a mathematical claim-status label in the governance system
+and does not weaken or promote any theorem, proposition, conjecture, computation, or
+open problem. Claim-level status remains controlled separately by
+[`governance/05-mathematical-status.md`](governance/05-mathematical-status.md).
 
 ## Version and DOI
 
@@ -65,7 +81,7 @@ must receive explicit author approval before DOI metadata is changed.
    rewrite exactness obstructions, and fixed-model calibrations from Horner,
    OBDDs, transforms, matrix chains, and checkpointing.
 
-Papers I--IV are mathematical-review manuscripts. Paper III separates proved
+Papers I--IV are draft manuscripts under mathematical review. Paper III separates proved
 regular and conditional topological results from structural proposals and open
 problems. Paper IV separates proved quotient/residual results and fixed-model
 complexity calibrations from the open multi-wire, approximate, and
@@ -113,7 +129,7 @@ refinement, and Hodge/Siegel-energy interpretation remain open. Neither the LL
 sheet nor its parameter loop is yet selected by a general arithmetic history.
 A general functor from marked histories to arithmetic prime divisors remains
 open. The active synthesis and claim ledger are recorded in
-[`restructure/discussions/arithmetic-automorphic-zero-networks.md`](restructure/discussions/arithmetic-automorphic-zero-networks.md).
+[`governance/discussions/arithmetic-automorphic-zero-networks.md`](governance/discussions/arithmetic-automorphic-zero-networks.md).
 
 ## Arithmetic--computational research spine
 
@@ -136,7 +152,7 @@ The paper proves left/right continuation criteria, the minimal deterministic
 residual theorem, finite fiber and entropy inequalities, and exact case-study
 counts. It does not infer hardness from noncommutativity, negative curvature,
 exponential group growth, or raw history-fiber size. The detailed decisions,
-source audit, red-team report, and closure record are under `restructure/`.
+source audit, red-team report, and closure record are under `governance/`.
 
 ## Building the manuscripts
 
@@ -164,14 +180,15 @@ python paper-4/scripts/verify-paper4.py
 ```
 
 The restructuring audit records baseline and current build results in
-[`restructure/audit-report.md`](restructure/audit-report.md) and the per-paper
+[`governance/audit-report.md`](governance/audit-report.md) and the per-paper
 closure reports.
 
 ## Repository authority
 
 Not every note in this repository is current mathematics. When sources
 conflict, use the order specified in
-[`restructure/AGENTS.md`](restructure/AGENTS.md). In particular, `notes/`,
-`misc/`, `revision-*`, `archive/arxiv/`, `archive/paper4p/`, and `knots/`
-retain historical or exploratory material and are not canonical paper sources
-unless the migration log or a per-paper source audit says otherwise.
+[`AGENTS.md`](AGENTS.md). In particular, `notes/`,
+`images/sources/`, `revision-*`, `archive/arxiv/`, `archive/paper4p/`, and
+`notes/knots-and-loops/` retain historical or exploratory material and are not
+canonical paper sources unless the migration log or a per-paper source audit says
+otherwise.

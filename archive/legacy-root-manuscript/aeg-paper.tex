@@ -1,0 +1,195 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+
+\usepackage{archive/legacy-latex-styles/arxiv}
+\usepackage{archive/legacy-latex-styles/quiver}
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage[hypertexnames=false]{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage[english]{babel}
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{graphicx}
+\usepackage{stmaryrd}
+
+\usepackage{tikz}
+\usetikzlibrary{angles,fit,arrows,calc,math,intersections,through,backgrounds}
+\usepackage{qtree}
+
+\usepackage{listings}
+\lstset{
+  basicstyle=\itshape,
+  xleftmargin=3em,
+  literate={->}{$\rightarrow$}{2}
+           {α}{$\alpha$}{1}
+           {δ}{$\delta$}{1}
+}
+
+\usepackage{xstring}
+\usepackage{stmaryrd}
+\usepackage{wasysym}
+\usepackage{textcomp}
+\usepackage{blindtext}
+\usepackage{subfiles}
+
+\newtheorem{definition}{Definition}
+\numberwithin{definition}{section}
+\newtheorem{lemma}{Lemma}
+\numberwithin{lemma}{section}
+\newtheorem{proposition}{Proposition}
+\numberwithin{proposition}{section}
+\newtheorem{corollary}{Corollary}
+\numberwithin{corollary}{section}
+\newtheorem{theorem}{Theorem}
+\numberwithin{theorem}{section}
+\newtheorem{example}{Theorem}
+\numberwithin{example}{section}
+
+\DeclareMathSymbol{\mathinvertedexclamationmark}{\mathclose}{operators}{'074}
+\DeclareMathSymbol{\mathexclamationmark}{\mathclose}{operators}{'041}
+\makeatletter
+\newcommand{\raisedmathinvertedexclamationmark}{%
+  \mathclose{\mathpalette\raised@mathinvertedexclamationmark\relax}%
+}
+\newcommand{\raised@mathinvertedexclamationmark}[2]{%
+  \raisebox{\depth}{$\m@th#1\mathinvertedexclamationmark$}%
+}
+\begingroup\lccode`~=`! \lowercase{\endgroup
+  \def~}{\@ifnextchar`{\raisedmathinvertedexclamationmark\@gobble}{\mathexclamationmark}}
+\mathcode`!="8000
+\makeatother
+
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\DeclareMathOperator{\Tr}{Tr} % Example, if trace was needed
+
+\title{Arithmetic Expression Geometry I: Foundations}
+
+\date{} 				% Or removing it
+
+\author{
+Mingli Yuan \\
+Swarma Research\\
+Beijing, 100083 \\
+\texttt{mingli.yuan@gmail.com}
+}
+
+\renewcommand{\headeright}{A preprint}
+\renewcommand{\undertitle}{A preprint}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We introduce Arithmetic Expression Geometry (AEG), a framework in which arithmetic expressions are studied through
+the geometry of their evaluation histories rather than only through their final numerical values. For a distinguished
+class of threadlike expressions, additive and multiplicative updates determine two generating directions of propagation,
+and their infinitesimal interplay yields the arithmetic flow equation
+\[
+    \frac{da}{ds}=\mu\cos\theta + a\lambda\sin\theta.
+\]
+This leads to the notion of an Arithmetic Expression Space: a Riemannian surface equipped with an assignment field
+satisfying the corresponding first-order law. We construct the basic model $\mathfrak{E}_0$ on the upper half-plane,
+where $a=-x/y$ satisfies both the flow equation and a Laplace eigenvalue equation, and we record the first singular
+model $\mathfrak{E}_1$.
+
+The first intrinsic invariant of the theory is \emph{arithmetic torsion}, arising from the non-commutativity of additive
+and multiplicative propagation. To globalize this invariant, we introduce the \emph{Accumulative Commutative Space}
+(ACS), a plane of total additive and logarithmic multiplicative charges, and prove a Stokes--type triple identity that
+expresses global torsion equivalently as an evaluation difference, an $e^M$-weighted area integral, and a boundary
+integral.
+
+To localize the same phenomenon, we construct a three-dimensional \emph{arithmetic expression contact manifold}
+with contact form $\alpha = da - (\mu\,du + \lambda a\,dv)$. Its horizontal distribution recovers the arithmetic flow,
+yields a natural horizontal differential calculus $\delta$, and produces a curvature package proportional to
+$\mu\lambda\,du\wedge dv$. We then define \emph{arithmetic holomorphic fields} by an arithmetic Cauchy--Riemann
+system and show that they satisfy a twisted second-order equation, providing the first analytic structure of the theory.
+Taken together, these results establish the first foundational layer of AEG: arithmetic evaluation admits a path
+language, intrinsic invariants, local and global geometric structures, and the beginnings of a function theory.
+\end{abstract}
+
+\keywords{arithmetic expressions, hyperbolic geometry}
+
+\setcounter{tocdepth}{2}
+\tableofcontents
+\newpage
+
+\section{Introduction}\label{sec:introduction}
+
+\input{sections/sec01.tex}
+\newpage
+
+\section{Basic concepts}\label{sec:concepts}
+
+\input{sections/sec02-00.tex}
+\input{sections/sec02-01.tex}
+\newpage
+
+\section{Flow equation}\label{sec:flowequation}
+
+\input{sections/sec03.tex}
+\newpage
+
+\section{The zeroth and first kind spaces: \texorpdfstring{$\mathfrak{E}_0$}{E0} and \texorpdfstring{$\mathfrak{E}_1$}{E1}}\label{sec:01kind}
+
+\input{sections/sec04.tex}
+\newpage
+
+\section{The accumulative commutative space}\label{sec:acspace}
+
+\input{sections/sec05.tex}
+\newpage
+
+\section{Arithmetic expression contact structure}\label{sec:ecstructure}
+
+\input{sections/sec06.tex}
+\newpage
+
+\section{Differential calculus on the contact structure}\label{ch:differential_calculus}
+
+\input{sections/sec07.tex}
+\newpage
+
+\section{Arithmetic holomorphic function}\label{ch:holomorphic}
+
+\input{sections/sec08.tex}
+\newpage
+
+
+\section{Outlook: relation theory, meaningful zeros, and analytic future}\label{sec:outlook}
+
+\input{sections/sec09.tex}
+\newpage
+
+\bibliographystyle{plain}
+\bibliography{bibliography/aeg-paper}
+\newpage
+
+\appendix
+
+The appendices collect computations and examples that support the main text, with explicit cross-references from the relevant sections.
+
+\section{Supplementary calculations for the model spaces and the ACS}\label{app:model-acs}
+
+\input{sections/sec10.tex}
+\newpage
+
+\section{Supplementary calculations for contact / delta / holomorphicity}\label{app:contact-delta-holomorphicity}
+
+\input{sections/sec11.tex}
+\newpage
+
+\section{Supplementary examples on equality levels and first neutralities}\label{app:equality-neutralities}
+
+\input{sections/sec12.tex}
+\newpage
+
+
+\end{document}

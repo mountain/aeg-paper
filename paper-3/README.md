@@ -2,13 +2,20 @@
 
 *Branched Pullbacks, Arithmetic Zero Networks, and Topological Transport*
 
-This directory contains the mathematical-review manuscript
+This directory contains a draft manuscript under mathematical review:
 
 > **Arithmetic Expression Geometry III: Singular Zero Geometry and Tubes**
 > *Branched Pullbacks, Arithmetic Zero Networks, and Topological Transport*
 
 Its canonical source and generated artifact are `aeg-paper-3.tex` and
 `aeg-paper-3.pdf`.
+
+## Draft status
+
+Here **draft** describes editorial and publication maturity: the conceptual
+organization, exposition, figures, and text--figure integration remain under
+development. It is not a mathematical claim-status label in `governance/` and does
+not alter the status of any individual result.
 
 The manuscript studies the boundary of the regular-zero theory established in
 Paper I.  Its central distinction is between a total zero set, a smooth zero
@@ -176,18 +183,18 @@ paper-3/
 
 - multi-zero, `E_k`, `E_log`, and tube notes (historical motivation only);
 - tube-related parts of legacy `sections/sec04.tex` and `sec09.tex`;
-- `knots/` and knot-related files under `misc/`;
+- `notes/knots-and-loops/` and knot-related files under `images/sources/`;
 - restructuring discussions on tubes, braid monodromy, and Markov invariance.
 
 The `E_k` and `E_log` notations are historical research labels, not settled model
 classes.  A scan of the current tree and 249 Git commits found no verifiable general
 construction under either name.  The formulas in this manuscript are newly
 rederived and audited rather than silently attributed to those labels.  The
-authoritative scope and status records under `../restructure/` take precedence over
+authoritative scope and status records under `../governance/` take precedence over
 all legacy provenance sources.
 
 ## Integration records
 
-- [`../restructure/paper-III-source-audit.md`](../restructure/paper-III-source-audit.md)
-- [`../restructure/decisions-paper-III.md`](../restructure/decisions-paper-III.md)
-- [`../restructure/paper-III-closure-report.md`](../restructure/paper-III-closure-report.md)
+- [`../governance/paper-III-source-audit.md`](../governance/paper-III-source-audit.md)
+- [`../governance/decisions-paper-III.md`](../governance/decisions-paper-III.md)
+- [`../governance/paper-III-closure-report.md`](../governance/paper-III-closure-report.md)

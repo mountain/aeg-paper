@@ -1,0 +1,202 @@
+% Archived legacy source; mathematical content below is unchanged.
+This section globalizes the local torsion--area law observed in Section~\ref{subsec:gridsandtorsion}. In $\mathfrak{E}_0$ we saw that a single commutation square already carries torsion, but for a general expression history the two orders $\gamma$ and $\bar\gamma$ do not automatically bound a common region in the expression space itself. The role of the accumulative commutative space (ACS) is precisely to solve this bookkeeping problem: it forgets the current assignment value and remembers only the accumulated additive and multiplicative charges.
+
+\subsection{Global arithmetic torsion in the ACS}
+\label{sec:global_torsion_acs_narrative_enhanced_lc}
+
+Let
+\[
+    \gamma=(g_1,\dots,g_n)
+\]
+be a finite arithmetic path, applied in that order, where each $g_j$ is either an additive step
+\[
+    \oplus_{\mu_j}:x\mapsto x+\mu_j
+\]
+or a multiplicative step
+\[
+    \otimes_{\lambda_j}:x\mapsto e^{\lambda_j}x.
+\]
+Thus the evaluation of $\gamma$ at an initial value $x$ is
+\[
+    \nu_x(\gamma):=g_n\circ\cdots\circ g_1(x).
+\]
+We write $\bar\gamma=(g_n,\dots,g_1)$ for the reversed history.
+
+The ACS is the plane with coordinates $(A,M)$, where $A$ records accumulated additive charge and $M$ records accumulated logarithmic multiplicative charge. For each step $g_j$ define
+\[
+    (\Delta A_j,\Delta M_j)=
+    \begin{cases}
+        (\mu_j,0), & g_j=\oplus_{\mu_j},\\[4pt]
+        (0,\lambda_j), & g_j=\otimes_{\lambda_j}.
+    \end{cases}
+\]
+Starting from $(A_0,M_0)=(0,0)$, set
+\[
+    (A_k,M_k):=\sum_{j=1}^k (\Delta A_j,\Delta M_j),
+    \qquad 1\le k\le n.
+\]
+The broken line joining
+\[
+    (A_0,M_0),(A_1,M_1),\dots,(A_n,M_n)
+\]
+is called the \emph{ACS path} of $\gamma$ and is denoted by $C_\gamma$.
+
+The decisive point is that the endpoint $(A_n,M_n)$ depends only on the total charges and not on the order in which they were accumulated. Hence $C_\gamma$ and $C_{\bar\gamma}$ always have the same initial and terminal points. When all additive and multiplicative charges are nonnegative, these two monotone paths bound an obvious planar region between them. In general we interpret $\Sigma_\gamma$ as any oriented $2$-chain in the ACS satisfying
+\[
+    \partial\Sigma_\gamma = C_{\bar\gamma}-C_\gamma.
+\]
+This is the global geometric object to which torsion will be attached.
+
+The algebraic definition of global torsion is the comparison of a path with its reversed order:
+\begin{equation}
+    \tau_{\mathrm{alg}}(\gamma)
+    := \nu_x(\gamma)-\nu_x(\bar\gamma).
+    \label{eq:T_alg_formal_final_narrative_enhanced_acs_AM_lc}
+\end{equation}
+We will usually shorten this to $\tau(\gamma)$. At first sight the difference depends on the initial value $x$, but in fact that dependence cancels. The cleanest way to see this is to rewrite evaluation itself as a weighted line integral on the ACS.
+
+\begin{proposition}\label{prop:acs-evaluation-formula}
+For every arithmetic path $\gamma$ and every initial value $x$,
+\begin{equation}
+    \nu_x(\gamma)=e^{M_\gamma}x+\int_{C_{\bar\gamma}} e^M\,dA,
+    \label{eq:acs-evaluation-formula}
+\end{equation}
+where $(A,M)$ are the ACS coordinates and $M_\gamma$ is the total multiplicative charge of $\gamma$. Consequently, $\tau_{\mathrm{alg}}(\gamma)$ is independent of $x$.
+\end{proposition}
+
+\begin{proof}
+Let $I_A\subseteq\{1,\dots,n\}$ be the set of additive indices, and for each $j\in I_A$ define the \emph{future multiplicative charge}
+\[
+    M_j^{+}:=\sum_{\substack{k>j\\ g_k=\otimes_{\lambda_k}}}\lambda_k.
+\]
+When the path is evaluated, the additive contribution $\mu_j$ is subsequently scaled by every later multiplicative step, hence by the factor $e^{M_j^{+}}$. Therefore
+\[
+    \nu_x(\gamma)=e^{M_\gamma}x+\sum_{j\in I_A}\mu_j e^{M_j^{+}}.
+\]
+Now read the reversed path $\bar\gamma$. The additive edge corresponding to the original step $g_j=\oplus_{\mu_j}$ is traversed exactly when the current ACS height is $M_j^{+}$, because all multiplicative steps that were later in $\gamma$ have become earlier in $\bar\gamma$. Thus
+\[
+    \int_{C_{\bar\gamma}} e^M\,dA = \sum_{j\in I_A}\mu_j e^{M_j^{+}},
+\]
+with the sign of $\mu_j$ automatically incorporated by the oriented edge integral. Substituting this into the previous expression gives \eqref{eq:acs-evaluation-formula}.
+
+Applying the same formula to $\bar\gamma$ yields
+\[
+    \nu_x(\bar\gamma)=e^{M_\gamma}x+\int_{C_\gamma} e^M\,dA,
+\]
+since $M_{\bar\gamma}=M_\gamma$. The $x$-terms therefore cancel in \eqref{eq:T_alg_formal_final_narrative_enhanced_acs_AM_lc}.
+\end{proof}
+
+Two points are worth emphasizing. First, the kernel $e^M$ is not inserted by hand: it is forced by the fact that every additive step feels all multiplicative steps that come after it. Second, the ACS does not evaluate an expression by itself; rather, it records exactly the commutative data needed to compare two different histories of the same total charge.
+
+\subsubsection*{A worked four-step example}
+Take
+\[
+    \gamma=(\oplus_1,\otimes_{\log 2},\oplus_1,\otimes_{\log 2}).
+\]
+Then
+\[
+    \nu_x(\gamma)=2\bigl(2(x+1)+1\bigr)=4x+6,
+\]
+while
+\[
+    \nu_x(\bar\gamma)=2(2x+1)+1=4x+3.
+\]
+So the global torsion is
+\[
+    \tau(\gamma)=3.
+\]
+In the ACS, the two histories become
+\[
+    C_\gamma:\ (0,0)\to(1,0)\to(1,\log 2)\to(2,\log 2)\to(2,2\log 2),
+\]
+\[
+    C_{\bar\gamma}:\ (0,0)\to(0,\log 2)\to(1,\log 2)\to(1,2\log 2)\to(2,2\log 2).
+\]
+Hence
+\[
+    \int_{C_\gamma} e^M\,dA = 1+2=3,
+    \qquad
+    \int_{C_{\bar\gamma}} e^M\,dA = 2+4=6,
+\]
+and therefore
+\[
+    \tau(\gamma)=\int_{C_{\bar\gamma}} e^M\,dA-\int_{C_\gamma} e^M\,dA=3.
+\]
+Equivalently, the region between the two monotone paths consists of two rectangles, and its positive $e^M$-weighted area is
+\[
+    \int_0^1\int_0^{\log 2} e^M\,dM\,dA
+    +
+    \int_1^2\int_{\log 2}^{2\log 2} e^M\,dM\,dA
+    =1+2=3.
+\]
+This is the simplest nontrivial instance of the general theorem below.
+
+\subsection{The triple identity for global torsion}
+\label{subsec:acs-triple-identity}
+
+The previous proposition turns the algebraic difference $\nu_x(\gamma)-\nu_x(\bar\gamma)$ into a boundary integral. The next step is immediate: since the ACS is a plane, Stokes' theorem converts that boundary integral into an interior integral.
+
+\begin{theorem}[Triple identity]\label{thm:acs-triple-identity}
+Let
+\[
+    \eta:=e^M\,dA
+\]
+be the canonical $1$-form on the ACS. Then for every arithmetic path $\gamma$,
+\begin{equation}
+    \tau_{\mathrm{alg}}(\gamma)
+    =\oint_{\partial\Sigma_\gamma}\eta
+    =\iint_{\Sigma_\gamma} d\eta
+    =\iint_{\Sigma_\gamma} e^M\,dM\wedge dA.
+    \label{eq:triple_identity_final_narrative_enhanced_acs_AM_lc}
+\end{equation}
+In particular, when all charges are nonnegative and $\Sigma_\gamma$ is the canonical region between the two monotone ACS paths, $\tau(\gamma)$ is exactly the positive $e^M$-weighted area between $C_\gamma$ and $C_{\bar\gamma}$.
+\end{theorem}
+
+\begin{proof}
+By Proposition~\ref{prop:acs-evaluation-formula},
+\[
+    \tau_{\mathrm{alg}}(\gamma)
+    =\nu_x(\gamma)-\nu_x(\bar\gamma)
+    =\int_{C_{\bar\gamma}} e^M\,dA - \int_{C_\gamma} e^M\,dA
+    =\oint_{\partial\Sigma_\gamma}\eta.
+\]
+Since $d\eta=e^M\,dM\wedge dA$, Stokes' theorem gives
+\[
+    \oint_{\partial\Sigma_\gamma}\eta=\iint_{\Sigma_\gamma} d\eta
+    =\iint_{\Sigma_\gamma} e^M\,dM\wedge dA.
+\]
+This proves the triple identity.
+\end{proof}
+
+The theorem is the global version of the staircase examples from Section~\ref{subsec:gridsandtorsion}. There, torsion was seen cell by cell inside $\mathfrak{E}_0$; here, the same phenomenon is reorganized on a commutative parameter plane where two histories with the same total charges become the boundary of a genuine filling. That is the conceptual role of the ACS.
+
+\subsection{An algebraic remark: the ACS as abelianization shadow}
+\label{sec:acs_algebraic_significance_revised_AM_lc}
+
+The ACS is not merely a convenient plane for drawing weighted areas. It also has a direct algebraic meaning. If one forgets numerical evaluation and remembers only the two formal generators
+\[
+    X_A \quad\text{and}\quad X_M,
+\]
+then symbolic expression histories form the free group
+\[
+    F_2=\langle X_A,X_M\rangle.
+\]
+The map
+\[
+    \mathrm{ab}:F_2\longrightarrow \mathbb Z^2,
+    \qquad
+    X_A\longmapsto (1,0),\quad X_M\longmapsto (0,1),
+\]
+is the standard abelianization homomorphism of the free group \cite{LyndonSchupp1977Combinatorial}. After restoring the basic units $\mu_0$ and $\lambda_0$, and passing from $\mathbb Z^2$ to a real coordinate plane when convenient, one recovers exactly the charge map
+\[
+    \gamma\longmapsto (A_\gamma,M_\gamma)
+\]
+used throughout this section.
+
+In this sense the ACS is the \emph{commutative shadow} of the non-commutative path calculus. Reversing a word changes its history but not its total abelianized charge, which is why $C_\gamma$ and $C_{\bar\gamma}$ end at the same point. More refined subgroup, congruence, and quotient questions are certainly suggested by this observation, but they are not needed for the foundational arc of the present paper.
+
+\subsection{Conclusion and transition}
+
+The ACS solves the global bookkeeping problem for torsion. It converts a comparison between two evaluation histories in the arithmetic expression space into a boundary--interior relation on a commutative $(A,M)$-plane. The next section asks for a local differential-geometric engine whose curvature reproduces the same non-commutative defect infinitesimally. This leads naturally to the arithmetic expression contact manifold.
+
+Further supporting computations are recorded in Appendix~\ref{app:model-acs}.

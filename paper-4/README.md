@@ -6,8 +6,15 @@
 
 **Canonical source:** `aeg-paper-4.tex`  
 **Generated manuscript:** `aeg-paper-4.pdf`  
-**Status:** mathematical-review manuscript  
+**Status:** draft manuscript under mathematical review<br>
 **Date:** 2026-08-07
+
+## Draft status
+
+Here **draft** describes editorial and publication maturity: the conceptual
+organization, exposition, figures, and text--figure integration remain under
+development. It is not a mathematical claim-status label in `governance/` and does
+not alter the status of any individual result.
 
 Paper IV studies what is forgotten when an arithmetic history is replaced by
 an operator, a projective quotient state, or an endpoint, and determines when

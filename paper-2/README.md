@@ -1,12 +1,19 @@
 # Arithmetic Expression Geometry II — Hyperbolic Real Function Theory
 
-This directory contains the mathematical-review manuscript
+This directory contains a draft manuscript under mathematical review:
 
 > **Arithmetic Expression Geometry II: Hyperbolic Real Function Theory**
 > *Horizontal Operators, Boundary Problems, and Arithmetic Holomorphicity*
 
 The canonical source and generated artifact are [`aeg-paper-2.tex`](aeg-paper-2.tex)
 and `aeg-paper-2.pdf`.
+
+## Draft status
+
+Here **draft** describes editorial and publication maturity: the conceptual
+organization, exposition, figures, and text--figure integration remain under
+development. It is not a mathematical claim-status label in `governance/` and does
+not alter the status of any individual result.
 
 ## Main results
 
