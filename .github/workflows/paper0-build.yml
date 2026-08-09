@@ -1,0 +1,46 @@
+name: Paper 0 build
+
+on:
+  pull_request:
+    paths:
+      - "paper-0/**"
+      - "bibliography/**"
+      - "build.sh"
+      - ".github/workflows/paper0-build.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-paper-0:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install TeX dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            texlive-latex-base \
+            texlive-latex-recommended \
+            texlive-latex-extra \
+            texlive-fonts-recommended
+
+      - name: Build Paper 0
+        run: ./build.sh 0
+
+      - name: Check important LaTeX warnings
+        run: |
+          if grep -E "(Undefined control sequence|LaTeX Warning: Reference .* undefined|LaTeX Warning: Citation .* undefined|There were undefined references|multiply defined)" paper-0/aeg-paper-0.log; then
+            echo "Paper 0 contains unresolved LaTeX warnings" >&2
+            exit 1
+          fi
+
+      - name: Upload Paper 0 PDF
+        uses: actions/upload-artifact@v4
+        with:
+          name: aeg-paper-0
+          path: paper-0/aeg-paper-0.pdf
+          if-no-files-found: error
