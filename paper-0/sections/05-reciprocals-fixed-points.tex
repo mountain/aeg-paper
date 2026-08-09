@@ -96,15 +96,20 @@ For $r\ne1$, its finite fixed point is
 Thus, when $|r|<1$, the geometric-series truncations converge to the fixed
 point of their generating update.
 
-The matrix
+For $r\ne0$, the affine update is invertible and has projective matrix
 \[
-  M_r=\begin{pmatrix}r&1\\0&1\end{pmatrix}
+  M_r=\begin{pmatrix}r&1\\0&1\end{pmatrix};
 \]
-always fixes $\infty$.  As $r\to1$, the finite point $q_r$ approaches
-$\infty$ in $\PP^1$.  At $r=1$, $T_1(s)=s+1$ has no finite fixed point and has
-$\infty$ as its repeated projective fixed point.  The pole of
-$r\mapsto1/(1-r)$ is therefore exactly the parameter at which finite
-fixed-point closure becomes parabolic closure at infinity.
+it fixes $\infty$.  The exceptional value $r=0$ gives the constant update
+$T_0(s)=1$, whose matrix is singular and which is not an element of
+$\PGL_2$.  This degenerate case still has the finite fixed point $q_0=1$ but
+carries no invertible projective dynamics.
+
+As $r\to1$, the finite point $q_r$ approaches $\infty$ in $\PP^1$.  At
+$r=1$, $T_1(s)=s+1$ has no finite fixed point and has $\infty$ as its repeated
+projective fixed point.  The pole of $r\mapsto1/(1-r)$ is therefore exactly
+the parameter at which finite fixed-point closure becomes parabolic closure at
+infinity.
 
 \begin{proposition}[Affine iteration]
 \label{prop:p0-affine-iteration}
