@@ -1,0 +1,223 @@
+The left-expanded comb becomes geometric once its one-hole sections are
+restricted to translations and nonzero scalings.  This section gives the
+zeroth-kind picture in the elementary form needed here.  Paper~I later derives
+the same model from the positive affine group and develops its differential
+geometry.
+
+\subsection{The zeroth-kind background}
+
+Let
+\[
+  \mathbb H=\{(x,y)\in\R^2:y>0\},
+\]
+and fix $\mu,\lambda>0$.  Put
+\begin{equation}\label{eq:p0-e0-data}
+  g_{\mu,\lambda}
+  =\frac1{y^2}
+   \left(\frac{\dd x^2}{\mu^2}
+        +\frac{\dd y^2}{\lambda^2}\right),
+  \qquad
+  a(x,y)=-\frac{x}{y}.
+\end{equation}
+We call this elementary model $\mathfrak E_0(\mu,\lambda)$.  Paper~I uses the
+notation $\mathfrak E_{\mathrm{hyp}}(\mu,\lambda)$ for the same normalized
+regular model.
+
+\begin{proposition}[Assignment law]
+\label{prop:p0-e0-assignment-law}
+The assignment in \eqref{eq:p0-e0-data} satisfies
+\[
+  |\nabla a|_{g_{\mu,\lambda}}^2
+  =\mu^2+\lambda^2a^2.
+\]
+After the coordinate change $X=(\lambda/\mu)x$, the metric is
+$\lambda^{-2}(\dd X^2+\dd y^2)/y^2$; in particular it is a constant rescaling
+of the standard upper-half-plane metric.
+\end{proposition}
+
+\begin{proof}
+Since
+\[
+  a_x=-\frac1y,
+  \qquad
+  a_y=\frac{x}{y^2}=-\frac ay,
+\]
+and
+\[
+  g_{\mu,\lambda}^{-1}
+  =\mu^2y^2\,\partial_x\otimes\partial_x
+   +\lambda^2y^2\,\partial_y\otimes\partial_y,
+\]
+one gets
+\[
+  |\nabla a|^2
+  =\mu^2y^2a_x^2+\lambda^2y^2a_y^2
+  =\mu^2+\lambda^2a^2.
+\]
+The normalized metric formula follows by substituting
+$\dd x=(\mu/\lambda)\dd X$.
+\end{proof}
+
+The assignment contours are the rays
+\[
+  a(x,y)=c
+  \quad\Longleftrightarrow\quad
+  x=-cy,
+\]
+while horizontal lines $y=\text{constant}$ are horocycles based at the ideal
+point $\infty$.  The affine chart therefore singles out infinity before any
+projective completion is performed.
+
+\subsection{Assignment-compatible moves}
+
+For $s\in\R$ and $k>0$, define
+\begin{equation}\label{eq:p0-grid-moves}
+  \mathsf X_s(x,y)=(x-sy,y),
+  \qquad
+  \mathsf Y_k(x,y)=\left(x,\frac yk\right).
+\end{equation}
+
+\begin{proposition}[Arithmetic action on the assignment]
+\label{prop:p0-grid-assignment-action}
+The maps in \eqref{eq:p0-grid-moves} satisfy
+\[
+  a\circ\mathsf X_s=a+s,
+  \qquad
+  a\circ\mathsf Y_k=ka.
+\]
+Consequently, translation and positive scaling of the current arithmetic value
+can be represented by motions of points in $\mathfrak E_0$.
+\end{proposition}
+
+\begin{proof}
+Direct substitution gives
+\[
+  a(x-sy,y)=-\frac{x-sy}{y}=a(x,y)+s,
+\]
+and
+\[
+  a\left(x,\frac yk\right)
+  =-\frac{x}{y/k}=k a(x,y).
+\]
+\end{proof}
+
+These transformations are assignment-compatible; they are not generally
+isometries of $g_{\mu,\lambda}$.  The distinction is useful: the grid records
+arithmetic propagation, whereas the metric later measures its infinitesimal
+geometry.
+
+For an integer $m\ge2$, the two moves satisfy the exact relation
+\begin{equation}\label{eq:p0-bs-relation}
+  \mathsf Y_m^{-1}\circ\mathsf X_s^m\circ\mathsf Y_m
+  =\mathsf X_s.
+\end{equation}
+Indeed, $\mathsf X_s^m=\mathsf X_{ms}$, and conjugation by
+$\mathsf Y_m$ divides the additive displacement by $m$.  Equation
+\eqref{eq:p0-bs-relation} is the elementary $BS(m,1)$-type relation visible in
+the grid; no complexity conclusion is inferred from it.
+
+\subsection{Paths from prefix evaluation}
+
+Let a left-expanded affine expression have chronological sections
+\[
+  F_i(z)=\alpha_i z+\beta_i,
+  \qquad \alpha_i\ne0.
+\]
+For an initial arithmetic value $z_0$, define
+\[
+  z_i=F_i(z_{i-1}),
+  \qquad i=1,\ldots,n.
+\]
+Choose a point $p_0\in\mathbb H$ with $a(p_0)=z_0$, and realize each
+translation or positive scaling by the corresponding map in
+\eqref{eq:p0-grid-moves}.  The successive points
+\[
+  p_0,p_1,\ldots,p_n
+\]
+form the \emph{point path} of the bounded expression in this chosen grid
+realization.  By Proposition~\ref{prop:p0-grid-assignment-action},
+\[
+  a(p_i)=z_i.
+\]
+Thus the geometry records every intermediate value, not only the endpoint.
+
+\begin{example}[A four-step path]
+\label{ex:p0-four-step-path}
+Start from $z_0=1$ and apply
+\[
+  z\mapsto4z,
+  \qquad z\mapsto z-1,
+  \qquad z\mapsto2z,
+  \qquad z\mapsto z-3.
+\]
+The value history is
+\[
+  1\longmapsto4\longmapsto3\longmapsto6\longmapsto3.
+\]
+In the grid this becomes two transverse scale moves and two horocyclic
+translation moves.  The final value $3$ alone does not determine this path.
+\end{example}
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[
+  x=0.62cm,y=0.58cm,
+  axis/.style={-{Latex[length=2mm]},thick,black!70},
+  hline/.style={thin,blue!45},
+  vline/.style={thin,green!55!black},
+  path/.style={very thick,black},
+  every node/.style={font=\scriptsize}
+]
+  \fill[blue!2] (-8.3,0) rectangle (8.3,8.7);
+  \draw[axis] (-8.5,0)--(8.7,0) node[right] {$x$};
+  \draw[axis] (0,-0.1)--(0,9.0) node[above] {$y$};
+  \foreach \yy in {1,2,4,8}
+    {\draw[hline] (-8.2,\yy)--(8.2,\yy);}
+  \foreach \xx in {-8,-6,-4,-3,-2,-1,1,2,3,4,6,8}
+    {\draw[vline] (\xx,0.08)--(\xx,8.45);}
+  \node[red!65!black] at (-8.0,8.35) {$1$};
+  \node[red!65!black] at (-8.0,4.25) {$2$};
+  \node[red!65!black] at (-8.0,2.25) {$4$};
+  \node[red!65!black] at (-8.0,1.25) {$8$};
+  \node[red!65!black] at (0.25,8.35) {$0$};
+
+  \coordinate (p0) at (-8,8);
+  \coordinate (p1) at (-8,2);
+  \coordinate (p2) at (-6,2);
+  \coordinate (p3) at (-6,1);
+  \coordinate (p4) at (-3,1);
+  \draw[path] (p0)--(p1)--(p2)--(p3)--(p4);
+  \foreach \p/\lab/\pos in {p0/{1}/above,p1/{4}/left,p2/{3}/above,p3/{6}/left,p4/{3}/above}
+    {\fill (\p) circle (2pt) node[\pos] {$\lab$};}
+  \node[font=\small,anchor=west] at (-1.6,7.3)
+    {$1\xrightarrow{\times4}4\xrightarrow{-1}3
+      \xrightarrow{\times2}6\xrightarrow{-3}3$};
+\end{tikzpicture}
+\caption{A schematic point path in the zeroth-kind arithmetic grid.  The
+black polyline retains the intermediate propagation that the endpoint value
+forgets.}
+\label{fig:p0-path-grid}
+\end{figure}
+
+\subsection{The affine algebra behind the path}
+
+Every affine prefix has a unique form
+\[
+  G_i(z)=A_i z+B_i,
+  \qquad A_i\ne0.
+\]
+If $F_i(z)=\alpha_i z+\beta_i$, then
+\begin{equation}\label{eq:p0-affine-prefix-recursion}
+  A_i=\alpha_i A_{i-1},
+  \qquad
+  B_i=\alpha_i B_{i-1}+\beta_i,
+  \qquad (A_0,B_0)=(1,0).
+\end{equation}
+The point path is therefore the evaluation of an affine matrix path
+\[
+  \begin{pmatrix}A_i&B_i\\0&1\end{pmatrix}
+  \begin{pmatrix}z_0\\1\end{pmatrix}.
+\]
+The lower-left entry remains zero at every stage.  Projectively this means that
+all prefixes stabilize the same point $\infty$.  Section~\ref{sec:p0-ripples}
+shows what changes when right-slot division makes that entry nonzero.

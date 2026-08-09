@@ -1,0 +1,230 @@
+Right-slot division makes three elementary notions meet: reciprocal
+arithmetic, a pole in an affine chart, and the projective point at infinity.
+Iteration adds a fourth notion: a finite or infinite expression can be the
+closure of a recurrence at one of its fixed points.  We keep the algebraic
+fixed-point equation, analytic convergence, and projective continuation
+distinct.
+
+\subsection{Arithmetic reciprocals and projective poles}
+
+For $c\ne0$, the ordinary map
+\[
+  J_c(z)=\frac{c}{z}
+\]
+is defined on $K\setminus\{0\}$.  Its matrix is
+\[
+  J_c\leftrightarrow
+  \begin{pmatrix}0&c\\1&0\end{pmatrix},
+\]
+so projectively
+\[
+  J_c(0)=\infty,
+  \qquad
+  J_c(\infty)=0.
+\]
+This continuation does not make ordinary division by zero admissible.
+
+The reciprocal coordinate centered at a finite point $q$ is
+\begin{equation}\label{eq:p0-pole-coordinate}
+  w_q(z)=\frac1{z-q}.
+\end{equation}
+It sends $q$ to infinity and infinity to zero.  The rational functions whose
+only projective pole is $q$---equivalently, those regular on
+$\PP^1\setminus\{q\}$ and at the old point infinity---form
+\[
+  K[w_q]=K\!\left[\frac1{z-q}\right].
+\]
+The usual polynomial chart $K[z]$ is the corresponding ring when the chosen
+pole is $\infty$.  This is a coordinate statement, not a claim that one pole
+gauge is globally preferred.
+
+By Theorem~\ref{thm:p0-ripple-pencil-formula}, the same $q$ is the common
+boundary tangency point of the horocycles pulled back through $w_q$.  The
+denominator zero and the ripple center are therefore two readings of one
+projective datum.
+
+\subsection{A reciprocal from an infinite expansion}
+
+Let
+\begin{equation}\label{eq:p0-geometric-recursion}
+  S_0=0,
+  \qquad
+  S_{n+1}=1+rS_n.
+\end{equation}
+Then
+\[
+  S_n=1+r\bigl(1+r(\cdots(1+r\cdot0)\cdots)\bigr)
+      =\sum_{k=0}^{n-1}r^k.
+\]
+Scalar multiplication is commutative, so this example does not by itself
+separate left and right slots; it shows how a reciprocal can arise as recursive
+closure.
+
+\begin{proposition}[Finite and infinite geometric expansion]
+\label{prop:p0-finite-geometric-expansion}
+If $r\ne1$, then
+\begin{equation}\label{eq:p0-finite-geometric-quotient}
+  S_n=\frac{1-r^n}{1-r}.
+\end{equation}
+If $K=\R$ or $\CC$ and $|r|<1$, then
+\[
+  S_n\longrightarrow\frac1{1-r}.
+\]
+Formally, $(1-r)^{-1}=\sum_{k\ge0}r^k$ in $K[[r]]$.
+\end{proposition}
+
+\begin{proof}
+Multiplication of the finite sum by $1-r$ telescopes to $1-r^n$.
+Under $|r|<1$, $r^n\to0$.  The formal identity follows coefficient by
+coefficient.
+\end{proof}
+
+The convergence hypothesis is active.  For $r=-1$ the sequence oscillates,
+and for $|r|>1$ it generally does not converge to the algebraically existing
+reciprocal.
+
+\subsection{Fixed-point closure and escape to infinity}
+
+Put
+\[
+  T_r(s)=1+rs.
+\]
+For $r\ne1$, its finite fixed point is
+\begin{equation}\label{eq:p0-geometric-fixed-point}
+  q_r=\frac1{1-r}.
+\end{equation}
+Thus, when $|r|<1$, the geometric-series truncations converge to the fixed
+point of their generating update.
+
+For $r\ne0$, the affine update is invertible and has projective matrix
+\[
+  M_r=\begin{pmatrix}r&1\\0&1\end{pmatrix};
+\]
+it fixes $\infty$.  The exceptional value $r=0$ gives the constant update
+$T_0(s)=1$, whose matrix is singular and which is not an element of
+$\PGL_2$.  This degenerate case still has the finite fixed point $q_0=1$ but
+carries no invertible projective dynamics.
+
+As $r\to1$, the finite point $q_r$ approaches $\infty$ in $\PP^1$.  At
+$r=1$, $T_1(s)=s+1$ has no finite fixed point and has $\infty$ as its repeated
+projective fixed point.  The pole of $r\mapsto1/(1-r)$ is therefore exactly
+the parameter at which finite fixed-point closure becomes parabolic closure at
+infinity.
+
+\begin{proposition}[Affine iteration]
+\label{prop:p0-affine-iteration}
+Let $T(z)=az+b$ with $a\ne0$.  If $a\ne1$, put
+$q=b/(1-a)$.  Then
+\begin{equation}\label{eq:p0-affine-centered-form}
+  T(z)=q+a(z-q),
+  \qquad
+  T^n(z)=q+a^n(z-q).
+\end{equation}
+Over $\R$ or $\CC$, every finite orbit converges to $q$ when $|a|<1$.
+If $a=1$ and $b\ne0$, then $T^n(z)=z+nb$ and the only projective fixed point
+is $\infty$.
+\end{proposition}
+
+\begin{proof}
+The relation $(1-a)q=b$ gives the centered form, and induction gives its
+$n$th iterate.
+\end{proof}
+
+Algebraic existence, attraction, and projective fixed-point structure are
+different statements; they coincide only under additional hypotheses.
+
+\subsection{Right reciprocal iteration and continued fractions}
+
+A stationary right reciprocal update is
+\begin{equation}\label{eq:p0-right-reciprocal-map}
+  F(z)=a+\frac{b}{z},
+  \qquad b\ne0,
+\end{equation}
+with matrix
+\[
+  M_F=\begin{pmatrix}a&b\\1&0\end{pmatrix}.
+\]
+Ordinary iteration is defined only while every intermediate denominator is
+nonzero.  Its finite truncations are generalized continued fractions; the
+matrix product remains projectively meaningful when a truncation reaches
+infinity.  This is the standard matrix mechanism behind continued fractions
+\cite{Rosen1954ContinuedFractions}.
+
+\begin{proposition}[Reciprocal fixed points]
+\label{prop:p0-reciprocal-fixed-points}
+The finite fixed points of \eqref{eq:p0-right-reciprocal-map} solve
+\begin{equation}\label{eq:p0-reciprocal-quadratic}
+  z^2-az-b=0.
+\end{equation}
+At a nonzero fixed point $q$,
+\[
+  F'(q)=-\frac{b}{q^2}.
+\]
+Over $\CC$, $q$ is locally attracting when $|F'(q)|<1$ and locally repelling
+when $|F'(q)|>1$.
+\end{proposition}
+
+\begin{proof}
+Multiply $q=a+b/q$ by $q$ and differentiate $F$.
+\end{proof}
+
+\begin{example}[The golden-ratio expansion]
+\label{ex:p0-golden-ratio}
+For $F(z)=1+1/z$ and $z_0=1$, the orbit is
+\[
+  1,\quad2,\quad\frac32,\quad\frac53,\quad\frac85,\ldots.
+\]
+The fixed points are
+\[
+  \phi=\frac{1+\sqrt5}{2},
+  \qquad
+  -\phi^{-1}=\frac{1-\sqrt5}{2}.
+\]
+Since $|F'(\phi)|=\phi^{-2}<1$, the positive fixed point is attracting on the
+relevant positive branch.  The infinite continued fraction
+\[
+  1+\cfrac1{1+\cfrac1{1+\cdots}}
+\]
+denotes $\phi$ only after this convergence has been established; the
+fixed-point equation alone does not select an attracting root in every field
+or domain.
+\end{example}
+
+For nonstationary maps
+\[
+  F_k(z)=a_k+\frac{b_k}{z},
+  \qquad
+  M_k=\begin{pmatrix}a_k&b_k\\1&0\end{pmatrix},
+\]
+the $n$th truncation is represented by $M_n\cdots M_1$.  The nested expression,
+the recurrence, and matrix multiplication are the same finite calculation.
+
+\subsection{General projective fixed points}
+
+For
+\[
+  F(z)=\frac{Az+B}{Cz+D},
+  \qquad AD-BC\ne0,
+\]
+a finite fixed point satisfies
+\begin{equation}\label{eq:p0-general-mobius-fixed-point}
+  Cz^2+(D-A)z-B=0.
+\end{equation}
+In homogeneous coordinates, fixed points are the eigenlines of the representing
+matrix.  Infinity is fixed exactly when $C=0$.  Over an algebraic closure a
+nonidentity projective map has two fixed points counted with multiplicity;
+over the base field they may be distinct, repeated, or visible only after a
+field extension.
+
+The elementary chain is now complete:
+\[
+  \text{reciprocal}
+  \longrightarrow
+  \text{pole}
+  \longrightarrow
+  \infty
+  \longrightarrow
+  \text{fixed-point closure}
+  \longrightarrow
+  \text{matrix eigenline}.
+\]

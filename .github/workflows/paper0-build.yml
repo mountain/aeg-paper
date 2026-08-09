@@ -1,0 +1,57 @@
+name: Paper 0 and Paper I build
+
+on:
+  pull_request:
+    paths:
+      - "paper-0/**"
+      - "paper-1/**"
+      - "bibliography/**"
+      - "build.sh"
+      - ".github/workflows/paper0-build.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-foundational-papers:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install TeX dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            lmodern \
+            texlive-latex-base \
+            texlive-latex-recommended \
+            texlive-latex-extra \
+            texlive-fonts-recommended
+
+      - name: Build Paper 0
+        run: ./build.sh 0
+
+      - name: Build Paper I
+        run: ./build.sh 1
+
+      - name: Check important LaTeX warnings
+        run: |
+          status=0
+          for log in paper-0/aeg-paper-0.log paper-1/aeg-paper-1.log; do
+            if grep -E "(Undefined control sequence|LaTeX Warning: Reference .* undefined|LaTeX Warning: Citation .* undefined|There were undefined references|multiply defined)" "$log"; then
+              echo "$log contains unresolved LaTeX warnings" >&2
+              status=1
+            fi
+          done
+          exit "$status"
+
+      - name: Upload foundational PDFs
+        uses: actions/upload-artifact@v4
+        with:
+          name: aeg-foundational-papers
+          path: |
+            paper-0/aeg-paper-0.pdf
+            paper-1/aeg-paper-1.pdf
+          if-no-files-found: error

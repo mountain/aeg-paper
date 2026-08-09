@@ -1,0 +1,102 @@
+The earliest presentations of Arithmetic Expression Geometry began with a
+simple picture: a nested arithmetic expression can be read as a sequence of
+updates of one current value, and that sequence can be drawn as a path.  This
+picture was developed for one comb orientation.  The opposite comb orientation
+was visible in the syntax but was not given an equally explicit geometry.
+Division shows that the omission is substantive.  Dividing the evolving value
+by a constant remains affine, whereas dividing a constant by the evolving
+value introduces inversion, a pole, and the projective point at infinity.
+
+This paper supplies the elementary prelude that is missing between ordinary
+arithmetic syntax and the formal marked-history theory of Paper~I.  Its main
+objects are two recursively defined combs:
+\[
+  L_k[z]=\omega_k(L_{k-1}[z],c_k),
+  \qquad
+  R_k[z]=\omega_k(c_k,R_{k-1}[z]),
+  \qquad L_0[z]=R_0[z]=z.
+\]
+The index is chronological: the operation with index $1$ is evaluated first,
+and the operation with index $k$ is the $k$th layer added around the already
+computed subtree.  Thus a left-expanded comb carries its active subtree in the
+first operand slot, while a right-expanded comb carries it in the second.
+This explicit convention is used throughout; no conclusion depends on an
+ambiguous planar drawing convention.
+
+The two combs have the same dependency shape: their internal vertices form a
+chain, so their internal evaluation order is unique.  They differ in the
+one-hole maps attached to that chain.  For a binary operation $\omega$ and a
+constant $c$, the two sections are
+\[
+  C^{(1)}_{\omega,c}[z]=\omega(z,c),
+  \qquad
+  C^{(2)}_{\omega,c}[z]=\omega(c,z).
+\]
+For addition and multiplication the two sections agree.  For subtraction they
+remain affine but differ by a reflection.  For division they separate sharply:
+\[
+  C^{(1)}_{/,c}[z]=\frac{z}{c},
+  \qquad
+  C^{(2)}_{/,c}[z]=\frac{c}{z}.
+\]
+The first fixes infinity; the second exchanges zero and infinity.
+
+This algebraic difference suggests two complementary geometric readings.  A
+left-expanded affine expression is naturally read covariantly: choose an
+initial point and push it forward through the successive updates.  On the
+basic upper-half-plane model this gives the familiar zigzag \emph{point path}.
+A right-expanded projective expression is naturally read contravariantly:
+choose an output horocycle and pull it back through the successive outer
+contexts.  The inverse images are parallel lines when the current operator has
+its pole at infinity and nested circles when the pole is finite.  We call the
+resulting one-parameter family a \emph{ripple pencil}.  The term is descriptive;
+the underlying objects are ordinary horocycles and their M\"obius pullbacks.
+
+The paper has three aims.
+
+\begin{enumerate}
+  \item It gives the left and right combs in parallel, proves their elementary
+  correspondence through opposite operations, and identifies exactly where
+  division destroys affine symmetry.
+
+  \item It develops two elementary pictures on the same upper-half-plane
+  background: a point path in the zeroth-kind arithmetic expression space and
+  a ripple pencil tangent at the pole of a fractional linear operator.
+
+  \item It unifies the pictures by $2\times2$ matrices.  Prefix products push
+  points forward; the same matrices pull horocycles back, determine poles and
+  fixed points, and place the affine stabilizer of infinity inside
+  $\PGL_2$.
+\end{enumerate}
+
+Reciprocals and iteration provide the bridge between the finite and infinite
+pictures.  The scalar identity
+\[
+  \frac{1}{1-r}=1+r+r^2+\cdots
+\]
+is treated as a convergence statement, not a formal equality without
+hypotheses.  Its finite truncations satisfy a fixed-point recursion, and the
+finite fixed point $1/(1-r)$ escapes to infinity at $r=1$.  Replacing the
+affine recursion by $z\mapsto a+b/z$ gives finite continued fractions and a
+quadratic fixed-point equation.  These examples make poles, infinity, and
+iterative closure visible before the more general projective and dynamical
+machinery is introduced.
+
+The status boundary is important.  Everything proved here is elementary
+algebra, upper-half-plane geometry, or local one-dimensional dynamics.  The
+paper does not define a new projective metric, a projective arithmetic
+expression space, or a general convergence theory for infinite expressions.
+Ordinary division remains partial even when its M\"obius continuation is
+well-defined on the projective line.  Paper~I retains the marked-history
+formalism, the classification of sequential trees, projective evaluation of
+bilateral histories, affine flow, torsion, and contact curvature.  The present
+paper prepares those constructions without revising their terminology.
+
+The organization follows the mathematical dependency.  Section~\ref{sec:p0-two-combs}
+fixes the two combs and their one-hole algebra.  Section~\ref{sec:p0-paths}
+constructs the point-path picture in the basic model.  Section~\ref{sec:p0-ripples}
+derives ripple pencils from M\"obius pullback.  Section~\ref{sec:p0-reciprocals}
+treats reciprocals, poles, infinity, geometric-series closure, and fixed
+points.  Section~\ref{sec:p0-projective-unification} gives the matrix and
+projective synthesis, and Section~\ref{sec:p0-interface} records the precise
+interface exported to Paper~I.

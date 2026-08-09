@@ -7,20 +7,10 @@
 \usepackage[english]{babel}
 \usepackage{lmodern}
 \usepackage{amsmath,amssymb,amsthm,mathtools}
-\usepackage{booktabs}
-\usepackage{graphicx}
-\usepackage{microtype}
-\usepackage{xcolor}
-\usepackage{tikz}
+\usepackage{booktabs,graphicx,microtype,xcolor,tikz,url}
 \usetikzlibrary{arrows.meta,positioning,calc}
-\usepackage{url}
-\usepackage[
-  colorlinks=true,
-  linkcolor=blue!45!black,
-  citecolor=green!35!black,
-  urlcolor=blue!55!black,
-  pdfencoding=auto
-]{hyperref}
+\usepackage[colorlinks=true,linkcolor=blue!45!black,citecolor=green!35!black,
+  urlcolor=blue!55!black,pdfencoding=auto]{hyperref}
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{proposition}[theorem]{Proposition}
@@ -51,61 +41,36 @@
 
 \title{\textbf{Arithmetic Expression Geometry I: Foundations}\\[0.45em]
 \large Sequential Histories, Affine Flow, Torsion, and Contact Geometry}
-
-\author{
-Mingli Yuan\\
-Swarma Research\\
-Beijing 100083, China
-}
-
-\date{August 6, 2026\\[0.25em]
-\small Draft manuscript under mathematical review. The repository's existing Zenodo DOI refers to an earlier version.}
+\author{Mingli Yuan\\Swarma Research\\Beijing 100083, China}
+\date{August 6, 2026\\[0.25em]\small Draft manuscript under mathematical review.}
 
 \begin{document}
 \maketitle
 
 \begin{quote}\small
 \textbf{Draft notice.}
-This manuscript is a working draft in the editorial and publication sense.  Its
-conceptual organization, exposition, figures, and text--figure integration remain
-under development; the archived legacy manuscript may currently provide a more
-polished visual and expository experience.  Here ``draft'' is not a mathematical
-claim-status label in the repository governance system and does not alter the stated
+This manuscript is a working draft in the editorial and publication sense.
+Here ``draft'' is not a mathematical claim-status label and does not alter the
 status of any theorem, proposition, computation, conjecture, or open problem.
 \end{quote}
 
 \begin{abstract}
-Arithmetic Expression Geometry (AEG) retains the ordered history of an arithmetic
-evaluation instead of identifying an expression with its endpoint value.  We first
-classify the finite binary expression trees having a unique legal order of internal
-evaluation: their internal vertices form a single spine.  Marking an accumulator on
-such a tree produces a chronological word of one-hole contexts, while keeping
-operand-slot chirality distinct from temporal reversal and path inverse.
-Non-degenerate bilateral contexts act projectively on $\PP^1(K)$.  Over an arbitrary
-field $K$, translations, nonzero scalings, and inversion generate $\PGL_2(K)$; the
-contexts fixing infinity form its affine Borel sector.  The $\sqrt2$-translation and
-inversion sublanguage realizes the $q=4$ Hecke group while preserving the
-history--operator--coset distinction.  The positive real affine component carries
-two translation cocycles and yields
-\[
-  \frac{da}{ds}=\mu\cos\theta+\lambda a\sin\theta.
-\]
-We define regular arithmetic expression spaces intrinsically and derive their arithmetic
-frame.  For $\mu,\lambda>0$ we construct a complete upper-half-plane model of
-curvature $-\lambda^2$ with assignment $a=-x/y$.  When $\mu\ne0$, zero is a
-regular value; if the AES is
-also connected, complete, and boundaryless, then
-$M\cong Z(a)\times\mathbb R$ and $Z(a)$ is connected.  Isolated or branching zeros
-therefore require singular data or a failure of these global hypotheses.  For positive add--scale
-histories, a direct cocycle gives charge-compatible pairs a torsion invariant and an
-exact weighted Stokes identity in the Accumulative Commutative Space.  Finally, the
-contact form
-$\alpha=da-\mu\,du-\lambda a\,dv$ localizes the same order defect through
-$[D_u,D_v]=\mu\lambda\partial_a$.  Exact open and closed finite defects are separated
-from their common infinitesimal curvature.  These results establish the affine
-foundational sector of AEG inside its projective semantics; analytic function theory,
-singular tube topology, projective condensation, and complexity are left to later
-papers.
+Paper~0 develops the elementary pure-comb prelude: left-expanded point paths,
+right-expanded ripple pencils, reciprocals, poles, infinity, fixed points, and
+their common matrix representation.  The present paper begins with the
+intrinsic history layer.  We classify finite binary expression trees having a
+unique legal order of internal evaluation: their internal vertices form one
+spine.  Marking an accumulator produces a chronological word of one-hole
+contexts while keeping operand-slot chirality distinct from temporal reversal
+and path inverse.  Nondegenerate bilateral contexts act projectively on
+$\PP^1(K)$ and generate $\PGL_2(K)$; the contexts fixing infinity form the
+affine Borel sector.  The positive real affine component yields the arithmetic
+flow $da/ds=\mu\cos\theta+\lambda a\sin\theta$, a complete hyperbolic model,
+regular-zero rigidity, affine cocycles, an exact weighted ACS torsion formula,
+and the contact curvature $[D_u,D_v]=\mu\lambda\partial_a$.  Paper~I retains
+the marked-history terminology and theorem-level foundations; Paper~0 is the
+canonical elementary source for the path/ripple and reciprocal--pole--infinity
+pictures.
 \end{abstract}
 
 \noindent\textbf{Keywords:}
@@ -116,54 +81,43 @@ Hecke group; hyperbolic geometry; cocycles; contact geometry; regular zero sets
 \tableofcontents
 \newpage
 
+\section*{Prelude: From Paper 0 to Paper I}
+\addcontentsline{toc}{section}{Prelude: From Paper 0 to Paper I}
+\input{sections/00-paper-zero-interface.tex}
+
 \section{Introduction}\label{sec:introduction}
 \input{sections/01-introduction.tex}
-
 \section{Sequential Arithmetic Histories}\label{sec:sequential-histories}
 \input{sections/02-sequential-histories.tex}
-
 \section{Projective Semantics and the Affine Sector}\label{sec:projective-affine}
 \input{sections/03-projective-affine.tex}
-
 \section{Affine Cocycles and Relative Defects}\label{sec:affine-cocycles}
 \input{sections/04-affine-cocycles.tex}
-
 \section{Continuous Arithmetic Flow}\label{sec:affine-flow}
 \input{sections/05-affine-flow.tex}
-
 \section{The Basic Hyperbolic Expression Space}\label{sec:hyperbolic-model}
 \input{sections/06-hyperbolic-model.tex}
-
 \section{Zero Loci and Singular Expression Spaces}\label{sec:zero-geometry}
 \input{sections/07-zero-geometry.tex}
-
 \section{Global Torsion and the Accumulative Commutative Space}\label{sec:acs-torsion}
 \input{sections/08-acs-torsion.tex}
-
 \section{Contact Connection and Horizontal Curvature}\label{sec:contact-curvature}
 \input{sections/09-contact-curvature.tex}
-
 \section{Conclusions and Research Interfaces}\label{sec:conclusion}
 \input{sections/10-conclusion.tex}
 
 \appendix
-
 \section{Composition, action, and domain conventions}\label{app:conventions}
 \input{appendices/app-A-conventions.tex}
-
 \section{Affine cocycle calculations}\label{app:affine-cocycles}
 \input{appendices/app-B-affine-cocycles.tex}
-
 \section{Hyperbolic-model calculations}\label{app:hyperbolic-calculations}
 \input{appendices/app-C-hyperbolic-calculations.tex}
-
 \section{ACS and contact calculations}\label{app:acs-contact}
 \input{appendices/app-D-acs-contact.tex}
-
 \section{Equality and elementary neutrality examples}\label{app:equality-neutrality}
 \input{appendices/app-E-equality-neutrality.tex}
 
 \bibliographystyle{plain}
 \bibliography{../bibliography/aeg-paper}
-
 \end{document}

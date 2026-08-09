@@ -1,0 +1,136 @@
+% Canonical entry point for Arithmetic Expression Geometry 0.
+\documentclass[11pt]{article}
+
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,decorations.pathreplacing}
+\usepackage{url}
+\usepackage[
+  colorlinks=true,
+  linkcolor=blue!45!black,
+  citecolor=green!35!black,
+  urlcolor=blue!55!black,
+  pdfencoding=auto
+]{hyperref}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{convention}[theorem]{Convention}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{warning}[theorem]{Warning}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\Aff}{\operatorname{Aff}}
+\newcommand{\PGL}{\operatorname{PGL}}
+\newcommand{\PSL}{\operatorname{PSL}}
+\newcommand{\Stab}{\operatorname{Stab}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\dd}{\,\mathrm{d}}
+\newcommand{\im}{\operatorname{Im}}
+
+\title{\textbf{Arithmetic Expression Geometry 0: Paths and Ripple Pencils}\\[0.45em]
+\large Left and Right Expansions, Reciprocals, and Projective Unification}
+
+\author{
+Mingli Yuan\\
+Swarma Research\\
+Beijing 100083, China
+}
+
+\date{August 9, 2026\\[0.25em]
+\small Draft manuscript under mathematical review.}
+
+\begin{document}
+\maketitle
+
+\begin{quote}\small
+\textbf{Draft notice.}
+This elementary prelude is under mathematical and editorial review.  It fixes
+explicit left/right conventions, separates ordinary arithmetic from projective
+continuation, and marks all convergence statements with their hypotheses.  It
+does not alter the marked-history formalism of Paper~I; it supplies the
+preliminary geometry on which that formalism acts.
+\end{quote}
+
+\begin{abstract}
+Arithmetic expressions with a single internal spine admit two elementary
+extreme forms.  In a left-expanded expression the already-computed subtree
+occupies the first operand slot, whereas in a right-expanded expression it
+occupies the second.  Both have a unique internal evaluation order, but their
+natural geometric readings differ.  Left expansion produces a covariant point
+path on the addition--multiplication grid of the basic upper-half-plane model.
+Right expansion, especially through division by the evolving value, produces
+fractional linear maps; pulling back standard horocycles gives a nested pencil
+of circles tangent at the operator pole, which we call a ripple pencil.
+
+We develop these pictures in parallel.  Arithmetic reciprocation exchanges a
+finite point with infinity, geometric-series recursion realizes
+$1/(1-r)$ as the fixed-point closure of $S_{n+1}=1+rS_n$, and the singular
+parameter $r=1$ is exactly where the finite fixed point escapes to the
+projective point at infinity.  Repeated right reciprocal expansion gives the
+usual continued-fraction recursion $z\mapsto a+b/z$, whose fixed points govern
+convergence when an attracting branch exists.  Finally, matrices place point
+paths, poles, fixed points, and ripple pencils in one projective geometry:
+left-expanded affine arithmetic stabilizes infinity, while right-slot division
+introduces inversion and, together with translations and nonzero scalings,
+generates $\PGL_2(K)$.  The paper is an elementary prelude to the marked
+bilateral histories, affine flow, torsion, and contact geometry developed in
+Paper~I.
+\end{abstract}
+
+\noindent\textbf{Keywords:}
+arithmetic expressions; left and right combs; paths; ripple pencils; reciprocal;
+continued fractions; poles; fixed points; projective geometry
+
+\setcounter{tocdepth}{2}
+\tableofcontents
+\newpage
+
+\section{Introduction}\label{sec:p0-introduction}
+\input{sections/01-introduction.tex}
+
+\section{Two Elementary Expansions}\label{sec:p0-two-combs}
+\input{sections/02-two-combs.tex}
+
+\section{Left Expansion as a Point Path}\label{sec:p0-paths}
+\input{sections/03-paths.tex}
+
+\section{Right Expansion as a Ripple Pencil}\label{sec:p0-ripples}
+\input{sections/04-ripple-pencils.tex}
+
+\section{Reciprocals, Poles, Infinity, and Fixed Points}\label{sec:p0-reciprocals}
+\input{sections/05-reciprocals-fixed-points.tex}
+
+\section{Matrix and Projective Unification}\label{sec:p0-projective-unification}
+\input{sections/06-projective-unification.tex}
+
+\section{Interface to Paper I}\label{sec:p0-interface}
+\input{sections/07-interface.tex}
+
+\appendix
+\section{Elementary Calculations}\label{app:p0-calculations}
+\input{appendices/app-A-calculations.tex}
+
+\nocite{Beardon1983DiscreteGroups,Rosen1954ContinuedFractions}
+\bibliographystyle{plain}
+\bibliography{../bibliography/aeg-paper}
+
+\end{document}
