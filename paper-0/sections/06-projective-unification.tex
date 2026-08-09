@@ -1,0 +1,267 @@
+The two geometric pictures now have a common algebraic carrier.  A one-hole
+arithmetic section is represented by a $2\times2$ matrix; chronological
+composition is matrix multiplication, point paths are matrix orbits, ripple
+pencils are inverse images under the same products, poles are inverse images
+of infinity, and fixed points are eigenlines.
+
+\subsection{Elementary arithmetic matrices}
+
+Let $K$ be a field.  In homogeneous coordinates, write
+\[
+  z=[z:1],
+  \qquad
+  \infty=[1:0],
+\]
+and let
+\[
+  M=\begin{pmatrix}A&B\\C&D\end{pmatrix}
+\]
+act by
+\[
+  M\cdot z=\frac{Az+B}{Cz+D}.
+\]
+Nonzero scalar multiples represent the same element of $\PGL_2(K)$.
+
+The nondegenerate elementary sections have the following representatives.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{lll}
+\toprule
+one-hole section & affine formula & matrix \\
+\midrule
+$C^{(1)}_{+,c}=C^{(2)}_{+,c}$
+& $z+c$
+& $\begin{pmatrix}1&c\\0&1\end{pmatrix}$ \\
+$C^{(1)}_{-,c}$
+& $z-c$
+& $\begin{pmatrix}1&-c\\0&1\end{pmatrix}$ \\
+$C^{(2)}_{-,c}$
+& $c-z$
+& $\begin{pmatrix}-1&c\\0&1\end{pmatrix}$ \\
+$C^{(1)}_{\times,c}=C^{(2)}_{\times,c}$
+& $cz$
+& $\begin{pmatrix}c&0\\0&1\end{pmatrix}$ \\
+$C^{(1)}_{/,c}$
+& $z/c$
+& $\begin{pmatrix}1&0\\0&c\end{pmatrix}$ \\
+$C^{(2)}_{/,c}$
+& $c/z$
+& $\begin{pmatrix}0&c\\1&0\end{pmatrix}$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Here $c\ne0$ whenever invertibility requires it.  The table has two immediate
+consequences.
+
+\begin{enumerate}
+  \item Every pure slot-$(1)$ section is affine and fixes $\infty$.
+  \item The projectively new primitive is slot-$(2)$ division.  Up to a
+  nonzero scaling, it is inversion.
+\end{enumerate}
+
+Ordinary arithmetic and projective continuation remain separate.  A matrix in
+$\PGL_2(K)$ acts everywhere on $\PP^1(K)$, while the corresponding ordinary
+word may be undefined at an intermediate denominator zero.
+
+\subsection{Chronological products}
+
+Let $F_1,\ldots,F_n$ be nondegenerate sections with matrix representatives
+$M_1,\ldots,M_n$, and suppose $F_1$ is applied first.  Define
+\begin{equation}\label{eq:p0-prefix-matrices}
+  P_k=M_kM_{k-1}\cdots M_1,
+  \qquad
+  G_k=F_k\circ\cdots\circ F_1.
+\end{equation}
+Then $P_k$ represents $G_k$.
+
+\begin{theorem}[One matrix, four readings]
+\label{thm:p0-four-matrix-readings}
+Write
+\[
+  P_k=\begin{pmatrix}A_k&B_k\\C_k&D_k\end{pmatrix}.
+\]
+The same prefix matrix determines:
+
+\begin{enumerate}
+  \item the point-path state
+  \[
+    z_k=G_k(z_0)=\frac{A_kz_0+B_k}{C_kz_0+D_k};
+  \]
+
+  \item the projective pole
+  \[
+    p_k=G_k^{-1}(\infty)
+      =-D_k/C_k
+  \]
+  when $C_k\ne0$, and $p_k=\infty$ when $C_k=0$;
+
+  \item the fixed-point equation
+  \[
+    C_kz^2+(D_k-A_k)z-B_k=0;
+  \]
+
+  \item over $\R$, when a lift has positive determinant, the ripple pencil
+  $G_k^{-1}(\mathcal H_t)$ from
+  Theorem~\ref{thm:p0-ripple-pencil-formula}.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+The first formula is the matrix action.  The pole solves
+$C_kz+D_k=0$.  The fixed-point equation comes from
+$z(C_kz+D_k)=A_kz+B_k$.  The final statement is the definition of the ripple
+pencil together with formula \eqref{eq:p0-imaginary-mobius}.
+\end{proof}
+
+Thus \emph{path} and \emph{ripple} are not two unrelated representations.  They
+are the covariant and contravariant geometries of one chronological matrix
+product.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[
+  box/.style={draw=black!60,rounded corners=3pt,fill=blue!5,
+              minimum width=31mm,minimum height=9mm,align=center,font=\small},
+  arr/.style={-{Latex[length=2mm]},thick,black!65},
+  every node/.style={font=\small}
+]
+  \node[box,fill=violet!7] (word) at (0,2.0)
+    {one-hole word\\$F_1,\ldots,F_k$};
+  \node[box,fill=orange!8] (matrix) at (0,0.65)
+    {prefix matrix\\$P_k=M_k\cdots M_1$};
+  \node[box] (path) at (-4.2,-1.1) {point path\\$P_k\cdot z_0$};
+  \node[box] (pole) at (-1.4,-1.1) {pole\\$P_k^{-1}(\infty)$};
+  \node[box] (fixed) at (1.4,-1.1) {fixed points\\eigenlines of $P_k$};
+  \node[box] (ripple) at (4.2,-1.1) {ripple pencil\\$P_k^{-1}(\mathcal H_t)$};
+  \draw[arr] (word)--(matrix);
+  \foreach \n in {path,pole,fixed,ripple}
+    {\draw[arr] (matrix)--(\n);}
+\end{tikzpicture}
+\caption{Four geometric readings of the same chronological matrix product.}
+\label{fig:p0-projective-four-readings}
+\end{figure}
+
+\subsection{The affine chart as the stabilizer of infinity}
+
+Let
+\[
+  B_\infty=\Stab_{\PGL_2(K)}(\infty).
+\]
+A matrix fixes infinity exactly when $C=0$.  After projective rescaling, every
+such element has a unique representative
+\[
+  \begin{pmatrix}a&b\\0&1\end{pmatrix},
+  \qquad a\in K^\times,\quad b\in K,
+\]
+and acts as $z\mapsto az+b$.  Hence
+\begin{equation}\label{eq:p0-affine-stabilizer}
+  B_\infty\cong\Aff(1,K).
+\end{equation}
+
+This identifies the path geometry of Section~\ref{sec:p0-paths} as a
+pole-at-infinity gauge.  In that gauge:
+
+\begin{itemize}
+  \item the denominator is constant;
+  \item the ripple pencil is a parallel-line pencil;
+  \item fixed-point recursion is affine;
+  \item the lower-left matrix entry stays zero.
+\end{itemize}
+
+Choosing a finite pole $q$ amounts to conjugating this affine subgroup by a
+projective map sending $q$ to infinity.  The coordinate
+$w_q=1/(z-q)$ from \eqref{eq:p0-pole-coordinate} is the simplest such gauge.
+
+\subsection{Generation of the projective group}
+
+Introduce
+\[
+  T_s(z)=z+s,
+  \qquad
+  D_q(z)=qz\quad(q\ne0),
+  \qquad
+  J(z)=-\frac1z.
+\]
+They arise respectively from addition, multiplication, and second-slot
+division.
+
+\begin{theorem}[Elementary projective generation]
+\label{thm:p0-pgl2-generation}
+For every field $K$, translations $T_s$, nonzero scalings $D_q$, and inversion
+$J$ generate $\PGL_2(K)$.  Equivalently, the projective evaluations of
+nondegenerate left- and right-slot arithmetic sections have image
+$\PGL_2(K)$.
+\end{theorem}
+
+\begin{proof}
+Let
+\[
+  F(z)=\frac{Az+B}{Cz+D},
+  \qquad AD-BC\ne0.
+\]
+If $C=0$, then $A,D\ne0$ and
+\[
+  F=T_{B/D}\circ D_{A/D}.
+\]
+If $C\ne0$, direct calculation gives
+\begin{equation}\label{eq:p0-projective-factorization}
+  F
+  =T_{A/C}
+   \circ D_{(AD-BC)/C^2}
+   \circ J
+   \circ T_{D/C}.
+\end{equation}
+All scale parameters are nonzero, so every factor is available.  These two
+cases exhaust $\PGL_2(K)$.
+\end{proof}
+
+The proof also yields the rank-one Bruhat decomposition
+\begin{equation}\label{eq:p0-bruhat}
+  \PGL_2(K)=B_\infty\sqcup B_\infty J B_\infty.
+\end{equation}
+The first cell consists of operators whose pole is infinity.  The second
+consists of operators with a finite pole in the chosen affine chart.  Thus the
+transition from a point-path grid to a curved ripple pencil is the elementary
+geometric face of crossing from the affine cell to the projective cell.
+
+\subsection{Left and right representations in one projective plane}
+
+We can now answer the algebraic comparison of the two combs precisely.
+
+\begin{theorem}[Projective unification of the two combs]
+\label{thm:p0-comb-projective-unification}
+The left- and right-expanded combs have the same abstract chain of internal
+dependencies and are exchanged by the opposite-operation involution of
+Proposition~\ref{prop:p0-comb-opposition}.  Their one-hole operator images have
+the following relation:
+
+\begin{enumerate}
+  \item the pure left-expanded nondegenerate language lies in
+  $B_\infty\cong\Aff(1,K)$;
+
+  \item the pure right-expanded language already contains translations,
+  nonzero scalings, reflections, and inversion, and therefore generates
+  $\PGL_2(K)$;
+
+  \item after embedding both languages into $\PGL_2(K)$, their point paths,
+  poles, fixed points, and ripple pencils are all read from the same matrix
+  representation.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+The dependency and opposition statements were proved in
+Section~\ref{sec:p0-two-combs}.  The elementary table shows that every
+slot-$(1)$ generator fixes infinity.  The pure slot-$(2)$ language contains
+$T_s$ because addition is commutative, contains $D_q$ because multiplication
+is commutative, and contains $J$ through second-slot division.  Apply
+Theorem~\ref{thm:p0-pgl2-generation}.  The last assertion is
+Theorem~\ref{thm:p0-four-matrix-readings}.
+\end{proof}
+
+The theorem does not say that a left-expanded word and a right-expanded word
+with the same constants have the same operator.  It says that their apparently
+different elementary geometries live in one projective action and can be
+compared there without erasing operand-slot information.
