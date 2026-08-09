@@ -1,0 +1,203 @@
+A point path follows one chosen input through a sequence of maps.  A ripple
+pencil follows an entire output condition backward through the same maps.  The
+upper half-plane makes this dual reading elementary because M\"obius maps carry
+generalized circles to generalized circles.
+
+\subsection{Poles and standard horocycles}
+
+Let
+\begin{equation}\label{eq:p0-mobius-map}
+  F(z)=\frac{Az+B}{Cz+D}
+\end{equation}
+be a real fractional linear map with
+\[
+  \Delta=AD-BC>0.
+\]
+The positivity convention ensures that $F$ maps the upper half-plane to itself.
+The projective pole is
+\[
+  p_F=F^{-1}(\infty)
+  =\begin{cases}
+     -D/C,&C\ne0,\\
+     \infty,&C=0.
+   \end{cases}
+\]
+For $t>0$, denote the standard horocycle based at infinity by
+\[
+  \mathcal H_t=\{w\in\mathbb H:\im w=t\}.
+\]
+
+\begin{definition}[Ripple pencil]
+\label{def:p0-ripple-pencil}
+The \emph{ripple pencil} of $F$ is the one-parameter family
+\[
+  \mathscr R(F)
+  =\{F^{-1}(\mathcal H_t):t>0\}.
+\]
+It is a family of horocycles based at the pole $p_F$.  The word ``ripple'' is a
+visual name for this standard M\"obius pullback family.
+\end{definition}
+
+\begin{theorem}[Line-to-circle transition]
+\label{thm:p0-ripple-pencil-formula}
+Let $F$ be as in \eqref{eq:p0-mobius-map}.
+
+\begin{enumerate}
+  \item If $C=0$, every member of $\mathscr R(F)$ is a horizontal line; the
+  pencil is based at $\infty$.
+
+  \item If $C\ne0$, the member with parameter $t$ is the Euclidean circle
+  \begin{equation}\label{eq:p0-ripple-circle}
+    \left(x+\frac DC\right)^2
+    +\left(y-\frac{\Delta}{2tC^2}\right)^2
+    =\left(\frac{\Delta}{2tC^2}\right)^2.
+  \end{equation}
+  All these circles are tangent to the real boundary at the common point
+  $p_F=-D/C$ and are nested as $t$ varies.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+For $z=x+iy$, direct calculation gives the standard identity
+\begin{equation}\label{eq:p0-imaginary-mobius}
+  \im F(z)=\frac{\Delta y}{|Cz+D|^2}.
+\end{equation}
+The inverse image of $\mathcal H_t$ is therefore
+\[
+  \Delta y=t\bigl((Cx+D)^2+C^2y^2\bigr).
+\]
+If $C=0$, this reduces to a horizontal line.  If $C\ne0$, divide by
+$tC^2$ and complete the square in $y$:
+\[
+  \left(x+\frac DC\right)^2+y^2
+  -\frac{\Delta}{tC^2}y=0,
+\]
+which is exactly \eqref{eq:p0-ripple-circle}.  The center lies vertically
+above $-D/C$ at a height equal to the radius, so the circle is tangent to the
+boundary there.  The radius is proportional to $t^{-1}$, proving nesting.
+\end{proof}
+
+The theorem gives a geometric interpretation of the lower-left matrix entry.
+The affine condition $C=0$ places the pole at infinity and degenerates the
+ripple circles to parallel lines.  A projective step with $C\ne0$ moves the pole
+to a finite boundary point and curves the same horocyclic family into visible
+ripples.
+
+\begin{example}[Arithmetic inversion]
+\label{ex:p0-inversion-ripples}
+For
+\[
+  J(z)=-\frac1z,
+  \qquad
+  J\leftrightarrow
+  \begin{pmatrix}0&-1\\1&0\end{pmatrix},
+\]
+one has $p_J=0$ and
+\begin{equation}\label{eq:p0-inversion-circles}
+  x^2+\left(y-\frac1{2t}\right)^2
+  =\left(\frac1{2t}\right)^2.
+\end{equation}
+Thus inversion turns the horizontal horocycles based at infinity into a nested
+family of circles tangent at zero.  The map exchanges the two ideal points
+$0$ and $\infty$.
+\end{example}
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[
+  x=1.05cm,y=1.05cm,
+  axis/.style={-{Latex[length=2mm]},thick,black!70},
+  ripple/.style={thick,blue!60!black},
+  geod/.style={dashed,gray!55},
+  every node/.style={font=\small}
+]
+  \fill[blue!2] (-4.2,0) rectangle (4.2,4.0);
+  \draw[axis] (-4.35,0)--(4.45,0) node[right] {$x$};
+  \draw[axis] (0,-0.08)--(0,4.2) node[above] {$y$};
+  \foreach \r in {0.45,0.75,1.15,1.7}
+    {\draw[ripple] (0,\r) circle (\r);}
+  \draw[geod] (0,0)--(0,3.75);
+  \fill[orange!80!black] (0,0) circle (2.2pt)
+    node[below right] {pole $p_J=0$};
+  \node[blue!55!black,anchor=west] at (1.85,2.75)
+    {$J^{-1}(\mathcal H_t)$};
+  \node[anchor=west,font=\scriptsize] at (1.85,2.3)
+    {larger circles correspond to smaller $t$};
+\end{tikzpicture}
+\caption{The ripple pencil of inversion.  Every circle is a horocycle tangent
+at the projective pole $0$; the affine horizontal-line pencil is recovered
+when the pole is moved to infinity.}
+\label{fig:p0-inversion-ripple-pencil}
+\end{figure}
+
+\subsection{Zero--pole pencils in the complex chart}
+
+There is a second elementary pencil attached to the same operator.  Suppose
+$A,C\ne0$ and write its zero and pole as
+\[
+  q_F=-\frac BA,
+  \qquad
+  p_F=-\frac DC.
+\]
+Then the output level set $|F(z)|=r$ is equivalent to
+\begin{equation}\label{eq:p0-apollonius-pencil}
+  |z-q_F|
+  =r\left|\frac CA\right|\,|z-p_F|.
+\end{equation}
+These are Apollonius circles for the ordered zero--pole pair.  The horocyclic
+ripple pencil and the Apollonius pencil encode different output observables,
+$\im F$ and $|F|$, but both show that a projective one-hole operator naturally
+carries more than a point orbit: it carries a zero, a pole, and a family of
+level curves organized by them.
+
+\subsection{Ripple histories of right-expanded expressions}
+
+Let a right-expanded expression determine nondegenerate real M\"obius sections
+$F_1,\ldots,F_n$, in chronological order, and write
+\[
+  G_k=F_k\circ\cdots\circ F_1,
+  \qquad
+  G_k(z)=\frac{A_kz+B_k}{C_kz+D_k}.
+\]
+At stage $k$, the arithmetic value of a chosen input follows the point orbit
+$G_k(z_0)$.  Simultaneously, the output horocycles pull back to
+\[
+  \mathscr R_k=\mathscr R(G_k).
+\]
+The tangency point
+\[
+  p_k=G_k^{-1}(\infty)
+  =-\frac{D_k}{C_k}
+\]
+when $C_k\ne0$ is the current pole of the prefix operator.
+
+Thus a general right-expansion history should not be pictured as one fixed
+family of concentric circles.  Each prefix has its own ripple pencil, and the
+common tangency point of that pencil may move with $k$.  The appropriate
+geometric state is
+\[
+  \bigl(G_k,\,G_k(z_0),\,p_k,\,\mathscr R_k\bigr):
+\]
+the operator, the selected point, the pole, and the pulled-back wavefront
+family.
+
+\begin{proposition}[Covariant--contravariant duality]
+\label{prop:p0-path-ripple-duality}
+For every prefix operator $G_k$ and every output horocycle $\mathcal H_t$,
+\[
+  z_0\in G_k^{-1}(\mathcal H_t)
+  \quad\Longleftrightarrow\quad
+  G_k(z_0)\in\mathcal H_t.
+\]
+Hence the point path and the ripple history are two readings of the same
+operator word: one pushes the input forward, the other pulls the output
+condition backward.
+\end{proposition}
+
+\begin{proof}
+This is the defining property of inverse image.
+\end{proof}
+
+The elementary nature of the proposition is precisely its value.  No new
+geometry is inserted between the two pictures.  Their unity is already present
+in the action of one M\"obius matrix.
