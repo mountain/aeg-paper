@@ -2,7 +2,9 @@
 The regular-AES axioms admit a homogeneous realization on the positive affine
 group.  This construction explains the upper-half-plane metric from the group
 action and the normalization of the arithmetic frame; it does not assert that
-every regular AES is homogeneous or that the model is unique.
+every regular AES is homogeneous or that the model is unique.  The elementary
+point-path grid based on this model, including its assignment-compatible moves
+and Baumslag--Solitar-type relation, is developed in Paper~0.
 
 \subsection{The positive affine group}
 
@@ -187,109 +189,24 @@ For \(a=-x/y\), one has \(a_{xx}=0\) and
 \eqref{eq:hyperbolic-assignment-laplacian}.
 \end{proof}
 
-\subsection{Assignment-compatible grid transformations}
+\subsection{Elementary path interface exported to Paper 0}
 
-For \(s\in\mathbb R\) and \(k>0\), define
-\begin{equation}\label{eq:assignment-grid-transformations}
+Paper~0 uses the same data under the historical name
+\(\mathfrak E_0(\mu,\lambda)\).  It defines the assignment-compatible maps
+\[
  \mathsf X_s(x,y)=(x-sy,y),
  \qquad
- \mathsf Y_k(x,y)=\left(x,\frac yk\right).
-\end{equation}
-They implement addition and positive multiplication at the level of the
-assignment:
-\begin{equation}\label{eq:grid-assignment-action}
+ \mathsf Y_k(x,y)=\left(x,\frac yk\right),
+\]
+for which
+\[
  a\circ\mathsf X_s=a+s,
  \qquad
  a\circ\mathsf Y_k=ka.
-\end{equation}
-Figure~\ref{fig:hyperbolic-arithmetic-grid} separates the assignment contours
-from the horocyclic background and also marks the two assignment-compatible
-motions.  The pullback calculation following the figure determines their
-metric status.
-
-\begin{figure}[t]
-\centering
-\begin{tikzpicture}[
-  x=1.15cm,y=1.05cm,
-  axis/.style={-{Latex[length=2mm]},thick,black!70},
-  gridline/.style={thin,gray!35},
-  contour/.style={very thick,red!65!black},
-  move/.style={-{Latex[length=2.2mm]},very thick,blue!65!black},
-  every node/.style={font=\small}
-]
-  \fill[blue!2] (-3.25,0) rectangle (3.25,3.15);
-  \draw[axis] (-3.4,0) -- (3.5,0) node[right] {$x$};
-  \draw[axis] (0,-0.05) -- (0,3.35) node[above] {$y$};
-  \node[anchor=north west,font=\scriptsize] at (-3.25,-0.08) {$y=0$};
-
-  \foreach \yy in {0.65,1.3,1.95,2.6}
-    {\draw[gridline] (-3.2,\yy) -- (3.2,\yy);}
-  \foreach \xx in {-2.4,-1.2,1.2,2.4}
-    {\draw[gridline] (\xx,0.05) -- (\xx,3.1);}
-  \draw[contour] (0,0.03) -- (-3.05,3.08);
-  \draw[contour] (0,0.03) -- (0,3.1);
-  \draw[contour] (0,0.03) -- (3.05,3.08);
-  \node[red!65!black,anchor=south east,font=\scriptsize] at (-3.0,3.05)
-    {$a=1$};
-  \node[red!65!black,anchor=south west,font=\scriptsize] at (0.05,3.0)
-    {$a=0$};
-  \node[red!65!black,anchor=south west,font=\scriptsize] at (3.0,3.05)
-    {$a=-1$};
-  \node[red!65!black,font=\scriptsize,fill=white,inner sep=1pt]
-    at (-1.75,1.15) {contour $a=c$: $x=-cy$};
-
-  \coordinate (p) at (1.85,2.3);
-  \coordinate (px) at (0.75,2.3);
-  \coordinate (py) at (1.85,1.15);
-  \fill (p) circle (1.6pt) node[above right] {$p$};
-  \draw[move] (p) -- (px)
-    node[midway,above,fill=white,inner sep=1pt,font=\scriptsize]
-    {$\mathsf X_s:\ a\mapsto a+s$};
-  \draw[move,dashed] (p) -- (py)
-    node[midway,right,fill=white,inner sep=1pt,font=\scriptsize]
-    {$\mathsf Y_k:\ a\mapsto ka$};
-  \fill[blue!65!black] (px) circle (1.3pt);
-  \fill[blue!65!black] (py) circle (1.3pt);
-\end{tikzpicture}
-\caption{The basic hyperbolic arithmetic grid on the upper half-plane.  Gray
-lines show the horocycle--geodesic background; red rays are the level sets
-$a=-x/y$.  The blue motions implement addition and positive multiplication on
-the assignment.  They preserve the indicated assignment rules but are not, in
-general, isometries of $g_{\mu,\lambda}$.}
-\label{fig:hyperbolic-arithmetic-grid}
-\end{figure}
-
-These maps are \emph{assignment-compatible transformations}; in general they
-are not isometries of \(g_{\mu,\lambda}\).  Indeed,
-\begin{align}
- \mathsf X_s^*g_{\mu,\lambda}
- &=\frac1{y^2}
-   \left(\frac{(dx-s\,dy)^2}{\mu^2}
-         +\frac{dy^2}{\lambda^2}\right),\label{eq:additive-grid-pullback}\\
- \mathsf Y_k^*g_{\mu,\lambda}
- &=\frac1{y^2}
-   \left(\frac{k^2dx^2}{\mu^2}
-         +\frac{dy^2}{\lambda^2}\right).
- \label{eq:multiplicative-grid-pullback}
-\end{align}
-Consequently \(\mathsf X_s\) is an isometry only for \(s=0\), and
-\(\mathsf Y_k\) only for \(k=1\).
-
-\begin{remark}[A Baumslag--Solitar relation]\label{rem:hyperbolic-bs-relation}
-For an integer \(n\ge2\),
-\(\mathsf X_s^n=\mathsf X_{ns}\), and direct composition gives
-\begin{equation}\label{eq:hyperbolic-bs-relation}
- \mathsf Y_n^{-1}\circ\mathsf X_s^n\circ\mathsf Y_n
- =\mathsf X_s.
-\end{equation}
-With stable letter \(T=\mathsf Y_n^{-1}\), this reads
-\(T\mathsf X_s^nT^{-1}=\mathsf X_s\), a
-Baumslag--Solitar relation in the \(BS(n,1)\) convention.  Equation
-\eqref{eq:hyperbolic-bs-relation} is an identity among
-assignment-compatible diffeomorphisms, not a claim that the arithmetic grid acts
-by hyperbolic isometries.  No complexity conclusion is inferred from it.
-\end{remark}
-
-Coordinate derivations of the group chart, gradient, curvature, Laplacian, metric
-pullbacks, and relation \eqref{eq:hyperbolic-bs-relation} are collected in
-Appendix~\ref{app:hyperbolic-calculations}.
+\]
+It then constructs explicit point paths, proves their elementary
+Baumslag--Solitar-type relation, and contrasts the resulting parallel-line
+horocycle pencil with the curved ripple pencil created by inversion.  Those
+maps are not generally isometries of \(g_{\mu,\lambda}\); Paper~I uses the
+model here for its intrinsic metric, frame, curvature, Laplacian, and zero
+geometry rather than repeating the elementary grid exposition.
