@@ -1,0 +1,183 @@
+This appendix records calculations used in the main text.  They are included
+to keep the elementary claims reproducible and to fix chronology and sign
+conventions.
+
+\subsection{Chronological products and one-hole recursion}
+
+Let
+\[
+  F_k(z)=\frac{A^{(k)}z+B^{(k)}}{C^{(k)}z+D^{(k)}}
+\]
+have matrix representative
+\[
+  M_k=
+  \begin{pmatrix}
+    A^{(k)}&B^{(k)}\\
+    C^{(k)}&D^{(k)}
+  \end{pmatrix}.
+\]
+If $F_1$ acts first, the two-step action is
+\[
+  F_2(F_1(z)),
+\]
+and direct substitution gives the matrix $M_2M_1$.  Induction therefore gives
+\[
+  F_k\circ\cdots\circ F_1
+  \longleftrightarrow
+  M_k\cdots M_1.
+\]
+This is the convention used in \eqref{eq:p0-prefix-matrices}.
+
+For affine matrices
+\[
+  M_k=\begin{pmatrix}\alpha_k&\beta_k\\0&1\end{pmatrix},
+  \qquad
+  P_{k-1}=\begin{pmatrix}A_{k-1}&B_{k-1}\\0&1\end{pmatrix},
+\]
+one has
+\[
+  M_kP_{k-1}
+  =\begin{pmatrix}
+     \alpha_kA_{k-1}&\alpha_kB_{k-1}+\beta_k\\
+     0&1
+   \end{pmatrix},
+\]
+which is the recursion \eqref{eq:p0-affine-prefix-recursion}.
+
+\subsection{The ripple circle calculation}
+
+For
+\[
+  F(z)=\frac{Az+B}{Cz+D},
+  \qquad
+  \Delta=AD-BC>0,
+\]
+one computes
+\begin{align*}
+  F(z)-\overline{F(z)}
+  &=\frac{(Az+B)(C\bar z+D)-(A\bar z+B)(Cz+D)}{|Cz+D|^2}\\
+  &=\frac{(AD-BC)(z-\bar z)}{|Cz+D|^2}.
+\end{align*}
+Dividing by $2i$ gives
+\[
+  \im F(z)=\frac{\Delta\,\im z}{|Cz+D|^2}.
+\]
+Writing $z=x+iy$ and imposing $\im F(z)=t$ gives
+\[
+  \Delta y=t\bigl((Cx+D)^2+C^2y^2\bigr).
+\]
+When $C\ne0$, division by $tC^2$ yields
+\[
+  \left(x+\frac DC\right)^2+y^2
+  -\frac{\Delta}{tC^2}y=0,
+\]
+and completing the square yields \eqref{eq:p0-ripple-circle}.
+
+For $J(z)=-1/z$, one has $A=D=0$, $B=-1$, $C=1$, and
+$\Delta=1$.  Hence
+\[
+  x^2+\left(y-\frac1{2t}\right)^2=\left(\frac1{2t}\right)^2.
+\]
+
+\subsection{Powers of an affine map}
+
+Let $T(z)=az+b$ with $a\ne0$.  Matrix multiplication gives
+\[
+  \begin{pmatrix}a&b\\0&1\end{pmatrix}^n
+  =\begin{pmatrix}
+     a^n&b(1+a+\cdots+a^{n-1})\\
+     0&1
+   \end{pmatrix}.
+\]
+If $a\ne1$, this is
+\[
+  \begin{pmatrix}
+     a^n&b(1-a^n)/(1-a)\\
+     0&1
+   \end{pmatrix}.
+\]
+Writing $q=b/(1-a)$, the induced map becomes
+\[
+  T^n(z)=a^nz+q(1-a^n)=q+a^n(z-q).
+\]
+If $a=1$, the matrix power is
+\[
+  \begin{pmatrix}1&nb\\0&1\end{pmatrix},
+\]
+so $T^n(z)=z+nb$.
+
+For the geometric-series update $T_r(s)=rs+1$, apply the same formula with
+$a=r$, $b=1$, and $s=0$:
+\[
+  T_r^n(0)=\frac{1-r^n}{1-r}
+\]
+when $r\ne1$.
+
+\subsection{Continued-fraction matrices}
+
+Let
+\[
+  F_k(z)=a_k+\frac{b_k}{z},
+  \qquad
+  M_k=\begin{pmatrix}a_k&b_k\\1&0\end{pmatrix},
+  \qquad b_k\ne0.
+\]
+Write
+\[
+  P_k=M_k\cdots M_1
+     =\begin{pmatrix}p_k&r_k\\q_k&s_k\end{pmatrix}.
+\]
+Then
+\[
+  P_k
+  =\begin{pmatrix}a_k&b_k\\1&0\end{pmatrix}
+   \begin{pmatrix}p_{k-1}&r_{k-1}\\q_{k-1}&s_{k-1}\end{pmatrix}
+  =\begin{pmatrix}
+      a_kp_{k-1}+b_kq_{k-1}&a_kr_{k-1}+b_ks_{k-1}\\
+      p_{k-1}&r_{k-1}
+    \end{pmatrix}.
+\]
+Thus
+\[
+  q_k=p_{k-1},
+  \qquad
+  p_k=a_kp_{k-1}+b_kp_{k-2},
+\]
+with the analogous recurrence for the second column.  The $k$th truncation at
+an initial value $z_0$ is
+\[
+  F_k\circ\cdots\circ F_1(z_0)
+  =\frac{p_kz_0+r_k}{q_kz_0+s_k}.
+\]
+An ordinary truncation is admissible precisely when each intermediate
+denominator is nonzero; the projective formula also records the stages at
+which the orbit reaches infinity.
+
+In the stationary golden-ratio case $a_k=b_k=1$, the first-column recurrence is
+\[
+  p_k=p_{k-1}+p_{k-2},
+\]
+which is the Fibonacci recurrence.  This gives the ratios displayed in
+Example~\ref{ex:p0-golden-ratio}.
+
+\subsection{The constructive projective factorization}
+
+For completeness, assume $C\ne0$ and put
+\[
+  q=\frac DC,
+  \qquad
+  s=\frac{AD-BC}{C^2},
+  \qquad
+  t=\frac AC.
+\]
+Then
+\begin{align*}
+  T_t\circ D_s\circ J\circ T_q(z)
+  &=t-\frac{s}{z+q}\\
+  &=\frac{t(z+q)-s}{z+q}\\
+  &=\frac{(A/C)z+AD/C^2-(AD-BC)/C^2}{z+D/C}\\
+  &=\frac{(A/C)z+B/C}{z+D/C}\\
+  &=\frac{Az+B}{Cz+D}.
+\end{align*}
+This verifies \eqref{eq:p0-projective-factorization} with the signs used in
+the main text.
