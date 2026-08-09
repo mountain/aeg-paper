@@ -14,6 +14,8 @@ and
  \qquad
  a=-\frac xy.
 \]
+The elementary grid-map and Baumslag--Solitar calculations formerly included
+here are now owned by Paper~0.
 
 \subsection{Group coordinates and the invariant frame}
 
@@ -215,75 +217,3 @@ Equation~\eqref{eq:appendix-hyperbolic-laplacian} therefore gives
 \[
  \Delta_{g_{\mu,\lambda}}a=2\lambda^2a.
 \]
-
-\subsection{Grid maps and their metric pullbacks}
-
-For
-\[
- \mathsf X_s(x,y)=(x-sy,y),
- \qquad
- \mathsf Y_k(x,y)=\left(x,\frac yk\right),
-\]
-one computes
-\[
- (a\circ\mathsf X_s)(x,y)
- =-\frac{x-sy}{y}=a(x,y)+s
-\]
-and
-\[
- (a\circ\mathsf Y_k)(x,y)
- =-\frac{x}{y/k}=k\,a(x,y).
-\]
-On differentials,
-\[
- \mathsf X_s^*dx=dx-s\,dy,\qquad
- \mathsf X_s^*dy=dy,
-\]
-and the transformed \(y\)-coordinate is still \(y\).  Hence
-\[
- \mathsf X_s^*g_{\mu,\lambda}
- =\frac1{y^2}
-  \left(
-   \frac{(dx-s\,dy)^2}{\mu^2}
-   +\frac{dy^2}{\lambda^2}
-  \right).
-\]
-For \(\mathsf Y_k\), the transformed coordinate and differentials are
-\[
- y'=\frac yk,\qquad dx'=dx,\qquad dy'=\frac{dy}{k},
-\]
-so
-\[
- \mathsf Y_k^*g_{\mu,\lambda}
- =\frac1{y^2}
-  \left(
-   \frac{k^2dx^2}{\mu^2}
-   +\frac{dy^2}{\lambda^2}
-  \right).
-\]
-The cross term in the first formula and the unequal horizontal coefficient in
-the second show that these grid maps are not general isometries.
-
-\subsection{The Baumslag--Solitar composition check}
-
-For a positive integer \(n\),
-\[
- \mathsf X_s^n(x,y)=(x-nsy,y).
-\]
-Using the standard right-to-left convention for composition,
-\begin{align*}
- (\mathsf Y_n^{-1}\circ\mathsf X_s^n\circ\mathsf Y_n)(x,y)
- &=(\mathsf Y_n^{-1}\circ\mathsf X_s^n)
-   \left(x,\frac yn\right)\\
- &=\mathsf Y_n^{-1}(x-sy,y/n)\\
- &=(x-sy,y)\\
- &=\mathsf X_s(x,y).
-\end{align*}
-Equivalently,
-\[
- \mathsf Y_n\circ\mathsf X_s\circ\mathsf Y_n^{-1}
- =\mathsf X_s^n.
-\]
-These are identities in the diffeomorphism group of \(\mathbb H^2\).  The metric
-pullback calculation above is why they are stated as grid relations rather than
-as relations in the hyperbolic isometry group.
