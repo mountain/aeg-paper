@@ -4,14 +4,15 @@
 **Date:** 2026-08-09  
 **Branch:** `paper-0-path-ripple-pencil`  
 **Draft PR:** `#14`  
-**Validated head:** `e4b03279755bfa4d8c41d64dee75d3b72f4941ce`
+**Validated manuscript head:** `7fd8a44719adcab53684ffcdaa6e7b04bb73b130`
 
 ## 1. Files changed
 
 The branch adds the canonical Paper 0 source closure, local instructions, an
 authoritative architecture amendment, a source audit, and a build workflow. It
-also adds a short Paper 0 interface to Paper I, updates the root overview, and
-extends `build.sh` with target `0`.
+also adds a Paper 0 interface to Paper I, transfers the elementary grid and
+Baumslag--Solitar exposition from Paper I to Paper 0, updates the root overview,
+and extends `build.sh` with target `0`.
 
 The canonical Paper 0 TeX closure is:
 
@@ -26,6 +27,17 @@ paper-0/sections/06-projective-unification.tex
 paper-0/sections/07-interface.tex
 paper-0/appendices/app-A-calculations.tex
 ```
+
+Paper I changes are confined to:
+
+```text
+paper-1/aeg-paper-1.tex
+paper-1/sections/00-paper-zero-interface.tex
+paper-1/sections/06-hyperbolic-model.tex
+paper-1/appendices/app-C-hyperbolic-calculations.tex
+```
+
+The marked spinal history definitions and terminology are unchanged.
 
 ## 2. Mathematical claims added
 
@@ -50,6 +62,10 @@ Paper 0 proves, with the hypotheses stated in the manuscript:
 9. projective unification through `Aff(1,K)=Stab(infinity)` and generation of
    `PGL_2(K)` by translations, nonzero scalings, and inversion.
 
+The geometric-series discussion now distinguishes the degenerate parameter
+`r=0`: the update is constant and has a singular matrix, so it has a finite
+fixed point but is not an element of `PGL_2`.
+
 No claim of a new projective metric or a completed projective AES is added.
 
 ## 3. Material relocated in expository ownership
@@ -58,14 +74,22 @@ Paper 0 becomes the canonical source for:
 
 - the elementary pure left/right comb comparison;
 - the historical point-path picture in the zeroth-kind grid;
+- the assignment-compatible grid maps and their elementary
+  Baumslag--Solitar-type relation;
 - inversion as a curved horocycle/ripple pencil;
 - reciprocal--pole--infinity and elementary fixed-point discussion;
 - the introductory matrix synthesis.
 
-Paper I retains the marked spinal history terminology and definitions, the
+Paper I no longer contains the full arithmetic-grid figure or the detailed
+metric-pullback and Baumslag--Solitar calculations. It retains the group-derived
+metric, the complete basic hyperbolic AES theorem, horocyclic coordinates,
+curvature, completeness, Laplacian, zero geometry, and a concise interface back
+to Paper 0.
+
+Paper I also retains the marked spinal history terminology and definitions, the
 intrinsic sequential-tree classification, mixed chirality, chronological
 projective evaluation, the Hecke interface, affine flow, zero rigidity, ACS
-torsion, and contact curvature. A short prelude states this division of labor.
+torsion, and contact curvature.
 
 ## 4. Assumptions made explicit
 
@@ -74,6 +98,8 @@ torsion, and contact curvature. A short prelude states this division of labor.
 - the ripple-circle theorem uses a real Möbius lift of positive determinant;
 - geometric-series convergence uses `|r|<1` over `R` or `C`, while the formal
   identity lives in `K[[r]]`;
+- the affine matrix description requires nonzero scale; the zero-scale update
+  is treated separately as a degenerate constant map;
 - an algebraic fixed point is not asserted to be attracting without a
   multiplier hypothesis;
 - infinite continued fractions are assigned values only after convergence is
@@ -96,8 +122,8 @@ The following remain open:
 
 ## 6. Build result
 
-GitHub Actions workflow **Paper 0 and Paper I build**, run `#9`
-(`31301240462`), completed successfully at the validated head above.
+GitHub Actions workflow **Paper 0 and Paper I build**, run `#13`
+(`31301595247`), completed successfully at the validated manuscript head above.
 
 The workflow:
 
@@ -107,12 +133,12 @@ The workflow:
   multiply defined labels under its warning check;
 - uploaded both PDFs as artifact `aeg-foundational-papers`.
 
-The generated PDFs contain 23 pages for Paper 0 and 63 pages for Paper I. PDF
+The generated PDFs contain 23 pages for Paper 0 and 61 pages for Paper I. PDF
 preflight found both files openable, unencrypted, and text-based. Visual review
-of all Paper 0 pages and the revised Paper I title/prelude pages found no clipped
-text, overlap, broken glyphs, or missing figures. The left/right comb, point
-path, inversion ripple pencil, and projective four-readings figures rendered
-correctly.
+covered the Paper 0 title, comb, point-path, ripple-pencil, reciprocal/fixed-point,
+and projective-unification pages, together with the revised Paper I title,
+Paper 0 prelude, transferred hyperbolic-model section, and final references.
+No clipped text, overlap, broken glyphs, or missing figures were observed.
 
 ## 7. Remaining warnings
 
@@ -129,5 +155,7 @@ Review Paper 0 section by section for mathematical emphasis, especially:
    reciprocal to infinity;
 2. whether the ripple pencil should be presented first through inversion or
    through a general pole-centered coordinate;
-3. how much of Paper I's repeated projective matrix material should remain for
-   self-containment after Paper 0 is accepted.
+3. how much of Paper I's repeated elementary projective matrix material should
+   remain for self-containment after Paper 0 is accepted;
+4. whether the missing PCRG source contributes a distinct elementary theorem or
+   only parallel terminology once it becomes accessible.
