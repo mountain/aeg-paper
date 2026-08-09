@@ -38,17 +38,18 @@ build_paper() {
 }
 
 case "${1:-all}" in
-  1|2|3|4)
+  0|1|2|3|4)
     build_paper "$1"
     ;;
   all)
+    build_paper 0
     build_paper 1
     build_paper 2
     build_paper 3
     build_paper 4
     ;;
   *)
-    echo "usage: $0 [1|2|3|4|all]" >&2
+    echo "usage: $0 [0|1|2|3|4|all]" >&2
     exit 2
     ;;
 esac
