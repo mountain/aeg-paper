@@ -1,0 +1,211 @@
+Let $K$ be a field and let
+\[
+  \Omega=\{+,-,\times,/\}
+\]
+be the ordinary binary arithmetic signature.  Division is partial in the
+affine chart: a denominator must be nonzero at the moment at which the
+operation is performed.
+
+\subsection{Chronological comb conventions}
+
+\begin{definition}[Left- and right-expanded one-hole expressions]
+\label{def:p0-left-right-combs}
+Fix constants $c_1,\ldots,c_n\in K$ and operation labels
+$\omega_1,\ldots,\omega_n\in\Omega$.  Starting from the hole $z$, define
+recursively
+\begin{equation}\label{eq:p0-comb-recursions}
+  L_0[z]=z,
+  \qquad
+  L_k[z]=\omega_k(L_{k-1}[z],c_k),
+\end{equation}
+\begin{equation}\label{eq:p0-right-comb-recursions}
+  R_0[z]=z,
+  \qquad
+  R_k[z]=\omega_k(c_k,R_{k-1}[z]).
+\end{equation}
+The expression $L_n$ is a \emph{left-expanded comb}; $R_n$ is a
+\emph{right-expanded comb}.  The index $k$ is the evaluation time: the
+innermost operation has index $1$ and is evaluated first.
+\end{definition}
+
+Thus, in fully parenthesized form,
+\[
+  L_n[z]
+  =\omega_n(\cdots\omega_2(\omega_1(z,c_1),c_2)\cdots,c_n),
+\]
+whereas
+\[
+  R_n[z]
+  =\omega_n(c_n,\omega_{n-1}(c_{n-1},\cdots\omega_1(c_1,z)\cdots)).
+\]
+In the first expression the active subtree is the left child at every internal
+vertex.  In the second it is the right child.  Both trees have one internal
+spine.  The terminology refers to that explicit slot convention, not to the
+visual direction in which a typesetter happens to draw the tree.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[
+  op/.style={circle,draw=black!65,fill=blue!7,minimum size=7mm,inner sep=0pt},
+  leaf/.style={rectangle,draw=black!45,fill=gray!5,minimum height=6mm,
+              minimum width=8mm,inner sep=1pt},
+  every node/.style={font=\small}
+]
+  \node[font=\bfseries] at (-3.2,2.65) {left-expanded};
+  \node[op] (l3) at (-3.2,2.0) {$\omega_3$};
+  \node[op] (l2) at (-4.0,1.15) {$\omega_2$};
+  \node[leaf] (lc3) at (-2.35,1.15) {$c_3$};
+  \node[op] (l1) at (-4.75,0.3) {$\omega_1$};
+  \node[leaf] (lc2) at (-3.25,0.3) {$c_2$};
+  \node[leaf] (lz) at (-5.35,-0.55) {$z$};
+  \node[leaf] (lc1) at (-4.15,-0.55) {$c_1$};
+  \draw (l3)--(l2); \draw (l3)--(lc3);
+  \draw (l2)--(l1); \draw (l2)--(lc2);
+  \draw (l1)--(lz); \draw (l1)--(lc1);
+  \draw[-{Latex[length=2mm]},very thick,blue!60!black]
+    (-5.75,-0.9) .. controls (-5.2,-1.25) and (-3.6,-1.25) .. (-2.8,-0.9)
+    node[midway,below,font=\scriptsize] {evaluation follows the left spine outward};
+
+  \node[font=\bfseries] at (3.2,2.65) {right-expanded};
+  \node[op] (r3) at (3.2,2.0) {$\omega_3$};
+  \node[leaf] (rc3) at (2.35,1.15) {$c_3$};
+  \node[op] (r2) at (4.0,1.15) {$\omega_2$};
+  \node[leaf] (rc2) at (3.25,0.3) {$c_2$};
+  \node[op] (r1) at (4.75,0.3) {$\omega_1$};
+  \node[leaf] (rc1) at (4.15,-0.55) {$c_1$};
+  \node[leaf] (rz) at (5.35,-0.55) {$z$};
+  \draw (r3)--(rc3); \draw (r3)--(r2);
+  \draw (r2)--(rc2); \draw (r2)--(r1);
+  \draw (r1)--(rc1); \draw (r1)--(rz);
+  \draw[-{Latex[length=2mm]},very thick,orange!75!black]
+    (5.75,-0.9) .. controls (5.2,-1.25) and (3.6,-1.25) .. (2.8,-0.9)
+    node[midway,below,font=\scriptsize] {evaluation follows the right spine outward};
+\end{tikzpicture}
+\caption{The two pure combs under the chronological indexing convention.
+Both have one chain of internal dependencies; the active subtree occupies
+opposite operand slots.}
+\label{fig:p0-two-combs}
+\end{figure}
+
+\begin{proposition}[Unique internal order]
+\label{prop:p0-combs-unique-order}
+Every finite left- or right-expanded comb has a unique legal order of internal
+evaluation, namely the chronological order $1,2,\ldots,n$.
+\end{proposition}
+
+\begin{proof}
+At stage $k$, the only internal child of the $k$th vertex is the subtree formed
+at stage $k-1$; the other child is the leaf $c_k$.  Hence the internal vertices
+form one dependency chain
+\[
+  v_1<v_2<\cdots<v_n.
+\]
+A finite chain has a unique linear extension.
+\end{proof}
+
+This proposition is deliberately weaker than the full sequential-tree
+classification of Paper~I.  Here the combs are given by explicit grammars;
+Paper~I proves intrinsically that every binary expression tree with a unique
+internal evaluation order has one such spine after operand slots are recorded.
+
+\subsection{One-hole sections and opposite operations}
+
+For $\omega\in\Omega$ and $c\in K$, write
+\[
+  C^{(1)}_{\omega,c}[z]=\omega(z,c),
+  \qquad
+  C^{(2)}_{\omega,c}[z]=\omega(c,z).
+\]
+Then $L_n$ is a chronological word of pure slot-$(1)$ sections and $R_n$ a
+word of pure slot-$(2)$ sections.
+
+Define the opposite binary operation by
+\[
+  \omega^{\mathrm{op}}(u,v):=\omega(v,u).
+\]
+
+\begin{proposition}[Comb opposition]
+\label{prop:p0-comb-opposition}
+With chronological indexing, a right-expanded comb for operations
+$\omega_1,\ldots,\omega_n$ is exactly a left-expanded comb for the opposite
+operations:
+\[
+  R_k[z]
+  =\omega_k^{\mathrm{op}}(R_{k-1}[z],c_k).
+\]
+Consequently, the two comb grammars are isomorphic after replacing every
+operation by its opposite.  They agree literally for commutative operations.
+\end{proposition}
+
+\begin{proof}
+By definition,
+\[
+  \omega_k(c_k,R_{k-1}[z])
+  =\omega_k^{\mathrm{op}}(R_{k-1}[z],c_k).
+\]
+Apply this identity at every stage.  If $\omega_k$ is commutative, then
+$\omega_k^{\mathrm{op}}=\omega_k$.
+\end{proof}
+
+The result is combinatorial, not an assertion that the two arithmetic maps are
+always equal.  Their elementary one-hole maps are:
+
+\begin{center}
+\renewcommand{\arraystretch}{1.35}
+\begin{tabular}{lll}
+\toprule
+Operation & active value in slot $(1)$ & active value in slot $(2)$ \\
+\midrule
+addition & $z+c$ & $c+z=z+c$ \\
+subtraction & $z-c$ & $c-z$ \\
+multiplication & $cz$ & $cz$ \\
+division & $z/c$ & $c/z$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+For $c\ne0$, every first-slot map is affine.  The second-slot subtraction is
+also affine, but it has multiplier $-1$.  The second-slot division is not
+affine: it has a finite pole at $z=0$ and sends that point to infinity under
+projective continuation.
+
+\begin{corollary}[Where the algebraic symmetry breaks]
+\label{cor:p0-affine-projective-break}
+If the operation alphabet is restricted to $+$ and $\times$, pure left and
+pure right expansion have the same one-hole operator algebra.  With
+subtraction they remain inside the affine group.  Once second-slot division
+$c/z$ is admitted, the right-expanded language contains inversion and leaves
+the affine stabilizer of infinity.
+\end{corollary}
+
+\begin{proof}
+The first two assertions follow from the table.  For $c\ne0$,
+\[
+  \frac{c}{z}=D_c\circ J(z),
+  \qquad D_c(z)=cz,\quad J(z)=\frac1z.
+\]
+The map $J$ exchanges $0$ and $\infty$, so it does not stabilize infinity.
+\end{proof}
+
+\subsection{Point propagation and condition propagation}
+
+The same one-hole word supports two elementary readings.  Given maps
+$F_1,\ldots,F_n$ and a point $z_0$, the prefix operators
+\[
+  G_k=F_k\circ\cdots\circ F_1
+\]
+push the point forward:
+\[
+  z_k=G_k(z_0).
+\]
+This is the \emph{point propagation} used for paths.
+
+Alternatively, given a family of output level sets $\{\Sigma_t\}$, the same
+prefix operator pulls each level set back:
+\[
+  \Sigma_{k,t}=G_k^{-1}(\Sigma_t).
+\]
+This is \emph{condition propagation}.  It is contravariant: an outer condition
+is transported toward the input by inverse image.  Sections~\ref{sec:p0-paths}
+and~\ref{sec:p0-ripples} show that the first reading yields a zigzag path,
+while the second yields a ripple pencil.
