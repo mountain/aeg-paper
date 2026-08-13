@@ -66,6 +66,12 @@ Its proved components are promoted only through the authoritative scope,
 dependency, status, and per-paper decision records; the general history-to-divisor
 functor remains an open problem.
 
+The inventory and readiness grading of the research notes, together with the
+conflict and correction ledger, are recorded in
+[`notes-reserve-audit.md`](notes-reserve-audit.md).  Its new open items are
+registered as OQ-078--OQ-080 in
+[`08-open-questions.md`](08-open-questions.md).
+
 ---
 
 # The AEG paper series

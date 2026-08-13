@@ -2984,3 +2984,84 @@ genuinely different structures.  The supplied four-strand Garside/rotation
 calibration now matches the unit-tangent central extension exactly, but it does
 not derive those coefficient paths from the q=4 dessin or from unrestricted
 marked histories.  Naturality of that path selection is the remaining test.
+
+---
+
+# Part X. Notes reserve (added by the notes reserve audit, 2026-08-10)
+
+The following three entries were registered by
+`governance/notes-reserve-audit.md`.  The full inventory, grading, conflict
+ledger, and disposition recommendations live in that file.
+
+## OQ-078 — Notes reserve: promotion candidates and their integration audits
+
+**Priority:** P3
+**State:** OPEN
+
+Eight note clusters carry complete working-note proofs that are not yet in any
+paper:
+
+1. `notes/analysis-and-calculus/02` — mixed additive-multiplicative integration
+   (transport, splitting, adjoint pairing, continuous ACS triple identity);
+2. `notes/analysis-and-calculus/03` — graded covariant delta-calculus, twisted
+   product, twisted Rota--Baxter identity, dual weight-line geometry;
+3. `notes/thermodynamics-and-renormalization/05` — AEG/thermodynamics
+   contactomorphism, Maxwell relations in AEG variables, the constant-(λ,μ)
+   incompatibility remark, Massieu representation;
+4. `notes/thermodynamics-and-renormalization/07` — fixed-N algorithmic
+   thermodynamic contactomorphism;
+5. `notes/foundations-and-geometry/04` — affine torus holonomy toy model;
+6. `notes/foundations-and-geometry/05` (elementary part) — charge homomorphism,
+   ideals of ℤ, and the normal-subgroup lattice in F₂;
+7. `notes/knots-and-loops/06` — Fox calculus and affine cocycle dictionary
+   (BS(1,2) part beyond Paper III §8);
+8. `notes/knots-and-loops/08` — small-knot embeddings in the three-parameter
+   arithmetic-expression group.
+
+Each cluster needs a full integration audit (statement/proof match, chronology
+and sign conventions, field and regularity hypotheses, frame conventions
+against the current papers) before it may enter any paper or be marked `PROVED`
+beyond the working-note level.
+
+## OQ-079 — Notes reserve: conflict and correction ledger
+
+**Priority:** P3
+**State:** OPEN
+
+The audit records nine conflicts or corrected statements between the historical
+sources and the current papers: E₀/E₁ naming inversion (C-1), the
+"threadlike = left-child-leaf" definition (C-2), the reversed-path ACS formula
+(C-3), the −2 Laplace eigenvalue (C-4), the coordinate-extended δ (C-5),
+reversal-only torsion (C-6), tubes in Paper I (C-7), the erroneous
+"dense singularity" in `notes/knots-and-loops/05` (C-8), and the former
+placement of CR/twisted-harmonicity/Appell material in Paper I (C-9).
+
+These are recorded, not reconciled.  Closing any of them requires an authorized
+task that updates the affected note header, the governance register, and any
+dependent reference.
+
+## OQ-080 — Notes reserve: open programs with pass/fail criteria
+
+**Priority:** P3
+**State:** OPEN
+
+The audit identifies five open programs whose pass/fail criteria are already
+stated in the notes:
+
+1. **PD₃ Milestone 1** (`notes/computation-and-resources/05`): exhibit
+   `[κ]=μλ[du∧dv]≠0` on the torus stage T²×(a₋,a₊) and compute its
+   Poincaré--Lefschetz dual relative 1-class; retire the milestone explicitly
+   if not attempted.
+2. **Turing-machine resource torsion** (`notes/computation-and-resources/03`):
+   classify the memory-increment reorderings that are realizable by
+   semantics-preserving program transformations; without this the torsion is
+   only a diagnostic.
+3. **Cayley model curvature** (`notes/foundations-and-geometry/01`): verify or
+   falsify K=−2 almost everywhere for the Manhattan-distance conformal factor.
+4. **Algorithmic-thermodynamics bridge** (`notes/thermodynamics-and-renormalization/06`, `08`):
+   complete the Gibbs/partition correspondence beyond the fixed-N
+   contactomorphism, carrying the corrections recorded in note 09.
+5. **Contact-comparison conjecture** (`notes/projective-condensation/01`, §10):
+   relate the AEG horizontal distribution to the canonical contact structure of
+   T¹H² via an explicit Gauss/Iwasawa chart, intertwining arithmetic generators,
+   brackets, and base projection.
