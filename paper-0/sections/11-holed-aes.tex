@@ -110,20 +110,165 @@ tangent at the origin, so the origin is a degenerate point of each family, while
 circles of different families cross there with tangent lines $x=0$ and $y=0$;
 the tangent cone is the union of those two lines.  Second, the tangent cone is
 *reducible with multiplicity*: it is the square of a product of two distinct
-linear forms.
-
-No arithmetic expression space is attached to this configuration in this paper.
-The four circles are an explicit curve configuration whose tangent cone can be
-computed exactly, and nothing more is claimed: in particular they are not
-asserted to be the limiting circles of any AES metric or assignment, and the
-origin is not asserted to be a puncture in the sense of
-Definition~\ref{def:p0-punctured-aes}.  Constructing data $(g,a)$ on a
-neighbourhood of the origin for which this configuration is natural, and for
-which the origin is non-extendable, is recorded as the first problem of
-Subsection~\ref{subsec:p0-holed-open}.
-The computation is recorded in the exploration register of the
+linear forms.  The computation is recorded in the exploration register of the
 programme \cite{Yuan2026AEGHoleRegister}; the identity above is verified here
 directly.
+
+\subsection{An explicit punctured model with four zero branches}
+\label{subsec:p0-four-circle-model}
+
+The review of this paper observed, correctly, that the tangent cone above was a
+statement about a curve configuration with no arithmetic expression space
+attached to it.  The gap is now closed: the configuration is exactly the zero
+locus of an explicit punctured AES.  We need one general fact first.
+
+\begin{lemma}[The gradient never vanishes in a regular AES]
+\label{lem:p0-gradient-nonvanishing}
+In a regular AES $\mathfrak E=(M,g,a;\mu,\lambda)$ one has $\nabla a\ne0$
+everywhere on $M$; indeed $|\nabla a|_g^2=\mu^2+\lambda^2a^2\ge\mu^2>0$.  Hence,
+when $M$ is boundaryless, \emph{every} level set of $a$ is a smooth embedded
+curve.  The regular-zero theorem of Paper~I is the case of level zero.
+\end{lemma}
+
+\begin{proof}
+Both sides of the eikonal identity are non-negative and the right-hand side is at
+least $\mu^2>0$, so $\nabla a$ does not vanish.  The regular-value theorem then
+applies at every level, not only at $0$.
+\end{proof}
+
+\begin{theorem}[A punctured AES whose zero locus is the four-circle configuration]
+\label{thm:p0-four-circle-model}
+Fix $\rho>0$ and $0<r<\rho$, let
+\[
+  \overline M=D_r=\{(x,y):x^2+y^2<r^2\},
+  \qquad
+  S=\{0\},
+  \qquad
+  M=\overline M\setminus S ,
+\]
+let $P$ be the union polynomial of
+Proposition~\ref{prop:p0-puncture-tangent-cone}, put $a=P|_M$, fix
+$\mu\ne0$ and $\lambda$, and define the conformal metric
+\begin{equation}\label{eq:p0-four-circle-metric}
+  g=\frac{|\nabla a|^2}{\mu^2+\lambda^2a^2}\,
+    \bigl(dx^2+dy^2\bigr)
+  \qquad\text{on }M .
+\end{equation}
+Then:
+\begin{enumerate}
+  \item $g$ is a smooth Riemannian metric on $M$, and $(M,g,a;\mu,\lambda)$ is a
+  regular AES;
+  \item the zero locus of $a$ in $\overline M$ is exactly the union of the four
+  circles, so the configuration is the zero set of the assignment and not an
+  auxiliary curve family;
+  \item the origin is locally essential: no neighbourhood of $0$ admits a smooth
+  non-degenerate extension of $(g,a)$ to a regular AES;
+  \item consequently $(\overline M,S,g,a;\mu,\lambda)$ is a punctured arithmetic
+  expression space in the sense of Definition~\ref{def:p0-punctured-aes}, whose
+  zero locus has four branches meeting at the puncture;
+  \item the metric is incomplete on $M$, and the puncture lies at finite distance.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Throughout, write $S_2=x^2+y^2$ and
+\[
+  f(t)=S_2^2\bigl(S_2-3\rho^2\bigr)+4\rho^4t^2 ,
+\]
+so that, differentiating $P=S_2^4-4\rho^2S_2^3+16\rho^4x^2y^2$,
+\begin{equation}\label{eq:p0-union-polynomial-gradient}
+  \partial_xP=8x\,f(y),
+  \qquad
+  \partial_yP=8y\,f(x).
+\end{equation}
+
+\emph{(1)} The denominator $\mu^2+\lambda^2a^2$ is bounded below by $\mu^2>0$ on
+$M$ and $|\nabla a|^2$ is smooth, so $g$ is smooth and positive definite.  Its
+eikonal identity is immediate:
+\[
+  |\nabla a|_g^2
+  =\frac{\mu^2+\lambda^2a^2}{|\nabla a|^2}\,|\nabla a|^2
+  =\mu^2+\lambda^2a^2 .
+\]
+We must also check that $\nabla a$ does not vanish on $M$, so that the conformal
+factor is strictly positive there.  Suppose $\nabla P=0$ at a point of
+$\overline M$.  If $x=0$ then $S_2=y^2>0$ at a punctured point and
+$f(0)=y^4(y^2-3\rho^2)$, which is nonzero because $y^2=S_2<r^2<\rho^2<3\rho^2$;
+then $\partial_yP=8y\,f(0)\ne0$, a contradiction.  The case $y=0$ is symmetric.
+If $x\ne0$ and $y\ne0$, then \eqref{eq:p0-union-polynomial-gradient} forces
+$f(x)=f(y)=0$.  Here $S_2<3\rho^2$, so $f$ is strictly increasing in $t^2$ for
+fixed $S_2$; hence $f(x)=f(y)$ gives $x^2=y^2$, so $S_2=2x^2$ and
+\[
+  0=f(x)=4x^2\Bigl[x^2\bigl(2x^2-3\rho^2\bigr)+\rho^4\Bigr],
+\]
+that is $2u^2-3u+1=0$ for $u=x^2/\rho^2$, whose roots are $u=1$ and
+$u=\tfrac12$.  These give $S_2=2\rho^2$ and $S_2=\rho^2$, both at least $r^2$,
+so no such point lies in $\overline M$.  Therefore $\nabla P\ne0$ on $M$.
+
+\emph{(2)} $P$ factors as $\bigl(S_2^2-4\rho^2y^2\bigr)\bigl(S_2^2-4\rho^2x^2\bigr)$,
+and each quadratic factor splits into two circles through the origin:
+\[
+  S_2=2\rho y \iff x^2+(y-\rho)^2=\rho^2,
+  \qquad
+  S_2=-2\rho y \iff x^2+(y+\rho)^2=\rho^2 ,
+\]
+and similarly with $x$ and $y$ exchanged.  Inside $\overline M$ the only common
+point of any two of these circles is the origin: two circles of the same family
+are tangent there, and two of different families meet again only at radius
+$\sqrt2\,\rho>r$, as one checks by solving $S_2=2\rho y$, $S_2=-2\rho x$ or
+$S_2=2\rho y$, $S_2=2\rho x$.  Hence the zero locus in $\overline M$ consists of
+four arcs, two tangent to the $x$-axis and two to the $y$-axis, meeting only at
+the origin --- which is exactly the tangent cone computed in
+Proposition~\ref{prop:p0-puncture-tangent-cone}.
+
+\emph{(3)} Let $U$ be a neighbourhood of the origin and let $\widetilde g$,
+$\widetilde a$ be smooth extensions to $U$ of $g|_{U\cap M}$ and $a|_{U\cap M}$
+for which $(U,\widetilde g,\widetilde a;\mu,\lambda)$ is a regular AES.  Since
+$\widetilde a$ is continuous on $U$ and agrees with $a$ off the origin, while $a$
+extends continuously to the origin with value $P(0)=0$, we have
+$\widetilde a(0)=0$, and $\nabla\widetilde a(0)=\nabla a(0)=0$ because $a$ is
+smooth on $\overline M$.  Evaluating the eikonal identity at the origin by
+continuity gives
+\[
+  0=\widetilde g^{ij}(0)\,\partial_i a(0)\,\partial_j a(0)
+   =\mu^2+\lambda^2a(0)^2=\mu^2\ne0 ,
+\]
+a contradiction.  So no such extension exists, which is condition (ii) of
+Definition~\ref{def:p0-punctured-aes}.  (Equivalently: by
+Lemma~\ref{lem:p0-gradient-nonvanishing} a regular AES has no critical point of
+its assignment, whereas the origin is a critical point of $P$.)
+
+\emph{(4)} Conditions (i) and (ii) of Definition~\ref{def:p0-punctured-aes} are
+(1) and (3), so the tuple is a punctured AES.  By (2) its zero locus is the
+four-circle configuration, and by the local structure computed there the four
+arcs meet only at the puncture.
+
+\emph{(5)} On the $x$-axis and away from the origin, $\partial_yP=0$ and
+$f(0)=x^4(x^2-3\rho^2)$, so $|\nabla P|=8|x|\,|f(0)|=8|x|^5|3\rho^2-x^2|$, which
+is $24\rho^2|x|^5+O(|x|^7)$ as $x\to0$.  Hence along the axis
+\[
+  \sqrt{g_{xx}}\;dx
+  =\frac{|\nabla P|}{\sqrt{\mu^2+\lambda^2P^2}}\,dx
+  =\frac{24\rho^2}{|\mu|}\,|x|^5\,dx\,(1+o(1)),
+\]
+whose integral from $0$ to $\varepsilon$ is finite; so the puncture lies at
+finite distance and the metric on $M$ is incomplete.  The distance is not zero:
+on the annulus $\varepsilon/2\le S_2^{1/2}\le r$ the conformal factor is bounded
+below by a positive constant, so every path from a point of radius $\varepsilon$
+to the puncture has length bounded below.
+\end{proof}
+
+The theorem answers the question the review posed, and it is worth noting what
+it does *not* do.  It does not make the puncture set canonical: $S=\{0\}$ is
+still stipulated, although here it is forced by the data in the weaker sense that
+the assignment of the model is critical there.  It does not attach the
+configuration to the arithmetic motions rather than to the assignment, and it
+does not treat more than one puncture.  Finally it makes the interface with
+Paper~I visible rather than implicit: the zero locus of a regular AES is a smooth
+curve (Lemma~\ref{lem:p0-gradient-nonvanishing}), the complete-splitting theorem
+of Paper~I forbids branching on a connected complete boundaryless regular space,
+and here branching occurs exactly at the puncture --- with the metric incomplete,
+which is one of the ways the theorem's hypotheses can fail.
 
 \subsection{Tearing at a puncture}
 \label{subsec:p0-tearing-at-puncture}
@@ -358,19 +503,22 @@ of this chapter.
   the gluing of punctured surfaces is intrinsic and contains no chosen seam.
 \end{enumerate}
 
-Each of these is a programme, not a result.  Three further problems arise
-directly from the discussion above, and are recorded with their own labels.
+Each of these is a programme, not a result.  Four further problems arise
+directly from the discussion above; the first of them is the natural
+generalization of the construction now proved, and the second is the comparison
+question raised in Subsection~\ref{subsec:p0-tearing-at-puncture}.
 
 \begin{enumerate}
-  \item \label{op:p0-four-circle}\emph{Attach AES data to the four-circle
-  configuration.}  Construct a surface $\overline M$, a finite set $S$ containing
-  the origin, and data $(g,a)$ on $\overline M\setminus S$ such that
-  $(\overline M,S,g,a;\mu,\lambda)$ is a punctured AES in the sense of
-  Definition~\ref{def:p0-punctured-aes}, such that the four circles (or their
-  limiting arcs under $g$) arise naturally from $a$ or from the arithmetic
-  motions, and such that the origin is non-extendable.  Until such a
-  construction exists, Proposition~\ref{prop:p0-puncture-tangent-cone} is a
-  statement about a curve configuration and not about any AES.
+  \item \label{op:p0-four-circle}\emph{Generalize the model of
+  Theorem~\ref{thm:p0-four-circle-model}.}  The construction there produces one
+  puncture and a zero locus with four branches from a prescribed polynomial
+  assignment and the metric that the eikonal identity forces.  Two questions
+  follow.  Which curve configurations arise as zero loci of punctured AES in this
+  way, and in particular can a $k$-punctured model be produced without
+  stipulating $S$?  And does the construction survive if the assignment is
+  required to come from the arithmetic motions rather than being prescribed as a
+  polynomial?  A negative answer to the second question would mean that the
+  configuration is realizable as a zero locus but not as an expression.
   \item \label{op:p0-canonical-punctures}\emph{Make the comparison across a
   puncture canonical.}  Decide whether a relative torsion across a puncture is
   measured by an ACS area, by a holonomy around the puncture, or by neither, and
@@ -378,10 +526,16 @@ directly from the discussion above, and are recorded with their own labels.
   \item \emph{Make the puncture set canonical.}  Decide whether the set $S$ of
   Definition~\ref{def:p0-punctured-aes} can be determined by the arithmetic data
   rather than stipulated, and whether it is unique when it can.  This is the
-  first unfinished item of the exploration register's own programme.
+  first unfinished item of the exploration register's own programme; the model of
+  Theorem~\ref{thm:p0-four-circle-model} forces its puncture in the weaker sense
+  that the assignment is critical there, and whether that suffices is the
+  question.
+  \item \emph{Carry ripple geometry across a puncture.}  Decide whether a
+  punctured model carries a pullback structure, in the sense of
+  Section~\ref{sec:p0-ripples}, that survives at the puncture; in the model of
+  Theorem~\ref{thm:p0-four-circle-model} the pole would have to be placed at the
+  critical point, where the conformal factor of the metric vanishes.
 \end{enumerate}
 
 A solution of any of them would turn the language of this chapter from a
-description into a theory; the earlier prelude's question, whether a punctured
-model carries a ripple structure that survives at the puncture, is a fourth and
-independent problem of the same kind.
+description into a theory.

@@ -3208,7 +3208,7 @@ corrected count in the register.
 ## OQ-085 — Attach AES data to the four-circle configuration
 
 **Priority:** P2
-**State:** OPEN
+**State:** RESOLVED (2026-09-22)
 
 **Question:** construct an oriented surface, a finite puncture set containing
 the origin, and data `(g,a)` on the complement such that the resulting object is
@@ -3218,58 +3218,130 @@ origin is non-extendable.
 
 **Why it matters:** the review of 2026-09-22 observed correctly that the
 tangent-cone computation is a statement about a curve configuration and that no
-AES structure had been attached to it.  Until the construction exists, no
-puncture claim may rest on that proposition; Paper 0 §11.2 now says so
-explicitly.
+AES structure had been attached to it.
+
+**Resolution.**  `Decision:` the configuration is realized as the *zero locus* of
+an explicit punctured AES, not as an auxiliary curve family.
+`Mathematical justification:` take the punctured disc of radius `r < rho`, the
+assignment `a = P` where `P` is the union polynomial of the four circles, and the
+metric `g = |grad a|^2 (dx^2+dy^2)/(mu^2+lambda^2 a^2)`, which is exactly the
+metric the eikonal identity forces.  The critical set of `P` is computed exactly
+(`grad P = 0` only at the origin on that disc, by the case analysis in the
+proof), so `g` is a smooth Riemannian metric and `(M,g,a)` is a regular AES; the
+factorization of `P` shows that its zero locus is precisely the four circles;
+and non-extendability at the origin follows because a regular AES has
+`|\nabla a| >= |mu| > 0` (`lem:p0-gradient-nonvanishing`), while `P` is critical
+at the origin and any smooth extension of `a` must agree with `P` there by
+continuity.  The metric is incomplete with the puncture at finite distance.
+`Source changes:` Paper 0 §11.2 gained `lem:p0-gradient-nonvanishing` and
+`thm:p0-four-circle-model`; the paragraph stating that no AES data were attached
+was replaced; §11.6 gained the generalization problem.
+`Status changes:` `lem:p0-gradient-nonvanishing` and `thm:p0-four-circle-model`
+are `PROVED`; this issue is resolved; `op:p0-four-circle` now names the
+generalization question instead of the construction.
+`Downstream nodes rechecked:` `prop:p0-puncture-tangent-cone` (now the tangent
+cone of the zero locus of an explicit model), `def:p0-punctured-aes` (a second
+verified instance), Paper I's complete-splitting theorem (its completeness
+hypothesis fails in this model, which is what permits the branching).
+`Reviewer:` author, on the agent's construction.
+`Date:` 2026-09-22.
+
+**Superseded text (kept for the record).**  The earlier body of this issue, whose
+`Default rule while open` was "cite the tangent-cone computation as an algebraic
+statement about the configuration only", is retained here because the repository
+does not delete resolved issues:
 
 **Current evidence:** the exact expansion
 `(S_2^2-4rho^2y^2)(S_2^2-4rho^2x^2) = S_2^4-4rho^2S_2^3+16rho^4x^2y^2` and the
 verified one-puncture disc model of Paper I; no bridge between them.
 
-**Default rule while open:** cite the tangent-cone computation as an algebraic
-statement about the configuration only.
-
-**Resolution condition:** the construction, with the non-extendability proved, or
-a proof that no such data exist for this configuration.
-
 **Affected files:** `paper-0/sections/11-holed-aes.tex`.
 **Affected theorem nodes:** `def:p0-punctured-aes`,
 `prop:p0-puncture-tangent-cone`.
 **Owner:** author.
-**Decision record:** the response to the 2026-09-22 review, item R7.
+**Decision record:** the response to the 2026-09-22 review, item R7; migration
+M-0021.
+
+---
+
+## OQ-087 — Generalize the four-circle model
+
+**Priority:** P3
+**State:** OPEN
+
+**Question:** `thm:p0-four-circle-model` produces one puncture and four zero
+branches from a prescribed polynomial assignment.  Which curve configurations
+arise as zero loci of punctured AES in this way, can a `k`-punctured model be
+built without stipulating `S`, and does the construction survive if the
+assignment must come from the arithmetic motions rather than being prescribed?
+
+**Why it matters:** the construction shows that the configuration is realizable
+as a zero locus; it does not show that it is realizable as an *expression*.  The
+difference is exactly the AEG question.
+
+**Default rule while open:** cite `thm:p0-four-circle-model` for the one-puncture
+construction only, and never as a statement about motion-generated assignments.
+
+**Resolution condition:** a criterion on curve configurations that are zero loci
+of punctured AES, with either a construction for `k >= 2` or a proof that the
+assignment cannot be motion-generated.
+
+**Affected files:** `paper-0/sections/11-holed-aes.tex`.
+**Affected theorem nodes:** `thm:p0-four-circle-model`.
+**Owner:** author.
+**Decision record:** migration M-0021 in `governance/migration-log.md`.
 
 ## OQ-086 — A history monoid with declared relations, and descent of the charge map
 
 **Priority:** P2
-**State:** OPEN
+**State:** RESOLVED (2026-09-22)
 
-**Question:** Paper 0 §8 now states exactly where commutation is imposed — on the
-generators of the presented history language, not on the affine group — but the
-monoid of relations is still informal.  Which relations should the history monoid
-carry (same-family composition only? plus inversion? plus selected cross-family
-relations?), and does the charge map descend to the resulting quotient in each
-case?
+**Question:** which relations should the history monoid carry, and does the
+charge map descend to the resulting quotient?
 
-**Why it matters:** the review of 2026-09-22 pointed out that the two-history
-charge map cannot descend to the operator quotient — the distributivity example
-already exhibits two histories with the same operator and different charges — so
-the choice of relations determines what the ACS can mean.  The two-charge ACS is
-correct for the free-product choice, but that is a choice.
+**Resolution.**  `Decision:` adopt the *free product* choice: histories form the
+group `G = (R,+) * (R,+)` generated by the additive and multiplicative step
+families, with relations imposed only within each family (same-family
+composition and the identity).  No cross-family relation is imposed.
+`Mathematical justification:` with this choice (i) the charge endpoint and the
+evaluation are homomorphisms `c: G -> R^2` and `nu: G -> Aff^+(1,R)`, both onto
+(`prop:p0-history-homomorphisms`); (ii) `c` is the abelianization, `ker c =
+[G,G]`, so the ACS endpoint is `G_ab = R^2`
+(`prop:p0-acs-is-abelianization`); (iii) the descent question has the asymmetric
+answer of `thm:p0-descent`: the *multiplicative* charge factors through `nu`
+(it equals `log` of the linear part, a homomorphism of the motion group), while
+the *additive* charge does not.  The witness is the transport element
+`h(p,q) = M_q A_p M_{-q} A_{-e^{-q}p}`, which evaluates to the identity motion
+(the chronological calculation is in the proof) while carrying charges
+`(p(1-e^{-q}), 0)` with `p(1-e^{-q}) != 0`; hence `c` does not vanish on `ker nu`
+and cannot factor through `nu`.  This is the reviewer's request carried out: the
+monoid of relations is now explicit, and descent is verified relation by relation
+--- it holds for the multiplicative charge and provably fails for the additive
+one.
+`Source changes:` Paper 0 §8 gained `conv:p0-history-group`,
+`prop:p0-history-homomorphisms`, `prop:p0-acs-is-abelianization`, and
+`thm:p0-descent`, together with three stated consequences (the ACS is the
+abelianization of the history language; the charge path is what the endpoint
+forgets; the two failure directions are dual).
+`Status changes:` the four new nodes are `PROVED` (the convention is a
+`STANDARD CONSEQUENCE REQUIRING AN IN-PAPER PROOF`); this issue is resolved.
+`Downstream nodes rechecked:` `def:acs`, `prop:acs-evaluation`,
+`ex:p0-distributive-charge-transport` (now an instance of `h(p,q)`-type
+transport), `def:p0-tearing` (its hypotheses are unchanged),
+`prop:p0-characters-cannot-see-tearing`.
+`Reviewer:` author.
+`Date:` 2026-09-22.
+
+**Retained body.**
 
 **Current evidence:** `prop:p0-distributive-operator-identity` and
 `ex:p0-distributive-charge-transport` (the two expansions share an operator and
 have charges `(p,q)` and `(kp,q)`); the abelianization computation in Paper 0 §8
 (`Aff^+(1,R)_ab ≅ R_{>0}`).
 
-**Default rule while open:** the ACS is attached to the presented histories and
-is never described as the abelianization of the group of motions.
-
-**Resolution condition:** an explicit presentation of the history monoid, with the
-descent of the charges proved or refuted for each candidate relation set.
-
 **Affected files:** `paper-0/sections/08-acs-tearing.tex`,
 `paper-0/sections/02-expansion.tex`.
 **Affected theorem nodes:** `def:acs`, `prop:acs-evaluation`,
 `ex:p0-distributive-charge-transport`.
 **Owner:** author.
-**Decision record:** M-0020 in `governance/migration-log.md`.
+**Decision record:** M-0020 and M-0021 in `governance/migration-log.md`.

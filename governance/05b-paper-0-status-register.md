@@ -65,6 +65,10 @@ EXCLUDED`.
 | affine cocycle formulas (`prop:affine-cocycle-formulas`) | `PROVED` | moved from Paper I §4 |
 | relative affine defect (`def:relative-affine-defect`) | `PROVED` | moved from Paper I §4 |
 | ACS definition and charge path (`def:acs`) | `PROVED` | moved from Paper I §8 |
+| the history group (`conv:p0-history-group`) | `STANDARD CONSEQUENCE REQUIRING AN IN-PAPER PROOF` | convention fixing the quotient: free product of the two additive step groups; added 2026-09-22 |
+| charge endpoint and evaluation are homomorphisms (`prop:p0-history-homomorphisms`) | `PROVED` | added 2026-09-22 |
+| the ACS endpoint is the abelianization of the history group (`prop:p0-acs-is-abelianization`) | `PROVED` | added 2026-09-22; uses the standard fact `(F*H)_ab = F_ab + H_ab` |
+| only the multiplicative charge descends to the motion (`thm:p0-descent`) | `PROVED` | added 2026-09-22; explicit transport element `M_q A_p M_{-q} A_{-e^{-q}p}` in the kernel of the evaluation, with additive charge `p(1-e^{-q})`; answers the review's R5 request for a history monoid with verified descent |
 | direct ACS evaluation (`prop:acs-evaluation`) | `PROVED` | moved from Paper I §8 |
 | relative torsion (`def:relative-torsion`) | `PROVED` | moved from Paper I §8 |
 | weighted torsion--Stokes theorem (`thm:torsion-stokes`) | `PROVED` | moved from Paper I §8 |
@@ -87,13 +91,15 @@ EXCLUDED`.
 
 | Node | Status | Note |
 |---|---|---|
+| the gradient never vanishes in a regular AES (`lem:p0-gradient-nonvanishing`) | `PROVED` | `|\nabla a|^2 = \mu^2+\lambda^2a^2 \ge \mu^2 > 0`; implies every level set is a smooth curve; Paper I's regular-zero theorem is the level-zero case |
 | punctured AES definition (`def:p0-punctured-aes`) | `PROVED` | definition; revised 2026-09-22 to give an ambient surface and a finite set first, so that nonempty puncture sets exist; finite-point specialization of Paper I's singular AES |
-| tangent cone of the four limiting circles (`prop:p0-puncture-tangent-cone`) | `PROVED` | exact algebraic identity, verified in-paper; **no AES data are attached to the configuration**, and the origin is not asserted to be a puncture |
+| tangent cone of the four limiting circles (`prop:p0-puncture-tangent-cone`) | `PROVED` | exact algebraic identity, verified in-paper |
+| an explicit punctured AES with the four-circle zero locus (`thm:p0-four-circle-model`) | `PROVED` | added 2026-09-22: the template metric forced by the eikonal identity, the exact critical set (so `\nabla P \neq 0` on a punctured disc of radius `< \rho`), the zero locus, non-extendability at the origin, and incompleteness with the puncture at finite distance; answers the review's R7 request for a construction |
 | six computed witnesses | `COMPUTATIONALLY VERIFIED EXAMPLE` | each with the model stated in-paper where the count depends on it; the register is non-authoritative |
 | observer witness | `PROVED` (bound), register numbers **not reproduced** | the residual functions, their exact zero, and the halting bound `|theta-pi/2| < 5eps/8 + O(eps^2)` are proved; the register's round counts depend on an unfixed update step and are not quoted |
 | the reading of the witnesses as an obstruction of AES | `UNSUPPORTED AND EXCLUDED` | listed in `subsec:p0-holed-nonclaims` as a non-claim |
 | the identification of the $\mathbb Z_3$ monodromy with any $\mathbb Z_4$ twist | `UNSUPPORTED AND EXCLUDED` | recorded in the register as unproved; not reproduced here |
-| attaching AES data to the four-circle configuration | `OPEN PROBLEM` | `op:p0-four-circle`; required before any puncture claim may be based on that configuration |
+| generalizing the four-circle model to `k` punctures or to motion-generated assignments | `OPEN PROBLEM` | `op:p0-four-circle` |
 | comparison of tearing across a puncture | `OPEN PROBLEM` | `op:p0-canonical-punctures` |
 | canonical choice of punctures | `OPEN PROBLEM` | `subsec:p0-holed-open`; OQ-082 |
 

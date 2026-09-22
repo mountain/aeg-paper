@@ -80,15 +80,23 @@ Proved in the manuscript, at the statuses recorded in
   hypotheses;
 - translations, nonzero scalings, and inversion generate `PGL_2(K)`;
 - the ACS evaluation formula and the weighted torsion--Stokes theorem;
+- the history group is the free product of the two step families, the charge
+  endpoint is its abelianization, and of the two charges only the multiplicative
+  one descends to the motion (`thm:p0-descent`);
 - the contact form is non-degenerate exactly when `mu*lambda != 0`, and the
   horizontal fields satisfy `[D_u,D_v] = mu*lambda*d_a`;
+- the basic model is the Reeb quotient of the contact model, with the horizontal
+  fields descending to the canonical frame and `d(alpha)` equal to
+  `-mu*lambda` times the hyperbolic area form;
 - the arithmetic generators do not close into a finite-dimensional Lie algebra
   (so no finite-dimensional Lie-group action carries all three ranks), and no
   observable of the commutativized charges detects tearing;
-- the contact model is a Reeb quotient of the basic model: the horizontal
-  fields descend to the canonical frame and `d(alpha)` is `-mu*lambda` times the
-  hyperbolic area form;
-- the tangent cone of the four limiting circles at the puncture is `(xy)^2 = 0`.
+- in a regular AES the assignment has no critical point, so every level set is a
+  smooth curve;
+- the four-circle configuration is the zero locus of an explicit punctured AES
+  whose metric is forced by the eikonal identity, with the puncture
+  non-extendable and at finite distance (`thm:p0-four-circle-model`);
+- the tangent cone of that zero locus at the puncture is `(xy)^2 = 0`.
 
 Labelled as proposals rather than theorems: the name *ripple geometry*, the
 language of *tearing*, the model-label convention `E_k`, and the vocabulary

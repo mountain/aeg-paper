@@ -755,3 +755,44 @@ closure.
   Reeb-quotient proposition was re-derived and adopted, and one of its items (the
   calibration round counts) was resolved by removing the unreproducible numbers
   rather than by repeating them
+
+## Migration M-0021
+
+- **Date:** 2026-09-22 (second revision of the day)
+- **Name:** Paper 0 open items OI-4 and OI-1 resolved
+- **Authority:** ordinary task report; no scope change
+- **Source and destination:** `paper-0/sections/08-acs-tearing.tex` and
+  `paper-0/sections/11-holed-aes.tex` (edited in place); `paper-0/README.md`,
+  `paper-0/sections/12-interface.tex`, `governance/05b-paper-0-status-register.md`,
+  `governance/08-open-questions.md`, and `governance/paper-0-closure-report.md`
+  updated
+- **Migration state:** `EXTEND` (new results inside existing chapters); nothing moved
+  between papers
+- **Claim treatment:** six new nodes, all `PROVED` (plus one convention):
+  `conv:p0-history-group`, `prop:p0-history-homomorphisms`,
+  `prop:p0-acs-is-abelianization`, `thm:p0-descent` in §8;
+  `lem:p0-gradient-nonvanishing`, `thm:p0-four-circle-model` in §11.
+  Two open questions were resolved and their bodies retained:
+  OQ-086 (history monoid and descent of the charges) and OQ-085 (AES data for the
+  four-circle configuration).  One new open question was opened: OQ-087
+  (generalization of the model, `k` punctures, motion-generated assignments)
+- **Mathematical content:**
+  OI-4 --- the history group `G = (R,+) * (R,+)` is fixed, the charge endpoint is
+  identified as its abelianization, the evaluation is its quotient by the transport
+  relations, and the descent question is answered asymmetrically: the multiplicative
+  charge descends to the motion, the additive charge provably does not, witnessed by
+  `h(p,q) = M_q A_p M_{-q} A_{-e^{-q}p}` with `c(h) = (p(1-e^{-q}), 0)`.
+  OI-1 --- the four-circle configuration is now the zero locus of an explicit
+  punctured AES: assignment `a = P`, the metric forced by the eikonal identity
+  `g = |grad a|^2 (dx^2+dy^2)/(mu^2 + lambda^2 a^2)`, exact critical set, zero locus
+  equal to the four circles, non-extendability at the origin, incompleteness with the
+  puncture at finite distance
+- **Notation changes:** none
+- **Reference treatment:** none
+- **Content removed from source:** none; the superseded statement that no AES data
+  were attached to the configuration was replaced in place, and the superseded bodies
+  of OQ-085 and OQ-086 are retained inside those issues
+- **Build result:** `./build.sh 0` produces a 78-page PDF with a clean final log
+- **Reviewer notes:** the two constructions were verified numerically before being
+  written up (exact critical set of the union polynomial; transport element;
+  axis length `0 -> eps` equal to `4 eps^6` as the asymptotic predicts)
