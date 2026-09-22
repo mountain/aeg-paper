@@ -46,16 +46,25 @@
 \newcommand{\dd}{\,\mathrm{d}}
 \newcommand{\im}{\operatorname{Im}}
 
-\title{\textbf{Arithmetic Expression Geometry 0: Paths and Ripple Pencils}\\[0.45em]
-\large Left and Right Expansions, Reciprocals, and Projective Unification}
+\title{\textbf{Arithmetic Expression Geometry 0}\\[0.35em]
+\large Arithmetic Expression Spaces: Expansion, Motion, Ripple Duals,
+Commutativization, and Tearing}
 
 \author{
+DeepSeek Harness Agent\thanks{Correspondence and responsibility for this
+manuscript rest with the second author, Mingli Yuan
+(\texttt{mingli@swarma.org}).  The first author is an artificial-intelligence
+research agent (model \texttt{deepseek-v4-flash-vision-exp}, running on the
+DeepSeek Harness); it is not a natural person, cannot sign a copyright transfer,
+and cannot serve as corresponding author.  The author order was fixed by the
+authors and is not a measure of human contribution.}\\
+\small model \texttt{deepseek-v4-flash-vision-exp}\\[0.6em]
 Mingli Yuan\\
-Swarma Research\\
-Beijing 100083, China
+\small Swarma Research\\
+\small Beijing 100083, China
 }
 
-\date{August 9, 2026\\[0.25em]
+\date{September 22, 2026\\[0.25em]
 \small Draft manuscript under mathematical review.}
 
 \begin{document}
@@ -63,42 +72,43 @@ Beijing 100083, China
 
 \begin{quote}\small
 \textbf{Draft notice.}
-This elementary prelude is under mathematical and editorial review.  It fixes
-explicit left/right conventions, separates ordinary arithmetic from projective
-continuation, and marks all convergence statements with their hypotheses.  It
-does not alter the marked-history formalism of Paper~I; it supplies the
-preliminary geometry on which that formalism acts.
+This manuscript is a working draft in the editorial and publication sense; here
+``draft'' is not a mathematical claim-status label and does not alter the status
+of any theorem, proposition, computation, conjecture, or open problem.  It
+replaces the earlier prelude of the same number and absorbs the geometric
+chapters of Paper~I; the migration is recorded in
+\texttt{governance/00b-paper-0-geometric-foundation-amendment.md}.
 \end{quote}
 
 \begin{abstract}
-Arithmetic expressions with a single internal spine admit two elementary
-extreme forms.  In a left-expanded expression the already-computed subtree
-occupies the first operand slot, whereas in a right-expanded expression it
-occupies the second.  Both have a unique internal evaluation order, but their
-natural geometric readings differ.  Left expansion produces a covariant point
-path on the addition--multiplication grid of the basic upper-half-plane model.
-Right expansion, especially through division by the evolving value, produces
-fractional linear maps; pulling back standard horocycles gives a nested pencil
-of circles tangent at the operator pole, which we call a ripple pencil.
-
-We develop these pictures in parallel.  Arithmetic reciprocation exchanges a
-finite point with infinity, geometric-series recursion realizes
-$1/(1-r)$ as the fixed-point closure of $S_{n+1}=1+rS_n$, and the singular
-parameter $r=1$ is exactly where the finite fixed point escapes to the
-projective point at infinity.  Repeated right reciprocal expansion gives the
-usual continued-fraction recursion $z\mapsto a+b/z$, whose fixed points govern
-convergence when an attracting branch exists.  Finally, matrices place point
-paths, poles, fixed points, and ripple pencils in one projective geometry:
-left-expanded affine arithmetic stabilizes infinity, while right-slot division
-introduces inversion and, together with translations and nonzero scalings,
-generates $\PGL_2(K)$.  The paper is an elementary prelude to the marked
-bilateral histories, affine flow, torsion, and contact geometry developed in
-Paper~I.
+An arithmetic expression with a single internal spine admits two extreme
+expansions, in which the active subtree occupies the first or the second operand
+slot, and the distributive law relates distinct expansions of one expression
+that share an operator but not their charges.  This paper develops the geometry
+of those expansions.  An arithmetic expression space (AES) carries an
+assignment function and a metric, and the four arithmetic operations act on it
+as motions: addition and subtraction translate the value, multiplication and
+division scale it.  The basic model $\mathfrak E_0$ is the upper half-plane with
+the invariant metric of the positive affine group, in which the additive and
+multiplicative motions satisfy a Baumslag--Solitar-type transport law; the model
+$\mathfrak E_1$ is a punctured disc whose metric extends across its puncture
+while its assignment does not.  Reading the same operator word contravariantly
+produces the dual picture that we call ripple geometry.  Commutativizing the
+arithmetic motions by keeping their total additive and multiplicative charges
+produces the accumulative commutative space, in which the order defect of two
+histories is an exact weighted area; we read that defect as a tearing of the AES.
+The three-dimensional contact model gives the same defect the constant density
+$\mu\lambda$ and shows that the two arithmetic directions cannot be calibrated
+independently.  We prove that the arithmetic tower generates an
+infinite-dimensional Lie algebra and that no character of the commutativization
+can detect tearing, and we record the resulting methodological position, a
+register of computed witnesses for punctured spaces, and the open problems.
 \end{abstract}
 
 \noindent\textbf{Keywords:}
-arithmetic expressions; left and right combs; paths; ripple pencils; reciprocal;
-continued fractions; poles; fixed points; projective geometry
+arithmetic expressions; expansion; distributive law; arithmetic expression
+space; hyperbolic geometry; projective geometry; continued fractions; affine
+cocycles; torsion; contact structure; commutativization
 
 \setcounter{tocdepth}{2}
 \tableofcontents
@@ -107,14 +117,14 @@ continued fractions; poles; fixed points; projective geometry
 \section{Introduction}\label{sec:p0-introduction}
 \input{sections/01-introduction.tex}
 
-\section{Two Elementary Expansions}\label{sec:p0-two-combs}
-\input{sections/02-two-combs.tex}
+\section{Arithmetic Expansions and the Distributive Law}\label{sec:p0-expansion}
+\input{sections/02-expansion.tex}
 
-\section{Left Expansion as a Point Path}\label{sec:p0-paths}
-\input{sections/03-paths.tex}
+\section{Arithmetic Expression Spaces and Arithmetic Motion}\label{sec:p0-aes}
+\input{sections/03-aes-and-motion.tex}
 
-\section{Right Expansion as a Ripple Pencil}\label{sec:p0-ripples}
-\input{sections/04-ripple-pencils.tex}
+\section{Ripple Geometry: The Projective Dual}\label{sec:p0-ripples}
+\input{sections/04-ripple-geometry.tex}
 
 \section{Reciprocals, Poles, Infinity, and Fixed Points}\label{sec:p0-reciprocals}
 \input{sections/05-reciprocals-fixed-points.tex}
@@ -122,12 +132,36 @@ continued fractions; poles; fixed points; projective geometry
 \section{Matrix and Projective Unification}\label{sec:p0-projective-unification}
 \input{sections/06-projective-unification.tex}
 
-\section{Interface to Paper I}\label{sec:p0-interface}
-\input{sections/07-interface.tex}
+\section{Affine Cocycles and the Relative Defect}\label{sec:p0-affine-cocycles}
+\input{sections/07-affine-cocycles.tex}
+
+\section{Commutativization: The ACS and Arithmetic Tearing}\label{sec:p0-acs-tearing}
+\input{sections/08-acs-tearing.tex}
+
+\section{The Contact Structure of Tearing}\label{sec:p0-contact}
+\input{sections/09-contact-of-tearing.tex}
+
+\section{Beyond Linear Language}\label{sec:p0-beyond-linear}
+\input{sections/10-beyond-linear.tex}
+
+\section{Holed Arithmetic Expression Spaces and the Language of Tearing}\label{sec:p0-holed}
+\input{sections/11-holed-aes.tex}
+
+\section{Interfaces to Papers I--IV}\label{sec:p0-interface}
+\input{sections/12-interface.tex}
 
 \appendix
 \section{Elementary Calculations}\label{app:p0-calculations}
 \input{appendices/app-A-calculations.tex}
+
+\section{Hyperbolic-Model Calculations}\label{app:p0-hyperbolic}
+\input{appendices/app-B-hyperbolic-calculations.tex}
+
+\section{Affine Cocycle Calculations}\label{app:p0-affine-cocycles}
+\input{appendices/app-C-affine-cocycles.tex}
+
+\section{ACS and Contact Calculations}\label{app:p0-acs-contact}
+\input{appendices/app-D-acs-contact.tex}
 
 \nocite{Beardon1983DiscreteGroups,Rosen1954ContinuedFractions}
 \bibliographystyle{plain}

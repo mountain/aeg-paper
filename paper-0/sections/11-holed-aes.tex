@@ -1,0 +1,291 @@
+The models of Section~\ref{sec:p0-aes} are complete and unpunctured: the basic
+hyperbolic space has no point at which the arithmetic structure fails.  This
+final chapter records the opposite situation, which arose in the most recent
+exploratory work of the programme, and the vocabulary that has been proposed for
+it.  The mathematical content of the chapter is deliberately modest: one
+definition, one exact local computation, and a register of six computed
+witnesses, each with its own status.  The interpretive reading of those
+witnesses --- the language of tearing --- is presented as a structural proposal,
+and Subsection~\ref{subsec:p0-holed-nonclaims} lists what is not established.
+
+\subsection{Punctured arithmetic expression spaces}
+\label{subsec:p0-holed-definition}
+
+\begin{definition}[Punctured arithmetic expression space]
+\label{def:p0-punctured-aes}
+Let $\mathfrak E=(M,g,a;\mu,\lambda)$ be a regular AES in the sense of
+Definition~\ref{def:regular-aes}, and let $S\subset M$ be a finite set of points
+such that
+\begin{enumerate}
+  \item $(M\setminus S,\;g|_{M\setminus S},\;a|_{M\setminus S};\mu,\lambda)$ is
+  a regular AES, and
+  \item no neighbourhood of any $p\in S$ admits smooth extensions of
+  $g|_{M\setminus S}$ and $a|_{M\setminus S}$ making it a regular AES.
+\end{enumerate}
+Then $\mathfrak E_S=(M\setminus S,g,a;\mu,\lambda)$ together with the declared
+set $S$ is called a \emph{punctured arithmetic expression space}, and the points
+of $S$ are its \emph{punctures}.  When $|S|=k$ we write $\mathfrak E_k$ for it,
+in the descriptive sense of Convention~\ref{conv:p0-model-labels}.
+\end{definition}
+
+The second condition is the one that matters: a puncture is not any point that
+has been deleted, but a point at which the regular structure genuinely cannot be
+continued.  This is the finite-point case of the singular arithmetic expression
+space of Paper~I; the general singular theory, the classification of singular
+germs, and everything concerning tubes, braids, and knot invariants belong to
+Paper~I and Paper~III.  The notion is specialized here for one reason only: the
+arithmetic motions of Subsection~\ref{subsec:p0-point-paths} are defined on the
+punctured surface, and the question of what happens to them at a puncture is a
+question about AES.
+
+The first example is the one-puncture model of Example~\ref{ex:p0-e1-model}: the
+unit disc with the complete Poincar\'e metric and the radial assignment
+$a_{\mathbb D}=\frac{2\mu}{\lambda}\rho/(1-\rho^2)$, whose metric extends
+smoothly across the centre while the assignment does not.  There $S=\{0\}$ and
+the regular locus is $\mathbb D\setminus\{0\}$.
+
+\subsection{The local shape of a puncture}
+\label{subsec:p0-holed-tangent-cone}
+
+A puncture is not merely a missing point; at least in the example that has been
+computed in detail, it carries a definite local shape.  The following statement
+is exact.
+
+\begin{proposition}[Tangent cone of the four limiting circles]
+\label{prop:p0-puncture-tangent-cone}
+Fix $\rho>0$ and consider the four circles through the origin
+\[
+  C_\pm:\ x^2+y^2\mp2\rho y=0,
+  \qquad
+  D_\pm:\ x^2+y^2\mp2\rho x=0 .
+\]
+Write $S_2=x^2+y^2$ and let
+\[
+  P=\bigl(S_2^2-4\rho^2y^2\bigr)\bigl(S_2^2-4\rho^2x^2\bigr)
+\]
+be the defining polynomial of their union.  Then
+\[
+  P=S_2^4-4\rho^2S_2^3+16\rho^4x^2y^2 ,
+\]
+so the lowest-degree homogeneous part of $P$ is $16\rho^4x^2y^2$.  Consequently
+the tangent cone of the union at the origin is
+\[
+  (xy)^2=0 ,
+\]
+that is, the two coordinate axes, each with multiplicity two.
+\end{proposition}
+
+\begin{proof}
+The four circles are $S_2=\pm2\rho y$ and $S_2=\pm2\rho x$, whose defining
+polynomials are $S_2^2-4\rho^2y^2$ and $S_2^2-4\rho^2x^2$ respectively; the
+product is $P$.  Expanding,
+\[
+  \bigl(S_2^2-4\rho^2y^2\bigr)\bigl(S_2^2-4\rho^2x^2\bigr)
+  =S_2^4-4\rho^2S_2^2(x^2+y^2)+16\rho^4x^2y^2
+  =S_2^4-4\rho^2S_2^3+16\rho^4x^2y^2 ,
+\]
+since $S_2^2(x^2+y^2)=S_2^3$.  The terms have degrees eight, six, and four, so
+the lowest-degree part is $16\rho^4x^2y^2$, whose zero set is $xy=0$ counted
+twice.
+\end{proof}
+
+Two consequences are used below.  First, the two circles of the same family are
+tangent at the origin, so the origin is a degenerate point of each family, while
+circles of different families cross there with tangent lines $x=0$ and $y=0$;
+the tangent cone is the union of those two lines.  Second, the tangent cone is
+*reducible with multiplicity*: it is the square of a product of two distinct
+linear forms, which is exactly the algebraic shape of a degenerate puncture in
+this family.  The computation is recorded in the exploration register of the
+programme \cite{Yuan2026AEGHoleRegister}; the identity above is verified here
+directly.
+
+\subsection{Tearing at a puncture}
+\label{subsec:p0-tearing-at-puncture}
+
+The tearing of Definition~\ref{def:p0-tearing} is a defect between two motions
+of a space.  On a punctured space a second phenomenon appears: the motions
+themselves need not be extendable across the puncture, so the comparison of two
+motions can require passing around it.
+
+Concretely, let $\mathfrak E_S$ be a punctured AES and let $p\in S$.  A motion
+of the punctured surface is a path in $M\setminus S$, and two motions that
+approach $p$ from different directions need not have limits related by any
+regular motion of $\mathfrak E_S$: the assignment and the metric are defined
+only away from $p$.  Two consequences follow, and both are already visible in
+the two computed structures of this chapter.
+
+\begin{enumerate}
+  \item \emph{Comparison may require a detour.}  In the frame calculation of
+  Subsection~\ref{subsec:p0-holed-witnesses}, one period of the phase returns to
+  its starting phase while shifting the label read by the observer.  The phase
+  loop is closed in the phase coordinate and open in the label coordinate; the
+  defect is only visible to an observer that records both.
+  \item \emph{Comparison may require a cut.}  In the gluing calculation of the
+  same subsection, the invariants of the whole family of cuts are exhausted by a
+  permutation, and the three-holed object is obtained only after removing two
+  further points.  The "holes" are therefore not produced by the gluing; they
+  are the places where the gluing's own data must be checked.
+\end{enumerate}
+
+Both statements are deliberately weak.  They say where the defect is carried,
+not what it is equal to.  The measured value of a tearing is the ACS area of
+Theorem~\ref{thm:torsion-stokes}, which is a statement about the unpunctured
+motion; the puncture is where that measurement cannot be performed locally, and
+hence where it must be performed either in the commutativization or by going
+around.
+
+\subsection{Six computed witnesses}
+\label{subsec:p0-holed-witnesses}
+
+The exploratory work recorded in \cite{Yuan2026AEGHoleRegister} produced six
+separately computed statements about punctured configurations.  They are
+reproduced here in the register's own order, each with its exact content and its
+status.  None of them is promoted by appearing in this paper: the register
+carries no authoritative status, and the items below are classified according to
+the labels of this repository.
+
+\begin{enumerate}
+  \item \emph{A topological witness.}  Cut a disc carrying four right-angle
+  sectors along the two diagonal seams and the four coordinate rays; eight
+  triangular pieces result, each with a left radial edge, an outer arc, and a
+  right radial edge.  Regluing is a permutation $\sigma$ of the eight left edges
+  onto the eight right edges.  If $C$ is the number of cycles of $\sigma$, then
+  the centre vertex has $C$ orbits, the outer vertices form eight orbits, and
+  $V=C+8$, $E=16$, $F=8$, whence
+  \[
+    \chi=V-E+F=C=b ,
+  \]
+  the number of boundary components.  Consequently every gluing of this family
+  produces either one disc or a disjoint union of $C$ discs; a three-holed
+  surface ($\chi=-1$, $b=3$) is unreachable, and equals a disc with two points
+  removed.  An exhaustive check of all $40320$ permutations confirms the
+  distribution $5040,13068,13132,6769,1960,322,28,1$ for $C=1,\ldots,8$.
+  \emph{Status:} the identity $\chi=C$ is elementary and provable as above; the
+  enumeration is a computationally verified example.
+
+  \item \emph{A combinatorial witness.}  If three components interact pairwise,
+  the interaction sites are the three unordered pairs, and each site carries two
+  directions of exchange, giving six directed transitions.  In the twelve-state
+  cycle of the next witness each directed transition occurs four times.
+  \emph{Status:} counting, given the definition of a hole as an interaction
+  site.  The definition is a choice, not a theorem.
+
+  \item \emph{A frame witness.}  Let the state of a three-component frame be
+  $(c,\sigma,\varphi)$ with component label $c\in\mathbb Z_3$, direction
+  $\sigma\in\{\pm1\}$, and phase $\varphi\in\mathbb Z_4$, and let one step act by
+  \[
+    (c,\sigma,\varphi)\longmapsto(c+\sigma,\sigma,\varphi+\sigma).
+  \]
+  Since $\gcd(3,4)=1$, the Chinese remainder theorem identifies
+  $(c,\varphi)$ with a single counter $k$ modulo $12$; the orbit of one direction
+  has length $12$.  Because one full phase period is four steps and
+  $4\equiv1\pmod3$, one period of the phase returns the phase to its initial
+  value while advancing the component label by $1$.  The phase loop is therefore
+  not closed in the total state: its monodromy is the generator of
+  $\mathbb Z_3$.  \emph{Status:} exact arithmetic (Chinese remainder theorem),
+  verified exhaustively on the $12$-state orbit and by replay.
+
+  \item \emph{An observer witness.}  Suppose an observer sees only residuals of
+  magnitude at least $\varepsilon$, and a calibration procedure stops as soon as
+  no visible residual remains.  On the frame model recorded in the register, the
+  residuals vanish exactly at the ideal frame, and the procedure halts at
+  $|\theta-\pi/2|=2.83\times10^{-3}$ after eleven rounds for
+  $\varepsilon=10^{-2}$, and at $2.89\times10^{-13}$ after fifty-six rounds for
+  $\varepsilon=10^{-12}$.  \emph{Status:} a property of the declared stopping
+  rule, with the quoted numbers computationally verified.  It is \emph{not} an
+  obstruction: nothing in the computation shows that no procedure can do better,
+  and the exact zero of the residual at the ideal frame shows the opposite.
+
+  \item \emph{A semantic witness.}  Model the interaction sites by vocabularies:
+  four shared terms, two terms shared by each pair, and one term private to each
+  component.  Filling the three sites independently gives $6\cdot5\cdot5=150$
+  possibilities; filling them coherently from the shared core gives $4^3=64$.
+  The difference $86$ is carried by the adapters at the sites.  On the
+  structural layer the pairwise intersections are non-empty while the common
+  intersection is empty.  \emph{Status:} the arithmetic is verified given the
+  model; the model is a modelling choice, the "Borromean" description is an
+  analogy with no link-theoretic content, and the emptiness of the triple
+  intersection holds for the structural layer only --- the full vocabularies
+  share the four common terms.
+
+  \item \emph{A phase-geometry witness.}  With components at phases
+  $\{0,+1,-1\}$ modulo $n$, a forward motion of $k$ steps and a reverse motion of
+  $m$ steps meet exactly when $k+m\equiv0\pmod n$.  A meeting phase different
+  from the three component phases exists precisely for $n\ge4$; at $n=4$ it is
+  the first case in which the meeting is simultaneously balanced ($k=m$) and
+  antipodal ($\varphi=n/2$), namely $k=m=2$, $\varphi=2$.  \emph{Status:}
+  computationally verified example over the stated finite model, exhaustive for
+  $n=3,\ldots,8$.  The value $n=4$ is minimal, not unique: $n=6$ and $n=8$ also
+  admit balanced antipodal meetings.
+\end{enumerate}
+
+\begin{remark}[Register bookkeeping]
+\label{rem:p0-holed-register-bookkeeping}
+The exploration register introduces these items as five classes while tabulating
+six rows; the sixth row is the phase-geometry witness listed last above.  This
+paper follows the table and counts six, recording the discrepancy rather than
+resolving it silently \cite{Yuan2026AEGHoleRegister}.
+\end{remark}
+
+\subsection{What the witnesses do not establish}
+\label{subsec:p0-holed-nonclaims}
+
+The register's own summary sentence is that a hole "is not a defect to be
+removed but the position that carries exchange".  That sentence is the
+motivation for this chapter, and it is not proved by any of the six witnesses.
+The following list of non-claims is part of the content of this section.
+
+\begin{itemize}
+  \item No witness shows that punctures are unavoidable in AES.  The witnesses
+  are about chosen finite models: a chosen gluing family, a chosen frame, a
+  chosen vocabulary, a chosen stopping rule.  Changing the model changes the
+  count, and the register says so for its own semantic witness.
+  \item No witness establishes an obstruction of AEG.  The monodromy of the
+  frame witness is a monodromy of a stipulated finite flow; the calibration
+  witness is a property of a stipulated halting rule; the gluing witness is a
+  statement about one gluing family.
+  \item The $\mathbb Z_3$ monodromy of the frame witness is not identified with
+  any $\mathbb Z_4$ twist of sheet labels appearing elsewhere in the register.
+  Those are different groups, and no computation in the register relates them;
+  the identification asserted there is recorded as unproved.
+  \item The word "hole" in this chapter means a puncture in the sense of
+  Definition~\ref{def:p0-punctured-aes}, or an interaction site in the sense of
+  the combinatorial witness.  It is not the "one-hole context" of
+  Section~\ref{sec:p0-expansion}, which is a placeholder in an expression, and
+  the two must not be conflated.
+  \item The engineering study that accompanies the register is explicitly
+  recorded by its author as an analogy and not as a mathematical assertion; one
+  of its three language prototypes was never compiled.  It contributes
+  motivation only.
+  \item Nothing here changes the status of Paper~I's regular-zero theorems or of
+  Paper~III's singular theory.  A punctured AES is a specialization of the
+  singular notion, and its classification is not attempted.
+\end{itemize}
+
+\subsection{Open problems}
+\label{subsec:p0-holed-open}
+
+The register closes with the author's own verdict that this route is not yet
+free, for three reviewable reasons: the family of cuts depends on a chosen
+permutation, the covering sheets are defined by the cut, and the graded
+description depends on an externally supplied frame.  It registers three
+directions that have not been attempted, and they are the natural open problems
+of this chapter.
+
+\begin{enumerate}
+  \item Replace the tangent cone of Proposition~\ref{prop:p0-puncture-tangent-cone}
+  by the formal neighbourhood of the puncture: compute the successive jets at
+  $p$ and test whether the description ceases to depend on the choice of tangent
+  directions.
+  \item Blow up the puncture and rewrite the cut-and-glue construction as a
+  canonical construction on the exceptional divisor, so that the seam is
+  replaced by a construction the data itself determines.
+  \item Replace the cut-and-glue calculus by an operadic composition, in which
+  the gluing of punctured surfaces is intrinsic and contains no chosen seam.
+\end{enumerate}
+
+Each of these is a programme, not a result.  Related and independent problems
+were already recorded at the end of the earlier prelude: whether a punctured
+model carries a ripple structure that survives at the puncture, and whether the
+choice of punctures can be made canonical rather than stipulated.  A solution of
+either would turn the language of this chapter from a description into a theory.

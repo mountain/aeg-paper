@@ -7,96 +7,112 @@ Division shows that the omission is substantive.  Dividing the evolving value
 by a constant remains affine, whereas dividing a constant by the evolving
 value introduces inversion, a pole, and the projective point at infinity.
 
-This paper supplies the elementary prelude that is missing between ordinary
-arithmetic syntax and the formal marked-history theory of Paper~I.  Its main
-objects are two recursively defined combs:
-\[
-  L_k[z]=\omega_k(L_{k-1}[z],c_k),
-  \qquad
-  R_k[z]=\omega_k(c_k,R_{k-1}[z]),
-  \qquad L_0[z]=R_0[z]=z.
-\]
-The index is chronological: the operation with index $1$ is evaluated first,
-and the operation with index $k$ is the $k$th layer added around the already
-computed subtree.  Thus a left-expanded comb carries its active subtree in the
-first operand slot, while a right-expanded comb carries it in the second.
-This explicit convention is used throughout; no conclusion depends on an
-ambiguous planar drawing convention.
+This paper develops the geometry that the picture requires.  It is the first
+paper of the series, and it is the canonical source for three things that later
+papers import: the space in which arithmetic operations act as motions, the
+dual reading of those motions, and the commutativization against which their
+order defect is measured.  The order of the chapters follows the order in which
+the objects are needed.
 
-The two combs have the same dependency shape: their internal vertices form a
-chain, so their internal evaluation order is unique.  They differ in the
-one-hole maps attached to that chain.  For a binary operation $\omega$ and a
-constant $c$, the two sections are
-\[
-  C^{(1)}_{\omega,c}[z]=\omega(z,c),
-  \qquad
-  C^{(2)}_{\omega,c}[z]=\omega(c,z).
-\]
-For addition and multiplication the two sections agree.  For subtraction they
-remain affine but differ by a reflection.  For division they separate sharply:
-\[
-  C^{(1)}_{/,c}[z]=\frac{z}{c},
-  \qquad
-  C^{(2)}_{/,c}[z]=\frac{c}{z}.
-\]
-The first fixes infinity; the second exchanges zero and infinity.
+\paragraph{Expansions of an expression.}
+Section~\ref{sec:p0-expansion} fixes the syntax.  A binary expression whose
+internal operations have a unique temporal order can be written in two extreme
+ways: the active subtree occupies the first operand slot, or the second.  We
+call these the left- and right-expanded combs, and we prove the two elementary
+facts on which everything else depends: each has a unique internal evaluation
+order, and the two grammars are exchanged by passing to opposite operations.
+The chapter then isolates the distributive law, which is the one algebraic
+identity that relates two *different* expansions of the same expression, and
+shows what it does geometrically: distributivity moves additive charge through
+multiplicative charge, and it therefore produces two expansions with the same
+operator and different charges.  That observation is the seed of the tearing
+discussed in Section~\ref{sec:p0-acs-tearing}.  Mechanical expansion of
+expressions, in the tradition of Wu Wen-tsun's mathematics mechanization
+\cite{Wu2000MathematicsMechanization}, uses this law as a means of eliminating
+the process; here the expansions themselves are the object of study.
 
-This algebraic difference suggests two complementary geometric readings.  A
-left-expanded affine expression is naturally read covariantly: choose an
-initial point and push it forward through the successive updates.  On the
-basic upper-half-plane model this gives the familiar zigzag \emph{point path}.
-A right-expanded projective expression is naturally read contravariantly:
-choose an output horocycle and pull it back through the successive outer
-contexts.  The inverse images are parallel lines when the current operator has
-its pole at infinity and nested circles when the pole is finite.  We call the
-resulting one-parameter family a \emph{ripple pencil}.  The term is descriptive;
-the underlying objects are ordinary horocycles and their M\"obius pullbacks.
+\paragraph{Arithmetic expression spaces and arithmetic motion.}
+Section~\ref{sec:p0-aes} introduces the geometric object of the series.  An
+arithmetic expression space (AES) carries an assignment function, whose value at
+a point is the current arithmetic value, and a metric, which measures the cost
+of moving.  The four operations act as *motions*: addition and subtraction move
+the value by a constant, multiplication and division scale it, and the motions
+that realize them transport the assignment in exactly that way.  The basic
+model $\mathfrak E_0$ is the upper half-plane with the invariant metric of the
+positive affine group; its additive and multiplicative motions are affine maps
+of the plane, and they satisfy an elementary Baumslag--Solitar-type relation
+which says that a multiplicative motion transports the additive ruler.  The
+chapter also gives the continuous form of the motion, its rectification, and the
+first model with a puncture, $\mathfrak E_1$, which is a punctured disc whose
+metric extends across the puncture while its assignment does not.
 
-The paper has three aims.
+\paragraph{The projective dual.}
+Section~\ref{sec:p0-ripples} reads the same operator word in the opposite
+direction.  Instead of pushing one input forward, pull an entire output
+condition backward; for a fractional linear map the pullback of a standard
+horocycle is a line or a circle tangent at the operator's pole, and the family
+of such pullbacks is what we call a ripple pencil.  Taken as a whole --- pole,
+pulled-back family, and the fixed points of the same matrix --- we call this
+dual reading \emph{ripple geometry}.  The name is descriptive and provisional:
+the constructions are proved, their interpretation as a geometry intrinsic to
+the arithmetic word is not, and Section~\ref{subsec:p0-ripple-status} states
+exactly what is and is not claimed.
+Sections~\ref{sec:p0-reciprocals} and~\ref{sec:p0-projective-unification}
+complete the elementary picture, treating reciprocals, poles, infinity, and
+iterative fixed points, and then placing paths, poles, fixed points, and ripple
+pencils in one matrix representation.
 
-\begin{enumerate}
-  \item It gives the left and right combs in parallel, proves their elementary
-  correspondence through opposite operations, and identifies exactly where
-  division destroys affine symmetry.
+\paragraph{Commutativization, tearing, and contact.}
+Section~\ref{sec:p0-affine-cocycles} computes the two translation coordinates of
+an affine history, and Section~\ref{sec:p0-acs-tearing} constructs the
+commutativization of the arithmetic motions: keep the total additive and
+multiplicative charges of a history, forget the order in which they were
+accumulated, and the result is a plane --- the accumulative commutative space,
+ACS.  Two histories with the same charge bound a region of that plane, and the
+exact value of their order defect is a weighted area of that region.  We read
+this as a statement about the AES: the space tears by that amount, where
+\emph{tearing} names a defect that is invisible in either motion separately and
+becomes an area only in the commutativization (Definition~\ref{def:p0-tearing}).
+Section~\ref{sec:p0-contact} gives the same defect a local form.  The three
+coordinates (additive direction, multiplicative direction, current value) carry
+a contact form whose kernel is a non-integrable horizontal distribution, and the
+bracket of the two horizontal fields is the constant $\mu\lambda$ that also
+appears as the density of the tearing.  This is the sense in which the contact
+structure describes the tearing rather than merely accompanying it: it shows
+that no local calibration can make both arithmetic directions straight at once.
 
-  \item It develops two elementary pictures on the same upper-half-plane
-  background: a point path in the zeroth-kind arithmetic expression space and
-  a ripple pencil tangent at the pole of a fractional linear operator.
+\paragraph{Beyond linear language.}
+Section~\ref{sec:p0-beyond-linear} is methodological, and its two propositions
+are the technical reason for it.  The arithmetic tower generates an
+infinite-dimensional Lie algebra, so no finite-dimensional group carries all its
+motions; and every character of the commutativization agrees on
+charge-compatible histories, so no character-based description can see tearing
+at all.  We therefore use manifolds, metrics, and Lie groups where they are
+proved to apply, and we do not adopt them as the ontology of the subject.  The
+chapter records the alternative vocabulary that a companion programme, process
+geometry, has begun to develop, together with the exact calibrations in which
+that programme meets the laws proved here.  The proposals are labelled as
+proposals.
 
-  \item It unifies the pictures by $2\times2$ matrices.  Prefix products push
-  points forward; the same matrices pull horocycles back, determine poles and
-  fixed points, and place the affine stabilizer of infinity inside
-  $\PGL_2$.
-\end{enumerate}
+\paragraph{Holed spaces and the language of tearing.}
+Section~\ref{sec:p0-holed} closes the paper with the most recent development: a
+definition of punctured arithmetic expression spaces, an exact computation of
+the local shape of a puncture, and a register of six computed witnesses about
+punctured configurations, each with its own status.  Their interpretive reading
+--- that a hole is where a comparison must be performed --- is stated as a
+motivation and not as a theorem, and the list of what the witnesses do not
+establish is part of the chapter.
 
-Reciprocals and iteration provide the bridge between the finite and infinite
-pictures.  The scalar identity
-\[
-  \frac{1}{1-r}=1+r+r^2+\cdots
-\]
-is treated as a convergence statement, not a formal equality without
-hypotheses.  Its finite truncations satisfy a fixed-point recursion, and the
-finite fixed point $1/(1-r)$ escapes to infinity at $r=1$.  Replacing the
-affine recursion by $z\mapsto a+b/z$ gives finite continued fractions and a
-quadratic fixed-point equation.  These examples make poles, infinity, and
-iterative closure visible before the more general projective and dynamical
-machinery is introduced.
-
-The status boundary is important.  Everything proved here is elementary
-algebra, upper-half-plane geometry, or local one-dimensional dynamics.  The
-paper does not define a new projective metric, a projective arithmetic
-expression space, or a general convergence theory for infinite expressions.
-Ordinary division remains partial even when its M\"obius continuation is
-well-defined on the projective line.  Paper~I retains the marked-history
-formalism, the classification of sequential trees, projective evaluation of
-bilateral histories, affine flow, torsion, and contact curvature.  The present
-paper prepares those constructions without revising their terminology.
-
-The organization follows the mathematical dependency.  Section~\ref{sec:p0-two-combs}
-fixes the two combs and their one-hole algebra.  Section~\ref{sec:p0-paths}
-constructs the point-path picture in the basic model.  Section~\ref{sec:p0-ripples}
-derives ripple pencils from M\"obius pullback.  Section~\ref{sec:p0-reciprocals}
-treats reciprocals, poles, infinity, geometric-series closure, and fixed
-points.  Section~\ref{sec:p0-projective-unification} gives the matrix and
-projective synthesis, and Section~\ref{sec:p0-interface} records the precise
-interface exported to Paper~I.
+\paragraph{Status boundary.}
+Everything proved in this paper is elementary algebra, upper-half-plane
+geometry, one-dimensional dynamics, or a contact computation on a
+three-dimensional local model.  Ordinary division remains a partial operation
+even when its M\"obius continuation is well defined on the projective line.  No
+convergence statement about infinite expressions is made beyond explicit
+analytic or formal hypotheses.  The paper does not classify sequential trees,
+does not develop function theory, and does not classify singular zero sets;
+those belong to Paper~I, Paper~II, and Paper~III respectively, and
+Section~\ref{sec:p0-interface} records the interfaces.  The migration that gives
+this paper its present scope --- the geometric chapters of Paper~I now developed
+here --- is recorded in the amendment
+\texttt{governance/00b-paper-0-geometric-foundation-amendment.md}.

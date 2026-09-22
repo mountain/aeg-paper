@@ -1,0 +1,761 @@
+This section introduces the geometric object of the whole series.  An arithmetic
+expression space is a space together with an assignment function and a metric on
+which the four arithmetic operations act as *motions*: each elementary
+operation moves the current arithmetic value, and the effect of that motion on
+points is part of the structure.  We give the axioms, the canonical frame they
+determine, the basic hyperbolic model, the four elementary motions, the point
+paths they generate, and the continuous form of the same motion.
+
+\subsection{Arithmetic motions}
+
+Let $M$ be a smooth surface with a Riemannian metric $g$, and let
+\[
+  a:M\longrightarrow\mathbb R
+\]
+be a smooth function, called the \emph{assignment}: $a(p)$ is the arithmetic
+value carried at the point $p$.  An arithmetic operation is to be realized as a
+motion of $M$ whose effect on $a$ is that operation.  For instance, adding a
+constant $s$ should be a map $\mathsf X_s$ with
+\[
+  a\circ\mathsf X_s=a+s,
+\]
+and scaling by a positive constant $k$ should be a map $\mathsf Y_k$ with
+$a\circ\mathsf Y_k=ka$.  Two things are deliberately kept apart.
+
+\begin{enumerate}
+  \item The \emph{motions} record arithmetic propagation.  They are required to
+  transport the assignment in a prescribed way, and they need not preserve the
+  metric.
+  \item The \emph{metric} measures the infinitesimal cost of moving.  It is part
+  of the structure, and the axioms below constrain it through the assignment.
+\end{enumerate}
+
+The elementary model of Section~\ref{subsec:p0-basic-model} makes both visible at
+once: its additive and multiplicative motions are affine maps of the upper
+half-plane, and the metric is the invariant hyperbolic metric of the positive
+affine group.
+
+\subsection{Regular arithmetic expression spaces}
+
+\begin{definition}[Regular arithmetic expression space]\label{def:regular-aes}
+A \emph{regular arithmetic expression space}, or regular AES, is a tuple
+\[
+ \mathfrak E=(M,g,a;\mu,\lambda)
+\]
+such that $M$ is an oriented smooth surface, possibly with boundary, $g$ is a smooth Riemannian
+metric, $a\in C^\infty(M,\mathbb R)$, $\mu\in\mathbb R\setminus\{0\}$,
+$\lambda\in\mathbb R$, and
+\begin{equation}\label{eq:regular-aes-eikonal}
+ |\nabla a|_g^2=\mu^2+\lambda^2a^2
+\end{equation}
+everywhere on $M$.  The function $a$ is called the
+\emph{assignment function}.
+\end{definition}
+
+The metric in Definition~\ref{def:regular-aes} is part of the structure.
+Equation~\eqref{eq:regular-aes-eikonal} is therefore an eikonal equation on a
+specified Riemannian surface, not a metric-free identity.  Its right-hand side
+records the two arithmetic directions: the constant term $\mu^2$ is the
+additive intensity and the assignment term $\lambda^2a^2$ the multiplicative
+one.
+
+Let $J$ denote rotation by $+\pi/2$ in the oriented tangent planes.  Since
+$\mu\ne0$, the quantity
+\[
+ q=\sqrt{\mu^2+\lambda^2a^2}
+\]
+is everywhere positive.  The next proposition shows that the eikonal definition
+contains exactly the oriented orthonormal directional data used in the flow
+equation.
+
+\begin{proposition}[Canonical arithmetic frame]\label{prop:canonical-arithmetic-frame}
+For an oriented Riemannian surface $(M,g)$, a smooth function $a$, and
+constants $\mu\ne0$ and $\lambda$, the following are equivalent.
+\begin{enumerate}
+\item The eikonal identity \eqref{eq:regular-aes-eikonal} holds.
+\item There is a unique positively oriented orthonormal frame
+      $(X_u,X_v)$ satisfying
+      \begin{equation}\label{eq:arithmetic-frame-derivatives}
+       X_u a=\mu,
+       \qquad
+       X_v a=\lambda a.
+      \end{equation}
+\end{enumerate}
+When these conditions hold, put $E_a=\nabla a/q$.  The frame is
+\begin{equation}\label{eq:explicit-arithmetic-frame}
+ \boxed{
+ \begin{aligned}
+ X_u&=\frac{\mu}{q}E_a-\frac{\lambda a}{q}J E_a,\\
+ X_v&=\frac{\lambda a}{q}E_a+\frac{\mu}{q}J E_a.
+ \end{aligned}}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Assume the eikonal identity.  Then $|\nabla a|=q>0$, so $E_a$ and $JE_a$ form a
+smooth positively oriented orthonormal frame.  The coefficient matrix in
+\eqref{eq:explicit-arithmetic-frame} is
+\[
+ \frac1q
+ \begin{pmatrix}
+  \mu&\lambda a\\
+  -\lambda a&\mu
+ \end{pmatrix},
+\]
+whose columns are orthonormal and whose determinant is one.  Hence
+$(X_u,X_v)$ is positively oriented and orthonormal.  Since
+$da(E_a)=q$ and $da(JE_a)=0$, the two identities in
+\eqref{eq:arithmetic-frame-derivatives} follow.
+
+For uniqueness, write any positively oriented orthonormal frame in the form
+\[
+ X_u=cE_a+sJE_a,
+ \qquad
+ X_v=-sE_a+cJE_a,
+ \qquad c^2+s^2=1.
+\]
+The two directional identities force $qc=\mu$ and $-qs=\lambda a$.
+Thus $c=\mu/q$ and $s=-\lambda a/q$, which gives
+\eqref{eq:explicit-arithmetic-frame}.
+
+Conversely, if an orthonormal frame satisfies
+\eqref{eq:arithmetic-frame-derivatives}, then
+\[
+ |\nabla a|^2=(X_u a)^2+(X_v a)^2
+ =\mu^2+\lambda^2a^2.
+\]
+\end{proof}
+
+The frame is generally non-coordinate.  Applying its bracket to the assignment
+function gives
+\begin{equation}\label{eq:arithmetic-frame-bracket-on-a}
+ [X_u,X_v]a
+ =X_u(\lambda a)-X_v(\mu)
+ =\mu\lambda.
+\end{equation}
+Thus, when $\lambda\ne0$, the fields cannot commute.  If
+$(\eta^u,\eta^v)$ is their dual coframe, the valid intrinsic Pfaffian statement
+is
+\[
+ da=\mu\,\eta^u+\lambda a\,\eta^v;
+\]
+the one-forms $\eta^u,\eta^v$ are not presumed exact.  Equation
+\eqref{eq:arithmetic-frame-bracket-on-a} is the first appearance of a quantity
+that returns in Sections~\ref{sec:p0-acs-tearing} and~\ref{sec:p0-contact}: the
+additive direction changes the multiplicative datum by $\mu\lambda$ per unit
+area of the arithmetic frame.
+
+\subsection{The basic hyperbolic model}
+\label{subsec:p0-basic-model}
+
+Let
+\[
+ \mathbb H^2=\{(x,y)\in\mathbb R^2:y>0\}
+\]
+with its standard orientation, and fix $\mu,\lambda>0$.  Put
+\begin{equation}\label{eq:p0-e0-data}
+ g_{\mu,\lambda}
+ =\frac1{y^2}
+  \left(\frac{\dd x^2}{\mu^2}
+       +\frac{\dd y^2}{\lambda^2}\right),
+ \qquad
+ a(x,y)=-\frac{x}{y},
+\end{equation}
+and record the assignment separately, since every later computation refers to
+it:
+\begin{equation}\label{eq:basic-hyperbolic-assignment}
+ a(x,y)=-\frac{x}{y}.
+\end{equation}
+We call
+\[
+ \mathfrak E_0(\mu,\lambda)=(\mathbb H^2,g_{\mu,\lambda},a;\mu,\lambda)
+\]
+the \emph{basic hyperbolic model}.  In earlier drafts of the series and in
+Paper~I this model was written $\mathfrak E_{\mathrm{hyp}}(\mu,\lambda)$; the
+identification is stated once, here, and the letter $\mathfrak E_0$ is used
+from now on (see also Subsection~\ref{subsec:p0-model-names}).
+
+The metric admits the group-theoretic description that explains why addition
+and multiplication are the natural motions.  Write
+\[
+ G=\operatorname{Aff}^{+}(1,\mathbb R)
+   =\{(x,y):x\in\mathbb R,\ y>0\}
+\]
+with multiplication
+\begin{equation}\label{eq:positive-affine-group-law}
+ (x,y)(x',y')=(x+yx',yy').
+\end{equation}
+The element $(x,y)$ represents the affine map $t\mapsto x+yt$.  Left
+translation by $(x_0,y_0)$ is
+\[
+ L_{(x_0,y_0)}(x,y)=(x_0+y_0x,y_0y).
+\]
+For fixed $\mu,\lambda>0$, consider the left-invariant vector fields
+\begin{equation}\label{eq:hyperbolic-arithmetic-frame}
+ X_u=-\mu y\,\partial_x,
+ \qquad
+ X_v=-\lambda y\,\partial_y .
+\end{equation}
+Both signs are chosen so that the frame is positively oriented for
+$dx\wedge dy$ and has the action on the assignment stated below.
+
+\begin{proposition}[Invariant affine metric]\label{prop:invariant-affine-metric}
+The Riemannian metric for which the frame
+\eqref{eq:hyperbolic-arithmetic-frame} is orthonormal is
+\begin{equation}\label{eq:hyperbolic-aes-metric}
+ g_{\mu,\lambda}
+ =\frac1{y^2}
+  \left(\frac{dx^2}{\mu^2}+\frac{dy^2}{\lambda^2}\right).
+\end{equation}
+It is invariant under every left translation of $G$.
+\end{proposition}
+
+\begin{proof}
+The coframe dual to $(X_u,X_v)$ is
+\[
+ -\frac{dx}{\mu y},
+ \qquad
+ -\frac{dy}{\lambda y},
+\]
+whose sum of squares is \eqref{eq:hyperbolic-aes-metric}.  Under
+$L_{(x_0,y_0)}$, one has
+\[
+ x\longmapsto x_0+y_0x,\qquad
+ y\longmapsto y_0y,\qquad
+ dx\longmapsto y_0dx,\qquad
+ dy\longmapsto y_0dy.
+\]
+Substitution in \eqref{eq:hyperbolic-aes-metric} shows
+$L_{(x_0,y_0)}^*g_{\mu,\lambda}=g_{\mu,\lambda}$.
+\end{proof}
+
+\begin{theorem}[Basic hyperbolic AES]\label{thm:basic-hyperbolic-aes}
+For every $\mu,\lambda>0$, the tuple
+\[
+ \mathfrak E_0(\mu,\lambda)
+ =(\mathbb H^2,g_{\mu,\lambda},a;\mu,\lambda)
+\]
+is a regular arithmetic expression space.  Its canonical arithmetic frame is
+the left-invariant frame \eqref{eq:hyperbolic-arithmetic-frame}.  Moreover,
+$(\mathbb H^2,g_{\mu,\lambda})$ is complete and has constant Gaussian
+curvature
+\[
+ K=-\lambda^2.
+\]
+\end{theorem}
+
+\begin{proof}
+Direct differentiation gives
+\[
+ a_x=-\frac1y,
+ \qquad
+ a_y=\frac{x}{y^2}=-\frac ay.
+\]
+Therefore the frame \eqref{eq:hyperbolic-arithmetic-frame} satisfies
+\[
+ X_u a=\mu,
+ \qquad
+ X_v a=\lambda a.
+\]
+It is positively oriented and orthonormal by
+Proposition~\ref{prop:invariant-affine-metric}, and the frame equivalence of
+Proposition~\ref{prop:canonical-arithmetic-frame} proves the regular-AES
+identity.  Equivalently, using
+\[
+ g_{\mu,\lambda}^{-1}
+ =\mu^2y^2\,\partial_x\otimes\partial_x
+  +\lambda^2y^2\,\partial_y\otimes\partial_y,
+\]
+one obtains directly
+\[
+ |\nabla a|_{g_{\mu,\lambda}}^2
+ =\mu^2y^2a_x^2+\lambda^2y^2a_y^2
+ =\mu^2+\lambda^2a^2.
+\]
+
+For completeness and curvature, introduce the global coordinate
+\[
+ X=\frac{\lambda}{\mu}x.
+\]
+Then
+\begin{equation}\label{eq:scaled-standard-hyperbolic-metric}
+ g_{\mu,\lambda}
+ =\frac1{\lambda^2}\frac{dX^2+dy^2}{y^2}.
+\end{equation}
+The metric in parentheses is the complete standard upper-half-plane metric of
+curvature $-1$.  Multiplication of a Riemannian metric by
+$\lambda^{-2}$ preserves completeness and multiplies Gaussian curvature by
+$\lambda^2$.  Hence $g_{\mu,\lambda}$ is complete and has curvature
+$-\lambda^2$.
+\end{proof}
+
+The parameters have different geometric roles.  The change
+$X=(\lambda/\mu)x$ removes $\mu$ from the metric, so $\mu$ fixes the
+additive normalization of the assignment frame.  The parameter $\lambda$
+sets the curvature scale.  No uniqueness claim for regular AESs follows from
+this normalization.
+
+\paragraph{Horocyclic coordinates and assignment contours.}
+Set $y=e^{\lambda v}$ and $u=x$.  Then
+\begin{equation}\label{eq:horocyclic-affine-coordinates}
+ g_{\mu,\lambda}
+ =e^{-2\lambda v}\frac{du^2}{\mu^2}+dv^2,
+ \qquad
+ a(u,v)=-u e^{-\lambda v}.
+\end{equation}
+The curves $y=\mathrm{constant}$ are horocycles based at the ideal point
+$\infty$, and the vertical lines $x=\mathrm{constant}$ are their
+orthogonal geodesics.  The assignment contour of value $c$ is
+\[
+ a^{-1}(c)=\{x=-cy,\ y>0\}.
+\]
+In particular, the zero locus in this model is the vertical geodesic
+$\{x=0,\ y>0\}$.
+
+\paragraph{The Laplace eigenfunction.}
+We use the divergence-of-gradient sign convention
+\begin{equation}\label{eq:laplacian-sign-convention}
+ \Delta_g f
+ =\frac1{\sqrt{\det g}}\,
+  \partial_i\!\left(\sqrt{\det g}\,g^{ij}\partial_jf\right).
+\end{equation}
+
+\begin{proposition}[Laplace eigenfunction]\label{prop:laplace-eigenfunction}
+The assignment function of the basic hyperbolic AES satisfies
+\begin{equation}\label{eq:hyperbolic-assignment-laplacian}
+ \Delta_{g_{\mu,\lambda}}a=2\lambda^2a.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Since
+\[
+ \sqrt{\det g_{\mu,\lambda}}=\frac1{\mu\lambda y^2},
+\]
+the products
+$\sqrt{\det g}\,g^{xx}=\mu/\lambda$ and
+$\sqrt{\det g}\,g^{yy}=\lambda/\mu$ are constant.  Thus
+\[
+ \Delta_{g_{\mu,\lambda}}f
+ =\mu^2y^2 f_{xx}+\lambda^2y^2 f_{yy}.
+\]
+For $a=-x/y$, one has $a_{xx}=0$ and
+$a_{yy}=-2x/y^3=2a/y^2$.  Substitution gives
+\eqref{eq:hyperbolic-assignment-laplacian}.
+\end{proof}
+
+\subsection{The four operations as motions}
+
+On the basic model, define for $s\in\mathbb R$ and $k>0$
+\begin{equation}\label{eq:p0-grid-moves}
+  \mathsf X_s(x,y)=(x-sy,y),
+  \qquad
+  \mathsf Y_k(x,y)=\left(x,\frac yk\right).
+\end{equation}
+
+\begin{proposition}[Arithmetic action on the assignment]
+\label{prop:p0-grid-assignment-action}
+The maps in \eqref{eq:p0-grid-moves} satisfy
+\[
+  a\circ\mathsf X_s=a+s,
+  \qquad
+  a\circ\mathsf Y_k=ka.
+\]
+Consequently, translation and positive scaling of the current arithmetic value
+can be represented by motions of points in $\mathfrak E_0$.
+\end{proposition}
+
+\begin{proof}
+Direct substitution gives
+\[
+  a(x-sy,y)=-\frac{x-sy}{y}=a(x,y)+s,
+\]
+and
+\[
+  a\left(x,\frac yk\right)
+  =-\frac{x}{y/k}=k a(x,y).
+\]
+\end{proof}
+
+These transformations are assignment-compatible; they are not generally
+isometries of $g_{\mu,\lambda}$.  The distinction is the one announced in
+Subsection~\ref{subsec:p0-basic-model}: the motions record arithmetic
+propagation, whereas the metric measures its infinitesimal geometry.
+
+The remaining two operations are obtained from the same two families and a
+reflection.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.35}
+\begin{tabular}{lll}
+\toprule
+operation & motion of $\mathfrak E_0$ & effect on $a$ \\
+\midrule
+addition of $s$ & $\mathsf X_s$ & $a\mapsto a+s$ \\
+subtraction of $s$ & $\mathsf X_{-s}$ & $a\mapsto a-s$ \\
+multiplication by $k>0$ & $\mathsf Y_k$ & $a\mapsto ka$ \\
+division by $k>0$ & $\mathsf Y_{1/k}$ & $a\mapsto a/k$ \\
+reflection (sign change) & $(x,y)\mapsto(-x,y)$ & $a\mapsto -a$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Subtraction is thus the inverse of the additive motion, and division by a
+nonzero constant is the inverse of the multiplicative motion.  The reflection is
+not by itself one of the four operations; it appears because the assignment of
+the model is signed, and it is the elementary instance of the second-slot
+subtraction $c-z$ of Section~\ref{sec:p0-expansion}.
+
+For an integer $m\ge2$, the two moves satisfy the exact relation
+\begin{equation}\label{eq:p0-bs-relation}
+  \mathsf Y_m^{-1}\circ\mathsf X_s^m\circ\mathsf Y_m
+  =\mathsf X_s.
+\end{equation}
+Indeed, $\mathsf X_s^m=\mathsf X_{ms}$, and conjugation by $\mathsf Y_m$
+divides the additive displacement by $m$.  Equation
+\eqref{eq:p0-bs-relation} is the elementary Baumslag--Solitar-type relation
+visible in the grid \cite{BaumslagSolitar1962NonHopfian}; no complexity
+conclusion is inferred from it.  Its arithmetic content is that a
+multiplicative motion transports the additive ruler: after rescaling the
+space, the additive unit that produces the same effect on $a$ is $1/m$ of the
+original one.  The same transport, made infinitesimal and measured against a
+commutative shadow, is the tearing discussed in
+Section~\ref{sec:p0-acs-tearing}.
+
+\paragraph{Division by the evolving value.}
+The motions above are affine, and so is every word in them.  The remaining
+elementary context of Section~\ref{sec:p0-expansion}, second-slot division
+$c/z$, is not affine and cannot be realized by a motion of $\mathfrak E_0$ that
+preserves the assignment line.  It is realized projectively: on the projective
+line it is an element of $\PGL_2(K)$, and it moves the arithmetic value
+$z\mapsto c/z$ on the ordinary domain $z\ne0$.  Section~\ref{sec:p0-ripples}
+reads this operation not as a motion of the value but as a transport of
+conditions, and Section~\ref{sec:p0-projective-unification} places both
+readings in one matrix.
+
+\subsection{Point paths}
+\label{subsec:p0-point-paths}
+
+The left-expanded comb becomes geometric once its one-hole sections are
+restricted to translations and nonzero scalings.  Let a left-expanded affine
+expression have chronological sections
+\[
+  F_i(z)=\alpha_i z+\beta_i,
+  \qquad \alpha_i\ne0.
+\]
+For an initial arithmetic value $z_0$, define
+\[
+  z_i=F_i(z_{i-1}),
+  \qquad i=1,\ldots,n.
+\]
+Choose a point $p_0\in\mathbb H^2$ with $a(p_0)=z_0$, and realize each
+translation or positive scaling by the corresponding map in
+\eqref{eq:p0-grid-moves}.  The successive points
+\[
+  p_0,p_1,\ldots,p_n
+\]
+form the \emph{point path} of the bounded expression in this chosen realization.
+By Proposition~\ref{prop:p0-grid-assignment-action},
+\[
+  a(p_i)=z_i.
+\]
+Thus the geometry records every intermediate value, not only the endpoint.  The
+word ``point path'' is a descriptive name for this orbit; it asserts no new
+structure beyond the displayed construction.
+
+\begin{example}[A four-step path]
+\label{ex:p0-four-step-path}
+Start from $z_0=1$ and apply
+\[
+  z\mapsto4z,
+  \qquad z\mapsto z-1,
+  \qquad z\mapsto2z,
+  \qquad z\mapsto z-3.
+\]
+The value history is
+\[
+  1\longmapsto4\longmapsto3\longmapsto6\longmapsto3.
+\]
+In the grid this becomes two transverse scale moves and two horocyclic
+translation moves.  The final value $3$ alone does not determine this path.
+\end{example}
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[
+  x=0.62cm,y=0.58cm,
+  axis/.style={-{Latex[length=2mm]},thick,black!70},
+  hline/.style={thin,blue!45},
+  vline/.style={thin,green!55!black},
+  path/.style={very thick,black},
+  every node/.style={font=\scriptsize}
+]
+  \fill[blue!2] (-8.3,0) rectangle (8.3,8.7);
+  \draw[axis] (-8.5,0)--(8.7,0) node[right] {$x$};
+  \draw[axis] (0,-0.1)--(0,9.0) node[above] {$y$};
+  \foreach \yy in {1,2,4,8}
+    {\draw[hline] (-8.2,\yy)--(8.2,\yy);}
+  \foreach \xx in {-8,-6,-4,-3,-2,-1,1,2,3,4,6,8}
+    {\draw[vline] (\xx,0.08)--(\xx,8.45);}
+  \node[red!65!black] at (-8.0,8.35) {$1$};
+  \node[red!65!black] at (-8.0,4.25) {$2$};
+  \node[red!65!black] at (-8.0,2.25) {$4$};
+  \node[red!65!black] at (-8.0,1.25) {$8$};
+  \node[red!65!black] at (0.25,8.35) {$0$};
+
+  \coordinate (p0) at (-8,8);
+  \coordinate (p1) at (-8,2);
+  \coordinate (p2) at (-6,2);
+  \coordinate (p3) at (-6,1);
+  \coordinate (p4) at (-3,1);
+  \draw[path] (p0)--(p1)--(p2)--(p3)--(p4);
+  \foreach \p/\lab/\pos in {p0/{1}/above,p1/{4}/left,p2/{3}/above,p3/{6}/left,p4/{3}/above}
+    {\fill (\p) circle (2pt) node[\pos] {$\lab$};}
+  \node[font=\small,anchor=west] at (-1.6,7.3)
+    {$1\xrightarrow{\times4}4\xrightarrow{-1}3
+      \xrightarrow{\times2}6\xrightarrow{-3}3$};
+\end{tikzpicture}
+\caption{A schematic point path in the basic hyperbolic arithmetic grid.  The
+black polyline retains the intermediate propagation that the endpoint value
+forgets.}
+\label{fig:p0-path-grid}
+\end{figure}
+
+\paragraph{The affine algebra behind the path.}
+Every affine prefix has a unique form
+\[
+  G_i(z)=A_i z+B_i,
+  \qquad A_i\ne0.
+\]
+If $F_i(z)=\alpha_i z+\beta_i$, then
+\begin{equation}\label{eq:p0-affine-prefix-recursion}
+  A_i=\alpha_i A_{i-1},
+  \qquad
+  B_i=\alpha_i B_{i-1}+\beta_i,
+  \qquad (A_0,B_0)=(1,0).
+\end{equation}
+The point path is therefore the evaluation of an affine matrix path
+\[
+  \begin{pmatrix}A_i&B_i\\0&1\end{pmatrix}
+  \begin{pmatrix}z_0\\1\end{pmatrix}.
+\]
+The lower-left entry remains zero at every stage.  Projectively this means that
+all prefixes stabilize the same point $\infty$.  Section~\ref{sec:p0-ripples}
+shows what changes when right-slot division makes that entry nonzero.
+
+\subsection{Continuous arithmetic motion}
+\label{subsec:p0-continuous-motion}
+
+The discrete motions of Subsection~\ref{subsec:p0-point-paths} have an
+infinitesimal counterpart.  Translation and dilation generate the Lie algebra
+of the positive affine group, and their linear combinations give the continuous
+propagation law.  The formulation below is intrinsic: the symbols $u$ and $v$
+label arithmetic directions, but need not be coordinates.
+
+\paragraph{The affine Lie algebra and its flow.}
+On the assignment line with coordinate $z$, let
+\[
+ E=\partial_z,
+ \qquad
+ H=z\partial_z .
+\]
+These are respectively the infinitesimal generators of translation and positive
+dilation, and they satisfy $[E,H]=E$.  Fix constants
+$\mu,\lambda\in\mathbb R$, with $\mu\ne0$.  The generator selected by an angle
+$\theta$ is
+\begin{equation}\label{eq:angular-affine-generator}
+ \Omega_\theta
+ =\mu\cos\theta\,E+\lambda\sin\theta\,H .
+\end{equation}
+Consequently, an integral curve $z=z(s)$ satisfies
+\begin{equation}\label{eq:continuous-affine-flow}
+ \frac{dz}{ds}
+ =\mu\cos\theta+\lambda z\sin\theta .
+\end{equation}
+This Lie-algebra calculation is a derivation of the continuous form of the
+arithmetic motion, and it fixes the convention: the translation coefficient is
+$\mu\cos\theta$, while the dilation coefficient is $\lambda\sin\theta$.
+
+When $\theta$ is constant, set $b=\lambda\sin\theta$.  The solution through
+$z(0)=z_0$ is
+\begin{equation}\label{eq:directional-affine-solution}
+ z(s)=
+ \begin{cases}
+  e^{bs}z_0+\displaystyle\mu\cos\theta\,\frac{e^{bs}-1}{b},
+     & b\ne0,\\[7pt]
+  z_0+\mu s\cos\theta, & b=0.
+ \end{cases}
+\end{equation}
+In particular, the positive arithmetic axes give
+\[
+ \theta=0:\quad z(s)=z_0+\mu s,
+ \qquad
+ \theta=\frac{\pi}{2}:\quad z(s)=e^{\lambda s}z_0.
+\]
+The opposite axes give subtraction and inverse dilation.
+
+\paragraph{The Pfaffian propagation constraint.}
+There is a useful three-dimensional local state space with coordinates
+$(u,v,z)$.  On it define
+\begin{equation}\label{eq:affine-pfaffian-form}
+ \alpha=dz-\mu\,du-\lambda z\,dv
+\end{equation}
+and the two horizontal vector fields
+\begin{equation}\label{eq:affine-horizontal-fields}
+ D_u=\partial_u+\mu\partial_z,
+ \qquad
+ D_v=\partial_v+\lambda z\partial_z.
+\end{equation}
+A curve tangent to
+$\cos\theta\,D_u+\sin\theta\,D_v$ satisfies
+\eqref{eq:continuous-affine-flow}.  Thus the frequently used notation
+\[
+ dz=\mu\,du+\lambda z\,dv
+\]
+means that $\alpha$ vanishes on admissible tangent vectors.  It is not an
+identity asserting that $z$ is a function of two independent coordinates whose
+ordinary partial derivatives are simultaneously $\mu$ and $\lambda z$.
+Indeed,
+\begin{equation}\label{eq:horizontal-noncommutation}
+ [D_u,D_v]=\mu\lambda\,\partial_z.
+\end{equation}
+When $\mu\lambda\ne0$, this bracket already rules out such an integrable
+coordinate interpretation.  The same bracket is computed intrinsically in
+\eqref{eq:arithmetic-frame-bracket-on-a}; the local model here and the frame
+there describe one object.  Its geometric reading as a contact structure is
+taken up in Section~\ref{sec:p0-contact}.
+
+\begin{theorem}[Continuous affine flow]\label{thm:continuous-affine-flow}
+Let $\mathfrak E=(M,g,a;\mu,\lambda)$ be a regular AES with its canonical
+arithmetic frame.  If a unit-speed curve $\gamma$ has tangent
+\[
+ \dot\gamma
+ =\cos\theta\,X_u+\sin\theta\,X_v,
+\]
+where $\theta$ may vary along the curve, then
+\begin{equation}\label{eq:intrinsic-continuous-affine-flow}
+ \frac{d}{ds}(a\circ\gamma)
+ =\mu\cos\theta+\lambda(a\circ\gamma)\sin\theta.
+\end{equation}
+For constant $\theta$, its solutions are given by \eqref{eq:directional-affine-solution}.
+\end{theorem}
+
+\begin{proof}
+By the chain rule and \eqref{eq:arithmetic-frame-derivatives},
+\[
+ \frac{d}{ds}(a\circ\gamma)
+ =da(\dot\gamma)
+ =\cos\theta\,X_u a+\sin\theta\,X_v a
+ =\mu\cos\theta+\lambda a\sin\theta.
+\]
+For constant $\theta$, this is the linear equation already integrated in
+\eqref{eq:directional-affine-solution}.
+\end{proof}
+
+\paragraph{Rectification.}
+For $\lambda\ne0$, define
+\begin{equation}\label{eq:rectifying-assignment}
+ r=\operatorname{arcsinh}\!\left(\frac{\lambda a}{\mu}\right).
+\end{equation}
+The chain rule and \eqref{eq:regular-aes-eikonal} give
+\begin{equation}\label{eq:rectified-eikonal}
+ |\nabla r|=|\lambda|.
+\end{equation}
+Thus $r$ has constant gradient magnitude.  When $\lambda=0$, the original
+equation already reduces to $|\nabla a|=|\mu|$, and $a/\mu$ is a
+unit-gradient rectifying function.  Rectification of the assignment is
+possible; rectification of *both* arithmetic directions at once is not, by
+\eqref{eq:horizontal-noncommutation}.  This asymmetry is the discrete root of
+the tearing language of Section~\ref{sec:p0-holed}.
+
+The same affine convention fixes the sign of the elementary local order defect.
+For small increments $h$ and $k$, let
+\[
+ A_h(z)=z+\mu h,
+ \qquad
+ M_k(z)=e^{\lambda k}z.
+\]
+Then
+\begin{align}
+ (M_k\circ A_h)(z)-(A_h\circ M_k)(z)
+ &=\mu h\bigl(e^{\lambda k}-1\bigr)\notag\\
+ &=\mu\lambda\,hk+O\!\left(\lVert(h,k)\rVert^3\right).
+ \label{eq:infinitesimal-order-defect}
+\end{align}
+This is an infinitesimal two-order comparison, not an exact area formula for an
+arbitrary finite region.  The exact finite statement, and its interpretation as
+a defect measured in the commutativized space, occupy
+Section~\ref{sec:p0-acs-tearing}.
+
+\paragraph{Affine motion inside projective motion.}
+An infinitesimal projective transformation of the line has the Riccati form
+\[
+ \dot z=\beta+\alpha z+\kappa z^2.
+\]
+The theory developed in this section is the affine slice $\kappa=0$, with
+$\beta=\mu\cos\theta$ and $\alpha=\lambda\sin\theta$.  Results proved for
+regular affine AESs do not automatically extend to the quadratic projective
+flow.
+
+\subsection{Model names: $E_0$, $E_1$, and later examples}
+\label{subsec:p0-model-names}
+
+The historical drafts of this programme used the labels $E_0$ and $E_1$
+inconsistently; in some notes the hyperbolic half-plane is called $E_0$, in
+others $E_1$.  Because later chapters introduce spaces that are *not* smooth,
+we fix the convention now, once, and record it as a convention rather than a
+theorem.
+
+\begin{convention}[Model labels]
+\label{conv:p0-model-labels}
+$\mathfrak E_0(\mu,\lambda)$ denotes the basic regular hyperbolic model of
+Subsection~\ref{subsec:p0-basic-model}.  For $k\ge1$, the label
+$\mathfrak E_k$ is used descriptively for an arithmetic expression space whose
+regular locus is a surface with $k$ declared punctures: points removed from the
+regular structure and carrying no regular AES data.  No classification by $k$
+is asserted; the label records the number of declared punctures and nothing
+else.  The reserved historical labels $E_k$ and $E_{\log}$ of earlier drafts
+are not model classes, and this paper defines neither of them.
+\end{convention}
+
+Two examples make the convention concrete; both are developed later, and the
+first one is the only example in this paper whose punctured model is verified
+in detail.
+
+\begin{example}[The basic model, $k=0$]
+\label{ex:p0-e0-model}
+$\mathfrak E_0(\mu,\lambda)$ is the upper half-plane with the metric
+\eqref{eq:p0-e0-data} and the assignment $a=-x/y$.  It has no puncture, its
+assignment vanishes along one complete geodesic, and by
+Theorem~\ref{thm:basic-hyperbolic-aes} it is complete with constant curvature.
+This is the model in which the arithmetic motions of
+Subsection~\ref{subsec:p0-point-paths} are read as point paths.
+\end{example}
+
+\begin{example}[A one-puncture model, $k=1$]
+\label{ex:p0-e1-model}
+Let $\mathbb D=\{\rho<1\}$ be the unit disc with the complete Poincar\'e
+metric $g_{\mathbb D}=4\,(d\xi^2+d\eta^2)/\lambda^2(1-\rho^2)^2$ and the radial
+assignment
+\[
+ a_{\mathbb D}(\xi,\eta)=
+ \begin{cases}
+  \dfrac{2\mu}{\lambda}\,\dfrac{\rho}{1-\rho^2},&\rho\ne0,\\[6pt]
+  0,&\rho=0 .
+ \end{cases}
+\]
+On the punctured disc $\mathbb D\setminus\{0\}$ this is a regular AES with
+$|\nabla a_{\mathbb D}|^2=\mu^2+\lambda^2a_{\mathbb D}^2$, while at the centre
+the assignment fails to be $C^1$ although the metric extends smoothly.  The
+regular locus is therefore $\mathbb D\setminus\{0\}$ and the model carries
+exactly one puncture.  Paper~I verifies the details of this model as its
+isolated-zero example; the global invariant $\lambda a_{\mathbb D}
+=\mu\sinh(\lambda s)$ along hyperbolic distance $s$ from the centre shows that
+the assignment, not the metric, is what fails at the puncture.
+\end{example}
+
+Example~\ref{ex:p0-e1-model} is the first holed arithmetic expression space, and
+Section~\ref{sec:p0-holed} returns to it.  Its puncture is not a hole in the
+metric; it is a point at which the regular structure stops being defined, and
+it is where the arithmetic motions of the punctured part can no longer be
+extended.
