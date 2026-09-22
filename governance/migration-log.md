@@ -709,3 +709,49 @@ closure.
   note (`notes/foundations-and-geometry/06-hole-obstructions-ledger.md`) without
   promotion of any of its items; two precision defects of that register are recorded
   in Paper 0 §11 and in `08-open-questions.md` rather than silently repaired
+
+## Migration M-0020
+
+- **Date:** 2026-09-22
+- **Name:** Paper 0 revision in response to the external review
+- **Authority:** ordinary task report; no scope change.  The Paper 0 scope fixed by
+  M-0019 and `00b-paper-0-geometric-foundation-amendment.md` is unchanged
+- **Input:** `AEG-Paper-0-review-2026-09-22-v0.1.md` (reviewer: ChatGPT; reviewed
+  artifact SHA-256 `afeff197…f3f5e5b`, 68 pages) and
+  `AEG-Paper-0-review-2026-09-22-response-v0.1.md`
+- **Source and destination:** `paper-0/sections/02-expansion.tex`, `03-aes-and-motion.tex`,
+  `04-ripple-geometry.tex`, `05-reciprocals-fixed-points.tex`,
+  `06-projective-unification.tex`, `08-acs-tearing.tex`, `09-contact-of-tearing.tex`,
+  `10-beyond-linear.tex`, `11-holed-aes.tex`, `12-interface.tex`,
+  `aeg-paper-0.tex`, `paper-0/README.md`, and `bibliography/aeg-paper.bib`
+  (all edited in place); `governance/05b-paper-0-status-register.md` updated
+- **Migration state:** `REWRITE` (proofs, definitions, and prose) and `REPAIR`
+  (two definitions that were vacuous or mis-stated); no file moved between papers
+- **Claim treatment:** four genuine defects repaired: the punctured-space definition
+  (`def:p0-punctured-aes`), the proof of `prop:p0-arithmetic-generators`, the pole
+  chart's orientation (`eq:p0-pole-coordinate`), and the directed-transition count of
+  the frame witness.  One over-statement narrowed: the conclusion of
+  `prop:p0-arithmetic-generators` is now the boundary of finite-dimensional
+  Lie-group closure, and `prop:p0-characters-cannot-see-tearing` is restated for
+  arbitrary charge-endpoint observables.  One hypothesis made explicit:
+  `def:p0-tearing` now separates scale-compatibility from charge-compatibility.
+  One interpretive claim demoted: the four-circle tangent cone is no longer coupled
+  to punctures, and §11.3's claims became registered questions
+- **New material:** `prop:p0-contact-quotient` (the basic model is the Reeb quotient
+  of the contact model, five relations with proofs), proposed in the review and
+  verified independently here; a `Warning` on partial motions in §3; a remark fixing
+  the Möbius chart `Z = (lambda/mu)x + iy`; a remark on what `mu*lambda` is and is not;
+  and a statement that §§10–11 are research reports rather than stable interfaces
+- **Notation changes:** none beyond the sign of the pole chart, which is now
+  `-1/(z-q)` with the reason stated
+- **Reference treatment:** added `Etnyre2001IntroductoryLectures` (contact geometry)
+  and `Khinchin1964ContinuedFractions` (standard continued-fraction convergence);
+  both are cited in the text.  No entry was removed
+- **Content removed from source:** none
+- **Build result:** `./build.sh 0` produces a 74-page PDF with a clean final log; no
+  undefined references, citations, or duplicate labels
+- **Reviewer notes:** every point of the review was checked before being accepted;
+  the review's own corrected proof of `prop:p0-arithmetic-generators` was adopted, its
+  Reeb-quotient proposition was re-derived and adopted, and one of its items (the
+  calibration round counts) was resolved by removing the unreproducible numbers
+  rather than by repeating them

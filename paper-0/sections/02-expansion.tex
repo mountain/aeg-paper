@@ -207,9 +207,14 @@ The map $J$ exchanges $0$ and $\infty$, so it does not stabilize infinity.
 \subsection{The distributive law as an expansion rewrite}
 \label{subsec:p0-distributivity}
 
-Two different expansions may induce the same arithmetic operator.  The law
-responsible for this is distributivity, and it is worth isolating because every
-later chapter compares expansions that share an operator or a value.
+Two different expansions may induce the same arithmetic operator.  The law used
+here to relate two such expansions is distributivity, and it is worth isolating
+because every later chapter compares expansions that share an operator or a
+value.  Other ring identities (associativity, the unit laws) also relate
+expansions with a common operator; what is special about distributivity is that
+it moves an additive step across a multiplicative one, which is why it, and not
+the others, produces the charge transport computed in
+Example~\ref{ex:p0-distributive-charge-transport}.
 
 \begin{definition}[Distributive expansion]
 \label{def:p0-distributive-expansion}
@@ -224,8 +229,9 @@ followed by a translation:
   z\;\longmapsto\;kz\;\longmapsto\;kz+kp .
 \]
 The two words have the same length, the same operation alphabet, and the same
-induced operator $z\mapsto kz+kp$ on $K$, but different constant data:
-$(p,k)$ in the first word and $(kp,k)$ in the second.
+induced operator $z\mapsto kz+kp$ on $K$, but different constant data.  Writing
+a two-step word chronologically as the pair (translation constant, scaling
+constant), the first word is $(p,k)$ and the second is $(k,kp)$.
 \end{definition}
 
 \begin{proposition}[Distributivity is operator-preserving and expansion-changing]
@@ -237,14 +243,19 @@ For all $p,k\in K$ the induced operators of the two words in
   \;=\;
   \bigl(z\mapsto kz\bigr)\ \text{followed by}\ \bigl(z\mapsto z+kp\bigr).
 \end{equation}
-When $k\ne1$ and $p\ne0$ the two words are distinct marked expansions: their
-chronological constant words $(p,k)$ and $(kp,k)$ differ.
+The two words coincide as marked data precisely when $p=k=1$; for every other
+pair they are distinct marked expansions.  In particular, if $p\ne0$ and
+$k\ne1$, then the two expansions share their operator and differ in their
+chronological constant data.
 \end{proposition}
 
 \begin{proof}
-Both sides send $z$ to $kz+kp$, which is the distributive law in $K$.  If the
-constant words agreed, then $p=kp$, that is $(k-1)p=0$; since $K$ is a field
-this forces $k=1$ or $p=0$.
+Both sides send $z$ to $kz+kp$, which is the distributive law in $K$.  The
+chronological pairs are $(p,k)$ and $(k,kp)$, and the second differs from the
+first unless $p=k$ and $k=kp$.  Since $k\ne0$ in the second equation and the
+identity case $k=0$ is immediate in the first, the two conditions force
+$p=1$ and then $k=1$.  Hence the words coincide as marked data only in the
+trivial case.
 \end{proof}
 
 \begin{example}[Distributivity transports the additive charge]

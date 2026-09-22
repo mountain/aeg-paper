@@ -1,6 +1,9 @@
-The models of Section~\ref{sec:p0-aes} are complete and unpunctured: the basic
-hyperbolic space has no point at which the arithmetic structure fails.  This
-final chapter records the opposite situation, which arose in the most recent
+The geometry of Section~\ref{sec:p0-aes} is developed on the basic model, which
+is complete and unpunctured: $\mathfrak E_0$ has no point at which the
+arithmetic structure fails.  (The one-puncture model $\mathfrak E_1$ of
+Example~\ref{ex:p0-e1-model} already leaves the regular category, and is the
+case this chapter generalizes.)  This final chapter records the opposite
+situation, which arose in the most recent
 exploratory work of the programme, and the vocabulary that has been proposed for
 it.  The mathematical content of the chapter is deliberately modest: one
 definition, one exact local computation, and a register of six computed
@@ -13,23 +16,28 @@ and Subsection~\ref{subsec:p0-holed-nonclaims} lists what is not established.
 
 \begin{definition}[Punctured arithmetic expression space]
 \label{def:p0-punctured-aes}
-Let $\mathfrak E=(M,g,a;\mu,\lambda)$ be a regular AES in the sense of
-Definition~\ref{def:regular-aes}, and let $S\subset M$ be a finite set of points
-such that
+Let $\overline M$ be an oriented smooth surface, let $S\subset\overline M$ be a
+finite set of points, and put $M=\overline M\setminus S$.  Suppose given a
+smooth Riemannian metric $g$ on $M$, a function $a:M\to\mathbb R$ that is smooth
+on $M$, and constants $\mu\ne0$, $\lambda$, such that
 \begin{enumerate}
-  \item $(M\setminus S,\;g|_{M\setminus S},\;a|_{M\setminus S};\mu,\lambda)$ is
-  a regular AES, and
-  \item no neighbourhood of any $p\in S$ admits smooth extensions of
-  $g|_{M\setminus S}$ and $a|_{M\setminus S}$ making it a regular AES.
+  \item $(M,g,a;\mu,\lambda)$ is a regular AES in the sense of
+  Definition~\ref{def:regular-aes}, and
+  \item for every $p\in S$, no neighbourhood $U$ of $p$ in $\overline M$ admits
+  extensions of $g|_{U\cap M}$ and $a|_{U\cap M}$ to smooth data
+  $\widetilde g,\widetilde a$ on $U$ for which
+  $(U,\widetilde g,\widetilde a;\mu,\lambda)$ is a regular AES.
 \end{enumerate}
-Then $\mathfrak E_S=(M\setminus S,g,a;\mu,\lambda)$ together with the declared
-set $S$ is called a \emph{punctured arithmetic expression space}, and the points
-of $S$ are its \emph{punctures}.  When $|S|=k$ we write $\mathfrak E_k$ for it,
-in the descriptive sense of Convention~\ref{conv:p0-model-labels}.
+Then $(\overline M,S,g,a;\mu,\lambda)$ is called a \emph{punctured arithmetic
+expression space}, and the points of $S$ are its \emph{punctures}.  When
+$|S|=k$ we write $\mathfrak E_k$ for it, in the descriptive sense of
+Convention~\ref{conv:p0-model-labels}.
 \end{definition}
 
-The second condition is the one that matters: a puncture is not any point that
-has been deleted, but a point at which the regular structure genuinely cannot be
+The ambient surface and the data are deliberately separated: the regular AES is
+given only on the punctured surface $M$, so that condition (ii) is a genuine
+requirement rather than a contradiction.  A puncture is not any point that has
+been deleted, but a point at which the regular structure genuinely cannot be
 continued.  This is the finite-point case of the singular arithmetic expression
 space of Paper~I; the general singular theory, the classification of singular
 germs, and everything concerning tubes, braids, and knot invariants belong to
@@ -42,7 +50,15 @@ The first example is the one-puncture model of Example~\ref{ex:p0-e1-model}: the
 unit disc with the complete Poincar\'e metric and the radial assignment
 $a_{\mathbb D}=\frac{2\mu}{\lambda}\rho/(1-\rho^2)$, whose metric extends
 smoothly across the centre while the assignment does not.  There $S=\{0\}$ and
-the regular locus is $\mathbb D\setminus\{0\}$.
+the regular locus is $\mathbb D\setminus\{0\}$.  Two features of that example
+are worth recording here, because they are typical of punctured models.  First,
+the extended metric is complete on $\mathbb D$ while its restriction to
+$\mathbb D\setminus\{0\}$ is \emph{not} complete: the puncture is at finite
+distance from every interior point, so the incompleteness is caused by the
+deletion and not by the geometry.  Second, the assignment has a finite limit at
+the puncture (here $0$) but no $C^1$ extension, so the failure is a failure of
+differentiability rather than of continuity.  Both statements are verified in
+Paper~I together with the model.
 
 \subsection{The local shape of a puncture}
 \label{subsec:p0-holed-tangent-cone}
@@ -89,13 +105,23 @@ the lowest-degree part is $16\rho^4x^2y^2$, whose zero set is $xy=0$ counted
 twice.
 \end{proof}
 
-Two consequences are used below.  First, the two circles of the same family are
+Two remarks, both used below.  First, the two circles of the same family are
 tangent at the origin, so the origin is a degenerate point of each family, while
 circles of different families cross there with tangent lines $x=0$ and $y=0$;
 the tangent cone is the union of those two lines.  Second, the tangent cone is
 *reducible with multiplicity*: it is the square of a product of two distinct
-linear forms, which is exactly the algebraic shape of a degenerate puncture in
-this family.  The computation is recorded in the exploration register of the
+linear forms.
+
+No arithmetic expression space is attached to this configuration in this paper.
+The four circles are an explicit curve configuration whose tangent cone can be
+computed exactly, and nothing more is claimed: in particular they are not
+asserted to be the limiting circles of any AES metric or assignment, and the
+origin is not asserted to be a puncture in the sense of
+Definition~\ref{def:p0-punctured-aes}.  Constructing data $(g,a)$ on a
+neighbourhood of the origin for which this configuration is natural, and for
+which the origin is non-extendable, is recorded as the first problem of
+Subsection~\ref{subsec:p0-holed-open}.
+The computation is recorded in the exploration register of the
 programme \cite{Yuan2026AEGHoleRegister}; the identity above is verified here
 directly.
 
@@ -103,36 +129,41 @@ directly.
 \label{subsec:p0-tearing-at-puncture}
 
 The tearing of Definition~\ref{def:p0-tearing} is a defect between two motions
-of a space.  On a punctured space a second phenomenon appears: the motions
-themselves need not be extendable across the puncture, so the comparison of two
-motions can require passing around it.
+of a space.  On a punctured space a further question arises: the motions
+themselves need not be extendable across the puncture, so a comparison of two
+motions may have to be performed around it rather than through it.  This
+subsection records that question and what is known about it; it proves nothing
+beyond the definitions.
 
-Concretely, let $\mathfrak E_S$ be a punctured AES and let $p\in S$.  A motion
-of the punctured surface is a path in $M\setminus S$, and two motions that
-approach $p$ from different directions need not have limits related by any
-regular motion of $\mathfrak E_S$: the assignment and the metric are defined
-only away from $p$.  Two consequences follow, and both are already visible in
-the two computed structures of this chapter.
+Let $(\overline M,S,g,a;\mu,\lambda)$ be a punctured AES and let $p\in S$.  A
+motion of the punctured surface is a path in $M=\overline M\setminus S$, and two
+motions that approach $p$ from different directions need not have limits related
+by any regular motion of the punctured part: the assignment and the metric are
+defined only on $M$.  The following two questions are therefore well posed.
 
 \begin{enumerate}
-  \item \emph{Comparison may require a detour.}  In the frame calculation of
-  Subsection~\ref{subsec:p0-holed-witnesses}, one period of the phase returns to
-  its starting phase while shifting the label read by the observer.  The phase
-  loop is closed in the phase coordinate and open in the label coordinate; the
-  defect is only visible to an observer that records both.
-  \item \emph{Comparison may require a cut.}  In the gluing calculation of the
-  same subsection, the invariants of the whole family of cuts are exhausted by a
-  permutation, and the three-holed object is obtained only after removing two
-  further points.  The "holes" are therefore not produced by the gluing; they
-  are the places where the gluing's own data must be checked.
+  \item \emph{Does comparison require a detour?}  Two bounded motions with the
+  same charge whose paths cannot be deformed into one another in $M$ while
+  keeping their charges: is their relative torsion still given by an ACS area,
+  and if so in which filling class?  The frame witness of
+  Subsection~\ref{subsec:p0-holed-witnesses} is the computed instance that makes
+  the question concrete, because there a closed loop in one coordinate is open
+  in another.
+  \item \emph{Does comparison require a cut?}  If the punctures are stipulated
+  rather than derived, then the family of comparisons depends on that
+  stipulation.  The gluing witness of the same subsection exhibits a whole
+  family of cuts whose invariants are exhausted by a permutation, so the cut
+  carries more information than the topology it produces.
 \end{enumerate}
 
-Both statements are deliberately weak.  They say where the defect is carried,
-not what it is equal to.  The measured value of a tearing is the ACS area of
-Theorem~\ref{thm:torsion-stokes}, which is a statement about the unpunctured
-motion; the puncture is where that measurement cannot be performed locally, and
-hence where it must be performed either in the commutativization or by going
-around.
+Neither question is answered here.  What can be said now is only where the
+measurement must be performed: the measured value of tearing is the ACS area of
+Theorem~\ref{thm:torsion-stokes}, which is a statement about add--scale
+histories and therefore does not itself refer to the puncture; a comparison
+across a puncture has to leave the punctured surface, either by passing to the
+charge plane or by going around the puncture, and deciding which of the two is
+canonical is recorded as the second problem of
+Subsection~\ref{subsec:p0-holed-open}.
 
 \subsection{Six computed witnesses}
 \label{subsec:p0-holed-witnesses}
@@ -156,17 +187,22 @@ the labels of this repository.
     \chi=V-E+F=C=b ,
   \]
   the number of boundary components.  Consequently every gluing of this family
-  produces either one disc or a disjoint union of $C$ discs; a three-holed
-  surface ($\chi=-1$, $b=3$) is unreachable, and equals a disc with two points
-  removed.  An exhaustive check of all $40320$ permutations confirms the
+  produces either one disc or a disjoint union of $C$ discs, and the compact
+  three-holed sphere ($\chi=-1$ with three boundary components) is unreachable
+  in this family.  A surface of Euler characteristic $-1$ is obtained instead by
+  removing two points from the disc: it has one boundary component, two
+  punctures, and hence three ends, so its Euler characteristic agrees with that
+  of the compact pair of pants while its boundary structure does not.  An
+  exhaustive check of all $40320$ permutations confirms the
   distribution $5040,13068,13132,6769,1960,322,28,1$ for $C=1,\ldots,8$.
   \emph{Status:} the identity $\chi=C$ is elementary and provable as above; the
-  enumeration is a computationally verified example.
+  enumeration is a computationally verified example.  The topological
+  conclusion holds for the stated gluing rule, not for arbitrary gluings of the
+  eight pieces.
 
   \item \emph{A combinatorial witness.}  If three components interact pairwise,
   the interaction sites are the three unordered pairs, and each site carries two
-  directions of exchange, giving six directed transitions.  In the twelve-state
-  cycle of the next witness each directed transition occurs four times.
+  directions of exchange, giving six directed transitions in total.
   \emph{Status:} counting, given the definition of a hole as an interaction
   site.  The definition is a choice, not a theorem.
 
@@ -177,36 +213,74 @@ the labels of this repository.
     (c,\sigma,\varphi)\longmapsto(c+\sigma,\sigma,\varphi+\sigma).
   \]
   Since $\gcd(3,4)=1$, the Chinese remainder theorem identifies
-  $(c,\varphi)$ with a single counter $k$ modulo $12$; the orbit of one direction
-  has length $12$.  Because one full phase period is four steps and
-  $4\equiv1\pmod3$, one period of the phase returns the phase to its initial
-  value while advancing the component label by $1$.  The phase loop is therefore
-  not closed in the total state: its monodromy is the generator of
-  $\mathbb Z_3$.  \emph{Status:} exact arithmetic (Chinese remainder theorem),
-  verified exhaustively on the $12$-state orbit and by replay.
+  $(c,\varphi)$ with a single counter $k$ modulo $12$, and the orbit of each
+  direction has length $12$.  Within one such orbit the component label
+  advances in the direction $\sigma$, so the transitions realized are the three
+  pairs of that direction, each occurring four times --- once per phase class.
+  The six directed transitions of the combinatorial witness therefore appear
+  four times each only over the two orbits together, that is, over $24$ steps;
+  a single $12$-step orbit cannot contain $24$ transitions.  Since one full
+  phase period is four steps and $4\equiv1\pmod3$, one period of the phase
+  returns the phase to its initial value while advancing the component label by
+  \[
+    c\longmapsto c+\sigma \pmod 3 ;
+  \]
+  for the fixed direction $\sigma=+1$ this is the advance by one used in the
+  register, and for $\sigma=-1$ it is the advance by two.  In either case the
+  phase loop is not closed in the total state: its monodromy is the generator
+  $-\sigma$ of $\mathbb Z_3$.  \emph{Status:} exact arithmetic (Chinese
+  remainder theorem), verified exhaustively on the two $12$-state orbits and by
+  replay.
 
-  \item \emph{An observer witness.}  Suppose an observer sees only residuals of
-  magnitude at least $\varepsilon$, and a calibration procedure stops as soon as
-  no visible residual remains.  On the frame model recorded in the register, the
-  residuals vanish exactly at the ideal frame, and the procedure halts at
-  $|\theta-\pi/2|=2.83\times10^{-3}$ after eleven rounds for
-  $\varepsilon=10^{-2}$, and at $2.89\times10^{-13}$ after fifty-six rounds for
-  $\varepsilon=10^{-12}$.  \emph{Status:} a property of the declared stopping
-  rule, with the quoted numbers computationally verified.  It is \emph{not} an
+  \item \emph{An observer witness.}  Let a frame be described by an angle
+  $\theta$ and three joint offsets $\delta_1,\delta_2,\delta_3$, and let the
+  residuals available to an observer be
+  \[
+    r_i=\bigl|2\sin\delta_i\bigr| \quad (i=1,2,3),
+    \qquad
+    r_4=\bigl|2\sin\bigl(2\theta+\tfrac12(\delta_1+\delta_2+\delta_3)\bigr)\bigr| .
+  \]
+  All four residuals vanish exactly at the ideal frame
+  $(\theta,\delta)=(\pi/2,0,0,0)$.  Suppose an observer sees only residuals of
+  magnitude at least $\varepsilon$, and that an iterative procedure stops as
+  soon as every visible residual is below that threshold.  At the halt one then
+  has the following bound.  From $r_i<\varepsilon$ we get
+  $|\delta_i|<\arcsin(\varepsilon/2)=\varepsilon/2+O(\varepsilon^3)$, and from
+  $r_4<\varepsilon$ together with
+  $r_4=\bigl|4(\theta-\pi/2)+(\delta_1+\delta_2+\delta_3)\bigr|+O(\lVert(\theta-\pi/2,\delta)\rVert^2)$
+  we get
+  \[
+    \bigl|\theta-\pi/2\bigr|
+    <\frac58\,\varepsilon+O(\varepsilon^2).
+  \]
+  The halting offset is therefore of order $\varepsilon$ and decreases linearly
+  in $\varepsilon$; it is not zero, and it is the best that a procedure obeying
+  this stopping rule can report.  \emph{Status:} the residual functions, their
+  exact common zero at the ideal frame, and the bound are proved above.  The
+  particular iteration counts and offsets recorded in the register depend on the
+  implementation of the update step, which the register does not fix, and they
+  are accordingly \emph{not} reproduced here.  The witness is \emph{not} an
   obstruction: nothing in the computation shows that no procedure can do better,
-  and the exact zero of the residual at the ideal frame shows the opposite.
+  and the exact zero of the residuals at the ideal frame shows the opposite.
 
-  \item \emph{A semantic witness.}  Model the interaction sites by vocabularies:
-  four shared terms, two terms shared by each pair, and one term private to each
-  component.  Filling the three sites independently gives $6\cdot5\cdot5=150$
-  possibilities; filling them coherently from the shared core gives $4^3=64$.
-  The difference $86$ is carried by the adapters at the sites.  On the
-  structural layer the pairwise intersections are non-empty while the common
-  intersection is empty.  \emph{Status:} the arithmetic is verified given the
-  model; the model is a modelling choice, the "Borromean" description is an
-  analogy with no link-theoretic content, and the emptiness of the triple
-  intersection holds for the structural layer only --- the full vocabularies
-  share the four common terms.
+  \item \emph{A semantic witness.}  Model the three interaction sites by
+  vocabularies built from four terms common to all three components, four
+  further control terms distributed over the pairs as two, one, and one, and
+  three terms private to the individual components (which therefore enter no
+  site vocabulary).  The three site vocabularies then have sizes
+  \[
+    6=4+2,\qquad 5=4+1,\qquad 5=4+1 .
+  \]
+  Filling the three sites independently --- one word chosen from
+  each site's own vocabulary --- gives $6\cdot5\cdot5=150$ possibilities;
+  filling them so that the same core word is used at all three sites gives
+  $4^3=64$.  The difference $86$ is carried by the adapters at the sites.  On
+  the control layer the pairwise intersections are non-empty while the common
+  intersection is empty; on the full vocabularies the common intersection is the
+  four-term core, so the emptiness statement is layer-dependent.
+  \emph{Status:} the arithmetic is verified given the model; the model is a
+  modelling choice, and the "Borromean" description is an analogy with no
+  link-theoretic content.
 
   \item \emph{A phase-geometry witness.}  With components at phases
   $\{0,+1,-1\}$ modulo $n$, a forward motion of $k$ steps and a reverse motion of
@@ -284,8 +358,30 @@ of this chapter.
   the gluing of punctured surfaces is intrinsic and contains no chosen seam.
 \end{enumerate}
 
-Each of these is a programme, not a result.  Related and independent problems
-were already recorded at the end of the earlier prelude: whether a punctured
-model carries a ripple structure that survives at the puncture, and whether the
-choice of punctures can be made canonical rather than stipulated.  A solution of
-either would turn the language of this chapter from a description into a theory.
+Each of these is a programme, not a result.  Three further problems arise
+directly from the discussion above, and are recorded with their own labels.
+
+\begin{enumerate}
+  \item \label{op:p0-four-circle}\emph{Attach AES data to the four-circle
+  configuration.}  Construct a surface $\overline M$, a finite set $S$ containing
+  the origin, and data $(g,a)$ on $\overline M\setminus S$ such that
+  $(\overline M,S,g,a;\mu,\lambda)$ is a punctured AES in the sense of
+  Definition~\ref{def:p0-punctured-aes}, such that the four circles (or their
+  limiting arcs under $g$) arise naturally from $a$ or from the arithmetic
+  motions, and such that the origin is non-extendable.  Until such a
+  construction exists, Proposition~\ref{prop:p0-puncture-tangent-cone} is a
+  statement about a curve configuration and not about any AES.
+  \item \label{op:p0-canonical-punctures}\emph{Make the comparison across a
+  puncture canonical.}  Decide whether a relative torsion across a puncture is
+  measured by an ACS area, by a holonomy around the puncture, or by neither, and
+  in the first case determine the admissible filling classes.
+  \item \emph{Make the puncture set canonical.}  Decide whether the set $S$ of
+  Definition~\ref{def:p0-punctured-aes} can be determined by the arithmetic data
+  rather than stipulated, and whether it is unique when it can.  This is the
+  first unfinished item of the exploration register's own programme.
+\end{enumerate}
+
+A solution of any of them would turn the language of this chapter from a
+description into a theory; the earlier prelude's question, whether a punctured
+model carries a ripple structure that survives at the puncture, is a fourth and
+independent problem of the same kind.

@@ -385,6 +385,24 @@ propagation, whereas the metric measures its infinitesimal geometry.
 The remaining two operations are obtained from the same two families and a
 reflection.
 
+\begin{warning}[The motions are partial]
+\label{warn:p0-partial-motions}
+The maps below are defined only where the arithmetic value stays in the range
+carried by the model, and they are not asserted to form a global group action
+even there.  Concretely: the scaling motion $\mathsf Y_k$ is defined for $k>0$
+and moves the assignment from $a$ to $ka$, so a word whose intermediate values
+leave the range of $a$ on $M$ has no realization on $M$; a model whose
+assignment misses a half-axis, such as the punctured model
+$\mathfrak E_1$ of Example~\ref{ex:p0-e1-model}, cannot carry globally the
+motions that would move the value into the missing half-axis; and a motion of a
+punctured model may run into a puncture, as
+Section~\ref{sec:p0-holed} records.  Only the basic model
+$\mathfrak E_0$ carries the two affine motions globally, and only there do they
+generate the full positive affine group action.  Everywhere else ``the four
+operations act as motions'' means: each operation is realized by a locally
+defined map wherever its assignment condition holds.
+\end{warning}
+
 \begin{center}
 \renewcommand{\arraystretch}{1.35}
 \begin{tabular}{lll}
@@ -404,7 +422,14 @@ Subtraction is thus the inverse of the additive motion, and division by a
 nonzero constant is the inverse of the multiplicative motion.  The reflection is
 not by itself one of the four operations; it appears because the assignment of
 the model is signed, and it is the elementary instance of the second-slot
-subtraction $c-z$ of Section~\ref{sec:p0-expansion}.
+subtraction $c-z$ of Section~\ref{sec:p0-expansion}.  Multiplying by a negative
+constant is realized as the reflection composed with a positive scaling; the
+model therefore carries every nonzero affine multiplier of a real history, while
+the *positive* scalings are the motions that stay in the identity component and
+are the ones used in the grid, in the flow, and in the ACS.  Over a general field
+the affine cocycles of Section~\ref{sec:p0-affine-cocycles} again allow every
+nonzero multiplier, and the analytic statements of this paper are made over the
+positive component.
 
 For an integer $m\ge2$, the two moves satisfy the exact relation
 \begin{equation}\label{eq:p0-bs-relation}
@@ -621,8 +646,11 @@ Indeed,
 \end{equation}
 When $\mu\lambda\ne0$, this bracket already rules out such an integrable
 coordinate interpretation.  The same bracket is computed intrinsically in
-\eqref{eq:arithmetic-frame-bracket-on-a}; the local model here and the frame
-there describe one object.  Its geometric reading as a contact structure is
+\eqref{eq:arithmetic-frame-bracket-on-a}, and
+Proposition~\ref{prop:p0-contact-quotient} proves that the local model here and
+the frame there are two descriptions of one object for the basic model: the
+horizontal fields descend to the canonical frame and the curvature form is the
+hyperbolic area form.  Its geometric reading as a contact structure is
 taken up in Section~\ref{sec:p0-contact}.
 
 \begin{theorem}[Continuous affine flow]\label{thm:continuous-affine-flow}

@@ -140,6 +140,23 @@ when the pole is moved to infinity.}
 \label{fig:p0-inversion-ripple-pencil}
 \end{figure}
 
+\begin{remark}[Which upper half-plane, and with which metric]
+\label{rem:p0-ripple-normalization}
+The complex coordinate used throughout this section is the Möbius continuation
+chart, and it is not literally the point coordinate of
+Section~\ref{sec:p0-aes}.  With the metric $g_{\mu,\lambda}$ of
+\eqref{eq:p0-e0-data}, the chart in which the horocycles are the Euclidean
+horizontal lines and the metric is the standard one of curvature $-1$ is
+\[
+  Z=\frac{\lambda}{\mu}x+iy,
+\]
+as follows from \eqref{eq:scaled-standard-hyperbolic-metric}.  When
+$\mu=\lambda$ this is the identity, which is why the two roles of $x+iy$ are
+usually identified in the literature; here they are kept apart, and all
+Möbius statements below are made in the $Z$-chart.  Only when a statement
+concerns the assignment $a$ rather than the metric do we return to $(x,y)$.
+\end{remark}
+
 \subsection{Zero--pole pencils in the complex chart}
 
 There is a second elementary pencil attached to the same operator.  Suppose
@@ -154,16 +171,19 @@ Then the output level set $|F(z)|=r$ is equivalent to
   |z-q_F|
   =r\left|\frac CA\right|\,|z-p_F|.
 \end{equation}
-These are Apollonius circles for the ordered zero--pole pair.  The horocyclic
+For $r|C/A|\ne1$ these are Apollonius circles; for $r|C/A|=1$ the locus is the
+perpendicular bisector line of the segment $q_Fp_F$, that is, a generalized
+circle of infinite radius.  The horocyclic
 ripple pencil and the Apollonius pencil encode different output observables,
 $\im F$ and $|F|$, but both show that a projective one-hole operator naturally
 carries more than a point orbit: it carries a zero, a pole, and a family of
-level curves organized by them.
+generalized circles organized by them.
 
 \subsection{Ripple histories of right-expanded expressions}
 
 Let a right-expanded expression determine nondegenerate real M\"obius sections
-$F_1,\ldots,F_n$, in chronological order, and write
+$F_1,\ldots,F_n$ of \emph{positive} determinant, in chronological order, and
+write
 \[
   G_k=F_k\circ\cdots\circ F_1,
   \qquad

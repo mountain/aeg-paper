@@ -111,7 +111,7 @@ postulating a separate dynamics.
 
 \subsection{Horizontal curvature}
 
-\begin{theorem}[Contact curvature]
+\begin{theorem}[Curvature of the specified horizontal connection]
 \label{thm:contact-curvature}
 The preferred horizontal fields satisfy
 \begin{equation}
@@ -379,3 +379,141 @@ infinitesimal limit.  The contact distribution alone supplies neither a
 preferred complex structure nor a full analytic function theory.  The present
 paper uses only the horizontal connection, its scalar differential, and its
 curvature.
+
+\begin{remark}[What the coefficient $\mu\lambda$ is and is not]
+\label{rem:p0-curvature-not-contact-invariant}
+The number $\mu\lambda$ is the bracket coefficient of the *specified* horizontal
+connection in the *specified* arithmetic frame, and it is not a
+contact-isomorphism invariant: by the Darboux theorem every contact form on a
+three-manifold is locally equivalent to $dz-y\,dx$, and Appendix~\ref{app:p0-acs-contact}
+exhibits that coordinate change explicitly for $\alpha$.  The arithmetic content
+of \eqref{eq:arithmetic-contact-form} therefore lies in the coordinates, the
+projection, the assignment, and the preferred horizontal frame, not in a new
+local contact-isomorphism class.  In particular $\mu\lambda$ must not be
+confused with the Gaussian curvature $K=-\lambda^2$ of the basic model
+(Theorem~\ref{thm:basic-hyperbolic-aes}): the two numbers have different
+dimensions, different carriers, and different invariance groups.  What
+\eqref{eq:horizontal-curvature-bracket} does assert is intrinsic *relative to
+the declared structure*: the horizontal distribution is not integrable, so no
+choice of coordinates can make both arithmetic directions straight while
+keeping them horizontal.
+
+A standard account of the local theory of contact structures, used only for this
+comparison, is \cite{Etnyre2001IntroductoryLectures}; the elementary Darboux
+computation needed here is carried out in the appendix and does not depend on
+it.
+\end{remark}
+
+\subsection{The contact model as a quotient of the basic model}
+\label{subsec:p0-contact-quotient}
+
+Sections~\ref{sec:p0-aes} and~\ref{sec:p0-contact} describe one object from two
+sides: intrinsically, by the frame and metric of a regular AES, and locally, by
+the three coordinates $(u,v,a)$ and the contact form.  The following five
+relations make the correspondence exact for the basic model.  (The comparison
+was proposed in a review of this paper's first version; it is stated here with
+proofs, and it supersedes the earlier informal remark that the two descriptions
+``describe one object''.)
+
+Define
+\begin{equation}\label{eq:p0-contact-quotient-map}
+  Q:\mathcal C=\mathbb R^3_{(u,v,a)}\longrightarrow\mathbb H^2,
+  \qquad
+  Q(u,v,a)=(-ae^{-\lambda v},\,e^{-\lambda v})=(x,y).
+\end{equation}
+
+\begin{proposition}[The basic model is the Reeb quotient of the contact model]
+\label{prop:p0-contact-quotient}
+Let $\mu,\lambda>0$, and let $\alpha$, $D_u$, $D_v$, $\mathcal C$ be as in
+\eqref{eq:arithmetic-contact-form} and \eqref{eq:horizontal-arithmetic-fields}.
+Then:
+\begin{enumerate}
+  \item \emph{assignment compatibility:} $a_{\mathfrak E_0}\circ Q=a$, that is,
+  $-x/y=a$ along $Q$;
+  \item \emph{frame descent:} $Q_*D_u=X_u$ and $Q_*D_v=X_v$, where
+  $X_u=-\mu y\partial_x$ and $X_v=-\lambda y\partial_y$ are the canonical frame
+  \eqref{eq:hyperbolic-arithmetic-frame};
+  \item \emph{horizontal length:}
+  \[
+    Q^*g_{\mu,\lambda}
+    =\frac{(da-\lambda a\,dv)^2}{\mu^2}+dv^2,
+    \qquad\text{so}\qquad
+    \bigl.Q^*g_{\mu,\lambda}\bigr|_{\ker\alpha}=du^2+dv^2 ;
+  \]
+  \item \emph{the fibers of $Q$ are the Reeb lines:}
+  $\ker dQ=\operatorname{span}(\partial_u)
+  =\operatorname{span}(R_\alpha)$ with $R_\alpha=-\tfrac1\mu\partial_u$, and
+  $Q$ is surjective with global section
+  $(x,y)\mapsto\bigl(0,-\tfrac1\lambda\log y,\,-\tfrac xy\bigr)$;
+  \item \emph{curvature is the hyperbolic area form:}
+  \[
+    d\alpha=-\mu\lambda\,Q^*\bigl(d\mathrm{vol}_{g_{\mu,\lambda}}\bigr),
+    \qquad
+    d\mathrm{vol}_{g_{\mu,\lambda}}=\frac{dx\wedge dy}{\mu\lambda y^2}.
+  \]
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(1) is immediate: $-x/y=ae^{-\lambda v}/e^{-\lambda v}=a$.
+
+(2) Since $Q$ is independent of $u$ and $\partial_a Q=(-e^{-\lambda v},0)$,
+$\partial_v Q=(a\lambda e^{-\lambda v},-\lambda e^{-\lambda v})$, we get
+\[
+  Q_*D_u=Q_*(\partial_u+\mu\partial_a)=\mu(-e^{-\lambda v},0)
+        =(-\mu y,0)=X_u ,
+\]
+and
+\[
+  Q_*D_v=Q_*(\partial_v+\lambda a\partial_a)
+        =(a\lambda e^{-\lambda v},-\lambda e^{-\lambda v})
+         +\lambda a(-e^{-\lambda v},0)
+        =(0,-\lambda e^{-\lambda v})=X_v .
+\]
+
+(3) Differentiating \eqref{eq:p0-contact-quotient-map},
+\[
+  dx=e^{-\lambda v}\bigl(-da+\lambda a\,dv\bigr)=y\bigl(-da+\lambda a\,dv\bigr),
+  \qquad
+  dy=-\lambda e^{-\lambda v}\,dv=-\lambda y\,dv .
+\]
+Substituting into $g_{\mu,\lambda}=(dx^2/\mu^2+dy^2/\lambda^2)/y^2$ gives the
+first identity.  On $\ker\alpha$ one has $da=\mu\,du+\lambda a\,dv$, hence
+$da-\lambda a\,dv=\mu\,du$ and the restriction is $du^2+dv^2$.
+
+(4) The map $Q$ does not depend on $u$, and the pair
+$(\partial_v Q,\partial_a Q)$ is independent because
+$\det\begin{pmatrix}a\lambda e^{-\lambda v}&-\lambda e^{-\lambda v}\\
+-e^{-\lambda v}&0\end{pmatrix}
+=\lambda e^{-2\lambda v}\ne0$.  Hence $\ker dQ=\operatorname{span}(\partial_u)$.
+Since $\alpha(R_\alpha)=-\mu\cdot(-1/\mu)=1$, $R_\alpha$ spans the same line, and
+it is the Reeb field of $\alpha$.  Surjectivity and the displayed section follow
+by solving $x=-ae^{-\lambda v}$, $y=e^{-\lambda v}$.
+
+(5) By (3), $dx\wedge dy=y(-da+\lambda a\,dv)\wedge(-\lambda y\,dv)
+=\lambda y^2\,da\wedge dv$.  Hence
+\[
+  Q^*\bigl(d\mathrm{vol}_{g_{\mu,\lambda}}\bigr)
+  =\frac{dx\wedge dy}{\mu\lambda y^2}
+  =\frac{da\wedge dv}{\mu},
+\]
+and $-\mu\lambda$ times it is $-\lambda\,da\wedge dv=d\alpha$, as computed in
+the proof of Proposition~\ref{prop:contact-form}.
+\end{proof}
+
+Three points about the proposition deserve emphasis.  First, $Q$ is not the
+charge projection $\pi(u,v,a)=(u,v)$ of the ACS discussion: $Q$ forgets the
+Reeb direction $u$, whereas the ACS forgets the assignment $a$.  The two
+projections have different fibers and different images, and neither factors
+through the other.  Second, relation (2) says that the horizontal flow of the
+contact model and the arithmetic motion of the basic model are the *same*
+curves, which is what makes the two derivations of
+$\frac{da}{ds}=\mu\cos\theta+\lambda a\sin\theta$ --- the intrinsic one in
+Theorem~\ref{thm:continuous-affine-flow} and the coordinate one in
+\eqref{eq:contact-realizes-affine-flow} --- statements about one object rather
+than two analogies.  Relation (3) adds that the horizontal metric pulled back to
+the base coordinates is Euclidean, so the direction angle $\theta$ has the same
+meaning in both derivations.  Third, the proposition is proved for the basic
+model; it must not be read as asserting that every regular AES is a Reeb
+quotient of a contact three-manifold, or that every AES carries such a
+quotient.

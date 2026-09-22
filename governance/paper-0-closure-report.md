@@ -213,3 +213,53 @@ re-pointed to Paper 0, and all three logs are clean.
 mathematical open items are listed in Paper 0 §11.6 and §12.4 and in
 `08-open-questions.md` (OQ-079--OQ-082).  Paper 0 remains a draft under
 mathematical review.
+
+---
+
+## 10. Post-closure revision (2026-09-22, evening): response to the external review
+
+This dated section is appended; nothing above is edited.
+
+**Input.**  `AEG-Paper-0-review-2026-09-22-v0.1.md` (reviewer: ChatGPT; reviewed
+artifact SHA-256 `afeff197…f3f5e5b`, the 68-page version produced earlier the same
+day).  The point-by-point disposition is
+`AEG-Paper-0-review-2026-09-22-response-v0.1.md`.
+
+**What changed.**  Four defects were repaired and are recorded in migration
+M-0020: the punctured-space definition was vacuous for nonempty puncture sets and
+now gives an ambient surface and a finite set first; the proof of the
+infinite-dimensionality of the arithmetic generators used an invalid step and now
+iterates `ad_A` on `P`; the pole chart `1/(z−q)` has negative determinant and was
+replaced by `−1/(z−q)` with a warning on negative-determinant prefixes; and the
+frame witness mis-counted directed transitions (three per orbit, four times each;
+six only over both orbits).  One over-statement was narrowed: the
+infinite-dimensional algebra excludes a finite-dimensional Lie-group *action*, not
+a finite-dimensional manifold, and the faithful affine matrix representation is
+recorded alongside.  One hypothesis was made explicit: tearing is a scalar defect
+for scale-compatible pairs and equals the ACS area only for charge-compatible
+pairs.  The four-circle tangent cone is no longer coupled to punctures, and the
+interpretive claims of §11.3 became registered questions (OQ-085, OQ-086).
+
+**What was added.**  `prop:p0-contact-quotient`: the basic hyperbolic model is the
+Reeb quotient of the contact model, by five exact relations, with proofs.  The
+comparison was proposed in the review; each relation was re-derived independently
+here before being adopted.  Also added: a warning on partial motions in §3, a
+remark fixing the Möbius chart `Z = (λ/μ)x + iy`, a remark stating what `μλ` is and
+is not, and an explicit statement in §12 that §§10--11 are research reports rather
+than stable interfaces.
+
+**What was removed.**  The register's calibration round counts (11 and 56) are no
+longer quoted as facts: an independent reimplementation of the same model gave 10
+and 55, so the counts depend on an update step the register does not fix.  The
+paper now states the residual functions, their exact zero, and the proved halting
+bound `|θ−π/2| < 5ε/8 + O(ε²)` instead.
+
+**Build.**  `./build.sh 0` produces a 74-page PDF with a clean final log.  Papers
+I--IV were rebuilt against the extended bibliography and their logs are clean.
+
+**Status.**  The register `05b` was updated: `prop:p0-arithmetic-generators` and
+`prop:p0-characters-cannot-see-tearing` keep the status `PROVED` with narrowed
+statements, `prop:p0-contact-quotient` is `PROVED` for the basic model,
+`def:p0-punctured-aes` is `PROVED` after repair, the observer witness is `PROVED`
+for the bound with the register's numbers marked as not reproduced, and the
+four-circle construction and the history-monoid question are `OPEN PROBLEM`.

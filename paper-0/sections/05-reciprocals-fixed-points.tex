@@ -26,22 +26,41 @@ This continuation does not make ordinary division by zero admissible.
 
 The reciprocal coordinate centered at a finite point $q$ is
 \begin{equation}\label{eq:p0-pole-coordinate}
-  w_q(z)=\frac1{z-q}.
+  w_q(z)=-\frac1{z-q}.
 \end{equation}
-It sends $q$ to infinity and infinity to zero.  The rational functions whose
+The sign is chosen so that $w_q$ has positive determinant and therefore maps the
+upper half-plane to itself; the positive chart $1/(z-q)$ has determinant $-1$,
+maps the upper half-plane to the lower one, and is not used for the horocycle
+discussion below.  The coordinate sends $q$ to infinity and infinity to zero.
+The rational functions whose
 only projective pole is $q$---equivalently, those regular on
 $\PP^1\setminus\{q\}$ and at the old point infinity---form
 \[
-  K[w_q]=K\!\left[\frac1{z-q}\right].
+  K[w_q]=K\!\left[\frac1{z-q}\right];
 \]
-The usual polynomial chart $K[z]$ is the corresponding ring when the chosen
-pole is $\infty$.  This is a coordinate statement, not a claim that one pole
-gauge is globally preferred.
+the sign does not change this ring.  The usual polynomial chart $K[z]$ is the
+corresponding ring when the chosen pole is $\infty$.  This is a coordinate
+statement, not a claim that one pole gauge is globally preferred.
 
-By Theorem~\ref{thm:p0-ripple-pencil-formula}, the same $q$ is the common
+By Theorem~\ref{thm:p0-ripple-pencil-formula}, whose positivity hypothesis
+$w_q$ now satisfies, the same $q$ is the common
 boundary tangency point of the horocycles pulled back through $w_q$.  The
 denominator zero and the ripple center are therefore two readings of one
 projective datum.
+
+\begin{warning}[Negative-determinant prefixes]
+\label{warn:p0-negative-determinant}
+Not every non-degenerate real Möbius prefix has positive determinant: the
+elementary contexts $c/z$ with $c>0$ and $c-z$ have determinant $-c$ and $-1$
+respectively.  The ripple statements of Section~\ref{sec:p0-ripples} therefore
+apply to the positive-determinant prefixes; for a general prefix one either
+conjugates by the reflection $z\mapsto-z$, which is the sign change of the
+assignment listed in Subsection~\ref{subsec:p0-point-paths}, or extends the
+action anti-holomorphically by $z\mapsto (A\overline z+B)/(C\overline z+D)$,
+which preserves the upper half-plane and realizes the same fractional linear
+arithmetic on the real boundary.  No ripple statement is made here for the
+negative-determinant case beyond this remark.
+\end{warning}
 
 \subsection{A reciprocal from an infinite expansion}
 
@@ -148,7 +167,8 @@ Ordinary iteration is defined only while every intermediate denominator is
 nonzero.  Its finite truncations are generalized continued fractions; the
 matrix product remains projectively meaningful when a truncation reaches
 infinity.  This is the standard matrix mechanism behind continued fractions
-\cite{Rosen1954ContinuedFractions}.
+\cite{Khinchin1964ContinuedFractions}; the arithmetic reading of the same
+truncations used here is the specialization to two-step words.
 
 \begin{proposition}[Reciprocal fixed points]
 \label{prop:p0-reciprocal-fixed-points}

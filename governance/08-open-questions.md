@@ -3142,8 +3142,8 @@ with a proof of uniqueness, or an explicit non-uniqueness example.
 **State:** OPEN
 
 **Question:** Paper 0 §10 proves that the arithmetic generators do not close
-into a finite-dimensional Lie algebra and that no character of the
-commutativization detects tearing.  Are there algebraic structures in which the
+into a finite-dimensional Lie algebra and that no observable of the
+commutativized charges detects tearing.  Are there algebraic structures in which the
 tearing is not an obstruction but a computable object, and can they be defined
 intrinsically for AES rather than imported as a vocabulary?
 
@@ -3202,3 +3202,74 @@ corrected count in the register.
 `COMPUTATIONALLY VERIFIED EXAMPLE` only.
 **Owner:** author.
 **Decision record:** migration M-0019 in `governance/migration-log.md`.
+
+---
+
+## OQ-085 — Attach AES data to the four-circle configuration
+
+**Priority:** P2
+**State:** OPEN
+
+**Question:** construct an oriented surface, a finite puncture set containing
+the origin, and data `(g,a)` on the complement such that the resulting object is
+a punctured AES, such that the four limiting circles of
+`prop:p0-puncture-tangent-cone` arise naturally from that data, and such that the
+origin is non-extendable.
+
+**Why it matters:** the review of 2026-09-22 observed correctly that the
+tangent-cone computation is a statement about a curve configuration and that no
+AES structure had been attached to it.  Until the construction exists, no
+puncture claim may rest on that proposition; Paper 0 §11.2 now says so
+explicitly.
+
+**Current evidence:** the exact expansion
+`(S_2^2-4rho^2y^2)(S_2^2-4rho^2x^2) = S_2^4-4rho^2S_2^3+16rho^4x^2y^2` and the
+verified one-puncture disc model of Paper I; no bridge between them.
+
+**Default rule while open:** cite the tangent-cone computation as an algebraic
+statement about the configuration only.
+
+**Resolution condition:** the construction, with the non-extendability proved, or
+a proof that no such data exist for this configuration.
+
+**Affected files:** `paper-0/sections/11-holed-aes.tex`.
+**Affected theorem nodes:** `def:p0-punctured-aes`,
+`prop:p0-puncture-tangent-cone`.
+**Owner:** author.
+**Decision record:** the response to the 2026-09-22 review, item R7.
+
+## OQ-086 — A history monoid with declared relations, and descent of the charge map
+
+**Priority:** P2
+**State:** OPEN
+
+**Question:** Paper 0 §8 now states exactly where commutation is imposed — on the
+generators of the presented history language, not on the affine group — but the
+monoid of relations is still informal.  Which relations should the history monoid
+carry (same-family composition only? plus inversion? plus selected cross-family
+relations?), and does the charge map descend to the resulting quotient in each
+case?
+
+**Why it matters:** the review of 2026-09-22 pointed out that the two-history
+charge map cannot descend to the operator quotient — the distributivity example
+already exhibits two histories with the same operator and different charges — so
+the choice of relations determines what the ACS can mean.  The two-charge ACS is
+correct for the free-product choice, but that is a choice.
+
+**Current evidence:** `prop:p0-distributive-operator-identity` and
+`ex:p0-distributive-charge-transport` (the two expansions share an operator and
+have charges `(p,q)` and `(kp,q)`); the abelianization computation in Paper 0 §8
+(`Aff^+(1,R)_ab ≅ R_{>0}`).
+
+**Default rule while open:** the ACS is attached to the presented histories and
+is never described as the abelianization of the group of motions.
+
+**Resolution condition:** an explicit presentation of the history monoid, with the
+descent of the charges proved or refuted for each candidate relation set.
+
+**Affected files:** `paper-0/sections/08-acs-tearing.tex`,
+`paper-0/sections/02-expansion.tex`.
+**Affected theorem nodes:** `def:acs`, `prop:acs-evaluation`,
+`ex:p0-distributive-charge-transport`.
+**Owner:** author.
+**Decision record:** M-0020 in `governance/migration-log.md`.

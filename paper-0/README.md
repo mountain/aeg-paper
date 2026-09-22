@@ -82,8 +82,12 @@ Proved in the manuscript, at the statuses recorded in
 - the ACS evaluation formula and the weighted torsion--Stokes theorem;
 - the contact form is non-degenerate exactly when `mu*lambda != 0`, and the
   horizontal fields satisfy `[D_u,D_v] = mu*lambda*d_a`;
-- the arithmetic generators do not close into a finite-dimensional Lie algebra,
-  and no character of the commutativization detects tearing;
+- the arithmetic generators do not close into a finite-dimensional Lie algebra
+  (so no finite-dimensional Lie-group action carries all three ranks), and no
+  observable of the commutativized charges detects tearing;
+- the contact model is a Reeb quotient of the basic model: the horizontal
+  fields descend to the canonical frame and `d(alpha)` is `-mu*lambda` times the
+  hyperbolic area form;
 - the tangent cone of the four limiting circles at the puncture is `(xy)^2 = 0`.
 
 Labelled as proposals rather than theorems: the name *ripple geometry*, the

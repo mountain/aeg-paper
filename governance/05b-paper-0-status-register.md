@@ -68,17 +68,18 @@ EXCLUDED`.
 | direct ACS evaluation (`prop:acs-evaluation`) | `PROVED` | moved from Paper I §8 |
 | relative torsion (`def:relative-torsion`) | `PROVED` | moved from Paper I §8 |
 | weighted torsion--Stokes theorem (`thm:torsion-stokes`) | `PROVED` | moved from Paper I §8 |
-| tearing (`def:p0-tearing`) | `STRUCTURAL PROPOSAL` | the name for the two-history defect; the measured value is `thm:torsion-stokes` and the density is `thm:contact-curvature` |
+| tearing (`def:p0-tearing`) | `STRUCTURAL PROPOSAL` | the name for the two-history defect; the scalar defect is defined for scale-compatible pairs, and equals the weighted ACS area only under charge-compatibility (`thm:torsion-stokes`) |
 | contact nondegeneracy (`prop:contact-form`) | `PROVED` | moved from Paper I §9 |
-| contact curvature `[D_u,D_v]=\mu\lambda\partial_a` (`thm:contact-curvature`) | `PROVED` | moved from Paper I §9 |
+| contact curvature `[D_u,D_v]=\mu\lambda\partial_a` (`thm:contact-curvature`) | `PROVED` | moved from Paper I §9; retitled "Curvature of the specified horizontal connection", with a remark that `mu*lambda` is not a contact-isomorphism invariant and is not `K=-lambda^2` |
+| the basic model is the Reeb quotient of the contact model (`prop:p0-contact-quotient`) | `PROVED` | added 2026-09-22; five exact relations with proofs, for the basic model only; proposed in the 2026-09-22 review and verified independently here |
 | finite/infinitesimal synthesis (`prop:torsion-curvature-synthesis`) | `PROVED` | moved from Paper I §9 |
 
 ## 5. Beyond linear language (Paper 0 §10)
 
 | Node | Status | Note |
 |---|---|---|
-| arithmetic generators do not close (`prop:p0-arithmetic-generators`) | `PROVED` | elementary computation; new in this revision |
-| commutativization cannot see tearing (`prop:p0-characters-cannot-see-tearing`) | `PROVED` | new; restates `thm:torsion-stokes` in character language |
+| arithmetic generators do not close (`prop:p0-arithmetic-generators`) | `PROVED` | elementary computation; proof by `ad_A^n(P)`, revised 2026-09-22; the prose conclusion is narrowed to finite-dimensional Lie-group closure |
+| observables of the charge endpoint cannot see tearing (`prop:p0-characters-cannot-see-tearing`) | `PROVED` | restated for arbitrary functions of the charge endpoint; explicitly not a statement about non-abelian linear representations |
 | process-geometry vocabulary and lowering discipline | `STRUCTURAL PROPOSAL` | imported as a language; no theorem about AES is claimed |
 | exact calibrations meeting `eq:p0-bs-relation` and the bracket law | `COMPUTATIONALLY VERIFIED EXAMPLE` | research-local calibrations of `Yuan2026ProcessGeometry`, carrying that repository's own maturity labels |
 
@@ -86,12 +87,15 @@ EXCLUDED`.
 
 | Node | Status | Note |
 |---|---|---|
-| punctured AES definition (`def:p0-punctured-aes`) | `PROVED` | definition; finite-point specialization of Paper I's singular AES, stated as such |
-| tangent cone of the four limiting circles (`prop:p0-puncture-tangent-cone`) | `PROVED` | exact algebraic identity, verified in-paper |
-| six computed witnesses | `COMPUTATIONALLY VERIFIED EXAMPLE` | each exactly as stated in `Yuan2026AEGHoleRegister`; the register is non-authoritative |
+| punctured AES definition (`def:p0-punctured-aes`) | `PROVED` | definition; revised 2026-09-22 to give an ambient surface and a finite set first, so that nonempty puncture sets exist; finite-point specialization of Paper I's singular AES |
+| tangent cone of the four limiting circles (`prop:p0-puncture-tangent-cone`) | `PROVED` | exact algebraic identity, verified in-paper; **no AES data are attached to the configuration**, and the origin is not asserted to be a puncture |
+| six computed witnesses | `COMPUTATIONALLY VERIFIED EXAMPLE` | each with the model stated in-paper where the count depends on it; the register is non-authoritative |
+| observer witness | `PROVED` (bound), register numbers **not reproduced** | the residual functions, their exact zero, and the halting bound `|theta-pi/2| < 5eps/8 + O(eps^2)` are proved; the register's round counts depend on an unfixed update step and are not quoted |
 | the reading of the witnesses as an obstruction of AES | `UNSUPPORTED AND EXCLUDED` | listed in `subsec:p0-holed-nonclaims` as a non-claim |
 | the identification of the $\mathbb Z_3$ monodromy with any $\mathbb Z_4$ twist | `UNSUPPORTED AND EXCLUDED` | recorded in the register as unproved; not reproduced here |
-| cut-and-glue / sheet / frame dependence of the current route | `OPEN PROBLEM` | `subsec:p0-holed-open`; three registered directions, none attempted |
+| attaching AES data to the four-circle configuration | `OPEN PROBLEM` | `op:p0-four-circle`; required before any puncture claim may be based on that configuration |
+| comparison of tearing across a puncture | `OPEN PROBLEM` | `op:p0-canonical-punctures` |
+| canonical choice of punctures | `OPEN PROBLEM` | `subsec:p0-holed-open`; OQ-082 |
 
 ## 7. Open programmes
 
