@@ -1,8 +1,9 @@
 % Canonical Paper I appendix.
 This appendix collects the convention-sensitive choices used in
-Sections~\ref{sec:sequential-histories}--\ref{sec:affine-cocycles}.  The choices
+Sections~\ref{sec:sequential-histories}--\ref{sec:projective-affine}.  The choices
 are not mathematical assertions, but every composition, sign, and coordinate
-formula depends on them.
+formula depends on them.  The affine-group conventions that belong to the
+cocycle and flow chapters of Paper~0 are collected in that paper's appendix.
 
 \subsection{Chronological words and functional composition}
 
@@ -115,64 +116,6 @@ intermediate state.  It is not enough that the final projective point lies in
 the affine chart.  In particular, two projective inversions compose to the
 identity operator, but the corresponding ordinary two-step word is not
 admissible at zero.
-
-\subsection{Left and right group data}
-
-The affine group is represented by
-\[
-  g(\Phi,\xi)=
-  \begin{pmatrix}\Phi&\xi\\0&1\end{pmatrix},
-  \qquad \Phi\in K^\times.
-\]
-With the column action, matrix multiplication gives
-\begin{equation}
-  g(\Phi_2,\xi_2)g(\Phi_1,\xi_1)
-  =g(\Phi_2\Phi_1,\Phi_2\xi_1+\xi_2).
-  \label{eq:appendix-affine-group-law}
-\end{equation}
-Thus the earlier translation is rescaled by the later affine map.  Equation
-\eqref{eq:appendix-affine-group-law} is the two-factor origin of the
-target-frame cocycle.
-
-Over the positive real component, write $\Phi=e^M$.  The two
-Maurer--Cartan forms used in Section~\ref{sec:affine-cocycles} have the
-following readings.
-
-\begin{center}
-\begin{tabular}{lll}
-\toprule
-Form & Translation component & Frame \\
-\midrule
-$g^{-1}dg$ & $e^{-M}d\xi$ & body/source \\
-$dg\,g^{-1}$ & $d\xi-\xi dM$ & spatial/target \\
-\bottomrule
-\end{tabular}
-\end{center}
-
-The words ``left'' and ``right'' here refer to invariant differential forms on
-the affine group.  They do not refer to first and second operand slots.  The
-operand-slot mirror is syntactic; the Maurer--Cartan distinction is
-group-theoretic.
-
-\subsection{Target and source-normalized translation coordinates}
-
-For $x\mapsto\Phi x+\xi$, the symbol $\xi$ always denotes target-frame
-translation.  The source-normalized coordinate is
-\[
-  \widehat\xi=\Phi^{-1}\xi.
-\]
-Their discrete and differential conversions are
-\[
-  \xi=\Phi\widehat\xi,
-  \qquad
-  \widehat\xi=\Phi^{-1}\xi,
-\]
-and, when $\Phi=e^M$,
-\[
-  d\xi=\xi\,dM+e^M d\widehat\xi.
-\]
-No formula in the main text changes from $\xi$ to $\widehat\xi$ without this
-normalization being displayed.
 
 \subsection{Mirror, reversal, and inverse notation}
 

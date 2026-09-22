@@ -1,0 +1,74 @@
+This short section restates the one geometric definition on which the zero
+theorems of Section~\ref{sec:zero-geometry} depend.  It is imported from Paper~0,
+where the definition, the frame equivalence, the models, the flow, the
+commutativization, and the contact structure are developed and proved; the
+statements below are repeated here only so that this paper can be read on its
+own, and they carry the same labels and hypotheses as their source.
+
+\begin{definition}[Regular arithmetic expression space, imported]
+\label{def:regular-aes}
+A \emph{regular arithmetic expression space}, or regular AES, is a tuple
+\[
+ \mathfrak E=(M,g,a;\mu,\lambda)
+\]
+such that $M$ is an oriented smooth surface, possibly with boundary, $g$ is a
+smooth Riemannian metric, $a\in C^\infty(M,\mathbb R)$,
+$\mu\in\mathbb R\setminus\{0\}$, $\lambda\in\mathbb R$, and
+\begin{equation}\label{eq:regular-aes-eikonal}
+ |\nabla a|_g^2=\mu^2+\lambda^2a^2
+\end{equation}
+everywhere on $M$.  The function $a$ is called the \emph{assignment function}.
+\end{definition}
+
+The metric is part of the structure; \eqref{eq:regular-aes-eikonal} is an
+eikonal equation on a specified Riemannian surface, not a metric-free identity.
+Paper~0 defines the arithmetic motions of such a space and proves that they
+realize addition, subtraction, multiplication, and division by a constant as
+motions of $M$.
+
+\begin{proposition}[Canonical arithmetic frame, imported]
+\label{prop:canonical-arithmetic-frame}
+For an oriented Riemannian surface $(M,g)$, a smooth function $a$, and constants
+$\mu\ne0$ and $\lambda$, the following are equivalent.
+\begin{enumerate}
+\item The eikonal identity \eqref{eq:regular-aes-eikonal} holds.
+\item There is a unique positively oriented orthonormal frame $(X_u,X_v)$
+      satisfying
+      \begin{equation}\label{eq:arithmetic-frame-derivatives}
+       X_u a=\mu,
+       \qquad
+       X_v a=\lambda a.
+      \end{equation}
+\end{enumerate}
+When these conditions hold, the frame is
+\begin{equation}\label{eq:explicit-arithmetic-frame}
+ X_u=\frac{\mu}{q}E_a-\frac{\lambda a}{q}JE_a,
+ \qquad
+ X_v=\frac{\lambda a}{q}E_a+\frac{\mu}{q}JE_a,
+ \qquad
+ E_a=\frac{\nabla a}{q},
+ \qquad
+ q=\sqrt{\mu^2+\lambda^2a^2},
+\end{equation}
+and it satisfies
+\begin{equation}\label{eq:arithmetic-frame-bracket-on-a}
+ [X_u,X_v]a=\mu\lambda .
+\end{equation}
+\end{proposition}
+
+The proof is given in Paper~0.  We use only the following immediate consequences,
+which is why the statement is repeated rather than cited.
+
+\begin{enumerate}
+  \item $\mu\ne0$ makes $q$ everywhere positive, so $|\nabla a|$ never vanishes.
+  This is the source of the regularity of zero sets below.
+  \item The bracket identity \eqref{eq:arithmetic-frame-bracket-on-a} shows that,
+  when $\lambda\ne0$, the two arithmetic directions cannot be realized as a
+  coordinate frame.
+\end{enumerate}
+
+No other object of Paper~0 is repeated in this paper.  In particular, the basic
+hyperbolic model $\mathfrak E_0$, the punctured model $\mathfrak E_1$, the
+continuous arithmetic motion, the affine cocycles, the accumulative commutative
+space, tearing, and the contact structure are cited where needed and never
+reproved here.

@@ -40,9 +40,21 @@
 \newcommand{\sing}{\mathrm{sing}}
 
 \title{\textbf{Arithmetic Expression Geometry I: Foundations}\\[0.45em]
-\large Sequential Histories, Affine Flow, Torsion, and Contact Geometry}
-\author{Mingli Yuan\\Swarma Research\\Beijing 100083, China}
-\date{August 6, 2026\\[0.25em]\small Draft manuscript under mathematical review.}
+\large Sequential Histories, Projective Semantics, and Zero Geometry}
+\author{
+DeepSeek Harness Agent\thanks{Correspondence and responsibility for this
+manuscript rest with the second author, Mingli Yuan
+(\texttt{mingli@swarma.org}).  The first author is an artificial-intelligence
+research agent (model \texttt{deepseek-v4-flash-vision-exp}, running on the
+DeepSeek Harness); it is not a natural person, cannot sign a copyright transfer,
+and cannot serve as corresponding author.  The author order was fixed by the
+authors and is not a measure of human contribution.}\\
+\small model \texttt{deepseek-v4-flash-vision-exp}\\[0.6em]
+Mingli Yuan\\
+\small Swarma Research\\
+\small Beijing 100083, China
+}
+\date{September 22, 2026\\[0.25em]\small Draft manuscript under mathematical review.}
 
 \begin{document}
 \maketitle
@@ -52,37 +64,47 @@
 This manuscript is a working draft in the editorial and publication sense.
 Here ``draft'' is not a mathematical claim-status label and does not alter the
 status of any theorem, proposition, computation, conjecture, or open problem.
+The geometric chapters that earlier versions of this paper contained are now
+developed in Paper~0; the migration is recorded in
+\texttt{governance/00b-paper-0-geometric-foundation-amendment.md}.
 \end{quote}
 
 \begin{abstract}
-Paper~0 develops the elementary pure-comb prelude: left-expanded point paths,
-right-expanded ripple pencils, reciprocals, poles, infinity, fixed points, and
-their common matrix representation.  The present paper begins with the
-intrinsic history layer.  We classify finite binary expression trees having a
-unique legal order of internal evaluation: their internal vertices form one
-spine.  Marking an accumulator produces a chronological word of one-hole
-contexts while keeping operand-slot chirality distinct from temporal reversal
-and path inverse.  Nondegenerate bilateral contexts act projectively on
-$\PP^1(K)$ and generate $\PGL_2(K)$; the contexts fixing infinity form the
-affine Borel sector.  The positive real affine component yields the arithmetic
-flow $da/ds=\mu\cos\theta+\lambda a\sin\theta$, a complete hyperbolic model,
-regular-zero rigidity, affine cocycles, an exact weighted ACS torsion formula,
-and the contact curvature $[D_u,D_v]=\mu\lambda\partial_a$.  Paper~I retains
-the marked-history terminology and theorem-level foundations; Paper~0 is the
-canonical elementary source for the path/ripple and reciprocal--pole--infinity
-pictures.
+Paper~0 constructs arithmetic expression spaces, the arithmetic motions on
+them, ripple geometry, the accumulative commutative space, and the contact
+structure of arithmetic tearing.  The present paper develops the layer that
+those constructions presuppose: the syntax of process.  We classify the finite
+binary expression trees whose internal operations have a unique legal
+evaluation order; they are exactly the trees whose internal vertices form a
+single spine.  Marking an accumulator turns such a tree into a chronological
+word of one-hole contexts, with operand-slot chirality kept distinct from
+temporal reversal and from functional inversion.  Non-degenerate bilateral
+contexts act projectively on $\PP^1(K)$ and generate $\PGL_2(K)$ over an
+arbitrary field; those fixing infinity form the affine, or Borel, sector, and
+the same proof gives the rank-one Bruhat decomposition.  A three-letter
+sublanguage over $\Q(\sqrt2)$ realizes the $q=4$ Hecke group and yields an
+explicit marked history that is projectively trivial while being ordinarily
+inadmissible, which is why ordinary admissibility is kept separate from
+projective non-degeneracy.  The paper then develops the zero theory of regular
+arithmetic expression spaces: the zero locus is a smooth curve; a connected
+complete boundaryless regular space splits as $Z(a)\times\R$; branching zero
+networks are therefore excluded in the regular category; and a smooth parameter
+family with spatially regular zeros has a submersive total zero set, subject to
+a stated properness warning.  A singular arithmetic expression space is defined,
+and one isolated-zero model is verified.
 \end{abstract}
 
 \noindent\textbf{Keywords:}
-arithmetic expressions; evaluation histories; projective linear group; affine group;
-Hecke group; hyperbolic geometry; cocycles; contact geometry; regular zero sets
+arithmetic expressions; evaluation histories; sequential trees; operand-slot
+chirality; projective linear group; Hecke group; regular zero loci; singular
+arithmetic expression spaces
 
 \setcounter{tocdepth}{2}
 \tableofcontents
 \newpage
 
-\section*{Prelude: From Paper 0 to Paper I}
-\addcontentsline{toc}{section}{Prelude: From Paper 0 to Paper I}
+\section*{Interface: From Paper 0 to Paper I}
+\addcontentsline{toc}{section}{Interface: From Paper 0 to Paper I}
 \input{sections/00-paper-zero-interface.tex}
 
 \section{Introduction}\label{sec:introduction}
@@ -91,32 +113,18 @@ Hecke group; hyperbolic geometry; cocycles; contact geometry; regular zero sets
 \input{sections/02-sequential-histories.tex}
 \section{Projective Semantics and the Affine Sector}\label{sec:projective-affine}
 \input{sections/03-projective-affine.tex}
-\section{Affine Cocycles and Relative Defects}\label{sec:affine-cocycles}
-\input{sections/04-affine-cocycles.tex}
-\section{Continuous Arithmetic Flow}\label{sec:affine-flow}
-\input{sections/05-affine-flow.tex}
-\section{The Basic Hyperbolic Expression Space}\label{sec:hyperbolic-model}
-\input{sections/06-hyperbolic-model.tex}
+\section{The Regular AES Interface}\label{sec:regular-aes-interface}
+\input{sections/04-regular-aes-interface.tex}
 \section{Zero Loci and Singular Expression Spaces}\label{sec:zero-geometry}
-\input{sections/07-zero-geometry.tex}
-\section{Global Torsion and the Accumulative Commutative Space}\label{sec:acs-torsion}
-\input{sections/08-acs-torsion.tex}
-\section{Contact Connection and Horizontal Curvature}\label{sec:contact-curvature}
-\input{sections/09-contact-curvature.tex}
+\input{sections/05-zero-geometry.tex}
 \section{Conclusions and Research Interfaces}\label{sec:conclusion}
-\input{sections/10-conclusion.tex}
+\input{sections/06-conclusion.tex}
 
 \appendix
 \section{Composition, action, and domain conventions}\label{app:conventions}
 \input{appendices/app-A-conventions.tex}
-\section{Affine cocycle calculations}\label{app:affine-cocycles}
-\input{appendices/app-B-affine-cocycles.tex}
-\section{Hyperbolic-model calculations}\label{app:hyperbolic-calculations}
-\input{appendices/app-C-hyperbolic-calculations.tex}
-\section{ACS and contact calculations}\label{app:acs-contact}
-\input{appendices/app-D-acs-contact.tex}
 \section{Equality and elementary neutrality examples}\label{app:equality-neutrality}
-\input{appendices/app-E-equality-neutrality.tex}
+\input{appendices/app-B-equality-neutrality.tex}
 
 \bibliographystyle{plain}
 \bibliography{../bibliography/aeg-paper}
