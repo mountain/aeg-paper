@@ -7,11 +7,12 @@ rather than only through final numerical values.
 
 The active manuscript series is now:
 
-> **Arithmetic Expression Geometry 0: Paths and Ripple Pencils**  
-> *Left and Right Expansions, Reciprocals, and Projective Unification*
+> **Arithmetic Expression Geometry 0**  
+> *Arithmetic Expression Spaces: Expansion, Motion, Ripple Duals,
+> Commutativization, and Tearing*
 
 > **Arithmetic Expression Geometry I: Foundations**  
-> *Sequential Histories, Affine Flow, Torsion, and Contact Geometry*
+> *Sequential Histories, Projective Semantics, and Zero Geometry*
 
 > **Arithmetic Expression Geometry II: Hyperbolic Real Function Theory**  
 > *Horizontal Operators, Boundary Problems, and Arithmetic Holomorphicity*
@@ -31,7 +32,11 @@ Their canonical entry points are
 The governing scope, mathematical-status records, migration map, and acceptance
 criteria are under [`governance/`](governance/README.md). Paper 0 is introduced
 by the authoritative amendment
-[`governance/00a-paper-0-amendment.md`](governance/00a-paper-0-amendment.md).
+[`governance/00a-paper-0-amendment.md`](governance/00a-paper-0-amendment.md) and
+its present scope is fixed by
+[`governance/00b-paper-0-geometric-foundation-amendment.md`](governance/00b-paper-0-geometric-foundation-amendment.md),
+which makes Paper 0 the geometric foundation of the series and moves Paper I's
+geometric chapters into it.
 
 ## Draft status
 
@@ -51,18 +56,23 @@ receive explicit author approval before DOI metadata is changed.
 
 ## Five-paper architecture
 
-0. **Paper 0 — Paths and Ripple Pencils.** Explicit left- and right-expanded
-   combs, the affine point-path picture, the projective ripple-pencil picture,
-   reciprocals, poles, infinity, iterative fixed points, continued-fraction
-   truncations, and elementary matrix/projective unification. Paper 0 is a
-   pedagogical and geometric prelude; it does not replace Paper I's marked
-   history formalism.
+0. **Paper 0 — Arithmetic Expression Spaces.** Arithmetic expansions under
+   explicit operand-slot conventions, the distributive law as the rewrite
+   relating distinct expansions, arithmetic expression spaces and the four
+   operations as motions, the models `E_0` and `E_1`, the continuous arithmetic
+   motion, the dual reading called ripple geometry, affine cocycles, the
+   accumulative commutative space with its weighted torsion--Stokes theorem,
+   tearing, the contact structure of that defect, two obstructions to linear
+   language, and punctured spaces with a register of computed witnesses. Paper 0
+   is the geometric foundation of the series; it does not revise Paper I's
+   marked-history formalism.
 
 1. **Paper I — Foundations.** Intrinsic sequential-tree classification, marked
    spinal histories, bilateral projective semantics, the affine sector, the
-   `q=4` Hecke arithmetic sublanguage, cocycles, continuous flow, the complete
-   basic hyperbolic model, regular-zero rigidity, global torsion, and contact
-   curvature.
+   `q=4` Hecke arithmetic sublanguage, regular-zero rigidity, singular
+   arithmetic expression spaces, and the interfaces to the later papers. The
+   affine cocycles, continuous flow, hyperbolic model, ACS torsion, and contact
+   curvature developed in earlier versions of this paper now belong to Paper 0.
 
 2. **Paper II — Hyperbolic Real Function Theory.** Horizontal complex and
    analytic structures, operator domains, kernels, boundary problems, planar
@@ -94,7 +104,7 @@ Paper 0 activates the elementary interface
 ```text
 left-expanded comb
   -> affine one-hole maps
-  -> point path in E0
+  -> arithmetic motion in E0
   -> matrices with pole at infinity
 
 right-expanded comb
@@ -109,6 +119,25 @@ are also related to iteration: finite geometric-series and continued-fraction
 truncations are matrix products, while infinite values are asserted only under
 explicit formal or analytic convergence hypotheses. Ordinary division by zero
 remains inadmissible even when projective continuation reaches infinity.
+
+## Tearing spine
+
+The order defect of arithmetic motion is developed in Paper 0 as a chain of
+exact statements rather than as a metaphor:
+
+```text
+distributive expansion
+  -> same operator, different charges
+  -> affine cocycles and the relative defect
+  -> commutativization: the accumulative commutative space
+  -> weighted torsion--Stokes: the defect is an area
+  -> contact structure: the same defect has density mu*lambda
+  -> punctured spaces: tearing carried at a declared singular point
+```
+
+The names *ripple geometry* and *tearing* are descriptive; the computations they
+name are proved in Paper 0, and the reading of the computed hole witnesses is
+kept at the status `COMPUTATIONALLY VERIFIED EXAMPLE`.
 
 ## Arithmetic--automorphic research spine
 

@@ -76,11 +76,12 @@ registered as OQ-078--OQ-080 in
 
 # The AEG paper series
 
-The first phase of the program is organized into four papers.
+The first phase of the program is organized into five papers.
 
 | Paper | Current manuscript title                                                                    | Primary question                                                                                                   |
 | ----- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| I     | **Arithmetic Expression Geometry I: Foundations**                                           | How do sequential arithmetic histories acquire affine and geometric structure?                                     |
+| 0     | **Arithmetic Expression Geometry 0 — Arithmetic Expression Spaces**                          | How do arithmetic expressions become geometry, and what does the order of their operations cost?                    |
+| I     | **Arithmetic Expression Geometry I: Foundations**                                           | How do sequential arithmetic histories acquire projective structure, and how rigid is their zero geometry?          |
 | II    | **Arithmetic Expression Geometry II: Hyperbolic Real Function Theory**                      | What analytic and function-theoretic structures exist on regular AEG spaces?                                       |
 | III   | **Arithmetic Expression Geometry III: Singular Zero Geometry and Tubes**                    | How do multiple zeros, singularities, parameter families, and tube topology arise?                                 |
 | IV    | **Arithmetic Expression Geometry IV: Projective Condensation and Computational Complexity** | What information is lost under quotient and condensation, and how is it related to representation and computation? |
@@ -88,11 +89,20 @@ The first phase of the program is organized into four papers.
 The dependency architecture is:
 
 ```text
-Paper I ──→ Paper II
-Paper I ──→ Paper III
-Paper I ──→ Paper IV
+Paper 0 ──→ Paper I ──→ Paper II
+                    ──→ Paper III
+                    ──→ Paper IV
 Paper II ──→ Paper III  [bounded holomorphic-pullback interface]
 ```
+
+Paper 0 is the geometric foundation: it owns arithmetic expression spaces, the
+four operations as motions, the hyperbolic and punctured models, ripple
+geometry, affine cocycles, the accumulative commutative space with tearing, and
+the contact structure.  Its scope is fixed by
+`00b-paper-0-geometric-foundation-amendment.md` and its claim statuses are
+registered in `05b-paper-0-status-register.md`; the amendment reassigned those
+objects from Paper I, which now owns the sequential-history, projective, Hecke,
+and zero layers.
 
 Paper II now provides the declared planar/cylindrical pullback interface used in
 Paper III.  The dependency is one-way and bounded: Paper II proves no singular,

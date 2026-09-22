@@ -4,9 +4,10 @@
 
 This repository contains the source, notes, figures, bibliography, and build tooling for the Arithmetic Expression Geometry (AEG) paper series.
 
-The current restructuring effort separates the material into four papers:
+The current restructuring effort separates the material into five papers:
 
-1. **Arithmetic Expression Geometry I: Foundations**
+0. **Arithmetic Expression Geometry 0 — Arithmetic Expression Spaces** (the geometric foundation; scope fixed by `governance/00b-paper-0-geometric-foundation-amendment.md`)
+1. **Arithmetic Expression Geometry I: Foundations** (the history, projective, Hecke, and zero layers)
 2. **Arithmetic Expression Geometry II: Hyperbolic Real Function Theory**
 3. **Arithmetic Expression Geometry III: Singular Zero Geometry and Tubes**
 4. **Arithmetic Expression Geometry IV: Projective Condensation and Computational Complexity**
@@ -113,9 +114,53 @@ The files under `governance/archive/` are archival and must not be treated as cu
 
 ---
 
+## Paper 0 scope discipline
+
+Paper 0 is the geometric foundation of the series. Its scope is authoritative in
+`governance/00b-paper-0-geometric-foundation-amendment.md` and its claim statuses
+are registered in `governance/05b-paper-0-status-register.md`.
+
+Paper 0 may contain:
+
+* left- and right-expanded comb grammars, one-hole sections, and the
+  distributive expansion relating distinct expansions of one expression;
+* the regular-AES axioms, the canonical arithmetic frame, and the four
+  operations as motions;
+* the basic hyperbolic model `E_0`, the once-punctured model `E_1`, and the
+  continuous arithmetic motion;
+* the dual reading (poles, horocycle pullback, ripple pencils), reciprocals,
+  infinity, fixed points, and the matrix synthesis;
+* affine cocycles, the relative affine defect, the accumulative commutative
+  space, the weighted torsion--Stokes theorem, and tearing;
+* the contact structure, horizontal fields, curvature, and the scalar horizontal
+  differential;
+* structural proposals that replace linear language, and punctured spaces with
+  their computed witnesses.
+
+Paper 0 must not develop as a main theory:
+
+* the intrinsic dependency-poset classification of arbitrary sequential trees
+  (that stays in Paper I; Paper 0 cites it);
+* mixed-chirality marked histories as its main object;
+* the Hecke `q=4` history language;
+* regular-zero rigidity, singular-zero classification, zero networks, tubes,
+  braids, or knot invariants;
+* arithmetic holomorphic function theory, boundary-value theory, or spectral
+  theory;
+* projective bivaluations, quotient towers, condensation, or computational
+  complexity;
+* a general convergence theory for infinite arithmetic expressions;
+* any claim that ripple geometry is a new isomorphism class of geometry or that
+  the contact form forces a compatible complex structure.
+
+---
+
 ## Paper I scope discipline
 
-Paper I establishes the foundational affine geometry of AEG within its projective context.
+Paper I establishes the syntactic and projective foundation of AEG. Its
+geometric chapters --- arithmetic expression spaces, motions, the hyperbolic
+model, affine cocycles, ACS torsion, and contact curvature --- are developed in
+Paper 0, whose scope file is authoritative for them.
 
 Its intended logical spine is:
 
@@ -126,11 +171,9 @@ Its intended logical spine is:
 \supset
 \text{affine sector}
 \longrightarrow
-\text{affine flow}
+\text{expression geometry (Paper 0)}
 \longrightarrow
-\text{expression geometry}
-\longrightarrow
-\text{torsion and contact curvature}.
+\text{zero geometry}.
 ]
 
 Paper I may contain:
@@ -142,18 +185,17 @@ Paper I may contain:
 * projective evaluation of non-degenerate bilateral histories;
 * generation of (PGL_2(K));
 * identification of the affine/Borel sector;
-* affine cocycle formulas;
-* continuous affine flow;
-* the basic hyperbolic model;
+* the `q=4` Hecke sublanguage and its history-level relations;
+* the regular-AES interface imported from Paper 0, for its own statements;
 * regular zero-locus results;
 * a foundational definition of singular arithmetic expression spaces;
 * a minimal multi-zero example, if fully verified;
-* a basic parameter-family zero-surface lemma;
-* ACS and generalized torsion;
-* contact connection and horizontal covariant differential.
+* a basic parameter-family zero-surface lemma.
 
 Paper I must not develop as a main theory:
 
+* the geometric construction of arithmetic expression spaces, their motions,
+  their commutativization, or their contact structure (Paper 0 owns them);
 * full bivaluation or rank-one projector theory;
 * the complete (G/H) and (G/B_\pm) quotient tower;
 * concept–predicate semantics;

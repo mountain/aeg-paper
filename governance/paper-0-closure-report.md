@@ -159,3 +159,57 @@ Review Paper 0 section by section for mathematical emphasis, especially:
    remain for self-containment after Paper 0 is accepted;
 4. whether the missing PCRG source contributes a distinct elementary theorem or
    only parallel terminology once it becomes accessible.
+
+---
+
+## 9. Post-closure amendment (2026-09-22): Paper 0 as the geometric foundation
+
+This dated section is appended; nothing above is edited.
+
+**Authority:** `governance/00b-paper-0-geometric-foundation-amendment.md`
+(authoritative amendment, v1.0), issued as an explicit scope-change task under
+`00-authoritative-scope.md` §27.  It supersedes `00a-paper-0-amendment.md`
+§§2--5 and reassigns the ownership rows of `00-authoritative-scope.md` §20 that
+concern affine cocycles, continuous affine flow, the basic hyperbolic model, ACS
+torsion, and contact curvature from Paper I to Paper 0.
+
+**What changed.**  Paper 0 was rebuilt from 7 sections and 1 appendix to 12
+sections and 4 appendices.  It absorbed Paper I's geometric chapters and
+appendices (affine cocycles, affine flow, the hyperbolic model, ACS torsion,
+contact curvature, and the affine/hyperbolic/ACS-contact appendices) at the same
+labels and statuses, and it gained five new chapters or parts: the
+distributive-expansion material, the model-label convention `E_0`/`E_1`/`E_k`,
+the tearing definition, the two obstructions to linear language with the
+process-geometry proposals, and the punctured-space chapter with its six
+computed witnesses.  Paper I was reduced to the history, projective-semantics,
+Hecke, and zero-geometry layers, with one imported definition (the regular AES
+and its canonical frame) retained for logical self-containment.
+
+**Statuses.**  Every substantial Paper 0 result is registered in the new file
+`governance/05b-paper-0-status-register.md`.  No moved result was promoted.  The
+new material is registered as `PROVED` for the two distribution identities and
+the two §10 obstructions, `PROVED` for the tangent-cone proposition, and
+`STRUCTURAL PROPOSAL` for the names *ripple geometry*, *tearing*, and the model
+label convention.  The six §11 witnesses are `COMPUTATIONALLY VERIFIED EXAMPLE`,
+and the interpretive reading of them is registered as `UNSUPPORTED AND EXCLUDED`
+for use as a claim.
+
+**Provenance.**  Migration M-0019 in `governance/migration-log.md` records the
+source and destination of every moved file.  The exploration register behind
+§11 is retained as
+`notes/foundations-and-geometry/06-hole-obstructions-ledger.md` (a tracked copy,
+with a non-authoritative header) and cited as `Yuan2026AEGHoleRegister`; the
+working original under `temp/` was not edited.  Two precision defects of that
+register --- its "five classes" wording against a six-row table, and its
+unproved identification of a `Z_3` monodromy with a `Z_4` twist --- are recorded
+in Paper 0 §11 and in `08-open-questions.md` rather than silently repaired.
+
+**Build.**  `./build.sh 0` produces a 67-page PDF with a clean final log;
+`./build.sh 1` produces a clean Paper I log; the CI warning gate passes on both.
+Papers II, III, and IV were rebuilt after their citations of moved objects were
+re-pointed to Paper 0, and all three logs are clean.
+
+**Remaining warnings and open items.**  No blocking LaTeX warning remains.  The
+mathematical open items are listed in Paper 0 §11.6 and §12.4 and in
+`08-open-questions.md` (OQ-079--OQ-082).  Paper 0 remains a draft under
+mathematical review.

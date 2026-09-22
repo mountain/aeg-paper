@@ -15,6 +15,13 @@
 
 **Applies to:** Mathematical claims in Papers I–IV and their supporting notes.
 
+**Amendment (2026-09-22):** Paper 0's claims are registered separately in
+`governance/05b-paper-0-status-register.md`, created by the authoritative
+amendment `00b-paper-0-geometric-foundation-amendment.md`.  Where a result moved
+from Paper I to Paper 0, the status recorded here for Paper I is superseded by
+the entry in `05b`; the mathematical content and status of the result are
+unchanged by the move.
+
 ---
 
 ## 1. Purpose

@@ -658,3 +658,54 @@ closure.
 - Build result: `./build.sh` rebuilt all four canonical PDFs; final logs contain no
   undefined references, undefined citations, duplicate labels, or missing assets.
   Paper IV's seven-group finite verification suite also passes
+
+## Migration M-0019
+
+- **Date:** 2026-09-22
+- **Name:** Paper 0 becomes the geometric foundation of the series
+- **Authority:** `governance/00b-paper-0-geometric-foundation-amendment.md` (authoritative
+  amendment, v1.0), which supersedes `00a-paper-0-amendment.md` §§2--5 and reassigns the
+  ownership rows of `00-authoritative-scope.md` §20 listed there
+- **Source:** `paper-1/sections/04-affine-cocycles.tex`, `05-affine-flow.tex`,
+  `06-hyperbolic-model.tex`, `08-acs-torsion.tex`, `09-contact-curvature.tex`,
+  `paper-1/appendices/app-B-affine-cocycles.tex`, `app-C-hyperbolic-calculations.tex`,
+  `app-D-acs-contact.tex`, and the affine-group subsections of
+  `paper-1/appendices/app-A-conventions.tex`
+- **Destination:** `paper-0/sections/07-affine-cocycles.tex`,
+  `08-acs-tearing.tex`, `09-contact-of-tearing.tex`,
+  `paper-0/appendices/app-B-hyperbolic-calculations.tex`,
+  `app-C-affine-cocycles.tex`, `app-D-acs-contact.tex`, and the merged
+  `paper-0/sections/03-aes-and-motion.tex`
+- **Migration state:** MOVE (geometric chapters and appendices), REWRITE (Paper 0
+  entry point, introduction, interface; Paper I entry point, introduction, interface,
+  conclusion), KEEP (Paper I §§2, 3, 7; appendices A, E)
+- **Claim treatment:** no mathematical claim changed.  Every moved label, hypothesis,
+  and status is preserved; the moved results keep the status they held in Paper I and
+  are entered in the new register `05b-paper-0-status-register.md`
+- **New material added to Paper 0:** the distributive-expansion section
+  (`prop:p0-distributive-operator-identity`, `ex:p0-distributive-charge-transport`),
+  the model-name convention `conv:p0-model-labels`, the tearing definition
+  (`def:p0-tearing`), the two obstructions of §10
+  (`prop:p0-arithmetic-generators`, `prop:p0-characters-cannot-see-tearing`), the
+  punctured-space definition (`def:p0-punctured-aes`), the tangent-cone proposition
+  (`prop:p0-puncture-tangent-cone`), and the register of six computed witnesses
+- **Notation changes:** Paper 0 adopts the correspondence table of the amendment §7
+  (`E_0` = basic regular hyperbolic model, identified once with the former
+  `E_{\mathrm{hyp}}`; `E_1` = once-punctured disc; `E_k` descriptive only).  No other
+  notation was renamed; the `p0:` label prefix is retained for pre-existing Paper 0
+  labels and moved labels keep their original names
+- **Reference treatment:** cross-paper citations of the moved objects in Papers II, III,
+  and IV were re-pointed to Paper 0; the new bibliography key
+  `Yuan2026AEGPaperZero` records Paper 0, and `Yuan2026AEGFoundations` now carries the
+  revised Paper I subtitle.  `Wu2000MathematicsMechanization`, `Yuan2026ProcessGeometry`,
+  and `Yuan2026AEGHoleRegister` were added, each cited in the text
+- **Content removed from source:** none deleted; superseded Paper 0 section files
+  (`02-two-combs.tex`, `03-paths.tex`, `04-ripple-pencils.tex`, `07-interface.tex`)
+  were replaced by rewritten files of the same paper and remain recoverable in git
+- **Build result:** `./build.sh 0` 67 pages, `./build.sh 1` clean, `./build.sh 2`,
+  `3`, `4` rebuilt; final logs contain no undefined references, undefined citations,
+  duplicate labels, or missing assets
+- **Reviewer notes:** the hole/tearing exploration material is retained as a tracked
+  note (`notes/foundations-and-geometry/06-hole-obstructions-ledger.md`) without
+  promotion of any of its items; two precision defects of that register are recorded
+  in Paper 0 §11 and in `08-open-questions.md` rather than silently repaired

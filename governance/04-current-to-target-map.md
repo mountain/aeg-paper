@@ -21,6 +21,33 @@ current layout and active source closures are recorded in `README.md`,
 `governance/README.md`, and `governance/source-inventory.md`; completed path changes
 are recorded in migrations M-0010--M-0017 of `governance/migration-log.md`.
 
+**Update (2026-09-22, M-0019):** a second migration reassigned Paper I's geometric
+chapters to Paper 0 under `00b-paper-0-geometric-foundation-amendment.md`.  Its
+file-level states are recorded in the table below; the Paper 0 destinations are
+`paper-0/sections/03-aes-and-motion.tex` (from Paper I §§5--6),
+`paper-0/sections/07-affine-cocycles.tex` (from §4),
+`paper-0/sections/08-acs-tearing.tex` (from §8),
+`paper-0/sections/09-contact-of-tearing.tex` (from §9), and Paper 0 appendices
+B, C, D (from Paper I appendices C, B, D).
+
+| Source (Paper I, pre-M-0019) | Migration state | Claim treatment | Destination |
+|---|---|---|---|
+| `sections/04-affine-cocycles.tex` | `MOVE` | `PRESERVE` | `paper-0/sections/07-affine-cocycles.tex` |
+| `sections/05-affine-flow.tex` | `MOVE` | `PRESERVE` | `paper-0/sections/03-aes-and-motion.tex` |
+| `sections/06-hyperbolic-model.tex` | `MOVE` | `PRESERVE` | `paper-0/sections/03-aes-and-motion.tex` |
+| `sections/08-acs-torsion.tex` | `MOVE` | `PRESERVE` | `paper-0/sections/08-acs-tearing.tex` |
+| `sections/09-contact-curvature.tex` | `MOVE` | `PRESERVE` | `paper-0/sections/09-contact-of-tearing.tex` |
+| `appendices/app-A` (affine-group subsections) | `SPLIT` | `PRESERVE` | `paper-0/appendices/app-C-affine-cocycles.tex` |
+| `appendices/app-B-affine-cocycles.tex` | `MOVE` | `PRESERVE` | `paper-0/appendices/app-C-affine-cocycles.tex` |
+| `appendices/app-C-hyperbolic-calculations.tex` | `MOVE` | `PRESERVE` | `paper-0/appendices/app-B-hyperbolic-calculations.tex` |
+| `appendices/app-D-acs-contact.tex` | `MOVE` | `PRESERVE` | `paper-0/appendices/app-D-acs-contact.tex` |
+| `sections/02-sequential-histories.tex` | `KEEP` | `PRESERVE` | unchanged |
+| `sections/03-projective-affine.tex` | `KEEP` | `PRESERVE` | unchanged |
+| `sections/07-zero-geometry.tex` | `KEEP` | `PRESERVE` | renumbered `05-zero-geometry.tex` |
+| `sections/00`, `01`, `10` | `REWRITE` | `PRESERVE` | interface, introduction, conclusion |
+| `appendices/app-E` | `KEEP` | `PRESERVE` | renumbered `app-B-equality-neutrality.tex` |
+| Paper 0 `02-two-combs`, `03-paths`, `04-ripple-pencils`, `07-interface` | `REWRITE` | `PRESERVE` | `02-expansion`, `03-aes-and-motion`, `04-ripple-geometry`, `12-interface` |
+
 ---
 
 ## 1. Purpose

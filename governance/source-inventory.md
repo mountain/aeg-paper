@@ -5,8 +5,13 @@
 **Baseline population:** 207 tracked files, including 107 `.tex` sources  
 **Paper I post-migration population:** 123 `.tex` sources
 
-**Current active source closures:** Paper I: 16 canonical `.tex` files; Paper II:
-13; Paper III: 17; Paper IV: 19
+**Current active source closures:** Paper 0: 17 canonical `.tex` files (12 section
+sources, 4 appendices, 1 entry point); Paper I: 9 canonical `.tex` files;
+Paper II: 13; Paper III: 17; Paper IV: 19
+
+*Updated 2026-09-22 by migration M-0019: Paper 0 absorbed Paper I's geometric
+chapters and appendices and grew to 12 sections and 4 appendices; Paper I was
+reduced to the history, projective, Hecke, and zero layers.*
 
 This inventory classifies every top-level path family in the fixed baseline.  A
 family classification applies to every file beneath the named directory; exceptions

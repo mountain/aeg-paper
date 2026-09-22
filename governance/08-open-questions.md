@@ -3065,3 +3065,140 @@ stated in the notes:
    relate the AEG horizontal distribution to the canonical contact structure of
    T¹H² via an explicit Gauss/Iwasawa chart, intertwining arithmetic generators,
    brackets, and base projection.
+
+---
+
+## OQ-081 — Is ripple geometry intrinsic to the arithmetic word?
+
+**Priority:** P2
+**State:** OPEN
+
+**Question:** the dual reading developed in Paper 0 §§4--6 pulls back standard
+horocycles through a projective arithmetic operator.  Every proved statement
+there is stated with respect to the standard horocycle family `H_t` and hence
+with respect to one chart.  Is there a formulation in which the pole, the
+pulled-back family, and the fixed points are attached to the *word* rather than
+to a chosen realisation?
+
+**Why it matters:** the name *ripple geometry* is used in Paper 0 only as a
+descriptive label (`STRUCTURAL PROPOSAL`).  A positive answer would convert it
+into a theorem-level statement and would supply the projective AES that
+`00a` §5 and Paper 0 §12.4 list as an open programme.
+
+**Current evidence:** `thm:p0-ripple-pencil-formula` (line/circle dichotomy),
+`thm:p0-four-matrix-readings` (one matrix, four readings), and
+`prop:p0-path-ripple-duality` are proved; no chart-independent formulation
+exists in the repository.
+
+**Default rule while open:** cite the proved formulas, never the name, as the
+mathematical content.
+
+**Resolution condition:** either an intrinsic definition with a proof that the
+horocycle-chart construction is a special case, or a counterexample showing that
+two words with the same operator have inequivalent dual families.
+
+**Affected files:** `paper-0/sections/04-ripple-geometry.tex`,
+`paper-0/sections/06-projective-unification.tex`,
+`paper-0/sections/12-interface.tex`.
+**Affected theorem nodes:** `def:p0-ripple-pencil`,
+`thm:p0-ripple-pencil-formula`, `prop:p0-path-ripple-duality`.
+**Owner:** author.
+**Decision record:** `governance/00b-paper-0-geometric-foundation-amendment.md` §4.
+
+## OQ-082 — Canonical choice of punctures
+
+**Priority:** P2
+**State:** OPEN
+
+**Question:** `def:p0-punctured-aes` declares a finite puncture set `S`.  Can `S`
+be determined by the arithmetic data instead of being stipulated, and is the
+choice unique when it exists?
+
+**Why it matters:** the exploration register behind Paper 0 §11 states, as its
+first unfinished item, that the choice of the two extra punctures in the
+cut-and-glue accounting is not known to be canonical.  Until it is, the
+"hole" language of that chapter remains descriptive.
+
+**Current evidence:** the register's topological witness (χ = #cycles(σ) = b,
+exhaustive over 40320 gluings) and the verified one-puncture model
+`prop:isolated-zero-singular-model` of Paper I; the register's own 待办 records
+the gap.
+
+**Default rule while open:** a puncture is always declared, never derived.
+
+**Resolution condition:** a selection rule for `S` from the arithmetic data,
+with a proof of uniqueness, or an explicit non-uniqueness example.
+
+**Affected files:** `paper-0/sections/11-holed-aes.tex`,
+`notes/foundations-and-geometry/06-hole-obstructions-ledger.md`.
+**Affected theorem nodes:** `def:p0-punctured-aes`,
+`prop:p0-puncture-tangent-cone`.
+**Owner:** author.
+**Decision record:** `governance/00b-paper-0-geometric-foundation-amendment.md` §4.
+
+## OQ-083 — Does tearing admit a positive, non-linear description?
+
+**Priority:** P3
+**State:** OPEN
+
+**Question:** Paper 0 §10 proves that the arithmetic generators do not close
+into a finite-dimensional Lie algebra and that no character of the
+commutativization detects tearing.  Are there algebraic structures in which the
+tearing is not an obstruction but a computable object, and can they be defined
+intrinsically for AES rather than imported as a vocabulary?
+
+**Why it matters:** the two propositions are refusals; a positive description
+would replace a methodological position by a theory.
+
+**Current evidence:** `prop:p0-arithmetic-generators` and
+`prop:p0-characters-cannot-see-tearing` (proved here); the structural proposals
+of `Yuan2026ProcessGeometry` and the exact calibrations matching
+`eq:p0-bs-relation` (research-local, with that repository's own maturity labels).
+
+**Default rule while open:** the imported vocabulary is labelled
+`STRUCTURAL PROPOSAL` and is never used as a hypothesis of a theorem.
+
+**Resolution condition:** an intrinsic structure on AES whose objects are the
+two-history defects, with at least one nontrivial computation that the
+commutativization cannot reproduce.
+
+**Affected files:** `paper-0/sections/10-beyond-linear.tex`,
+`paper-0/sections/08-acs-tearing.tex`.
+**Affected theorem nodes:** `def:p0-tearing`, `prop:p0-arithmetic-generators`,
+`prop:p0-characters-cannot-see-tearing`.
+**Owner:** author.
+**Decision record:** `governance/00b-paper-0-geometric-foundation-amendment.md` §4.
+
+## OQ-084 — Two precision defects of the hole-obstruction register
+
+**Priority:** P3
+**State:** OPEN
+
+**Question:** the exploration register records six obstructions while its
+summary sentence speaks of five classes, and it identifies the `Z_3` monodromy
+of its frame witness with a `Z_4` twist of sheet labels that appears in a
+different computation.  Neither point is resolved.
+
+**Why it matters:** Paper 0 §11 reproduces the six witnesses and explicitly
+declines both identifications; if the identification is in fact correct, a
+future revision must say so with a proof, and if it is not, the register should
+carry a correction.
+
+**Current evidence:** the register's table has six rows while its header says
+五类; the two computations involve different groups and no source in the
+repository relates them.
+
+**Default rule while open:** Paper 0 counts six and records the discrepancy
+(`rem:p0-holed-register-bookkeeping`); the identification is listed among the
+non-claims of `subsec:p0-holed-nonclaims`.
+
+**Resolution condition:** a proof or disproof of the identification, and a
+corrected count in the register.
+
+**Affected files:** `paper-0/sections/11-holed-aes.tex`,
+`notes/foundations-and-geometry/06-hole-obstructions-ledger.md`,
+`temp/孔的不可避免性_v0.1.md` (working original, not edited by this task).
+**Affected theorem nodes:** none; the items are registered as
+`COMPUTATIONALLY VERIFIED EXAMPLE` only.
+**Owner:** author.
+**Decision record:** migration M-0019 in `governance/migration-log.md`.
