@@ -1,8 +1,10 @@
 % Canonical Paper II source.
-Paper I develops Arithmetic Expression Geometry (AEG) from ordered evaluation
-histories to affine flow, regular expression surfaces, and contact curvature
-\cite{Yuan2026AEGFoundations}.  The present paper asks the next question: once the
-geometric data have been fixed, what analysis do they actually support?  We answer it
+Arithmetic Expression Geometry (AEG) now develops its geometry in Paper~0 ---
+arithmetic expression spaces, affine flow, the regular expression surface, and
+contact curvature \cite{Yuan2026AEGPaperZero} --- and its history and projective
+layer in Paper~0 \cite{Yuan2026AEGFoundations}.  The present paper asks the next
+question: once the geometric data have been fixed, what analysis do they actually
+support?  We answer it
 first on a general regular arithmetic expression space and then completely enough on
 the basic hyperbolic model to obtain a boundary kernel, a Dirichlet theorem, and an
 exact boundary energy operator.
@@ -15,7 +17,7 @@ is an oriented Riemannian \emph{surface}.  Its metric and orientation already
 determine rotation by $+\pi/2$, hence the usual complex structure of an oriented
 Riemannian surface.  The assignment $a$ selects a distinguished positively oriented
 orthonormal frame $(X_u,X_v)$.  Complex and elliptic analysis on this surface are
-therefore intrinsic to the data imported from Paper I.
+therefore intrinsic to the data imported from Paper~0.
 
 The contact state space is instead
 \[
@@ -57,7 +59,7 @@ $[D_u,D_v]=\mu\lambda\partial_a$, a vertical curvature term.
   arr/.style={-{Latex[length=2mm]},thick},
   warn/.style={font=\scriptsize,align=center,text=red!60!black}
 ]
-  \node[box] (paperi) {Paper I affine propagation\\and assignment derivative rules};
+  \node[box] (paperi) {Paper 0 affine propagation\\and assignment derivative rules};
   \node[box,below left=of paperi] (surface) {regular AES surface\\$(M,g,a;\mu,\lambda)$};
   \node[box,below right=of paperi] (contact) {contact state space\\$(\mathcal C,\alpha,D_u,D_v)$};
   \node[result,below=of surface] (elliptic) {canonical surface\\complex structure\\Laplace--Beltrami and Poisson theory};
@@ -70,7 +72,7 @@ $[D_u,D_v]=\mu\lambda\partial_a$, a vertical curvature term.
     node[midway,above,warn] {structural comparison\\not identification};
 \end{tikzpicture}%
 }
-\caption{The two analytic objects carried forward from Paper I.  The surface branch
+\caption{The two analytic objects carried forward from Paper 0.  The surface branch
 is elliptic and has an intrinsic complex structure.  The contact branch is
 subelliptic and requires an analytic normalization.  Nonintegrability prevents the
 contact distribution from being identified with a regular AES surface.}
@@ -177,7 +179,7 @@ $H^{1/2}$ quadratic form.  This is the first exact boundary-operator statement o
 the AEG analytic programme.  Its classical analytic ingredients are
 standard \cite{Ahlfors1979ComplexAnalysis,CaffarelliSilvestre2007Extension}; the
 result here is their explicit transport, domain statement, and assignment-coordinate
-interpretation on the Paper I model.
+interpretation on the Paper 0 model.
 
 The same model supplies several genuinely assignment-dependent fields because
 \begin{equation}\label{eq:intro-w-assignment}
@@ -202,7 +204,7 @@ metric, not a finite Riemannian boundary component.
 \item Poisson extensions with nonzero ideal-boundary values are generally not in
 $L^2(\HH,d\vol_g)$.  The boundary-energy theorem and the $L^2$ Friedrichs
 realization therefore occupy different analytic domains.
-\item The identity $\Delta_ga=2\lambda^2a$ from Paper I is pointwise.  The assignment
+\item The identity $\Delta_ga=2\lambda^2a$ from Paper 0 is pointwise.  The assignment
 $a=-x/y$ is not an $L^2$ eigenvector.
 \item We do not claim that the normalized contact CR structure is invariant under all
 contactomorphisms, nor that its explicit CR families are complete in a Hilbert or

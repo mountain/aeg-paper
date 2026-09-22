@@ -37,7 +37,7 @@ Build this manuscript from the repository root with:
 ./build.sh 2
 ```
 
-## Imports from Paper I
+## Imports from Paper 0
 
 - the regular-AES definition and arithmetic frame;
 - the basic hyperbolic model;
