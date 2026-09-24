@@ -77,6 +77,8 @@ EXCLUDED`.
 | contact curvature `[D_u,D_v]=\mu\lambda\partial_a` (`thm:contact-curvature`) | `PROVED` | moved from Paper I §9; retitled "Curvature of the specified horizontal connection", with a remark that `mu*lambda` is not a contact-isomorphism invariant and is not `K=-lambda^2` |
 | the basic model is the Reeb quotient of the contact model (`prop:p0-contact-quotient`) | `PROVED` | added 2026-09-22; five exact relations with proofs, for the basic model only; proposed in the 2026-09-22 review and verified independently here |
 | finite/infinitesimal synthesis (`prop:torsion-curvature-synthesis`) | `PROVED` | moved from Paper I §9 |
+| the curvature form of the horizontal distribution (`prop:p0-curvature-form`) | `PROVED` | added 2026-09-22 (evening): the bracket defect defines a canonical 2-form on the distribution, determined by `(D, pi)` and independent of the normalization of `alpha`; its value on the `h`-orthonormal frame is `mu*lambda`, with the rescaling law `rho^{-2}` under `h -> rho^2 h` |
+| the curvature scalar's invariance group (`rem:p0-curvature-invariance`) | `PROVED` (explanatory remark) | resolves OI-6: `mu*lambda` is not a contact invariant, but it is an invariant of the declared frame and horizontal metric, and on the AES side of the data it is the chart-free expression `da([X_u,X_v])` |
 
 ## 5. Beyond linear language (Paper 0 §10)
 
@@ -92,6 +94,9 @@ EXCLUDED`.
 | Node | Status | Note |
 |---|---|---|
 | the gradient never vanishes in a regular AES (`lem:p0-gradient-nonvanishing`) | `PROVED` | `|\nabla a|^2 = \mu^2+\lambda^2a^2 \ge \mu^2 > 0`; implies every level set is a smooth curve; Paper I's regular-zero theorem is the level-zero case |
+| punctures are exactly the critical points of the assignment (`thm:p0-punctures-are-critical`) | `PROVED` | added 2026-09-22 (evening), hypothesis: the assignment extends smoothly to the ambient surface; resolves OI-3 for that class, since `S` is then canonical rather than stipulated |
+| the hypothesis is active (`rem:p0-puncture-hypothesis`) | `PROVED` (explanatory remark) | the disc model of Paper I does not satisfy it (its assignment is not `C^1` at the puncture), so canonicality there remains open |
+| puncture count equals critical-point count (`cor:p0-puncture-count`) | `PROVED` | a `k`-puncture model of this kind exists iff the ambient surface carries a smooth function with exactly `k` critical points |
 | punctured AES definition (`def:p0-punctured-aes`) | `PROVED` | definition; revised 2026-09-22 to give an ambient surface and a finite set first, so that nonempty puncture sets exist; finite-point specialization of Paper I's singular AES |
 | tangent cone of the four limiting circles (`prop:p0-puncture-tangent-cone`) | `PROVED` | exact algebraic identity, verified in-paper |
 | an explicit punctured AES with the four-circle zero locus (`thm:p0-four-circle-model`) | `PROVED` | added 2026-09-22: the template metric forced by the eikonal identity, the exact critical set (so `\nabla P \neq 0` on a punctured disc of radius `< \rho`), the zero locus, non-extendability at the origin, and incompleteness with the puncture at finite distance; answers the review's R7 request for a construction |
@@ -99,14 +104,15 @@ EXCLUDED`.
 | observer witness | `PROVED` (bound), register numbers **not reproduced** | the residual functions, their exact zero, and the halting bound `|theta-pi/2| < 5eps/8 + O(eps^2)` are proved; the register's round counts depend on an unfixed update step and are not quoted |
 | the reading of the witnesses as an obstruction of AES | `UNSUPPORTED AND EXCLUDED` | listed in `subsec:p0-holed-nonclaims` as a non-claim |
 | the identification of the $\mathbb Z_3$ monodromy with any $\mathbb Z_4$ twist | `UNSUPPORTED AND EXCLUDED` | recorded in the register as unproved; not reproduced here |
-| generalizing the four-circle model to `k` punctures or to motion-generated assignments | `OPEN PROBLEM` | `op:p0-four-circle` |
+| generalizing the four-circle model to `k` punctures or to motion-generated assignments | `OPEN PROBLEM` | `op:p0-four-circle`; the `k`-puncture half is now an explicit question about functions with `k` critical points (`cor:p0-puncture-count`) |
 | comparison of tearing across a puncture | `OPEN PROBLEM` | `op:p0-canonical-punctures` |
-| canonical choice of punctures | `OPEN PROBLEM` | `subsec:p0-holed-open`; OQ-082 |
+| canonical punctures when the assignment does **not** extend smoothly | `OPEN PROBLEM` | the smoothly extending case is settled by `thm:p0-punctures-are-critical`; the disc model of Paper I is the open case (OQ-088) |
 
 ## 7. Open programmes
 
 `OPEN PROBLEM`:
 intrinsic projective AES for ripple geometry; quotient-stable path/ripple
-invariants; canonical choice of punctures; ripple structure at a puncture;
+invariants; canonicality of punctures for non-extending assignments; ripple
+structure at a puncture;
 multi-wire semantics; general theory of infinite arithmetic expressions; a
 positive non-linear description replacing the two obstructions of §10.

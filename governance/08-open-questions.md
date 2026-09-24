@@ -3108,33 +3108,96 @@ two words with the same operator have inequivalent dual families.
 ## OQ-082 — Canonical choice of punctures
 
 **Priority:** P2
-**State:** OPEN
+**State:** RESOLVED for smoothly extending assignments (2026-09-22); the
+non-extending case is reopened as OQ-088
 
 **Question:** `def:p0-punctured-aes` declares a finite puncture set `S`.  Can `S`
 be determined by the arithmetic data instead of being stipulated, and is the
 choice unique when it exists?
 
+**Resolution.**  `Decision:` when the assignment extends to a smooth function
+`a~` on the ambient surface, the puncture set is not a choice: it is exactly the
+critical set of `a~`.
+`Mathematical justification:` `thm:p0-punctures-are-critical` proves both
+inclusions.  If `p` is a puncture and `d a~(p) != 0`, then the template metric
+`g~ = |d a~|^2_{g_0} g_0 / (mu^2 + lambda^2 a~^2)`, built with any smooth
+background metric `g_0`, is a smooth non-degenerate metric on a neighbourhood of
+`p` satisfying the eikonal identity, so the regular structure extends across `p`,
+contradicting local essentiality.  Conversely, if `d a~(p) = 0` and `p` is not a
+puncture, the eikonal identity read at `p` gives `0 = mu^2 + lambda^2 a(p)^2 >=
+mu^2 > 0`, a contradiction.  Hence `S = {d a~ = 0}`.
+`Source changes:` Paper 0 §11 gained `lem:p0-gradient-nonvanishing`,
+`thm:p0-punctures-are-critical`, `rem:p0-puncture-hypothesis`, and
+`cor:p0-puncture-count`.
+`Status changes:` the new nodes are `PROVED`; `thm:p0-four-circle-model` now has a
+forced, not stipulated, puncture set, because its assignment satisfies
+`Crit(P) ∩ D_r = {0}`; and the `k`-puncture question became a question about
+smooth functions with exactly `k` critical points.
+`Downstream nodes rechecked:` `def:p0-punctured-aes`,
+`prop:p0-puncture-tangent-cone`, `thm:p0-four-circle-model`,
+`op:p0-four-circle`, and Paper I's `prop:isolated-zero-singular-model`, which
+does *not* satisfy the hypothesis (its assignment is not `C^1` at the puncture)
+and is therefore the subject of OQ-088.
+`Reviewer:` author.
+`Date:` 2026-09-22 (evening).
+
+**Retained body (superseded default rule).**
+
 **Why it matters:** the exploration register behind Paper 0 §11 states, as its
 first unfinished item, that the choice of the two extra punctures in the
-cut-and-glue accounting is not known to be canonical.  Until it is, the
-"hole" language of that chapter remains descriptive.
+cut-and-glue accounting is not known to be canonical.
 
 **Current evidence:** the register's topological witness (χ = #cycles(σ) = b,
 exhaustive over 40320 gluings) and the verified one-puncture model
-`prop:isolated-zero-singular-model` of Paper I; the register's own 待办 records
-the gap.
+`prop:isolated-zero-singular-model` of Paper I.
 
-**Default rule while open:** a puncture is always declared, never derived.
-
-**Resolution condition:** a selection rule for `S` from the arithmetic data,
-with a proof of uniqueness, or an explicit non-uniqueness example.
+**Default rule while open:** a puncture is always declared, never derived.  (For
+smoothly extending assignments this default is now replaced by the theorem.)
 
 **Affected files:** `paper-0/sections/11-holed-aes.tex`,
 `notes/foundations-and-geometry/06-hole-obstructions-ledger.md`.
 **Affected theorem nodes:** `def:p0-punctured-aes`,
-`prop:p0-puncture-tangent-cone`.
+`prop:p0-puncture-tangent-cone`, `thm:p0-punctures-are-critical`.
 **Owner:** author.
-**Decision record:** `governance/00b-paper-0-geometric-foundation-amendment.md` §4.
+**Decision record:** migration M-0022.
+
+---
+
+## OQ-088 — Canonical punctures when the assignment does not extend
+
+**Priority:** P2
+**State:** OPEN
+
+**Question:** `thm:p0-punctures-are-critical` canonicalizes the puncture set only
+when the assignment extends smoothly to the ambient surface.  The disc model
+imported from Paper I does not: there the metric extends smoothly across the
+centre while the assignment is continuous but not `C^1`.  What plays the role of
+the critical set in that case, and is the puncture then unique?
+
+**Why it matters:** the two verified punctured models are of different species.
+In the four-circle model the *metric* is what cannot be extended
+non-degenerately and the punctures are forced by the assignment; in the disc
+model the *assignment* is what fails, and the puncture set is still a
+stipulation.
+
+**Current evidence:** `thm:p0-punctures-are-critical` and
+`rem:p0-puncture-hypothesis` (Paper 0 §11); Paper I's
+`prop:isolated-zero-singular-model`, where `a_D` behaves like `rho` near the
+centre and the one-sided derivatives differ.
+
+**Default rule while open:** for a model whose assignment does not extend, `S` is
+declared, and the "hole" language of Paper 0 §11 stays descriptive.
+
+**Resolution condition:** a replacement for the critical set (for instance a
+jet-level, blow-up, or one-sided-derivative criterion) that determines `S` for
+assignments with a prescribed failure of differentiability, with a uniqueness
+proof or a counterexample.
+
+**Affected files:** `paper-0/sections/11-holed-aes.tex`.
+**Affected theorem nodes:** `def:p0-punctured-aes`,
+`thm:p0-punctures-are-critical`.
+**Owner:** author.
+**Decision record:** migration M-0022.
 
 ## OQ-083 — Does tearing admit a positive, non-linear description?
 

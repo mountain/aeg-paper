@@ -312,3 +312,44 @@ structure or its completeness fails.
 (canonical puncture sets), OI-5 (intrinsic ripple geometry), OI-6 (frame
 independence of `mu*lambda` under a declared horizontal metric), and the new
 OQ-087 (generalization to `k` punctures and to motion-generated assignments).
+
+---
+
+## 12. Post-closure extension (2026-09-22, third revision): OI-6 and OI-3 resolved
+
+This dated section is appended; nothing above is edited.  Both items are recorded
+in migration M-0022.
+
+**OI-6 (§9).**  The question was whether the curvature coefficient `mu*lambda` is
+frame-independent once a horizontal metric is declared.  The answer has two
+halves, and they concern different invariance groups.  On the contact side, the
+bracket defect of the horizontal distribution defines a canonical 2-form `omega`
+on the distribution by `[X,Y] = omega(X,Y) d_a mod D`; it is determined by the
+distribution and the charge projection, is insensitive to the normalization of
+`alpha`, and its value on the `h`-orthonormal oriented frame is `mu*lambda`, with
+the explicit rescaling law `rho^{-2}` when `h` is replaced by `rho^2 h`.  On the
+arithmetic side the same number is the chart-free expression
+`d_a([X_u,X_v]) = mu*lambda`.  So the coefficient is not a contact invariant --- a
+general contact transformation need not preserve `h` --- but neither is it a gauge
+artifact; the paper now names its exact invariance group and its residual freedom
+(the choice of `(mu,lambda)`, which is part of the AES data).
+
+**OI-3 (§11).**  The question was whether the puncture set can be canonical.  For
+punctured spaces whose assignment extends smoothly to the ambient surface the
+answer is yes, and exactly: `S` is the critical set of the assignment.  One
+inclusion uses the template metric to extend the regular structure across any
+non-critical point, contradicting local essentiality; the other reads the eikonal
+identity at a critical point of the punctured part and obtains `0 >= mu^2 > 0`.
+Three consequences are now in the paper: the four-circle model's puncture is
+forced rather than stipulated; the number of punctures equals the number of
+critical points of the assignment, so the `k`-puncture problem becomes a problem
+about functions with `k` critical points; and the disc model imported from
+Paper I is a different species, because there the *assignment* is what fails at the
+puncture (it is not `C^1`), so the theorem does not apply and that case is
+reopened as OQ-088.
+
+**Build.**  `./build.sh 0` produces an 80-page PDF with a clean final log.
+
+**Remaining open items.**  OI-2 (tearing across a puncture), OI-5 (intrinsic
+ripple geometry), OQ-087 (generalization of the four-circle model), and the new
+OQ-088 (canonical punctures when the assignment does not extend).

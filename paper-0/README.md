@@ -84,7 +84,9 @@ Proved in the manuscript, at the statuses recorded in
   endpoint is its abelianization, and of the two charges only the multiplicative
   one descends to the motion (`thm:p0-descent`);
 - the contact form is non-degenerate exactly when `mu*lambda != 0`, and the
-  horizontal fields satisfy `[D_u,D_v] = mu*lambda*d_a`;
+  horizontal fields satisfy `[D_u,D_v] = mu*lambda*d_a`; the bracket defect is a
+  canonical 2-form on the distribution, and `mu*lambda` is its value on the
+  orthonormal frame of the declared horizontal metric;
 - the basic model is the Reeb quotient of the contact model, with the horizontal
   fields descending to the canonical frame and `d(alpha)` equal to
   `-mu*lambda` times the hyperbolic area form;
@@ -96,6 +98,10 @@ Proved in the manuscript, at the statuses recorded in
 - the four-circle configuration is the zero locus of an explicit punctured AES
   whose metric is forced by the eikonal identity, with the puncture
   non-extendable and at finite distance (`thm:p0-four-circle-model`);
+- for a punctured space whose assignment extends smoothly, the puncture set is
+  exactly the critical set of the assignment, hence canonical and unique
+  (`thm:p0-punctures-are-critical`), and the number of holes equals the number of
+  critical points;
 - the tangent cone of that zero locus at the puncture is `(xy)^2 = 0`.
 
 Labelled as proposals rather than theorems: the name *ripple geometry*, the

@@ -404,6 +404,87 @@ computation needed here is carried out in the appendix and does not depend on
 it.
 \end{remark}
 
+\begin{proposition}[The curvature form of the horizontal distribution]
+\label{prop:p0-curvature-form}
+Let $\mathcal D=\ker\alpha$ be the horizontal distribution of the arithmetic
+contact model, and let $\pi(u,v,a)=(u,v)$ be the charge projection, whose
+vertical bundle $\ker d\pi$ is spanned by $\partial_a$.  For horizontal vector
+fields $X,Y$ define $\omega(X,Y)$ by the congruence
+\begin{equation}\label{eq:p0-curvature-form-congruence}
+  [X,Y]\equiv\omega(X,Y)\,\partial_a \pmod{\mathcal D} .
+\end{equation}
+Then:
+\begin{enumerate}
+  \item $\omega$ is a well-defined smooth $2$-form on $\mathcal D$: it is
+  bilinear, alternating, and $C^\infty(\mathcal C)$-linear in each argument;
+  \item in the arithmetic frame, $\omega(D_u,D_v)=\mu\lambda$;
+  \item $\omega$ is unchanged when $\alpha$ is replaced by $\kappa\alpha$ for
+  $\kappa\ne0$, and it is invariant under every diffeomorphism of $\mathcal C$
+  that preserves the distribution, the charge projection, and the orientation of
+  the vertical line;
+  \item if a horizontal metric $h$ is declared and $h$ is rescaled to $\rho^2h$,
+  then an $h$-orthonormal positively oriented frame scales by $\rho^{-1}$ and the
+  number $\omega(e_u,e_v)$ scales by $\rho^{-2}$, while the form $\omega$ itself
+  is unchanged.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(1) For $f\in C^\infty(\mathcal C)$ one has $[fX,Y]=f[X,Y]-Y(f)X$, and $Y(f)X$
+is horizontal, so the class of $[X,Y]$ modulo $\mathcal D$ is unchanged;
+alternation is immediate.  The vertical bundle is trivialized by $\partial_a$,
+so the congruence determines a single smooth coefficient.  (2) is
+Theorem~\ref{thm:contact-curvature}: $[D_u,D_v]=\mu\lambda\partial_a$, whose
+class is already vertical, so $\omega(D_u,D_v)=\mu\lambda$.  (3) Replacing
+$\alpha$ by $\kappa\alpha$ does not change $\ker\alpha$, and no factor of
+$\alpha$ appears in \eqref{eq:p0-curvature-form-congruence}; a diffeomorphism
+preserving the distribution maps horizontal fields to horizontal fields and
+preserves the trivialization of $\ker d\pi$ up to the orientation sign.  (4) If
+$h'=\rho^2h$ then $e'_u=\rho^{-1}e_u$ and $e'_v=\rho^{-1}e_v$ are
+$h'$-orthonormal and positively oriented, so
+$\omega(e'_u,e'_v)=\rho^{-2}\omega(e_u,e_v)$.
+\end{proof}
+
+\begin{remark}[What the curvature scalar is invariant under]
+\label{rem:p0-curvature-invariance}
+Proposition~\ref{prop:p0-curvature-form} answers precisely the question that
+Remark~\ref{rem:p0-curvature-not-contact-invariant} raised.  The coefficient
+$\mu\lambda$ is not a contact-isomorphism invariant, but neither is it a gauge
+artifact of coordinates.  Two statements hold, and they concern different
+invariance groups.
+
+\begin{enumerate}
+  \item On the contact side the canonical object is the $2$-form $\omega$ of
+  \eqref{eq:p0-curvature-form-congruence}: it is determined by the distribution
+  and the charge projection, and it is insensitive to the normalization of
+  $\alpha$.  The *number* $\mu\lambda$ is the value of $\omega$ on the
+  $h$-orthonormal frame for the declared horizontal metric $h=du^2+dv^2$; it is
+  therefore invariant under every transformation preserving the triple
+  $(\mathcal D,h,\pi)$ together with the orientation and the horizontal area
+  normalization, and its only residual freedom is the rescaling of $h$, with the
+  explicit law $\rho^{-2}$ of (4).  A general contact transformation need not
+  preserve $h$, and that is exactly why the number is not a contact invariant.
+  \item On the arithmetic side the same number is a functional of the AES data
+  alone: the canonical frame satisfies
+  \[
+    da\bigl([X_u,X_v]\bigr)=X_u(\lambda a)-X_v(\mu)=\mu\lambda
+  \]
+  by \eqref{eq:arithmetic-frame-bracket-on-a}, an identity that mentions no
+  chart, no projection, and no normalization of any contact form.  Here the
+  freedom is the choice of the pair $(\mu,\lambda)$ itself, which is part of the
+  structure in Definition~\ref{def:regular-aes} rather than a choice of frame.
+\end{enumerate}
+
+So the correct phrase is not ``the curvature of the contact structure'' but
+``the curvature scalar of the declared arithmetic frame and horizontal metric''.
+Rescaling the arithmetic units changes $(\mu,\lambda)$: for instance
+$(u,v,a)\mapsto(cu,dv,\kappa a)$ replaces $(\mu,\lambda)$ by
+$(\mu c/\kappa,\lambda d)$ and multiplies $\mu\lambda$ by $cd/\kappa$.  Such a
+rescaling changes the AES data, hence the model, rather than expressing one model
+in another frame, which is the sense in which the theorem of
+Section~\ref{sec:p0-contact} concerns a specified connection.
+\end{remark}
+
 \subsection{The contact model as a quotient of the basic model}
 \label{subsec:p0-contact-quotient}
 

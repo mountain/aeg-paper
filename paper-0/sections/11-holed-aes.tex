@@ -136,6 +136,67 @@ least $\mu^2>0$, so $\nabla a$ does not vanish.  The regular-value theorem then
 applies at every level, not only at $0$.
 \end{proof}
 
+The next theorem answers the first half of the canonicality question: when the
+assignment is defined on the whole ambient surface, the puncture set is not a
+choice at all.
+
+\begin{theorem}[Punctures are exactly the critical points of the assignment]
+\label{thm:p0-punctures-are-critical}
+Let $(\overline M,S,g,a;\mu,\lambda)$ be a punctured AES in the sense of
+Definition~\ref{def:p0-punctured-aes}, and suppose that $a$ extends to a smooth
+function $\widetilde a$ on $\overline M$.  Then
+\begin{equation}\label{eq:p0-punctures-are-critical}
+  S=\bigl\{p\in\overline M:\ d\widetilde a(p)=0\bigr\} .
+\end{equation}
+In particular the puncture set is determined by the assignment alone: it is
+canonical, not stipulated, and its cardinality is the number of critical points
+of $\widetilde a$ in $\overline M$.
+\end{theorem}
+
+\begin{proof}
+For the inclusion $S\subseteq\{d\widetilde a=0\}$, let $p\in S$ and suppose
+$d\widetilde a(p)\ne0$.  Choose a smooth background metric $g_0$ on a
+neighbourhood $U$ of $p$, possible because $\overline M$ is a smooth surface.
+After shrinking $U$ we have $|d\widetilde a|^2_{g_0}>0$ on $U$, because
+$|d\widetilde a|^2_{g_0}$ is continuous and positive at $p$, and also
+$\mu^2+\lambda^2\widetilde a^2>0$ on $U$, because $\mu\ne0$.  Define
+\[
+  \widetilde g=\frac{|d\widetilde a|_{g_0}^2}{\mu^2+\lambda^2\widetilde a^2}\,g_0
+  \qquad\text{on }U .
+\]
+Then $\widetilde g$ is a smooth Riemannian metric on $U$, and
+\[
+  |d\widetilde a|^2_{\widetilde g}
+  =\frac{\mu^2+\lambda^2\widetilde a^2}{|d\widetilde a|_{g_0}^2}
+   \,|d\widetilde a|_{g_0}^2
+  =\mu^2+\lambda^2\widetilde a^2 ,
+\]
+so $(U,\widetilde g,\widetilde a;\mu,\lambda)$ is a regular AES extending
+$(g,a)$ across $p$.  This contradicts condition (ii) of
+Definition~\ref{def:p0-punctured-aes}.  Hence $d\widetilde a(p)=0$.
+
+For the reverse inclusion, let $p\in\overline M$ with $d\widetilde a(p)=0$ and
+suppose $p\notin S$.  Then $p\in M$ and the eikonal identity at $p$ reads
+\[
+  0=|da(p)|_g^2=\mu^2+\lambda^2a(p)^2\ge\mu^2>0 ,
+\]
+a contradiction.  Hence $p\in S$.
+\end{proof}
+
+\begin{remark}[The hypothesis is active]
+\label{rem:p0-puncture-hypothesis}
+The theorem requires the assignment to extend smoothly.  The isolated-zero disc
+model imported from Paper~I (Example~\ref{ex:p0-e1-model}) does not satisfy the
+hypothesis: there the metric extends smoothly across the centre while the
+assignment is only continuous, and not $C^1$, so $d\widetilde a$ does not exist
+at the puncture and \eqref{eq:p0-punctures-are-critical} has no meaning.  The two
+verified punctured models are therefore of different kinds: in the disc model the
+*assignment* fails at the puncture, while in the model below the assignment is
+smooth everywhere and the *metric* is what cannot be non-degenerately extended.
+In the second kind the puncture set is canonical; in the first, canonicality is
+still open.
+\end{remark}
+
 \begin{theorem}[A punctured AES whose zero locus is the four-circle configuration]
 \label{thm:p0-four-circle-model}
 Fix $\rho>0$ and $0<r<\rho$, let
@@ -258,17 +319,49 @@ below by a positive constant, so every path from a point of radius $\varepsilon$
 to the puncture has length bounded below.
 \end{proof}
 
-The theorem answers the question the review posed, and it is worth noting what
-it does *not* do.  It does not make the puncture set canonical: $S=\{0\}$ is
-still stipulated, although here it is forced by the data in the weaker sense that
-the assignment of the model is critical there.  It does not attach the
-configuration to the arithmetic motions rather than to the assignment, and it
-does not treat more than one puncture.  Finally it makes the interface with
+The theorem answers the question the review posed, and it is worth noting what it
+does *not* do.  Its puncture set is not stipulated: by
+Theorem~\ref{thm:p0-punctures-are-critical} the set $S$ must equal the critical
+set of the assignment, and the proof above computes that critical set on
+$\overline M=D_r$ to be $\{0\}$ alone, so the model's puncture is forced by $a$.
+What the theorem does not do is attach the
+configuration to the arithmetic motions rather than to the assignment, or treat
+more than one puncture.  Finally it makes the interface with
 Paper~I visible rather than implicit: the zero locus of a regular AES is a smooth
 curve (Lemma~\ref{lem:p0-gradient-nonvanishing}), the complete-splitting theorem
 of Paper~I forbids branching on a connected complete boundaryless regular space,
 and here branching occurs exactly at the puncture --- with the metric incomplete,
 which is one of the ways the theorem's hypotheses can fail.
+
+\begin{corollary}[Puncture sets of smoothly extending assignments]
+\label{cor:p0-puncture-count}
+Let $(\overline M,S,g,a;\mu,\lambda)$ be a punctured AES whose assignment extends
+smoothly to $\overline M$.  Then the number of punctures equals the number of
+critical points of that extension in $\overline M$.  In particular a model of
+this kind with exactly $k$ punctures exists if and only if the ambient surface
+carries a smooth function with exactly $k$ critical points; and a model with no
+puncture is simply a regular AES with nowhere-vanishing differential, which
+Lemma~\ref{lem:p0-gradient-nonvanishing} makes automatic.
+\end{corollary}
+
+\begin{proof}
+Immediate from Theorem~\ref{thm:p0-punctures-are-critical}: $S$ is the critical
+set.  For the last clause, if $S=\varnothing$ then the punctured model is a
+regular AES on all of $\overline M$, whose differential never vanishes by the
+lemma, so the critical set is empty and the count agrees.
+\end{proof}
+
+\begin{remark}[Multi-puncture models are assignments with many critical points]
+\label{rem:p0-multi-puncture}
+Corollary~\ref{cor:p0-puncture-count} rewrites the multi-puncture problem as a
+problem about critical points: producing a `$k$-holed' arithmetic expression
+space of this kind requires an assignment with $k$ critical points, no two of
+which can be smoothed away.  This is a genuine restriction and a useful one ---
+for instance it makes the disc model of Paper~I and the model above different
+species, as Remark~\ref{rem:p0-puncture-hypothesis} records.  It is not a
+classification: it says which point sets can be puncture sets, not which
+arithmetic motions act on the resulting punctured part.
+\end{remark}
 
 \subsection{Tearing at a puncture}
 \label{subsec:p0-tearing-at-puncture}
@@ -514,22 +607,25 @@ question raised in Subsection~\ref{subsec:p0-tearing-at-puncture}.
   puncture and a zero locus with four branches from a prescribed polynomial
   assignment and the metric that the eikonal identity forces.  Two questions
   follow.  Which curve configurations arise as zero loci of punctured AES in this
-  way, and in particular can a $k$-punctured model be produced without
-  stipulating $S$?  And does the construction survive if the assignment is
-  required to come from the arithmetic motions rather than being prescribed as a
-  polynomial?  A negative answer to the second question would mean that the
-  configuration is realizable as a zero locus but not as an expression.
+  way, and can a model with $k\ge2$ punctures be produced?  By
+  Corollary~\ref{cor:p0-puncture-count} the second question is equivalent to
+  asking for an assignment with $k$ critical points on the ambient surface, so
+  the obstruction is now explicit.  And does the construction survive if the
+  assignment is required to come from the arithmetic motions rather than being
+  prescribed as a polynomial?  A negative answer to the last question would mean
+  that the configuration is realizable as a zero locus but not as an expression.
   \item \label{op:p0-canonical-punctures}\emph{Make the comparison across a
   puncture canonical.}  Decide whether a relative torsion across a puncture is
   measured by an ACS area, by a holonomy around the puncture, or by neither, and
   in the first case determine the admissible filling classes.
-  \item \emph{Make the puncture set canonical.}  Decide whether the set $S$ of
-  Definition~\ref{def:p0-punctured-aes} can be determined by the arithmetic data
-  rather than stipulated, and whether it is unique when it can.  This is the
-  first unfinished item of the exploration register's own programme; the model of
-  Theorem~\ref{thm:p0-four-circle-model} forces its puncture in the weaker sense
-  that the assignment is critical there, and whether that suffices is the
-  question.
+  \item \emph{Canonicalize the punctures when the assignment does not extend.}
+  For assignments that extend smoothly to the ambient surface the puncture set is
+  exactly the critical set (Theorem~\ref{thm:p0-punctures-are-critical}), so the
+  canonicality question is settled there.  The remaining case is the one realized
+  by the disc model imported from Paper~I, where the assignment itself is not
+  differentiable at the puncture and the critical set has no meaning: decide what
+  replaces it, and whether the puncture is then unique.  This is the first
+  unfinished item of the exploration register's own programme.
   \item \emph{Carry ripple geometry across a puncture.}  Decide whether a
   punctured model carries a pullback structure, in the sense of
   Section~\ref{sec:p0-ripples}, that survives at the puncture; in the model of

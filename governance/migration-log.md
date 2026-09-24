@@ -796,3 +796,44 @@ closure.
 - **Reviewer notes:** the two constructions were verified numerically before being
   written up (exact critical set of the union polynomial; transport element;
   axis length `0 -> eps` equal to `4 eps^6` as the asymptotic predicts)
+
+## Migration M-0022
+
+- **Date:** 2026-09-22 (third revision of the day)
+- **Name:** Paper 0 open items OI-6 and OI-3 resolved
+- **Authority:** ordinary task report; no scope change
+- **Source and destination:** `paper-0/sections/09-contact-of-tearing.tex` and
+  `paper-0/sections/11-holed-aes.tex` (edited in place); `paper-0/README.md`,
+  `governance/05b-paper-0-status-register.md`, `governance/08-open-questions.md`,
+  and `governance/paper-0-closure-report.md` updated
+- **Migration state:** `EXTEND` (new results inside existing chapters); nothing moved
+- **Claim treatment:** five new nodes, all `PROVED`:
+  `prop:p0-curvature-form` and `rem:p0-curvature-invariance` (§9);
+  `thm:p0-punctures-are-critical`, `rem:p0-puncture-hypothesis`, and
+  `cor:p0-puncture-count` (§11).  OQ-082 was resolved for smoothly extending
+  assignments and its non-extending case was reopened as OQ-088.  The closing
+  paragraph of `thm:p0-four-circle-model` was corrected: its puncture set is now
+  proved to be forced rather than stipulated
+- **Mathematical content:**
+  OI-6 --- the bracket defect of the horizontal distribution defines a canonical
+  2-form `omega` on the distribution, determined by the distribution and the charge
+  projection and insensitive to the normalization of `alpha`; its value on the
+  `h`-orthonormal frame is `mu*lambda`, with the rescaling law `rho^{-2}` under
+  `h -> rho^2 h`; and on the AES side of the data the same number is the chart-free
+  expression `da([X_u,X_v])`.  So `mu*lambda` is not a contact invariant, but it is
+  not a gauge artifact either, and the paper now names its exact invariance group.
+  OI-3 --- for a punctured AES whose assignment extends smoothly to the ambient
+  surface, the puncture set is exactly the critical set of the assignment:
+  canonical, unique, and determined by `a` alone.  The disc model of Paper I is
+  excluded because its assignment is not `C^1` at the puncture; that hypothesis is
+  now explicit and its case reopened as OQ-088
+- **Notation changes:** none
+- **Reference treatment:** none
+- **Content removed from source:** none; the incorrect sentence stating that the
+  four-circle model's puncture was stipulated was replaced, and the superseded
+  default rule of OQ-082 is retained inside that issue
+- **Build result:** `./build.sh 0` produces an 80-page PDF with a clean final log
+- **Reviewer notes:** the critical radii of the union polynomial were re-verified
+  numerically (`0, rho, sqrt2 rho, sqrt3 rho`) before the canonicalization theorem
+  was written, because that theorem's hypothesis distinguishes exactly those models
+  whose assignment is critical at the puncture
