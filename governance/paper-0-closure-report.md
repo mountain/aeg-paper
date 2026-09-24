@@ -353,3 +353,55 @@ reopened as OQ-088.
 **Remaining open items.**  OI-2 (tearing across a puncture), OI-5 (intrinsic
 ripple geometry), OQ-087 (generalization of the four-circle model), and the new
 OQ-088 (canonical punctures when the assignment does not extend).
+
+---
+
+## 13. Post-closure extension (2026-09-22, fourth revision): OI-2 resolved
+
+This dated section is appended; nothing above is edited.  The work is recorded in
+migration M-0023 and closes OQ-089.
+
+**The question.**  On a punctured space a comparison of two motions may have to be
+performed around a puncture rather than through it.  Is the relative torsion then
+measured by an ACS area, by a holonomy of a loop around the puncture, or by
+neither?
+
+**The answer.**  By the ACS area, in every model; there is no canonical holonomy
+of a puncture in the AES data; and what puncturing changes is only whether the
+comparison can also be performed on the surface.  Three propositions carry this.
+
+* `prop:p0-tearing-puncture-independent`: `tau` is a function of the two words
+  alone, so puncturing, changing the model, or changing the realisation leaves it
+  unchanged, and the area formula of `thm:torsion-stokes` applies verbatim.
+* `prop:p0-surface-does-not-close`: in *any* regular AES the two orderings of a
+  rectangle end at points whose assignments differ by
+  `mu*h*(e^{lambda k}-1) != 0`; the two flow paths therefore bound no region of
+  the surface, so the comparison always has to leave the surface.  The ACS is
+  accordingly the canonical comparison rather than a device for avoiding holes.
+* `prop:p0-no-puncture-holonomy`: the horizontal structure determined by the
+  assignment is the level-set foliation, which is integrable and hence flat; a
+  curved connection requires data beyond the AES (the contact model, whose
+  curvature form is canonical relative to the added charge projection); and in
+  models with canonical punctures the assignment is single-valued, so no loop
+  around a puncture can have a monodromy.
+
+**The puncture's local geometry.**  `prop:p0-puncture-local-picture` computes it in
+the model of `thm:p0-four-circle-model`: a circle of radius below `rho` meets the
+zero locus in exactly eight points and the assignment changes sign at each; the
+punctured disc splits into eight sectors, four positive and four negative, the
+negative ones being the cusps `|y| < x^2/(2 rho)` and `|x| < y^2/(2 rho)` along
+the coordinate axes; `g` is conformal to the Euclidean metric with a factor
+vanishing at the puncture, so the conformal class extends although the metric
+does not, which is why the angles at the puncture agree with the tangent cone; and
+the puncture lies at finite `g`-distance, so the model is incomplete there.
+
+**Correction recorded.**  A draft of that proposition asserted that the four zero
+branches merely touch the origin, which is false: the computation shows sign
+changes and the negative cusps.  The corrected statement was verified numerically
+before being written up.
+
+**Build.**  `./build.sh 0` produces an 82-page PDF with a clean final log.
+
+**Remaining open items.**  OI-5 (intrinsic ripple geometry), OQ-087
+(generalization of the four-circle model), and OQ-088 (canonical punctures and
+surface comparisons when the assignment does not extend).

@@ -363,45 +363,171 @@ classification: it says which point sets can be puncture sets, not which
 arithmetic motions act on the resulting punctured part.
 \end{remark}
 
-\subsection{Tearing at a puncture}
+\subsection{Tearing across a puncture}
 \label{subsec:p0-tearing-at-puncture}
 
-The tearing of Definition~\ref{def:p0-tearing} is a defect between two motions
-of a space.  On a punctured space a further question arises: the motions
-themselves need not be extendable across the puncture, so a comparison of two
-motions may have to be performed around it rather than through it.  This
-subsection records that question and what is known about it; it proves nothing
-beyond the definitions.
+The tearing of Definition~\ref{def:p0-tearing} is a defect between two
+add--scale histories.  On a punctured space a further question arises: a
+comparison of two motions may have to be performed around a puncture rather than
+through it, and one may ask whether the tearing is then measured by an ACS area,
+by a holonomy of a loop around the puncture, or by neither.  The answer proved
+below is that it is measured by the ACS area in every case, that no canonical
+holonomy exists in the AES data, and that what the puncture changes is the
+admissibility of a *comparison on the surface* rather than the value of the
+tearing.
 
-Let $(\overline M,S,g,a;\mu,\lambda)$ be a punctured AES and let $p\in S$.  A
-motion of the punctured surface is a path in $M=\overline M\setminus S$, and two
-motions that approach $p$ from different directions need not have limits related
-by any regular motion of the punctured part: the assignment and the metric are
-defined only on $M$.  The following two questions are therefore well posed.
+\begin{proposition}[The tearing does not see the puncture]
+\label{prop:p0-tearing-puncture-independent}
+Let $\gamma,\delta$ be scale-compatible add--scale histories over a field $K$,
+with translation coordinates $\xi_\gamma,\xi_\delta$ as in
+Section~\ref{sec:p0-affine-cocycles}.  Then
+\[
+  \tau(\gamma,\delta)=\xi_\gamma-\xi_\delta
+\]
+depends only on the two words.  Consequently $\tau(\gamma,\delta)$ is unchanged
+by puncturing the space in which the histories are realized, by changing that
+space, or by choosing a different realization of the same words; and the area
+formula of Theorem~\ref{thm:torsion-stokes} applies verbatim on a punctured
+model, with the filling taken in the charge plane rather than on the surface.
+\end{proposition}
 
+\begin{proof}
+By Proposition~\ref{prop:affine-cocycle-formulas} the target-frame translation
+$\xi$ is a function of the chronological word alone, and
+Definition~\ref{def:relative-torsion} defines $\tau$ as the difference of the two
+$\xi$'s.  Nothing in either statement mentions a surface, a metric, or a puncture.
+The area formula is Theorem~\ref{thm:torsion-stokes}, whose data are the two
+charge chains.
+\end{proof}
+
+The next statement explains why the charge plane is the canonical place for the
+comparison, and it has nothing to do with punctures: on a surface the two orders
+of a rectangle never close up.
+
+\begin{proposition}[The surface never closes the comparison]
+\label{prop:p0-surface-does-not-close}
+Let $\mathfrak E$ be a regular AES with canonical frame $(X_u,X_v)$, let
+$p\in M$, and let $h,k>0$ be such that the flows $\Phi_u^h$ and $\Phi_v^k$ of
+$X_u$ and $X_v$ are defined at $p$ and along both compositions.  Then the two
+chronological compositions end at points whose assignments differ by
+\begin{equation}\label{eq:p0-surface-comparison-defect}
+  a\bigl(\Phi_v^k\Phi_u^h(p)\bigr)-a\bigl(\Phi_u^h\Phi_v^k(p)\bigr)
+  =\mu h\bigl(e^{\lambda k}-1\bigr)\ne0 ,
+\end{equation}
+whenever $\mu h\ne0$ and $\lambda k\ne0$.  Hence the two flow paths alone bound
+no region of $M$: closing them requires a further path along which the
+assignment changes by that amount.
+
+Consequently the ACS comparison of Section~\ref{sec:p0-acs-tearing} is not a
+device for avoiding punctures.  It is the canonical comparison for every regular
+AES, punctured or not, and the puncture changes nothing about it.
+\end{proposition}
+
+\begin{proof}
+By Theorem~\ref{thm:continuous-affine-flow}, the flows satisfy
+$\frac{d}{ds}(a\circ\Phi_u^s)=\mu$ and
+$\frac{d}{ds}(a\circ\Phi_v^s)=\lambda\,(a\circ\Phi_v^s)$; hence
+$a\circ\Phi_u^h=a+\mu h$ and $a\circ\Phi_v^k=e^{\lambda k}a$.  Composing in the
+two orders,
+\[
+  a\circ\Phi_v^k\circ\Phi_u^h=e^{\lambda k}(a+\mu h),
+  \qquad
+  a\circ\Phi_u^h\circ\Phi_v^k=e^{\lambda k}a+\mu h ,
+\]
+whose difference is $\mu h(e^{\lambda k}-1)$.  This is nonzero under the stated
+hypotheses, so the two endpoints are distinct; two paths that do not share both
+endpoints bound no region.
+\end{proof}
+
+\begin{proposition}[No canonical holonomy around a puncture]
+\label{prop:p0-no-puncture-holonomy}
+Let $\mathfrak E$ be a regular AES.
 \begin{enumerate}
-  \item \emph{Does comparison require a detour?}  Two bounded motions with the
-  same charge whose paths cannot be deformed into one another in $M$ while
-  keeping their charges: is their relative torsion still given by an ACS area,
-  and if so in which filling class?  The frame witness of
-  Subsection~\ref{subsec:p0-holed-witnesses} is the computed instance that makes
-  the question concrete, because there a closed loop in one coordinate is open
-  in another.
-  \item \emph{Does comparison require a cut?}  If the punctures are stipulated
-  rather than derived, then the family of comparisons depends on that
-  stipulation.  The gluing witness of the same subsection exhibits a whole
-  family of cuts whose invariants are exhausted by a permutation, so the cut
-  carries more information than the topology it produces.
+  \item The horizontal structure determined by the assignment is the foliation
+  by the level sets of $a$, whose tangent distribution $\ker da$ is integrable;
+  it is therefore flat, and it has no holonomy.
+  \item The AES data determine no further connection on $M$.  A connection with
+  curvature requires a choice of splitting beyond $(M,g,a;\mu,\lambda)$; the
+  contact model of Section~\ref{sec:p0-contact} is one such choice, and relative
+  to its added charge projection the curvature form $\omega$ of
+  Proposition~\ref{prop:p0-curvature-form} is canonical.
+  \item If the puncture set is canonical, so that the assignment is single-valued
+  on $\overline M$ (Theorem~\ref{thm:p0-punctures-are-critical}), then no loop
+  around a puncture can change the value of $a$: there is no monodromy of the
+  assignment.
 \end{enumerate}
+Hence no tearing is measured by a holonomy of a loop around a puncture.  The
+natural holonomy in this theory lives in the contact model, over a loop in the
+charge plane, where it is the closed horizontal drift
+$T_{\mathrm{closed}}=e^{-\lambda k}T_{\mathrm{open}}$ of
+Section~\ref{sec:p0-contact} --- a holonomy of the added structure, not of the
+puncture.
+\end{proposition}
 
-Neither question is answered here.  What can be said now is only where the
-measurement must be performed: the measured value of tearing is the ACS area of
-Theorem~\ref{thm:torsion-stokes}, which is a statement about add--scale
-histories and therefore does not itself refer to the puncture; a comparison
-across a puncture has to leave the punctured surface, either by passing to the
-charge plane or by going around the puncture, and deciding which of the two is
-canonical is recorded as the second problem of
-Subsection~\ref{subsec:p0-holed-open}.
+\begin{proof}
+(1) The level sets of a smooth function foliate the open set where its
+differential does not vanish, and by
+Lemma~\ref{lem:p0-gradient-nonvanishing} that is all of $M$; the tangent
+distribution of a foliation is integrable by definition.  (2) The canonical
+frame supplies two global directions, but a splitting of the tangent bundle is
+not part of the data; §9 fixes one by declaring the coordinates $(u,v,a)$ and the
+charge projection.  (3) A single-valued function has no monodromy along any loop.
+\end{proof}
+
+\paragraph{What the puncture does change.}  It changes which comparisons can be
+performed *on the surface*.  In the model of
+Theorem~\ref{thm:p0-four-circle-model} the local picture is computed as follows.
+
+\begin{proposition}[The zero-set germ and the metric at the puncture]
+\label{prop:p0-puncture-local-picture}
+In the model of Theorem~\ref{thm:p0-four-circle-model}, with $0<\varepsilon<\rho$:
+\begin{enumerate}
+  \item the circle $S_2=\varepsilon^2$ meets the zero locus in exactly eight
+  points, four on the pair of circles tangent to the $x$-axis and four on the
+  pair tangent to the $y$-axis;
+  \item the assignment changes sign at each of them, and the punctured disc is
+  divided into eight sectors, four with $a>0$ and four with $a<0$; the negative
+  sectors are the cusps $|y|<x^2/(2\rho)$ and $|x|<y^2/(2\rho)$ along the
+  coordinate axes;
+  \item $g$ is conformal to the Euclidean metric with conformal factor vanishing
+  at the puncture, so the *conformal class* of $g$ extends across the puncture
+  although the metric does not; angles at the puncture are therefore well
+  defined and equal those of the tangent cone of
+  Proposition~\ref{prop:p0-puncture-tangent-cone};
+  \item the puncture lies at finite $g$-distance from every interior point, so a
+  path that approaches it does so with finite $g$-length, and $M$ is incomplete.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(1) On the circle $S_2=\varepsilon^2$ the union polynomial restricts to
+\[
+  P=\varepsilon^4\bigl(\varepsilon^2-4\rho^2y^2\bigr)
+              \bigl(\varepsilon^2-4\rho^2x^2\bigr),
+\]
+whose zeros are $y=\pm\varepsilon^2/(2\rho)$ and $x=\pm\varepsilon^2/(2\rho)$,
+each giving two points of the circle since $\varepsilon<\rho$ implies
+$\varepsilon^2/(2\rho)<\varepsilon$.  (2) The sign of $P$ on a small punctured
+neighbourhood is the sign of the product of the two factors
+$S_2^2-4\rho^2y^2$ and $S_2^2-4\rho^2x^2$, and near the origin
+$P=S_2^3(S_2-4\rho^2)+16\rho^4x^2y^2$ is dominated by $-4\rho^2S_2^3$ exactly
+where $|y|<x^2/(2\rho)$ and by $-4\rho^2S_2^3$ with the roles of $x$ and $y$
+exchanged exactly where $|x|<y^2/(2\rho)$.  (3) and (4) are parts (1) and (5) of
+Theorem~\ref{thm:p0-four-circle-model}, the conformal factor being
+$|dP|^2/(\mu^2+\lambda^2P^2)$.
+\end{proof}
+
+So the answer to the question of this subsection is the following.  A tearing is
+always the ACS area of Theorem~\ref{thm:torsion-stokes}, and its value is
+independent of the model and of its punctures; the admissible fillings are the
+oriented two-chains of the charge plane with the given boundary, and by that
+theorem the value does not depend on which filling is chosen.  A comparison that
+would have to pass through a puncture is simply not available on the surface, and
+in the computed model the puncture is exactly where the surface stops being
+metric (though not conformal) and where the zero-set germ has eight
+sign-changing branches.  What remains open is the case in which the assignment
+does not extend to the ambient surface, where Theorem~\ref{thm:p0-punctures-are-critical}
+does not apply.
 
 \subsection{Six computed witnesses}
 \label{subsec:p0-holed-witnesses}
@@ -614,10 +740,15 @@ question raised in Subsection~\ref{subsec:p0-tearing-at-puncture}.
   assignment is required to come from the arithmetic motions rather than being
   prescribed as a polynomial?  A negative answer to the last question would mean
   that the configuration is realizable as a zero locus but not as an expression.
-  \item \label{op:p0-canonical-punctures}\emph{Make the comparison across a
-  puncture canonical.}  Decide whether a relative torsion across a puncture is
-  measured by an ACS area, by a holonomy around the puncture, or by neither, and
-  in the first case determine the admissible filling classes.
+  \item \label{op:p0-canonical-punctures}\emph{Compare tearing across a puncture
+  in a model whose assignment does not extend.}  For models whose assignment is
+  smooth on the ambient surface the comparison is settled in
+  Subsection~\ref{subsec:p0-tearing-at-puncture}: the tearing is the ACS area and
+  is puncture-independent, no canonical holonomy exists, and what the puncture
+  removes is only the possibility of performing the comparison on the surface.
+  The open case is the one in which the assignment does not extend (OQ-088):
+  decide whether the same three statements hold there, and what replaces
+  Theorem~\ref{thm:p0-punctures-are-critical}.
   \item \emph{Canonicalize the punctures when the assignment does not extend.}
   For assignments that extend smoothly to the ambient surface the puncture set is
   exactly the critical set (Theorem~\ref{thm:p0-punctures-are-critical}), so the

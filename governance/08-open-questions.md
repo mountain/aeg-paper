@@ -3408,3 +3408,49 @@ have charges `(p,q)` and `(kp,q)`); the abelianization computation in Paper 0 §
 `ex:p0-distributive-charge-transport`.
 **Owner:** author.
 **Decision record:** M-0020 and M-0021 in `governance/migration-log.md`.
+
+---
+
+## OQ-089 — Is a tearing across a puncture measured by an ACS area or by a holonomy?
+
+**Priority:** P2
+**State:** RESOLVED (2026-09-22)
+
+**Question:** on a punctured space a comparison of two motions may have to be
+performed around a puncture rather than through it.  Is the relative torsion then
+measured by an ACS area, by a holonomy of a loop around the puncture, or by
+neither; and in the first case, what are the admissible filling classes?
+
+**Resolution.**  `Decision:` it is measured by the ACS area, in every model; no
+canonical holonomy around a puncture exists in the AES data; and what puncturing
+changes is only the admissibility of a comparison performed *on the surface*.
+`Mathematical justification:` three propositions in Paper 0 §11.4.
+(1) `tau(gamma,delta) = xi_gamma - xi_delta` is a function of the two words
+(`prop:affine-cocycle-formulas`, `def:relative-torsion`), so it is unchanged by
+puncturing, by changing the model, or by changing the realisation.
+(2) The two orderings of a rectangle in any regular AES end at points whose
+assignments differ by `mu*h*(e^{lambda k}-1) != 0`
+(`prop:p0-surface-does-not-close`), so the corresponding surface paths bound no
+region: the ACS comparison is the canonical one in every AES, and is not a device
+for avoiding holes.
+(3) There is no canonical holonomy: the level-set foliation `ker d_a` is
+integrable and therefore flat; a curved connection requires added data, and the
+one the paper adds (the contact model) has its own canonical curvature form
+relative to the charge projection (`prop:p0-curvature-form`), whose holonomy over
+a base loop is the rectangle drift of §9; and in models with canonical punctures
+the assignment is single-valued on the ambient surface, so there is no monodromy
+(`prop:p0-no-puncture-holonomy`).
+(4) The admissible fillings are the oriented two-chains of the charge plane with
+the given boundary; by `thm:torsion-stokes` the value is independent of the
+filling chosen, and puncturing neither adds nor removes classes.
+`Source changes:` Paper 0 §11.4 rewritten (it previously proved nothing and
+registered the question); `prop:p0-puncture-local-picture` added, computing the
+puncture's local geometry.
+`Status changes:` the four new nodes are `PROVED`; OQ-089 is resolved; the second
+open problem of §11.6 was narrowed to models whose assignment does not extend
+(OQ-088).
+`Downstream nodes rechecked:` `def:p0-tearing`, `thm:torsion-stokes`,
+`prop:p0-tearing-puncture-independent`, `thm:p0-punctures-are-critical`,
+`prop:p0-curvature-form`.
+`Reviewer:` author.
+`Date:` 2026-09-22 (fourth revision of the day).

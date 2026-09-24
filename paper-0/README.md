@@ -102,6 +102,13 @@ Proved in the manuscript, at the statuses recorded in
   exactly the critical set of the assignment, hence canonical and unique
   (`thm:p0-punctures-are-critical`), and the number of holes equals the number of
   critical points;
+- the tearing is puncture-independent, no canonical holonomy of a puncture
+  exists, and in every regular AES the two orderings of a rectangle end at points
+  with different assignments, so the ACS comparison is canonical rather than a
+  workaround for holes;
+- in the four-circle model a small circle about the puncture meets the zero locus
+  in eight sign-changing points, the conformal class extends while the metric does
+  not, and the puncture lies at finite distance;
 - the tangent cone of that zero locus at the puncture is `(xy)^2 = 0`.
 
 Labelled as proposals rather than theorems: the name *ripple geometry*, the

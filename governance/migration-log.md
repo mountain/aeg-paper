@@ -837,3 +837,49 @@ closure.
   numerically (`0, rho, sqrt2 rho, sqrt3 rho`) before the canonicalization theorem
   was written, because that theorem's hypothesis distinguishes exactly those models
   whose assignment is critical at the puncture
+
+## Migration M-0023
+
+- **Date:** 2026-09-22 (fourth revision of the day)
+- **Name:** Paper 0 open item OI-2 resolved
+- **Authority:** ordinary task report; no scope change
+- **Source and destination:** `paper-0/sections/11-holed-aes.tex` (subsection
+  "Tearing across a puncture" rewritten and its open problem narrowed);
+  `paper-0/README.md`, `governance/05b-paper-0-status-register.md`,
+  `governance/08-open-questions.md`, and `governance/paper-0-closure-report.md`
+  updated; `AEG-Paper-0-review-2026-09-22-response-v0.1.md` gained a dated
+  status section
+- **Migration state:** `REWRITE` of one subsection (it previously proved nothing
+  and registered two questions) plus `EXTEND`; nothing moved between papers
+- **Claim treatment:** four new nodes, all `PROVED`:
+  `prop:p0-tearing-puncture-independent`, `prop:p0-surface-does-not-close`,
+  `prop:p0-no-puncture-holonomy`, `prop:p0-puncture-local-picture`.  OQ-089 was
+  opened and closed in the same revision with its resolution recorded, and the
+  second open problem of §11.6 was narrowed to models whose assignment does not
+  extend (OQ-088)
+- **Mathematical content:**
+  (a) `tau` depends only on the two words, so it is unchanged by puncturing or by
+  changing the realisation; the tearing is therefore measured by an ACS area and
+  not by a holonomy.
+  (b) The two orderings of a rectangle in *any* regular AES end at points whose
+  assignments differ by `mu*h*(e^{lambda k}-1) != 0`, so the flow paths bound no
+  region of the surface; the ACS comparison is the canonical one in every model,
+  punctured or not.
+  (c) There is no canonical holonomy around a puncture: the level-set foliation
+  is integrable (flat), a curved connection needs added data, and in
+  canonical-puncture models the assignment is single-valued so there is no
+  monodromy.
+  (d) The puncture's local geometry is computed: eight sign-changing zero-set
+  branches on a small circle, eight sectors with alternating signs (the negative
+  ones being the cusps along the coordinate axes), the conformal class extends
+  while the metric does not, and the puncture is at finite `g`-distance
+- **Notation changes:** none
+- **Reference treatment:** none
+- **Content removed from source:** the two registered questions of the previous
+  subsection were replaced by their answers; the superseded text is recoverable
+  from git and its substance is retained in OQ-089
+- **Build result:** `./build.sh 0` produces an 82-page PDF with a clean final log
+- **Reviewer notes:** the eight-crossing and sign-alternation claims were
+  verified numerically before being written; an earlier draft's statement that
+  the zero branches merely touch the origin was wrong and was corrected by the
+  computation (the cusps along the axes carry negative values of the assignment)

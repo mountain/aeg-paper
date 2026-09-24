@@ -112,3 +112,25 @@ All of these are entered in `governance/05b-paper-0-status-register.md`.
    horizontal metric is declared (a Paper II question suggested by R5.1).
 7. **OI-7.** Package the governance-path citations as a version note at release
    time (deferred item from the review's §6).
+
+---
+
+## 6. Status of the open items (added 2026-09-22, later the same day)
+
+Five of the seven items above were resolved in the manuscript the same day, each
+with its own migration entry and status-register entries.
+
+| Item | State | Where it was settled |
+|---|---|---|
+| OI-1 four-circle construction | **resolved** | `thm:p0-four-circle-model` with `lem:p0-gradient-nonvanishing`; M-0021 |
+| OI-2 comparison across a puncture | **resolved** | `prop:p0-tearing-puncture-independent`, `prop:p0-surface-does-not-close`, `prop:p0-no-puncture-holonomy`, `prop:p0-puncture-local-picture`; M-0023; OQ-089 |
+| OI-3 canonical punctures | **resolved** for assignments extending smoothly to the ambient surface | `thm:p0-punctures-are-critical`, `cor:p0-puncture-count`; M-0022; OQ-082 closed, non-extending case reopened as OQ-088 |
+| OI-4 history monoid and charge descent | **resolved** | `conv:p0-history-group`, `prop:p0-history-homomorphisms`, `prop:p0-acs-is-abelianization`, `thm:p0-descent`; M-0021; OQ-086 closed |
+| OI-6 frame independence of `mu*lambda` | **resolved** | `prop:p0-curvature-form`, `rem:p0-curvature-invariance`; M-0022 |
+| OI-5 intrinsic ripple geometry | open | OQ-081 |
+| OI-7 release packaging | open, deferred | §2 of this document |
+
+Two further questions were opened while resolving these: OQ-087 (generalizing the
+four-circle model to `k` punctures and to motion-generated assignments) and OQ-088
+(canonical punctures and surface comparisons when the assignment does not extend,
+which is the case of the disc model imported from Paper I).
