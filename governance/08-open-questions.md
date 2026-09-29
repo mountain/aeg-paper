@@ -3108,8 +3108,9 @@ two words with the same operator have inequivalent dual families.
 ## OQ-082 — Canonical choice of punctures
 
 **Priority:** P2
-**State:** RESOLVED for smoothly extending assignments (2026-09-22); the
-non-extending case is reopened as OQ-088
+**State:** REOPENED (2026-09-29).  Was RESOLVED for smoothly extending
+assignments (2026-09-22), with the non-extending case reopened as OQ-088.  The
+resolution does not hold as written; see the amendment at the end of this entry.
 
 **Question:** `def:p0-punctured-aes` declares a finite puncture set `S`.  Can `S`
 be determined by the arithmetic data instead of being stipulated, and is the
@@ -3141,6 +3142,39 @@ and is therefore the subject of OQ-088.
 `Reviewer:` author.
 `Date:` 2026-09-22 (evening).
 
+**Amendment (2026-09-29) — the justification above is invalid.**
+`Decision:` unchanged in spirit, but it is **not** established for smoothly
+extending assignments, and the question is reopened.
+`Reason:` the template metric `g~ = |d a~|^2_{g_0} g_0 / (mu^2 + lambda^2 a~^2)`
+satisfies the eikonal identity, but nothing makes it agree with the **given** `g`
+on the punctured neighbourhood; condition (ii) of `def:p0-punctured-aes` requires
+extending `g` itself.  That missing step is the entire content of the "so the
+regular structure extends across `p`" clause above.
+`Counterexample (verified):` on the unit disc minus the origin with `a = x`,
+`mu = lambda = 1` and `g = dx^2/(1+x^2) + dy^2/(x^2+y^2)`, the pair `(M,g,a;1,1)`
+is a regular AES with `|grad a|_g^2 = 1 + x^2 = mu^2 + lambda^2 a^2`; `a` extends
+smoothly to the whole disc; `g` does not extend at all, since
+`g_yy = 1/(x^2+y^2)` is unbounded at the origin, so condition (ii) holds; yet
+`S = {0}` while `Crit(a~) = emptyset`.  The same model translates to any interior
+point, so the puncture is forced nowhere in this species.
+`What survives:` the reverse inclusion `Crit(a~) subseteq S` (its proof uses the
+eikonal identity only at a point of `M`), and `thm:p0-four-circle-model` (there
+`d a~(0) = 0`, so the defective branch is never entered).
+`Sufficient repair:` if in addition `g` is conformal, near each puncture, to a
+metric extending smoothly and non-degenerately, then the eikonal identity forces
+`g` to *be* the template metric and the original argument goes through.  The
+counterexample evades this because `g_yy/g_xx = (1+x^2)/(x^2+y^2)` has no finite
+nonzero limit at the origin.  Whether this hypothesis is also necessary is open.
+`Status changes:` `thm:p0-punctures-are-critical` and `cor:p0-puncture-count` are
+now `UNSUPPORTED AND EXCLUDED` as printed in
+`governance/05b-paper-0-status-register.md`; `rem:p0-puncture-hypothesis` is
+`PARTIALLY PROVED`.  No paper source is edited.
+`Evidence:` root review `AEG-Paper-0-review-2026-09-29-thm-punctures-are-critical-v0.1.md`;
+retained record `notes/foundations-and-geometry/10`; ledger entry C-10 in
+`governance/notes-reserve-audit.md`.
+`Reviewer:` DeepSeek Harness Agent (external review), 2026-09-29.
+`Date:` 2026-09-29.
+
 **Retained body (superseded default rule).**
 
 **Why it matters:** the exploration register behind Paper 0 §11 states, as its
@@ -3168,9 +3202,11 @@ smoothly extending assignments this default is now replaced by the theorem.)
 **Priority:** P2
 **State:** OPEN
 
-**Question:** `thm:p0-punctures-are-critical` canonicalizes the puncture set only
-when the assignment extends smoothly to the ambient surface.  The disc model
-imported from Paper I does not: there the metric extends smoothly across the
+**Question:** `thm:p0-punctures-are-critical` was to canonicalize the puncture set
+when the assignment extends smoothly to the ambient surface (amended 2026-09-29:
+that theorem is refuted as printed; the question is therefore *not* confined to
+the non-extending case — see the OQ-082 amendment).  The disc model
+imported from Paper I does not extend: there the metric extends smoothly across the
 centre while the assignment is continuous but not `C^1`.  What plays the role of
 the critical set in that case, and is the puncture then unique?
 
@@ -3179,9 +3215,16 @@ In the four-circle model the *metric* is what cannot be extended
 non-degenerately and the punctures are forced by the assignment; in the disc
 model the *assignment* is what fails, and the puncture set is still a
 stipulation.
+*(**Amended 2026-09-29.**  The contrast as drawn is too generous to the first
+species.  "Metric cannot be extended" does not by itself force the punctures: the
+counterexample recorded in the OQ-082 amendment is of exactly that species and
+its puncture is forced nowhere.  What separates the four-circle model from it is
+not the species but the fact that there `d a~(0) = 0`.  The dividing line that
+survives is conformality of `g` near the puncture to a metric that extends.)*
 
-**Current evidence:** `thm:p0-punctures-are-critical` and
-`rem:p0-puncture-hypothesis` (Paper 0 §11); Paper I's
+**Current evidence:** ~~`thm:p0-punctures-are-critical`~~ (amended 2026-09-29:
+refuted as printed, do **not** rely on it; see the OQ-082 amendment) and
+`rem:p0-puncture-hypothesis` (Paper 0 §11, now `PARTIALLY PROVED`); Paper I's
 `prop:isolated-zero-singular-model`, where `a_D` behaves like `rho` near the
 centre and the one-sided derivatives differ.
 

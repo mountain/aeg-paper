@@ -1,0 +1,540 @@
+\documentclass[11pt]{article}
+% =====================================================================
+%  Status:      research note (exploratory).  NOT a paper claim.
+%  Provenance:  derived in the session of 2026-09-28/29; the companion
+%               note 07 fixes the group G and its coordinate conventions.
+%  Promotion:   nothing here is promoted.  See §7.
+% =====================================================================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=cyan}
+\usepackage[a4paper,margin=1in]{geometry}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+
+% Long paths and inline formulas in \texttt cannot hyphenate.
+\tolerance=1000
+\emergencystretch=2.5em
+
+\title{Isometric realisations of the joint group in the eight Thurston geometries}
+\author{Mingli Yuan and DeepSeek Harness Agent}
+\date{2026-09-29}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+The joint group $G=\mathbb R\times\operatorname{Aff}^+(1,\mathbb R)$ of the
+companion note carries a three-parameter family of left-invariant metrics. This
+note asks which of Thurston's eight three-dimensional model geometries admit a
+\emph{lossless} realisation of $G$, meaning a smooth homomorphism
+$G\to\operatorname{Isom}(X)$ whose orbit map is a global diffeomorphism. Exactly
+two do: $\mathbb H^2\times\mathbb R$ and $\widetilde{\mathrm{SL}}_2(\mathbb R)$.
+For the other six, every smooth isometric action kills either the derived
+subgroup or the centre. The second case is the interesting one for the programme:
+after a Reeb unit extension and an inversion, the contact model of Paper 0 §9 is
+exactly the $\widetilde{\mathrm{SL}}_2(\mathbb R)$ geometry, with the horizontal
+metric $h$ of Paper 0 as its contact distribution metric. \S\ref{sec:boundaries}
+records what is not claimed, in particular that $G$ is \emph{not} isomorphic to
+$\widetilde{\mathrm{SL}}_2(\mathbb R)$.
+\end{abstract}
+
+\tableofcontents
+
+\section{Status and provenance}
+\label{sec:status}
+
+\textbf{Status.} Research note, exploratory. The classification theorem below is
+proved here, but $G$ is not a Paper 0 object and nothing here is a paper claim or
+a native certificate. The identification in \S\ref{sec:paper0} is the item most
+likely to matter to the programme; it is a correspondence of structures, and it
+is stated with its conventions explicit.
+
+\textbf{Provenance.} Written 2026-09-29. Depends on the companion note
+\path{notes/foundations-and-geometry/07-joint-quotient-acs-charge-aes-operator.tex}
+for the group law, the centre and derived subgroup, the projections, and the
+contact form. Sources read in \path{paper-0/}: \path{sections/09-contact-of-tearing.tex}
+(the contact structure, the horizontal fields, the curvature, the scalar
+horizontal differential).
+
+\textbf{Not read for this note.} The classification of the eight model
+geometries and their isometry groups is cited as standard; it is not re-derived
+here. Only the obstructions \emph{for this particular $G$} are proved below.
+
+\section{The question}
+\label{sec:question}
+
+Throughout,
+\[
+G=\mathbb R\times\operatorname{Aff}^+(1,\mathbb R),\qquad
+g_2g_1=(A_2+A_1,\ M_2+M_1,\ B_2+e^{M_2}B_1),
+\]
+with inverse $g^{-1}=(-A,-M,-e^{-M}B)$, and
+\[
+\mathfrak g=\operatorname{span}\{Z,H,N\},\qquad
+[Z,H]=[Z,N]=0,\qquad [H,N]=N,
+\]
+where $Z$ is the $A$-direction, $H$ the $M$-direction and $N$ the $B$-direction.
+By the companion note,
+\[
+[\mathfrak g,\mathfrak g]=\mathbb RN,\qquad \mathfrak z(\mathfrak g)=\mathbb RZ,
+\]
+so both the derived subalgebra and the centre are one-dimensional and
+characteristic.
+
+\begin{definition}[Lossless geometric realisation]
+\label{def:lossless}
+Let $X$ be a Thurston model geometry. A \emph{lossless realisation} of $G$ in
+$X$ is a smooth homomorphism $\rho:G\to\operatorname{Isom}(X)$ together with a
+basepoint $o\in X$ such that the orbit map
+\[
+F:G\longrightarrow X,\qquad F(g)=\rho(g)o
+\]
+is a global diffeomorphism.
+\end{definition}
+
+Since $\dim G=3=\dim X$, $F$ a diffeomorphism is equivalent to the action being
+free and transitive. Note also that
+\[
+F(g_2g_1)=\rho(g_2)F(g_1),
+\]
+so a lossless realisation lets every point of $X$ be read as a unique group
+element, with the group law corresponding to the action.
+
+\begin{remark}[Why ``lossless'' and not merely ``faithful'']
+\label{rem:why}
+A faithful action with a large isotropy is not lossless: one point no longer
+recovers a group element. Definition~\ref{def:lossless} requires both freeness
+and transitivity, i.e.\ that the orbit map be injective \emph{and} surjective.
+\end{remark}
+
+\section{The classification}
+\label{sec:classification}
+
+\begin{theorem}
+\label{thm:classification}
+A lossless realisation of $G$ exists in exactly two of the eight model
+geometries:
+\[
+\mathbb H^2\times\mathbb R
+\qquad\text{and}\qquad
+\widetilde{\mathrm{SL}}_2(\mathbb R).
+\]
+In each of the other six, no smooth homomorphism $G\to\operatorname{Isom}(X)$ is
+injective.
+\end{theorem}
+
+\begin{proof}[Proof of the positive half]
+See \S\ref{sec:two}. The formulas are written once and realise both geometries,
+which also proves that the action is free and transitive in the two cases.
+\end{proof}
+
+The negative half is proved case by case. The two lemmas below do most of the
+work.
+
+\begin{lemma}[No real eigenvalue $1$]
+\label{lem:no-eigenvalue-one}
+Let $\mathfrak i$ be the isometry Lie algebra of $\mathbb E^3$, $\mathbb S^3$,
+$\mathbb S^2\times\mathbb R$ or $\mathrm{Nil}$. Then for every $X\in\mathfrak i$,
+every complex eigenvalue of $\operatorname{ad}_X$ is either $0$ or purely
+imaginary.
+\end{lemma}
+
+\begin{proof}
+$\mathfrak{so}(3)$ and $\mathfrak{so}(4)$ are compact, so $\operatorname{ad}_X$
+is skew-adjoint with respect to an invariant inner product and has purely
+imaginary spectrum; adding a central direction adds only zero eigenvalues. For
+$\mathfrak{isom}(\mathbb E^3)=\mathfrak{so}(3)\ltimes\mathbb R^3$, write
+$X=(\omega,v)$ and $(\eta,u)$ for a second element; then
+$\operatorname{ad}_X(\eta,u)=(\omega\times\eta,\ \omega\times u-\eta\times v)$,
+which is block upper triangular with diagonal blocks $\omega\times$, so the
+spectrum is that of $\omega\times$ repeated twice, namely $0,\pm i\|\omega\|$.
+For $\mathfrak{isom}(\mathrm{Nil})=\mathfrak{heis}_3\rtimes\mathfrak{so}(2)$ use
+the flag
+\[
+0\subset\mathfrak z(\mathfrak{heis}_3)\subset\mathfrak{heis}_3
+\subset\mathfrak{isom}(\mathrm{Nil});
+\]
+the adjoint action on the three successive quotients is zero, a planar rotation,
+and zero, giving spectrum $0,0,\pm ir$.
+\end{proof}
+
+\begin{proposition}
+\label{prop:four-killed}
+If $X$ is any of $\mathbb E^3$, $\mathbb S^3$, $\mathbb S^2\times\mathbb R$,
+$\mathrm{Nil}$, then every smooth homomorphism $\rho:G\to\operatorname{Isom}(X)$
+kills $N$, hence the whole one-parameter subgroup $\{(0,0,B)\}$.
+\end{proposition}
+
+\begin{proof}
+Let $\phi=d\rho$ and write $X_0=\phi(H)$, $Y_0=\phi(N)$. Then
+\[
+[X_0,Y_0]=\phi([H,N])=\phi(N)=Y_0 .
+\]
+If $Y_0\ne0$ then $Y_0$ is an eigenvector of $\operatorname{ad}_{X_0}$ with real
+eigenvalue $1$, contradicting Lemma~\ref{lem:no-eigenvalue-one}. Hence
+$Y_0=0$, and since $G$ is connected the corresponding one-parameter subgroup is
+killed.
+\end{proof}
+
+\begin{proposition}
+\label{prop:h3-killed}
+Every smooth homomorphism $\rho:G\to\operatorname{Isom}(\mathbb H^3)$ kills the
+centre $Z$; hence none is injective.
+\end{proposition}
+
+\begin{proof}
+$\mathfrak{isom}(\mathbb H^3)\cong\mathfrak{sl}_2(\mathbb C)$ as a real Lie
+algebra. Put $X_0=\phi(H)$, $Y_0=\phi(N)$, so $[X_0,Y_0]=Y_0$. If $Y_0=0$ we are
+done. Otherwise $X_0$ is not nilpotent (a nilpotent cannot have $1$ as an
+eigenvalue of its adjoint action), so its two eigenvalues $\pm\lambda$ are
+distinct and nonzero; conjugating, take $X_0=\operatorname{diag}(\tfrac12,-\tfrac12)$.
+Then $\operatorname{ad}_{X_0}$ acts on $\mathfrak{sl}_2(\mathbb C)$ with
+eigenvalues $0,\pm1$, and $Y_0$ lies in the eigenvalue-$1$ eigenspace, so
+$Y_0=cE_{12}$ with $c\ne0$. Now $Z$ is central in $\mathfrak g$, so $\phi(Z)$
+commutes with both $X_0$ and $Y_0$. Commuting with $X_0$ forces $\phi(Z)$ to be
+diagonal; commuting with $cE_{12}$ then forces its two diagonal entries to be
+equal; being traceless, it is $0$.
+\end{proof}
+
+\begin{proposition}
+\label{prop:sol-killed}
+No smooth homomorphism $G\to\operatorname{Isom}(\mathrm{Sol})$ is injective.
+\end{proposition}
+
+\begin{proof}
+$\operatorname{Isom}_0(\mathrm{Sol})$ is the Sol left-translation group, with
+\[
+[T,U]=U,\qquad [T,V]=-V,\qquad [U,V]=0 .
+\]
+Its derived subalgebra is $\operatorname{span}\{U,V\}$, of dimension $2$, whereas
+$\dim[\mathfrak g,\mathfrak g]=1$. An injective $\phi:\mathfrak g\to\mathfrak{sol}$
+is an isomorphism because both are three-dimensional, and an isomorphism carries
+the derived subalgebra onto the derived subalgebra; $1=2$ is a contradiction.
+\end{proof}
+
+\begin{remark}
+The two groups are not to be identified merely because both involve exponential
+scaling: the obstruction is the dimension of the derived subalgebra.
+\end{remark}
+
+\begin{proof}[Completion of Theorem~\ref{thm:classification}]
+The six negative cases are Propositions~\ref{prop:four-killed},
+\ref{prop:h3-killed} and \ref{prop:sol-killed}: in each, no injective smooth
+homomorphism exists, so \emph{a fortiori} no lossless realisation does. The
+remaining two models are realised in \S\ref{sec:two}.
+\end{proof}
+
+\begin{remark}[Reality of the two realisations]
+In both positive cases the realisation is not merely a subgroup isomorphism: the
+orbit map is a diffeomorphism, so the geometry provides a global coordinate
+system in which the group law is the action. This is what makes the phrase
+``lossless'' meaningful, and it is also why the classification is stronger than
+asking for a faithful action.
+\end{remark}
+
+\section{The two realisations share one formula}
+\label{sec:two}
+
+Set
+\[
+t=A,\qquad x=B,\qquad y=e^M>0 .
+\]
+If the finite verification chain stores $S=e^M>0$ rather than $M$, no
+exponential or logarithm has to be evaluated: the map and its inverse are just
+$(A,S,B)\leftrightarrow(t,x,y)=(A,B,S)$.
+
+\begin{proposition}
+\label{prop:realisation}
+Define $F(A,M,B)=(t,x,y)=(A,B,e^M)$ and let $g=(a,m,b)$ act by
+\[
+\rho(g)(t,x,y)=\bigl(t+a,\ e^mx+b,\ e^my\bigr).
+\]
+Then $\rho(g_2)\rho(g_1)=\rho(g_2g_1)$, and with $o=(0,0,1)$ the orbit map
+$F(g)=\rho(g)o$ is a diffeomorphism. The following three one-forms are
+$\rho$-invariant:
+\[
+\eta_0=dt,\qquad \eta_1=\frac{dy}{y},\qquad \eta_2=\frac{dx}{y},
+\]
+with structure equations
+\begin{equation}
+\label{eq:structure}
+d\eta_0=d\eta_1=0,\qquad d\eta_2=-\eta_1\wedge\eta_2 .
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Substituting $(t+a,\,e^mx+b,\,e^my)$ into the three forms gives invariance, since
+$d(e^mx+b)=e^mdx$ and $e^my$ scales the denominator equally. The composition law
+is term-by-term substitution. The orbit map is $(a,m,b)\mapsto(a,b,e^m)$, a
+diffeomorphism onto $\mathbb R^2\times\mathbb R_{>0}$. For the structure
+equations, the dual frame is $e_0=\partial_t$, $e_1=y\partial_y$, $e_2=y\partial_x$,
+with $[e_1,e_2]=e_2$ and all other brackets zero; the identity
+$d\eta^k=-\sum_{i<j}c^k_{ij}\eta^i\wedge\eta^j$ gives \eqref{eq:structure}.
+\end{proof}
+
+\begin{remark}
+Equation~\eqref{eq:structure} is the abstract bracket $[H,N]=N$ written in the
+coframe dual to $\{\eta_0,\eta_1,\eta_2\}$: $\eta_0\leftrightarrow Z$,
+$\eta_1\leftrightarrow H$, $\eta_2\leftrightarrow N$.
+\end{remark}
+
+Two left-invariant metrics on the same space are now available:
+\begin{align}
+g_{\mathrm{prod}}&=\frac{dx^2+dy^2}{y^2}+dt^2,
+\label{eq:prod}\\[2pt]
+g_{\mathrm{SL}}&=\frac{dx^2+dy^2}{y^2}+\Bigl(dt-\frac{dx}{y}\Bigr)^2 .
+\label{eq:sl}
+\end{align}
+
+\begin{proposition}
+\label{prop:two-metrics}
+$\rho$ is an isometry for both \eqref{eq:prod} and \eqref{eq:sl}. Pulling back
+along $F$,
+\[
+F^*g_{\mathrm{prod}}=dA^2+dM^2+e^{-2M}dB^2,
+\qquad
+F^*g_{\mathrm{SL}}=dM^2+e^{-2M}dB^2+\bigl(dA-e^{-M}dB\bigr)^2 .
+\]
+The first is the product metric of $\mathbb H^2\times\mathbb R$; the second is
+the standard $\widetilde{\mathrm{SL}}_2(\mathbb R)$ geometry, i.e.\ the
+universal cover of the Sasaki metric on the unit tangent bundle of $\mathbb H^2$,
+with the fibre angle taken in $\mathbb R$ and not modulo $2\pi$.
+\end{proposition}
+
+\begin{proof}
+Invariance of \eqref{eq:prod} and \eqref{eq:sl} follows from
+Proposition~\ref{prop:realisation}, since both are built from
+$\eta_1^2+\eta_2^2$, $\eta_0^2$ and $\eta_0\eta_2$. The pullbacks are the
+substitutions $dt=dA$, $dx=dB$, $dy=e^MdM$.
+\end{proof}
+
+\begin{proposition}[The same group does not determine the geometry]
+\label{prop:tau-family}
+For $\tau\in\mathbb R$ put
+\[
+g_\tau=dM^2+e^{-2M}dB^2+\bigl(dA-\tau e^{-M}dB\bigr)^2 .
+\]
+Every $g_\tau$ is left-invariant, and with the orthonormal frame
+$E_1=H$, $E_2=N+\tau Z$, $E_3=Z$ one has
+\[
+[E_1,E_2]=E_2-\tau E_3,\qquad [E_1,E_3]=[E_2,E_3]=0,
+\]
+\[
+K(E_1,E_2)=-1-\tfrac34\tau^2,\qquad
+K(E_1,E_3)=K(E_2,E_3)=\tfrac14\tau^2,
+\]
+and Ricci eigenvalues $\bigl(-1-\tfrac12\tau^2,\ -1-\tfrac12\tau^2,\ \tfrac12\tau^2\bigr)$.
+The values $\tau=0$ and $\tau=1$ recover \eqref{eq:prod} and \eqref{eq:sl}.
+\end{proposition}
+
+\begin{proof}
+Left-invariance is immediate from Proposition~\ref{prop:realisation}. The bracket
+$[E_1,E_2]=[H,N+\tau Z]=N=E_2-\tau E_3$ uses $[H,N]=N$ and $[H,Z]=0$. The
+sectional curvatures and the Ricci tensor follow from the Koszul formula in an
+orthonormal left-invariant frame with these constant structure constants.
+\end{proof}
+
+So the product model has no positive sectional curvature, while the contact
+model has positive vertical sectional curvature: the two are genuinely different
+Riemannian geometries on one and the same Lie group. The extra data that selects
+between them is the metric, the contact distribution, the connection and the unit
+convention.
+
+\section{The identification with Paper 0's contact model}
+\label{sec:paper0}
+
+This is the part of the note that touches the programme directly. Paper 0 §9
+works with
+\[
+\alpha=dB-dA-B\,dM,\qquad \mathcal D=\ker\alpha,\qquad
+h=\bigl(dA^2+dM^2\bigr)\big|_{\mathcal D},
+\]
+and the AES projection $Q(A,M,B)=(-Be^{-M},e^{-M})$.
+
+\begin{lemma}
+\label{lem:paper0-data}
+Write $\beta=dB-B\,dM$. Then
+\[
+Q^*g_{\mathbb H^2}=dM^2+\beta^2,
+\qquad
+Q^*g_{\mathbb H^2}\big|_{\mathcal D}=h .
+\]
+The Reeb field of $\alpha$ is $R_\alpha=-\partial_A$, and the Riemannian
+extension that makes the Reeb direction unit and orthogonal to $\mathcal D$ is
+\[
+g_{\mathrm{contact}}:=Q^*g_{\mathbb H^2}+\alpha^2
+=dM^2+\bigl(dB-B\,dM\bigr)^2+\bigl(dB-dA-B\,dM\bigr)^2 .
+\]
+It satisfies $g_{\mathrm{contact}}(R_\alpha,R_\alpha)=1$ and
+$g_{\mathrm{contact}}(R_\alpha,\mathcal D)=0$.
+\end{lemma}
+
+\begin{proof}
+$Q$ has components $x=-Be^{-M}$, $y=e^{-M}$, so $dx=-e^{-M}\beta$ and
+$dy=-e^{-M}dM$; hence $(dx^2+dy^2)/y^2=\beta^2+dM^2$. On $\mathcal D$ we have
+$\alpha=0$, i.e.\ $dB=dA+B\,dM$, so $\beta=dA$ and the restriction is $h$. For
+the Reeb field, $\alpha(c\partial_A)=-c$, so $c=-1$; and
+$d\alpha=dM\wedge dB$ annihilates $\partial_A$. Orthogonality and unit length are
+then immediate from $\alpha|_{\mathcal D}=0$ and $\beta(\partial_A)=0$.
+\end{proof}
+
+\begin{theorem}[The contact model is the $\widetilde{\mathrm{SL}}_2$ geometry]
+\label{thm:identification}
+Let $I(A,M,B)=(-A,-M,-Be^{-M})$ be the inversion. Then
+\[
+I^*\alpha=dA-e^{-M}dB=:\omega,
+\qquad
+I^*g_{\mathrm{contact}}
+=dM^2+e^{-2M}dB^2+\omega^2
+=F^*g_{\mathrm{SL}} .
+\]
+Consequently Paper 0's contact model, together with the horizontal metric $h$,
+after the Reeb unit extension and the inversion, \emph{is} the
+$\widetilde{\mathrm{SL}}_2(\mathbb R)$ geometry, with $\mathcal D$ as its contact
+distribution.
+\end{theorem}
+
+\begin{proof}
+With $(A',M',B')=(-A,-M,-Be^{-M})$ one has $dA'=-dA$, $dM'=-dM$ and
+$dB'=-e^{-M}dB+Be^{-M}dM$. Hence
+\[
+I^*\alpha=dB'-dA'-B'dM'
+=-e^{-M}dB+Be^{-M}dM+dA-Be^{-M}dM
+=dA-e^{-M}dB,
+\]
+and
+\[
+I^*\beta=dB'-B'dM'=-e^{-M}dB+Be^{-M}dM-Be^{-M}dM=-e^{-M}dB .
+\]
+Substituting into $g_{\mathrm{contact}}=dM^2+\beta^2+\alpha^2$ gives
+$dM^2+e^{-2M}dB^2+\omega^2$, which is $F^*g_{\mathrm{SL}}$ by
+Proposition~\ref{prop:two-metrics}.
+\end{proof}
+
+\begin{remark}[The convention switch is not optional]
+\label{rem:convention}
+Inversion exchanges left and right. In the original coordinates
+$\alpha,h,g_{\mathrm{contact}}$ are preserved by \emph{right} translations
+(the companion note's statement \emph{Right translations preserve the data}),
+whereas the standard left action on
+$\widetilde{\mathrm{SL}}_2(\mathbb R)$ preserves $\omega$. Therefore, as a left
+group action, the original model must be written $g\cdot p=pg^{-1}$. Without
+this conversion it is not correct to call the left-appended arithmetic step an
+isometric symmetry of $\alpha$.
+\end{remark}
+
+\begin{proposition}[The new invariants]
+\label{prop:invariants}
+In the left-action coordinates,
+\[
+\omega=dA-e^{-M}dB,\qquad d\omega=e^{-M}dM\wedge dB,\qquad
+\omega\wedge d\omega=e^{-M}dA\wedge dM\wedge dB\ne0 .
+\]
+With the base oriented by $dx\wedge dy/y^2$ one has
+$d\omega=-dx\wedge dy/y^2$, and along a horizontal lift ($\omega=0$), $dt=dx/y$.
+For an oriented closed loop $\gamma=\partial\Sigma$ on the base,
+\[
+\Delta t=\oint_\gamma\frac{dx}{y}=\int_\Sigma\frac{dx\wedge dy}{y^2},
+\]
+the signed hyperbolic area. This area does not determine the loop, and \emph{a
+fortiori} does not recover the word history.
+\end{proposition}
+
+\begin{proof}
+Direct computation; the last identity is Stokes' theorem.
+\end{proof}
+
+\section{\texorpdfstring{$\mathrm{Nil}$}{Nil} as the graded tangent model}
+\label{sec:nil}
+
+Although $G$ has no faithful isometric action on standard $\mathrm{Nil}$
+(Proposition~\ref{prop:four-killed}), the Heisenberg algebra appears naturally as
+the graded tangent of the contact distribution.
+
+\begin{proposition}
+\label{prop:nil-tangent}
+In the original contact coordinates put
+\[
+X=\partial_A+\partial_B,\qquad Y=\partial_M+B\partial_B,\qquad W=[X,Y]=\partial_B .
+\]
+Then $[Y,W]=-W$ and $[X,W]=0$. Giving $X,Y$ weight $1$ and $W$ weight $2$, the
+associated graded Lie algebra is the Heisenberg algebra:
+\[
+[\bar X,\bar Y]=\bar W,\qquad \bar W\ \text{central}.
+\]
+\end{proposition}
+
+\begin{proof}
+Direct bracket computation. The filtration is the contact filtration of
+$\mathcal D$.
+\end{proof}
+
+\begin{remark}
+The grading discards $[Y,W]=-W$ and the hyperbolic curvature. Moreover the
+metric carried by the blow-up limit is the Carnot--Carath\'eodory metric, not the
+standard Riemannian metric on $\mathrm{Nil}$; the two do share the Heisenberg
+graded group. This is entirely compatible with
+Proposition~\ref{prop:four-killed}: the graded tangent is not a realisation of
+$G$.
+\end{remark}
+
+\section{Boundaries: what is not claimed}
+\label{sec:boundaries}
+
+\begin{enumerate}
+\item \textbf{$G\not\cong\widetilde{\mathrm{SL}}_2(\mathbb R)$.} The left-hand
+side is solvable; the Lie algebra of the right-hand side is simple. The correct
+statement is that $G$ is a free transitive \emph{isometry subgroup} of that
+three-dimensional Riemannian space, acting by the base positive-affine isometries
+together with the commuting fibre translations. The standard $\mathrm{SL}_2$
+group law on a point must not be substituted for the group law of $G$; the marked
+action $\rho$ has to be kept.
+\item \textbf{``Lossless'' is about group elements only.} Theorem~\ref{thm:identification}
+transports the invariance and the covariant derivative by an explicit
+diffeomorphism whose inverse is written down. It does \emph{not} follow that
+every isometry of the target space preserves the extra projections, the
+assignment, the vocabulary labels or the verification certificates.
+\item \textbf{Coordinate encoding is a much weaker question.} The six
+non-spherical models $\mathbb E^3,\mathbb H^3,\mathbb H^2\times\mathbb R,
+\widetilde{\mathrm{SL}}_2,\mathrm{Nil},\mathrm{Sol}$ are all diffeomorphic to
+$\mathbb R^3$, so any one of them admits a global coordinate system encoding three
+real parameters losslessly. Such an encoding does not make the group law an
+isometric action, and it is not what Definition~\ref{def:lossless} asks for.
+\item \textbf{The classification is about smooth actions.} Discrete subgroups,
+finite-word syntax, mixed-chirality marked histories, and complex-parameter
+groups are not identified with this Lie group anywhere above.
+\item \textbf{No metric is canonical.} Proposition~\ref{prop:tau-family} shows
+that the same group carries at least a one-parameter family of genuinely
+different left-invariant geometries. Neither $g_{\mathrm{prod}}$ nor
+$g_{\mathrm{SL}}$ is forced by the group law, and the companion note's
+$dA^2+dM^2+e^{-2M}dB^2$ is a third choice.
+\item \textbf{Fibre angles are not reduced.} In the
+$\widetilde{\mathrm{SL}}_2(\mathbb R)$ model the fibre angle is a real number, not
+an angle modulo $2\pi$. Passing to the unit tangent bundle
+$T^1\mathbb H^2\simeq\mathrm{PSL}_2(\mathbb R)$ would forget the winding number;
+that step is not taken here.
+\end{enumerate}
+
+\begin{thebibliography}{9}
+\bibitem{Paper0}
+M.~Yuan and DeepSeek Harness Agent,
+\emph{Arithmetic Expression Geometry 0: Arithmetic Expression Spaces},
+\path{paper-0/}, commit \texttt{d89ceb8f8090482317b750407f623c8dcfb37ea2}.
+\bibitem{Note07}
+Companion note 07 in this directory,
+\emph{The joint quotient of the ACS charge and the AES affine operator}.
+\end{thebibliography}
+
+\end{document}

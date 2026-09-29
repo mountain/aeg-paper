@@ -883,3 +883,73 @@ closure.
   verified numerically before being written; an earlier draft's statement that
   the zero branches merely touch the origin was wrong and was corrected by the
   computation (the cusps along the axes carry negative values of the assignment)
+
+---
+
+## Migration M-0024
+
+- **Date:** 2026-09-29
+- **Name:** Governance amendment following an external review of
+  `thm:p0-punctures-are-critical`; four notes added to the reserve
+- **Authority:** ordinary task report; no scope change, **no paper source
+  edited**.  This entry records a register amendment, not a manuscript revision.
+- **Source and destination:** new files `notes/foundations-and-geometry/07`,
+  `08`, `09` and `10` (`.tex`); new file
+  `AEG-Paper-0-review-2026-09-29-thm-punctures-are-critical-v0.1.md` at the
+  repository root; `governance/notes-reserve-audit.md` (amended to version 1.1),
+  `governance/05b-paper-0-status-register.md` (amended to version 1.1),
+  `governance/08-open-questions.md` (OQ-082 and OQ-088 amended) updated.
+  `paper-0/**` is **unchanged**.
+- **Migration state:** `EXTEND` of the reserve and of the registers; nothing moved
+  between papers, and no claim is promoted.
+- **Claim treatment:** four notes, all unincorporated and exploratory, all graded
+  `WORKING-NOTE PROVED` except `10` which is an `EVIDENCE RECORD`
+  (`notes-reserve-audit.md` §2.1, §4 Tiers A and E).  One status **demotion**:
+  `thm:p0-punctures-are-critical` and `cor:p0-puncture-count` move from `PROVED`
+  to `UNSUPPORTED AND EXCLUDED` as printed, with `PROVED WITH STATED HYPOTHESES`
+  recorded for the repaired form; `rem:p0-puncture-hypothesis` moves to
+  `PARTIALLY PROVED`.  New ledger entry C-10.  OQ-082 reopens; OQ-088 is
+  amended.  No new OQ is opened.
+- **Mathematical content:**
+  (a) The joint quotient `G = R_A x Aff^+(1,R)` of the ACS charge endpoint and
+  the AES affine operator, its characteristic centre and derived subgroup, its
+  two projections and the fibre product `G = E^2 x_R H^2`, and the contact form
+  `alpha = dB - dA - B dM` whose non-integrability is the order defect (note 07).
+  (b) A lossless realisation of `G` exists exactly in `H^2 x R` and
+  `SL~_2(R)`; the other six Thurston models are excluded; Paper 0 §9's contact
+  model is, after the Reeb unit extension and the inversion, the `SL~_2(R)`
+  geometry (note 08).
+  (c) `Aut(G) = F_{alpha,gamma,delta,kappa}`; dilation is outer; the outer
+  hierarchy removes both translation directions whereas the inner one does not;
+  `gamma != 0` is obstructed by non-semialgebraicity of `log` and by the
+  point-stabiliser argument (note 09).
+  (d) A verified counterexample to `thm:p0-punctures-are-critical`: a punctured
+  AES with a smoothly extending assignment, `S = {0}`, `Crit(atilde) = emptyset`,
+  and a metric that does not extend.  The proof's first step builds a new metric
+  and treats it as an extension of the given `g`; condition (ii) of
+  `def:p0-punctured-aes` requires extending `g` itself.  The reverse inclusion
+  and `thm:p0-four-circle-model` are unaffected (note 10, root review).
+- **Notation changes:** none.
+- **Reference treatment:** none.
+- **Content removed from source:** none.  Nothing is deleted from `paper-0/**`;
+  the defective hypothesis is left in place and recorded as such in the register
+  and in C-10, so that the printed state stays recoverable.
+- **Build result:** four notes compiled with `pdflatex` (three passes each), zero
+  warnings and zero overfull boxes: note 07 six pages, note 08 seven pages,
+  note 09 five pages, note 10 six pages.  The embedded verification script of
+  note 10 was extracted and executed: 14 assertions pass.  `./build.sh 0` and
+  `./build.sh 1` were **not** run and are not affected, since no file under
+  `paper-0/`, `paper-1/` or `bibliography/` changed; the `paper0-build.yml`
+  workflow triggers only on `pull_request` touching those paths and therefore
+  does not run for this change.
+- **Reviewer notes:** the review is external (DeepSeek Harness Agent) and the
+  demotion is recorded on the strength of an independently re-derived and
+  machine-checked counterexample, not on the reviewer's authority.  Every
+  identity in notes 07–09 was re-proved symbolically by a route independent of
+  the working notes that produced them.  **The paper source has deliberately not
+  been amended**: whether to restate the theorem under the conformal-extension
+  hypothesis, to widen `def:p0-punctured-aes`, or to narrow the claim is left to
+  the author, and C-10 stays open until that decision is made.  The build result
+  line above records only what was actually executed; `build.sh` was not run
+  here and no claim is made about it in this entry beyond stating that it is
+  unaffected.

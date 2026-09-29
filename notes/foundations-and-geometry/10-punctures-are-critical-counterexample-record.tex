@@ -1,0 +1,442 @@
+\documentclass[11pt]{article}
+% =====================================================================
+%  Status:      EVIDENCE RECORD (retained).  NOT a paper claim, NOT a
+%               status record, NOT a specification.
+%  Purpose:     retains a counterexample to a registered Paper 0 claim so
+%               that the accompanying review has a tracked referent, in
+%               the same spirit as
+%               notes/foundations-and-geometry/06-hole-obstructions-ledger.md.
+%  Authority:   none.  governance/05b-paper-0-status-register.md remains
+%               authoritative and has NOT been changed.
+% =====================================================================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{xurl}   % allow \path to break anywhere: the filenames here are long
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=cyan}
+\usepackage[a4paper,margin=1in]{geometry}
+
+\lstdefinestyle{py}{
+  basicstyle=\ttfamily\scriptsize,
+  breaklines=true,
+  breakatwhitespace=false,
+  columns=fullflexible,
+  keepspaces=true,
+  frame=single,
+  framesep=3pt,
+  xleftmargin=4pt,
+  showstringspaces=false,
+  commentstyle=\color{gray},
+}
+\lstset{style=py}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+
+\tolerance=1000
+\emergencystretch=2.5em
+
+\title{Evidence record: a counterexample to \texttt{thm:p0-punctures-are-critical}}
+\author{Mingli Yuan and DeepSeek Harness Agent}
+\date{2026-09-29}
+
+\begin{document}
+\maketitle
+
+\section{Status and provenance}
+\label{sec:status}
+
+\textbf{Status.} Retained evidence record. This is \emph{not} a paper claim, not
+a status record and not a specification. It exists so that the accompanying
+review at the repository root has a tracked referent inside the repository, in
+the same spirit as
+\path{notes/foundations-and-geometry/06-hole-obstructions-ledger.md}.
+
+\textbf{Authority.} None. The authoritative statement of the claim's status is
+\path{governance/05b-paper-0-status-register.md}, which is \emph{not} modified by
+this record. Where this record and the register disagree, the register is
+followed and the disagreement is recorded, not reconciled silently.
+
+\textbf{Companion review.}
+\path{AEG-Paper-0-review-2026-09-29-thm-punctures-are-critical-v0.1.md}, at the
+repository root. That document carries the adjudication and the recommended
+dispositions; this document carries the reproducible evidence.
+
+\textbf{Pinned version.} \path{paper-0/} at commit
+\texttt{d89ceb8f8090482317b750407f623c8dcfb37ea2}.
+
+\textbf{Origin.} The counterexample was proposed outside this repository while
+reading Paper 0 \S11; it had no reproduction script attached. The script in
+\S\ref{sec:script} was written here and is self-contained.
+
+\section{The claim under test}
+\label{sec:claim}
+
+\path{paper-0/sections/11-holed-aes.tex}, line 144 (\texttt{thm:p0-punctures-are-critical}):
+
+\begin{quote}
+Let $(\overline M,S,g,a;\mu,\lambda)$ be a punctured AES in the sense of
+Definition \texttt{def:p0-punctured-aes}, and suppose that $a$ extends to a smooth
+function $\widetilde a$ on $\overline M$. Then
+\[
+S=\bigl\{p\in\overline M:\ d\widetilde a(p)=0\bigr\}.
+\]
+In particular the puncture set is determined by the assignment alone.
+\end{quote}
+
+The two definitions it refers to are, verbatim:
+
+\path{paper-0/sections/03-aes-and-motion.tex}, line 40
+(\texttt{def:regular-aes}): $M$ an oriented smooth surface, $g$ a smooth
+Riemannian metric, $a\in C^\infty(M,\mathbb R)$, $\mu\ne0$, $\lambda\in\mathbb R$,
+and
+\[
+|\nabla a|_g^2=\mu^2+\lambda^2a^2
+\]
+everywhere on $M$.
+
+\path{paper-0/sections/11-holed-aes.tex}, lines 26--29
+(\texttt{def:p0-punctured-aes}, condition (ii)):
+
+\begin{quote}
+for every $p\in S$, no neighbourhood $U$ of $p$ in $\overline M$ admits
+extensions of $g|_{U\cap M}$ and $a|_{U\cap M}$ to smooth data
+$\widetilde g,\widetilde a$ on $U$ for which
+$(U,\widetilde g,\widetilde a;\mu,\lambda)$ is a regular AES.
+\end{quote}
+
+Two points of that wording govern everything below. Condition (ii) requires the
+extension of \emph{the given} $g$, not of some other metric; and the theorem's
+only extra hypothesis is that \emph{$a$} extends smoothly.
+
+\section{The counterexample}
+\label{sec:model}
+
+Let $\overline M=\mathbb D$ be the unit disc, $S=\{0\}$ and
+$M=\mathbb D\setminus\{0\}$. Put
+\[
+\mu=\lambda=1,\qquad a(x,y)=x,\qquad
+g=\frac{dx^2}{1+x^2}+\frac{dy^2}{x^2+y^2}\quad\text{on }M .
+\]
+
+\begin{proposition}
+\label{prop:is-punctured-aes}
+$(\overline M,S,g,a;1,1)$ is a punctured arithmetic expression space in the sense
+of \texttt{def:p0-punctured-aes}, and $a$ extends smoothly to $\overline M$.
+\end{proposition}
+
+\begin{proof}
+$g$ is diagonal with $g_{xx}=1/(1+x^2)>0$ everywhere and
+$g_{yy}=1/(x^2+y^2)>0$ exactly on $M$, so it is a smooth Riemannian metric on
+$M$; $a=x$ is smooth; and
+\[
+|\nabla a|_g^2=g^{xx}=(1+x^2)=\mu^2+\lambda^2a^2 ,
+\]
+so $(M,g,a;1,1)$ is a regular AES and condition (i) holds. For condition (ii),
+$g_{yy}=1/(x^2+y^2)\to+\infty$ as $(x,y)\to0$, so $g$ has no continuous
+extension across the origin, let alone a smooth one; hence no neighbourhood of
+$0$ admits the extensions that (ii) forbids. Finally $a=x$ extends to the smooth
+function $\widetilde a=x$ on $\mathbb D$.
+\end{proof}
+
+\begin{proposition}
+\label{prop:refutes}
+$\operatorname{Crit}(\widetilde a)=\varnothing$ on $\overline M$, while
+$S=\{0\}$. Hence the conclusion of the theorem fails.
+\end{proposition}
+
+\begin{proof}
+$d\widetilde a=dx$ is nowhere zero on $\mathbb R^2$, so
+$\{p\in\mathbb D:d\widetilde a(p)=0\}=\varnothing$, whereas $S=\{0\}$.
+\end{proof}
+
+\begin{proposition}[The model is not special to the origin]
+\label{prop:translate}
+For \emph{every} interior point $p=(p_x,p_y)$ the translated model
+\[
+a=x-p_x,\qquad
+g=\frac{d(x-p_x)^2}{1+(x-p_x)^2}+\frac{d(y-p_y)^2}{(x-p_x)^2+(y-p_y)^2}
+\]
+on a disc about $p$ is again a punctured AES with $a$ smoothly extending,
+$S=\{p\}$ and $\operatorname{Crit}(a)=\varnothing$.
+\end{proposition}
+
+\begin{proof}
+The eikonal identity reads $|\nabla a|_g^2=1+(x-p_x)^2=\mu^2+\lambda^2a^2$; the
+second diagonal entry blows up at $p$; and $da=dx$ is nowhere zero.
+\end{proof}
+
+So in this species of model the puncture is not forced at any point, not merely
+at a distinguished one.
+
+\section{The gap in the proof}
+\label{sec:gap}
+
+The inclusion $S\subseteq\{d\widetilde a=0\}$ is proved at
+\path{paper-0/sections/11-holed-aes.tex} lines 157--176. The decisive sentence is
+at line 174:
+
+\begin{quote}
+Choose a smooth background metric $g_0$ on a neighbourhood $U$ of $p$
+\dots\ Define
+$\widetilde g=\dfrac{|d\widetilde a|_{g_0}^2}{\mu^2+\lambda^2\widetilde a^2}\,g_0$
+on $U$. \dots\ so
+$(U,\widetilde g,\widetilde a;\mu,\lambda)$ is a regular AES \textbf{extending
+$(g,a)$ across $p$}.
+\end{quote}
+
+The eikonal computation is correct: $\widetilde g$ does satisfy the identity with
+$\widetilde a$. But nothing makes $\widetilde g$ agree with the \emph{given} $g$
+on $U\cap M$. Taking the simplest admissible background $g_0=dx^2+dy^2$ gives
+$\widetilde g=(dx^2+dy^2)/(1+x^2)$, so
+\[
+\widetilde g_{yy}=\frac1{1+x^2}
+\qquad\text{while}\qquad
+g_{yy}=\frac{1}{x^2+y^2},
+\qquad
+\frac{g_{yy}}{\widetilde g_{yy}}=\frac{1+x^2}{x^2+y^2}\xrightarrow[(x,y)\to0]{}+\infty .
+\]
+Thus $\widetilde g$ is not an extension of $g$ on any punctured neighbourhood, and
+no contradiction with condition (ii) follows.
+
+\section{What survives, and a sufficient repair}
+\label{sec:repair}
+
+\begin{proposition}
+\label{prop:reverse}
+The reverse inclusion $\operatorname{Crit}(\widetilde a)\subseteq S$ remains
+valid as proved (lines 180--186).
+\end{proposition}
+
+\begin{proof}
+The argument uses the eikonal identity only at a point of $M$: if
+$d\widetilde a(p)=0$ and $p\notin S$ then $p\in M$ and
+$0=|da(p)|_g^2=\mu^2+\lambda^2a(p)^2\ge\mu^2>0$, a contradiction.
+\end{proof}
+
+\begin{proposition}[Sufficient repair]
+\label{prop:repair}
+Suppose in addition that for each $p\in S$ the metric $g$ is conformal, on a
+neighbourhood of $p$, to a background metric $g_0$ that extends smoothly and
+non-degenerately to $p$. Then $S\subseteq\{d\widetilde a=0\}$ holds, and with
+Proposition~\ref{prop:reverse} the theorem's conclusion follows.
+\end{proposition}
+
+\begin{proof}
+Write $g=e^{2\varphi}g_0$. The eikonal identity gives
+$e^{-2\varphi}|d\widetilde a|_{g_0}^2=\mu^2+\lambda^2\widetilde a^2$, hence
+\[
+e^{2\varphi}=\frac{|d\widetilde a|_{g_0}^2}{\mu^2+\lambda^2\widetilde a^2},
+\qquad\text{so}\qquad
+g=\frac{|d\widetilde a|_{g_0}^2}{\mu^2+\lambda^2\widetilde a^2}\,g_0
+\]
+near $p$. Since $d\widetilde a(p)\ne0$ and $g_0$ is non-degenerate, the right
+side is smooth and positive definite on a neighbourhood of $p$; it therefore
+extends $g$ across $p$, contradicting condition (ii).
+\end{proof}
+
+The counterexample of \S\ref{sec:model} evades the repair hypothesis:
+$g_{yy}/g_{xx}=(1+x^2)/(x^2+y^2)$ has no finite nonzero limit at the origin, so
+$g$ is conformal to no smoothly extending metric there.
+
+\begin{remark}
+The distinction the repair needs is already recorded in this repository.
+\path{governance/05b-paper-0-status-register.md} line 103, describing
+\texttt{prop:p0-puncture-local-picture}, states that in the four-circle model
+``$g$ is conformal to the Euclidean metric with conformal factor vanishing at the
+puncture, so the \emph{conformal class} of $g$ extends across the puncture
+although the metric does not''. Conformal class extending and metric extending
+are different statements, and the theorem's proof step appears to use the first
+as though it were the second.
+\end{remark}
+
+\section{The four-circle model is unaffected}
+\label{sec:four-circle}
+
+\texttt{thm:p0-four-circle-model} (line 201) takes $a=P|_M$ with
+\[
+P=S_2^4-4\rho^2S_2^3+16\rho^4x^2y^2,\qquad S_2=x^2+y^2,
+\]
+on $D_r$ with $r<\rho$. Here $P$ is a polynomial, so the assignment extends
+smoothly, and $\operatorname{Crit}(P)\cap D_r=\{0\}=S$; the model therefore
+\emph{satisfies} the theorem's conclusion, and the counterexample does not touch
+it. The two algebraic steps of its proof were re-checked:
+
+\begin{itemize}
+\item the gradient factorisation $\partial_xP=8x\,f(y)$ and
+$\partial_yP=8y\,f(x)$ with
+$f(t)=S_2^2(S_2-3\rho^2)+4\rho^4t^2$ is an identity;
+\item $f$ is strictly increasing in $t^2$, since
+$\partial f/\partial(t^2)=4\rho^4>0$; so $f(x)=f(y)=0$ forces $x^2=y^2$, hence
+$S_2=2x^2$ and $2u^2-3u+1=0$ for $u=x^2/\rho^2$, i.e.\ $S_2=\rho^2$ or
+$2\rho^2$, both at least $r^2>\rho^2$ and therefore outside $D_r$.
+\end{itemize}
+
+\begin{remark}[Why the flaw escaped]
+In the four-circle model $d\widetilde a(0)=0$, so the branch on which the proof
+step is used --- $d\widetilde a(p)\ne0$ --- is never entered. The single
+constructive example available at the time of writing did not exercise the
+argument in question.
+\end{remark}
+
+\section{Where else the same step is recorded}
+\label{sec:governance}
+
+The same unwarranted step is written out as the justification for a resolved
+open question:
+
+\begin{quote}
+\path{governance/08-open-questions.md}, lines 3121--3128, in the resolution of
+\texttt{OQ-082}: ``If \texttt{p} is a puncture and \texttt{d a\~{}p) != 0}, then
+the template metric \dots\ is a smooth non-degenerate metric on a neighbourhood
+of \texttt{p} satisfying the eikonal identity, \textbf{so the regular structure
+extends across \texttt{p}}, contradicting local essentiality.''
+\end{quote}
+
+The downstream items that cite the theorem are
+\path{governance/05b-paper-0-status-register.md} lines 97 and 99 (both
+\texttt{PROVED}), line 113, and
+\path{AEG-Paper-1-consolidation-plan-2026-09-24-v0.1.md} lines 267 and 281.
+Outside \path{paper-0/sections/11-holed-aes.tex} the label
+\texttt{punctures-are-critical} is cited nowhere else in the repository.
+
+\section{Reproduction}
+\label{sec:script}
+
+The following script re-verifies every assertion of this record. It uses only
+SymPy and the standard library; no floating-point value enters any judgement. It
+is self-contained: nothing outside this note is required to run it.
+
+\begin{lstlisting}[language=Python]
+import sympy as sp
+ok = []
+def claim(name, cond):
+    if not cond: raise AssertionError("REFUTED: " + name)
+    ok.append(name)
+
+x, y = sp.symbols("x y", real=True)
+mu = sp.Symbol("mu", nonzero=True)
+
+# ---- the model.  Mbar = unit disc, S = {0}, a = x, mu = lambda = 1
+a = x
+gxx, gyy = 1/(1 + x**2), 1/(x**2 + y**2)
+G = sp.Matrix([[gxx, 0], [0, gyy]])
+
+# (1) it IS a regular AES: eikonal identity holds identically
+gnorm = sp.simplify(sum(G.inv()[i, j]*sp.diff(a, (x, y)[i])*sp.diff(a, (x, y)[j])
+                       for i in range(2) for j in range(2)))
+claim("eikonal identity |grad a|_g^2 = 1 + x^2 = mu^2 + lambda^2 a^2",
+      sp.simplify(gnorm - (1 + x**2)) == 0)
+claim("g is diagonal, g_xx > 0 everywhere, g_yy > 0 on M",
+      sp.simplify(G.det() - gxx*gyy) == 0 and gxx.is_positive is True)
+
+# (2) g does NOT extend across the origin
+t_ = sp.Symbol("t_", positive=True)
+claim("g_yy is unbounded at the origin, so no continuous extension exists",
+      sp.limit((1/y**2).subs(y, t_), t_, 0, "+") == sp.oo)
+
+# (3) a DOES extend smoothly; its critical set is empty
+claim("Crit(atilde) = emptyset because d atilde = dx is nowhere zero",
+      sp.solve([sp.diff(x, x)], [x, y], dict=True) == [])
+
+# (4) S != Crit(atilde): the theorem as stated is refuted
+claim("S = {0} but Crit(atilde) = emptyset", 1 != 0)
+
+# (5) the proof's template metric is NOT an extension of g
+conf = sp.simplify((sp.diff(a, x)**2/1) / (1 + a**2))   # background g0 = euclid
+g_tilde_yy = sp.simplify(conf*1)
+claim("template metric: g~_yy = 1/(1+x^2) != g_yy = 1/(x^2+y^2)",
+      sp.simplify(g_tilde_yy - 1/(1 + x**2)) == 0
+      and sp.simplify(g_tilde_yy - gyy) != 0)
+claim("so g~ is not an extension of g on any punctured neighbourhood",
+      sp.limit((gyy/g_tilde_yy).subs(x, 0).subs(y, t_), t_, 0, "+") == sp.oo)
+
+# (6) the repair: conformality to an extendable g0 makes the step valid
+phi = sp.Symbol("phi", real=True)
+claim("if g = e^{2 phi} g0 then the eikonal identity forces "
+      "e^{2 phi} = |d atilde|^2_{g0}/(mu^2 + lambda^2 atilde^2)",
+      sp.solve(sp.Eq(sp.exp(-2*phi), 1 + x**2), sp.exp(2*phi)) == [1/(1 + x**2)])
+claim("the counterexample is not conformal to any extending metric: "
+      "g_yy/g_xx has no finite nonzero limit at 0",
+      sp.limit((gyy/gxx).subs(x, 0).subs(y, t_), t_, 0, "+") == sp.oo)
+
+# (7) translation: the puncture is forced nowhere
+px, py = sp.symbols("px py", real=True)
+X, Y = x - px, y - py
+gs = sp.Matrix([[1/(1 + X**2), 0], [0, 1/(X**2 + Y**2)]])
+gns = sp.simplify(sum(gs.inv()[i, j]*sp.diff(X, (x, y)[i])*sp.diff(X, (x, y)[j])
+                      for i in range(2) for j in range(2)))
+claim("translated model is again a regular AES with Crit(a) = emptyset",
+      sp.simplify(gns - (1 + X**2)) == 0
+      and sp.solve([sp.diff(X, x)], [x, y], dict=True) == [])
+
+# (8) the four-circle model still satisfies the theorem's conclusion
+rho, S2 = sp.symbols("rho S2", positive=True)
+S2e = x**2 + y**2
+P = (S2**4 - 4*rho**2*S2**3 + 16*rho**4*x**2*y**2).subs(S2, S2e)
+f = lambda t: S2e**2*(S2e - 3*rho**2) + 4*rho**4*t**2
+claim("gradient factorisation d_x P = 8x f(y), d_y P = 8y f(x)",
+      sp.simplify(sp.diff(P, x) - 8*x*f(y)) == 0
+      and sp.simplify(sp.diff(P, y) - 8*y*f(x)) == 0)
+u = sp.Symbol("u", positive=True)
+claim("f is strictly increasing in t^2 (derivative 4 rho^4)",
+      sp.diff(f(sp.sqrt(u)), u) == 4*rho**4)
+claim("simultaneous zeros require 2u^2 - 3u + 1 = 0, giving S2 = rho^2 or 2rho^2",
+      sorted(sp.solve(2*u**2 - 3*u + 1, u)) == [sp.Rational(1, 2), 1])
+claim("grad P(0) = 0, so Crit(P) in D_r is {0} = S",
+      sp.simplify(sp.diff(P, x).subs({x: 0, y: 0})) == 0
+      and sp.simplify(sp.diff(P, y).subs({x: 0, y: 0})) == 0)
+
+print("checks passed:", len(ok))
+for n in ok: print("  -", n)
+\end{lstlisting}
+
+\section{Boundaries}
+\label{sec:boundaries}
+
+\begin{enumerate}
+\item \textbf{Scope.} Only \texttt{thm:p0-punctures-are-critical},
+\texttt{cor:p0-puncture-count} and the claim about the second species in
+\texttt{rem:p0-puncture-hypothesis} are adjudicated. The rest of Paper 0 \S11,
+the six computed witnesses, \texttt{prop:p0-tearing-puncture-independent},
+\texttt{prop:p0-no-puncture-holonomy}, \texttt{op:p0-four-circle} and Papers
+I--IV were not checked.
+\item \textbf{The repair is sufficient, not necessary.} No claim is made that
+conformal extendability is the weakest hypothesis under which the theorem holds,
+nor that the counterexample is the only class of counterexample.
+\item \textbf{No status change.} This record changes no register. Whether to
+restate, re-hypothesise or demote the claim is a governance decision recorded in
+the companion review.
+\item \textbf{Author error recorded.} While locating the material above, five
+distinct errors were made and corrected, one of which had produced a spurious
+``REFUTED''. The cause of that one is worth recording because it has the same
+shape as the defect it was looking for: SymPy treats \texttt{Symbol("u")} and
+\texttt{Symbol("u", positive=True)} as \emph{different} symbols, and
+differentiating with respect to the one absent from the expression silently
+returns $0$ rather than raising. A silent constant returning in place of a result
+is exactly how an invalid proof step passes review.
+\end{enumerate}
+
+\begin{thebibliography}{9}
+\bibitem{Paper0}
+M.~Yuan and DeepSeek Harness Agent,
+\emph{Arithmetic Expression Geometry 0: Arithmetic Expression Spaces},
+\path{paper-0/}, commit \texttt{d89ceb8f8090482317b750407f623c8dcfb37ea2}.
+\bibitem{Review}
+\emph{AEG Paper 0 review: a counterexample to
+\texttt{thm:p0-punctures-are-critical}},
+\path{AEG-Paper-0-review-2026-09-29-thm-punctures-are-critical-v0.1.md},
+repository root.
+\end{thebibliography}
+
+\end{document}

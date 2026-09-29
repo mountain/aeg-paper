@@ -1,0 +1,363 @@
+\documentclass[11pt]{article}
+% =====================================================================
+%  Status:      research note (exploratory).  NOT a paper claim.
+%  Provenance:  derived in the session of 2026-09-28/29; depends on the
+%               group conventions fixed in companion note 07.
+%  Promotion:   nothing here is promoted.  See §6.
+% =====================================================================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=cyan}
+\usepackage[a4paper,margin=1in]{geometry}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+
+\tolerance=1000
+\emergencystretch=2.5em
+
+\title{Automorphisms of the joint group, dilation, and two obstructions}
+\author{Mingli Yuan and DeepSeek Harness Agent}
+\date{2026-09-29}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+The joint group $G=\mathbb R_A\times\operatorname{Aff}^+(1,\mathbb R)$ has a
+four-parameter family of Lie group automorphisms. Two of the parameters are
+geometrically meaningful: the diagonal one $\Phi_\lambda$ realises the
+\emph{similarity} of the plane in which the group acts, and the off-diagonal one
+$\gamma$ is the only part that cannot be seen in the plane at all. This note
+proves the classification, identifies the inner automorphisms, establishes the
+compatibility $D_\lambda T_gD_\lambda^{-1}=T_{\Phi_\lambda(g)}$, compares the
+outer hierarchy $\Phi_2^n(\Gamma)$ with the inner one and records why only the
+former removes both translation directions, and gives two obstructions to
+$\gamma\ne0$: the formula is not semialgebraic in the multiplicative coordinates,
+and it cannot be implemented by conjugating the plane action.
+\end{abstract}
+
+\tableofcontents
+
+\section{Status and provenance}
+\label{sec:status}
+
+\textbf{Status.} Research note, exploratory. Theorems~\ref{thm:aut} and the
+propositions of \S\S\ref{sec:dilation}--\ref{sec:obstructions} are proved here.
+$G$ is not a Paper 0 object and none of this is a paper claim.
+Proposition~\ref{prop:conformal} is the smallest item likely to be reusable.
+
+\textbf{Provenance.} Written 2026-09-29. The group law, the centre, the derived
+subgroup and the plane action are those of the companion note 07 in this
+directory; the contact form and the horizontal metric are Paper 0 \S9.
+
+\section{The automorphism group}
+\label{sec:aut}
+
+Recall
+\[
+G=\{(A,S,B):A,B\in\mathbb R,\ S>0\},\qquad
+(A_2,S_2,B_2)(A_1,S_1,B_1)=(A_2+A_1,\ S_2S_1,\ B_2+S_2B_1),
+\]
+with
+\[
+\mathfrak g=\operatorname{span}\{Z,H,N\},\quad
+[Z,H]=[Z,N]=0,\quad [H,N]=N,
+\]
+$Z$ the $A$-direction, $H$ the $M=\log S$ direction and $N$ the $B$-direction.
+As $G\cong\mathbb R^3$ it is connected and simply connected, so a Lie algebra
+automorphism integrates to a unique Lie group automorphism, and conversely.
+
+\begin{theorem}[All Lie automorphisms]
+\label{thm:aut}
+Every Lie group automorphism of $G$ is of the form
+\begin{equation}
+\label{eq:F}
+F_{\alpha,\gamma,\delta,\kappa}(A,S,B)
+=\bigl(\alpha A+\gamma\log S,\ S,\ \delta B+\kappa(S-1)\bigr),
+\qquad \alpha\delta\ne0,
+\end{equation}
+and every map of this form is an automorphism. The parameters compose by
+\[
+(\alpha_2,\gamma_2,\delta_2,\kappa_2)\circ(\alpha_1,\gamma_1,\delta_1,\kappa_1)
+=(\alpha_2\alpha_1,\ \alpha_2\gamma_1+\gamma_2,\ \delta_2\delta_1,\ \delta_2\kappa_1+\kappa_2).
+\]
+\end{theorem}
+
+\begin{proof}
+That \eqref{eq:F} is a homomorphism is the direct computation
+\[
+F(gh)=\bigl(\alpha(A_2{+}A_1)+\gamma\log(S_2S_1),\ S_2S_1,\
+\delta(B_2{+}S_2B_1)+\kappa(S_2S_1{-}1)\bigr)=F(g)F(h),
+\]
+the third coordinate matching because
+$\kappa(S_2S_1-1)=\kappa(S_2-1)+S_2\kappa(S_1-1)$; it is bijective exactly when
+$\alpha\delta\ne0$, with $F(g)=e$ only for $g=e$.
+
+Conversely, let $F$ be any automorphism. The centre and the derived subgroup are
+characteristic, so $dF$ maps $\mathbb RZ$ to $\mathbb RZ$ and $\mathbb RN$ to
+$\mathbb RN$:
+\[
+dF(Z)=\alpha Z,\qquad dF(N)=\delta N,\qquad dF(H)=\beta H+\gamma Z+\kappa N .
+\]
+Applying $dF$ to $[H,N]=N$ gives
+$\beta\delta N=\delta N$, hence $\beta=1$ because $\delta\ne0$. Since $G$ is
+connected and simply connected, $F$ is determined by $dF$, and the differential
+just computed is exactly that of \eqref{eq:F}.
+\end{proof}
+
+\begin{proposition}[Inner automorphisms]
+\label{prop:inner}
+Conjugation by $k=(\alpha,r,\beta)$ sends
+\[
+(A,S,B)\longmapsto\bigl(A,\ S,\ rB-(S-1)\beta\bigr).
+\]
+Hence the inner automorphisms are exactly the $F_{1,0,r,\kappa}$ with $r>0$ and
+$\kappa$ arbitrary.
+\end{proposition}
+
+\begin{proof}
+$kgk^{-1}=(A,S,rB+(1-S)\beta)$, which in the parametrisation \eqref{eq:F} is
+$\alpha=1$, $\gamma=0$, $\delta=r$, $\kappa=-\beta$. Conversely every
+$F_{1,0,r,\kappa}$ with $r>0$ is conjugation by $(0,r,-\kappa)$.
+\end{proof}
+
+\begin{proposition}[No automorphism cycles the axes]
+\label{prop:no-cycle}
+There is no automorphism of $G$ interchanging the three coordinate directions
+cyclically.
+\end{proposition}
+
+\begin{proof}
+By Theorem~\ref{thm:aut}, $dF(Z)=\alpha Z$ and $dF(N)=\delta N$ are always
+multiples of $Z$ and $N$ respectively, while $dF(H)=H+\gamma Z+\kappa N$ always
+has $H$-coefficient exactly $1$. So no generator is sent to a different
+generator.
+\end{proof}
+
+\section{Dilation is an outer automorphism}
+\label{sec:dilation}
+
+Put
+\[
+\Phi_\lambda(A,S,B)=(\lambda A,\ S,\ \lambda B),\qquad \lambda>0,
+\]
+which is $F_{\lambda,0,\lambda,0}$ in \eqref{eq:F}. Write also
+\[
+T_g(x,y)=(x+A,\ Sy+B),\qquad D_\lambda(x,y)=(\lambda x,\ \lambda y).
+\]
+
+\begin{proposition}
+\label{prop:dilation}
+\leavevmode
+\begin{enumerate}
+\item $\Phi_\lambda\in\operatorname{Aut}(G)$ and
+$D_\lambda T_gD_\lambda^{-1}=T_{\Phi_\lambda(g)}$ for every $g$ and every
+$\lambda>0$.
+\item For $\lambda\ne1$, $\Phi_\lambda$ is \emph{not} inner.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(1) The first part is Theorem~\ref{thm:aut}. For the conjugation identity,
+\[
+D_\lambda T_gD_\lambda^{-1}(x,y)
+=D_\lambda\Bigl(\frac x\lambda+A,\ \frac{Sy}\lambda+B\Bigr)
+=\bigl(x+\lambda A,\ Sy+\lambda B\bigr)=T_{\Phi_\lambda(g)}(x,y).
+\]
+(2) Inner automorphisms act trivially on the centre, since the centre is central;
+but $\Phi_\lambda(A,1,0)=(\lambda A,1,0)\ne(A,1,0)$ for $\lambda\ne1$ and
+$A\ne0$.
+\end{proof}
+
+So the similarity of the acting plane is implemented by a group automorphism of
+the joint quotient, and for $\lambda\ne1$ by one that no conjugation inside $G$
+can produce. This is a faithful compatibility between an automorphism of the
+group and a geometric transformation of the plane.
+
+\begin{proposition}[Dilation scales the contact form]
+\label{prop:conformal}
+In the coordinates $(A,M,B)$ with $M=\log S$,
+\[
+\Phi_\lambda^*\alpha=\lambda\,\alpha,
+\qquad
+\Phi_\lambda^*\bigl(dA^2+dM^2\bigr)=\lambda^2dA^2+dM^2,
+\]
+where $\alpha=dB-dA-B\,dM$. Hence $\Phi_\lambda$ rescales the contact form by
+the constant $\lambda$ but is an isometry of the horizontal metric only when
+$\lambda=1$.
+\end{proposition}
+
+\begin{proof}
+$\Phi_\lambda$ reads $(A,M,B)\mapsto(\lambda A,M,\lambda B)$, so
+$d(\lambda B)-d(\lambda A)-(\lambda B)dM=\lambda(dB-dA-B\,dM)$. The horizontal
+metric pulls back to $\lambda^2dA^2+dM^2$.
+\end{proof}
+
+\begin{remark}
+Consequently $D_\lambda T_gD_\lambda^{-1}=T_{\Phi_\lambda(g)}$ is a statement
+about \emph{similarities}, not isometries, of the plane action; and it is
+consistent with the companion note's observation that no positive definite
+metric makes the whole of $T(G)$ act by isometries.
+\end{remark}
+
+\section{Hierarchies: outer versus inner}
+\label{sec:hierarchy}
+
+Let
+\[
+\tau=(1,1,0),\qquad \eta=(0,1,1),\qquad \delta=(0,2,0),
+\qquad \Gamma=\{(m,1,n):m,n\in\mathbb Z\}\cong\mathbb Z^2,
+\]
+so that $\Gamma$ is the subgroup of $G$ acting as the unit square lattice.
+
+\begin{proposition}[Inner hierarchy]
+\label{prop:inner-hierarchy}
+$\delta\tau\delta^{-1}=\tau$ and $\delta\eta\delta^{-1}=\eta^2$, and
+geometrically $T_\delta(x,y)=(x,2y)$ with $T_\delta Q=Q\cup T_\eta Q$ for
+$Q=[0,1]^2$. Consequently the conjugates $\Gamma_n=\mathbb Z\times2^n\mathbb Z$
+satisfy
+\[
+\bigcap_{n\ge0}\Gamma_n=\mathbb Z\times\{0\}\ne\{0\}.
+\]
+\end{proposition}
+
+\begin{proof}
+The conjugations are direct. For the geometric statement,
+$T_\delta Q=[0,1]\times[0,2]=Q\cup([0,1]\times[1,2])=Q\cup T_\eta Q$, with
+shared boundary only. The subgroups $\Gamma_n$ are the stabilisers of the
+$n$-fold refined lattices, and the intersection is the set of pairs $(m,0)$.
+\end{proof}
+
+So an internal refinement scales only one direction: however deep the vertical
+subdivision, the horizontal integer translations survive.
+
+\begin{proposition}[Outer hierarchy removes both]
+\label{prop:outer-hierarchy}
+$\Phi_2(\tau)=\tau^2$, $\Phi_2(\eta)=\eta^2$, and
+\[
+\Phi_2^n(\Gamma)=2^n\mathbb Z^2,
+\qquad
+\bigcap_{n\ge0}\Phi_2^n(\Gamma)=\{0\}.
+\]
+\end{proposition}
+
+\begin{proof}
+$\Phi_2(A,S,B)=(2A,S,2B)$ acts on $\Gamma=\{(m,1,n)\}$ by $(m,n)\mapsto(2m,2n)$.
+The intersection of the subgroups $2^n\mathbb Z^2$ is trivial.
+\end{proof}
+
+\begin{remark}
+The two hierarchies are different mechanisms and must not be conflated. Only the
+outer family, which is exactly the family implementing dilations of the plane,
+removes a period in \emph{every} direction. This does \emph{not} by itself
+produce any tiling statement: whether a given tile geometry \emph{forces} such a
+hierarchy is a separate question and is not addressed here.
+\end{remark}
+
+\section{The two obstructions to \texorpdfstring{$\gamma\ne0$}{gamma != 0}}
+\label{sec:obstructions}
+
+The parameter $\gamma$ in \eqref{eq:F} mixes the centre into the $H$-direction.
+It is the only part of $\operatorname{Aut}(G)$ that the geometry of the acting
+plane cannot see. Two obstructions make this precise.
+
+\begin{proposition}[$\log$ is not semialgebraic]
+\label{prop:log-not-semialgebraic}
+The graph $\{(x,y):x>0,\ y=\log x\}$ is not a semialgebraic subset of
+$\mathbb R^2$. Consequently no $F_{\alpha,\gamma,\delta,\kappa}$ with
+$\gamma\ne0$ has a semialgebraic formula in the multiplicative coordinates
+$(A,S,B)$.
+\end{proposition}
+
+\begin{proof}
+Suppose some nonzero polynomial $P$ vanished on the whole graph. Substituting
+$x=e^t$, $y=t$ gives
+\[
+P(e^t,t)=\sum_{i=0}^{n}p_i(t)e^{it}=0\qquad\text{for all }t\in\mathbb R,
+\]
+with $p_n\ne0$. Dividing by $e^{nt}$ and letting $t\to+\infty$ forces
+$p_n(t)\to0$, which is impossible for a nonzero polynomial. Hence no such $P$
+exists, and the graph --- having empty interior --- cannot be described by
+finitely many polynomial equalities and inequalities either.
+\end{proof}
+
+\begin{proposition}[$\gamma\ne0$ is not a plane transformation]
+\label{prop:gamma-not-plane}
+No $F_{\alpha,\gamma,\delta,\kappa}$ with $\gamma\ne0$ is implemented by
+conjugating the plane action $T(G)$ with a global bijection of the plane.
+\end{proposition}
+
+\begin{proof}
+For $(x,y)$ in the plane, the stabiliser in $T(G)$ is
+\[
+\operatorname{Stab}(x,y)=\bigl\{(0,S,(1-S)y):S>0\bigr\},
+\]
+every element of which has $A$-coordinate $0$. Any conjugation of the action by a
+bijection carries stabilisers to stabilisers. But
+$F_{\alpha,\gamma,\delta,\kappa}(0,S,(1-S)y)$ has $A$-coordinate
+$\gamma\log S$, which is nonzero for $S\ne1$ when $\gamma\ne0$, so the image of
+the stabiliser is not the stabiliser of any point. Contradiction.
+\end{proof}
+
+\begin{remark}
+By contrast, when $\gamma=0$ every automorphism of \eqref{eq:F} \emph{is}
+implemented by a plane affine map: conjugating $T(G)$ with
+\[
+F_{\mathrm{plane}}(x,y)=(\alpha x,\ \delta y-\kappa)
+\]
+gives
+\[
+F_{\mathrm{plane}}T_gF_{\mathrm{plane}}^{-1}=T_{F_{\alpha,0,\delta,\kappa}(g)},
+\]
+as a direct substitution shows.
+\end{remark}
+
+\section{Boundaries: what is not claimed}
+\label{sec:boundaries}
+
+\begin{enumerate}
+\item \textbf{Lie automorphisms only.} Theorem~\ref{thm:aut} classifies the
+\emph{smooth} automorphisms of the Lie group. Abstract group automorphisms
+without any continuity hypothesis are \emph{not} classified, and no such claim is
+made.
+\item \textbf{Structure preservation is not automatic.} Theorem~\ref{thm:aut}
+gives the automorphisms of the group. It does not say that every one of them
+preserves the contact form, the horizontal metric, the assignment, the
+projections of the companion note, or any verification certificate.
+Proposition~\ref{prop:conformal} is the one case computed here.
+\item \textbf{The hierarchy is not a tiling theorem.} Nothing above asserts that
+a tile geometry forces an intrinsic hierarchy, or that any particular tile is
+aperiodic. The hierarchy statements concern subgroups of $G$ only.
+\item \textbf{$\Phi_\lambda$ is not a symmetry of the contact model.} It rescales
+$\alpha$ by $\lambda$ and the horizontal metric anisotropically; the maps it
+implements on the plane are similarities, not isometries.
+\item \textbf{The finite checks are regressions.} The identities above are proved
+symbolically; the exact rational family checked alongside them is a regression
+only and cannot be quoted as a proof of any universal statement.
+\end{enumerate}
+
+\begin{thebibliography}{9}
+\bibitem{Paper0}
+M.~Yuan and DeepSeek Harness Agent,
+\emph{Arithmetic Expression Geometry 0: Arithmetic Expression Spaces},
+\path{paper-0/}, commit \texttt{d89ceb8f8090482317b750407f623c8dcfb37ea2}.
+\bibitem{Note07}
+Companion note 07 in this directory,
+\emph{The joint quotient of the ACS charge and the AES affine operator}.
+\bibitem{Note08}
+Companion note 08 in this directory,
+\emph{Isometric realisations of the joint group in the eight Thurston geometries}.
+\end{thebibliography}
+
+\end{document}

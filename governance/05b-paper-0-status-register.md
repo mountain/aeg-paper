@@ -1,10 +1,26 @@
 # Paper 0 Mathematical Status Register
 
 **Status:** Authoritative register for Paper 0 only
-**Version:** 1.0
-**Date:** 2026-09-22
+**Version:** 1.1
+**Date:** 2026-09-22; amended 2026-09-29
 **Applies to:** `paper-0/aeg-paper-0.tex` and its `sections/` and `appendices/`
 **Companion:** `05-mathematical-status.md` (which applies to Papers I--IV)
+
+**Amendment (2026-09-29).** An independently verified counterexample shows that
+`thm:p0-punctures-are-critical` is **false as printed**: its proof's first step
+constructs a metric satisfying the eikonal identity and treats it as an extension
+of the given `g`, whereas condition (ii) of `def:p0-punctured-aes` requires
+extending `g` itself. `cor:p0-puncture-count` inherits the gap, and the second
+clause of `rem:p0-puncture-hypothesis` is refuted. The affected rows in section 6
+are amended below; section 7 is amended accordingly. Evidence: the root review
+`AEG-Paper-0-review-2026-09-29-thm-punctures-are-critical-v0.1.md` and the
+retained record `notes/foundations-and-geometry/10`; ledger entry C-10 in
+`governance/notes-reserve-audit.md`. **No paper source is edited by this
+amendment**; the printed theorem therefore still carries the defective
+hypothesis, and the amendment records that fact rather than repairing it. The
+repairable form is stated in the note column below. `thm:p0-four-circle-model`,
+`prop:p0-tearing-puncture-independent`, `prop:p0-surface-does-not-close` and
+`prop:p0-no-puncture-holonomy` are not affected.
 
 This register is created by
 `00b-paper-0-geometric-foundation-amendment.md` §1.7.  It uses the nine status
@@ -94,23 +110,23 @@ EXCLUDED`.
 | Node | Status | Note |
 |---|---|---|
 | the gradient never vanishes in a regular AES (`lem:p0-gradient-nonvanishing`) | `PROVED` | `|\nabla a|^2 = \mu^2+\lambda^2a^2 \ge \mu^2 > 0`; implies every level set is a smooth curve; Paper I's regular-zero theorem is the level-zero case |
-| punctures are exactly the critical points of the assignment (`thm:p0-punctures-are-critical`) | `PROVED` | added 2026-09-22 (evening), hypothesis: the assignment extends smoothly to the ambient surface; resolves OI-3 for that class, since `S` is then canonical rather than stipulated |
-| the hypothesis is active (`rem:p0-puncture-hypothesis`) | `PROVED` (explanatory remark) | the disc model of Paper I does not satisfy it (its assignment is not `C^1` at the puncture), so canonicality there remains open |
-| puncture count equals critical-point count (`cor:p0-puncture-count`) | `PROVED` | a `k`-puncture model of this kind exists iff the ambient surface carries a smooth function with exactly `k` critical points |
+| punctures are exactly the critical points of the assignment (`thm:p0-punctures-are-critical`) | **`UNSUPPORTED AND EXCLUDED` as printed** (amended 2026-09-29); the repaired form is `PROVED WITH STATED HYPOTHESES` | added 2026-09-22 (evening) as `PROVED`, hypothesis: the assignment extends smoothly to the ambient surface. **Refuted as printed**: a verified counterexample has a smoothly extending assignment, `S = {0}`, and `Crit(atilde) = emptyset`. The gap is in the proof's first step — the template metric `g~ = |d atilde|^2_{g_0} g_0 / (mu^2 + lambda^2 atilde^2)` satisfies the eikonal identity but is not an extension of the given `g`. The reverse inclusion `Crit(atilde) subseteq S` remains proved. **Repaired form:** the conclusion holds if in addition `g` is conformal, near each puncture, to a metric extending smoothly and non-degenerately; then the eikonal identity forces `g` to be the template metric. Awaiting a paper amendment; see C-10 |
+| the hypothesis is active (`rem:p0-puncture-hypothesis`) | `PARTIALLY PROVED` (amended 2026-09-29) | the disc model of Paper I does not satisfy the hypothesis (its assignment is not `C^1` at the puncture), so canonicality there remains open — that half stands. The closing clause, "in the second kind the puncture set is canonical", is **refuted**: the counterexample is of that kind (assignment smooth, metric non-extendable) with `S = {0}` unforced, and the same model translates to any interior point. The distinction the remark draws between the two species remains correct and is what the repaired theorem needs |
+| puncture count equals critical-point count (`cor:p0-puncture-count`) | **`UNSUPPORTED AND EXCLUDED`** (amended 2026-09-29) | inherits the gap above; it was derived "immediately" from the theorem. Both the equality of counts and the "iff" clause fail on the counterexample (one puncture, zero critical points, on a disc that carries a smooth function with no critical point) |
 | the tearing does not see the puncture (`prop:p0-tearing-puncture-independent`) | `PROVED` | added 2026-09-22 (fourth revision): `tau` is a function of the two words, so puncturing, changing the model, or changing the realisation leaves it unchanged; resolves the first half of OI-2 |
 | the surface never closes the comparison (`prop:p0-surface-does-not-close`) | `PROVED` | the two orderings of a rectangle end at points whose assignments differ by `mu*h*(e^{lambda k}-1) != 0`, so the two flow paths bound no region of `M`; the ACS comparison is therefore canonical in every AES, not a workaround for punctures |
 | no canonical holonomy around a puncture (`prop:p0-no-puncture-holonomy`) | `PROVED` | the level-set foliation is integrable hence flat; a curved connection requires added data (the contact model, where `omega` is canonical relative to the charge projection); and in canonical-puncture models the assignment is single-valued, so there is no monodromy |
 | the zero-set germ and the metric at the puncture (`prop:p0-puncture-local-picture`) | `PROVED` | a circle of radius below `rho` meets the zero locus in exactly eight points with sign changes; eight sectors, four positive and four negative (the cusps along the axes); `g` is conformal to the Euclidean metric with vanishing factor, so the conformal class extends although the metric does not |
 | punctured AES definition (`def:p0-punctured-aes`) | `PROVED` | definition; revised 2026-09-22 to give an ambient surface and a finite set first, so that nonempty puncture sets exist; finite-point specialization of Paper I's singular AES |
 | tangent cone of the four limiting circles (`prop:p0-puncture-tangent-cone`) | `PROVED` | exact algebraic identity, verified in-paper |
-| an explicit punctured AES with the four-circle zero locus (`thm:p0-four-circle-model`) | `PROVED` | added 2026-09-22: the template metric forced by the eikonal identity, the exact critical set (so `\nabla P \neq 0` on a punctured disc of radius `< \rho`), the zero locus, non-extendability at the origin, and incompleteness with the puncture at finite distance; answers the review's R7 request for a construction |
+| an explicit punctured AES with the four-circle zero locus (`thm:p0-four-circle-model`) | `PROVED` | added 2026-09-22: the template metric forced by the eikonal identity, the exact critical set (so `\nabla P \neq 0` on a punctured disc of radius `< \rho`), the zero locus, non-extendability at the origin, and incompleteness with the puncture at finite distance; answers the review's R7 request for a construction. **Unaffected by the 2026-09-29 amendment**, but note why: here `d atilde(0) = 0`, so the defective branch of the theorem's proof is never entered and this model never tested it |
 | six computed witnesses | `COMPUTATIONALLY VERIFIED EXAMPLE` | each with the model stated in-paper where the count depends on it; the register is non-authoritative |
 | observer witness | `PROVED` (bound), register numbers **not reproduced** | the residual functions, their exact zero, and the halting bound `|theta-pi/2| < 5eps/8 + O(eps^2)` are proved; the register's round counts depend on an unfixed update step and are not quoted |
 | the reading of the witnesses as an obstruction of AES | `UNSUPPORTED AND EXCLUDED` | listed in `subsec:p0-holed-nonclaims` as a non-claim |
 | the identification of the $\mathbb Z_3$ monodromy with any $\mathbb Z_4$ twist | `UNSUPPORTED AND EXCLUDED` | recorded in the register as unproved; not reproduced here |
-| generalizing the four-circle model to `k` punctures or to motion-generated assignments | `OPEN PROBLEM` | `op:p0-four-circle`; the `k`-puncture half is now an explicit question about functions with `k` critical points (`cor:p0-puncture-count`) |
+| generalizing the four-circle model to `k` punctures or to motion-generated assignments | `OPEN PROBLEM` | `op:p0-four-circle`; the `k`-puncture half was recast by `cor:p0-puncture-count` as a question about functions with `k` critical points, but that corollary is now excluded (see above), so the recasting is withdrawn and the question returns to its earlier form |
 | comparison of tearing across a puncture in a model whose assignment does not extend | `OPEN PROBLEM` | settled for smoothly extending assignments by `prop:p0-tearing-puncture-independent`, `prop:p0-surface-does-not-close`, `prop:p0-no-puncture-holonomy`; the non-extending case is OQ-088 |
-| canonical punctures when the assignment does **not** extend smoothly | `OPEN PROBLEM` | the smoothly extending case is settled by `thm:p0-punctures-are-critical`; the disc model of Paper I is the open case (OQ-088) |
+| canonical punctures when the assignment does **not** extend smoothly | `OPEN PROBLEM` | the disc model of Paper I is the open case (OQ-088). **Amended 2026-09-29:** the smoothly extending case is *not* settled either — see the theorem row in this table, refuted as printed. The dividing line that survives is not "assignment extends" but "the metric is conformal near each puncture to one that extends"; OQ-088's framing is amended accordingly |
 
 ## 7. Open programmes
 
@@ -120,3 +136,10 @@ invariants; canonicality of punctures for non-extending assignments; ripple
 structure at a puncture;
 multi-wire semantics; general theory of infinite arithmetic expressions; a
 positive non-linear description replacing the two obstructions of §10.
+
+**Amended 2026-09-29.** Canonicality of punctures is now open in **both**
+species, not only for non-extending assignments. The sufficient hypothesis under
+which the original two-inclusion proof goes through is recorded in the
+`thm:p0-punctures-are-critical` row above; whether it is also necessary, and what
+plays the role of the critical set when the assignment does not extend, are both
+open (OQ-082 amendment; OQ-088).
