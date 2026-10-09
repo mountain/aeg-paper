@@ -1,0 +1,245 @@
+{
+  "arithmetic": "exact rational fractions; Python standard library only",
+  "checker": "independently-authored-ported-aes-finite-checker-v1",
+  "checks": [
+    {
+      "evidence": {
+        "constant_sources": 8,
+        "output": [
+          "9",
+          "15",
+          "5/2"
+        ],
+        "output_constant_ancestry_sizes": [
+          4,
+          4,
+          8
+        ],
+        "primitive_gates": 21
+      },
+      "name": "positive_four_producer_rational_execution",
+      "status": "pass"
+    },
+    {
+      "evidence": {
+        "transported_gates": 21,
+        "transported_wires": 25
+      },
+      "name": "positive_substitution_source_occurrence_transport",
+      "status": "pass"
+    },
+    {
+      "evidence": {
+        "rejected": [
+          "implicit sharing",
+          "duplicate binding",
+          "unused output",
+          "type mismatch",
+          "reuse without fresh instance"
+        ]
+      },
+      "name": "negative_implicit_sharing_binding_type_and_instance_controls",
+      "status": "pass"
+    },
+    {
+      "evidence": {
+        "frontier": [
+          "producer.u",
+          "unfilled-body.h0"
+        ],
+        "permuted_output": [
+          "-4"
+        ],
+        "sample_output": [
+          "5"
+        ],
+        "sequential_frontier": [
+          "v",
+          "u"
+        ],
+        "simultaneous_frontier": [
+          "u",
+          "v"
+        ],
+        "typed_normalization_permutation": [
+          1,
+          0
+        ]
+      },
+      "name": "positive_partial_substitution_frontier_order",
+      "status": "pass"
+    },
+    {
+      "evidence": {
+        "defined": 12,
+        "domain": "v != 0 and z != 0 (on the tested grid)",
+        "rational_inputs": 27,
+        "undefined": 15
+      },
+      "name": "positive_substitution_strict_partial_domain_grid",
+      "status": "pass"
+    },
+    {
+      "evidence": {
+        "body_alone": [
+          "7"
+        ],
+        "composite": "undefined",
+        "discarded_producer": "1/0"
+      },
+      "name": "negative_discard_does_not_erase_undefined_producer",
+      "status": "pass"
+    },
+    {
+      "evidence": {
+        "main_network_schedules_sampled": 18,
+        "small_network_schedules_exhausted": 80,
+        "traces_distinct": true
+      },
+      "name": "positive_topological_numerics_distinct_traces",
+      "status": "pass"
+    },
+    {
+      "evidence": {
+        "isomorphism_gate_pairs": [
+          [
+            "arg0/arg0/two",
+            "arg0/two"
+          ],
+          [
+            "arg0/body/add",
+            "body/arg0/add"
+          ],
+          [
+            "arg0/body/three",
+            "body/arg0/three"
+          ],
+          [
+            "body/four",
+            "body/body/four"
+          ],
+          [
+            "body/multiply",
+            "body/body/multiply"
+          ]
+        ],
+        "left_identity_contract_preserved": true,
+        "output": [
+          "20"
+        ],
+        "receipts_distinct": true,
+        "right_identity_contract_preserved": true
+      },
+      "name": "positive_association_isomorphism_distinct_receipts",
+      "status": "pass"
+    },
+    {
+      "evidence": {
+        "gate_counts": [
+          3,
+          1
+        ],
+        "histories_distinct": true,
+        "same_output": [
+          "2"
+        ]
+      },
+      "name": "negative_equal_scalar_does_not_identify_process",
+      "status": "pass"
+    },
+    {
+      "evidence": {
+        "coarse_region_cycle_with_global_DAG": true,
+        "global_output": [
+          "9",
+          "15",
+          "5/2"
+        ],
+        "independent_event_partitions": 2,
+        "internal_seam_wire_counts": [
+          3,
+          7
+        ]
+      },
+      "name": "positive_two_independent_seam_packet_reassemblies",
+      "status": "pass"
+    },
+    {
+      "evidence": {
+        "rejected": [
+          "missing seam",
+          "missing exposed frontier",
+          "changed source",
+          "missing local gate",
+          "changed gate parameter"
+        ]
+      },
+      "name": "negative_seam_frontier_inventory_and_source_controls",
+      "status": "pass"
+    },
+    {
+      "evidence": {
+        "global_cycle_rejected": true,
+        "locally_acyclic_pieces": 2
+      },
+      "name": "negative_locally_acyclic_pieces_form_global_cycle",
+      "status": "pass"
+    },
+    {
+      "evidence": {
+        "all_monoid_elements_checked": 2,
+        "finite_states": 3,
+        "illegal_outcome_distinguished": true,
+        "observation_descent": true,
+        "obstruction": {
+          "equal_feature_states": [
+            0,
+            1
+          ],
+          "updated_features": [
+            0,
+            1
+          ]
+        },
+        "online_update_exists": false
+      },
+      "name": "positive_observation_descent_negative_online_feature_update",
+      "status": "pass"
+    },
+    {
+      "evidence": {
+        "cut_centers": [
+          "-1/2",
+          "1/2"
+        ],
+        "cut_radius": "3/4",
+        "exact_rational_sample_points": 8,
+        "infinite_end": "xi=infinity, eta=0 (exact homogeneous-coordinate check)",
+        "marked_end_transports": 8,
+        "metric_covector_frame_pullbacks": true,
+        "negative_controls": [
+          "doubled metric",
+          "wrong Jacobian sign",
+          "reciprocal at zero"
+        ],
+        "signed_parameters": {
+          "lambda": "1",
+          "mu": "1"
+        },
+        "xi_open_collar": "3/4 < |xi| < 5/4"
+      },
+      "name": "positive_exact_reciprocal_collar_frame_samples_with_negative_controls",
+      "status": "pass"
+    }
+  ],
+  "groups_passed": 14,
+  "groups_total": 14,
+  "limitations": [
+    "Finite fixtures and declared sample domains are not proofs of the general theorems.",
+    "The two event partitions and seam packets are independently authored, not recovered original packets or gate placements on a surface.",
+    "Collar calculations are exact at eight declared rational sample points; no global smooth-gluing or essential-end theorem is claimed.",
+    "No faithful AES realization of arithmetic/copy/discard gates or actual opposite-edge feature witness is implemented."
+  ],
+  "provenance": "New implementation from the recovered 2026-10-09 Version 0.1 PDF; original ZIP unavailable. Not the original reported 55 checks.",
+  "status": "pass"
+}

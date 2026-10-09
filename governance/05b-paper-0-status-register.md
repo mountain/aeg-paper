@@ -143,3 +143,37 @@ which the original two-inclusion proof goes through is recorded in the
 `thm:p0-punctures-are-critical` row above; whether it is also necessary, and what
 plays the role of the critical set when the assignment does not extend, are both
 open (OQ-082 amendment; OQ-088).
+
+## 8. Finite-type compactification amendment (2026-10-09)
+
+This current amendment supersedes the affected *active-manuscript* statuses in
+section 6 without rewriting the dated September 29 evidence or review. The
+original unrestricted critical-set statement remains refuted; the canonical
+source now prints the explicitly restricted version below.
+
+| Node | Current status | Active hypotheses and boundary |
+|---|---|---|
+| `thm:p0-punctures-are-critical` | `PROVED WITH STATED HYPOTHESES` | Assignment extends smoothly, and near each puncture the **given** metric is conformal to a background metric extending smoothly and positively across it. Eikonal then forces the template factor, so the constructed extension really agrees with the given metric. |
+| `cor:p0-puncture-count` | `PROVED WITH STATED HYPOTHESES` | Equality of puncture/critical counts only in the preceding class; converse constructs a metric from an assignment with finite critical set. No unrestricted existential classification is claimed. |
+| `rem:p0-puncture-hypothesis`, `rem:p0-multi-puncture` | `PROVED WITH STATED HYPOTHESES` | The anisotropic counterexample is included; without conformal background only Crit(a) ⊆ S follows. |
+| `def:p0-finite-type-carrier`, `def:p0-collar-contract` | `STRUCTURAL PROPOSAL` | Definitions of declared carrier/end and full smooth collar data; no canonical seam choice. |
+| `prop:p0-conformal-end-filling` | `PROVED WITH STATED HYPOTHESES` | Finite topological type plus punctured-disc conformal ends, and only conformal point filling. |
+| `thm:p0-arbitrary-k-punctures` | `PROVED WITH STATED HYPOTHESES` | Every k≥1; k−1 distinct real critical points plus essential infinity, μ≠0, real λ; existence, not arbitrary-moduli classification. |
+| `eq:p0-pants-counts` | `PROVED WITH STATED HYPOTHESES` | Connected oriented finite type with 2γ−2+k>0; standard decomposition existence cited; count proved by Euler characteristic and end incidence. |
+| `prop:p0-aes-collar-descent` | `PROVED WITH STATED HYPOTHESES` | Full collar germs, inverse/cocycle laws, Hausdorff smooth quotient, consistent orientation and equal signed μ,λ. Frame and finite transverse-flow compatibility; no analytic extension at punctures. |
+| `warn:p0-hyperbolic-auxiliary` | `PROVED WITH STATED HYPOTHESES` | Imported complete-splitting obstruction from Paper I, with connectedness, completeness, no boundary and single-valued assignment. |
+| Three-cusp covering and degeneration paragraphs | `PROVED WITH STATED HYPOTHESES` | Power-map cover is a special conformal family; FN/plumbing describe auxiliary hyperbolic/conformal geometry with markings and local coordinate choices. No AES-compatible degeneration is asserted. |
+| `prop:p0-k4-motion-residue` | `PROVED WITH STATED HYPOTHESES` | Local flows near (0,1) in explicit k4 model; exact scalar identity and nonzero mixed state displacement (−3/4,0). New analytic certificate, not a rerun of the unavailable original numerical suite. |
+| `prop:p0-apollonian-gap-equivalence` | `PROVED WITH STATED HYPOTHESES` | Non-degenerate chosen triangular gaps, three distinct tangencies, matching cyclic marking; recursive circles by uniqueness. Four initial gaps still recurse ternarily. |
+| `prop:p0-four-circle-deformation` | `PROVED` | Incidence obstruction and explicit circle family only; not an AES deformation. |
+| `prop:p0-three-sheet-cover` | `PROVED WITH STATED HYPOTHESES` | Independent base sheet, explicit cut permutations, pulled-back complex structure; cone angle 6π pertains to the Euclidean pullback length metric. |
+| Bolza and double-pants comparison | `PROVED WITH STATED HYPOTHESES` | Exact specified algebraic specialization and genus count; no conformal or process equivalence from genus alone. |
+| New exact finite checks in `paper-0/scripts/verify-compactification.py` | `COMPUTATIONALLY VERIFIED EXAMPLE` | Regression evidence for the explicit formulas, not the proof of general theorems or the original 39-check archive. |
+| Arbitrary conformal moduli, AES-compatible plumbing, faithful arithmetic circle surgery | `OPEN PROBLEM` | Existence of one model per count and auxiliary hyperbolic compatibility do not settle these. |
+
+The old statement that producing *some* compactifiable multi-puncture example
+is open is superseded by `thm:p0-arbitrary-k-punctures`. Prescribed puncture
+positions, prescribed zero configurations, motion-generated assignments and
+classification remain open. The original unrestricted “iff” corollary loses
+its proof; the counterexample directly refutes the equality for a given AES,
+not every possible existential reformulation on that ambient surface.

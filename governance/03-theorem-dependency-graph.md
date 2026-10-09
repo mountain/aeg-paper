@@ -3526,3 +3526,33 @@ critical-value braid      =/=> unmarked B5-to-B6 homomorphism
 common Sp4(F2) = S6 target =/=> Frobenius/topological-loop identification
 full B6 monodromy         =/=> new knot invariant.
 ```
+
+## Finite-type/ported integration dependencies — 2026-10-09
+
+The added chain has the following explicit dependencies:
+
+```text
+regular AES + nonvanishing differential
+  -> critical-set theorem WITH extending conformal background
+  -> restricted critical-count construction
+regular AES definition + explicit polynomial a
+  -> arbitrary-k example (direct proof, independent of critical-set theorem)
+finite-type carrier + punctured-disc ends
+  -> conformal point compactification
+regular AES + full oriented collar atlas + fixed signed μ,λ
+  -> geometric descent + canonical-frame and local-flow compatibility
+explicit k4 a,g + canonical frame + smooth local flows
+  -> nonzero level-set residue for a scalar-identity word
+finite strict typed DAG + explicit copy/discard + occurrence-safe substitution
+  -> exact partial-domain substitution/evaluation compatibility
+geometric collar descent + complete port/interface inventory + GLOBAL DAG
+  -> joint geometric/computational descent
+contextual residual experiment + feature map
+  -> observation factorization iff contextual refinement
+  -> exact online feature machine only with right congruence and output factorization
+```
+
+No arrow runs from pants topology, FN coordinates, circle incidence or the
+finite scalar example to faithful multi-input AES motion realization. The
+complete-metric obstruction is imported from Paper I's existing splitting
+theorem, not reproved or strengthened as a new classification.

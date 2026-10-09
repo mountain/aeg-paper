@@ -953,3 +953,24 @@ closure.
   line above records only what was actually executed; `build.sh` was not run
   here and no claim is made about it in this entry beyond stating that it is
   unaffected.
+
+## H2 compactification and ported AES integration — 2026-10-09
+
+Baseline: `968c5c29557e8f7d70fe8baea2733726b852507d`.
+
+- Dated compactification research conclusions → Paper 0 canonical section
+  `12-compactification.tex` and appendix `app-E-circle-surgery.tex`, with
+  independent in-paper proofs and explicit geometric/AES boundaries.
+- Readable candidate manuscript *Ported Arithmetic Expression Spaces:
+  Substitution, Execution, and Composition*, 2026-10-09 v0.1 → Paper IV
+  `05b-ported-aes-programs.tex`, after contextual residuals. Adaptation to
+  existing notation, references and claim ledger; no raw conversation copied.
+- September 29 critical-puncture review → minimal correction of the active
+  theorem and dependent corollary/remarks with conformal-background hypothesis.
+  Original review and retained evidence files are unchanged.
+- Independent new regression scripts → `paper-0/scripts/verify-compactification.py`
+  and `paper-4/scripts/verify-ported-aes.py`. Original 39/55-check bundles are
+  not represented as recovered or rerun.
+- No existing note, manuscript section or archival artifact was deleted or
+  moved. Source coverage, unresolved artifact recovery and validation are in
+  `h2-integration-2026-10-09.md`.

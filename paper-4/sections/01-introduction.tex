@@ -40,8 +40,8 @@ We organize the subject into four layers.
   an image--kernel projector.
 
   \item \textbf{Contextual residuals.}
-  At a typed cut $C$, two pasts are equivalent when every common legal future
-  gives the same declared observation.  This equivalence depends on the future
+  At a typed cut $C$, two pasts are equivalent when every declared future
+  gives the same observation, including the distinguished illegal outcome.  This equivalence depends on the future
   class, the observation, and the treatment of undefined arithmetic.
 
   \item \textbf{Operational live configurations.}
@@ -86,7 +86,7 @@ machine conventions are fixed.}
 
 \subsection{Main results}
 
-The paper establishes six groups of results.
+The paper establishes seven groups of results.
 
 First, we complete the algebraic quotient layer.  A regular bivaluation---an
 ordered pair of distinct projective points---is naturally a rank-one
@@ -117,12 +117,22 @@ must inject this quotient into its encoded states.  This yields a bit lower
 bound and, under an explicit fixed-register snapshot convention, a
 capacity--time lower bound.
 
-Fourth, we introduce a live-configuration cost vector separating static
+Fourth, we construct a finite ported-program interface for punctured AES
+carriers.  Source- and occurrence-preserving substitution is compatible with
+strict partial evaluation on its exact domain.  Network reassociation is an
+explicit isomorphism, not equality of literal call receipts.  Compatible
+geometric collars and computational interfaces descend together when the
+assembled event graph is acyclic.  Feature observation factorization and online
+feature update have distinct criteria: contextual refinement and a
+right-congruence kernel, respectively.  The attached-program construction does
+not supply a faithful realization of its gates by AES motions.
+
+Fifth, we introduce a live-configuration cost vector separating static
 description, work, elapsed steps, causal depth, peak workspace, memory--time,
 and communication.  We prove that a monotone completed-node set cannot encode
 space in models allowing deletion or recomputation.
 
-Fifth, we give a word-fiber and conditional-entropy inequality.  Exponential
+Sixth, we give a word-fiber and conditional-entropy inequality.  Exponential
 raw history growth combined with small evaluation-image growth forces large
 operator fibers and large conditional information.  The conclusion is about
 an evaluation map.  It is not a time lower bound.  Finite generating sets give
@@ -130,7 +140,7 @@ quasi-isometric word metrics, so polynomial versus exponential group growth is
 stable under that restricted change of generators, while computational costs
 remain model-dependent.
 
-Sixth, exact case studies calibrate the distinctions.  Horner words exhibit
+Seventh, exact case studies calibrate the distinctions.  Horner words exhibit
 charge condensation; OBDDs exhibit future-residual sensitivity to variable
 order; butterflies and NTTs exhibit representation change and static torus
 labels; matrix chains and checkpointing exhibit equal semantics with different
@@ -162,8 +172,9 @@ law.
 Sections~\ref{sec:history-equality}--\ref{sec:projective-quotients} establish
 the history and homogeneous-space layers.  Section~\ref{sec:condensation-continuation}
 proves the quotient-continuation results.  Section~\ref{sec:contextual-residuals}
-develops residual semantics, and Section~\ref{sec:operational-resources}
-separates it from operational resources.  Sections~\ref{sec:growth-information}
+develops residual semantics.  Section~\ref{sec:ported-aes} supplies the finite
+ported-program interface, and Section~\ref{sec:operational-resources}
+separates semantic state from operational resources.  Sections~\ref{sec:growth-information}
 and \ref{sec:rewrite-fibers} treat growth and rewriting.  The four case-study
 sections follow.  The final two sections state the claim boundary and the
 remaining research programme.  Appendices collect calculations, proof variants,

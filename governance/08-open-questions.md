@@ -3497,3 +3497,41 @@ open problem of §11.6 was narrowed to models whose assignment does not extend
 `prop:p0-curvature-form`.
 `Reviewer:` author.
 `Date:` 2026-09-22 (fourth revision of the day).
+
+## Finite-type and ported AES update — 2026-10-09
+
+This update supersedes only the affected conclusions of OQ-082/OQ-088 and the
+multi-puncture/multi-wire entries; older dated research and review records are
+retained.
+
+**Resolved with hypotheses:** the printed critical-set theorem is repaired
+using an extending conformal background for the given metric; some
+conformally compactifiable AES exists for every k≥1; full collar data
+reconstruct the original finite-type AES; strict finite program substitution
+preserves exact evaluation domains; contextual feature factorization and
+right-congruent online feature updates are distinguished and proved.
+
+**Still open:**
+
+1. Describe AES with prescribed conformal moduli, prescribed puncture locations
+   or zero configurations, or assignments generated intrinsically by motions.
+2. Construct an AES-compatible plumbing/degeneration family. Standard FN and
+   plumbing data reconstruct auxiliary conformal/hyperbolic geometry, not g,a.
+3. Relate the concrete circle deformation and three-sheet branched model to
+   faithful arithmetic data. Neither is a proof of the tangent-ring AES.
+4. Construct actual opposite-edge characteristic objects in a declared Adva
+   experiment; prove observation sufficiency and, where needed, right
+   congruence or retain the separating process residue.
+5. Realize generic multi-input arithmetic gates by AES motions on a suitable
+   configuration/fibre carrier, retaining source, occurrence, partial domains,
+   conjugation/transport and the declared history equivalence.
+6. Define productive feedback or fixed-point semantics for cyclic triadic
+   inputs. Finite DAG substitution deliberately supplies no such theorem.
+7. Recover and archive the original k4 and ported-program ZIP source/checker
+   bundles to reproduce their historical 39/55-check evidence. The current
+   proof adaptation and new independent verifiers do not close this task.
+
+The scalar tearing identity depends on the words, whereas the new k4 example
+has a nonzero full-state level-set residue for a scalar-identity word. These
+are different observables, so the new result does not contradict scalar
+puncture-independence or assert canonical puncture holonomy.

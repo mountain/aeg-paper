@@ -38,6 +38,14 @@ its present scope is fixed by
 which makes Paper 0 the geometric foundation of the series and moves Paper I's
 geometric chapters into it.
 
+## Punctured and ported AES integration
+
+The 2026-10-09 integration adds reusable finite-type geometry to Paper 0 and
+program substitution, exact partial evaluation, and feature sufficiency to
+Paper IV. [Source and claim map](governance/h2-integration-2026-10-09.md).
+Actual opposite-edge feature witnesses and a faithful realization of all
+multi-input gates by AES motions remain open.
+
 ## Draft status
 
 All active manuscripts are drafts in the ordinary editorial and publication
@@ -63,7 +71,9 @@ receive explicit author approval before DOI metadata is changed.
    motion, the dual reading called ripple geometry, affine cocycles, the
    accumulative commutative space with its weighted torsion--Stokes theorem,
    tearing, the contact structure of that defect, two obstructions to linear
-   language, and punctured spaces with a register of computed witnesses. Paper 0
+   language, punctured spaces with a register of computed witnesses, finite-type
+   compactification, arbitrary positive puncture counts and full-collar
+   three-ended reconstruction. Paper 0
    is the geometric foundation of the series; it does not revise Paper I's
    marked-history formalism.
 
