@@ -1,0 +1,482 @@
+{
+  "schema": "adva.trace-arithmetic-calibration.research",
+  "version": 0,
+  "source_witness_digest": "blake3:b03cee7f38c01f0a84fa3c71227955ce8c85ac01a844f8c47e74a06c45a0d007",
+  "source_document_digest": "blake3:ac29810342f62beae0ff84da6c3a7a431bd65807d0a13b4e5b35da4027bcb227",
+  "relation": {
+    "document_digest": "blake3:ac29810342f62beae0ff84da6c3a7a431bd65807d0a13b4e5b35da4027bcb227",
+    "left": {
+      "steps": [
+        {
+          "frame": 0,
+          "mechanism": "compute",
+          "input": {
+            "subject": 0,
+            "method": 1,
+            "object": 2
+          },
+          "output": {
+            "history": 3,
+            "result": 4,
+            "evidence": 5
+          }
+        },
+        {
+          "frame": 1,
+          "mechanism": "verify",
+          "input": {
+            "subject": 3,
+            "method": 4,
+            "object": 5
+          },
+          "output": {
+            "history": 6,
+            "result": 7,
+            "evidence": 8
+          }
+        },
+        {
+          "frame": 2,
+          "mechanism": "compute",
+          "input": {
+            "subject": 6,
+            "method": 7,
+            "object": 8
+          },
+          "output": {
+            "history": 15,
+            "result": 16,
+            "evidence": 17
+          }
+        }
+      ],
+      "handoffs": [
+        {
+          "from": 0,
+          "to": 1,
+          "route": {
+            "history_to": "subject",
+            "result_to": "method",
+            "evidence_to": "object"
+          }
+        },
+        {
+          "from": 1,
+          "to": 2,
+          "route": {
+            "history_to": "subject",
+            "result_to": "method",
+            "evidence_to": "object"
+          }
+        }
+      ],
+      "start": {
+        "subject": 0,
+        "method": 1,
+        "object": 2
+      },
+      "end": {
+        "history": 15,
+        "result": 16,
+        "evidence": 17
+      },
+      "mechanism_path": {
+        "steps": [
+          "compute",
+          "verify",
+          "compute"
+        ]
+      }
+    },
+    "right": {
+      "steps": [
+        {
+          "frame": 3,
+          "mechanism": "verify",
+          "input": {
+            "subject": 0,
+            "method": 1,
+            "object": 2
+          },
+          "output": {
+            "history": 9,
+            "result": 10,
+            "evidence": 11
+          }
+        },
+        {
+          "frame": 4,
+          "mechanism": "compute",
+          "input": {
+            "subject": 9,
+            "method": 10,
+            "object": 11
+          },
+          "output": {
+            "history": 12,
+            "result": 13,
+            "evidence": 14
+          }
+        },
+        {
+          "frame": 5,
+          "mechanism": "verify",
+          "input": {
+            "subject": 12,
+            "method": 13,
+            "object": 14
+          },
+          "output": {
+            "history": 15,
+            "result": 16,
+            "evidence": 17
+          }
+        }
+      ],
+      "handoffs": [
+        {
+          "from": 3,
+          "to": 4,
+          "route": {
+            "history_to": "subject",
+            "result_to": "method",
+            "evidence_to": "object"
+          }
+        },
+        {
+          "from": 4,
+          "to": 5,
+          "route": {
+            "history_to": "subject",
+            "result_to": "method",
+            "evidence_to": "object"
+          }
+        }
+      ],
+      "start": {
+        "subject": 0,
+        "method": 1,
+        "object": 2
+      },
+      "end": {
+        "history": 15,
+        "result": 16,
+        "evidence": 17
+      },
+      "mechanism_path": {
+        "steps": [
+          "verify",
+          "compute",
+          "verify"
+        ]
+      }
+    },
+    "relation": {
+      "profile": {
+        "kind": "braid",
+        "boundary": "m6",
+        "process_lift": "positive_braid_monoid",
+        "coxeter_shadow": "symmetric_three"
+      },
+      "left": {
+        "steps": [
+          "compute",
+          "verify",
+          "compute"
+        ]
+      },
+      "right": {
+        "steps": [
+          "verify",
+          "compute",
+          "verify"
+        ]
+      },
+      "filling": {
+        "state": "open",
+        "residual": "experiment:first:m6-semantic-filler-required"
+      }
+    },
+    "certificate": {
+      "document_digest": "blake3:ac29810342f62beae0ff84da6c3a7a431bd65807d0a13b4e5b35da4027bcb227",
+      "document_graph": "checked",
+      "frame_occurrences": "checked",
+      "complete_handoffs": "checked",
+      "common_endpoints": "checked",
+      "relation_formation": {
+        "profile": {
+          "kind": "braid",
+          "boundary": "m6",
+          "process_lift": "positive_braid_monoid",
+          "coxeter_shadow": "symmetric_three"
+        },
+        "boundary_occurrences": 6,
+        "coherent_profile": "checked",
+        "canonical_relation_word": "checked",
+        "distinct_raw_paths": "checked",
+        "explicit_filling_state": "checked"
+      }
+    }
+  },
+  "left": {
+    "trace_digest": "blake3:bc1520a69e69b3d4d73235595160eef424ab7e02a36253d5690bb8db172b9a39",
+    "time": {
+      "frame_occurrences": 3,
+      "causal_handoffs": 2,
+      "transferred_ports": 6
+    },
+    "space": {
+      "start": {
+        "subject": 0,
+        "method": 1,
+        "object": 2
+      },
+      "end": {
+        "history": 15,
+        "result": 16,
+        "evidence": 17
+      }
+    },
+    "construction": {
+      "incidence": {
+        "compute": 2,
+        "verify": 1,
+        "learn": 0
+      },
+      "step_count": 3,
+      "alternations": 2,
+      "ordered_word": [
+        "compute",
+        "verify",
+        "compute"
+      ]
+    },
+    "commutative_weight": {
+      "terms": [
+        {
+          "coefficient": [
+            1,
+            [
+              1
+            ]
+          ],
+          "monomial": {
+            "powers": [
+              {
+                "variable": "mechanism.compute",
+                "exponent": 2
+              },
+              {
+                "variable": "mechanism.verify",
+                "exponent": 1
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "right": {
+    "trace_digest": "blake3:c398e1cda49cfc7093b18cc17a82d95d23b6ae435d8b704d339df225dac3a57f",
+    "time": {
+      "frame_occurrences": 3,
+      "causal_handoffs": 2,
+      "transferred_ports": 6
+    },
+    "space": {
+      "start": {
+        "subject": 0,
+        "method": 1,
+        "object": 2
+      },
+      "end": {
+        "history": 15,
+        "result": 16,
+        "evidence": 17
+      }
+    },
+    "construction": {
+      "incidence": {
+        "compute": 1,
+        "verify": 2,
+        "learn": 0
+      },
+      "step_count": 3,
+      "alternations": 2,
+      "ordered_word": [
+        "verify",
+        "compute",
+        "verify"
+      ]
+    },
+    "commutative_weight": {
+      "terms": [
+        {
+          "coefficient": [
+            1,
+            [
+              1
+            ]
+          ],
+          "monomial": {
+            "powers": [
+              {
+                "variable": "mechanism.compute",
+                "exponent": 1
+              },
+              {
+                "variable": "mechanism.verify",
+                "exponent": 2
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "additive_residual": {
+    "time": {
+      "frame_occurrences": 0,
+      "causal_handoffs": 0,
+      "transferred_ports": 0
+    },
+    "space": {
+      "start": [
+        0,
+        0,
+        0
+      ],
+      "end": [
+        0,
+        0,
+        0
+      ]
+    },
+    "construction": {
+      "compute": 1,
+      "verify": -1,
+      "learn": 0,
+      "step_count": 0,
+      "alternations": 0
+    }
+  },
+  "alignment": {
+    "time": "matched",
+    "space": "matched",
+    "construction": "diverged"
+  },
+  "characteristic_constraints": [
+    {
+      "target": "time",
+      "derived_from": [
+        "space",
+        "construction"
+      ],
+      "state": "open",
+      "witness": null
+    },
+    {
+      "target": "space",
+      "derived_from": [
+        "construction",
+        "time"
+      ],
+      "state": "open",
+      "witness": null
+    },
+    {
+      "target": "construction",
+      "derived_from": [
+        "time",
+        "space"
+      ],
+      "state": "open",
+      "witness": null
+    }
+  ],
+  "commutative_holonomy": {
+    "right_over_left": {
+      "numerator": {
+        "terms": [
+          {
+            "coefficient": [
+              1,
+              [
+                1
+              ]
+            ],
+            "monomial": {
+              "powers": [
+                {
+                  "variable": "mechanism.compute",
+                  "exponent": 1
+                },
+                {
+                  "variable": "mechanism.verify",
+                  "exponent": 2
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "denominator": {
+        "terms": [
+          {
+            "coefficient": [
+              1,
+              [
+                1
+              ]
+            ],
+            "monomial": {
+              "powers": [
+                {
+                  "variable": "mechanism.compute",
+                  "exponent": 2
+                },
+                {
+                  "variable": "mechanism.verify",
+                  "exponent": 1
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "state": "non_identity",
+    "witness": null
+  },
+  "truth_fiber": {
+    "state": "open",
+    "shared_truth_coordinate": null
+  },
+  "questions": [
+    {
+      "kind": "time_characteristic",
+      "detail": "no witness yet derives the time characteristic from space and construction",
+      "residual": "experiment:first:m6-time-characteristic-required"
+    },
+    {
+      "kind": "space_characteristic",
+      "detail": "no witness yet derives the space characteristic from construction and time",
+      "residual": "experiment:first:m6-space-characteristic-required"
+    },
+    {
+      "kind": "construction_characteristic",
+      "detail": "the construction projections diverge and no time-space characteristic witness closes them",
+      "residual": "experiment:first:m6-construction-characteristic-required"
+    },
+    {
+      "kind": "multiplicative_holonomy",
+      "detail": "the commutative mechanism-weight shadow has not normalized to one",
+      "residual": "experiment:first:m6-multiplicative-holonomy-required"
+    },
+    {
+      "kind": "common_truth_coordinate",
+      "detail": "matching projections do not identify a shared externally witnessed truth coordinate",
+      "residual": "experiment:first:m6-common-truth-coordinate-required"
+    }
+  ]
+}
