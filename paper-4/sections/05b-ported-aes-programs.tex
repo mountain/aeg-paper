@@ -1,0 +1,441 @@
+% Canonical Paper IV section, adapted from the 2026-10-09 ported-AES candidate.
+% Source/provenance and mathematical-status integration are recorded in governance.
+The residual theory specifies when a state retains enough information for
+future computation.  We now give a finite program interface that can be
+attached to a punctured AES without identifying its geometry with its program.
+Paper~0 owns the carrier geometry and its compactification
+\cite{Yuan2026AEGPaperZero}; Paper~I supplies marked one-hole histories
+\cite{Yuan2026AEGFoundations}.  The construction here is a structural proposal
+for ported realizations.  Its finite-network and descent results are proved
+with the hypotheses stated below.  The program/source distinction follows the
+interface discipline of the Adva program--process core
+\cite{Yuan2026AdvaProgramProcessCore}.
+
+\subsection{Three kinds of opening}
+
+An essential geometric puncture is a declared end where the given assignment
+and metric do not extend as regular AES data.  A computational hole is an
+ordered place for program substitution.  A port is an input or output interface
+associated with a geometric end or a specified regular interface location.
+Their identification requires additional data.
+
+\begin{definition}[Ported AES realization proposal]
+\label{def:ported-aes-realization}
+Let $E=(M,g,a;\mu,\lambda)$ be an oriented regular AES with a declared
+compactified carrier and marked end set $S$, where $|S|=k$.  A ported
+realization consists of ordered typed port families $I,O$, an anchoring map
+\[
+  \pi:I\sqcup O\longrightarrow S\sqcup L,
+\]
+where $L$ is a declared set of regular interface locations, a finite typed
+program decoration, and source, occurrence, boundary, and assembly records.
+The map $\pi$ is not assumed injective or surjective.  Ports at a puncture carry
+data in its end interface; they are not regular points with a value $a(p)$.
+\end{definition}
+
+The three integers $k,|I|,|O|$ are independent.  A three-output experiment
+declares $|O|=3$; its internal input frontier may have any finite size.  If all
+ports anchor injectively into $S$, then $k\ge |I|+|O|$; equality follows for a
+bijection.  Ends without ports and ends carrying several ports are allowed.
+The roles of the outputs must be declared.  They are not automatically three
+scalar values or Adva's construction/space/time views; the outer interface and
+the internal frontier are distinct \cite{Yuan2026AdvaTriadicFrontiers}.
+
+Input binding retains the AES geometry unless a separate parameter family
+$(g_\theta,a_\theta)$ is supplied.  Such a family needs a proof of the AES
+identity, its admissible parameter domain, and its marked end behavior.
+Binding is also distinct from topological capping.
+
+\subsection{Finite programs, sources, and occurrences}
+
+\begin{definition}[Strict finite arithmetic network]
+\label{def:strict-finite-network}
+An open network $P:A\rightsquigarrow B$ is a finite directed acyclic graph
+with ordered typed input and output boundaries and ordered input/output slots
+at every gate.  Each wire has one producer and one consumer, counting an
+external output as a consumer.  Copy and discard are explicit gates.
+Primitive gates denote deterministic partial functions.  Source identities are
+immutable; distinct uses have distinct occurrence identities, even if their
+sources or values agree.  External boundary positions likewise have occurrence
+identities separate from source identities.
+\end{definition}
+
+The arithmetic fragment used below has exact rational constants, addition,
+subtraction, multiplication, division, explicit copy, and strict discard.
+Strict discard requires its input producer to be defined.  Thus
+$\operatorname{discard}(1/0)$ remains outside the domain.  A finite acyclic
+network cannot exhibit feedback divergence; feedback, side effects, and
+unbounded interpretation need separately declared semantics.
+
+Repeated use of a program template first creates separate named instances.
+Their event occurrences are fresh; their original sources remain the same.
+Administrative wire and event renaming then acts on those instances without
+changing source or occurrence identity.  Here a source label names the declared
+syntactic origin of a gate or wire occurrence.  The ancestry of a value supplied
+after substitution is separately recovered from the connected producer DAG and
+binding receipt; binding does not overwrite a body's immutable source labels.
+Template reuse is therefore distinct from implicit sharing of one produced wire.
+
+\subsection{Program substitution and its receipts}
+
+Let $P$ have ordered holes $i_1,\ldots,i_m$, and let $q_1,\ldots,q_r$ be
+already instantiated producer programs.  A binding $\beta$ matches producer
+output occurrences to selected holes, preserving types and positions.  Every
+supplied output is used once, and every selected hole is filled once.  Unused
+outputs require an explicit discard; multiple uses require an explicit copy.
+Holes not selected by a partial binding remain on the open frontier.  Fix the
+external order as producer inputs in argument order, followed by the unfilled
+body inputs.  Sequential partial filling with open producers can induce a
+different order from simultaneous filling; comparison then requires a declared
+typed boundary permutation.  The closed-producer example below requires none.
+
+\begin{construction}[Certified simultaneous substitution]
+\label{constr:certified-substitution}
+Take disjoint administrative copies of the body and producer graphs, identify
+the matched boundary wires, and retain all primitive gate occurrences and
+sources.  Record the ordered binding, producer regions, body region, and call
+nesting in a graft receipt.  The resulting network is
+\[
+  \Subst_\beta(P;\boldsymbol q).
+\]
+Accept it only when the resulting global graph is acyclic and its boundary
+inventory is complete.  A numerical input is admitted by an explicit constant
+producer with its source record, rather than by erasing the producing process.
+\end{construction}
+
+For ordinary one-way substitution, producers depend only on their external
+inputs and the body depends on their outputs, so acyclicity follows.  General
+seam assembly has no such guarantee: two locally acyclic pieces can form a
+cycle after cross-wiring.  The notation $\Subst$ is reserved for program
+substitution; $\Fill$ in Section~\ref{sec:rewrite-fibers} continues to denote
+rewrite filling area.
+
+\begin{proposition}[Type and identity preservation]
+\label{prop:ported-substitution-preservation}
+A legal substitution preserves boundary typing, primitive gate slot order,
+source identities, and instantiated gate occurrences.  Distinct occurrences
+are not identified by equality of numerical value.
+\end{proposition}
+\begin{proof}
+The disjoint copies separate administrative names.  The binding changes only
+which wire supplies a selected body input; it creates no primitive gate and
+deletes none.  Its injectivity on producer output occurrences and selected
+holes preserves the single-consumer rule.  Source and occurrence records are
+transported by the stated renaming map.  The remaining boundaries retain their
+declared order.  All other identifications are excluded by construction.
+\end{proof}
+
+\subsection{Substitution and partial evaluation}
+
+Write $D_P$ for the strict numerical domain of $P$: inputs for which every
+primitive gate required by the network is defined, including producers
+eventually consumed by discard.  Primitive numerical functions are pure; no
+primitive observes the scheduler.  The numerical result is therefore
+independent of the chosen topological schedule.  An operational trace, its
+first observed failure, and its costs can still depend on that schedule.
+
+\begin{theorem}[Substitution--evaluation compatibility]
+\label{thm:ported-substitution-evaluation}
+Let $Q:X\rightsquigarrow A$ and $P:A\times Z\rightsquigarrow B$ be
+compatible strict finite networks.  For the binding consuming all outputs of
+$Q$, their composite has domain
+\begin{equation}
+  D_{P\circ Q}
+  =\{(x,z):x\in D_Q,\ (\operatorname{Eval}(Q)(x),z)\in D_P\}.
+  \label{eq:ported-composite-domain}
+\end{equation}
+On exactly this domain,
+\begin{equation}
+  \operatorname{Eval}(P\circ Q)(x,z)
+  =\operatorname{Eval}(P)(\operatorname{Eval}(Q)(x),z).
+  \label{eq:ported-composite-evaluation}
+\end{equation}
+The same statement applies to finitely many disjoint producers and partial
+filling, retaining the unfilled boundary.
+\end{theorem}
+\begin{proof}
+Use a topological order with producer gates before body gates.  A producer gate
+has precisely the same ordered inputs, primitive partial function, and domain
+predicate as in $Q$.  Induction gives the same values on its output wires
+whenever the producer is defined.  The bound body inputs are therefore exactly
+$\operatorname{Eval}(Q)(x)$.  A second topological induction through the body
+gives its original gate values and domain predicates.  Every gate of the
+composite is consequently defined if and only if both conditions in
+Equation~\eqref{eq:ported-composite-domain} hold.  This proves both equations.
+Purity permits a different topological order without changing the successful
+result or whether all gates are defined; it does not identify ordered traces.
+\end{proof}
+
+\begin{corollary}[Three equality levels for composition]
+\label{cor:ported-composition-equalities}
+Compatible composition has the following laws.
+\begin{enumerate}
+  \item Partial numerical functions satisfy identity and associativity
+  strictly, including equality of their domains.
+  \item Operation networks satisfy these laws up to an explicit isomorphism
+  of administrative names and contraction of administrative port segments.
+  The isomorphism preserves instantiated occurrences, sources, types, slot
+  orders, and ordered external boundaries.  Identity networks use the same
+  source and occurrence contract as the interface object they preserve.
+  \item Literal receipts for different calls or parenthesizations remain
+  distinct.  Their final operation networks are related by the preceding
+  transport certificate, not by deleting the call history.
+\end{enumerate}
+\end{corollary}
+\begin{proof}
+Equation~\eqref{eq:ported-composite-domain} applied twice gives the same three
+domain conditions for either parenthesization;
+Equation~\eqref{eq:ported-composite-evaluation} then gives the same result.
+At graph level, both constructions contain the same instantiated primitive
+gates and the same final boundary identifications.  Map each renamed gate and
+wire to its counterpart and contract only administrative segments.  This
+supplies the stated isomorphism.  A receipt records the actual calls and their
+nesting, which these operations do not make equal.
+\end{proof}
+
+\subsection{Joint geometric and computational descent}
+
+\begin{proposition}[Collar and interface descent]
+\label{prop:ported-collar-descent}
+Suppose finitely many oriented regular AES pieces have the same signed
+parameters $(\mu,\lambda)$, and orientation-compatible open collar maps
+$\phi_{vw}$ produce a Hausdorff smooth surface.  Require inverse and cocycle
+conditions and, on every overlap,
+\[
+  a_v=a_w\circ\phi_{vw},\qquad g_v=\phi_{vw}^{*}g_w.
+\]
+Require computational seam records to agree on ordered ports, types, sources,
+occurrences, gate parameters, and boundary wire identities, with a complete
+assembly record for nonlocal relations.  Require the assembled global program
+to be a finite DAG.  Require marked end identities and the anchoring map $\pi$
+to be compatible with all identifications.
+
+Then the AES data and the computational network descend together.  The
+canonical arithmetic frames transform by the collar Jacobians.  The assembled
+program obeys Theorem~\ref{thm:ported-substitution-evaluation} for every
+compatible causal composition across its interfaces.
+\end{proposition}
+\begin{proof}
+Overlap equality descends the smooth function and positive definite metric.
+The identity $|\mathrm da|_g^2=\mu^2+\lambda^2a^2$ is tensorial and holds in
+every local chart, hence globally.  Compatible orientation and equal signed
+parameters give the same canonical frame formula in each chart, so those
+frames also descend.  The seam inventory identifies precisely the specified
+wire occurrences without merging sources or introducing implicit copies.
+Compatible end markings and anchoring maps descend the attachment of ports to
+the carrier.  Global acyclicity yields a topological execution order.  The
+numerical composition result follows from the finite-network theorem.
+\end{proof}
+
+\begin{warning}[The motion bridge remains additional]
+\label{warn:ported-motion-bridge}
+Proposition~\ref{prop:ported-collar-descent} does not prove that a gate of the
+attached network is an AES motion.  Such a realization requires primitive
+partial state transformations $\Phi_\omega$, exact domains, parameter/source
+transport, and overlap equations
+\[
+  T_{vw}\circ\Phi^v_\omega=\Phi^w_\omega\circ T_{vw}
+\]
+on their stated domains.  Binary gates, explicit copy/discard, and negative
+scalings cannot be inferred from the single-value positive affine model.
+Full-state tangential residuals must also be retained: an identity arithmetic
+word on assignment values need not be the identity on AES states.  Attaching a
+program to a surface does not establish a faithful arithmetic-motion
+realization.
+\end{warning}
+
+For an already given genus-zero $k$-end carrier, $k\ge3$, a pants
+decomposition has $k-2$ three-end pieces and $k-3$ internal seams.  Restrict
+all data and retain the overlap and assembly records.  Joint descent then
+recovers the original ported object.  A second decomposition gives another
+atlas of that same object.  Each three-end piece may have punctures and seam
+boundaries; it is not thereby a complete three-cusp AES.  Conformal point
+compactification additionally requires punctured-disc ends.  These geometric
+constructions and distinctions belong to Paper~0
+\cite{Yuan2026AEGPaperZero}.
+
+Local block frontiers can alternate across a seam.  Even when the global event
+graph is acyclic, the coarse graph whose vertices are whole geometric pieces
+may contain a cycle.  One then cannot execute each whole piece just once in a
+block order; execution uses the global causal event order and the exposed
+seam frontier.
+
+\subsection{Features and future computation}
+
+Fix the experiment $(P_C,M_C,O_C)$ of
+Section~\ref{sec:contextual-residuals}, with its declared treatment of illegal
+arithmetic.  Use a domain-compositional partial action, or the free
+continuation word monoid, before totalization; do not import unproved operation
+relations.  Divergence is not identified with a type error or division by zero.
+Here $\cdot$ is a declared total right action on $P_C^\bot$, for example
+execution of continuation words with an absorbing illegal state and a distinct
+invalid observation.  Contextual equivalence means
+\[
+  p\equiv_Cp'
+  \quad\Longleftrightarrow\quad
+  O_C(p\cdot\eta)=O_C(p'\cdot\eta)
+  \quad\text{for every }\eta\in M_C.
+\]
+A right congruence is an equivalence relation preserved by every continuation.
+
+Let $\chi_C:P_C^\bot\to Z_C$ be a proposed feature.  It may retain a scalar,
+operator, marking, source/occurrence package, or residual.  The kind of feature
+and its observation policy are part of the interface.
+
+\begin{theorem}[Feature observation descent]
+\label{thm:feature-observation-descent}
+The following conditions are equivalent.
+\begin{enumerate}
+  \item For every declared continuation $\eta$, there is a function $o_\eta$
+  on the reachable feature image satisfying
+  \[
+    o_\eta(\chi_C(p))=O_C(p\cdot\eta).
+  \]
+  \item $\ker\chi_C$ is contained in contextual continuation equivalence:
+  \[
+    \chi_C(p)=\chi_C(p')\quad\Longrightarrow\quad p\equiv_Cp'.
+  \]
+\end{enumerate}
+Legal-domain differences are included through the declared invalid outcome.
+\end{theorem}
+\begin{proof}
+The first condition makes all future observations equal on each feature fiber,
+which is exactly the second condition.  Conversely, define $o_\eta$ using any
+representative of a feature fiber; the second condition makes the choice
+immaterial.  This is existence of observation factorization, not an assertion
+that the factors can be computed efficiently or at all.
+\end{proof}
+
+\begin{proposition}[Online feature update]
+\label{prop:feature-online-update}
+Feature transitions $u_\eta$ satisfying
+\[
+  u_\eta(\chi_C(p))=\chi_C(p\cdot\eta)
+\]
+exist on the reachable image if and only if $\ker\chi_C$ is a right
+congruence.  Together with factorization of $O_C$, they give an exact feature
+continuation machine.  An executable implementation still requires effective
+transition and observation maps.
+\end{proposition}
+\begin{proof}
+Necessity follows by applying $u_\eta$ to equal feature values.  For sufficiency,
+define $u_\eta$ by any representative.  Right congruence makes it well defined,
+and the action laws descend from the given action.  Output factorization
+supplies the current observation.
+\end{proof}
+
+\begin{example}[Observation sufficiency without online update]
+\label{ex:feature-not-online}
+Take states $0,1,2$, constant observation zero, and the idempotent update
+$f(0)=0$, $f(1)=2$, $f(2)=2$.  Every state is contextually equivalent for the
+monoid $\{\id,f\}$.  Let $\chi(0)=\chi(1)=0$, $\chi(2)=1$.
+Feature observation descent holds, but $\chi(f(0))\ne\chi(f(1))$, so no
+feature update can be defined on input feature zero.  A future-sufficient
+observation and a closed online state are different requirements.
+\end{example}
+
+Actual opposite-edge characteristic extraction remains a separate witness
+problem \cite{Yuan2026AdvaArithmeticCalibration}.  If a spectral feature is
+used, first declare the endomorphism closure, operator domain, marking, and
+residual.  A pairwise relation does not automatically have an ordinary
+spectrum.  Three-side feedback also requires a snapshot and update schedule or
+a separately proved fixed-point semantics.
+
+\subsection{A four-puncture, four-input, three-output experiment}
+
+\begin{example}[Fixed AES carrier with program interfaces]
+\label{ex:ported-four-puncture}
+On $M=\PP^1(\C)\setminus\{-1,0,1,\infty\}$, put
+\begin{align*}
+  a&=\frac{x^4}{4}-\frac{x^2}{2}+y^2,
+  & A&=x^3-x,& B&=2y,\\
+  L&=A^2+B^2,& F&=1+a^2,& g&=\frac{L}{F}|\mathrm dz|^2.
+\end{align*}
+Off the three finite deleted points, $L>0$ and $|\mathrm da|_g^2=F$.
+At each finite point $\mathrm da=0$, excluding a nondegenerate regular AES
+extension.  Along the imaginary axis $a\to\infty$, excluding a real-valued
+extension at infinity.  Thus all four marked ends are essential.  This direct
+verification does not use a general puncture/critical-point assertion.
+
+Anchor the four input holes to $-1,0,1,\infty$, in that order, keeping input
+values as port data.  The finite assignment limits $(-1/4,0,-1/4)$ and the divergent infinite limit
+are not replaced by those values.  Anchor the three output ports at $i,1+i,-1+i$, respectively; their output
+values likewise need not equal the assignment values at those regular sites.  Choose producers
+\[
+  q_1=1+1=2,\quad q_2=3+4=7,\quad
+  q_3=6/2=3,\quad q_4=9-4=5.
+\]
+The body, with an explicit copy for each twice-used input, reads out
+\[
+  y_1=x_1+x_2,\qquad y_2=x_3x_4,\qquad
+  y_3=\frac{x_1+x_3}{x_2-x_4}.
+\]
+The output is exactly $(9,15,5/2)$.  It is a declared scalar projection of
+this experiment, not an identification with Adva's native three output roles.
+The run retains eight constant sources, their occurrences and explicit copy
+records, the operation DAG, and the graft receipt.
+\end{example}
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}[
+  node distance=8mm and 15mm,
+  box/.style={draw,rounded corners,align=center,minimum height=24mm},
+  arr/.style={-{Latex[length=2mm]}}
+]
+\node[align=right] (inputs) {$q_1\mapsto2\quad h_1$\\[2mm]
+$q_2\mapsto7\quad h_2$\\[2mm]$q_3\mapsto3\quad h_3$\\[2mm]
+$q_4\mapsto5\quad h_4$};
+\node[box,right=of inputs] (body) {typed body\\explicit copy\\strict division\\source ledger};
+\node[align=left,right=of body] (outputs) {$y_1=9$\\[5mm]$y_2=15$\\[5mm]$y_3=5/2$};
+\draw[arr] (inputs) -- (body);
+\draw[arr] (body) -- (outputs);
+\end{tikzpicture}
+\caption{A fixed four-end AES carrier with four computational inputs and
+three declared scalar outputs.  The diagram displays the program interface,
+not paths of arithmetic gates through the AES.}
+\label{fig:ported-four-inputs}
+\end{figure}
+
+Use either cut $|z-c|=3/4$ with $c=-1/2$ or $c=1/2$.  The inner and outer
+charts on the overlap are
+\[
+  \xi=\frac{z-c}{3/4},\qquad
+  \eta=\frac{3/4}{z-c},\qquad \eta=1/\xi.
+\]
+Each cut separates two marked ends from the other two.  For each cut, also
+declare an allocation of gate occurrences to local packets; this allocation is
+additional program data, not a consequence of the port anchoring map.
+Restrict the carrier data to the chosen pieces and retain each local event
+region, its exposed wire frontier, and the complete ordered seam/assembly
+contract.
+Reciprocal coordinate transport is an exact change of chart.  The tensor and
+chain-rule argument in Proposition~\ref{prop:ported-collar-descent} recovers
+the same global AES and operation network from either decomposition.  Local
+seam source references identify transported data; they are not new constant
+sources.  Execution after assembly follows the global event order, which need
+not be a whole-piece block order.  No path of a binary gate through the AES
+is asserted.
+
+\subsection{Finite checks and remaining obligations}
+
+The accompanying independent finite checker uses exact rational arithmetic for
+this example and explicit positive and negative controls.  Its scope and
+reproduction commands are recorded in the Paper~IV README.  It is a new
+verification of the integrated model, not a rerun of the unavailable checker
+reported with the candidate chapter.  Finite checks supplement the proofs;
+they do not prove continuous collar identities or a faithful motion bridge.
+
+The important negative controls are implicit sharing, duplicate binding,
+mismatched types, unaccounted seam data, and cycles formed by locally acyclic
+pieces.  A literal constant two and the producer $1+1$ have the same scalar
+output but different sources and operation histories.  Strict evaluation
+retains failure of a discarded $1/0$ producer.  Different association receipts
+remain distinct, and Example~\ref{ex:feature-not-online} remains an obstruction
+to online feature update.
+
+The remaining obligations are stated as
+Problems~\ref{prob:faithful-multiwire-aeg} and
+\ref{prob:opposite-edge-features}: realize the actual typed generators by AES
+state transformations and construct the actual opposite-edge feature
+witnesses.  Neither is a consequence of finite program substitution.

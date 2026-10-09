@@ -3588,3 +3588,27 @@ class or factorization data.
   and Paper III closure reports.
 - **Papers affected:** Paper III only.
 - **Date:** 2026-08-06.
+
+## Paper IV finite ported-program integration (2026-10-09)
+
+This amendment registers the new canonical section `sec:ported-aes`. It does
+not promote Adva's research proposals to proved geometric equivalences.
+Paper 0 owns the finite-type carrier and full-collar geometry; Paper I retains
+marked-history syntax; Paper IV owns the following operational interface.
+
+| ID | Status | Statement and active boundary |
+|---|---|---|
+| PIV-S0 | `STRUCTURAL PROPOSAL` | Ported AES realization attaches typed ports, ordered program holes and a finite program to a declared geometric carrier. Geometry, syntax and ports remain distinct. |
+| PIV-S1 | `PROVED WITH STATED HYPOTHESES` | Finite simultaneous substitution preserves immutable sources and fresh occurrence identities; types, linear use, explicit copy/discard and binding map are required. |
+| PIV-S2 | `PROVED WITH STATED HYPOTHESES` | Strict finite deterministic DAG substitution commutes with numerical evaluation on exactly the stated partial domain; all events, including eventually discarded ones, must be defined. |
+| PIV-S3 | `PROVED WITH STATED HYPOTHESES` | Associativity of operation networks is up to specified renaming/ordered-boundary isomorphism; numerical equality does not identify literal graft receipts, histories or schedules. |
+| PIV-S4 | `PROVED WITH STATED HYPOTHESES` | Full AES collars and compatible computational interfaces descend together under a globally acyclic event graph. Arbitrary allocation to pants is extra data; no gate-as-motion conclusion. |
+| PIV-S5 | `PROVED WITH STATED HYPOTHESES` | Future observations factor through χ iff ker χ refines contextual equivalence, on the reachable feature image, including invalid outcomes. Does not prove effective or efficient computation. |
+| PIV-S6 | `PROVED WITH STATED HYPOTHESES` | Closed online feature updates exist iff ker χ is a right congruence; with output factorization this is an exact deterministic feature machine. Totalization assumes a genuine partial action or a free word monoid. |
+| PIV-S7 | `COMPUTATIONALLY VERIFIED EXAMPLE` | Exact 4-input/3-output scalar projection (9,15,5/2), explicit sources and copies, two recorded k4 cuts. Three scalar outputs are not Adva's native history/result/evidence roles. |
+| PIV-F2 (refined) | `OPEN PROBLEM` | Faithful multi-input AES gate realization, actual opposite-edge characteristic witnesses, coherent multi-wire category including linear transforms and retained central scalars. Finite attached DAG semantics alone does not solve this bridge. |
+
+The original 55-check research archive was not available for rerun. The newly
+authored repository verifier is independent finite evidence, clearly named as
+such; the readable eight-page candidate manuscript supplied the theorem and
+proof source. Full source provenance is in `h2-integration-2026-10-09.md`.

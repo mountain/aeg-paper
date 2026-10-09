@@ -1,0 +1,159 @@
+The circle and sheet pictures motivating finite-type AES compactification are
+useful local models, but they preserve different structures.  This appendix
+records the exact statements needed to keep those pictures from becoming
+unproved global identifications.
+
+\subsection{Triangular gaps and four initial branches}
+
+\begin{proposition}[M\"obius equivalence of non-degenerate triangular gaps]
+\label{prop:p0-apollonian-gap-equivalence}
+Let $G$ be a specified curvilinear triangular gap bounded by three mutually
+tangent circles on the Riemann sphere, with three distinct tangency points
+and disjoint chosen circle interiors.  Any two such marked gaps, with matching
+cyclic order, are M\"obius equivalent.  This equivalence carries every finite
+generation of their standard Apollonian inscribed-circle recursion to the
+corresponding generation.
+\end{proposition}
+
+\begin{proof}
+Send one tangency point to infinity.  The two circles through it become
+parallel lines, and the third becomes a circle tangent to both lines.
+A Euclidean similarity makes their separation $2$ and the circle radius $1$;
+translation along the strip fixes its centre.  Selecting the matching gap
+and cyclic marking fixes the remaining choice.  This gives a common normal
+form.  In that strip each of the two chosen cusp gaps has a unique circle
+inside it tangent to its three bounding circles: tangency to both parallel
+lines forces radius $1$ and the centre onto their midline; tangency to the
+existing unit circle then places the centre at distance $2$ along that
+midline, on the chosen side.  M\"obius transformations preserve
+circles, incidence, tangency and containment of the chosen spherical discs,
+so uniqueness identifies the inserted circle and then its three child gaps.
+Induction proves the assertion for every finite generation.  The standard
+recursive packing is described in \cite{GrahamEtAl2005Apollonian}.
+\end{proof}
+
+The three tangencies lie on a dual circle orthogonal to the bounding circles.
+In its Poincar\'e disc, their arcs bound an ideal hyperbolic triangle; doubling
+that triangle along its geodesic sides produces a three-cusp sphere.  Each
+child gap has its own dual disc.  The newly inscribed circle is not thereby a
+horocycle for the original disc metric, and ordinary three-cusp point
+compactification does not generate an Apollonian packing.
+
+If a central circle splits a four-sided initial gap into four triangular gaps,
+subsequent standard Apollonian filling produces $4\cdot3^n$ gaps at depth
+$n\ge0$.  Four initial entries do not define four-way recursion at every
+stage.  A four-marked parent gap also retains marking data: the real modulus
+of a marked planar quadrilateral should not be confused with the complex
+cross-ratio modulus of four punctures on a sphere.
+
+\subsection{The AES four-circle configuration is not the tangent ring}
+
+\begin{proposition}[Incidence obstruction and an explicit deformation]
+\label{prop:p0-four-circle-deformation}
+The four circles of Proposition~\ref{prop:p0-puncture-tangent-cone} are not
+M\"obius equivalent to four equal circles in a cyclic tangent ring with
+adjacent tangencies distinct.  They are connected as circle configurations
+by the continuous family
+\[
+ C_j(t):\quad |z-t\rho i^j|=\rho,
+ \qquad j=0,1,2,3,\quad 1\le t\le\sqrt2.
+\]
+At $t=\sqrt2$, adding $|z|=(\sqrt2-1)\rho$ leaves four triangular gaps of
+the preceding proposition.
+\end{proposition}
+
+\begin{proof}
+At $t=1$ all four circles pass through $0$; adjacent ones intersect at a right
+angle and opposite ones are tangent at $0$.  In the tangent ring there is no
+common point, adjacent circles are tangent, and opposite circles are disjoint.
+M\"obius transformations preserve concurrence and intersection angles, so
+cannot identify the configurations.  At $t=\sqrt2$, adjacent centre distance
+is $\sqrt2t\rho=2\rho$, while opposite centre distance is $2t\rho>2\rho$.
+The distance of any centre from $0$ is $\sqrt2\rho$, equal to the sum of the
+large radius and $(\sqrt2-1)\rho$; hence the new central circle is tangent
+to all four.  Each adjacent pair and the central circle bound a
+non-degenerate triangular gap.
+\end{proof}
+
+This is a deformation of circle incidence, not a deformation theorem for AES.
+The four-circle AES of Theorem~\ref{thm:p0-four-circle-model} uses only local
+arcs inside $D_r$, $r<\rho$.  Moving the entire circles does not prove that
+its assignment, metric, critical set or puncture count continues along the
+family.  Those data must be constructed and checked separately.
+
+\subsection{A three-sheet model requires cuts and an extra base sheet}
+
+Let $D$ be a disc about $O$, and write $N,W,S,E$ for its northern, western,
+southern and eastern half-discs.  Every open quadrant belongs to exactly two
+of these four sets.  Three sheets per quadrant therefore require an
+independent copy of $D$ as well.  Assemble temporary sheets
+$A=D$, $B=N\cup S$, $C=W\cup E$, with the half-disc joins specified.
+Cut along the positive coordinate rays and identify banks by the
+transpositions $(A\ B)$ and $(A\ C)$.  The monodromy around $O$ is a
+three-cycle, with its direction depending on the declared crossing convention.
+
+\begin{proposition}[The resulting local branched cover]
+\label{prop:p0-three-sheet-cover}
+The transitive monodromy just described gives a connected three-sheet cover
+of $D\setminus\{O\}$.  With the pulled-back complex structure its one-point
+extension has local form $\pi(w)=w^3$.  The metric completion of the pulled-back
+Euclidean length metric has cone angle $6\pi$ at that point.
+\end{proposition}
+
+\begin{proof}
+The fundamental group of the punctured disc is $\mathbb Z$; the action of its
+generator is a three-cycle and its stabilizer subgroup is $3\mathbb Z$.
+The classification of covers identifies this connected cover with the
+punctured-disc power map \cite[\S1.3]{Hatcher2002}.  That map extends
+holomorphically by $w=0$.  If $w=re^{i\theta}$, its metric pullback is
+\[
+ 9r^4dr^2+9r^6d\theta^2=dR^2+9R^2d\theta^2,
+ \qquad R=r^3,\quad \theta\in\mathbb R/(2\pi\mathbb Z).
+\]
+A circle of radius $R$ therefore has length $6\pi R$.  This is a cone length
+metric; its tensor degenerates at $w=0$, even though the conformal carrier is
+smooth there.
+\end{proof}
+
+Identifying only the centres of independent discs does not give this surface:
+its punctured neighbourhood has several components.  If instead each
+half-disc carries its own complete hyperbolic metric, $O$ lies on an
+infinite-distance boundary and is not a finite seam point.  Finally the
+pullback of $|z-\rho|=\rho$ is $|w^3-\rho|=\rho$, generally not a circle,
+while its projection remains the original circle.  The branched cover does
+not convert the AES four-circle configuration into the tangent ring.
+A faithful circle-domain uniformization carrying the arithmetic data remains
+an open problem.
+
+\subsection{Other completions and the genus-two comparison}
+
+The visual compactification $\mathbb H^2\cup S^1_\infty$ is a closed disc;
+adding a direction circle by the unit tangent bundle is a different,
+three-dimensional construction.  A finite-word tree has its own end space,
+and identifying it with a hyperbolic visual boundary requires a specified
+coding and convergence theorem.  None of these operations is the conformal
+point filling of Section~\ref{sec:p0-compactification}.
+
+A companion algebraic example makes the distinction concrete
+\cite{Yuan2026ObserverMetricCompletion}.  After adjoining independent sheets
+\[
+ Y^2=2(E-U)(1-U^2),\qquad Z_m^2=c+U^2,
+\]
+the product-sign quotient $W=YZ_m$ obeys
+\[
+ W^2=2(E-U)(1-U^2)(c+U^2).
+\]
+At $E=0,c=1$, setting $w=W/\sqrt2$ yields $w^2=U^5-U$.
+Its five finite branch points and infinity are distinct, so the degree-two
+cover of the sphere has genus $2$ by Riemann--Hurwitz; this is the Bolza model.
+The compactified object is the newly constructed algebraic curve, and the
+product quotient forgets the separate sheet signs.  No canonical selection of
+$c$ or faithful reconstruction of those signs follows from the equation.
+
+Likewise, pairing all three boundary circles of two compact oriented pants
+with orientation-reversing boundary maps produces a closed genus-two surface:
+$\chi=-1-1=-2$.  Equality of genus supplies only a topological comparison;
+matching the Bolza conformal structure, marked seams and process residues
+requires further data and a separate proof.  These observations locate the
+cross-programme research question without asserting an equivalence between
+its distinct geometric constructions.

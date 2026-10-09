@@ -166,3 +166,26 @@ Non-flat projective transport, multi-wire AEG, costed AEG-native representation
 changes, approximate residuals, history-natural cost functors, and robust
 simulation across machine models are open problems, not completed consequences
 of the present paper.
+
+## Ported-program amendment — 2026-10-09
+
+- **D4-25.** Geometric punctures, computational holes and anchored typed ports
+  are separate objects. Puncture count, input arity and output arity are
+  independently declared.
+- **D4-26.** Program binding is `Subst`; existing `Fill` continues to denote
+  rewrite filling area. Filling an input neither removes a singularity nor
+  changes the fixed AES assignment or metric.
+- **D4-27.** The finite-network theorem uses strict deterministic DAG semantics,
+  exact partial domains, explicit copy/discard and retained source/occurrence
+  identity. No silent sharing or lazy removal of failed discarded work.
+- **D4-28.** Association preserves the operation network only up to the stated
+  renaming and boundary isomorphism; it does not erase graft receipts.
+- **D4-29.** Collar descent requires the full geometric germs and a global DAG.
+  The coarse graph of pieces need not itself be acyclic.
+- **D4-30.** Observation sufficiency and online feature closure have different
+  tests: contextual refinement and right congruence, respectively.
+- **D4-31.** A spectrum needs a declared endomorphism and domain. Opposite-edge
+  features are not presumed scalar eigenvalues; snapshots, update order, or a
+  proved fixed-point semantics are required for circular dependencies.
+- **D4-32.** The new attached finite program layer narrows, but does not solve,
+  the faithful multi-wire AES and Adva realization problem.

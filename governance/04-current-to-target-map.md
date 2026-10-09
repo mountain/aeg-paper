@@ -2540,3 +2540,14 @@ PGL_2
 together with the foundational boundary between regular and singular zero geometry.
 
 Everything else must be migrated without being lost.
+
+## 2026-10-09 finite-type and ported AES source map
+
+| Source | Active target | Migration state and claim boundary |
+|---|---|---|
+| Compactification research of 2026-10-09 | Paper 0 `12-compactification.tex` | New reviewed geometric integration; proofs have explicit finite-type/end/collar hypotheses |
+| Circle and sheet comparisons from the same research | Paper 0 `app-E-circle-surgery.tex` | Exact local comparisons; no unproved AES surgery promoted |
+| Readable eight-page *Ported Arithmetic Expression Spaces* v0.1 | Paper IV `05b-ported-aes-programs.tex` | PDF-text adaptation after contextual residuals; strict finite DAG and feature criteria |
+| September 29 critical-puncture review | Paper 0 `11-holed-aes.tex` | Minimal extending-conformal-background repair; original evidence remains archival and unchanged |
+| Original k4/ported ZIP proofs, scripts and evidence | No byte import yet | HOLD: unreadable original archives; original 39/55 checks not rerun |
+| Newly authored exact finite checks | Paper 0 / Paper IV `scripts/` | Independent regression evidence, separately identified from the original bundles |

@@ -55,6 +55,8 @@ Layer & Proved statement & Active boundary\\
 projective & Regular bivaluations are rank-one idempotents and form $G/H$; projective frames form an $H$-torsor. & No canonical connection or semantic interpretation of a projector is inferred.\\
 continuation & Left futures descend to $G/H$; one right update descends iff $k^{-1}Hk\subseteq H$; reversible right action requires the normalizer. & The conclusion depends on chronology and the selected quotient observation.\\
 residual & $\cR_C$ is the canonical minimal exact deterministic state; finite residuals give a fixed-width bit lower bound. & Randomized, approximate, infinite, and lossy models require new definitions.\\
+ported programs & Strict finite substitution preserves sources and occurrences and commutes with evaluation on the exact composite domain; compatible collars and interfaces descend. & Global DAG, complete seam records, strict partial domains; no AES gate-motion realization is inferred.\\
+features & Observation factorization holds iff feature fibers refine contextual equivalence; online updates hold iff the feature kernel is a right congruence. & Observation factorization, effectiveness, and actual opposite-edge witnesses are separate obligations.\\
 operational & Live configurations, not ever-computed sets, determine workspace when erase or recompute actions exist. & Actual resources remain model-, encoding-, and schedule-dependent.\\
 growth & Fiber--image and conditional-entropy inequalities are exact. & Word growth and fiber growth are not running-time lower bounds.\\
 rewrite & Potential differences and pure-gauge labels telescope on closed loops. & Nontrivial holonomy needs non-exact transport and a gauge law.\\
@@ -133,11 +135,30 @@ residual.  Determine sharp refinements when right and left futures are both
 allowed.
 \end{problem}
 
-\begin{problem}[Multi-wire AEG]
-Define a symmetric monoidal category or PROP of typed arithmetic networks whose
-one-wire subcategory is the marked-history formalism, whose linear sector
-contains butterfly networks, and whose semantics retains central scalars and
-ordinary-domain data.
+\begin{problem}[Faithful multi-wire AES realization]
+\label{prob:faithful-multiwire-aeg}
+Extend the finite ported-network interface of Section~\ref{sec:ported-aes} to a
+symmetric monoidal category or PROP with a faithful AES state realization.
+Supply a multi-hole configuration or fiber carrier and realize the actual typed
+arithmetic and structural generators, including binary gates, copy, discard,
+and their ordinary domains.  Retain sources, occurrences, literal call receipts,
+and full-state residuals.  Prove execution transport, overlap conjugacy, and
+independence of decomposition.  Recover the marked-history one-wire fragment
+and a linear sector containing butterfly networks, retaining central scalars.
+The finite attached-network theorem settles neither these geometric
+realizations nor these embedding requirements.
+\end{problem}
+
+\begin{problem}[Opposite-edge feature witnesses]
+\label{prob:opposite-edge-features}
+Construct the actual three characteristic witnesses in a declared Adva
+experiment \cite{Yuan2026AdvaArithmeticCalibration}.  Determine whether they
+satisfy Theorem~\ref{thm:feature-observation-descent} and
+Proposition~\ref{prop:feature-online-update}, or which retained process data
+are needed to refine them.  Declare operator closure before using spectra and
+snapshot/update or fixed-point semantics before using three-side feedback.
+The scalar outputs in Example~\ref{ex:ported-four-puncture} do not identify
+these native output roles.
 \end{problem}
 
 \begin{problem}[Costed representation change]

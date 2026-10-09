@@ -64,6 +64,7 @@
 \newcommand{\Obs}{\operatorname{Obs}}
 \newcommand{\Pareto}{\operatorname{Pareto}}
 \newcommand{\Fill}{\operatorname{Fill}}
+\newcommand{\Subst}{\operatorname{Subst}}
 \newcommand{\dd}{\,\mathrm{d}}
 \newcommand{\cH}{\mathcal H}
 \newcommand{\cR}{\mathcal R}
@@ -84,7 +85,7 @@
 \large From Histories and Quotients to Representation and Cost}
 
 \author{Mingli Yuan\\Swarma Research\\Beijing 100083, China}
-\date{August 7, 2026\\[0.25em]\small Draft manuscript under mathematical review}
+\date{October 9, 2026\\[0.25em]\small Draft manuscript under mathematical review}
 
 \begin{document}
 \maketitle
@@ -143,6 +144,18 @@ live configurations, whose actions may compute, erase, communicate, checkpoint,
 or recompute.  A monotone set of nodes ever computed cannot determine workspace
 once erasure and recomputation are allowed.
 
+For a ported AES we distinguish geometric punctures, computational holes, and
+ordered input/output ports.  Finite typed acyclic networks with explicit copy
+and strict discard admit source- and occurrence-preserving substitution.
+Substitution commutes with partial evaluation on exactly the composite domain;
+network associativity holds up to an explicit isomorphism while literal call
+receipts remain distinct.  Compatible AES collars and computational interfaces
+descend together under a global acyclicity hypothesis.  Feature observation
+sufficiency is equivalent to refinement of contextual equivalence; online
+feature updates additionally require a right congruence.  A four-input,
+three-output rational example illustrates this interface without claiming that
+its attached gates have been realized as AES motions.
+
 Several exact calibrations show both the reach and the limits of the framework.
 Binary Horner histories with fixed length and Hamming weight have one ACS charge
 but $\binom nm$ distinct affine operators.  For a finite alphabet, a simple
@@ -164,8 +177,9 @@ comparison theorems among them only when the required actions and observations
 are specified.  We do not infer computational hardness from noncommutativity,
 negative curvature, exponential group growth, or the size of a raw history
 fiber.  The remaining programme is to construct non-flat projective transport,
-a multi-wire AEG semantics, costed AEG-native representation changes, and
-approximate residual theories.
+faithful multi-wire AES motion realizations, actual opposite-edge feature
+witnesses, costed AEG-native representation changes, and approximate residual
+theories.
 \end{abstract}
 
 \noindent\textbf{Keywords:}
@@ -187,6 +201,8 @@ word growth; decision diagram; FFT; checkpointing; time--space tradeoff
 \input{sections/04-condensation-and-continuation.tex}
 \section{Contextual residuals and minimal exact state}\label{sec:contextual-residuals}
 \input{sections/05-contextual-residuals.tex}
+\section{Ported AES: substitution, execution, and composition}\label{sec:ported-aes}
+\input{sections/05b-ported-aes-programs.tex}
 \section{Operational resource geometry}\label{sec:operational-resources}
 \input{sections/06-operational-resource-geometry.tex}
 \section{Word growth, fibers, and information loss}\label{sec:growth-information}

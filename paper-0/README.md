@@ -24,7 +24,10 @@ Paper 0 is the geometric foundation of the series.  It develops:
 6. two methodological obstructions to linear language and the structural
    proposals imported from process geometry;
 7. punctured arithmetic expression spaces, the tangent cone of a puncture, and a
-   register of six computed witnesses.
+   register of six computed witnesses;
+8. finite-type end conditions, arbitrary positive puncture-count examples,
+   three-ended collar reconstruction, an exact four-puncture motion residue,
+   and carefully separated circle and branched-sheet models.
 
 The paper does **not** revise the marked spinal history terminology of Paper I.
 Paper I remains responsible for the intrinsic sequential-tree classification,
@@ -48,12 +51,14 @@ paper-0/
     09-contact-of-tearing.tex
     10-beyond-linear.tex
     11-holed-aes.tex
+    12-compactification.tex
     12-interface.tex
   appendices/
     app-A-calculations.tex
     app-B-hyperbolic-calculations.tex
     app-C-affine-cocycles.tex
     app-D-acs-contact.tex
+    app-E-circle-surgery.tex
 ```
 
 Sections 7--9 and appendices B--D were moved from Paper I by the amendment
@@ -117,3 +122,21 @@ imported from process geometry.  Open extensions include an intrinsic projective
 AES for ripple geometry, quotient-stable path/ripple invariants, a canonical
 choice of punctures, multi-wire generalization, and a general theory of infinite
 arithmetic expressions.
+
+## Compactification integration of 2026-10-09
+
+The geometric basis for ported AES is Section 12. Geometric punctures, conformal
+point filling, boundary circles, and computational inputs remain different objects.
+The critical-puncture theorem now includes the extending-conformal-background
+hypothesis required by the September 29 review.
+
+Run the newly authored, standard-library exact finite checks with:
+
+```bash
+python paper-0/scripts/verify-compactification.py
+```
+
+These checks supplement the manuscript proofs. They are not a rerun of the
+original 39-check research archive, whose bytes were unavailable during this
+integration. See `governance/h2-integration-2026-10-09.md` for source coverage,
+mathematical status, and the remaining original-artifact recovery task.

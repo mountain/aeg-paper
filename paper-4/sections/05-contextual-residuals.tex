@@ -11,7 +11,13 @@ Fix a typed interface $C$.  Let $P_C$ be the set of admissible pasts reaching
 that interface and let $M_C$ be a monoid of future continuations.  Composition
 is written as a right action $p\cdot\eta$ and may initially be partial because
 ordinary arithmetic, typing, or resource rules can make a continuation
-illegal.
+illegal.  Before totalizing, require a domain-compositional partial action:
+$p\cdot(\zeta\eta)$ is defined exactly when $p\cdot\zeta$ and
+$(p\cdot\zeta)\cdot\eta$ are defined, and their values then agree.
+Execution of the free continuation word monoid has this property.  Quotienting
+words by an operation relation requires a separate proof that the relation
+preserves both values and ordinary domains; projective cancellation alone does
+not supply one.
 
 If the action is partial, introduce an absorbing state $\bot$ and put
 \[
@@ -25,7 +31,7 @@ $\bot\cdot\eta=\bot$.  Let
   O_C:P_C^\bot\longrightarrow Y_C^\bot
 \]
 be the current observation, with $O_C(\bot)=\bot$ when the absorbing state
-is present.  Depending on the problem,
+is present and $\bot$ is distinct from every valid observation.  Depending on the problem,
 $O_C$ may record an endpoint, a projective state, a Boolean answer, a tensor, a
 trace, or a distribution.
 

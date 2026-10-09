@@ -1,0 +1,288 @@
+% Canonical geometric integration of the 2026-10-09 H2 compactification study.
+The punctured models of Section~\ref{sec:p0-holed} can be organized by their
+ends without identifying a singular point, a boundary circle, and a computational
+input.  We first specify which structure is compactified, then construct a
+model for every finite positive puncture count, and finally state the collar
+data needed to cut and reconstruct the original AES.
+
+The results concern existence and reconstruction under explicit hypotheses.
+They neither classify all AES metrics nor identify the complete hyperbolic
+metric of an auxiliary uniformization with the arithmetic metric.  The port
+binding and execution layer is developed in Paper~IV
+\cite{Yuan2026AEGCondensation}; its inputs do not alter the geometry defined here.
+
+\subsection{End data and three meanings of completion}
+\label{subsec:p0-end-data}
+
+\begin{definition}[Finite-type carrier and conformal point compactification]
+\label{def:p0-finite-type-carrier}
+A finite-type carrier of genus $\gamma$ with $k$ punctures is a connected
+oriented surface $M$ diffeomorphic to $\overline M\setminus S$, where
+$\overline M$ is a closed oriented surface of genus $\gamma$ and $|S|=k$.
+It is a punctured AES carrier when $(g,a;\mu,\lambda)$ also satisfies
+Definition~\ref{def:p0-punctured-aes}, including essentiality at every point of
+$S$.  Its oriented conformal structure is the one determined by $g$.
+A \emph{conformal point compactification} adds one point at each end and
+extends that conformal structure; it does not assert extension of $g$ or $a$.
+\end{definition}
+
+\begin{proposition}[The local condition for conformal filling]
+\label{prop:p0-conformal-end-filling}
+A finite-type conformal surface admits such a point compactification if and
+only if every end has a neighbourhood conformally equivalent to a punctured
+disc $0<|z|<\epsilon$.  A topological puncture alone does not impose this
+condition.
+\end{proposition}
+
+\begin{proof}
+If a conformal compactification exists, a disc coordinate at each added point
+restricts to the required end coordinate.  Conversely, attach $z=0$ in each
+of finitely many disjoint end charts.  Their overlap maps are already
+holomorphic away from the added points, and no other chart contains those
+points; hence these charts extend the conformal atlas.  The finite-type
+compact core together with the finitely many closed smaller end discs is
+compact.  A finite-modulus annular end, for example, is not conformally a
+punctured-disc end although it is topologically annular.
+\end{proof}
+
+For a complete hyperbolic cusp, the quotient of $\{\operatorname{Im}z>Y\}$
+by $z\mapsto z+1$ has coordinate $q=e^{2\pi iz}$.  Direct substitution gives
+\[
+ h=\frac{|dq|^2}{|q|^2(\log|q|)^2}.
+\]
+Thus $q=0$ fills the conformal puncture, while the cusp remains at infinite
+$h$-distance.  Topological point filling, conformal point filling, and metric
+completion are different operations.  Removing an open disc instead leaves a
+boundary circle; an oriented real blow-up can retain directions at a puncture,
+but does not automatically extend the arithmetic data.  Markings, end germs,
+and any chosen angular or port data must be retained explicitly.
+
+For a genus-zero complete finite-area hyperbolic surface with $k\ge3$ cusps,
+the conformal compactification is a sphere with $k$ distinct marked points.
+Normalizing three points to $0,1,\infty$ leaves $k-3$ complex parameters,
+modulo any explicitly chosen label symmetries.  This is a statement about the
+carrier's conformal moduli, not a count of AES assignments or metrics.
+
+\subsection{An explicit family with every puncture count}
+
+\begin{theorem}[Compactifiable AES with any positive finite puncture count]
+\label{thm:p0-arbitrary-k-punctures}
+Let $k\ge1$.  For $k>1$ choose distinct real numbers $r_1,\ldots,r_{k-1}$;
+for $k=1$ use the empty product.  Choose a polynomial $P_k$ with
+\[
+ P_k'(x)=\prod_{j=1}^{k-1}(x-r_j),\qquad
+ a(x,y)=P_k(x)+y^2,
+\]
+and set $S=\{r_1,\ldots,r_{k-1},\infty\}\subset\PP^1(\CC)$,
+$M=\PP^1(\CC)\setminus S$.  For $\mu\ne0$ and real $\lambda$, put
+\begin{equation}
+ g=\frac{(P_k'(x))^2+4y^2}{\mu^2+\lambda^2a^2}(dx^2+dy^2).
+ \label{eq:p0-arbitrary-k-metric}
+\end{equation}
+Then $(\PP^1(\CC),S,g,a;\mu,\lambda)$ is a punctured AES with exactly
+$k$ essential punctures and conformal compactification $\PP^1(\CC)$.
+\end{theorem}
+
+\begin{proof}
+The Euclidean differential of $a$ is $(P_k'(x),2y)$, whose zeros are precisely
+$(r_j,0)$.  The numerator in \eqref{eq:p0-arbitrary-k-metric} is consequently
+positive on $M$ and the denominator is at least $\mu^2>0$.  Inverting its
+positive conformal factor gives $|da|_g^2=\mu^2+\lambda^2a^2$.
+At a finite point of $S$ the polynomial assignment has vanishing differential;
+any smooth non-degenerate extension of the given AES would therefore contradict
+that identity.  At infinity, along $x=0$ and $|y|\to\infty$, the assignment
+$P_k(0)+y^2$ diverges, so it admits no continuous real-valued extension.
+These prove essentiality directly.  The conformal class on $M$ is the
+Euclidean class, which extends in the standard coordinate $1/z$ at infinity
+and at all finite punctures.  For $k=1$, $P_1'=1$ and the only puncture is
+infinity.  No critical-set theorem at infinity is used.
+\end{proof}
+
+This proves existence for every $k$, including the low-complexity cases
+$k=1,2$; it does not supply every marked conformal structure or a prescribed
+zero set.  The notation $\mathfrak E_k$ remains descriptive, not a unique
+model determined by $k$.  In the four-puncture calibration we take
+\begin{equation}
+ a=\frac{x^4}{4}-\frac{x^2}{2}+y^2,
+ \qquad S=\{-1,0,1,\infty\},\qquad \mu=\lambda=1.
+ \label{eq:p0-k4-calibration}
+\end{equation}
+The finite puncture values are $-1/4,0,-1/4$.  They are fixed by this assignment;
+arbitrary later computational inputs cannot be interpreted as arbitrary end
+limits without constructing a different parameterized AES family.
+
+\subsection{Three-ended blocks and exact geometric reconstruction}
+
+For $2\gamma-2+k>0$, a finite-type carrier has a pants decomposition into
+three-ended blocks.  An external end can remain a puncture, while an internal
+end of a cut block is a boundary circle with a collar.  If $N$ is the number
+of blocks and $E$ the number of internal seams, Euler characteristic and end
+counting give
+\begin{equation}
+ N=2\gamma-2+k,\qquad 3N=k+2E,\qquad E=3\gamma-3+k.
+ \label{eq:p0-pants-counts}
+\end{equation}
+Indeed each block has Euler characteristic $-1$, and gluing circles changes
+no Euler characteristic.  Existence of the decomposition and its hyperbolic
+coordinate interpretation are standard; see \cite[\S2]{Wolpert2003Completion}.
+In genus zero the adjacency graph is a tree with $k-2$ vertices and $k-3$
+internal edges.  If instead $k$ counts extra operational ends in addition to
+three permanent ends, substitute $k+3$ in these formulas.  The exceptional
+sphere, plane, and cylinder cases are not assigned negative numbers of blocks.
+
+\begin{definition}[AES collar contract]
+\label{def:p0-collar-contract}
+A collar contract specifies the paired seam sides, their parametrizations and
+markings, and smooth two-sided collar charts for the proposed quotient.
+On overlapping collar charts, transition diffeomorphisms $\phi_e$ preserve the
+surface orientation and satisfy
+\begin{equation}
+ \phi_e^*g_2=g_1,\qquad a_2\circ\phi_e=a_1,
+ \label{eq:p0-collar-matching}
+\end{equation}
+with identical signed constants $\mu,\lambda$.  Inverse and cocycle identities
+are required wherever transitions overlap.  Boundary orientations of paired
+cut circles are opposite.  The contract includes the complete seam inventory,
+external end labels and germs, and the requirement that the quotient atlas is
+a Hausdorff smooth oriented surface.
+\end{definition}
+
+The conditions concern full collar germs, not just equal values on the seam.
+Equivalently, one may specify compatible smooth tensors in one signed collar
+coordinate and restrict them to its two sides.  Arbitrary boundary
+identifications do not automatically satisfy the definition.
+
+\begin{proposition}[Cutting and descent of the original AES]
+\label{prop:p0-aes-collar-descent}
+Cut a finite-type regular AES along a pants decomposition and retain its full
+collar contracts and external end data.  Reassembly reconstructs the original
+AES up to the recorded marked isomorphism.  More generally, AES blocks with
+contracts as in Definition~\ref{def:p0-collar-contract} descend to a regular
+AES on the smooth quotient.  Their canonical arithmetic frames agree across
+the seams.  A finite motion trajectory crossing the seams transversely away
+from punctures is carried to the same trajectory in the quotient.
+\end{proposition}
+
+\begin{proof}
+The matching identities glue the metric tensors to a smooth positive-definite
+metric and the assignments to a smooth function on the quotient atlas.  The
+eikonal identity is local and invariant under change of chart, so it holds on
+the quotient.  Orientation-preserving isometries preserving $a$ preserve its
+gradient and the rotation $J$; with the same signed $\mu,\lambda$, the formula
+in Proposition~\ref{prop:canonical-arithmetic-frame} therefore matches both
+frame fields.  Uniqueness for smooth local ordinary differential equations
+matches their flows on overlaps, hence each finite admissible transverse
+crossing.  In the case obtained by cutting an existing AES, the quotient charts
+are its original charts and the seam identifications restore exactly the same
+points, tensors and function.  Retained end germs restore the same essential
+punctures; no extension across them is asserted.
+\end{proof}
+
+For \eqref{eq:p0-k4-calibration}, the circles
+$|z+1/2|=3/4$ and $|z-1/2|=3/4$ give two different single-seam decompositions.
+The first separates $\{-1,0\}$ from $\{1,\infty\}$; the second separates
+$\{0,1\}$ from $\{-1,\infty\}$.  Neither seam meets $S$.  Restricting the
+same $a,g$ to either pair of blocks and retaining the original collar charts
+reconstructs exactly the same four-puncture AES by the proposition.  This is a
+reconstruction result for the recorded atlas, not independence from erased
+seam data or a canonical choice of decomposition.
+
+\subsection{Auxiliary hyperbolic geometry and three-cusp compatibility}
+
+When the carrier admits a complete finite-area hyperbolic uniformization $h$,
+its pants carry internal geodesic boundary lengths $\ell_e>0$ and twists
+$\tau_e$.  With fixed marking and fixed external cusp types, these are
+Fenchel--Nielsen coordinates on Teichm\"uller space.  They reconstruct $h$,
+not the original AES tensors $(g,a)$.  On pinching every internal seam of a
+chosen genus-zero decomposition, the limiting nodal curve consists of
+$k-2$ thrice-punctured components, paired at $k-3$ nodes.  Local plumbing
+$uv=q_e$ smooths a node when $q_e\ne0$; $q_e=0$ is its nodal limit
+\cite[\S3]{Wolpert2003Completion}.  Local coordinates and any marking or
+orbifold identifications must be specified.  This standard geometric
+compatibility provides no AES deformation unless a compatible family
+$(g_{\mathbf q},a_{\mathbf q})$ and its end data are also constructed.
+
+\begin{warning}[The arithmetic metric is not the complete cusp metric]
+\label{warn:p0-hyperbolic-auxiliary}
+A connected, complete, boundaryless regular AES with a globally single-valued
+assignment has underlying surface diffeomorphic to a plane or a cylinder.
+Indeed the rectified assignment
+$t(a)=\int_0^a(\mu^2+\lambda^2s^2)^{-1/2}\,ds$ has unit gradient; its complete
+flow gives $M\cong a^{-1}(0)\times\mathbb R$, and a connected one-dimensional
+level is a line or a circle.  This is the complete-splitting theorem of
+Paper~I \cite{Yuan2026AEGFoundations}.  Consequently a complete three-cusp
+hyperbolic metric cannot itself be the regular AES metric for such an
+assignment.  Boundary, incompleteness, or a change of semantic category is an
+active hypothesis, not a removable inconvenience.
+\end{warning}
+
+There is also an explicit special family covering the three-cusp sphere.
+For $k\ge3$, put $d=k-2$ and
+\[
+ X_k=\PP^1(\CC)\setminus(\{0,\infty\}\cup\{z:z^d=1\}).
+\]
+The map $z\mapsto z^d$ is an unramified degree-$d$ cover from $X_k$ to
+$\PP^1\setminus\{0,1,\infty\}$: any critical points lie in the removed set
+$\{0,\infty\}$, and each retained target has exactly $d$ distinct preimages.
+It extends to a branched map between the compact spheres.  This proves a
+compatible conformal model for each count, not a covering for every prescribed
+conformal structure.  For a four-puncture unramified cover the degree must be
+$2$ by Euler characteristic; its compact extension has two simple branch
+values among the three marked targets, and the four source punctures have
+cross-ratio orbit $\{-1,2,1/2\}$.  Generic four-puncture moduli are excluded.
+This covering construction by itself specifies no arithmetic metric.
+
+\subsection{An assignment identity can retain motion residue}
+\label{subsec:p0-motion-residue}
+
+The scalar tearing of Section~\ref{sec:p0-acs-tearing} compares induced affine
+operators.  A word inducing the identity on the assignment need not be the
+identity on the full AES state.  Here is an exact local certificate in
+\eqref{eq:p0-k4-calibration}, independent of a numerical trajectory plot.
+
+\begin{proposition}[A nonzero level-set residue in the four-puncture model]
+\label{prop:p0-k4-motion-residue}
+Let $A_s$ and $M_t$ be the local flows of the canonical fields $X_u,X_v$ in
+\eqref{eq:p0-k4-calibration}.  For sufficiently small $s,t$, the chronological
+word $A_s,M_t,A_{-e^t s},M_{-t}$ defines
+\[
+ W_{s,t}=M_{-t}\circ A_{-e^t s}\circ M_t\circ A_s,
+ \qquad a\circ W_{s,t}=a.
+\]
+At $p=(0,1)$ it has nonzero mixed displacement:
+\[
+ \left.\partial_s\partial_t W_{s,t}(p)\right|_{s=t=0}
+ =([X_u,X_v]-X_u)(p)=(-3/4,0).
+\]
+Thus for sufficiently small nonzero $s=t$ the full state moves while its
+assignment is unchanged.
+\end{proposition}
+
+\begin{proof}
+The flow identities are $a\circ A_s=a+s$ and $a\circ M_t=e^t a$.
+Their displayed composition gives the identity on $a$ exactly.  Write
+$v=\nabla_{\mathrm{Eucl}}a$, $Jv=(-a_y,a_x)$, and $G=|v|^2$.  The canonical
+fields are
+\[
+ X_u=(v-aJv)/G,\qquad X_v=(av+Jv)/G.
+\]
+At $p$, $a=1$, $v=(0,2)$ and $G=4$.  Differentiating the polynomial and these
+rational fields gives
+$[X_u,X_v](p)=(-1/4,1/2)$ and $X_u(p)=(1/2,1/2)$.
+The usual two-parameter Taylor expansion of the four smooth local flows
+has mixed term $st[X_u,X_v]$; the extra factor $e^t$ in the third flow
+subtracts $stX_u$.  Since $W_{s,0}=W_{0,t}=\id$, its remainder along $s=t$
+is $O(s^3)$, proving the nonzero displacement.  Finally
+$da([X_u,X_v]-X_u)=\mu\lambda-\mu=1-1=0$,
+so the infinitesimal residue is tangent to a level set, as required by the
+exact assignment identity.
+\end{proof}
+
+An interface that retains only the endpoint number can therefore discard a
+geometrically observable residue.  Whether that residue is needed for a
+particular computation is a question about its declared future observations,
+answered by Paper~IV's contextual residual criterion.  Neither pants counts,
+circle packings, nor scalar assignment identities prove a faithful
+realization of Adva's triadic computation.  The local circle surgery and
+sheet constructions that motivated this programme, with their precise
+non-equivalences, are recorded in Appendix~\ref{app:p0-circle-surgery}.

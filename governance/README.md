@@ -847,3 +847,11 @@ The project deliberately distinguishes:
 ]
 
 That distinction is part of the mathematical architecture of the project, not merely an editorial convention.
+
+## Finite-type and ported AES update (2026-10-09)
+
+See [the integration and source map](h2-integration-2026-10-09.md) for the new
+Paper 0 compactification/collar interface, Paper IV finite substitution and
+feature criteria, the directly necessary critical-puncture repair, and the
+original-artifact recovery boundary. Current claim amendments appear at the
+ends of `05b-paper-0-status-register.md` and `05-mathematical-status.md`.

@@ -1,10 +1,11 @@
-name: Paper 0 and Paper I build
+name: Paper 0, I and IV integration checks
 
 on:
   pull_request:
     paths:
       - "paper-0/**"
       - "paper-1/**"
+      - "paper-4/**"
       - "bibliography/**"
       - "build.sh"
       - ".github/workflows/paper0-build.yml"
@@ -30,16 +31,28 @@ jobs:
             texlive-latex-extra \
             texlive-fonts-recommended
 
+      - name: Verify finite geometric and program calibrations
+        run: |
+          python3 paper-0/scripts/verify-compactification.py
+          python3 paper-4/scripts/verify-paper4.py
+          python3 paper-4/scripts/verify-ported-aes.py > /tmp/ported-aes.json
+          cmp /tmp/ported-aes.json paper-4/scripts/fixtures/ported-aes/integration-evidence.json
+          python3 -O paper-4/scripts/verify-ported-aes.py > /tmp/ported-aes-optimized.json
+          cmp /tmp/ported-aes.json /tmp/ported-aes-optimized.json
+
       - name: Build Paper 0
         run: ./build.sh 0
 
       - name: Build Paper I
         run: ./build.sh 1
 
+      - name: Build Paper IV
+        run: ./build.sh 4
+
       - name: Check important LaTeX warnings
         run: |
           status=0
-          for log in paper-0/aeg-paper-0.log paper-1/aeg-paper-1.log; do
+          for log in paper-0/aeg-paper-0.log paper-1/aeg-paper-1.log paper-4/aeg-paper-4.log; do
             if grep -E "(Undefined control sequence|LaTeX Warning: Reference .* undefined|LaTeX Warning: Citation .* undefined|There were undefined references|multiply defined)" "$log"; then
               echo "$log contains unresolved LaTeX warnings" >&2
               status=1
@@ -54,4 +67,5 @@ jobs:
           path: |
             paper-0/aeg-paper-0.pdf
             paper-1/aeg-paper-1.pdf
+            paper-4/aeg-paper-4.pdf
           if-no-files-found: error
