@@ -200,3 +200,12 @@ or native opposite-edge feature witnesses.
 The PDF is a mathematical-review manuscript. Public release, author metadata,
 DOI assignment, and merging into the repository's release line require explicit
 author approval.
+
+## Opposite-process snapshot calibration
+
+The independent `scripts/verify-opposite-features.py` adapts pinned Adva 0114
+records to the existing typed finite checker. Reproduction, exact source
+coordinates, the finite chi_C obstruction and open boundaries are in
+[the witness record](../governance/opposite-feature-witness-2026-10-09.md).
+It retains full event/source packets alongside equal scalar triples; it does
+not execute Adva mechanisms or prove their AES equivalence.

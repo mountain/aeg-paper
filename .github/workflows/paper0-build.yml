@@ -40,6 +40,13 @@ jobs:
           python3 -O paper-4/scripts/verify-ported-aes.py > /tmp/ported-aes-optimized.json
           cmp /tmp/ported-aes.json /tmp/ported-aes-optimized.json
 
+      - name: Verify opposite-feature snapshot adapter
+        run: |
+          python3 paper-4/scripts/verify-opposite-features.py > /tmp/opposite-features.json
+          cmp /tmp/opposite-features.json paper-4/scripts/fixtures/opposite-features/evidence.json
+          python3 -O paper-4/scripts/verify-opposite-features.py > /tmp/opposite-features-optimized.json
+          cmp /tmp/opposite-features.json /tmp/opposite-features-optimized.json
+
       - name: Build Paper 0
         run: ./build.sh 0
 

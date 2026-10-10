@@ -1,0 +1,918 @@
+{
+  "chi": {
+    "C_from_T_S": "impossible on this two-record domain for declared projections",
+    "S_from_C_T": "sample-consistent only; no general witness",
+    "T_from_S_C": "sample-consistent only; no general witness"
+  },
+  "controls": {
+    "binding_type_rejected": true,
+    "formal_ratio_exponents": [
+      -1,
+      1
+    ],
+    "inconsistent_event_rejected": true,
+    "scalar_history_collision": true,
+    "schedule_independence": true,
+    "synthetic_shadow": [
+      2,
+      2,
+      4,
+      3
+    ],
+    "synthetic_words": [
+      [
+        "compute",
+        "verify",
+        "compute",
+        "verify"
+      ],
+      [
+        "verify",
+        "compute",
+        "verify",
+        "compute"
+      ]
+    ],
+    "zero_frames_rejected": true
+  },
+  "runs": [
+    {
+      "execution": [
+        "left/q0/gate/snapshot",
+        "left/q1/gate/snapshot",
+        "left/q2/gate/snapshot",
+        "left/q3/gate/snapshot",
+        "body/left/gate/copy-f",
+        "body/left/gate/copy-h",
+        "body/left/gate/frame-gap",
+        "body/left/gate/incidence",
+        "body/left/gate/port-arity",
+        "body/left/gate/ports",
+        "body/left/gate/ports-per-frame"
+      ],
+      "gates": [
+        {
+          "id": "body/copy-f",
+          "inputs": [
+            "arg2/snapshot:0"
+          ],
+          "occurrence": "body/left/gate/copy-f",
+          "op": "copy",
+          "outputs": [
+            "body/copy-f:0",
+            "body/copy-f:1"
+          ],
+          "parameter": null,
+          "source": "body/left/gate/copy-f"
+        },
+        {
+          "id": "body/copy-h",
+          "inputs": [
+            "arg3/snapshot:0"
+          ],
+          "occurrence": "body/left/gate/copy-h",
+          "op": "copy",
+          "outputs": [
+            "body/copy-h:0",
+            "body/copy-h:1"
+          ],
+          "parameter": null,
+          "source": "body/left/gate/copy-h"
+        },
+        {
+          "id": "body/incidence",
+          "inputs": [
+            "arg0/snapshot:0",
+            "arg1/snapshot:0"
+          ],
+          "occurrence": "body/left/gate/incidence",
+          "op": "add",
+          "outputs": [
+            "body/incidence:0"
+          ],
+          "parameter": null,
+          "source": "body/left/gate/incidence"
+        },
+        {
+          "id": "body/frame-gap",
+          "inputs": [
+            "body/copy-f:0",
+            "body/copy-h:0"
+          ],
+          "occurrence": "body/left/gate/frame-gap",
+          "op": "sub",
+          "outputs": [
+            "body/frame-gap:0"
+          ],
+          "parameter": null,
+          "source": "body/left/gate/frame-gap"
+        },
+        {
+          "id": "body/port-arity",
+          "inputs": [],
+          "occurrence": "body/left/gate/port-arity",
+          "op": "const",
+          "outputs": [
+            "body/port-arity:0"
+          ],
+          "parameter": "3",
+          "source": "body/left/gate/port-arity"
+        },
+        {
+          "id": "body/ports",
+          "inputs": [
+            "body/port-arity:0",
+            "body/copy-h:1"
+          ],
+          "occurrence": "body/left/gate/ports",
+          "op": "mul",
+          "outputs": [
+            "body/ports:0"
+          ],
+          "parameter": null,
+          "source": "body/left/gate/ports"
+        },
+        {
+          "id": "body/ports-per-frame",
+          "inputs": [
+            "body/ports:0",
+            "body/copy-f:1"
+          ],
+          "occurrence": "body/left/gate/ports-per-frame",
+          "op": "div",
+          "outputs": [
+            "body/ports-per-frame:0"
+          ],
+          "parameter": null,
+          "source": "body/left/gate/ports-per-frame"
+        },
+        {
+          "id": "arg0/snapshot",
+          "inputs": [],
+          "occurrence": "left/q0/gate/snapshot",
+          "op": "const",
+          "outputs": [
+            "arg0/snapshot:0"
+          ],
+          "parameter": "2",
+          "source": "adva@cce73004c2b4fbfb87d9ba1ccc66820423273cf6/left/adapter/0/gate/snapshot"
+        },
+        {
+          "id": "arg1/snapshot",
+          "inputs": [],
+          "occurrence": "left/q1/gate/snapshot",
+          "op": "const",
+          "outputs": [
+            "arg1/snapshot:0"
+          ],
+          "parameter": "1",
+          "source": "adva@cce73004c2b4fbfb87d9ba1ccc66820423273cf6/left/adapter/1/gate/snapshot"
+        },
+        {
+          "id": "arg2/snapshot",
+          "inputs": [],
+          "occurrence": "left/q2/gate/snapshot",
+          "op": "const",
+          "outputs": [
+            "arg2/snapshot:0"
+          ],
+          "parameter": "3",
+          "source": "adva@cce73004c2b4fbfb87d9ba1ccc66820423273cf6/left/adapter/2/gate/snapshot"
+        },
+        {
+          "id": "arg3/snapshot",
+          "inputs": [],
+          "occurrence": "left/q3/gate/snapshot",
+          "op": "const",
+          "outputs": [
+            "arg3/snapshot:0"
+          ],
+          "parameter": "2",
+          "source": "adva@cce73004c2b4fbfb87d9ba1ccc66820423273cf6/left/adapter/3/gate/snapshot"
+        }
+      ],
+      "packet": {
+        "C": [
+          2,
+          1,
+          0,
+          3,
+          2
+        ],
+        "S": [
+          0,
+          1,
+          2,
+          15,
+          16,
+          17
+        ],
+        "T": [
+          3,
+          2,
+          6
+        ],
+        "commit": "cce73004c2b4fbfb87d9ba1ccc66820423273cf6",
+        "events": [
+          {
+            "frame": 0,
+            "input": {
+              "method": 1,
+              "object": 2,
+              "subject": 0
+            },
+            "mechanism": "compute",
+            "output": {
+              "evidence": 5,
+              "history": 3,
+              "result": 4
+            }
+          },
+          {
+            "frame": 1,
+            "input": {
+              "method": 4,
+              "object": 5,
+              "subject": 3
+            },
+            "mechanism": "verify",
+            "output": {
+              "evidence": 8,
+              "history": 6,
+              "result": 7
+            }
+          },
+          {
+            "frame": 2,
+            "input": {
+              "method": 7,
+              "object": 8,
+              "subject": 6
+            },
+            "mechanism": "compute",
+            "output": {
+              "evidence": 17,
+              "history": 15,
+              "result": 16
+            }
+          }
+        ],
+        "handoffs": [
+          {
+            "from": 0,
+            "route": {
+              "evidence_to": "object",
+              "history_to": "subject",
+              "result_to": "method"
+            },
+            "to": 1
+          },
+          {
+            "from": 1,
+            "route": {
+              "evidence_to": "object",
+              "history_to": "subject",
+              "result_to": "method"
+            },
+            "to": 2
+          }
+        ],
+        "path": "programs/bootstrap-0/first-trace-arithmetic.adva",
+        "policy": "snapshot-v1:literal-events+labelled-carriers;no-mechanism-execution",
+        "repository": "mountain/adva",
+        "residual": {
+          "construction": {
+            "alternations": 0,
+            "compute": 1,
+            "learn": 0,
+            "step_count": 0,
+            "verify": -1
+          },
+          "space": {
+            "end": [
+              0,
+              0,
+              0
+            ],
+            "start": [
+              0,
+              0,
+              0
+            ]
+          },
+          "time": {
+            "causal_handoffs": 0,
+            "frame_occurrences": 0,
+            "transferred_ports": 0
+          }
+        },
+        "side": "left",
+        "source_document_digest": "blake3:ac29810342f62beae0ff84da6c3a7a431bd65807d0a13b4e5b35da4027bcb227",
+        "source_witness_digest": "blake3:b03cee7f38c01f0a84fa3c71227955ce8c85ac01a844f8c47e74a06c45a0d007",
+        "trace_digest": "blake3:bc1520a69e69b3d4d73235595160eef424ab7e02a36253d5690bb8db172b9a39",
+        "transport_sha256": "637c2d05663fcee780156d93f4f9e19f829418213a4948c91113141b64d3a579",
+        "trust": "pinned repository record; not external truth authentication",
+        "word": [
+          "compute",
+          "verify",
+          "compute"
+        ]
+      },
+      "receipt": [
+        "substitute",
+        [
+          "instance",
+          "body/left",
+          "body/left"
+        ],
+        [
+          [
+            "instance",
+            "left/q0",
+            "adva@cce73004c2b4fbfb87d9ba1ccc66820423273cf6/left/adapter/0"
+          ],
+          [
+            "instance",
+            "left/q1",
+            "adva@cce73004c2b4fbfb87d9ba1ccc66820423273cf6/left/adapter/1"
+          ],
+          [
+            "instance",
+            "left/q2",
+            "adva@cce73004c2b4fbfb87d9ba1ccc66820423273cf6/left/adapter/2"
+          ],
+          [
+            "instance",
+            "left/q3",
+            "adva@cce73004c2b4fbfb87d9ba1ccc66820423273cf6/left/adapter/3"
+          ]
+        ],
+        [
+          [
+            0,
+            0,
+            0,
+            "adva@cce73004c2b4fbfb87d9ba1ccc66820423273cf6/left/adapter/0/gate/snapshot",
+            "left/q0/wire/snapshot:0",
+            "body/left/input/compute",
+            "body/left/wire/compute"
+          ],
+          [
+            1,
+            0,
+            1,
+            "adva@cce73004c2b4fbfb87d9ba1ccc66820423273cf6/left/adapter/1/gate/snapshot",
+            "left/q1/wire/snapshot:0",
+            "body/left/input/verify",
+            "body/left/wire/verify"
+          ],
+          [
+            2,
+            0,
+            2,
+            "adva@cce73004c2b4fbfb87d9ba1ccc66820423273cf6/left/adapter/2/gate/snapshot",
+            "left/q2/wire/snapshot:0",
+            "body/left/input/frames",
+            "body/left/wire/frames"
+          ],
+          [
+            3,
+            0,
+            3,
+            "adva@cce73004c2b4fbfb87d9ba1ccc66820423273cf6/left/adapter/3/gate/snapshot",
+            "left/q3/wire/snapshot:0",
+            "body/left/input/handoffs",
+            "body/left/wire/handoffs"
+          ]
+        ]
+      ],
+      "scalars": [
+        "3",
+        "1",
+        "2"
+      ],
+      "wires": [
+        {
+          "id": "body/copy-f:0",
+          "occurrence": "body/left/wire/copy-f:0",
+          "source": "body/left/input/frames",
+          "type": "Q"
+        },
+        {
+          "id": "body/copy-f:1",
+          "occurrence": "body/left/wire/copy-f:1",
+          "source": "body/left/input/frames",
+          "type": "Q"
+        },
+        {
+          "id": "body/copy-h:0",
+          "occurrence": "body/left/wire/copy-h:0",
+          "source": "body/left/input/handoffs",
+          "type": "Q"
+        },
+        {
+          "id": "body/copy-h:1",
+          "occurrence": "body/left/wire/copy-h:1",
+          "source": "body/left/input/handoffs",
+          "type": "Q"
+        },
+        {
+          "id": "body/incidence:0",
+          "occurrence": "body/left/wire/incidence:0",
+          "source": "body/left/gate/incidence",
+          "type": "Q"
+        },
+        {
+          "id": "body/frame-gap:0",
+          "occurrence": "body/left/wire/frame-gap:0",
+          "source": "body/left/gate/frame-gap",
+          "type": "Q"
+        },
+        {
+          "id": "body/port-arity:0",
+          "occurrence": "body/left/wire/port-arity:0",
+          "source": "body/left/gate/port-arity",
+          "type": "Q"
+        },
+        {
+          "id": "body/ports:0",
+          "occurrence": "body/left/wire/ports:0",
+          "source": "body/left/gate/ports",
+          "type": "Q"
+        },
+        {
+          "id": "body/ports-per-frame:0",
+          "occurrence": "body/left/wire/ports-per-frame:0",
+          "source": "body/left/gate/ports-per-frame",
+          "type": "Q"
+        },
+        {
+          "id": "arg0/snapshot:0",
+          "occurrence": "left/q0/wire/snapshot:0",
+          "source": "adva@cce73004c2b4fbfb87d9ba1ccc66820423273cf6/left/adapter/0/gate/snapshot",
+          "type": "Q"
+        },
+        {
+          "id": "arg1/snapshot:0",
+          "occurrence": "left/q1/wire/snapshot:0",
+          "source": "adva@cce73004c2b4fbfb87d9ba1ccc66820423273cf6/left/adapter/1/gate/snapshot",
+          "type": "Q"
+        },
+        {
+          "id": "arg2/snapshot:0",
+          "occurrence": "left/q2/wire/snapshot:0",
+          "source": "adva@cce73004c2b4fbfb87d9ba1ccc66820423273cf6/left/adapter/2/gate/snapshot",
+          "type": "Q"
+        },
+        {
+          "id": "arg3/snapshot:0",
+          "occurrence": "left/q3/wire/snapshot:0",
+          "source": "adva@cce73004c2b4fbfb87d9ba1ccc66820423273cf6/left/adapter/3/gate/snapshot",
+          "type": "Q"
+        }
+      ]
+    },
+    {
+      "execution": [
+        "right/q0/gate/snapshot",
+        "right/q1/gate/snapshot",
+        "right/q2/gate/snapshot",
+        "right/q3/gate/snapshot",
+        "body/right/gate/copy-f",
+        "body/right/gate/copy-h",
+        "body/right/gate/frame-gap",
+        "body/right/gate/incidence",
+        "body/right/gate/port-arity",
+        "body/right/gate/ports",
+        "body/right/gate/ports-per-frame"
+      ],
+      "gates": [
+        {
+          "id": "body/copy-f",
+          "inputs": [
+            "arg2/snapshot:0"
+          ],
+          "occurrence": "body/right/gate/copy-f",
+          "op": "copy",
+          "outputs": [
+            "body/copy-f:0",
+            "body/copy-f:1"
+          ],
+          "parameter": null,
+          "source": "body/right/gate/copy-f"
+        },
+        {
+          "id": "body/copy-h",
+          "inputs": [
+            "arg3/snapshot:0"
+          ],
+          "occurrence": "body/right/gate/copy-h",
+          "op": "copy",
+          "outputs": [
+            "body/copy-h:0",
+            "body/copy-h:1"
+          ],
+          "parameter": null,
+          "source": "body/right/gate/copy-h"
+        },
+        {
+          "id": "body/incidence",
+          "inputs": [
+            "arg0/snapshot:0",
+            "arg1/snapshot:0"
+          ],
+          "occurrence": "body/right/gate/incidence",
+          "op": "add",
+          "outputs": [
+            "body/incidence:0"
+          ],
+          "parameter": null,
+          "source": "body/right/gate/incidence"
+        },
+        {
+          "id": "body/frame-gap",
+          "inputs": [
+            "body/copy-f:0",
+            "body/copy-h:0"
+          ],
+          "occurrence": "body/right/gate/frame-gap",
+          "op": "sub",
+          "outputs": [
+            "body/frame-gap:0"
+          ],
+          "parameter": null,
+          "source": "body/right/gate/frame-gap"
+        },
+        {
+          "id": "body/port-arity",
+          "inputs": [],
+          "occurrence": "body/right/gate/port-arity",
+          "op": "const",
+          "outputs": [
+            "body/port-arity:0"
+          ],
+          "parameter": "3",
+          "source": "body/right/gate/port-arity"
+        },
+        {
+          "id": "body/ports",
+          "inputs": [
+            "body/port-arity:0",
+            "body/copy-h:1"
+          ],
+          "occurrence": "body/right/gate/ports",
+          "op": "mul",
+          "outputs": [
+            "body/ports:0"
+          ],
+          "parameter": null,
+          "source": "body/right/gate/ports"
+        },
+        {
+          "id": "body/ports-per-frame",
+          "inputs": [
+            "body/ports:0",
+            "body/copy-f:1"
+          ],
+          "occurrence": "body/right/gate/ports-per-frame",
+          "op": "div",
+          "outputs": [
+            "body/ports-per-frame:0"
+          ],
+          "parameter": null,
+          "source": "body/right/gate/ports-per-frame"
+        },
+        {
+          "id": "arg0/snapshot",
+          "inputs": [],
+          "occurrence": "right/q0/gate/snapshot",
+          "op": "const",
+          "outputs": [
+            "arg0/snapshot:0"
+          ],
+          "parameter": "1",
+          "source": "adva@cce73004c2b4fbfb87d9ba1ccc66820423273cf6/right/adapter/0/gate/snapshot"
+        },
+        {
+          "id": "arg1/snapshot",
+          "inputs": [],
+          "occurrence": "right/q1/gate/snapshot",
+          "op": "const",
+          "outputs": [
+            "arg1/snapshot:0"
+          ],
+          "parameter": "2",
+          "source": "adva@cce73004c2b4fbfb87d9ba1ccc66820423273cf6/right/adapter/1/gate/snapshot"
+        },
+        {
+          "id": "arg2/snapshot",
+          "inputs": [],
+          "occurrence": "right/q2/gate/snapshot",
+          "op": "const",
+          "outputs": [
+            "arg2/snapshot:0"
+          ],
+          "parameter": "3",
+          "source": "adva@cce73004c2b4fbfb87d9ba1ccc66820423273cf6/right/adapter/2/gate/snapshot"
+        },
+        {
+          "id": "arg3/snapshot",
+          "inputs": [],
+          "occurrence": "right/q3/gate/snapshot",
+          "op": "const",
+          "outputs": [
+            "arg3/snapshot:0"
+          ],
+          "parameter": "2",
+          "source": "adva@cce73004c2b4fbfb87d9ba1ccc66820423273cf6/right/adapter/3/gate/snapshot"
+        }
+      ],
+      "packet": {
+        "C": [
+          1,
+          2,
+          0,
+          3,
+          2
+        ],
+        "S": [
+          0,
+          1,
+          2,
+          15,
+          16,
+          17
+        ],
+        "T": [
+          3,
+          2,
+          6
+        ],
+        "commit": "cce73004c2b4fbfb87d9ba1ccc66820423273cf6",
+        "events": [
+          {
+            "frame": 3,
+            "input": {
+              "method": 1,
+              "object": 2,
+              "subject": 0
+            },
+            "mechanism": "verify",
+            "output": {
+              "evidence": 11,
+              "history": 9,
+              "result": 10
+            }
+          },
+          {
+            "frame": 4,
+            "input": {
+              "method": 10,
+              "object": 11,
+              "subject": 9
+            },
+            "mechanism": "compute",
+            "output": {
+              "evidence": 14,
+              "history": 12,
+              "result": 13
+            }
+          },
+          {
+            "frame": 5,
+            "input": {
+              "method": 13,
+              "object": 14,
+              "subject": 12
+            },
+            "mechanism": "verify",
+            "output": {
+              "evidence": 17,
+              "history": 15,
+              "result": 16
+            }
+          }
+        ],
+        "handoffs": [
+          {
+            "from": 3,
+            "route": {
+              "evidence_to": "object",
+              "history_to": "subject",
+              "result_to": "method"
+            },
+            "to": 4
+          },
+          {
+            "from": 4,
+            "route": {
+              "evidence_to": "object",
+              "history_to": "subject",
+              "result_to": "method"
+            },
+            "to": 5
+          }
+        ],
+        "path": "programs/bootstrap-0/first-trace-arithmetic.adva",
+        "policy": "snapshot-v1:literal-events+labelled-carriers;no-mechanism-execution",
+        "repository": "mountain/adva",
+        "residual": {
+          "construction": {
+            "alternations": 0,
+            "compute": 1,
+            "learn": 0,
+            "step_count": 0,
+            "verify": -1
+          },
+          "space": {
+            "end": [
+              0,
+              0,
+              0
+            ],
+            "start": [
+              0,
+              0,
+              0
+            ]
+          },
+          "time": {
+            "causal_handoffs": 0,
+            "frame_occurrences": 0,
+            "transferred_ports": 0
+          }
+        },
+        "side": "right",
+        "source_document_digest": "blake3:ac29810342f62beae0ff84da6c3a7a431bd65807d0a13b4e5b35da4027bcb227",
+        "source_witness_digest": "blake3:b03cee7f38c01f0a84fa3c71227955ce8c85ac01a844f8c47e74a06c45a0d007",
+        "trace_digest": "blake3:c398e1cda49cfc7093b18cc17a82d95d23b6ae435d8b704d339df225dac3a57f",
+        "transport_sha256": "637c2d05663fcee780156d93f4f9e19f829418213a4948c91113141b64d3a579",
+        "trust": "pinned repository record; not external truth authentication",
+        "word": [
+          "verify",
+          "compute",
+          "verify"
+        ]
+      },
+      "receipt": [
+        "substitute",
+        [
+          "instance",
+          "body/right",
+          "body/right"
+        ],
+        [
+          [
+            "instance",
+            "right/q0",
+            "adva@cce73004c2b4fbfb87d9ba1ccc66820423273cf6/right/adapter/0"
+          ],
+          [
+            "instance",
+            "right/q1",
+            "adva@cce73004c2b4fbfb87d9ba1ccc66820423273cf6/right/adapter/1"
+          ],
+          [
+            "instance",
+            "right/q2",
+            "adva@cce73004c2b4fbfb87d9ba1ccc66820423273cf6/right/adapter/2"
+          ],
+          [
+            "instance",
+            "right/q3",
+            "adva@cce73004c2b4fbfb87d9ba1ccc66820423273cf6/right/adapter/3"
+          ]
+        ],
+        [
+          [
+            0,
+            0,
+            0,
+            "adva@cce73004c2b4fbfb87d9ba1ccc66820423273cf6/right/adapter/0/gate/snapshot",
+            "right/q0/wire/snapshot:0",
+            "body/right/input/compute",
+            "body/right/wire/compute"
+          ],
+          [
+            1,
+            0,
+            1,
+            "adva@cce73004c2b4fbfb87d9ba1ccc66820423273cf6/right/adapter/1/gate/snapshot",
+            "right/q1/wire/snapshot:0",
+            "body/right/input/verify",
+            "body/right/wire/verify"
+          ],
+          [
+            2,
+            0,
+            2,
+            "adva@cce73004c2b4fbfb87d9ba1ccc66820423273cf6/right/adapter/2/gate/snapshot",
+            "right/q2/wire/snapshot:0",
+            "body/right/input/frames",
+            "body/right/wire/frames"
+          ],
+          [
+            3,
+            0,
+            3,
+            "adva@cce73004c2b4fbfb87d9ba1ccc66820423273cf6/right/adapter/3/gate/snapshot",
+            "right/q3/wire/snapshot:0",
+            "body/right/input/handoffs",
+            "body/right/wire/handoffs"
+          ]
+        ]
+      ],
+      "scalars": [
+        "3",
+        "1",
+        "2"
+      ],
+      "wires": [
+        {
+          "id": "body/copy-f:0",
+          "occurrence": "body/right/wire/copy-f:0",
+          "source": "body/right/input/frames",
+          "type": "Q"
+        },
+        {
+          "id": "body/copy-f:1",
+          "occurrence": "body/right/wire/copy-f:1",
+          "source": "body/right/input/frames",
+          "type": "Q"
+        },
+        {
+          "id": "body/copy-h:0",
+          "occurrence": "body/right/wire/copy-h:0",
+          "source": "body/right/input/handoffs",
+          "type": "Q"
+        },
+        {
+          "id": "body/copy-h:1",
+          "occurrence": "body/right/wire/copy-h:1",
+          "source": "body/right/input/handoffs",
+          "type": "Q"
+        },
+        {
+          "id": "body/incidence:0",
+          "occurrence": "body/right/wire/incidence:0",
+          "source": "body/right/gate/incidence",
+          "type": "Q"
+        },
+        {
+          "id": "body/frame-gap:0",
+          "occurrence": "body/right/wire/frame-gap:0",
+          "source": "body/right/gate/frame-gap",
+          "type": "Q"
+        },
+        {
+          "id": "body/port-arity:0",
+          "occurrence": "body/right/wire/port-arity:0",
+          "source": "body/right/gate/port-arity",
+          "type": "Q"
+        },
+        {
+          "id": "body/ports:0",
+          "occurrence": "body/right/wire/ports:0",
+          "source": "body/right/gate/ports",
+          "type": "Q"
+        },
+        {
+          "id": "body/ports-per-frame:0",
+          "occurrence": "body/right/wire/ports-per-frame:0",
+          "source": "body/right/gate/ports-per-frame",
+          "type": "Q"
+        },
+        {
+          "id": "arg0/snapshot:0",
+          "occurrence": "right/q0/wire/snapshot:0",
+          "source": "adva@cce73004c2b4fbfb87d9ba1ccc66820423273cf6/right/adapter/0/gate/snapshot",
+          "type": "Q"
+        },
+        {
+          "id": "arg1/snapshot:0",
+          "occurrence": "right/q1/wire/snapshot:0",
+          "source": "adva@cce73004c2b4fbfb87d9ba1ccc66820423273cf6/right/adapter/1/gate/snapshot",
+          "type": "Q"
+        },
+        {
+          "id": "arg2/snapshot:0",
+          "occurrence": "right/q2/wire/snapshot:0",
+          "source": "adva@cce73004c2b4fbfb87d9ba1ccc66820423273cf6/right/adapter/2/gate/snapshot",
+          "type": "Q"
+        },
+        {
+          "id": "arg3/snapshot:0",
+          "occurrence": "right/q3/wire/snapshot:0",
+          "source": "adva@cce73004c2b4fbfb87d9ba1ccc66820423273cf6/right/adapter/3/gate/snapshot",
+          "type": "Q"
+        }
+      ]
+    }
+  ],
+  "schema": "aeg.opposite-feature-snapshot.v1",
+  "spectral": "not defined: no endomorphism/domain/closure supplied",
+  "truth_fiber": {
+    "shared_truth_coordinate": null,
+    "state": "open"
+  }
+}

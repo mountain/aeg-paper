@@ -3612,3 +3612,14 @@ The original 55-check research archive was not available for rerun. The newly
 authored repository verifier is independent finite evidence, clearly named as
 such; the readable eight-page candidate manuscript supplied the theorem and
 proof source. Full source provenance is in `h2-integration-2026-10-09.md`.
+
+## Opposite-process finite snapshot witness (2026-10-09)
+
+Canonical research record: `opposite-feature-witness-2026-10-09.md`.
+No manuscript theorem is changed.
+
+| ID | Status | Statement and boundary |
+|---|---|---|
+| PIV-S8 | `COMPUTATIONALLY VERIFIED EXAMPLE` | Pinned Adva 0114 event/projection adapter retains source, events, residual and policy; four Q snapshot producers fill a strict finite body yielding (3,1,2) on both paths. Packet observation separates equal scalar outputs. No mechanism execution or AES motion bridge. |
+| PIV-S9 | `PROVED WITH STATED HYPOTHESES` | On the two frozen records with the declared 0114 projection policy, equal (T,S) and unequal C exclude any function C=chi_C(T,S). Proof in the canonical research record; enriched features change the question. |
+| PIV-F2 | `OPEN PROBLEM` | chi_T and chi_S have only two-record sample consistency; general cross-side witnesses, faithful AES gate motions, spectral operator closure, truth-fiber and cyclic update semantics remain open. |
