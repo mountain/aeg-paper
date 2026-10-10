@@ -200,3 +200,60 @@ specify a directed Alexandrov/incidence operator with its full observation
 policy, then search collisions beyond the three-event carrier. Developing a
 nonlinear eigenproblem before choosing that observation policy would not
 resolve the information-loss question.
+
+## Independent review and executable guard repair (2026-10-10)
+
+Review baseline: PR #17 head `ff262a77accf0a7ee894d9ffbfeec571bc6e33fb`.
+The original prefix-only stopping assertion did not execute the next attempted
+transition, and its future-enabling flags were literals. This was a software
+coverage gap, not a counterexample to PS-3's independent quantified proof.
+
+The producer now includes a separately implemented guarded counter machine.
+Its finite control has the explicit tick guard `limit is None or x < limit`;
+a refused tick leaves state and emitted history unchanged. At each horizon
+0,1,2,3,6 both machines attempt n+1 ticks: their first n emitted packets agree,
+but the loop emits e_n while the stopping machine records a disabled attempt
+at x=n. Future-enabling flags are derived from the executed contract. At n=0
+the stopping machine is terminal initially. Observation budget is separate
+from the stopping limit. The data counter remains unbounded for the loop;
+“finite machine” here means a finite transition specification and finite test,
+not a finite-state implementation of this unbounded history semantics.
+
+`receive-process-spectrum.py` imports no producer code. Its reference inputs
+are the declared test horizon, stopping limit, ancestry-sharing and role
+policies, rather than a receipt's self-claimed contract. Closed-form expected
+histories and explicit attempt records verify 30 receipts. Equal-valued source
+substitution and role exchange are also accepted under their own declared
+contracts, and rejected under the original contract. Complete means the known
+guard disables tick; truncated means observation ends while tick remains
+enabled. Complete does not certify unspecified external/native transitions.
+
+The receiver enumerates relations by 27 independent pair orientations and
+filters transitivity, rather than taking closure of 64 graphs. It finds all
+19 posets, reconstructs membership order, and identifies join-irreducibles by
+unique lower covers rather than pairwise joins. Exact determinants at the
+three distinct roots 0,1,3 establish the monic cubic characteristic; covers,
+marked orders, opens and rank counts are independently checked.
+
+It rejects 62 mutated receipts: missing stopping guard (at all five horizons,
+explicitly shown to survive the old prefix-only check), forged enabling/status/
+state/attempt records, source substitution, exchanged roles, lost history,
+duplicate occurrences, foreign predecessor, altered result/evidence, deleted
+event, and truncated observation claimed complete. The mutation list and
+normal/optimized receiver output are frozen separately in
+`paper-4/scripts/fixtures/process-spectrum/receiver-evidence.json`.
+
+These checks are independent algorithms by the same AI author, not independent
+human review or native authorization. Source IDs retain declared synthetic
+ancestry; they do not authenticate external source bytes. PS-3's indistinguish-
+ability is only for the packet/event-prefix observation: when the observer is
+also given the transition contract or truthful terminal status, the two
+machines are distinguishable. This repair adds no general Adva anytime theorem,
+no infinite execution certificate and no manuscript claim.
+
+Local acceptance: both scripts agree byte-for-byte in normal/optimized modes;
+139 compactification checks and all seven Paper IV groups pass; ported-AES and
+PR #16 opposite-feature fresh evidence match their unchanged frozen bytes.
+No LaTeX changed; PDF builds and warning checks are delegated to remote CI.
+PR remains Draft/Open; this AI audit is not human approval. Merge requires
+Mingli Yuan's separate explicit approval for the reviewed final head.

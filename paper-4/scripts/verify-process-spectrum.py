@@ -142,6 +142,35 @@ def run(steps, shared=True, swap=False, stop_after=None):
     return events
 
 
+def guarded_run(budget, limit, shared=True, swap=False, ignore_guard=False):
+    """Separate machine: finite control, unbounded counter; halt at x == limit.
+
+    budget bounds observation, not execution semantics. A refused tick emits no
+    event. ignore_guard is used only by the executable mutation control.
+    """
+    x, events, attempts = 0, [], []
+    while len(attempts) < budget:
+        enabled = ignore_guard or limit is None or x < limit
+        attempts.append(dict(before=x, enabled=enabled,
+                             after=x + 1 if enabled else x))
+        if not enabled:
+            break
+        k = x
+        x += 1
+        events.append(dict(event=f'e{k}', transition='tick', iteration=k,
+                           predecessors=[] if k == 0 else [f'e{k-1}'], value=x,
+                           occurrences=[f'e{k}:left', f'e{k}:right'],
+                           sources=['s0', 's0' if shared else 's1'],
+                           outputs={'history' if not swap else 'evidence': list(range(x)),
+                                    'result': x,
+                                    'evidence' if not swap else 'history': {'checked_steps': x}}))
+    enabled = ignore_guard or limit is None or x < limit
+    return dict(contract=dict(stop_after=limit, shared=shared, swap=swap),
+                observation_budget=budget, events=events, attempts=attempts,
+                state=x, future_tick_enabled=enabled,
+                observation_status='truncated' if enabled else 'complete')
+
+
 def cyclic():
     rows = []
     for n in [0,1,2,3,6]:
@@ -151,13 +180,28 @@ def cyclic():
         reach = order(vertices, edges)
         require(len(ideals(vertices,reach)) == n+1, 'prefix chain opens')
         require(run(n+1)[:n] == ev, 'prefix compatibility')
-        require(run(n,stop_after=n) == ev, 'stop/continue prefix collision')
+        loop = guarded_run(n+1, None)
+        stopped = guarded_run(n+1, n)
+        require(loop['events'][:n] == stopped['events'] == ev, 'common prefix')
+        require(loop['attempts'][-1] == dict(before=n, enabled=True, after=n+1), 'legal continuation')
+        require(stopped['attempts'][-1] == dict(before=n, enabled=False, after=n), 'guard refusal')
+        # Removing the guard survives the old prefix-only assertion, but must
+        # fail the new extension criterion, including the zero-event horizon.
+        mutant = guarded_run(n+1, n, ignore_guard=True)
+        require(mutant['events'][:n] == ev, 'mutant survives weak test')
+        require(mutant['events'] != stopped['events'], 'guard mutant killed')
         if n:
             require(run(n,shared=False) != ev, 'source collision control')
             require(run(n,swap=True) != ev, 'role collision control')
             require([e['value'] for e in run(n,shared=False)] == [e['value'] for e in ev], 'value policy')
         rows.append(dict(horizon=n, events=ev, open_count=n+1,
-                         future_tick_enabled_in_loop=True, future_tick_enabled_in_stopped=False))
+                         future_tick_enabled_in_loop=loop['future_tick_enabled'],
+                         future_tick_enabled_in_stopped=stopped['future_tick_enabled'],
+                         loop=loop, stopped=stopped,
+                         stopped_prefix=guarded_run(n, n),
+                         loop_prefix=guarded_run(n, None),
+                         independent_sources=guarded_run(n+1, None, shared=False),
+                         swapped_roles=guarded_run(n+1, None, swap=True)))
     require(run(1)[-1]['transition'] == run(3)[-1]['transition'], 'control identity')
     require(run(1)[-1]['outputs'] != run(3)[-1]['outputs'], 'control loses history/result')
     rejected = False

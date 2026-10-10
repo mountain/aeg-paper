@@ -5,7 +5,184 @@
       "future_tick_enabled_in_loop": true,
       "future_tick_enabled_in_stopped": false,
       "horizon": 0,
-      "open_count": 1
+      "independent_sources": {
+        "attempts": [
+          {
+            "after": 1,
+            "before": 0,
+            "enabled": true
+          }
+        ],
+        "contract": {
+          "shared": false,
+          "stop_after": null,
+          "swap": false
+        },
+        "events": [
+          {
+            "event": "e0",
+            "iteration": 0,
+            "occurrences": [
+              "e0:left",
+              "e0:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 1
+              },
+              "history": [
+                0
+              ],
+              "result": 1
+            },
+            "predecessors": [],
+            "sources": [
+              "s0",
+              "s1"
+            ],
+            "transition": "tick",
+            "value": 1
+          }
+        ],
+        "future_tick_enabled": true,
+        "observation_budget": 1,
+        "observation_status": "truncated",
+        "state": 1
+      },
+      "loop": {
+        "attempts": [
+          {
+            "after": 1,
+            "before": 0,
+            "enabled": true
+          }
+        ],
+        "contract": {
+          "shared": true,
+          "stop_after": null,
+          "swap": false
+        },
+        "events": [
+          {
+            "event": "e0",
+            "iteration": 0,
+            "occurrences": [
+              "e0:left",
+              "e0:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 1
+              },
+              "history": [
+                0
+              ],
+              "result": 1
+            },
+            "predecessors": [],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 1
+          }
+        ],
+        "future_tick_enabled": true,
+        "observation_budget": 1,
+        "observation_status": "truncated",
+        "state": 1
+      },
+      "loop_prefix": {
+        "attempts": [],
+        "contract": {
+          "shared": true,
+          "stop_after": null,
+          "swap": false
+        },
+        "events": [],
+        "future_tick_enabled": true,
+        "observation_budget": 0,
+        "observation_status": "truncated",
+        "state": 0
+      },
+      "open_count": 1,
+      "stopped": {
+        "attempts": [
+          {
+            "after": 0,
+            "before": 0,
+            "enabled": false
+          }
+        ],
+        "contract": {
+          "shared": true,
+          "stop_after": 0,
+          "swap": false
+        },
+        "events": [],
+        "future_tick_enabled": false,
+        "observation_budget": 1,
+        "observation_status": "complete",
+        "state": 0
+      },
+      "stopped_prefix": {
+        "attempts": [],
+        "contract": {
+          "shared": true,
+          "stop_after": 0,
+          "swap": false
+        },
+        "events": [],
+        "future_tick_enabled": false,
+        "observation_budget": 0,
+        "observation_status": "complete",
+        "state": 0
+      },
+      "swapped_roles": {
+        "attempts": [
+          {
+            "after": 1,
+            "before": 0,
+            "enabled": true
+          }
+        ],
+        "contract": {
+          "shared": true,
+          "stop_after": null,
+          "swap": true
+        },
+        "events": [
+          {
+            "event": "e0",
+            "iteration": 0,
+            "occurrences": [
+              "e0:left",
+              "e0:right"
+            ],
+            "outputs": {
+              "evidence": [
+                0
+              ],
+              "history": {
+                "checked_steps": 1
+              },
+              "result": 1
+            },
+            "predecessors": [],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 1
+          }
+        ],
+        "future_tick_enabled": true,
+        "observation_budget": 1,
+        "observation_status": "truncated",
+        "state": 1
+      }
     },
     {
       "events": [
@@ -37,7 +214,372 @@
       "future_tick_enabled_in_loop": true,
       "future_tick_enabled_in_stopped": false,
       "horizon": 1,
-      "open_count": 2
+      "independent_sources": {
+        "attempts": [
+          {
+            "after": 1,
+            "before": 0,
+            "enabled": true
+          },
+          {
+            "after": 2,
+            "before": 1,
+            "enabled": true
+          }
+        ],
+        "contract": {
+          "shared": false,
+          "stop_after": null,
+          "swap": false
+        },
+        "events": [
+          {
+            "event": "e0",
+            "iteration": 0,
+            "occurrences": [
+              "e0:left",
+              "e0:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 1
+              },
+              "history": [
+                0
+              ],
+              "result": 1
+            },
+            "predecessors": [],
+            "sources": [
+              "s0",
+              "s1"
+            ],
+            "transition": "tick",
+            "value": 1
+          },
+          {
+            "event": "e1",
+            "iteration": 1,
+            "occurrences": [
+              "e1:left",
+              "e1:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 2
+              },
+              "history": [
+                0,
+                1
+              ],
+              "result": 2
+            },
+            "predecessors": [
+              "e0"
+            ],
+            "sources": [
+              "s0",
+              "s1"
+            ],
+            "transition": "tick",
+            "value": 2
+          }
+        ],
+        "future_tick_enabled": true,
+        "observation_budget": 2,
+        "observation_status": "truncated",
+        "state": 2
+      },
+      "loop": {
+        "attempts": [
+          {
+            "after": 1,
+            "before": 0,
+            "enabled": true
+          },
+          {
+            "after": 2,
+            "before": 1,
+            "enabled": true
+          }
+        ],
+        "contract": {
+          "shared": true,
+          "stop_after": null,
+          "swap": false
+        },
+        "events": [
+          {
+            "event": "e0",
+            "iteration": 0,
+            "occurrences": [
+              "e0:left",
+              "e0:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 1
+              },
+              "history": [
+                0
+              ],
+              "result": 1
+            },
+            "predecessors": [],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 1
+          },
+          {
+            "event": "e1",
+            "iteration": 1,
+            "occurrences": [
+              "e1:left",
+              "e1:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 2
+              },
+              "history": [
+                0,
+                1
+              ],
+              "result": 2
+            },
+            "predecessors": [
+              "e0"
+            ],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 2
+          }
+        ],
+        "future_tick_enabled": true,
+        "observation_budget": 2,
+        "observation_status": "truncated",
+        "state": 2
+      },
+      "loop_prefix": {
+        "attempts": [
+          {
+            "after": 1,
+            "before": 0,
+            "enabled": true
+          }
+        ],
+        "contract": {
+          "shared": true,
+          "stop_after": null,
+          "swap": false
+        },
+        "events": [
+          {
+            "event": "e0",
+            "iteration": 0,
+            "occurrences": [
+              "e0:left",
+              "e0:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 1
+              },
+              "history": [
+                0
+              ],
+              "result": 1
+            },
+            "predecessors": [],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 1
+          }
+        ],
+        "future_tick_enabled": true,
+        "observation_budget": 1,
+        "observation_status": "truncated",
+        "state": 1
+      },
+      "open_count": 2,
+      "stopped": {
+        "attempts": [
+          {
+            "after": 1,
+            "before": 0,
+            "enabled": true
+          },
+          {
+            "after": 1,
+            "before": 1,
+            "enabled": false
+          }
+        ],
+        "contract": {
+          "shared": true,
+          "stop_after": 1,
+          "swap": false
+        },
+        "events": [
+          {
+            "event": "e0",
+            "iteration": 0,
+            "occurrences": [
+              "e0:left",
+              "e0:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 1
+              },
+              "history": [
+                0
+              ],
+              "result": 1
+            },
+            "predecessors": [],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 1
+          }
+        ],
+        "future_tick_enabled": false,
+        "observation_budget": 2,
+        "observation_status": "complete",
+        "state": 1
+      },
+      "stopped_prefix": {
+        "attempts": [
+          {
+            "after": 1,
+            "before": 0,
+            "enabled": true
+          }
+        ],
+        "contract": {
+          "shared": true,
+          "stop_after": 1,
+          "swap": false
+        },
+        "events": [
+          {
+            "event": "e0",
+            "iteration": 0,
+            "occurrences": [
+              "e0:left",
+              "e0:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 1
+              },
+              "history": [
+                0
+              ],
+              "result": 1
+            },
+            "predecessors": [],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 1
+          }
+        ],
+        "future_tick_enabled": false,
+        "observation_budget": 1,
+        "observation_status": "complete",
+        "state": 1
+      },
+      "swapped_roles": {
+        "attempts": [
+          {
+            "after": 1,
+            "before": 0,
+            "enabled": true
+          },
+          {
+            "after": 2,
+            "before": 1,
+            "enabled": true
+          }
+        ],
+        "contract": {
+          "shared": true,
+          "stop_after": null,
+          "swap": true
+        },
+        "events": [
+          {
+            "event": "e0",
+            "iteration": 0,
+            "occurrences": [
+              "e0:left",
+              "e0:right"
+            ],
+            "outputs": {
+              "evidence": [
+                0
+              ],
+              "history": {
+                "checked_steps": 1
+              },
+              "result": 1
+            },
+            "predecessors": [],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 1
+          },
+          {
+            "event": "e1",
+            "iteration": 1,
+            "occurrences": [
+              "e1:left",
+              "e1:right"
+            ],
+            "outputs": {
+              "evidence": [
+                0,
+                1
+              ],
+              "history": {
+                "checked_steps": 2
+              },
+              "result": 2
+            },
+            "predecessors": [
+              "e0"
+            ],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 2
+          }
+        ],
+        "future_tick_enabled": true,
+        "observation_budget": 2,
+        "observation_status": "truncated",
+        "state": 2
+      }
     },
     {
       "events": [
@@ -96,7 +638,567 @@
       "future_tick_enabled_in_loop": true,
       "future_tick_enabled_in_stopped": false,
       "horizon": 2,
-      "open_count": 3
+      "independent_sources": {
+        "attempts": [
+          {
+            "after": 1,
+            "before": 0,
+            "enabled": true
+          },
+          {
+            "after": 2,
+            "before": 1,
+            "enabled": true
+          },
+          {
+            "after": 3,
+            "before": 2,
+            "enabled": true
+          }
+        ],
+        "contract": {
+          "shared": false,
+          "stop_after": null,
+          "swap": false
+        },
+        "events": [
+          {
+            "event": "e0",
+            "iteration": 0,
+            "occurrences": [
+              "e0:left",
+              "e0:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 1
+              },
+              "history": [
+                0
+              ],
+              "result": 1
+            },
+            "predecessors": [],
+            "sources": [
+              "s0",
+              "s1"
+            ],
+            "transition": "tick",
+            "value": 1
+          },
+          {
+            "event": "e1",
+            "iteration": 1,
+            "occurrences": [
+              "e1:left",
+              "e1:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 2
+              },
+              "history": [
+                0,
+                1
+              ],
+              "result": 2
+            },
+            "predecessors": [
+              "e0"
+            ],
+            "sources": [
+              "s0",
+              "s1"
+            ],
+            "transition": "tick",
+            "value": 2
+          },
+          {
+            "event": "e2",
+            "iteration": 2,
+            "occurrences": [
+              "e2:left",
+              "e2:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 3
+              },
+              "history": [
+                0,
+                1,
+                2
+              ],
+              "result": 3
+            },
+            "predecessors": [
+              "e1"
+            ],
+            "sources": [
+              "s0",
+              "s1"
+            ],
+            "transition": "tick",
+            "value": 3
+          }
+        ],
+        "future_tick_enabled": true,
+        "observation_budget": 3,
+        "observation_status": "truncated",
+        "state": 3
+      },
+      "loop": {
+        "attempts": [
+          {
+            "after": 1,
+            "before": 0,
+            "enabled": true
+          },
+          {
+            "after": 2,
+            "before": 1,
+            "enabled": true
+          },
+          {
+            "after": 3,
+            "before": 2,
+            "enabled": true
+          }
+        ],
+        "contract": {
+          "shared": true,
+          "stop_after": null,
+          "swap": false
+        },
+        "events": [
+          {
+            "event": "e0",
+            "iteration": 0,
+            "occurrences": [
+              "e0:left",
+              "e0:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 1
+              },
+              "history": [
+                0
+              ],
+              "result": 1
+            },
+            "predecessors": [],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 1
+          },
+          {
+            "event": "e1",
+            "iteration": 1,
+            "occurrences": [
+              "e1:left",
+              "e1:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 2
+              },
+              "history": [
+                0,
+                1
+              ],
+              "result": 2
+            },
+            "predecessors": [
+              "e0"
+            ],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 2
+          },
+          {
+            "event": "e2",
+            "iteration": 2,
+            "occurrences": [
+              "e2:left",
+              "e2:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 3
+              },
+              "history": [
+                0,
+                1,
+                2
+              ],
+              "result": 3
+            },
+            "predecessors": [
+              "e1"
+            ],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 3
+          }
+        ],
+        "future_tick_enabled": true,
+        "observation_budget": 3,
+        "observation_status": "truncated",
+        "state": 3
+      },
+      "loop_prefix": {
+        "attempts": [
+          {
+            "after": 1,
+            "before": 0,
+            "enabled": true
+          },
+          {
+            "after": 2,
+            "before": 1,
+            "enabled": true
+          }
+        ],
+        "contract": {
+          "shared": true,
+          "stop_after": null,
+          "swap": false
+        },
+        "events": [
+          {
+            "event": "e0",
+            "iteration": 0,
+            "occurrences": [
+              "e0:left",
+              "e0:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 1
+              },
+              "history": [
+                0
+              ],
+              "result": 1
+            },
+            "predecessors": [],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 1
+          },
+          {
+            "event": "e1",
+            "iteration": 1,
+            "occurrences": [
+              "e1:left",
+              "e1:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 2
+              },
+              "history": [
+                0,
+                1
+              ],
+              "result": 2
+            },
+            "predecessors": [
+              "e0"
+            ],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 2
+          }
+        ],
+        "future_tick_enabled": true,
+        "observation_budget": 2,
+        "observation_status": "truncated",
+        "state": 2
+      },
+      "open_count": 3,
+      "stopped": {
+        "attempts": [
+          {
+            "after": 1,
+            "before": 0,
+            "enabled": true
+          },
+          {
+            "after": 2,
+            "before": 1,
+            "enabled": true
+          },
+          {
+            "after": 2,
+            "before": 2,
+            "enabled": false
+          }
+        ],
+        "contract": {
+          "shared": true,
+          "stop_after": 2,
+          "swap": false
+        },
+        "events": [
+          {
+            "event": "e0",
+            "iteration": 0,
+            "occurrences": [
+              "e0:left",
+              "e0:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 1
+              },
+              "history": [
+                0
+              ],
+              "result": 1
+            },
+            "predecessors": [],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 1
+          },
+          {
+            "event": "e1",
+            "iteration": 1,
+            "occurrences": [
+              "e1:left",
+              "e1:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 2
+              },
+              "history": [
+                0,
+                1
+              ],
+              "result": 2
+            },
+            "predecessors": [
+              "e0"
+            ],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 2
+          }
+        ],
+        "future_tick_enabled": false,
+        "observation_budget": 3,
+        "observation_status": "complete",
+        "state": 2
+      },
+      "stopped_prefix": {
+        "attempts": [
+          {
+            "after": 1,
+            "before": 0,
+            "enabled": true
+          },
+          {
+            "after": 2,
+            "before": 1,
+            "enabled": true
+          }
+        ],
+        "contract": {
+          "shared": true,
+          "stop_after": 2,
+          "swap": false
+        },
+        "events": [
+          {
+            "event": "e0",
+            "iteration": 0,
+            "occurrences": [
+              "e0:left",
+              "e0:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 1
+              },
+              "history": [
+                0
+              ],
+              "result": 1
+            },
+            "predecessors": [],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 1
+          },
+          {
+            "event": "e1",
+            "iteration": 1,
+            "occurrences": [
+              "e1:left",
+              "e1:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 2
+              },
+              "history": [
+                0,
+                1
+              ],
+              "result": 2
+            },
+            "predecessors": [
+              "e0"
+            ],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 2
+          }
+        ],
+        "future_tick_enabled": false,
+        "observation_budget": 2,
+        "observation_status": "complete",
+        "state": 2
+      },
+      "swapped_roles": {
+        "attempts": [
+          {
+            "after": 1,
+            "before": 0,
+            "enabled": true
+          },
+          {
+            "after": 2,
+            "before": 1,
+            "enabled": true
+          },
+          {
+            "after": 3,
+            "before": 2,
+            "enabled": true
+          }
+        ],
+        "contract": {
+          "shared": true,
+          "stop_after": null,
+          "swap": true
+        },
+        "events": [
+          {
+            "event": "e0",
+            "iteration": 0,
+            "occurrences": [
+              "e0:left",
+              "e0:right"
+            ],
+            "outputs": {
+              "evidence": [
+                0
+              ],
+              "history": {
+                "checked_steps": 1
+              },
+              "result": 1
+            },
+            "predecessors": [],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 1
+          },
+          {
+            "event": "e1",
+            "iteration": 1,
+            "occurrences": [
+              "e1:left",
+              "e1:right"
+            ],
+            "outputs": {
+              "evidence": [
+                0,
+                1
+              ],
+              "history": {
+                "checked_steps": 2
+              },
+              "result": 2
+            },
+            "predecessors": [
+              "e0"
+            ],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 2
+          },
+          {
+            "event": "e2",
+            "iteration": 2,
+            "occurrences": [
+              "e2:left",
+              "e2:right"
+            ],
+            "outputs": {
+              "evidence": [
+                0,
+                1,
+                2
+              ],
+              "history": {
+                "checked_steps": 3
+              },
+              "result": 3
+            },
+            "predecessors": [
+              "e1"
+            ],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 3
+          }
+        ],
+        "future_tick_enabled": true,
+        "observation_budget": 3,
+        "observation_status": "truncated",
+        "state": 3
+      }
     },
     {
       "events": [
@@ -183,7 +1285,768 @@
       "future_tick_enabled_in_loop": true,
       "future_tick_enabled_in_stopped": false,
       "horizon": 3,
-      "open_count": 4
+      "independent_sources": {
+        "attempts": [
+          {
+            "after": 1,
+            "before": 0,
+            "enabled": true
+          },
+          {
+            "after": 2,
+            "before": 1,
+            "enabled": true
+          },
+          {
+            "after": 3,
+            "before": 2,
+            "enabled": true
+          },
+          {
+            "after": 4,
+            "before": 3,
+            "enabled": true
+          }
+        ],
+        "contract": {
+          "shared": false,
+          "stop_after": null,
+          "swap": false
+        },
+        "events": [
+          {
+            "event": "e0",
+            "iteration": 0,
+            "occurrences": [
+              "e0:left",
+              "e0:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 1
+              },
+              "history": [
+                0
+              ],
+              "result": 1
+            },
+            "predecessors": [],
+            "sources": [
+              "s0",
+              "s1"
+            ],
+            "transition": "tick",
+            "value": 1
+          },
+          {
+            "event": "e1",
+            "iteration": 1,
+            "occurrences": [
+              "e1:left",
+              "e1:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 2
+              },
+              "history": [
+                0,
+                1
+              ],
+              "result": 2
+            },
+            "predecessors": [
+              "e0"
+            ],
+            "sources": [
+              "s0",
+              "s1"
+            ],
+            "transition": "tick",
+            "value": 2
+          },
+          {
+            "event": "e2",
+            "iteration": 2,
+            "occurrences": [
+              "e2:left",
+              "e2:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 3
+              },
+              "history": [
+                0,
+                1,
+                2
+              ],
+              "result": 3
+            },
+            "predecessors": [
+              "e1"
+            ],
+            "sources": [
+              "s0",
+              "s1"
+            ],
+            "transition": "tick",
+            "value": 3
+          },
+          {
+            "event": "e3",
+            "iteration": 3,
+            "occurrences": [
+              "e3:left",
+              "e3:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 4
+              },
+              "history": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "result": 4
+            },
+            "predecessors": [
+              "e2"
+            ],
+            "sources": [
+              "s0",
+              "s1"
+            ],
+            "transition": "tick",
+            "value": 4
+          }
+        ],
+        "future_tick_enabled": true,
+        "observation_budget": 4,
+        "observation_status": "truncated",
+        "state": 4
+      },
+      "loop": {
+        "attempts": [
+          {
+            "after": 1,
+            "before": 0,
+            "enabled": true
+          },
+          {
+            "after": 2,
+            "before": 1,
+            "enabled": true
+          },
+          {
+            "after": 3,
+            "before": 2,
+            "enabled": true
+          },
+          {
+            "after": 4,
+            "before": 3,
+            "enabled": true
+          }
+        ],
+        "contract": {
+          "shared": true,
+          "stop_after": null,
+          "swap": false
+        },
+        "events": [
+          {
+            "event": "e0",
+            "iteration": 0,
+            "occurrences": [
+              "e0:left",
+              "e0:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 1
+              },
+              "history": [
+                0
+              ],
+              "result": 1
+            },
+            "predecessors": [],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 1
+          },
+          {
+            "event": "e1",
+            "iteration": 1,
+            "occurrences": [
+              "e1:left",
+              "e1:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 2
+              },
+              "history": [
+                0,
+                1
+              ],
+              "result": 2
+            },
+            "predecessors": [
+              "e0"
+            ],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 2
+          },
+          {
+            "event": "e2",
+            "iteration": 2,
+            "occurrences": [
+              "e2:left",
+              "e2:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 3
+              },
+              "history": [
+                0,
+                1,
+                2
+              ],
+              "result": 3
+            },
+            "predecessors": [
+              "e1"
+            ],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 3
+          },
+          {
+            "event": "e3",
+            "iteration": 3,
+            "occurrences": [
+              "e3:left",
+              "e3:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 4
+              },
+              "history": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "result": 4
+            },
+            "predecessors": [
+              "e2"
+            ],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 4
+          }
+        ],
+        "future_tick_enabled": true,
+        "observation_budget": 4,
+        "observation_status": "truncated",
+        "state": 4
+      },
+      "loop_prefix": {
+        "attempts": [
+          {
+            "after": 1,
+            "before": 0,
+            "enabled": true
+          },
+          {
+            "after": 2,
+            "before": 1,
+            "enabled": true
+          },
+          {
+            "after": 3,
+            "before": 2,
+            "enabled": true
+          }
+        ],
+        "contract": {
+          "shared": true,
+          "stop_after": null,
+          "swap": false
+        },
+        "events": [
+          {
+            "event": "e0",
+            "iteration": 0,
+            "occurrences": [
+              "e0:left",
+              "e0:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 1
+              },
+              "history": [
+                0
+              ],
+              "result": 1
+            },
+            "predecessors": [],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 1
+          },
+          {
+            "event": "e1",
+            "iteration": 1,
+            "occurrences": [
+              "e1:left",
+              "e1:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 2
+              },
+              "history": [
+                0,
+                1
+              ],
+              "result": 2
+            },
+            "predecessors": [
+              "e0"
+            ],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 2
+          },
+          {
+            "event": "e2",
+            "iteration": 2,
+            "occurrences": [
+              "e2:left",
+              "e2:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 3
+              },
+              "history": [
+                0,
+                1,
+                2
+              ],
+              "result": 3
+            },
+            "predecessors": [
+              "e1"
+            ],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 3
+          }
+        ],
+        "future_tick_enabled": true,
+        "observation_budget": 3,
+        "observation_status": "truncated",
+        "state": 3
+      },
+      "open_count": 4,
+      "stopped": {
+        "attempts": [
+          {
+            "after": 1,
+            "before": 0,
+            "enabled": true
+          },
+          {
+            "after": 2,
+            "before": 1,
+            "enabled": true
+          },
+          {
+            "after": 3,
+            "before": 2,
+            "enabled": true
+          },
+          {
+            "after": 3,
+            "before": 3,
+            "enabled": false
+          }
+        ],
+        "contract": {
+          "shared": true,
+          "stop_after": 3,
+          "swap": false
+        },
+        "events": [
+          {
+            "event": "e0",
+            "iteration": 0,
+            "occurrences": [
+              "e0:left",
+              "e0:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 1
+              },
+              "history": [
+                0
+              ],
+              "result": 1
+            },
+            "predecessors": [],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 1
+          },
+          {
+            "event": "e1",
+            "iteration": 1,
+            "occurrences": [
+              "e1:left",
+              "e1:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 2
+              },
+              "history": [
+                0,
+                1
+              ],
+              "result": 2
+            },
+            "predecessors": [
+              "e0"
+            ],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 2
+          },
+          {
+            "event": "e2",
+            "iteration": 2,
+            "occurrences": [
+              "e2:left",
+              "e2:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 3
+              },
+              "history": [
+                0,
+                1,
+                2
+              ],
+              "result": 3
+            },
+            "predecessors": [
+              "e1"
+            ],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 3
+          }
+        ],
+        "future_tick_enabled": false,
+        "observation_budget": 4,
+        "observation_status": "complete",
+        "state": 3
+      },
+      "stopped_prefix": {
+        "attempts": [
+          {
+            "after": 1,
+            "before": 0,
+            "enabled": true
+          },
+          {
+            "after": 2,
+            "before": 1,
+            "enabled": true
+          },
+          {
+            "after": 3,
+            "before": 2,
+            "enabled": true
+          }
+        ],
+        "contract": {
+          "shared": true,
+          "stop_after": 3,
+          "swap": false
+        },
+        "events": [
+          {
+            "event": "e0",
+            "iteration": 0,
+            "occurrences": [
+              "e0:left",
+              "e0:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 1
+              },
+              "history": [
+                0
+              ],
+              "result": 1
+            },
+            "predecessors": [],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 1
+          },
+          {
+            "event": "e1",
+            "iteration": 1,
+            "occurrences": [
+              "e1:left",
+              "e1:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 2
+              },
+              "history": [
+                0,
+                1
+              ],
+              "result": 2
+            },
+            "predecessors": [
+              "e0"
+            ],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 2
+          },
+          {
+            "event": "e2",
+            "iteration": 2,
+            "occurrences": [
+              "e2:left",
+              "e2:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 3
+              },
+              "history": [
+                0,
+                1,
+                2
+              ],
+              "result": 3
+            },
+            "predecessors": [
+              "e1"
+            ],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 3
+          }
+        ],
+        "future_tick_enabled": false,
+        "observation_budget": 3,
+        "observation_status": "complete",
+        "state": 3
+      },
+      "swapped_roles": {
+        "attempts": [
+          {
+            "after": 1,
+            "before": 0,
+            "enabled": true
+          },
+          {
+            "after": 2,
+            "before": 1,
+            "enabled": true
+          },
+          {
+            "after": 3,
+            "before": 2,
+            "enabled": true
+          },
+          {
+            "after": 4,
+            "before": 3,
+            "enabled": true
+          }
+        ],
+        "contract": {
+          "shared": true,
+          "stop_after": null,
+          "swap": true
+        },
+        "events": [
+          {
+            "event": "e0",
+            "iteration": 0,
+            "occurrences": [
+              "e0:left",
+              "e0:right"
+            ],
+            "outputs": {
+              "evidence": [
+                0
+              ],
+              "history": {
+                "checked_steps": 1
+              },
+              "result": 1
+            },
+            "predecessors": [],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 1
+          },
+          {
+            "event": "e1",
+            "iteration": 1,
+            "occurrences": [
+              "e1:left",
+              "e1:right"
+            ],
+            "outputs": {
+              "evidence": [
+                0,
+                1
+              ],
+              "history": {
+                "checked_steps": 2
+              },
+              "result": 2
+            },
+            "predecessors": [
+              "e0"
+            ],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 2
+          },
+          {
+            "event": "e2",
+            "iteration": 2,
+            "occurrences": [
+              "e2:left",
+              "e2:right"
+            ],
+            "outputs": {
+              "evidence": [
+                0,
+                1,
+                2
+              ],
+              "history": {
+                "checked_steps": 3
+              },
+              "result": 3
+            },
+            "predecessors": [
+              "e1"
+            ],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 3
+          },
+          {
+            "event": "e3",
+            "iteration": 3,
+            "occurrences": [
+              "e3:left",
+              "e3:right"
+            ],
+            "outputs": {
+              "evidence": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "history": {
+                "checked_steps": 4
+              },
+              "result": 4
+            },
+            "predecessors": [
+              "e2"
+            ],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 4
+          }
+        ],
+        "future_tick_enabled": true,
+        "observation_budget": 4,
+        "observation_status": "truncated",
+        "state": 4
+      }
     },
     {
       "events": [
@@ -360,7 +2223,1407 @@
       "future_tick_enabled_in_loop": true,
       "future_tick_enabled_in_stopped": false,
       "horizon": 6,
-      "open_count": 7
+      "independent_sources": {
+        "attempts": [
+          {
+            "after": 1,
+            "before": 0,
+            "enabled": true
+          },
+          {
+            "after": 2,
+            "before": 1,
+            "enabled": true
+          },
+          {
+            "after": 3,
+            "before": 2,
+            "enabled": true
+          },
+          {
+            "after": 4,
+            "before": 3,
+            "enabled": true
+          },
+          {
+            "after": 5,
+            "before": 4,
+            "enabled": true
+          },
+          {
+            "after": 6,
+            "before": 5,
+            "enabled": true
+          },
+          {
+            "after": 7,
+            "before": 6,
+            "enabled": true
+          }
+        ],
+        "contract": {
+          "shared": false,
+          "stop_after": null,
+          "swap": false
+        },
+        "events": [
+          {
+            "event": "e0",
+            "iteration": 0,
+            "occurrences": [
+              "e0:left",
+              "e0:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 1
+              },
+              "history": [
+                0
+              ],
+              "result": 1
+            },
+            "predecessors": [],
+            "sources": [
+              "s0",
+              "s1"
+            ],
+            "transition": "tick",
+            "value": 1
+          },
+          {
+            "event": "e1",
+            "iteration": 1,
+            "occurrences": [
+              "e1:left",
+              "e1:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 2
+              },
+              "history": [
+                0,
+                1
+              ],
+              "result": 2
+            },
+            "predecessors": [
+              "e0"
+            ],
+            "sources": [
+              "s0",
+              "s1"
+            ],
+            "transition": "tick",
+            "value": 2
+          },
+          {
+            "event": "e2",
+            "iteration": 2,
+            "occurrences": [
+              "e2:left",
+              "e2:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 3
+              },
+              "history": [
+                0,
+                1,
+                2
+              ],
+              "result": 3
+            },
+            "predecessors": [
+              "e1"
+            ],
+            "sources": [
+              "s0",
+              "s1"
+            ],
+            "transition": "tick",
+            "value": 3
+          },
+          {
+            "event": "e3",
+            "iteration": 3,
+            "occurrences": [
+              "e3:left",
+              "e3:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 4
+              },
+              "history": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "result": 4
+            },
+            "predecessors": [
+              "e2"
+            ],
+            "sources": [
+              "s0",
+              "s1"
+            ],
+            "transition": "tick",
+            "value": 4
+          },
+          {
+            "event": "e4",
+            "iteration": 4,
+            "occurrences": [
+              "e4:left",
+              "e4:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 5
+              },
+              "history": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              "result": 5
+            },
+            "predecessors": [
+              "e3"
+            ],
+            "sources": [
+              "s0",
+              "s1"
+            ],
+            "transition": "tick",
+            "value": 5
+          },
+          {
+            "event": "e5",
+            "iteration": 5,
+            "occurrences": [
+              "e5:left",
+              "e5:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 6
+              },
+              "history": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "result": 6
+            },
+            "predecessors": [
+              "e4"
+            ],
+            "sources": [
+              "s0",
+              "s1"
+            ],
+            "transition": "tick",
+            "value": 6
+          },
+          {
+            "event": "e6",
+            "iteration": 6,
+            "occurrences": [
+              "e6:left",
+              "e6:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 7
+              },
+              "history": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+              ],
+              "result": 7
+            },
+            "predecessors": [
+              "e5"
+            ],
+            "sources": [
+              "s0",
+              "s1"
+            ],
+            "transition": "tick",
+            "value": 7
+          }
+        ],
+        "future_tick_enabled": true,
+        "observation_budget": 7,
+        "observation_status": "truncated",
+        "state": 7
+      },
+      "loop": {
+        "attempts": [
+          {
+            "after": 1,
+            "before": 0,
+            "enabled": true
+          },
+          {
+            "after": 2,
+            "before": 1,
+            "enabled": true
+          },
+          {
+            "after": 3,
+            "before": 2,
+            "enabled": true
+          },
+          {
+            "after": 4,
+            "before": 3,
+            "enabled": true
+          },
+          {
+            "after": 5,
+            "before": 4,
+            "enabled": true
+          },
+          {
+            "after": 6,
+            "before": 5,
+            "enabled": true
+          },
+          {
+            "after": 7,
+            "before": 6,
+            "enabled": true
+          }
+        ],
+        "contract": {
+          "shared": true,
+          "stop_after": null,
+          "swap": false
+        },
+        "events": [
+          {
+            "event": "e0",
+            "iteration": 0,
+            "occurrences": [
+              "e0:left",
+              "e0:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 1
+              },
+              "history": [
+                0
+              ],
+              "result": 1
+            },
+            "predecessors": [],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 1
+          },
+          {
+            "event": "e1",
+            "iteration": 1,
+            "occurrences": [
+              "e1:left",
+              "e1:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 2
+              },
+              "history": [
+                0,
+                1
+              ],
+              "result": 2
+            },
+            "predecessors": [
+              "e0"
+            ],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 2
+          },
+          {
+            "event": "e2",
+            "iteration": 2,
+            "occurrences": [
+              "e2:left",
+              "e2:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 3
+              },
+              "history": [
+                0,
+                1,
+                2
+              ],
+              "result": 3
+            },
+            "predecessors": [
+              "e1"
+            ],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 3
+          },
+          {
+            "event": "e3",
+            "iteration": 3,
+            "occurrences": [
+              "e3:left",
+              "e3:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 4
+              },
+              "history": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "result": 4
+            },
+            "predecessors": [
+              "e2"
+            ],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 4
+          },
+          {
+            "event": "e4",
+            "iteration": 4,
+            "occurrences": [
+              "e4:left",
+              "e4:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 5
+              },
+              "history": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              "result": 5
+            },
+            "predecessors": [
+              "e3"
+            ],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 5
+          },
+          {
+            "event": "e5",
+            "iteration": 5,
+            "occurrences": [
+              "e5:left",
+              "e5:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 6
+              },
+              "history": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "result": 6
+            },
+            "predecessors": [
+              "e4"
+            ],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 6
+          },
+          {
+            "event": "e6",
+            "iteration": 6,
+            "occurrences": [
+              "e6:left",
+              "e6:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 7
+              },
+              "history": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+              ],
+              "result": 7
+            },
+            "predecessors": [
+              "e5"
+            ],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 7
+          }
+        ],
+        "future_tick_enabled": true,
+        "observation_budget": 7,
+        "observation_status": "truncated",
+        "state": 7
+      },
+      "loop_prefix": {
+        "attempts": [
+          {
+            "after": 1,
+            "before": 0,
+            "enabled": true
+          },
+          {
+            "after": 2,
+            "before": 1,
+            "enabled": true
+          },
+          {
+            "after": 3,
+            "before": 2,
+            "enabled": true
+          },
+          {
+            "after": 4,
+            "before": 3,
+            "enabled": true
+          },
+          {
+            "after": 5,
+            "before": 4,
+            "enabled": true
+          },
+          {
+            "after": 6,
+            "before": 5,
+            "enabled": true
+          }
+        ],
+        "contract": {
+          "shared": true,
+          "stop_after": null,
+          "swap": false
+        },
+        "events": [
+          {
+            "event": "e0",
+            "iteration": 0,
+            "occurrences": [
+              "e0:left",
+              "e0:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 1
+              },
+              "history": [
+                0
+              ],
+              "result": 1
+            },
+            "predecessors": [],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 1
+          },
+          {
+            "event": "e1",
+            "iteration": 1,
+            "occurrences": [
+              "e1:left",
+              "e1:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 2
+              },
+              "history": [
+                0,
+                1
+              ],
+              "result": 2
+            },
+            "predecessors": [
+              "e0"
+            ],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 2
+          },
+          {
+            "event": "e2",
+            "iteration": 2,
+            "occurrences": [
+              "e2:left",
+              "e2:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 3
+              },
+              "history": [
+                0,
+                1,
+                2
+              ],
+              "result": 3
+            },
+            "predecessors": [
+              "e1"
+            ],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 3
+          },
+          {
+            "event": "e3",
+            "iteration": 3,
+            "occurrences": [
+              "e3:left",
+              "e3:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 4
+              },
+              "history": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "result": 4
+            },
+            "predecessors": [
+              "e2"
+            ],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 4
+          },
+          {
+            "event": "e4",
+            "iteration": 4,
+            "occurrences": [
+              "e4:left",
+              "e4:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 5
+              },
+              "history": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              "result": 5
+            },
+            "predecessors": [
+              "e3"
+            ],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 5
+          },
+          {
+            "event": "e5",
+            "iteration": 5,
+            "occurrences": [
+              "e5:left",
+              "e5:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 6
+              },
+              "history": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "result": 6
+            },
+            "predecessors": [
+              "e4"
+            ],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 6
+          }
+        ],
+        "future_tick_enabled": true,
+        "observation_budget": 6,
+        "observation_status": "truncated",
+        "state": 6
+      },
+      "open_count": 7,
+      "stopped": {
+        "attempts": [
+          {
+            "after": 1,
+            "before": 0,
+            "enabled": true
+          },
+          {
+            "after": 2,
+            "before": 1,
+            "enabled": true
+          },
+          {
+            "after": 3,
+            "before": 2,
+            "enabled": true
+          },
+          {
+            "after": 4,
+            "before": 3,
+            "enabled": true
+          },
+          {
+            "after": 5,
+            "before": 4,
+            "enabled": true
+          },
+          {
+            "after": 6,
+            "before": 5,
+            "enabled": true
+          },
+          {
+            "after": 6,
+            "before": 6,
+            "enabled": false
+          }
+        ],
+        "contract": {
+          "shared": true,
+          "stop_after": 6,
+          "swap": false
+        },
+        "events": [
+          {
+            "event": "e0",
+            "iteration": 0,
+            "occurrences": [
+              "e0:left",
+              "e0:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 1
+              },
+              "history": [
+                0
+              ],
+              "result": 1
+            },
+            "predecessors": [],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 1
+          },
+          {
+            "event": "e1",
+            "iteration": 1,
+            "occurrences": [
+              "e1:left",
+              "e1:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 2
+              },
+              "history": [
+                0,
+                1
+              ],
+              "result": 2
+            },
+            "predecessors": [
+              "e0"
+            ],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 2
+          },
+          {
+            "event": "e2",
+            "iteration": 2,
+            "occurrences": [
+              "e2:left",
+              "e2:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 3
+              },
+              "history": [
+                0,
+                1,
+                2
+              ],
+              "result": 3
+            },
+            "predecessors": [
+              "e1"
+            ],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 3
+          },
+          {
+            "event": "e3",
+            "iteration": 3,
+            "occurrences": [
+              "e3:left",
+              "e3:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 4
+              },
+              "history": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "result": 4
+            },
+            "predecessors": [
+              "e2"
+            ],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 4
+          },
+          {
+            "event": "e4",
+            "iteration": 4,
+            "occurrences": [
+              "e4:left",
+              "e4:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 5
+              },
+              "history": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              "result": 5
+            },
+            "predecessors": [
+              "e3"
+            ],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 5
+          },
+          {
+            "event": "e5",
+            "iteration": 5,
+            "occurrences": [
+              "e5:left",
+              "e5:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 6
+              },
+              "history": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "result": 6
+            },
+            "predecessors": [
+              "e4"
+            ],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 6
+          }
+        ],
+        "future_tick_enabled": false,
+        "observation_budget": 7,
+        "observation_status": "complete",
+        "state": 6
+      },
+      "stopped_prefix": {
+        "attempts": [
+          {
+            "after": 1,
+            "before": 0,
+            "enabled": true
+          },
+          {
+            "after": 2,
+            "before": 1,
+            "enabled": true
+          },
+          {
+            "after": 3,
+            "before": 2,
+            "enabled": true
+          },
+          {
+            "after": 4,
+            "before": 3,
+            "enabled": true
+          },
+          {
+            "after": 5,
+            "before": 4,
+            "enabled": true
+          },
+          {
+            "after": 6,
+            "before": 5,
+            "enabled": true
+          }
+        ],
+        "contract": {
+          "shared": true,
+          "stop_after": 6,
+          "swap": false
+        },
+        "events": [
+          {
+            "event": "e0",
+            "iteration": 0,
+            "occurrences": [
+              "e0:left",
+              "e0:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 1
+              },
+              "history": [
+                0
+              ],
+              "result": 1
+            },
+            "predecessors": [],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 1
+          },
+          {
+            "event": "e1",
+            "iteration": 1,
+            "occurrences": [
+              "e1:left",
+              "e1:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 2
+              },
+              "history": [
+                0,
+                1
+              ],
+              "result": 2
+            },
+            "predecessors": [
+              "e0"
+            ],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 2
+          },
+          {
+            "event": "e2",
+            "iteration": 2,
+            "occurrences": [
+              "e2:left",
+              "e2:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 3
+              },
+              "history": [
+                0,
+                1,
+                2
+              ],
+              "result": 3
+            },
+            "predecessors": [
+              "e1"
+            ],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 3
+          },
+          {
+            "event": "e3",
+            "iteration": 3,
+            "occurrences": [
+              "e3:left",
+              "e3:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 4
+              },
+              "history": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "result": 4
+            },
+            "predecessors": [
+              "e2"
+            ],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 4
+          },
+          {
+            "event": "e4",
+            "iteration": 4,
+            "occurrences": [
+              "e4:left",
+              "e4:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 5
+              },
+              "history": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              "result": 5
+            },
+            "predecessors": [
+              "e3"
+            ],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 5
+          },
+          {
+            "event": "e5",
+            "iteration": 5,
+            "occurrences": [
+              "e5:left",
+              "e5:right"
+            ],
+            "outputs": {
+              "evidence": {
+                "checked_steps": 6
+              },
+              "history": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "result": 6
+            },
+            "predecessors": [
+              "e4"
+            ],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 6
+          }
+        ],
+        "future_tick_enabled": false,
+        "observation_budget": 6,
+        "observation_status": "complete",
+        "state": 6
+      },
+      "swapped_roles": {
+        "attempts": [
+          {
+            "after": 1,
+            "before": 0,
+            "enabled": true
+          },
+          {
+            "after": 2,
+            "before": 1,
+            "enabled": true
+          },
+          {
+            "after": 3,
+            "before": 2,
+            "enabled": true
+          },
+          {
+            "after": 4,
+            "before": 3,
+            "enabled": true
+          },
+          {
+            "after": 5,
+            "before": 4,
+            "enabled": true
+          },
+          {
+            "after": 6,
+            "before": 5,
+            "enabled": true
+          },
+          {
+            "after": 7,
+            "before": 6,
+            "enabled": true
+          }
+        ],
+        "contract": {
+          "shared": true,
+          "stop_after": null,
+          "swap": true
+        },
+        "events": [
+          {
+            "event": "e0",
+            "iteration": 0,
+            "occurrences": [
+              "e0:left",
+              "e0:right"
+            ],
+            "outputs": {
+              "evidence": [
+                0
+              ],
+              "history": {
+                "checked_steps": 1
+              },
+              "result": 1
+            },
+            "predecessors": [],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 1
+          },
+          {
+            "event": "e1",
+            "iteration": 1,
+            "occurrences": [
+              "e1:left",
+              "e1:right"
+            ],
+            "outputs": {
+              "evidence": [
+                0,
+                1
+              ],
+              "history": {
+                "checked_steps": 2
+              },
+              "result": 2
+            },
+            "predecessors": [
+              "e0"
+            ],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 2
+          },
+          {
+            "event": "e2",
+            "iteration": 2,
+            "occurrences": [
+              "e2:left",
+              "e2:right"
+            ],
+            "outputs": {
+              "evidence": [
+                0,
+                1,
+                2
+              ],
+              "history": {
+                "checked_steps": 3
+              },
+              "result": 3
+            },
+            "predecessors": [
+              "e1"
+            ],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 3
+          },
+          {
+            "event": "e3",
+            "iteration": 3,
+            "occurrences": [
+              "e3:left",
+              "e3:right"
+            ],
+            "outputs": {
+              "evidence": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "history": {
+                "checked_steps": 4
+              },
+              "result": 4
+            },
+            "predecessors": [
+              "e2"
+            ],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 4
+          },
+          {
+            "event": "e4",
+            "iteration": 4,
+            "occurrences": [
+              "e4:left",
+              "e4:right"
+            ],
+            "outputs": {
+              "evidence": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              "history": {
+                "checked_steps": 5
+              },
+              "result": 5
+            },
+            "predecessors": [
+              "e3"
+            ],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 5
+          },
+          {
+            "event": "e5",
+            "iteration": 5,
+            "occurrences": [
+              "e5:left",
+              "e5:right"
+            ],
+            "outputs": {
+              "evidence": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "history": {
+                "checked_steps": 6
+              },
+              "result": 6
+            },
+            "predecessors": [
+              "e4"
+            ],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 6
+          },
+          {
+            "event": "e6",
+            "iteration": 6,
+            "occurrences": [
+              "e6:left",
+              "e6:right"
+            ],
+            "outputs": {
+              "evidence": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+              ],
+              "history": {
+                "checked_steps": 7
+              },
+              "result": 7
+            },
+            "predecessors": [
+              "e5"
+            ],
+            "sources": [
+              "s0",
+              "s0"
+            ],
+            "transition": "tick",
+            "value": 7
+          }
+        ],
+        "future_tick_enabled": true,
+        "observation_budget": 7,
+        "observation_status": "truncated",
+        "state": 7
+      }
     }
   ],
   "labelled_posets_checked": 19,

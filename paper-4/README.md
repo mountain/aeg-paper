@@ -223,3 +223,14 @@ python3 -O paper-4/scripts/verify-process-spectrum.py > /tmp/process-spectrum-O.
 cmp /tmp/process-spectrum.json /tmp/process-spectrum-O.json
 ```
 
+
+Independent guard/receipt audit (same synthetic scope):
+
+```sh
+python3 paper-4/scripts/receive-process-spectrum.py /tmp/process-spectrum.json > /tmp/process-receiver.json
+cmp /tmp/process-receiver.json paper-4/scripts/fixtures/process-spectrum/receiver-evidence.json
+```
+
+The receiver checks explicit stopping attempts, complete versus truncated
+observation, source identity, roles and retained history without importing
+the generator; see the canonical record for limitations and mutation results.
