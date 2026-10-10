@@ -105,8 +105,23 @@ jobs:
         run: |
           set -euo pipefail
           cd "$RESEARCH"
+          set +e
           python3 tools/ci_check.py > /tmp/ci-check.json
-          python3 -c "import json;d=json.load(open('/tmp/ci-check.json'));print(d['verdict'])"
+          status=$?
+          set -e
+          # Always surface the report: a failing gate that prints nothing is
+          # not diagnosable, and the first CI run of this job proved that.
+          python3 - <<'PY'
+          import json
+          d = json.load(open("/tmp/ci-check.json"))
+          print("verdict:", d["verdict"])
+          for step in d["steps"]:
+              print("  step", step.get("step"), "exit", step.get("exit_code"),
+                    "failed", [s.get("step") for s in step.get("failed_stages", [])])
+          for failure in d["failures"]:
+              print("FAILURE:", json.dumps(failure, ensure_ascii=False)[:4000])
+          PY
+          exit "$status"
 
       - name: Upload the verification summary
         if: always()
