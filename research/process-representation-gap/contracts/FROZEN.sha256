@@ -1,0 +1,11 @@
+# Frozen contract digest ledger.
+# Format: <sha256>  <filename>
+# A contract change must add a NEW version file and update this ledger in the
+# same commit; a mismatch makes every citing experiment raise EXP-CONTRACT-DRIFT.
+d1ab186a2fefc0f803e293a0742a03c2fa96f89ca8eae266cef1c24de81d8c77  exp1-order-and-mixing.v1.json
+e0b9d493d79af5140993bf72c0e75d0f6455ffaa4473cd6ce89a886dfc96a0fe  exp2-loop-continuation.v1.1.json
+e39b69fd9c5ae94a8922d65dfcec2b0ba944c857ba3e5f0d0149752a11922512  exp2-loop-continuation.v1.json
+bd7f958740b1c5d686da5012d59ec1995ad3c1f5af98bead0e3ee9637aa0eb8f  exp3-typed-hole-context.v1.json
+a092fcd470d5cee5a750bb47f73ef9065ab71a69f2460f99ba60dca37658bed6  exp4-objectification-elevation.v1.json
+3cb4feaa8ed326ce80b73ca1945f122a645d6031dd1df5d00db162c081da58f6  exp5-braid-nonarithmetic.v1.json
+1b8a6d0ddbce2efd708a3875e7c6f32bd05947ffb1b434e74e4d5c5f5cfa82ac  exp6-knot-deformation-environment.v1.json

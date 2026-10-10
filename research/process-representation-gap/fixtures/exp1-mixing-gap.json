@@ -1,0 +1,118 @@
+{
+  "fixture": "exp1-mixing-gap",
+  "payload": {
+    "action_counts": [
+      1,
+      2
+    ],
+    "initial_total": "2",
+    "pair": [
+      "PRR",
+      "RPR"
+    ],
+    "same_action_counts": true,
+    "same_declared_summary": true,
+    "shorter_continuation_depth1_probe": {
+      "P": [
+        [
+          "1/2",
+          "3/4"
+        ],
+        [
+          "1/2",
+          "1"
+        ]
+      ],
+      "R": [
+        [
+          "1",
+          "1/8"
+        ],
+        [
+          "1",
+          "1/4"
+        ]
+      ]
+    },
+    "shortest_distinguishing_continuation": {
+      "depth": 0,
+      "eta": "",
+      "kind": "observation",
+      "left_readout": [
+        "1",
+        "1/4"
+      ],
+      "right_readout": [
+        "1",
+        "1/2"
+      ]
+    },
+    "spill_paths": {
+      "PRR": [
+        [
+          0,
+          "P",
+          "0",
+          "1/2"
+        ],
+        [
+          1,
+          "R",
+          "1/2",
+          "0"
+        ],
+        [
+          2,
+          "R",
+          "0",
+          "1/4"
+        ]
+      ],
+      "RPR": [
+        [
+          0,
+          "R",
+          "0",
+          "1/2"
+        ],
+        [
+          1,
+          "P",
+          "1/2",
+          "0"
+        ],
+        [
+          2,
+          "R",
+          "1/2",
+          "0"
+        ]
+      ]
+    },
+    "states": [
+      [
+        "1",
+        "1/4"
+      ],
+      [
+        "1",
+        "1/2"
+      ]
+    ],
+    "summary_value": [
+      1,
+      2,
+      "1"
+    ],
+    "totals": [
+      "5/4",
+      "3/2"
+    ]
+  },
+  "schema": "aeg.process-representation-gap.fixture.v1",
+  "source": {
+    "evidence_file": "exp1-order-and-mixing.json",
+    "pointer": "witnesses.gap",
+    "sha256": "2433d504c7b38e12aca63fc5554c12ede7c4ecb7aee897f99d4bb85a4b1d2063"
+  }
+}

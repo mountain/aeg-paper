@@ -1,0 +1,339 @@
+{
+  "conclusion": "every declared primary verdict, witness value and stored interval certificate is reproduced by the independent route",
+  "contract": {
+    "path": "research/process-representation-gap/contracts/exp6-knot-deformation-environment.v1.json",
+    "sha256": "1b8a6d0ddbce2efd708a3875e7c6f32bd05947ffb1b434e74e4d5c5f5cfa82ac"
+  },
+  "disagreements": [],
+  "environment": {
+    "implementation": "cpython",
+    "python_version": "3.14.6"
+  },
+  "environment_arithmetic": {
+    "basis_swap_of_longitude": [
+      1,
+      0
+    ],
+    "basis_swap_of_meridian": [
+      0,
+      1
+    ],
+    "distinct_classes_fixed_basis": true,
+    "gcd_longitude": 1,
+    "gcd_meridian": 1,
+    "intersection_number": 1,
+    "longitude": [
+      0,
+      1
+    ],
+    "meridian": [
+      1,
+      0
+    ]
+  },
+  "geometry": {
+    "keyframe-blind": {
+      "certificate_count": 0,
+      "undecided": [],
+      "verdict": "invalid",
+      "witness": {
+        "edges": [
+          0,
+          3
+        ],
+        "kind": "nonadjacent-crossing",
+        "parameters": [
+          "2/5",
+          "4/5"
+        ],
+        "point": [
+          "4/5",
+          "0",
+          "0"
+        ],
+        "time": "1/4"
+      }
+    },
+    "w3-free": {
+      "certificate_count": 2,
+      "undecided": [],
+      "verdict": "valid",
+      "witness": null
+    },
+    "w3-plan": {
+      "certificate_count": 8,
+      "undecided": [],
+      "verdict": "valid",
+      "witness": null
+    },
+    "w4-P1": {
+      "certificate_count": 2,
+      "undecided": [],
+      "verdict": "valid",
+      "witness": null
+    },
+    "w4-P2": {
+      "certificate_count": 4,
+      "undecided": [],
+      "verdict": "valid",
+      "witness": null
+    },
+    "w5-rope": {
+      "certificate_count": 4,
+      "undecided": [],
+      "verdict": "valid",
+      "witness": null
+    }
+  },
+  "hand_table_checked": {
+    "keyframe_blind_collision": {
+      "edges": [
+        0,
+        3
+      ],
+      "parameters": [
+        "2/5",
+        "4/5"
+      ],
+      "point": [
+        "4/5",
+        "0",
+        "0"
+      ],
+      "time": "1/4"
+    },
+    "r1_negative_writhe_delta": -1,
+    "r1_positive_writhe_delta": 1,
+    "r2_writhe_delta": 0,
+    "w3_collision": {
+      "distance_squared": "0",
+      "edge": 1,
+      "parameter": "1/2",
+      "point": [
+        "1",
+        "1",
+        "0"
+      ],
+      "radius_squared": "1/4",
+      "time": "1/4"
+    },
+    "w4_clearance_squared": "40400/10201",
+    "w4_collision": {
+      "distance_squared": "0",
+      "edge": 0,
+      "parameter": "1/2",
+      "point": [
+        "1",
+        "0",
+        "0"
+      ],
+      "radius_squared": "1/16",
+      "time": "3/8"
+    },
+    "w5_collision": {
+      "edges": [
+        3,
+        3
+      ],
+      "parameters": [
+        "1/2",
+        "1/2"
+      ],
+      "point": [
+        "0",
+        "0",
+        "0"
+      ],
+      "time": "2/3"
+    },
+    "w5_linking_end": 1,
+    "w5_linking_start": 0
+  },
+  "independence": {
+    "residual_shared_math": "both routes evaluate the same rational quadratics, because those are the same mathematical quantities; what differs is the decision procedure at the interval level (sound but incomplete box-hull separation with Fourier-Motzkin versus closed-form minimisation with an exact motion bound) and the linking-number formulation (spanning disk versus signed crossing count of a generic projection)",
+    "shares": [
+      "gapkit JSON serialisation",
+      "the frozen contract",
+      "the primary's evidence file, read as data to be checked"
+    ],
+    "shares_nothing_else": [
+      "no fixture builder: the fixtures are transcribed literals here",
+      "no distance helper: segment-segment and point-segment minima are implemented from the 2x2 normal equations and the clamped critical parameter",
+      "no certificate helper: whole-interval clearance is proved by an exact motion bound, not by box-hull separation",
+      "no move implementation: the local-move calculus is re-implemented on lists",
+      "no cost or encoding helper"
+    ]
+  },
+  "linking": {
+    "disk_route_end": {
+      "crossings": [
+        {
+          "edge": 3,
+          "parameter": "1/2",
+          "point": [
+            "1",
+            "0",
+            "0"
+          ],
+          "sign": 1
+        }
+      ],
+      "value": 1
+    },
+    "disk_route_start": {
+      "crossings": [],
+      "value": 0
+    },
+    "projection_route_rotated_control": {
+      "crossings": [
+        {
+          "edges": [
+            2,
+            0
+          ],
+          "parameters": [
+            "11/24",
+            "13/24"
+          ],
+          "sign": 1
+        },
+        {
+          "edges": [
+            3,
+            2
+          ],
+          "parameters": [
+            "7/18",
+            "7/9"
+          ],
+          "sign": 1
+        }
+      ],
+      "direction": [
+        1,
+        2,
+        3
+      ],
+      "value": 1
+    }
+  },
+  "negative_controls": [
+    {
+      "expected": "EXP6-HAND-TABLE-MISMATCH",
+      "id": "hand-table-mismatch",
+      "observed": {
+        "code": "EXP6-HAND-TABLE-MISMATCH",
+        "detail": "mutated hand value 1/2 differs from the transcribed 3/8"
+      }
+    },
+    {
+      "expected": "EXP6-ROUTE-DISAGREEMENT",
+      "id": "route-disagreement",
+      "observed": {
+        "code": "EXP6-ROUTE-DISAGREEMENT",
+        "detail": "no route disagreement was recorded, so the disagreement detector must fire"
+      }
+    },
+    {
+      "expected": "EXP-CONTRACT-DRIFT",
+      "id": "contract-drift",
+      "observed": {
+        "code": "EXP-CONTRACT-DRIFT",
+        "detail": "the frozen contract digest changed"
+      }
+    },
+    {
+      "expected": "EXP6I-R1-SIGN-MISMATCH",
+      "id": "r1-deletion-accepted-on-wrong-sign",
+      "observed": {
+        "code": "EXP6I-R1-SIGN-MISMATCH",
+        "detail": "unreachable"
+      }
+    }
+  ],
+  "obstacles": {
+    "w3-free": {
+      "certificate_count": 0,
+      "undecided": [],
+      "verdict": "invalid",
+      "witness": {
+        "distance_squared": "0",
+        "edge": 1,
+        "kind": "ball-collision",
+        "obstacle": "w3-ball",
+        "parameter": "1/2",
+        "point": [
+          "1",
+          "1",
+          "0"
+        ],
+        "radius_squared": "1/4",
+        "time": "1/4"
+      }
+    },
+    "w3-plan": {
+      "certificate_count": 48,
+      "undecided": [],
+      "verdict": "valid",
+      "witness": null
+    },
+    "w4-P1": {
+      "certificate_count": 36,
+      "undecided": [],
+      "verdict": "valid",
+      "witness": null
+    },
+    "w4-P2": {
+      "certificate_count": 4,
+      "undecided": [],
+      "verdict": "invalid",
+      "witness": {
+        "distance_squared": "0",
+        "edge": 0,
+        "kind": "ball-collision",
+        "obstacle": "w4-ball",
+        "parameter": "1/2",
+        "point": [
+          "1",
+          "0",
+          "0"
+        ],
+        "radius_squared": "1/16",
+        "time": "3/8"
+      }
+    },
+    "w5-rope-loop": {
+      "certificate_count": 0,
+      "undecided": [],
+      "verdict": "invalid",
+      "witness": {
+        "edges": [
+          3,
+          3
+        ],
+        "kind": "loop-crossing",
+        "obstacle": "w5-loop",
+        "parameters": [
+          "1/2",
+          "1/2"
+        ],
+        "point": [
+          "0",
+          "0",
+          "0"
+        ],
+        "time": "2/3"
+      }
+    }
+  },
+  "primary_evidence": {
+    "path": "research/process-representation-gap/evidence/exp6-knot-deformation-environment.json",
+    "sha256": "13b12a806236934505619bdc09acac9f08dfe79a3f4b2c1ef981fdc05685e210"
+  },
+  "role": "independent verification route for exp6",
+  "schema": "aeg.process-representation-gap.exp6-independent.v1",
+  "stored_certificate_recheck": {
+    "certificates_checked": 20,
+    "problems": []
+  }
+}

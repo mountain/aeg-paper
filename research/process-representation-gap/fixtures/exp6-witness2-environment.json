@@ -1,0 +1,48 @@
+{
+  "fixture": "exp6-witness2-environment",
+  "payload": {
+    "basis_swap_changes_the_contract": {
+      "consequence": "if a basis-swapping ambient homeomorphism is allowed, the meridian and the longitude become equivalent and the earlier equivalence contract changes; the reported result is for the FIXED oriented basis",
+      "determinant": -1,
+      "longitude_images_to": [
+        1,
+        0
+      ],
+      "matrix": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "meridian_images_to": [
+        0,
+        1
+      ]
+    },
+    "curves": [
+      "meridian (1,0)",
+      "longitude (0,1)"
+    ],
+    "free_3_space_task": {
+      "equivalent": true,
+      "why": "both are unknots in unobstructed R^3 (classical, cited not reproved here), so the free-space task declares them equivalent"
+    },
+    "outcome": "success (the environment changes the declared equivalence)",
+    "status": "proved-with-stated-hypotheses (cited classical classification) with exactly computed slope and intersection data",
+    "strict_surface_task": {
+      "equivalent": false,
+      "geometric_intersection_number": 1,
+      "why": "in a fixed oriented basis the meridian and the longitude are distinct primitive classes: their slopes differ, and neither equals the negative of the other, so no isotopy of the torus carries one to the other"
+    }
+  },
+  "schema": "aeg.process-representation-gap.fixture.v1",
+  "source": {
+    "evidence_file": "exp6-knot-deformation-environment.json",
+    "pointer": "environments.witness-2-environment-changes-equivalence",
+    "sha256": "13b12a806236934505619bdc09acac9f08dfe79a3f4b2c1ef981fdc05685e210"
+  }
+}

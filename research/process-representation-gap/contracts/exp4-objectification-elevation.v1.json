@@ -1,0 +1,491 @@
+{
+  "composition_convention_summary": "SEE native.composition_convention. Chronological words (left to right in time, as in ProcessWord) AND algebraic juxtaposition (right-to-left function composition, as in the pinned note). The dictionary is the pinned essay's own comment: the chronological word (T_a, D_k) denotes the algebraic composite D_k T_a, and (D_k, T_ka) denotes T_ka D_k. Therefore pair(w1 ++ w2) = pair(w2) STAR pair(w1): chronological concatenation multiplies in the reverse algebraic order.",
+  "date": "2026-10-10",
+  "domain": {
+    "actions": "The only admitted transition is appending one generator to the right of the word (chronological execution). For the experiment-2 attempt the admitted transition is appending one mechanism that is legal in the declared experiment-2 legality; for the experiment-5 attempt it is appending one crossing letter.",
+    "budget_exhaustion_policy": "Every declared bound is an explicit integer. If a required check cannot be completed inside a declared bound, the result is reported as budget-exhausted with the searched domain; no bound is extended silently and no mandatory witness is shrunk.",
+    "declared_state_set": [
+      -3,
+      -1,
+      0,
+      2,
+      5
+    ],
+    "expected_word_counts": {
+      "base_sweep": {
+        "0": 1,
+        "1": 5,
+        "2": 25,
+        "3": 125,
+        "4": 625,
+        "5": 3125,
+        "total": 3906
+      },
+      "exp2_all_words": {
+        "0": 1,
+        "1": 3,
+        "2": 9,
+        "3": 27,
+        "4": 81,
+        "5": 243,
+        "total": 364
+      },
+      "exp2_legal_words": {
+        "0": 1,
+        "1": 1,
+        "2": 2,
+        "3": 4,
+        "4": 10,
+        "5": 26,
+        "6": 71,
+        "total": 115
+      },
+      "exp5_crossing_words": {
+        "0": 1,
+        "1": 4,
+        "2": 16,
+        "3": 64,
+        "4": 256,
+        "5": 1024,
+        "6": 4096,
+        "total": 5461
+      }
+    },
+    "generator_sets": {
+      "base_sweep_alphabet": [
+        "T_-2",
+        "T_1",
+        "T_3",
+        "D_2",
+        "D_3"
+      ],
+      "essay_alphabet": [
+        "T_-2",
+        "T_1",
+        "D_2",
+        "D_3"
+      ],
+      "note": "essay_alphabet is the alphabet of the pinned executable essay tests/research/test_aeg_addition_multiplication_rank_transition.py; base_sweep_alphabet strictly contains it (one further translation T_3).",
+      "pure_dilation": [
+        "D_2",
+        "D_3"
+      ],
+      "translation_only": [
+        "T_-2",
+        "T_1"
+      ]
+    },
+    "inputs": "Finite words over the declared generator alphabets. For the experiment-2 attempt: words over {c, v, l}, both unrestricted and restricted to the experiment-2 legal domain. For the experiment-5 attempt: crossing words over {s1, s2, s1^-1, s2^-1}.",
+    "length_budget": {
+      "associativity_depth": 2,
+      "base_descent_sweep_length": 5,
+      "exp2_attempt_length": 5,
+      "exp2_legal_domain_length": 6,
+      "exp2_state_values": "the frozen literal accumulator values of the experiment-2 hand table, together with 0, 1, -1, 2 and 3",
+      "exp5_attempt_length": 6,
+      "exp5_descent_split_length": 4,
+      "relation_sweep": "cross relation swept exhaustively over a in [-6,6] and k in [1,6]; translation law over a,b in [-6,6]; dilation law over k,l in [1,6]"
+    },
+    "resource_budget": {
+      "note": "Exhaustive enumeration, no sampling, no heuristics, no floating point.",
+      "runtime": "pure CPython integers, exact Fractions, tuples and strings only"
+    }
+  },
+  "elevation_criterion": {
+    "declared_before_implementation": true,
+    "E1_generator_novelty": "Some generator g of the candidate higher layer has a lowering outside the closure of the lower layer's generator lowerings; equivalently the higher layer is not a renaming or a re-indexing of the lower one.",
+    "E2_strict_inclusion": "The image of the higher language's lowering strictly contains the image of the lower language's lowering; a witness element is exhibited. If the higher layer is only a quotient of the lower layer (surjective image, no new element), E2 fails.",
+    "E3_uniformity": "The novel generator induces a total, non-constant map on the whole declared lower family. A single equality of outputs never determines the schema, and a fixed power of one lower object is not a uniform action.",
+    "E4_generative_novelty": "A composite of two declared higher generators lowers to an element that is not the lowering of any single declared generator (the higher grammar generates elements that were not enumerated among its generators).",
+    "E5_not_by_naming_caching_or_history": "The criterion can never be satisfied by naming a long lower word, caching one result, or recording the full history; those three are declared non-evidence. Operationally, a lower-only candidate (a named power) must fail E1.",
+    "verdict_rule": "The higher order is an ELEVATION iff E1, E2, E3, E4 hold; E5 is a forbidden-inference guard. Elevation is a statement about expressive power only. It says nothing about task sufficiency, and an elevated object may still fail objectification gate (i).",
+    "why_this_criterion": "Work plan section 4.4 states that a higher order must explicitly add expressible generators or new free composites, and that naming a long word, caching one result, or recording the whole history is not elevation. The criterion turns that sentence into four checkable conditions and one forbidden inference."
+  },
+  "evidence": {
+    "determinism": "Identical bytes under CPython and under python3 -O. Assertions are never used for obligations; every obligation raises a coded diagnostic. Words are enumerated in the fixed order of gapkit.words; object layers are enumerated by breadth-first search with a deterministic frontier order.",
+    "format": "One canonical JSON document per experiment (sorted keys, two-space indent, trailing newline, UTF-8). Full enumerated word lists are NOT embedded; they are regenerated deterministically by the reproduction commands, and the evidence records the exact per-length counts and the reachable-object counts instead.",
+    "path": "research/process-representation-gap/evidence/exp4-objectification-elevation.json",
+    "per_record_fields": [
+      "contract",
+      "convention",
+      "inputs",
+      "history",
+      "representation",
+      "composition",
+      "lowering",
+      "gates",
+      "elevation",
+      "attempts",
+      "cost",
+      "negative_controls",
+      "conclusion"
+    ]
+  },
+  "experiment": "exp4",
+  "frozen": true,
+  "gates": {
+    "gate_i_task_sufficiency": "pi(h) = pi(h') implies h and h' are equivalent under the declared task, where equivalence for the base model means acting identically on every declared state, and for the two objectification attempts means agreeing on every declared observation under every declared continuation. Passing requires a general argument or a proof, not a sweep: a bounded sweep can only establish bounded-domain compatibility.",
+    "gate_ii_stable_interface": "There is a stable, callable, composable interface: the carrier is closed under the declared composition, the composition is associative with a two-sided identity on the declared carrier, the interface is total on the declared generator set, and two words with the same object have identical callable behaviour.",
+    "gate_iii_exact_descent": "In the declared composite language, composing at the object layer and then lowering to the bottom layer equals executing the word step by step at the bottom layer, for every free composite word up to the declared length and every declared state. Agreement is reported exactly; a disagreement is reported as the failing word with concrete values. This bounded test never substitutes for the general consistency argument, which is stated separately for each model.",
+    "order": "gate (i) is evaluated before gate (ii) and gate (iii); a failure in a later gate is reported even when an earlier gate fails, so that the localisation is complete."
+  },
+  "independent_check": {
+    "hand_literal_tables": {
+      "base_model": {
+        "(D_1,T_-4)": "(b=-4,k=1)",
+        "(D_2,D_3)": "(b=0,k=6)",
+        "(D_2,T_1)": "(b=1,k=2)",
+        "(D_3,T_2,D_2)": "(b=4,k=6)",
+        "(D_3,T_6)": "(b=6,k=3)",
+        "(T_-2,T_1)": "(b=-1,k=1)",
+        "(T_0,D_5)": "(b=0,k=5)",
+        "(T_1,D_2)": "(b=2,k=2)",
+        "(T_2,D_3)": "(b=6,k=3)",
+        "(T_2,T_2,T_2)": "(b=6,k=1)",
+        "(T_3,D_2)": "(b=6,k=2)",
+        "(T_3,T_3)": "(b=6,k=1)"
+      },
+      "experiment_2_attempt": {
+        "": "(b=0,k=1)",
+        "c": "(b=1,k=2)",
+        "cc": "(b=3,k=4)",
+        "ccvcv": "(b=2,k=2)",
+        "cv": "(b=1/2,k=1)",
+        "cvc": "(b=2,k=2)",
+        "l": "(b=1,k=1)",
+        "v": "(b=0,k=1/2)",
+        "vc": "(b=1,k=1)",
+        "vv": "(b=0,k=1/4)"
+      },
+      "experiment_5_attempt": {
+        "()": [
+          "x",
+          "y",
+          "z"
+        ],
+        "(s1)": [
+          "xyx^-1",
+          "x",
+          "z"
+        ],
+        "(s1,s1)": [
+          "xyxy^-1x^-1",
+          "xyx^-1",
+          "z"
+        ],
+        "(s1,s2)": [
+          "xyzy^-1x^-1",
+          "x",
+          "y"
+        ],
+        "(s1,s2,s1)": [
+          "xyzy^-1x^-1",
+          "xyx^-1",
+          "x"
+        ],
+        "(s2)": [
+          "x",
+          "yzy^-1",
+          "y"
+        ],
+        "(s2,s1)": [
+          "xyx^-1",
+          "xzx^-1",
+          "x"
+        ],
+        "(s2,s1,s2)": [
+          "xyzy^-1x^-1",
+          "xyx^-1",
+          "x"
+        ]
+      },
+      "provenance": "The base-model and experiment-2 entries are one-line compositions of the declared generator maps and are re-derived by hand in the report (report section 'witnesses'). The experiment-5 entries are the declared generator images composed in the declared order; the entries for (), (s1) and (s1,s2,s1) are hand-derived in the report. The table is a literal independent input, not a proof."
+    },
+    "rationale": "The independent route recomputes the same mathematical quantity by a different algebraic representation and a different enumeration strategy. The primary implementation represents the affine action by the pair (b,k) and folds pairs with the formula (b,k) star (c,l) = (b + k c, k l), enumerating words by length over a fixed alphabet. The independent implementation represents every affine action by its exact 2x2 upper-triangular matrix M(b,k) = [[k,b],[0,1]] over Q, composes by explicit matrix multiplication, recovers the pair from the matrix, and enumerates the object layer by breadth-first search over reachable matrices with deduplication instead of enumerating words. Neither file imports the other and neither is a helper of the other; the only shared module is gapkit's deterministic JSON serialisation, which carries no experiment semantics. The independent route consumes the primary evidence as data only.",
+    "route": "Exact upper-triangular matrices over Q composed by matrix multiplication, plus breadth-first enumeration of the object layer with deduplication, plus a frozen table of literal hand-derived values. Any disagreement between the routes raises EXP4-ROUTE-DISAGREEMENT."
+  },
+  "labels": [
+    "proved",
+    "proved-with-stated-hypotheses",
+    "computationally-verified-example",
+    "structural-proposal",
+    "bounded-domain-compatible",
+    "budget-exhausted",
+    "open"
+  ],
+  "native": {
+    "allowed_rewrites": [
+      "Executing a word chronologically (the fold is a definition, not a rewrite).",
+      "The translation law T_a T_b = T_{a+b}, applied only after it has been verified exactly.",
+      "The dilation law D_k D_l = D_{k l}, applied only after it has been verified exactly.",
+      "The cross-rank law D_k T_a = T_{k a} D_k, applied only after it has been verified exactly under the declared convention."
+    ],
+    "category_boundary": "A research model reconstructed from the pinned note and the pinned executable essay. It introduces no repository API: no Objectification type, no ProcessRank, no RankLowering, and no generic rank abstraction is written or proposed, in accordance with the pinned note's explicit refusal and with work plan section 6, experiment 4 ('暂不建立通用 rank API').",
+    "composition_convention": {
+      "anti_homomorphism": "Consequences, both verified as obligations: pair(w ++ (g,)) = pair(g) STAR pair(w), and pair(w1 ++ w2) = pair(w2) STAR pair(w1). Chronological concatenation multiplies in the reverse algebraic order.",
+      "clause_1_word_order": "A word w = (g_1, ..., g_n) is read left to right in time: g_1 acts first, g_n acts last. This is the chronology of ProcessWord in src/process_geometry/process/history.py, whose interpret_history folds steps left to right.",
+      "clause_2_algebraic_juxtaposition": "In the pinned note's algebra, juxtaposition XY denotes the composite that applies Y first and X second, i.e. (XY)(x) = X(Y(x)). This is why the note computes D_k T_a as k(x + a).",
+      "clause_3_dictionary": "Quote from the pinned executable essay: 'ProcessWord stores chronological order. Therefore (T_a, D_k) means the algebraic composite D_k T_a, while (D_k, T_ka) means T_ka D_k.' Equivalently: the chronological word (g_1, ..., g_n) denotes the algebraic composite g_n ... g_1.",
+      "clause_4_pair_law": "The pair (b,k) denotes the map x -> k x + b with b in Z and k in N_{>0}. The declared product is (b,k) STAR (c,l) = (b + k c, k l), which is the pair of the algebraic product (T_b D_k)(T_c D_l) computed with the right factor applied first, exactly as in the pinned note section 6.",
+      "generator_pairs": "pair(T_a) = (a,1); pair(D_k) = (0,k).",
+      "orientation_is_a_trap": "Because process words are chronological while the algebra is juxtapositional, the pair product must be applied as pair(g) STAR pair(w) when appending g. Composing in the chronological order instead is the declared composition-order trap and is detected by negative control composition-order-flip with code EXP4-COMPOSITION-ORDER."
+    },
+    "forbidden_rewrites": [
+      "Commuting a translation past a dilation without rescaling the translation: applying D_k T_a = T_a D_k is false and must raise EXP4-CROSS-RELATION.",
+      "Treating D_0, D_{-1} or D_{1/2} as a generator: the pinned construction admits k in N_{>0} only. Attempting one must raise EXP4-DILATION-DOMAIN.",
+      "Identifying two words because they have the same endpoint value at one declared state, or the same evaluation on any proper subset of the declared states.",
+      "Renaming a power T_a^n of one fixed translation as a new object, or calling it elevation.",
+      "Claiming elevation from naming a long word, from caching one result, or from recording the full history.",
+      "Composing at the object layer with any law other than the declared STAR, in particular lowering D_k to the translation T_k.",
+      "Introducing a generic rank API, an Objectification class, or a RankLowering type.",
+      "Promoting a bounded sweep to a general consistency proof."
+    ],
+    "generators": {
+      "D_k": "For k in N_{>0}: the Multiplication object Obj(R_k), the objectification of the uniform repeated-addition schema R_k. Lower semantics: the map x -> k x. Positive factors only; k = 0, negative k, and non-integer k are outside the declared construction by ValueError in the pinned source.",
+      "T_a": "For a in Z: the rank-one Translation object. Lower semantics: the map x -> x + a."
+    },
+    "history": "The literal word tuple is the history. Two histories are never identified by equality of values, of counts, or of endpoints. The object layer identifies exactly those words with the same declared object, and that identification is reported as a merge count with explicit witnesses.",
+    "process_equivalence": "Base model: words w and w' are task-equivalent iff they induce the same state action on every declared state, i.e. pair(w) = pair(w'), which by the injectivity lemma is the same as equality of the induced maps on the whole of Z. Experiment-2 attempt: equivalence is the declared experiment-2 equivalence (same declared observation under every declared continuation) plus, where the legality signature is used, the same legal-action set. Experiment-5 attempt: equivalence is equality of the Artin object, which by the stated faithfulness hypothesis is equality of the braid-group element; it is never equated with equality of literal histories.",
+    "source_baseline": {
+      "commit": "c47c96fa79123c677172278be59d67ca1cc891b1",
+      "files": [
+        "docs/51-aeg-addition-multiplication-rank-transition.md (sections 1-8, 12)",
+        "docs/44-objectification-semantic-compression-and-rank-lowering.md (sections 7 and 8)",
+        "tests/research/test_aeg_addition_multiplication_rank_transition.py (the executable calibration: alphabet, initial states, and its own convention comment)",
+        "src/process_geometry/process/history.py (ProcessWord chronology)",
+        "50-aeg-translation-objectification-rank-lowering.md (the first, translation-only calibration)"
+      ],
+      "repository": "mountain/process-geometry",
+      "reported_gap": "Objectification, ProcessRank, RankLowering and SemanticClosure are deliberately absent from the package; this experiment does not add them."
+    },
+    "state": "A state is an integer x in Z. A generator acts on it by x -> x + a (translation) or x -> k x (dilation). The declared model is a total action of the free monoid on the declared generator set.",
+    "summary": "The pinned addition -> multiplication rank transition: rank-one Translation objects T_a, the objectified uniform repeated-addition schema R_k, the Multiplication object D_k = Obj(R_k), and free mixed words over {T_a} union {D_k}.",
+    "syntax": "A word is a finite tuple of generator symbols, each of the form T_a with a in Z or D_k with k in N_{>0}. The finite alphabets used by the sweeps are declared in domain.generator_sets.",
+    "types": [
+      "Generator: T_a (a in Z) or D_k (k in N_{>0})",
+      "Word: finite chronological tuple of generators",
+      "Pair: (b,k) with b in Z and k in N_{>0}, denoting x -> k x + b",
+      "State: an element of Z",
+      "Map: a function from the declared state set to Z, exactly represented by a Pair",
+      "Attempt-2 Pair: (b,k) with b in Z[1/2] and k in 2^Z, denoting x -> k x + b, the exact affine action of the experiment-2 accumulator",
+      "Attempt-5 Object: an automorphism of the free group F_3, represented as the triple of reduced images of x_1, x_2, x_3"
+    ]
+  },
+  "negative_controls": [
+    {
+      "expected_diagnostic": "EXP-CONTRACT-DRIFT",
+      "id": "contract-drift",
+      "mutation": "Alter one byte of a copy of this contract and re-check the frozen ledger entry."
+    },
+    {
+      "expected_diagnostic": "EXP4-SUMMARY-INSUFFICIENT",
+      "id": "endpoint-value-insufficiency",
+      "mutation": "Claim that the single declared endpoint evaluation separates every pair of words that act differently, checked on the pair (T_2,D_3) and (T_3,D_2)."
+    },
+    {
+      "expected_diagnostic": "EXP4-DESCENT-DISAGREEMENT",
+      "id": "naive-dilation-lowering",
+      "mutation": "Lower the dilation object D_k to the translation object T_k and compare the object-layer composite against step-by-step bottom execution on the word (D_2,T_1)."
+    },
+    {
+      "expected_diagnostic": "EXP4-COMPOSITION-ORDER",
+      "id": "composition-order-flip",
+      "mutation": "Multiply pairs in chronological order instead of the declared reverse order, checked on the words (D_2,T_1) and (T_3)."
+    },
+    {
+      "expected_diagnostic": "EXP4-CROSS-RELATION",
+      "id": "cross-relation-without-scaling",
+      "mutation": "Apply the unscaled cross relation D_k T_a = T_a D_k for k = 2 and a = 1."
+    },
+    {
+      "expected_diagnostic": "EXP4-DILATION-DOMAIN",
+      "id": "dilation-domain-zero",
+      "mutation": "Admit k = 0 (and separately k = -1 and k = 1/2) as a dilation parameter."
+    },
+    {
+      "expected_diagnostic": "EXP4-ROUTE-DISAGREEMENT",
+      "id": "matrix-route-disagreement",
+      "mutation": "Mutate one entry of the matrix route's product and compare against the primary pair value."
+    },
+    {
+      "expected_diagnostic": "EXP4-ENUMERATION-MISMATCH",
+      "id": "enumerated-count-mismatch",
+      "mutation": "Drop one generator from the sweep alphabet and re-check the declared word total 3906."
+    },
+    {
+      "expected_diagnostic": "EXP4-NAMING-NOT-ELEVATION",
+      "id": "named-power-as-elevation",
+      "mutation": "Claim that the named composite T_2^3 = T_6 adds an expressible element outside the lower translation layer."
+    },
+    {
+      "expected_diagnostic": "EXP4-EXP2-SUFFICIENCY-CLAIM",
+      "id": "exp2-object-sufficiency",
+      "mutation": "Claim that the accumulator affine object separates the experiment-2 legal words cvc and ccvcv."
+    },
+    {
+      "expected_diagnostic": "EXP4-ELEVATION-NOT-ESTABLISHED",
+      "id": "exp5-elevation-claim",
+      "mutation": "Claim that the Artin object layer reaches a braid element with no preimage among the literal crossing words of the declared domain."
+    },
+    {
+      "expected_diagnostic": "EXP4-HAND-TABLE-MISMATCH",
+      "id": "hand-table-mutated",
+      "mutation": "Mutate one declared update of the experiment-2 accumulator law (A(u.v) = A(u)/2 becomes A(u) - 1) and re-check the frozen literal table."
+    },
+    {
+      "expected_diagnostic": "EXP4-RELATION-SOUNDNESS",
+      "id": "exp5-braid-relation-mutated",
+      "mutation": "Corrupt one generator image of the Artin action and re-check s1 s2 s1 = s2 s1 s2."
+    },
+    {
+      "expected_diagnostic": "EXP4-REDUCTION-NOT-ADJACENT",
+      "id": "free-reduction-wrong",
+      "mutation": "Perform a non-adjacent cancellation in the free group F_3, claiming free_reduce((x1,x2,x1^-1)) = (x2)."
+    },
+    {
+      "expected_diagnostic": "EXP4-ILLEGAL-ACTION",
+      "id": "illegal-exp2-action",
+      "mutation": "Execute the experiment-2 mechanism v from the empty word, where the declared legality does not admit it."
+    }
+  ],
+  "open_items": [
+    "Whether the experiment-2 accumulator object is task-sufficient for some other declared task that observes only the accumulator is not decided here; the declared experiment-2 task observes the readout and the legality signature, and the object fails that task.",
+    "Whether a dilation parameter outside N_{>0} (k = 0, negative, rational, or real) preserves the cross relation and admits any lowering is outside the declared domain and is not answered.",
+    "Whether the bounded reachable-object counts reported here extend to a closed-form growth law for every word length is open; only the declared bounds are computed.",
+    "No claim is made about any generic rank, objectification, or lowering abstraction; the two objectification attempts are local to their declared models."
+  ],
+  "outcomes": {
+    "budget_exhausted": "A declared bound was reached before a required check completed. The searched domain is reported and the conclusion is restricted to it; a mandatory witness is never shrunk, only exploratory searches, with the reason recorded. This outcome is distinct from success and from a negative result.",
+    "expected_negative": "A concrete witness: a pair of words, a concrete state or observation, and two different outcomes; or a concrete failing word in the descent test; or a concrete identifier appearing twice in a merge table. A negative result is a result, not an error.",
+    "implementation_error": "A coded diagnostic raised by a negative control that mutated exactly one declared datum. Each negative control names the specific code it must raise; 'any exception' is never accepted.",
+    "success": "A declared gate satisfied with an exact argument for the declared model, an independent route agreeing, and every claim labelled with one of the declared labels.",
+    "unknown": "A question the declared domain cannot decide, reported as open with the exact missing hypothesis."
+  },
+  "plan_reference": "AEG-process-representation-work-plan.md section 6 experiment 4 (实验四 对象化与升阶), section 4.4 (对象化与升阶), section 5 (shared frozen template), section 7 (engineering and independent verification), section 9 (gap classification)",
+  "reproduction": [
+    "python3 research/process-representation-gap/experiments/exp4_objectification_elevation.py > /tmp/exp4.json",
+    "cmp /tmp/exp4.json research/process-representation-gap/evidence/exp4-objectification-elevation.json",
+    "python3 -O research/process-representation-gap/experiments/exp4_objectification_elevation.py > /tmp/exp4-O.json",
+    "cmp /tmp/exp4.json /tmp/exp4-O.json",
+    "python3 research/process-representation-gap/experiments/exp4_objectification_elevation_independent.py",
+    "python3 research/process-representation-gap/tools/freeze_contracts.py"
+  ],
+  "representations": [
+    {
+      "applies_to": "base model",
+      "datatype": "one integer",
+      "definition": "pi_out(w) = the declared endpoint value lower(w)(x_0) at the single declared initial state x_0 = 0. This is the coarsest declared summary and is exactly the 'equality of a single evaluation' of the experiment question; it is the rank-one endpoint summary of the pinned first calibration.",
+      "id": "pi_out",
+      "information_cost": "One integer; it retains one number and forgets the whole schema, including the dilation factor.",
+      "kind": "single declared evaluation",
+      "tier": "existing-summary",
+      "update": "There is no closed abstract update on this carrier: a dilation has no image. It is reported exactly as that, and not repaired."
+    },
+    {
+      "applies_to": "base model",
+      "datatype": "(Z, N_{>0})",
+      "definition": "pi_obj(w) = the pair (b,k) with x -> k x + b, computed by the declared chronological fold with the STAR product.",
+      "id": "pi_obj",
+      "information_cost": "Two exact integers, bounded in size by the word; retains the full uniform action and forgets the literal history.",
+      "kind": "affine object layer",
+      "tier": "bounded-enhancement",
+      "update": "Uhat_g(P) = pair(g) STAR P, total on the declared generator set and closed on the declared carrier."
+    },
+    {
+      "applies_to": "base model",
+      "datatype": "tuple of generators",
+      "definition": "pi_hist(w) = the literal word with its exact step-by-step semantics.",
+      "id": "pi_hist",
+      "information_cost": "Unbounded in word length; this is the UPPER-BOUND CONTROL. Retaining the full history is not thereby a recommended minimal repair, and it is not elevation.",
+      "kind": "literal word",
+      "tier": "full-history-upper-bound",
+      "update": "append."
+    },
+    {
+      "applies_to": "experiment-2 attempt",
+      "datatype": "one exact rational",
+      "definition": "the declared experiment-2 accumulator A(w) alone (a single declared evaluation of the accumulator carrier).",
+      "id": "exp2_scalar",
+      "information_cost": "One exact rational; the experiment-2 readout and legality are not recoverable from it.",
+      "kind": "accumulator scalar",
+      "tier": "existing-summary",
+      "update": "the experiment-2 recurrence."
+    },
+    {
+      "applies_to": "experiment-2 attempt",
+      "datatype": "(Z[1/2], 2^Z)",
+      "definition": "the affine object of the experiment-2 mechanism action on the accumulator carrier: c -> (1,2), v -> (0,1/2), l -> (1,1), composed with the same declared STAR product.",
+      "id": "exp2_object",
+      "information_cost": "Two exact rationals; retains the whole accumulator action and nothing of the mechanism counts.",
+      "kind": "affine object layer on the accumulator carrier",
+      "tier": "bounded-enhancement",
+      "update": "Uhat_sigma(P) = pair(sigma) STAR P."
+    },
+    {
+      "applies_to": "experiment-2 attempt",
+      "datatype": "tuple of mechanisms",
+      "definition": "the literal experiment-2 word.",
+      "id": "exp2_hist",
+      "information_cost": "Unbounded; upper-bound control only.",
+      "kind": "literal word",
+      "tier": "full-history-upper-bound",
+      "update": "append."
+    },
+    {
+      "applies_to": "experiment-5 attempt",
+      "datatype": "triple in S_3",
+      "definition": "the endpoint permutation of the crossing word (layer L1 of the pinned experiment 5).",
+      "id": "exp5_perm",
+      "information_cost": "One permutation of three elements; six possible values on the declared domain.",
+      "kind": "endpoint permutation",
+      "tier": "existing-summary",
+      "update": "compose the transposition of the appended letter."
+    },
+    {
+      "applies_to": "experiment-5 attempt",
+      "datatype": "triple of reduced words in F_3",
+      "definition": "the Artin automorphism object of the crossing word (layer L2 of the pinned experiment 5).",
+      "id": "exp5_artin",
+      "information_cost": "Three reduced free-group words; retains the braid element exactly, given Artin's faithfulness, and forgets the literal crossing history.",
+      "kind": "Artin automorphism object",
+      "tier": "bounded-enhancement",
+      "update": "compose the appended letter's fixed automorphism."
+    },
+    {
+      "applies_to": "experiment-5 attempt",
+      "datatype": "tuple of crossing letters",
+      "definition": "the literal crossing word (layer L4 of the pinned experiment 5).",
+      "id": "exp5_hist",
+      "information_cost": "Unbounded; upper-bound control only.",
+      "kind": "literal word",
+      "tier": "full-history-upper-bound",
+      "update": "append."
+    }
+  ],
+  "schema": "aeg.process-representation-gap.contract.v1",
+  "scope_boundary": [
+    "The base model is a research reconstruction of the pinned note and essay at the pinned commit; it is not a new repository API and adds no Objectification, ProcessRank or RankLowering abstraction.",
+    "All laws are stated and checked on the declared exact domains. The general statements that are claimed as proved are proved by the injectivity lemma (a pair is determined by the values at 0 and 1) and by induction on word length, both written out in the report; the exhaustive sweeps are calibrations of those proofs, never substitutes for them.",
+    "Descent gate (iii) checks free composite words up to a declared length only. This bounded test never substitutes for a general consistency argument over all composite words; the general argument is stated separately for each model.",
+    "The experiment-2 attempt uses the declared experiment-2 model of the companion contract and does not claim native Adva execution.",
+    "The experiment-5 attempt uses Artin's representation B_n -> Aut(F_n) and its faithfulness as a stated hypothesis that is cited and not reproved; faithfulness is claimed only at the braid-element layer, never at the literal-history layer.",
+    "No matrix, linear representation, spectrum, or Burau-type invariant is used as a claim; the 2x2 matrices in the independent route are an exact arithmetic encoding of the affine pair and nothing else.",
+    "No claim is made that the reported reachable-object counts exhaust any domain beyond the declared word length.",
+    "Adaptive observation selection, unbounded recursion, and infinite repetition semantics are outside this contract."
+  ],
+  "slug": "objectification-elevation",
+  "task": {
+    "Q": "Given a process word, answer the process's action on the declared family of states, compose uniformly, and decide equality of actions; then decide, for each declared candidate layer, whether the three objectification gates hold and whether the elevation criterion is satisfied.",
+    "adaptive": false,
+    "adaptive_note": "The continuation is always appending one declared generator; no observation selects the next action. Adaptive selection is out of scope for version 1 and is declared open.",
+    "attempt_task_2": "Answer the declared experiment-2 observation: the three-scalar readout R and the legal-action signature at every reachable state, with the experiment-2 legality and the exact accumulator.",
+    "attempt_task_5": "Answer the endpoint permutation and the Artin action evaluated on the frozen probe family of experiment 5, and decide equality of processes at the braid-element layer.",
+    "error_semantics": "Four outcomes are kept distinct: a declared evaluation returns an exact value; a generator outside the declared parameter domain (k not a positive integer) is a declared domain error with its own code; an action outside the declared legality (experiment-2 attempt) is a declared illegal action with its own code; a declared implementation error raises a diagnostic with a code that a named negative control must be able to produce.",
+    "initial_observation": "The empty word, whose object is the identity pair (0,1) and whose step-by-step execution is the identity on every declared state.",
+    "observation_points": "At every word of the declared domain (the fold is evaluated for every prefix implicitly during enumeration).",
+    "sufficiency_definition": "For the base model, pi is task-sufficient iff pi(w) = pi(w') implies pair(w) = pair(w') for all words w, w' of the declared domain. For the attempts, pi is task-sufficient iff pi(w) = pi(w') implies that w and w' agree on every declared observation under every declared continuation and on the declared legality signature.",
+    "task_relative": "Sufficiency is stated relative to the declared task and the declared domain, in the sense of work plan section 4.2. A finite enumeration establishes bounded-domain compatibility only; the general statement is reported separately where it is proved."
+  },
+  "title": "Objectification and elevation: is one equal evaluation enough for a stable object, and is a stable object enough for a higher-order computation?",
+  "version": "1"
+}

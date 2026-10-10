@@ -1,0 +1,30 @@
+{
+  "fixture": "exp2-positive-control",
+  "payload": {
+    "augmented_equivalent": true,
+    "base_equivalent": true,
+    "kind": "distinct-literal-histories-task-equivalent",
+    "note": "the two words differ literally yet agree on every declared observation under every common continuation; this is an equivalence, not a gap, and an enhancement that separated them would be over-refined",
+    "pair": [
+      "ccvlc",
+      "cvccl"
+    ],
+    "same_accumulator": "6",
+    "same_legality": [
+      "c",
+      "v",
+      "l"
+    ],
+    "same_readout": [
+      "4",
+      "1",
+      "12/5"
+    ]
+  },
+  "schema": "aeg.process-representation-gap.fixture.v1",
+  "source": {
+    "evidence_file": "exp2-loop-continuation.json",
+    "pointer": "witnesses.positive_control",
+    "sha256": "85b62328ed43d976cb9d0ae0cae2f87823af0aaa4664baae6dec1d080458bf5c"
+  }
+}

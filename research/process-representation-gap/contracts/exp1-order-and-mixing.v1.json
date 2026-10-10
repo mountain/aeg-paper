@@ -1,0 +1,366 @@
+{
+  "date": "2026-10-10",
+  "domain": {
+    "actions": "Instance N: the actions are the two declared pours P and R, and every finite concatenation of them. Instance D: the two declared invertible matrices A and B, and every finite concatenation of them.",
+    "budget_exhaustion_policy": "If a required witness lies beyond the declared budget, report budget-exhausted together with the searched domain and do not extend the budget silently. The declared gap witnesses must lie inside the budget; only exploratory searches may be shrunk, with the reason recorded.",
+    "generators": [
+      "P",
+      "R"
+    ],
+    "inputs": "Instance N: every word over Sigma_N reachable from the empty word, i.e. the whole free monoid truncated at the declared length, because every declared action is total. Instance D: every word over Sigma_D truncated at the declared length.",
+    "legality_rule": "Total. Every declared action is defined on every declared state; there is no illegal action, no partial action and no INVALID outcome in this experiment. Legality signatures therefore cannot separate two histories here, and the leg-check of work-plan section 4.2 reduces to the observation clause.",
+    "length_budget": {
+      "downstream_full_enumeration_length": 4,
+      "downstream_spectral_summary_length": 2,
+      "native_full_enumeration_length": 6,
+      "native_max_continuation_depth": 3,
+      "response_probe_families": {
+        "M_C_1_nonempty": [
+          "P",
+          "R"
+        ],
+        "M_C_2": "all words of length <= 2, 7 probes including the empty word",
+        "M_C_3": "all words of length <= 3, 15 probes including the empty word"
+      }
+    },
+    "resource_budget": {
+      "expected_continuation_family_size": 15,
+      "expected_word_counts": {
+        "downstream_length_0": 1,
+        "downstream_length_1": 2,
+        "downstream_length_2": 4,
+        "downstream_length_3": 8,
+        "downstream_length_4": 16,
+        "downstream_total_0_to_4": 31,
+        "native_length_0": 1,
+        "native_length_1": 2,
+        "native_length_2": 4,
+        "native_length_3": 8,
+        "native_length_4": 16,
+        "native_length_5": 32,
+        "native_length_6": 64,
+        "native_total_0_to_6": 127
+      },
+      "note": "Exhaustive enumeration of every word over the declared alphabet up to the stated length; no sampling, no heuristics, no floating point."
+    }
+  },
+  "downstream_instance": {
+    "claim_scope": "This instance shows that the CHOSEN spectral summary is insufficient for the declared downstream observation task. It does NOT show that any richer spectral system is insufficient, and it makes no claim about spectra outside the declared 2x2 rational matrix setting.",
+    "convention": "Matrices act on ROW vectors on the right: x -> x*M. The composite of a word w = (eta_1, ..., eta_n) is therefore Pi(w) = M(eta_1)*...*M(eta_n), read in word order, and the physical order of application is the word order (eta_1 first).",
+    "frozen_vector": [
+      "2",
+      "1"
+    ],
+    "matrices": {
+      "A": [
+        [
+          "1",
+          "1"
+        ],
+        [
+          "0",
+          "2"
+        ]
+      ],
+      "B": [
+        [
+          "0",
+          "2"
+        ],
+        [
+          "-1",
+          "3"
+        ]
+      ]
+    },
+    "observation_task": "Observe the action of the composite on the frozen vector v: obs_D(w) = v * Pi(w), an exact rational row vector in Q^2.",
+    "proved_structural_fact": "Both matrices are invertible with det 2, AB and BA are conjugate (BA = A^(-1) (AB) A), and the commutator A^(-1) B^(-1) A B is not the identity. Therefore every conjugation-invariant of the composite, in particular every spectral quantity, agrees on the two words, while the declared observation does not.",
+    "single_action_spectral_summary": {
+      "definition": "sigma(M) = (trace(M), det(M)), equivalently the monic characteristic polynomial t^2 - trace(M) t + det(M) over Q.",
+      "note": "sigma is a conjugation invariant and therefore a spectral quantity in the declared sense."
+    },
+    "status": "downstream-observation-only. This instance is NOT the native process and NOT a native Adva execution. It is retained because the work plan asks specifically whether a single-action spectral summary preserves order."
+  },
+  "evidence": {
+    "determinism": "Canonical JSON: sorted keys, two-space indent, trailing newline, UTF-8. Output must be byte-identical under CPython and under python3 -O. Assertions are never used for obligations; every obligation raises a coded diagnostic.",
+    "hand_computed_table": "The evidence carries a hand-computed table of the plant state and the declared summary for every word of length <= 3, and a hand-computed table of trace, determinant, characteristic polynomial and frozen-vector action for A, B, AB and BA. Both tables are literals in the source and are re-derived by the implementation; a mismatch raises EXP1-HAND-TABLE-MISMATCH.",
+    "path": "research/process-representation-gap/evidence/exp1-order-and-mixing.json",
+    "per_record_fields": [
+      "contract",
+      "inputs",
+      "history",
+      "representation",
+      "continuation",
+      "observation",
+      "legality",
+      "cost",
+      "conclusion"
+    ],
+    "status_labels": [
+      "proved",
+      "proved-with-stated-hypotheses",
+      "computationally-verified-example",
+      "structural-proposal",
+      "bounded-domain-compatible",
+      "budget-exhausted",
+      "open"
+    ]
+  },
+  "experiment": "exp1",
+  "frozen": true,
+  "independent_check": {
+    "hand_witnesses": {
+      "D_word_AB_path": [
+        "(2, 1)",
+        "(2, 4)",
+        "(-4, 16)"
+      ],
+      "D_word_BA_path": [
+        "(2, 1)",
+        "(-1, 7)",
+        "(-1, 13)"
+      ],
+      "N_PR": "(1, 1/2)",
+      "N_PRR": "(1, 1/4)",
+      "N_PPRR": "(1, 1/4)",
+      "N_RPR": "(1, 1/2)",
+      "N_RPRR": "(1, 1/4)",
+      "N_epsilon": "(1, 1)",
+      "N_P": "(1/2, 1)",
+      "N_R": "(1, 1/2)",
+      "N_RR": "(1, 1/4)",
+      "N_RRR": "(1, 1/8)"
+    },
+    "rationale": "The independent route shares no semantic helper with the primary implementation. The plant is recomputed by a different algorithm (an explicit flux-and-spill ledger that reconstructs the vessel contents by bookkeeping from the initial contents, instead of the closed-form min transition), and the linear instance is recomputed by a different algorithm (the composite is applied to a basis and the result is obtained from the basis images by linearity, instead of by matrix multiplication). A third independent input is a hand-computed literal table of the minimal witnesses. The only shared module is deterministic JSON serialisation (gapkit.canonical); the independent checker imports no function from the primary implementation.",
+    "required_diagnostic": "EXP1-ROUTE-DISAGREEMENT, raised whenever the primary evidence and the independent recomputation disagree on any compared quantity."
+  },
+  "native": {
+    "allowed_rewrites": [
+      "Appending one declared action, which is the only declared state transition",
+      "The vessel-swap relabelling of the administrative description of the plant (an isomorphism of the plant, observationally invisible)",
+      "Notation: writing the word PPRR as the ProcessWord tuple ('P','P','R','R')"
+    ],
+    "category_boundary": "Instance N is a declared exact-rational mixing plant with caller-supplied semantics, interpreted through process_geometry.process.history.interpret_history from the pinned checkout. It is NOT native Adva execution, NOT a faithful AES gate motion and NOT an instance of any other repository's process core. The pinned ProcessWord is used only as the carrier of the literal ordered history, exactly as that type documents (a history stored without interpretation).",
+    "forbidden_rewrites": [
+      "Commuting P and R: they do not commute, and a witness is recorded",
+      "Replacing the capacity-bounded pour by the uncapped pour inside Instance N. The uncapped model is a SEPARATELY declared variant, reported as such",
+      "Identifying two occurrences of the same action",
+      "Treating the plant as a linear, affine or matrix action",
+      "Removing the spill from the accounting: the spill is a declared observable effect and is load-bearing for the witness",
+      "Claiming that no linear representation of the action semigroup exists"
+    ],
+    "downstream_status": "A linear (matrix) instance is declared in downstream_instance and is a downstream observation only. The native instance does not depend on it.",
+    "history": "The literal word is carried by process_geometry.process.history.ProcessWord: an ordered finite tuple of steps, stored without interpretation. Two occurrences of the same action are distinct positions and are never identified by equality of value, of counts or of the endpoint state.",
+    "legality": "Total. P and R are defined on every declared state. There is no partial action in this experiment; the contract therefore cannot and does not use a legality signature to separate histories.",
+    "pour_law": [
+      "state = (u, v) with u the exact rational content of vessel U, v that of vessel V, 0 <= u <= 1 and 0 <= v <= 1",
+      "P(u, v): t = min(u/2, 1 - v); the transferred volume is t; the spilled volume is u/2 - t; the successor state is (u - u/2, v + t)",
+      "R(u, v): t = min(v/2, 1 - u); the transferred volume is t; the spilled volume is v/2 - t; the successor state is (u + t, v - v/2)",
+      "initial state s0 = (1, 1)",
+      "min is taken over exact rationals, so min is exact and no floating point occurs anywhere"
+    ],
+    "process_equivalence": "Task-relative in the sense of work-plan section 4.2, with the legality clause vacuous because every action is total. h ~ h' iff for every continuation eta in the declared family M_C, the declared mixing observation of h.eta and of h'.eta agree at every observation point. Because the declared observation is a function of the reached state, h ~ h' holds exactly when h and h' reach the same state on the declared domain; this equivalence is verified by enumeration and not assumed.",
+    "state": "A state is the exact mixture state (u, v). Everything observable in this experiment is a function of it; the declared summary pi0 is deliberately a strict projection of it, which is the substance of the experiment.",
+    "summary": "A native, non-linear, non-invertible two-vessel mixing plant, observed through the pinned ProcessWord carrier, plus a separately declared downstream linear instance for the spectral question. The native instance answers work-plan section 6, 实验一 requirement (b); the downstream instance answers requirement (a) and is labelled as a downstream observation.",
+    "syntax": "w in Sigma_N* with Sigma_N = {P, R}, carried as a ProcessWord. P = pour the U vessel into V, R = pour the V vessel into U. A word is a literal ordered process history.",
+    "types": [
+      "Word: ProcessWord over Sigma_N, a finite ordered tuple of steps",
+      "Action: a symbol in Sigma_N with the declared pour law",
+      "State: a pair (u, v) of exact rationals (fractions.Fraction), 0 <= u, v <= 1",
+      "Volume: an exact rational in [0, 1], the transferred or spilled volume of one step",
+      "Readout: a pair of exact rationals (u, v), the declared mixing observation",
+      "Summary: the declared representation value, a tuple of exact rationals, symbols or positions"
+    ]
+  },
+  "negative_controls": [
+    {
+      "expected_diagnostic": "EXP-CONTRACT-DRIFT",
+      "id": "contract-drift",
+      "mutation": "Alter one byte of a copy of this contract and re-run the digest check."
+    },
+    {
+      "expected_diagnostic": "EXP1-PG-DRIFT",
+      "id": "pinned-processword-drift",
+      "mutation": "Replace the pinned sha256 of process_geometry/process/history.py by a neighbouring digest and re-run the pin check."
+    },
+    {
+      "expected_diagnostic": "EXP1-HAND-TABLE-MISMATCH",
+      "id": "hand-table-mutated",
+      "mutation": "Change one entry of the hand-computed plant table (PRR) by one halving and re-check it."
+    },
+    {
+      "expected_diagnostic": "EXP1-SUMMARY-COLLISION-MISSING",
+      "id": "summary-collision-claim",
+      "mutation": "Claim that the declared summary pi0 separates PRR from RPR."
+    },
+    {
+      "expected_diagnostic": "EXP1-SUMMARY-SUFFICIENCY-REFUTED",
+      "id": "pi0-sufficiency-claim",
+      "mutation": "Claim that pi0 is task-sufficient on the declared domain."
+    },
+    {
+      "expected_diagnostic": "EXP1-SPECTRAL-SEPARATION-MISSING",
+      "id": "spectral-separation-claim",
+      "mutation": "Claim that the declared spectral summary separates the words AB and BA."
+    },
+    {
+      "expected_diagnostic": "EXP1-SPECTRAL-SUFFICIENCY-REFUTED",
+      "id": "spectral-sufficiency-claim",
+      "mutation": "Claim that equality of the composite spectral summary implies equality of the action on the frozen vector."
+    },
+    {
+      "expected_diagnostic": "EXP1-CONSERVATION-CLAIM-REFUTED",
+      "id": "uncapped-collision-claim",
+      "mutation": "Claim that the uncapped linear variant of the plant has a pi0 collision, i.e. that its endpoint readout fails to determine its state."
+    },
+    {
+      "expected_diagnostic": "EXP1-POSITIVE-CONTROL-REFUTED",
+      "id": "positive-control-claim",
+      "mutation": "Claim that the declared positive-control pair PPRR and RPRR is separated by the mixing task."
+    },
+    {
+      "expected_diagnostic": "EXP1-MINIMALITY-REFUTED",
+      "id": "minimality-claim",
+      "mutation": "Claim that a pi0-colliding, task-separated pair exists with both words of length at most 2."
+    },
+    {
+      "expected_diagnostic": "EXP1-PLANT-INJECTIVITY-CLAIM-REFUTED",
+      "id": "plant-injectivity-claim",
+      "mutation": "Claim that the declared action P is injective on the reachable state set."
+    },
+    {
+      "expected_diagnostic": "EXP1-RESPONSE-RECOVERY-FAILED",
+      "id": "response-recovery-mutation",
+      "mutation": "Replace the declared exact recovery factor 2 by 3 and re-check the recovery law on the declared domain."
+    },
+    {
+      "expected_diagnostic": "EXP1-ROUTE-DISAGREEMENT",
+      "id": "primary-independent-disagreement",
+      "mutation": "Replace one plant state in the primary table by a neighbouring state before comparing the two routes."
+    },
+    {
+      "expected_diagnostic": "EXP1-ENUMERATION-MISMATCH",
+      "id": "enumerated-count-mismatch",
+      "mutation": "Change the declared native word count for length 3 from 8 to 7."
+    }
+  ],
+  "outcomes": {
+    "budget_exhausted": "The searched domain is reported and the conclusion is restricted to it. Only exploratory searches may be shrunk, with the reason recorded; the declared mandatory witnesses are not shrunk.",
+    "expected_negative": "A concrete pair of histories, the concrete summary value they share, the concrete states they reach and the concrete separating observation. An expected negative is a result, not an error. The headline result of this experiment is an expected negative for the existing summary.",
+    "implementation_error": "A diagnostic with a stable code, raised by a negative control that mutated exactly one declared datum. Each negative control names the code it must raise, and the code that was actually observed is recorded.",
+    "success": "A declared representation whose kernel refines the task-relative equivalence on the declared domain, with a declared closed abstract update inside the declared budget, and an independent route whose recomputation agrees everywhere. The headline success of this experiment is the bounded enhancement that attains this at the least declared cost.",
+    "unknown": "A question the declared domain cannot decide, reported as open with the exact missing hypothesis, and never upgraded into a theorem."
+  },
+  "plan_reference": "AEG-process-representation-work-plan.md section 6, 实验一",
+  "representations": [
+    {
+      "datatype": "(N, N, Q)",
+      "definition": "pi0(w) = (count_P(w), count_R(w), u(w)), where u(w) is the exact content of vessel U in the reached state.",
+      "id": "pi0",
+      "information_cost": "Two naturals and one exact rational. Endpoint value plus action counts, with no ordering and no second vessel.",
+      "kind": "endpoint readout plus action counts",
+      "tier": "existing-summary",
+      "update": "Uhat_Pi adds the unit vector of the action and recomputes the endpoint readout; the endpoint readout is not determined by the counts alone, which is the point of the experiment."
+    },
+    {
+      "datatype": "(N, N)",
+      "definition": "pi0_counts(w) = (count_P(w), count_R(w)).",
+      "id": "pi0_counts",
+      "information_cost": "Two naturals; retains multiplicity, forgets order and the mixture entirely.",
+      "kind": "action counts only",
+      "tier": "existing-summary",
+      "update": "Add the unit vector of the action."
+    },
+    {
+      "datatype": "(Q,)",
+      "definition": "pi0_endpoint(w) = (u(w),).",
+      "id": "pi0_endpoint",
+      "information_cost": "One exact rational; the declared scalar endpoint readout alone.",
+      "kind": "endpoint readout only",
+      "tier": "existing-summary",
+      "update": "Requires the pour law applied to a state that the summary does not retain; declared as not closed."
+    },
+    {
+      "datatype": "(Q, Q)",
+      "definition": "sigma(w) = (trace(Pi(w)), det(Pi(w))) of the downstream composite matrix, with the monic characteristic polynomial as the equivalent form.",
+      "id": "pi_spectral",
+      "information_cost": "Two exact rationals per composite. Cheapest declared summary, and insufficient.",
+      "kind": "single-action and composite spectral summary",
+      "tier": "existing-summary",
+      "update": "Uhat_eta is matrix multiplication by M(eta) followed by re-extraction of trace and determinant; closed on the declared downstream domain.",
+      "why_this_candidate": "The work plan asks specifically whether a single-action spectral summary preserves order and mixing. This candidate is the declared downstream spectral observation contract."
+    },
+    {
+      "datatype": "ProcessWord over Sigma_N, i.e. a tuple of symbols of length at most the declared budget",
+      "definition": "pi1_word(w) = the literal ordered word w.",
+      "id": "pi1_word",
+      "information_cost": "One symbol per step. Retains the whole order, which the mixing task does not need: the positive control pair is task-equivalent yet separated by this candidate, so it is strictly finer than required.",
+      "kind": "ordered word (bounded)",
+      "tier": "bounded-enhancement",
+      "update": "Append one symbol, total inside the declared budget and budget-exhausted beyond it.",
+      "why_this_candidate": "Work-plan section 6, 实验一 names the ordered word as an enhancement candidate and requires its cost per channel and the tasks in which it still fails."
+    },
+    {
+      "datatype": "(Q^2, Q^2, ...): one exact rational pair per probe in the declared probe family",
+      "definition": "pi2_resp(w) = (state(w.eta)) for eta in the declared probe family. The declared minimal family is M_C_1_nonempty = {P, R}; the families M_C_2 and M_C_3 are also declared and costed.",
+      "id": "pi2_resp",
+      "information_cost": "Two exact rationals for the minimal family {P, R}, which recovers the state exactly by u = 2*(state(w.P)).u and v = 2*(state(w.R)).v; 7 pairs for M_C_2 and 15 pairs for M_C_3.",
+      "kind": "finite mixing-response table",
+      "tier": "bounded-enhancement",
+      "update": "Recover the state from the declared recovery law, apply the pour law, re-probe the declared family. Closed inside the declared budget.",
+      "why_this_candidate": "Work-plan section 6, 实验一 names a finite mixing response as an enhancement candidate. The declared recovery law is re-verified on the whole domain and must hold exactly."
+    },
+    {
+      "datatype": "list of (N, Sigma, Q, Q): position, action, transferred volume, spilled volume",
+      "definition": "pi3_prov(w) = the incidence relation of the history: for each step, its position, its action, the volume it transferred and the volume it spilled.",
+      "id": "pi3_prov",
+      "information_cost": "One integer, one symbol and two exact rationals per step. Buys provenance queries that the mixing task does not require and that the response table cannot answer.",
+      "kind": "provenance and incidence relation",
+      "tier": "bounded-enhancement",
+      "update": "Append one record; the volume record of the next step is obtained by replaying the relation to recover the state and applying the pour law. Closed inside the declared budget.",
+      "why_this_candidate": "Work-plan section 6, 实验一 names a provenance relation as an enhancement candidate and requires each candidate to state the task it improves."
+    },
+    {
+      "datatype": "ProcessWord with distinct occurrence identity per step",
+      "definition": "hist(w) = the literal ordered word with its occurrences distinguished.",
+      "id": "hist",
+      "information_cost": "Unbounded in the declared depth. This is the UPPER-BOUND CONTROL. Retaining full history is not thereby a recommended minimal repair; work-plan section 9 requires the cheapest sufficient candidate to be preferred, and the declared recommendation is argued from the cost table.",
+      "kind": "full history with occurrence identity",
+      "tier": "full-history-upper-bound",
+      "update": "Append."
+    }
+  ],
+  "reproduction": [
+    "python3 research/process-representation-gap/experiments/exp1_order_and_mixing.py > /tmp/exp1.json",
+    "cmp /tmp/exp1.json research/process-representation-gap/evidence/exp1-order-and-mixing.json",
+    "python3 -O research/process-representation-gap/experiments/exp1_order_and_mixing.py > /tmp/exp1-O.json",
+    "cmp /tmp/exp1.json /tmp/exp1-O.json",
+    "python3 research/process-representation-gap/experiments/exp1_order_and_mixing_independent.py"
+  ],
+  "schema": "aeg.process-representation-gap.contract.v1",
+  "scope_boundary": [
+    "Finite enumeration only. Every sufficiency verdict is relative to the declared domain (native words of length <= 6, downstream words of length <= 4) and the declared continuation family (depth <= 3). No general theorem about all words is asserted from the enumeration.",
+    "The headline claim is about the CHOSEN summaries. It is not a claim that no summary, no spectral system, or no bounded representation can serve the task.",
+    "The downstream matrix instance is a downstream observation only, exactly as work-plan section 6, 实验一 requires. It carries no native process claim.",
+    "The plant is non-linear (the capacity bound binds on the witnesses) and non-invertible (explicit collision witnesses). Whether some linear representation of the action semigroup exists is NOT decided and is NOT claimed.",
+    "The declared summary pi0 uses a scalar endpoint readout because the PR-16 snapshot policy does. This is a declared choice of the existing summary; the experiment does not assume that a finite observer must be scalar or a finite-state machine.",
+    "Exact arithmetic only: Python ints, fractions.Fraction, strings and tuples. No floating point appears in any witness, comparison or cost.",
+    "Adaptive selection of later observations is not permitted by this contract version.",
+    "One reserved verification family is declared and not used to select the recommendation: the downstream words of length 3 and 4 over Sigma_D, whose pi_spectral fibres are enumerated and reported separately."
+  ],
+  "slug": "order-and-mixing",
+  "task": {
+    "Q": "The mixing task: report the reachable mixture state of the plant. Equal summaries must imply equal mixture responses for every continuation in the declared family M_C.",
+    "Q_prov": "The declared secondary provenance task, used only to compare the enhancement candidates: for each step i of the history, report the volume transferred and the volume spilled at step i. It is not used for the headline gap verdict.",
+    "adaptive": false,
+    "adaptive_note": "The continuation is chosen from a frozen, pre-declared family; no observation is used to select the next action. Adaptive selection is out of scope for version 1 and is declared as an open extension.",
+    "error_note": "All declared actions are total, so no illegal result and no absorbing invalid state exists in this experiment. The three channels that remain distinct are: a value, a budget-exhausted marker, and an implementation error with a stable code.",
+    "error_semantics": "Three outcomes are kept distinct: a legal action returns an exact rational readout; a request outside the declared budget returns the declared budget-exhausted marker with the searched domain; a declared implementation error raises a diagnostic with a stable code.",
+    "initial_observation": "M(w) = the exact mixture state (u(w), v(w)) reached by the history; at the empty history this is s0 = (1, 1).",
+    "observation": "M(w.eta) = the exact mixture state reached after the continuation eta, plus the declared endpoint readout u(w.eta). Both are exact rationals.",
+    "observation_points": "At the endpoint of the history (the empty continuation) and after every action of every continuation in M_C. This makes the endpoint readout an observation point of the task, which is why a summary that drops the second vessel is insufficient.",
+    "running_readout": "u(w) = the exact content of vessel U in the reached state, the declared endpoint readout."
+  },
+  "title": "Order and mixing: do endpoint, action count and single-action spectral summaries preserve order?",
+  "version": "1"
+}

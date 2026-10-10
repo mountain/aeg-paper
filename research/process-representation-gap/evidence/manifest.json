@@ -1,0 +1,293 @@
+{
+  "blockers": [],
+  "environment": {
+    "implementation": "cpython",
+    "python_version": "3.14.6"
+  },
+  "generated_by": "tools/build_manifest.py",
+  "kind": "source-baseline-manifest",
+  "plan_expected_value_checks": [
+    {
+      "agrees": true,
+      "expected": {
+        "git_blob": "de247cd071f714e14a91b0e54a9bab77b0de43e9",
+        "sha256": "637c2d05663fcee780156d93f4f9e19f829418213a4948c91113141b64d3a579",
+        "size": 10682
+      },
+      "observed": {
+        "git_blob": "de247cd071f714e14a91b0e54a9bab77b0de43e9",
+        "sha256": "637c2d05663fcee780156d93f4f9e19f829418213a4948c91113141b64d3a579",
+        "size": 10682
+      },
+      "path": "programs/bootstrap-0/first-trace-arithmetic.adva",
+      "repository": "adva"
+    }
+  ],
+  "repositories": {
+    "adva": {
+      "files": [
+        {
+          "available": true,
+          "git_blob": "faaa17bb513b5049ad4f5226bf67e1f17281d6ab",
+          "path": "docs/PROGRAM_PROCESS_CORE.md",
+          "sha256": "edbc7da2c771e4cd9b17ce590a2eebdd195dca4c224eea8970785264e7252092",
+          "size_bytes": 14318
+        },
+        {
+          "available": true,
+          "git_blob": "d7ab72b2d9d5618d6c6589336008df253cb556b2",
+          "path": "docs/TECHNICAL_REPORT_PROGRAM_PROCESS_CORE.md",
+          "sha256": "06a236fde470b3cc808e955c898818ad1c5d628f98d3ab6df075199fdf61684d",
+          "size_bytes": 29903
+        },
+        {
+          "available": true,
+          "git_blob": "b5e44e805c42bedf8bda579faa0aabbf1b3e4f04",
+          "path": "docs/research/0233-periodic-programs-before-floquet-observations.md",
+          "sha256": "ffa6ff6729fb74ff1b1693d7f808df02a7f344fdddaf75395538868b9f12123b",
+          "size_bytes": 17255
+        },
+        {
+          "available": true,
+          "git_blob": "f175b123d65985a1aa3ebb6274138cf6963b0b71",
+          "path": "docs/research/0114-three-sided-trace-arithmetic-calibration.md",
+          "sha256": "9d377f2f5a4f0cdcae8a7d092fec6c72170417bc47d76f99d00d6ad7b45ef8d5",
+          "size_bytes": 4045
+        },
+        {
+          "available": true,
+          "git_blob": "de247cd071f714e14a91b0e54a9bab77b0de43e9",
+          "path": "programs/bootstrap-0/first-trace-arithmetic.adva",
+          "sha256": "637c2d05663fcee780156d93f4f9e19f829418213a4948c91113141b64d3a579",
+          "size_bytes": 10682
+        }
+      ],
+      "local_path": "/Users/mingli/Adva/adva",
+      "pins": {
+        "new_experiment_candidate": {
+          "available": true,
+          "commit": "1b9bd090b2c4710916b6a0ccca0ad88fb7d323bd",
+          "resolved": "1b9bd090b2c4710916b6a0ccca0ad88fb7d323bd"
+        },
+        "pr16_reproduction": {
+          "available": true,
+          "commit": "cce73004c2b4fbfb87d9ba1ccc66820423273cf6",
+          "resolved": "cce73004c2b4fbfb87d9ba1ccc66820423273cf6"
+        }
+      },
+      "remote": "mountain/adva"
+    },
+    "aeg-paper": {
+      "files": [
+        {
+          "available": true,
+          "git_blob": "7b212abd1337e7aa5729a2b28a51af07142d3540",
+          "path": "AGENTS.md",
+          "sha256": "f53de804f439d7f96fc949fa198044d2ce5f4a21d1dc78824cef5e883e9faa6a",
+          "size_bytes": 19777
+        },
+        {
+          "available": true,
+          "git_blob": "4bcc9f2eb374e338e0b984d9ddd3acffd494f0f8",
+          "path": "README.md",
+          "sha256": "bdd983477e51439aff1fbe2b87fcc29c41ba973a39a3da7ee275d6d3488ba929",
+          "size_bytes": 9256
+        },
+        {
+          "available": true,
+          "git_blob": "5f93799557a38d69998de72c9871f519800a0b48",
+          "path": "governance/05-mathematical-status.md",
+          "sha256": "75c5a24dcfc6b005a9c922c53db77856ac9e4714920142ecc1912e5ee49df302",
+          "size_bytes": 97980
+        },
+        {
+          "available": true,
+          "git_blob": "884ac913c65dd913126e7d5e0958cff8be74f731",
+          "path": "governance/08-open-questions.md",
+          "sha256": "487c40648c25de44f04d4be7188217c3fc8056451946469d42e693764479749e",
+          "size_bytes": 96326
+        },
+        {
+          "available": true,
+          "git_blob": "abb01561d0b32f43103e6e4ae50088dd4dc41e91",
+          "path": "governance/opposite-feature-witness-2026-10-09.md",
+          "sha256": "d75a90c1d95df839bd00a71ed2aae418ecaaee816e0c484f04fcb9d35dfe7eb5",
+          "size_bytes": 9266
+        },
+        {
+          "available": true,
+          "git_blob": "27e348f8333aa0ad5211fcc9be59d8d37dac4fa9",
+          "path": "paper-4/README.md",
+          "sha256": "379475ec7e4e2a6a9447a37046115364df64a60b1dace70bf1863b904e2d700d",
+          "size_bytes": 9302
+        },
+        {
+          "available": true,
+          "git_blob": "6229d09f089d11094a5914bfe7d2113187d79a31",
+          "path": "paper-4/sections/05b-ported-aes-programs.tex",
+          "sha256": "c39d66c421401ba2246aef09c8e9458f11810e368474a0bc063fb6c87b33c7f8",
+          "size_bytes": 22676
+        },
+        {
+          "available": true,
+          "git_blob": "115aaf6a6ef398a1c455eedad9a2ad13c190b88d",
+          "path": "paper-4/sections/05-contextual-residuals.tex",
+          "sha256": "63f8423b439fed3e5fb0ddb6e2b3b2b233cb350c62b5739353ae12f108465c39",
+          "size_bytes": 9343
+        },
+        {
+          "available": true,
+          "git_blob": "47648a5ad9d270f6537fe911cae6f4c4e676ae32",
+          "path": "paper-4/scripts/verify-opposite-features.py",
+          "sha256": "fb1b23327ff9a4d6e5ae25e12eaf845e923de2678d8e3851248b8ad5ee3c864c",
+          "size_bytes": 7386
+        },
+        {
+          "available": true,
+          "git_blob": "6f0a486336df36a9bed5183bb255b96df67c4cf4",
+          "path": "paper-4/scripts/verify-ported-aes.py",
+          "sha256": "8a9a97e457ab05a666cd9fbed21ac66e614b568cc63dd2edb1fd10bc0b0bbbf1",
+          "size_bytes": 43506
+        },
+        {
+          "available": true,
+          "git_blob": "de247cd071f714e14a91b0e54a9bab77b0de43e9",
+          "path": "paper-4/scripts/fixtures/opposite-features/adva-0114.json",
+          "sha256": "637c2d05663fcee780156d93f4f9e19f829418213a4948c91113141b64d3a579",
+          "size_bytes": 10682
+        },
+        {
+          "available": true,
+          "git_blob": "d9adca9ce839ef31209b85281cceb436d64e53b2",
+          "path": "paper-4/scripts/fixtures/opposite-features/evidence.json",
+          "sha256": "62c9e9505085bc6cb84bd3fd40892412a5aa7c65229596037ddf822216db51e9",
+          "size_bytes": 25001
+        }
+      ],
+      "local_path": "/Users/mingli/AEG/aeg-paper",
+      "pins": {
+        "merge_main": {
+          "available": true,
+          "commit": "735695cbc7ce512a1cd5e188577613eda4b3083c",
+          "resolved": "735695cbc7ce512a1cd5e188577613eda4b3083c"
+        },
+        "pr16_base": {
+          "available": true,
+          "commit": "dd7b93e5eda57343e1ff05ed954883db310eda1d",
+          "resolved": "dd7b93e5eda57343e1ff05ed954883db310eda1d"
+        },
+        "pr16_review_head": {
+          "available": true,
+          "commit": "3b90a423fafc2a838269855c8c68286449c61c4c",
+          "resolved": "3b90a423fafc2a838269855c8c68286449c61c4c"
+        }
+      },
+      "remote": "mountain/aeg-paper"
+    },
+    "process-geometry": {
+      "files": [
+        {
+          "available": true,
+          "git_blob": "95a9ff375c401999e7f61c29b85af6b6bbbc3c70",
+          "path": "README.md",
+          "sha256": "341fc288e4dc0501ca30e5c6a0a71f0aa9eca052ab3cb045766d95ebb029bf12",
+          "size_bytes": 22124
+        },
+        {
+          "available": true,
+          "git_blob": "e0e96fe53c17dbb7b17063bb8e511e1ec7f92c54",
+          "path": "docs/RESEARCH_STATUS.md",
+          "sha256": "b172fd58da062e9c9e762b0321001a56740978c9332320fa732cd6acbbb7015a",
+          "size_bytes": 23045
+        },
+        {
+          "available": true,
+          "git_blob": "16ac11f52e6a3dd6f27998f9f4a749ebda55a433",
+          "path": "docs/ENGINEERING_ARCHITECTURE.md",
+          "sha256": "0bd0207bdf540368bda9d7b230d2874a4ddeb8511243fdcc9d5195f0f8852eec",
+          "size_bytes": 41363
+        },
+        {
+          "available": true,
+          "git_blob": "22323f2e3b3cd7efc0e6374b65d5103dcd22ced4",
+          "path": "docs/RESEARCH_PROGRAM.md",
+          "sha256": "ff063d2f8c7d3cfa7aec7574c625d7cf8d716429d6f7f115a2bf3ed3ffd0c16e",
+          "size_bytes": 17319
+        },
+        {
+          "available": true,
+          "git_blob": "e0bc0a81f32aeb1dccf70e3093cfe7a778ce6035",
+          "path": "docs/MATHEMATICAL_CORE.md",
+          "sha256": "a0b965621a6d3993a76f4b71eb0357f4e3831c24b41d606ae98508757337963e",
+          "size_bytes": 52461
+        },
+        {
+          "available": true,
+          "git_blob": "4cc9ad42b997b4395db01267a112bab66b5e21cd",
+          "path": "docs/00-process-presentation-v0.1.md",
+          "sha256": "ad364fcda71878962dfbdc86476214c7c5c9d2da9cd6739a256eaeb025552883",
+          "size_bytes": 8829
+        },
+        {
+          "available": true,
+          "git_blob": "5c7f8d7b7b1f87ddc7f2a4db8e88024c9644c0b3",
+          "path": "docs/06-addition-multiplication-function-theory.md",
+          "sha256": "b0100dba1423348d59355165602991dadf565e7f2c219820a0d57296ed787f33",
+          "size_bytes": 9224
+        },
+        {
+          "available": true,
+          "git_blob": "bbc02aab3c92c10a156f156376490ffe2696da4f",
+          "path": "docs/51-aeg-addition-multiplication-rank-transition.md",
+          "sha256": "f50600f58ff5a9236baf6d62bedc8785d10bc7938db3275898d98597d6a4f8f2",
+          "size_bytes": 16056
+        },
+        {
+          "available": true,
+          "git_blob": "2ddd71f74934e5d3547bc70f05414e8782614ca3",
+          "path": "docs/50-aeg-translation-objectification-rank-lowering.md",
+          "sha256": "ab1a46d8da91a55bb8c91acbc7ca6eb383e51589ddb64b4143e5b35282a5ab36",
+          "size_bytes": 11306
+        },
+        {
+          "available": true,
+          "git_blob": "f745e6d22ab590c8d73523abde167d78ca7578a8",
+          "path": "docs/44-objectification-semantic-compression-and-rank-lowering.md",
+          "sha256": "02b8c82793308926de28fe3aef1593d9a861d07be82b8da80f28dfa49e2afaf4",
+          "size_bytes": 19235
+        },
+        {
+          "available": true,
+          "git_blob": "0d1f1895744fb87d1fbed141cc20c1812bb1dfac",
+          "path": "src/process_geometry/process/history.py",
+          "sha256": "93e9dc4651f4cf70e2a0980c9fee8ea58cc15acbe89bc064861c37359652cc45",
+          "size_bytes": 1359
+        },
+        {
+          "available": true,
+          "git_blob": "a381c47822ba00f54530d774446a77b2d48c5a7d",
+          "path": "src/process_geometry/experimental/finite_task_quotient.py",
+          "sha256": "1b2bf6a4510fd4f9831f0fa721f63deb19a61c4a658c32c7b138b70b4e38fd66",
+          "size_bytes": 12181
+        },
+        {
+          "available": true,
+          "git_blob": "12e4574280417c00faf8eb7f12c0313a6abd7ddd",
+          "path": "src/process_geometry/signature.py",
+          "sha256": "e59c8a1b0ba2ad60309ab2be8b7d96b8f161f8b89af7a9484895afa61787d27e",
+          "size_bytes": 5600
+        }
+      ],
+      "local_path": "/Users/mingli/AEG/process-geometry",
+      "pins": {
+        "baseline": {
+          "available": true,
+          "commit": "c47c96fa79123c677172278be59d67ca1cc891b1",
+          "resolved": "c47c96fa79123c677172278be59d67ca1cc891b1"
+        }
+      },
+      "remote": "mountain/process-geometry"
+    }
+  },
+  "schema": "aeg.process-representation-gap.v1"
+}

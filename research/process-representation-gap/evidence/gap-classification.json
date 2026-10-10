@@ -1,0 +1,569 @@
+{
+  "by_category": {
+    "bounded-compatible": [
+      "exp6:result_labels",
+      "exp3:context_search"
+    ],
+    "legality-signature": [
+      "exp2:witnesses.legality_gap",
+      "exp6:geometric_route.details.witness_3_obstacle_changes_legality",
+      "exp6:geometric_route.details.witness_4_time_changes_legality",
+      "exp3:rejected_contexts"
+    ],
+    "observation-insufficient": [
+      "exp1:representations.pi0",
+      "exp1:representations.pi0_counts",
+      "exp1:representations.pi0_endpoint",
+      "exp1:downstream_spectral_analysis",
+      "exp2:representations.pi0",
+      "exp2:representations.pi1",
+      "exp2:representations.pi2",
+      "exp4:baseline_control.gates.gate_i_task_sufficiency_pi_out",
+      "exp4:attempts.exp2_accumulator_object.gates.gate_i_task_sufficiency"
+    ],
+    "quotient-forgets-history": [
+      "exp5:layers",
+      "exp6:topological_route.witness_1_same_type_different_history"
+    ],
+    "source-interface-absent": [
+      "adva:verdict"
+    ],
+    "update-not-closed": [
+      "exp1:representations.pi0",
+      "exp2:representations.pi0",
+      "exp2:enhancement_grid.candidates.counts+alternations"
+    ],
+    "value-equality-insufficient": [
+      "exp6:gates.B_state_faithful",
+      "exp6:environments.witness-2-environment-changes-equivalence",
+      "exp3:witnesses.initial_filling_collision"
+    ]
+  },
+  "coverage": {
+    "exp1": {
+      "contract": {
+        "path": "research/process-representation-gap/contracts/exp1-order-and-mixing.v1.json",
+        "sha256": "d1ab186a2fefc0f803e293a0742a03c2fa96f89ca8eae266cef1c24de81d8c77",
+        "superseded_retained": []
+      },
+      "evidence_files": [
+        "exp1-order-and-mixing.json"
+      ],
+      "findings": 5
+    },
+    "exp2": {
+      "contract": {
+        "path": "research/process-representation-gap/contracts/exp2-loop-continuation.v1.1.json",
+        "sha256": "e0b9d493d79af5140993bf72c0e75d0f6455ffaa4473cd6ce89a886dfc96a0fe",
+        "superseded_retained": [
+          "exp2-loop-continuation.v1.json"
+        ]
+      },
+      "evidence_files": [
+        "exp2-loop-continuation.json"
+      ],
+      "findings": 6
+    },
+    "exp3": {
+      "contract": {
+        "path": "research/process-representation-gap/contracts/exp3-typed-hole-context.v1.json",
+        "sha256": "bd7f958740b1c5d686da5012d59ec1995ad3c1f5af98bead0e3ee9637aa0eb8f",
+        "superseded_retained": []
+      },
+      "evidence_files": [
+        "exp3-typed-hole-context.json"
+      ],
+      "findings": 3
+    },
+    "exp4": {
+      "contract": {
+        "path": "research/process-representation-gap/contracts/exp4-objectification-elevation.v1.json",
+        "sha256": "a092fcd470d5cee5a750bb47f73ef9065ab71a69f2460f99ba60dca37658bed6",
+        "superseded_retained": []
+      },
+      "evidence_files": [
+        "exp4-objectification-elevation.json"
+      ],
+      "findings": 2
+    },
+    "exp5": {
+      "contract": {
+        "path": "research/process-representation-gap/contracts/exp5-braid-nonarithmetic.v1.json",
+        "sha256": "3cb4feaa8ed326ce80b73ca1945f122a645d6031dd1df5d00db162c081da58f6",
+        "superseded_retained": []
+      },
+      "evidence_files": [
+        "exp5-braid-nonarithmetic.json",
+        "exp5-braid-words.raw.json"
+      ],
+      "findings": 1
+    },
+    "exp6": {
+      "contract": {
+        "path": "research/process-representation-gap/contracts/exp6-knot-deformation-environment.v1.json",
+        "sha256": "1b8a6d0ddbce2efd708a3875e7c6f32bd05947ffb1b434e74e4d5c5f5cfa82ac",
+        "superseded_retained": []
+      },
+      "evidence_files": [
+        "exp6-knot-deformation-environment.json",
+        "exp6-knot-deformation-environment.raw.json"
+      ],
+      "findings": 6
+    }
+  },
+  "environment": {
+    "implementation": "cpython",
+    "python_version": "3.14.6"
+  },
+  "findings": [
+    {
+      "category": "observation-insufficient",
+      "evidence": {
+        "file": "exp1-order-and-mixing.json",
+        "pointer": "representations.pi0",
+        "sha256": "2433d504c7b38e12aca63fc5554c12ede7c4ecb7aee897f99d4bb85a4b1d2063"
+      },
+      "experiment": "exp1",
+      "taxonomy": {
+        "action": "保存任务相关残余或增加观察能力",
+        "conclusion": "观察对该任务不充分",
+        "plan_row": "同摘要且未来任务不同"
+      },
+      "verdict": {
+        "sufficient": false
+      }
+    },
+    {
+      "category": "update-not-closed",
+      "evidence": {
+        "file": "exp1-order-and-mixing.json",
+        "pointer": "representations.pi0",
+        "sha256": "2433d504c7b38e12aca63fc5554c12ede7c4ecb7aee897f99d4bb85a4b1d2063"
+      },
+      "experiment": "exp1",
+      "taxonomy": {
+        "action": "修改状态表示或降低动作域",
+        "conclusion": "当前表示不能闭合更新",
+        "plan_row": "同摘要与同动作得到不同摘要"
+      },
+      "verdict": {
+        "closed_update": false
+      }
+    },
+    {
+      "category": "observation-insufficient",
+      "evidence": {
+        "file": "exp1-order-and-mixing.json",
+        "pointer": "representations.pi0_counts",
+        "sha256": "2433d504c7b38e12aca63fc5554c12ede7c4ecb7aee897f99d4bb85a4b1d2063"
+      },
+      "experiment": "exp1",
+      "taxonomy": {
+        "action": "保存任务相关残余或增加观察能力",
+        "conclusion": "观察对该任务不充分",
+        "plan_row": "同摘要且未来任务不同"
+      },
+      "verdict": {
+        "sufficient": false
+      }
+    },
+    {
+      "category": "observation-insufficient",
+      "evidence": {
+        "file": "exp1-order-and-mixing.json",
+        "pointer": "representations.pi0_endpoint",
+        "sha256": "2433d504c7b38e12aca63fc5554c12ede7c4ecb7aee897f99d4bb85a4b1d2063"
+      },
+      "experiment": "exp1",
+      "taxonomy": {
+        "action": "保存任务相关残余或增加观察能力",
+        "conclusion": "观察对该任务不充分",
+        "plan_row": "同摘要且未来任务不同"
+      },
+      "verdict": {
+        "sufficient": false
+      }
+    },
+    {
+      "category": "observation-insufficient",
+      "evidence": {
+        "file": "exp1-order-and-mixing.json",
+        "pointer": "downstream_spectral_analysis",
+        "sha256": "2433d504c7b38e12aca63fc5554c12ede7c4ecb7aee897f99d4bb85a4b1d2063"
+      },
+      "experiment": "exp1",
+      "taxonomy": {
+        "action": "保存任务相关残余或增加观察能力",
+        "conclusion": "观察对该任务不充分",
+        "plan_row": "同摘要且未来任务不同"
+      },
+      "verdict": {}
+    },
+    {
+      "category": "observation-insufficient",
+      "evidence": {
+        "file": "exp2-loop-continuation.json",
+        "pointer": "representations.pi0",
+        "sha256": "85b62328ed43d976cb9d0ae0cae2f87823af0aaa4664baae6dec1d080458bf5c"
+      },
+      "experiment": "exp2",
+      "taxonomy": {
+        "action": "保存任务相关残余或增加观察能力",
+        "conclusion": "观察对该任务不充分",
+        "plan_row": "同摘要且未来任务不同"
+      },
+      "verdict": {
+        "sufficient": false
+      }
+    },
+    {
+      "category": "update-not-closed",
+      "evidence": {
+        "file": "exp2-loop-continuation.json",
+        "pointer": "representations.pi0",
+        "sha256": "85b62328ed43d976cb9d0ae0cae2f87823af0aaa4664baae6dec1d080458bf5c"
+      },
+      "experiment": "exp2",
+      "taxonomy": {
+        "action": "修改状态表示或降低动作域",
+        "conclusion": "当前表示不能闭合更新",
+        "plan_row": "同摘要与同动作得到不同摘要"
+      },
+      "verdict": {
+        "closed_update": false
+      }
+    },
+    {
+      "category": "observation-insufficient",
+      "evidence": {
+        "file": "exp2-loop-continuation.json",
+        "pointer": "representations.pi1",
+        "sha256": "85b62328ed43d976cb9d0ae0cae2f87823af0aaa4664baae6dec1d080458bf5c"
+      },
+      "experiment": "exp2",
+      "taxonomy": {
+        "action": "保存任务相关残余或增加观察能力",
+        "conclusion": "观察对该任务不充分",
+        "plan_row": "同摘要且未来任务不同"
+      },
+      "verdict": {
+        "closed_update": true,
+        "sufficient": false
+      }
+    },
+    {
+      "category": "observation-insufficient",
+      "evidence": {
+        "file": "exp2-loop-continuation.json",
+        "pointer": "representations.pi2",
+        "sha256": "85b62328ed43d976cb9d0ae0cae2f87823af0aaa4664baae6dec1d080458bf5c"
+      },
+      "experiment": "exp2",
+      "taxonomy": {
+        "action": "保存任务相关残余或增加观察能力",
+        "conclusion": "观察对该任务不充分",
+        "plan_row": "同摘要且未来任务不同"
+      },
+      "verdict": {
+        "closed_update": true,
+        "sufficient": false
+      }
+    },
+    {
+      "category": "legality-signature",
+      "evidence": {
+        "file": "exp2-loop-continuation.json",
+        "pointer": "witnesses.legality_gap",
+        "sha256": "85b62328ed43d976cb9d0ae0cae2f87823af0aaa4664baae6dec1d080458bf5c"
+      },
+      "experiment": "exp2",
+      "taxonomy": {
+        "action": "在合同中声明合法性通道，或收窄动作域",
+        "conclusion": "共同合法继续不足以刻画该对；须把合法性签名加入等价定义",
+        "plan_row": "同摘要且合法性不同（工作计划 4.2）"
+      },
+      "verdict": {
+        "augmented_equivalent": false,
+        "base_equivalent": false
+      }
+    },
+    {
+      "category": "update-not-closed",
+      "evidence": {
+        "file": "exp2-loop-continuation.json",
+        "pointer": "enhancement_grid.candidates.counts+alternations",
+        "sha256": "85b62328ed43d976cb9d0ae0cae2f87823af0aaa4664baae6dec1d080458bf5c"
+      },
+      "experiment": "exp2",
+      "taxonomy": {
+        "action": "修改状态表示或降低动作域",
+        "conclusion": "当前表示不能闭合更新",
+        "plan_row": "同摘要与同动作得到不同摘要"
+      },
+      "verdict": {
+        "closed_update": false,
+        "sufficient": false
+      }
+    },
+    {
+      "category": "observation-insufficient",
+      "evidence": {
+        "file": "exp4-objectification-elevation.json",
+        "pointer": "baseline_control.gates.gate_i_task_sufficiency_pi_out",
+        "sha256": "f5b9d188e1e7efb13b0675c9960ed4660786146d956c2d4729483a7c349abb91"
+      },
+      "experiment": "exp4",
+      "taxonomy": {
+        "action": "保存任务相关残余或增加观察能力",
+        "conclusion": "观察对该任务不充分",
+        "plan_row": "同摘要且未来任务不同"
+      },
+      "verdict": {
+        "verdict": "FAIL"
+      }
+    },
+    {
+      "category": "observation-insufficient",
+      "evidence": {
+        "file": "exp4-objectification-elevation.json",
+        "pointer": "attempts.exp2_accumulator_object.gates.gate_i_task_sufficiency",
+        "sha256": "f5b9d188e1e7efb13b0675c9960ed4660786146d956c2d4729483a7c349abb91"
+      },
+      "experiment": "exp4",
+      "taxonomy": {
+        "action": "保存任务相关残余或增加观察能力",
+        "conclusion": "观察对该任务不充分",
+        "plan_row": "同摘要且未来任务不同"
+      },
+      "verdict": {
+        "verdict": "FAIL"
+      }
+    },
+    {
+      "category": "quotient-forgets-history",
+      "evidence": {
+        "file": "exp5-braid-nonarithmetic.json",
+        "pointer": "layers",
+        "sha256": "03d4d6d027eaeb4033494e03e3182c354e0a5df8603925e747323d283966d2c6"
+      },
+      "experiment": "exp5",
+      "taxonomy": {
+        "action": "同时保留执行历史，明确两层等价",
+        "conclusion": "所选群商不服务历史任务",
+        "plan_row": "忠实群表示仍遗忘字面施工历史"
+      },
+      "verdict": {}
+    },
+    {
+      "category": "value-equality-insufficient",
+      "evidence": {
+        "file": "exp6-knot-deformation-environment.json",
+        "pointer": "gates.B_state_faithful",
+        "sha256": "13b12a806236934505619bdc09acac9f08dfe79a3f4b2c1ef981fdc05685e210"
+      },
+      "experiment": "exp6",
+      "taxonomy": {
+        "action": "丰富类型、来源、接口或上下文合同",
+        "conclusion": "值相等不足以保证可替换",
+        "plan_row": "同值但合法上下文中行为不同"
+      },
+      "verdict": {
+        "status": "computationally-verified-example"
+      }
+    },
+    {
+      "category": "bounded-compatible",
+      "evidence": {
+        "file": "exp6-knot-deformation-environment.json",
+        "pointer": "result_labels",
+        "sha256": "13b12a806236934505619bdc09acac9f08dfe79a3f4b2c1ef981fdc05685e210"
+      },
+      "experiment": "exp6",
+      "taxonomy": {
+        "action": "寻求归纳不变量或一般证明，保持未决",
+        "conclusion": "该有限预算内相容",
+        "plan_row": "所有有限样本通过"
+      },
+      "verdict": {
+        "completeness": "bounded-domain-compatible at best: no completeness claim is made"
+      }
+    },
+    {
+      "category": "value-equality-insufficient",
+      "evidence": {
+        "file": "exp6-knot-deformation-environment.json",
+        "pointer": "environments.witness-2-environment-changes-equivalence",
+        "sha256": "13b12a806236934505619bdc09acac9f08dfe79a3f4b2c1ef981fdc05685e210"
+      },
+      "experiment": "exp6",
+      "taxonomy": {
+        "action": "丰富类型、来源、接口或上下文合同",
+        "conclusion": "值相等不足以保证可替换",
+        "plan_row": "同值但合法上下文中行为不同"
+      },
+      "verdict": {
+        "outcome": "success (the environment changes the declared equivalence)"
+      }
+    },
+    {
+      "category": "legality-signature",
+      "evidence": {
+        "file": "exp6-knot-deformation-environment.json",
+        "pointer": "geometric_route.details.witness_3_obstacle_changes_legality",
+        "sha256": "13b12a806236934505619bdc09acac9f08dfe79a3f4b2c1ef981fdc05685e210"
+      },
+      "experiment": "exp6",
+      "taxonomy": {
+        "action": "在合同中声明合法性通道，或收窄动作域",
+        "conclusion": "共同合法继续不足以刻画该对；须把合法性签名加入等价定义",
+        "plan_row": "同摘要且合法性不同（工作计划 4.2）"
+      },
+      "verdict": {}
+    },
+    {
+      "category": "legality-signature",
+      "evidence": {
+        "file": "exp6-knot-deformation-environment.json",
+        "pointer": "geometric_route.details.witness_4_time_changes_legality",
+        "sha256": "13b12a806236934505619bdc09acac9f08dfe79a3f4b2c1ef981fdc05685e210"
+      },
+      "experiment": "exp6",
+      "taxonomy": {
+        "action": "在合同中声明合法性通道，或收窄动作域",
+        "conclusion": "共同合法继续不足以刻画该对；须把合法性签名加入等价定义",
+        "plan_row": "同摘要且合法性不同（工作计划 4.2）"
+      },
+      "verdict": {}
+    },
+    {
+      "category": "quotient-forgets-history",
+      "evidence": {
+        "file": "exp6-knot-deformation-environment.json",
+        "pointer": "topological_route.witness_1_same_type_different_history",
+        "sha256": "13b12a806236934505619bdc09acac9f08dfe79a3f4b2c1ef981fdc05685e210"
+      },
+      "experiment": "exp6",
+      "taxonomy": {
+        "action": "同时保留执行历史，明确两层等价",
+        "conclusion": "所选群商不服务历史任务",
+        "plan_row": "忠实群表示仍遗忘字面施工历史"
+      },
+      "verdict": {}
+    },
+    {
+      "category": "value-equality-insufficient",
+      "evidence": {
+        "file": "exp3-typed-hole-context.json",
+        "pointer": "witnesses.initial_filling_collision",
+        "sha256": "82362f569ddcfefe90b54a4a75a99b12fba88e0950ffc5614ec0876625fb2931"
+      },
+      "experiment": "exp3",
+      "taxonomy": {
+        "action": "丰富类型、来源、接口或上下文合同",
+        "conclusion": "值相等不足以保证可替换",
+        "plan_row": "同值但合法上下文中行为不同"
+      },
+      "verdict": {}
+    },
+    {
+      "category": "bounded-compatible",
+      "evidence": {
+        "file": "exp3-typed-hole-context.json",
+        "pointer": "context_search",
+        "sha256": "82362f569ddcfefe90b54a4a75a99b12fba88e0950ffc5614ec0876625fb2931"
+      },
+      "experiment": "exp3",
+      "taxonomy": {
+        "action": "寻求归纳不变量或一般证明，保持未决",
+        "conclusion": "该有限预算内相容",
+        "plan_row": "所有有限样本通过"
+      },
+      "verdict": {
+        "grid_candidates": 63,
+        "grid_candidates_insufficient": 63
+      }
+    },
+    {
+      "category": "legality-signature",
+      "evidence": {
+        "file": "exp3-typed-hole-context.json",
+        "pointer": "rejected_contexts",
+        "sha256": "82362f569ddcfefe90b54a4a75a99b12fba88e0950ffc5614ec0876625fb2931"
+      },
+      "experiment": "exp3",
+      "taxonomy": {
+        "action": "在合同中声明合法性通道，或收窄动作域",
+        "conclusion": "共同合法继续不足以刻画该对；须把合法性签名加入等价定义",
+        "plan_row": "同摘要且合法性不同（工作计划 4.2）"
+      },
+      "verdict": {}
+    },
+    {
+      "category": "source-interface-absent",
+      "evidence": {
+        "file": "adva-continuation-interface.json",
+        "pointer": "verdict",
+        "sha256": "1b8cc739b006ea46ea0a106679fa16e04f623830f2e7c455d528b605bf9bf43d"
+      },
+      "experiment": "adva",
+      "taxonomy": {
+        "action": "报告缺口并在新合同中自建模型，不虚构原生语义",
+        "conclusion": "该能力在固定源码中不存在，只可另行声明模型",
+        "plan_row": "固定源码未提供声明的接口"
+      },
+      "verdict": {
+        "native_legal_continuation_interface_for_pr16_records": false
+      }
+    }
+  ],
+  "generated_by": "tools/build_gap_classification.py",
+  "note": "every row above is re-checked against the raw evidence at run time; an unexpected or missing verdict fails the build rather than being dropped from the table",
+  "schema": "aeg.process-representation-gap.gap-classification.v1",
+  "taxonomy": {
+    "bounded-compatible": {
+      "action": "寻求归纳不变量或一般证明，保持未决",
+      "conclusion": "该有限预算内相容",
+      "plan_row": "所有有限样本通过"
+    },
+    "budget-exhausted": {
+      "action": "扩大预算需新合同版本，不得静默扩大",
+      "conclusion": "仅在声明预算内未找到见证",
+      "plan_row": "搜索预算耗尽"
+    },
+    "legality-signature": {
+      "action": "在合同中声明合法性通道，或收窄动作域",
+      "conclusion": "共同合法继续不足以刻画该对；须把合法性签名加入等价定义",
+      "plan_row": "同摘要且合法性不同（工作计划 4.2）"
+    },
+    "objectification-failure": {
+      "action": "修正组合律与降低映射，不仅补输出字段",
+      "conclusion": "对象化或升阶合同失败",
+      "plan_row": "单次对象调用正确，复合降阶不一致"
+    },
+    "observation-insufficient": {
+      "action": "保存任务相关残余或增加观察能力",
+      "conclusion": "观察对该任务不充分",
+      "plan_row": "同摘要且未来任务不同"
+    },
+    "quotient-forgets-history": {
+      "action": "同时保留执行历史，明确两层等价",
+      "conclusion": "所选群商不服务历史任务",
+      "plan_row": "忠实群表示仍遗忘字面施工历史"
+    },
+    "source-interface-absent": {
+      "action": "报告缺口并在新合同中自建模型，不虚构原生语义",
+      "conclusion": "该能力在固定源码中不存在，只可另行声明模型",
+      "plan_row": "固定源码未提供声明的接口"
+    },
+    "update-not-closed": {
+      "action": "修改状态表示或降低动作域",
+      "conclusion": "当前表示不能闭合更新",
+      "plan_row": "同摘要与同动作得到不同摘要"
+    },
+    "value-equality-insufficient": {
+      "action": "丰富类型、来源、接口或上下文合同",
+      "conclusion": "值相等不足以保证可替换",
+      "plan_row": "同值但合法上下文中行为不同"
+    }
+  }
+}

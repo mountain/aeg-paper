@@ -1,0 +1,143 @@
+{
+  "fixture": "exp3-initial-filling-collision",
+  "payload": {
+    "behaviour_left": [
+      [
+        "DEFINED",
+        [
+          "2"
+        ]
+      ],
+      [
+        "DEFINED",
+        [
+          "2"
+        ]
+      ],
+      [
+        "DEFINED",
+        [
+          "2"
+        ]
+      ],
+      [
+        "DEFINED",
+        [
+          "2"
+        ]
+      ],
+      [
+        "DEFINED",
+        [
+          "2"
+        ]
+      ],
+      [
+        "DEFINED",
+        [
+          "2"
+        ]
+      ],
+      [
+        "UNDEFINED"
+      ]
+    ],
+    "behaviour_right": [
+      [
+        "DEFINED",
+        [
+          "2"
+        ]
+      ],
+      [
+        "DEFINED",
+        [
+          "2"
+        ]
+      ],
+      [
+        "DEFINED",
+        [
+          "2"
+        ]
+      ],
+      [
+        "DEFINED",
+        [
+          "4"
+        ]
+      ],
+      [
+        "DEFINED",
+        [
+          "2"
+        ]
+      ],
+      [
+        "DEFINED",
+        [
+          "2"
+        ]
+      ],
+      [
+        "UNDEFINED"
+      ]
+    ],
+    "binary_gates": [
+      0,
+      0
+    ],
+    "bodies": [
+      "const(2)",
+      "h1"
+    ],
+    "fillings": [
+      "beta0",
+      "beta1",
+      "beta2",
+      "beta3",
+      "beta4",
+      "beta5",
+      "beta_undef"
+    ],
+    "observation_at_beta0": [
+      "DEFINED",
+      [
+        "2"
+      ]
+    ],
+    "separating_filling": {
+      "filling": "beta3",
+      "filling_values": [
+        "4",
+        "7",
+        "3",
+        "5"
+      ],
+      "fills": [
+        "q5",
+        "q2",
+        "q3",
+        "q4"
+      ],
+      "observation_left": [
+        "DEFINED",
+        [
+          "2"
+        ]
+      ],
+      "observation_right": [
+        "DEFINED",
+        [
+          "4"
+        ]
+      ]
+    }
+  },
+  "schema": "aeg.process-representation-gap.fixture.v1",
+  "source": {
+    "evidence_file": "exp3-typed-hole-context.json",
+    "pointer": "witnesses.initial_filling_collision",
+    "sha256": "82362f569ddcfefe90b54a4a75a99b12fba88e0950ffc5614ec0876625fb2931"
+  }
+}

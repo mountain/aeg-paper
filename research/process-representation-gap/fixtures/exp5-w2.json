@@ -1,0 +1,51 @@
+{
+  "fixture": "exp5-w2",
+  "payload": {
+    "artin_images": [
+      [
+        "xyzy^-1x^-1",
+        "xyx^-1",
+        "x"
+      ],
+      [
+        "xyzy^-1x^-1",
+        "xyx^-1",
+        "x"
+      ]
+    ],
+    "conclusion": "the braid quotient merges two distinct literal histories with different generator counts; this is NOT a group-semantic counterexample when Artin rewriting is allowed, but it shows exactly what the quotient forgets",
+    "generator_counts": {
+      "s1s2s1": [
+        2,
+        1,
+        2,
+        1,
+        0,
+        0
+      ],
+      "s2s1s2": [
+        1,
+        2,
+        1,
+        2,
+        0,
+        0
+      ]
+    },
+    "id": "W2-artin-relation",
+    "pair": [
+      "s1s2s1",
+      "s2s1s2"
+    ],
+    "same_braid_element": true,
+    "same_endpoint_permutation": true,
+    "same_generator_counts": false,
+    "same_literal_word": false
+  },
+  "schema": "aeg.process-representation-gap.fixture.v1",
+  "source": {
+    "evidence_file": "exp5-braid-nonarithmetic.json",
+    "pointer": "witnesses.W2-artin-relation",
+    "sha256": "03d4d6d027eaeb4033494e03e3182c354e0a5df8603925e747323d283966d2c6"
+  }
+}

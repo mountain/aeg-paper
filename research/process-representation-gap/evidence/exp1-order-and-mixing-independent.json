@@ -1,0 +1,76 @@
+{
+  "comparison": {
+    "disagreements": [],
+    "fields_compared": 163,
+    "fields_matching": 163
+  },
+  "conclusion": "the independent route reproduces every compared primary quantity",
+  "contract": {
+    "path": "research/process-representation-gap/contracts/exp1-order-and-mixing.v1.json",
+    "sha256": "d1ab186a2fefc0f803e293a0742a03c2fa96f89ca8eae266cef1c24de81d8c77"
+  },
+  "environment": {
+    "implementation": "cpython",
+    "python_version": "3.14.6"
+  },
+  "independence": {
+    "hand_tables": "hand-computed literal tables of the plant states, the composite spectra and the frozen-vector actions",
+    "linear_instance": "recomputed with basis images only; maps are composed by applying one map to the images of the other, so no two matrices are multiplied; the characteristic polynomial is checked by the Cayley-Hamilton relation and the inverse by exact Gaussian elimination",
+    "not_independently_rederived": [
+      "the declared cost channels computation_steps, observations and verification_cost, which are accounting rules of the declared construction rather than recomputable mathematical facts",
+      "storage_bytes mean and maximum are re-derived here from the independent payloads through gapkit.canonical"
+    ],
+    "plant": "recomputed by an explicit flux ledger; the state is reconstructed from the recorded flows at every step and the capacity branch uses a cross-multiplied comparison instead of min over rationals",
+    "shared": "gapkit only, and only for canonical serialisation, diagnostics and hashing; no function of the primary implementation is imported",
+    "summaries": "rebuilt from that ledger; sufficiency is decided by a partition criterion (every summary class inside one task class) instead of by searching continuations"
+  },
+  "negative_controls": [
+    {
+      "expected": "EXP1I-PIN-DRIFT",
+      "id": "oracle-drift",
+      "observed": {
+        "code": "EXP1I-PIN-DRIFT",
+        "detail": "the pinned carrier digest changed"
+      }
+    },
+    {
+      "expected": "EXP1I-HAND-TABLE-MISMATCH",
+      "id": "hand-table-mutated",
+      "observed": {
+        "code": "EXP1I-HAND-TABLE-MISMATCH",
+        "detail": "the ledger route does not reproduce the mutated hand table"
+      }
+    },
+    {
+      "expected": "EXP1-ROUTE-DISAGREEMENT",
+      "id": "route-disagreement-detected",
+      "observed": {
+        "code": "EXP1-ROUTE-DISAGREEMENT",
+        "detail": "the independent route disagrees with a mutated primary value"
+      }
+    }
+  ],
+  "partition_closure": {
+    "hist": true,
+    "pi0": false,
+    "pi0_counts": true,
+    "pi0_endpoint": false,
+    "pi1_word": true,
+    "pi2_resp": true,
+    "pi2_resp_d2": true,
+    "pi2_resp_d3": true,
+    "pi3_prov": true,
+    "pi_spectral": true
+  },
+  "pinned_carrier": {
+    "git_blob": "0d1f1895744fb87d1fbed141cc20c1812bb1dfac",
+    "path": "/Users/mingli/AEG/process-geometry/src/process_geometry/process/history.py",
+    "sha256": "93e9dc4651f4cf70e2a0980c9fee8ea58cc15acbe89bc064861c37359652cc45"
+  },
+  "primary_evidence": {
+    "path": "research/process-representation-gap/evidence/exp1-order-and-mixing.json",
+    "sha256": "2433d504c7b38e12aca63fc5554c12ede7c4ecb7aee897f99d4bb85a4b1d2063"
+  },
+  "role": "independent verification route for exp1",
+  "schema": "aeg.process-representation-gap.exp1-independent.v1"
+}

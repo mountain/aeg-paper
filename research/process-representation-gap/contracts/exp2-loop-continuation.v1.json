@@ -1,0 +1,183 @@
+{
+  "schema": "aeg.process-representation-gap.contract.v1",
+  "experiment": "exp2",
+  "slug": "loop-continuation",
+  "title": "Loop continuation and anytime observation",
+  "version": "1.0",
+  "date": "2026-10-10",
+  "frozen": true,
+  "plan_priority": "primary (工作计划的\u201c\u9996\u8981\u5b9e\u9a8c\u201d)",
+  "plan_reference": "AEG-process-representation-work-plan.md section 6, 实验二",
+
+  "native": {
+    "summary": "Finite unrollings of a three-sided typed feedback process. The native object is a trace word over a three-mechanism alphabet together with an exact rational accumulator; the word is the process, the accumulator is part of the state, and neither is derived from a matrix or a spectrum.",
+    "syntax": "w in Sigma* with Sigma = {c, v, l}; an optional frame-labelled variant annotates each letter with a distinct frame identifier. c = compute, v = verify, l = learn.",
+    "types": [
+      "Word: finite sequence over Sigma",
+      "FrameLabel: distinct immutable identifier per event occurrence (annotation only)",
+      "Carrier: exact rational Q, or the distinguished element INVALID",
+      "Phase: last executed mechanism, or NONE for the empty word",
+      "Stage: derived legality state, a function of the mechanism counts alone"
+    ],
+    "state": "A state is a triple (w, A(w), phase) where A: Sigma* -> Q is the exact accumulator A(epsilon) = 0, A(u.c) = 2*A(u) + 1, A(u.v) = A(u)/2, A(u.l) = A(u) + 1, and phase is the last letter of w or NONE.",
+    "history": "The literal word w, with frame labels in the annotated variant. Distinct occurrences are never identified by equality of values or of counts.",
+    "legality": "Declared partial action. c is legal in every reachable state. v is legal iff count_c(w) > count_v(w). l is legal iff count_v(w) >= 1. An action that is not legal is not partially defined-but-runnable; it is outside the declared action domain.",
+    "process_equivalence": "Task-relative, in the sense of work-plan section 4.2. Base relation: h ~ h' iff for every continuation eta jointly legal for h and h', the declared observation of h.eta and h'.eta agree, including the declared invalid outcome. Legality-augmented relation: h ~+ h' iff in addition the legal-action sets of h and h' agree. The two relations are reported separately and never conflated.",
+    "allowed_rewrites": [
+      "Appending one legal mechanism (the only state transition admitted)",
+      "Renaming frame labels in the annotated variant (administrative, observationally invisible)"
+    ],
+    "forbidden_rewrites": [
+      "Applying an Artin-like or algebraic relation between mechanisms: none is declared, so the mechanism monoid is free and no two distinct words are identified",
+      "Commuting c and v",
+      "Changing the accumulator update law",
+      "Claiming unbounded recursion or an infinite loop semantics from these finite unrollings"
+    ],
+    "category_boundary": "This is a declared small typed model conforming to the Paper IV continuation contract. It is NOT native Adva execution and NOT a faithful AES gate motion. Paper IV conditions PIV-S5/PIV-S6 are used as the contract; the model is not claimed to be an Adva program core instance."
+  },
+
+  "domain": {
+    "inputs": "Trace words reachable from the empty word by legal actions.",
+    "generators": ["c", "v", "l"],
+    "actions": "The declared continuation family M_C is the set of legal single mechanisms together with their finite legal concatenations up to the declared depth.",
+    "legality_rule": "See native.legality.",
+    "length_budget": {
+      "max_word_length": 8,
+      "max_continuation_depth": 3,
+      "full_enumeration_length": 6
+    },
+    "resource_budget": {
+      "note": "Exhaustive enumeration of all words over Sigma up to the stated length; no sampling, no heuristics, no floating point.",
+      "expected_word_counts": {
+        "length_0": 1,
+        "length_1": 3,
+        "length_2": 9,
+        "length_3": 27,
+        "length_4": 81,
+        "length_5": 243,
+        "length_6": 729,
+        "total_0_to_6": 1093
+      }
+    },
+    "budget_exhaustion_policy": "If a required witness lies beyond the declared budget, report budget-exhausted with the searched domain; do not extend the budget silently."
+  },
+
+  "task": {
+    "Q": "Answer the process readout after every legal action, and answer the accumulated certified value when the learn mechanism is applied. This is the anytime observation task: the process may be queried at any time, and a query is itself a declared action.",
+    "observation": "O_sigma(w) = the observation produced by applying legal action sigma to w. For sigma = c or v the observation is the declared three-scalar readout R(w.sigma) = (count_c + count_v, f - h, 3h/f) with f = |w.sigma| the frame count and h = max(f - 1, 0) the handoff count. For sigma = l the observation is the learned value A(w).",
+    "running_readout": "R(w) = (count_c(w) + count_v(w), f - h, 3h/f) with f = |w|, h = max(|w| - 1, 0); for |w| = 0 the readout is the declared empty outcome.",
+    "initial_observation": "O_empty(w) = R(w).",
+    "observation_points": "After every legal action, and at the initial state. No observation is available from a state reached by an illegal action; that state is INVALID.",
+    "adaptive": false,
+    "adaptive_note": "The continuation is chosen from a frozen, pre-declared family; no observation is used to select the next action. Adaptive selection is out of scope for version 1 and is declared as an open extension.",
+    "error_semantics": "Three outcomes are kept distinct: a legal action returns a value in Q; an illegal action returns the distinguished INVALID outcome, which is a declared observation and not an exception; a declared implementation error raises a diagnostic with a stable code.",
+    "error_note": "Under the totalised form required by PIV-S5/PIV-S6, the illegal outcome is an absorbing invalid state with a distinct invalid observation. Under the partial form, an illegal action simply has no successor. Both forms are computed and the distinction is reported."
+  },
+
+  "representations": [
+    {
+      "id": "pi0",
+      "tier": "existing-summary",
+      "kind": "scalar readout",
+      "definition": "pi0(w) = R(w), the three-scalar readout of the frozen PR-16 snapshot policy.",
+      "datatype": "(Q, Q, Q) with the declared invalid element",
+      "update": "Declared abstract update Uhat_sigma, totalised with an absorbing invalid state.",
+      "information_cost": "Three exact rationals; no counts, no phase, no provenance.",
+      "provenance": "paper-4/scripts/verify-opposite-features.py, projectors T, S, C and the scalar body y1 = c+v, y2 = f-h, y3 = 3h/f."
+    },
+    {
+      "id": "pi1",
+      "tier": "bounded-enhancement",
+      "kind": "mechanism incidence counts",
+      "definition": "pi1(w) = (count_c(w), count_v(w), count_l(w)).",
+      "datatype": "(N, N, N)",
+      "update": "Uhat_sigma adds the unit vector of sigma.",
+      "information_cost": "Three naturals; retains multiplicity, forgets order entirely.",
+      "why_this_candidate": "It is the smallest pre-declared enhancement that repairs the abstract legality determination, since legality is a function of the counts alone."
+    },
+    {
+      "id": "pi2",
+      "tier": "bounded-enhancement",
+      "kind": "incidence counts plus phase tag",
+      "definition": "pi2(w) = (count_c(w), count_v(w), count_l(w), phase(w)).",
+      "datatype": "(N, N, N, Sigma union {NONE})",
+      "update": "Uhat_sigma increments the count of sigma and sets phase to sigma.",
+      "information_cost": "Three naturals plus one symbol; retains recency of the last mechanism, forgets everything earlier."
+    },
+    {
+      "id": "pi3",
+      "tier": "bounded-enhancement",
+      "kind": "bounded order residual",
+      "definition": "pi3(w) = (counts, phase, the length-2 suffix of w, and the accumulator A(w)).",
+      "datatype": "(N, N, N, Sigma, Sigma^<=2, Q)",
+      "update": "Declared by the same recurrence as the state, with the exact accumulator carried forward.",
+      "information_cost": "Adds one exact rational and a bounded suffix; reported per channel."
+    },
+    {
+      "id": "hist",
+      "tier": "full-history-upper-bound",
+      "kind": "literal word with frame labels",
+      "definition": "hist(w) = the literal annotated word.",
+      "datatype": "sequence of (mechanism, frame label)",
+      "update": "Append.",
+      "information_cost": "Unbounded in the declared depth. This is the UPPER-BOUND CONTROL. Retaining full history is not thereby a recommended minimal repair; the plan requires the recommendation to be argued from cost and task, and section 9 requires the cheapest sufficient candidate to be preferred."
+    }
+  ],
+
+  "outcomes": {
+    "success": "A declared representation whose kernel refines the task-relative equivalence on the declared domain, with a closed abstract update, and an independent re-derivation agreeing.",
+    "expected_negative": "A concrete pair of histories, a concrete continuation, and two different observed outcomes; or a concrete failure of the abstract update, reported with the exact pair of states and the action. An expected negative is a result, not an error.",
+    "implementation_error": "A diagnostic with a stable code, raised by a negative control that mutated one declared datum. Each negative control names the code it must raise.",
+    "budget_exhausted": "The searched domain is reported and the conclusion is restricted to it. The plan forbids shrinking a mandatory witness; only exploratory searches may be shrunk, with the reason recorded.",
+    "unknown": "A question the declared domain cannot decide, reported as open with the exact missing hypothesis."
+  },
+
+  "independent_check": {
+    "route": "Direct semantic interpreter against the summary updater. The primary implementation walks the transition system with a summary and an abstract update; the independent implementation composes exact affine maps (alpha, beta) representing x -> alpha*x + beta, read right to left, so the free-monoid action on Q is computed by affine-map algebra with no shared folding code. A second independent input is a hand-computed table of the minimal witnesses, entered as literals.",
+    "rationale": "The independent route recomputes the same mathematical quantity by a different algebraic representation (2x2 upper-triangular matrices over Q versus an incremental rational fold) and additionally by hand. It shares no semantic helper with the primary implementation; the only shared module is deterministic JSON serialisation.",
+    "hand_computed_witnesses": {
+      "A(epsilon)": "0",
+      "A(c)": "1",
+      "A(cc)": "3",
+      "A(ccc)": "7",
+      "A(cv)": "1/2",
+      "A(ccv)": "3/2",
+      "A(cvc)": "2",
+      "A(cccv)": "7/2",
+      "A(ccvcl)": "5"
+    }
+  },
+
+  "negative_controls": [
+    {"id": "contract-drift", "mutation": "Alter one byte of a copy of this contract.", "expected_diagnostic": "EXP-CONTRACT-DRIFT"},
+    {"id": "illegal-action-accepted", "mutation": "Apply l to the word ccc, where count_v = 0.", "expected_diagnostic": "EXP2-ILLEGAL-ACTION"},
+    {"id": "accumulator-law-mutated", "mutation": "Change A(u.v) from A(u)/2 to A(u) - 1 and re-check the frozen hand table.", "expected_diagnostic": "EXP2-HAND-TABLE-MISMATCH"},
+    {"id": "readout-order-blindness", "mutation": "Assert that R separates ccv from cvc.", "expected_diagnostic": "EXP2-READOUT-COLLISION-MISSING"},
+    {"id": "counts-sufficiency-claim", "mutation": "Assert that pi1 is task-sufficient on the declared domain.", "expected_diagnostic": "EXP2-SUFFICIENCY-CLAIM-REFUTED"},
+    {"id": "phase-sufficiency-claim", "mutation": "Assert that pi2 is task-sufficient on the declared domain.", "expected_diagnostic": "EXP2-SUFFICIENCY-CLAIM-REFUTED"},
+    {"id": "primary-independent-disagreement", "mutation": "Replace one accumulator value in the primary table with a neighbouring value before comparing routes.", "expected_diagnostic": "EXP2-ROUTE-DISAGREEMENT"},
+    {"id": "enumerated-count-mismatch", "mutation": "Change the declared legal word count for length 3.", "expected_diagnostic": "EXP2-ENUMERATION-MISMATCH"}
+  ],
+
+  "evidence": {
+    "format": "One JSON document per experiment, canonical serialisation (sorted keys, two-space indent, trailing newline, UTF-8).",
+    "path": "research/process-representation-gap/evidence/exp2-loop-continuation.json",
+    "determinism": "Identical bytes under CPython and under python3 -O. Assertions are never used for obligations; every obligation raises a coded diagnostic.",
+    "per_record_fields": ["contract", "inputs", "history", "representation", "continuation", "observation", "legality", "cost", "conclusion"]
+  },
+
+  "reproduction": [
+    "python3 research/process-representation-gap/experiments/exp2_loop_continuation.py > /tmp/exp2.json",
+    "cmp /tmp/exp2.json research/process-representation-gap/evidence/exp2-loop-continuation.json",
+    "python3 -O research/process-representation-gap/experiments/exp2_loop_continuation.py > /tmp/exp2-O.json",
+    "cmp /tmp/exp2.json /tmp/exp2-O.json",
+    "python3 research/process-representation-gap/experiments/exp2_loop_continuation_independent.py"
+  ],
+
+  "scope_boundary": [
+    "Finite unrollings only. No unbounded recursion, no infinite loop, and no fixpoint semantics is claimed or implemented.",
+    "Task-relative sufficiency on the declared domain and declared continuation family only; no general theorem about all continuations is asserted from a finite enumeration.",
+    "No matrix, operator, or spectrum is used. Paper IV section 05b requires the endomorphism closure, operator domain, marking and residual to be declared before a spectral feature is used; none is declared here, so no spectral claim is made.",
+    "The mechanism monoid is free. Introducing a relation between mechanisms would change the native object and requires a new contract version."
+  ]
+}
