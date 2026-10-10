@@ -1,0 +1,178 @@
+{
+  "fixtures": [
+    {
+      "fixture": "exp2-order-gap",
+      "sha256": "08f496696bb27f4ffb19e5201ec94066c95fc19612922fbd4f243ea487d19d6f",
+      "source": {
+        "evidence_file": "exp2-loop-continuation.json",
+        "pointer": "witnesses.order_gap",
+        "sha256": "85b62328ed43d976cb9d0ae0cae2f87823af0aaa4664baae6dec1d080458bf5c"
+      }
+    },
+    {
+      "fixture": "exp2-legality-gap",
+      "sha256": "7a22307a237f29d8541b1de1bbf456c13fc80309082ac451b5ff6e1e9f15db4a",
+      "source": {
+        "evidence_file": "exp2-loop-continuation.json",
+        "pointer": "witnesses.legality_gap",
+        "sha256": "85b62328ed43d976cb9d0ae0cae2f87823af0aaa4664baae6dec1d080458bf5c"
+      }
+    },
+    {
+      "fixture": "exp2-positive-control",
+      "sha256": "b8a962286dbc85789e3c1b735eaab4ade30ad172e350ffd76646437d20ee63fd",
+      "source": {
+        "evidence_file": "exp2-loop-continuation.json",
+        "pointer": "witnesses.positive_control",
+        "sha256": "85b62328ed43d976cb9d0ae0cae2f87823af0aaa4664baae6dec1d080458bf5c"
+      }
+    },
+    {
+      "fixture": "exp2-pr16-continuation-gap",
+      "sha256": "b4302e2f375e6d0255b50a4bf22e1a086a5d391bd163db88dc8a48d4c104a395",
+      "source": {
+        "evidence_file": "exp2-loop-continuation.json",
+        "pointer": "pr16_native_continuation_gap",
+        "sha256": "85b62328ed43d976cb9d0ae0cae2f87823af0aaa4664baae6dec1d080458bf5c"
+      }
+    },
+    {
+      "fixture": "exp1-mixing-gap",
+      "sha256": "12b12f00fbc08c87f1de64a002c3864fcadf7b0dd95d49c6c0adc311b60ba457",
+      "source": {
+        "evidence_file": "exp1-order-and-mixing.json",
+        "pointer": "witnesses.gap",
+        "sha256": "f5aa48b86dbc5e094686ba6f8292d85abe993bc147ef579301f5f6179262b402"
+      }
+    },
+    {
+      "fixture": "exp1-positive-control",
+      "sha256": "53b5165418ee909d6d374f5090fafa7c717d8e2bfdb8ac029fa41a04804b96d8",
+      "source": {
+        "evidence_file": "exp1-order-and-mixing.json",
+        "pointer": "witnesses.positive_control",
+        "sha256": "f5aa48b86dbc5e094686ba6f8292d85abe993bc147ef579301f5f6179262b402"
+      }
+    },
+    {
+      "fixture": "exp1-spectral",
+      "sha256": "20f3a1e2ab0b3fe2e71cff10efbbb770df5fd72dda450e325771e6c310662c08",
+      "source": {
+        "evidence_file": "exp1-order-and-mixing.json",
+        "pointer": "witnesses.spectral",
+        "sha256": "f5aa48b86dbc5e094686ba6f8292d85abe993bc147ef579301f5f6179262b402"
+      }
+    },
+    {
+      "fixture": "exp4-baseline-gate-i",
+      "sha256": "f67d3fe41fd2f4478e169a552c53054d489cae1b68aa45768dc525a292f3351b",
+      "source": {
+        "evidence_file": "exp4-objectification-elevation.json",
+        "pointer": "baseline_control.gates.gate_i_task_sufficiency_pi_out.minimal_witness",
+        "sha256": "f5b9d188e1e7efb13b0675c9960ed4660786146d956c2d4729483a7c349abb91"
+      }
+    },
+    {
+      "fixture": "exp4-elevation-verdict",
+      "sha256": "dbb343a4af30ff67833d68cc9c93eae773b39d3532810f7007b72318b8685709",
+      "source": {
+        "evidence_file": "exp4-objectification-elevation.json",
+        "pointer": "baseline_control.verdict",
+        "sha256": "f5b9d188e1e7efb13b0675c9960ed4660786146d956c2d4729483a7c349abb91"
+      }
+    },
+    {
+      "fixture": "exp6-witness2-environment",
+      "sha256": "b34f7205eb0a2c18829fbb757a2863feac67a5c5d8a2254a5aa8ce3caa5fc1c3",
+      "source": {
+        "evidence_file": "exp6-knot-deformation-environment.json",
+        "pointer": "environments.witness-2-environment-changes-equivalence",
+        "sha256": "13b12a806236934505619bdc09acac9f08dfe79a3f4b2c1ef981fdc05685e210"
+      }
+    },
+    {
+      "fixture": "exp6-gate-b-refutation",
+      "sha256": "62eb1dc9253c3aa639fe6de1701e25ea4b0fd48c72b06b28caa6ee38007b1f23",
+      "source": {
+        "evidence_file": "exp6-knot-deformation-environment.json",
+        "pointer": "gates.B_state_faithful",
+        "sha256": "13b12a806236934505619bdc09acac9f08dfe79a3f4b2c1ef981fdc05685e210"
+      }
+    },
+    {
+      "fixture": "exp6-gate-d",
+      "sha256": "47c6dd0a566d19438f32ebf4636ae92c6f55cec6aae6491513059eacce8bcb38",
+      "source": {
+        "evidence_file": "exp6-knot-deformation-environment.json",
+        "pointer": "gates.D_completeness",
+        "sha256": "13b12a806236934505619bdc09acac9f08dfe79a3f4b2c1ef981fdc05685e210"
+      }
+    },
+    {
+      "fixture": "exp3-initial-filling-collision",
+      "sha256": "8d63f39b6714175ca8e92c181a44cdbd996c371caaa24b3ba96dd526328a74b6",
+      "source": {
+        "evidence_file": "exp3-typed-hole-context.json",
+        "pointer": "witnesses.initial_filling_collision",
+        "sha256": "82362f569ddcfefe90b54a4a75a99b12fba88e0950ffc5614ec0876625fb2931"
+      }
+    },
+    {
+      "fixture": "exp3-positive-control",
+      "sha256": "df2664e792fd13a258e7bc9b2c230c1975868c9803ddfbbdcff5dad6d2db3992",
+      "source": {
+        "evidence_file": "exp3-typed-hole-context.json",
+        "pointer": "witnesses.positive_control",
+        "sha256": "82362f569ddcfefe90b54a4a75a99b12fba88e0950ffc5614ec0876625fb2931"
+      }
+    },
+    {
+      "fixture": "exp3-paper4-snapshot",
+      "sha256": "bc5076c55b41c59ca1aec63edcdef66c91be1ece8969247237ea59e9759a864f",
+      "source": {
+        "evidence_file": "exp3-typed-hole-context.json",
+        "pointer": "paper4_snapshot",
+        "sha256": "82362f569ddcfefe90b54a4a75a99b12fba88e0950ffc5614ec0876625fb2931"
+      }
+    },
+    {
+      "fixture": "adva-continuation-verdict",
+      "sha256": "9ab3ee5cfdab5e524867c787e77c628719a5cbffb1ecd68936bfd91fe1b6308b",
+      "source": {
+        "evidence_file": "adva-continuation-interface.json",
+        "pointer": "verdict",
+        "sha256": "1b8cc739b006ea46ea0a106679fa16e04f623830f2e7c455d528b605bf9bf43d"
+      }
+    },
+    {
+      "fixture": "exp5-w1",
+      "sha256": "6a29883451aa13602bb7321da9503b64dde39db75c852038edc2244c6b3fe6f3",
+      "source": {
+        "evidence_file": "exp5-braid-nonarithmetic.json",
+        "pointer": "witnesses.W1-square-versus-trivial",
+        "sha256": "03d4d6d027eaeb4033494e03e3182c354e0a5df8603925e747323d283966d2c6"
+      }
+    },
+    {
+      "fixture": "exp5-w2",
+      "sha256": "14994e43c12a47f22af3464fbfc37d14c086047f4e012b47622cf53aae5be6f6",
+      "source": {
+        "evidence_file": "exp5-braid-nonarithmetic.json",
+        "pointer": "witnesses.W2-artin-relation",
+        "sha256": "03d4d6d027eaeb4033494e03e3182c354e0a5df8603925e747323d283966d2c6"
+      }
+    },
+    {
+      "fixture": "exp5-w3",
+      "sha256": "63ff41d225511133c8b27f8d10fa3fe50d842157e00f3f36cd4b968f8fe3fc52",
+      "source": {
+        "evidence_file": "exp5-braid-nonarithmetic.json",
+        "pointer": "witnesses.W3-probe-collision",
+        "sha256": "03d4d6d027eaeb4033494e03e3182c354e0a5df8603925e747323d283966d2c6"
+      }
+    }
+  ],
+  "generated_by": "tools/build_fixtures.py",
+  "note": "fixtures are extracted from evidence, never retyped; the source block lets a reviewer walk from a fixture back to the run that produced it",
+  "schema": "aeg.process-representation-gap.fixture.v1.index"
+}

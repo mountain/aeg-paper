@@ -1,0 +1,805 @@
+{
+  "checks": {
+    "checks": 87,
+    "compared": [
+      {
+        "label": "base sweep per length",
+        "note": "recomputed as |alphabet|^n",
+        "value": {
+          "0": 1,
+          "1": 5,
+          "2": 25,
+          "3": 125,
+          "4": 625,
+          "5": 3125
+        }
+      },
+      {
+        "label": "base sweep total",
+        "note": "5^0 + ... + 5^5",
+        "value": 3906
+      },
+      {
+        "label": "descent check count",
+        "note": "words x declared states",
+        "value": 19530
+      },
+      {
+        "label": "descent states",
+        "note": "",
+        "value": [
+          -3,
+          -1,
+          0,
+          2,
+          5
+        ]
+      },
+      {
+        "label": "descent mismatches",
+        "note": "",
+        "value": 0
+      },
+      {
+        "label": "hand table (D_1,T_-4)",
+        "note": "matrix route versus the frozen literal",
+        "value": [
+          "-4",
+          "1"
+        ]
+      },
+      {
+        "label": "hand table (D_2,D_3)",
+        "note": "matrix route versus the frozen literal",
+        "value": [
+          "0",
+          "6"
+        ]
+      },
+      {
+        "label": "hand table (D_2,T_1)",
+        "note": "matrix route versus the frozen literal",
+        "value": [
+          "1",
+          "2"
+        ]
+      },
+      {
+        "label": "hand table (D_3,T_2,D_2)",
+        "note": "matrix route versus the frozen literal",
+        "value": [
+          "4",
+          "6"
+        ]
+      },
+      {
+        "label": "hand table (D_3,T_6)",
+        "note": "matrix route versus the frozen literal",
+        "value": [
+          "6",
+          "3"
+        ]
+      },
+      {
+        "label": "hand table (T_-2,T_1)",
+        "note": "matrix route versus the frozen literal",
+        "value": [
+          "-1",
+          "1"
+        ]
+      },
+      {
+        "label": "hand table (T_0,D_5)",
+        "note": "matrix route versus the frozen literal",
+        "value": [
+          "0",
+          "5"
+        ]
+      },
+      {
+        "label": "hand table (T_1,D_2)",
+        "note": "matrix route versus the frozen literal",
+        "value": [
+          "2",
+          "2"
+        ]
+      },
+      {
+        "label": "hand table (T_2,D_3)",
+        "note": "matrix route versus the frozen literal",
+        "value": [
+          "6",
+          "3"
+        ]
+      },
+      {
+        "label": "hand table (T_2,T_2,T_2)",
+        "note": "matrix route versus the frozen literal",
+        "value": [
+          "6",
+          "1"
+        ]
+      },
+      {
+        "label": "hand table (T_3,D_2)",
+        "note": "matrix route versus the frozen literal",
+        "value": [
+          "6",
+          "2"
+        ]
+      },
+      {
+        "label": "hand table (T_3,T_3)",
+        "note": "matrix route versus the frozen literal",
+        "value": [
+          "6",
+          "1"
+        ]
+      },
+      {
+        "label": "gate-i witness words",
+        "note": "",
+        "value": [
+          "epsilon",
+          "D_2"
+        ]
+      },
+      {
+        "label": "gate-i witness objects",
+        "note": "matrix route versus the primary's recorded objects",
+        "value": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ]
+        ]
+      },
+      {
+        "label": "gate-i witness endpoint values",
+        "note": "both objects evaluate to 0 at the declared initial state",
+        "value": [
+          0,
+          0
+        ]
+      },
+      {
+        "label": "gate-i witness values epsilon",
+        "note": "",
+        "value": [
+          -3,
+          -1,
+          0,
+          2,
+          5
+        ]
+      },
+      {
+        "label": "gate-i witness values D_2",
+        "note": "",
+        "value": [
+          -6,
+          -2,
+          0,
+          4,
+          10
+        ]
+      },
+      {
+        "label": "second gate-i witness objects",
+        "note": "",
+        "value": [
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ]
+        ]
+      },
+      {
+        "label": "pinned T_6 fibre",
+        "note": "n*a = 6 with a in [-6,6] and n in [1,6]",
+        "value": [
+          [
+            1,
+            6
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            6,
+            1
+          ]
+        ]
+      },
+      {
+        "label": "T_2^3 and T_3^2 share their endpoint",
+        "note": "matrix route",
+        "value": [
+          6,
+          1
+        ]
+      },
+      {
+        "label": "T_3^2 endpoint",
+        "note": "",
+        "value": [
+          6,
+          1
+        ]
+      },
+      {
+        "label": "named power is the translation T_6",
+        "note": "",
+        "value": [
+          6,
+          1
+        ]
+      },
+      {
+        "label": "named power inside the lower layer",
+        "note": "",
+        "value": true
+      },
+      {
+        "label": "cross-relation sweep size",
+        "note": "",
+        "value": 78
+      },
+      {
+        "label": "cross-relation both sides",
+        "note": "",
+        "value": "(k*a, k)"
+      },
+      {
+        "label": "reachable objects base_sweep",
+        "note": "matrix BFS with deduplication",
+        "value": {
+          "0": 1,
+          "1": 6,
+          "2": 25,
+          "3": 83,
+          "4": 238,
+          "5": 626
+        }
+      },
+      {
+        "label": "word count base_sweep",
+        "note": "",
+        "value": 3906
+      },
+      {
+        "label": "reachable objects essay_alphabet",
+        "note": "matrix BFS with deduplication",
+        "value": {
+          "0": 1,
+          "1": 5,
+          "2": 19,
+          "3": 61,
+          "4": 170,
+          "5": 440
+        }
+      },
+      {
+        "label": "word count essay_alphabet",
+        "note": "",
+        "value": 1365
+      },
+      {
+        "label": "reachable objects pure_dilation",
+        "note": "matrix BFS with deduplication",
+        "value": {
+          "0": 1,
+          "1": 3,
+          "2": 6,
+          "3": 10,
+          "4": 15,
+          "5": 21
+        }
+      },
+      {
+        "label": "word count pure_dilation",
+        "note": "",
+        "value": 63
+      },
+      {
+        "label": "reachable objects translation_only",
+        "note": "matrix BFS with deduplication",
+        "value": {
+          "0": 1,
+          "1": 3,
+          "2": 6,
+          "3": 9,
+          "4": 12,
+          "5": 15
+        }
+      },
+      {
+        "label": "word count translation_only",
+        "note": "",
+        "value": 63
+      },
+      {
+        "label": "exp2 letter objects",
+        "note": "the declared generator actions on the accumulator carrier",
+        "value": {
+          "c": [
+            "1",
+            "2"
+          ],
+          "l": [
+            "1",
+            "1"
+          ],
+          "v": [
+            "0",
+            "1/2"
+          ]
+        }
+      },
+      {
+        "label": "exp2 letter matrix c",
+        "note": "",
+        "value": [
+          "1",
+          "2"
+        ]
+      },
+      {
+        "label": "exp2 letter matrix l",
+        "note": "",
+        "value": [
+          "1",
+          "1"
+        ]
+      },
+      {
+        "label": "exp2 letter matrix v",
+        "note": "",
+        "value": [
+          "0",
+          "1/2"
+        ]
+      },
+      {
+        "label": "exp2 legal domain",
+        "note": "",
+        "value": {
+          "0": 1,
+          "1": 1,
+          "2": 2,
+          "3": 4,
+          "4": 10,
+          "5": 26,
+          "6": 71
+        }
+      },
+      {
+        "label": "exp2 unrestricted domain",
+        "note": "",
+        "value": {
+          "0": 1,
+          "1": 3,
+          "2": 9,
+          "3": 27,
+          "4": 81,
+          "5": 243
+        }
+      },
+      {
+        "label": "exp2 descent check count",
+        "note": "(all words + legal words) x 10 declared states",
+        "value": 4790
+      },
+      {
+        "label": "exp2 accumulator equals the object value at 0",
+        "note": "checked on all 364 words",
+        "value": 0
+      },
+      {
+        "label": "exp2 minimal witness words",
+        "note": "",
+        "value": [
+          "cvc",
+          "ccvcv"
+        ]
+      },
+      {
+        "label": "exp2 witness object cvc",
+        "note": "",
+        "value": [
+          "2",
+          "2"
+        ]
+      },
+      {
+        "label": "exp2 witness accumulator cvc",
+        "note": "",
+        "value": "2"
+      },
+      {
+        "label": "exp2 witness object ccvcv",
+        "note": "",
+        "value": [
+          "2",
+          "2"
+        ]
+      },
+      {
+        "label": "exp2 witness accumulator ccvcv",
+        "note": "",
+        "value": "2"
+      },
+      {
+        "label": "exp2 legality witness object vc",
+        "note": "",
+        "value": [
+          "1",
+          "1"
+        ]
+      },
+      {
+        "label": "exp2 legality witness object l",
+        "note": "",
+        "value": [
+          "1",
+          "1"
+        ]
+      },
+      {
+        "label": "exp2 legality witness signatures",
+        "note": "",
+        "value": [
+          [
+            "c",
+            "l"
+          ],
+          [
+            "c"
+          ]
+        ]
+      },
+      {
+        "label": "exp2 hand table ''",
+        "note": "matrix route versus the frozen literal",
+        "value": [
+          "0",
+          "1"
+        ]
+      },
+      {
+        "label": "exp2 hand table 'c'",
+        "note": "matrix route versus the frozen literal",
+        "value": [
+          "1",
+          "2"
+        ]
+      },
+      {
+        "label": "exp2 hand table 'cc'",
+        "note": "matrix route versus the frozen literal",
+        "value": [
+          "3",
+          "4"
+        ]
+      },
+      {
+        "label": "exp2 hand table 'ccvcv'",
+        "note": "matrix route versus the frozen literal",
+        "value": [
+          "2",
+          "2"
+        ]
+      },
+      {
+        "label": "exp2 hand table 'cv'",
+        "note": "matrix route versus the frozen literal",
+        "value": [
+          "1/2",
+          "1"
+        ]
+      },
+      {
+        "label": "exp2 hand table 'cvc'",
+        "note": "matrix route versus the frozen literal",
+        "value": [
+          "2",
+          "2"
+        ]
+      },
+      {
+        "label": "exp2 hand table 'l'",
+        "note": "matrix route versus the frozen literal",
+        "value": [
+          "1",
+          "1"
+        ]
+      },
+      {
+        "label": "exp2 hand table 'v'",
+        "note": "matrix route versus the frozen literal",
+        "value": [
+          "0",
+          "1/2"
+        ]
+      },
+      {
+        "label": "exp2 hand table 'vc'",
+        "note": "matrix route versus the frozen literal",
+        "value": [
+          "1",
+          "1"
+        ]
+      },
+      {
+        "label": "exp2 hand table 'vv'",
+        "note": "matrix route versus the frozen literal",
+        "value": [
+          "0",
+          "1/4"
+        ]
+      },
+      {
+        "label": "exp5 crossing-word counts",
+        "note": "",
+        "value": {
+          "0": 1,
+          "1": 4,
+          "2": 16,
+          "3": 64,
+          "4": 256,
+          "5": 1024,
+          "6": 4096
+        }
+      },
+      {
+        "label": "exp5 crossing-word total",
+        "note": "",
+        "value": 5461
+      },
+      {
+        "label": "exp5 layer counts",
+        "note": "re-implemented free-group model",
+        "value": {
+          "L1_endpoint_permutation_classes": 6,
+          "L2_artin_object_classes": 577,
+          "L3_free_reduction_classes": 1457,
+          "L4_literal_words": 5461,
+          "literal_to_reduced_merges": 4004,
+          "object_to_permutation_merges": 571,
+          "reduced_to_object_merges": 880
+        }
+      },
+      {
+        "label": "exp5 object classes counted by probe signatures",
+        "note": "a genuinely different counting route: signatures on the frozen probe family",
+        "value": 577
+      },
+      {
+        "label": "exp5 history witness object",
+        "note": "s1 s2 s1 re-derived in the independent model",
+        "value": [
+          "xyzy^-1x^-1",
+          "xyx^-1",
+          "x"
+        ]
+      },
+      {
+        "label": "exp5 history witness counts",
+        "note": "",
+        "value": [
+          {
+            "S1": 0,
+            "S2": 0,
+            "s1": 2,
+            "s2": 1
+          },
+          {
+            "S1": 0,
+            "S2": 0,
+            "s1": 1,
+            "s2": 2
+          }
+        ]
+      },
+      {
+        "label": "exp5 history witness permutations",
+        "note": "",
+        "value": [
+          [
+            2,
+            1,
+            0
+          ],
+          [
+            2,
+            1,
+            0
+          ]
+        ]
+      },
+      {
+        "label": "exp5 braid relation",
+        "note": "",
+        "value": [
+          [
+            1,
+            2,
+            3,
+            -2,
+            -1
+          ],
+          [
+            1,
+            2,
+            -1
+          ],
+          [
+            1
+          ]
+        ]
+      },
+      {
+        "label": "exp5 s1^2 versus the empty word",
+        "note": "",
+        "value": false
+      },
+      {
+        "label": "exp5 hand table ()",
+        "note": "independent model versus the frozen literal",
+        "value": [
+          "x",
+          "y",
+          "z"
+        ]
+      },
+      {
+        "label": "exp5 hand table (s1)",
+        "note": "independent model versus the frozen literal",
+        "value": [
+          "xyx^-1",
+          "x",
+          "z"
+        ]
+      },
+      {
+        "label": "exp5 hand table (s1,s1)",
+        "note": "independent model versus the frozen literal",
+        "value": [
+          "xyxy^-1x^-1",
+          "xyx^-1",
+          "z"
+        ]
+      },
+      {
+        "label": "exp5 hand table (s1,s2)",
+        "note": "independent model versus the frozen literal",
+        "value": [
+          "xyzy^-1x^-1",
+          "x",
+          "y"
+        ]
+      },
+      {
+        "label": "exp5 hand table (s1,s2,s1)",
+        "note": "independent model versus the frozen literal",
+        "value": [
+          "xyzy^-1x^-1",
+          "xyx^-1",
+          "x"
+        ]
+      },
+      {
+        "label": "exp5 hand table (s2)",
+        "note": "independent model versus the frozen literal",
+        "value": [
+          "x",
+          "yzy^-1",
+          "y"
+        ]
+      },
+      {
+        "label": "exp5 hand table (s2,s1)",
+        "note": "independent model versus the frozen literal",
+        "value": [
+          "xyx^-1",
+          "xzx^-1",
+          "x"
+        ]
+      },
+      {
+        "label": "exp5 hand table (s2,s1,s2)",
+        "note": "independent model versus the frozen literal",
+        "value": [
+          "xyzy^-1x^-1",
+          "xyx^-1",
+          "x"
+        ]
+      },
+      {
+        "label": "baseline elevation verdict",
+        "note": "",
+        "value": "ELEVATION"
+      },
+      {
+        "label": "exp2 elevation verdict",
+        "note": "",
+        "value": "ELEVATION"
+      },
+      {
+        "label": "exp5 elevation verdict",
+        "note": "",
+        "value": "NO-ELEVATION"
+      },
+      {
+        "label": "exp5 elevation E2 merges",
+        "note": "literal words merged by the object layer",
+        "value": 4884
+      },
+      {
+        "label": "negative-control codes",
+        "note": "each declared control must actually raise its declared diagnostic",
+        "value": [
+          "EXP-CONTRACT-DRIFT",
+          "EXP4-COMPOSITION-ORDER",
+          "EXP4-CROSS-RELATION",
+          "EXP4-DESCENT-DISAGREEMENT",
+          "EXP4-DILATION-DOMAIN",
+          "EXP4-ELEVATION-NOT-ESTABLISHED",
+          "EXP4-ENUMERATION-MISMATCH",
+          "EXP4-EXP2-SUFFICIENCY-CLAIM",
+          "EXP4-HAND-TABLE-MISMATCH",
+          "EXP4-ILLEGAL-ACTION",
+          "EXP4-NAMING-NOT-ELEVATION",
+          "EXP4-REDUCTION-NOT-ADJACENT",
+          "EXP4-RELATION-SOUNDNESS",
+          "EXP4-ROUTE-DISAGREEMENT",
+          "EXP4-SUMMARY-INSUFFICIENT"
+        ]
+      },
+      {
+        "label": "evidence interpreter",
+        "note": "the frozen evidence records the interpreter that produced it",
+        "value": "cpython"
+      }
+    ]
+  },
+  "contract": {
+    "path": "research/process-representation-gap/contracts/exp4-objectification-elevation.v1.json",
+    "sha256": "a092fcd470d5cee5a750bb47f73ef9065ab71a69f2460f99ba60dca37658bed6"
+  },
+  "detector_self_test": {
+    "honest_comparison_passes": [
+      "6",
+      "3"
+    ],
+    "mutated_matrix_product": {
+      "code": "EXP4-ROUTE-DISAGREEMENT",
+      "detail": "self-test matrix: primary (Fraction(6, 1), Fraction(3, 1)) vs independent (Fraction(9, 1), Fraction(3, 1)) (a deliberately mutated matrix product)"
+    },
+    "mutated_primary_value": {
+      "code": "EXP4-ROUTE-DISAGREEMENT",
+      "detail": "self-test scalar: primary 6 vs independent 7 (a deliberately mutated primary value)"
+    },
+    "status": "proved"
+  },
+  "independent_route": {
+    "affine_algebra": "exact 2x2 upper-triangular matrices over Q, composed by matrix multiplication",
+    "braid": "a separate re-implementation of the free-group model plus a different counting route (probe signatures instead of automorphism-triple equality)",
+    "enumeration": "breadth-first search over the object layer with deduplication",
+    "literals": "the contract's hand tables, parsed by this file and checked against this route"
+  },
+  "schema": "aeg.process-representation-gap.exp4.v1.independent.route"
+}

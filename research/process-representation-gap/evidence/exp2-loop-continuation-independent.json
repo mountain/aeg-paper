@@ -1,0 +1,195 @@
+{
+  "affine_hand_table": {
+    "": "0",
+    "c": "1",
+    "cc": "3",
+    "ccc": "7",
+    "cccv": "7/2",
+    "ccv": "3/2",
+    "ccvcl": "5",
+    "cv": "1/2",
+    "cvc": "2"
+  },
+  "conclusion": "the independent route reproduces every primary verdict",
+  "contract": {
+    "path": "research/process-representation-gap/contracts/exp2-loop-continuation.v1.1.json",
+    "sha256": "e0b9d493d79af5140993bf72c0e75d0f6455ffaa4473cd6ce89a886dfc96a0fe"
+  },
+  "disagreements": [],
+  "environment": {
+    "implementation": "cpython",
+    "python_version": "3.14.6"
+  },
+  "machine": {
+    "budget_marker": "EXHAUSTED",
+    "declared_word_count": 115,
+    "exact_class_count": 71,
+    "invalid_marker": "INVALID",
+    "note": "the oracle's relation observes the invalid and budget-exhausted outcomes explicitly, so it refines the primary base equivalence by exactly the legality and budget signatures",
+    "state_count": 117
+  },
+  "negative_controls": [
+    {
+      "expected": "EXP2I-CARRIER-ESCAPE",
+      "id": "carrier-escape",
+      "observed": {
+        "code": "EXP2I-CARRIER-ESCAPE",
+        "detail": "finite process transition leaves declared state carrier: delta((), 'c') = ('z',)"
+      }
+    },
+    {
+      "expected": "EXP2I-ORACLE-DRIFT",
+      "id": "oracle-drift",
+      "observed": {
+        "code": "EXP2I-ORACLE-DRIFT",
+        "detail": "pinned oracle digest changed"
+      }
+    }
+  ],
+  "oracle": {
+    "algorithm": "stable partition refinement on a totalised Moore machine; exact, no depth cutoff",
+    "commit": "c47c96fa79123c677172278be59d67ca1cc891b1",
+    "git_blob": "a381c47822ba00f54530d774446a77b2d48c5a7d",
+    "path": "src/process_geometry/experimental/finite_task_quotient.py",
+    "repository": "mountain/process-geometry",
+    "sha256": "1b2bf6a4510fd4f9831f0fa721f63deb19a61c4a658c32c7b138b70b4e38fd66"
+  },
+  "role": "independent verification route for exp2",
+  "schema": "aeg.process-representation-gap.exp2-independent.v1",
+  "verdicts": {
+    "hist": {
+      "agree_closed_update": true,
+      "agree_sufficiency": true,
+      "oracle_closed_update": true,
+      "oracle_closed_update_witness": null,
+      "oracle_sufficiency_witness": null,
+      "oracle_sufficient": true,
+      "primary_closed_update": true,
+      "primary_sufficient": true
+    },
+    "pi0": {
+      "agree_closed_update": true,
+      "agree_sufficiency": true,
+      "oracle_closed_update": false,
+      "oracle_closed_update_witness": {
+        "action": "v",
+        "histories": [
+          "cc",
+          "cv"
+        ],
+        "kind": "legality-not-decided",
+        "targets": [
+          "ccv",
+          "INVALID"
+        ]
+      },
+      "oracle_sufficiency_witness": {
+        "exact_classes": [
+          2,
+          3
+        ],
+        "histories": [
+          "cc",
+          "cv"
+        ],
+        "oracle_witness": [
+          "v"
+        ],
+        "representation_value": "[\n  \"2\",\n  \"1\",\n  \"3/2\"\n]"
+      },
+      "oracle_sufficient": false,
+      "primary_closed_update": false,
+      "primary_sufficient": false
+    },
+    "pi1": {
+      "agree_closed_update": true,
+      "agree_sufficiency": true,
+      "oracle_closed_update": true,
+      "oracle_closed_update_witness": null,
+      "oracle_sufficiency_witness": {
+        "exact_classes": [
+          5,
+          6
+        ],
+        "histories": [
+          "ccv",
+          "cvc"
+        ],
+        "oracle_witness": [
+          "l"
+        ],
+        "representation_value": "[\n  2,\n  1,\n  0\n]"
+      },
+      "oracle_sufficient": false,
+      "primary_closed_update": true,
+      "primary_sufficient": false
+    },
+    "pi2": {
+      "agree_closed_update": true,
+      "agree_sufficiency": true,
+      "oracle_closed_update": true,
+      "oracle_closed_update_witness": null,
+      "oracle_sufficiency_witness": {
+        "exact_classes": [
+          12,
+          15
+        ],
+        "histories": [
+          "ccvl",
+          "cvcl"
+        ],
+        "oracle_witness": [],
+        "representation_value": "[\n  2,\n  1,\n  1,\n  \"l\"\n]"
+      },
+      "oracle_sufficient": false,
+      "primary_closed_update": true,
+      "primary_sufficient": false
+    },
+    "pi3": {
+      "agree_closed_update": true,
+      "agree_sufficiency": true,
+      "oracle_closed_update": true,
+      "oracle_closed_update_witness": null,
+      "oracle_sufficiency_witness": null,
+      "oracle_sufficient": true,
+      "primary_closed_update": true,
+      "primary_sufficient": true
+    }
+  },
+  "witness_checks": [
+    {
+      "agree": true,
+      "oracle_witness": [
+        "l"
+      ],
+      "pair": [
+        "ccv",
+        "cvc"
+      ],
+      "primary_declared": {
+        "depth": 1,
+        "eta": [
+          "l"
+        ],
+        "kind": "observation"
+      }
+    },
+    {
+      "agree": true,
+      "oracle_witness": [
+        "l"
+      ],
+      "pair": [
+        "ccc",
+        "ccv"
+      ],
+      "primary_declared": {
+        "depth": 1,
+        "eta": [
+          "l"
+        ],
+        "kind": "legality"
+      }
+    }
+  ]
+}

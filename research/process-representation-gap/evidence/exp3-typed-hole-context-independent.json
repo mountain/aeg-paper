@@ -1,0 +1,3081 @@
+{
+  "carrier_layer": {
+    "cb_fresh_L": {
+      "gamma_L": [
+        "DEFINED",
+        [
+          "carrier:L"
+        ]
+      ],
+      "gamma_M": [
+        "DEFINED",
+        [
+          "carrier:L"
+        ]
+      ]
+    },
+    "cb_fresh_M": {
+      "gamma_L": [
+        "DEFINED",
+        [
+          "carrier:M"
+        ]
+      ],
+      "gamma_M": [
+        "DEFINED",
+        [
+          "carrier:M"
+        ]
+      ]
+    },
+    "cb_pass": {
+      "gamma_L": [
+        "DEFINED",
+        [
+          "carrier:L"
+        ]
+      ],
+      "gamma_M": [
+        "DEFINED",
+        [
+          "carrier:M"
+        ]
+      ]
+    },
+    "cb_route_L": {
+      "gamma_L": [
+        "DEFINED",
+        [
+          "carrier:L"
+        ]
+      ],
+      "gamma_M": [
+        "REJECTED",
+        "EXP3-PROVENANCE-MISWIRE"
+      ]
+    }
+  },
+  "comparisons": [
+    {
+      "agree": true,
+      "claim": "domain_size",
+      "independent": 16648,
+      "primary": 16648
+    },
+    {
+      "agree": true,
+      "claim": "counts_by_size",
+      "independent": {
+        "0": 8,
+        "1": 256,
+        "2": 16384
+      },
+      "primary": {
+        "0": 8,
+        "1": 256,
+        "2": 16384
+      }
+    },
+    {
+      "agree": true,
+      "claim": "initial_summary_classes",
+      "independent": 341,
+      "primary": 341
+    },
+    {
+      "agree": true,
+      "claim": "initial_summary_insufficient_fibres",
+      "independent": 232,
+      "primary": 232
+    },
+    {
+      "agree": true,
+      "claim": "declared_filling_equivalence_classes",
+      "independent": 1847,
+      "primary": 1847
+    },
+    {
+      "agree": true,
+      "claim": "grid_candidate_keys",
+      "independent": [
+        "dom_profile",
+        "dom_profile+literals",
+        "dom_profile+literals+op_count",
+        "dom_profile+literals+op_count+operators",
+        "dom_profile+literals+op_count+operators+support",
+        "dom_profile+literals+op_count+operators+support+use_counts",
+        "dom_profile+literals+op_count+operators+use_counts",
+        "dom_profile+literals+op_count+support",
+        "dom_profile+literals+op_count+support+use_counts",
+        "dom_profile+literals+op_count+use_counts",
+        "dom_profile+literals+operators",
+        "dom_profile+literals+operators+support",
+        "dom_profile+literals+operators+support+use_counts",
+        "dom_profile+literals+operators+use_counts",
+        "dom_profile+literals+support",
+        "dom_profile+literals+support+use_counts",
+        "dom_profile+literals+use_counts",
+        "dom_profile+op_count",
+        "dom_profile+op_count+operators",
+        "dom_profile+op_count+operators+support",
+        "dom_profile+op_count+operators+support+use_counts",
+        "dom_profile+op_count+operators+use_counts",
+        "dom_profile+op_count+support",
+        "dom_profile+op_count+support+use_counts",
+        "dom_profile+op_count+use_counts",
+        "dom_profile+operators",
+        "dom_profile+operators+support",
+        "dom_profile+operators+support+use_counts",
+        "dom_profile+operators+use_counts",
+        "dom_profile+support",
+        "dom_profile+support+use_counts",
+        "dom_profile+use_counts",
+        "literals",
+        "literals+op_count",
+        "literals+op_count+operators",
+        "literals+op_count+operators+support",
+        "literals+op_count+operators+support+use_counts",
+        "literals+op_count+operators+use_counts",
+        "literals+op_count+support",
+        "literals+op_count+support+use_counts",
+        "literals+op_count+use_counts",
+        "literals+operators",
+        "literals+operators+support",
+        "literals+operators+support+use_counts",
+        "literals+operators+use_counts",
+        "literals+support",
+        "literals+support+use_counts",
+        "literals+use_counts",
+        "op_count",
+        "op_count+operators",
+        "op_count+operators+support",
+        "op_count+operators+support+use_counts",
+        "op_count+operators+use_counts",
+        "op_count+support",
+        "op_count+support+use_counts",
+        "op_count+use_counts",
+        "operators",
+        "operators+support",
+        "operators+support+use_counts",
+        "operators+use_counts",
+        "support",
+        "support+use_counts",
+        "use_counts"
+      ],
+      "primary": [
+        "dom_profile",
+        "dom_profile+literals",
+        "dom_profile+literals+op_count",
+        "dom_profile+literals+op_count+operators",
+        "dom_profile+literals+op_count+operators+support",
+        "dom_profile+literals+op_count+operators+support+use_counts",
+        "dom_profile+literals+op_count+operators+use_counts",
+        "dom_profile+literals+op_count+support",
+        "dom_profile+literals+op_count+support+use_counts",
+        "dom_profile+literals+op_count+use_counts",
+        "dom_profile+literals+operators",
+        "dom_profile+literals+operators+support",
+        "dom_profile+literals+operators+support+use_counts",
+        "dom_profile+literals+operators+use_counts",
+        "dom_profile+literals+support",
+        "dom_profile+literals+support+use_counts",
+        "dom_profile+literals+use_counts",
+        "dom_profile+op_count",
+        "dom_profile+op_count+operators",
+        "dom_profile+op_count+operators+support",
+        "dom_profile+op_count+operators+support+use_counts",
+        "dom_profile+op_count+operators+use_counts",
+        "dom_profile+op_count+support",
+        "dom_profile+op_count+support+use_counts",
+        "dom_profile+op_count+use_counts",
+        "dom_profile+operators",
+        "dom_profile+operators+support",
+        "dom_profile+operators+support+use_counts",
+        "dom_profile+operators+use_counts",
+        "dom_profile+support",
+        "dom_profile+support+use_counts",
+        "dom_profile+use_counts",
+        "literals",
+        "literals+op_count",
+        "literals+op_count+operators",
+        "literals+op_count+operators+support",
+        "literals+op_count+operators+support+use_counts",
+        "literals+op_count+operators+use_counts",
+        "literals+op_count+support",
+        "literals+op_count+support+use_counts",
+        "literals+op_count+use_counts",
+        "literals+operators",
+        "literals+operators+support",
+        "literals+operators+support+use_counts",
+        "literals+operators+use_counts",
+        "literals+support",
+        "literals+support+use_counts",
+        "literals+use_counts",
+        "op_count",
+        "op_count+operators",
+        "op_count+operators+support",
+        "op_count+operators+support+use_counts",
+        "op_count+operators+use_counts",
+        "op_count+support",
+        "op_count+support+use_counts",
+        "op_count+use_counts",
+        "operators",
+        "operators+support",
+        "operators+support+use_counts",
+        "operators+use_counts",
+        "support",
+        "support+use_counts",
+        "use_counts"
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile].classes",
+      "independent": 353,
+      "primary": 353
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile].insufficient_fibres",
+      "independent": 242,
+      "primary": 242
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals].classes",
+      "independent": 1534,
+      "primary": 1534
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals].insufficient_fibres",
+      "independent": 619,
+      "primary": 619
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+op_count].classes",
+      "independent": 1676,
+      "primary": 1676
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+op_count].insufficient_fibres",
+      "independent": 635,
+      "primary": 635
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+op_count].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+op_count+operators].classes",
+      "independent": 3715,
+      "primary": 3715
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+op_count+operators].insufficient_fibres",
+      "independent": 818,
+      "primary": 818
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+op_count+operators].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+op_count+operators+support].classes",
+      "independent": 5299,
+      "primary": 5299
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+op_count+operators+support].insufficient_fibres",
+      "independent": 281,
+      "primary": 281
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+op_count+operators+support].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+op_count+operators+support+use_counts].classes",
+      "independent": 5323,
+      "primary": 5323
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+op_count+operators+support+use_counts].insufficient_fibres",
+      "independent": 281,
+      "primary": 281
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+op_count+operators+support+use_counts].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+op_count+operators+use_counts].classes",
+      "independent": 5323,
+      "primary": 5323
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+op_count+operators+use_counts].insufficient_fibres",
+      "independent": 281,
+      "primary": 281
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+op_count+operators+use_counts].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+op_count+support].classes",
+      "independent": 3045,
+      "primary": 3045
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+op_count+support].insufficient_fibres",
+      "independent": 416,
+      "primary": 416
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+op_count+support].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+op_count+support+use_counts].classes",
+      "independent": 3095,
+      "primary": 3095
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+op_count+support+use_counts].insufficient_fibres",
+      "independent": 400,
+      "primary": 400
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+op_count+support+use_counts].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+op_count+use_counts].classes",
+      "independent": 3095,
+      "primary": 3095
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+op_count+use_counts].insufficient_fibres",
+      "independent": 400,
+      "primary": 400
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+op_count+use_counts].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+operators].classes",
+      "independent": 3715,
+      "primary": 3715
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+operators].insufficient_fibres",
+      "independent": 818,
+      "primary": 818
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+operators].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+operators+support].classes",
+      "independent": 5299,
+      "primary": 5299
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+operators+support].insufficient_fibres",
+      "independent": 281,
+      "primary": 281
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+operators+support].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+operators+support+use_counts].classes",
+      "independent": 5323,
+      "primary": 5323
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+operators+support+use_counts].insufficient_fibres",
+      "independent": 281,
+      "primary": 281
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+operators+support+use_counts].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+operators+use_counts].classes",
+      "independent": 5323,
+      "primary": 5323
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+operators+use_counts].insufficient_fibres",
+      "independent": 281,
+      "primary": 281
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+operators+use_counts].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+support].classes",
+      "independent": 2991,
+      "primary": 2991
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+support].insufficient_fibres",
+      "independent": 434,
+      "primary": 434
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+support].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+support+use_counts].classes",
+      "independent": 3095,
+      "primary": 3095
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+support+use_counts].insufficient_fibres",
+      "independent": 400,
+      "primary": 400
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+support+use_counts].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+use_counts].classes",
+      "independent": 3095,
+      "primary": 3095
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+use_counts].insufficient_fibres",
+      "independent": 400,
+      "primary": 400
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+use_counts].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+op_count].classes",
+      "independent": 407,
+      "primary": 407
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+op_count].insufficient_fibres",
+      "independent": 269,
+      "primary": 269
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+op_count].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+op_count+operators].classes",
+      "independent": 1001,
+      "primary": 1001
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+op_count+operators].insufficient_fibres",
+      "independent": 636,
+      "primary": 636
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+op_count+operators].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+op_count+operators+support].classes",
+      "independent": 3093,
+      "primary": 3093
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+op_count+operators+support].insufficient_fibres",
+      "independent": 539,
+      "primary": 539
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+op_count+operators+support].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+op_count+operators+support+use_counts].classes",
+      "independent": 3767,
+      "primary": 3767
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+op_count+operators+support+use_counts].insufficient_fibres",
+      "independent": 372,
+      "primary": 372
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+op_count+operators+support+use_counts].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+op_count+operators+use_counts].classes",
+      "independent": 3767,
+      "primary": 3767
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+op_count+operators+use_counts].insufficient_fibres",
+      "independent": 372,
+      "primary": 372
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+op_count+operators+use_counts].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+op_count+support].classes",
+      "independent": 1392,
+      "primary": 1392
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+op_count+support].insufficient_fibres",
+      "independent": 316,
+      "primary": 316
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+op_count+support].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+op_count+support+use_counts].classes",
+      "independent": 1873,
+      "primary": 1873
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+op_count+support+use_counts].insufficient_fibres",
+      "independent": 333,
+      "primary": 333
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+op_count+support+use_counts].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+op_count+use_counts].classes",
+      "independent": 1873,
+      "primary": 1873
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+op_count+use_counts].insufficient_fibres",
+      "independent": 333,
+      "primary": 333
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+op_count+use_counts].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+operators].classes",
+      "independent": 1001,
+      "primary": 1001
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+operators].insufficient_fibres",
+      "independent": 636,
+      "primary": 636
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+operators].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+operators+support].classes",
+      "independent": 3093,
+      "primary": 3093
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+operators+support].insufficient_fibres",
+      "independent": 539,
+      "primary": 539
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+operators+support].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+operators+support+use_counts].classes",
+      "independent": 3767,
+      "primary": 3767
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+operators+support+use_counts].insufficient_fibres",
+      "independent": 372,
+      "primary": 372
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+operators+support+use_counts].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+operators+use_counts].classes",
+      "independent": 3767,
+      "primary": 3767
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+operators+use_counts].insufficient_fibres",
+      "independent": 372,
+      "primary": 372
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+operators+use_counts].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+support].classes",
+      "independent": 1273,
+      "primary": 1273
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+support].insufficient_fibres",
+      "independent": 312,
+      "primary": 312
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+support].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+support+use_counts].classes",
+      "independent": 1744,
+      "primary": 1744
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+support+use_counts].insufficient_fibres",
+      "independent": 329,
+      "primary": 329
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+support+use_counts].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+use_counts].classes",
+      "independent": 1744,
+      "primary": 1744
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+use_counts].insufficient_fibres",
+      "independent": 329,
+      "primary": 329
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+use_counts].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals].classes",
+      "independent": 1505,
+      "primary": 1505
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals].insufficient_fibres",
+      "independent": 628,
+      "primary": 628
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+op_count].classes",
+      "independent": 1647,
+      "primary": 1647
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+op_count].insufficient_fibres",
+      "independent": 645,
+      "primary": 645
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+op_count].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+op_count+operators].classes",
+      "independent": 3692,
+      "primary": 3692
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+op_count+operators].insufficient_fibres",
+      "independent": 829,
+      "primary": 829
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+op_count+operators].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+op_count+operators+support].classes",
+      "independent": 5292,
+      "primary": 5292
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+op_count+operators+support].insufficient_fibres",
+      "independent": 282,
+      "primary": 282
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+op_count+operators+support].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+op_count+operators+support+use_counts].classes",
+      "independent": 5316,
+      "primary": 5316
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+op_count+operators+support+use_counts].insufficient_fibres",
+      "independent": 282,
+      "primary": 282
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+op_count+operators+support+use_counts].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+op_count+operators+use_counts].classes",
+      "independent": 5316,
+      "primary": 5316
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+op_count+operators+use_counts].insufficient_fibres",
+      "independent": 282,
+      "primary": 282
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+op_count+operators+use_counts].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+op_count+support].classes",
+      "independent": 3036,
+      "primary": 3036
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+op_count+support].insufficient_fibres",
+      "independent": 419,
+      "primary": 419
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+op_count+support].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+op_count+support+use_counts].classes",
+      "independent": 3086,
+      "primary": 3086
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+op_count+support+use_counts].insufficient_fibres",
+      "independent": 403,
+      "primary": 403
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+op_count+support+use_counts].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+op_count+use_counts].classes",
+      "independent": 3086,
+      "primary": 3086
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+op_count+use_counts].insufficient_fibres",
+      "independent": 403,
+      "primary": 403
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+op_count+use_counts].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+operators].classes",
+      "independent": 3692,
+      "primary": 3692
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+operators].insufficient_fibres",
+      "independent": 829,
+      "primary": 829
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+operators].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+operators+support].classes",
+      "independent": 5292,
+      "primary": 5292
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+operators+support].insufficient_fibres",
+      "independent": 282,
+      "primary": 282
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+operators+support].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+operators+support+use_counts].classes",
+      "independent": 5316,
+      "primary": 5316
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+operators+support+use_counts].insufficient_fibres",
+      "independent": 282,
+      "primary": 282
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+operators+support+use_counts].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+operators+use_counts].classes",
+      "independent": 5316,
+      "primary": 5316
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+operators+use_counts].insufficient_fibres",
+      "independent": 282,
+      "primary": 282
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+operators+use_counts].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+support].classes",
+      "independent": 2982,
+      "primary": 2982
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+support].insufficient_fibres",
+      "independent": 437,
+      "primary": 437
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+support].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+support+use_counts].classes",
+      "independent": 3086,
+      "primary": 3086
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+support+use_counts].insufficient_fibres",
+      "independent": 403,
+      "primary": 403
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+support+use_counts].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+use_counts].classes",
+      "independent": 3086,
+      "primary": 3086
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+use_counts].insufficient_fibres",
+      "independent": 403,
+      "primary": 403
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+use_counts].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[op_count].classes",
+      "independent": 395,
+      "primary": 395
+    },
+    {
+      "agree": true,
+      "claim": "grid[op_count].insufficient_fibres",
+      "independent": 259,
+      "primary": 259
+    },
+    {
+      "agree": true,
+      "claim": "grid[op_count].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[op_count+operators].classes",
+      "independent": 989,
+      "primary": 989
+    },
+    {
+      "agree": true,
+      "claim": "grid[op_count+operators].insufficient_fibres",
+      "independent": 626,
+      "primary": 626
+    },
+    {
+      "agree": true,
+      "claim": "grid[op_count+operators].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[op_count+operators+support].classes",
+      "independent": 3083,
+      "primary": 3083
+    },
+    {
+      "agree": true,
+      "claim": "grid[op_count+operators+support].insufficient_fibres",
+      "independent": 540,
+      "primary": 540
+    },
+    {
+      "agree": true,
+      "claim": "grid[op_count+operators+support].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[op_count+operators+support+use_counts].classes",
+      "independent": 3756,
+      "primary": 3756
+    },
+    {
+      "agree": true,
+      "claim": "grid[op_count+operators+support+use_counts].insufficient_fibres",
+      "independent": 373,
+      "primary": 373
+    },
+    {
+      "agree": true,
+      "claim": "grid[op_count+operators+support+use_counts].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[op_count+operators+use_counts].classes",
+      "independent": 3756,
+      "primary": 3756
+    },
+    {
+      "agree": true,
+      "claim": "grid[op_count+operators+use_counts].insufficient_fibres",
+      "independent": 373,
+      "primary": 373
+    },
+    {
+      "agree": true,
+      "claim": "grid[op_count+operators+use_counts].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[op_count+support].classes",
+      "independent": 1382,
+      "primary": 1382
+    },
+    {
+      "agree": true,
+      "claim": "grid[op_count+support].insufficient_fibres",
+      "independent": 317,
+      "primary": 317
+    },
+    {
+      "agree": true,
+      "claim": "grid[op_count+support].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[op_count+support+use_counts].classes",
+      "independent": 1862,
+      "primary": 1862
+    },
+    {
+      "agree": true,
+      "claim": "grid[op_count+support+use_counts].insufficient_fibres",
+      "independent": 334,
+      "primary": 334
+    },
+    {
+      "agree": true,
+      "claim": "grid[op_count+support+use_counts].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[op_count+use_counts].classes",
+      "independent": 1862,
+      "primary": 1862
+    },
+    {
+      "agree": true,
+      "claim": "grid[op_count+use_counts].insufficient_fibres",
+      "independent": 334,
+      "primary": 334
+    },
+    {
+      "agree": true,
+      "claim": "grid[op_count+use_counts].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[operators].classes",
+      "independent": 989,
+      "primary": 989
+    },
+    {
+      "agree": true,
+      "claim": "grid[operators].insufficient_fibres",
+      "independent": 626,
+      "primary": 626
+    },
+    {
+      "agree": true,
+      "claim": "grid[operators].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[operators+support].classes",
+      "independent": 3083,
+      "primary": 3083
+    },
+    {
+      "agree": true,
+      "claim": "grid[operators+support].insufficient_fibres",
+      "independent": 540,
+      "primary": 540
+    },
+    {
+      "agree": true,
+      "claim": "grid[operators+support].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[operators+support+use_counts].classes",
+      "independent": 3756,
+      "primary": 3756
+    },
+    {
+      "agree": true,
+      "claim": "grid[operators+support+use_counts].insufficient_fibres",
+      "independent": 373,
+      "primary": 373
+    },
+    {
+      "agree": true,
+      "claim": "grid[operators+support+use_counts].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[operators+use_counts].classes",
+      "independent": 3756,
+      "primary": 3756
+    },
+    {
+      "agree": true,
+      "claim": "grid[operators+use_counts].insufficient_fibres",
+      "independent": 373,
+      "primary": 373
+    },
+    {
+      "agree": true,
+      "claim": "grid[operators+use_counts].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[support].classes",
+      "independent": 1263,
+      "primary": 1263
+    },
+    {
+      "agree": true,
+      "claim": "grid[support].insufficient_fibres",
+      "independent": 313,
+      "primary": 313
+    },
+    {
+      "agree": true,
+      "claim": "grid[support].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[support+use_counts].classes",
+      "independent": 1733,
+      "primary": 1733
+    },
+    {
+      "agree": true,
+      "claim": "grid[support+use_counts].insufficient_fibres",
+      "independent": 330,
+      "primary": 330
+    },
+    {
+      "agree": true,
+      "claim": "grid[support+use_counts].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "grid[use_counts].classes",
+      "independent": 1733,
+      "primary": 1733
+    },
+    {
+      "agree": true,
+      "claim": "grid[use_counts].insufficient_fibres",
+      "independent": 330,
+      "primary": 330
+    },
+    {
+      "agree": true,
+      "claim": "grid[use_counts].sufficient",
+      "independent": false,
+      "primary": false
+    },
+    {
+      "agree": true,
+      "claim": "witness_beta0_same",
+      "independent": true,
+      "primary": true
+    },
+    {
+      "agree": true,
+      "claim": "witness_separating_filling",
+      "independent": "beta3",
+      "primary": "beta3"
+    },
+    {
+      "agree": true,
+      "claim": "positive_control_equivalent",
+      "independent": true,
+      "primary": true
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile].witness_separates",
+      "independent": "beta3",
+      "primary": "beta3"
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "2"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "2"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals].witness_separates",
+      "independent": "beta1",
+      "primary": "beta1"
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "5"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "5"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+op_count].witness_separates",
+      "independent": "beta1",
+      "primary": "beta1"
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+op_count].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "6"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "6"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+op_count+operators].witness_separates",
+      "independent": "beta1",
+      "primary": "beta1"
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+op_count+operators].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "10"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "10"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+op_count+operators+support].witness_separates",
+      "independent": "beta3",
+      "primary": "beta3"
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+op_count+operators+support].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+op_count+operators+support+use_counts].witness_separates",
+      "independent": "beta3",
+      "primary": "beta3"
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+op_count+operators+support+use_counts].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+op_count+operators+use_counts].witness_separates",
+      "independent": "beta3",
+      "primary": "beta3"
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+op_count+operators+use_counts].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+op_count+support].witness_separates",
+      "independent": "beta3",
+      "primary": "beta3"
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+op_count+support].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "4"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "4"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+op_count+support+use_counts].witness_separates",
+      "independent": "beta3",
+      "primary": "beta3"
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+op_count+support+use_counts].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "4"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "4"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+op_count+use_counts].witness_separates",
+      "independent": "beta3",
+      "primary": "beta3"
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+op_count+use_counts].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "4"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "4"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+operators].witness_separates",
+      "independent": "beta1",
+      "primary": "beta1"
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+operators].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "10"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "10"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+operators+support].witness_separates",
+      "independent": "beta3",
+      "primary": "beta3"
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+operators+support].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+operators+support+use_counts].witness_separates",
+      "independent": "beta3",
+      "primary": "beta3"
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+operators+support+use_counts].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+operators+use_counts].witness_separates",
+      "independent": "beta3",
+      "primary": "beta3"
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+operators+use_counts].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+support].witness_separates",
+      "independent": "beta3",
+      "primary": "beta3"
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+support].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "4"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "4"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+support+use_counts].witness_separates",
+      "independent": "beta3",
+      "primary": "beta3"
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+support+use_counts].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "4"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "4"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+use_counts].witness_separates",
+      "independent": "beta3",
+      "primary": "beta3"
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+literals+use_counts].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "4"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "4"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+op_count].witness_separates",
+      "independent": "beta3",
+      "primary": "beta3"
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+op_count].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "2"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "2"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+op_count+operators].witness_separates",
+      "independent": "beta3",
+      "primary": "beta3"
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+op_count+operators].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "2"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "2"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+op_count+operators+support].witness_separates",
+      "independent": "beta3",
+      "primary": "beta3"
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+op_count+operators+support].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "4"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "4"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+op_count+operators+support+use_counts].witness_separates",
+      "independent": "beta3",
+      "primary": "beta3"
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+op_count+operators+support+use_counts].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+op_count+operators+use_counts].witness_separates",
+      "independent": "beta3",
+      "primary": "beta3"
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+op_count+operators+use_counts].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+op_count+support].witness_separates",
+      "independent": "beta3",
+      "primary": "beta3"
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+op_count+support].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+op_count+support+use_counts].witness_separates",
+      "independent": "beta3",
+      "primary": "beta3"
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+op_count+support+use_counts].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+op_count+use_counts].witness_separates",
+      "independent": "beta3",
+      "primary": "beta3"
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+op_count+use_counts].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+operators].witness_separates",
+      "independent": "beta3",
+      "primary": "beta3"
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+operators].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "2"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "2"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+operators+support].witness_separates",
+      "independent": "beta3",
+      "primary": "beta3"
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+operators+support].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "4"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "4"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+operators+support+use_counts].witness_separates",
+      "independent": "beta3",
+      "primary": "beta3"
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+operators+support+use_counts].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+operators+use_counts].witness_separates",
+      "independent": "beta3",
+      "primary": "beta3"
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+operators+use_counts].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+support].witness_separates",
+      "independent": "beta3",
+      "primary": "beta3"
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+support].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+support+use_counts].witness_separates",
+      "independent": "beta3",
+      "primary": "beta3"
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+support+use_counts].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+use_counts].witness_separates",
+      "independent": "beta3",
+      "primary": "beta3"
+    },
+    {
+      "agree": true,
+      "claim": "grid[dom_profile+use_counts].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals].witness_separates",
+      "independent": "beta1",
+      "primary": "beta1"
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "5"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "5"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+op_count].witness_separates",
+      "independent": "beta1",
+      "primary": "beta1"
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+op_count].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "6"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "6"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+op_count+operators].witness_separates",
+      "independent": "beta1",
+      "primary": "beta1"
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+op_count+operators].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "10"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "10"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+op_count+operators+support].witness_separates",
+      "independent": "beta3",
+      "primary": "beta3"
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+op_count+operators+support].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+op_count+operators+support+use_counts].witness_separates",
+      "independent": "beta3",
+      "primary": "beta3"
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+op_count+operators+support+use_counts].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+op_count+operators+use_counts].witness_separates",
+      "independent": "beta3",
+      "primary": "beta3"
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+op_count+operators+use_counts].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+op_count+support].witness_separates",
+      "independent": "beta3",
+      "primary": "beta3"
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+op_count+support].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "4"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "4"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+op_count+support+use_counts].witness_separates",
+      "independent": "beta3",
+      "primary": "beta3"
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+op_count+support+use_counts].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "4"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "4"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+op_count+use_counts].witness_separates",
+      "independent": "beta3",
+      "primary": "beta3"
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+op_count+use_counts].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "4"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "4"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+operators].witness_separates",
+      "independent": "beta1",
+      "primary": "beta1"
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+operators].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "10"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "10"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+operators+support].witness_separates",
+      "independent": "beta3",
+      "primary": "beta3"
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+operators+support].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+operators+support+use_counts].witness_separates",
+      "independent": "beta3",
+      "primary": "beta3"
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+operators+support+use_counts].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+operators+use_counts].witness_separates",
+      "independent": "beta3",
+      "primary": "beta3"
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+operators+use_counts].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+support].witness_separates",
+      "independent": "beta3",
+      "primary": "beta3"
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+support].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "4"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "4"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+support+use_counts].witness_separates",
+      "independent": "beta3",
+      "primary": "beta3"
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+support+use_counts].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "4"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "4"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+use_counts].witness_separates",
+      "independent": "beta3",
+      "primary": "beta3"
+    },
+    {
+      "agree": true,
+      "claim": "grid[literals+use_counts].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "4"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "4"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[op_count].witness_separates",
+      "independent": "beta3",
+      "primary": "beta3"
+    },
+    {
+      "agree": true,
+      "claim": "grid[op_count].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "2"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "2"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[op_count+operators].witness_separates",
+      "independent": "beta3",
+      "primary": "beta3"
+    },
+    {
+      "agree": true,
+      "claim": "grid[op_count+operators].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "2"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "2"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[op_count+operators+support].witness_separates",
+      "independent": "beta3",
+      "primary": "beta3"
+    },
+    {
+      "agree": true,
+      "claim": "grid[op_count+operators+support].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "4"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "4"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[op_count+operators+support+use_counts].witness_separates",
+      "independent": "beta3",
+      "primary": "beta3"
+    },
+    {
+      "agree": true,
+      "claim": "grid[op_count+operators+support+use_counts].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[op_count+operators+use_counts].witness_separates",
+      "independent": "beta3",
+      "primary": "beta3"
+    },
+    {
+      "agree": true,
+      "claim": "grid[op_count+operators+use_counts].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[op_count+support].witness_separates",
+      "independent": "beta3",
+      "primary": "beta3"
+    },
+    {
+      "agree": true,
+      "claim": "grid[op_count+support].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[op_count+support+use_counts].witness_separates",
+      "independent": "beta3",
+      "primary": "beta3"
+    },
+    {
+      "agree": true,
+      "claim": "grid[op_count+support+use_counts].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[op_count+use_counts].witness_separates",
+      "independent": "beta3",
+      "primary": "beta3"
+    },
+    {
+      "agree": true,
+      "claim": "grid[op_count+use_counts].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[operators].witness_separates",
+      "independent": "beta3",
+      "primary": "beta3"
+    },
+    {
+      "agree": true,
+      "claim": "grid[operators].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "2"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "2"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[operators+support].witness_separates",
+      "independent": "beta3",
+      "primary": "beta3"
+    },
+    {
+      "agree": true,
+      "claim": "grid[operators+support].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "4"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "4"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[operators+support+use_counts].witness_separates",
+      "independent": "beta3",
+      "primary": "beta3"
+    },
+    {
+      "agree": true,
+      "claim": "grid[operators+support+use_counts].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[operators+use_counts].witness_separates",
+      "independent": "beta3",
+      "primary": "beta3"
+    },
+    {
+      "agree": true,
+      "claim": "grid[operators+use_counts].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[support].witness_separates",
+      "independent": "beta3",
+      "primary": "beta3"
+    },
+    {
+      "agree": true,
+      "claim": "grid[support].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[support+use_counts].witness_separates",
+      "independent": "beta3",
+      "primary": "beta3"
+    },
+    {
+      "agree": true,
+      "claim": "grid[support+use_counts].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "grid[use_counts].witness_separates",
+      "independent": "beta3",
+      "primary": "beta3"
+    },
+    {
+      "agree": true,
+      "claim": "grid[use_counts].witness_at_beta0",
+      "independent": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ],
+      "primary": [
+        "DEFINED",
+        [
+          "1"
+        ]
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "minimal_witness_rank",
+      "independent": [
+        0,
+        "const(2)",
+        "h1"
+      ],
+      "primary": [
+        0,
+        "const(2)",
+        "h1"
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "paper4_snapshot",
+      "independent": [
+        "9",
+        "15",
+        "5/2"
+      ],
+      "primary": [
+        "9",
+        "15",
+        "5/2"
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "producer_values",
+      "independent": "UNDEFINED",
+      "primary": "UNDEFINED"
+    },
+    {
+      "agree": true,
+      "claim": "beta0_values_of_holes",
+      "independent": [
+        "2",
+        "7",
+        "3",
+        "5"
+      ],
+      "primary": [
+        "2",
+        "7",
+        "3",
+        "5"
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "carrier[cb_fresh_L][gamma_L].status",
+      "independent": "DEFINED",
+      "primary": "DEFINED"
+    },
+    {
+      "agree": true,
+      "claim": "carrier[cb_fresh_L][gamma_L].value",
+      "independent": [
+        "carrier:L"
+      ],
+      "primary": [
+        "carrier:L"
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "carrier[cb_fresh_L][gamma_M].status",
+      "independent": "DEFINED",
+      "primary": "DEFINED"
+    },
+    {
+      "agree": true,
+      "claim": "carrier[cb_fresh_L][gamma_M].value",
+      "independent": [
+        "carrier:L"
+      ],
+      "primary": [
+        "carrier:L"
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "carrier[cb_fresh_M][gamma_L].status",
+      "independent": "DEFINED",
+      "primary": "DEFINED"
+    },
+    {
+      "agree": true,
+      "claim": "carrier[cb_fresh_M][gamma_L].value",
+      "independent": [
+        "carrier:M"
+      ],
+      "primary": [
+        "carrier:M"
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "carrier[cb_fresh_M][gamma_M].status",
+      "independent": "DEFINED",
+      "primary": "DEFINED"
+    },
+    {
+      "agree": true,
+      "claim": "carrier[cb_fresh_M][gamma_M].value",
+      "independent": [
+        "carrier:M"
+      ],
+      "primary": [
+        "carrier:M"
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "carrier[cb_pass][gamma_L].status",
+      "independent": "DEFINED",
+      "primary": "DEFINED"
+    },
+    {
+      "agree": true,
+      "claim": "carrier[cb_pass][gamma_L].value",
+      "independent": [
+        "carrier:L"
+      ],
+      "primary": [
+        "carrier:L"
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "carrier[cb_pass][gamma_M].status",
+      "independent": "DEFINED",
+      "primary": "DEFINED"
+    },
+    {
+      "agree": true,
+      "claim": "carrier[cb_pass][gamma_M].value",
+      "independent": [
+        "carrier:M"
+      ],
+      "primary": [
+        "carrier:M"
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "carrier[cb_route_L][gamma_L].status",
+      "independent": "DEFINED",
+      "primary": "DEFINED"
+    },
+    {
+      "agree": true,
+      "claim": "carrier[cb_route_L][gamma_L].value",
+      "independent": [
+        "carrier:L"
+      ],
+      "primary": [
+        "carrier:L"
+      ]
+    },
+    {
+      "agree": true,
+      "claim": "carrier[cb_route_L][gamma_M].status",
+      "independent": "REJECTED",
+      "primary": "REJECTED"
+    },
+    {
+      "agree": true,
+      "claim": "carrier[cb_route_L][gamma_M].code",
+      "independent": "EXP3-PROVENANCE-MISWIRE",
+      "primary": "EXP3-PROVENANCE-MISWIRE"
+    }
+  ],
+  "conclusion": "the independent term route reproduces every primary verdict and every reported witness",
+  "contract": {
+    "path": "research/process-representation-gap/contracts/exp3-typed-hole-context.v1.json",
+    "sha256": "bd7f958740b1c5d686da5012d59ec1995ad3c1f5af98bead0e3ee9637aa0eb8f"
+  },
+  "disagreements": [],
+  "environment": {
+    "implementation": "cpython",
+    "python_version": "3.14.6"
+  },
+  "hand_table": {
+    "const(2) at beta0": "2",
+    "h1 at beta0": "2",
+    "h1 at beta3": "4",
+    "paper4 y1": "9",
+    "paper4 y2": "15",
+    "paper4 y3": "5/2",
+    "producer q1": "2",
+    "producer q2": "7",
+    "producer q3": "3",
+    "producer q4": "5",
+    "producer q5": "4",
+    "producer u0": "UNDEFINED",
+    "q5 at beta3": "4"
+  },
+  "independence": {
+    "declared_domain_rule": "the composite is defined iff every closure producer is defined and the body term is defined on the substituted values; Paper IV Equation (5.2) written out directly",
+    "route": "direct substitution-and-evaluation: producer values are substituted into the body term and the term is evaluated with fractions.Fraction; no wire, gate, network, schedule, graft receipt or constant-source ancestry is constructed",
+    "shared_module": "tools/gapkit.py only (JSON serialisation, hashing, diagnostics, Cost)",
+    "shared_semantic_helpers": []
+  },
+  "independent_search": {
+    "by_size": {
+      "0": 8,
+      "1": 256,
+      "2": 16384
+    },
+    "declared_filling_equivalence_classes": 1847,
+    "domain_size": 16648,
+    "grid_size": 63,
+    "grid_sufficient_candidates": [],
+    "initial_summary_classes": 341,
+    "initial_summary_insufficient_fibres": 232,
+    "minimal_witness_bodies": [
+      "const(2)",
+      "h1"
+    ],
+    "minimal_witness_rank": [
+      0,
+      "const(2)",
+      "h1"
+    ]
+  },
+  "negative_controls": [
+    {
+      "expected": "EXP-CONTRACT-DRIFT",
+      "id": "independent-contract-drift",
+      "observed": {
+        "code": "EXP-CONTRACT-DRIFT",
+        "detail": "frozen 'bd7f958740b1c5d686da5012d59ec1995ad3c1f5af98bead0e3ee9637aa0eb8f' != observed 'c8cbebef6967e8c269617d4957db0545c064db10440090d2371d6045f5b2444e'"
+      }
+    },
+    {
+      "expected": "EXP3-TYPE-MISMATCH",
+      "id": "independent-graft-type-mismatch",
+      "observed": {
+        "code": "EXP3-TYPE-MISMATCH",
+        "detail": "hole h1 expects Q, producer supplies CarrierID"
+      }
+    },
+    {
+      "expected": "EXP3-STRICT-DIVISION-BY-ZERO",
+      "id": "independent-strict-division-by-zero",
+      "observed": {
+        "code": "EXP3-STRICT-DIVISION-BY-ZERO",
+        "detail": "the readout body divides by the exact rational 0 at f = 0"
+      }
+    },
+    {
+      "expected": "EXP3-ROUTE-DISAGREEMENT",
+      "id": "independent-route-disagreement",
+      "observed": {
+        "code": "EXP3-ROUTE-DISAGREEMENT",
+        "detail": "the term route reports ['9', '15', '5/2'] and the mutated primary table reports ['9', '15', '5/3']"
+      }
+    }
+  ],
+  "role": "independent verification route for exp3",
+  "schema": "aeg.process-representation-gap.exp3-independent.v1",
+  "witness_checks": [
+    {
+      "bodies": [
+        "const(2)",
+        "h1"
+      ],
+      "independent_equivalent_on_all_fillings": false,
+      "independent_first_difference": "beta3",
+      "independent_observation_at_beta0": [
+        [
+          "DEFINED",
+          [
+            "2"
+          ]
+        ],
+        [
+          "DEFINED",
+          [
+            "2"
+          ]
+        ]
+      ],
+      "same_at_beta0": true
+    },
+    {
+      "bodies": [
+        "const(-1)",
+        "add(const(-1),const(0))"
+      ],
+      "independent_equivalent_on_all_fillings": true,
+      "independent_first_difference": null,
+      "independent_observation_at_beta0": [
+        [
+          "DEFINED",
+          [
+            "-1"
+          ]
+        ],
+        [
+          "DEFINED",
+          [
+            "-1"
+          ]
+        ]
+      ],
+      "same_at_beta0": true
+    }
+  ]
+}

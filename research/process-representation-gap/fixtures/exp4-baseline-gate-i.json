@@ -1,0 +1,53 @@
+{
+  "fixture": "exp4-baseline-gate-i",
+  "payload": {
+    "endpoint_values": [
+      0,
+      0
+    ],
+    "objects": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ]
+    ],
+    "states": [
+      -3,
+      -1,
+      0,
+      2,
+      5
+    ],
+    "total_length": 1,
+    "values_at_declared_states": [
+      [
+        -3,
+        -1,
+        0,
+        2,
+        5
+      ],
+      [
+        -6,
+        -2,
+        0,
+        4,
+        10
+      ]
+    ],
+    "words": [
+      "epsilon",
+      "D_2"
+    ]
+  },
+  "schema": "aeg.process-representation-gap.fixture.v1",
+  "source": {
+    "evidence_file": "exp4-objectification-elevation.json",
+    "pointer": "baseline_control.gates.gate_i_task_sufficiency_pi_out.minimal_witness",
+    "sha256": "f5b9d188e1e7efb13b0675c9960ed4660786146d956c2d4729483a7c349abb91"
+  }
+}

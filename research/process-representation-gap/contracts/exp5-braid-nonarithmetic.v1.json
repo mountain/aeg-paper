@@ -1,0 +1,202 @@
+{
+  "schema": "aeg.process-representation-gap.contract.v1",
+  "experiment": "exp5",
+  "slug": "braid-nonarithmetic",
+  "title": "Braids as non-arithmetic processes",
+  "version": "1.0",
+  "date": "2026-10-10",
+  "frozen": true,
+  "plan_reference": "AEG-process-representation-work-plan.md section 6, 实验五",
+
+  "native": {
+    "summary": "The native object is an oriented crossing diagram on a fixed number of strands: a word of crossings read left to right in time, with a declared boundary. It is a combinatorial process before any arithmetic encoding, and the experiment never begins from a matrix.",
+    "syntax": "For strand number n = 3: w in {s1, s2, S1, S2}* where s1 = sigma_1, s2 = sigma_2 are positive crossings and S1 = sigma_1^{-1}, S2 = sigma_2^{-1} are their inverses. The empty word is the trivial braid.",
+    "time_order": "The letters of w are read left to right in time; letter i occurs before letter i+1.",
+    "composition_order": "Automorphisms compose by (f o g)(x) = f(g(x)). The monoid homomorphism Phi is declared by Phi(empty) = id and Phi(w . sigma) = Phi(w) o phi_sigma, so Phi(u v) = Phi(u) o Phi(v). This convention is declared here, is not inferred from any external source, and is verified against the Artin and inverse relations in the frozen witness set.",
+    "types": [
+      "CrossingWord: finite sequence over {s1, s2, S1, S2}",
+      "FreeWord: finite sequence over signed generators {+1,-1,+2,-2,+3,-3}, kept freely reduced",
+      "Automorphism: a triple of FreeWords, the images of x1, x2, x3, each freely reduced",
+      "Permutation: an element of S_3 acting on strand endpoints",
+      "Probe: a declared FreeWord used as an observation"
+    ],
+    "state": "A state is a triple (word, Phi(word), perm(word)). Phi(word) is an element of Aut(F_3); perm(word) is the endpoint permutation in S_3.",
+    "history": "The literal crossing word. Distinct words are never identified by equality of Phi or of perm.",
+    "legality": "Every crossing word is legal; there is no partial action and no declared error outcome at this layer. Illegal inputs are excluded by the type, not by a runtime distinction.",
+    "process_equivalence": "Three inequivalent equalities are declared and kept separate throughout: (E1) literal equality of crossing words; (E2) equality after free reduction, that is, after cancelling adjacent inverse pairs; (E3) equality of braid group elements, decided here by equality of Artin automorphisms. A declared rewrite is legal only in the layer it belongs to.",
+    "allowed_rewrites": [
+      "Free reduction: delete an adjacent pair sigma sigma^{-1} or sigma^{-1} sigma (layer E2)",
+      "Artin relation in B_3: replace s1 s2 s1 by s2 s1 s2 (layer E3)",
+      "Multiplication by the braid relation's inverse (layer E3)"
+    ],
+    "forbidden_rewrites": [
+      "Commuting s1 past s2 (they do not commute in B_3)",
+      "Cancelling non-adjacent inverse pairs",
+      "Treating equal endpoint permutation as equal braid",
+      "Using a linear or matrix representation as the native semantics"
+    ],
+    "faithfulness_statement": "The automorphism Phi(w) determines the braid group element exactly, by Artin's faithfulness theorem for the Artin representation B_n -> Aut(F_n). This experiment USES that theorem and does not reprove it; the finite computation is consistent with it and is reported as such. Faithfulness is asserted only at the layer of braid group elements. Phi(w) does not determine the literal crossing history, and the endpoint permutation determines strictly less than Phi(w)."
+  },
+
+  "domain": {
+    "inputs": "All crossing words over {s1, s2, S1, S2} of length at most 6, including the empty word.",
+    "generators": ["s1", "s2", "S1", "S2"],
+    "actions": "Concatenation of one crossing. The continuation set is the free monoid on the four generators.",
+    "length_budget": {
+      "max_word_length": 6,
+      "expected_total_words": 5461,
+      "per_length": {"0": 1, "1": 4, "2": 16, "3": 64, "4": 256, "5": 1024, "6": 4096}
+    },
+    "resource_budget": {
+      "exhaustive": true,
+      "note": "5461 words are enumerated exhaustively. No sampling. Free reduction and automorphism comparison are exact string operations over the alphabet of signed generators; no linear algebra and no floating point."
+    },
+    "budget_exhaustion_policy": "If the probe-separation search exceeds its declared budget, the reached bound is reported and the conclusion restricted to the searched family. The three mandatory witnesses are never shrunk."
+  },
+
+  "task": {
+    "Q": "Decide, for a pair of crossing words, which of the three declared equalities holds: literal, free-reduction, or braid element. Then answer the observation question: how much of Phi(w) is recoverable from a declared finite family of free-group probes?",
+    "observation": "Layered observations, from finest to coarsest: (L4) the literal word; (L3) the reduced free word; (L2) the Artin automorphism Phi(w) as the triple of reduced images; (L1) the endpoint permutation. A probe observation family P is the map w -> (Phi(w)(p))_{p in P}, restricted to the declared probes.",
+    "initial_observation": "The endpoint permutation perm(w), which is the coarsest declared layer.",
+    "observation_points": "After each letter is read. The experiment records the layer agreement after every prefix, not only at the end of the word.",
+    "adaptive": false,
+    "adaptive_note": "The probe family is frozen before the experiment. Selecting probes adaptively from observations is declared as an open extension and is not performed.",
+    "error_semantics": "No runtime error outcome exists at this layer: all crossing words are legal. Declared implementation errors raise coded diagnostics; there is no invalid-observation channel, and none is invented."
+  },
+
+  "representations": [
+    {
+      "id": "perm",
+      "tier": "existing-summary",
+      "kind": "endpoint permutation",
+      "definition": "perm(w) in S_3, induced by s_i -> transposition (i, i+1).",
+      "datatype": "element of S_3",
+      "update": "right multiplication by the transposition of the new letter",
+      "information_cost": "At most log2(6) bits; the coarsest declared layer."
+    },
+    {
+      "id": "writhe",
+      "tier": "existing-summary",
+      "kind": "exponent sum and generator counts",
+      "definition": "(count_s1 - count_S1, count_s2 - count_S2, count_s1, count_s2, count_S1, count_S2)",
+      "datatype": "(Z, Z, N, N, N, N)",
+      "update": "add the unit vector of the letter",
+      "information_cost": "Six integers; forgets all order."
+    },
+    {
+      "id": "reduced",
+      "tier": "bounded-enhancement",
+      "kind": "freely reduced word",
+      "definition": "the free reduction of w, retaining order",
+      "datatype": "free word",
+      "update": "append and cancel at the seam only",
+      "information_cost": "Unbounded in length, but strictly coarser than the literal word; retains order and forgets inserted inverse pairs."
+    },
+    {
+      "id": "artin",
+      "tier": "bounded-enhancement",
+      "kind": "Artin automorphism image triple",
+      "definition": "Phi(w) as the triple of freely reduced images of x1, x2, x3",
+      "datatype": "(FreeWord, FreeWord, FreeWord)",
+      "update": "Phi(w . sigma) = Phi(w) o phi_sigma, computed by substitution and reduction",
+      "information_cost": "Exact and finite per word; determines the braid element by Artin faithfulness and forgets the literal construction history."
+    },
+    {
+      "id": "probes",
+      "tier": "bounded-enhancement",
+      "kind": "frozen finite probe family",
+      "definition": "preregistered probes P = [x1, x2, x3, x1 x2, x1 x2 x3, x1 x2 x1^{-1}, x1 x2 x3 x1^{-1} x2^{-1} x3^{-1}, (x1 x2)^3]; observe the reduced image of each probe.",
+      "datatype": "tuple of reduced free words, one per probe",
+      "update": "recompute the image of each probe under the updated automorphism",
+      "information_cost": "Reported per probe; the experiment computes the smallest subfamily that separates all braid elements in the declared domain."
+    },
+    {
+      "id": "hist",
+      "tier": "full-history-upper-bound",
+      "kind": "literal crossing word",
+      "definition": "w itself",
+      "datatype": "crossing word",
+      "update": "append",
+      "information_cost": "Unbounded. The UPPER-BOUND CONTROL. The plan states that a faithful group representation still forgets the literal construction history; the two layers serve different tasks and neither is a recommended repair for the other's task without an argument."
+    }
+  ],
+
+  "outcomes": {
+    "success": "The three mandatory witnesses are exhibited with exact data, all layer agreement counts are computed, and the minimal probe subfamily separating braid elements is determined within the declared budget.",
+    "expected_negative": "A concrete pair of crossing words lying in the same probe-observation fiber but in different braid-element classes, or a concrete pair with equal braid element but different literal history. Either is a result.",
+    "implementation_error": "A coded diagnostic raised by a negative control that mutated one declared datum. Each control names its code.",
+    "budget_exhausted": "Reported with the searched subfamily bound; only the exploratory probe search may be bounded.",
+    "unknown": "Questions the declared domain cannot decide, for example the behaviour of the probe family at lengths beyond 6, are reported as open."
+  },
+
+  "independent_check": {
+    "route": "Free-group substitution against composite image tuples. The primary implementation composes automorphisms as image triples and then evaluates a probe by substituting into the composite. The independent implementation never forms a composite: it applies one generator action at a time directly to the probe word, reducing at each step, and compares the final reduced word. A second independent input is a hand-computed table for the mandatory witnesses. A third independent input re-derives the set of braid elements in the declared domain by breadth-first search on the Cayley graph of the automorphism group rather than by word enumeration plus deduplication.",
+    "rationale": "The first route is the plan's own suggested independence pattern (free-group substitution against composite image tuples): the two implementations differ in whether the automorphism is materialised. The Cayley BFS differs from word enumeration in the object being traversed. No semantic helper is shared; only deterministic JSON serialisation is common.",
+    "hand_computed_witnesses": {
+      "Phi(s1) on x1": "x1 x2 x1^{-1}",
+      "Phi(s1) on x2": "x1",
+      "Phi(s1) on x3": "x3",
+      "Phi(s1^{-1}) on x1": "x2",
+      "Phi(s1^{-1}) on x2": "x2^{-1} x1 x2",
+      "Phi(s1^{-1}) on x3": "x3",
+      "Phi(empty)": "identity triple"
+    }
+  },
+
+  "mandatory_witnesses": [
+    {
+      "id": "W1-square-versus-trivial",
+      "statement": "The empty word and sigma_1^2 have the same endpoint permutation and different braid group elements; the Artin action separates them.",
+      "why": "Shows that the coarsest layer cannot see torsion that the group layer sees."
+    },
+    {
+      "id": "W2-artin-relation",
+      "statement": "sigma_1 sigma_2 sigma_1 and sigma_2 sigma_1 sigma_2 have the same braid element and the same Artin action, but different literal words and different generator counts.",
+      "why": "Shows the exact information the braid quotient forgets. The plan requires stating that this is not a group-semantic counterexample when Artin rewriting is allowed."
+    },
+    {
+      "id": "W3-probe-collision",
+      "statement": "A frozen finite probe family is checked for collisions: does observing one or a few free-group words determine the whole action? Collisions are reported with the exact words; if none is found, only the finite-domain result is reported.",
+      "why": "Directly from the work plan."
+    }
+  ],
+
+  "negative_controls": [
+    {"id": "contract-drift", "mutation": "Alter one byte of a copy of this contract.", "expected_diagnostic": "EXP-CONTRACT-DRIFT"},
+    {"id": "braid-relation-fails", "mutation": "Change one Artin image so that s1 s2 s1 and s2 s1 s2 no longer agree.", "expected_diagnostic": "EXP5-BRAID-RELATION"},
+    {"id": "inverse-relation-fails", "mutation": "Change the declared s1^{-1} image to a wrong one.", "expected_diagnostic": "EXP5-INVERSE-RELATION"},
+    {"id": "sign-flip", "mutation": "Flip the sign of one crossing in a frozen witness word.", "expected_diagnostic": "EXP5-WITNESS-SIGN"},
+    {"id": "free-reduction-wrong", "mutation": "Reduce a non-adjacent inverse pair.", "expected_diagnostic": "EXP5-REDUCTION-NOT-ADJACENT"},
+    {"id": "route-disagreement", "mutation": "Mutate one composite image triple before comparing the two evaluation routes.", "expected_diagnostic": "EXP5-ROUTE-DISAGREEMENT"},
+    {"id": "layer-conflation", "mutation": "Assert that equal endpoint permutation implies equal braid element.", "expected_diagnostic": "EXP5-LAYER-CONFLATION"},
+    {"id": "enumeration-count", "mutation": "Change the declared word total from 5461.", "expected_diagnostic": "EXP5-ENUMERATION-MISMATCH"}
+  ],
+
+  "out_of_scope": [
+    "Linear representations, Burau matrices, Alexander or Jones invariants, and any spectral observation. The plan requires these to be declared under a SEPARATE contract and forbids letting a matrix replace the braid process. None is used here.",
+    "Topological quantum computation. The plan requires an anyon model, an encoding space, a measurement model, an approximation accuracy and an error model before any universality claim. None is supplied, so no such claim is made.",
+    "Braid closure, Markov equivalence, and any bridge to knot equivalence. The plan assigns these to later bridge work; this experiment does not identify braid element equality with knot equality.",
+    "Lengths beyond 6 in the exhaustive layer, and unbounded words in any layer."
+  ],
+
+  "evidence": {
+    "format": "One canonical JSON document with a word-level table summary plus the full class tables; the raw per-word table is written beside it as a stable machine-readable file.",
+    "path": "research/process-representation-gap/evidence/exp5-braid-nonarithmetic.json",
+    "raw_table_path": "research/process-representation-gap/evidence/exp5-braid-words.raw.json",
+    "determinism": "Identical bytes under CPython and under python3 -O; enumeration order is the declared lexicographic order over the four generators in the order s1, s2, S1, S2."
+  },
+
+  "reproduction": [
+    "python3 research/process-representation-gap/experiments/exp5_braid_nonarithmetic.py > /tmp/exp5.json",
+    "cmp /tmp/exp5.json research/process-representation-gap/evidence/exp5-braid-nonarithmetic.json",
+    "python3 -O research/process-representation-gap/experiments/exp5_braid_nonarithmetic.py > /tmp/exp5-O.json",
+    "cmp /tmp/exp5.json /tmp/exp5-O.json",
+    "python3 research/process-representation-gap/experiments/exp5_braid_nonarithmetic_independent.py"
+  ],
+
+  "scope_boundary": [
+    "Artin's faithfulness theorem is cited as used, not proved here. The finite computation is consistent with it.",
+    "Group element equality is decided by automorphism equality inside the declared domain; no claim is made that this decision procedure terminates for arbitrary words, although it does, since the automorphism is a finite object for every finite word.",
+    "No arithmetic encoding is used at any layer. The Artin action is a nonlinear symbolic transformation of free-group words."
+  ]
+}

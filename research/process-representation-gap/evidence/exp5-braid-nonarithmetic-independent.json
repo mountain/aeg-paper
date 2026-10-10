@@ -1,0 +1,183 @@
+{
+  "conclusion": "the independent route reproduces every primary count, both relations and all three witnesses",
+  "contract": {
+    "path": "research/process-representation-gap/contracts/exp5-braid-nonarithmetic.v1.json",
+    "sha256": "3cb4feaa8ed326ce80b73ca1945f122a645d6031dd1df5d00db162c081da58f6"
+  },
+  "environment": {
+    "implementation": "cpython",
+    "python_version": "3.14.6"
+  },
+  "hand_table": {
+    "": [
+      [
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    ],
+    "s1": [
+      [
+        [
+          1,
+          2,
+          -1
+        ],
+        [
+          1
+        ],
+        [
+          3
+        ]
+      ]
+    ],
+    "s1^-1": [
+      [
+        [
+          2
+        ],
+        [
+          -2,
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    ],
+    "s2": [
+      [
+        [
+          1
+        ],
+        [
+          2,
+          3,
+          -2
+        ],
+        [
+          2
+        ]
+      ]
+    ],
+    "s2^-1": [
+      [
+        [
+          1
+        ],
+        [
+          3
+        ],
+        [
+          -3,
+          2,
+          3
+        ]
+      ]
+    ]
+  },
+  "layer_counts": {
+    "agreement_with_primary": {
+      "braid": true,
+      "literal": true,
+      "permutation": true,
+      "reduced": true
+    },
+    "braid_by_cayley_bfs": 577,
+    "literal": 5461,
+    "permutation": 6,
+    "reduced": 1457
+  },
+  "negative_controls": [
+    {
+      "expected": "EXP5-ROUTE-DISAGREEMENT",
+      "id": "reversed-composition-route",
+      "observed": {
+        "code": "EXP5-ROUTE-DISAGREEMENT",
+        "detail": "the reversed-composition route agreed with the incremental route"
+      }
+    },
+    {
+      "expected": "EXP5-ROUTE-DISAGREEMENT",
+      "id": "single-generator-image-mutation",
+      "observed": {
+        "code": "EXP5-ROUTE-DISAGREEMENT",
+        "detail": "a single mutated generator image went undetected"
+      }
+    }
+  ],
+  "relations": {
+    "braid": {
+      "verified_on_free_words": 10
+    },
+    "inverse": {
+      "pairs": 4,
+      "verified_on_free_words": 10
+    }
+  },
+  "role": "independent verification route for exp5",
+  "route": {
+    "cayley": "breadth-first traversal of the automorphism group, not word enumeration",
+    "composite": "image triple substituted into the probe",
+    "hand_table": "literal images for the five frozen generator words",
+    "incremental": "generator actions applied one at a time to the probe, in reverse letter order"
+  },
+  "route_agreement": {
+    "disagreements": 0,
+    "probes_checked": 8,
+    "words_checked": 5461
+  },
+  "schema": "aeg.process-representation-gap.exp5-independent.v1",
+  "witnesses": {
+    "W1": {
+      "different_braid": true,
+      "same_permutation": true
+    },
+    "W2": {
+      "different_literal": true,
+      "same_braid": true
+    },
+    "W3_collision_report": {
+      "(x1x2)^3": {
+        "collisions": 364,
+        "distinct": 213
+      },
+      "commutator": {
+        "collisions": 0,
+        "distinct": 577
+      },
+      "x1": {
+        "collisions": 364,
+        "distinct": 213
+      },
+      "x1x2": {
+        "collisions": 364,
+        "distinct": 213
+      },
+      "x1x2x1^-1": {
+        "collisions": 262,
+        "distinct": 315
+      },
+      "x1x2x3": {
+        "collisions": 576,
+        "distinct": 1
+      },
+      "x2": {
+        "collisions": 262,
+        "distinct": 315
+      },
+      "x3": {
+        "collisions": 364,
+        "distinct": 213
+      }
+    },
+    "W3_minimal_size": 1
+  }
+}

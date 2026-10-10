@@ -1,0 +1,135 @@
+name: Process-representation gap research checks
+
+# Work-plan section 11 requires every piece of evidence to be replayable, and
+# section 7 requires normal and optimised execution to agree.  This job proves
+# both on a clean machine, and additionally proves that the COMMITTED evidence
+# is what the checkers actually produce.
+#
+# The programme depends on three repositories.  All three are public, so no
+# cross-repository secret is needed; each is fetched at its pinned commit and a
+# missing or drifted checkout is a hard failure, never a silent skip.
+
+on:
+  pull_request:
+    paths:
+      - "research/process-representation-gap/**"
+      - ".github/workflows/research-process-representation-gap.yml"
+  push:
+    branches:
+      - main
+    paths:
+      - "research/process-representation-gap/**"
+      - ".github/workflows/research-process-representation-gap.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  RESEARCH: research/process-representation-gap
+  AEG_ADVA_COMMIT: 1b9bd090b2c4710916b6a0ccca0ad88fb7d323bd
+  AEG_ADVA_REPRO_COMMIT: cce73004c2b4fbfb87d9ba1ccc66820423273cf6
+  AEG_PG_COMMIT: c47c96fa79123c677172278be59d67ca1cc891b1
+
+jobs:
+  research-checks:
+    runs-on: ubuntu-latest
+    # A full pass is about eight minutes of CPU on an idle machine; the
+    # headroom covers a shared runner.
+    timeout-minutes: 45
+    steps:
+      - name: Check out aeg-paper with full history
+        uses: actions/checkout@v4
+        with:
+          # The baseline manifest resolves three aeg-paper pins, including the
+          # PR-16 review head and its base, so a shallow clone is not enough.
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Fetch the pinned sibling repositories
+        run: |
+          set -euo pipefail
+          siblings="$RUNNER_TEMP/siblings"
+          mkdir -p "$siblings"
+
+          # A depth-1 fetch of the exact commit is enough: the manifest reads
+          # object stores with `git rev-parse <commit>:<path>` and
+          # `git cat-file blob`, and a shallow fetch of one commit carries its
+          # full tree.
+          fetch_commit() {
+            local url="$1" dir="$2" commit="$3"
+            git init --quiet "$dir"
+            git -C "$dir" remote add origin "$url"
+            git -C "$dir" fetch --quiet --depth 1 origin "$commit"
+            git -C "$dir" checkout --quiet --detach FETCH_HEAD
+            echo "$dir at $(git -C "$dir" rev-parse HEAD)"
+          }
+
+          fetch_commit https://github.com/mountain/adva.git \
+            "$siblings/adva" "$AEG_ADVA_COMMIT"
+          # The PR-16 reproduction pin is a second Adva commit: fetch it into
+          # the same object store so the manifest can resolve both.
+          git -C "$siblings/adva" fetch --quiet --depth 1 \
+            origin "$AEG_ADVA_REPRO_COMMIT"
+          git -C "$siblings/adva" cat-file -e "$AEG_ADVA_REPRO_COMMIT^{commit}"
+
+          fetch_commit https://github.com/mountain/process-geometry.git \
+            "$siblings/process-geometry" "$AEG_PG_COMMIT"
+
+      - name: Freeze check -- pinned sources and plan expected values
+        env:
+          AEG_PAPER_REPO: ${{ github.workspace }}
+          AEG_ADVA_REPO: ${{ runner.temp }}/siblings/adva
+          AEG_PROCESS_GEOMETRY_REPO: ${{ runner.temp }}/siblings/process-geometry
+        run: |
+          set -euo pipefail
+          python3 "$RESEARCH/tools/build_manifest.py" --out /tmp/manifest.json
+          python3 - <<'PY'
+          import json
+          m = json.load(open("/tmp/manifest.json"))
+          assert not m["blockers"], m["blockers"]
+          for check in m["plan_expected_value_checks"]:
+              assert check["agrees"], check
+          print("pins and plan expected values agree:", len(m["plan_expected_value_checks"]))
+          PY
+
+      - name: Replay every experiment and compare with the committed evidence
+        env:
+          AEG_PAPER_REPO: ${{ github.workspace }}
+          AEG_ADVA_REPO: ${{ runner.temp }}/siblings/adva
+          AEG_PROCESS_GEOMETRY_REPO: ${{ runner.temp }}/siblings/process-geometry
+        run: |
+          set -euo pipefail
+          cd "$RESEARCH"
+          set +e
+          python3 tools/ci_check.py > /tmp/ci-check.json
+          status=$?
+          set -e
+          # Always surface the report: a failing gate that prints nothing is
+          # not diagnosable, and the first CI run of this job proved that.
+          python3 - <<'PY'
+          import json
+          d = json.load(open("/tmp/ci-check.json"))
+          print("verdict:", d["verdict"])
+          for step in d["steps"]:
+              print("  step", step.get("step"), "exit", step.get("exit_code"),
+                    "failed", [s.get("step") for s in step.get("failed_stages", [])])
+          for failure in d["failures"]:
+              print("FAILURE:", json.dumps(failure, ensure_ascii=False)[:4000])
+          PY
+          exit "$status"
+
+      - name: Upload the verification summary
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: process-representation-gap-verification
+          path: |
+            /tmp/ci-check.json
+            /tmp/manifest.json
+          if-no-files-found: warn
+          retention-days: 14

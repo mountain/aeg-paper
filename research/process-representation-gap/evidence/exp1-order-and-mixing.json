@@ -1,0 +1,2006 @@
+{
+  "boundary": {
+    "closed_for": "native words of length <= 6 with continuations of depth <= 3; downstream words of length <= 4",
+    "open": [
+      "no claim about native words longer than the declared bound",
+      "no claim that no bounded representation, no richer spectral system and no summary at all can serve the mixing task",
+      "no claim that the plant action semigroup admits no linear representation; only that the declared actions are non-injective and that the instance is not derived from a linearisation",
+      "the general trace law trace(composite of n actions) = 2^n + 1 is verified on the declared domain and in the labelled exploratory range, not proved",
+      "adaptive selection of the next observation is not permitted by this contract version"
+    ]
+  },
+  "claims": [
+    {
+      "id": "C1-summary-gap",
+      "scope": "all 127 native words of length <= 6, continuations of depth <= 3",
+      "statement": "pi0(w) = (count_P, count_R, u) is not task-sufficient for the declared mixing task",
+      "status": "bounded-domain-compatible",
+      "support": "cap 46 pi0-colliding pairs with distinct states; the pair (PRR, RPR) shares (1, 2, 1) and reaches (1, 1/4) versus (1, 1/2)"
+    },
+    {
+      "id": "C2-witness-pair",
+      "scope": "the two declared words, exact arithmetic only",
+      "statement": "PRR and RPR have the same action counts, the same declared endpoint readout, and different states",
+      "status": "proved",
+      "support": "exact ledger of transfers and spills recorded in witnesses.gap.spill_paths"
+    },
+    {
+      "id": "C3-counts-alone",
+      "scope": "declared domain",
+      "statement": "the action counts alone do not determine the mixture state",
+      "status": "computationally-verified-example",
+      "support": "PR and RP both have counts (1, 1) and reach (1, 1/2) versus (1/2, 1)"
+    },
+    {
+      "id": "C4-endpoint-alone",
+      "scope": "declared domain",
+      "statement": "the endpoint readout alone does not determine the mixture state",
+      "status": "computationally-verified-example",
+      "support": "the empty word and R both have u = 1 and reach (1, 1) versus (1, 1/2)"
+    },
+    {
+      "id": "C5-spectral-blindness",
+      "scope": "2x2 matrices over Q with the declared row-vector convention; A invertible with det 2",
+      "statement": "the declared spectral summary cannot separate AB from BA, while the frozen-vector observation does",
+      "status": "proved",
+      "support": "BA = A^(-1)(AB)A, so every conjugation invariant agrees; v*AB = (-4, 16) and v*BA = (-1, 13)"
+    },
+    {
+      "id": "C6-single-action-spectra",
+      "scope": "the declared matrices A and B",
+      "statement": "the two declared single actions have the same spectral summary (3, 2) and act differently on the frozen vector",
+      "status": "proved",
+      "support": "v*A = (2, 4), v*B = (-1, 7)"
+    },
+    {
+      "id": "C7-spectral-length-law",
+      "scope": "downstream words of length <= 4; the labelled exploratory range extends to 6 and is excluded from every verdict",
+      "statement": "on the declared downstream domain the spectral summary is a re-encoding of the word length: sigma(w) = (2^|w| + 1, 2^|w|)",
+      "status": "bounded-domain-compatible",
+      "support": "the determinant part is proved by multiplicativity of det and det A = det B = 2; the trace part is verified on the declared domain and in the exploratory range"
+    },
+    {
+      "id": "C8-minimality",
+      "scope": "exhaustive enumeration of all 8001 pairs of the declared 127-word domain",
+      "statement": "the minimal pi0-colliding, task-separated pair is (PRR, RPR) with maximum length 3 and total length 6; no such pair exists with both words of length <= 2",
+      "status": "bounded-domain-compatible",
+      "support": "minimality block; 46 gap pairs in total"
+    },
+    {
+      "id": "C9-nonlinearity-is-load-bearing",
+      "scope": "the declared uncapped variant, all words of length <= 6",
+      "statement": "in the separately declared uncapped variant total volume is invariant, so the endpoint readout determines the state and no gap of the declared form exists there",
+      "status": "proved-with-stated-hypotheses",
+      "support": "P: u/2 + (v + u/2) = u + v and R: (u + v/2) + v/2 = u + v; the declared witnesses spill (PRR ends at total 5/4 against the initial 2)"
+    },
+    {
+      "id": "C10-minimal-repair",
+      "scope": "declared domain and continuation family",
+      "statement": "the two-probe mixing-response pair is task-sufficient and realizes exactly the task equivalence (49 classes = 49 reachable states) with a closed declared update",
+      "status": "bounded-domain-compatible",
+      "support": "representations.pi2_resp and the recovery law u = 2*(response to P).u, v = 2*(response to R).v, verified on all 127 histories"
+    },
+    {
+      "id": "C11-over-refinement",
+      "scope": "declared domain",
+      "statement": "the ordered word and the provenance relation are sufficient but strictly finer than the task (127 classes against 49), so they separate histories the declared task declares equivalent",
+      "status": "bounded-domain-compatible",
+      "support": "the positive control PPRR versus RPRR is task-equivalent yet separated by both candidates"
+    },
+    {
+      "id": "C12-non-injectivity",
+      "scope": "the 49 reachable states of the declared domain",
+      "statement": "the declared actions are not injective on the reachable state set",
+      "status": "computationally-verified-example",
+      "support": "explicit distinct states with equal images under P and under R"
+    },
+    {
+      "id": "C13-no-general-claim",
+      "scope": "the declared domain only",
+      "statement": "nothing here is a general theorem about all words, all summaries, all spectra or all plants",
+      "status": "open",
+      "support": "boundary.open"
+    }
+  ],
+  "contract": {
+    "path": "research/process-representation-gap/contracts/exp1-order-and-mixing.v1.json",
+    "sha256": "d1ab186a2fefc0f803e293a0742a03c2fa96f89ca8eae266cef1c24de81d8c77"
+  },
+  "cost": {
+    "hist": {
+      "cost": {
+        "computation_steps": 1284,
+        "observations": 7507,
+        "storage_bytes": 15789,
+        "structural_size": 3210,
+        "verification_cost": 1905
+      },
+      "id": "hist",
+      "max_storage_bytes_per_history": 147,
+      "mean_storage_bytes_per_history": "15789/127",
+      "representation_build_observations": 1284,
+      "task_observations": 6223
+    },
+    "pi0": {
+      "cost": {
+        "computation_steps": 127,
+        "observations": 6350,
+        "storage_bytes": 2774,
+        "structural_size": 762,
+        "verification_cost": 1905
+      },
+      "id": "pi0",
+      "max_storage_bytes_per_history": 24,
+      "mean_storage_bytes_per_history": "2774/127",
+      "representation_build_observations": 127,
+      "task_observations": 6223
+    },
+    "pi0_counts": {
+      "cost": {
+        "computation_steps": 127,
+        "observations": 6223,
+        "storage_bytes": 1651,
+        "structural_size": 508,
+        "verification_cost": 1905
+      },
+      "id": "pi0_counts",
+      "max_storage_bytes_per_history": 13,
+      "mean_storage_bytes_per_history": "13",
+      "representation_build_observations": 0,
+      "task_observations": 6223
+    },
+    "pi0_endpoint": {
+      "cost": {
+        "computation_steps": 127,
+        "observations": 6350,
+        "storage_bytes": 1504,
+        "structural_size": 254,
+        "verification_cost": 1905
+      },
+      "id": "pi0_endpoint",
+      "max_storage_bytes_per_history": 14,
+      "mean_storage_bytes_per_history": "1504/127",
+      "representation_build_observations": 127,
+      "task_observations": 6223
+    },
+    "pi1_word": {
+      "cost": {
+        "computation_steps": 769,
+        "observations": 6865,
+        "storage_bytes": 4875,
+        "structural_size": 1284,
+        "verification_cost": 1905
+      },
+      "id": "pi1_word",
+      "max_storage_bytes_per_history": 45,
+      "mean_storage_bytes_per_history": "4875/127",
+      "representation_build_observations": 642,
+      "task_observations": 6223
+    },
+    "pi2_resp": {
+      "cost": {
+        "computation_steps": 254,
+        "observations": 6477,
+        "storage_bytes": 8089,
+        "structural_size": 1270,
+        "verification_cost": 1905
+      },
+      "id": "pi2_resp",
+      "max_storage_bytes_per_history": 71,
+      "mean_storage_bytes_per_history": "8089/127",
+      "representation_build_observations": 254,
+      "task_observations": 6223
+    },
+    "pi2_resp_d2": {
+      "cost": {
+        "computation_steps": 889,
+        "observations": 7112,
+        "storage_bytes": 27643,
+        "structural_size": 4445,
+        "verification_cost": 1905
+      },
+      "id": "pi2_resp_d2",
+      "max_storage_bytes_per_history": 248,
+      "mean_storage_bytes_per_history": "27643/127",
+      "representation_build_observations": 889,
+      "task_observations": 6223
+    },
+    "pi2_resp_d3": {
+      "cost": {
+        "computation_steps": 1905,
+        "observations": 8128,
+        "storage_bytes": 60031,
+        "structural_size": 9525,
+        "verification_cost": 1905
+      },
+      "id": "pi2_resp_d3",
+      "max_storage_bytes_per_history": 539,
+      "mean_storage_bytes_per_history": "60031/127",
+      "representation_build_observations": 1905,
+      "task_observations": 6223
+    },
+    "pi3_prov": {
+      "cost": {
+        "computation_steps": 1411,
+        "observations": 7507,
+        "storage_bytes": 28727,
+        "structural_size": 5778,
+        "verification_cost": 1905
+      },
+      "id": "pi3_prov",
+      "max_storage_bytes_per_history": 272,
+      "mean_storage_bytes_per_history": "28727/127",
+      "representation_build_observations": 1284,
+      "task_observations": 6223
+    }
+  },
+  "cost_accounting": {
+    "computation_steps": "declared per-history steps of the declared construction",
+    "observations": "declared plant observations used to build the summary, plus the task observations over the whole domain and the frozen continuation family",
+    "storage_bytes": "canonical JSON size of the declared summary payload",
+    "structural_size": "retained scalar fields counted by gapkit.Cost.store",
+    "task_observations_per_domain_and_family": 6223,
+    "verification_cost": "domain size times continuation family size for every representation"
+  },
+  "cost_downstream": {
+    "cost": {
+      "computation_steps": 98,
+      "observations": 0,
+      "storage_bytes": 559,
+      "structural_size": 124,
+      "verification_cost": 31
+    },
+    "id": "pi_spectral",
+    "max_storage_bytes_per_history": 19,
+    "mean_storage_bytes_per_history": "559/31",
+    "representation_build_observations": 0,
+    "task_observations": 0
+  },
+  "domain": {
+    "continuation_depth": 3,
+    "continuation_family": [
+      "",
+      "P",
+      "R",
+      "PP",
+      "PR",
+      "RP",
+      "RR",
+      "PPP",
+      "PPR",
+      "PRP",
+      "PRR",
+      "RPP",
+      "RPR",
+      "RRP",
+      "RRR"
+    ],
+    "downstream_size": 31,
+    "downstream_words": [
+      "",
+      "A",
+      "B",
+      "AA",
+      "AB",
+      "BA",
+      "BB",
+      "AAA",
+      "AAB",
+      "ABA",
+      "ABB",
+      "BAA",
+      "BAB",
+      "BBA",
+      "BBB",
+      "AAAA",
+      "AAAB",
+      "AABA",
+      "AABB",
+      "ABAA",
+      "ABAB",
+      "ABBA",
+      "ABBB",
+      "BAAA",
+      "BAAB",
+      "BABA",
+      "BABB",
+      "BBAA",
+      "BBAB",
+      "BBBA",
+      "BBBB"
+    ],
+    "native_by_length": {
+      "0": 1,
+      "1": 2,
+      "2": 4,
+      "3": 8,
+      "4": 16,
+      "5": 32,
+      "6": 64
+    },
+    "native_size": 127,
+    "native_words": [
+      "",
+      "P",
+      "R",
+      "PP",
+      "PR",
+      "RP",
+      "RR",
+      "PPP",
+      "PPR",
+      "PRP",
+      "PRR",
+      "RPP",
+      "RPR",
+      "RRP",
+      "RRR",
+      "PPPP",
+      "PPPR",
+      "PPRP",
+      "PPRR",
+      "PRPP",
+      "PRPR",
+      "PRRP",
+      "PRRR",
+      "RPPP",
+      "RPPR",
+      "RPRP",
+      "RPRR",
+      "RRPP",
+      "RRPR",
+      "RRRP",
+      "RRRR",
+      "PPPPP",
+      "PPPPR",
+      "PPPRP",
+      "PPPRR",
+      "PPRPP",
+      "PPRPR",
+      "PPRRP",
+      "PPRRR",
+      "PRPPP",
+      "PRPPR",
+      "PRPRP",
+      "PRPRR",
+      "PRRPP",
+      "PRRPR",
+      "PRRRP",
+      "PRRRR",
+      "RPPPP",
+      "RPPPR",
+      "RPPRP",
+      "RPPRR",
+      "RPRPP",
+      "RPRPR",
+      "RPRRP",
+      "RPRRR",
+      "RRPPP",
+      "RRPPR",
+      "RRPRP",
+      "RRPRR",
+      "RRRPP",
+      "RRRPR",
+      "RRRRP",
+      "RRRRR",
+      "PPPPPP",
+      "PPPPPR",
+      "PPPPRP",
+      "PPPPRR",
+      "PPPRPP",
+      "PPPRPR",
+      "PPPRRP",
+      "PPPRRR",
+      "PPRPPP",
+      "PPRPPR",
+      "PPRPRP",
+      "PPRPRR",
+      "PPRRPP",
+      "PPRRPR",
+      "PPRRRP",
+      "PPRRRR",
+      "PRPPPP",
+      "PRPPPR",
+      "PRPPRP",
+      "PRPPRR",
+      "PRPRPP",
+      "PRPRPR",
+      "PRPRRP",
+      "PRPRRR",
+      "PRRPPP",
+      "PRRPPR",
+      "PRRPRP",
+      "PRRPRR",
+      "PRRRPP",
+      "PRRRPR",
+      "PRRRRP",
+      "PRRRRR",
+      "RPPPPP",
+      "RPPPPR",
+      "RPPPRP",
+      "RPPPRR",
+      "RPPRPP",
+      "RPPRPR",
+      "RPPRRP",
+      "RPPRRR",
+      "RPRPPP",
+      "RPRPPR",
+      "RPRPRP",
+      "RPRPRR",
+      "RPRRPP",
+      "RPRRPR",
+      "RPRRRP",
+      "RPRRRR",
+      "RRPPPP",
+      "RRPPPR",
+      "RRPPRP",
+      "RRPPRR",
+      "RRPRPP",
+      "RRPRPR",
+      "RRPRRP",
+      "RRPRRR",
+      "RRRPPP",
+      "RRRPPR",
+      "RRRPRP",
+      "RRRPRR",
+      "RRRRPP",
+      "RRRRPR",
+      "RRRRRP",
+      "RRRRRR"
+    ]
+  },
+  "downstream_instance": {
+    "convention": "matrices act on row vectors on the right; the composite is the product in word order",
+    "frozen_vector": [
+      "2",
+      "1"
+    ],
+    "spectral_summary": "sigma(M) = (trace(M), det(M))",
+    "spectral_summary_is_a_length_encoding": {
+      "0": [
+        "2",
+        "1"
+      ],
+      "1": [
+        "3",
+        "2"
+      ],
+      "2": [
+        "5",
+        "4"
+      ],
+      "3": [
+        "9",
+        "8"
+      ],
+      "4": [
+        "17",
+        "16"
+      ]
+    },
+    "status": "downstream observation only"
+  },
+  "downstream_spectral_analysis": {
+    "classes_on_domain": 5,
+    "closed_update": true,
+    "closed_update_witness": null,
+    "colliding_fibers": 4,
+    "declared_update": "the declared update is the length law (trace, det) -> (2*trace - 1, 2*det), verified on the declared domain",
+    "domain": "downstream",
+    "domain_size": 31,
+    "id": "pi_spectral",
+    "label": "single-action and composite spectral summary",
+    "largest_fiber": 16,
+    "refinement": "does-not-refine-task",
+    "sufficiency_witness": {
+      "histories": [
+        "A",
+        "B"
+      ],
+      "observations": [
+        [
+          "2",
+          "4"
+        ],
+        [
+          "-1",
+          "7"
+        ]
+      ],
+      "summary_value": [
+        "3",
+        "2"
+      ]
+    },
+    "sufficient": false,
+    "task_classes_on_domain": 31,
+    "tier": "existing-summary"
+  },
+  "environment": {
+    "implementation": "cpython",
+    "python_version": "3.13.5"
+  },
+  "exploratory_structural_check": {
+    "label": "exploratory-beyond-declared-budget",
+    "lengths": {
+      "5": {
+        "spectral_summaries": [
+          [
+            "33",
+            "32"
+          ]
+        ],
+        "words": 32
+      },
+      "6": {
+        "spectral_summaries": [
+          [
+            "65",
+            "64"
+          ]
+        ],
+        "words": 64
+      }
+    },
+    "reason": "the declared downstream enumeration budget is length <= 4; lengths 5 and 6 are checked only to report the shape of the spectral length law and are excluded from every declared verdict"
+  },
+  "hand_table_check": {
+    "matrix": {
+      "A": [
+        "1",
+        "-3",
+        "2"
+      ],
+      "AB": [
+        "1",
+        "-5",
+        "4"
+      ],
+      "B": [
+        "1",
+        "-3",
+        "2"
+      ],
+      "BA": [
+        "1",
+        "-5",
+        "4"
+      ]
+    },
+    "plant": {
+      "": [
+        "1",
+        "1"
+      ],
+      "P": [
+        "1/2",
+        "1"
+      ],
+      "PP": [
+        "1/4",
+        "1"
+      ],
+      "PPP": [
+        "1/8",
+        "1"
+      ],
+      "PPR": [
+        "3/4",
+        "1/2"
+      ],
+      "PPRR": [
+        "1",
+        "1/4"
+      ],
+      "PR": [
+        "1",
+        "1/2"
+      ],
+      "PRP": [
+        "1/2",
+        "1"
+      ],
+      "PRR": [
+        "1",
+        "1/4"
+      ],
+      "R": [
+        "1",
+        "1/2"
+      ],
+      "RP": [
+        "1/2",
+        "1"
+      ],
+      "RPP": [
+        "1/4",
+        "1"
+      ],
+      "RPR": [
+        "1",
+        "1/2"
+      ],
+      "RPRR": [
+        "1",
+        "1/4"
+      ],
+      "RR": [
+        "1",
+        "1/4"
+      ],
+      "RRP": [
+        "1/2",
+        "3/4"
+      ],
+      "RRR": [
+        "1",
+        "1/8"
+      ]
+    },
+    "vector_action": {
+      "A": [
+        "2",
+        "4"
+      ],
+      "AB": [
+        "-4",
+        "16"
+      ],
+      "B": [
+        "-1",
+        "7"
+      ],
+      "BA": [
+        "-1",
+        "13"
+      ]
+    }
+  },
+  "minimality": {
+    "first_six_gap_pairs": [
+      [
+        3,
+        6,
+        "PRR",
+        "RPR"
+      ],
+      [
+        4,
+        8,
+        "PPRR",
+        "PRPR"
+      ],
+      [
+        4,
+        8,
+        "PRRP",
+        "RPRP"
+      ],
+      [
+        4,
+        8,
+        "PRRR",
+        "RPRR"
+      ],
+      [
+        5,
+        10,
+        "PPRRP",
+        "PRPRP"
+      ],
+      [
+        5,
+        10,
+        "PPRRR",
+        "PRPRR"
+      ]
+    ],
+    "gap_pairs_total": 46,
+    "method": "exhaustive enumeration of all pairs of the declared domain, ordered by (max length, total length, word, word)",
+    "minimal_max_length": 3,
+    "minimal_pair": [
+      "PRR",
+      "RPR"
+    ],
+    "minimal_total_length": 6,
+    "note": "the enumeration is finite and exact; it does not upgrade into a general minimality theorem for words beyond the declared bound",
+    "pairs_with_max_length_at_most_2": 0
+  },
+  "native_instance": {
+    "alphabet": [
+      "P",
+      "R"
+    ],
+    "cluster_classes_on_domain": 49,
+    "initial_state": [
+      "1",
+      "1"
+    ],
+    "legality": "total; no partial action and no INVALID outcome",
+    "native_status": "declared exact-rational mixing plant with caller-supplied semantics, carried by the pinned ProcessWord; NOT native Adva execution",
+    "non_injectivity_witnesses": {
+      "P": {
+        "distinct_states": [
+          [
+            "1/4",
+            "7/8"
+          ],
+          [
+            "1/4",
+            "1"
+          ]
+        ],
+        "image": [
+          "1/8",
+          "1"
+        ]
+      },
+      "R": {
+        "distinct_states": [
+          [
+            "7/8",
+            "1/4"
+          ],
+          [
+            "1",
+            "1/4"
+          ]
+        ],
+        "image": [
+          "1",
+          "1/8"
+        ]
+      }
+    },
+    "pour_law": [
+      "P(u, v): t = min(u/2, 1 - v); transferred = t; spilled = u/2 - t; successor = (u/2, v + t)",
+      "R(u, v): t = min(v/2, 1 - u); transferred = t; spilled = v/2 - t; successor = (u + t, v/2)"
+    ],
+    "reachable_state_count": 49,
+    "vessel_swap_conjugacy": {
+      "checked_states": 49,
+      "failures": []
+    },
+    "vessel_swap_isomorphism": "the swap S(u, v) = (v, u) conjugates P and R exactly, so every single-action invariant preserved by the swap agrees on the two actions and cannot report which one occurred"
+  },
+  "negative_controls": [
+    {
+      "expected": "EXP-CONTRACT-DRIFT",
+      "id": "contract-drift",
+      "observed": {
+        "code": "EXP-CONTRACT-DRIFT",
+        "detail": "exp1-order-and-mixing.v1.json: frozen 'd1ab186a2fefc0f803e293a0742a03c2fa96f89ca8eae266cef1c24de81d8c77' != actual 6ce6f7dcc5170acc9ddd859f9ef4351a8b0ed4df841230df244faf3ff52a892e"
+      }
+    },
+    {
+      "expected": "EXP1-PG-DRIFT",
+      "id": "pinned-processword-drift",
+      "observed": {
+        "code": "EXP1-PG-DRIFT",
+        "detail": "history.py: observed 0000000000000000000000000000000000000000000000000000000000000000 != pinned 93e9dc4651f4cf70e2a0980c9fee8ea58cc15acbe89bc064861c37359652cc45"
+      }
+    },
+    {
+      "expected": "EXP1-HAND-TABLE-MISMATCH",
+      "id": "hand-table-mutated",
+      "observed": {
+        "code": "EXP1-HAND-TABLE-MISMATCH",
+        "detail": "plant state of 'PRR' = ('1', '1/4'), hand table says ('1', '1/8')"
+      }
+    },
+    {
+      "expected": "EXP1-SUMMARY-COLLISION-MISSING",
+      "id": "summary-collision-claim",
+      "observed": {
+        "code": "EXP1-SUMMARY-COLLISION-MISSING",
+        "detail": "the declared summary unexpectedly separates the witness pair"
+      }
+    },
+    {
+      "expected": "EXP1-SUMMARY-SUFFICIENCY-REFUTED",
+      "id": "pi0-sufficiency-claim",
+      "observed": {
+        "code": "EXP1-SUMMARY-SUFFICIENCY-REFUTED",
+        "detail": "pi0 is not task-sufficient: ['PRR', 'RPR'] separate"
+      }
+    },
+    {
+      "expected": "EXP1-SPECTRAL-SEPARATION-MISSING",
+      "id": "spectral-separation-claim",
+      "observed": {
+        "code": "EXP1-SPECTRAL-SEPARATION-MISSING",
+        "detail": "the declared spectral summary does not separate AB from BA"
+      }
+    },
+    {
+      "expected": "EXP1-SPECTRAL-SUFFICIENCY-REFUTED",
+      "id": "spectral-sufficiency-claim",
+      "observed": {
+        "code": "EXP1-SPECTRAL-SUFFICIENCY-REFUTED",
+        "detail": "equal composite spectra do not imply the same action on the frozen vector"
+      }
+    },
+    {
+      "expected": "EXP1-CONSERVATION-CLAIM-REFUTED",
+      "id": "uncapped-collision-claim",
+      "observed": {
+        "code": "EXP1-CONSERVATION-CLAIM-REFUTED",
+        "detail": "the uncapped variant conserves total volume, so the endpoint readout determines the state and no collision exists"
+      }
+    },
+    {
+      "expected": "EXP1-POSITIVE-CONTROL-REFUTED",
+      "id": "positive-control-claim",
+      "observed": {
+        "code": "EXP1-POSITIVE-CONTROL-REFUTED",
+        "detail": "the declared positive control is task-equivalent, so the mixing task does not separate it"
+      }
+    },
+    {
+      "expected": "EXP1-MINIMALITY-REFUTED",
+      "id": "minimality-claim",
+      "observed": {
+        "code": "EXP1-MINIMALITY-REFUTED",
+        "detail": "no pi0-colliding, task-separated pair exists with both words of length <= 2"
+      }
+    },
+    {
+      "expected": "EXP1-PLANT-INJECTIVITY-CLAIM-REFUTED",
+      "id": "plant-injectivity-claim",
+      "observed": {
+        "code": "EXP1-PLANT-INJECTIVITY-CLAIM-REFUTED",
+        "detail": "P is not injective on the reachable state set"
+      }
+    },
+    {
+      "expected": "EXP1-RESPONSE-RECOVERY-FAILED",
+      "id": "response-recovery-mutation",
+      "observed": {
+        "code": "EXP1-RESPONSE-RECOVERY-FAILED",
+        "detail": "the declared recovery factor must be 2, not 3"
+      }
+    },
+    {
+      "expected": "EXP1-ROUTE-DISAGREEMENT",
+      "id": "primary-independent-disagreement",
+      "observed": {
+        "code": "EXP1-ROUTE-DISAGREEMENT",
+        "detail": "primary route says ('1', '1/4'), mutated table says ('1', '1/8')"
+      }
+    },
+    {
+      "expected": "EXP1-ENUMERATION-MISMATCH",
+      "id": "enumerated-count-mismatch",
+      "observed": {
+        "code": "EXP1-ENUMERATION-MISMATCH",
+        "detail": "native words of length 3: 8, declared 7"
+      }
+    }
+  ],
+  "pinned_carrier": {
+    "commit": "c47c96fa79123c677172278be59d67ca1cc891b1",
+    "fields": [
+      "steps"
+    ],
+    "git_blob": "0d1f1895744fb87d1fbed141cc20c1812bb1dfac",
+    "interpretation": "interpret_history(ProcessWord, INITIAL, transition) with the caller-supplied pour law",
+    "loader": "importlib.util.spec_from_file_location on the pinned file path",
+    "path_env": "AEG_PROCESS_GEOMETRY_REPO",
+    "pin_check": "match",
+    "relative_path": "src/process_geometry/process/history.py",
+    "repository": "mountain/process-geometry",
+    "sha256": "93e9dc4651f4cf70e2a0980c9fee8ea58cc15acbe89bc064861c37359652cc45",
+    "type": "process_geometry.process.history.ProcessWord"
+  },
+  "representations": {
+    "hist": {
+      "classes_on_domain": 127,
+      "closed_update": true,
+      "closed_update_witness": null,
+      "colliding_fibers": 0,
+      "declared_update": "append one occurrence; upper-bound control only",
+      "domain": "native",
+      "domain_size": 127,
+      "id": "hist",
+      "label": "full literal history with occurrence identity",
+      "largest_fiber": 0,
+      "refinement": "strictly-finer-than-task",
+      "sufficiency_witness": null,
+      "sufficient": true,
+      "task_classes_on_domain": 49,
+      "tier": "full-history-upper-bound"
+    },
+    "pi0": {
+      "classes_on_domain": 95,
+      "closed_update": false,
+      "closed_update_witness": {
+        "action": "P",
+        "history": "",
+        "kind": "update-not-determined-by-summary",
+        "successor_summary": [
+          1,
+          0,
+          "1/2"
+        ],
+        "summary_value": [
+          0,
+          0,
+          "1"
+        ]
+      },
+      "colliding_fibers": 19,
+      "declared_update": "counts increment by the unit vector; the endpoint readout is not retained, so no abstract update is determined",
+      "domain": "native",
+      "domain_size": 127,
+      "id": "pi0",
+      "label": "endpoint readout plus action counts",
+      "largest_fiber": 6,
+      "refinement": "does-not-refine-task",
+      "sufficiency_witness": {
+        "histories": [
+          "PRR",
+          "RPR"
+        ],
+        "shortest_separating_continuation": {
+          "depth": 0,
+          "eta": "",
+          "kind": "observation",
+          "left_readout": [
+            "1",
+            "1/4"
+          ],
+          "right_readout": [
+            "1",
+            "1/2"
+          ]
+        },
+        "states": [
+          [
+            "1",
+            "1/4"
+          ],
+          [
+            "1",
+            "1/2"
+          ]
+        ],
+        "summary_value": [
+          1,
+          2,
+          "1"
+        ]
+      },
+      "sufficient": false,
+      "task_classes_on_domain": 49,
+      "tier": "existing-summary"
+    },
+    "pi0_counts": {
+      "classes_on_domain": 28,
+      "closed_update": true,
+      "closed_update_witness": null,
+      "colliding_fibers": 15,
+      "declared_update": "add the unit vector of the action",
+      "domain": "native",
+      "domain_size": 127,
+      "id": "pi0_counts",
+      "label": "action counts only",
+      "largest_fiber": 20,
+      "refinement": "does-not-refine-task",
+      "sufficiency_witness": {
+        "histories": [
+          "PR",
+          "RP"
+        ],
+        "shortest_separating_continuation": {
+          "depth": 0,
+          "eta": "",
+          "kind": "observation",
+          "left_readout": [
+            "1",
+            "1/2"
+          ],
+          "right_readout": [
+            "1/2",
+            "1"
+          ]
+        },
+        "states": [
+          [
+            "1",
+            "1/2"
+          ],
+          [
+            "1/2",
+            "1"
+          ]
+        ],
+        "summary_value": [
+          1,
+          1
+        ]
+      },
+      "sufficient": false,
+      "task_classes_on_domain": 49,
+      "tier": "existing-summary"
+    },
+    "pi0_endpoint": {
+      "classes_on_domain": 27,
+      "closed_update": false,
+      "closed_update_witness": {
+        "action": "P",
+        "history": "",
+        "kind": "update-not-determined-by-summary",
+        "successor_summary": [
+          "1/2"
+        ],
+        "summary_value": [
+          "1"
+        ]
+      },
+      "colliding_fibers": 17,
+      "declared_update": "the pour law cannot be applied to a state the summary does not retain",
+      "domain": "native",
+      "domain_size": 127,
+      "id": "pi0_endpoint",
+      "label": "endpoint readout only",
+      "largest_fiber": 34,
+      "refinement": "does-not-refine-task",
+      "sufficiency_witness": {
+        "histories": [
+          "",
+          "R"
+        ],
+        "shortest_separating_continuation": {
+          "depth": 0,
+          "eta": "",
+          "kind": "observation",
+          "left_readout": [
+            "1",
+            "1"
+          ],
+          "right_readout": [
+            "1",
+            "1/2"
+          ]
+        },
+        "states": [
+          [
+            "1",
+            "1"
+          ],
+          [
+            "1",
+            "1/2"
+          ]
+        ],
+        "summary_value": [
+          "1"
+        ]
+      },
+      "sufficient": false,
+      "task_classes_on_domain": 49,
+      "tier": "existing-summary"
+    },
+    "pi1_word": {
+      "classes_on_domain": 127,
+      "closed_update": true,
+      "closed_update_witness": null,
+      "colliding_fibers": 0,
+      "declared_update": "append one symbol; total inside the declared budget",
+      "domain": "native",
+      "domain_size": 127,
+      "id": "pi1_word",
+      "label": "ordered word (bounded)",
+      "largest_fiber": 0,
+      "refinement": "strictly-finer-than-task",
+      "sufficiency_witness": null,
+      "sufficient": true,
+      "task_classes_on_domain": 49,
+      "tier": "bounded-enhancement"
+    },
+    "pi2_resp": {
+      "classes_on_domain": 49,
+      "closed_update": true,
+      "closed_update_witness": null,
+      "colliding_fibers": 26,
+      "declared_update": "recover (u, v) by the declared exact recovery law, apply the pour law, re-probe",
+      "domain": "native",
+      "domain_size": 127,
+      "id": "pi2_resp",
+      "label": "finite mixing-response table, family M_C_1_nonempty",
+      "largest_fiber": 9,
+      "refinement": "equal-to-task",
+      "sufficiency_witness": null,
+      "sufficient": true,
+      "task_classes_on_domain": 49,
+      "tier": "bounded-enhancement"
+    },
+    "pi2_resp_d2": {
+      "classes_on_domain": 49,
+      "closed_update": true,
+      "closed_update_witness": null,
+      "colliding_fibers": 26,
+      "declared_update": "recover (u, v) by the declared exact recovery law, apply the pour law, re-probe",
+      "domain": "native",
+      "domain_size": 127,
+      "id": "pi2_resp_d2",
+      "label": "finite mixing-response table, family M_C_2",
+      "largest_fiber": 9,
+      "refinement": "equal-to-task",
+      "sufficiency_witness": null,
+      "sufficient": true,
+      "task_classes_on_domain": 49,
+      "tier": "bounded-enhancement"
+    },
+    "pi2_resp_d3": {
+      "classes_on_domain": 49,
+      "closed_update": true,
+      "closed_update_witness": null,
+      "colliding_fibers": 26,
+      "declared_update": "recover (u, v) by the declared exact recovery law, apply the pour law, re-probe",
+      "domain": "native",
+      "domain_size": 127,
+      "id": "pi2_resp_d3",
+      "label": "finite mixing-response table, family M_C_3",
+      "largest_fiber": 9,
+      "refinement": "equal-to-task",
+      "sufficiency_witness": null,
+      "sufficient": true,
+      "task_classes_on_domain": 49,
+      "tier": "bounded-enhancement"
+    },
+    "pi3_prov": {
+      "classes_on_domain": 127,
+      "closed_update": true,
+      "closed_update_witness": null,
+      "colliding_fibers": 0,
+      "declared_update": "replay the relation to recover the state, apply the pour law, append one record",
+      "domain": "native",
+      "domain_size": 127,
+      "id": "pi3_prov",
+      "label": "provenance and incidence relation",
+      "largest_fiber": 0,
+      "refinement": "strictly-finer-than-task",
+      "sufficiency_witness": null,
+      "sufficient": true,
+      "task_classes_on_domain": 49,
+      "tier": "bounded-enhancement"
+    }
+  },
+  "reserved_verification_family": {
+    "3": {
+      "largest_class": 8,
+      "same_summary_different_action_pairs": 28,
+      "summary_classes": 1,
+      "words": 8
+    },
+    "4": {
+      "largest_class": 16,
+      "same_summary_different_action_pairs": 120,
+      "summary_classes": 1,
+      "words": 16
+    }
+  },
+  "rewrites_used": {
+    "appending-one-declared-action": "the only state transition used anywhere in this experiment",
+    "not-a-rewrite": [
+      "the uncapped linear variant is a SEPARATELY declared model, not a rewrite of the declared plant: its results are reported under uncapped_variant and are never substituted into Instance N",
+      "no forbidden rewrite listed in the contract is used: P and R are never commuted, occurrences are never identified, and no linearisation is substituted for the plant"
+    ],
+    "processword-notation": "the literal words are carried as ProcessWord tuples; the notation change carries no semantics",
+    "vessel-swap-relabelling": "used only to state and check the isomorphism that conjugates P and R; it changes no observation"
+  },
+  "schema": "aeg.process-representation-gap.exp1.v1",
+  "secondary_task_analysis": {
+    "Q_prov": "report the transferred and spilled volume of every step",
+    "declared_query_cost": {
+      "hist": "replay the history under the declared pour law: |w| steps",
+      "pi0": "cannot answer",
+      "pi0_counts": "cannot answer",
+      "pi0_endpoint": "cannot answer",
+      "pi1_word": "replay the word under the declared pour law: |w| steps",
+      "pi2_resp": "cannot answer: the mixture state does not determine the past",
+      "pi2_resp_d2": "cannot answer: the mixture state does not determine the past",
+      "pi2_resp_d3": "cannot answer: the mixture state does not determine the past",
+      "pi3_prov": "one record lookup, no replay"
+    },
+    "verdicts": {
+      "hist": {
+        "answers_provenance_task": true,
+        "witness": null
+      },
+      "pi0": {
+        "answers_provenance_task": false,
+        "witness": {
+          "histories": [
+            "PPRRRR",
+            "PRPRRR"
+          ],
+          "provenance_left": [
+            [
+              0,
+              "P",
+              "0",
+              "1/2"
+            ],
+            [
+              1,
+              "P",
+              "0",
+              "1/4"
+            ],
+            [
+              2,
+              "R",
+              "1/2",
+              "0"
+            ],
+            [
+              3,
+              "R",
+              "1/4",
+              "0"
+            ],
+            [
+              4,
+              "R",
+              "0",
+              "1/8"
+            ],
+            [
+              5,
+              "R",
+              "0",
+              "1/16"
+            ]
+          ],
+          "provenance_right": [
+            [
+              0,
+              "P",
+              "0",
+              "1/2"
+            ],
+            [
+              1,
+              "R",
+              "1/2",
+              "0"
+            ],
+            [
+              2,
+              "P",
+              "1/2",
+              "0"
+            ],
+            [
+              3,
+              "R",
+              "1/2",
+              "0"
+            ],
+            [
+              4,
+              "R",
+              "0",
+              "1/4"
+            ],
+            [
+              5,
+              "R",
+              "0",
+              "1/8"
+            ]
+          ],
+          "summary_value": [
+            2,
+            4,
+            "1"
+          ]
+        }
+      },
+      "pi0_counts": {
+        "answers_provenance_task": false,
+        "witness": {
+          "histories": [
+            "PPPRRR",
+            "PPRPRR"
+          ],
+          "provenance_left": [
+            [
+              0,
+              "P",
+              "0",
+              "1/2"
+            ],
+            [
+              1,
+              "P",
+              "0",
+              "1/4"
+            ],
+            [
+              2,
+              "P",
+              "0",
+              "1/8"
+            ],
+            [
+              3,
+              "R",
+              "1/2",
+              "0"
+            ],
+            [
+              4,
+              "R",
+              "1/4",
+              "0"
+            ],
+            [
+              5,
+              "R",
+              "1/8",
+              "0"
+            ]
+          ],
+          "provenance_right": [
+            [
+              0,
+              "P",
+              "0",
+              "1/2"
+            ],
+            [
+              1,
+              "P",
+              "0",
+              "1/4"
+            ],
+            [
+              2,
+              "R",
+              "1/2",
+              "0"
+            ],
+            [
+              3,
+              "P",
+              "3/8",
+              "0"
+            ],
+            [
+              4,
+              "R",
+              "7/16",
+              "0"
+            ],
+            [
+              5,
+              "R",
+              "3/16",
+              "1/32"
+            ]
+          ],
+          "summary_value": [
+            3,
+            3
+          ]
+        }
+      },
+      "pi0_endpoint": {
+        "answers_provenance_task": false,
+        "witness": {
+          "histories": [
+            "",
+            "R"
+          ],
+          "provenance_left": [],
+          "provenance_right": [
+            [
+              0,
+              "R",
+              "0",
+              "1/2"
+            ]
+          ],
+          "summary_value": [
+            "1"
+          ]
+        }
+      },
+      "pi1_word": {
+        "answers_provenance_task": true,
+        "witness": null
+      },
+      "pi2_resp": {
+        "answers_provenance_task": false,
+        "witness": {
+          "histories": [
+            "PP",
+            "RPP"
+          ],
+          "provenance_left": [
+            [
+              0,
+              "P",
+              "0",
+              "1/2"
+            ],
+            [
+              1,
+              "P",
+              "0",
+              "1/4"
+            ]
+          ],
+          "provenance_right": [
+            [
+              0,
+              "R",
+              "0",
+              "1/2"
+            ],
+            [
+              1,
+              "P",
+              "1/2",
+              "0"
+            ],
+            [
+              2,
+              "P",
+              "0",
+              "1/4"
+            ]
+          ],
+          "summary_value": [
+            [
+              "1/8",
+              "1"
+            ],
+            [
+              "3/4",
+              "1/2"
+            ]
+          ]
+        }
+      },
+      "pi2_resp_d2": {
+        "answers_provenance_task": false,
+        "witness": {
+          "histories": [
+            "PP",
+            "RPP"
+          ],
+          "provenance_left": [
+            [
+              0,
+              "P",
+              "0",
+              "1/2"
+            ],
+            [
+              1,
+              "P",
+              "0",
+              "1/4"
+            ]
+          ],
+          "provenance_right": [
+            [
+              0,
+              "R",
+              "0",
+              "1/2"
+            ],
+            [
+              1,
+              "P",
+              "1/2",
+              "0"
+            ],
+            [
+              2,
+              "P",
+              "0",
+              "1/4"
+            ]
+          ],
+          "summary_value": [
+            [
+              "1/4",
+              "1"
+            ],
+            [
+              "1/8",
+              "1"
+            ],
+            [
+              "3/4",
+              "1/2"
+            ],
+            [
+              "1/16",
+              "1"
+            ],
+            [
+              "5/8",
+              "1/2"
+            ],
+            [
+              "3/8",
+              "7/8"
+            ],
+            [
+              "1",
+              "1/4"
+            ]
+          ]
+        }
+      },
+      "pi2_resp_d3": {
+        "answers_provenance_task": false,
+        "witness": {
+          "histories": [
+            "PP",
+            "RPP"
+          ],
+          "provenance_left": [
+            [
+              0,
+              "P",
+              "0",
+              "1/2"
+            ],
+            [
+              1,
+              "P",
+              "0",
+              "1/4"
+            ]
+          ],
+          "provenance_right": [
+            [
+              0,
+              "R",
+              "0",
+              "1/2"
+            ],
+            [
+              1,
+              "P",
+              "1/2",
+              "0"
+            ],
+            [
+              2,
+              "P",
+              "0",
+              "1/4"
+            ]
+          ],
+          "summary_value": [
+            [
+              "1/4",
+              "1"
+            ],
+            [
+              "1/8",
+              "1"
+            ],
+            [
+              "3/4",
+              "1/2"
+            ],
+            [
+              "1/16",
+              "1"
+            ],
+            [
+              "5/8",
+              "1/2"
+            ],
+            [
+              "3/8",
+              "7/8"
+            ],
+            [
+              "1",
+              "1/4"
+            ],
+            [
+              "1/32",
+              "1"
+            ],
+            [
+              "9/16",
+              "1/2"
+            ],
+            [
+              "5/16",
+              "13/16"
+            ],
+            [
+              "7/8",
+              "1/4"
+            ],
+            [
+              "3/16",
+              "1"
+            ],
+            [
+              "13/16",
+              "7/16"
+            ],
+            [
+              "1/2",
+              "3/4"
+            ],
+            [
+              "1",
+              "1/8"
+            ]
+          ]
+        }
+      },
+      "pi3_prov": {
+        "answers_provenance_task": true,
+        "witness": null
+      }
+    }
+  },
+  "uncapped_variant": {
+    "conservation_total_violations": 0,
+    "declared_states_checked": 127,
+    "endpoint_determines_state": "v = 2 - u on the declared domain",
+    "first_collision": null,
+    "summary_collisions_with_distinct_states": 0,
+    "total_is_invariant_on_domain": true
+  },
+  "witnesses": {
+    "gap": {
+      "action_counts": [
+        1,
+        2
+      ],
+      "initial_total": "2",
+      "pair": [
+        "PRR",
+        "RPR"
+      ],
+      "same_action_counts": true,
+      "same_declared_summary": true,
+      "shorter_continuation_depth1_probe": {
+        "P": [
+          [
+            "1/2",
+            "3/4"
+          ],
+          [
+            "1/2",
+            "1"
+          ]
+        ],
+        "R": [
+          [
+            "1",
+            "1/8"
+          ],
+          [
+            "1",
+            "1/4"
+          ]
+        ]
+      },
+      "shortest_distinguishing_continuation": {
+        "depth": 0,
+        "eta": "",
+        "kind": "observation",
+        "left_readout": [
+          "1",
+          "1/4"
+        ],
+        "right_readout": [
+          "1",
+          "1/2"
+        ]
+      },
+      "spill_paths": {
+        "PRR": [
+          [
+            0,
+            "P",
+            "0",
+            "1/2"
+          ],
+          [
+            1,
+            "R",
+            "1/2",
+            "0"
+          ],
+          [
+            2,
+            "R",
+            "0",
+            "1/4"
+          ]
+        ],
+        "RPR": [
+          [
+            0,
+            "R",
+            "0",
+            "1/2"
+          ],
+          [
+            1,
+            "P",
+            "1/2",
+            "0"
+          ],
+          [
+            2,
+            "R",
+            "1/2",
+            "0"
+          ]
+        ]
+      },
+      "states": [
+        [
+          "1",
+          "1/4"
+        ],
+        [
+          "1",
+          "1/2"
+        ]
+      ],
+      "summary_value": [
+        1,
+        2,
+        "1"
+      ],
+      "totals": [
+        "5/4",
+        "3/2"
+      ]
+    },
+    "positive_control": {
+      "action_counts": [
+        2,
+        2
+      ],
+      "distinct_literal_histories": true,
+      "note": "distinct literal histories with the same declared summary that the declared task genuinely cannot separate: an enhancement that separated them would be over-refined for this task",
+      "pair": [
+        "PPRR",
+        "RPRR"
+      ],
+      "same_action_counts": false,
+      "same_declared_summary": false,
+      "same_length": true,
+      "same_state": true,
+      "state": [
+        "1",
+        "1/4"
+      ],
+      "summary_value": [
+        2,
+        2,
+        "1"
+      ],
+      "task_equivalent": true
+    },
+    "response_recovery_law": {
+      "failures": [],
+      "law": "u = 2 * first component of the response to P; v = 2 * second component of the response to R",
+      "verified_on_histories": 127
+    },
+    "secondary_control": {
+      "different_lengths": true,
+      "note": "a pair whose declared summaries DIFFER yet which the task cannot separate, showing that summary inequality is not a semantic difference",
+      "pair": [
+        "PR",
+        "RPR"
+      ],
+      "same_declared_summary": false,
+      "state": [
+        "1",
+        "1/2"
+      ],
+      "summary_values": [
+        [
+          1,
+          1,
+          "1"
+        ],
+        [
+          1,
+          2,
+          "1"
+        ]
+      ],
+      "task_equivalent": true
+    },
+    "spectral": {
+      "action_on_frozen_vector": {
+        "AB": [
+          "-4",
+          "16"
+        ],
+        "BA": [
+          "-1",
+          "13"
+        ]
+      },
+      "claim_scope": "this refutes the CHOSEN spectral summary on the declared domain. It does not refute richer spectral systems, and it makes no claim about spectra outside 2x2 rational matrices with this observation.",
+      "commutator": [
+        [
+          "3/4",
+          "1/4"
+        ],
+        [
+          "-1/4",
+          "5/4"
+        ]
+      ],
+      "composite_summaries": [
+        [
+          "5",
+          "4"
+        ],
+        [
+          "5",
+          "4"
+        ]
+      ],
+      "computation_path": {
+        "AB": [
+          [
+            "2",
+            "1"
+          ],
+          [
+            "2",
+            "4"
+          ],
+          [
+            "-4",
+            "16"
+          ]
+        ],
+        "BA": [
+          [
+            "2",
+            "1"
+          ],
+          [
+            "-1",
+            "7"
+          ],
+          [
+            "-1",
+            "13"
+          ]
+        ]
+      },
+      "conclusion": "the declared spectral summary is a conjugation invariant, so it cannot separate AB from BA, while the declared frozen-vector task does separate them",
+      "conjugacy": {
+        "A_inverse": [
+          [
+            "1",
+            "-1/2"
+          ],
+          [
+            "0",
+            "1/2"
+          ]
+        ],
+        "identity": "B*A = A^(-1)*(A*B)*A",
+        "verified": true
+      },
+      "frozen_vector": [
+        "2",
+        "1"
+      ],
+      "matrices": {
+        "A": {
+          "charpoly": [
+            "1",
+            "-3",
+            "2"
+          ],
+          "det": "2",
+          "matrix": [
+            [
+              "1",
+              "1"
+            ],
+            [
+              "0",
+              "2"
+            ]
+          ],
+          "trace": "3"
+        },
+        "AB": {
+          "charpoly": [
+            "1",
+            "-5",
+            "4"
+          ],
+          "det": "4",
+          "matrix": [
+            [
+              "-1",
+              "5"
+            ],
+            [
+              "-2",
+              "6"
+            ]
+          ],
+          "trace": "5"
+        },
+        "B": {
+          "charpoly": [
+            "1",
+            "-3",
+            "2"
+          ],
+          "det": "2",
+          "matrix": [
+            [
+              "0",
+              "2"
+            ],
+            [
+              "-1",
+              "3"
+            ]
+          ],
+          "trace": "3"
+        },
+        "BA": {
+          "charpoly": [
+            "1",
+            "-5",
+            "4"
+          ],
+          "det": "4",
+          "matrix": [
+            [
+              "0",
+              "4"
+            ],
+            [
+              "-1",
+              "5"
+            ]
+          ],
+          "trace": "5"
+        }
+      },
+      "same_composite_summary": true,
+      "single_action_summaries": {
+        "A": [
+          "3",
+          "2"
+        ],
+        "B": [
+          "3",
+          "2"
+        ]
+      },
+      "single_actions_differ_on_vector": true,
+      "single_actions_share_spectral_summary": true,
+      "words": [
+        "AB",
+        "BA"
+      ]
+    }
+  }
+}

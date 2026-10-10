@@ -1,0 +1,1713 @@
+{
+  "boundary": {
+    "bounded_requirements": [
+      {
+        "requirement": "R3 Reidemeister move instantiated",
+        "status": "bounded (not instantiated)",
+        "why": "a faithful R3 needs a planar-tangle pattern whose exact implementation exceeds this round's budget, and the braid-relation route to it is explicitly out of scope for exp6 (braid closure and Markov equivalence are excluded). The instantiated rewrite system is therefore incomplete by declaration."
+      },
+      {
+        "requirement": "general knot-motion planner",
+        "status": "bounded (not implemented)",
+        "why": "only concrete candidate paths are verified first; the search is a bounded depth-first search inside one fixed-node-count, fixed-parameter-family, fixed-action-dictionary submodel."
+      },
+      {
+        "requirement": "smooth embeddings and physical ropes",
+        "status": "out of model",
+        "why": "finite PL and zero thickness only; no radius, length, curvature or velocity limits"
+      },
+      {
+        "requirement": "wild knots, arbitrary real input",
+        "status": "out of model",
+        "why": "tame finite PL with exact rational data only"
+      },
+      {
+        "requirement": "knot polynomials",
+        "status": "not computed",
+        "why": "writhe, linking number and torus slope are used as declared necessary constraints only; no polynomial invariant is computed and no completeness claim is made for any of them"
+      },
+      {
+        "requirement": "fixed-endpoint process homotopy between the two witness-1 histories",
+        "status": "open",
+        "why": "the experiment records that the literal histories and their costs differ and explicitly does NOT claim a homotopy difference"
+      }
+    ],
+    "not_claimed": [
+      "no completeness of any representation for all tame knots or all legal deformations",
+      "no general knot-motion planner and no claim that a bounded search failure implies non-existence",
+      "no knot invariance inferred from a suggestive construction",
+      "no bridging of braid closure or Markov equivalence to knot equivalence",
+      "no claim that linking number is a complete link invariant",
+      "no claim that a strict simple closed curve on S^2 or T^2 can carry a classical non-trivial knot",
+      "no virtual-knot stabilisation equivalence"
+    ]
+  },
+  "budget": {
+    "max_action_depth": 8,
+    "max_control_nodes": 16,
+    "max_known_obstacles": 3,
+    "max_time_segments": 12
+  },
+  "contract": {
+    "path": "research/process-representation-gap/contracts/exp6-knot-deformation-environment.v1.json",
+    "sha256": "1b8a6d0ddbce2efd708a3875e7c6f32bd05947ffb1b434e74e4d5c5f5cfa82ac"
+  },
+  "costs": {
+    "measurement_note": "Declared units per channel.  observations = declared observation points read on this fixture (endpoint only for tier 1; every declared time breakpoint for tier 2 and 3).  computation_steps = exact arithmetic obligations performed to produce the payload (one per control node evaluated, one per obstacle position, one per move record).  verification_cost = exact stored claims an independent checker must re-derive (one per stored interval certificate or move record).  storage_bytes and structural_size are the canonical serialised size and the retained field count of the payload.",
+    "witness-1-histories": {
+      "tier1": {
+        "cost": {
+          "computation_steps": 2,
+          "observations": 1,
+          "storage_bytes": 46,
+          "structural_size": 2,
+          "verification_cost": 0
+        },
+        "kind": "endpoint"
+      },
+      "tier2": {
+        "cost": {
+          "computation_steps": 4,
+          "observations": 2,
+          "storage_bytes": 85,
+          "structural_size": 7,
+          "verification_cost": 2
+        },
+        "kind": "endpoint+moves"
+      },
+      "tier3": {
+        "cost": {
+          "computation_steps": 6,
+          "observations": 2,
+          "storage_bytes": 207,
+          "structural_size": 17,
+          "verification_cost": 4
+        },
+        "kind": "full-provenance"
+      }
+    },
+    "witness-4-time-parameterisation": {
+      "tier1": {
+        "cost": {
+          "computation_steps": 4,
+          "observations": 1,
+          "storage_bytes": 205,
+          "structural_size": 29,
+          "verification_cost": 0
+        },
+        "kind": "endpoint"
+      },
+      "tier2": {
+        "cost": {
+          "computation_steps": 10,
+          "observations": 6,
+          "storage_bytes": 369,
+          "structural_size": 49,
+          "verification_cost": 20
+        },
+        "kind": "endpoint+actions+obstacles"
+      },
+      "tier3": {
+        "cost": {
+          "computation_steps": 20,
+          "observations": 12,
+          "storage_bytes": 1671,
+          "structural_size": 183,
+          "verification_cost": 40
+        },
+        "kind": "full-record"
+      }
+    }
+  },
+  "environment": {
+    "implementation": "cpython",
+    "python_version": "3.14.6"
+  },
+  "environments": {
+    "euclidean-space": {
+      "ambient_isotopy_contract": "isotopy of embeddings + ambient extension + relative boundary data",
+      "computed_here": [
+        "interval self-embedding certificates",
+        "ambient translation certificates"
+      ],
+      "native_object": "S^1 embedded in R^3 as a finite rational PL closed curve",
+      "zero_thickness_only": "a zero-thickness topological rope is modelled; physical ropes with radius, length, curvature and velocity limits are a different contract"
+    },
+    "free-3-space-torus-comparison": {
+      "claim": "in unobstructed R^3 both (1,0) and (0,1) are unknots, so the free-3-space task declares them equivalent while the strict-surface task does not",
+      "computed_here": "the slope arithmetic, primitivity and geometric intersection numbers above are computed exactly; the disk-bounding fact for the standard torus is cited",
+      "status": "proved-with-stated-hypotheses (classical, cited not reproved here)"
+    },
+    "obstacle-environment": {
+      "computed_here": [
+        "witness 3 (ball obstacle)",
+        "witness 5 (untraversable closed loop)"
+      ],
+      "information_required": [
+        "obstacle geometry",
+        "obstacle identity",
+        "obstacle timetable",
+        "rope position",
+        "allowed control",
+        "safety margin"
+      ],
+      "native_object": "S^1 embedded in M \\ O_t with a frozen obstacle timetable",
+      "timestamps_required": true,
+      "undirected_connectivity_warning": "adding time and taking undirected connectivity is not an executable path; the process is the time-monotone pair (t, k_t)"
+    },
+    "strict-sphere": {
+      "certificate": {
+        "conclusion": "the curve bounds an embedded flat disk, hence it is unknotted in R^3",
+        "fan_triangles": [
+          [
+            0,
+            1,
+            2
+          ],
+          [
+            0,
+            2,
+            3
+          ]
+        ],
+        "kind": "flat-fan-disk",
+        "plane_normal": [
+          "0",
+          "4",
+          "0"
+        ],
+        "turn_signs": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "conclusion": "a simple closed curve that bounds an embedded disk is unknotted in R^3. For a curve strictly contained in S^2 that disk can be taken inside the sphere (Jordan-Schoenflies, cited), so no classical non-trivial knot can be carried there.",
+      "error": null,
+      "fixture": "w5-loop (planar simple polygon) and the flat fan disk it bounds",
+      "model_note": "the COMPUTED certificate is for the planar case: the declared fixture is planar, simple and convex, so its flat fan triangulation is an embedded disk. The fixture is NOT modelled as a curve lying on a sphere, and that reduction is stated rather than glossed; the sphere-specific step is the cited Jordan-Schoenflies statement.",
+      "status": "computationally-verified-example (planar disk) plus a cited classical statement (sphere)"
+    },
+    "strict-torus": {
+      "basis_fixed": true,
+      "basis_swap": {
+        "consequence": "if a basis-swapping ambient homeomorphism is allowed, the meridian and the longitude become equivalent and the earlier equivalence contract changes; the reported result is for the FIXED oriented basis",
+        "determinant": -1,
+        "longitude_images_to": [
+          1,
+          0
+        ],
+        "matrix": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "meridian_images_to": [
+          0,
+          1
+        ]
+      },
+      "diagonal": {
+        "essential": true,
+        "gcd": 1,
+        "primitive": true,
+        "slope": [
+          1,
+          1
+        ]
+      },
+      "distinct_isootopy_classes_under_fixed_basis": true,
+      "geometric_intersection_numbers": {
+        "longitude-diagonal": 1,
+        "meridian-diagonal": 1,
+        "meridian-longitude": 1
+      },
+      "longitude": {
+        "essential": true,
+        "gcd": 1,
+        "primitive": true,
+        "slope": [
+          0,
+          1
+        ]
+      },
+      "meridian": {
+        "essential": true,
+        "gcd": 1,
+        "primitive": true,
+        "slope": [
+          1,
+          0
+        ]
+      },
+      "status": "proved-with-stated-hypotheses (classification of simple closed curves on the torus, cited not reproved here)"
+    },
+    "thickened-surface": {
+      "computed_here": [
+        "writhe effects of R1 and R2",
+        "over/under-free encoding collision"
+      ],
+      "crossing_data_required": true,
+      "native_object": "diagram on Sigma with labelled crossings carrying over/under data (Sigma x I)",
+      "not_strict_embedding": "crossing over/under information models the THICKENING; a strict simple closed curve in S^2 or T^2 has no crossing data and cannot carry a classical non-trivial knot",
+      "stabilisation": "virtual knots additionally allow stabilisation and destabilisation and must not be conflated with knots in a fixed T^2 x I; no stabilisation equivalence is implemented or claimed here"
+    },
+    "witness-2-environment-changes-equivalence": {
+      "basis_swap_changes_the_contract": {
+        "consequence": "if a basis-swapping ambient homeomorphism is allowed, the meridian and the longitude become equivalent and the earlier equivalence contract changes; the reported result is for the FIXED oriented basis",
+        "determinant": -1,
+        "longitude_images_to": [
+          1,
+          0
+        ],
+        "matrix": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "meridian_images_to": [
+          0,
+          1
+        ]
+      },
+      "curves": [
+        "meridian (1,0)",
+        "longitude (0,1)"
+      ],
+      "free_3_space_task": {
+        "equivalent": true,
+        "why": "both are unknots in unobstructed R^3 (classical, cited not reproved here), so the free-space task declares them equivalent"
+      },
+      "outcome": "success (the environment changes the declared equivalence)",
+      "status": "proved-with-stated-hypotheses (cited classical classification) with exactly computed slope and intersection data",
+      "strict_surface_task": {
+        "equivalent": false,
+        "geometric_intersection_number": 1,
+        "why": "in a fixed oriented basis the meridian and the longitude are distinct primitive classes: their slopes differ, and neither equals the negative of the other, so no isotopy of the torus carries one to the other"
+      }
+    }
+  },
+  "gates": {
+    "A_encodable": {
+      "bounded": "finite encodings cover the declared finitely describable model only; they do NOT encode all arbitrary-real continuous paths point by point",
+      "items": [
+        {
+          "encodings": {
+            "keyframe-blind": "L7(S6:motionS14:keyframe-blindI5;I1;I-1;L2(Q0/1;Q1/1;)L2(L5(L3(Q0/1;Q0/1;Q0/1;)L3(Q2/1;Q0/1;Q0/1;)L3(Q2/1;Q4/1;Q0/1;)L3(Q0/1;Q4/1;Q0/1;)L3(Q1/1;Q-1/1;Q1/1;))L5(L3(Q0/1;Q0/1;Q0/1;)L3(Q2/1;Q0/1;Q0/1;)L3(Q2/1;Q4/1;Q0/1;)L3(Q0/1;Q4/1;Q0/1;)L3(Q1/1;Q-1/1;Q-3/1;))))",
+            "w3-free": "L7(S6:motionS7:w3-freeI4;I1;I-1;L2(Q0/1;Q1/1;)L2(L4(L3(Q-2/1;Q0/1;Q0/1;)L3(Q0/1;Q0/1;Q0/1;)L3(Q0/1;Q2/1;Q0/1;)L3(Q-2/1;Q2/1;Q0/1;))L4(L3(Q2/1;Q0/1;Q0/1;)L3(Q4/1;Q0/1;Q0/1;)L3(Q4/1;Q2/1;Q0/1;)L3(Q2/1;Q2/1;Q0/1;))))",
+            "w3-plan": "L7(S6:motionS7:w3-planI4;I1;I-1;L5(Q0/1;Q1/1;Q2/1;Q3/1;Q4/1;)L5(L4(L3(Q-2/1;Q0/1;Q0/1;)L3(Q0/1;Q0/1;Q0/1;)L3(Q0/1;Q2/1;Q0/1;)L3(Q-2/1;Q2/1;Q0/1;))L4(L3(Q-2/1;Q0/1;Q2/1;)L3(Q0/1;Q0/1;Q2/1;)L3(Q0/1;Q2/1;Q2/1;)L3(Q-2/1;Q2/1;Q2/1;))L4(L3(Q0/1;Q0/1;Q2/1;)L3(Q2/1;Q0/1;Q2/1;)L3(Q2/1;Q2/1;Q2/1;)L3(Q0/1;Q2/1;Q2/1;))L4(L3(Q2/1;Q0/1;Q2/1;)L3(Q4/1;Q0/1;Q2/1;)L3(Q4/1;Q2/1;Q2/1;)L3(Q2/1;Q2/1;Q2/1;))L4(L3(Q2/1;Q0/1;Q0/1;)L3(Q4/1;Q0/1;Q0/1;)L3(Q4/1;Q2/1;Q0/1;)L3(Q2/1;Q2/1;Q0/1;))))",
+            "w4-P1": "L7(S6:motionS5:w4-P1I4;I1;I-1;L2(Q0/1;Q1/1;)L2(L4(L3(Q0/1;Q0/1;Q0/1;)L3(Q2/1;Q0/1;Q0/1;)L3(Q2/1;Q2/1;Q0/1;)L3(Q0/1;Q2/1;Q0/1;))L4(L3(Q8/1;Q0/1;Q0/1;)L3(Q10/1;Q0/1;Q0/1;)L3(Q10/1;Q2/1;Q0/1;)L3(Q8/1;Q2/1;Q0/1;))))",
+            "w4-P2": "L7(S6:motionS5:w4-P2I4;I1;I-1;L3(Q0/1;Q1/2;Q1/1;)L3(L4(L3(Q0/1;Q0/1;Q0/1;)L3(Q2/1;Q0/1;Q0/1;)L3(Q2/1;Q2/1;Q0/1;)L3(Q0/1;Q2/1;Q0/1;))L4(L3(Q0/1;Q0/1;Q0/1;)L3(Q2/1;Q0/1;Q0/1;)L3(Q2/1;Q2/1;Q0/1;)L3(Q0/1;Q2/1;Q0/1;))L4(L3(Q8/1;Q0/1;Q0/1;)L3(Q10/1;Q0/1;Q0/1;)L3(Q10/1;Q2/1;Q0/1;)L3(Q8/1;Q2/1;Q0/1;))))",
+            "w5-loop": "L7(S6:motionS7:w5-loopI4;I1;I-1;L2(Q0/1;Q1/1;)L2(L4(L3(Q0/1;Q0/1;Q1/1;)L3(Q2/1;Q0/1;Q1/1;)L3(Q2/1;Q0/1;Q-1/1;)L3(Q0/1;Q0/1;Q-1/1;))L4(L3(Q0/1;Q0/1;Q1/1;)L3(Q2/1;Q0/1;Q1/1;)L3(Q2/1;Q0/1;Q-1/1;)L3(Q0/1;Q0/1;Q-1/1;))))",
+            "w5-rope": "L7(S6:motionS7:w5-ropeI4;I1;I-1;L3(Q0/1;Q2/3;Q1/1;)L3(L4(L3(Q-2/1;Q1/1;Q0/1;)L3(Q-4/1;Q1/1;Q0/1;)L3(Q-4/1;Q-1/1;Q0/1;)L3(Q-2/1;Q-1/1;Q0/1;))L4(L3(Q0/1;Q1/1;Q0/1;)L3(Q-2/1;Q1/1;Q0/1;)L3(Q-2/1;Q-1/1;Q0/1;)L3(Q0/1;Q-1/1;Q0/1;))L4(L3(Q1/1;Q1/1;Q0/1;)L3(Q-1/1;Q1/1;Q0/1;)L3(Q-1/1;Q-1/1;Q0/1;)L3(Q1/1;Q-1/1;Q0/1;))))"
+          },
+          "fixtures": [
+            "keyframe-blind",
+            "w3-free",
+            "w3-plan",
+            "w4-P1",
+            "w4-P2",
+            "w5-loop",
+            "w5-rope"
+          ],
+          "item": "encode/decode round trip on every declared fixture",
+          "result": "pass"
+        },
+        {
+          "detail": "7 distinct encodings for 7 fixtures",
+          "item": "syntactic injectivity on the declared family",
+          "result": "pass"
+        }
+      ],
+      "status": "computationally-verified-example",
+      "verdict": "satisfied on the declared finite model"
+    },
+    "B_state_faithful": {
+      "declared_domain_statements": [
+        {
+          "necessary_only_for": "any topological classification of curves in R^3",
+          "sufficient_within": "essential simple closed curves on a fixed torus in a fixed oriented basis",
+          "summary": "torus slope"
+        },
+        {
+          "necessary_only_for": "knot type: writhe is not a knot invariant",
+          "sufficient_within": "declared diagram records with declared crossing signs",
+          "summary": "writhe"
+        },
+        {
+          "necessary_only_for": "link type: it is not a complete link invariant",
+          "sufficient_within": "detecting non-separability of two closed curves",
+          "summary": "linking number"
+        }
+      ],
+      "items": [
+        {
+          "evidence": "the encoding is injective and decodes exactly on the declared family",
+          "item": "encode-equivalence implies literal equality (syntactic injectivity)",
+          "result": "pass"
+        },
+        {
+          "evidence": "the declared state is the literal model record, so encode-equivalence is literal equality",
+          "item": "literal equality is the declared state semantics",
+          "result": "pass"
+        },
+        {
+          "counterexample": {
+            "different_encodings": true,
+            "direction": "encode-equivalence implies topological equivalence, but topological equivalence does NOT imply encode-equivalence, so the iff fails",
+            "equal_topological_semantics": "both are unknots in unobstructed R^3 (classical, cited), so the free-3-space task declares them equivalent while their integer encodings differ",
+            "pair": [
+              "torus meridian (1,0) in free R^3",
+              "torus longitude (0,1) in free R^3"
+            ]
+          },
+          "item": "encode-equivalence if and only if topological state-semantics equivalence",
+          "result": "fail"
+        },
+        {
+          "evidence": "the declared diagram pair whose full encodings differ yet whose over/under-free encodings coincide shows that the integer string carries the literal record, not a topological decision procedure",
+          "item": "syntactic injectivity alone decides topological equivalence",
+          "result": "fail"
+        }
+      ],
+      "not_claimed": "no polynomial invariant is computed; no completeness claim is made for any summary",
+      "status": "computationally-verified-example",
+      "verdict": "satisfied for literal-data state semantics; refuted for topological state semantics"
+    },
+    "C_process_faithful": {
+      "items": [
+        {
+          "detail": "replaying the decoded move history reproduces the endpoint diagram exactly",
+          "item": "D(E(h)) equals h under the declared process semantics",
+          "result": "pass"
+        },
+        {
+          "detail": "the declared composition is text concatenation and it is exact here",
+          "item": "E(h2 . h1) compatible with E(h2) . E(h1)",
+          "result": "pass"
+        },
+        {
+          "grid": [
+            {
+              "agrees": true,
+              "diagram": "kink-positive",
+              "encoded_r1_deletable": [
+                0
+              ],
+              "native_r1_deletable": [
+                0
+              ]
+            },
+            {
+              "agrees": true,
+              "diagram": "kink-negative",
+              "encoded_r1_deletable": [],
+              "native_r1_deletable": []
+            }
+          ],
+          "item": "legality is reflected by the encoded predicate",
+          "result": "pass"
+        },
+        {
+          "detail": "the two witness-1 histories share one endpoint state and have different history encodings, so the history encoding separates them",
+          "item": "task-distinguishable processes are not merged",
+          "result": "pass"
+        }
+      ],
+      "not_claimed": "process faithfulness is checked for the declared action dictionary and the declared histories; fixed-endpoint process homotopy is not decided",
+      "status": "computationally-verified-example",
+      "verdict": "satisfied on the declared domain"
+    },
+    "D_completeness": {
+      "decidability_statement": "classical tame knot equivalence has a decision algorithm (cited); that gives NO decision completeness to a finite-depth action search, and contracts with motion constraints and dynamic obstacles have to be re-studied separately",
+      "items": [
+        {
+          "bounded_domain": "finite rational PL curves with at most 16 control nodes",
+          "question": "can all target states be represented?",
+          "verdict": "no",
+          "why": "wild knots, smooth embeddings and arbitrary real input are outside the model"
+        },
+        {
+          "bounded_domain": "the declared action dictionary up to the declared depth",
+          "question": "can all target processes be generated?",
+          "verdict": "no",
+          "why": "the planner enumerates a fixed submodel; anything outside returns budget_exhausted or unknown"
+        },
+        {
+          "bounded_domain": "the instantiated move calculus (R1, R2; R3 not instantiated)",
+          "question": "can all semantic equivalences be proved by rewriting?",
+          "verdict": "no",
+          "why": "classical R-move completeness for knot diagrams is a cited theorem; this experiment does not implement it, and the move calculus carries no motion constraints or obstacle data"
+        },
+        {
+          "bounded_domain": "all declared finite exact checks",
+          "question": "does the decision algorithm terminate on the declared domain?",
+          "verdict": "yes, with declared incomplete outcomes",
+          "why": "encoding/decoding, the interval certificates, the Fourier-Motzkin separation and the bounded search all terminate; the subdivision search terminates by construction and may return not-certified, which is a declared outcome"
+        }
+      ],
+      "mutual_implication": "A, B, C and D are not mutually implied: encodability here does not give state faithfulness for topological semantics; state faithfulness for literal data does not give process faithfulness for the continuations; and none of them gives completeness"
+    }
+  },
+  "geometric_route": {
+    "details": {
+      "ambient_extension": {
+        "certificates": {
+          "w3-free": {
+            "displacements": [
+              [
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "4",
+                "0",
+                "0"
+              ]
+            ],
+            "kind": "ambient-translation",
+            "map": "Phi_t(x) = x + c(t)",
+            "relative_boundary": "no marked point",
+            "status": "computationally-verified-example (translation class only)",
+            "verified_at_breakpoints": [
+              "0",
+              "1"
+            ]
+          },
+          "w3-plan": {
+            "displacements": [
+              [
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "2"
+              ],
+              [
+                "2",
+                "0",
+                "2"
+              ],
+              [
+                "4",
+                "0",
+                "2"
+              ],
+              [
+                "4",
+                "0",
+                "0"
+              ]
+            ],
+            "kind": "ambient-translation",
+            "map": "Phi_t(x) = x + c(t)",
+            "relative_boundary": "no marked point",
+            "status": "computationally-verified-example (translation class only)",
+            "verified_at_breakpoints": [
+              "0",
+              "1",
+              "2",
+              "3",
+              "4"
+            ]
+          },
+          "w4-P1": {
+            "displacements": [
+              [
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "8",
+                "0",
+                "0"
+              ]
+            ],
+            "kind": "ambient-translation",
+            "map": "Phi_t(x) = x + c(t)",
+            "relative_boundary": "no marked point",
+            "status": "computationally-verified-example (translation class only)",
+            "verified_at_breakpoints": [
+              "0",
+              "1"
+            ]
+          },
+          "w4-P2": {
+            "displacements": [
+              [
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "8",
+                "0",
+                "0"
+              ]
+            ],
+            "kind": "ambient-translation",
+            "map": "Phi_t(x) = x + c(t)",
+            "relative_boundary": "no marked point",
+            "status": "computationally-verified-example (translation class only)",
+            "verified_at_breakpoints": [
+              "0",
+              "1/2",
+              "1"
+            ]
+          },
+          "w5-rope": {
+            "displacements": [
+              [
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "2",
+                "0",
+                "0"
+              ],
+              [
+                "3",
+                "0",
+                "0"
+              ]
+            ],
+            "kind": "ambient-translation",
+            "map": "Phi_t(x) = x + c(t)",
+            "relative_boundary": "no marked point",
+            "status": "computationally-verified-example (translation class only)",
+            "verified_at_breakpoints": [
+              "0",
+              "2/3",
+              "1"
+            ]
+          }
+        },
+        "certified_class": "rigid translation (all nodes share one displacement)",
+        "note": "the closed-curve isotopy extension theorem would supply an ambient extension for any isotopy of embeddings; it is cited, not reproved here, and the constructive certificate is given only for the translation class",
+        "refused_class": [
+          "keyframe-blind",
+          "w5-loop"
+        ]
+      },
+      "keyframe_blindness": {
+        "conclusion": "checking only keyframes is never a continuous safety proof: the declared motion is embedded at t=0 and t=1 and not embedded at t=1/4",
+        "continuous_verdict": "invalid",
+        "continuous_witness": {
+          "edges": [
+            0,
+            3
+          ],
+          "kind": "nonadjacent-crossing",
+          "parameters": [
+            "2/5",
+            "4/5"
+          ],
+          "point": [
+            "4/5",
+            "0",
+            "0"
+          ],
+          "time": "1/4"
+        },
+        "fixture": "keyframe-blind",
+        "keyframe_only_verdict": "valid",
+        "keyframes": [
+          "0",
+          "1"
+        ]
+      },
+      "unknown_outcome_demonstration": {
+        "note": "a declared outcome, not an exception and not a legality claim: with no certificate and no witness inside the budget the checker says so",
+        "outcome": "unknown",
+        "uncertified_boxes": [
+          {
+            "level": 0,
+            "reason": "subdivision-depth",
+            "time": [
+              "0",
+              "1"
+            ]
+          }
+        ],
+        "verdict": "not-certified"
+      },
+      "witness_3_obstacle_changes_legality": {
+        "budget_exhausted_run": {
+          "max_depth": 2,
+          "outcome": "budget_exhausted",
+          "reason": "the goal offset (4,0,0) is reachable in two steps only by the colliding direct path",
+          "searched_nodes": 36
+        },
+        "free_space_path": {
+          "label": "w3-free",
+          "note": "there is no obstacle in free space, so the only obligation is self-embedding",
+          "self_embedding": "valid",
+          "verdict_without_obstacle": "valid"
+        },
+        "outcome": "expected_negative",
+        "replacement": {
+          "certificate_count": 16,
+          "certificate_table": [
+            {
+              "certificate_count": 4,
+              "methods": [
+                "coordinate-hull-separation"
+              ],
+              "min_distance_lower_bound": "1",
+              "time": [
+                "0",
+                "1"
+              ]
+            },
+            {
+              "certificate_count": 4,
+              "methods": [
+                "coordinate-hull-separation"
+              ],
+              "min_distance_lower_bound": "2",
+              "time": [
+                "1",
+                "2"
+              ]
+            },
+            {
+              "certificate_count": 4,
+              "methods": [
+                "coordinate-hull-separation"
+              ],
+              "min_distance_lower_bound": "2",
+              "time": [
+                "2",
+                "3"
+              ]
+            },
+            {
+              "certificate_count": 4,
+              "methods": [
+                "coordinate-hull-separation"
+              ],
+              "min_distance_lower_bound": "1",
+              "time": [
+                "3",
+                "4"
+              ]
+            }
+          ],
+          "found": true,
+          "max_depth": 4,
+          "offsets": [
+            [
+              "-2",
+              "0",
+              "0"
+            ],
+            [
+              "-2",
+              "2",
+              "0"
+            ],
+            [
+              "0",
+              "2",
+              "0"
+            ],
+            [
+              "2",
+              "2",
+              "0"
+            ],
+            [
+              "2",
+              "0",
+              "0"
+            ]
+          ],
+          "path": [
+            "y+2",
+            "x+2",
+            "x+2",
+            "y-2"
+          ],
+          "proved_clearance_lower_bound": "1/2",
+          "pruned_prefixes": 2,
+          "searched_nodes": 260,
+          "uncertified_boxes": 0,
+          "undirected_ordering": 261,
+          "verdict": "valid"
+        },
+        "same_path_with_obstacle": {
+          "collision": {
+            "distance_squared": "0",
+            "edge": 1,
+            "kind": "ball-collision",
+            "obstacle": "w3-ball",
+            "parameter": "1/2",
+            "point": [
+              "1",
+              "1",
+              "0"
+            ],
+            "radius_squared": "1/4",
+            "time": "1/4"
+          },
+          "geometry": "closed ball, centre (1,1,0), radius 1/2, static timetable",
+          "obstacle": "w3-ball",
+          "verdict": "invalid"
+        },
+        "submodel_caveat": "a planning failure inside this fixed-node-count, fixed-parameter-family, fixed-action-dictionary submodel would NOT prove that no legal deformation exists; the depth-2 run is reported as budget_exhausted for exactly that reason"
+      },
+      "witness_4_time_changes_legality": {
+        "certificate_table": [
+          {
+            "certificate_count": 4,
+            "methods": [
+              "coordinate-hull-separation"
+            ],
+            "min_distance_lower_bound": "10",
+            "time": [
+              "0",
+              "1/4"
+            ]
+          },
+          {
+            "certificate_count": 4,
+            "methods": [
+              "coordinate-hull-separation"
+            ],
+            "min_distance_lower_bound": "1",
+            "time": [
+              "1/4",
+              "3/8"
+            ]
+          },
+          {
+            "certificate_count": 4,
+            "methods": [
+              "coordinate-hull-separation"
+            ],
+            "min_distance_lower_bound": "2",
+            "time": [
+              "3/8",
+              "1/2"
+            ]
+          },
+          {
+            "certificate_count": 4,
+            "methods": [
+              "coordinate-hull-separation"
+            ],
+            "min_distance_lower_bound": "3",
+            "time": [
+              "1/2",
+              "5/8"
+            ]
+          },
+          {
+            "certificate_count": 4,
+            "methods": [
+              "coordinate-hull-separation"
+            ],
+            "min_distance_lower_bound": "10",
+            "time": [
+              "5/8",
+              "1"
+            ]
+          }
+        ],
+        "continuous_certificates_stored": 20,
+        "declared_contact": {
+          "distance_squared": "0",
+          "edge": 0,
+          "kind": "ball-collision",
+          "obstacle": "w4-ball",
+          "parameter": "1/2",
+          "point": [
+            "1",
+            "0",
+            "0"
+          ],
+          "radius_squared": "1/16",
+          "time": "3/8"
+        },
+        "free_space_self_embedding": {
+          "w4-P1": "valid",
+          "w4-P2": "valid"
+        },
+        "hand_checked_minimum_distance_squared": "40400/10201",
+        "identical_end_configuration": true,
+        "identical_start_configuration": true,
+        "knot_type_both": "unknot at every time (translate of a planar square, flat disk certificate)",
+        "outcome": "expected_negative",
+        "parameterisations": [
+          "w4-P1",
+          "w4-P2"
+        ],
+        "proved_clearance_lower_bound": "3/4",
+        "rope_motion": {
+          "w4-P1": "constant speed, offsets (0,0,0) -> (8,0,0)",
+          "w4-P2": "waits until t=1/2, then twice as fast"
+        },
+        "with_frozen_obstacle": {
+          "w4-P1": {
+            "boxes": 5,
+            "certificate_count": 20,
+            "certificate_methods": [
+              "coordinate-hull-separation"
+            ],
+            "certified_boxes": 5,
+            "uncertified_boxes": 0,
+            "verdict": "valid"
+          },
+          "w4-P2": {
+            "collision": {
+              "distance_squared": "0",
+              "edge": 0,
+              "kind": "ball-collision",
+              "obstacle": "w4-ball",
+              "parameter": "1/2",
+              "point": [
+                "1",
+                "0",
+                "0"
+              ],
+              "radius_squared": "1/16",
+              "time": "3/8"
+            },
+            "verdict": "invalid"
+          }
+        }
+      },
+      "witness_5_joint_topological": {
+        "collision": {
+          "edges": [
+            3,
+            3
+          ],
+          "kind": "loop-crossing",
+          "obstacle": "w5-loop-obs",
+          "parameters": [
+            "1/2",
+            "1/2"
+          ],
+          "point": [
+            "0",
+            "0",
+            "0"
+          ],
+          "time": "2/3"
+        },
+        "knot_type_of_rope_contains_no_linking_information": "the rope is the unknot at both ends, yet the environment (the loop) separates them",
+        "linking_number": {
+          "at_end": 1,
+          "at_start": 0,
+          "invariance_used": "linking number is invariant under disjoint isotopy (classical, cited): the rope must stay disjoint from the loop, so the path from linking 0 to linking 1 is impossible while disjoint",
+          "not_claimed": "linking number is a necessary constraint only, not a complete link invariant",
+          "route": "algebraic intersection of the rope with the flat spanning disk of the loop",
+          "routes": {
+            "axis_aligned_pair": {
+              "disk_route": 1,
+              "note": "the axis-aligned rope and loop share the x edge direction, so no projection direction makes the crossing count generic; the disk route decides this pair, and the projection route is exercised on the rotated control below",
+              "projection_route": {
+                "direction": [
+                  1,
+                  1,
+                  1
+                ],
+                "error": "degenerate projection: parallel edges",
+                "value": null
+              }
+            },
+            "rotated_control": {
+              "agree": true,
+              "disk_route": {
+                "crossings": [
+                  {
+                    "edge": [
+                      2,
+                      3
+                    ],
+                    "interior": true,
+                    "parameter": "7/8",
+                    "point": [
+                      "5/4",
+                      "0",
+                      "0"
+                    ],
+                    "sign": 1
+                  }
+                ],
+                "value": 1
+              },
+              "hand_argument": "the rotated rope meets the loop's flat rectangle disk exactly once, transversally and in the interior, at (5/4, 0, 0)",
+              "projection_route": {
+                "crossings": [
+                  {
+                    "edges": [
+                      [
+                        2,
+                        3
+                      ],
+                      [
+                        0,
+                        1
+                      ]
+                    ],
+                    "parameters": [
+                      "11/24",
+                      "13/24"
+                    ],
+                    "sign": 1
+                  },
+                  {
+                    "edges": [
+                      [
+                        3,
+                        0
+                      ],
+                      [
+                        2,
+                        3
+                      ]
+                    ],
+                    "parameters": [
+                      "7/18",
+                      "7/9"
+                    ],
+                    "sign": 1
+                  }
+                ],
+                "direction": [
+                  1,
+                  2,
+                  3
+                ],
+                "value": 1
+              },
+              "rope": "square rotated by (cos,sin)=(3/5,4/5) in the plane z=0, coordinates scaled by 5"
+            }
+          }
+        },
+        "obstacle": {
+          "geometry": "closed polygonal loop, boundary of a flat rectangle",
+          "label": "w5-loop-obs",
+          "untraversable": true
+        },
+        "outcome": "expected_negative",
+        "rope_end_knot_type": "unknot (flat disk certificate on the end configuration)",
+        "rope_self_embedding": "valid"
+      }
+    },
+    "fixtures": {
+      "keyframe-blind": {
+        "breakpoints": [
+          "0",
+          "1"
+        ],
+        "closed": true,
+        "nodes": 5,
+        "note": "keyframes embedded, interior time 1/4 has a crossing of edges 0 and 3",
+        "segments": 1
+      },
+      "w3-free": {
+        "breakpoints": [
+          "0",
+          "1"
+        ],
+        "closed": true,
+        "nodes": 4,
+        "note": "free-space candidate path from x=-2 to x=+2",
+        "segments": 1
+      },
+      "w3-plan": {
+        "breakpoints": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        "closed": true,
+        "nodes": 4,
+        "note": "replacement path found by the declared depth-4 search",
+        "segments": 4
+      },
+      "w4-P1": {
+        "breakpoints": [
+          "0",
+          "1"
+        ],
+        "closed": true,
+        "nodes": 4,
+        "note": "rope translates from x=0 to x=8 at constant speed",
+        "segments": 1
+      },
+      "w4-P2": {
+        "breakpoints": [
+          "0",
+          "1/2",
+          "1"
+        ],
+        "closed": true,
+        "nodes": 4,
+        "note": "same rope path, waits half the time then moves twice as fast",
+        "segments": 2
+      },
+      "w5-loop": {
+        "breakpoints": [
+          "0",
+          "1"
+        ],
+        "closed": true,
+        "nodes": 4,
+        "note": "rigid untraversable closed loop, the boundary of a flat rectangle",
+        "segments": 1
+      },
+      "w5-rope": {
+        "breakpoints": [
+          "0",
+          "2/3",
+          "1"
+        ],
+        "closed": true,
+        "nodes": 4,
+        "note": "rope path whose free-space endpoint is linked once with the loop",
+        "segments": 2
+      }
+    }
+  },
+  "hand_table": {
+    "F2_crossing": {
+      "edges": [
+        0,
+        3
+      ],
+      "interior_embedded": false,
+      "keyframes_embedded": true,
+      "parameters": [
+        "2/5",
+        "4/5"
+      ],
+      "point": [
+        "4/5",
+        "0",
+        "0"
+      ],
+      "time": "1/4"
+    },
+    "F3_collision": {
+      "distance_squared": "0",
+      "parameter": "1/2",
+      "point": [
+        "1",
+        "1",
+        "0"
+      ],
+      "radius_squared": "1/4",
+      "time": "1/4"
+    },
+    "F4_clearance_min": {
+      "role": "hand-checked value; the primary route instead stores exact per-box certificates",
+      "source": "exact minimisation of (8t-1)^2 + (80*(3/8-t))^2",
+      "squared_distance_lower_bound": "40400/10201",
+      "window": [
+        "1/4",
+        "3/8"
+      ]
+    },
+    "F4_collision": {
+      "contact_window_start": "3/8",
+      "declared_contact": {
+        "distance_squared": "0",
+        "edge": 0,
+        "kind": "ball-collision",
+        "obstacle": "w4-ball",
+        "parameter": "1/2",
+        "point": [
+          "1",
+          "0",
+          "0"
+        ],
+        "radius_squared": "1/16",
+        "time": "3/8"
+      },
+      "distance_squared": "0",
+      "radius_squared": "1/16",
+      "searched_witness": {
+        "distance_squared": "0",
+        "edge": 0,
+        "kind": "ball-collision",
+        "obstacle": "w4-ball",
+        "parameter": "1/2",
+        "point": [
+          "1",
+          "0",
+          "0"
+        ],
+        "radius_squared": "1/16",
+        "time": "3/8"
+      }
+    },
+    "F5_linking_end": {
+      "crossings": [
+        {
+          "edge": [
+            3,
+            0
+          ],
+          "interior": true,
+          "parameter": "1/2",
+          "point": [
+            "1",
+            "0",
+            "0"
+          ],
+          "sign": 1
+        }
+      ],
+      "value": 1
+    },
+    "F5_linking_routes": {
+      "axis_aligned_pair": {
+        "disk_route": 1,
+        "note": "the axis-aligned rope and loop share the x edge direction, so no projection direction makes the crossing count generic; the disk route decides this pair, and the projection route is exercised on the rotated control below",
+        "projection_route": {
+          "direction": [
+            1,
+            1,
+            1
+          ],
+          "error": "degenerate projection: parallel edges",
+          "value": null
+        }
+      },
+      "rotated_control": {
+        "agree": true,
+        "disk_route": {
+          "crossings": [
+            {
+              "edge": [
+                2,
+                3
+              ],
+              "interior": true,
+              "parameter": "7/8",
+              "point": [
+                "5/4",
+                "0",
+                "0"
+              ],
+              "sign": 1
+            }
+          ],
+          "value": 1
+        },
+        "hand_argument": "the rotated rope meets the loop's flat rectangle disk exactly once, transversally and in the interior, at (5/4, 0, 0)",
+        "projection_route": {
+          "crossings": [
+            {
+              "edges": [
+                [
+                  2,
+                  3
+                ],
+                [
+                  0,
+                  1
+                ]
+              ],
+              "parameters": [
+                "11/24",
+                "13/24"
+              ],
+              "sign": 1
+            },
+            {
+              "edges": [
+                [
+                  3,
+                  0
+                ],
+                [
+                  2,
+                  3
+                ]
+              ],
+              "parameters": [
+                "7/18",
+                "7/9"
+              ],
+              "sign": 1
+            }
+          ],
+          "direction": [
+            1,
+            2,
+            3
+          ],
+          "value": 1
+        },
+        "rope": "square rotated by (cos,sin)=(3/5,4/5) in the plane z=0, coordinates scaled by 5"
+      }
+    },
+    "F5_linking_start": {
+      "crossings": [],
+      "value": 0
+    },
+    "F5_loop_collision": {
+      "edges": [
+        3,
+        3
+      ],
+      "kind": "loop-crossing",
+      "obstacle": "w5-loop-obs",
+      "parameters": [
+        "1/2",
+        "1/2"
+      ],
+      "point": [
+        "0",
+        "0",
+        "0"
+      ],
+      "time": "2/3"
+    },
+    "separation_core": {
+      "origin_in_hull_of": [
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "-1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ]
+      ],
+      "separator": [
+        "1",
+        "1",
+        "0"
+      ],
+      "separator_for": [
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "2",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ]
+      ]
+    },
+    "topological_writhe": {
+      "R1_negative_kink_writhe_delta": -1,
+      "R1_positive_kink_writhe_delta": 1,
+      "R2_bigon_writhe_delta": 0
+    }
+  },
+  "native_process": {
+    "ambient_isotopy_condition": "If a task uses ambient isotopy, the ambient extension and the relative boundary conditions are required. They are certified constructively here only for the declared rigid-translation class; the classical isotopy extension theorem is cited, not reproved",
+    "configuration_space": "In a static environment the process is a path in the embedding configuration space with the declared boundary conditions; paths with equal endpoints need not be equivalent under fixed-endpoint process homotopy, and that homotopy is NOT decided by this experiment",
+    "dynamic_obstacles": "With a moving obstacle the process is the time-monotone pair (t, k_t) with k_t in C_t = {legal embeddings at time t}. Undirected connectivity after adding time is not an executable path",
+    "homotopy_warning": "Allowing merely continuous maps or an ordinary homotopy would wrongly allow the rope to pass through itself; that is not a deformation process in this experiment",
+    "native_process": "k_t : S^1 -> M with every instant a legal embedding and k_t(S^1) cap O_t = empty over the whole declared time interval"
+  },
+  "negative_controls": [
+    {
+      "expected": "EXP-CONTRACT-DRIFT",
+      "id": "contract-drift",
+      "observed": {
+        "code": "EXP-CONTRACT-DRIFT",
+        "detail": "mutated contract digest differs"
+      }
+    },
+    {
+      "expected": "EXP6-CROSSING-INFO-DROPPED",
+      "id": "crossing-information-dropped",
+      "observed": {
+        "code": "EXP6-CROSSING-INFO-DROPPED",
+        "detail": "the over/under-free encodings of the two declared kink records coincide, so dropping crossing information loses the distinction; the full records differ and the declared R1-deletability observable separates them"
+      }
+    },
+    {
+      "expected": "EXP6-TORUS-BASIS-SWAP",
+      "id": "torus-basis-swapped",
+      "observed": {
+        "code": "EXP6-TORUS-BASIS-SWAP",
+        "detail": "the basis swap sends (1,0) to (0,1), so it identifies the meridian and the longitude; the fixed oriented basis contract keeps them distinct"
+      }
+    },
+    {
+      "expected": "EXP6-OBSTACLE-TIMETABLE-MISSING",
+      "id": "obstacle-timestamps-omitted",
+      "observed": {
+        "code": "EXP6-OBSTACLE-TIMETABLE-MISSING",
+        "detail": "w4-ball-stripped: obstacle record carries no timestamps"
+      }
+    },
+    {
+      "expected": "EXP6-KEYFRAME-BLIND",
+      "id": "keyframe-only",
+      "observed": {
+        "code": "EXP6-KEYFRAME-BLIND",
+        "detail": "keyframe-only checking says valid while the continuous check says invalid at t=1/4"
+      }
+    },
+    {
+      "expected": "EXP6-SELF-PASSAGE-DETECTED",
+      "id": "self-passage-allowed",
+      "observed": {
+        "code": "EXP6-SELF-PASSAGE-DETECTED",
+        "detail": "a checker that allows the rope to pass through itself reports valid while the strict checker finds a non-embedded instant at t=1/4"
+      }
+    },
+    {
+      "expected": "EXP6-ROUTE-DISAGREEMENT",
+      "id": "route-disagreement",
+      "observed": {
+        "code": "EXP6-ROUTE-DISAGREEMENT",
+        "detail": "the mutated stored contact time 1/2 disagrees with the independent hand-computed value 3/8"
+      }
+    },
+    {
+      "expected": "EXP6-HAND-TABLE-MISMATCH",
+      "id": "hand-table-mismatch",
+      "observed": {
+        "code": "EXP6-HAND-TABLE-MISMATCH",
+        "detail": "the declared crossing is present: {'kind': 'nonadjacent-crossing', 'time': '1/4', 'edges': [0, 3], 'parameters': ['2/5', '4/5'], 'point': ['4/5', '0', '0']}"
+      }
+    },
+    {
+      "expected": "EXP6-ENCODE-ROUNDTRIP",
+      "id": "encode-decode-roundtrip",
+      "observed": {
+        "code": "EXP6-ENCODE-ROUNDTRIP",
+        "detail": "missing list terminator"
+      }
+    },
+    {
+      "expected": "EXP6-BUDGET-EXCEEDED",
+      "id": "model-beyond-budget",
+      "observed": {
+        "code": "EXP6-BUDGET-EXCEEDED",
+        "detail": "over-budget-nodes: 17 control nodes > 16"
+      }
+    },
+    {
+      "expected": "EXP6-BUDGET-EXHAUSTED",
+      "id": "search-budget-claim",
+      "observed": {
+        "code": "EXP6-BUDGET-EXHAUSTED",
+        "detail": "the depth-2 planner run did not find a certified replacement path"
+      }
+    },
+    {
+      "expected": "EXP6-AMBIENT-EXTENSION-MISSING",
+      "id": "ambient-extension-claim",
+      "observed": {
+        "code": "EXP6-AMBIENT-EXTENSION-MISSING",
+        "detail": "keyframe-blind: node 4 is not a rigid translation, no constructive ambient extension is certified"
+      }
+    },
+    {
+      "expected": "EXP6-STRICT-SPHERE-KNOT",
+      "id": "strict-sphere-knot-claim",
+      "observed": {
+        "code": "EXP6-STRICT-SPHERE-KNOT",
+        "detail": "the declared fixture bounds a flat embedded disk, so it is unknotted in R^3 and cannot carry a non-trivial knot while strictly contained in S^2"
+      }
+    }
+  ],
+  "outcomes_summary": {
+    "budget_exhausted": [
+      "witness 3 with the declared depth-2 search: no certified replacement inside that budget, reported with the searched set"
+    ],
+    "expected_negative": [
+      "witness 3: the free-space path is rejected once the obstacle is introduced",
+      "witness 4: w4-P2 collides under the same frozen obstacle timetable",
+      "witness 5: the untraversable loop rejects the path and the linking number is a necessary constraint",
+      "keyframe blindness: the strict continuous check rejects a motion whose keyframes are embedded"
+    ],
+    "implementation_error": [
+      "every negative control raises its own specific EXP6- diagnostic; none of them is an accidental Python exception"
+    ],
+    "not_reported_as_any_of_these": [
+      "no completeness claim for any representation",
+      "no claim that a bounded search failure proves non-existence of a legal deformation"
+    ],
+    "success": [
+      "gate A encode/decode round trip on every declared fixture",
+      "gate C D(E(h)) = h and E(h2.h1) = E(h1) ++ E(h2) on the declared histories",
+      "witness 1: identity path and local-move-then-inverse path share one endpoint state",
+      "witness 2: torus slope and intersection arithmetic, and the free-3-space comparison",
+      "witness 3: the searched replacement path is certified clear inside the budget",
+      "witness 4: w4-P1 certified clear on every declared time box"
+    ],
+    "unknown": [
+      "declared demonstration: the keyframe-blind fixture with subdivision depth zero returns not-certified with the uncertified time box"
+    ]
+  },
+  "result_labels": {
+    "collision_witnesses": "computationally-verified-example (exact rational time, parameter and point)",
+    "completeness": "bounded-domain-compatible at best: no completeness claim is made",
+    "encoding_round_trip": "computationally-verified-example on the declared finite model",
+    "flat_disk_certificate": "computationally-verified-example (planarity, convexity and the fan triangulation are checked exactly)",
+    "free_space_unknot_comparison": "proved-with-stated-hypotheses (classical, cited not reproved)",
+    "general_knot_motion_planner": "structural-proposal only (not implemented)",
+    "interval_self_embedding_certificates": "proved (exact rational certificate per time box, multilinear box-hull separation)",
+    "keyframe_blindness": "computationally-verified-example (embedded at both keyframes, not embedded at t=1/4)",
+    "linking_number_completeness": "open (not claimed; known to be incomplete in general, not verified here)",
+    "linking_number_invariance_used": "proved-with-stated-hypotheses (classical invariance under disjoint isotopy, cited)",
+    "linking_number_values": "computationally-verified-example (algebraic intersection with a spanning disk, cross-checked by a signed crossing count)",
+    "local_move_calculus": "computationally-verified-example with declared incompleteness (R1 and R2 instantiated, R3 not)",
+    "obstacle_clearance_certificates": "proved (exact rational certificate per time box and edge)",
+    "planning_failure_implies_nonexistence": "open (explicitly not claimed)",
+    "process_faithfulness": "computationally-verified-example on the declared action dictionary",
+    "reidemeister_completeness": "proved-with-stated-hypotheses in the literature (cited), NOT verified or implemented here",
+    "state_faithfulness_topological": "refuted for topological semantics by an explicit witness pair",
+    "strict_sphere_statement": "proved-with-stated-hypotheses (Jordan-Schoenflies cited) with a computationally verified planar disk certificate",
+    "torus_classification_used": "proved-with-stated-hypotheses (classical classification of simple closed curves on the torus, cited not reproved)",
+    "torus_slope_arithmetic": "proved (exact integer arithmetic: primitivity and intersection numbers)",
+    "unknown_outcome_demonstration": "computationally-verified-example",
+    "writhe_effects_of_the_moves": "proved on the declared diagram records (exact sign arithmetic)"
+  },
+  "schema": "aeg.process-representation-gap.exp6.v1",
+  "topological_route": {
+    "calculus": {
+      "diagram": "Gauss word with over/under entry signs plus a declared crossing-sign vector",
+      "incompleteness": "the rewrite system is incomplete by declaration: R3 is not instantiated, so no claim is made that it generates all diagram equivalences. Reidemeister moves characterise classical knot type equivalence; they record no geometric time, distance or process data.",
+      "instantiated_moves": [
+        "R1+",
+        "R1-",
+        "R2+",
+        "R2-"
+      ],
+      "not_instantiated": [
+        "R3"
+      ],
+      "recorded_per_move": [
+        "kind",
+        "position",
+        "label(s)",
+        "before",
+        "after",
+        "provenance"
+      ],
+      "wellformed": "labels 1..k, each appearing exactly once as +k and once as -k"
+    },
+    "crossing_information": {
+      "diagram_a": "word=1,-1;signs=1",
+      "diagram_b": "word=-1,1;signs=1",
+      "full_encoding_equal": false,
+      "knot_type_both": "unknot (a one-crossing diagram of a curve is a kink; cited classical fact, not reproved here)",
+      "over_under_free_encoding_equal": true,
+      "r1_deletable_a": [
+        {
+          "label": 1,
+          "position": 0,
+          "sign": 1
+        }
+      ],
+      "r1_deletable_b": []
+    },
+    "r2_roundtrip": {
+      "delete": {
+        "after": "word=1,-1,2,-2;signs=1,-1",
+        "before": "word=1,3,4,-1,2,-3,-4,-2;signs=1,-1,1,-1",
+        "kind": "R2-",
+        "labels": [
+          3,
+          4
+        ],
+        "positions": [
+          1,
+          3
+        ],
+        "signs": [
+          1,
+          -1
+        ]
+      },
+      "endpoint_after_roundtrip": "word=1,-1,2,-2;signs=1,-1",
+      "insert": {
+        "after": "word=1,3,4,-1,2,-3,-4,-2;signs=1,-1,1,-1",
+        "before": "word=1,-1,2,-2;signs=1,-1",
+        "kind": "R2+",
+        "labels": [
+          3,
+          4
+        ],
+        "positions": [
+          1,
+          3
+        ],
+        "signs": [
+          1,
+          -1
+        ]
+      },
+      "provenance_records": [
+        {
+          "after": "word=1,3,4,-1,2,-3,-4,-2;signs=1,-1,1,-1",
+          "before": "word=1,-1,2,-2;signs=1,-1",
+          "kind": "R2+",
+          "labels": [
+            3,
+            4
+          ],
+          "positions": [
+            1,
+            3
+          ],
+          "provenance": {
+            "index": 0,
+            "parent_state": "word=1,-1,2,-2;signs=1,-1"
+          },
+          "signs": [
+            1,
+            -1
+          ]
+        },
+        {
+          "after": "word=1,-1,2,-2;signs=1,-1",
+          "before": "word=1,3,4,-1,2,-3,-4,-2;signs=1,-1,1,-1",
+          "kind": "R2-",
+          "labels": [
+            3,
+            4
+          ],
+          "positions": [
+            1,
+            3
+          ],
+          "provenance": {
+            "index": 1,
+            "parent_state": "word=1,3,4,-1,2,-3,-4,-2;signs=1,-1,1,-1"
+          },
+          "signs": [
+            1,
+            -1
+          ]
+        }
+      ]
+    },
+    "reachability": {
+      "levels": [
+        {
+          "depth": 1,
+          "new_diagrams": 6,
+          "total": 7
+        },
+        {
+          "depth": 2,
+          "new_diagrams": 60,
+          "total": 67
+        }
+      ],
+      "note": "this is reachability inside the declared incomplete calculus, not a classification of diagrams",
+      "start": "word=1,-1;signs=1"
+    },
+    "witness_1_same_type_different_history": {
+      "endpoint_states_equal": true,
+      "identity_path": {
+        "cost_literal_length": 0,
+        "moves": []
+      },
+      "kink_pair_path": {
+        "cost_literal_length": 2,
+        "moves": [
+          {
+            "after": "word=2,-2,1,-1;signs=1,1",
+            "before": "word=1,-1;signs=1",
+            "kind": "R1+",
+            "label": 2,
+            "position": 0,
+            "sign": 1
+          },
+          {
+            "after": "word=1,-1;signs=1",
+            "before": "word=2,-2,1,-1;signs=1,1",
+            "kind": "R1-",
+            "label": 2,
+            "position": 0,
+            "sign": 1
+          }
+        ]
+      },
+      "kink_pair_path_with_provenance": [
+        {
+          "after": "word=2,-2,1,-1;signs=1,1",
+          "before": "word=1,-1;signs=1",
+          "kind": "R1+",
+          "label": 2,
+          "position": 0,
+          "provenance": {
+            "index": 0,
+            "parent_state": "word=1,-1;signs=1"
+          },
+          "sign": 1
+        },
+        {
+          "after": "word=1,-1;signs=1",
+          "before": "word=2,-2,1,-1;signs=1,1",
+          "kind": "R1-",
+          "label": 2,
+          "position": 0,
+          "provenance": {
+            "index": 1,
+            "parent_state": "word=2,-2,1,-1;signs=1,1"
+          },
+          "sign": 1
+        }
+      ],
+      "not_claimed": "the experiment does NOT claim that the two histories differ under process homotopy; only the literal history and the cost differ",
+      "outcome": "success"
+    },
+    "writhe_effects": {
+      "R1_negative_kink_writhe_delta": -1,
+      "R1_positive_kink_writhe_delta": 1,
+      "R2_bigon_writhe_delta": 0
+    }
+  }
+}
