@@ -47,6 +47,13 @@ jobs:
           python3 -O paper-4/scripts/verify-opposite-features.py > /tmp/opposite-features-optimized.json
           cmp /tmp/opposite-features.json /tmp/opposite-features-optimized.json
 
+      - name: Verify finite process spectrum and cyclic prefixes
+        run: |
+          python3 paper-4/scripts/verify-process-spectrum.py > /tmp/process-spectrum.json
+          cmp /tmp/process-spectrum.json paper-4/scripts/fixtures/process-spectrum/evidence.json
+          python3 -O paper-4/scripts/verify-process-spectrum.py > /tmp/process-spectrum-optimized.json
+          cmp /tmp/process-spectrum.json /tmp/process-spectrum-optimized.json
+
       - name: Build Paper 0
         run: ./build.sh 0
 

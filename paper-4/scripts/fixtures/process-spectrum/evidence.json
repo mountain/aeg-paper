@@ -1,0 +1,977 @@
+{
+  "anytime": [
+    {
+      "events": [],
+      "future_tick_enabled_in_loop": true,
+      "future_tick_enabled_in_stopped": false,
+      "horizon": 0,
+      "open_count": 1
+    },
+    {
+      "events": [
+        {
+          "event": "e0",
+          "iteration": 0,
+          "occurrences": [
+            "e0:left",
+            "e0:right"
+          ],
+          "outputs": {
+            "evidence": {
+              "checked_steps": 1
+            },
+            "history": [
+              0
+            ],
+            "result": 1
+          },
+          "predecessors": [],
+          "sources": [
+            "s0",
+            "s0"
+          ],
+          "transition": "tick",
+          "value": 1
+        }
+      ],
+      "future_tick_enabled_in_loop": true,
+      "future_tick_enabled_in_stopped": false,
+      "horizon": 1,
+      "open_count": 2
+    },
+    {
+      "events": [
+        {
+          "event": "e0",
+          "iteration": 0,
+          "occurrences": [
+            "e0:left",
+            "e0:right"
+          ],
+          "outputs": {
+            "evidence": {
+              "checked_steps": 1
+            },
+            "history": [
+              0
+            ],
+            "result": 1
+          },
+          "predecessors": [],
+          "sources": [
+            "s0",
+            "s0"
+          ],
+          "transition": "tick",
+          "value": 1
+        },
+        {
+          "event": "e1",
+          "iteration": 1,
+          "occurrences": [
+            "e1:left",
+            "e1:right"
+          ],
+          "outputs": {
+            "evidence": {
+              "checked_steps": 2
+            },
+            "history": [
+              0,
+              1
+            ],
+            "result": 2
+          },
+          "predecessors": [
+            "e0"
+          ],
+          "sources": [
+            "s0",
+            "s0"
+          ],
+          "transition": "tick",
+          "value": 2
+        }
+      ],
+      "future_tick_enabled_in_loop": true,
+      "future_tick_enabled_in_stopped": false,
+      "horizon": 2,
+      "open_count": 3
+    },
+    {
+      "events": [
+        {
+          "event": "e0",
+          "iteration": 0,
+          "occurrences": [
+            "e0:left",
+            "e0:right"
+          ],
+          "outputs": {
+            "evidence": {
+              "checked_steps": 1
+            },
+            "history": [
+              0
+            ],
+            "result": 1
+          },
+          "predecessors": [],
+          "sources": [
+            "s0",
+            "s0"
+          ],
+          "transition": "tick",
+          "value": 1
+        },
+        {
+          "event": "e1",
+          "iteration": 1,
+          "occurrences": [
+            "e1:left",
+            "e1:right"
+          ],
+          "outputs": {
+            "evidence": {
+              "checked_steps": 2
+            },
+            "history": [
+              0,
+              1
+            ],
+            "result": 2
+          },
+          "predecessors": [
+            "e0"
+          ],
+          "sources": [
+            "s0",
+            "s0"
+          ],
+          "transition": "tick",
+          "value": 2
+        },
+        {
+          "event": "e2",
+          "iteration": 2,
+          "occurrences": [
+            "e2:left",
+            "e2:right"
+          ],
+          "outputs": {
+            "evidence": {
+              "checked_steps": 3
+            },
+            "history": [
+              0,
+              1,
+              2
+            ],
+            "result": 3
+          },
+          "predecessors": [
+            "e1"
+          ],
+          "sources": [
+            "s0",
+            "s0"
+          ],
+          "transition": "tick",
+          "value": 3
+        }
+      ],
+      "future_tick_enabled_in_loop": true,
+      "future_tick_enabled_in_stopped": false,
+      "horizon": 3,
+      "open_count": 4
+    },
+    {
+      "events": [
+        {
+          "event": "e0",
+          "iteration": 0,
+          "occurrences": [
+            "e0:left",
+            "e0:right"
+          ],
+          "outputs": {
+            "evidence": {
+              "checked_steps": 1
+            },
+            "history": [
+              0
+            ],
+            "result": 1
+          },
+          "predecessors": [],
+          "sources": [
+            "s0",
+            "s0"
+          ],
+          "transition": "tick",
+          "value": 1
+        },
+        {
+          "event": "e1",
+          "iteration": 1,
+          "occurrences": [
+            "e1:left",
+            "e1:right"
+          ],
+          "outputs": {
+            "evidence": {
+              "checked_steps": 2
+            },
+            "history": [
+              0,
+              1
+            ],
+            "result": 2
+          },
+          "predecessors": [
+            "e0"
+          ],
+          "sources": [
+            "s0",
+            "s0"
+          ],
+          "transition": "tick",
+          "value": 2
+        },
+        {
+          "event": "e2",
+          "iteration": 2,
+          "occurrences": [
+            "e2:left",
+            "e2:right"
+          ],
+          "outputs": {
+            "evidence": {
+              "checked_steps": 3
+            },
+            "history": [
+              0,
+              1,
+              2
+            ],
+            "result": 3
+          },
+          "predecessors": [
+            "e1"
+          ],
+          "sources": [
+            "s0",
+            "s0"
+          ],
+          "transition": "tick",
+          "value": 3
+        },
+        {
+          "event": "e3",
+          "iteration": 3,
+          "occurrences": [
+            "e3:left",
+            "e3:right"
+          ],
+          "outputs": {
+            "evidence": {
+              "checked_steps": 4
+            },
+            "history": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "result": 4
+          },
+          "predecessors": [
+            "e2"
+          ],
+          "sources": [
+            "s0",
+            "s0"
+          ],
+          "transition": "tick",
+          "value": 4
+        },
+        {
+          "event": "e4",
+          "iteration": 4,
+          "occurrences": [
+            "e4:left",
+            "e4:right"
+          ],
+          "outputs": {
+            "evidence": {
+              "checked_steps": 5
+            },
+            "history": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
+            "result": 5
+          },
+          "predecessors": [
+            "e3"
+          ],
+          "sources": [
+            "s0",
+            "s0"
+          ],
+          "transition": "tick",
+          "value": 5
+        },
+        {
+          "event": "e5",
+          "iteration": 5,
+          "occurrences": [
+            "e5:left",
+            "e5:right"
+          ],
+          "outputs": {
+            "evidence": {
+              "checked_steps": 6
+            },
+            "history": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "result": 6
+          },
+          "predecessors": [
+            "e4"
+          ],
+          "sources": [
+            "s0",
+            "s0"
+          ],
+          "transition": "tick",
+          "value": 6
+        }
+      ],
+      "future_tick_enabled_in_loop": true,
+      "future_tick_enabled_in_stopped": false,
+      "horizon": 6,
+      "open_count": 7
+    }
+  ],
+  "labelled_posets_checked": 19,
+  "models": [
+    {
+      "adjacency_characteristic": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "boundaries": [
+        {
+          "open": [],
+          "wires": [
+            {
+              "consumer": "a",
+              "occurrence": "input-a",
+              "producer": "input",
+              "role": "internal",
+              "slot": 0,
+              "source": "external:a",
+              "type": "Q"
+            }
+          ]
+        },
+        {
+          "open": [
+            "a"
+          ],
+          "wires": [
+            {
+              "consumer": "b",
+              "occurrence": "edge-0",
+              "producer": "a",
+              "role": "internal",
+              "slot": 0,
+              "source": "event:a",
+              "type": "Q"
+            }
+          ]
+        },
+        {
+          "open": [
+            "a",
+            "b"
+          ],
+          "wires": [
+            {
+              "consumer": "c",
+              "occurrence": "edge-1",
+              "producer": "b",
+              "role": "internal",
+              "slot": 0,
+              "source": "event:b",
+              "type": "Q"
+            }
+          ]
+        },
+        {
+          "open": [
+            "a",
+            "b",
+            "c"
+          ],
+          "wires": [
+            {
+              "consumer": "output",
+              "occurrence": "output-c",
+              "producer": "c",
+              "role": "result",
+              "slot": 0,
+              "source": "event:c",
+              "type": "Q"
+            }
+          ]
+        }
+      ],
+      "characteristic": [
+        1,
+        -4,
+        3,
+        0
+      ],
+      "edges": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          "b",
+          "c"
+        ]
+      ],
+      "ideal_size_polynomial": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "join_irreducibles": [
+        [
+          "a"
+        ],
+        [
+          "a",
+          "b"
+        ],
+        [
+          "a",
+          "b",
+          "c"
+        ]
+      ],
+      "laplacian": [
+        [
+          1,
+          -1,
+          0
+        ],
+        [
+          -1,
+          2,
+          -1
+        ],
+        [
+          0,
+          -1,
+          1
+        ]
+      ],
+      "name": "chain",
+      "opens": [
+        [],
+        [
+          "a"
+        ],
+        [
+          "a",
+          "b"
+        ],
+        [
+          "a",
+          "b",
+          "c"
+        ]
+      ],
+      "order": [
+        [
+          "a",
+          "a"
+        ],
+        [
+          "a",
+          "b"
+        ],
+        [
+          "a",
+          "c"
+        ],
+        [
+          "b",
+          "b"
+        ],
+        [
+          "b",
+          "c"
+        ],
+        [
+          "c",
+          "c"
+        ]
+      ]
+    },
+    {
+      "adjacency_characteristic": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "boundaries": [
+        {
+          "open": [],
+          "wires": [
+            {
+              "consumer": "b",
+              "occurrence": "input-b",
+              "producer": "input",
+              "role": "internal",
+              "slot": 0,
+              "source": "external:b",
+              "type": "Q"
+            }
+          ]
+        },
+        {
+          "open": [
+            "b"
+          ],
+          "wires": [
+            {
+              "consumer": "a",
+              "occurrence": "edge-0",
+              "producer": "b",
+              "role": "internal",
+              "slot": 0,
+              "source": "event:b",
+              "type": "Q"
+            },
+            {
+              "consumer": "c",
+              "occurrence": "edge-1",
+              "producer": "b",
+              "role": "internal",
+              "slot": 0,
+              "source": "event:b",
+              "type": "Q"
+            }
+          ]
+        },
+        {
+          "open": [
+            "a",
+            "b"
+          ],
+          "wires": [
+            {
+              "consumer": "c",
+              "occurrence": "edge-1",
+              "producer": "b",
+              "role": "internal",
+              "slot": 0,
+              "source": "event:b",
+              "type": "Q"
+            },
+            {
+              "consumer": "output",
+              "occurrence": "output-a",
+              "producer": "a",
+              "role": "result",
+              "slot": 0,
+              "source": "event:a",
+              "type": "Q"
+            }
+          ]
+        },
+        {
+          "open": [
+            "b",
+            "c"
+          ],
+          "wires": [
+            {
+              "consumer": "a",
+              "occurrence": "edge-0",
+              "producer": "b",
+              "role": "internal",
+              "slot": 0,
+              "source": "event:b",
+              "type": "Q"
+            },
+            {
+              "consumer": "output",
+              "occurrence": "output-c",
+              "producer": "c",
+              "role": "result",
+              "slot": 0,
+              "source": "event:c",
+              "type": "Q"
+            }
+          ]
+        },
+        {
+          "open": [
+            "a",
+            "b",
+            "c"
+          ],
+          "wires": [
+            {
+              "consumer": "output",
+              "occurrence": "output-a",
+              "producer": "a",
+              "role": "result",
+              "slot": 0,
+              "source": "event:a",
+              "type": "Q"
+            },
+            {
+              "consumer": "output",
+              "occurrence": "output-c",
+              "producer": "c",
+              "role": "result",
+              "slot": 0,
+              "source": "event:c",
+              "type": "Q"
+            }
+          ]
+        }
+      ],
+      "characteristic": [
+        1,
+        -4,
+        3,
+        0
+      ],
+      "edges": [
+        [
+          "b",
+          "a"
+        ],
+        [
+          "b",
+          "c"
+        ]
+      ],
+      "ideal_size_polynomial": [
+        1,
+        1,
+        2,
+        1
+      ],
+      "join_irreducibles": [
+        [
+          "b"
+        ],
+        [
+          "a",
+          "b"
+        ],
+        [
+          "b",
+          "c"
+        ]
+      ],
+      "laplacian": [
+        [
+          1,
+          -1,
+          0
+        ],
+        [
+          -1,
+          2,
+          -1
+        ],
+        [
+          0,
+          -1,
+          1
+        ]
+      ],
+      "name": "fork",
+      "opens": [
+        [],
+        [
+          "b"
+        ],
+        [
+          "a",
+          "b"
+        ],
+        [
+          "b",
+          "c"
+        ],
+        [
+          "a",
+          "b",
+          "c"
+        ]
+      ],
+      "order": [
+        [
+          "a",
+          "a"
+        ],
+        [
+          "b",
+          "a"
+        ],
+        [
+          "b",
+          "b"
+        ],
+        [
+          "b",
+          "c"
+        ],
+        [
+          "c",
+          "c"
+        ]
+      ]
+    },
+    {
+      "adjacency_characteristic": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "boundaries": [
+        {
+          "open": [],
+          "wires": [
+            {
+              "consumer": "c",
+              "occurrence": "input-c",
+              "producer": "input",
+              "role": "internal",
+              "slot": 0,
+              "source": "external:c",
+              "type": "Q"
+            }
+          ]
+        },
+        {
+          "open": [
+            "c"
+          ],
+          "wires": [
+            {
+              "consumer": "b",
+              "occurrence": "edge-0",
+              "producer": "c",
+              "role": "internal",
+              "slot": 0,
+              "source": "event:c",
+              "type": "Q"
+            }
+          ]
+        },
+        {
+          "open": [
+            "b",
+            "c"
+          ],
+          "wires": [
+            {
+              "consumer": "a",
+              "occurrence": "edge-1",
+              "producer": "b",
+              "role": "internal",
+              "slot": 0,
+              "source": "event:b",
+              "type": "Q"
+            }
+          ]
+        },
+        {
+          "open": [
+            "a",
+            "b",
+            "c"
+          ],
+          "wires": [
+            {
+              "consumer": "output",
+              "occurrence": "output-a",
+              "producer": "a",
+              "role": "result",
+              "slot": 0,
+              "source": "event:a",
+              "type": "Q"
+            }
+          ]
+        }
+      ],
+      "characteristic": [
+        1,
+        -4,
+        3,
+        0
+      ],
+      "edges": [
+        [
+          "c",
+          "b"
+        ],
+        [
+          "b",
+          "a"
+        ]
+      ],
+      "ideal_size_polynomial": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "join_irreducibles": [
+        [
+          "c"
+        ],
+        [
+          "b",
+          "c"
+        ],
+        [
+          "a",
+          "b",
+          "c"
+        ]
+      ],
+      "laplacian": [
+        [
+          1,
+          -1,
+          0
+        ],
+        [
+          -1,
+          2,
+          -1
+        ],
+        [
+          0,
+          -1,
+          1
+        ]
+      ],
+      "name": "reverse",
+      "opens": [
+        [],
+        [
+          "c"
+        ],
+        [
+          "b",
+          "c"
+        ],
+        [
+          "a",
+          "b",
+          "c"
+        ]
+      ],
+      "order": [
+        [
+          "a",
+          "a"
+        ],
+        [
+          "b",
+          "a"
+        ],
+        [
+          "b",
+          "b"
+        ],
+        [
+          "c",
+          "a"
+        ],
+        [
+          "c",
+          "b"
+        ],
+        [
+          "c",
+          "c"
+        ]
+      ]
+    }
+  ],
+  "schema": "aeg.process-spectrum.v1",
+  "source_control": {
+    "independent": [
+      {
+        "consumer": "a",
+        "occurrence": "left",
+        "producer": "b",
+        "role": "internal",
+        "slot": 0,
+        "source": "s0",
+        "type": "Q"
+      },
+      {
+        "consumer": "c",
+        "occurrence": "right",
+        "producer": "b",
+        "role": "internal",
+        "slot": 0,
+        "source": "s1",
+        "type": "Q"
+      }
+    ],
+    "open": [
+      "b"
+    ],
+    "shared": [
+      {
+        "consumer": "a",
+        "occurrence": "left",
+        "producer": "b",
+        "role": "internal",
+        "slot": 0,
+        "source": "s0",
+        "type": "Q"
+      },
+      {
+        "consumer": "c",
+        "occurrence": "right",
+        "producer": "b",
+        "role": "internal",
+        "slot": 0,
+        "source": "s0",
+        "type": "Q"
+      }
+    ]
+  }
+}
