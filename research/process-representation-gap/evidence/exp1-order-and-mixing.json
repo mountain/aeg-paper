@@ -518,7 +518,7 @@
   },
   "environment": {
     "implementation": "cpython",
-    "python_version": "3.14.6"
+    "python_version": "3.13.5"
   },
   "exploratory_structural_check": {
     "label": "exploratory-beyond-declared-budget",
@@ -885,8 +885,9 @@
     "git_blob": "0d1f1895744fb87d1fbed141cc20c1812bb1dfac",
     "interpretation": "interpret_history(ProcessWord, INITIAL, transition) with the caller-supplied pour law",
     "loader": "importlib.util.spec_from_file_location on the pinned file path",
-    "path": "/Users/mingli/AEG/process-geometry/src/process_geometry/process/history.py",
+    "path_env": "AEG_PROCESS_GEOMETRY_REPO",
     "pin_check": "match",
+    "relative_path": "src/process_geometry/process/history.py",
     "repository": "mountain/process-geometry",
     "sha256": "93e9dc4651f4cf70e2a0980c9fee8ea58cc15acbe89bc064861c37359652cc45",
     "type": "process_geometry.process.history.ProcessWord"

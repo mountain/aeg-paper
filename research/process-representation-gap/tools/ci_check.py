@@ -28,6 +28,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -66,6 +67,25 @@ def relative_evidence_paths():
     return out
 
 
+# A committed evidence document must record a pinned IDENTITY, never the
+# resolved path of one machine's checkout.  An absolute path silently makes the
+# evidence unreproducible everywhere else, and it is invisible to a byte
+# comparison performed on the machine that produced it -- which is exactly how
+# exp1 shipped one.  This scan is the guard for that class.
+MACHINE_PATH = re.compile(r"^(/Users/|/tmp/|/home/|/private/|/var/folders/)")
+
+
+def machine_paths(node, path=""):
+    if isinstance(node, dict):
+        for key, value in node.items():
+            yield from machine_paths(value, f"{path}.{key}")
+    elif isinstance(node, list):
+        for index, value in enumerate(node):
+            yield from machine_paths(value, f"{path}[{index}]")
+    elif isinstance(node, str) and MACHINE_PATH.match(node):
+        yield path, node
+
+
 def strip_local_paths(raw: bytes) -> bytes:
     """Drop the resolved sibling-checkout paths from the manifest."""
     try:
@@ -82,12 +102,29 @@ def strip_local_paths(raw: bytes) -> bytes:
 
 
 def run_verify_all():
+    """Run the chain and KEEP its report.
+
+    ``verify_all`` prints its per-stage results to stdout and exits nonzero on
+    any failure.  Discarding that stdout would leave a failing CI job with no
+    diagnosable cause, which is exactly what happened on the first CI run, so
+    the report is parsed and the failing stages are promoted into this gate's
+    own failure list.
+    """
     command = [sys.executable, str(HERE / "verify_all.py")]
     proc = subprocess.run(command, capture_output=True, check=False, cwd=str(ROOT))
+    detail = {}
+    try:
+        detail = json.loads(proc.stdout.decode("utf-8"))
+    except (UnicodeDecodeError, json.JSONDecodeError):
+        detail = {"unparsed_stdout_tail":
+                  proc.stdout.decode("utf-8", "replace").strip().splitlines()[-10:]}
+    failed_stages = [s for s in detail.get("steps", []) if s.get("exit_code") != 0]
     return {
         "step": "verify_all",
         "exit_code": proc.returncode,
-        "stderr_tail": proc.stderr.decode("utf-8", "replace").strip().splitlines()[-3:],
+        "failed_stages": failed_stages,
+        "stderr_tail": proc.stderr.decode("utf-8", "replace").strip().splitlines()[-10:],
+        "detail": detail,
     }
 
 
@@ -102,7 +139,13 @@ def main() -> int:
         step = run_verify_all()
         report["steps"].append(step)
         if step["exit_code"] != 0:
-            report["failures"].append({"artifact": "verify_all", "reason": "nonzero exit"})
+            report["failures"].append({
+                "artifact": "verify_all",
+                "reason": "nonzero exit",
+                "failed_stages": [s.get("step") for s in step.get("failed_stages", [])],
+                "stage_detail": step.get("failed_stages", []),
+                "stderr_tail": step.get("stderr_tail", []),
+            })
 
     # Step 2: experiment evidence, modulo provenance.
     compared = []
@@ -123,6 +166,14 @@ def main() -> int:
         ok = strip_environment(blob.stdout) == strip_environment(fresh)
         compared.append({"artifact": rel, "status": "match" if ok else "DIFFERS",
                          "compared_ignoring": list(ENVIRONMENT_KEYS)})
+        embedded = list(machine_paths(json.loads(fresh)))
+        if embedded:
+            report["failures"].append({
+                "artifact": rel,
+                "reason": "evidence embeds a machine-specific absolute path; record the "
+                          "pinned identity (env variable name plus relative path) instead",
+                "paths": [p for p, _ in embedded][:5],
+            })
         if not ok:
             report["failures"].append({
                 "artifact": rel,

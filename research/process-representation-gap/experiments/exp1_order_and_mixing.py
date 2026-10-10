@@ -1474,7 +1474,12 @@ def run():
         "pinned_carrier": {
             "repository": PG_REPO,
             "commit": PG_COMMIT,
-            "path": str(PG_HISTORY_PATH),
+            # The pinned IDENTITY, never the resolved machine path: an absolute
+            # checkout path makes the committed evidence unreproducible on any
+            # other machine, and the manifest already records resolved paths
+            # where they are legitimately machine-dependent.
+            "path_env": "AEG_PROCESS_GEOMETRY_REPO",
+            "relative_path": "src/process_geometry/process/history.py",
             "sha256": pinned_sha,
             "git_blob": _PINNED["git_blob"],
             "type": "process_geometry.process.history.ProcessWord",

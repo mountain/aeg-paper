@@ -1025,7 +1025,8 @@ def run():
         },
         "environment": gapkit.environ(),
         "pinned_carrier": {
-            "path": str(PG_HISTORY_PATH),
+            "path_env": "AEG_PROCESS_GEOMETRY_REPO",
+            "relative_path": "src/process_geometry/process/history.py",
             "sha256": active_sha,
             "git_blob": git_blob_sha1(raw),
         },

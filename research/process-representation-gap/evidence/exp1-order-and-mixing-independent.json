@@ -11,7 +11,7 @@
   },
   "environment": {
     "implementation": "cpython",
-    "python_version": "3.14.6"
+    "python_version": "3.13.5"
   },
   "independence": {
     "hand_tables": "hand-computed literal tables of the plant states, the composite spectra and the frozen-vector actions",
@@ -64,12 +64,13 @@
   },
   "pinned_carrier": {
     "git_blob": "0d1f1895744fb87d1fbed141cc20c1812bb1dfac",
-    "path": "/Users/mingli/AEG/process-geometry/src/process_geometry/process/history.py",
+    "path_env": "AEG_PROCESS_GEOMETRY_REPO",
+    "relative_path": "src/process_geometry/process/history.py",
     "sha256": "93e9dc4651f4cf70e2a0980c9fee8ea58cc15acbe89bc064861c37359652cc45"
   },
   "primary_evidence": {
     "path": "research/process-representation-gap/evidence/exp1-order-and-mixing.json",
-    "sha256": "2433d504c7b38e12aca63fc5554c12ede7c4ecb7aee897f99d4bb85a4b1d2063"
+    "sha256": "f5aa48b86dbc5e094686ba6f8292d85abe993bc147ef579301f5f6179262b402"
   },
   "role": "independent verification route for exp1",
   "schema": "aeg.process-representation-gap.exp1-independent.v1"
