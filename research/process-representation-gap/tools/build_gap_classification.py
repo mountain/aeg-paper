@@ -236,7 +236,10 @@ def run():
     return {
         "schema": SCHEMA,
         "generated_by": "tools/build_gap_classification.py",
-        "environment": gapkit.environ(),
+        # No environment block: this is a DERIVED summary of per-experiment
+        # evidence, and each of those records its own environment.  Omitting it
+        # here keeps the committed artefact reproducible on any machine.
+        "environment_note": "see the per-experiment evidence documents cited in each finding",
         "taxonomy": CATEGORIES,
         "coverage": coverage,
         "findings": findings,

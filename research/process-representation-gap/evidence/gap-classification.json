@@ -111,10 +111,7 @@
       "findings": 6
     }
   },
-  "environment": {
-    "implementation": "cpython",
-    "python_version": "3.14.6"
-  },
+  "environment_note": "see the per-experiment evidence documents cited in each finding",
   "findings": [
     {
       "category": "observation-insufficient",

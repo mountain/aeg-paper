@@ -16,26 +16,34 @@ definition of the native object.
 1. `reports/00-gap-classification.md` — the cross-experiment result, the cost
    table, and the gap taxonomy. Start here for conclusions.
 2. `reports/00-minimal-repair.md` — what to change, ordered by evidence.
-3. `reports/manifest-baseline.md` — the frozen source baseline.
-4. The six per-experiment reports in `reports/`.
-5. `contracts/` — the frozen contracts, one per experiment, with the digest
+3. `reports/00-verification.md` — what was verified, how, and one anomaly that
+   is on the record rather than explained away.
+4. `reports/00-interface-promotion.md` and `proposals/` — the section 10
+   promotion proposals. **None is applied.**
+5. `reports/manifest-baseline.md` — the frozen source baseline.
+6. The six per-experiment reports in `reports/`.
+7. `contracts/` — the frozen contracts, one per experiment, with the digest
    ledger `contracts/FROZEN.sha256`.
-6. `evidence/` — machine-readable evidence, one document per run.
+8. `evidence/` — machine-readable evidence, one document per run.
 
 ## What is here
 
 ```text
 contracts/    frozen experiment contracts + FROZEN.sha256 digest ledger
-fixtures/     reserved for minimal witnesses extracted from the evidence
+fixtures/     minimal witnesses extracted from the evidence, with provenance
 experiments/  exact checkers, primary and independent, plus source probes
 evidence/     canonical JSON evidence and raw per-record tables
+proposals/    unapplied interface-promotion drafts for the sibling repositories
 reports/      per-experiment and cross-experiment results
 tools/        the shared harness and the reproducibility tooling
 ```
 
 The suggested structure of work-plan section 10 is followed, adapted to this
-repository: `fixtures/` holds only material promoted out of `evidence/`, and
-the plan's "实验" numbering is preserved in every filename.
+repository: `fixtures/` holds material **extracted** from `evidence/` by
+`tools/build_fixtures.py` rather than retyped, `proposals/` was added because
+section 10 requires promotion to be *proposed* and this branch must not change
+the sibling repositories, and the plan's "实验" numbering is preserved in every
+filename.
 
 ## Baseline
 
@@ -83,7 +91,28 @@ python3 research/process-representation-gap/experiments/exp2_loop_continuation.p
 
 # 4. Run an independent verification route on its own.
 python3 research/process-representation-gap/experiments/exp2_loop_continuation_independent.py
+
+# 5. The CI gate: additionally compare the committed evidence with a fresh run.
+python3 research/process-representation-gap/tools/ci_check.py
 ```
+
+## Continuous integration
+
+`.github/workflows/research-process-representation-gap.yml` runs on any pull
+request or push touching this directory. It checks out `aeg-paper` with full
+history, fetches the two pinned sibling commits with a depth-1 fetch into a
+temporary object store, points the `AEG_*_REPO` variables at them, and runs
+`tools/ci_check.py`, which:
+
+* runs the full six-stage chain and requires exit 0;
+* requires every experiment's fresh output to match the **committed** evidence,
+  modulo the declared provenance keys;
+* requires `fixtures/INDEX.json`, `evidence/gap-classification.json` and
+  `evidence/interface-promotion.json` to match the committed bytes exactly.
+
+All three repositories are public, so no cross-repository secret is needed. A
+missing or drifted checkout fails the job; it is never skipped, because a
+skipped check is not a check.
 
 Exit code 0 means every obligation held. A failure raises a diagnostic with a
 stable machine-readable code; the code is the contract, and negative controls
@@ -103,8 +132,18 @@ name the exact code they expect.
 * **Independence is structural.** Each experiment has a second checker that
   shares no semantic helper with the first — only JSON serialisation. Two
   checkers calling the same helper are one checker.
-* **Determinism is checked, not asserted.** Byte-identical across repeated runs
-  and across `python3` / `python3 -O`.
+* **Determinism is checked, not asserted.** Byte-identical across repeated runs,
+  across `python3` / `python3 -O`, and across `PYTHONHASHSEED` values. The seed
+  sweep is not decoration: CPython randomises string hashing per process, so a
+  checker whose output depends on set or dict iteration order varies between
+  processes while looking stable within one running process.
+* **One transient failure is on the record.** During development the harness
+  once reported `identical_across_runs: false` for
+  `exp3_typed_hole_context_independent.py`. It did not reproduce, and every
+  checker is currently stable across repeated runs, both execution modes and
+  the seed sweep. Rather than declare it spurious, the assertion it tripped was
+  strengthened to a seed sweep so that a defect of that class cannot hide
+  again. See `reports/00-verification.md`.
 * **Claims carry their domain.** Every result is labelled proved /
   proved-with-stated-hypotheses / computationally-verified-example /
   structural-proposal / bounded-domain-compatible / budget-exhausted / unknown /

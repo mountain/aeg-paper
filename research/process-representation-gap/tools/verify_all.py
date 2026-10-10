@@ -10,7 +10,8 @@ single command and a single exit code:
    with the recorded evidence;
 3. rebuild the frozen-contract digest ledger;
 4. regenerate the extracted fixtures;
-5. rebuild the cross-experiment gap classification.
+5. rebuild the cross-experiment gap classification;
+6. re-check every interface-promotion proposal against the evidence it cites.
 
 Order matters: the ledger is refreshed before the gap table, because the gap
 table refuses to cite a contract whose digest is not frozen.
@@ -40,6 +41,8 @@ STEPS = [
     ("fixtures", ["tools/build_fixtures.py", "--out", "fixtures/INDEX.json"]),
     ("gap-classification", ["tools/build_gap_classification.py",
                             "--out", "evidence/gap-classification.json"]),
+    ("interface-promotion", ["tools/build_interface_promotion.py",
+                             "--out", "evidence/interface-promotion.json"]),
 ]
 
 

@@ -2,7 +2,7 @@
   "blockers": [],
   "environment": {
     "implementation": "cpython",
-    "python_version": "3.14.6"
+    "python_version": "3.13.5"
   },
   "generated_by": "tools/build_manifest.py",
   "kind": "source-baseline-manifest",
