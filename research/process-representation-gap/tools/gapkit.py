@@ -21,6 +21,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 import sys
 from fractions import Fraction
 from pathlib import Path
@@ -207,3 +208,32 @@ def environ() -> dict:
 def run_mode() -> dict:
     """The mode marker, kept outside the evidence body on purpose."""
     return {"optimized": bool(sys.flags.optimize)}
+
+
+# --------------------------------------------------------------------------
+# pinned sibling checkouts
+# --------------------------------------------------------------------------
+
+SIBLING_DEFAULTS = {
+    "AEG_ADVA_REPO": "/Users/mingli/Adva/adva",
+    "AEG_PROCESS_GEOMETRY_REPO": "/Users/mingli/AEG/process-geometry",
+    "AEG_PAPER_REPO": "/Users/mingli/AEG/aeg-paper",
+}
+
+
+def sibling_repo(env_var: str, default: str | None = None) -> Path:
+    """Resolve a pinned sibling checkout, overridable by environment variable.
+
+    Reproducing this programme requires three checkouts.  Hard-coding one
+    machine's paths would make the evidence unreproducible elsewhere, so each
+    path is read from an environment variable and falls back to the declared
+    default.  The resolved path is recorded in the evidence, and a missing
+    checkout is a LOUD failure: the programme never silently skips a
+    cross-repository check, because a skipped check is not a check.
+    """
+    raw = os.environ.get(env_var) or default or SIBLING_DEFAULTS[env_var]
+    return Path(raw).expanduser().resolve()
+
+
+def sibling_file(env_var: str, relative: str) -> Path:
+    return sibling_repo(env_var) / relative

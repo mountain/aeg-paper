@@ -30,7 +30,7 @@ import gapkit  # noqa: E402
 REPOS = {
     "aeg-paper": {
         "remote": "mountain/aeg-paper",
-        "path": "/Users/mingli/AEG/aeg-paper",
+        "path_env": "AEG_PAPER_REPO",
         "pins": {
             "pr16_review_head": "3b90a423fafc2a838269855c8c68286449c61c4c",
             "pr16_base": "dd7b93e5eda57343e1ff05ed954883db310eda1d",
@@ -54,7 +54,7 @@ REPOS = {
     },
     "adva": {
         "remote": "mountain/adva",
-        "path": "/Users/mingli/Adva/adva",
+        "path_env": "AEG_ADVA_REPO",
         "pins": {
             "pr16_reproduction": "cce73004c2b4fbfb87d9ba1ccc66820423273cf6",
             "new_experiment_candidate": "1b9bd090b2c4710916b6a0ccca0ad88fb7d323bd",
@@ -70,7 +70,7 @@ REPOS = {
     },
     "process-geometry": {
         "remote": "mountain/process-geometry",
-        "path": "/Users/mingli/AEG/process-geometry",
+        "path_env": "AEG_PROCESS_GEOMETRY_REPO",
         "pins": {
             "baseline": "c47c96fa79123c677172278be59d67ca1cc891b1",
         },
@@ -148,7 +148,7 @@ def build() -> dict:
         "blockers": [],
     }
     for name, spec in sorted(REPOS.items()):
-        repo_path = spec["path"]
+        repo_path = str(gapkit.sibling_repo(spec["path_env"]))
         entry = {"remote": spec["remote"], "local_path": repo_path, "pins": {}, "files": []}
         for label, commit in sorted(spec["pins"].items()):
             try:

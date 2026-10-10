@@ -47,7 +47,9 @@ PRIMARY_EVIDENCE = ROOT / "evidence" / "exp2-loop-continuation.json"
 FROZEN = ROOT / "contracts" / "FROZEN.sha256"
 
 # Pinned oracle, from a different repository and a different author.
-ORACLE_PATH = Path("/Users/mingli/AEG/process-geometry/src/process_geometry/experimental/finite_task_quotient.py")
+ORACLE_PATH = gapkit.sibling_file(
+    "AEG_PROCESS_GEOMETRY_REPO",
+    "src/process_geometry/experimental/finite_task_quotient.py")
 ORACLE_SHA256 = "1b2bf6a4510fd4f9831f0fa721f63deb19a61c4a658c32c7b138b70b4e38fd66"
 ORACLE_REPO = "mountain/process-geometry"
 ORACLE_COMMIT = "c47c96fa79123c677172278be59d67ca1cc891b1"

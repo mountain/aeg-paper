@@ -30,7 +30,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 import gapkit  # noqa: E402
 from gapkit import require  # noqa: E402
 
-REPO = Path("/Users/mingli/Adva/adva")
+REPO = gapkit.sibling_repo("AEG_ADVA_REPO")
 COMMIT = "1b9bd090b2c4710916b6a0ccca0ad88fb7d323bd"
 COMMIT_PR16 = "cce73004c2b4fbfb87d9ba1ccc66820423273cf6"
 

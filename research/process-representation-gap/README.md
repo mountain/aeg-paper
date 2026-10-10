@@ -55,6 +55,20 @@ compared: 10 682 bytes, blob `de247cd0…`, SHA-256 `637c2d05…` — all agree.
 
 ## Reproducing everything
 
+Three sibling checkouts are required, and each is resolved from an environment
+variable so the programme is not tied to one machine:
+
+| variable | default | used by |
+|---|---|---|
+| `AEG_PAPER_REPO` | `/Users/mingli/AEG/aeg-paper` | `tools/build_manifest.py` |
+| `AEG_ADVA_REPO` | `/Users/mingli/Adva/adva` | `tools/build_manifest.py`, `experiments/adva_continuation_interface.py` |
+| `AEG_PROCESS_GEOMETRY_REPO` | `/Users/mingli/AEG/process-geometry` | `tools/build_manifest.py`, the independent routes of exp1 and exp2 |
+
+A missing checkout is a **loud** failure with a coded diagnostic. The programme
+never silently skips a cross-repository check, because a skipped check is not a
+check. Each external file is re-hashed against its pinned digest at run time, so
+a sibling checkout that has drifted cannot pass.
+
 ```bash
 # 1. Rebuild the pinned-source manifest; nonzero exit means a blocker.
 python3 research/process-representation-gap/tools/build_manifest.py \

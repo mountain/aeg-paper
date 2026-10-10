@@ -50,8 +50,8 @@ CONTRACT = ROOT / "contracts" / "exp1-order-and-mixing.v1.json"
 FROZEN = ROOT / "contracts" / "FROZEN.sha256"
 PRIMARY_EVIDENCE = ROOT / "evidence" / "exp1-order-and-mixing.json"
 
-PG_HISTORY_PATH = Path(
-    "/Users/mingli/AEG/process-geometry/src/process_geometry/process/history.py"
+PG_HISTORY_PATH = gapkit.sibling_file(
+    "AEG_PROCESS_GEOMETRY_REPO", "src/process_geometry/process/history.py"
 )
 PG_HISTORY_SHA256 = "93e9dc4651f4cf70e2a0980c9fee8ea58cc15acbe89bc064861c37359652cc45"
 
