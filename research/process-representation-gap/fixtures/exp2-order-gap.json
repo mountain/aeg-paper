@@ -1,0 +1,42 @@
+{
+  "fixture": "exp2-order-gap",
+  "payload": {
+    "accumulators": [
+      "3/2",
+      "2"
+    ],
+    "augmented_equivalent": false,
+    "pair": [
+      "ccv",
+      "cvc"
+    ],
+    "same_counts": [
+      2,
+      1,
+      0
+    ],
+    "same_legality": [
+      "c",
+      "v",
+      "l"
+    ],
+    "same_readout": [
+      "3",
+      "1",
+      "2"
+    ],
+    "shortest_distinguishing_continuation": {
+      "depth": 1,
+      "eta": [
+        "l"
+      ],
+      "kind": "observation"
+    }
+  },
+  "schema": "aeg.process-representation-gap.fixture.v1",
+  "source": {
+    "evidence_file": "exp2-loop-continuation.json",
+    "pointer": "witnesses.order_gap",
+    "sha256": "85b62328ed43d976cb9d0ae0cae2f87823af0aaa4664baae6dec1d080458bf5c"
+  }
+}

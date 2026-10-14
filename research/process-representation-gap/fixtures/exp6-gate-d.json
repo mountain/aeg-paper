@@ -1,0 +1,39 @@
+{
+  "fixture": "exp6-gate-d",
+  "payload": {
+    "decidability_statement": "classical tame knot equivalence has a decision algorithm (cited); that gives NO decision completeness to a finite-depth action search, and contracts with motion constraints and dynamic obstacles have to be re-studied separately",
+    "items": [
+      {
+        "bounded_domain": "finite rational PL curves with at most 16 control nodes",
+        "question": "can all target states be represented?",
+        "verdict": "no",
+        "why": "wild knots, smooth embeddings and arbitrary real input are outside the model"
+      },
+      {
+        "bounded_domain": "the declared action dictionary up to the declared depth",
+        "question": "can all target processes be generated?",
+        "verdict": "no",
+        "why": "the planner enumerates a fixed submodel; anything outside returns budget_exhausted or unknown"
+      },
+      {
+        "bounded_domain": "the instantiated move calculus (R1, R2; R3 not instantiated)",
+        "question": "can all semantic equivalences be proved by rewriting?",
+        "verdict": "no",
+        "why": "classical R-move completeness for knot diagrams is a cited theorem; this experiment does not implement it, and the move calculus carries no motion constraints or obstacle data"
+      },
+      {
+        "bounded_domain": "all declared finite exact checks",
+        "question": "does the decision algorithm terminate on the declared domain?",
+        "verdict": "yes, with declared incomplete outcomes",
+        "why": "encoding/decoding, the interval certificates, the Fourier-Motzkin separation and the bounded search all terminate; the subdivision search terminates by construction and may return not-certified, which is a declared outcome"
+      }
+    ],
+    "mutual_implication": "A, B, C and D are not mutually implied: encodability here does not give state faithfulness for topological semantics; state faithfulness for literal data does not give process faithfulness for the continuations; and none of them gives completeness"
+  },
+  "schema": "aeg.process-representation-gap.fixture.v1",
+  "source": {
+    "evidence_file": "exp6-knot-deformation-environment.json",
+    "pointer": "gates.D_completeness",
+    "sha256": "13b12a806236934505619bdc09acac9f08dfe79a3f4b2c1ef981fdc05685e210"
+  }
+}

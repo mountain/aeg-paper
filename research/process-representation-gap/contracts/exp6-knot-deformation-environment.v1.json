@@ -1,0 +1,350 @@
+{
+  "arithmetic_gates": {
+    "note": "The four gates are answered item by item in the evidence under gates.A/B/C/D. They are NOT mutually implied: encodability does not give state faithfulness, state faithfulness does not give process faithfulness, and none of them gives completeness. Classical tame knot equivalence has a decision algorithm (cited, Haken/Matveev lineage; an explicit upper bound on Reidemeister moves is known); that does NOT give any finite-depth action search decision completeness, and contracts with motion constraints and dynamic obstacles are outside that classical decidability statement entirely.",
+    "A_encodable": {
+      "deliverable": "Exact encode/decode round trip for the declared finite model, verified on every declared witness fixture, plus syntactic injectivity on the declared state family.",
+      "question": "Can the complete diagram, the finite action word, and the rational/algebraic parameters be turned into an integer string or arithmetic expression, with an implemented round trip?",
+      "unbounded_part_reported_as_bounded": "Finite encodings cover the declared finitely describable model only. They do NOT encode all arbitrary-real continuous paths point by point."
+    },
+    "B_state_faithful": {
+      "deliverable": "A two-part verdict: (i) literal-data state semantics - satisfied, because the encoding is injective and decodes exactly; (ii) topological state semantics - refuted by a concrete witness pair, because topological equivalence is strictly coarser than literal equality, so encode-equivalence implies but is not implied by topological equivalence.",
+      "question": "Is encode-equivalence if and only if the declared state-semantics equivalence?",
+      "stated_limitation": "Syntactic injectivity of the integer string DOES NOT by itself decide topological equivalence. Knot polynomials, linking numbers and torus slopes are discussed for sufficiency ONLY inside their declared domain, and are treated as necessary constraints there; no completeness claim about any of them is made or tested."
+    },
+    "C_process_faithful": {
+      "deliverable": "An explicit compiler E and interpreter D for history records; D(E(h)) equals h under the declared process semantics; E(h2 . h1) is compatible with E(h2) . E(h1) with the declared stream composition; the encoded legality predicate reflects native legality on the declared action/state grid.",
+      "question": "Do the encoded legal actions, compositions and continuations correspond to the native process; is legality reflected; are task-distinguishable processes never merged?",
+      "negative_probe": "The two histories of mandatory witness 1 (identity path versus local move then inverse) share one endpoint state but have different history encodings, so a state-only view loses the process; this is reported as the process dimension being non-constant, not as a homotopy claim."
+    },
+    "D_completeness": {
+      "deliverable": "Four separately answered sub-questions, each with its own verdict and the exact bounded domain.",
+      "note_on_decidability": "Classical tame knot equivalence has a decision algorithm. A finite-depth action search over a fixed-node-count, fixed-parameter-family, fixed-action-dictionary submodel does NOT inherit that completeness; a planning failure inside such a submodel does not prove that no legal deformation exists.",
+      "questions": [
+        "Can all target states be represented? (bounded: only the declared finite PL family)",
+        "Can all target processes be generated? (bounded: only the declared action dictionary up to the declared depth)",
+        "Can all semantic equivalences be proved by rewriting? (bounded: the instantiated rewrite system is incomplete by declaration)",
+        "Does the decision algorithm terminate on the declared domain? (yes for the declared finite exact checks; the subdivision search terminates by construction and may report unknown)"
+      ]
+    }
+  },
+  "date": "2026-10-10",
+  "domain": {
+    "action_dictionary": "For the geometric route the declared action dictionary is the six rigid translations of the whole rope by +/-2 in each coordinate axis, applied one at a time with equal duration. For the topological route the declared action dictionary is the instantiated local-move set {R1+, R1-, R2+, R2-}.",
+    "budget_exhaustion_policy": "A question outside the declared budget is returned as budget_exhausted (or unknown) together with the searched set; the budget is never extended silently, and no mandatory witness is shrunk to fit it.",
+    "budget_statement": "A planning failure inside the fixed-node-count, fixed-parameter-family, fixed-action-dictionary submodel does NOT prove that no legal deformation exists. It is reported as a bounded-domain result only.",
+    "inputs": "The five declared environment fixtures of this experiment, given as finite rational PL data (control-node coordinates, time breakpoints, obstacle geometry and timetables). Arbitrary real input is NOT accepted; wild knots are NOT covered.",
+    "length_budget": {
+      "max_action_search_depth": 8,
+      "max_known_obstacles": 3,
+      "max_time_segments": 12,
+      "search_depths_exercised": [
+        2,
+        4
+      ]
+    },
+    "resource_budget": {
+      "arithmetic": "Python int and fractions.Fraction only; no float appears in any witness, comparison, predicate or cost; interval bounds are exact rationals.",
+      "note": "Exhaustive depth-first search over the declared action dictionary with prefix pruning by the continuous safety check; every candidate trajectory is checked over whole time intervals, never at keyframes only.",
+      "nodes": {
+        "max_control_nodes": 16
+      }
+    },
+    "within_budget_models": {
+      "geometric_fixtures": [
+        "witness-1-history",
+        "keyframe-blind",
+        "witness-3-planner",
+        "witness-4-timing",
+        "witness-5-loop"
+      ],
+      "topological_fixtures": [
+        "kink-positive",
+        "kink-negative",
+        "bigon-inserted",
+        "identity-vs-kink-pair"
+      ]
+    }
+  },
+  "environment_contracts": [
+    {
+      "id": "euclidean-space",
+      "information_to_preserve": "The embedding itself together with the ambient-isotopy contract: an isotopy of embeddings together with its ambient extension and the declared relative boundary condition on any marked point or endpoint.",
+      "native_object": "S^1 embedded in R^3 as a finite rational PL closed curve, with an orientation and an optional marked point; a physical task additionally carries metric, thickness, length, curvature and velocity limits, which are NOT part of this experiment's model.",
+      "physical_rope_separated": "A zero-thickness topological rope is modelled here. It is kept strictly distinct from a physical rope with radius, length, curvature and velocity limits; no physical-rope claim is made.",
+      "thickening_distinction": "This is the strict-embedding environment. No crossing over/under data exists here, and none is needed."
+    },
+    {
+      "id": "strict-sphere",
+      "information_to_preserve": "Simplicity of the curve on the surface and its isotopy class on S^2; there is no ambient 3-space isotopy contract inside this environment, and no room for a thickening.",
+      "native_object": "S^1 embedded in S^2 (a simple closed curve on the surface).",
+      "thickening_distinction": "A curve strictly contained in the 2-sphere is a space-unknot: it bounds a disk (Jordan-Schoenflies, and constructively a flat disk for a planar polygon), so no classical non-trivial knot can be carried here. A sphere diagram with crossing over/under data models the THICKENING S^2 x I, not a strict embedding in S^2; that is a different environment with a different native object.",
+      "verdict_witness": "Declared fixture: a planar square; the flat spanning disk is exhibited and its boundary edges are checked against the curve exactly, certifying the unknot."
+    },
+    {
+      "id": "strict-torus",
+      "information_to_preserve": "The primitive integer slope (p,q) of an essential simple closed curve in a FIXED oriented basis, or the contractibility of a non-essential curve; the basis, the orientation, and the allowed mapping classes are part of the contract.",
+      "native_object": "S^1 embedded in T^2 (a simple closed curve on the surface), recorded by its homology class (p,q) with gcd(p,q)=1 for the essential case.",
+      "isotopy_vs_space_isotopy": "Isotopy along the FIXED torus and spatial isotopy after leaving the torus are kept apart as different tasks. In a fixed oriented basis (1,0) and (0,1) are not isotopic ON the torus, yet both are unknots in unobstructed R^3; if a basis-swapping ambient homeomorphism is allowed, the earlier equivalence contract changes.",
+      "thickening_distinction": "The same strict-versus-thickened distinction applies to the torus: a diagram on a torus with crossing data models T^2 x I rather than a strict embedding in T^2. Virtual knots allow stabilisation and must not be conflated with knots in a fixed T^2 x I."
+    },
+    {
+      "id": "thickened-surface",
+      "information_to_preserve": "The surface diagram together with crossing over/under information, handles and environment markings; stabilisation is a separate declared question and is not part of a fixed-surface task.",
+      "native_object": "A diagram on Sigma with labelled crossings carrying over/under data, i.e. a curve in Sigma x I.",
+      "thickening_distinction": "Only this environment carries crossing information. Dropping over/under information is a declared distortion and is detected (see negative_controls)."
+    },
+    {
+      "id": "obstacle-environment",
+      "information_to_preserve": "Obstacle geometry, obstacle identity, the obstacle timetable, the rope position, the allowed control set, and the safety margin.",
+      "native_object": "S^1 embedded in M \\ O_t, where O_t is a declared finite union of obstacles (closed rational balls with piecewise-linear centre paths, or closed polygonal loops) with a frozen timetable.",
+      "timetable_required": "The obstacle trajectory carries explicit timestamps. A record without timestamps is refused: the timestamp is semantically load-bearing, not metadata (see negative_controls obstacle-timestamps-omitted).",
+      "undirected_connectivity_warning": "Adding time and taking undirected connectivity is NOT an executable path. The process is the time-monotone pair (t, k_t) with k_t in C_t = {legal embeddings at time t}."
+    }
+  ],
+  "evidence": {
+    "determinism": "Identical bytes under CPython and under python3 -O. Assertions are never used for obligations; every obligation raises a coded diagnostic. All ordering is declared; no set iteration and no float reaches the record.",
+    "format": "One JSON document per experiment, canonical serialisation (sorted keys, two-space indent, trailing newline, UTF-8), plus a companion raw file for per-segment and per-move tables.",
+    "path": "research/process-representation-gap/evidence/exp6-knot-deformation-environment.json",
+    "per_record_fields": [
+      "contract",
+      "inputs",
+      "history",
+      "representation",
+      "continuation",
+      "observation",
+      "legality",
+      "cost",
+      "conclusion"
+    ],
+    "raw_path": "research/process-representation-gap/evidence/exp6-knot-deformation-environment.raw.json",
+    "raw_reason": "The per-segment interval certificates and the per-move provenance table are large; they are kept in the raw companion file so the main evidence stays readable, and both files are produced by the same run."
+  },
+  "experiment": "exp6",
+  "frozen": true,
+  "independent_check": {
+    "hand_computed_table": {
+      "note": "Entered as literals and re-checked by the independent route; a mismatch raises EXP6-HAND-TABLE-MISMATCH.",
+      "values": {
+        "F2_crossing": "time 1/4, edges 0 and 3, parameters s=2/5 and u=4/5, point (4/5,0,0)",
+        "F2_keyframes": "t=0 and t=1 are embedded; t=1/4 is not",
+        "F3_collision": "time 1/4, rope right edge contains the obstacle centre (1,1,0) at s=1/2",
+        "F5_linking_end": "1",
+        "F5_linking_start": "0",
+        "F5_loop_collision": "rope offset x=-1, rope edge x=0 contains the loop point (0,0,0) at s=1/2",
+        "F4_collision": "time 3/8, rope bottom edge contains the ball centre (1,0,0) at s=1/2",
+        "F4_clearance_min": "distance^2 >= 40400/10201 over t in [1/4,3/8]",
+        "R1_negative_kink_writhe_delta": "-1",
+        "R1_positive_kink_writhe_delta": "+1",
+        "R2_bigon_writhe_delta": "0"
+      }
+    },
+    "rationale": "The independent route shares NO predicate, no certificate routine, no move implementation and no cost helper with the primary. It re-derives every headline number from the declared fixtures with code written from a different formulation: closed-form exact minimisation of squared distances (2x2 critical point plus boundary enumeration for segment-segment, clamped critical parameter for point-segment, piecewise-quadratic case analysis in time) versus the primary's multilinear box-hull separation with exact Fourier-Motzkin elimination and interval certificates. It also carries a hand-computed witness table entered as literals. Residual shared mathematical content is stated rather than hidden: both routes evaluate the same rational quadratics, but they decide the interval-level predicates by genuinely different procedures, and the independent route re-evaluates every stored primary collision witness exactly instead of trusting it.",
+    "route": "Independent geometric route by closed-form exact minimisation plus a hand-computed witness table, and an independently written re-implementation of the instantiated local-move calculus checked against the same hand table. Two routes that share a semantic helper are one route; nothing but the JSON serialiser, the fixture data and the contract is shared.",
+    "why_rationale_is_sufficient": "The primary route's interval decision procedure is a sufficient (sound but incomplete) certificate method; the independent route's closed-form procedure is complete on the declared class. Agreement on every declared fixture therefore checks the primary's soundness and its witness values, not merely its internal consistency."
+  },
+  "mandatory_witnesses": [
+    {
+      "id": "witness-1-same-type-different-history",
+      "requirement": "Same knot type, different deformation history: the identity path versus one local move followed by its inverse. Different literal history and cost. It is NOT claimed that they differ under process homotopy.",
+      "route": "topological"
+    },
+    {
+      "id": "witness-2-environment-changes-equivalence",
+      "requirement": "Meridian and longitude of the standard torus compared under the strict-surface task and the free 3-space task; both are unknots in R^3 yet are not isotopic on the torus in a fixed oriented basis; a basis-swapping ambient homeomorphism would change the equivalence contract.",
+      "route": "topological"
+    },
+    {
+      "id": "witness-3-obstacle-changes-legality",
+      "requirement": "A concrete path executable in free space that is REJECTED by the continuous collision check once an obstacle is introduced, followed by either a replacement path found inside the declared submodel or a reported Unknown/budget-exhausted.",
+      "route": "geometric"
+    },
+    {
+      "id": "witness-4-time-changes-legality",
+      "requirement": "The same rope path under two different time parameterisations, one safe and one colliding under a frozen moving-obstacle trajectory, with identical start and end rope configurations and identical knot type but different process executability. CONTINUOUS segment certificates must be stored for the safe one.",
+      "route": "geometric"
+    },
+    {
+      "id": "witness-5-joint-topological",
+      "requirement": "Optional joint topological witness: the obstacle is an untraversable closed loop; the linking of rope and obstacle is compared. Ordinary rope knot type does not contain linking information. Linking number may be used as a necessary constraint and is NOT claimed to be a complete invariant of all links.",
+      "route": "geometric"
+    },
+    {
+      "id": "witness-6-negative-controls",
+      "requirement": "Five declared distortions, each detected by its own specific diagnostic code: dropping crossing over/under information, swapping the torus basis, omitting obstacle timestamps, checking only keyframes, allowing self-passage.",
+      "route": "both"
+    }
+  ],
+  "native": {
+    "allowed_rewrites": [
+      "Applying one declared action of the declared action dictionary (a rigid translation of the whole rope, or one instantiated local move), which is the only admitted state transition",
+      "Concatenating histories: h2 . h1 means h1 executed first and then h2",
+      "Subdividing a time interval at declared rational breakpoints, which does not change the motion",
+      "Re-parameterising the model to a declared finer time subdivision while preserving every piecewise-linear trajectory"
+    ],
+    "boundary_conditions": "A rope may be closed (S^1, no boundary) or open (an arc with two marked endpoints that must stay fixed). Relative boundary conditions are part of the declared task: if the task uses ambient isotopy, the ambient extension must be supplied and must respect the declared boundary data.",
+    "directional_marked_data": "A rope carries a declared traversal direction and an optional marked point. Parametrisation equivalence is declared: two motions are equal as motions iff their piecewise-linear node trajectories agree at every declared breakpoint.",
+    "forbidden_rewrites": [
+      "Allowing the rope to pass through itself (a continuous map or an ordinary homotopy is NOT a deformation in this experiment; it would wrongly let the rope pass through itself)",
+      "Identifying motions that differ on any non-empty time interval",
+      "Moving an open rope's marked endpoints unless the ambient extension is supplied with the relative boundary condition",
+      "Treating a diagram without crossing over/under information as a diagram of the thickened-surface model",
+      "Treating the strict-surface task and the free-3-space task as the same equivalence",
+      "Conflating the fixed-thickened-surface task with virtual knots, which additionally allow stabilisation",
+      "Braid closure, Markov equivalence, or any bridge to knot equivalence",
+      "Inferring knot invariance from a visually suggestive construction"
+    ],
+    "history": "The literal record: the ordered list of applied actions with provenance (parent state, position, before state, after state), and for the geometric route the full declared finite model (control nodes, breakpoints, trajectories, obstacles with timetables). Distinct histories are never identified by equality of endpoint state, of knot type, or of cost.",
+    "legality": "Declared partial action. For the geometric route an action is legal iff the whole resulting time interval is certified embedded (no self-intersection) and obstacle-clear with a strictly positive safety margin, checked over whole time intervals with exact rational arithmetic. For the topological route legality is the applicability of the declared local-move pattern at the declared position. An action that is not legal is outside the declared action domain, not partially-defined-but-runnable.",
+    "process": "A deformation is k_t : S^1 -> M with every instant a legal embedding and k_t(S^1) intersect O_t empty for every t in the declared time interval. The geometric route realises it as a finite PL motion: finitely many control nodes, piecewise-linear trajectories in time, and obstacles with frozen timetables. Equivalently, in a static environment, it is a path in the embedding configuration space with the declared boundary conditions; paths with the same endpoints need not be equivalent under fixed-endpoint process homotopy.",
+    "process_equivalence": "Task-relative, in the sense of work-plan section 4.2. Two histories are declared-equivalent when every declared observation agrees under every declared common continuation. The experiment reports several relations separately and never conflates them: literal-history equality; equality of endpoint state; equality of topological type; executability under the frozen obstacle timetable; and fixed-endpoint process homotopy (which is NOT decided here).",
+    "smooth_and_pl": "Only tame finite PL embeddings with exact integer or rational coordinates are modelled. Smooth embeddings are not modelled; wild knots are not covered; arbitrary real input is not accepted.",
+    "state": "Geometric state: the position at a declared time of every control node, plus the obstacle positions at that time per the frozen timetable. Topological state: a finite diagram record (a Gauss word with over/under entry signs and a declared crossing-sign vector) plus the provenance of the last applied move. Neither state is a knot invariant and neither is derived from a matrix or a spectrum.",
+    "syntax": "Finite PL data. A geometric model is (n control nodes, m time breakpoints, node coordinates at every breakpoint, an ordered obstacle list with geometry and timetables). A topological model is a diagram record. A history is a finite sequence of declared actions on such a model.",
+    "types": [
+      "Rational: exact integer or Fraction scalar; no float",
+      "Point: triple of rationals",
+      "Motion: finite PL map S^1 x [0,1] -> R^3 given by node coordinates at declared breakpoints",
+      "Obstacle: closed rational ball with a piecewise-linear centre path and a radius, or a closed rational polygonal loop, either static or with a frozen timetable",
+      "Certificate: an exact rational interval certificate (time interval, method identifier, exact rational bounds or exact separator) proving a predicate on a whole time interval",
+      "Action: one declared element of the action dictionary",
+      "Move: a topological local rewrite record with position, before state, after state and provenance",
+      "Verdict: one of valid, invalid, not-certified, budget-exhausted, unknown"
+    ]
+  },
+  "negative_controls": [
+    {
+      "expected_diagnostic": "EXP-CONTRACT-DRIFT",
+      "id": "contract-drift",
+      "mutation": "Mutate one byte of a copy of this contract (in memory) and re-check the frozen digest."
+    },
+    {
+      "expected_diagnostic": "EXP6-CROSSING-INFO-DROPPED",
+      "id": "crossing-information-dropped",
+      "mutation": "Assert that the over/under-free encoding of the diagram record is faithful on the declared diagram pair."
+    },
+    {
+      "expected_diagnostic": "EXP6-TORUS-BASIS-SWAP",
+      "id": "torus-basis-swapped",
+      "mutation": "Assert that swapping the torus basis preserves the declared strict-torus isotopy class of the meridian and the longitude."
+    },
+    {
+      "expected_diagnostic": "EXP6-OBSTACLE-TIMETABLE-MISSING",
+      "id": "obstacle-timestamps-omitted",
+      "mutation": "Drop the timestamps from the obstacle trajectory and assert the continuous check still runs and agrees."
+    },
+    {
+      "expected_diagnostic": "EXP6-KEYFRAME-BLIND",
+      "id": "keyframe-only",
+      "mutation": "Assert that the keyframe-only verdict equals the continuous verdict on the keyframe-blind fixture."
+    },
+    {
+      "expected_diagnostic": "EXP6-SELF-PASSAGE-DETECTED",
+      "id": "self-passage-allowed",
+      "mutation": "Assert that a checker which allows the rope to pass through itself agrees with the strict checker on the keyframe-blind fixture."
+    },
+    {
+      "expected_diagnostic": "EXP6-ROUTE-DISAGREEMENT",
+      "id": "route-disagreement",
+      "mutation": "Mutate one stored witness value before comparing the two declared routes."
+    },
+    {
+      "expected_diagnostic": "EXP6-HAND-TABLE-MISMATCH",
+      "id": "hand-table-mismatch",
+      "mutation": "Change one entry of the hand-computed witness table used by the independent route."
+    },
+    {
+      "expected_diagnostic": "EXP6-ENCODE-ROUNDTRIP",
+      "id": "encode-decode-roundtrip",
+      "mutation": "Corrupt one byte of an encoded model string before decoding and assert the round trip still holds."
+    },
+    {
+      "expected_diagnostic": "EXP6-BUDGET-EXCEEDED",
+      "id": "model-beyond-budget",
+      "mutation": "Declare a motion with 17 control nodes or 13 time segments or 4 obstacles and assert it is admitted."
+    },
+    {
+      "expected_diagnostic": "EXP6-BUDGET-EXHAUSTED",
+      "id": "search-budget-claim",
+      "mutation": "Assert that the depth-2 planner run returned a certified replacement path."
+    },
+    {
+      "expected_diagnostic": "EXP6-AMBIENT-EXTENSION-MISSING",
+      "id": "ambient-extension-claim",
+      "mutation": "Assert that a constructive ambient extension certificate is available for the non-rigid motion class."
+    },
+    {
+      "expected_diagnostic": "EXP6-STRICT-SPHERE-KNOT",
+      "id": "strict-sphere-knot-claim",
+      "mutation": "Assert that a curve strictly contained in the declared S^2 fixture carries a non-trivial knot type."
+    }
+  ],
+  "outcomes": {
+    "budget_exhausted": "The declared budget was spent without a verdict; the searched set (sequences, depths, boxes, subdivisions) and the exact reason are reported. The plan forbids shrinking a mandatory witness to fit a budget; only exploratory searches may be shrunk, with the reason recorded.",
+    "expected_negative": "A concrete declared distortion or obstruction with exact data: a path rejected by the continuous collision check, a parameterisation that collides where the other does not, or a distortion that the checker must detect. An expected negative is a result, not an error.",
+    "implementation_error": "A diagnostic with a stable code, raised by a negative control that mutated exactly one declared datum. Each negative control names the code it must raise; a control that passes silently is a bug.",
+    "success": "A declared construction that completes inside the budget with exact certificates: an encoding round trip, a certified interval-clear motion, an exact collision witness, an instantiated local move with recorded provenance, or an invariant value.",
+    "unknown": "A question the declared model cannot decide: for example a time box for which no interval certificate was found and no collision witness exists within the subdivision budget. Reported as open with the exact uncertified remainder, never upgraded to a completeness claim."
+  },
+  "plan_reference": "AEG-process-representation-work-plan.md section 6, 实验六",
+  "representations": [
+    {
+      "datatype": "endpoint node coordinates at the declared final time, plus a declared type label; for the topological route the endpoint diagram record",
+      "definition": "pi_final: the endpoint state only.",
+      "id": "tier1-endpoint-summary",
+      "information_cost": "One point per control node at one time. Keeps no process information at all: no move word, no obstacle timetable, no certificates, no legality history.",
+      "kind": "existing summary",
+      "tier": "existing-summary",
+      "update": "Replace the endpoint state; a closed abstract update exists but it is total only because it discards everything else."
+    },
+    {
+      "datatype": "endpoint state plus the declared bounded process record: the action word (length bounded by the declared depth) or the move list, the obstacle timetables inside the declared budget, and the stored exact interval certificates",
+      "definition": "pi_proc: endpoint state together with the bounded, pre-declared process record and its certificates.",
+      "id": "tier2-bounded-process-enhancement",
+      "information_cost": "Reported per channel. Bounded by the declared budget (16 control nodes, 12 time segments, 3 obstacles, action depth 8); it is not a full history and it is not claimed sufficient for every declared question.",
+      "kind": "bounded, pre-declared enhancement",
+      "tier": "bounded-enhancement",
+      "update": "Append one action record and extend the certificates to the resulting time intervals; the update is closed on the declared domain because legality is a function of the stored record.",
+      "why_this_candidate": "It is the smallest pre-declared record that carries both the discrete action history and the continuous interval certificates, so the two declared distortions (obstacle dependence and time dependence) become observable at all."
+    },
+    {
+      "datatype": "the literal full record: every node coordinate at every declared breakpoint, every obstacle position with timestamps, every move record with provenance, and every certificate",
+      "definition": "hist: the literal full history and exact model.",
+      "id": "tier3-full-history-control",
+      "information_cost": "Unbounded in the declared budget. This is the UPPER-BOUND CONTROL. Retaining everything is NOT thereby a recommended minimal repair, and work-plan section 9 requires the cheapest sufficient candidate to be preferred.",
+      "kind": "full history / exact semantics control",
+      "tier": "full-history-upper-bound",
+      "update": "Append."
+    }
+  ],
+  "reproduction": [
+    "python3 research/process-representation-gap/tools/freeze_contracts.py",
+    "python3 research/process-representation-gap/experiments/exp6_knot_deformation_environment.py --out research/process-representation-gap/evidence/exp6-knot-deformation-environment.json --raw research/process-representation-gap/evidence/exp6-knot-deformation-environment.raw.json",
+    "python3 -O research/process-representation-gap/experiments/exp6_knot_deformation_environment.py > /tmp/exp6-O.json",
+    "cmp /tmp/exp6-O.json research/process-representation-gap/evidence/exp6-knot-deformation-environment.json",
+    "python3 research/process-representation-gap/experiments/exp6_knot_deformation_environment_independent.py"
+  ],
+  "scope_boundary": [
+    "Finite PL (piecewise-linear) representations only, with exact integer or rational coordinates. Tame embeddings only. Wild knots are not covered and arbitrary real input is not accepted.",
+    "No general knot-motion planner is implemented or claimed. Only concrete candidate paths are verified first; the planner is a bounded depth-first search inside one fixed-node-count, fixed-parameter-family, fixed-action-dictionary submodel, and a failure inside that submodel is reported as a bounded-domain result, never as a proof that no legal deformation exists.",
+    "Only checking keyframes is never a continuous safety proof. For the declared PL model whole time intervals are checked exactly with exact rational arithmetic, and the interval certificates are stored.",
+    "Strict embeddings into S^2 or T^2 are kept apart from embeddings into a thickened surface Sigma x I. A strict simple closed curve on S^2 is always unknotted in space; crossing over/under information on a sphere or torus diagram models the thickening, not the strict embedding. Virtual knots allow stabilisation and are not conflated with knots in a fixed T^2 x I.",
+    "Isotopy along a FIXED torus is kept apart from spatial isotopy after leaving the torus. In a fixed oriented basis (1,0) and (0,1) are not isotopic on the torus, yet both are unknots in unobstructed R^3; allowing a basis-swapping ambient homeomorphism changes the equivalence contract, and that alternative contract is reported rather than silently adopted.",
+    "A zero-thickness topological rope is modelled. Physical ropes with radius, length, curvature and velocity limits are a different contract and are not modelled.",
+    "Braid closure, Markov equivalence, and any bridge to knot equivalence are OUT OF SCOPE for this experiment.",
+    "The instantiated local-move calculus is incomplete by declaration: only R1 and R2 are instantiated; R3 is not instantiated inside this budget, so the rewrite system is not claimed to generate all diagram equivalences. Reidemeister moves characterise classical knot type equivalence and do NOT record all geometric time, distance or process information.",
+    "Classical tame knot equivalence has a decision algorithm; that does not give a finite-depth action search decision completeness, and contracts with motion constraints and dynamic obstacles must be re-studied separately.",
+    "Linking number is used as a necessary constraint only and is not claimed to be a complete invariant of all links. Knot polynomials are not computed here."
+  ],
+  "task": {
+    "Q": "Answer, for a declared finite environment fixture: (i) is the declared motion a legal deformation, with exact interval certificates or an exact collision witness; (ii) does the declared obstacle timetable change executability; (iii) which declared environments make two curves equivalent and which do not; (iv) is the finite arithmetic encoding faithful for state, process and continuations.",
+    "adaptive": false,
+    "adaptive_note": "Every check is on a declared frozen fixture. No observation is used to choose the next action during a check; the bounded planner enumerates the declared action dictionary in a fixed order.",
+    "error_note": "Three outcomes are kept distinct at every check: a certified verdict over whole time intervals; an exact colliding or non-embedded witness; and failure to certify inside the subdivision budget, which is reported as not-certified or unknown.",
+    "error_semantics": "A declared implementation error raises a diagnostic with a stable EXP6- code. A non-certified time box is a declared outcome, not an exception. A budget-bounded search failure is budget_exhausted, not a legality claim.",
+    "initial_observation": "O(k_0) = the declared state at time 0: node coordinates, obstacle positions at time 0, and the declared type/slope label where the environment has one.",
+    "observation": "O(k) = the declared bounded process record of tier 2: the endpoint state, the action or move list, the obstacle timetables, and the stored certificates. The tier-1 observation is the endpoint state alone; the tier-3 control is the literal full record.",
+    "observation_points": "At every declared time breakpoint, and over every declared time interval (not only at its endpoints). No observation is available from an illegal state; that state is reported as invalid with its witness."
+  },
+  "title": "Knot deformation processes and environment dependence",
+  "version": "1"
+}

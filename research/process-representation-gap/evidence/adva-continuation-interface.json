@@ -1,0 +1,159 @@
+{
+  "attribution_note": "The three-scalar body y1 = c + v, y2 = f - h, y3 = 3h/f is defined in the aeg-paper PR-16 witness, paper-4/scripts/verify-opposite-features.py. It is NOT an Adva output and NOT a research-0114 output; research 0114's own coordinates are time, space and construction. This probe verifies that absence directly.",
+  "checks": [
+    {
+      "detail": "PROGRAM_PROCESS_CORE.md states the native object is an open finite affine program",
+      "holds": true,
+      "name": "native-carrier-is-open-finite-program"
+    },
+    {
+      "detail": "PROGRAM_PROCESS_CORE.md places recursion and cyclic substitution outside PSC0",
+      "holds": true,
+      "name": "psc0-excludes-recursion-and-cycles"
+    },
+    {
+      "detail": "SEMANTIC_SCOPE.md excludes recursion, cyclic modules and stable feedback",
+      "holds": true,
+      "name": "semantic-scope-excludes-stable-feedback"
+    },
+    {
+      "detail": "TECHNICAL_REPORT states PSC0 objects are finite; no truncation is required",
+      "holds": true,
+      "name": "psc0-objects-are-finite"
+    },
+    {
+      "detail": "research 0233 states finite unrolling introduces no cyclic program",
+      "holds": true,
+      "name": "finite-unrolling-is-not-recursion"
+    },
+    {
+      "detail": "research 0114 disclaims chi maps, semantic compatibility and mechanism execution",
+      "holds": true,
+      "name": "research-0114-nonclaims"
+    },
+    {
+      "detail": "artifact schema is 'adva.trace-arithmetic-calibration.research'",
+      "holds": true,
+      "name": "trace-artifact-schema"
+    },
+    {
+      "detail": "left mechanism path is ['compute', 'verify', 'compute']",
+      "holds": true,
+      "name": "pr16-left-word"
+    },
+    {
+      "detail": "right mechanism path is ['verify', 'compute', 'verify']",
+      "holds": true,
+      "name": "pr16-right-word"
+    },
+    {
+      "detail": "profile is {'kind': 'braid', 'boundary': 'm6', 'process_lift': 'positive_braid_monoid', 'coxeter_shadow': 'symmetric_three'}",
+      "holds": true,
+      "name": "relation-cell-profile-is-braid-m6"
+    },
+    {
+      "detail": "relation filling state is 'open'",
+      "holds": true,
+      "name": "relation-filling-is-open"
+    },
+    {
+      "detail": "the six frame ids are distinct",
+      "holds": true,
+      "name": "frame-ids-are-disjoint"
+    },
+    {
+      "detail": "check_braid destructures exactly three steps and requires the braid pattern",
+      "holds": true,
+      "name": "check-braid-fixes-three-step-words"
+    },
+    {
+      "detail": "RelationCellV0::transport refuses a cell whose filling is still open",
+      "holds": true,
+      "name": "transport-refuses-open-boundary"
+    },
+    {
+      "detail": "RelationCellV0 public operations are ['check', 'new', 'transport']",
+      "holds": true,
+      "name": "relation-cell-exposes-only-new-check-transport"
+    },
+    {
+      "detail": "RelationCellV0 has no 'compose' operation",
+      "holds": true,
+      "name": "no-compose-on-relation-cell"
+    },
+    {
+      "detail": "RelationCellV0 has no 'append' operation",
+      "holds": true,
+      "name": "no-append-on-relation-cell"
+    },
+    {
+      "detail": "RelationCellV0 has no 'extend' operation",
+      "holds": true,
+      "name": "no-extend-on-relation-cell"
+    },
+    {
+      "detail": "RelationCellV0 has no 'continue_with' operation",
+      "holds": true,
+      "name": "no-continue_with-on-relation-cell"
+    },
+    {
+      "detail": "RelationCellV0 has no 'then' operation",
+      "holds": true,
+      "name": "no-then-on-relation-cell"
+    },
+    {
+      "detail": "ADR 0022 rejects frame-id reuse for iteration",
+      "holds": true,
+      "name": "no-frame-reuse-for-iteration"
+    },
+    {
+      "detail": "the (c+v, f-h, 3h/f) body does not occur in the pinned Adva tree (0 hits); it is a declared downstream adapter",
+      "holds": true,
+      "name": "scalar-triple-is-absent-from-pinned-adva"
+    },
+    {
+      "detail": "research 0129 six-part bounded-run contract template; missing []",
+      "holds": true,
+      "name": "research-0129-contract-template"
+    }
+  ],
+  "checks_passed": 23,
+  "environment": {
+    "implementation": "cpython",
+    "python_version": "3.14.6"
+  },
+  "kind": "pinned-source interface probe",
+  "pinned_blobs": {
+    "crates/adva-witness/src/relation.rs": "15494c5c3b3481701fa0c4ab480659ce054ff541",
+    "docs/PROGRAM_PROCESS_CORE.md": "faaa17bb513b5049ad4f5226bf67e1f17281d6ab",
+    "docs/SEMANTIC_SCOPE.md": "1d255f47cc9c9c68206cb818ed74d387e537a5fc",
+    "docs/TECHNICAL_REPORT_PROGRAM_PROCESS_CORE.md": "d7ab72b2d9d5618d6c6589336008df253cb556b2",
+    "docs/research/0114-three-sided-trace-arithmetic-calibration.md": "f175b123d65985a1aa3ebb6274138cf6963b0b71",
+    "docs/research/0129-bounded-breakthrough-trusted-boundaries.md": "1108c0f0da822fbdf058b1206f0d37c52baa1ef3",
+    "docs/research/0233-periodic-programs-before-floquet-observations.md": "b5e44e805c42bedf8bda579faa0aabbf1b3e4f04",
+    "programs/bootstrap-0/first-trace-arithmetic.adva": "de247cd071f714e14a91b0e54a9bab77b0de43e9"
+  },
+  "repository": {
+    "commit": "1b9bd090b2c4710916b6a0ccca0ad88fb7d323bd",
+    "pr16_reproduction_commit": "cce73004c2b4fbfb87d9ba1ccc66820423273cf6",
+    "remote": "mountain/adva"
+  },
+  "schema": "aeg.process-representation-gap.adva-interface.v1",
+  "verdict": {
+    "consequence_for_this_programme": "experiment 2 builds its own declared small typed model, as the work plan prescribes when the two records have no common legal native continuation interface; no Adva continuation semantics is invented",
+    "native_legal_continuation_interface_for_pr16_records": false,
+    "reason": "the pinned source fixes the relation cell to exactly the two three-step braid words, rejects frame-id reuse for iteration, refuses transport on an open filling, and excludes recursion, cyclic substitution and stable feedback from PSC0; no append, step, glue or continuation operation exists on RelationCellV0",
+    "what_exists": [
+      "analyze_causal_cut, advance_causal_cut, analyze_program_slice, compose_program_slices on SharedProgramDiagram (crates/adva-lisp/src/process.rs)",
+      "RelationCellV0::{new, check, transport} with a filled boundary",
+      "the finite data-machine profile adva data-run --resume, walled off from PSC0"
+    ],
+    "what_must_be_invented_downstream": [
+      "a legality predicate on these records",
+      "an append/step/gluing operation on FrameRelationPathV0 or RelationCellV0",
+      "a boundary-agreement rule for an appended step",
+      "an identity policy that does not reuse a FrameIdV0",
+      "a filler/transport decision, since transport refuses the open boundary"
+    ]
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "fixture": "exp6-gate-b-refutation",
+  "payload": {
+    "declared_domain_statements": [
+      {
+        "necessary_only_for": "any topological classification of curves in R^3",
+        "sufficient_within": "essential simple closed curves on a fixed torus in a fixed oriented basis",
+        "summary": "torus slope"
+      },
+      {
+        "necessary_only_for": "knot type: writhe is not a knot invariant",
+        "sufficient_within": "declared diagram records with declared crossing signs",
+        "summary": "writhe"
+      },
+      {
+        "necessary_only_for": "link type: it is not a complete link invariant",
+        "sufficient_within": "detecting non-separability of two closed curves",
+        "summary": "linking number"
+      }
+    ],
+    "items": [
+      {
+        "evidence": "the encoding is injective and decodes exactly on the declared family",
+        "item": "encode-equivalence implies literal equality (syntactic injectivity)",
+        "result": "pass"
+      },
+      {
+        "evidence": "the declared state is the literal model record, so encode-equivalence is literal equality",
+        "item": "literal equality is the declared state semantics",
+        "result": "pass"
+      },
+      {
+        "counterexample": {
+          "different_encodings": true,
+          "direction": "encode-equivalence implies topological equivalence, but topological equivalence does NOT imply encode-equivalence, so the iff fails",
+          "equal_topological_semantics": "both are unknots in unobstructed R^3 (classical, cited), so the free-3-space task declares them equivalent while their integer encodings differ",
+          "pair": [
+            "torus meridian (1,0) in free R^3",
+            "torus longitude (0,1) in free R^3"
+          ]
+        },
+        "item": "encode-equivalence if and only if topological state-semantics equivalence",
+        "result": "fail"
+      },
+      {
+        "evidence": "the declared diagram pair whose full encodings differ yet whose over/under-free encodings coincide shows that the integer string carries the literal record, not a topological decision procedure",
+        "item": "syntactic injectivity alone decides topological equivalence",
+        "result": "fail"
+      }
+    ],
+    "not_claimed": "no polynomial invariant is computed; no completeness claim is made for any summary",
+    "status": "computationally-verified-example",
+    "verdict": "satisfied for literal-data state semantics; refuted for topological state semantics"
+  },
+  "schema": "aeg.process-representation-gap.fixture.v1",
+  "source": {
+    "evidence_file": "exp6-knot-deformation-environment.json",
+    "pointer": "gates.B_state_faithful",
+    "sha256": "13b12a806236934505619bdc09acac9f08dfe79a3f4b2c1ef981fdc05685e210"
+  }
+}

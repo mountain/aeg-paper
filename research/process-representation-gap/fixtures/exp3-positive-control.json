@@ -1,0 +1,71 @@
+{
+  "fixture": "exp3-positive-control",
+  "payload": {
+    "binary_gates": [
+      0,
+      1
+    ],
+    "bodies": [
+      "const(-1)",
+      "add(const(-1),const(0))"
+    ],
+    "fillings": [
+      "beta0",
+      "beta1",
+      "beta2",
+      "beta3",
+      "beta4",
+      "beta5",
+      "beta_undef"
+    ],
+    "kind": "distinct literal bodies, declared-filling equivalent",
+    "note": "the two bodies differ literally yet agree on every declared filling; this is an equivalence, not a gap, and an enhancement that separated them would be over-refined for the declared task",
+    "shared_behaviour": [
+      [
+        "DEFINED",
+        [
+          "-1"
+        ]
+      ],
+      [
+        "DEFINED",
+        [
+          "-1"
+        ]
+      ],
+      [
+        "DEFINED",
+        [
+          "-1"
+        ]
+      ],
+      [
+        "DEFINED",
+        [
+          "-1"
+        ]
+      ],
+      [
+        "DEFINED",
+        [
+          "-1"
+        ]
+      ],
+      [
+        "DEFINED",
+        [
+          "-1"
+        ]
+      ],
+      [
+        "UNDEFINED"
+      ]
+    ]
+  },
+  "schema": "aeg.process-representation-gap.fixture.v1",
+  "source": {
+    "evidence_file": "exp3-typed-hole-context.json",
+    "pointer": "witnesses.positive_control",
+    "sha256": "82362f569ddcfefe90b54a4a75a99b12fba88e0950ffc5614ec0876625fb2931"
+  }
+}

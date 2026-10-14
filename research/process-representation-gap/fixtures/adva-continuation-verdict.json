@@ -1,0 +1,26 @@
+{
+  "fixture": "adva-continuation-verdict",
+  "payload": {
+    "consequence_for_this_programme": "experiment 2 builds its own declared small typed model, as the work plan prescribes when the two records have no common legal native continuation interface; no Adva continuation semantics is invented",
+    "native_legal_continuation_interface_for_pr16_records": false,
+    "reason": "the pinned source fixes the relation cell to exactly the two three-step braid words, rejects frame-id reuse for iteration, refuses transport on an open filling, and excludes recursion, cyclic substitution and stable feedback from PSC0; no append, step, glue or continuation operation exists on RelationCellV0",
+    "what_exists": [
+      "analyze_causal_cut, advance_causal_cut, analyze_program_slice, compose_program_slices on SharedProgramDiagram (crates/adva-lisp/src/process.rs)",
+      "RelationCellV0::{new, check, transport} with a filled boundary",
+      "the finite data-machine profile adva data-run --resume, walled off from PSC0"
+    ],
+    "what_must_be_invented_downstream": [
+      "a legality predicate on these records",
+      "an append/step/gluing operation on FrameRelationPathV0 or RelationCellV0",
+      "a boundary-agreement rule for an appended step",
+      "an identity policy that does not reuse a FrameIdV0",
+      "a filler/transport decision, since transport refuses the open boundary"
+    ]
+  },
+  "schema": "aeg.process-representation-gap.fixture.v1",
+  "source": {
+    "evidence_file": "adva-continuation-interface.json",
+    "pointer": "verdict",
+    "sha256": "1b8cc739b006ea46ea0a106679fa16e04f623830f2e7c455d528b605bf9bf43d"
+  }
+}

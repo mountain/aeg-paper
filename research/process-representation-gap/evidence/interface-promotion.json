@@ -1,0 +1,146 @@
+{
+  "applied": false,
+  "authority_note": "work-plan section 10: this plan grants no additional authority to publish or merge new research.  Every proposal below is unapplied and requires the target repository's own governance review.",
+  "count": 3,
+  "generated_by": "tools/build_interface_promotion.py",
+  "proposals": [
+    {
+      "applied": false,
+      "citations_verified": [
+        {
+          "experiment": "exp2",
+          "file": "exp2-loop-continuation.json",
+          "pointer": "representations.pi0",
+          "sha256": "85b62328ed43d976cb9d0ae0cae2f87823af0aaa4664baae6dec1d080458bf5c",
+          "verified": {
+            "closed_update": false,
+            "sufficient": false
+          }
+        },
+        {
+          "experiment": "exp3",
+          "file": "exp3-typed-hole-context.json",
+          "pointer": "context_search",
+          "sha256": "82362f569ddcfefe90b54a4a75a99b12fba88e0950ffc5614ec0876625fb2931",
+          "verified": {
+            "grid_candidates": 63,
+            "grid_candidates_insufficient": 63
+          }
+        },
+        {
+          "experiment": "adva",
+          "file": "adva-continuation-interface.json",
+          "pointer": "verdict",
+          "sha256": "1b8cc739b006ea46ea0a106679fa16e04f623830f2e7c455d528b605bf9bf43d",
+          "verified": {
+            "native_legal_continuation_interface_for_pr16_records": false
+          }
+        }
+      ],
+      "cost": "one governance document; no runtime cost, no API, no code in the paper build",
+      "id": "P-AEG-1",
+      "information_added": "a reproducible, hash-pinned record of where six declared representations stop being sufficient, with the cost of each candidate and the exact witness",
+      "kind": "additive governance status record",
+      "precedent": "governance/opposite-feature-witness-2026-10-09.md, added by PR 16",
+      "regression_condition": "any cited evidence file changing its SHA-256, or any cited verdict changing value; tools/build_interface_promotion.py re-checks both and exits nonzero",
+      "repository": "mountain/aeg-paper",
+      "review_gate": "repository governance review under AGENTS.md; no automatic merge",
+      "status_row_target": "governance/05-mathematical-status.md",
+      "still_fails": [
+        "does not close PIV-F2; chi_T and chi_S remain two-record sample consistency",
+        "does not promote any experiment result to a theorem"
+      ],
+      "summary": "Register the six experiments and the pinned-source continuation gap as a governance-reviewed record, exactly as PR 16 registered its finite snapshot witness.  Additive only: no theorem, label, notation or frozen audit changes, and no claim is promoted.",
+      "target": "governance/process-representation-gap-2026-10-10.md",
+      "task_improved": "an auditor asking whether PR 16's obstruction survives to other tasks"
+    },
+    {
+      "applied": false,
+      "citations_verified": [
+        {
+          "experiment": "exp2",
+          "file": "exp2-loop-continuation.json",
+          "pointer": "enhancement_grid",
+          "sha256": "85b62328ed43d976cb9d0ae0cae2f87823af0aaa4664baae6dec1d080458bf5c",
+          "verified": {
+            "selected": "counts+accum"
+          }
+        },
+        {
+          "experiment": "exp2",
+          "file": "exp2-loop-continuation.json",
+          "pointer": "reserved_verification_family",
+          "sha256": "85b62328ed43d976cb9d0ae0cae2f87823af0aaa4664baae6dec1d080458bf5c",
+          "verified": {
+            "closed_update": true,
+            "sufficient": true
+          }
+        },
+        {
+          "experiment": "exp4",
+          "file": "exp4-objectification-elevation.json",
+          "pointer": "attempts.exp5_artin_object.gates.gate_iii_exact_descent",
+          "sha256": "f5b9d188e1e7efb13b0675c9960ed4660786146d956c2d4729483a7c349abb91",
+          "verified": {
+            "mismatches": 0,
+            "verdict": "PASS"
+          }
+        }
+      ],
+      "cost": "research-local only; workstream-internal tests are not collected by the root suite",
+      "id": "P-PG-1",
+      "information_added": "a declared typed feedback machine, its exact continuation quotient, the one-field enhancement grid, and the gate-by-gate elevation criterion",
+      "interface_pressure_observed": "process_geometry.experimental.minimize_finite_task_process was reused successfully as an EXACT oracle with no modification.  The promotion signal is therefore 'this experimental entry point is reusable as-is', not 'change it'.",
+      "kind": "research-local workstream, no src/ change",
+      "precedent": "workstreams/native_method_firewall/ (README + one module + one external test); workstreams/am_weight_compiler/ for the frozen-contract and disposition schema",
+      "regression_condition": "the workstream must reproduce the recorded numbers from the pinned commit; a mismatch against evidence/exp2-loop-continuation.json is a failure",
+      "repository": "mountain/process-geometry",
+      "review_gate": "repository governance; the workstream must declare a claim ceiling",
+      "still_fails": [
+        "the exp5 Artin object is a quotient, not an elevation: no new rank is claimed",
+        "no general theorem; the enhancement grid is bounded to the declared domain"
+      ],
+      "summary": "Host the continuation-equivalence and objectification findings as a workstream following the repository's own convention: README + module + tests, with a frozen contract if an economy claim is made.  No src/ change and no public API.",
+      "target": "workstreams/process_representation_gap/",
+      "task_improved": "the repository's own open obligation 'a theorem deciding when a nontrivial continuation-value fibre objectifies into a higher-rank compositional process'"
+    },
+    {
+      "applied": false,
+      "citations_verified": [
+        {
+          "experiment": "adva",
+          "file": "adva-continuation-interface.json",
+          "pointer": "verdict",
+          "sha256": "1b8cc739b006ea46ea0a106679fa16e04f623830f2e7c455d528b605bf9bf43d",
+          "verified": {
+            "native_legal_continuation_interface_for_pr16_records": false
+          }
+        },
+        {
+          "experiment": "adva",
+          "file": "adva-continuation-interface.json",
+          "pointer": "checks",
+          "sha256": "1b8cc739b006ea46ea0a106679fa16e04f623830f2e7c455d528b605bf9bf43d",
+          "verified": {}
+        }
+      ],
+      "companion": "experiments/<name>/contract.json",
+      "cost": "one research note plus one bounded-run contract; no Rust type, no SourceId or OccurrenceId allocation, no change to PSC0 or to any frozen artefact",
+      "id": "P-ADVA-1",
+      "information_added": "the five semantics a downstream experiment must invent, enumerated explicitly, plus a calibration model (experiment 2) that declares all five",
+      "kind": "new declared research profile, explicitly not a PSC0 extension",
+      "precedent": "docs/research/0129-bounded-breakthrough-trusted-boundaries.md, which fixes the six-part bounded-run contract template",
+      "regression_condition": "if a pinned Adva operation later appends a step to FrameRelationPathV0 or composes two RelationCellV0, the gap claim is falsified and the probe exits nonzero",
+      "repository": "mountain/adva",
+      "review_gate": "repository governance; the profile must declare its own scope and ceilings",
+      "still_fails": [
+        "does not implement continuation; the profile is a specification",
+        "does not execute compute/verify/learn mechanisms, matching the existing boundary"
+      ],
+      "summary": "The pinned source supplies no native legal-continuation interface for a relation path or a relation cell.  If a continuation notion is wanted, it belongs in a NEW declared profile with its own legality predicate, append operation, boundary-agreement rule, identity policy and filler decision -- never as a silent extension of PSC0.",
+      "target": "docs/research/<NNNN>-declared-continuation-profile.md",
+      "task_improved": "making the continuation gap explicit instead of leaving it to be rediscovered, and giving a future profile a declared contract to satisfy"
+    }
+  ],
+  "schema": "aeg.process-representation-gap.interface-promotion.v1"
+}
