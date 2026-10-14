@@ -1,0 +1,70 @@
+{
+  "braid": {
+    "W2_permutation": [
+      2,
+      1,
+      0
+    ],
+    "counts": [
+      5461,
+      1457,
+      577,
+      6
+    ],
+    "product_probe_classes": 1,
+    "raw_rows_independently_compared": 5461,
+    "scope": "words of length at most six; Artin faithfulness is a cited theorem",
+    "selected_probe_classes": 577
+  },
+  "findings": {
+    "R2_nonplanar_Gauss_record": {
+      "blocker": true,
+      "committed_fixture_odd_labels": [
+        3,
+        4
+      ],
+      "committed_fixture_word": [
+        1,
+        3,
+        4,
+        -1,
+        2,
+        -3,
+        -4,
+        -2
+      ],
+      "odd_intervening_labels": [
+        1,
+        2
+      ],
+      "word": [
+        1,
+        2,
+        -1,
+        -2
+      ]
+    },
+    "freeze_existing_contract_mutation": {
+      "blocker": true,
+      "digest_refreshed": true,
+      "exit": 0
+    },
+    "self_embedding_false_acceptance": {
+      "actual_midpoint_embedded": false,
+      "blocker": true,
+      "independent": "valid",
+      "primary": "valid"
+    }
+  },
+  "merge_ready": false,
+  "reviewed_head": "5e4a620ce3a3214159e38b6344a0ae2dd98aa343",
+  "timing": {
+    "P2_collision_time": "3/8",
+    "analytic_minimum_squared_distance": "400/101",
+    "certificates_recomputed": 20,
+    "certified_margin": "3/4",
+    "coverage": "all four edges over [0,1]",
+    "minimiser": "301/808",
+    "self_embedding_argument": "both paths are rigid translations of a fixed simple square"
+  }
+}
