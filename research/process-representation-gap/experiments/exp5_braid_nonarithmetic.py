@@ -531,13 +531,13 @@ def main() -> int:
     raw_text = gapkit.canonical(raw)
     if args.out:
         Path(args.out).write_text(text, encoding="utf-8")
-        if args.raw:
-            Path(args.raw).write_text(raw_text, encoding="utf-8")
         sys.stderr.write(
             f"exp5 sha256={gapkit.sha256_bytes(text.encode())} "
             f"raw_sha256={gapkit.sha256_bytes(raw_text.encode())}\n")
     else:
         sys.stdout.write(text)
+    if args.raw:
+        Path(args.raw).write_text(raw_text, encoding="utf-8")
     return 0
 
 

@@ -1,5 +1,12 @@
 # 00 — Gap classification and cost comparison
 
+> Updated acceptance boundary: see `../reviews/2026-10-19-repair.md`.
+> Exp6 now certifies rigid translations only. Its R1/R2 operations and gate C
+> are syntactic; no knot-process interface follows. Torus comparisons require
+> the standard unknotted embedding and fixed framing. Exp3's negative result
+> ranges over the declared 63 candidates, not every bounded residual.
+
+
 Work-plan sections 9 and 10. **This report is generated from evidence, not
 written over it.** Every row cites a JSON pointer into a raw evidence document,
 and `tools/build_gap_classification.py` re-checks each cited verdict at run
@@ -77,7 +84,7 @@ above is reported under **both** relations, and the two are never conflated.
 |---|---|
 | exp3 | `const(2)` vs `h1`: both `DEFINED (2)` at `beta0 = (2,7,3,5)`; at the legal filling `beta3 = (4,7,3,5)` → `2` vs `4`. Stronger: `div(const(2),h1)` vs `div(h1,const(2))` agree on **all six** declared residues and differ only in operand order |
 | exp6 | gate B refuted for topological semantics by an explicit witness pair |
-| exp6 | environment changes equivalence: meridian and longitude differ on the strict torus and are equivalent as unknots in free R³; a basis swap (det `−1`) changes the contract |
+| exp6 | environment changes equivalence: meridian and longitude differ on the fixed torus and are equivalent in R³ for its standard unknotted embedding; a basis swap (det `−1`) changes the contract |
 
 ### 2.5 `quotient-forgets-history` (2 findings)
 

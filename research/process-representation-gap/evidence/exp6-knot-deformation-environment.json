@@ -24,7 +24,7 @@
       {
         "requirement": "knot polynomials",
         "status": "not computed",
-        "why": "writhe, linking number and torus slope are used as declared necessary constraints only; no polynomial invariant is computed and no completeness claim is made for any of them"
+        "why": "writhe is a diagram statistic; nonzero linking obstructs splitting, zero does not certify it; slope requires a fixed surface and basis; no polynomial invariant or completeness claim is made for any of them"
       },
       {
         "requirement": "fixed-endpoint process homotopy between the two witness-1 histories",
@@ -38,7 +38,7 @@
       "no knot invariance inferred from a suggestive construction",
       "no bridging of braid closure or Markov equivalence to knot equivalence",
       "no claim that linking number is a complete link invariant",
-      "no claim that a strict simple closed curve on S^2 or T^2 can carry a classical non-trivial knot",
+      "no exclusion of nontrivial knots on a torus; primitive (2,3) on the standard torus is a trefoil",
       "no virtual-knot stabilisation equivalence"
     ]
   },
@@ -48,9 +48,10 @@
     "max_known_obstacles": 3,
     "max_time_segments": 12
   },
+  "claim_ceiling": "rigid translations and abstract signed-word calculations; no knot-process interface",
   "contract": {
-    "path": "research/process-representation-gap/contracts/exp6-knot-deformation-environment.v1.json",
-    "sha256": "1b8a6d0ddbce2efd708a3875e7c6f32bd05947ffb1b434e74e4d5c5f5cfa82ac"
+    "path": "research/process-representation-gap/contracts/exp6-knot-deformation-environment.v1.1.json",
+    "sha256": "7c23ed1527ca75f9f904a61eee3f4f8f3982d8ccdccacd482dce8ec4765c657d"
   },
   "costs": {
     "measurement_note": "Declared units per channel.  observations = declared observation points read on this fixture (endpoint only for tier 1; every declared time breakpoint for tier 2 and 3).  computation_steps = exact arithmetic obligations performed to produce the payload (one per control node evaluated, one per obstacle position, one per move record).  verification_cost = exact stored claims an independent checker must re-derive (one per stored interval certificate or move record).  storage_bytes and structural_size are the canonical serialised size and the retained field count of the payload.",
@@ -121,7 +122,7 @@
   },
   "environment": {
     "implementation": "cpython",
-    "python_version": "3.14.6"
+    "python_version": "3.12.14"
   },
   "environments": {
     "euclidean-space": {
@@ -134,7 +135,7 @@
       "zero_thickness_only": "a zero-thickness topological rope is modelled; physical ropes with radius, length, curvature and velocity limits are a different contract"
     },
     "free-3-space-torus-comparison": {
-      "claim": "in unobstructed R^3 both (1,0) and (0,1) are unknots, so the free-3-space task declares them equivalent while the strict-surface task does not",
+      "claim": "on the standard unknotted embedded torus, both (1,0) and (0,1) are unknots in R^3, so the free-3-space task declares them equivalent while the strict-surface task does not",
       "computed_here": "the slope arithmetic, primitivity and geometric intersection numbers above are computed exactly; the disk-bounding fact for the standard torus is cited",
       "status": "proved-with-stated-hypotheses (classical, cited not reproved here)"
     },
@@ -183,16 +184,17 @@
           1
         ]
       },
-      "conclusion": "a simple closed curve that bounds an embedded disk is unknotted in R^3. For a curve strictly contained in S^2 that disk can be taken inside the sphere (Jordan-Schoenflies, cited), so no classical non-trivial knot can be carried there.",
+      "conclusion": "a simple closed curve that bounds an embedded disk is unknotted in R^3. For a tame simple curve on a tame embedded S^2 that disk can be taken inside the sphere (Jordan-Schoenflies, cited), so no classical non-trivial knot can be carried there.",
       "error": null,
       "fixture": "w5-loop (planar simple polygon) and the flat fan disk it bounds",
       "model_note": "the COMPUTED certificate is for the planar case: the declared fixture is planar, simple and convex, so its flat fan triangulation is an embedded disk. The fixture is NOT modelled as a curve lying on a sphere, and that reduction is stated rather than glossed; the sphere-specific step is the cited Jordan-Schoenflies statement.",
       "status": "computationally-verified-example (planar disk) plus a cited classical statement (sphere)"
     },
     "strict-torus": {
+      "ambient_embedding": "standard unknotted torus in R3 with fixed meridian/longitude framing",
       "basis_fixed": true,
       "basis_swap": {
-        "consequence": "if a basis-swapping ambient homeomorphism is allowed, the meridian and the longitude become equivalent and the earlier equivalence contract changes; the reported result is for the FIXED oriented basis",
+        "consequence": "if a basis-swapping SURFACE homeomorphism is allowed, the meridian and the longitude become equivalent and the earlier equivalence contract changes; no ambient extension or isotopy to identity is asserted; the reported result is for the FIXED oriented basis",
         "determinant": -1,
         "longitude_images_to": [
           1,
@@ -255,12 +257,12 @@
       ],
       "crossing_data_required": true,
       "native_object": "diagram on Sigma with labelled crossings carrying over/under data (Sigma x I)",
-      "not_strict_embedding": "crossing over/under information models the THICKENING; a strict simple closed curve in S^2 or T^2 has no crossing data and cannot carry a classical non-trivial knot",
+      "not_strict_embedding": "intrinsic surface embeddings have no self-crossings, but their planar projections can. A primitive (2,3) curve on the standard embedded torus is a trefoil; a tame simple curve on a tame embedded sphere bounds a disk",
       "stabilisation": "virtual knots additionally allow stabilisation and destabilisation and must not be conflated with knots in a fixed T^2 x I; no stabilisation equivalence is implemented or claimed here"
     },
     "witness-2-environment-changes-equivalence": {
       "basis_swap_changes_the_contract": {
-        "consequence": "if a basis-swapping ambient homeomorphism is allowed, the meridian and the longitude become equivalent and the earlier equivalence contract changes; the reported result is for the FIXED oriented basis",
+        "consequence": "if a basis-swapping SURFACE homeomorphism is allowed, the meridian and the longitude become equivalent and the earlier equivalence contract changes; no ambient extension or isotopy to identity is asserted; the reported result is for the FIXED oriented basis",
         "determinant": -1,
         "longitude_images_to": [
           1,
@@ -287,7 +289,7 @@
       ],
       "free_3_space_task": {
         "equivalent": true,
-        "why": "both are unknots in unobstructed R^3 (classical, cited not reproved here), so the free-space task declares them equivalent"
+        "why": "both are unknots on the standard unknotted embedded torus in R^3 (classical, cited), so the free-space task declares them equivalent"
       },
       "outcome": "success (the environment changes the declared equivalence)",
       "status": "proved-with-stated-hypotheses (cited classical classification) with exactly computed slope and intersection data",
@@ -336,18 +338,18 @@
     "B_state_faithful": {
       "declared_domain_statements": [
         {
-          "necessary_only_for": "any topological classification of curves in R^3",
+          "necessary_only_for": "fixed-surface isotopy only, not arbitrary ambient isotopy in R3",
           "sufficient_within": "essential simple closed curves on a fixed torus in a fixed oriented basis",
           "summary": "torus slope"
         },
         {
-          "necessary_only_for": "knot type: writhe is not a knot invariant",
+          "necessary_only_for": "none for ambient knot type; writhe is not a knot invariant",
           "sufficient_within": "declared diagram records with declared crossing signs",
           "summary": "writhe"
         },
         {
           "necessary_only_for": "link type: it is not a complete link invariant",
-          "sufficient_within": "detecting non-separability of two closed curves",
+          "sufficient_within": "nonzero linking obstructs splitting; zero does not certify splitting",
           "summary": "linking number"
         }
       ],
@@ -366,7 +368,7 @@
           "counterexample": {
             "different_encodings": true,
             "direction": "encode-equivalence implies topological equivalence, but topological equivalence does NOT imply encode-equivalence, so the iff fails",
-            "equal_topological_semantics": "both are unknots in unobstructed R^3 (classical, cited), so the free-3-space task declares them equivalent while their integer encodings differ",
+            "equal_topological_semantics": "both lie on the standard unknotted embedded torus and are unknots in R^3 (classical, cited), so the free-3-space task declares them equivalent while their integer encodings differ",
             "pair": [
               "torus meridian (1,0) in free R^3",
               "torus longitude (0,1) in free R^3"
@@ -389,7 +391,7 @@
       "items": [
         {
           "detail": "replaying the decoded move history reproduces the endpoint diagram exactly",
-          "item": "D(E(h)) equals h under the declared process semantics",
+          "item": "decoded history retains the literal action sequence and replays its endpoint",
           "result": "pass"
         },
         {
@@ -425,9 +427,9 @@
           "result": "pass"
         }
       ],
-      "not_claimed": "process faithfulness is checked for the declared action dictionary and the declared histories; fixed-endpoint process homotopy is not decided",
-      "status": "computationally-verified-example",
-      "verdict": "satisfied on the declared domain"
+      "not_claimed": "no planar realisability, Reidemeister soundness or knot-process faithfulness is established; the R1/R2 names denote abstract signed-word rules only",
+      "status": "computationally-verified-example (syntax only)",
+      "verdict": "syntactic record operations verified; knot-process faithfulness not certified"
     },
     "D_completeness": {
       "decidability_statement": "classical tame knot equivalence has a decision algorithm (cited); that gives NO decision completeness to a finite-depth action search, and contracts with motion constraints and dynamic obstacles have to be re-studied separately",
@@ -445,7 +447,7 @@
           "why": "the planner enumerates a fixed submodel; anything outside returns budget_exhausted or unknown"
         },
         {
-          "bounded_domain": "the instantiated move calculus (R1, R2; R3 not instantiated)",
+          "bounded_domain": "abstract signed-word rules (historical R1/R2 names); no planar move calculus",
           "question": "can all semantic equivalences be proved by rewriting?",
           "verdict": "no",
           "why": "classical R-move completeness for knot diagrams is a cited theorem; this experiment does not implement it, and the move calculus carries no motion constraints or obstacle data"
@@ -1478,7 +1480,7 @@
     ],
     "success": [
       "gate A encode/decode round trip on every declared fixture",
-      "gate C D(E(h)) = h and E(h2.h1) = E(h1) ++ E(h2) on the declared histories",
+      "gate C: literal history encode/decode, concatenation and endpoint replay only",
       "witness 1: identity path and local-move-then-inverse path share one endpoint state",
       "witness 2: torus slope and intersection arithmetic, and the free-3-space comparison",
       "witness 3: the searched replacement path is certified clear inside the budget",
@@ -1495,15 +1497,15 @@
     "flat_disk_certificate": "computationally-verified-example (planarity, convexity and the fan triangulation are checked exactly)",
     "free_space_unknot_comparison": "proved-with-stated-hypotheses (classical, cited not reproved)",
     "general_knot_motion_planner": "structural-proposal only (not implemented)",
-    "interval_self_embedding_certificates": "proved (exact rational certificate per time box, multilinear box-hull separation)",
+    "interval_self_embedding_certificates": "proved with stated hypotheses: checked simple initial polygon plus rigid translation only",
     "keyframe_blindness": "computationally-verified-example (embedded at both keyframes, not embedded at t=1/4)",
     "linking_number_completeness": "open (not claimed; known to be incomplete in general, not verified here)",
     "linking_number_invariance_used": "proved-with-stated-hypotheses (classical invariance under disjoint isotopy, cited)",
     "linking_number_values": "computationally-verified-example (algebraic intersection with a spanning disk, cross-checked by a signed crossing count)",
-    "local_move_calculus": "computationally-verified-example with declared incompleteness (R1 and R2 instantiated, R3 not)",
+    "local_move_calculus": "computationally-verified-example of abstract signed-word rewrites; planar Reidemeister soundness withdrawn",
     "obstacle_clearance_certificates": "proved (exact rational certificate per time box and edge)",
     "planning_failure_implies_nonexistence": "open (explicitly not claimed)",
-    "process_faithfulness": "computationally-verified-example on the declared action dictionary",
+    "process_faithfulness": "syntactic record operations only; knot-process faithfulness not certified",
     "reidemeister_completeness": "proved-with-stated-hypotheses in the literature (cited), NOT verified or implemented here",
     "state_faithfulness_topological": "refuted for topological semantics by an explicit witness pair",
     "strict_sphere_statement": "proved-with-stated-hypotheses (Jordan-Schoenflies cited) with a computationally verified planar disk certificate",
@@ -1512,11 +1514,15 @@
     "unknown_outcome_demonstration": "computationally-verified-example",
     "writhe_effects_of_the_moves": "proved on the declared diagram records (exact sign arithmetic)"
   },
-  "schema": "aeg.process-representation-gap.exp6.v1",
+  "schema": "aeg.process-representation-gap.exp6.v1.1",
+  "supersedes": {
+    "commit": "1556eaedaee0946b2e395320739234dc59ec846c",
+    "contract": "exp6-knot-deformation-environment.v1.json"
+  },
   "topological_route": {
     "calculus": {
       "diagram": "Gauss word with over/under entry signs plus a declared crossing-sign vector",
-      "incompleteness": "the rewrite system is incomplete by declaration: R3 is not instantiated, so no claim is made that it generates all diagram equivalences. Reidemeister moves characterise classical knot type equivalence; they record no geometric time, distance or process data.",
+      "incompleteness": "abstract signed-word calculus only: the historical R2 fixture is nonplanar; neither R1 nor R2 carries a planar local-disk certificate. R3 is absent. Classical Reidemeister completeness does not apply to these rules.",
       "instantiated_moves": [
         "R1+",
         "R1-",
@@ -1540,7 +1546,7 @@
       "diagram_a": "word=1,-1;signs=1",
       "diagram_b": "word=-1,1;signs=1",
       "full_encoding_equal": false,
-      "knot_type_both": "unknot (a one-crossing diagram of a curve is a kink; cited classical fact, not reproved here)",
+      "knot_type_both": "not certified from these abstract signed-word records",
       "over_under_free_encoding_equal": true,
       "r1_deletable_a": [
         {

@@ -1,13 +1,14 @@
 {
+  "claim_ceiling": "positive embedding only for checked rigid translations; signed-word operations are syntactic",
   "conclusion": "every declared primary verdict, witness value and stored interval certificate is reproduced by the independent route",
   "contract": {
-    "path": "research/process-representation-gap/contracts/exp6-knot-deformation-environment.v1.json",
-    "sha256": "1b8a6d0ddbce2efd708a3875e7c6f32bd05947ffb1b434e74e4d5c5f5cfa82ac"
+    "path": "research/process-representation-gap/contracts/exp6-knot-deformation-environment.v1.1.json",
+    "sha256": "7c23ed1527ca75f9f904a61eee3f4f8f3982d8ccdccacd482dce8ec4765c657d"
   },
   "disagreements": [],
   "environment": {
     "implementation": "cpython",
-    "python_version": "3.14.6"
+    "python_version": "3.12.14"
   },
   "environment_arithmetic": {
     "basis_swap_of_longitude": [
@@ -328,9 +329,9 @@
   },
   "primary_evidence": {
     "path": "research/process-representation-gap/evidence/exp6-knot-deformation-environment.json",
-    "sha256": "13b12a806236934505619bdc09acac9f08dfe79a3f4b2c1ef981fdc05685e210"
+    "sha256": "99ecce7142f6bfa1a846bcc38daa247cc98b13c4b09bc5ec80d88db4fd695b01"
   },
-  "role": "independent verification route for exp6",
+  "role": "independent verification route for narrowed exp6 v1.1",
   "schema": "aeg.process-representation-gap.exp6-independent.v1",
   "stored_certificate_recheck": {
     "certificates_checked": 20,

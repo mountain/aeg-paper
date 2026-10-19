@@ -68,7 +68,7 @@ not determine the literal history, and L1 determines strictly less than L2.
 | same braid element | **no** |
 | separated at L2 | **yes** |
 
-The coarsest layer cannot see torsion that the group layer sees.
+The permutation layer misses the nontrivial pure braid detected by the group layer; this is not a finite-order torsion claim.
 
 ### W2 — `σ₁σ₂σ₁` versus `σ₂σ₁σ₂`
 
@@ -77,7 +77,7 @@ The coarsest layer cannot see torsion that the group layer sees.
 | literal words | different |
 | generator counts `(s₁−S₁, s₂−S₂, s₁, s₂, S₁, S₂)` | `(2,1,2,1,0,0)` vs `(1,2,1,2,0,0)` |
 | Artin images | identical: `[xyzy⁻¹x⁻¹, xyx⁻¹, x]` |
-| endpoint permutation | both `[1,2,0]` |
+| endpoint permutation | both `[2,1,0]` |
 
 The braid quotient merges two distinct literal histories with different
 generator counts. Per the work plan this is **not** a group-semantic

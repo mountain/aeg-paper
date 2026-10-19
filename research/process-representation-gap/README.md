@@ -1,5 +1,21 @@
 # Process representation gap
 
+## Current acceptance boundary (2026-10-19)
+
+The v1 claims reviewed on 2026-10-14 are superseded where corrected by
+`contracts/exp6-knot-deformation-environment.v1.1.json` and
+`reviews/2026-10-19-repair.md`. Positive motion certification is restricted to
+rigid translations of checked simple polygons. The historical R1/R2-named
+operations are an **abstract signed-word calculus**, not certified planar
+Reidemeister moves. Gate C certifies only literal record operations.
+No theorem or native Adva interface is promoted by merging this research.
+
+Historical evidence, reports and fixtures remain retrievable at the full commit
+and blob/hash entries in `reviews/2026-10-19-repair-history.json`; original v1
+contracts and the rejection review remain unchanged. Active exp6 evidence and
+its derived fixtures are explicitly successor records under v1.1.
+
+
 Execution of the work plan `AEG-process-representation-work-plan.md` (version
 1.1, 2026-10-10) against the three pinned repositories.
 
@@ -104,11 +120,10 @@ history, fetches the two pinned sibling commits with a depth-1 fetch into a
 temporary object store, points the `AEG_*_REPO` variables at them, and runs
 `tools/ci_check.py`, which:
 
-* runs the full six-stage chain and requires exit 0;
+* runs read-only verification in a temporary tree, including the repair controls;
 * requires every experiment's fresh output to match the **committed** evidence,
   modulo the declared provenance keys;
-* requires `fixtures/INDEX.json`, `evidence/gap-classification.json` and
-  `evidence/interface-promotion.json` to match the committed bytes exactly.
+* requires every explicitly inventoried fixture, the ledger and derived evidence to match committed bytes; exp5 and exp6 raw tables are freshly regenerated in every mode/seed. Missing files fail.
 
 All three repositories are public, so no cross-repository secret is needed. A
 missing or drifted checkout fails the job; it is never skipped, because a
@@ -125,7 +140,10 @@ name the exact code they expect.
 * **No `assert`.** CPython strips assertions under `-O`, so a checker that
   relies on them silently stops checking. Every obligation raises a coded
   diagnostic instead.
-* **Contracts freeze before implementation.** A contract is frozen by a digest
+* **Versioned contract integrity.** Original v1 contracts and implementations
+  entered Git together, so pre-implementation registration chronology is not
+  independently established. The v1.1 contract was committed before its repair
+  implementation. A contract is frozen by a digest
   in `contracts/FROZEN.sha256`; a changed requirement becomes a **new version
   file** with the old results retained. `exp2-loop-continuation.v1.json` is kept
   beside the current `v1.1.json` for exactly this reason.

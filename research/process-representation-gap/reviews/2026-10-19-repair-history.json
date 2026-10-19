@@ -1,0 +1,251 @@
+{
+  "commit": "1556eaedaee0946b2e395320739234dc59ec846c",
+  "files": [
+    {
+      "blob": "0a75c5a1b38cd8998e3ec7bb170e775fec730227",
+      "path": "research/process-representation-gap/evidence/adva-continuation-interface.json",
+      "sha256": "1b8cc739b006ea46ea0a106679fa16e04f623830f2e7c455d528b605bf9bf43d"
+    },
+    {
+      "blob": "3b291dfbf16fcc78721901c4f83dcbce48804505",
+      "path": "research/process-representation-gap/evidence/exp1-order-and-mixing-independent.json",
+      "sha256": "b60f2ed53606cb34ce830a96e7ae80fcf788dfb57004e29844c5802bfe237d05"
+    },
+    {
+      "blob": "254289548e89a188266e1427355608f57edcb864",
+      "path": "research/process-representation-gap/evidence/exp1-order-and-mixing.json",
+      "sha256": "f5aa48b86dbc5e094686ba6f8292d85abe993bc147ef579301f5f6179262b402"
+    },
+    {
+      "blob": "3885217b524509b683eed79c4315658a3925669d",
+      "path": "research/process-representation-gap/evidence/exp2-loop-continuation-independent.json",
+      "sha256": "b2449ad2fa2fa2e93bdb0765e236df862468a99647a97dfb70c57318007796ea"
+    },
+    {
+      "blob": "8ef5e38c06a1ee685c3771067007e7c8254bc66e",
+      "path": "research/process-representation-gap/evidence/exp2-loop-continuation.json",
+      "sha256": "85b62328ed43d976cb9d0ae0cae2f87823af0aaa4664baae6dec1d080458bf5c"
+    },
+    {
+      "blob": "f3c0cb4874073b5896c2e31fc0a57403004453ef",
+      "path": "research/process-representation-gap/evidence/exp3-typed-hole-context-independent.json",
+      "sha256": "cffd9905d0996880cd25257ab41f1d6ec6ccf7dd6e0d66478f642f9e1bd96532"
+    },
+    {
+      "blob": "63332e9f4e27b47acff95bdbe643b9d0fbc829b7",
+      "path": "research/process-representation-gap/evidence/exp3-typed-hole-context.json",
+      "sha256": "82362f569ddcfefe90b54a4a75a99b12fba88e0950ffc5614ec0876625fb2931"
+    },
+    {
+      "blob": "64b8cab20cb756afc63f3f26ad08a3618802810a",
+      "path": "research/process-representation-gap/evidence/exp4-objectification-elevation-independent.json",
+      "sha256": "1806e717f0244fa73e59558f6d038cee25bcfa546df498b2b1d23166b1d2bccb"
+    },
+    {
+      "blob": "a52ea1fc934519792c652d07dde50c2e1e820298",
+      "path": "research/process-representation-gap/evidence/exp4-objectification-elevation.json",
+      "sha256": "f5b9d188e1e7efb13b0675c9960ed4660786146d956c2d4729483a7c349abb91"
+    },
+    {
+      "blob": "461eda4569145f998d5f32f8e378a48ac233089d",
+      "path": "research/process-representation-gap/evidence/exp5-braid-nonarithmetic-independent.json",
+      "sha256": "77ab2e58e78a7c32ac86eab911ccac168c5760c6f1f69b9349de6787cfe42eb1"
+    },
+    {
+      "blob": "b017bcf865e5d35fb5c2e389a26a8440bb85d9ce",
+      "path": "research/process-representation-gap/evidence/exp5-braid-nonarithmetic.json",
+      "sha256": "03d4d6d027eaeb4033494e03e3182c354e0a5df8603925e747323d283966d2c6"
+    },
+    {
+      "blob": "1846546f29e0c7b3d06633d70c949d8d68aeed35",
+      "path": "research/process-representation-gap/evidence/exp5-braid-words.raw.json",
+      "sha256": "7d525793cbb77c777040ff2977ced3abb0cffc97ce70889dd12896077545ea01"
+    },
+    {
+      "blob": "4192fbc6759b131c9d7910f3d05b49c8944edda0",
+      "path": "research/process-representation-gap/evidence/exp6-knot-deformation-environment-independent.json",
+      "sha256": "631b4bbd0c5966ff672f2aab77e02c4c23ebf898c5b57c46aca518724a0a79c1"
+    },
+    {
+      "blob": "22e18e9ceea84b4aa519c462c6f391231bbb9846",
+      "path": "research/process-representation-gap/evidence/exp6-knot-deformation-environment.json",
+      "sha256": "13b12a806236934505619bdc09acac9f08dfe79a3f4b2c1ef981fdc05685e210"
+    },
+    {
+      "blob": "1f001d5eaef0f1661ff909dbbba0e9efc21c57b0",
+      "path": "research/process-representation-gap/evidence/exp6-knot-deformation-environment.raw.json",
+      "sha256": "71c123ffa146a338fbcde437a33b7ad7c4cd9dd2a7ecfa453a0d879d2a0e9521"
+    },
+    {
+      "blob": "968121833858fe9ff24f8a400f40e594fda15c33",
+      "path": "research/process-representation-gap/evidence/gap-classification.json",
+      "sha256": "66a6ac0adcd0ed384ba3cc46bc766d7cce25576c837b931a233a53ccc33ba31c"
+    },
+    {
+      "blob": "e0a26d19e1d19da7c82ec10257302feb79ecfbb3",
+      "path": "research/process-representation-gap/evidence/interface-promotion.json",
+      "sha256": "491d4c05ccc7c4feaa5bbd28c39113ece06042189ae804d6c98a5fbf0e7dca9f"
+    },
+    {
+      "blob": "2ac9d73c2e85e5bfe9a7d2bfb282c15849f9555a",
+      "path": "research/process-representation-gap/evidence/manifest.json",
+      "sha256": "5f163ff3ee5f1ec794396b01427a2c5d96da2c2928208a610191b292b3b3f8cb"
+    },
+    {
+      "blob": "8532f0e0feba13ab0258329153409444d720f905",
+      "path": "research/process-representation-gap/fixtures/INDEX.json",
+      "sha256": "715489a7812a801f1867f7e2baee93ad01073cc5c66661daa88fad1d7d98dd6b"
+    },
+    {
+      "blob": "e40f1f8050d0fe7b5ec591111f57fb26a8cf1783",
+      "path": "research/process-representation-gap/fixtures/adva-continuation-verdict.json",
+      "sha256": "9ab3ee5cfdab5e524867c787e77c628719a5cbffb1ecd68936bfd91fe1b6308b"
+    },
+    {
+      "blob": "f89ddd1435562afc215ced540b4e3db270a1209d",
+      "path": "research/process-representation-gap/fixtures/exp1-mixing-gap.json",
+      "sha256": "12b12f00fbc08c87f1de64a002c3864fcadf7b0dd95d49c6c0adc311b60ba457"
+    },
+    {
+      "blob": "f46f75d3a116e3f3adb1af20e38525221764854b",
+      "path": "research/process-representation-gap/fixtures/exp1-positive-control.json",
+      "sha256": "53b5165418ee909d6d374f5090fafa7c717d8e2bfdb8ac029fa41a04804b96d8"
+    },
+    {
+      "blob": "45d49997c35618d1d0b8065c2bdcede4c56ff961",
+      "path": "research/process-representation-gap/fixtures/exp1-spectral.json",
+      "sha256": "20f3a1e2ab0b3fe2e71cff10efbbb770df5fd72dda450e325771e6c310662c08"
+    },
+    {
+      "blob": "4736337cef6700c2260f45b70a9e9d5a7ddd6cba",
+      "path": "research/process-representation-gap/fixtures/exp2-legality-gap.json",
+      "sha256": "7a22307a237f29d8541b1de1bbf456c13fc80309082ac451b5ff6e1e9f15db4a"
+    },
+    {
+      "blob": "156dbbf19fda2068bd69f683ca0a457b63f7605f",
+      "path": "research/process-representation-gap/fixtures/exp2-order-gap.json",
+      "sha256": "08f496696bb27f4ffb19e5201ec94066c95fc19612922fbd4f243ea487d19d6f"
+    },
+    {
+      "blob": "02a8d5a1186917ea50865c70c970e55b39d4f274",
+      "path": "research/process-representation-gap/fixtures/exp2-positive-control.json",
+      "sha256": "b8a962286dbc85789e3c1b735eaab4ade30ad172e350ffd76646437d20ee63fd"
+    },
+    {
+      "blob": "68a4e58190df13822191af518dd1b1a17d5e5856",
+      "path": "research/process-representation-gap/fixtures/exp2-pr16-continuation-gap.json",
+      "sha256": "b4302e2f375e6d0255b50a4bf22e1a086a5d391bd163db88dc8a48d4c104a395"
+    },
+    {
+      "blob": "41d0406b5d9c0b65e925ec712d61973081ce902e",
+      "path": "research/process-representation-gap/fixtures/exp3-initial-filling-collision.json",
+      "sha256": "8d63f39b6714175ca8e92c181a44cdbd996c371caaa24b3ba96dd526328a74b6"
+    },
+    {
+      "blob": "efece7f05504e035551760f7e3e0e0b9080d5a29",
+      "path": "research/process-representation-gap/fixtures/exp3-paper4-snapshot.json",
+      "sha256": "bc5076c55b41c59ca1aec63edcdef66c91be1ece8969247237ea59e9759a864f"
+    },
+    {
+      "blob": "bcf3bef2c6de6376c359a6a313921c02d9895434",
+      "path": "research/process-representation-gap/fixtures/exp3-positive-control.json",
+      "sha256": "df2664e792fd13a258e7bc9b2c230c1975868c9803ddfbbdcff5dad6d2db3992"
+    },
+    {
+      "blob": "cb882877f41c5c46f3a6d43e3fb8641d7520b9f0",
+      "path": "research/process-representation-gap/fixtures/exp4-baseline-gate-i.json",
+      "sha256": "f67d3fe41fd2f4478e169a552c53054d489cae1b68aa45768dc525a292f3351b"
+    },
+    {
+      "blob": "6c0e32aabe8ed42a40a35e1015cdb2ef753f697a",
+      "path": "research/process-representation-gap/fixtures/exp4-elevation-verdict.json",
+      "sha256": "dbb343a4af30ff67833d68cc9c93eae773b39d3532810f7007b72318b8685709"
+    },
+    {
+      "blob": "b66963d7badf632e2820cd74979eecbfbe588a59",
+      "path": "research/process-representation-gap/fixtures/exp5-w1.json",
+      "sha256": "6a29883451aa13602bb7321da9503b64dde39db75c852038edc2244c6b3fe6f3"
+    },
+    {
+      "blob": "b742e6d62cb954d31f3a6f10a852452467a8e140",
+      "path": "research/process-representation-gap/fixtures/exp5-w2.json",
+      "sha256": "14994e43c12a47f22af3464fbfc37d14c086047f4e012b47622cf53aae5be6f6"
+    },
+    {
+      "blob": "81bd389f7d464a79407ef194333726869a386052",
+      "path": "research/process-representation-gap/fixtures/exp5-w3.json",
+      "sha256": "63ff41d225511133c8b27f8d10fa3fe50d842157e00f3f36cd4b968f8fe3fc52"
+    },
+    {
+      "blob": "a6fb996093fec86d9a1f2fff5367bd7e1b2291ae",
+      "path": "research/process-representation-gap/fixtures/exp6-gate-b-refutation.json",
+      "sha256": "62eb1dc9253c3aa639fe6de1701e25ea4b0fd48c72b06b28caa6ee38007b1f23"
+    },
+    {
+      "blob": "ba65784a60ccfdfe8241dc66a724df960625a737",
+      "path": "research/process-representation-gap/fixtures/exp6-gate-d.json",
+      "sha256": "47c6dd0a566d19438f32ebf4636ae92c6f55cec6aae6491513059eacce8bcb38"
+    },
+    {
+      "blob": "c00f6fc1838a003cb710367c647265b23d1bcf6f",
+      "path": "research/process-representation-gap/fixtures/exp6-witness2-environment.json",
+      "sha256": "b34f7205eb0a2c18829fbb757a2863feac67a5c5d8a2254a5aa8ce3caa5fc1c3"
+    },
+    {
+      "blob": "d9c519851251b16f4ee4422e83005f0f42b4f6e7",
+      "path": "research/process-representation-gap/reports/00-gap-classification.md",
+      "sha256": "4b42cbae893c2eaf9bbb7b5b7e14335c8f4820ac0adb80f873787f754851c03d"
+    },
+    {
+      "blob": "183f8148af6be7bddf3a20993327f5d24c84d45d",
+      "path": "research/process-representation-gap/reports/00-interface-promotion.md",
+      "sha256": "b15bf44114e57aca609bffee66a7ce16871a64c85f7bc1364e29a0234e326091"
+    },
+    {
+      "blob": "0e8a0101d9d6be91d41e82637b47bb6f39bad502",
+      "path": "research/process-representation-gap/reports/00-minimal-repair.md",
+      "sha256": "941a7539b3e31f80f8fc5695022922284f90b17c29149599e97e37a6e71f32b2"
+    },
+    {
+      "blob": "d198f5f312255660f0375120c4c3f98e55b057a0",
+      "path": "research/process-representation-gap/reports/00-verification.md",
+      "sha256": "07d43763d5bad8bdc4933af23a98b8faebda5e7408956db6ee76c2fb08d4db1f"
+    },
+    {
+      "blob": "a0a8a28e14a78411b2c5e161287788729841c622",
+      "path": "research/process-representation-gap/reports/exp1-order-and-mixing.md",
+      "sha256": "a8155e8c673b7b338226f8bb4387e169681b58481219a6a844dfc9be84874f11"
+    },
+    {
+      "blob": "87ab28fbdf9c8bbb9796c985637189c15c4fd7c8",
+      "path": "research/process-representation-gap/reports/exp2-loop-continuation.md",
+      "sha256": "17daec97553eb806186723f1cf388a7f6c8dfcd589b8027478954ff3a0b05daa"
+    },
+    {
+      "blob": "0f1f684ec9bb5eb762342f78e2cdbacf2ba2271a",
+      "path": "research/process-representation-gap/reports/exp3-typed-hole-context.md",
+      "sha256": "b155389f9816426fa82d0073251f3b4015c1400d11f8e04ff7b95ab8c4a3d097"
+    },
+    {
+      "blob": "5fc6fc054a6ebf2f575915afad9d87ac99a954d4",
+      "path": "research/process-representation-gap/reports/exp4-objectification-elevation.md",
+      "sha256": "681cdc8b64da747d1d3414e95470f1a7fd14a7f7dd718af0e48da32143f928a5"
+    },
+    {
+      "blob": "774146e7559c94974ea5efe671d384b33742188a",
+      "path": "research/process-representation-gap/reports/exp5-braid-nonarithmetic.md",
+      "sha256": "eb30b012bd3e9f0f2b6eb122d8b8fd2792dade853631b613d31e400596573fb2"
+    },
+    {
+      "blob": "3487c38fa9bfc0ed5383f16af7e571d2503de4bd",
+      "path": "research/process-representation-gap/reports/exp6-knot-deformation-environment.md",
+      "sha256": "7d6d09367037c9a2ae32e6dd5c986c75ddfbec8837b4c88c1d45b28bf13122b6"
+    },
+    {
+      "blob": "221cf9db0d206d6889bf781b1c375fb3d875df7a",
+      "path": "research/process-representation-gap/reports/manifest-baseline.md",
+      "sha256": "dc985ec72f998e79049db311bbb6202e6a7e71b46dc03b43278e8b3dda2c93a3"
+    }
+  ],
+  "status": "historical v1 outputs; corrected by v1.1, not current claim authority"
+}

@@ -1,5 +1,12 @@
 # 00 — Interface promotion proposals (work plan §10)
 
+> Updated acceptance boundary: see `../reviews/2026-10-19-repair.md`.
+> Exp6 now certifies rigid translations only. Its R1/R2 operations and gate C
+> are syntactic; no knot-process interface follows. Torus comparisons require
+> the standard unknotted embedding and fixed framing. Exp3's negative result
+> ranges over the declared 63 candidates, not every bounded residual.
+
+
 Work-plan section 10:
 
 > Process Geometry 优先承载非算术过程、继续等价与对象化实验；Adva 承载与原生程序核心实际接口有关的实现；aeg-paper 承载经治理审查的数学状态和跨仓库见证。不要一次跨三个仓库改动稳定接口。先完成研究证据，确有必要再提出接口晋升。

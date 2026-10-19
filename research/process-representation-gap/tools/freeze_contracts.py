@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Regenerate the frozen-contract digest ledger.
+"""Register new contract versions without altering any existing digest.
 
 Merge-preserving and idempotent: existing entries are kept, and entries for the
-contract files currently present are added or refreshed.  That keeps concurrent
+new contract files currently present are added; changed old versions fail.  That keeps concurrent
 authoring of different contracts from dropping another experiment's entry.
 
 Run:
@@ -13,6 +13,7 @@ Run:
 from __future__ import annotations
 
 import sys
+import argparse
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -41,7 +42,9 @@ def read_ledger():
                 continue
             digest, _, name = line.partition("  ")
             name = name.strip()
-            if name and name not in entries:
+            gapkit.require(name and name not in entries and len(digest) == 64,
+                           "FREEZE-LEDGER-MALFORMED", line)
+            if name not in entries:
                 order.append(name)
             if name:
                 entries[name] = digest.strip()
@@ -49,17 +52,27 @@ def read_ledger():
 
 
 def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--check", action="store_true", help="read-only verification")
+    args = parser.parse_args()
     entries, order = read_ledger()
     present = sorted(p.name for p in CONTRACTS.glob("*.json"))
+    gapkit.require(set(entries) <= set(present), "FREEZE-CONTRACT-MISSING")
     for name in present:
-        entries[name] = gapkit.sha256_file(CONTRACTS / name)
+        actual = gapkit.sha256_file(CONTRACTS / name)
+        if name in entries:
+            gapkit.require(entries[name] == actual, "EXP-CONTRACT-DRIFT", name)
+        else:
+            gapkit.require(not args.check, "FREEZE-UNREGISTERED", name)
+            entries[name] = actual
         if name not in order:
             order.append(name)
     lines = list(HEADER)
     for name in sorted(order):
         if name in entries:
             lines.append(f"{entries[name]}  {name}")
-    LEDGER.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    if not args.check:
+        LEDGER.write_text("\n".join(lines) + "\n", encoding="utf-8")
     sys.stderr.write(f"froze {len(present)} contract(s); ledger has {len(entries)} entries\n")
     return 0
 

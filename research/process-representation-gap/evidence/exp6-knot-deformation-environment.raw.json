@@ -1266,8 +1266,8 @@
     ]
   },
   "contract": {
-    "path": "research/process-representation-gap/contracts/exp6-knot-deformation-environment.v1.json",
-    "sha256": "1b8a6d0ddbce2efd708a3875e7c6f32bd05947ffb1b434e74e4d5c5f5cfa82ac"
+    "path": "research/process-representation-gap/contracts/exp6-knot-deformation-environment.v1.1.json",
+    "sha256": "7c23ed1527ca75f9f904a61eee3f4f8f3982d8ccdccacd482dce8ec4765c657d"
   },
   "move_records": {
     "r2-roundtrip": [
@@ -1345,5 +1345,5 @@
       "searched_nodes": 260
     }
   },
-  "schema": "aeg.process-representation-gap.exp6.raw.v1"
+  "schema": "aeg.process-representation-gap.exp6.raw.v1.1"
 }

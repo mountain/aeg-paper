@@ -1,0 +1,87 @@
+{
+  "braid": {
+    "W2_permutation": [
+      2,
+      1,
+      0
+    ],
+    "counts": [
+      5461,
+      1457,
+      577,
+      6
+    ],
+    "product_probe_classes": 1,
+    "raw_rows_independently_compared": 5461,
+    "scope": "words of length at most six; Artin faithfulness is a cited theorem",
+    "selected_probe_classes": 577
+  },
+  "geometry": [
+    {
+      "case": "rigid-triangle",
+      "primary": "valid",
+      "secondary": "valid"
+    },
+    {
+      "case": "collapse-half",
+      "primary": "not-certified",
+      "secondary": "not-certified"
+    },
+    {
+      "case": "collapse-third",
+      "primary": "not-certified",
+      "secondary": "not-certified"
+    },
+    {
+      "case": "nontranslation-expansion",
+      "primary": "not-certified",
+      "secondary": "not-certified"
+    },
+    {
+      "case": "adjacent-overlap",
+      "primary": "invalid",
+      "secondary": "invalid"
+    },
+    {
+      "case": "edge-collapse",
+      "primary": "invalid",
+      "secondary": "invalid"
+    },
+    {
+      "case": "two-nodes",
+      "primary": "invalid",
+      "secondary": "invalid"
+    },
+    {
+      "case": "crossed-square",
+      "primary": "invalid",
+      "secondary": "invalid"
+    }
+  ],
+  "integrity_controls": {
+    "deleted-evidence": "REPLAY-INVENTORY-MISMATCH",
+    "ledger-only-mutation": "EXP-CONTRACT-DRIFT",
+    "mutated-contract": "EXP-CONTRACT-DRIFT",
+    "mutated-contract-and-ledger": "REPLAY-HISTORICAL-CONTRACT-DRIFT",
+    "mutated-raw-row": "DET-RAW-DIFFERS",
+    "old-version-mutation": "EXP-CONTRACT-DRIFT"
+  },
+  "r2": {
+    "interpretation": "abstract signed-word calculus only",
+    "odd_labels": [
+      3,
+      4
+    ]
+  },
+  "schema": "aeg.exp6-repair-acceptance.v1",
+  "timing": {
+    "P2_collision_time": "3/8",
+    "analytic_minimum_squared_distance": "400/101",
+    "certificates_recomputed": 20,
+    "certified_margin": "3/4",
+    "coverage": "all four edges over [0,1]",
+    "minimiser": "301/808",
+    "self_embedding_argument": "both paths are rigid translations of a fixed simple square"
+  },
+  "verdict": "bounded repair obligations held; general embedding and planar moves remain open"
+}

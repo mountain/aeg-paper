@@ -3,18 +3,18 @@
   "payload": {
     "declared_domain_statements": [
       {
-        "necessary_only_for": "any topological classification of curves in R^3",
+        "necessary_only_for": "fixed-surface isotopy only, not arbitrary ambient isotopy in R3",
         "sufficient_within": "essential simple closed curves on a fixed torus in a fixed oriented basis",
         "summary": "torus slope"
       },
       {
-        "necessary_only_for": "knot type: writhe is not a knot invariant",
+        "necessary_only_for": "none for ambient knot type; writhe is not a knot invariant",
         "sufficient_within": "declared diagram records with declared crossing signs",
         "summary": "writhe"
       },
       {
         "necessary_only_for": "link type: it is not a complete link invariant",
-        "sufficient_within": "detecting non-separability of two closed curves",
+        "sufficient_within": "nonzero linking obstructs splitting; zero does not certify splitting",
         "summary": "linking number"
       }
     ],
@@ -33,7 +33,7 @@
         "counterexample": {
           "different_encodings": true,
           "direction": "encode-equivalence implies topological equivalence, but topological equivalence does NOT imply encode-equivalence, so the iff fails",
-          "equal_topological_semantics": "both are unknots in unobstructed R^3 (classical, cited), so the free-3-space task declares them equivalent while their integer encodings differ",
+          "equal_topological_semantics": "both lie on the standard unknotted embedded torus and are unknots in R^3 (classical, cited), so the free-3-space task declares them equivalent while their integer encodings differ",
           "pair": [
             "torus meridian (1,0) in free R^3",
             "torus longitude (0,1) in free R^3"
@@ -56,6 +56,6 @@
   "source": {
     "evidence_file": "exp6-knot-deformation-environment.json",
     "pointer": "gates.B_state_faithful",
-    "sha256": "13b12a806236934505619bdc09acac9f08dfe79a3f4b2c1ef981fdc05685e210"
+    "sha256": "99ecce7142f6bfa1a846bcc38daa247cc98b13c4b09bc5ec80d88db4fd695b01"
   }
 }

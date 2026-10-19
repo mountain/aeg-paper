@@ -1,5 +1,12 @@
 # 00 — Verification, reproducibility, and one honest anomaly
 
+> Updated acceptance boundary: see `../reviews/2026-10-19-repair.md`.
+> Exp6 now certifies rigid translations only. Its R1/R2 operations and gate C
+> are syntactic; no knot-process interface follows. Torus comparisons require
+> the standard unknotted embedding and fixed framing. Exp3's negative result
+> ranges over the declared 63 candidates, not every bounded residual.
+
+
 Work-plan sections 7 and 11. Everything in this programme is replayable from
 three pinned checkouts with one command, and this report states exactly what was
 verified, on what, and what was observed that is not yet explained.

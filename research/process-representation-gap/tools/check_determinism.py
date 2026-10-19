@@ -22,12 +22,14 @@ import json
 import os
 import subprocess
 import sys
+import tempfile
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
 sys.path.insert(0, str(HERE))
 import gapkit  # noqa: E402
+from verify_inventory import inventory, validate_inventory
 
 EXPERIMENTS = ROOT / "experiments"
 EVIDENCE = ROOT / "evidence"
@@ -50,8 +52,22 @@ def run(script: Path, optimized: bool, hash_seed=None) -> bytes:
     env = dict(os.environ)
     if hash_seed is not None:
         env["PYTHONHASHSEED"] = str(hash_seed)
-    proc = subprocess.run(cmd, capture_output=True, check=False,
-                          cwd=str(ROOT.parent.parent), env=env)
+    # Raw tables must be newly emitted by this very execution, never compared
+    # to an unchanged working copy. Each mode/seed gets its own empty folder.
+    with tempfile.TemporaryDirectory(prefix="aeg-raw-") as tmp:
+        raw_name = inventory()["raw_outputs"].get(script.name)
+        raw_path = Path(tmp) / "raw.json"
+        if raw_name:
+            cmd += ["--raw", str(raw_path)]
+        proc = subprocess.run(cmd, capture_output=True, check=False,
+                              cwd=str(ROOT.parent.parent), env=env)
+        if proc.returncode == 0 and raw_name:
+            recorded = ROOT / raw_name
+            gapkit.require(recorded.is_file() and raw_path.is_file(),
+                           "DET-RAW-MISSING", raw_name)
+            gapkit.require(strip_environment(recorded.read_bytes()) ==
+                           strip_environment(raw_path.read_bytes()),
+                           "DET-RAW-DIFFERS", raw_name)
     if proc.returncode != 0:
         raise gapkit.Diagnostic(
             "DET-RUN-FAILED",
@@ -96,7 +112,8 @@ def main() -> int:
                              "empty means no extra runs")
     args = parser.parse_args()
 
-    scripts = sorted(p for p in EXPERIMENTS.glob("*.py") if not p.name.startswith("_"))
+    validate_inventory(ROOT)
+    scripts = [ROOT / name for name in inventory()["scripts"]]
     if args.only:
         scripts = [p for p in scripts if p.stem == args.only]
     report = {"schema": gapkit.SCHEMA + ".determinism", "scripts": [], "failures": []}
@@ -152,8 +169,7 @@ def main() -> int:
                                    f"{recorded.name} differs from a fresh run of {script.name} "
                                    f"beyond the ignored keys {ENVIRONMENT_KEYS}")
             else:
-                entry["recorded_evidence"] = None
-                entry["matches_recorded_evidence"] = None
+                raise gapkit.Diagnostic("DET-EVIDENCE-MISSING", recorded.name)
         except gapkit.Diagnostic as exc:
             entry["error"] = exc.as_record()
             report["failures"].append({"script": script.name, "error": exc.as_record()})

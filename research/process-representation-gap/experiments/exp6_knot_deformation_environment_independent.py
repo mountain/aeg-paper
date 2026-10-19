@@ -51,7 +51,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 import gapkit  # noqa: E402
 from gapkit import Diagnostic, qtext, require  # noqa: E402
 
-CONTRACT = ROOT / "contracts" / "exp6-knot-deformation-environment.v1.json"
+CONTRACT = ROOT / "contracts" / "exp6-knot-deformation-environment.v1.1.json"
 PRIMARY_EVIDENCE = ROOT / "evidence" / "exp6-knot-deformation-environment.json"
 PRIMARY_RAW = ROOT / "evidence" / "exp6-knot-deformation-environment.raw.json"
 FROZEN = ROOT / "contracts" / "FROZEN.sha256"
@@ -380,10 +380,36 @@ def self_embedded_verdict(fx, depth=REFINE_DEPTH):
     if undecided:
         return {"verdict": "not-certified", "witness": None, "certificates": rows,
                 "undecided": undecided}
+    # Independent formulation: every relative node vector is constant on
+    # all keyframes, hence on each PL interval. Exact static simplicity plus
+    # this invariant proves embedding throughout; other motions are unknown.
+    rel0 = [vsub(fx["positions"][0][i], fx["positions"][0][0])
+            for i in range(fx["nodes"])]
+    rigid = all([vsub(row[i], row[0]) for i in range(fx["nodes"])] == rel0
+                for row in fx["positions"])
+    if not rigid:
+        return {"verdict": "not-certified", "witness": None, "certificates": rows,
+                "undecided": [{"reason": "outside-rigid-translation-profile"}]}
     return {"verdict": "valid", "witness": None, "certificates": rows, "undecided": []}
 
 
 def _single_time_self_collision(fx, t, pairs):
+    if fx["nodes"] < (3 if fx.get("closed", True) else 2):
+        return {"kind": "too-few-nodes", "nodes": fx["nodes"], "time": qtext(t)}
+    # Adjacent edges may intersect only at their common endpoint. Positive
+    # collinear rays from that endpoint overlap (Gram determinant zero).
+    es = edges(fx)
+    for j, e in enumerate(es):
+        for f in es[j + 1:]:
+            shared = set(e) & set(f)
+            if len(shared) == 1:
+                k = next(iter(shared))
+                a = next(i for i in e if i != k)
+                b = next(i for i in f if i != k)
+                u = vsub(node_at(fx, a, t), node_at(fx, k, t))
+                v = vsub(node_at(fx, b, t), node_at(fx, k, t))
+                if vdot(u, v) > 0 and vdot(u, v)**2 == vnorm2(u)*vnorm2(v):
+                    return {"kind": "adjacent-overlap", "time": qtext(t)}
     for e1, e2 in pairs:
         a0, a1 = edge_points(fx, e1, t)
         b0, b1 = edge_points(fx, e2, t)
@@ -929,7 +955,8 @@ def run():
 
     record = {
         "schema": SCHEMA,
-        "role": "independent verification route for exp6",
+        "role": "independent verification route for narrowed exp6 v1.1",
+        "claim_ceiling": "positive embedding only for checked rigid translations; signed-word operations are syntactic",
         "contract": {"path": str(CONTRACT.relative_to(ROOT.parent.parent)), "sha256": contract_sha},
         "environment": gapkit.environ(),
         "independence": {

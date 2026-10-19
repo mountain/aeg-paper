@@ -1,5 +1,12 @@
 # 00 — Minimal repair design
 
+> Updated acceptance boundary: see `../reviews/2026-10-19-repair.md`.
+> Exp6 now certifies rigid translations only. Its R1/R2 operations and gate C
+> are syntactic; no knot-process interface follows. Torus comparisons require
+> the standard unknotted embedding and fixed framing. Exp3's negative result
+> ranges over the declared 63 candidates, not every bounded residual.
+
+
 Work-plan section 9. Every proposal below is tied to a concrete witness, a
 declared repair, a stated cost, the task it improves, the tasks in which it
 still fails, and a **regression condition** that would falsify it. Proposals are
@@ -98,7 +105,7 @@ sufficient candidates. The recommendation rests on the response pair being
 **exactly the task equivalence** — an information argument — not on it being the
 cheapest encoding. The trade-off is stated rather than hidden.
 
-## 4. R3 — exp3: no bounded residual works; move the context into the interface
+## 4. R3 — exp3: none of the 63 declared residual candidates works; investigate explicit contexts
 
 **Gap.** exp3's `pi0` has 341 classes over 16 648 bodies and 232 separating
 fibres. `const(2)` and `h1` both give `DEFINED (2)` at the frozen filling
@@ -205,7 +212,7 @@ exactly such a profile, and it declares itself as one.
 
 Gate B is **refuted for topological semantics**: an injective integer encoding
 does not decide topological equivalence. Meridian and longitude differ on the
-strict torus and are both unknots in free R³; a basis swap of determinant `−1`
+fixed torus and, for its standard unknotted embedding, are both unknots in free R³; a basis swap of determinant `−1`
 changes the contract again.
 
 **Change.** State the environment (embedding, basis, thickening, obstacle

@@ -1,8 +1,13 @@
 #!/usr/bin/env python3
 """Experiment 6 -- knot deformation processes and environment dependence.
 
-Contract: research/process-representation-gap/contracts/exp6-knot-deformation-environment.v1.json
+Contract: research/process-representation-gap/contracts/exp6-knot-deformation-environment.v1.1.json
 Work plan: AEG-process-representation-work-plan.md section 6, 实验六.
+
+Current v1.1 boundary: positive self-embedding is certified only for checked
+rigid translations. The R1/R2-named functions operate on abstract signed words,
+not certified planar diagrams. Gate C is syntax-only. Historical v1 results
+remain pinned in reviews/2026-10-19-repair-history.json.
 
 What this experiment does
 -------------------------
@@ -18,8 +23,8 @@ that is computed *exactly*:
   polygonal loops;
 * legality is checked over WHOLE TIME INTERVALS with exact rational arithmetic,
   never at keyframes only, and the interval certificates are stored;
-* the topological route is instantiated by a declared diagram calculus with
-  local moves, before/after state and provenance;
+* the historically named topological route is an abstract signed-word calculus
+  with literal rewrites, before/after state and provenance;
 * the four arithmetic gates (encodable / state-faithful / process-faithful /
   complete) are answered item by item with declared verdicts.
 
@@ -53,13 +58,13 @@ sys.path.insert(0, str(ROOT / "tools"))
 import gapkit  # noqa: E402
 from gapkit import Diagnostic, qtext, require  # noqa: E402
 
-CONTRACT = ROOT / "contracts" / "exp6-knot-deformation-environment.v1.json"
+CONTRACT = ROOT / "contracts" / "exp6-knot-deformation-environment.v1.1.json"
 FROZEN = ROOT / "contracts" / "FROZEN.sha256"
 EVIDENCE = ROOT / "evidence" / "exp6-knot-deformation-environment.json"
 RAW = ROOT / "evidence" / "exp6-knot-deformation-environment.raw.json"
 
-SCHEMA = "aeg.process-representation-gap.exp6.v1"
-RAW_SCHEMA = "aeg.process-representation-gap.exp6.raw.v1"
+SCHEMA = "aeg.process-representation-gap.exp6.v1.1"
+RAW_SCHEMA = "aeg.process-representation-gap.exp6.raw.v1.1"
 
 BUDGET = {
     "max_control_nodes": 16,
@@ -421,6 +426,8 @@ def segment_intersection(p0, p1, q0, q1):
 def is_embedded_at(m, t):
     """Exact verdict at one instant.  Returns (True, None) or (False, witness)."""
     n = m["nodes"]
+    if n < (3 if m["closed"] else 2):
+        return False, {"kind": "too-few-nodes", "nodes": n, "time": qtext(t)}
     points = [node_at(m, i, t) for i in range(n)]
     for i in range(n):
         for j in range(i + 1, n):
@@ -546,6 +553,15 @@ def check_self_embedding(m, depth=SUBSEGMENT_DEPTH, keyframe_only=False,
         stack.append((mid, tb, level + 1))
         stack.append((ta, mid, level + 1))
     if unknown:
+        return "not-certified", None, certificates, unknown, counted
+    # v1.1: pair separation alone omits adjacent overlap and edge collapse.
+    # Equal displacement at every breakpoint implies equal displacement on
+    # every affine time segment. Static simplicity above is then preserved.
+    base = m["positions"][0]
+    rigid = all(all(vsub(row[i], base[i]) == vsub(row[0], base[0])
+                    for i in range(m["nodes"])) for row in m["positions"])
+    if not rigid:
+        unknown.append({"reason": "outside-rigid-translation-profile"})
         return "not-certified", None, certificates, unknown, counted
     return "valid", None, certificates, unknown, counted
 
@@ -1311,7 +1327,7 @@ def r1_delete(d, position):
 
 
 def r2_insert(d, position_a, position_b):
-    """Insert one R2 bigon: two fresh crossings with opposite crossing signs."""
+    """Abstract signed-word insertion; R2 is a legacy name, not a planar move."""
     require(diagram_wellformed(d), "EXP6-DIAGRAM-MALFORMED", diagram_text(d))
     require(0 <= position_a <= position_b <= len(d["word"]), "EXP6-MOVE-POSITION",
             f"positions {position_a},{position_b} outside word of length {len(d['word'])}")
@@ -1329,7 +1345,7 @@ def r2_insert(d, position_a, position_b):
 
 
 def r2_delete(d, position_a, position_b):
-    """Remove one R2 bigon inserted by :func:`r2_insert`."""
+    """Invert the abstract insertion; no Reidemeister certificate is returned."""
     require(diagram_wellformed(d), "EXP6-DIAGRAM-MALFORMED", diagram_text(d))
     word = list(d["word"])
     a, b = word[position_a], word[position_a + 1]
@@ -1530,6 +1546,8 @@ def run():
     raw_payload = geometric.pop("raw")
 
     record = {
+        "supersedes": {"commit": "1556eaedaee0946b2e395320739234dc59ec846c", "contract": "exp6-knot-deformation-environment.v1.json"},
+        "claim_ceiling": "rigid translations and abstract signed-word calculations; no knot-process interface",
         "schema": SCHEMA,
         "contract": {"path": str(CONTRACT.relative_to(ROOT.parent.parent)), "sha256": contract_sha},
         "environment": gapkit.environ(),
@@ -1568,7 +1586,7 @@ def outcomes_summary(geometric, topological):
     return {
         "success": [
             "gate A encode/decode round trip on every declared fixture",
-            "gate C D(E(h)) = h and E(h2.h1) = E(h1) ++ E(h2) on the declared histories",
+            "gate C: literal history encode/decode, concatenation and endpoint replay only",
             "witness 1: identity path and local-move-then-inverse path share one endpoint state",
             "witness 2: torus slope and intersection arithmetic, and the free-3-space comparison",
             "witness 3: the searched replacement path is certified clear inside the budget",
@@ -1604,7 +1622,7 @@ def outcomes_summary(geometric, topological):
 def result_labels():
     """Status label for every headline result of this experiment."""
     return {
-        "interval_self_embedding_certificates": "proved (exact rational certificate per time box, multilinear box-hull separation)",
+        "interval_self_embedding_certificates": "proved with stated hypotheses: checked simple initial polygon plus rigid translation only",
         "obstacle_clearance_certificates": "proved (exact rational certificate per time box and edge)",
         "collision_witnesses": "computationally-verified-example (exact rational time, parameter and point)",
         "keyframe_blindness": "computationally-verified-example (embedded at both keyframes, not embedded at t=1/4)",
@@ -1617,12 +1635,12 @@ def result_labels():
         "linking_number_values": "computationally-verified-example (algebraic intersection with a spanning disk, cross-checked by a signed crossing count)",
         "linking_number_invariance_used": "proved-with-stated-hypotheses (classical invariance under disjoint isotopy, cited)",
         "linking_number_completeness": "open (not claimed; known to be incomplete in general, not verified here)",
-        "local_move_calculus": "computationally-verified-example with declared incompleteness (R1 and R2 instantiated, R3 not)",
+        "local_move_calculus": "computationally-verified-example of abstract signed-word rewrites; planar Reidemeister soundness withdrawn",
         "writhe_effects_of_the_moves": "proved on the declared diagram records (exact sign arithmetic)",
         "reidemeister_completeness": "proved-with-stated-hypotheses in the literature (cited), NOT verified or implemented here",
         "encoding_round_trip": "computationally-verified-example on the declared finite model",
         "state_faithfulness_topological": "refuted for topological semantics by an explicit witness pair",
-        "process_faithfulness": "computationally-verified-example on the declared action dictionary",
+        "process_faithfulness": "syntactic record operations only; knot-process faithfulness not certified",
         "completeness": "bounded-domain-compatible at best: no completeness claim is made",
         "general_knot_motion_planner": "structural-proposal only (not implemented)",
         "planning_failure_implies_nonexistence": "open (explicitly not claimed)",
@@ -1664,8 +1682,8 @@ def boundary_record():
              "why": "tame finite PL with exact rational data only"},
             {"requirement": "knot polynomials",
              "status": "not computed",
-             "why": ("writhe, linking number and torus slope are used as declared necessary "
-                     "constraints only; no polynomial invariant is computed and no completeness "
+             "why": ("writhe is a diagram statistic; nonzero linking obstructs splitting, zero does not certify it; "
+                     "slope requires a fixed surface and basis; no polynomial invariant or completeness "
                      "claim is made for any of them")},
             {"requirement": "fixed-endpoint process homotopy between the two witness-1 histories",
              "status": "open",
@@ -1677,7 +1695,7 @@ def boundary_record():
             "no knot invariance inferred from a suggestive construction",
             "no bridging of braid closure or Markov equivalence to knot equivalence",
             "no claim that linking number is a complete link invariant",
-            "no claim that a strict simple closed curve on S^2 or T^2 can carry a classical non-trivial knot",
+            "no exclusion of nontrivial knots on a torus; primitive (2,3) on the standard torus is a trefoil",
             "no virtual-knot stabilisation equivalence",
         ],
     }
@@ -2161,7 +2179,7 @@ def topological_route(hand):
         "full_encoding_equal": diagram_text(d0) == diagram_text(d0neg),
         "r1_deletable_a": r1_deletable(d0),
         "r1_deletable_b": r1_deletable(d0neg),
-        "knot_type_both": "unknot (a one-crossing diagram of a curve is a kink; cited classical fact, not reproved here)",
+        "knot_type_both": "not certified from these abstract signed-word records",
     }
     require(crossing_drop["over_under_free_encoding_equal"], "EXP6-WITNESS-FAILED",
             "the over/under-free encodings of the two kink records must coincide")
@@ -2175,10 +2193,9 @@ def topological_route(hand):
             "wellformed": "labels 1..k, each appearing exactly once as +k and once as -k",
             "instantiated_moves": ["R1+", "R1-", "R2+", "R2-"],
             "not_instantiated": ["R3"],
-            "incompleteness": ("the rewrite system is incomplete by declaration: R3 is not "
-                               "instantiated, so no claim is made that it generates all diagram "
-                               "equivalences. Reidemeister moves characterise classical knot type "
-                               "equivalence; they record no geometric time, distance or process data."),
+            "incompleteness": ("abstract signed-word calculus only: the historical R2 fixture is nonplanar; "
+                               "neither R1 nor R2 carries a planar local-disk certificate. R3 is absent. "
+                               "Classical Reidemeister completeness does not apply to these rules."),
             "recorded_per_move": ["kind", "position", "label(s)", "before", "after", "provenance"],
         },
         "witness_1_same_type_different_history": {
@@ -2231,6 +2248,7 @@ def environment_records(fx, hand):
     swapped_longitude = apply_matrix(BASIS_SWAP, longitude["slope"])
     strict_torus = {
         "basis_fixed": True,
+        "ambient_embedding": "standard unknotted torus in R3 with fixed meridian/longitude framing",
         "meridian": meridian,
         "longitude": longitude,
         "diagonal": diagonal,
@@ -2246,14 +2264,14 @@ def environment_records(fx, hand):
             "determinant": BASIS_SWAP[0][0] * BASIS_SWAP[1][1] - BASIS_SWAP[0][1] * BASIS_SWAP[1][0],
             "meridian_images_to": swapped_meridian,
             "longitude_images_to": swapped_longitude,
-            "consequence": ("if a basis-swapping ambient homeomorphism is allowed, the meridian and "
+            "consequence": ("if a basis-swapping SURFACE homeomorphism is allowed, the meridian and "
                             "the longitude become equivalent and the earlier equivalence contract "
-                            "changes; the reported result is for the FIXED oriented basis"),
+                            "changes; no ambient extension or isotopy to identity is asserted; the reported result is for the FIXED oriented basis"),
         },
         "status": "proved-with-stated-hypotheses (classification of simple closed curves on the torus, cited not reproved here)",
     }
     free_space_for_torus = {
-        "claim": ("in unobstructed R^3 both (1,0) and (0,1) are unknots, so the free-3-space task "
+        "claim": ("on the standard unknotted embedded torus, both (1,0) and (0,1) are unknots in R^3, so the free-3-space task "
                   "declares them equivalent while the strict-surface task does not"),
         "status": "proved-with-stated-hypotheses (classical, cited not reproved here)",
         "computed_here": ("the slope arithmetic, primitivity and geometric intersection numbers "
@@ -2266,7 +2284,7 @@ def environment_records(fx, hand):
         "certificate": sphere_cert,
         "error": sphere_error,
         "conclusion": ("a simple closed curve that bounds an embedded disk is unknotted in R^3. "
-                       "For a curve strictly contained in S^2 that disk can be taken inside the "
+                       "For a tame simple curve on a tame embedded S^2 that disk can be taken inside the "
                        "sphere (Jordan-Schoenflies, cited), so no classical non-trivial knot can "
                        "be carried there."),
         "model_note": ("the COMPUTED certificate is for the planar case: the declared fixture is "
@@ -2279,9 +2297,9 @@ def environment_records(fx, hand):
     thickened_surface = {
         "native_object": "diagram on Sigma with labelled crossings carrying over/under data (Sigma x I)",
         "crossing_data_required": True,
-        "not_strict_embedding": ("crossing over/under information models the THICKENING; a strict "
-                                 "simple closed curve in S^2 or T^2 has no crossing data and cannot "
-                                 "carry a classical non-trivial knot"),
+        "not_strict_embedding": ("intrinsic surface embeddings have no self-crossings, but their planar projections can. "
+                                 "A primitive (2,3) curve on the standard embedded torus is a trefoil; "
+                                 "a tame simple curve on a tame embedded sphere bounds a disk"),
         "stabilisation": ("virtual knots additionally allow stabilisation and destabilisation and "
                           "must not be conflated with knots in a fixed T^2 x I; no stabilisation "
                           "equivalence is implemented or claimed here"),
@@ -2317,7 +2335,7 @@ def environment_records(fx, hand):
         },
         "free_3_space_task": {
             "equivalent": True,
-            "why": ("both are unknots in unobstructed R^3 (classical, cited not reproved here), so "
+            "why": ("both are unknots on the standard unknotted embedded torus in R^3 (classical, cited), so "
                     "the free-space task declares them equivalent"),
         },
         "basis_swap_changes_the_contract": strict_torus["basis_swap"],
@@ -2379,7 +2397,7 @@ def arithmetic_gates(fx, topological):
              "counterexample": {
                  "pair": ["torus meridian (1,0) in free R^3", "torus longitude (0,1) in free R^3"],
                  "different_encodings": True,
-                 "equal_topological_semantics": ("both are unknots in unobstructed R^3 (classical, "
+                 "equal_topological_semantics": ("both lie on the standard unknotted embedded torus and are unknots in R^3 (classical, "
                                                  "cited), so the free-3-space task declares them "
                                                  "equivalent while their integer encodings differ"),
                  "direction": ("encode-equivalence implies topological equivalence, but topological "
@@ -2393,10 +2411,10 @@ def arithmetic_gates(fx, topological):
         ],
         "declared_domain_statements": [
             {"summary": "torus slope", "sufficient_within": "essential simple closed curves on a fixed torus in a fixed oriented basis",
-             "necessary_only_for": "any topological classification of curves in R^3"},
+             "necessary_only_for": "fixed-surface isotopy only, not arbitrary ambient isotopy in R3"},
             {"summary": "writhe", "sufficient_within": "declared diagram records with declared crossing signs",
-             "necessary_only_for": "knot type: writhe is not a knot invariant"},
-            {"summary": "linking number", "sufficient_within": "detecting non-separability of two closed curves",
+             "necessary_only_for": "none for ambient knot type; writhe is not a knot invariant"},
+            {"summary": "linking number", "sufficient_within": "nonzero linking obstructs splitting; zero does not certify splitting",
              "necessary_only_for": "link type: it is not a complete link invariant"},
         ],
         "not_claimed": "no polynomial invariant is computed; no completeness claim is made for any summary",
@@ -2429,10 +2447,10 @@ def arithmetic_gates(fx, topological):
     require(all(entry["agrees"] for entry in legality_grid), "EXP6-PROCESS-MISMATCH",
             "the encoded legality predicate does not reflect native legality")
     gate_c = {
-        "verdict": "satisfied on the declared domain",
-        "status": "computationally-verified-example",
+        "verdict": "syntactic record operations verified; knot-process faithfulness not certified",
+        "status": "computationally-verified-example (syntax only)",
         "items": [
-            {"item": "D(E(h)) equals h under the declared process semantics", "result": "pass",
+            {"item": "decoded history retains the literal action sequence and replays its endpoint", "result": "pass",
              "detail": "replaying the decoded move history reproduces the endpoint diagram exactly"},
             {"item": "E(h2 . h1) compatible with E(h2) . E(h1)", "result": "pass",
              "detail": "the declared composition is text concatenation and it is exact here"},
@@ -2442,8 +2460,8 @@ def arithmetic_gates(fx, topological):
              "detail": ("the two witness-1 histories share one endpoint state and have different "
                         "history encodings, so the history encoding separates them")},
         ],
-        "not_claimed": ("process faithfulness is checked for the declared action dictionary and the "
-                        "declared histories; fixed-endpoint process homotopy is not decided"),
+        "not_claimed": ("no planar realisability, Reidemeister soundness or knot-process faithfulness is established; "
+                        "the R1/R2 names denote abstract signed-word rules only"),
     }
 
     gate_d = {
@@ -2459,7 +2477,7 @@ def arithmetic_gates(fx, topological):
                      "budget_exhausted or unknown")},
             {"question": "can all semantic equivalences be proved by rewriting?",
              "verdict": "no",
-             "bounded_domain": "the instantiated move calculus (R1, R2; R3 not instantiated)",
+             "bounded_domain": "abstract signed-word rules (historical R1/R2 names); no planar move calculus",
              "why": ("classical R-move completeness for knot diagrams is a cited theorem; this "
                      "experiment does not implement it, and the move calculus carries no motion "
                      "constraints or obstacle data")},
@@ -2599,7 +2617,7 @@ def negative_controls(fx, w3_ball, w4_ball, geometric, topological, hand):
 
     # 1. contract drift, detected in memory on a mutated copy
     raw_bytes = CONTRACT.read_bytes()
-    mutated = raw_bytes.replace(b'"version": "1"', b'"version": "2"')
+    mutated = raw_bytes + b'\n'
     require(mutated != raw_bytes, "EXP6-NO-DIAGNOSTIC", "contract mutation did not change the bytes")
     controls.append({
         "id": "contract-drift",

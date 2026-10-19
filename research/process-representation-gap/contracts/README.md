@@ -3,8 +3,9 @@
 Work-plan reference: `AEG-process-representation-work-plan.md` section 5,
 "所有实验共享的冻结模板".
 
-Every experiment in this directory is implemented only after its contract is
-written and committed.  A contract is a JSON document under
+The original v1 contracts and implementations entered Git together; their
+pre-implementation chronology is not independently established. The repair
+contract v1.1 was committed before its implementation. A contract is a JSON document under
 `research/process-representation-gap/contracts/` named
 `<experiment>.v<version>.json`.
 
@@ -64,3 +65,13 @@ copy of the contract and requires `EXP-CONTRACT-DRIFT`.
 | exp4 | `exp4-objectification-elevation.v1.json` | 6, 实验四 |
 | exp5 | `exp5-braid-nonarithmetic.v1.json` | 6, 实验五 |
 | exp6 | `exp6-knot-deformation-environment.v1.json` | 6, 实验六 |
+
+## Read-only verification after review
+
+`freeze_contracts.py --check` never writes. Without `--check`, the utility may
+register new versions but rejects changes or deletion of existing entries
+before writing anything. `verify_inventory.py` also pins every historical
+contract digest to commit `1556eaedaee0946b2e395320739234dc59ec846c`; editing both
+an old file and its ledger cannot reset that baseline. Expected contracts,
+scripts, evidence and fixtures are enumerated in `tools/replay-inventory.json`.
+The current exp6 contract is v1.1; v1 remains historical.
