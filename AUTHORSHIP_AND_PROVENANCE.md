@@ -4,7 +4,10 @@ This register separates human research direction and final responsibility from
 model formalization, implementation, verification and drafting. GitHub account
 ownership, CI success and mergeability are not independent review.
 
-## Weekly provenance register: 2026-10-12 through 2026-10-18
+## Historical weekly provenance register: 2026-10-12 through 2026-10-18
+
+The dispositions below are snapshots at 2026-10-18; later acceptance is recorded
+separately, without rewriting the historical findings.
 
 ### P-2026-10-18-07 — Finite process spectra and cyclic-prefix separation
 
@@ -46,10 +49,42 @@ ownership, CI success and mergeability are not independent review.
   Gauss parity; the strict-torus nontrivial-knot exclusion is false; and the
   freeze guard can refresh existing contract digests. Green replay CI therefore
   does not establish mathematical correctness.
-- **Human disposition:** changes required; not approved for merge or theorem
-  promotion.
+- **Review disposition at 2026-10-18:** model review required changes; no
+  merge or theorem promotion was recorded.
 - **Status:** reproducible experiment with explicit `rejected-or-unknown`
   mathematical/verification blockers.
+
+## Subsequent acceptance and repairs — 2026-10-19 UTC
+
+Mingli Yuan explicitly requested merging all open aeg-paper PRs into main in
+this session. This authorizes repository integration; it does not establish
+independent human mathematical review or promote a finite result to a theorem.
+
+- **PR #17:** merged as `b75b0cbe17fc8a7417a8db9c392f33109f04a80a` after
+  normal/optimized producer and independent-receiver replay matched frozen
+  evidence. The exact reviewed head's Paper 0/I/IV integration and PDF build
+  workflow succeeded. Its bounded-result and native-Adva limitations remain.
+- **PR #18 repair direction:** restrict positive motion certification to
+  verified rigid translations; retain the historical R1/R2-named operations as
+  abstract signed-word calculations; withdraw planar Reidemeister and
+  knot-process faithfulness claims. Correct sphere/torus and framing statements.
+- **PR #18 model contribution:** Codex (OpenAI) implemented the two narrowed
+  embedding routes, geometry and integrity regressions, immutable historical
+  contract pins, explicit replay inventory, temporary-output replay and fresh
+  raw-table comparison, and drafted the corrected reports. The original
+  producing-model provenance gap remains recorded above.
+- **Repair identities:** v1.1 contract
+  `7600707e3b9a98a37cfde325464b260b9a2c36a8`; implementation
+  `0697b1ca0eb85f4383811f23534e78af19191d8e`; integrated candidate
+  `fdead22a64f3ece04778c598f32df92001e8031e`.
+- **Preservation:** original v1 contracts and rejection-review artifacts remain
+  unchanged. Historical reports, evidence and fixtures are indexed by exact
+  commit/blob/SHA-256 in
+  `research/process-representation-gap/reviews/2026-10-19-repair-history.json`.
+  Current exp6 evidence is an explicit v1.1 successor.
+- **Acceptance boundary:** documentary research integration only. General
+  motion certification, planar local-move certification and native Adva
+  continuation/learning integration remain open; no manuscript theorem changes.
 
 ## Contribution interpretation
 
