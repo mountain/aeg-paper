@@ -1,0 +1,44 @@
+{
+  "fixture": "exp5-w1",
+  "payload": {
+    "artin_images": [
+      [
+        "x",
+        "y",
+        "z"
+      ],
+      [
+        "xyxy^-1x^-1",
+        "xyx^-1",
+        "z"
+      ]
+    ],
+    "conclusion": "the coarsest layer L1 cannot see the torsion that L2 sees; sigma_1^2 is not trivial in B_3",
+    "endpoint_per_permutation": [
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        0,
+        1,
+        2
+      ]
+    ],
+    "id": "W1-square-versus-trivial",
+    "pair": [
+      "1",
+      "s1s1"
+    ],
+    "same_braid_element": false,
+    "same_endpoint_permutation": true,
+    "separated_by_artin": true
+  },
+  "schema": "aeg.process-representation-gap.fixture.v1",
+  "source": {
+    "evidence_file": "exp5-braid-nonarithmetic.json",
+    "pointer": "witnesses.W1-square-versus-trivial",
+    "sha256": "03d4d6d027eaeb4033494e03e3182c354e0a5df8603925e747323d283966d2c6"
+  }
+}

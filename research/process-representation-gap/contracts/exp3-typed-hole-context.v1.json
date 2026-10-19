@@ -1,0 +1,473 @@
+{
+  "date": "2026-10-10",
+  "domain": {
+    "body_budget": {
+      "by_binary_gate_count": {
+        "0": 8,
+        "1": 256,
+        "2": 16384
+      },
+      "exact_enumeration_formula": "sum over s in 0..2 of Catalan(s) * |OPS|^s * |LEAVES|^(s+1), with Catalan(0,1,2) = 1,1,2, |OPS| = 4 and |LEAVES| = 8",
+      "max_binary_gates": 2,
+      "note": "Exhaustive, total, no sampling and no heuristics. The declared body set is the complete set of expression trees with at most two binary gate occurrences over the four holes and the four declared literals.",
+      "total": 16648
+    },
+    "budget_exhaustion_policy": "If a required object lies beyond the declared budget, report budget-exhausted together with the searched domain. The declared budgets are a resource declaration, not an observation task; they are never extended after a result is seen. Result classes that would need a larger budget are reported as bounded-domain compatibility only.",
+    "carrier_family": {
+      "declared_bodies": [
+        "cb_pass",
+        "cb_fresh_L",
+        "cb_fresh_M",
+        "cb_route_L"
+      ],
+      "declared_fillings": [
+        "gamma_L",
+        "gamma_M"
+      ],
+      "hole_interface": "(k1 : CarrierID) -> (k2 : CarrierID)",
+      "note": "A declared finite list of carrier bodies, not an exhaustive enumeration. The carrier layer exists so that a type mismatch and a provenance miswiring are real, checkable failures rather than numeric coincidences."
+    },
+    "filling_family": {
+      "beta0": {
+        "fills": [
+          "q1",
+          "q2",
+          "q3",
+          "q4"
+        ],
+        "index": 0,
+        "role": "initial filling; the frozen Paper IV producer quadruple",
+        "values": [
+          "2",
+          "7",
+          "3",
+          "5"
+        ]
+      },
+      "beta1": {
+        "fills": [
+          "q1",
+          "q2",
+          "q3",
+          "q5"
+        ],
+        "index": 1,
+        "role": "one-hole perturbation of beta0 at hole h4",
+        "values": [
+          "2",
+          "7",
+          "3",
+          "4"
+        ]
+      },
+      "beta2": {
+        "fills": [
+          "q1",
+          "q1",
+          "q3",
+          "q4"
+        ],
+        "index": 2,
+        "role": "one-hole perturbation of beta0 at hole h2",
+        "values": [
+          "2",
+          "2",
+          "3",
+          "5"
+        ]
+      },
+      "beta3": {
+        "fills": [
+          "q5",
+          "q2",
+          "q3",
+          "q4"
+        ],
+        "index": 3,
+        "role": "one-hole perturbation of beta0 at hole h1",
+        "values": [
+          "4",
+          "7",
+          "3",
+          "5"
+        ]
+      },
+      "beta4": {
+        "fills": [
+          "q1",
+          "q2",
+          "q5",
+          "q4"
+        ],
+        "index": 4,
+        "role": "one-hole perturbation of beta0 at hole h3",
+        "values": [
+          "2",
+          "7",
+          "4",
+          "5"
+        ]
+      },
+      "beta5": {
+        "fills": [
+          "q1",
+          "q5",
+          "q3",
+          "q4"
+        ],
+        "index": 5,
+        "role": "one-hole perturbation of beta0 at hole h2, by a different alternative producer value from beta2",
+        "values": [
+          "2",
+          "4",
+          "3",
+          "5"
+        ]
+      },
+      "beta_undef": {
+        "fills": [
+          "q1",
+          "q2",
+          "q3",
+          "u0"
+        ],
+        "index": 6,
+        "role": "one-hole perturbation of beta0 at hole h4 by a producer whose own strict domain predicate fails",
+        "values": [
+          "2",
+          "7",
+          "3",
+          "UNDEFINED"
+        ]
+      },
+      "size": 7
+    },
+    "generators": [
+      "body holes h1, h2, h3, h4 (all of type Q), in that declared order",
+      "body literals -1, 0, 1, 2 (exact rationals) as const_Q gate occurrences",
+      "body binary gates add, sub, mul, div with the declared ordered operand slots",
+      "carrier body hole k1 (type CarrierID) with carriers drawn from the declared finite label set {L, M}",
+      "closure producers q1, q2, q3, q4, q5, u0 of type Q, and pc_L, pc_M of type CarrierID",
+      "the declared filling family F of size 7 and the declared carrier fillings gamma_L, gamma_M"
+    ],
+    "inputs": "Open bodies b with hole interface (h1..h4 : Q) -> (y : Q) drawn from the declared body budget, and open carrier bodies with hole interface (k1 : CarrierID) -> (k2 : CarrierID) drawn from the declared carrier list.",
+    "paper4_snapshot": {
+      "body": "y1 = x1 + x2, y2 = x3 * x4, y3 = (x1 + x3) / (x2 - x4), with an explicit copy gate for each of the four twice-used inputs",
+      "outputs": [
+        "9",
+        "15",
+        "5/2"
+      ],
+      "producers": {
+        "q1": "1 + 1 = 2",
+        "q2": "3 + 4 = 7",
+        "q3": "6 / 2 = 3",
+        "q4": "9 - 4 = 5"
+      },
+      "role": "EXISTING BOUNDED EXAMPLE reproduced here as a compatibility check against the pinned source. It is not new, it is not native Adva execution, and it is not a faithful AES motion."
+    },
+    "producer_pool": {
+      "pc_L": {
+        "label": "L",
+        "type": "CarrierID"
+      },
+      "pc_M": {
+        "label": "M",
+        "type": "CarrierID"
+      },
+      "q1": {
+        "expression": "add(const_Q(1), const_Q(1))",
+        "type": "Q",
+        "value": "2"
+      },
+      "q2": {
+        "expression": "add(const_Q(3), const_Q(4))",
+        "type": "Q",
+        "value": "7"
+      },
+      "q3": {
+        "expression": "div(const_Q(6), const_Q(2))",
+        "type": "Q",
+        "value": "3"
+      },
+      "q4": {
+        "expression": "sub(const_Q(9), const_Q(4))",
+        "type": "Q",
+        "value": "5"
+      },
+      "q5": {
+        "expression": "add(const_Q(2), const_Q(2))",
+        "type": "Q",
+        "value": "4"
+      },
+      "u0": {
+        "expression": "div(const_Q(1), const_Q(0))",
+        "type": "Q",
+        "value": "UNDEFINED"
+      }
+    },
+    "resource_budget": {
+      "declared_extension_witnesses": "A frozen list of individually named bodies with three binary gate occurrences, used only to exhibit deeper witnesses. They are explicitly outside the exhaustive budget and are never used to upgrade a bounded-domain result.",
+      "note": "Exhaustive enumeration of the declared body budget, the declared carrier list, the declared filling family and the declared candidate grid. No floating point is used anywhere."
+    }
+  },
+  "enhancement_grid": {
+    "base": "pi0, the declared observation of the body closed by the initial filling beta0",
+    "candidate_family": "base plus any non-empty subset of the six declared fields; all 2^6 - 1 = 63 subsets are candidates",
+    "fields": {
+      "dom_profile": "the definedness vector of the body over F, i.e. which fillings in F keep the body defined",
+      "literals": "the sorted multiset of literal constants occurring in the body",
+      "op_count": "the number of binary primitive gate occurrences in the body",
+      "operators": "the sorted multiset of binary operator names occurring in the body",
+      "support": "the set of hole indices the body consumes, as a sorted list",
+      "use_counts": "the per-hole occurrence-count vector, in hole order"
+    },
+    "selection_rule": "Among candidates that are both task-sufficient and closed-update on the declared domain, report the one with the smallest (structural_size, storage_bytes); ties are broken by the canonical field-set name. If none qualifies, report that and do not invent one.",
+    "why": "Systematic and pre-declared: base = the existing initial-filling summary pi0, and the fields are the six cheap syntactic/interface residues of an open body that the pinned interface makes available without building an operator or a spectrum. Scanning a declared family is not the same as adding a field after seeing a failure; every field is declared before the scan is run."
+  },
+  "evidence": {
+    "determinism": "Identical bytes under CPython and under python3 -O. Assertions are never used for obligations; every obligation raises a coded diagnostic.",
+    "format": "One JSON document per experiment, canonical serialisation (sorted keys, two-space indent, trailing newline, UTF-8).",
+    "path": "research/process-representation-gap/evidence/exp3-typed-hole-context.json",
+    "per_record_fields": [
+      "contract",
+      "inputs",
+      "history",
+      "representation",
+      "continuation",
+      "observation",
+      "legality",
+      "cost",
+      "conclusion"
+    ]
+  },
+  "experiment": "exp3",
+  "frozen": true,
+  "independent_check": {
+    "disagreement_code": "EXP3-ROUTE-DISAGREEMENT",
+    "hand_computed_witnesses": {
+      "beta0_value_of_const(2)": "2",
+      "beta0_value_of_h1": "2",
+      "beta0_values_of_holes": [
+        "2",
+        "7",
+        "3",
+        "5"
+      ],
+      "beta3_value_of_h1": "4",
+      "beta3_value_of_q5": "4",
+      "paper4_snapshot_output": [
+        "9",
+        "15",
+        "5/2"
+      ],
+      "producer_values": {
+        "q1": "2",
+        "q2": "7",
+        "q3": "3",
+        "q4": "5",
+        "q5": "4",
+        "u0": "UNDEFINED"
+      }
+    },
+    "rationale": "The independent route shares NO semantic helper with the primary implementation. It never constructs a wire, a gate, a network, a schedule, a graft receipt or a constant-source ancestry: producers are substituted into the body expression as exact values or carrier labels, and the term is evaluated with fractions.Fraction. The semantics that the primary obtains from graph construction (explicit copy, strict discard, graft acyclicity, one-producer/one-consumer inventory, boundary completeness) are obtained in the independent route from a declared strict-domain predicate on the producer tuple plus a declared term-level definedness rule. The only shared module is tools/gapkit.py, which carries deterministic JSON serialisation, hashing, cost accumulation and the diagnostic type, and carries no experiment semantics.",
+    "route": "Direct substitution-and-evaluation interpreter against the summary updater. The primary implementation builds a strict finite network for every body, applies certified simultaneous substitution, and observes the assembled network. The independent implementation substitutes the declared producer values and carrier labels directly into the body's expression term and evaluates the term with exact rationals; it additionally checks a hand-computed table of the pinned Paper IV values and of the declared initial-filling collision."
+  },
+  "native": {
+    "allowed_rewrites": [
+      "Administrative renaming of wire and gate identifiers, which never refreshes and never changes source or occurrence identity (Paper IV, finite programs, sources and occurrences)",
+      "Contraction of a bound body input segment during certified simultaneous substitution (Paper IV, Construction constr:certified-substitution)",
+      "Replacing one open body by another only when the declared observations agree for EVERY filling in the declared family F, i.e. only inside a proved contextual-equivalence class",
+      "Reusing a program template only after creating a separate named instance whose occurrences are fresh"
+    ],
+    "category_boundary": "This is a declared instance of the Paper IV ported-AES program interface (paper-4/sections/05b-ported-aes-programs.tex). It is NOT native Adva execution, NOT an AES gate-to-motion realization (the motion bridge of Warning warn:ported-motion-bridge remains additional), and it makes no claim about the geometric carrier, its punctures, or its collar maps. The Adva handoff route discipline is used only as the source of the declared carrier-expectation contract, not as an implementation of Adva compute.",
+    "forbidden_rewrites": [
+      "Identifying two open bodies because they agree under the initial filling beta0; value equality at one filling is never sufficient for contextual equality",
+      "Binding a producer output to a body hole of a different type",
+      "A second consumer of one produced wire without an explicit copy gate",
+      "Discarding a wire that the declared output boundary also requires",
+      "Replacing a producing process by a bare numerical constant instead of an explicit constant producer with a source record",
+      "Using one producer instance twice without creating a fresh instance with fresh occurrences",
+      "Assuming any algebraic relation between gates: none is declared, so the gate language is free and no two distinct occurrences are identified",
+      "Claiming recursion, feedback, fixpoint or unbounded interpretation semantics from these finite acyclic networks",
+      "Treating the declared expectation of a carrier handoff as optional"
+    ],
+    "history": "The literal assembly history: the ordered binding, the producer regions, the body region, the call nesting and the boundary inventory, retained in the graft receipt. Distinct occurrences are never identified by equality of numerical value or of source label.",
+    "process_equivalence": "Task-relative, in the sense of work-plan section 4.2. Base relation: b ~ b' iff for every filling beta in the declared family F the declared observation of the certified composite agrees, including the declared undefined and declared-rejection outcomes. Legality-augmented relation: b ~+ b' iff in addition the sets of fillings at which the body is accepted agree. The two relations are reported separately and never conflated. Because the declared action family is exactly the declared observation family, sufficiency of a summary and existence of a closed abstract update coincide on this declared domain; that coincidence is a declared property of this finite experiment and is not asserted in general.",
+    "state": "An assembled strict finite network: typed wires each with exactly one producer and one consumer (counting an external output as a consumer), ordered typed input and output boundaries, immutable source and occurrence records, and a graft receipt. An open body additionally carries its ordered hole frontier.",
+    "summary": "Typed hole filling and context for strict finite arithmetic networks. The native object is an open typed network with an ordered hole interface plus an explicit filling; the observation is the exact output vector of the certified composite, never a matrix or a spectrum.",
+    "syntax": "Types: Q (exact rational) and CarrierID (opaque label from a declared finite set). Primitive gates: const_Q(c) : () -> (Q); const_carrier(L) : () -> (CarrierID); add, sub, mul : (Q,Q) -> (Q); div : (Q,Q) -> (Q), partial, defined iff the denominator wire does not carry the exact rational 0; copy : (T,) -> (T,T); discard : (T,) -> (), strict; transport : (CarrierID,) -> (CarrierID), which transports the carrier label unchanged; route(L) : (CarrierID,) -> (CarrierID), which requires the incoming carrier label to equal its declared expectation L and transports it unchanged. All type rules are checked at graft time and at evaluation time.",
+    "types": [
+      "Q: exact rational, carried as fractions.Fraction and rendered in lowest terms",
+      "CarrierID: an opaque label drawn from the declared finite set {L, M}; equality of labels is the only operation",
+      "Undefined: the declared outcome when a primitive domain predicate fails; a declared observation, not an exception",
+      "Rejection: a declared diagnostic raised while grafting or evaluating, e.g. a provenance miswire",
+      "SourceLabel / Occurrence: immutable administrative records, never refreshed by renaming"
+    ]
+  },
+  "negative_controls": [
+    {
+      "expected_diagnostic": "EXP-CONTRACT-DRIFT",
+      "id": "contract-drift",
+      "mutation": "Alter one byte of a copy of this contract and re-check the frozen digest ledger."
+    },
+    {
+      "expected_diagnostic": "EXP3-TYPE-MISMATCH",
+      "id": "graft-boundary-type-mismatch",
+      "mutation": "Bind a CarrierID producer output to a Q body hole at the graft boundary."
+    },
+    {
+      "expected_diagnostic": "EXP3-STRICT-DIVISION-BY-ZERO",
+      "id": "strict-division-by-zero",
+      "mutation": "Strictly execute a composite whose division gate receives the exact rational 0 on its denominator wire; instance (a) the Paper IV four-input body's denominator x2 - x4 under a filling that makes it zero, and instance (b) a readout-shaped body computing 3h/f at f = 0."
+    },
+    {
+      "expected_diagnostic": "EXP3-PROVENANCE-MISWIRE",
+      "id": "provenance-miswire",
+      "mutation": "Feed a CarrierID labelled M into a handoff gate that declares its expectation to be L."
+    },
+    {
+      "expected_diagnostic": "EXP3-EVENT-ORDER-MISMATCH",
+      "id": "event-order-mismatch",
+      "mutation": "Present an event order that is not topological for the assembled graph, and separately an event order that is topological but places a body-region event before a producer-region event."
+    },
+    {
+      "expected_diagnostic": "EXP3-IMPLICIT-SHARING",
+      "id": "implicit-sharing",
+      "mutation": "Give one produced wire a second consumer without inserting an explicit copy gate."
+    },
+    {
+      "expected_diagnostic": "EXP3-ILLEGAL-DISCARD",
+      "id": "illegal-discard",
+      "mutation": "Consume a body output wire that the declared output boundary requires with a discard gate, so that the graft silently drops a promised output."
+    },
+    {
+      "expected_diagnostic": "EXP3-GLOBAL-CYCLE",
+      "id": "cross-wired-cycle",
+      "mutation": "Cross-wire two locally acyclic pieces so that the assembled global graph contains an operation cycle; each piece alone must remain acyclic and defined."
+    },
+    {
+      "expected_diagnostic": "EXP3-UNUSED-PRODUCER-OUTPUT",
+      "id": "unused-producer-output",
+      "mutation": "Omit one producer output from the ordered binding instead of consuming it with an explicit discard."
+    },
+    {
+      "expected_diagnostic": "EXP3-DUPLICATE-BINDING",
+      "id": "duplicate-binding",
+      "mutation": "Bind one body hole twice, or bind one producer output occurrence twice."
+    },
+    {
+      "expected_diagnostic": "EXP3-BOUNDARY-ORDER-MISMATCH",
+      "id": "boundary-order-mismatch",
+      "mutation": "Reorder an assembled boundary without declaring the typed boundary permutation that the plan and Paper IV require."
+    },
+    {
+      "expected_diagnostic": "EXP3-RAW-VALUE-INPUT",
+      "id": "raw-value-input",
+      "mutation": "Admit a numerical input as a bare value instead of an explicit constant producer with its source record."
+    },
+    {
+      "expected_diagnostic": "EXP3-VALUE-EQUALITY-INSUFFICIENT",
+      "id": "value-equality-substitutability-claim",
+      "mutation": "Claim that two open bodies are contextually equivalent because they agree under the initial filling beta0."
+    },
+    {
+      "expected_diagnostic": "EXP3-SUFFICIENCY-CLAIM-REFUTED",
+      "id": "initial-summary-sufficiency-claim",
+      "mutation": "Claim that pi0 is task-sufficient on the declared domain."
+    },
+    {
+      "expected_diagnostic": "EXP3-ENUMERATION-MISMATCH",
+      "id": "enumerated-count-mismatch",
+      "mutation": "Change the declared body count for one binary-gate count class."
+    },
+    {
+      "expected_diagnostic": "EXP3-ROUTE-DISAGREEMENT",
+      "id": "primary-independent-disagreement",
+      "mutation": "Replace one observed value in the primary table with a neighbouring value before comparing the two routes."
+    }
+  ],
+  "outcomes": {
+    "budget_exhausted": "The searched domain is reported and the conclusion is restricted to it. The declared budgets are never extended after a result is seen; a class that would need a larger budget is reported as bounded-domain compatible.",
+    "declared_rejection": "A declared diagnostic raised at graft or evaluation time, kept distinct from the undefined outcome, from a numerical result, and from an implementation error. Each declared rejection names its own code.",
+    "expected_negative": "A concrete pair of open bodies, a concrete legal filling or context, and two different declared observations; reported with exact gate names, the exact filling, and the exact observed values. An expected negative is a result, not an error.",
+    "implementation_error": "A diagnostic with a stable code, raised by a negative control that mutated exactly one declared datum. Every negative control names the code it must raise and the observed code must match it exactly.",
+    "success": "A declared summary whose kernel refines the contextual equivalence on the declared domain, with a closed abstract update, and an independent re-derivation agreeing.",
+    "undefined_outcome": "The strict domain predicate of some gate in the composite fails. This is a declared observation, distinct from a rejection and from a numerical result.",
+    "unknown": "A question the declared domain cannot decide, reported as open with the exact missing hypothesis."
+  },
+  "plan_reference": "AEG-process-representation-work-plan.md section 6, 实验三",
+  "representations": [
+    {
+      "datatype": "the declared observation vector of the composite closed by beta0",
+      "definition": "pi0(b) = O_scalar(b composed with beta0).",
+      "id": "pi0",
+      "information_cost": "One observation vector; no hole frontier, no definedness profile, no literal or operator residue, no source or occurrence record.",
+      "kind": "initial-filling scalar observation",
+      "provenance": "paper-4/sections/05b-ported-aes-programs.tex, Example ex:ported-four-puncture, and the scalar projection used by paper-4/scripts/verify-ported-aes.py",
+      "tier": "existing-summary",
+      "update": "The abstract update u_beta must send pi0(b) to O_scalar(b composed with beta). It is not definable in general; the failure witness is reported."
+    },
+    {
+      "datatype": "the initial observation vector plus a declared subset of the six declared fields",
+      "definition": "pi_grid(b) = (pi0(b), the declared subset of {support, use_counts, literals, operators, op_count, dom_profile}).",
+      "id": "pi_grid",
+      "information_cost": "reported per channel for every candidate in the grid",
+      "kind": "declared multi-field extension of the initial observation",
+      "tier": "bounded-enhancement",
+      "update": "A candidate is closed-update iff, for every beta in F, the declared field values of the body determine those of the body under beta; because the declared action family is exactly the declared observation family, this coincides on this domain with task sufficiency, and that coincidence is reported rather than assumed.",
+      "why_this_candidate": "Work-plan section 9 requires each proposed improvement to state the information it adds, the composition it permits, its cost, the task it improves and the tasks in which it still fails. A systematic declared grid is used instead of an ad-hoc list."
+    },
+    {
+      "datatype": "the full behaviour vector of the body over the declared filling family F",
+      "definition": "pi_F(b) = (O_scalar(b composed with beta)) for beta in F, in the declared filling order.",
+      "id": "pi_F",
+      "information_cost": "|F| = 7 observation vectors, reported per channel.",
+      "kind": "bounded context-relative residual",
+      "tier": "bounded-enhancement",
+      "update": "u_beta is the declared projection onto the beta coordinate; it is well defined because the declared action family is exactly F.",
+      "why_this_candidate": "It is the maximal pre-declared bounded candidate and is the declared upper bound of the bounded tier."
+    },
+    {
+      "datatype": "the literal assembled network with typed wires, ordered boundaries, immutable source and occurrence records and the graft receipt",
+      "definition": "hist(b) = the body network with its declared sources and occurrences; observed through O_exact.",
+      "id": "hist",
+      "information_cost": "Unbounded in the number of occurrences. This is the UPPER-BOUND CONTROL. Retaining the full literal network is not thereby a recommended minimal repair; the plan requires the recommendation to be argued from cost and task, and section 9 requires the cheapest sufficient candidate to be preferred.",
+      "kind": "literal network with sources, occurrences and graft receipt",
+      "tier": "full-history-upper-bound",
+      "update": "Certified simultaneous substitution, retaining every occurrence."
+    }
+  ],
+  "reproduction": [
+    "python3 research/process-representation-gap/experiments/exp3_typed_hole_context.py > /tmp/exp3.json",
+    "cmp /tmp/exp3.json research/process-representation-gap/evidence/exp3-typed-hole-context.json",
+    "python3 -O research/process-representation-gap/experiments/exp3_typed_hole_context.py > /tmp/exp3-O.json",
+    "cmp /tmp/exp3.json /tmp/exp3-O.json",
+    "python3 research/process-representation-gap/experiments/exp3_typed_hole_context_independent.py > /tmp/exp3-independent.json",
+    "python3 research/process-representation-gap/experiments/exp3_typed_hole_context_independent.py"
+  ],
+  "schema": "aeg.process-representation-gap.contract.v1",
+  "scope_boundary": [
+    "Finite, acyclic, strict arithmetic networks only. No recursion, no feedback, no fixpoint and no unbounded interpretation semantics is claimed or implemented.",
+    "Contextual equivalence is decided on the declared filling family F of size 7 and on the declared body budget of 16648 expression trees only. A finite enumeration is never upgraded into a general theorem; a class with no counterexample inside the declared budget is reported as bounded-domain compatible.",
+    "No matrix, operator, spectrum or spectral feature is used. Paper IV requires the endomorphism closure, operator domain, marking and residual to be declared before a spectral feature is used; none is declared here, so no spectral claim is made.",
+    "The Paper IV four-input three-output scalar snapshot is an EXISTING BOUNDED EXAMPLE reproduced here for compatibility. It is not new, it is not native Adva execution and it is not a faithful AES motion.",
+    "No gate of any network built here is asserted to be an AES motion, and no path of a binary gate through an AES carrier is asserted.",
+    "The carrier layer is a declared finite abstraction of the Adva handoff route discipline present in the pinned PR-16 record; it is not an implementation of Adva compute and the pinned byte hashes are not recomputed here.",
+    "Numerical equality and contextual equality are reported separately everywhere. A value being equal is never sufficient for substitutability in any reported conclusion."
+  ],
+  "slug": "typed-hole-context",
+  "task": {
+    "Q": "For an open body b, answer, for every filling beta in the declared family F, the declared observation O_scalar of the certified composite b composed with beta; and, for the exact-semantics tier, also answer O_exact. Equivalently, decide the declared contextual equivalence on the declared domain.",
+    "adaptive": false,
+    "adaptive_note": "The filling family is frozen and pre-declared; no observation is used to select the next filling. Adaptive context selection is out of scope for version 1 and is declared as an open extension.",
+    "error_note": "Two evaluator modes are declared and kept apart. OBSERVATION MODE returns one of the declared outcomes DEFINED, UNDEFINED or REJECTED and never raises for a declared condition, so that the task is a total function on the declared domain. STRICT EXECUTION MODE raises the coded diagnostic of the first gate whose domain predicate fails, which is how the declared error battery is checked. Paper IV keeps the same distinction between the strict numerical domain D_P and an operational trace together with its first observed failure.",
+    "error_semantics": "Four outcomes are kept pairwise distinct: DEFINED, a vector of exact rationals or carrier labels; UNDEFINED, a declared observation meaning that some primitive domain predicate fails; REJECTED, a declared diagnostic raised while grafting or evaluating, for example a provenance miswire; and an implementation error, a diagnostic raised by a negative control that mutated one declared datum.",
+    "initial_observation": "pi0(b) = O_scalar(b composed with beta0).",
+    "observation": "O_scalar(composite) = DEFINED together with the ordered tuple of exact output values, each rational rendered in lowest terms or each carrier rendered as its label; or UNDEFINED. O_exact(composite) = O_scalar together with the ordered output types and, for every output, the sorted set of declared constant-source labels that the output depends on, plus the sorted inventory of every gate's source, occurrence and primitive name.",
+    "observation_points": "Once per filling, at the certified composite. No observation is available from a graft that was rejected.",
+    "when_context_difference_counts": "Legality and provenance differences count as part of the declared observation only through the declared REJECTED outcome and the declared O_exact source component. Both are declared here before any witness is computed, and neither is added after seeing a failure."
+  },
+  "title": "Typed hole filling and context",
+  "version": "1.0"
+}

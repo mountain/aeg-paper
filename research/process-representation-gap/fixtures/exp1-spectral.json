@@ -1,0 +1,186 @@
+{
+  "fixture": "exp1-spectral",
+  "payload": {
+    "action_on_frozen_vector": {
+      "AB": [
+        "-4",
+        "16"
+      ],
+      "BA": [
+        "-1",
+        "13"
+      ]
+    },
+    "claim_scope": "this refutes the CHOSEN spectral summary on the declared domain. It does not refute richer spectral systems, and it makes no claim about spectra outside 2x2 rational matrices with this observation.",
+    "commutator": [
+      [
+        "3/4",
+        "1/4"
+      ],
+      [
+        "-1/4",
+        "5/4"
+      ]
+    ],
+    "composite_summaries": [
+      [
+        "5",
+        "4"
+      ],
+      [
+        "5",
+        "4"
+      ]
+    ],
+    "computation_path": {
+      "AB": [
+        [
+          "2",
+          "1"
+        ],
+        [
+          "2",
+          "4"
+        ],
+        [
+          "-4",
+          "16"
+        ]
+      ],
+      "BA": [
+        [
+          "2",
+          "1"
+        ],
+        [
+          "-1",
+          "7"
+        ],
+        [
+          "-1",
+          "13"
+        ]
+      ]
+    },
+    "conclusion": "the declared spectral summary is a conjugation invariant, so it cannot separate AB from BA, while the declared frozen-vector task does separate them",
+    "conjugacy": {
+      "A_inverse": [
+        [
+          "1",
+          "-1/2"
+        ],
+        [
+          "0",
+          "1/2"
+        ]
+      ],
+      "identity": "B*A = A^(-1)*(A*B)*A",
+      "verified": true
+    },
+    "frozen_vector": [
+      "2",
+      "1"
+    ],
+    "matrices": {
+      "A": {
+        "charpoly": [
+          "1",
+          "-3",
+          "2"
+        ],
+        "det": "2",
+        "matrix": [
+          [
+            "1",
+            "1"
+          ],
+          [
+            "0",
+            "2"
+          ]
+        ],
+        "trace": "3"
+      },
+      "AB": {
+        "charpoly": [
+          "1",
+          "-5",
+          "4"
+        ],
+        "det": "4",
+        "matrix": [
+          [
+            "-1",
+            "5"
+          ],
+          [
+            "-2",
+            "6"
+          ]
+        ],
+        "trace": "5"
+      },
+      "B": {
+        "charpoly": [
+          "1",
+          "-3",
+          "2"
+        ],
+        "det": "2",
+        "matrix": [
+          [
+            "0",
+            "2"
+          ],
+          [
+            "-1",
+            "3"
+          ]
+        ],
+        "trace": "3"
+      },
+      "BA": {
+        "charpoly": [
+          "1",
+          "-5",
+          "4"
+        ],
+        "det": "4",
+        "matrix": [
+          [
+            "0",
+            "4"
+          ],
+          [
+            "-1",
+            "5"
+          ]
+        ],
+        "trace": "5"
+      }
+    },
+    "same_composite_summary": true,
+    "single_action_summaries": {
+      "A": [
+        "3",
+        "2"
+      ],
+      "B": [
+        "3",
+        "2"
+      ]
+    },
+    "single_actions_differ_on_vector": true,
+    "single_actions_share_spectral_summary": true,
+    "words": [
+      "AB",
+      "BA"
+    ]
+  },
+  "schema": "aeg.process-representation-gap.fixture.v1",
+  "source": {
+    "evidence_file": "exp1-order-and-mixing.json",
+    "pointer": "witnesses.spectral",
+    "sha256": "f5aa48b86dbc5e094686ba6f8292d85abe993bc147ef579301f5f6179262b402"
+  }
+}

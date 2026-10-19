@@ -1,0 +1,17 @@
+{
+  "fixture": "exp4-elevation-verdict",
+  "payload": {
+    "elevation": "ELEVATION",
+    "gate_i_pi_obj": "PASS: object equality is map equality by the injectivity lemma, and every object is a declared pair, so no two task-distinct words share an object",
+    "gate_i_pi_out": "FAIL",
+    "gate_ii": "PASS",
+    "gate_iii": "PASS",
+    "status": "proved"
+  },
+  "schema": "aeg.process-representation-gap.fixture.v1",
+  "source": {
+    "evidence_file": "exp4-objectification-elevation.json",
+    "pointer": "baseline_control.verdict",
+    "sha256": "f5b9d188e1e7efb13b0675c9960ed4660786146d956c2d4729483a7c349abb91"
+  }
+}

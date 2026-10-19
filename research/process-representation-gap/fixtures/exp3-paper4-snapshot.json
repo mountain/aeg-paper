@@ -1,0 +1,53 @@
+{
+  "fixture": "exp3-paper4-snapshot",
+  "payload": {
+    "agrees": true,
+    "body": "y1 = x1 + x2; y2 = x3 * x4; y3 = (x1 + x3) / (x2 - x4)",
+    "constant_source_count": 8,
+    "copy_gate_count": 4,
+    "distinct_constant_sources": 8,
+    "output_body_alone": [
+      "9",
+      "15",
+      "5/2"
+    ],
+    "output_constant_ancestry_sizes": [
+      4,
+      4,
+      8
+    ],
+    "output_via_graft": [
+      "9",
+      "15",
+      "5/2"
+    ],
+    "primitive_gate_count": 21,
+    "producers": {
+      "q1": {
+        "expression": "1 + 1",
+        "value": "2"
+      },
+      "q2": {
+        "expression": "3 + 4",
+        "value": "7"
+      },
+      "q3": {
+        "expression": "6 / 2",
+        "value": "3"
+      },
+      "q4": {
+        "expression": "9 - 4",
+        "value": "5"
+      }
+    },
+    "provenance": "paper-4/sections/05b-ported-aes-programs.tex, Example ex:ported-four-puncture",
+    "status": "EXISTING BOUNDED EXAMPLE reproduced here for compatibility; NOT new, NOT native Adva execution, and NOT a faithful AES motion",
+    "strict_domain_note": "the composite is defined exactly when x2 - x4 is not 0"
+  },
+  "schema": "aeg.process-representation-gap.fixture.v1",
+  "source": {
+    "evidence_file": "exp3-typed-hole-context.json",
+    "pointer": "paper4_snapshot",
+    "sha256": "82362f569ddcfefe90b54a4a75a99b12fba88e0950ffc5614ec0876625fb2931"
+  }
+}

@@ -280,3 +280,7 @@ TSWLatexianTemp*
 **/.venv/
 **/.python-version
 
+
+# Python bytecode from the research checkers
+__pycache__/
+*.pyc
