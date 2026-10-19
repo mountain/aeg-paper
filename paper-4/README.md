@@ -209,3 +209,28 @@ coordinates, the finite chi_C obstruction and open boundaries are in
 [the witness record](../governance/opposite-feature-witness-2026-10-09.md).
 It retains full event/source packets alongside equal scalar triples; it does
 not execute Adva mechanisms or prove their AES equivalence.
+## Finite process spectrum and cyclic prefixes
+
+The [2026-10-10 calibration](../governance/process-spectrum-calibration-2026-10-10.md)
+compares exact cover-graph spectra, marked Alexandrov opens, abstract lattices
+and typed source frontiers, then tests a synthetic anytime loop against its
+finite unfoldings. It preserves PR #16's history and boundaries. Reproduce:
+
+```bash
+python3 paper-4/scripts/verify-process-spectrum.py > /tmp/process-spectrum.json
+cmp /tmp/process-spectrum.json paper-4/scripts/fixtures/process-spectrum/evidence.json
+python3 -O paper-4/scripts/verify-process-spectrum.py > /tmp/process-spectrum-O.json
+cmp /tmp/process-spectrum.json /tmp/process-spectrum-O.json
+```
+
+
+Independent guard/receipt audit (same synthetic scope):
+
+```sh
+python3 paper-4/scripts/receive-process-spectrum.py /tmp/process-spectrum.json > /tmp/process-receiver.json
+cmp /tmp/process-receiver.json paper-4/scripts/fixtures/process-spectrum/receiver-evidence.json
+```
+
+The receiver checks explicit stopping attempts, complete versus truncated
+observation, source identity, roles and retained history without importing
+the generator; see the canonical record for limitations and mutation results.
