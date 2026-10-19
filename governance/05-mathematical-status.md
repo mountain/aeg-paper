@@ -3623,3 +3623,16 @@ No manuscript theorem is changed.
 | PIV-S8 | `COMPUTATIONALLY VERIFIED EXAMPLE` | Pinned Adva 0114 event/projection adapter retains source, events, residual and policy; four Q snapshot producers fill a strict finite body yielding (3,1,2) on both paths. Packet observation separates equal scalar outputs. No mechanism execution or AES motion bridge. |
 | PIV-S9 | `PROVED WITH STATED HYPOTHESES` | On the two frozen records with the declared 0114 projection policy, equal (T,S) and unequal C exclude any function C=chi_C(T,S). Proof in the canonical research record; enriched features change the question. |
 | PIV-F2 | `OPEN PROBLEM` | chi_T and chi_S have only two-record sample consistency; general cross-side witnesses, faithful AES gate motions, spectral operator closure, truth-fiber and cyclic update semantics remain open. |
+## Finite process-spectrum and cyclic-prefix calibration (2026-10-10)
+
+Canonical research record: `process-spectrum-calibration-2026-10-10.md`.
+Independent synthetic models; no manuscript theorem or PR #16 evidence changes.
+
+| ID | Status | Statement and boundary |
+|---|---|---|
+| PIV-PS1 | `PROVED WITH STATED HYPOTHESES` | Three-event chain and fork share the specified undirected cover Laplacian (spectrum 0,1,3) and directed adjacency spectrum (0,0,0), but have different causal orders and four versus five lower opens. No claim against all spectral constructions. |
+| PIV-PS2 | `PROVED WITH STATED HYPOTHESES` | Full lower opens with membership recover a finite marked poset; their abstract lattice recovers it up to isomorphism through join-irreducibles. Source and role decorations are independent data. |
+| PIV-PS3 | `PROVED WITH STATED HYPOTHESES` | For every finite prefix of the defined increment loop, a stopping machine has identical prefix packets but different future enabling. A known transition rule plus state is extra data; no native three-calculus completeness claim. |
+| PIV-PS4 | `COMPUTATIONALLY VERIFIED EXAMPLE` | Exact polynomial/frontier reconstruction, all 19 labelled three-element posets, shared/independent source controls, role controls, and horizons 0,1,2,3,6 replay in normal and optimized modes. |
+| PIV-F2 | `OPEN PROBLEM` | Faithful Alexandrov-based spectral object, source-aware transport/coherence, and native cyclic three-side updates remain open. Nonlinear eigenproblems are not instantiated. |
+
