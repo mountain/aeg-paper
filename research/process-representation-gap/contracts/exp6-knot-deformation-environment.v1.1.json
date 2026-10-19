@@ -1,0 +1,39 @@
+{
+  "chronology": "original contracts and implementations entered Git together; no independently proven pre-implementation chronology is claimed for v1",
+  "environment": {
+    "linking": "nonzero obstructs splitting; zero does not certify splitting",
+    "mapping_class": "surface homeomorphism is not assumed isotopic to identity or ambiently extendible",
+    "sphere": "tame simple closed curves on a tame embedded sphere bound disks",
+    "torus": "standard unknotted torus embedded in R3 with fixed meridian/longitude basis for free-space comparison; primitive (2,3) curve is a trefoil",
+    "writhe": "diagram statistic, not a necessary constraint on ambient knot type"
+  },
+  "experiment": "exp6",
+  "historical_commit": "1556eaedaee0946b2e395320739234dc59ec846c",
+  "history": "v1 contracts and review artifacts remain unchanged; pre-repair outputs are retained at the historical full commit and indexed by blob/hash in reviews/2026-10-19-repair-history.json",
+  "native": {
+    "gate_C": "literal encoding, concatenation and endpoint replay only; topological process faithfulness not certified",
+    "geometric_domain": "finite rational PL polygons; closed polygons require at least three distinct nodes; certified positive self-embedding only for rigid translations of an exactly checked simple initial polygon",
+    "nontranslation": "may return invalid with an exact collision witness, otherwise not-certified; never valid",
+    "signed_word_domain": "abstract signed words and the historical R1/R2-named syntactic rewrite operations; no planar realisability, Reidemeister soundness or knot-process claim"
+  },
+  "negative_controls": [
+    "collapse at t=1/2",
+    "collapse at t=1/3",
+    "adjacent overlap",
+    "fewer than three closed nodes",
+    "nontranslation with simple endpoints",
+    "old contract mutation",
+    "ledger mutation",
+    "deleted evidence",
+    "mutated exp5 raw row"
+  ],
+  "proof_obligations": [
+    "primary checks all initial edges including adjacent overlaps, nonzero edges and node distinctness; equal displacement at every breakpoint proves translation on each affine interval",
+    "secondary independently checks static simplicity using exact squared distances plus adjacent-collinearity overlap; constancy of every relative node vector proves translation",
+    "nontranslation and collapsing/overlapping/degenerate inputs never receive valid from either whole-interval route"
+  ],
+  "status": "narrowed research contract; no manuscript or native Adva promotion",
+  "supersedes": "exp6-knot-deformation-environment.v1.json",
+  "verification": "read-only immutable contract checks; explicit file inventory; normal/optimized/hash-seed runs with raw outputs regenerated in temporary directories and compared to committed evidence",
+  "version": "1.1"
+}
