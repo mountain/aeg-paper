@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+title: Arithmetic Expression Geometry
+message: >-
+  Cite the exact manuscript commit used. Mingli Yuan provides human research
+  direction, acceptance and release authority, and final scientific
+  responsibility. Formalization, proof drafting, experiments, software,
+  red-team review and writing may include the AI systems identified per
+  contribution in AUTHORSHIP_AND_PROVENANCE.md and commit/PR records. Account
+  ownership and green CI do not imply personal authorship, independent review or
+  correctness of every contribution.
+type: software
+authors:
+  - family-names: Yuan
+    given-names: Mingli
+repository-code: https://github.com/mountain/aeg-paper
+url: https://github.com/mountain/aeg-paper
+license: CC0-1.0
+
