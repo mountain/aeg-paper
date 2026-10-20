@@ -598,3 +598,116 @@ meaning in both derivations.  Third, the proposition is proved for the basic
 model; it must not be read as asserting that every regular AES is a Reeb
 quotient of a contact three-manifold, or that every AES carries such a
 quotient.
+
+% ======================================================================
+% Insert into Paper 0, Section 9, immediately after Proposition 9.8
+% ======================================================================
+
+\subsection{Legendre duality between the charge and Reeb quotients}
+\label{subsec:legendre-duality}
+
+Proposition~\ref{prop:reeb-quotient} places the charge projection
+$\pi(u,v,a)=(u,v)$ of Section~8 and the Reeb quotient
+$Q(u,v,a)=(-ae^{-\lambda v}, e^{-\lambda v})=(x,y)$ on a common three-dimensional
+carrier $\mathcal{C}=\mathbb{R}^3_{(u,v,a)}$. The two maps forget complementary
+directions: $\pi$ forgets the assignment fiber $\partial_a$, whereas $Q$ forgets
+the Reeb direction $\partial_u$. We now record the exact sense in which they form
+a conjugate Legendre pair for horizontal lifts of arithmetic histories.
+
+In the natural charge coordinates $A=\mu u$ and $M=\lambda v$, the arithmetic
+contact form~\eqref{eq:contact-form} and its rescaled companion $e^{-M}\alpha$
+satisfy the two exact decompositions
+\begin{align}
+  \alpha &= da - dA - a\,dM, \label{eq:legendre-hamilton} \\
+  e^{-M}\alpha &= d\!\left(e^{-M}a\right) - e^{-M}dA. \label{eq:legendre-lagrange}
+\end{align}
+Since $e^{-M}>0$ everywhere on $\mathcal{C}$, both one-forms define the same
+horizontal distribution $\mathcal{D}=\ker\alpha$. Along any piecewise smooth
+horizontal curve $\tilde{\gamma}$ in $\mathcal{C}$, both~\eqref{eq:legendre-hamilton}
+and~\eqref{eq:legendre-lagrange} vanish identically. Notice that the quantity
+$\hat{a}:=e^{-M}a=-x$ in~\eqref{eq:legendre-lagrange} is simultaneously the
+source-normalized assignment and minus the horizontal coordinate of the basic
+hyperbolic model $\mathfrak{E}_0$ under $Q$.
+
+\begin{theorem}[Dual tearing and Reeb drift]
+\label{thm:legendre-dual-tearing}
+Let $\tilde{\gamma}_1$ and $\tilde{\gamma}_2$ be piecewise smooth horizontal lifts
+in $\mathcal{C}$ starting at a common initial state $(u_0,v_0,a_0)$, with projected
+charge chains $C_i=\pi\circ\tilde{\gamma}_i$ in $\mathcal{A}$ and projected state
+paths $\bar{\gamma}_i=Q\circ\tilde{\gamma}_i$ in $\mathbb{H}^2$.
+\begin{enumerate}
+  \item \emph{(Fixed-charge comparison in $\mathcal{A}$).} Suppose $\tilde{\gamma}_1$
+  and $\tilde{\gamma}_2$ are charge-compatible, so that $C_1$ and $C_2$ share their
+  terminal point $(A_*,M_*)$. Then their terminal states lie in the same $\pi$-fiber
+  and their vertical assignment defect is
+  \begin{equation}\label{eq:dual-value-tearing}
+    a(\tilde{\gamma}_1(1)) - a(\tilde{\gamma}_2(1))
+    = e^{M_*}\int_{C_1 - C_2} e^{-M}\,dA
+    = \int_{\Sigma_{12}} e^{M_* - M}\,dA\wedge dM,
+  \end{equation}
+  for any oriented piecewise smooth two-chain $\Sigma_{12}$ in $\mathcal{A}$ with
+  $\partial\Sigma_{12}=C_1-C_2$.
+
+  \item \emph{(Fixed-state comparison in $\mathbb{H}^2$).} Suppose instead that
+  $\tilde{\gamma}_1$ and $\tilde{\gamma}_2$ are state-compatible under $Q$, so that
+  $\bar{\gamma}_1$ and $\bar{\gamma}_2$ reach the same terminal point
+  $p_*=(x_*,y_*)\in\mathbb{H}^2$, equivalently the same terminal pair $(M_*,a_*)$.
+  Then their terminal states lie in the same Reeb fiber $Q^{-1}(p_*)$, and their
+  additive charge drift $\Delta A := A(\tilde{\gamma}_1(1)) - A(\tilde{\gamma}_2(1))
+  = \mu\big(u(\tilde{\gamma}_1(1)) - u(\tilde{\gamma}_2(1))\big)$ satisfies
+  \begin{equation}\label{eq:dual-reeb-drift}
+    \Delta A
+    = -\int_{\bar{\gamma}_1 - \bar{\gamma}_2} a\,dM
+    = -\int_{\Omega_{12}} da\wedge dM
+    = -\mu\lambda \int_{\Omega_{12}} d\mathrm{vol}_{g_{\mu,\lambda}},
+  \end{equation}
+  for any oriented piecewise smooth two-chain $\Omega_{12}$ in $\mathbb{H}^2$ with
+  $\partial\Omega_{12}=\bar{\gamma}_1-\bar{\gamma}_2$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(1) Integrating $e^{-M}\alpha=0$ in the form~\eqref{eq:legendre-lagrange} along
+each horizontal lift gives
+\[
+  e^{-M_*}a(\tilde{\gamma}_i(1)) - e^{-M_0}a_0 = \int_{C_i} e^{-M}\,dA, \qquad i=1,2.
+\]
+Subtracting the two identities cancels the initial term, and multiplying by $e^{M_*}$
+gives the first equality in~\eqref{eq:dual-value-tearing}. The second equality follows
+by Stokes' theorem as in Theorem~\ref{thm:torsion-stokes}.
+
+(2) Integrating $\alpha=0$ in the form~\eqref{eq:legendre-hamilton} along each
+horizontal lift gives
+\[
+  A(\tilde{\gamma}_i(1)) - A_0 = \big(a(\tilde{\gamma}_i(1)) - a_0\big) - \int_{\bar{\gamma}_i} a\,dM, \qquad i=1,2.
+\]
+Under state compatibility in $\mathbb{H}^2$, both lifts terminate at the same
+$y_*=e^{-M_*}$ and the same $a_*=-x_*/y_*$, so the boundary term $a_*-a_0$ cancels
+upon subtraction. This proves the line-integral formula in~\eqref{eq:dual-reeb-drift}.
+Applying Stokes' theorem on $\mathbb{H}^2$ gives the integral of $-da\wedge dM =
+-\lambda\,da\wedge dv$. By Proposition~\ref{prop:reeb-quotient}(5),
+$-\lambda\,da\wedge dv = d\alpha = -\mu\lambda\,Q^*(d\mathrm{vol}_{g_{\mu,\lambda}})$,
+which yields the hyperbolic area identity.
+\end{proof}
+
+\begin{remark}[Unification of Theorem~8.6 and Theorem~8.9]
+Theorem~\ref{thm:legendre-dual-tearing} shows that the two basic non-commutativity
+phenomena of Section~8 are Legendre-conjugate readings of the same contact curvature:
+\begin{itemize}
+  \item Holding the commutative charge endpoint $(A_*,M_*)$ fixed projects the
+  order defect onto the assignment fiber $\ker d\pi = \mathrm{span}(\partial_a)$,
+  recovering the weighted ACS area of Theorem~\ref{thm:torsion-stokes}.
+  \item Holding the evaluated hyperbolic state $p_*\in\mathbb{H}^2$ fixed projects
+  the order defect onto the Reeb fiber $\ker dQ = \mathrm{span}(\partial_u)$,
+  measuring the failure of the additive charge to descend to the motion group.
+  For the elementary kernel word $h(p,q)=M_q A_p M_{-q} A_{-e^{-q}p}\in\ker\nu$
+  of Theorem~\ref{thm:charge-descent}, the two prefixes $\gamma_1=(M_q,A_p)$ and
+  $\gamma_2=(A_{e^{-q}p},M_q)$ connect $(0,a_0)$ to the same state $(q, e^q a_0 + p)$
+  in $\mathbb{H}^2$, and~\eqref{eq:dual-reeb-drift} evaluates their Reeb drift
+  $-\int_{\bar{\gamma}_1-\bar{\gamma}_2} a\,dM = p(1-e^{-q})$ as the hyperbolic area
+  of the enclosed strip.
+\end{itemize}
+Notice also the structural complement to Proposition~\ref{prop:surface-never-closes}:
+whereas a charge-compatible rectangle remains open on $\mathbb{H}^2$, a state-compatible
+pair closes on $\mathbb{H}^2$ and opens instead along the Reeb fiber in $\mathcal{C}$.
+\end{remark}

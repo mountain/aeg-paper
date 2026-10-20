@@ -193,3 +193,162 @@ endpoint potential.  Possible additional data include an independent
 stabilizer-valued factor in each edge, a connection on $G\to G/H$, a
 multivalued frame, or rewrite $2$-cells.  None is supplied automatically by the
 static quotient.
+
+% ======================================================================
+% Insert into Paper IV, Section 4, after Subsection 4.6
+% (Resolves Open Problem 14.1 in the main flow)
+% ======================================================================
+
+\subsection{Non-exact projective transport and cross-ratio holonomy}
+\label{subsec:non-exact-projective-transport}
+
+Proposition~\ref{prop:telescoping} shows that edge labels defined solely as ratios
+$r_t = h_t h_{t-1}^{-1}$ of vertex frame lifts telescope along every closed path.
+To obtain a gauge-equivariant comparison on the frame torsor $G\to G/H$ that reduces
+to affine translation torsion on the Borel sector $B_\infty$ while retaining a
+nontrivial closed-loop invariant when the kernel point moves, the edge transport
+must couple the image step to the preceding kernel covector. The rank-one idempotent
+realization of Theorem~\ref{thm:bivaluation-projector} supplies this coupling
+canonically without auxiliary metric data.
+
+Let $K$ be a field. Recall from Section~3.1 that in the standard affine chart on
+$Biv_K^{\mathrm{reg}}$, a transverse ordered pair $(q^+,q^-)$ with representatives
+$v_a = \binom{-a}{1}$ and $\varphi_b = (-b\;\;1)$ satisfies $\varphi_b(v_a)=1+ab\neq 0$
+and determines the rank-one projector $\Pi_{a,b} = (1+ab)^{-1} v_a\otimes\varphi_b$.
+
+\begin{definition}[Incidence-coupled projective edge transport]
+\label{def:projective-edge-transport}
+Let $e: q_1\to q_2$ be a directed step between regular bivaluations
+$q_i=(a_i,b_i)\in Biv_K^{\mathrm{reg}}$ that is transverse in the sense that
+\[
+  \varphi_{b_1}(v_{a_2}) = 1 + a_2 b_1 \neq 0.
+\]
+Choose frame lifts $g_i = \begin{pmatrix} 1 & -a_i \\ -b_i & 1 \end{pmatrix}
+\begin{pmatrix} \Phi_i & 0 \\ 0 & 1 \end{pmatrix} \in G$ with fiber coordinates
+$\Phi_i\in K^\times \cong H$. Define the \emph{projective torsion transport} of the
+lifted step $\tilde{e}: g_1\to g_2$ as the element of the affine semidirect product
+$\mathrm{Aff}(1,K) = K^\times \ltimes K$ given by
+\begin{equation}\label{eq:projective-torsion-matrix}
+  \mathcal{T}(\tilde{e}) :=
+  \begin{pmatrix}
+    \Lambda(\tilde{e}) & \Delta\hat{\xi}(\tilde{e}) \\[4pt]
+    0 & 1
+  \end{pmatrix},
+\end{equation}
+where the multiplicative holonomy factor and source-normalized translation increment are
+\begin{equation}\label{eq:projective-torsion-components}
+  \Lambda(\tilde{e}) := \frac{\Phi_2}{\Phi_1}\cdot \frac{1 + a_2 b_1}{1 + a_1 b_1} \in K^\times,
+  \qquad
+  \Delta\hat{\xi}(\tilde{e}) := -\Phi_1^{-1}\,\frac{a_2 - a_1}{1 + a_1 b_1} \in K.
+\end{equation}
+For a multi-step lifted path $\tilde{\gamma}=(\tilde{e}_1,\dots,\tilde{e}_m)$, its
+total transport is the chronological product
+$\mathcal{T}(\tilde{\gamma}) := \mathcal{T}(\tilde{e}_m)\cdots\mathcal{T}(\tilde{e}_1)
+\in\mathrm{Aff}(1,K)$.
+\end{definition}
+
+The factor $\lambda_{\mathrm{base}}(e) := (1+a_2 b_1)/(1+a_1 b_1) =
+\varphi_{b_1}(v_{a_2})/\varphi_{b_1}(v_{a_1})$ depends only on the base step
+$q_1\to q_2$ in $G/H$. Under a change of frame section $\Phi_i \mapsto c_i \Phi_i$,
+the product of $\Lambda(\tilde{e}_k)$ around any closed lifted loop
+($\Phi_m=\Phi_0$) is strictly gauge-invariant.
+
+\begin{theorem}[Borel reduction and non-telescoping cross-ratio holonomy]
+\label{thm:projective-torsion-solution}
+The transport $\mathcal{T}$ of Definition~\ref{def:projective-edge-transport}
+has the following properties:
+\begin{enumerate}
+  \item \emph{(Exact Borel reduction).} On the affine Borel sector
+  $B_\infty = \mathrm{Stab}_G(\infty)$, where $b_k\equiv 0$ and $a_k=-\xi_k$ for
+  every prefix $g_k(z)=\Phi_k z + \xi_k$, the base correction satisfies
+  $\lambda_{\mathrm{base}}(e_k)\equiv 1$, and the total transport along a history
+  $\gamma=(s_1,\dots,s_n)$ reduces to
+  \[
+    \mathcal{T}(\gamma)\big|_{B_\infty}
+    = \begin{pmatrix} \Phi_n & \xi_n \\ 0 & 1 \end{pmatrix}.
+  \]
+  Consequently, for scale-compatible affine histories $\gamma$ and $\delta$, the
+  translation component of $\mathcal{T}(\delta)^{-1}\mathcal{T}(\gamma)$ is
+  precisely the relative affine defect $\Phi^{-1}(\xi_\gamma - \xi_\delta)$ of
+  Paper~0, Section~7.4.
+
+  \item \emph{(Fixed-kernel flatness).} Along any closed lifted loop $\ell$ on which
+  the kernel coordinate $b_k\equiv b_0$ remains constant, the multiplicative
+  holonomy telescopes to $\Lambda(\ell)=1$.
+
+  \item \emph{(Non-telescoping cross-ratio holonomy).} Consider a closed four-step
+  base loop $\square$ in $Biv_K^{\mathrm{reg}}$ alternating image updates and kernel
+  updates:
+  \[
+    (a_1,b_1) \xrightarrow{e_1} (a_2,b_1) \xrightarrow{e_2} (a_2,b_2)
+    \xrightarrow{e_3} (a_1,b_2) \xrightarrow{e_4} (a_1,b_1),
+  \]
+  where all four pairs and intermediate steps are transverse. For any closed frame
+  lift ($\Phi_4=\Phi_0$), the multiplicative holonomy around $\square$ is
+  gauge-invariant and equals the projective cross-ratio
+  \begin{equation}\label{eq:cross-ratio-holonomy}
+    \Lambda(\square)
+    = \mathrm{tr}\!\left(\Pi_{a_1,b_1}\Pi_{a_1,b_2}\Pi_{a_2,b_2}\Pi_{a_2,b_1}\right)^{-1}
+    \text{-normalized}
+    = \frac{(1+a_2 b_1)(1+a_1 b_2)}{(1+a_1 b_1)(1+a_2 b_2)}
+    = 1 - \frac{(a_2-a_1)(b_2-b_1)}{(1+a_1 b_1)(1+a_2 b_2)}.
+  \end{equation}
+  In particular, $\Lambda(\square)\neq 1$ if and only if $a_1\neq a_2$ and $b_1\neq b_2$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(1) Setting $b_k=0$ and $a_k=-\xi_k$ in~\eqref{eq:projective-torsion-components}
+gives $\Lambda(\tilde{e}_k)=\Phi_k/\Phi_{k-1}$ and
+$\Delta\hat{\xi}(\tilde{e}_k)=\Phi_{k-1}^{-1}(\xi_k-\xi_{k-1})$. Multiplying the
+matrices~\eqref{eq:projective-torsion-matrix} chronologically from $k=1$ to $n$
+yields upper-left entry $\Phi_n/\Phi_0=\Phi_n$ and upper-right entry
+$\Phi_n \sum_{k=1}^n \Phi_k^{-1}(\xi_k-\xi_{k-1}) = \xi_n$, matching the affine
+cocycle law of Paper~0, Proposition~7.1.
+
+(2) If $b_k=b_0$ for all $k$, then $\lambda_{\mathrm{base}}(e_k)=(1+a_k b_0)/(1+a_{k-1}b_0)$,
+whose product over a closed loop $a_m=a_0$ cancels pairwise, while $\prod (\Phi_k/\Phi_{k-1})=1$.
+
+(3) Along the four edges of $\square$, the telescoping factors $\Phi_k/\Phi_{k-1}$
+cancel. On $e_2: (a_2,b_1)\to(a_2,b_2)$ and $e_4: (a_1,b_2)\to(a_1,b_1)$, the image
+coordinate is constant, so $\lambda_{\mathrm{base}}(e_2)=\lambda_{\mathrm{base}}(e_4)=1$.
+On $e_1$ and $e_3$, one has $\lambda_{\mathrm{base}}(e_1)=(1+a_2 b_1)/(1+a_1 b_1)$
+and $\lambda_{\mathrm{base}}(e_3)=(1+a_1 b_2)/(1+a_2 b_2)$. Their product is
+\eqref{eq:cross-ratio-holonomy}. Subtracting numerator and denominator gives
+$(1+a_1 b_1)(1+a_2 b_2) - (1+a_2 b_1)(1+a_1 b_2) = (a_2-a_1)(b_2-b_1)$, which is
+nonzero precisely when both coordinates move. Direct multiplication of the rank-one
+projectors~\eqref{eq:chart-projector} gives
+$\Pi_{a_1,b_1}\Pi_{a_1,b_2}\Pi_{a_2,b_2}\Pi_{a_2,b_1} = \Lambda(\square)^{-1}\Pi_{a_1,b_1}$,
+confirming that $\Lambda(\square)$ is a chart-independent invariant of the four
+idempotents in $G/H$.
+\end{proof}
+
+\begin{remark}[Infinitesimal reductive connection over $\mathbb{R}$ or $\mathbb{C}$]
+Over $K=\mathbb{R}$ or $\mathbb{C}$, let $\Pi_0=\begin{pmatrix}0&0\\0&1\end{pmatrix}$
+be the reference projector at $(0,\infty)$. The reductive splitting
+$\mathfrak{pgl}_2 = \mathfrak{h}\oplus\mathfrak{m}$ defined by the eigenspaces of
+$\mathrm{ad}(\Pi_0)$ equips the principal $H$-bundle $G\to G/H$ with the connection
+one-form $\omega_H = \Phi^{-1}d\Phi + (1+ab)^{-1}(a\,db - b\,da)$ and horizontal
+solder component $\theta_+ = \Phi^{-1}(1+ab)^{-1}da$. The first-order expansion of
+$\Lambda(\square)$ in~\eqref{eq:cross-ratio-holonomy} is the para-K\"ahler curvature
+two-form $(1+ab)^{-2}da\wedge db$ on $Biv_K^{\mathrm{reg}}$, while $\theta_+|_{b=0}
+= -\Phi^{-1}da = e^{-M}d\xi$ recovers the left Maurer-Cartan translation form of
+Paper~0, Equation~(58).
+\end{remark}
+
+\begin{example}[Exact calibration over $\mathbb{F}_7$]
+\label{ex:f7-cross-ratio-holonomy}
+In the finite-field calibration $K=\mathbb{F}_7$ of Example~\ref{ex:f7-counts}
+($|G|=336$, $|G/H|=56$, $|H|=6$), consider the closed bivaluation loop $\square$
+with vertices
+\[
+  (a_1,b_1)=(0,0), \quad (a_2,b_1)=(1,0), \quad (a_2,b_2)=(1,1), \quad (a_1,b_2)=(0,1).
+\]
+Here $1+a_i b_j \in \{1,2\}\subset\mathbb{F}_7^\times$, so all four vertices and steps
+are transverse. Evaluating~\eqref{eq:cross-ratio-holonomy} in $\mathbb{F}_7^\times$ gives
+\[
+  \Lambda(\square) \equiv \frac{(1+0)(1+0)}{(1+0)(1+1)} \equiv 2^{-1} \equiv 4 \pmod 7.
+\]
+Thus $\Lambda(\square)=4\neq 1$ in $H\cong\mathbb{F}_7^\times$, providing an explicit
+finite witness of non-telescoping projective holonomy.
+\end{example}
