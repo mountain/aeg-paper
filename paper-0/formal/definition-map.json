@@ -1,0 +1,186 @@
+{
+  "schema": "aeg.paper0.chapter02.definition-map.v2",
+  "source": "paper-0/sections/02-expansion.tex",
+  "source_sha256": "ddc42b0e8f388beccaf413da98a8b2b898ecd64f9a45f5c6e8193252a603a7d2",
+  "module": "AEGPaper0.Chapter02",
+  "basis": "FieldData extends the explicit Algebra laws by neg/inv, additive inverse, inv-zero, nonzero multiplicative inverse, and zero!=one. These are parameters, not global axioms or target theorem assumptions.",
+  "lean_audit_names": [
+    "first_div_domain",
+    "second_div_domain",
+    "zero_numerator_keeps_domain",
+    "eval_functional",
+    "partial_fold_nil",
+    "partial_fold_snoc",
+    "partial_fold_append",
+    "commutative_fold_agreement",
+    "zero_denominator_refused",
+    "undefined_first_prefix_persists",
+    "undefined_second_prefix_persists",
+    "grow_left_eval",
+    "left_tree_correspondence",
+    "left_tree_snoc",
+    "right_tree_snoc",
+    "mirror_involution",
+    "mirror_fold",
+    "mirror_left_tree",
+    "mirror_eval",
+    "right_tree_correspondence",
+    "partial_fold_functional",
+    "shuffle_nil_right",
+    "shuffle_nil_left",
+    "shuffle_with_right_empty",
+    "shuffle_with_left_empty",
+    "grow_left_trace",
+    "grow_right_trace",
+    "trace_fold_from",
+    "comb_trace_characterization",
+    "comb_legal_order_unique",
+    "inverse_nonzero",
+    "zero_add",
+    "one_mul",
+    "zero_mul",
+    "add_left_cancel",
+    "neg_one_mul",
+    "neg_one_nonzero",
+    "affine_left_inverse",
+    "affine_right_inverse",
+    "first_add_affine",
+    "first_sub_affine",
+    "first_mul_affine",
+    "first_div_affine",
+    "second_add_affine",
+    "second_sub_affine",
+    "second_mul_affine",
+    "second_div_value",
+    "addition_sections_agree",
+    "multiplication_sections_agree",
+    "reciprocal_scale_identity",
+    "guarded_reciprocal_scale",
+    "mul_left_cancel",
+    "constant_pair_coincidence",
+    "nonzero_constant_pair_coincidence",
+    "marked_words_distinct",
+    "reciprocal_infinity",
+    "ordinary_reciprocal_projective_match",
+    "reciprocal_not_infinity_stabilizing",
+    "reciprocal_raw_infinity",
+    "reciprocal_raw_zero",
+    "reciprocal_raw_preserves_nonzero",
+    "zero_reciprocal_raw_invalid",
+    "zero_scale_not_injective"
+  ],
+  "allowed_global_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "mapping": [
+    {
+      "source_labels": [
+        "def:p0-left-right-combs",
+        "conv:p0-left-right-convention"
+      ],
+      "formal": [
+        "left_tree_snoc",
+        "right_tree_snoc",
+        "left_tree_correspondence",
+        "right_tree_correspondence",
+        "partial_fold_nil",
+        "partial_fold_snoc",
+        "partial_fold_append",
+        "partial_fold_functional"
+      ],
+      "coverage": "Planar syntax and ordinary partial relational evaluation are defined separately; chronological append and whole-prefix definedness are proved."
+    },
+    {
+      "source_labels": [
+        "prop:p0-combs-unique-order"
+      ],
+      "formal": [
+        "comb_trace_characterization",
+        "comb_legal_order_unique"
+      ],
+      "coverage": "An independent child-interleaving schedule relation gives exactly the input chronological label list; instantiate labels with operation/occurrence pairs for distinct event identities."
+    },
+    {
+      "source_labels": [
+        "prop:p0-comb-opposition"
+      ],
+      "formal": [
+        "mirror_involution",
+        "mirror_left_tree",
+        "mirror_eval",
+        "commutative_fold_agreement",
+        "addition_sections_agree",
+        "multiplication_sections_agree"
+      ],
+      "coverage": "Mirror is a syntax isomorphism; opposite partial relations preserve values and definedness. Commutativity preserves interpretation, not syntax."
+    },
+    {
+      "source_labels": [
+        "cor:p0-affine-projective-break"
+      ],
+      "formal": [
+        "first_div_domain",
+        "second_div_domain",
+        "zero_numerator_keeps_domain",
+        "first_add_affine",
+        "first_sub_affine",
+        "first_mul_affine",
+        "first_div_affine",
+        "second_add_affine",
+        "second_sub_affine",
+        "second_mul_affine",
+        "second_div_value",
+        "inverse_nonzero",
+        "neg_one_nonzero",
+        "affine_left_inverse",
+        "affine_right_inverse",
+        "zero_scale_not_injective",
+        "reciprocal_infinity",
+        "reciprocal_not_infinity_stabilizing",
+        "reciprocal_raw_preserves_nonzero",
+        "reciprocal_raw_infinity",
+        "reciprocal_raw_zero",
+        "zero_reciprocal_raw_invalid",
+        "ordinary_reciprocal_projective_match"
+      ],
+      "coverage": "All eight ordinary sections have explicit domains/values. Nonzero affine coefficients have explicit inverses. Reciprocal raw homogeneous coordinates and infinity behavior are checked; a complete PGL quotient formalization is not supplied."
+    },
+    {
+      "source_labels": [
+        "def:p0-distributive-expansion",
+        "prop:p0-distributive-operator-identity"
+      ],
+      "formal": [
+        "constant_pair_coincidence",
+        "nonzero_constant_pair_coincidence",
+        "marked_words_distinct"
+      ],
+      "base_formal": [
+        "AEGPaper0.distributive_operator"
+      ],
+      "coverage": "Full marked words always differ. The scalar projections coincide exactly at (0,0) or (1,1); original symbolic operator certificate is unchanged."
+    },
+    {
+      "source_labels": [
+        "rem:p0-expansion-boundary"
+      ],
+      "formal": [
+        "zero_denominator_refused",
+        "undefined_first_prefix_persists",
+        "undefined_second_prefix_persists",
+        "guarded_reciprocal_scale"
+      ],
+      "coverage": "Later operations cannot legalize an undefined first division; c/z times k retains the original x!=0 guard, even when c*k=0. Subtraction expansion is an in-manuscript ring calculation, not an added native equation-kernel rule."
+    },
+    {
+      "source_labels": [
+        "ex:p0-distributive-charge-transport"
+      ],
+      "formal": [],
+      "coverage": "Real exponential and ACS facts remain supplied by the manuscript and chapter 8; no new Lean proof or native universal verification is claimed for this example."
+    }
+  ],
+  "native_domain_role": "Finite exact rational evaluation and prefix-guard regression; not a general field-proof kernel or a new native semantic profile."
+}

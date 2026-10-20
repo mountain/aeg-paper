@@ -1,0 +1,535 @@
+[
+  {
+    "id": "p0-addition-opposition",
+    "source": "paper-0/sections/02-expansion.tex",
+    "label": "prop:p0-comb-opposition",
+    "coverage": "addition one-hole component",
+    "lean": "addition_opposition",
+    "goal": {
+      "kind": "node",
+      "tag": 22,
+      "fields": [
+        {
+          "kind": "node",
+          "tag": 3,
+          "fields": [
+            {
+              "kind": "node",
+              "tag": 0,
+              "fields": [
+                {
+                  "kind": "integer",
+                  "value": 0
+                }
+              ]
+            },
+            {
+              "kind": "node",
+              "tag": 0,
+              "fields": [
+                {
+                  "kind": "integer",
+                  "value": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "node",
+          "tag": 3,
+          "fields": [
+            {
+              "kind": "node",
+              "tag": 0,
+              "fields": [
+                {
+                  "kind": "integer",
+                  "value": 1
+                }
+              ]
+            },
+            {
+              "kind": "node",
+              "tag": 0,
+              "fields": [
+                {
+                  "kind": "integer",
+                  "value": 0
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "p0-multiplication-opposition",
+    "source": "paper-0/sections/02-expansion.tex",
+    "label": "prop:p0-comb-opposition",
+    "coverage": "multiplication one-hole component",
+    "lean": "multiplication_opposition",
+    "goal": {
+      "kind": "node",
+      "tag": 22,
+      "fields": [
+        {
+          "kind": "node",
+          "tag": 4,
+          "fields": [
+            {
+              "kind": "node",
+              "tag": 0,
+              "fields": [
+                {
+                  "kind": "integer",
+                  "value": 0
+                }
+              ]
+            },
+            {
+              "kind": "node",
+              "tag": 0,
+              "fields": [
+                {
+                  "kind": "integer",
+                  "value": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "node",
+          "tag": 4,
+          "fields": [
+            {
+              "kind": "node",
+              "tag": 0,
+              "fields": [
+                {
+                  "kind": "integer",
+                  "value": 1
+                }
+              ]
+            },
+            {
+              "kind": "node",
+              "tag": 0,
+              "fields": [
+                {
+                  "kind": "integer",
+                  "value": 0
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "p0-distributive-operator",
+    "source": "paper-0/sections/02-expansion.tex",
+    "label": "prop:p0-distributive-operator-identity",
+    "coverage": "operator equality k*(z+p)=k*z+k*p only; excludes marked-data coincidence clause",
+    "lean": "distributive_operator",
+    "goal": {
+      "kind": "node",
+      "tag": 22,
+      "fields": [
+        {
+          "kind": "node",
+          "tag": 4,
+          "fields": [
+            {
+              "kind": "node",
+              "tag": 0,
+              "fields": [
+                {
+                  "kind": "integer",
+                  "value": 2
+                }
+              ]
+            },
+            {
+              "kind": "node",
+              "tag": 3,
+              "fields": [
+                {
+                  "kind": "node",
+                  "tag": 0,
+                  "fields": [
+                    {
+                      "kind": "integer",
+                      "value": 5
+                    }
+                  ]
+                },
+                {
+                  "kind": "node",
+                  "tag": 0,
+                  "fields": [
+                    {
+                      "kind": "integer",
+                      "value": 1
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "node",
+          "tag": 3,
+          "fields": [
+            {
+              "kind": "node",
+              "tag": 4,
+              "fields": [
+                {
+                  "kind": "node",
+                  "tag": 0,
+                  "fields": [
+                    {
+                      "kind": "integer",
+                      "value": 2
+                    }
+                  ]
+                },
+                {
+                  "kind": "node",
+                  "tag": 0,
+                  "fields": [
+                    {
+                      "kind": "integer",
+                      "value": 5
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "node",
+              "tag": 4,
+              "fields": [
+                {
+                  "kind": "node",
+                  "tag": 0,
+                  "fields": [
+                    {
+                      "kind": "integer",
+                      "value": 2
+                    }
+                  ]
+                },
+                {
+                  "kind": "node",
+                  "tag": 0,
+                  "fields": [
+                    {
+                      "kind": "integer",
+                      "value": 1
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "p0-right-distributivity",
+    "source": "paper-0/sections/02-expansion.tex",
+    "label": "prop:p0-distributive-operator-identity",
+    "coverage": "supporting derived semiring lemma, not a separately numbered manuscript theorem",
+    "lean": "right_distributivity",
+    "goal": {
+      "kind": "node",
+      "tag": 22,
+      "fields": [
+        {
+          "kind": "node",
+          "tag": 4,
+          "fields": [
+            {
+              "kind": "node",
+              "tag": 3,
+              "fields": [
+                {
+                  "kind": "node",
+                  "tag": 0,
+                  "fields": [
+                    {
+                      "kind": "integer",
+                      "value": 0
+                    }
+                  ]
+                },
+                {
+                  "kind": "node",
+                  "tag": 0,
+                  "fields": [
+                    {
+                      "kind": "integer",
+                      "value": 1
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "node",
+              "tag": 0,
+              "fields": [
+                {
+                  "kind": "integer",
+                  "value": 2
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "node",
+          "tag": 3,
+          "fields": [
+            {
+              "kind": "node",
+              "tag": 4,
+              "fields": [
+                {
+                  "kind": "node",
+                  "tag": 0,
+                  "fields": [
+                    {
+                      "kind": "integer",
+                      "value": 0
+                    }
+                  ]
+                },
+                {
+                  "kind": "node",
+                  "tag": 0,
+                  "fields": [
+                    {
+                      "kind": "integer",
+                      "value": 2
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "node",
+              "tag": 4,
+              "fields": [
+                {
+                  "kind": "node",
+                  "tag": 0,
+                  "fields": [
+                    {
+                      "kind": "integer",
+                      "value": 1
+                    }
+                  ]
+                },
+                {
+                  "kind": "node",
+                  "tag": 0,
+                  "fields": [
+                    {
+                      "kind": "integer",
+                      "value": 2
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "p0-affine-composition-polynomial",
+    "source": "paper-0/sections/07-affine-cocycles.tex",
+    "label": "prop:chronological-affine-cocycle-law",
+    "coverage": "pointwise polynomial component d*(a*z+b)+e=(d*a)*z+(d*b+e); excludes inverse/normalized coordinate laws",
+    "lean": "affine_composition",
+    "goal": {
+      "kind": "node",
+      "tag": 22,
+      "fields": [
+        {
+          "kind": "node",
+          "tag": 3,
+          "fields": [
+            {
+              "kind": "node",
+              "tag": 4,
+              "fields": [
+                {
+                  "kind": "node",
+                  "tag": 0,
+                  "fields": [
+                    {
+                      "kind": "integer",
+                      "value": 3
+                    }
+                  ]
+                },
+                {
+                  "kind": "node",
+                  "tag": 3,
+                  "fields": [
+                    {
+                      "kind": "node",
+                      "tag": 4,
+                      "fields": [
+                        {
+                          "kind": "node",
+                          "tag": 0,
+                          "fields": [
+                            {
+                              "kind": "integer",
+                              "value": 0
+                            }
+                          ]
+                        },
+                        {
+                          "kind": "node",
+                          "tag": 0,
+                          "fields": [
+                            {
+                              "kind": "integer",
+                              "value": 5
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "node",
+                      "tag": 0,
+                      "fields": [
+                        {
+                          "kind": "integer",
+                          "value": 1
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "node",
+              "tag": 0,
+              "fields": [
+                {
+                  "kind": "integer",
+                  "value": 4
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "node",
+          "tag": 3,
+          "fields": [
+            {
+              "kind": "node",
+              "tag": 4,
+              "fields": [
+                {
+                  "kind": "node",
+                  "tag": 4,
+                  "fields": [
+                    {
+                      "kind": "node",
+                      "tag": 0,
+                      "fields": [
+                        {
+                          "kind": "integer",
+                          "value": 3
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "node",
+                      "tag": 0,
+                      "fields": [
+                        {
+                          "kind": "integer",
+                          "value": 0
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "node",
+                  "tag": 0,
+                  "fields": [
+                    {
+                      "kind": "integer",
+                      "value": 5
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "node",
+              "tag": 3,
+              "fields": [
+                {
+                  "kind": "node",
+                  "tag": 4,
+                  "fields": [
+                    {
+                      "kind": "node",
+                      "tag": 0,
+                      "fields": [
+                        {
+                          "kind": "integer",
+                          "value": 3
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "node",
+                      "tag": 0,
+                      "fields": [
+                        {
+                          "kind": "integer",
+                          "value": 1
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "node",
+                  "tag": 0,
+                  "fields": [
+                    {
+                      "kind": "integer",
+                      "value": 4
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

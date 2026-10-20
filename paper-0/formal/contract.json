@@ -1,0 +1,15 @@
+{
+  "schema": "aeg.paper0.formal.contract.v1",
+  "date": "2026-10-20",
+  "question": "Check symbolic equational derivations from Paper 0 in an Adva-written checker, with independently fixed theorem endpoints, explicit algebraic assumptions and chapter-by-chapter coverage.",
+  "level": "Initial commutative-semiring equational fragment; not whole-paper formalization",
+  "source_commit": "7d282e95b5bc47b3df722a3af106e645d6bfa271",
+  "machine_commit": "51ee98981ebbc62f8614ed20920c11dc76ea298d",
+  "foundations": ["Equality reflexivity, symmetry, transitivity and congruence", "Explicit commutative-semiring laws; no axiom asserting an arbitrary proposition", "Variables denote arbitrary elements, not sampled integers"],
+  "protected": ["Keep ordinary/projective domains and operator/history equalities distinct", "Do not promote a manuscript status on a formal fragment alone", "Bind every accepted named result to its separately fixed statement", "Retain source pins, full native traces, Rust replay and independent instruction reception", "Preserve the old toy checker, machine profiles and dependency locks"],
+  "bounds": {"proof_steps": 64, "term_nodes": 63, "proof_stack": 32, "fuel_per_call": 200000, "native_calls": 64, "child_commands": 160, "reference_steps": 4000000, "wall_seconds": 300, "child_wall_seconds": 30, "child_cpu_seconds": 25, "child_address_space_bytes": 1073741824, "child_file_bytes": 33554432, "artifact_bytes": 536870912},
+  "success": "All named derivations return exactly the independently fixed equation; forged joins, goals, rules and malformed inputs are refused; native replay and independent instruction reception agree; Lean checks separate universally quantified statements under the declared laws.",
+  "exit": "Stop on any mismatch or budget exhaustion, retain a failure report, and do not automatically retry or enlarge this contract. Compilation and targeted unit tests are engineering checks; no proof search is launched.",
+  "remaining": ["Definitions-to-manuscript correspondence is reviewed, not mechanically certified", "No completeness or implementation-soundness theorem for the Adva checker", "Geometry, analysis, limits, inverses and arbitrary Metamath databases require further formal theories", "Inventory of theorem-like environments is navigation, not a parser or completeness proof for all prose claims"],
+  "authorship": "Codex (OpenAI), project-original CC0 contribution; account ownership is not independent review or endorsement."
+}

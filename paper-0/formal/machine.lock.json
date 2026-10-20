@@ -1,0 +1,31 @@
+{
+  "repository": "https://github.com/mountain/adva-machine",
+  "commit": "51ee98981ebbc62f8614ed20920c11dc76ea298d",
+  "sources": {
+    "Cargo.lock": "b1042015a8b0f395aaa5334663356f3d253c7c493f8e50181ea9f318330416b9",
+    "crates/adva-witness/src/data_machine_v1.rs": "61871463998ad904d6b9630593e5a9b8a4cc5e138308cb9d2965ec1dc9a1058a",
+    "crates/adva-witness/src/bin/support/data_machine_v1_cli.rs": "f1240db894d7fc43edf802f1f6516292860999e2c16e803af4972ee1ac946cea",
+    "experiments/bounded_self_compiler/reference.py": "90849b9919fd693c8739272419091435eabbf747831a3beca4fe412f8afc4244"
+  },
+  "formal_sources": {
+    "contract.json": "6a2a986286eb9d52df4b9bfab4918179c973e20cfa030221c619f6e917e52600",
+    "contract-v2.json": "72090c18548c0cd0243e2f38d3fed5c6128e94316dbf09f473c95f9b030ccc90",
+    "author.py": "c3e53c575f43e2cc07ddd4732d7c47904b0487986358c9d69b20f0907fcde3b4",
+    "checker.adva": "1dcecc0a38760ec8375e09acab261344544a52fb30500bf7c05d19199510b95d",
+    "fixtures.py": "5c2ab1f71433e64282e8d881a18448eae810ae53bde48582904b80541de34b31",
+    "statements.json": "af6331c1f40f9a2f2c5c12b19b1e66e31e9cb16e2f898e9927377f6bb6f18b31",
+    "certificates.json": "c28f502519533428486ba0b12e5d47a160be62512bfa93c9b7d93cce811c7d5c",
+    "Chapter02.lean": "b7b3a8cc35fa6c1e2e646fae3577c39a4113c6957ffd0c983b45fd6f07a007ab",
+    "Chapter02Domains.lean": "d3c0f718936f128da2e15daf61ec0111cdd956ee7fb23ab6a451e677d7358c4c",
+    "inventory.py": "4d119052ba8c1e4ca43c3646d01ad8d5933cc60df634d4cf9326f2edffe64527",
+    "inventory.json": "2b5c5d3f0158fa96ba44780d7a6acc111075382b9e6aba894c1948484d52fffb",
+    "run.py": "b0396c9bb279cbe90f2db6a5012ea48b2ceb20429991ec602754ab2d0e7a9fc0",
+    "domain_author.py": "a6968582b2a181d9195a900238c29f599d8e5e3475c8c2ebaac9df2d0c23a03c",
+    "domain-checker.adva": "de995c4d26f940fb0e35dd78ef2a271b144e0dc4c58c6395f444e6bbe7fbb231",
+    "domain_fixtures.py": "b236c8b4aab473d7b868f90ba1ad2f4f33d4983a0ab083ec1fe144f0f834b598",
+    "domain-cases.json": "3dc263991085fa810c0257f2614a7d7dc7b2f78cd0e9de0658873edff90956b9",
+    "definition-map.json": "562d455635bbdc0145b1833e3e4cbe0c73538255f0070d9911effc87b0b58889",
+    "contract-v2.1.json": "e66f34443202c2da6e64574718dba0f917f94093a9fc31b7c7f5d936567b720a"
+  },
+  "continuation": "contract-v2.1.json; preserve both previous archives"
+}

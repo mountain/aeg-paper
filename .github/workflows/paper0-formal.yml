@@ -1,0 +1,59 @@
+name: Paper 0 formal derivations
+
+on:
+  pull_request:
+    paths:
+      - 'paper-0/formal/**'
+      - 'paper-0/sections/**'
+      - 'paper-0/appendices/**'
+      - 'paper-0/aeg-paper-0.tex'
+      - '.github/workflows/paper0-formal.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  symbolic-derivations:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install verification dependency
+        run: python -m pip install blake3==1.0.9
+      - name: Build the fixed external machine
+        run: |
+          git init "$RUNNER_TEMP/aeg-machine"
+          git -C "$RUNNER_TEMP/aeg-machine" fetch --depth=1 https://github.com/mountain/adva-machine.git 51ee98981ebbc62f8614ed20920c11dc76ea298d
+          git -C "$RUNNER_TEMP/aeg-machine" checkout --detach FETCH_HEAD
+          cargo build --locked --manifest-path "$RUNNER_TEMP/aeg-machine/Cargo.toml" -p adva-witness --bin adva
+      - name: Receive the pinned Lean release
+        run: |
+          curl --fail --location --output "$RUNNER_TEMP/lean.tar.zst" https://github.com/leanprover/lean4/releases/download/v4.24.0/lean-4.24.0-linux.tar.zst
+          python - <<'PY'
+          import hashlib, os
+          from pathlib import Path
+          path = Path(os.environ['RUNNER_TEMP']) / 'lean.tar.zst'
+          expected = 'b14f5e5159219dd1a1956c3b806813319f5e94ccd5bdfd56f54520609a5bb5ec'
+          if hashlib.sha256(path.read_bytes()).hexdigest() != expected:
+              raise SystemExit('Lean release digest mismatch')
+          PY
+          tar --zstd -xf "$RUNNER_TEMP/lean.tar.zst" -C "$RUNNER_TEMP"
+      - name: Check source, goals and negative-control inventory
+        run: python -m unittest discover -s paper-0/formal -p 'test_*.py' -v
+      - name: Check symbolic proofs and their complete native traces
+        run: |
+          python paper-0/formal/run.py \
+            --machine-root "$RUNNER_TEMP/aeg-machine" \
+            --binary "$RUNNER_TEMP/aeg-machine/target/debug/adva" \
+            --lean "$RUNNER_TEMP/lean-4.24.0-linux/bin/lean" \
+            --output "$RUNNER_TEMP/aeg-paper0-formal-evidence"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: aeg-paper0-formal-evidence
+          path: ${{ runner.temp }}/aeg-paper0-formal-evidence
+          if-no-files-found: warn

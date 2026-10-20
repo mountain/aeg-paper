@@ -1,0 +1,20 @@
+{
+  "status": "Failed",
+  "date": "2026-10-20",
+  "contract": "contract-v2.json",
+  "reason": "ValueError: lean-domains failed; inspect retained diagnostics",
+  "retained_diagnostic": "INTERNAL PANIC: out of memory\n",
+  "native_runs_checked": 61,
+  "child_commands": 125,
+  "wall_seconds": 129.18803200100228,
+  "reconstructed_reference_steps": 35735,
+  "whole_run_admitted": false,
+  "archive": {
+    "path": "chapter02-attempt-1.tar.gz",
+    "sha256": "cc36309b21787692385e05d936f97eb735eddf02b8f5664f0e82e34ece9de5cd",
+    "members": 453,
+    "bytes": 1923439
+  },
+  "report_sha256": "c37f1e963b1b38551217f93f6534132ef8badd3cf6ef236001e21c9cc155b57a",
+  "source_lock_sha256": "e2d0e0bb3932f36979057dc310770003b8922ffba9b27b4f16b5ad6eee78ddb2"
+}

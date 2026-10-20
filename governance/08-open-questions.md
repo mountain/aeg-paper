@@ -3535,3 +3535,70 @@ The scalar tearing identity depends on the words, whereas the new k4 example
 has a nonzero full-state level-set residue for a scalar-identity word. These
 are different observables, so the new result does not contradict scalar
 puncture-independence or assert canonical puncture holonomy.
+
+## OQ-090 — What equality is intended in the distributive marked-data clause?
+
+**Priority:** P1 — blocks completion of the full §2 proposition, not its
+operator-identity component.
+
+**State:** RESOLVED (2026-10-20 continuation).
+
+**Affected node:** `prop:p0-distributive-operator-identity` in
+`paper-0/sections/02-expansion.tex`.
+
+**Recorded:** 2026-10-20, Codex (OpenAI).
+
+**Question:** The proposition permits all `p,k` in a field and says the two
+words coincide as marked data exactly at `p=k=1`. Its proof compares only
+the chronological constant pairs `(p,k)` and `(k,k*p)`. Which data and equality
+does the claim intend to preserve?
+
+**Current evidence:** At `p=k=0`, the two constant pairs are both `(0,0)`,
+although the proof concludes only `(1,1)`. The step assuming `k` nonzero has no
+such hypothesis in the proposition. If operation-labelled histories are
+compared instead, `add(1); multiply(1)` and `multiply(1); add(1)` still have
+different operation labels at their first positions. Equality of constant
+pairs does not supply equality of these marked words.
+
+The operator equation `k*(z+p)=k*z+k*p` is unaffected. Its symbolic semiring
+component is checked by the Adva program and separate Lean theorem in
+`paper-0/formal/`; the zero-pair computation is a separate Lean statement.
+This finding does not identify operators, histories, charges or endpoint
+values with one another.
+
+**Historical default while open:** Preserve the manuscript; register the whole
+proposition as `PARTIALLY PROVED`, with the operator component retained.
+Do not attach its coincidence clause to a successful formal receipt.
+
+**Resolution condition:** Explicitly choose constant-pair equality or complete
+marked-history equality, correct the parameter scope and conclusion, supply
+the corresponding proof including zero/unit cases, then update the source,
+status register, statement map and any downstream uses. A nonzero-scaling
+restriction can repair the constant-pair computation but does not make the
+operation-labelled words equal.
+
+### Resolution — 2026-10-20
+
+The amended manuscript defines a marked step by its operation label, operand
+slot and constant. The two distributive words are always different at their
+first operation labels. Its separate chronological scalar projection forgets
+those labels and agrees exactly at `(p,k)=(0,0)` or `(1,1)`. The source proof
+now handles `k=0` before using cancellation in the nonzero case. No zero
+arithmetic input is deleted to make a group statement pass.
+
+`marked_words_distinct`, `constant_pair_coincidence` and
+`nonzero_constant_pair_coincidence` in
+`paper-0/formal/Chapter02Domains.lean` formalize these distinct claims over
+explicit field laws. The original symbolic operator certificate and initial
+zero-counterexample evidence are preserved. The status register now marks
+the **corrected** proposition `PROVED` and retains the earlier failed clause
+as a dated finding. The charge-transport example uses `p=1, k=exp(q)` and
+requires only the unchanged operator identity and its stated nonzero charge
+conditions; its downstream interpretation is not enlarged by this repair.
+
+The same source revision distinguishes affine self-maps from affine group
+elements and ordinary partial division from non-degenerate projective
+continuation. `c=0` leaves a partial zero map on `K\{0}`, not a Möbius map.
+Source-to-formal correspondence remains an explicit reviewed mapping, not a
+claim that TeX prose was mechanically translated. Implementation and review
+by Codex (OpenAI); no independent human mathematical review is asserted.

@@ -1,0 +1,684 @@
+[
+  {
+    "name": "domain-empty",
+    "initial": [
+      3,
+      2
+    ],
+    "word": [],
+    "status": "Returned"
+  },
+  {
+    "name": "domain-add-slot1",
+    "initial": [
+      3,
+      2
+    ],
+    "word": [
+      [
+        0,
+        1,
+        [
+          2,
+          3
+        ]
+      ]
+    ],
+    "status": "Returned"
+  },
+  {
+    "name": "domain-add-slot2",
+    "initial": [
+      3,
+      2
+    ],
+    "word": [
+      [
+        0,
+        2,
+        [
+          2,
+          3
+        ]
+      ]
+    ],
+    "status": "Returned"
+  },
+  {
+    "name": "domain-subtract-slot1",
+    "initial": [
+      3,
+      2
+    ],
+    "word": [
+      [
+        1,
+        1,
+        [
+          2,
+          3
+        ]
+      ]
+    ],
+    "status": "Returned"
+  },
+  {
+    "name": "domain-subtract-slot2",
+    "initial": [
+      3,
+      2
+    ],
+    "word": [
+      [
+        1,
+        2,
+        [
+          2,
+          3
+        ]
+      ]
+    ],
+    "status": "Returned"
+  },
+  {
+    "name": "domain-multiply-slot1",
+    "initial": [
+      3,
+      2
+    ],
+    "word": [
+      [
+        2,
+        1,
+        [
+          2,
+          3
+        ]
+      ]
+    ],
+    "status": "Returned"
+  },
+  {
+    "name": "domain-multiply-slot2",
+    "initial": [
+      3,
+      2
+    ],
+    "word": [
+      [
+        2,
+        2,
+        [
+          2,
+          3
+        ]
+      ]
+    ],
+    "status": "Returned"
+  },
+  {
+    "name": "domain-divide-slot1",
+    "initial": [
+      3,
+      2
+    ],
+    "word": [
+      [
+        3,
+        1,
+        [
+          2,
+          3
+        ]
+      ]
+    ],
+    "status": "Returned"
+  },
+  {
+    "name": "domain-divide-slot2",
+    "initial": [
+      3,
+      2
+    ],
+    "word": [
+      [
+        3,
+        2,
+        [
+          2,
+          3
+        ]
+      ]
+    ],
+    "status": "Returned"
+  },
+  {
+    "name": "domain-left-zero-denominator",
+    "initial": [
+      1,
+      1
+    ],
+    "word": [
+      [
+        3,
+        1,
+        [
+          0,
+          1
+        ]
+      ]
+    ],
+    "status": "Rejected",
+    "reason": "division by zero"
+  },
+  {
+    "name": "domain-right-zero-denominator",
+    "initial": [
+      0,
+      1
+    ],
+    "word": [
+      [
+        3,
+        2,
+        [
+          1,
+          1
+        ]
+      ]
+    ],
+    "status": "Rejected",
+    "reason": "division by zero"
+  },
+  {
+    "name": "domain-zero-numerator-legal",
+    "initial": [
+      2,
+      1
+    ],
+    "word": [
+      [
+        3,
+        2,
+        [
+          0,
+          1
+        ]
+      ]
+    ],
+    "status": "Returned"
+  },
+  {
+    "name": "domain-zero-numerator-illegal",
+    "initial": [
+      0,
+      1
+    ],
+    "word": [
+      [
+        3,
+        2,
+        [
+          0,
+          1
+        ]
+      ]
+    ],
+    "status": "Rejected",
+    "reason": "division by zero"
+  },
+  {
+    "name": "domain-intermediate-zero",
+    "initial": [
+      1,
+      1
+    ],
+    "word": [
+      [
+        1,
+        1,
+        [
+          1,
+          1
+        ]
+      ],
+      [
+        3,
+        2,
+        [
+          1,
+          1
+        ]
+      ]
+    ],
+    "status": "Rejected",
+    "reason": "division by zero"
+  },
+  {
+    "name": "domain-cancelled-pole",
+    "initial": [
+      0,
+      1
+    ],
+    "word": [
+      [
+        3,
+        2,
+        [
+          1,
+          1
+        ]
+      ],
+      [
+        2,
+        1,
+        [
+          0,
+          1
+        ]
+      ]
+    ],
+    "status": "Rejected",
+    "reason": "division by zero"
+  },
+  {
+    "name": "domain-left-pole-before-zero",
+    "initial": [
+      1,
+      1
+    ],
+    "word": [
+      [
+        3,
+        1,
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        2,
+        1,
+        [
+          0,
+          1
+        ]
+      ]
+    ],
+    "status": "Rejected",
+    "reason": "division by zero"
+  },
+  {
+    "name": "domain-mixed-slots",
+    "initial": [
+      2,
+      1
+    ],
+    "word": [
+      [
+        0,
+        1,
+        [
+          3,
+          1
+        ]
+      ],
+      [
+        3,
+        2,
+        [
+          10,
+          1
+        ]
+      ],
+      [
+        2,
+        1,
+        [
+          4,
+          1
+        ]
+      ]
+    ],
+    "status": "Returned"
+  },
+  {
+    "name": "domain-zero-divided-nonzero",
+    "initial": [
+      0,
+      1
+    ],
+    "word": [
+      [
+        3,
+        1,
+        [
+          2,
+          1
+        ]
+      ]
+    ],
+    "status": "Returned"
+  },
+  {
+    "name": "domain-zero-multiplier",
+    "initial": [
+      3,
+      1
+    ],
+    "word": [
+      [
+        2,
+        1,
+        [
+          0,
+          1
+        ]
+      ]
+    ],
+    "status": "Returned"
+  },
+  {
+    "name": "domain-negative-denominator",
+    "initial": [
+      3,
+      -2
+    ],
+    "word": [
+      [
+        3,
+        2,
+        [
+          2,
+          1
+        ]
+      ]
+    ],
+    "status": "Returned"
+  },
+  {
+    "name": "domain-unknown-operation",
+    "initial": [
+      1,
+      1
+    ],
+    "word": [
+      [
+        4,
+        1,
+        [
+          1,
+          1
+        ]
+      ]
+    ],
+    "status": "Rejected",
+    "reason": "unknown operation or slot"
+  },
+  {
+    "name": "domain-unknown-slot",
+    "initial": [
+      1,
+      1
+    ],
+    "word": [
+      [
+        0,
+        3,
+        [
+          1,
+          1
+        ]
+      ]
+    ],
+    "status": "Rejected",
+    "reason": "unknown operation or slot"
+  },
+  {
+    "name": "domain-invalid-initial",
+    "initial": [
+      1,
+      0
+    ],
+    "word": [],
+    "status": "Rejected",
+    "reason": "invalid rational denominator"
+  },
+  {
+    "name": "domain-invalid-constant",
+    "initial": [
+      1,
+      1
+    ],
+    "word": [
+      [
+        0,
+        1,
+        [
+          1,
+          0
+        ]
+      ]
+    ],
+    "status": "Rejected",
+    "reason": "invalid rational denominator"
+  },
+  {
+    "name": "domain-word-bound",
+    "initial": [
+      1,
+      1
+    ],
+    "word": [
+      [
+        0,
+        1,
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        0,
+        1,
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        0,
+        1,
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        0,
+        1,
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        0,
+        1,
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        0,
+        1,
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        0,
+        1,
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        0,
+        1,
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        0,
+        1,
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        0,
+        1,
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        0,
+        1,
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        0,
+        1,
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        0,
+        1,
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        0,
+        1,
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        0,
+        1,
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        0,
+        1,
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        0,
+        1,
+        [
+          0,
+          1
+        ]
+      ]
+    ],
+    "status": "Rejected",
+    "reason": "comb length bound"
+  },
+  {
+    "name": "domain-overflow",
+    "initial": [
+      9223372036854775807,
+      1
+    ],
+    "word": [
+      [
+        2,
+        1,
+        [
+          2,
+          1
+        ]
+      ]
+    ],
+    "status": "Rejected",
+    "reason": "integer overflow"
+  },
+  {
+    "name": "domain-unit-marked-first",
+    "initial": [
+      2,
+      1
+    ],
+    "word": [
+      [
+        0,
+        1,
+        [
+          1,
+          1
+        ]
+      ],
+      [
+        2,
+        1,
+        [
+          1,
+          1
+        ]
+      ]
+    ],
+    "status": "Returned"
+  },
+  {
+    "name": "domain-unit-marked-second",
+    "initial": [
+      2,
+      1
+    ],
+    "word": [
+      [
+        2,
+        1,
+        [
+          1,
+          1
+        ]
+      ],
+      [
+        0,
+        1,
+        [
+          1,
+          1
+        ]
+      ]
+    ],
+    "status": "Returned"
+  }
+]

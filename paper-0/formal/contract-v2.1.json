@@ -1,0 +1,59 @@
+{
+  "schema": "aeg.paper0.formal.contract.v2.1",
+  "date": "2026-10-20",
+  "predecessor": "contract-v2.json; failed evidence/chapter02-attempt-1.tar.gz",
+  "question": "Complete Chapter 2's explicit syntax/ordinary-domain correspondence, repair its marked-data statement, and check guarded rational comb execution separately from universal Lean proofs.",
+  "source_commit": "7d282e95b5bc47b3df722a3af106e645d6bfa271",
+  "machine_commit": "51ee98981ebbc62f8614ed20920c11dc76ea298d",
+  "level": "Versioned continuation; no change to the old equality checker or native machine",
+  "interpretations": [
+    "Ordinary arithmetic is a guarded partial evaluation relation; division requires its actual right operand to be nonzero",
+    "Planar syntax, chronological scalar projection, operator equality and marked histories remain distinct",
+    "Nonzero c/z has a projective continuation exchanging infinity and zero; zero numerator has no invertible projective continuation",
+    "Adva rational executions are finite exact cases with checked i64 overflow, not a universal field proof",
+    "Lean field operations and their standard algebraic laws are explicit structure parameters; no target AEG theorem is an imported axiom"
+  ],
+  "bounds": {
+    "proof_steps": 64,
+    "term_nodes": 63,
+    "proof_stack": 32,
+    "comb_steps": 16,
+    "fuel_per_call": 200000,
+    "native_calls": 64,
+    "child_commands": 160,
+    "reference_steps": 4000000,
+    "wall_seconds": 300,
+    "child_wall_seconds": 30,
+    "child_cpu_seconds": 25,
+    "child_address_space_bytes": 1073741824,
+    "child_file_bytes": 33554432,
+    "artifact_bytes": 536870912,
+    "lean_child_address_space_bytes": 4294967296
+  },
+  "success": "The original five symbolic certificates still pass. Native guarded rational cases and prefix-domain negative controls match an independent Fraction oracle and exact rejection reasons. Every trace passes native replay and independent instruction reception. Lean proves syntax/partial-evaluation, chronological trace, nonzero-side-condition and corrected equality statements, with an exact axiom audit.",
+  "exit": "One finite regression after engineering checks; stop on the first mismatch or resource exhaustion, retain failure evidence, and do not automatically restart or enlarge bounds. Manuscript/PDF compilation is separate engineering work.",
+  "preservation": [
+    "Keep contract.json, old checker.adva, Chapter02.lean, old certificates and evidence/run-01.tar.gz unchanged",
+    "Historical source pins are checked against their archived source snapshot, not rebound to amended manuscript bytes",
+    "New manuscript mapping and verification sources receive successor pins",
+    "Do not promote complete Chapter 2 or general PGL/field soundness from finite native executions"
+  ],
+  "authorship": "Codex (OpenAI), original CC0 contribution; no independent human mathematical review claimed.",
+  "transport_revision": "One fresh bounded invocation after retaining the failed v2 run. Use Lean -j1 and a separate 4 GiB address-space bound for Lean children only. Native Adva children remain at 1 GiB; all proof, word, fuel, wall, command and instruction bounds are unchanged.",
+  "retained_failure": {
+    "archive_sha256": "cc36309b21787692385e05d936f97eb735eddf02b8f5664f0e82e34ece9de5cd",
+    "diagnostic": "INTERNAL PANIC: out of memory\n",
+    "whole_run_admitted": false,
+    "engineering_probe": {
+      "exit": 0,
+      "seconds": 2.375341243998264,
+      "observed_peak_kib": {
+        "VmPeak": 2220524,
+        "VmSize": 2220524,
+        "VmRSS": 418280
+      },
+      "role": "bounded engineering measurement; not a new native regression"
+    },
+    "justification": "The measured Lean virtual address space exceeds 1 GiB while resident memory is much smaller; reducing threads alone did not fit 1 GiB. Proof sources and native programs remain unchanged."
+  }
+}

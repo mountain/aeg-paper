@@ -1,0 +1,46 @@
+{
+  "schema": "aeg.paper0.formal.execution.v1",
+  "status": "Passed",
+  "date": "2026-10-20",
+  "author": "Codex (OpenAI), CC0; no independent human review claimed",
+  "manuscript_commit": "7d282e95b5bc47b3df722a3af106e645d6bfa271",
+  "machine_commit": "51ee98981ebbc62f8614ed20920c11dc76ea298d",
+  "machine_profile": "e9a700a7ca68f73587b18be1230f908e358a7d30f0a3f7d62397493b378b5797",
+  "machine_lock_sha256": "5005a1edc5f4f5be64fa39051381c6cc3a68fd7c52c6e97845f5eabd3b0a38f4",
+  "report_sha256": "142a5dd3048839353f5e51a3a1172f8bddebf91d8a026e4ce59a990a1f9a087f",
+  "archive": {
+    "path": "run-01.tar.gz",
+    "sha256": "c0063c4e0e0312f1c505a9837492eea418616c64fc2c2a0a71c7c9a28384f16f",
+    "bytes": 1573950,
+    "members": 219,
+    "uncompressed_bytes": 9047137
+  },
+  "named_derivations": 5,
+  "control_cases": 20,
+  "native_runs": 29,
+  "child_commands": 60,
+  "reference_steps": 31637,
+  "wall_seconds": 125.46728404500027,
+  "lean_version": "Lean (version 4.24.0, x86_64-unknown-linux-gnu, commit 797c613eb9b6d4ec95db23e3e00af9ac6657f24b, Release)",
+  "lean_axioms": {
+    "algebraic_five": [],
+    "comb_opposition": [],
+    "comb_order_unique": [
+      "propext"
+    ],
+    "zero_pair_counterexample": []
+  },
+  "scope": "Five symbolic equational fragments, not full manuscript claims; eight Lean statements have explicit algebraic-law parameters. Full checker soundness and text-to-statement translation remain review obligations.",
+  "engineering": {
+    "unit_tests_passed_before_run": 7,
+    "first_affine_native_smoke_steps": 7667,
+    "source_inventory_files": 20,
+    "theorem_like_environments": 91,
+    "manuscript_builds": {
+      "paper0": "Not built: bibtex executable not found",
+      "paper1": "Not built: bibtex executable not found"
+    },
+    "remote_ci": "Not run in this session"
+  },
+  "retained_preflight_correction": "The inventory initially followed a commented input example as a self-include. Comment stripping corrected that scanner before the finite verification invocation; no proof or machine rule was changed by that repair."
+}

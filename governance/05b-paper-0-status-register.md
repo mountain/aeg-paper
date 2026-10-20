@@ -37,12 +37,12 @@ EXCLUDED`.
 
 | Node | Status | Note |
 |---|---|---|
-| unique internal order for pure combs (`prop:p0-combs-unique-order`) | `PROVED` | elementary; weaker than Paper I's classification |
-| comb opposition (`prop:p0-comb-opposition`) | `PROVED` | combinatorial |
-| affine/projective break (`cor:p0-affine-projective-break`) | `PROVED` | conditional on $c\ne0$ |
-| distributive expansion identity (`prop:p0-distributive-operator-identity`) | `PROVED` | ring identity, proved in-paper |
+| unique internal order for pure combs (`prop:p0-combs-unique-order`) | `PROVED` | Current formal correspondence uses planar trees and an independently defined child-interleaving trace relation; pure-comb traces are exactly the chronological input labels. Still weaker than Paper I's classification. |
+| comb opposition (`prop:p0-comb-opposition`) | `PROVED` | Syntax is related by mirror/slot exchange; values and domains by the opposite partial relation. Commutativity identifies interpreted operators, not planar trees. |
+| affine/projective break (`cor:p0-affine-projective-break`) | `PROVED WITH STATED HYPOTHESES` (clarified 2026-10-20) | Affine self-maps allow zero multipliers; affine group membership requires a nonzero multiplier. Only nonzero-numerator reciprocal maps have the invertible projective continuation. All ordinary divisions keep their actual denominator guards. |
+| distributive expansion identity (`prop:p0-distributive-operator-identity`) | `PROVED` (corrected 2026-10-20) | The operator identity is unchanged. Full operation-labelled words differ for all parameters; their scalar projections coincide exactly at `(0,0)` or `(1,1)`. OQ-090 is resolved by the amended source and separate Lean statements. See section 10. |
 | distributive charge transport (`ex:p0-distributive-charge-transport`) | `PROVED` | worked example; uses `prop:acs-evaluation` |
-| expansion boundary for subtraction and division (`rem:p0-expansion-boundary`) | `PROVED` | identity plus the observation that $kc/z$ is not affine |
+| expansion boundary for subtraction and division (`rem:p0-expansion-boundary`) | `PROVED WITH STATED HYPOTHESES` (clarified 2026-10-20) | `kc/z` keeps the original `z!=0` domain even when `kc=0`; only `kc!=0` gives a non-affine invertible projective map. Zero multiplier/subtraction cases remain affine self-maps, with group claims restricted to nonzero multipliers. |
 
 ## 2. Arithmetic expression spaces and motion (Paper 0 §3)
 
@@ -177,3 +177,53 @@ positions, prescribed zero configurations, motion-generated assignments and
 classification remain open. The original unrestricted “iff” corollary loses
 its proof; the counterexample directly refutes the equality for a given AES,
 not every possible existential reformulation on that ambient surface.
+
+## 9. Formal derivation checkpoint (2026-10-20)
+
+The original CC0 implementation in `paper-0/formal/` starts a separate
+chapter-by-chapter formalization of the current manuscript. Its inventory is
+navigation over theorem-like environments, not a replacement for this status
+register. Five symbolic algebraic **components** have explicit proof
+certificates for an Adva-written commutative-semiring equality checker and
+separate Lean statements. The comb grammar has two additional Lean statements;
+their correspondence with the manuscript remains explicit review work.
+Geometry, analysis, projective domains, normalized inverse coordinates and
+whole-chapter coverage are not promoted by this checkpoint.
+
+The operator part of `prop:p0-distributive-operator-identity` is valid for all
+field parameters. The printed claim that the chronological constant pairs
+`(p,k)` and `(k,k*p)` coincide precisely at `p=k=1` fails at `p=k=0`, which
+the proposition's unrestricted parameter declaration permits. If complete
+marked words are intended instead, operation labels also survive: the two
+operation sequences are different even at `p=k=1`. The manuscript and proof
+are preserved pending the precise correction in OQ-090. Its whole-proposition
+status is therefore `PARTIALLY PROVED`; the certified operator equation is
+not weakened by this finding.
+
+Authored by Codex (OpenAI). Formal checks and source mapping are separately
+recorded; no independent human review or whole-paper correctness is asserted.
+
+## 10. Chapter 2 definition/domain continuation (2026-10-20)
+
+This successor supersedes section 9's pending marked-data correction, while
+preserving that checkpoint and its archived verification bytes. OQ-090 is
+resolved: the source now distinguishes full marked histories from their
+chronological scalar projection and includes both zero and unit cases. The
+zero case is admitted as arithmetic syntax, without treating its multiplier
+as invertible. Group/continuation claims explicitly retain their nonzero
+hypotheses, including the degenerate `c=0` reciprocal case.
+
+`paper-0/formal/definition-map.json` binds the amended source to the new
+`Chapter02Domains.lean` module. Syntax, child-before-parent schedules,
+ordinary partial evaluation, domains of all eight one-hole sections,
+invertibility of nonzero affine maps, and marked/scalar equalities are
+separate definitions and conclusions. Homogeneous reciprocal coordinates
+and infinity behavior are covered; a full formal quotient construction of
+`PGL_2` is not claimed. Real exponential/ACS facts in the charge example
+retain the manuscript/Chapter 8 proof dependency.
+
+The separate `domain-checker.adva` executes bounded rational combs and their
+actual division guards. Its finite regression is evidence of that program's
+declared execution, not a universal theorem about all fields and not an
+extension of the unchanged polynomial equality kernel. The successor
+contract, mapping, theorem audit and evidence index state the exact coverage.

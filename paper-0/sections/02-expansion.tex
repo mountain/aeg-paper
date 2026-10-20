@@ -34,6 +34,10 @@ recursively
 The expression $L_n$ is a \emph{left-expanded comb}; $R_n$ is a
 \emph{right-expanded comb}.  The index $k$ is the evaluation time: the
 innermost operation has index $1$ and is evaluated first.
+These recursions first define syntax.  Ordinary evaluation is a partial
+interpretation of that syntax: a history is admissible at an input only if
+every operation is defined at its actual operands, including all intermediate
+denominators.
 \end{definition}
 
 \begin{convention}[Scope of the words ``left'' and ``right'']
@@ -151,7 +155,10 @@ operations:
   =\omega_k^{\mathrm{op}}(R_{k-1}[z],c_k).
 \]
 Consequently, the two comb grammars are isomorphic after replacing every
-operation by its opposite.  They agree literally for commutative operations.
+operation by its opposite and exchanging the operand slots.  Their planar
+trees retain those slots.  For commutative operations with symmetric domains,
+their partial operator interpretations agree; this does not identify the
+planar trees or the marked histories.
 \end{proposition}
 
 \begin{proof}
@@ -161,7 +168,9 @@ By definition,
   =\omega_k^{\mathrm{op}}(R_{k-1}[z],c_k).
 \]
 Apply this identity at every stage.  If $\omega_k$ is commutative, then
-$\omega_k^{\mathrm{op}}=\omega_k$.
+$\omega_k^{\mathrm{op}}=\omega_k$ as partial operations, including their
+domains.  Interchanging the slots is the corresponding mirror of the
+planar comb.  It changes syntax even when it preserves the interpreted map.
 \end{proof}
 
 The result is combinatorial, not an assertion that the two arithmetic maps are
@@ -181,18 +190,35 @@ division & $z/c$ & $c/z$ \\
 \end{tabular}
 \end{center}
 
-For $c\ne0$, every first-slot map is affine.  The second-slot subtraction is
-also affine, but it has multiplier $-1$.  The second-slot division is not
-affine: it has a finite pole at $z=0$ and sends that point to infinity under
-projective continuation.
+The first-slot division $z/c$ is defined on all of $K$ if $c\ne0$ and
+nowhere if $c=0$.  Second-slot division $c/z$ has ordinary domain
+$K\setminus\{0\}$ for every $c$, including $c=0$: cancelling a zero
+numerator does not restore the missing input.  Every division guard belongs
+to the original history.  A later simplification or multiplication by zero
+cannot make an earlier undefined division admissible.
+
+All first-slot maps other than division are affine self-maps; first-slot
+division is affine when its constant denominator is nonzero.  An affine
+self-map $az+b$ belongs to the affine \emph{group} only when $a\ne0$.
+Thus multiplication by zero is a permitted arithmetic expression and a
+constant affine self-map, but not an invertible affine motion.  Second-slot
+subtraction has multiplier $-1\ne0$ in any field.  For $c\ne0$,
+second-slot division has an invertible projective continuation with pole
+$0$; it sends $0$ to $\infty$ and $\infty$ to $0$.  When $c=0$, the
+ordinary partial map is zero on its domain and has no invertible
+M\"obius continuation.  The projective statement does not declare an
+ordinary division by zero admissible.
 
 \begin{corollary}[Where the algebraic symmetry breaks]
 \label{cor:p0-affine-projective-break}
 If the operation alphabet is restricted to $+$ and $\times$, pure left and
-pure right expansion have the same one-hole operator algebra.  With
-subtraction they remain inside the affine group.  Once second-slot division
-$c/z$ is admitted, the right-expanded language contains inversion and leaves
-the affine stabilizer of infinity.
+pure right expansion have the same one-hole operator algebra of affine
+self-maps.  Restricting multiplicative constants to be nonzero gives affine
+group elements; addition and subtraction preserve this group boundary.
+First-slot division with nonzero constant denominator also remains inside
+that group.  Once second-slot division $c/z$ with $c\ne0$ is admitted
+and projectively continued, the right-expanded language leaves the affine
+stabilizer of infinity.  It contains inversion itself when $c=1$ is allowed.
 \end{corollary}
 
 \begin{proof}
@@ -202,6 +228,17 @@ The first two assertions follow from the table.  For $c\ne0$,
   \qquad D_c(z)=cz,\quad J(z)=\frac1z.
 \]
 The map $J$ exchanges $0$ and $\infty$, so it does not stabilize infinity.
+In homogeneous coordinates the same transformation is
+\[
+  [X:Y]\longmapsto[cY:X],
+  \qquad
+  \begin{pmatrix}0&c\\1&0\end{pmatrix},
+  \qquad \det=-c\ne0.
+\]
+For $c=0$, the representative $(0,1)$ is sent to $(0,0)$, so no
+projective transformation is defined by this matrix.  The nonzero condition
+is therefore necessary.  The non-affine assertion concerns this projective
+transformation, not interpolation of its values on a finite subset of $K$.
 \end{proof}
 
 \subsection{The distributive law as an expansion rewrite}
@@ -223,15 +260,25 @@ word
 \begin{equation}\label{eq:p0-distributive-expansion}
   z\;\longmapsto\;k(z+p)=(kz+kp)
 \end{equation}
-is the slot-$(1)$ word obtained by reading the right-hand side as a scaling
+is the slot-$(1)$ word obtained by reading the right-hand side as a multiplication
 followed by a translation:
 \[
   z\;\longmapsto\;kz\;\longmapsto\;kz+kp .
 \]
 The two words have the same length, the same operation alphabet, and the same
-induced operator $z\mapsto kz+kp$ on $K$, but different constant data.  Writing
-a two-step word chronologically as the pair (translation constant, scaling
-constant), the first word is $(p,k)$ and the second is $(k,kp)$.
+induced operator $z\mapsto kz+kp$ on $K$.  Their marked chronological data
+are respectively
+\[
+  ((+,1,p),(\times,1,k)),
+  \qquad
+  ((\times,1,k),(+,1,kp)),
+\]
+where the middle entry records the active operand slot.  Forgetting operation
+labels and slots gives the \emph{chronological scalar projection}
+$(p,k)$ and $(k,kp)$.  This projection is not a complete marked history;
+it also differs from grouping constants by their additive or multiplicative
+role.  A zero multiplicative constant is allowed here as arithmetic data,
+without making the associated constant map an affine group element.
 \end{definition}
 
 \begin{proposition}[Distributivity is operator-preserving and expansion-changing]
@@ -243,19 +290,27 @@ For all $p,k\in K$ the induced operators of the two words in
   \;=\;
   \bigl(z\mapsto kz\bigr)\ \text{followed by}\ \bigl(z\mapsto z+kp\bigr).
 \end{equation}
-The two words coincide as marked data precisely when $p=k=1$; for every other
-pair they are distinct marked expansions.  In particular, if $p\ne0$ and
-$k\ne1$, then the two expansions share their operator and differ in their
-chronological constant data.
+The two marked words are distinct for every $p,k$, since their first
+operation labels differ.  Their chronological scalar projections coincide
+precisely when
+\[
+  (p,k)=(0,0)\quad\text{or}\quad(p,k)=(1,1).
+\]
+In particular, if $p\ne0$ and $k\ne1$, then the two expansions share their
+operator and differ even after projecting to chronological scalar data.
 \end{proposition}
 
 \begin{proof}
-Both sides send $z$ to $kz+kp$, which is the distributive law in $K$.  The
-chronological pairs are $(p,k)$ and $(k,kp)$, and the second differs from the
-first unless $p=k$ and $k=kp$.  Since $k\ne0$ in the second equation and the
-identity case $k=0$ is immediate in the first, the two conditions force
-$p=1$ and then $k=1$.  Hence the words coincide as marked data only in the
-trivial case.
+Both sides send $z$ to $kz+kp$, which is the distributive law in $K$.
+Marked-word equality would require $+=\times$ at the first position in the
+operation signature, which is impossible, independently of any accidental
+equality of interpreted maps over a particular field.  Equality of the
+scalar projections requires $p=k$ and $k=kp$.  If $k=0$, the first condition
+gives $p=0$.  If $k\ne0$, cancellation in $k\cdot1=k\cdot p$ gives
+$p=1$, and then $k=1$.  Conversely both listed pairs satisfy the two
+equations.  The final assertion excludes both cases.  Thus operator
+equality, scalar-projection equality and marked-history equality are
+separate judgments.
 \end{proof}
 
 \begin{example}[Distributivity transports the additive charge]
@@ -310,7 +365,8 @@ behave differently, and the difference is instructive.
   \]
   This is the distributive law again, and the transported constant is $kc$;
   the resulting one-hole map is still affine, but its multiplier is $-k$.
-  Expansion therefore remains inside the affine sector.
+  Expansion therefore remains inside the affine self-maps; its map belongs
+  to the affine group when $k\ne0$.
 
   \item For slot-$(2)$ division,
   \[
@@ -318,13 +374,17 @@ behave differently, and the difference is instructive.
     \qquad z\ne0 .
   \]
   This is an identity of partial functions, not an expansion: the right-hand
-  side is inversion followed by a scaling, and inversion is not an affine
-  motion of the arithmetic value.  Reading it as a comb would require a
-  generator outside the affine group.
+  side has the original excluded input $z=0$, even if $kc=0$.  If $kc\ne0$,
+  its projective continuation is inversion followed by an invertible scaling,
+  outside the affine group.  If $kc=0$, it is a constant partial map with
+  the same excluded input, not an invertible projective generator.  It is
+  already an ordinary slot-$(2)$ comb; what requires a generator outside the
+  affine group is the non-degenerate projective continuation.
 \end{enumerate}
 
-Consequently the expansion calculus of this section is an affine calculus, and
-the projective step $c/z$ is exactly where it ends.  Section~\ref{sec:p0-ripples}
+Consequently the invertible expansion calculus of this section is an affine
+calculus, and the non-degenerate projective step $c/z$, $c\ne0$, is
+where that group boundary ends.  Section~\ref{sec:p0-ripples}
 reads that step contravariantly instead, as a condition on outputs rather than
 a motion of the value.
 \end{remark}
@@ -361,12 +421,22 @@ push the point forward:
   z_k=G_k(z_0).
 \]
 This is the \emph{point propagation} used for paths.
+For ordinary partial maps, put $D_0=K$ and $G_0=\id$, and recursively set
+\[
+  D_k=\{z\in D_{k-1}:G_{k-1}(z)\in\operatorname{dom}F_k\}.
+\]
+Then $G_k$ is evaluated only on $D_k$.  This prefix-domain rule retains
+every original division condition even when a simplified final formula has
+a larger natural domain.
 
 Alternatively, given a family of output level sets $\{\Sigma_t\}$, the same
 prefix operator pulls each level set back:
 \[
   \Sigma_{k,t}=G_k^{-1}(\Sigma_t).
 \]
+For partial maps this means
+$\Sigma_{k,t}=\{z\in D_k:G_k(z)\in\Sigma_t\}$; it is an inverse
+image, not a claim that $G_k$ has an inverse function.
 This is \emph{condition propagation}.  It is contravariant: an outer condition
 is transported toward the input by inverse image.  Sections~\ref{sec:p0-aes}
 and~\ref{sec:p0-ripples} show that the first reading yields a path in a space of

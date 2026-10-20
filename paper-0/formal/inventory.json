@@ -1,0 +1,1244 @@
+{
+  "schema": "aeg.paper0.formal.inventory.v2",
+  "scope": "Theorem-like environments in recursively included TeX files; prose/equation coverage and dependencies require review. No proof truth is assigned by this inventory.",
+  "sources": {
+    "paper-0/aeg-paper-0.tex": "46779e92f52ecd0dae029494fe7c06dc336b705cc22e7fe7b30b9a5b0d3045dd",
+    "paper-0/sections/01-introduction.tex": "41f18935ae5bb962ec4a8fc94d6d0d1fc32834495346893c3e756becdac2d7ed",
+    "paper-0/sections/02-expansion.tex": "ddc42b0e8f388beccaf413da98a8b2b898ecd64f9a45f5c6e8193252a603a7d2",
+    "paper-0/sections/03-aes-and-motion.tex": "07a8b112a05b45c8410459b69b89bb8f951fa954e871b2ea0cc137d67525ba0e",
+    "paper-0/sections/04-ripple-geometry.tex": "582281668116a0d01d4874a3eb73d508edbfb8704a2ada9e7ad275c2159ce565",
+    "paper-0/sections/04b-pole-covariance.tex": "d1fe37de0ab2a7c83c0a46edc3eaaccd370a5b646b58caef579c794260c71901",
+    "paper-0/sections/05-reciprocals-fixed-points.tex": "8f6ce278b622da5f383f90d7a59fc858df404e04042a6691d74fc0fcd6845ddc",
+    "paper-0/sections/06-projective-unification.tex": "6c4a433337a564595d1073ca8cbca39b90a18d0c9144e5bdbdbaf753c9a90aec",
+    "paper-0/sections/07-affine-cocycles.tex": "f8c2cdc67f215e3243e71d35d49b0b64144c22b4856595a87de55805ce655746",
+    "paper-0/sections/08-acs-tearing.tex": "cf3aaa13689f5b11e52e37500dd22b9f220625f74b2dd4230ce8a07cc64817c9",
+    "paper-0/sections/09-contact-of-tearing.tex": "355e3a155b8a4d64a59301d92dea8d2c690589ba7ab5cca2a6b08ad773c7945a",
+    "paper-0/sections/10-beyond-linear.tex": "d9127836c640e915440acbaca0e58bb46f3f29d94dc1ecef3299cf7db61ac455",
+    "paper-0/sections/11-holed-aes.tex": "4dabc6028f4ccab1035a4aebedc3b324e78502f512e1a62c5d1aecb73d68fcee",
+    "paper-0/sections/12-compactification.tex": "50f0ee1fc8bc83dfacd74d170554ec899098c0737349556c250c2360731473d3",
+    "paper-0/sections/12-interface.tex": "7f54af219cdd0435cd8666c2cc8fe64132bf247454f8fd97a32684e15bf83975",
+    "paper-0/appendices/app-A-calculations.tex": "ad912be73204804e877d6ab21d2303b8999030d47e8bf2556ae0770371af5643",
+    "paper-0/appendices/app-B-hyperbolic-calculations.tex": "f95d8dc41a07265246537fde1b77b293906417466f9087b2b4b7f0137fbdbccc",
+    "paper-0/appendices/app-C-affine-cocycles.tex": "4fd006f4dedf953643ad2cf1967007c0d68acb8c7dcbe3a77b947b4d95674608",
+    "paper-0/appendices/app-D-acs-contact.tex": "409e919fdb3672126c7b9ee387d0fb0273384704d699a2ea420227e06b486574",
+    "paper-0/appendices/app-E-circle-surgery.tex": "f53dca4a016116e77dbad17e6da5c0da91243ef29556c68d6356500c92a9634e"
+  },
+  "definition_map_sha256": "562d455635bbdc0145b1833e3e4cbe0c73538255f0070d9911effc87b0b58889",
+  "claims": [
+    {
+      "source": "paper-0/sections/02-expansion.tex",
+      "line": 19,
+      "environment": "definition",
+      "title": "Left- and right-expanded one-hole expressions",
+      "labels": [
+        "def:p0-left-right-combs",
+        "eq:p0-comb-recursions",
+        "eq:p0-right-comb-recursions"
+      ],
+      "formal_status": "component-map-supplied",
+      "certificates": [],
+      "lean_components": [
+        "left_tree_correspondence",
+        "left_tree_snoc",
+        "partial_fold_append",
+        "partial_fold_functional",
+        "partial_fold_nil",
+        "partial_fold_snoc",
+        "right_tree_correspondence",
+        "right_tree_snoc"
+      ]
+    },
+    {
+      "source": "paper-0/sections/02-expansion.tex",
+      "line": 43,
+      "environment": "convention",
+      "title": "Scope of the words ``left'' and ``right''",
+      "labels": [
+        "conv:p0-left-right-convention"
+      ],
+      "formal_status": "component-map-supplied",
+      "certificates": [],
+      "lean_components": [
+        "left_tree_correspondence",
+        "left_tree_snoc",
+        "partial_fold_append",
+        "partial_fold_functional",
+        "partial_fold_nil",
+        "partial_fold_snoc",
+        "right_tree_correspondence",
+        "right_tree_snoc"
+      ]
+    },
+    {
+      "source": "paper-0/sections/02-expansion.tex",
+      "line": 111,
+      "environment": "proposition",
+      "title": "Unique internal order",
+      "labels": [
+        "prop:p0-combs-unique-order"
+      ],
+      "formal_status": "component-map-supplied",
+      "certificates": [],
+      "lean_components": [
+        "comb_legal_order_unique",
+        "comb_trace_characterization"
+      ]
+    },
+    {
+      "source": "paper-0/sections/02-expansion.tex",
+      "line": 148,
+      "environment": "proposition",
+      "title": "Comb opposition",
+      "labels": [
+        "prop:p0-comb-opposition"
+      ],
+      "formal_status": "component-map-supplied",
+      "certificates": [
+        "p0-addition-opposition",
+        "p0-multiplication-opposition"
+      ],
+      "lean_components": [
+        "addition_sections_agree",
+        "commutative_fold_agreement",
+        "mirror_eval",
+        "mirror_involution",
+        "mirror_left_tree",
+        "multiplication_sections_agree"
+      ]
+    },
+    {
+      "source": "paper-0/sections/02-expansion.tex",
+      "line": 212,
+      "environment": "corollary",
+      "title": "Where the algebraic symmetry breaks",
+      "labels": [
+        "cor:p0-affine-projective-break"
+      ],
+      "formal_status": "component-map-supplied",
+      "certificates": [],
+      "lean_components": [
+        "affine_left_inverse",
+        "affine_right_inverse",
+        "first_add_affine",
+        "first_div_affine",
+        "first_div_domain",
+        "first_mul_affine",
+        "first_sub_affine",
+        "inverse_nonzero",
+        "neg_one_nonzero",
+        "ordinary_reciprocal_projective_match",
+        "reciprocal_infinity",
+        "reciprocal_not_infinity_stabilizing",
+        "reciprocal_raw_infinity",
+        "reciprocal_raw_preserves_nonzero",
+        "reciprocal_raw_zero",
+        "second_add_affine",
+        "second_div_domain",
+        "second_div_value",
+        "second_mul_affine",
+        "second_sub_affine",
+        "zero_numerator_keeps_domain",
+        "zero_reciprocal_raw_invalid",
+        "zero_scale_not_injective"
+      ]
+    },
+    {
+      "source": "paper-0/sections/02-expansion.tex",
+      "line": 256,
+      "environment": "definition",
+      "title": "Distributive expansion",
+      "labels": [
+        "def:p0-distributive-expansion",
+        "eq:p0-distributive-expansion"
+      ],
+      "formal_status": "component-map-supplied",
+      "certificates": [],
+      "lean_components": [
+        "constant_pair_coincidence",
+        "marked_words_distinct",
+        "nonzero_constant_pair_coincidence"
+      ]
+    },
+    {
+      "source": "paper-0/sections/02-expansion.tex",
+      "line": 284,
+      "environment": "proposition",
+      "title": "Distributivity is operator-preserving and expansion-changing",
+      "labels": [
+        "prop:p0-distributive-operator-identity",
+        "eq:p0-distributive-identity"
+      ],
+      "formal_status": "component-map-supplied",
+      "certificates": [
+        "p0-distributive-operator",
+        "p0-right-distributivity"
+      ],
+      "lean_components": [
+        "constant_pair_coincidence",
+        "marked_words_distinct",
+        "nonzero_constant_pair_coincidence"
+      ]
+    },
+    {
+      "source": "paper-0/sections/02-expansion.tex",
+      "line": 316,
+      "environment": "example",
+      "title": "Distributivity transports the additive charge",
+      "labels": [
+        "ex:p0-distributive-charge-transport"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/02-expansion.tex",
+      "line": 355,
+      "environment": "remark",
+      "title": "Where expansion stops",
+      "labels": [
+        "rem:p0-expansion-boundary"
+      ],
+      "formal_status": "component-map-supplied",
+      "certificates": [],
+      "lean_components": [
+        "guarded_reciprocal_scale",
+        "undefined_first_prefix_persists",
+        "undefined_second_prefix_persists",
+        "zero_denominator_refused"
+      ]
+    },
+    {
+      "source": "paper-0/sections/03-aes-and-motion.tex",
+      "line": 40,
+      "environment": "definition",
+      "title": "Regular arithmetic expression space",
+      "labels": [
+        "def:regular-aes",
+        "eq:regular-aes-eikonal"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/03-aes-and-motion.tex",
+      "line": 71,
+      "environment": "proposition",
+      "title": "Canonical arithmetic frame",
+      "labels": [
+        "prop:canonical-arithmetic-frame",
+        "eq:arithmetic-frame-derivatives",
+        "eq:explicit-arithmetic-frame"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/03-aes-and-motion.tex",
+      "line": 202,
+      "environment": "proposition",
+      "title": "Invariant affine metric",
+      "labels": [
+        "prop:invariant-affine-metric",
+        "eq:hyperbolic-aes-metric"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/03-aes-and-motion.tex",
+      "line": 232,
+      "environment": "theorem",
+      "title": "Basic hyperbolic AES",
+      "labels": [
+        "thm:basic-hyperbolic-aes"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/03-aes-and-motion.tex",
+      "line": 323,
+      "environment": "proposition",
+      "title": "Laplace eigenfunction",
+      "labels": [
+        "prop:laplace-eigenfunction",
+        "eq:hyperbolic-assignment-laplacian"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/03-aes-and-motion.tex",
+      "line": 356,
+      "environment": "proposition",
+      "title": "Arithmetic action on the assignment",
+      "labels": [
+        "prop:p0-grid-assignment-action"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/03-aes-and-motion.tex",
+      "line": 388,
+      "environment": "warning",
+      "title": "The motions are partial",
+      "labels": [
+        "warn:p0-partial-motions"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/03-aes-and-motion.tex",
+      "line": 491,
+      "environment": "example",
+      "title": "A four-step path",
+      "labels": [
+        "ex:p0-four-step-path"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/03-aes-and-motion.tex",
+      "line": 656,
+      "environment": "theorem",
+      "title": "Continuous affine flow",
+      "labels": [
+        "thm:continuous-affine-flow",
+        "eq:intrinsic-continuous-affine-flow"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/03-aes-and-motion.tex",
+      "line": 737,
+      "environment": "convention",
+      "title": "Model labels",
+      "labels": [
+        "conv:p0-model-labels"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/03-aes-and-motion.tex",
+      "line": 753,
+      "environment": "example",
+      "title": "The basic model, $k=0$",
+      "labels": [
+        "ex:p0-e0-model"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/03-aes-and-motion.tex",
+      "line": 763,
+      "environment": "example",
+      "title": "A one-puncture model, $k=1$",
+      "labels": [
+        "ex:p0-e1-model"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/04-ripple-geometry.tex",
+      "line": 40,
+      "environment": "definition",
+      "title": "Ripple pencil",
+      "labels": [
+        "def:p0-ripple-pencil"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/04-ripple-geometry.tex",
+      "line": 51,
+      "environment": "theorem",
+      "title": "Line-to-circle transition",
+      "labels": [
+        "thm:p0-ripple-pencil-formula",
+        "eq:p0-ripple-circle"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/04-ripple-geometry.tex",
+      "line": 96,
+      "environment": "example",
+      "title": "Arithmetic inversion",
+      "labels": [
+        "ex:p0-inversion-ripples",
+        "eq:p0-inversion-circles"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/04-ripple-geometry.tex",
+      "line": 143,
+      "environment": "remark",
+      "title": "Which upper half-plane, and with which metric",
+      "labels": [
+        "rem:p0-ripple-normalization"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/04-ripple-geometry.tex",
+      "line": 214,
+      "environment": "proposition",
+      "title": "Covariant--contravariant duality",
+      "labels": [
+        "prop:p0-path-ripple-duality"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/04b-pole-covariance.tex",
+      "line": 52,
+      "environment": "lemma",
+      "title": "Covariance of the pole",
+      "labels": [
+        "lem:p0-pole-covariance",
+        "eq:p0-pole-covariance",
+        "eq:p0-pole-constancy-criterion"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/04b-pole-covariance.tex",
+      "line": 83,
+      "environment": "proposition",
+      "title": "Rigidity of the pole along a history",
+      "labels": [
+        "prop:p0-pole-rigidity"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/04b-pole-covariance.tex",
+      "line": 109,
+      "environment": "remark",
+      "title": "The pole is read off one factor of the factorization",
+      "labels": [
+        "rem:p0-pole-bruhat"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/04b-pole-covariance.tex",
+      "line": 128,
+      "environment": "remark",
+      "title": "Prospective interface",
+      "labels": [
+        "rem:p0-pole-forward"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/05-reciprocals-fixed-points.tex",
+      "line": 51,
+      "environment": "warning",
+      "title": "Negative-determinant prefixes",
+      "labels": [
+        "warn:p0-negative-determinant"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/05-reciprocals-fixed-points.tex",
+      "line": 82,
+      "environment": "proposition",
+      "title": "Finite and infinite geometric expansion",
+      "labels": [
+        "prop:p0-finite-geometric-expansion",
+        "eq:p0-finite-geometric-quotient"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/05-reciprocals-fixed-points.tex",
+      "line": 133,
+      "environment": "proposition",
+      "title": "Affine iteration",
+      "labels": [
+        "prop:p0-affine-iteration",
+        "eq:p0-affine-centered-form"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/05-reciprocals-fixed-points.tex",
+      "line": 173,
+      "environment": "proposition",
+      "title": "Reciprocal fixed points",
+      "labels": [
+        "prop:p0-reciprocal-fixed-points",
+        "eq:p0-reciprocal-quadratic"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/05-reciprocals-fixed-points.tex",
+      "line": 191,
+      "environment": "example",
+      "title": "The golden-ratio expansion",
+      "labels": [
+        "ex:p0-golden-ratio"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/06-projective-unification.tex",
+      "line": 79,
+      "environment": "theorem",
+      "title": "One matrix, four readings",
+      "labels": [
+        "thm:p0-four-matrix-readings"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/06-projective-unification.tex",
+      "line": 192,
+      "environment": "theorem",
+      "title": "Elementary projective generation",
+      "labels": [
+        "thm:p0-pgl2-generation"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/06-projective-unification.tex",
+      "line": 235,
+      "environment": "theorem",
+      "title": "Projective unification of the two combs",
+      "labels": [
+        "thm:p0-comb-projective-unification"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/07-affine-cocycles.tex",
+      "line": 38,
+      "environment": "proposition",
+      "title": "Affine cocycle formulas",
+      "labels": [
+        "prop:affine-cocycle-formulas",
+        "prop:target-affine-cocycle",
+        "prop:source-normalized-cocycle",
+        "eq:accumulated-affine-scale",
+        "eq:target-affine-cocycle",
+        "eq:source-normalized-translation-definition",
+        "eq:source-normalized-affine-cocycle"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/07-affine-cocycles.tex",
+      "line": 108,
+      "environment": "example",
+      "title": "Three steps",
+      "labels": [],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/07-affine-cocycles.tex",
+      "line": 137,
+      "environment": "proposition",
+      "title": "Chronological affine cocycle law",
+      "labels": [
+        "prop:chronological-affine-cocycle-law",
+        "eq:scale-concatenation-law",
+        "eq:target-concatenation-law",
+        "eq:source-concatenation-law",
+        "eq:affine-inverse-coordinates"
+      ],
+      "formal_status": "fragment-certificate-supplied",
+      "certificates": [
+        "p0-affine-composition-polynomial"
+      ],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/07-affine-cocycles.tex",
+      "line": 203,
+      "environment": "proposition",
+      "title": "Left and right affine differentials",
+      "labels": [
+        "prop:left-right-affine-differentials",
+        "eq:left-maurer-cartan-translation",
+        "eq:right-maurer-cartan-translation",
+        "eq:maurer-cartan-coordinate-conversion"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/07-affine-cocycles.tex",
+      "line": 280,
+      "environment": "definition",
+      "title": "Relative affine defect",
+      "labels": [
+        "def:relative-affine-defect",
+        "eq:relative-affine-defect"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/07-affine-cocycles.tex",
+      "line": 298,
+      "environment": "proposition",
+      "title": "Coordinates of the relative affine defect",
+      "labels": [
+        "prop:relative-affine-defect-coordinates",
+        "eq:relative-affine-defect-coordinates",
+        "eq:scale-compatible-endpoint-defect",
+        "eq:scale-compatible-relative-translation"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/07-affine-cocycles.tex",
+      "line": 336,
+      "environment": "example",
+      "title": "The elementary affine order defect",
+      "labels": [
+        "ex:elementary-affine-order-defect",
+        "eq:elementary-affine-order-defect"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/07-affine-cocycles.tex",
+      "line": 367,
+      "environment": "proposition",
+      "title": "Exact affine perturbation propagation",
+      "labels": [
+        "prop:affine-perturbation-propagation",
+        "eq:exact-affine-perturbation",
+        "eq:affine-perturbation-ratio"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/08-acs-tearing.tex",
+      "line": 77,
+      "environment": "definition",
+      "title": "Accumulative commutative space and charge path",
+      "labels": [
+        "def:acs"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/08-acs-tearing.tex",
+      "line": 102,
+      "environment": "proposition",
+      "title": "Direct ACS evaluation",
+      "labels": [
+        "prop:acs-evaluation",
+        "eq:direct-acs-evaluation"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/08-acs-tearing.tex",
+      "line": 145,
+      "environment": "convention",
+      "title": "The history group",
+      "labels": [
+        "conv:p0-history-group"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/08-acs-tearing.tex",
+      "line": 164,
+      "environment": "proposition",
+      "title": "Charge endpoint and evaluation are homomorphisms",
+      "labels": [
+        "prop:p0-history-homomorphisms"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/08-acs-tearing.tex",
+      "line": 195,
+      "environment": "proposition",
+      "title": "The ACS endpoint is the abelianization of the history group",
+      "labels": [
+        "prop:p0-acs-is-abelianization"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/08-acs-tearing.tex",
+      "line": 221,
+      "environment": "theorem",
+      "title": "Only the multiplicative charge descends",
+      "labels": [
+        "thm:p0-descent",
+        "eq:p0-transport-element"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/08-acs-tearing.tex",
+      "line": 328,
+      "environment": "definition",
+      "title": "Relative arithmetic torsion",
+      "labels": [
+        "def:relative-torsion",
+        "eq:relative-torsion"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/08-acs-tearing.tex",
+      "line": 342,
+      "environment": "proposition",
+      "title": null,
+      "labels": [
+        "prop:relative-torsion-independent",
+        "eq:relative-torsion-boundary-preparation"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/08-acs-tearing.tex",
+      "line": 388,
+      "environment": "theorem",
+      "title": "Weighted torsion--Stokes theorem",
+      "labels": [
+        "thm:torsion-stokes",
+        "eq:torsion-boundary-integral",
+        "eq:torsion-area-integral"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/08-acs-tearing.tex",
+      "line": 600,
+      "environment": "definition",
+      "title": "Tearing of arithmetic motion",
+      "labels": [
+        "def:p0-tearing"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/09-contact-of-tearing.tex",
+      "line": 34,
+      "environment": "proposition",
+      "title": "Contact nondegeneracy",
+      "labels": [
+        "prop:contact-form",
+        "eq:contact-volume-sign"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/09-contact-of-tearing.tex",
+      "line": 114,
+      "environment": "theorem",
+      "title": "Curvature of the specified horizontal connection",
+      "labels": [
+        "thm:contact-curvature",
+        "eq:horizontal-curvature-bracket"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/09-contact-of-tearing.tex",
+      "line": 291,
+      "environment": "proposition",
+      "title": "Curvature on scalar fields",
+      "labels": [
+        "prop:horizontal-differential-curvature",
+        "eq:horizontal-scalar-curvature"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/09-contact-of-tearing.tex",
+      "line": 323,
+      "environment": "proposition",
+      "title": "Finite and infinitesimal comparison",
+      "labels": [
+        "prop:torsion-curvature-synthesis"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/09-contact-of-tearing.tex",
+      "line": 383,
+      "environment": "remark",
+      "title": "What the coefficient $\\mu\\lambda$ is and is not",
+      "labels": [
+        "rem:p0-curvature-not-contact-invariant"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/09-contact-of-tearing.tex",
+      "line": 407,
+      "environment": "proposition",
+      "title": "The curvature form of the horizontal distribution",
+      "labels": [
+        "prop:p0-curvature-form",
+        "eq:p0-curvature-form-congruence"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/09-contact-of-tearing.tex",
+      "line": 448,
+      "environment": "remark",
+      "title": "What the curvature scalar is invariant under",
+      "labels": [
+        "rem:p0-curvature-invariance"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/09-contact-of-tearing.tex",
+      "line": 506,
+      "environment": "proposition",
+      "title": "The basic model is the Reeb quotient of the contact model",
+      "labels": [
+        "prop:p0-contact-quotient"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/09-contact-of-tearing.tex",
+      "line": 632,
+      "environment": "theorem",
+      "title": "Dual tearing and Reeb drift",
+      "labels": [
+        "thm:legendre-dual-tearing",
+        "eq:dual-value-tearing",
+        "eq:dual-reeb-drift"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/09-contact-of-tearing.tex",
+      "line": 693,
+      "environment": "remark",
+      "title": "Unification of Theorem~8.6 and Theorem~8.9",
+      "labels": [],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/10-beyond-linear.tex",
+      "line": 26,
+      "environment": "proposition",
+      "title": "The arithmetic generators do not close",
+      "labels": [
+        "prop:p0-arithmetic-generators"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/10-beyond-linear.tex",
+      "line": 132,
+      "environment": "proposition",
+      "title": "Observables of the charge endpoint cannot see tearing",
+      "labels": [
+        "prop:p0-characters-cannot-see-tearing"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/11-holed-aes.tex",
+      "line": 16,
+      "environment": "definition",
+      "title": "Punctured arithmetic expression space",
+      "labels": [
+        "def:p0-punctured-aes"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/11-holed-aes.tex",
+      "line": 69,
+      "environment": "proposition",
+      "title": "Tangent cone of the four limiting circles",
+      "labels": [
+        "prop:p0-puncture-tangent-cone"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/11-holed-aes.tex",
+      "line": 124,
+      "environment": "lemma",
+      "title": "The gradient never vanishes in a regular AES",
+      "labels": [
+        "lem:p0-gradient-nonvanishing"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/11-holed-aes.tex",
+      "line": 144,
+      "environment": "theorem",
+      "title": "Critical punctures with an extending conformal background",
+      "labels": [
+        "thm:p0-punctures-are-critical",
+        "eq:p0-punctures-are-critical"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/11-holed-aes.tex",
+      "line": 195,
+      "environment": "remark",
+      "title": "The hypothesis is active",
+      "labels": [
+        "rem:p0-puncture-hypothesis"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/11-holed-aes.tex",
+      "line": 217,
+      "environment": "theorem",
+      "title": "A punctured AES whose zero locus is the four-circle configuration",
+      "labels": [
+        "thm:p0-four-circle-model",
+        "eq:p0-four-circle-metric"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/11-holed-aes.tex",
+      "line": 353,
+      "environment": "corollary",
+      "title": "Puncture counts in the conformal-background class",
+      "labels": [
+        "cor:p0-puncture-count"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/11-holed-aes.tex",
+      "line": 375,
+      "environment": "remark",
+      "title": "A construction rather than a classification",
+      "labels": [
+        "rem:p0-multi-puncture"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/11-holed-aes.tex",
+      "line": 398,
+      "environment": "proposition",
+      "title": "The tearing does not see the puncture",
+      "labels": [
+        "prop:p0-tearing-puncture-independent"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/11-holed-aes.tex",
+      "line": 426,
+      "environment": "proposition",
+      "title": "The surface never closes the comparison",
+      "labels": [
+        "prop:p0-surface-does-not-close",
+        "eq:p0-surface-comparison-defect"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/11-holed-aes.tex",
+      "line": 461,
+      "environment": "proposition",
+      "title": "No canonical holonomy around a puncture",
+      "labels": [
+        "prop:p0-no-puncture-holonomy"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/11-holed-aes.tex",
+      "line": 499,
+      "environment": "proposition",
+      "title": "The zero-set germ and the metric at the puncture",
+      "labels": [
+        "prop:p0-puncture-local-picture"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/11-holed-aes.tex",
+      "line": 678,
+      "environment": "remark",
+      "title": "Register bookkeeping",
+      "labels": [
+        "rem:p0-holed-register-bookkeeping"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/12-compactification.tex",
+      "line": 17,
+      "environment": "definition",
+      "title": "Finite-type carrier and conformal point compactification",
+      "labels": [
+        "def:p0-finite-type-carrier"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/12-compactification.tex",
+      "line": 29,
+      "environment": "proposition",
+      "title": "The local condition for conformal filling",
+      "labels": [
+        "prop:p0-conformal-end-filling"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/12-compactification.tex",
+      "line": 68,
+      "environment": "theorem",
+      "title": "Compactifiable AES with any positive finite puncture count",
+      "labels": [
+        "thm:p0-arbitrary-k-punctures",
+        "eq:p0-arbitrary-k-metric"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/12-compactification.tex",
+      "line": 133,
+      "environment": "definition",
+      "title": "AES collar contract",
+      "labels": [
+        "def:p0-collar-contract",
+        "eq:p0-collar-matching"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/12-compactification.tex",
+      "line": 155,
+      "environment": "proposition",
+      "title": "Cutting and descent of the original AES",
+      "labels": [
+        "prop:p0-aes-collar-descent"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/12-compactification.tex",
+      "line": 205,
+      "environment": "warning",
+      "title": "The arithmetic metric is not the complete cusp metric",
+      "labels": [
+        "warn:p0-hyperbolic-auxiliary"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/12-compactification.tex",
+      "line": 243,
+      "environment": "proposition",
+      "title": "A nonzero level-set residue in the four-puncture model",
+      "labels": [
+        "prop:p0-k4-motion-residue"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/appendices/app-E-circle-surgery.tex",
+      "line": 8,
+      "environment": "proposition",
+      "title": "M\\\"obius equivalence of non-degenerate triangular gaps",
+      "labels": [
+        "prop:p0-apollonian-gap-equivalence"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/appendices/app-E-circle-surgery.tex",
+      "line": 51,
+      "environment": "proposition",
+      "title": "Incidence obstruction and an explicit deformation",
+      "labels": [
+        "prop:p0-four-circle-deformation"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/appendices/app-E-circle-surgery.tex",
+      "line": 95,
+      "environment": "proposition",
+      "title": "The resulting local branched cover",
+      "labels": [
+        "prop:p0-three-sheet-cover"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    }
+  ]
+}

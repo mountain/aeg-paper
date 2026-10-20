@@ -1,5 +1,13 @@
 # Paper 0 — Arithmetic Expression Spaces
 
+The [formal derivation work](formal/README.md) starts chapter-by-chapter
+verification of the current manuscript with an Adva-written equality checker,
+separate Lean statements and an explicit coverage inventory. Initial evidence
+covers named algebraic components, with a successor for Chapter 2's syntax
+and guarded ordinary domains. Its first source finding, OQ-090, is resolved
+by the marked-data/scalar-projection distinction in the amended proposition.
+Consult the current mathematical-status register for each claim's scope.
+
 **Provisional title:** *Arithmetic Expression Geometry 0*  
 **Subtitle:** *Arithmetic Expression Spaces: Expansion, Motion, Ripple Duals,
 Commutativization, and Tearing*

@@ -1,0 +1,180 @@
+{
+  "schema": "aeg.paper0.chapter02.execution.v2.1",
+  "status": "Passed",
+  "date": "2026-10-20",
+  "author": "Codex (OpenAI), CC0; no independent human mathematical review claimed",
+  "contract": "contract-v2.1.json",
+  "machine_commit": "51ee98981ebbc62f8614ed20920c11dc76ea298d",
+  "machine_profile": "e9a700a7ca68f73587b18be1230f908e358a7d30f0a3f7d62397493b378b5797",
+  "source_lock_sha256": "02862766ad383436d52486559ab1de067c5706b06f55e8534987783f0b2bbf7d",
+  "report_sha256": "8b663e8423051952352473af765d9d97af952b1b6c4fefd819aaf49fab39a726",
+  "archive": {
+    "path": "chapter02-run-03.tar.gz",
+    "sha256": "e51116227ff848f820c49d8cdb7d355a73108898f4bbe79bd13442fb4c56da9e",
+    "bytes": 1926082,
+    "members": 454,
+    "uncompressed_bytes": 11229309
+  },
+  "named_equational_derivations": 5,
+  "original_controls": 20,
+  "guarded_rational_cases": 28,
+  "native_runs": 61,
+  "child_commands": 125,
+  "reference_transitions": 35735,
+  "lean_original_theorems": 8,
+  "lean_new_theorems": 63,
+  "lean_axioms": {
+    "first_div_domain": [],
+    "second_div_domain": [],
+    "zero_numerator_keeps_domain": [],
+    "eval_functional": [],
+    "partial_fold_nil": [],
+    "partial_fold_snoc": [],
+    "partial_fold_append": [
+      "propext"
+    ],
+    "commutative_fold_agreement": [],
+    "zero_denominator_refused": [],
+    "undefined_first_prefix_persists": [],
+    "undefined_second_prefix_persists": [],
+    "grow_left_eval": [],
+    "left_tree_correspondence": [
+      "propext",
+      "Quot.sound"
+    ],
+    "left_tree_snoc": [
+      "propext",
+      "Quot.sound"
+    ],
+    "right_tree_snoc": [
+      "propext",
+      "Quot.sound"
+    ],
+    "mirror_involution": [
+      "propext"
+    ],
+    "mirror_fold": [],
+    "mirror_left_tree": [],
+    "mirror_eval": [
+      "propext",
+      "Quot.sound"
+    ],
+    "right_tree_correspondence": [
+      "propext",
+      "Quot.sound"
+    ],
+    "partial_fold_functional": [],
+    "shuffle_nil_right": [],
+    "shuffle_nil_left": [],
+    "shuffle_with_right_empty": [],
+    "shuffle_with_left_empty": [],
+    "grow_left_trace": [],
+    "grow_right_trace": [],
+    "trace_fold_from": [
+      "propext",
+      "Quot.sound"
+    ],
+    "comb_trace_characterization": [
+      "propext",
+      "Quot.sound"
+    ],
+    "comb_legal_order_unique": [
+      "propext",
+      "Quot.sound"
+    ],
+    "inverse_nonzero": [],
+    "zero_add": [],
+    "one_mul": [],
+    "zero_mul": [],
+    "add_left_cancel": [],
+    "neg_one_mul": [],
+    "neg_one_nonzero": [],
+    "affine_left_inverse": [],
+    "affine_right_inverse": [],
+    "first_add_affine": [
+      "propext"
+    ],
+    "first_sub_affine": [
+      "propext"
+    ],
+    "first_mul_affine": [
+      "propext"
+    ],
+    "first_div_affine": [
+      "propext"
+    ],
+    "second_add_affine": [
+      "propext"
+    ],
+    "second_sub_affine": [
+      "propext"
+    ],
+    "second_mul_affine": [
+      "propext"
+    ],
+    "second_div_value": [],
+    "addition_sections_agree": [
+      "propext"
+    ],
+    "multiplication_sections_agree": [
+      "propext"
+    ],
+    "reciprocal_scale_identity": [],
+    "guarded_reciprocal_scale": [],
+    "mul_left_cancel": [],
+    "constant_pair_coincidence": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "nonzero_constant_pair_coincidence": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "marked_words_distinct": [],
+    "reciprocal_infinity": [],
+    "ordinary_reciprocal_projective_match": [],
+    "reciprocal_not_infinity_stabilizing": [],
+    "reciprocal_raw_infinity": [
+      "propext"
+    ],
+    "reciprocal_raw_zero": [
+      "propext"
+    ],
+    "reciprocal_raw_preserves_nonzero": [],
+    "zero_reciprocal_raw_invalid": [
+      "propext"
+    ],
+    "zero_scale_not_injective": []
+  },
+  "wall_seconds": 135.31420032899769,
+  "native_reports_and_receipts_byte_identical_to_failed_attempt": true,
+  "retained_failed_attempt": "chapter02-attempt-1.json",
+  "failure_wall_seconds_additional": 129.18803200100228,
+  "unit_tests_passed_before_run": 13,
+  "manuscript": {
+    "source": "paper-0/sections/02-expansion.tex",
+    "source_sha256": "ddc42b0e8f388beccaf413da98a8b2b898ecd64f9a45f5c6e8193252a603a7d2",
+    "definition_map_sha256": "562d455635bbdc0145b1833e3e4cbe0c73538255f0070d9911effc87b0b58889",
+    "paper0_build": {
+      "pages": 93,
+      "pdf_sha256": "c90014294749b07dc32348aeef93c58ed96461b344f7fbfeab026dd64e80b738"
+    },
+    "paper1_build": {
+      "pages": 32,
+      "pdf_sha256": "a82f7e0ae690e1f9774b3a41446c9314f1391c410ed7b178a47cd75381ec48ff",
+      "note": "Fresh build retained externally; unrelated tracked PDF was restored."
+    },
+    "unresolved_references_citations_duplicate_labels": 0,
+    "layout_residual": "Unedited Paper 0 section 10 has one 11.13pt overfull paragraph; Paper I has two overfull boxes; hyperref math-in-bookmark warnings remain."
+  },
+  "scope": "Five unchanged Adva equational certificates; separate guarded rational finite cases; universal Lean syntax/domain/field/equality statements. No general Adva field-proof kernel, formal PGL quotient or full checker-soundness theorem is claimed.",
+  "remaining": [
+    "Source-to-formal mapping is reviewed, not a mechanically verified TeX translation",
+    "The rational evaluator supplies finite native evidence, not a universal Adva field-proof kernel",
+    "Formal PGL quotient construction and the real-exponential/ACS example remain outside this continuation"
+  ],
+  "remote_ci": "Workflow supplied; no remote execution started in this session",
+  "unit_tests_passed_after_archive": 14
+}
