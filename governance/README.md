@@ -23,7 +23,13 @@ Each arrow forgets information. AEG investigates the algebraic, geometric, analy
 ## Repository status
 
 > **The controlled restructuring has produced four canonical mathematical-review
-> manuscripts. All four remain editorial and publication drafts.**
+> manuscripts for Papers I--IV, together with Paper 0 as the geometric foundation.
+> All remain editorial and publication drafts.**
+>
+> **A fifth slot, Paper V, has since been opened.** Its scope is fixed in
+> [`governance/00c-paper-V-triadic-aperture-scope.md`](00c-paper-V-triadic-aperture-scope.md);
+> its manuscript is `paper-5/aeg-paper-5.tex`. It is a draft and is not part of the
+> four-manuscript restructuring count.
 
 The current source contains material developed at different stages of the research program. Some notes are proved mathematics; others are exploratory constructions, structural proposals, conjectures, superseded formulations, or open problems.
 
@@ -33,6 +39,8 @@ The governing specifications are:
 
 * [`AGENTS.md`](../AGENTS.md)
 * [`governance/00-authoritative-scope.md`](00-authoritative-scope.md)
+* [`governance/00b-paper-0-geometric-foundation-amendment.md`](00b-paper-0-geometric-foundation-amendment.md)
+* [`governance/00c-paper-V-triadic-aperture-scope.md`](00c-paper-V-triadic-aperture-scope.md)
 * [`governance/01-paper-series-architecture.md`](01-paper-series-architecture.md)
 * [`governance/02-paper-I-outline.md`](02-paper-I-outline.md)
 * [`governance/03-theorem-dependency-graph.md`](03-theorem-dependency-graph.md)
@@ -627,10 +635,12 @@ aeg-paper/
 ├── images/
 │   └── sources/
 ├── notes/
+├── paper-0/
 ├── paper-1/
 ├── paper-2/
 ├── paper-3/
 ├── paper-4/
+├── paper-5/
 └── archive/
 ```
 
