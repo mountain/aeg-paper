@@ -138,69 +138,59 @@ order $3$ in the side lengths, which is absorbed in $O(3)$.
 \end{proof}
 
 \paragraph{Comparison with the reductive connection.}
-Remark~\ref{rem:reductive-connection} exhibits the connection
-\[
-  \omega_H=\Phi^{-1}\mathrm d\Phi+(1+ab)^{-1}\bigl(a\,\mathrm db-b\,\mathrm da\bigr),
-  \qquad
-  \theta_+=\Phi^{-1}(1+ab)^{-1}\mathrm da ,
-\]
-on the principal $H$-bundle $G\to G/H$.  Its curvature is twice the density
-\eqref{eq:transport-density-form}.
+Remark~\ref{rem:reductive-connection} records the connection
+$\omega_H=\Phi^{-1}\mathrm d\Phi+(1+ab)^{-1}(a\,\mathrm db-b\,\mathrm da)$ on
+$G\to G/H$ together with its curvature
+\eqref{eq:reductive-connection-curvature}, which is twice the para-K\"ahler
+form.  Comparing that curvature with the density
+\eqref{eq:transport-density-form} of Proposition~\ref{prop:transport-density}
+leaves a factor of two, and the factor is accounted for by a different
+connection, not by a different parametrisation of $\Lambda$.
 
 \begin{proposition}[The transport is the holonomy of the halved transverse part]
 \label{prop:transport-normalisation}
 Let $f=(1+ab)^{-1}$.  Then
 \begin{equation}\label{eq:connection-curvature}
-  \mathrm d\bigl(f(a\,\mathrm db-b\,\mathrm da)\bigr)
-  =\frac{2\,\mathrm da\wedge\mathrm db}{(1+ab)^{2}}=-2\,\Omega_{\mathrm{tr}} .
+  \mathrm d\omega_H
+  =\frac{2\,\mathrm da\wedge\mathrm db}{(1+ab)^{2}}
+  =-2\,\Omega_{\mathrm{tr}} ,
 \end{equation}
-Consequently $\Omega_{\mathrm{tr}}$ is the curvature of the connection
+so $\Omega_{\mathrm{tr}}$ is the curvature of the connection
 \begin{equation}\label{eq:halved-connection}
   \omega^{(1/2)}=\Phi^{-1}\mathrm d\Phi+\tfrac12\,(1+ab)^{-1}
   \bigl(a\,\mathrm db-b\,\mathrm da\bigr),
 \end{equation}
-i.e. of the connection whose transverse part is half that of $\omega_H$ and
-whose frame part is unchanged.  In particular the transport of
+whose transverse part is half that of $\omega_H$ and whose frame part is
+unchanged.  In particular the transport of
 Definition~\ref{def:projective-edge-transport} agrees, to first order in the
-size of the loop, with the holonomy of $\omega^{(1/2)}$, not with the holonomy
-of $\omega_H$.
+size of the loop, with the holonomy of $\omega^{(1/2)}$, and not with the
+holonomy of $\omega_H$.
 \end{proposition}
 
 \begin{proof}
-Since $\mathrm d(a\,\mathrm db-b\,\mathrm da)=2\,\mathrm da\wedge\mathrm db$ and
-$\mathrm df=-(1+ab)^{-2}(b\,\mathrm da+a\,\mathrm db)$, one has
-\[
-  \mathrm d\bigl(f(a\,\mathrm db-b\,\mathrm da)\bigr)
-  =-(1+ab)^{-2}\bigl[(b\,\mathrm da+a\,\mathrm db)\wedge(a\,\mathrm db-b\,\mathrm da)\bigr]
-   +2f\,\mathrm da\wedge\mathrm db .
-\]
-The wedge product in brackets is $2ab\,\mathrm da\wedge\mathrm db$, so the two
-terms sum to
-$2\bigl((1+ab)-ab\bigr)(1+ab)^{-2}\mathrm da\wedge\mathrm db
-=2(1+ab)^{-2}\mathrm da\wedge\mathrm db$.  This is \eqref{eq:connection-curvature}.
-Halving the transverse part halves the curvature, and the frame part
-$\Phi^{-1}\mathrm d\Phi$ is closed, so the curvature of
-\eqref{eq:halved-connection} is $(1+ab)^{-2}\mathrm da\wedge\mathrm db
-=-\Omega_{\mathrm{tr}}$.  A connection with curvature $\Omega$ has holonomy
-$\exp(-\int_\Sigma\Omega)$ around a small positively oriented loop, which
-reproduces \eqref{eq:log-holonomy}.
+The first identity is \eqref{eq:reductive-connection-curvature}, computed in
+Remark~\ref{rem:reductive-connection}.  The frame term $\Phi^{-1}\mathrm d\Phi$
+is closed, so halving the transverse part halves the curvature and leaves the
+frame contribution unchanged; the curvature of \eqref{eq:halved-connection} is
+therefore $(1+ab)^{-2}\mathrm da\wedge\mathrm db=-\Omega_{\mathrm{tr}}$.  A
+connection with curvature $\Omega$ has holonomy $\exp(-\int_\Sigma\Omega)$
+around a small positively oriented loop, which reproduces the density
+\eqref{eq:log-holonomy}.
 \end{proof}
 
 \begin{remark}[Status of the factor two]
 \label{rem:transport-density-boundary}
-Propositions~\ref{prop:transport-density}
-and~\ref{prop:transport-normalisation} are normalisation observations, not
-corrections: the cross-ratio \eqref{eq:cross-ratio-holonomy} and the connection
-form of Remark~\ref{rem:reductive-connection} are both exact as stated, and they
-differ by the factor $2$ in \eqref{eq:connection-curvature}.  The reading is
-that the idempotent transport is attached to the halved transverse part
-\eqref{eq:halved-connection}; the sentence of
-Remark~\ref{rem:reductive-connection} identifying the first-order expansion of
-$\Lambda(\square)$ with the para-K\"ahler form
-$(1+ab)^{-2}\mathrm da\wedge\mathrm db$ is accordingly precise for the density
-$\Omega_{\mathrm{tr}}$, while the curvature of $\omega_H$ itself is twice that
-form.  No invariant of the present framework distinguishes the two
-normalisations, and none is claimed to.
+Proposition~\ref{prop:transport-normalisation} is a normalisation statement, not
+a correction: the cross-ratio \eqref{eq:cross-ratio-holonomy} and the connection
+of Remark~\ref{rem:reductive-connection} are both exact as they stand, and their
+densities differ by $-2$.  Equivalently, to first order in the enclosed area the
+holonomy of $\omega_H$ is $\Lambda(\square)^{2}$, not $\Lambda(\square)$; the
+idempotent transport is attached to the halved connection
+\eqref{eq:halved-connection}.  Nothing in the present framework distinguishes the
+two normalisations, no invariant is claimed to, and the choice is left to any
+application that fixes a gauge potential; Section~\ref{sec:boundaries} records
+the point as the one part of the original projective-torsion problem that
+remains open.
 \end{remark}
 
 \paragraph{The witness, edge by edge.}
@@ -251,6 +241,6 @@ Corollary~\ref{cor:nontrivial-edge}, the density
 explicit transport of the witness loop --- are all that the present paper
 asserts about the infinitesimal behaviour of the projective torsion.  In
 particular no identification of $\Lambda(\square)-1$ with a quantity outside the
-projective framework is made, and the normalisation of
+projective framework is made, and the choice of normalisation recorded in
 Remark~\ref{rem:transport-density-boundary} is left to any later application
 that fixes it.

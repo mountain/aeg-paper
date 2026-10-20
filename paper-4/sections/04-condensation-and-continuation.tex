@@ -328,11 +328,37 @@ be the reference projector at $(0,\infty)$. The reductive splitting
 $\mathfrak{pgl}_2 = \mathfrak{h}\oplus\mathfrak{m}$ defined by the eigenspaces of
 $\mathrm{ad}(\Pi_0)$ equips the principal $H$-bundle $G\to G/H$ with the connection
 one-form $\omega_H = \Phi^{-1}d\Phi + (1+ab)^{-1}(a\,db - b\,da)$ and horizontal
-solder component $\theta_+ = \Phi^{-1}(1+ab)^{-1}da$. The first-order expansion of
-$\Lambda(\square)$ in~\eqref{eq:cross-ratio-holonomy} is the para-K\"ahler curvature
-two-form $(1+ab)^{-2}da\wedge db$ on $Biv_K^{\mathrm{reg}}$, while $\theta_+|_{b=0}
-= -\Phi^{-1}da = e^{-M}d\xi$ recovers the left Maurer-Cartan translation form of
-Paper~0, Equation~(58).
+solder component $\theta_+ = \Phi^{-1}(1+ab)^{-1}da$.  Two computations about
+these forms are used later, and both are recorded here with their signs, because
+the two conventions involved are easy to confuse.
+
+\emph{Curvature.}  Write $f=(1+ab)^{-1}$.  The frame term $\Phi^{-1}d\Phi$ is
+closed and $df=-(1+ab)^{-2}(b\,da+a\,db)$, so
+\begin{equation}
+  d\omega_H
+  =df\wedge\bigl(a\,db-b\,da\bigr)+2f\,da\wedge db
+  =-\frac{2ab\,da\wedge db}{(1+ab)^{2}}+\frac{2\,da\wedge db}{1+ab}
+  =\frac{2\,da\wedge db}{(1+ab)^{2}} ,
+  \label{eq:reductive-connection-curvature}
+\end{equation}
+that is, twice the para-K\"ahler form $(1+ab)^{-2}da\wedge db$ of
+$Biv_K^{\mathrm{reg}}$.  The curvature of $\omega_H$ is therefore \emph{not} the
+density of the cross-ratio holonomy \eqref{eq:cross-ratio-holonomy}; that
+density, and the connection whose holonomy actually reproduces
+$\Lambda(\square)$, are identified in Subsection~\ref{subsec:transport-density}.
+
+\emph{Solder component in the Borel sector.}  There $b=0$ and $a=-\xi$ for
+$g_k(z)=\Phi_k z+\xi_k$, so $\Phi=e^{M}$ and
+\begin{equation}
+  \theta_+\big|_{b=0}
+  =\Phi^{-1}da=-e^{-M}\,d\xi ,
+  \label{eq:solder-borel}
+\end{equation}
+which is \emph{minus} the left Maurer--Cartan translation form $e^{-M}d\xi$ of
+Paper~0, Proposition~7.4, Equation~(60).  The minus sign is the sign of
+$a=-\xi$: the solder component is written in the image coordinate $a$, whereas
+the Maurer--Cartan form is written in the evaluated value $\xi$.  With
+$\Phi^{-1}d\Phi$ retained, the frame part picks up no such sign.
 \end{remark}
 
 \begin{example}[Exact calibration over $\mathbb{F}_7$]
