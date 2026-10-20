@@ -202,7 +202,7 @@ static quotient.
 \subsection{Non-exact projective transport and cross-ratio holonomy}
 \label{subsec:non-exact-projective-transport}
 
-Proposition~\ref{prop:telescoping} shows that edge labels defined solely as ratios
+Proposition~\ref{prop:exact-transport-telescope} shows that edge labels defined solely as ratios
 $r_t = h_t h_{t-1}^{-1}$ of vertex frame lifts telescope along every closed path.
 To obtain a gauge-equivariant comparison on the frame torsor $G\to G/H$ that reduces
 to affine translation torsion on the Borel sector $B_\infty$ while retaining a
@@ -317,13 +317,14 @@ and $\lambda_{\mathrm{base}}(e_3)=(1+a_1 b_2)/(1+a_2 b_2)$. Their product is
 \eqref{eq:cross-ratio-holonomy}. Subtracting numerator and denominator gives
 $(1+a_1 b_1)(1+a_2 b_2) - (1+a_2 b_1)(1+a_1 b_2) = (a_2-a_1)(b_2-b_1)$, which is
 nonzero precisely when both coordinates move. Direct multiplication of the rank-one
-projectors~\eqref{eq:chart-projector} gives
+projectors~\eqref{eq:local-projector} gives
 $\Pi_{a_1,b_1}\Pi_{a_1,b_2}\Pi_{a_2,b_2}\Pi_{a_2,b_1} = \Lambda(\square)^{-1}\Pi_{a_1,b_1}$,
 confirming that $\Lambda(\square)$ is a chart-independent invariant of the four
 idempotents in $G/H$.
 \end{proof}
 
 \begin{remark}[Infinitesimal reductive connection over $\mathbb{R}$ or $\mathbb{C}$]
+\label{rem:reductive-connection}
 Over $K=\mathbb{R}$ or $\mathbb{C}$, let $\Pi_0=\begin{pmatrix}0&0\\0&1\end{pmatrix}$
 be the reference projector at $(0,\infty)$. The reductive splitting
 $\mathfrak{pgl}_2 = \mathfrak{h}\oplus\mathfrak{m}$ defined by the eigenspaces of

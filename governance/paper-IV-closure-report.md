@@ -166,3 +166,30 @@ This closure establishes a complete mathematical-review manuscript and an
 auditable repository overlay. It does not constitute author approval for public
 release, DOI assignment, affiliation changes, or archival replacement. Those
 steps remain explicit author decisions.
+
+## 9. Status amendment, 2026-10-20
+
+Two items of this report were out of date with respect to the paper source and
+are corrected here; no mathematics was added by the correction.
+
+- **Projective torsion is no longer open.**  The transport of
+  Definition~4.10 and Theorem~4.11 (Subsection~4.7) constructs the
+  gauge-equivariant comparison required by the problem, with the non-telescoping
+  cross-ratio holonomy and the $\mathbb{F}_7$ witness of Example~4.13.  The
+  open-problem list of Section~13 has been amended accordingly and now records
+  the one part of the original request that is still open, namely the
+  normalisation of the transport density against the curvature of the reductive
+  connection of Remark~4.12 (the two differ by a factor of two; see also the
+  insert `paper-4-transport-density.tex` prepared in the companion working
+  directory, which is not part of this paper).
+- **Three cross-references in Subsection~4.7 were unresolved.**  The labels
+  `ex:f7-counts`, `prop:telescoping`, and `eq:chart-projector` did not exist; the
+  references now point to the example of Subsection~3.6 (newly labelled), to
+  Proposition~4.9, and to the projector display of Subsection~3.1.  A label was
+  added to Remark~4.12 for stability.  The build of 2026-10-20 reports no
+  undefined references.
+
+The status line of the projective-torsion entry under "Retained as frameworks or
+open problems" above should be read with this amendment: the framework is
+retained, the existence question is settled, and only the normalisation
+question remains.
