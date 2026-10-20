@@ -200,7 +200,7 @@ paper's principal negative calibration, not concealed.
 
 The source of Paper V is `adva/docs/research`, notes `0001`--`0127` (133 files
 including sub-numbered variants; surveyed 2026-10-20 into ten digests at
-`temp/paper05-survey/`).
+`paper-5/sources/survey/`).
 
 Admission rules:
 

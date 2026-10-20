@@ -110,7 +110,8 @@ The paper absorbs the mathematics of the research corpus `adva/docs/research`, n
 checked-program harnesses, test suites, authority splits, work-package phases, document
 formats, ledgers, and CI gates are excluded.
 
-* Survey digests of the corpus (ten batches): `temp/paper05-survey/`
+* Survey digests of the corpus (ten batches): [`sources/survey/`](sources/survey/), with an
+  explanatory [`sources/README.md`](sources/README.md)
 * Per-result provenance and inherited status: `appendices/app-D-claim-ledger.tex`
 * Notes deliberately not absorbed, with reasons: Appendix D, final section
 
