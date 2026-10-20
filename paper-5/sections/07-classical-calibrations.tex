@@ -1,0 +1,301 @@
+% Section 7: Classical calibrations: isogenies and the Legendre crossing
+\label{sec:classical-body}
+
+A programme that claims a genuinely new triadic structure must be tested against the
+places where mathematics already has one.  This section reports two calibrations, and
+the first is not flattering to the programme: a complex elliptic isogeny already
+carries three exactly-bridged representations, so the bare existence of a bridge is
+prior art.  What survives as novel is narrower and is stated precisely.  The second
+calibration is constructive: in the Legendre family one cusp really does support three
+readings at once, and the residual that obstructs their identification is exact.
+
+\subsection{The isogeny calibration: the bridge is not new}
+
+\begin{theorem}[Three readings of an isogeny]\label{thm:isogeny-three-readings}
+Let $\phi\colon E_1\to E_2$ be a complex elliptic isogeny with kernel $\ker\phi$, and let
+$M_\alpha$ be the matrix of the induced map on the period lattice attached to a complex
+multiplication $\alpha$.  Then
+\[
+  N(\alpha)=|\det M_\alpha|=\deg\phi=|\ker\phi| ,
+\]
+so the norm, the lattice determinant, the covering degree, and the kernel cardinality
+are four descriptions of one number, computed in three different domains.
+\end{theorem}
+
+\begin{proof}
+For a complex isogeny the degree equals the size of the kernel and the index of the
+image lattice, and the lattice index is the absolute determinant of the matrix of the
+map in a lattice basis.  For a CM endomorphism the degree is the algebraic norm.
+\end{proof}
+
+\begin{calibration}[The novelty boundary]\label{cal:isogeny-novelty}
+Theorem~\ref{thm:isogeny-three-readings} shows that a triadic bridge of the kind
+developed in \S\ref{sec:triadic-inference} is already realised classically in the
+theory of complex elliptic isogenies.  The programme's claimable novelty is therefore
+\emph{not} the existence of three bridged representations.  It is, at most:
+\begin{enumerate}
+\item observer-relativity: the bridge is stated relative to a declared finite contract
+  $Q$ and a hypothesis class;
+\item finite inference: the reconstruction is an intersection of fibres subject to a
+  budget, with a four-valued outcome;
+\item accountable residual: where the classical equalities hold, the residual is
+  provably empty, and where they fail, the residual is characterized.
+\end{enumerate}
+\end{calibration}
+
+\begin{warning}[Two traps in the classical case]\label{warn:isogeny-traps}
+Two errors are easy to make and both are avoided in the statement above.
+First, coordinate branching of a composite $x\circ\phi$ is \emph{not} ramification of
+$\phi$; the two are different structures attached to different maps.
+Second, the equalities of Theorem~\ref{thm:isogeny-three-readings} are equalities of
+\emph{numbers} obtained from three carriers; they do not identify the carriers, and by
+Definition~\ref{def:characteristic} an identification of carriers would require a
+residual argument that the theorem does not supply.
+\end{warning}
+
+\begin{proposal}[Characteristics as a groupoid]\label{prop:characteristic-groupoid}
+A characteristic is better modelled as an object of a representation groupoid --- a
+carrier together with declared readings and the isomorphisms between them --- than as a
+single normal-form value.  Under this reading, the value of a characteristic is the
+isomorphism class, and the residual is the stabilizer datum.
+\end{proposal}
+
+\subsection{The marked rank-two carrier and its three cusps}
+
+The geometry that the triadic programme wants is supplied by the level-two modular
+curve.
+
+\begin{proposition}[Three cusps are three slope classes]\label{prop:three-cusps}
+The level-two modular curve
+\[
+  Y(2)=\Gamma(2)\backslash\bH\cong\PP^{1}\setminus\{0,1,\infty\}
+\]
+has exactly three cusps, corresponding to the three points of $\PP^{1}(\F_2)$, that is,
+to the three slope classes $0/1$, $1/1$, $1/0$.  Equivalently, they are the three
+oriented slope classes of one marked rank-two carrier.
+\end{proposition}
+
+\begin{proof}[Status]
+The isomorphism is the classical description of $Y(2)$ as the Legendre $\lambda$-line;
+the three cusps are $\lambda\in\{0,1,\infty\}$.  The slope-class description is obtained
+by reading $(\omega_1,\omega_2)$ modulo $\Gamma(2)$ and reducing the ratio modulo $2$.
+The corresponding mod-two relations are
+$\delta_T=\delta_S+\delta_C$ and its cyclic variants.
+\end{proof}
+
+\begin{remark}[Mod-two erases chirality]\label{rem:mod2-erases}
+The reduction above is mod-two, and \S\ref{sec:six-state} showed exactly what
+mod-two forgets: the sign of the orientation word.  Consequently the identification of
+Proposition~\ref{prop:three-cusps} describes the three readings up to a sign that the
+mod-two picture cannot see, and an integer lift is required.  The following
+construction supplies it.
+\end{remark}
+
+\begin{construction}[Oriented integer lift]\label{con:oriented-lift}
+Let $\delta_T=a$, $\delta_S=b$, $\delta_C=-a-b$ in a rank-two lattice with symplectic
+form $\langle\cdot,\cdot\rangle$, chosen so that all three cyclic pairings equal $+1$:
+\[
+  \langle\delta_T,\delta_S\rangle=\langle\delta_S,\delta_C\rangle
+  =\langle\delta_C,\delta_T\rangle=+1 .
+\]
+The order-three chart rotation is
+\[
+  R=\begin{pmatrix}0&-1\\ 1&-1\end{pmatrix},\qquad R^{3}=I .
+\]
+\end{construction}
+
+\begin{lemma}[Tri-chart coherence]\label{lem:tri-chart}
+The three coordinate charts $(x,y)$, $(y-x,-x)$, $(-y,x-y)$ are permuted by $R$, and
+$R^{3}=I$.
+\end{lemma}
+
+\begin{proof}
+Applying $R$ to a pair yields the next chart, by direct substitution.  The
+characteristic polynomial of $R$ is $\lambda^{2}+\lambda+1$, so $R^{3}=I$ by
+Cayley--Hamilton.
+\end{proof}
+
+\begin{remark}
+Construction~\ref{con:oriented-lift} and Lemma~\ref{lem:tri-chart} are the smallest exact
+repair of Remark~\ref{rem:mod2-erases}: the sign lost mod two is retained by working in
+an oriented integer lattice, at the cost of a nontrivial chart rotation that must be
+tracked.
+\end{remark}
+
+\subsection{The Legendre crossing}
+
+\begin{proposition}[One cusp, three readings]\label{prop:legendre-three-readings}
+Consider the Legendre family
+\[
+  E_\lambda:\ y^{2}=x(x-1)(x-\lambda),\qquad \lambda\in\PP^{1}\setminus\{0,1,\infty\},
+\]
+with its nonzero two-torsion satisfying $P_0+P_1+P_\lambda=0$.  At each cusp
+$\lambda\in\{0,1,\infty\}$, the same local singularity is simultaneously
+\begin{enumerate}
+\item a collision of branch factors of the defining equation;
+\item a vanishing class $\delta$ with Dehn transvection $U_\delta=L_\delta^{2}$;
+\item a monodromy of the Picard--Fuchs system
+  \[
+    \lambda(1-\lambda)\Pi''+(1-2\lambda)\Pi'-\tfrac14\Pi=0 .
+  \]
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}[Status]
+Items (i)--(iii) are classical local descriptions of the Legendre degeneration.  The
+content claimed here is only that they apply at one point to one object; the
+identification of the three \emph{descriptions} with the three \emph{readings} of
+\S\ref{sec:triadic-inference} is not proved and remains the open problem of
+\S\ref{sec:boundaries}.
+\end{proof}
+
+\begin{nogo}[Bare monodromy is spectrally empty]\label{nogo:unipotent}
+The cusp monodromy acts by
+\[
+  M_\delta(v)=v+\langle v,\delta\rangle\,\delta ,
+\]
+which is unipotent.  Hence a bare cusp monodromy supplies no rich spectrum, and any
+useful spectral invariant must be attached to paths, transports, correspondences, or
+gluing data rather than to a single local monodromy operator.
+\end{nogo}
+
+\begin{proof}
+$M_\delta-\id$ has image contained in the line spanned by $\delta$ and has square zero,
+so every eigenvalue of $M_\delta$ equals $1$.
+\end{proof}
+
+\begin{proposition}[Central sign and projective closure]\label{prop:central-sign-closure}
+With positive unipotent cusp lifts $U_0,U_1,U_\infty$ one has
+\[
+  U_0U_1U_\infty=-I \quad\text{in the linear lift, while}\quad
+  M_0M_1M_\infty=I \quad\text{after typing the sign into the infinity chart.}
+\]
+Thus the three local operators close projectively, and a central $-1$ survives in any
+selected linear lift.
+\end{proposition}
+
+\begin{proof}[Status]
+The projective closure is classical.  The central sign is the same phenomenon as
+Proposition~\ref{prop:order-two-four}: projectivization forgets a scalar, and a lift
+retains it.
+\end{proof}
+
+\begin{proposition}[Label transport, not universal swap]\label{prop:label-transport}
+The general law governing how a vanishing cycle moves when the base chart is changed is
+\[
+  L_{g\delta}=g\,L_\delta\,g^{-1},
+\]
+a conjugation of labels.  There is no universal swap law for $\delta$ across charts.
+\end{proposition}
+
+\begin{proof}
+Conjugation transports the cycle $\delta$ to $g\delta$, and the transvection is
+determined by its vanishing cycle, so the conjugated operator is the transvection of the
+transported cycle.
+\end{proof}
+
+\subsection{The crossing-coherence prism and its decomposable defect}
+
+The three cards are now placed on one object, and the result is the paper's principal
+negative calibration.
+
+\begin{construction}[Crossing-coherence prism]\label{con:prism}
+Take three typed carriers
+\[
+  \cK=(\text{construction data }q,p,h),\qquad
+  \cX=(\text{charge }q\in\Z^{2}),\qquad
+  \cT=(\text{covector }\ell\in(\Z^{2})^{\ast}),
+\]
+with crossing actions $J^{c}_{\cK}$, $J^{c}_{\cX}=M_c$, $J^{c}_{\cT}=M_c^{-T}$ for each
+cusp $c$.  The interpretation maps are $F_{\cK\cX}$, $F_{\cX\cT}=J$, and $F_{\cT\cK}$,
+with residuals carried by the last.
+\end{construction}
+
+\begin{theorem}[Crossing squares]\label{thm:crossing-squares}
+In Construction~\ref{con:prism}:
+\begin{enumerate}
+\item the $\cK$--$\cX$ square commutes strictly on charge;
+\item the $\cX$--$\cT$ square commutes strictly, by symplectic duality
+  $JM=M^{-T}J$;
+\item the $\cT$--$\cK$ square commutes only up to the exact history residual, recorded
+  as $[c]$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (i) is immediate, since both actions act on the same charge coordinate.  Item (ii)
+is the defining property of the symplectic form: for $M$ preserving
+$\langle\cdot,\cdot\rangle$ the relation $JM=M^{-T}J$ holds.  Item (iii) fails by
+construction, since a period covector does not determine construction history
+(Proposition~\ref{prop:period-not-history}); the failure is recorded rather than
+removed.
+\end{proof}
+
+\begin{proposition}[Two independent residual channels]\label{prop:two-residual-channels}
+The prism of Construction~\ref{con:prism} carries two independent residuals:
+\begin{enumerate}
+\item a central lift sign, of which $-I$ versus $+I$ is the visible instance;
+\item a history suffix $[c]$ recording the construction path.
+\end{enumerate}
+A coarse projective observer that identifies $v\sim-v$ and $M\sim-M$, and that erases the
+history, sees neither.
+\end{proposition}
+
+\begin{proof}
+The first is invisible under projectivization by
+Proposition~\ref{prop:order-two-four}; the second is invisible because it is not a
+function of the charge or of the covector.  Their independence is exhibited by varying
+one while fixing the other.
+\end{proof}
+
+\begin{theorem}[No-go: the triadic defect decomposes]\label{thm:defect-decomposes}
+The total finite defect of the prism is
+\[
+  D_Q=\bigl(-I,\,[\infty,1,0]\bigr),
+\]
+and it decomposes into the two channels of
+Proposition~\ref{prop:two-residual-channels}.  Consequently no irreducible triadic
+$3$-cocycle is exhibited by this model.
+\end{theorem}
+
+\begin{proof}
+The central sign is a scalar and the history suffix is a word; the projections onto the
+two summands are maps of defect data, and each vanishes on the kernel of the other.  A
+defect admitting such a decomposition is by definition not irreducible.
+\end{proof}
+
+\begin{calibration}[Status of the negative calibration]\label{cal:defect-negative}
+Theorem~\ref{thm:defect-decomposes} is reported as the paper's principal negative
+calibration.  It establishes that the finite Legendre prism does \emph{not} produce a
+genuinely triadic coherence defect; it does not establish that no such defect exists.
+\end{calibration}
+
+\begin{proposal}[What genuine triadicity would require]\label{prop:coherence-defect}
+Genuine triadicity requires a coherence defect $\Theta_c$ that is not reconstructible
+from any pair of the three crossings.  In the language of
+\S\ref{sec:satisfaction-logic} this is the statement that the triple support strictly
+exceeds what the three pairwise supports determine.
+\end{proposal}
+
+\begin{conjecture}[Triadic singular crossing]\label{conj:triadic-crossing}
+There exists a carrier on which the three readings of \S\ref{sec:triadic-inference} are
+related by crossing characteristics with a non-decomposable cyclic defect, functorial
+under refinement of the observer contract $Q$.
+\end{conjecture}
+
+\subsection{What this section settles}
+
+\begin{enumerate}
+\item The bare triadic bridge is prior art
+  (Theorem~\ref{thm:isogeny-three-readings}, Calibration~\ref{cal:isogeny-novelty}); the
+  programme's novelty must be sought in observer-relativity and residual accounting.
+\item The classical carrier for three readings is the level-two modular curve with its
+  three cusps, and the mod-two picture requires an oriented integer lift to retain
+  chirality (Proposition~\ref{prop:three-cusps},
+  Construction~\ref{con:oriented-lift}, Lemma~\ref{lem:tri-chart}).
+\item Crossing coherence is strict for two pairs and residual-laden for the third, and
+  the resulting defect decomposes (Theorem~\ref{thm:crossing-squares},
+  Proposition~\ref{prop:two-residual-channels}, Theorem~\ref{thm:defect-decomposes}).
+\item Whether a non-decomposable defect exists is open
+  (Proposal~\ref{prop:coherence-defect}, Conjecture~\ref{conj:triadic-crossing}).
+\end{enumerate}

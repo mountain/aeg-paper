@@ -1,0 +1,109 @@
+% Appendix C: Six-port incidence and orbit counts
+\label{app:six-port-counts-body}
+
+This appendix records the finite counts used in \S\ref{sec:apertures},
+\S\ref{sec:six-port}, and Appendix~\ref{app:proofs}.  Where a count is stated in the source
+material, the computation is reproduced here so that it can be checked independently.
+
+\subsection{The support partition}
+
+The carrier of Proposition~\ref{prop:seven-faces} has seven nonempty faces: three vertices,
+three edges, and one interior.  Its $2^{7}=128$ supports partition by cardinality as
+\[
+  128=\underbrace{2}_{|S|\in\{0,7\}}+\underbrace{6}_{|S|\in\{1,6\}}
+  +\underbrace{30}_{|S|\in\{2,5\}}+\underbrace{90}_{|S|\in\{3,4\}} .
+\]
+The two-element classes are the empty and full supports; the six-element classes are the
+singletons and their complements; the remaining two classes are self-complementary in the
+sense that a support of size $3$ has a complement of size $4$.
+
+The refinement $30=18+12$ separates the supports of size $2$ and $5$ into those fixed by an
+orientation-reversing reflection and those exchanged by it; the $18$ are achiral and the $12$
+chiral.
+
+\subsection{The $D_3$ orbit count}
+
+The dihedral group $D_3$ of order $6$ acts on the seven faces: it permutes the three vertices
+in a $3$-cycle or a transposition, permutes the three edges identically, and fixes the
+interior.  Burnside's lemma on the induced action on the $128$ supports gives:
+
+\begin{center}
+\begin{tabular}{@{}lcl@{}}
+\toprule
+Element & Number & Fixed supports \\
+\midrule
+identity & $1$ & $128$ \\
+$120^\circ$ rotation & $2$ & $2\cdot2\cdot2=8$ each \\
+reflection & $3$ & $4\cdot4\cdot2=32$ each \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+A rotation acts as a $3$-cycle on the vertices and a $3$-cycle on the edges, so a fixed support
+is determined by $2$ choices per $3$-cycle and $2$ choices for the interior: $8$.  A reflection
+fixes one vertex and swaps a pair, and likewise for edges, so a fixed support has
+$2\cdot2$ choices on vertices and $2\cdot2$ on edges and $2$ on the interior: $32$.
+Hence
+\[
+  \#\text{orbits}=\frac{1}{6}\bigl(128+2\cdot8+3\cdot32\bigr)
+  =\frac{240}{6}=40,
+\]
+reproducing the count of Proposition~\ref{prop:seven-faces}.  Pairing orbits under the
+negation involution $C_2^{\neg}$ halves this to the $20$ archetypes stated there.
+
+\subsection{The matching count for the bridge}
+
+Theorem~\ref{thm:m6-bridge} uses two fixed-point-free involutions on six elements.  The exact
+counts are as follows.
+
+\begin{proposition}[Matching counts]\label{prop:matching-counts}
+On a six-element set there are
+\begin{enumerate}
+\item $15$ fixed-point-free involutions (perfect matchings);
+\item $15\cdot14=210$ ordered pairs of distinct such involutions;
+\item $60$ six-cycles, each admitting exactly $2$ alternating ordered $2$-colourings;
+\item hence $120$ ordered pairs whose union is connected, and $210-120=90$ whose union is two
+  disjoint triangles.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) A perfect matching of six elements is a partition into three unordered pairs, of which
+there are $\frac{6!}{2^{3}\,3!}=15$.  (ii) Immediate.  (iii) The number of cycles on six
+labelled vertices up to rotation and reflection is $(6-1)!/2=60$, and a cycle of even length
+has exactly two alternating $2$-colourings, one for each choice of starting colour.
+(iv) $60\cdot2=120$; the rest are unions of two triangles, which arise when the two matchings
+are the alternating classes of two disjoint $3$-cycles.
+\end{proof}
+
+The count $120$ is the exact size of the family to which
+Theorem~\ref{thm:m6-bridge} applies: connected unions are the case in which the presented
+boundary is a single $M_6^{\partial}$ rather than a disjoint union of smaller boundaries.
+
+\subsection{Miscellaneous finite counts}
+
+\begin{itemize}
+\item The declared maps from six positions into three domains number $3^{6}=729$; the
+  retention ledger of the grammar is indexed by these.
+\item The set partitions of six positions number $B_6=203$ (the sixth Bell number), which is
+  the count of restricted-growth structures used for the allocation ledger.
+\item The permutohedron on four symbols has $24$ vertices, matching the $TO_{24}$ vertex
+  count of Proposition~\ref{prop:envelope}; the two are different graphs with the same vertex
+  count, and the paper does not identify them.
+\item The relation boundary count is $2m$; for $m=3$ this is $6$, which is the port count of
+  $\bW_6$ and the degree $\deg(\bW_6)$ of Definition~\ref{def:whole-cut-record}.
+\end{itemize}
+
+\subsection{What these counts do and do not establish}
+
+Every count in this appendix is an exact statement about a declared finite fixture.  None of
+them is a theorem about arbitrary carriers, and in particular:
+
+\begin{itemize}
+\item the $40$ orbits and $20$ archetypes are properties of the seven-face triangle, not of
+  three-domain carriers in general;
+\item the $120$ connected unions count presentations, not fillers: the filler remains open by
+  Calibration~\ref{cal:m6-open};
+\item the equality of the $TO_{24}$ and permutohedron vertex counts is a numerical coincidence
+  unless a map is supplied, and none is supplied here.
+\end{itemize}

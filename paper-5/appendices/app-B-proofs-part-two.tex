@@ -1,0 +1,121 @@
+% Appendix B: Proofs and finite counts of Part II
+\label{app:proofs-body}
+
+This appendix supplies the details omitted from Part~II: the adequacy induction, the
+countermodels that force each hypothesis of
+Definition~\ref{def:adequacy-hypotheses}, the critical-pair configurations, the monotonicity
+computation behind strong normalization, and the envelope incidence count.
+
+\subsection{The adequacy induction in detail}
+
+We record the rule-by-rule obligations of Theorem~\ref{thm:adequacy}.
+
+\begin{center}
+\begin{tabular}{@{}p{0.20\textwidth}p{0.30\textwidth}p{0.42\textwidth}@{}}
+\toprule
+Rule & Obligation & Discharged by \\
+\midrule
+assumption & $\rho$ realises the thread & Definition~\ref{def:realisation} \\
+$\wedge$I & family intersection is inhabited & hypothesis (3) \\
+$\wedge$E & projection of an inhabited family & hypothesis (3) \\
+$\to$I & discharged thread replaced by witness & hypothesis (1) \\
+$\to$E & consumed thread matched & hypotheses (1), (2) \\
+$\forall$I & a witness slot may be chosen & hypothesis (1) \\
+$\forall$E & instantiation stays inside the family & hypothesis (3) \\
+atom & witness or emptiness certificate & hypothesis (4) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The completeness direction uses hypothesis (4) twice: once to build the canonical assignment
+and once to certify emptiness when the goal family is empty.  This is why (4) cannot be
+weakened to "either a witness or nothing found": without the certificate an empty family
+would be indistinguishable from an unfinished search, and by
+Warning~\ref{warn:empty-unresolved} the two must not be conflated.
+
+\subsection{Countermodels for the four hypotheses}
+
+Each hypothesis is necessary for the equivalence of Theorem~\ref{thm:adequacy} in the
+following exact sense: there is a fixture on which the equivalence fails, the other three
+hypotheses hold, and the failure is attributable to the dropped hypothesis.
+
+\begin{enumerate}
+\item \textbf{Without (Cartesian).}  Take a carrier whose slot domains are dependent, so a
+  partial assignment may admit no extension.  Then an implication whose premise is
+  satisfiable in isolation but not jointly with the context is derivable by the rule while
+  its conclusion has empty family.
+\item \textbf{Without (Compatibility).}  Take three slots with two constraints such that each
+  pair is compatible but the triple is not.  Then pairwise sections are all nonempty while
+  the joint family is empty --- the exact situation of
+  Proposition~\ref{prop:triadicity-test}, read as a failure of adequacy rather than as
+  evidence for triadicity.
+\item \textbf{Without (Transformer).}  Take a connective with a transformer that is sound but
+  not complete; then a derivable conclusion has nonempty family but the transformer's image
+  is strictly larger, so family inclusion does not track derivability.
+\item \textbf{Without (Exhaustiveness).}  Take a carrier where some atomic family is empty
+  with no certificate; the completeness direction fails at that atom, and the failure is
+  reported as \emph{unresolved} rather than as falsity.
+\end{enumerate}
+
+\subsection{The four critical-pair configurations}
+
+For two overlapping redexes (Definition~\ref{def:overlapping-redexes}) the ledger blocks
+compare as follows.  Write the outer detour's ledger as $L\,[x^{b}]\,Q\,S$ and the inner one
+as sitting either inside $Q$ or inside $S$.
+
+\begin{center}
+\begin{tabular}{@{}clp{0.46\textwidth}@{}}
+\toprule
+Case & Position of the inner redex & Relation of the two reduction orders \\
+\midrule
+(1) & in $Q$, on the discharged spine & joined after one splice step \\
+(2) & in $Q$, off the spine & commute exactly \\
+(3) & in $S$, adjacent block & joined after one splice step \\
+(4) & in $S$, order-adjacent block & commute exactly \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+In cases (1) and (3) the two-step results are related by
+Theorem~\ref{thm:substitution-splice} applied to the nested substitution; the freshness
+condition is inherited from the outer redex.  In cases (2) and (4) the blocks are disjoint, so
+the transports of Theorem~\ref{thm:root-transport} act on independent subterms.
+
+\subsection{Monotonicity of the two measures}
+
+Recall $\mu_1$ counts principal-implication detours and $\mu_2$ the total ledger size above
+them, compared lexicographically.
+
+\begin{enumerate}
+\item A root transport removes exactly one detour, so $\mu_1$ decreases by one.  The two
+  subterms $Q$ and $S$ are unchanged as trees, and by
+  Theorem~\ref{thm:substitution-splice} the spliced ledger has the same total size as the
+  original block, so $\mu_2$ is unchanged.
+\item A step strictly inside a context leaves the outer detour count fixed and acts on a
+  strictly smaller tree; induction on tree size applies.  If it also removes a detour, case
+  (1) applies.
+\end{enumerate}
+
+Since $\N\times\N$ is well ordered lexicographically, no infinite reduction sequence exists,
+which is Theorem~\ref{thm:strong-normalization}.  Linearity enters at the first item: with
+contraction available, a detour could be copied and $\mu_1$ would not decrease.
+
+\subsection{The ledger splice}
+
+For a context $L\,Q\,R$ with $Q$ the transported middle block, the ledger of the composite is
+$L\circ\Lambda_\sigma\circ R$ by Theorem~\ref{thm:substitution-splice}.  Concretely, if
+$\Lambda_\sigma$ replaces the $i$-th antecedent occurrence by a block of length $\ell_i$, then
+the composite ledger has the same left and right blocks and a middle block of length
+$\sum_i\ell_i$; freshness is precisely the condition that no occurrence of the original block
+appears twice in the image.
+
+\subsection{Envelope incidence count}
+
+The truncated octahedron has $24$ vertices, all of degree $3$, and faces consisting of six
+squares and eight hexagons.  Then
+\[
+  \#\text{face--vertex incidences}=6\cdot4+8\cdot6=24+48=72=24\cdot3,
+\]
+which agrees with the vertex count.  The relation boundary count of
+Proposition~\ref{prop:envelope} is $2m=6$ for $m=3$, matching
+Theorem~\ref{thm:counting-bound}.

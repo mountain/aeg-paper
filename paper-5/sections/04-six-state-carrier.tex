@@ -1,0 +1,248 @@
+% Section 4: The six-state carrier and the derived Clifford relation
+\label{sec:six-state-body}
+
+Three readings, each two-dimensional over the reals, give six real dimensions.  The
+temptation is to equip each pair with a complex structure and declare the result
+$\C^{3}$.  This section shows that the correct carrier is not a sum of three copies of
+anything: it is the six-dimensional space
+\[
+  W=\Lambda^{1}E\oplus\Lambda^{2}E,\qquad \dim_{\R}E=3,
+\]
+in which each reading is paired with the \emph{oriented relation of the other two},
+and in which the complex unit appears exactly once.  The section then shows that on a
+declared finite cut interval this structure is not postulated but generated.
+
+\subsection{The carrier and its paired planes}
+
+\begin{definition}[Six-state carrier]\label{def:six-state-carrier}
+Let $E$ be a three-dimensional real vector space with basis $T,S,R$ representing the
+temporal, spatial, and relational readings.  Put
+\[
+  W=\Lambda^{1}E\oplus\Lambda^{2}E=\langle T,S,R\rangle\oplus\langle SR,RT,TS\rangle ,
+\]
+so $\dim_{\R}W=6$.  The three \emph{aspect--opposite-relation planes} are
+\[
+  W_T=\langle T,SR\rangle,\qquad W_S=\langle S,RT\rangle,\qquad W_R=\langle R,TS\rangle .
+\]
+\end{definition}
+
+The pairing is the content of the definition: a reading is not paired with a second
+copy of itself but with the oriented plane spanned by the other two.  This is forced
+by the dimension count once one asks that each reading be recoverable from its own
+opposite relation, and it has an immediate consequence for the complex structure.
+
+\begin{proposition}[One complex unit, not three]\label{prop:one-complex-unit}
+Suppose the generators satisfy
+\[
+  T^{2}=S^{2}=R^{2}=1,\qquad \varepsilon_i\varepsilon_j+\varepsilon_j\varepsilon_i=0
+  \ \ (i\neq j),
+\]
+and set $\Omega=TSR$.  Then $\Omega$ is central and
+\[
+  \Omega^{2}=-1 .
+\]
+Consequently $J=\Omega\cdot$ preserves $W$, swaps $\Lambda^{1}E$ with
+$\Lambda^{2}E$ by cyclic pairing
+\[
+  J(T)=SR,\quad J(SR)=-T;\qquad J(S)=RT,\quad J(RT)=-S;\qquad
+  J(R)=TS,\quad J(TS)=-R,
+\]
+and on each plane $W_T,W_S,W_R$ restricts to
+$\begin{pmatrix}0&-1\\ 1&0\end{pmatrix}$.  Hence
+$\chi_J(\lambda)=(\lambda^{2}+1)^{3}$.
+\end{proposition}
+
+\begin{proof}
+\emph{Centrality.}  A generator $T$ commutes with $SR$ up to $(-1)^{2}=+1$, so
+$\Omega$ lies in the centre.
+
+\emph{The square.}  Moving the fourth factor of $\Omega^{2}=T\,S\,R\,T\,S\,R$ to the
+front costs the two transpositions past $R$ and $S$, hence $(-1)^{2}=+1$:
+\[
+  T\,S\,R\,T\,S\,R = T^{2}\,S\,R\,S\,R = S\,R\,S\,R ,
+\]
+using $T^{2}=1$.  Moving the third factor past the fourth costs one transposition:
+\[
+  S\,R\,S\,R = -\,S^{2}R^{2} = -1 .
+\]
+Hence $\Omega^{2}=-1$.
+
+\emph{Pairing.}  For the first plane, $RT=-TR$ gives
+\[
+  \Omega T=T\,S\,R\,T=T\,S\,(-T\,R)=-(T\,S\,T)R=(T\,T\,S)R=T^{2}SR=SR,
+\]
+and then $\Omega(SR)=T\,S\,R\,S\,R=-T\,S^{2}R^{2}=-T$.  The other two planes follow by
+cyclic symmetry.  On the plane spanned by $T$ and $SR$ the action is therefore
+$T\mapsto SR\mapsto -T$, which is the displayed matrix.
+
+\emph{Characteristic polynomial.}  $J$ acts as the same $2\times2$ rotation on each of
+the three planes, so
+$\chi_J(\lambda)=\prod_{i}\det\bigl(\lambda I-J|_{W_i}\bigr)=(\lambda^{2}+1)^{3}$.
+\end{proof}
+
+\begin{calibration}[The algebraic form is an assumption]\label{cal:algebraic-form}
+Proposition~\ref{prop:one-complex-unit} takes the anticommutation relations as
+\emph{hypotheses}.  It is a bounded algebraic calibration: it shows what the carrier
+does once such generators exist.  \S\ref{sec:six-state-derivation} supplies the
+derivation.
+\end{calibration}
+
+\begin{proposition}[Chirality sign law]\label{prop:sign-law}
+For every permutation $\pi$ of the three directions,
+\[
+  P_\pi\,\Omega\,P_\pi^{-1}=\sgn(\pi)\,\Omega .
+\]
+In particular exchanging temporal and spatial directions gives
+$\Omega\mapsto-\Omega=\Omega^{-1}$, so cyclic permutations preserve the orientation
+expression and transpositions reverse it.
+\end{proposition}
+
+\begin{proof}
+$P_\pi$ permutes the generators, hence multiplies the word $TSR$ by the sign of the
+permutation.  Invariantly: a transposition reverses the induced orientation of $E$,
+and $\Omega$ is the orientation class of $E$ followed by the volume of
+$\Lambda^{2}E$ under $\Omega$'s own duality.
+\end{proof}
+
+\begin{remark}
+Proposition~\ref{prop:sign-law} is the carrier-level form of
+Definition~\ref{def:chirality}: the central sign is exactly what a transposition
+produces, and it is invisible to any projective reading.
+\end{remark}
+
+\subsection{The signature trichotomy}
+
+If the three directions are granted arbitrary signs, the complex unit becomes
+conditional.
+
+\begin{proposition}[Signature trichotomy]\label{prop:signature-trichotomy}
+With $T^{2}=\varepsilon_T$, $S^{2}=\varepsilon_S$, $R^{2}=\varepsilon_R$ and
+$\varepsilon_i\in\{-1,0,+1\}$,
+\[
+  \Omega^{2}=-\varepsilon_T\varepsilon_S\varepsilon_R ,
+\]
+so the carrier is elliptic when the product is positive, hyperbolic when negative, and
+parabolic when the product vanishes.
+\end{proposition}
+
+\begin{proof}
+Each $T^{2}$ contributes a factor $\varepsilon_T$ to the reduction performed in the
+proof of Proposition~\ref{prop:one-complex-unit}; the signs multiply.
+\end{proof}
+
+\begin{warning}[Temporality is not a metric sign]\label{warn:temporality}
+A Lorentzian reading with exactly one negative square forces the split case.  Hence
+semantic temporality must \emph{not} be identified with a negative metric direction;
+doing so silently converts the trichotomy of \S\ref{sec:scalar-trichotomy} into an
+unannounced choice of $\kappa=1$.
+\end{warning}
+
+\subsection{Deriving the generators from cuts}\label{sec:six-state-derivation}
+
+The material above is algebraic.  The geometric content of this section is that on a
+declared finite cut interval the two operations needed are already present, so the
+Clifford relation is \emph{derived}.
+
+\begin{construction}[Local cut interval]\label{con:cut-interval}
+Let $U$ be a finite set of events carrying the completion order of a checked acyclic
+program, and let $g_1,g_2,g_3$ be three pairwise independent enabled events
+generating a local Boolean cut interval.  Two operations are available on cut data:
+\begin{enumerate}
+\item \emph{oriented interchange}, which exchanges two independent enabled events and
+  records the sign of the exchange, giving endomorphisms $\varepsilon_i$ on the cut
+  cochains;
+\item \emph{cut contraction}, which reads whether an event belongs to a cut, giving
+  $\iota_i$ determined by the membership pairing
+  \[
+    dx_i(g_j)=\delta_{ij}.
+  \]
+\end{enumerate}
+\end{construction}
+
+\begin{theorem}[Endogenous Clifford relation]\label{thm:endogenous-clifford}
+On the local cut interval of Construction~\ref{con:cut-interval} the following hold.
+\begin{enumerate}
+\item Oriented interchange yields the exterior relations
+  $\varepsilon_i\varepsilon_j+\varepsilon_j\varepsilon_i=0$ for $i\neq j$.
+\item With membership pairing $dx_i(g_j)=\delta_{ij}$, the operators
+  $c_i=\varepsilon_i+\iota_i$ satisfy
+  \[
+    c_ic_j+c_jc_i=2\delta_{ij}I .
+  \]
+\item Hence $\Omega=c_1c_2c_3$ satisfies $\Omega^{2}=-I$, and on
+  $W=\Lambda^{1}E\oplus\Lambda^{2}E$ the orientation action has
+  $\chi_J(\lambda)=(\lambda^{2}+1)^{3}$ with three aspect--opposite-face planes.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}[Proof sketch and status]
+Items (i) and (ii) are the Chevalley construction of a Clifford algebra from an
+exterior algebra together with a contraction satisfying the duality
+$dx_i(g_j)=\delta_{ij}$; what the construction adds is that both operations are
+\emph{supplied by the cut data} rather than assumed.  Item (iii) is then
+Proposition~\ref{prop:one-complex-unit} applied to the derived generators.
+The derivation is checked exhaustively on one local three-cube and is reported as a
+bounded endogenous derivation, not as a theorem about arbitrary cut intervals.
+\end{proof}
+
+\begin{theorem}[Interchange alone is insufficient]\label{thm:interchange-insufficient}
+Oriented interchange by itself yields only a nilpotent exterior volume: it produces
+$\varepsilon_1\varepsilon_2\varepsilon_3$ satisfying
+$(\varepsilon_1\varepsilon_2\varepsilon_3)^{2}=0$, and no complex structure.  The
+contraction $\iota_i$ is indispensable.
+\end{theorem}
+
+\begin{proof}
+Wedge products of degree three in a three-dimensional exterior algebra have square
+zero because any repeated factor annihilates the product.  Without a contraction
+there is no degree-lowering operation, so the Chevalley combination $c_i=\varepsilon_i
++\iota_i$ cannot be formed.
+\end{proof}
+
+\begin{remark}[Why this matters]
+Theorems~\ref{thm:endogenous-clifford} and~\ref{thm:interchange-insufficient}
+together answer the natural objection to \S\ref{sec:scalar-trichotomy}: the complex
+structure is not smuggled in with the carrier.  It is produced by two operations that
+the cut interpretation already needs, and the second of them is doing essential work.
+\end{remark}
+
+\subsection{Filtrations from a designated causal line}
+
+One further structure is available, and it is important not to over-read it.
+
+\begin{proposition}[Six-state filtration]\label{prop:filtration}
+Designating one causal line refines the six-state carrier as
+\[
+  6=1+2+2+1 .
+\]
+The two readings $(1,2,3)$ and $(1,3,2)$ obtained by regrouping the transverse pairs
+differ by an orientation-unit transfer and are \emph{not} a chiral pair.
+\end{proposition}
+
+\begin{proof}[Status]
+The count is elementary from
+Definition~\ref{def:six-state-carrier}.  The absence of chirality is the content: see
+Theorem~\ref{thm:regrouping-not-chirality}.
+\end{proof}
+
+\begin{theorem}[No-go: regrouping is not chirality reversal]\label{thm:regrouping-not-chirality}
+Orientation-unit transfer changes block membership but not $\Omega$, whereas an actual
+odd exchange of two transverse directions satisfies $P\Omega P^{-1}=-\Omega$.  Hence
+the passage $(1,2,3)\leftrightarrow(1,3,2)$ is a change of filtered reading and not a
+chiral pair.  Consequently an ordinary scalar spectrum cannot distinguish the two
+readings, while the filtration can.
+\end{theorem}
+
+\begin{proof}
+The two facts are verified separately: the transfer preserves the orientation word by
+Proposition~\ref{prop:sign-law} applied to an even permutation, while an odd exchange
+is a transposition and therefore reverses it.  A scalar spectrum depends only on
+$\Omega^{2}$ and hence cannot see the sign at all.
+\end{proof}
+
+\begin{remark}
+Theorem~\ref{thm:regrouping-not-chirality} is a small result with a large moral, which
+recurs in \S\ref{sec:residual-catalogue}: quantities built from squares, norms, or
+spectra are blind precisely to the central sign that
+Definition~\ref{def:chirality} isolates.
+\end{remark}

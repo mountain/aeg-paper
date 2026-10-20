@@ -1,0 +1,178 @@
+% Section 11: Aperture-first semantics: the typed hole
+\label{sec:apertures-body}
+
+Part~I repeatedly met a place where a reading was \emph{undetermined}: a missing
+feedback operator (No-go~\ref{nogo:return-not-period}), a fibre whose members a mass could
+not recover (Proposition~\ref{prop:mass-not-fibre}), a logical value $\bot$ that meant no
+evidence rather than falsehood (Warning~\ref{warn:bottom-not-false}).  In each case the
+honest description of the situation was not a value but a \emph{place where something
+belongs and is not yet there}.
+
+Part~II takes that place as its primitive.  This section introduces it, fixes its
+discipline, and shows what a finite semantics built on it looks like.
+
+\subsection{Why the hole is primitive}
+
+\begin{proposal}[Aperture-first]\label{prop:aperture-first}
+The primitive object of a partial semantics should be the typed hole --- a position of
+declared type whose content is not determined --- rather than a state plus an
+exception, or a value plus a flag.  The reasons are that holes compose, that they carry
+their type, and that the operations which fill and empty them are not forced to be
+inverses.
+\end{proposal}
+
+\begin{definition}[Typed aperture]\label{def:aperture}
+Let $D$ be a finite set of domain slots and let $\tau$ assign a type to each slot.  A
+\emph{typed aperture at $d\in D$} is a syntactic object $h_d$ satisfying:
+\begin{enumerate}
+\item $h_d$ is syntactically empty --- it contributes no term of its own;
+\item $h_d$ has a declared type $\tau(d)$;
+\item semantically, $h_d$ denotes the \emph{filling family} of all admissible inhabitants
+  of $\tau(d)$ compatible with the surrounding context.
+\end{enumerate}
+\end{definition}
+
+The third clause is the substantive one: an aperture is not a wildcard.  It is a family,
+and the family is part of the semantics.
+
+\begin{proposal}[Open and close are not inverses]\label{prop:open-close}
+The operations that open an aperture and that close it are deliberately not inverse.
+Closing selects an inhabitant and thereby \emph{records} a choice; opening again does not
+erase the record but adds a new one, and the difference is exactly the residual of
+Definition~\ref{def:characteristic}.
+\end{proposal}
+
+\begin{remark}
+Proposal~\ref{prop:open-close} is the syntactic form of
+Proposition~\ref{prop:lossy-quotient}: closing is a quotient, and the record is the
+residual.  Treating open and close as inverses would amount to asserting that the
+quotient has a canonical section, which \S\ref{sec:observers} showed it does not.
+\end{remark}
+
+\subsection{The four structural statuses}
+
+\begin{definition}[Aperture status]\label{def:aperture-status}
+At any stage an aperture is in exactly one of four structural statuses:
+\begin{enumerate}
+\item \emph{no aperture} --- the position is not a hole in this context;
+\item \emph{inhabited} --- the filling family is nonempty and a witness is available;
+\item \emph{exhaustively empty} --- the filling family is empty \emph{and} the
+  emptiness is certified by an exhaustion argument;
+\item \emph{unresolved} --- neither a witness nor an exhaustion is available within the
+  declared budget.
+\end{enumerate}
+\end{definition}
+
+\begin{warning}[The third and fourth statuses are different]\label{warn:empty-unresolved}
+Status (3) and status (4) are the aperture-level form of
+Warning~\ref{warn:unknown-not-nonexistence}, and conflating them is the most common error
+in this material.  An exhausted search that finds no inhabitant is a positive result; a
+search that runs out of budget is not a result at all.
+\end{warning}
+
+\subsection{The finite terminal-world carrier}
+
+The semantics of Part~II is finite from the outset.  Its carrier is built from the
+possible outcomes of a bounded process.
+
+\begin{definition}[Terminal-world carrier]\label{def:terminal-worlds}
+Let $D$ be a finite set of domain slots.  A \emph{terminal world} is a complete assignment
+of values to $D$.  The \emph{terminal-world carrier} $H_D$ is the set of terminal worlds
+that are \emph{nonempty}, meaning that the assignment is realised by at least one
+admissible execution.  In the calibrated instance with three slots the seven nonempty
+faces give $|H_7|=7$.
+\end{definition}
+
+\begin{proposition}[Exhaustive partition of supports]\label{prop:seven-faces}
+For the seven nonempty faces of a triangle carrier, the $2^{7}=128$ supports are
+exhaustively partitioned by size into
+\[
+  128=2+6+30+90 ,
+\]
+with the $30$ refined to $30=18+12$, and classified into $40$ orbits under $D_3$ and
+$20$ archetypes under $D_3\times C_2^{\neg}$.
+\end{proposition}
+
+\begin{proof}[Status]
+An exhaustive finite enumeration of the declared fixture, reported as a calibration.  The
+refinement of $30$ into $18+12$ separates the chiral classes from the achiral ones.
+\end{proof}
+
+\begin{nogo}[Mask data does not recover direction]\label{nogo:mask-direction}
+The mask enumeration of Proposition~\ref{prop:seven-faces} carries no construction
+direction: two constructions differing in orientation and agreeing on the mask are not
+separated by any mask-level datum.
+\end{nogo}
+
+\begin{proof}
+The mask records which faces are nonempty, and the datum is invariant under the
+orientation-reversing involution of the carrier; a construction history is not.
+\end{proof}
+
+\subsection{Fibre semantics}
+
+\begin{definition}[Filling fibre]\label{def:filling-fibre}
+For a formula $\varphi$, a model carrier $\cM$, and an assignment $\rho$ to the free
+slots, the \emph{filling family} is
+\[
+  \Fill_{\cM,\rho}(\varphi)\subseteq\cM
+\]
+the set of terminal worlds in which $\varphi$ is realised.  The three semantic values are
+then read off structurally:
+\begin{itemize}
+\item \emph{truth} is an inhabiting line: $\Fill_{\cM,\rho}(\varphi)\neq\varnothing$;
+\item \emph{falsehood} is an exhaustively empty fibre, certified;
+\item \emph{unresolved} is neither, within the budget.
+\end{itemize}
+\end{definition}
+
+\begin{proposal}[Connectives act on fibres]\label{prop:fibre-connectives}
+Connectives are operations on filling families rather than on truth values:
+conjunction is intersection of families, disjunction is union, and the quantifiers are
+the adjoints of Proposition~\ref{prop:adjoint-quantifiers}.  Consequently the semantics is
+determined by what it does to families, and the truth values are derived readings.
+\end{proposal}
+
+\begin{remark}
+Proposition~\ref{prop:fibre-connectives} is where Part~II pays for Part~I's discipline.  If
+truth is primitive, falsehood and unresolved collapse.  If the family is primitive, they
+do not, and the four statuses of Definition~\ref{def:aperture-status} are the honest
+taxonomy.
+\end{remark}
+
+\subsection{The geometric reading, and its conditionality}
+
+A finite observer can be presented geometrically, but only conditionally.
+
+\begin{proposal}[Finite observer as a marked surface]\label{prop:surface-observer}
+A finite observer may be presented as a marked finite-type surface
+\[
+  \Sigma^{\circ}_{P}\simeq \Gamma_{P}\backslash\bH^{2}_{\mathrm{AM}} ,
+\]
+whose sealed threads are the vocabulary generators, with a cap--seal calculus and a
+$J$-operator acting on thread ends.  In this presentation universality is an
+\emph{axiom proposal}: the observer stores finitely many generators, relations, markings
+and residuals plus a rule producing any demanded finite portion, so infinity is potential
+rather than completed.
+\end{proposal}
+
+\begin{warning}[Conditionality of the geometric reading]\label{warn:geometric-conditional}
+Proposition~\ref{prop:surface-observer} is a representation claim, not an identification.
+The passage between the symbolic grammar and the hyperbolic carrier requires an explicit
+coding or quasi-isometry theorem, and none is supplied here.  Statements about the
+hyperbolic model in this paper are imported from Paper~0 \cite{Yuan2026AEGPaperZero} and
+are not re-derived.
+\end{warning}
+
+\subsection{Summary}
+
+\begin{enumerate}
+\item The typed hole is primitive, it denotes a filling family, and open and close are not
+  inverses (Definition~\ref{def:aperture}, Proposal~\ref{prop:open-close}).
+\item Four statuses are needed, and exhaustion differs from unresolved
+  (Definition~\ref{def:aperture-status}, Warning~\ref{warn:empty-unresolved}).
+\item Semantics is fibre-valued, with truth, certified falsehood, and unresolved kept
+  apart (Definition~\ref{def:filling-fibre}, Proposal~\ref{prop:fibre-connectives}).
+\item The geometric reading is available but conditional
+  (Proposal~\ref{prop:surface-observer}, Warning~\ref{warn:geometric-conditional}).
+\end{enumerate}

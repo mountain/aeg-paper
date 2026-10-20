@@ -1,0 +1,150 @@
+% Section 17: Claim boundaries and the remaining programme
+\label{sec:boundaries-body}
+
+This paper has reported more boundary results than theorems, and the imbalance is
+deliberate.  This section collects the boundaries, states which of them are open problems
+rather than exclusions, and identifies the single gap on which the triadic programme
+depends.
+
+\subsection{The decisive gap: order from energy}
+
+Every layer of Part~I that computes a quantity --- period grades, spectral packets, energy
+vectors, trace counts --- is a map into something ordered or something measurable.  None of
+them produces the structure that a cut actually needs.
+
+\begin{problem}[Order from a finite frontier]\label{prob:order-from-energy}
+\label{prob:decisive-gap}
+Construct a chart-covariant certified comparison on finite period-energy frontiers whose
+objectification yields the correct order relation on the resulting numbers.
+\end{problem}
+
+\begin{remark}[Why this is the decisive gap]
+Energy and period data determine \emph{what is visible}.  Nothing in this material
+determines \emph{what is left and what is right}.  The identification of energy grades with
+the two sides of a cut was explicitly rejected as unlicensed
+(No-go~\ref{nogo:zero-energy-trap} shows that energy alone is vacuous as a selector, and
+Proposition~\ref{prop:energy-invariance} that it detects only invariance).  Until
+Problem~\ref{prob:decisive-gap} is solved, the triadic programme has carriers and residuals
+but no order, and by Definition~\ref{def:satisfaction-form} a logic without order has
+evidence but no entailment.
+\end{remark}
+
+\subsection{Open problems}
+
+\begin{problem}[Canonical identification of the three readings]\label{prob:canonical-readings}
+Decide whether the three readings $\rho_t,\rho_X,\rho_\cK$ admit a canonical
+identification on the Legendre carrier, or whether only the residual-laden comparison of
+Theorem~\ref{thm:crossing-squares} exists.  The mod-two description
+(Proposition~\ref{prop:three-cusps}) shows that at least the sign must be tracked; whether
+anything further is canonical is open.
+\end{problem}
+
+\begin{problem}[Non-decomposable triadic defect]\label{prob:non-decomposable}
+Prove or refute Conjecture~\ref{conj:triadic-crossing}: does there exist a carrier on which
+the cyclic defect of the three crossings is not reconstructible from any pair?  The finite
+Legendre prism fails (Theorem~\ref{thm:defect-decomposes}), and the finite satisfaction form
+fails (Calibration~\ref{cal:triadicity-fails}); both failures are decompositions of a
+specific kind, and neither excludes a carrier of a different kind.
+\end{problem}
+
+\begin{problem}[The $M_6$ filler]\label{prob:m6-filler}
+Construct the 2-cell that fills $M_6^{\partial}$ as presented by
+Theorem~\ref{thm:m6-bridge}, or prove that the alternating presentation admits no filler.
+The boundary is exhibited; the interior is not.
+\end{problem}
+
+\begin{problem}[A typed feedback operator]\label{prob:feedback}
+Supply a syntactic operator whose semantics is genuinely periodic, thereby repairing
+No-go~\ref{nogo:return-not-period}.  Boundary-return words exist; periodic dynamics does
+not.  The obstruction is that completed-past rank is monotone, so any repair must change the
+carrier rather than add a formula.
+\end{problem}
+
+\begin{problem}[Truncation is residual-valued]\label{prob:truncation}
+Finite energy sublevels are not closed under addition, multiplication, or grafting, so
+truncation satisfies $xy=P_\Lambda(xy)+R_\Lambda(x,y)$ with nonvanishing residual.  Give a
+calculus in which this residual composes.
+\end{problem}
+
+\begin{problem}[Vocabulary gradients]\label{prob:vocabulary}
+For a residual functional $E$ on monotone Boolean vocabularies, the diminishing-returns
+inequality holds, and the heuristic "largest local gain is best" is refuted by explicit
+counterexample.  Determine the correct admissible search discipline, and connect it to the
+coaction of Proposition~\ref{prop:binomial-coaction}.
+\end{problem}
+
+\begin{problem}[Learning and proof as reverse duals]\label{prob:reverse-dual}
+The duality proposed in this material is contravariant: proof normalises toward a sink and
+learning is the reverse generative orientation, with the forward equation false.  Supply the
+formal dual pair and prove that the two orientations are exchanged, or show that only one
+direction exists.
+\end{problem}
+
+\subsection{What is excluded, not merely open}
+
+The following are excluded by scope, and no amount of further work inside this paper would
+include them.
+
+\begin{enumerate}
+\item \textbf{Universality claims.}  The kernel's status is relative initiality
+  (Proposition~\ref{prop:relative-initiality},
+  Warning~\ref{warn:not-universal}).  Computation-universality of the triadic form is not
+  claimed at any point.
+\item \textbf{Physical interpretation.}  The six-state carrier is a finite combinatorial
+  object (Theorem~\ref{thm:endogenous-clifford}); spacetime, metric signature, and physical
+  realization are outside the paper.  Warning~\ref{warn:temporality} removes the most
+  tempting identification explicitly.
+\item \textbf{Complex scalars as a foundational necessity.}  What is proved is a selection
+  within a tested family under a bridge hypothesis
+  (Proposition~\ref{prop:negative-inverse}, Calibration~\ref{cal:bridge-hypothesis}).
+\item \textbf{Computational lower bounds.}  No growth rate, no entropy inequality, and no
+  fibre size in this paper yields a runtime or space bound.  Paper~IV owns that territory
+  under stricter hypotheses \cite{Yuan2026AEGCondensation}.
+\item \textbf{$\Omega$-type boundaries from finite results.}  Finite confluence and finite
+  focused search produce no limit object
+  (Warning~\ref{warn:no-compactification}).
+\item \textbf{Knot-theoretic invariance.}  The figure-eight calibration
+  (Theorem~\ref{thm:figure-eight}) identifies one feature of one word; it does not construct
+  a knot invariant, and the polynomial does not reconstruct the knot.
+\end{enumerate}
+
+\subsection{Engineering excluded from the paper}
+
+The governance scope of this paper
+(\texttt{governance/00c-paper-V-triadic-aperture-scope.md}) excludes the engineering
+scaffolding of the source corpus: checked-program harnesses, test suites, authority splits,
+work-package phases, document formats, ledgers of artifacts, and CI gates.  Fifteen of the
+133 surveyed source files contribute no main-text mathematics and are cited at most as
+provenance.  Where a mathematical claim in this paper depends on an executed check, the
+dependence is recorded in the claim ledger of Appendix~\ref{app:ledger} rather than
+concealed.
+
+Appendix~\ref{app:ledger} also lists the source clusters that are mathematical but belong to
+neither part of this paper --- the causal-cut and Alexandrov-duality notes, the backward
+transport and cut-composition notes, the $PSP^{\ast}$ programme, the $\Omega$-boundary
+cluster, and the later formation-gate notes.  Those omissions are deliberate and are recorded
+so that they are visible rather than accidental; they are the natural content of a subsequent
+paper.
+
+\subsection{The programme}
+
+Four tasks follow, in order of logical dependence.
+
+\begin{enumerate}
+\item \textbf{Order.}  Solve Problem~\ref{prob:decisive-gap}.  Nothing downstream is stable
+  until a comparison is available, because a logic without order is only evidence.
+\item \textbf{Filler.}  Solve Problem~\ref{prob:m6-filler}, which completes the kernel's
+  presentation and would decide whether the triadic structure is carried by the cell or only
+  by its boundary.
+\item \textbf{Triadicity.}  Settle Problem~\ref{prob:non-decomposable}, which decides
+  whether the paper's central negative calibration is a limitation of the finite models or a
+  feature of the phenomenon.
+\item \textbf{Motion.}  Solve Problem~\ref{prob:feedback}, which is what would turn the
+  syntax of Part~II into a semantics with dynamics.
+\end{enumerate}
+
+\begin{remark}[On the shape of the programme]
+Three of the four tasks are constructive and one is a decision.  That ratio is the honest
+summary of the state of this material: the carriers and the residuals exist, and what is
+missing is the additional structure that would make them a theory of order and motion.
+\end{remark}

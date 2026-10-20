@@ -1,0 +1,152 @@
+% Appendix A: Scalar, chiral, and Clifford calculations
+\label{app:scalar-body}
+
+This appendix records the computations used in \S\ref{sec:scalar-trichotomy} and
+\S\ref{sec:six-state}.  Nothing here is new; the purpose is to have the exact
+formulas in one place, so that a reader can check the paper's claims without consulting the
+source notes.
+
+\subsection{The three quadratic algebras}
+
+For $\kappa\in\{-1,0,1\}$ and $x=a+bj$, $y=c+dj$:
+\[
+  xy=(ac+\kappa bd)+(ad+bc)j,\qquad
+  \bar x=a-bj,\qquad
+  N_\kappa(x)=x\bar x=a^{2}-\kappa b^{2}.
+\]
+
+\subsubsection{Multiplicativity of the norm}
+Expanding both sides,
+\[
+  N_\kappa(xy)
+  =(ac+\kappa bd)^{2}-\kappa(ad+bc)^{2}
+  =a^{2}c^{2}+2\kappa abcd+\kappa^{2}b^{2}d^{2}
+   -\kappa a^{2}d^{2}-2\kappa abcd-\kappa b^{2}c^{2},
+\]
+so the cross terms cancel and
+\[
+  N_\kappa(xy)=a^{2}c^{2}-\kappa a^{2}d^{2}-\kappa b^{2}c^{2}+\kappa^{2}b^{2}d^{2}
+  =(a^{2}-\kappa b^{2})(c^{2}-\kappa d^{2})=N_\kappa(x)N_\kappa(y).
+\]
+
+\subsubsection{Inverses}
+When $N_\kappa(x)=a^{2}-\kappa b^{2}\neq0$,
+\[
+  x^{-1}=\frac{\bar x}{N_\kappa(x)}=\frac{a-bj}{a^{2}-\kappa b^{2}} .
+\]
+The excluded loci are therefore:
+\[
+  \kappa=-1:\ \varnothing\ \text{off the origin};\qquad
+  \kappa=0:\ a=0;\qquad
+  \kappa=1:\ a=\pm b .
+\]
+
+\subsection{The negative-inverse involution}
+
+With $S_\kappa(z)=-1/z$ and $z=a+bj$,
+\[
+  S_\kappa(a,b)=\Bigl(\frac{-a}{a^{2}-\kappa b^{2}},\ \frac{b}{a^{2}-\kappa b^{2}}\Bigr).
+\]
+Then
+\[
+  z\,S_\kappa(z)=(a+bj)\cdot\frac{-a+bj}{a^{2}-\kappa b^{2}}
+  =\frac{-a^{2}+abj-abj+\kappa b^{2}}{a^{2}-\kappa b^{2}}=-1 .
+\]
+For $\kappa=-1$ the denominator is $a^{2}+b^{2}$, so $S_{-1}$ is defined on
+$\R^{2}\setminus\{0\}$; and $b>0$ gives $b/(a^{2}+b^{2})>0$, so the upper half-plane is
+preserved.  Involutivity is the standard $(S\circ S)(z)=z$ for a M\"obius involution on a
+chart where it is defined, checked directly as
+\[
+  S_{-1}\bigl(S_{-1}(a,b)\bigr)=(a,b).
+\]
+
+\subsection{The exchange lift}
+
+With $J=\begin{pmatrix}0&-1\\ 1&0\end{pmatrix}$:
+\[
+  J^{2}=\begin{pmatrix}-1&0\\ 0&-1\end{pmatrix}=-I,\qquad
+  J^{-1}=-J .
+\]
+Projectively, $[-\id]=[\id]$, hence $[J]^{2}=[I]$ while $J^{2}=-I$ on the lift.
+
+On the chart $z=t/s$, the action $(t,s)\mapsto(-s,t)$ gives
+$z\mapsto(-s)/t=-1/z$.
+
+\subsubsection{The generator matrix}
+Multiplication by $j$ in the basis $(1,j)$ is
+\[
+  L_j=\begin{pmatrix}0&\kappa\\ 1&0\end{pmatrix},\qquad
+  L_j^{2}=\begin{pmatrix}\kappa&0\\ 0&\kappa\end{pmatrix}=\kappa I,\qquad
+  \det L_j=-\kappa .
+\]
+For $\kappa=-1$: $L_j=J$, $\det=+1$, order four.  For $\kappa=1$: $L_j^{2}=I$,
+$\det=-1$.  For $\kappa=0$: $L_j^{2}=0$, $L_j$ nilpotent.
+
+\subsection{Orientation-preservation of the involution}
+
+In real coordinates,
+\[
+  S(x,y)=\Bigl(\frac{-x}{x^{2}+y^{2}},\ \frac{y}{x^{2}+y^{2}}\Bigr).
+\]
+As $S$ is the holomorphic map $z\mapsto -1/z$ with derivative $1/z^{2}$,
+\[
+  \det DS=\left|\frac{1}{z^{2}}\right|^{2}=\frac{1}{(x^{2}+y^{2})^{2}}>0 .
+\]
+
+\subsection{The six-state carrier}
+
+Let $T,S,R$ satisfy $T^{2}=S^{2}=R^{2}=1$ and anticommute in pairs, and set
+$\Omega=TSR$.
+
+\subsubsection{Centrality}
+For example $T\Omega=T\cdot TSR=T^{2}SR=SR$ and
+$\Omega T=TSRT=TS(-TR)=-(TST)R=(TTS)R=SR$; the two agree.  The other two generators are
+checked identically.
+
+\subsubsection{The square}
+\[
+  \Omega^{2}=T\,S\,R\,T\,S\,R=T^{2}\,S\,R\,S\,R=S\,R\,S\,R=-S^{2}R^{2}=-1,
+\]
+where the third equality moves the fourth factor past two factors (sign $+1$) and the
+fourth equality moves the third factor past one factor (sign $-1$).
+
+\subsubsection{The pairing}
+\[
+  \Omega T=SR,\quad \Omega(SR)=-T,\qquad
+  \Omega S=RT,\quad \Omega(RT)=-S,\qquad
+  \Omega R=TS,\quad \Omega(TS)=-R,
+\]
+so on each of the three planes $\langle T,SR\rangle$, $\langle S,RT\rangle$, and
+$\langle R,TS\rangle$ the operator $J=\Omega\cdot$ acts as
+$\begin{pmatrix}0&-1\\ 1&0\end{pmatrix}$.
+
+\subsubsection{The characteristic polynomial}
+Since $J$ acts as the same rotation on three complementary two-planes,
+\[
+  \chi_J(\lambda)=(\lambda^{2}+1)^{3}=\lambda^{6}+3\lambda^{4}+3\lambda^{2}+1 .
+\]
+
+\subsubsection{The signature trichotomy}
+Allowing $T^{2}=\varepsilon_T$, $S^{2}=\varepsilon_S$, $R^{2}=\varepsilon_R$ multiplies the
+above reduction by $\varepsilon_T\varepsilon_S\varepsilon_R$, giving
+$\Omega^{2}=-\varepsilon_T\varepsilon_S\varepsilon_R$.  Hence:
+\[
+  \varepsilon_T\varepsilon_S\varepsilon_R=+1\ \text{(elliptic)},\quad
+  -1\ \text{(hyperbolic)},\quad 0\ \text{(parabolic)} .
+\]
+
+\subsubsection{The chirality sign law}
+A permutation $\pi$ of the generators acts on the word $TSR$ by its sign, so
+$P_\pi\Omega P_\pi^{-1}=\sgn(\pi)\Omega$; in particular a transposition gives
+$\Omega\mapsto-\Omega=\Omega^{-1}$.
+
+\subsection{The tri-chart rotation}
+
+With
+\[
+  R=\begin{pmatrix}0&-1\\ 1&-1\end{pmatrix}
+\]
+one computes $\mathrm{char}_{R}(\lambda)=\lambda^{2}+\lambda+1$, hence $R^{2}+R+I=0$ and
+$R^{3}=I$ by Cayley--Hamilton.  In coordinates: $(x,y)\mapsto(-y,x-y)$, and applying this
+three times returns $(x,y)$.  The three charts $(x,y)$, $(y-x,-x)$, $(-y,x-y)$ are permuted
+cyclically.

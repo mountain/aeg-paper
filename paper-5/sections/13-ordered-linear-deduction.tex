@@ -1,0 +1,154 @@
+% Section 13: Ordered linear deduction: soundness and its limit
+\label{sec:ordered-linear-body}
+
+\S\ref{sec:adequacy} gave a semantics and a calculus adequate for it under hypotheses.
+This section fixes the specific fragment studied in the rest of Part~II and asks the two
+questions that matter about it: is it sound, and is it complete?  The answers are yes and
+no, and the failure of completeness is exact rather than mysterious: it is measured by a
+grade invariant.
+
+\subsection{The fragment}
+
+\begin{definition}[The ordered linear fragment $\mathrm{TND}_0$]
+\label{def:tnd0}
+$\mathrm{TND}_0$ is the implicational fragment of threaded natural deduction in which
+\begin{enumerate}
+\item antecedents form an \emph{ordered} context: order is part of the judgment and there
+  is no exchange;
+\item there is no weakening and no contraction; copy and discard, if present, are
+  explicit terms;
+\item a judgment carries a \emph{ledger} recording which antecedents each conclusion
+  consumed.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Ledger-indexed judgment]\label{def:ledger-judgment}
+Write
+\[
+  L\mid \Gamma \vdash \varphi
+\]
+for the judgment that $\varphi$ is derivable from the ordered context $\Gamma$ while
+consuming exactly the ledger $L$.  The ledger is not notation for the context: two
+judgments may share $\Gamma$ and differ in $L$.
+\end{definition}
+
+The distinction between $\Gamma$ and $L$ is the syntactic analogue of the distinction
+between source and occurrence that Part~I insisted on
+(Proposition~\ref{prop:word-to-graph}).  A context lists what is available; a ledger
+records what was used, and by which use.
+
+\subsection{Soundness}
+
+\begin{theorem}[Soundness of $\mathrm{TND}_0$]\label{thm:soundness}
+If $L\mid\Gamma\vdash\varphi$ then for every carrier $\cM$ and assignment $\rho$,
+\[
+  \cM,\rho\models\Gamma \ \Rightarrow\ \cM,\rho\models\varphi .
+\]
+In particular $\mathrm{TND}_0$ is sound for Boolean semantics on $2^{D}$ and hence on the
+terminal-world carrier $H_D$ of Definition~\ref{def:terminal-worlds}.
+\end{theorem}
+
+\begin{proof}
+Induction on the derivation, using only that the fragment's rules preserve realisation of
+the ordered context: the implication-introduction rule discharges the head of the ordered
+context, implication-elimination consumes it, and no rule moves antecedents.  The argument
+is the ordered specialisation of Theorem~\ref{thm:adequacy} and does not need hypotheses
+(1)--(3) beyond the product structure of $2^{D}$.
+\end{proof}
+
+\subsection{The grade invariant, and incompleteness}
+
+\begin{definition}[Grade]\label{def:grade}
+For a formula $\varphi$ and a terminal world assignment, let $\mathrm{gr}(\varphi)$ be the
+alternation count of the leading connective along the leftmost spine, read as a natural
+number.  For a derivation, $\mathrm{gr}$ is the maximum over its judgments.
+\end{definition}
+
+\begin{theorem}[Incompleteness]\label{thm:incompleteness}
+$\mathrm{TND}_0$ is \emph{not} complete for Boolean semantics on $2^{D}$: there exist
+$\Gamma$ and $\varphi$ with $\cM,\rho\models\Gamma\Rightarrow\cM,\rho\models\varphi$ for
+all $\rho$, yet $L\mid\Gamma\vdash\varphi$ is underivable for every ledger $L$.
+\end{theorem}
+
+\begin{proof}
+Semantic entailment on $2^{D}$ is closed under the classical structural rules.  Take a
+semantically valid implication whose witnessing term requires a permutation of antecedents
+(exchange) or the reuse of one antecedent (contraction).  By
+Definition~\ref{def:tnd0} neither is available, and by
+Definition~\ref{def:ledger-judgment} a ledger cannot be shared between two uses.  Hence no
+derivation exists, although the entailment holds.
+\end{proof}
+
+\begin{proposition}[The grade measures the gap]\label{prop:grade-measures}
+The mismatch between Boolean entailment and threaded derivability is measured by the grade
+of Definition~\ref{def:grade}: for a fixed carrier, the minimal grade at which a valid
+entailment becomes derivable is a computable function of the formula, and it is unbounded
+over formulas.
+\end{proposition}
+
+\begin{proof}[Status]
+The computation is finite on each formula by the decision procedure of
+\S\ref{sec:confluence-decidability}; unboundedness is exhibited by the family of formulas
+requiring $n$ nested exchanges.
+\end{proof}
+
+\begin{remark}[Why incompleteness is a result, not a defect]
+Theorem~\ref{thm:incompleteness} tells us that the ordered linear fragment \emph{selects}
+a logic strictly finer than Boolean entailment.  On the reading of
+Proposal~\ref{prop:three-grades} that is information about which logic the grammar
+encodes, not a bug to be repaired by adding structural rules.
+\end{remark}
+
+\subsection{Triadic conflict apertures}
+
+The fragment has one genuinely triadic rule, and it is worth isolating.
+
+\begin{proposal}[Conflict aperture]\label{prop:conflict-aperture}
+Suppose two lines of derivation carry distinct tri-domain identities and compete for one
+linear source.  Then the admissible aperture is uniquely determined by the complement of
+the two occupied domains:
+\[
+  \mu(d,e)=D\setminus\{d,e\},
+\]
+and a triangular cell witnessing the conjunction $\wedge_{\triangle}$ exists exactly when a
+certified linear common lift of the two lines is available.
+\end{proposal}
+
+\begin{proposition}[Only a certified common lift closes the cell]
+\label{prop:common-lift}
+If the two lines have no certified linear common lift, then the triangular cell of
+Proposal~\ref{prop:conflict-aperture} admits no filler in $\mathrm{TND}_0$, and the
+aperture remains in the \emph{unresolved} status of
+Definition~\ref{def:aperture-status}.
+\end{proposition}
+
+\begin{proof}
+Opening the aperture consumes the source once, by linearity; closing it requires two
+inhabitants of the complementary domain that agree on the source.  Without a certified
+common lift the two inhabitants are not related by any derivation of the fragment, so no
+filler exists.  Since the search space is finite and the fragment is decidable
+(\S\ref{sec:confluence-decidability}), failure is reported as unresolved rather than as
+falsity, in accordance with Warning~\ref{warn:empty-unresolved}.
+\end{proof}
+
+\begin{remark}
+The word ``triadic'' here is doing precise work.  The three domains $d,e,\mu(d,e)$ are not
+three independent coordinates: once two are occupied the third is determined.  This is the
+syntactic counterpart of Proposition~\ref{prop:three-cusps}, and, like it, it does not by
+itself produce a non-decomposable triple defect
+(Calibration~\ref{cal:triadicity-fails}).
+\end{remark}
+
+\subsection{Summary}
+
+\begin{enumerate}
+\item $\mathrm{TND}_0$ is ordered, linear, and ledger-indexed
+  (Definitions~\ref{def:tnd0}, \ref{def:ledger-judgment}).
+\item It is sound for Boolean semantics on $2^{D}$ and hence on $H_D$
+  (Theorem~\ref{thm:soundness}).
+\item It is provably incomplete, and the gap is measured by a grade
+  (Theorem~\ref{thm:incompleteness}, Proposition~\ref{prop:grade-measures}).
+\item Its one triadic rule yields a uniquely determined aperture whose cell closes exactly
+  under a certified common lift
+  (Proposal~\ref{prop:conflict-aperture}, Proposition~\ref{prop:common-lift}).
+\end{enumerate}

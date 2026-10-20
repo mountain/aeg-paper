@@ -1,0 +1,341 @@
+% Section 10: Non-faithfulness: the residual catalogue
+\label{sec:residual-body}
+
+The previous sections produced no-go results one at a time.  This section collects them,
+because together they say something stronger than each does separately: there is a
+\emph{systematic} pattern in which quantity fails to determine construction, and naming
+the pattern is more useful than proving its instances.  The section also records the
+positive counterweights, since a catalogue of failures without a statement of what a
+faithful carrier looks like would be misleading.
+
+\subsection{The pattern}
+
+\begin{proposal}[The residual pattern]\label{prop:residual-pattern}
+Let $\sigma$ be a quantity computed from a process by an observer $Q$.  In every
+instance catalogued below, $\sigma$ is a \emph{partial quotient}: it is invariant under a
+group of construction changes that the process itself does not admit.  The correct
+response is never to replace $\sigma$ by a finer scalar; it is to retain a residual
+recording the orbit of the forgotten changes.
+\end{proposal}
+
+\begin{remark}
+Proposition~\ref{prop:residual-pattern} is a \textsf{Proposal} because "partial quotient"
+is a description, not a hypothesis with a theorem attached.  Its content is
+methodological and its justification is the list: in each case below, the residual is
+exactly what repairs the deficiency, and no case is repaired by refining the scalar.
+\end{remark}
+
+\subsection{Spectral shadows}
+
+\begin{theorem}[Spectrum does not determine history]\label{thm:spectrum-history}
+Let $x$ be a single input.  The programs $\mathrm{add}(\mathrm{copy}(x))$ and
+$\mathrm{scale}_{2}(x)$ agree on realized value, on derivative, on all iterates, and on
+the action spectrum, which is $\{2\}$ in both cases; they differ in the construction
+graph, in the occurrence structure, and in the source history.  Hence no observer that
+sees only values, derivatives, iterates, and spectra can separate them.
+\end{theorem}
+
+\begin{proof}
+Both programs induce the same endomorphism $x\mapsto 2x$ on the declared state, so every
+functional of the induced action agrees.  They differ in the number of occurrences of
+the source and in the recorded lineage, which are not functions of the induced action.
+\end{proof}
+
+\begin{proposition}[The affine carrier is not diagonalisable into a spectrum]
+\label{prop:affine-spectrum}
+In the affine carrier, scaling acts diagonally with spectrum
+$\{m^{-1},\dots,m^{-K}\}$, while addition acts unipotently and is nilpotent on the
+relevant graded pieces.  Consequently a bare eigenvalue set cannot encode addition: the
+characteristic polynomial of a unipotent operator is $(\lambda-1)^{d}$ regardless of the
+translation amount.
+\end{proposition}
+
+\begin{proof}
+Scaling conjugates $A\mapsto M AM^{-1}$ and stretches the translation grid by $m$ at each
+graded level, giving the stated spectrum.  Addition is the exponential of a nilpotent
+translation, whose characteristic polynomial carries no information about the amount.
+\end{proof}
+
+\subsection{Two faithful carriers, for contrast}
+
+\begin{theorem}[Marked second-jet faithfulness]\label{thm:second-jet}
+The positive affine fragment embeds faithfully into the marked second jet at the
+projective point at infinity,
+\[
+  m=c_1^{-1},\qquad a=-c_2c_1^{-2},
+\]
+where $(c_1,c_2)$ are the marked jet coefficients.  The faithfulness is a statement about
+\emph{marked} jets: the unmarked jet does not suffice, since it is defined only up to the
+chart that the marking fixes.
+\end{theorem}
+
+\begin{proof}
+Composition of affine maps corresponds to multiplication in
+$\R[[q]]/(q^{3})$ on the marked coefficient pair; solving for $(m,a)$ gives the displayed
+formulas, and the correspondence is a bijection onto the positive affine fragment within
+the marked class.
+\end{proof}
+
+\begin{theorem}[Co-generation of polynomial and matrix readings]\label{thm:cogeneration}
+Transport is homogeneous of degree one in declared symbolic probe generators, and the
+extracted coefficient table equals the transpose of the forward Jacobian.  Hence the
+polynomial-like and matrix-like presentations of one process are co-generated, rather
+than independently imposed.
+\end{theorem}
+
+\begin{proof}[Status]
+Proved for the declared probe class by linearity of the demand section.  The phrase
+"after a chart" is essential: the identification of the coefficient table with the
+transpose requires the port chart to be declared, and without it the two readings are
+merely isomorphic.
+\end{proof}
+
+\begin{remark}[The moral of the contrast]
+Theorems~\ref{thm:second-jet} and~\ref{thm:cogeneration} are the positive half of the
+catalogue.  Both work by making the marking or the chart explicit.  The failures below
+are exactly the cases where a marking or chart was silently omitted, and the residual
+records what the omission cost.
+\end{remark}
+
+\subsection{The observation tower is strict}
+
+\begin{theorem}[Strict observation tower]\label{thm:observation-tower}
+The three observation levels
+\[
+  \cO_{\mathrm{prog}}\ \supsetneq\ \cO_{\mathrm{or}}\ \supsetneq\ \cO_{\mathrm{proj}}
+\]
+are strictly separated: projective spectral data is strictly coarser than oriented action
+data, which is strictly coarser than program-aware data.  Each strictness is witnessed by
+a pair of programs identified at the lower level and separated at the higher.
+\end{theorem}
+
+\begin{proof}
+The projective level forgets the central sign
+(Proposition~\ref{prop:order-two-four}), and the oriented level forgets occurrence
+structure (Theorem~\ref{thm:spectrum-history}).  Both forgettings are non-injective on the
+finitary fixtures exhibited there.
+\end{proof}
+
+\subsection{Objectification and effective completion}
+
+\begin{nogo}[Objectification is not natural]\label{nogo:objectification}
+Let $\mathrm{Obj}$ send a finite cut presentation to its simplest surreal value.  Then
+$\mathrm{Obj}$ is non-injective, and it is not natural:
+\[
+  g\bigl(\mathrm{Obj}\,C\bigr)\neq \mathrm{Obj}\bigl(gC\bigr)
+  \qquad\text{for } g(z)=3z \text{ and a suitable } C .
+\]
+Consequently no analysis factoring through the objectified value admits a left-inverse
+synthesis.
+\end{nogo}
+
+\begin{proof}
+Non-injectivity is immediate, since distinct presentations may share a simplest value.
+For non-naturality, the two sides of the displayed inequality are computed on an explicit
+finite $C$; the objectified value is simplified before scaling on the left and after
+scaling on the right, and simplicity is not preserved by scaling.
+\end{proof}
+
+\begin{proposition}[Effective one-sidedness]\label{prop:effective-onesided}
+For a universal prefix-free machine $U$, let
+\[
+  \Omega_U=\sum_{U(p)\downarrow}2^{-|p|}\le 1
+\]
+be its halting mass, and let $(L_\Omega\mid R_\Omega)$ be the associated cut.  Then
+$L_\Omega$ is computably enumerable while $R_\Omega$ is not.  Hence a computational cut
+is intrinsically asymmetric.
+\end{proposition}
+
+\begin{proof}[Status]
+The Kraft bound is a standard measure-theoretic computation on the cylinder sets of a
+prefix-free set.  The asymmetry is the standard halting asymmetry: membership on the left
+is witnessed by a halting computation, while membership on the right would decide
+non-halting.
+\end{proof}
+
+\begin{proposition}[Mass cannot repair the fibre]\label{prop:mass-not-fibre}
+The objectification fibre mass
+\[
+  m_{U,Q}(x)=\sum_{\mathrm{Obj}_Q(U(p))=x}2^{-|p|}
+\]
+is a lower-semicomputable semimeasure.  It quantifies the fibre but cannot recover its
+members.
+\end{proposition}
+
+\begin{proof}
+Lower semicomputability follows from the definition as a sum over enumerated halting
+computations.  Recovery fails because a sum over a set determines neither its cardinality
+nor its elements.
+\end{proof}
+
+\begin{proposition}[No total finite coding of $\No$]\label{prop:no-finite-coding}
+There is no set-sized family of finite codes surjecting onto the surreal numbers.
+\end{proposition}
+
+\begin{proof}
+A set-sized family of finite codes is a set, and $\No$ is a proper class; no set surjects
+onto a proper class in the relevant setting.
+\end{proof}
+
+\subsection{Snapshots, scopes, and traces}
+
+\begin{proposition}[Equal snapshots, nonempty interval]\label{prop:snapshot-not-empty}
+For exact program slices between nested cuts, equal frontier snapshots do not imply an
+empty interval: an explicit discard witnesses two distinct slices with the same snapshot.
+\end{proposition}
+
+\begin{proposition}[Zero-event incidence is not single-valued]\label{prop:zero-event-fibre}
+A zero-event graft frame is compatible with two distinct identity slices fixed by an
+independent surgery.  Hence the available frame and slice data admit no canonical
+single-valued placement of scope in cut; the fibre has two elements.
+\end{proposition}
+
+\begin{proposition}[Trace arithmetic does not identify the sides]\label{prop:trace-sides}
+For the three-sided trace calibration, the temporal and spatial residuals vanish while
+the constructional residue $(+1,-1,0,0,0)$ does not.  Consequently the two sides are not
+semantically identified by their trace arithmetic.
+\end{proposition}
+
+\begin{proposition}[Count factorization and the recovery obstruction]
+\label{prop:count-factorization}
+Let $T$ be the trace count and $n$ the construction length.  Then
+\[
+  T(p)=\bigl(n,\ n-1,\ 3(n-1)\bigr),
+\]
+a positive factorization through construction length.  However the projection
+$(T,S)\mapsto C$ is not single-valued: an explicit pair of constructions shares $(T,S)$
+and differs in $C$.
+\end{proposition}
+
+\begin{proof}[Status]
+The factorization is an exact finite count.  The obstruction is an explicit pair, checked
+on the recorded data; it is a counterexample to single-valued recovery, not a general
+classification of the fibres of $(T,S)\mapsto C$.
+\end{proof}
+
+\begin{proposition}[Period covectors do not determine history]\label{prop:period-not-history}
+A period covector is a functional of a homology class and therefore constant on the
+construction paths that realise that class.  It cannot reconstruct the construction
+history.
+\end{proposition}
+
+\subsection{Minimal expressive repair}
+
+One result in the catalogue deserves separate billing, because it gives an exact
+\emph{minimum} rather than only an obstruction.
+
+\begin{theorem}[Order-embedding obstruction]\label{thm:order-obstruction}
+Let a coarse observation erase an incomparability, i.e.\ two elements become
+indistinguishable in the observation order.  Then no single added scalar coordinate can
+restore the lost order, whereas two monotone Boolean coordinates can, and two is the
+minimum.
+\end{theorem}
+
+\begin{proof}
+A single scalar added to a coarse observation produces a total preorder on the fibre,
+since scalars are totally ordered; a total preorder cannot contain an incomparability.  Two
+monotone Boolean coordinates separate the four possible cells, which suffices to embed the
+erased relation, and one coordinate gives only two cells.  Hence two is both sufficient
+and necessary.
+\end{proof}
+
+\begin{remark}[Why this is the catalogue's high point]
+Theorem~\ref{thm:order-obstruction} converts "coarse observation loses a relation" from a
+complaint into a quantitative statement with an exact constant.  It is the model for what
+the rest of the catalogue would need in order to become equally informative.
+\end{remark}
+
+\subsection{Scale and winding}
+
+\begin{proposition}[Scale forgetting]\label{prop:scale-forgetting}
+Let $\lambda=\varepsilon Lz$ with $L=(2I+C)/3$ and $C$ the cyclic permutation matrix,
+$C^{3}=I$.  Then $L$ is invertible over $\Q$, with
+\[
+  (2I+C)\bigl(4I-2C+C^{2}\bigr)=9I ,
+\]
+so the scale-marked triple is recoverable provided $\varepsilon\neq0$.  If the scale
+marker is discarded, the pairs $(\varepsilon,z)$ and $(\varepsilon/2,2z)$ share $\lambda$,
+and recovery fails.
+\end{proposition}
+
+\begin{proof}
+Expanding $(2I+C)(4I-2C+C^{2})=8I-4C+2C^{2}+4C-2C^{2}+C^{3}=9I$ using $C^{3}=I$ gives the
+inverse, hence invertibility.  The collision is immediate from
+$\lambda=(\varepsilon/2)L(2z)$.
+\end{proof}
+
+\begin{nogo}[Winding counts do not determine the global action]\label{nogo:winding}
+Abelian winding counts do not determine the global action on
+$\PP^{1}\setminus\{0,1,\infty\}$: there are words of total winding zero whose commutator is
+nontrivial,
+\[
+  ABA^{-1}B^{-1}=\begin{pmatrix}13&8\\ 8&5\end{pmatrix}\neq I .
+\]
+Moreover endpoint closure does not imply identity of the transported homology: a diamond
+path of winding $+1$ transports $(0,1)$ to $(2,1)$.
+\end{nogo}
+
+\begin{proof}
+Two computations on explicit words.  The first exhibits a nontrivial commutator with zero
+abelian shadow, so the abelianisation is not faithful.  The second exhibits a closed
+endpoint with nontrivial transport.
+\end{proof}
+
+\subsection{The catalogue}
+
+\begin{center}
+\small
+\begin{longtable}{@{}p{0.30\textwidth}p{0.56\textwidth}@{}}
+\toprule
+Shadow & What it fails to determine \\
+\midrule
+\endhead
+value, derivative, iterates, spectrum & construction graph, occurrence, source history
+  (Thm~\ref{thm:spectrum-history}) \\
+eigenvalue set & the translation amount of a unipotent factor
+  (Prop~\ref{prop:affine-spectrum}) \\
+projective spectral data & the central sign; oriented action
+  (Thm~\ref{thm:observation-tower}) \\
+oriented action data & occurrence structure
+  (Thm~\ref{thm:observation-tower}) \\
+objectified surreal value & the presentation, and it is not natural
+  (No-go~\ref{nogo:objectification}) \\
+fibre mass of an objectification & the members of the fibre
+  (Prop~\ref{prop:mass-not-fibre}) \\
+frontier snapshot & emptiness of an interval
+  (Prop~\ref{prop:snapshot-not-empty}) \\
+frame and slice data & a single-valued scope placement
+  (Prop~\ref{prop:zero-event-fibre}) \\
+trace arithmetic & identification of the two sides
+  (Prop~\ref{prop:trace-sides}) \\
+count pair $(T,S)$ & the construction $C$
+  (Prop~\ref{prop:count-factorization}) \\
+period covector & construction history
+  (Prop~\ref{prop:period-not-history}) \\
+discarded scale marker & the marked triple
+  (Prop~\ref{prop:scale-forgetting}) \\
+abelian winding & the global action
+  (No-go~\ref{nogo:winding}) \\
+boundary-return word & a periodic orbit
+  (No-go~\ref{nogo:return-not-period}) \\
+directional energy & any nontrivial characteristic
+  (No-go~\ref{nogo:zero-energy-trap}) \\
+\bottomrule
+\end{longtable}
+\end{center}
+
+\subsection{What the catalogue implies}
+
+\begin{enumerate}
+\item The failures are not ad hoc.  In each row the shadow is invariant under changes the
+  process does not admit, and the repair is a residual rather than a finer scalar
+  (Proposal~\ref{prop:residual-pattern}).
+\item Where a residual is supplied, the theory works: marked jets and declared port charts
+  give genuine faithfulness (Theorems~\ref{thm:second-jet}, \ref{thm:cogeneration}).
+\item At least one obstruction has an exact minimum
+  (Theorem~\ref{thm:order-obstruction}), which is the standard the rest should meet.
+\item Two of the rows are about \emph{absence of structure} rather than loss of
+  information: No-go~\ref{nogo:return-not-period} (no feedback operator) and
+  No-go~\ref{nogo:zero-energy-trap} (no nontriviality constraint).  These are the
+  invitations to Part~II, where the missing structures are supplied syntactically.
+\end{enumerate}

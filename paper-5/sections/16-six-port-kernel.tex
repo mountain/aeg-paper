@@ -1,0 +1,247 @@
+% Section 16: The six-port whole-cut kernel
+\label{sec:six-port-body}
+
+Part~II has so far supplied a semantics, a calculus, and a metatheory.  This section asks
+how few ports a carrier needs in order to express that calculus with three readings and
+binary cuts, and answers with a counting theorem.  The answer is six.  The section is
+careful about what the number means: it is a conditional minimum under a stated contract,
+not an absolute truth, and the universality claim that usually accompanies such a number is
+replaced by relative initiality.
+
+\subsection{The counting question}
+
+\begin{definition}[Whole-cut carrier]\label{def:whole-cut-carrier}
+A \emph{whole-cut carrier} with $m$ domains and $n$ ports consists of
+\begin{enumerate}
+\item a finite set $D$ of domains;
+\item for each domain, a binary cut $\langle L\mid R\rangle$ that is an atomic generator
+  rather than a derived construct;
+\item a set $P$ of ports, each attached to one domain and one side of its cut;
+\item an occurrence-and-multiplicity ledger $M$ recording, for every term, the
+  production and consumption of each occurrence;
+\item a routing datum $\gamma$, a history ledger $H$, and a residual record $R$.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[The contract]\label{def:six-port-contract}
+The counting theorem is stated under six clauses.
+\begin{enumerate}
+\item \textbf{Atomic cuts.}  Each cut is a generator; it is not decomposed into smaller
+  structure.
+\item \textbf{Binary sides.}  Each cut has exactly two complementary sides.
+\item \textbf{Two-sided access.}  Every domain must be readable on both sides of its own
+  cut, since a view that could read one side only could not express a crossing.
+\item \textbf{Occurrence fidelity.}  No view, braid, collision, projection, or quotient may
+  create, drop, rename, or merge an occurrence.
+\item \textbf{Production witnesses.}  Copies require production witnesses; collisions
+  conserve multiplicity.
+\item \textbf{View discipline.}  Every view extends the ledger and commutes with the
+  boundary operator: $V_\nu(\partial c)=\partial V_\nu(c)$.
+\end{enumerate}
+\end{definition}
+
+\subsection{The minimality theorem}
+
+\begin{theorem}[Counting bound]\label{thm:counting-bound}
+Under the contract of Definition~\ref{def:six-port-contract}, a triadic whole-cut carrier
+with binary cuts satisfies
+\[
+  n\ \ge\ 2m ,
+\]
+and hence, for $m=3$, $n_{\min}=6$.
+\end{theorem}
+
+\begin{proof}
+By clause (3) every domain must be accessible on both sides of its own cut, so each domain
+contributes at least two distinct ports; by clause (1) the cut is atomic, so those two ports
+cannot be served by sub-structure; by clause (2) the two sides are complementary, so a
+single port cannot serve both.  Hence $n\ge 2m$, with equality attained by the carrier
+$\bW_6$ of \S\ref{sec:six-port-carrier}.
+\end{proof}
+
+\begin{remark}[What the proof does and does not use]
+The bound uses clauses (1)--(3) only; clauses (4)--(6) are needed for the carrier to be
+usable, not for the count.  This split matters, because it isolates exactly which part of
+the contract is under pressure if the number six is ever challenged.
+\end{remark}
+
+\begin{warning}[Six is conditional]\label{warn:six-conditional}
+Theorem~\ref{thm:counting-bound} says that six is minimal \emph{for this contract}.  Drop
+clause (3) and a carrier with three ports becomes available; strengthen clause (1) to
+require decomposed cuts and the minimum changes again.  The number six is therefore a
+statement about the contract, and reporting it as an absolute minimality of any
+three-domain syntax would be an error.
+\end{warning}
+
+\subsection{The carrier}\label{sec:six-port-carrier}
+
+\begin{definition}[The six-port carrier]\label{def:w6}
+The carrier is
+\[
+  \bW_6=(\mathsf D,\ C,\ P,\ O,\ M,\ \gamma,\ H,\ R)
+\]
+consisting of domains, cuts, ports, occurrences, the multiplicity ledger, routing, history,
+and the residual record.  Its distinguishing structural features are:
+\begin{enumerate}
+\item a \emph{split pair}, giving the two sides of each atomic cut;
+\item a \emph{projector}, identifying which ports a given view reads;
+\item a \emph{factored traversal}, so that a traversal decomposes along the cut rather than
+  cutting across it;
+\item \emph{collision strata}, recording where two occurrences coincide.
+\end{enumerate}
+\end{definition}
+
+\begin{proposal}[Line and circle are views]\label{prop:line-circle-views}
+In $\bW_6$ the \emph{line} and the \emph{circle} are not neighbouring value constructors but
+checked projections of one ledger, each with a declared kernel.  One atomic cut
+co-generates a continuation germ and a boundary germ; the line reads the first and the
+circle the second.
+\end{proposal}
+
+\begin{proof}[Status]
+A definitional restructuring, justified by clause (6): both readings are views
+$V_\nu$ of the same boundary operator, so neither is primitive.  The claim asserted is the
+commutation $V_\nu(\partial c)=\partial V_\nu(c)$, which holds by construction of the two
+views and is checked on the finite fixture.
+\end{proof}
+
+\subsection{The grammar, the ledgers, and the degree}
+
+\begin{definition}[Whole-cut record]\label{def:whole-cut-record}
+A \emph{whole-cut record} consists of port, cut, and cell records together with six ledgers:
+\emph{production}, \emph{through}, \emph{cycle}, \emph{hole}, \emph{alternative}, and
+\emph{residual}.  The record carries a \emph{degree} $\deg(W)$, and for the minimal carrier
+$\deg(\bW_6)=6$.
+\end{definition}
+
+\begin{proposition}[Collision conservation]\label{prop:collision-conservation}
+In any well-typed whole-cut record the multiplicity ledger is conserved under every rule of
+the grammar: no production is created or destroyed, and every collision accounts for
+exactly one coincidence of two occurrences.
+\end{proposition}
+
+\begin{proof}
+Each grammar rule consumes and produces ledger entries in matching multiplicity; the
+production ledger records copies explicitly, so a rule that duplicates a term must record a
+production, and clause (5) forbids doing so silently.  Induction over derivations in the
+grammar.
+\end{proof}
+
+\begin{remark}[Distributivity as a recorded witness]
+The grammar's distributivity step is accompanied by an explicit witness record with the
+ordered hole bindings.  The content is not the equation --- which holds in the intended
+model --- but the record of which occurrences of the duplicated term were produced, in
+which order.  Without that record the equation would silently license a contraction, which
+No-go~\ref{nogo:raw-ledger} and Proposition~\ref{prop:collision-conservation} forbid.
+\end{remark}
+
+\subsection{The cell--carrier--view spine}
+
+\begin{proposal}[Spine]\label{prop:cell-carrier-view}
+There is a typed spine
+\[
+  \mathsf{TypedCellSignature}
+  \xrightarrow{\ \mathsf{assemble}_\rho\ }
+  \mathsf{StratifiedCarrier}
+  \xrightarrow{\ V_\nu\ }
+  \mathsf{PresentedView}_\nu ,
+\]
+in which the first arrow assembles cells into a stratified carrier along a declared
+stratification $\rho$, and the second is the view of clause (6).  The boundary operators of
+the two basic cells are
+\[
+  \partial\mathsf{InterchangeCell}=Q_4,\qquad
+  \partial\mathsf{BraidCell}=M_6 ,
+\]
+with Coxeter shadows $C_2\times C_2$ and $S_3$ respectively.
+\end{proposal}
+
+\begin{proof}[Status]
+The boundary identifications are computations in the cell complex: an interchange cell is a
+square whose boundary reads as a product of two transpositions, a braid cell a hexagon whose
+boundary reads as the three-strand braid relation.  The Coxeter shadows are the standard
+reflections of the square and hexagon.
+\end{proof}
+
+\begin{proposition}[Envelope count]\label{prop:envelope}
+The truncated-octahedral envelope of the stratum satisfies
+\[
+  TO_{24}=6\,Q_4+8\,M_6 ,
+\]
+that is, six squares and eight hexagons on twenty-four vertices, and the relation boundary
+count is $2m$ in the sense of Theorem~\ref{thm:counting-bound}.
+\end{proposition}
+
+\begin{proof}
+$6\cdot4+8\cdot6=72$ face--vertex incidences on $24$ vertices with degree $3$:
+$24\cdot3=72$.  The consistency of the two counts witnesses that the envelope closes.
+\end{proof}
+
+\subsection{The $M_6$ boundary bridge}
+
+\begin{theorem}[Alternating-pairing bridge]\label{thm:m6-bridge}
+Let $\kappa$ and $\tau$ be two fixed-point-free involutions on the six-port ledger whose
+union is connected.  Then the union of their graphs is a two-regular graph on six vertices,
+hence a six-cycle $C_6$, whose edges alternate between the two kinds.  Consequently the
+checked incidence data present the open boundary
+\[
+  \mathsf{bridge}(\bW_6)=M_6^{\partial}\bigl[\kappa\tau\kappa
+  \Rightarrow\tau\kappa\tau\bigr],
+\]
+with no filler supplied.
+\end{theorem}
+
+\begin{proof}
+A fixed-point-free involution on six elements is a perfect matching, so it contributes three
+edges.  Two matchings whose union is connected give a two-regular graph, which is a disjoint
+union of cycles; connectivity forces a single six-cycle.  Alternation of edge kinds follows
+from the two matchings being distinct, and the displayed presentation of $M_6^{\partial}$
+records the two alternating readings of the cycle.  The absence of a filler is
+Calibration~\ref{cal:m6-open}.
+\end{proof}
+
+\begin{calibration}[The filler is open]\label{cal:m6-open}
+The bridge of Theorem~\ref{thm:m6-bridge} presents the boundary $M_6^{\partial}$ as an open
+object: the two alternating readings are exhibited, and no 2-cell filling them is
+constructed.  Every construction in this material that touches $M_6$ lists the filler as an
+open residual.
+\end{calibration}
+
+\subsection{Relative initiality instead of universality}
+
+\begin{proposal}[Relative initiality]\label{prop:relative-initiality}
+$\bW_6$ is initial in the category of presented models satisfying the contract of
+Definition~\ref{def:six-port-contract}: for every such model $N$ there is a morphism
+$\bW_6\to N$, unique up to the declared decoration.
+\end{proposal}
+
+\begin{proof}[Status]
+The statement is a \textsf{Proposal}.  What is available is the counting argument of
+Theorem~\ref{thm:counting-bound} together with the view discipline of clause (6), which
+supply the candidate morphisms; no uniqueness proof is given here.
+\end{proof}
+
+\begin{warning}[Not a universality theorem]\label{warn:not-universal}
+Proposition~\ref{prop:relative-initiality} replaces, and does not establish, a claim of
+universality.  In particular it says nothing about computation-universality, and it does not
+assert that every three-domain syntax factors through $\bW_6$.  The distinction is the
+departure point of \S\ref{sec:boundaries}.
+\end{warning}
+
+\subsection{Summary}
+
+\begin{enumerate}
+\item Six is the minimum under a stated six-clause contract
+  (Definitions~\ref{def:whole-cut-carrier}, \ref{def:six-port-contract},
+  Theorem~\ref{thm:counting-bound}, Warning~\ref{warn:six-conditional}).
+\item In the minimal carrier, line and circle are views of one ledger
+  (Definition~\ref{def:w6}, Proposal~\ref{prop:line-circle-views}).
+\item The ledgers conserve multiplicity, so distributivity must record its productions
+  (Proposition~\ref{prop:collision-conservation}).
+\item The spine and envelope counts are explicit
+  (Proposal~\ref{prop:cell-carrier-view}, Proposition~\ref{prop:envelope}).
+\item The $M_6$ boundary is presented with an open filler, and the kernel's status is
+  relative initiality, not universality
+  (Theorem~\ref{thm:m6-bridge}, Calibration~\ref{cal:m6-open},
+  Proposal~\ref{prop:relative-initiality}, Warning~\ref{warn:not-universal}).
+\end{enumerate}

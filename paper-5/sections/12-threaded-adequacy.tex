@@ -1,0 +1,150 @@
+% Section 12: Finite adequacy of threaded logic
+\label{sec:adequacy-body}
+
+Definition~\ref{def:filling-fibre} gives a semantics.  This section proves that between
+that semantics and a threaded derivability relation there is an exact adequacy, and it
+states the hypotheses on which the equivalence depends.  The hypotheses are the content:
+each of them is a place where an unrestricted claim would fail.
+
+\subsection{The judgment}
+
+\begin{definition}[Threaded judgment]\label{def:threaded-judgment}
+A \emph{threaded judgment} is a sequent whose antecedents are \emph{threaded}: each
+antecedent is attached to a thread, and threads are consumed by the rules rather than
+shared.  Writing $\Gamma$ for a threaded context and $\varphi$ for a formula, we write
+$\Gamma\vdash\varphi$ for derivability in the threaded calculus.
+\end{definition}
+
+The essential point is linearity of threads: no rule duplicates or discards an antecedent
+thread.  Copy and discard, where they occur, are explicit connectives rather than
+structural rules.  This is the syntactic shadow of
+Proposition~\ref{prop:word-to-graph}: the fan-out must be written down.
+
+\begin{definition}[Realisation]\label{def:realisation}
+Given a carrier $\cM$, an assignment $\rho$, and a threaded context $\Gamma$, a
+\emph{realisation} of $\Gamma$ is a choice, for each thread, of a terminal world
+compatible with the thread's formulas.  Write $\cM,\rho\models\Gamma$ when a realisation
+exists, and $\cM,\rho\models\varphi$ when
+$\Fill_{\cM,\rho}(\varphi)\neq\varnothing$.
+\end{definition}
+
+\subsection{The four hypotheses}
+
+\begin{definition}[Adequacy hypotheses]\label{def:adequacy-hypotheses}
+The adequacy theorem below is stated under four hypotheses on the carrier and the
+connectives.
+\begin{enumerate}
+\item \textbf{Cartesian.}  The carrier is a product of independent slot domains, so that a
+  partial assignment extends to a terminal world whenever no constraint is violated.
+\item \textbf{Compatibility.}  The constraints attached to a threaded context are
+  pair-wise compatible exactly when their conjunction is nonempty.
+\item \textbf{Transformer.}  Each connective has an associated transformer on filling
+  families, and the transformer is sound and complete for the connective's semantics.
+\item \textbf{Exhaustiveness.}  For each atomic formula and each partial assignment, either
+  a witness is produced or the emptiness of the family is certified.
+\end{enumerate}
+\end{definition}
+
+Each hypothesis rules out a genuine failure mode.  Without (1) a partial assignment need
+not extend; without (2) pairwise nonemptiness need not imply joint nonemptiness --- which
+is exactly the obstruction of Proposition~\ref{prop:triadicity-test}; without (3) a
+connective has no semantics on families; without (4) the fourth and third statuses of
+Definition~\ref{def:aperture-status} collapse.
+
+\subsection{The adequacy theorem}
+
+\begin{theorem}[Threaded adequacy]\label{thm:adequacy}
+Assume the four hypotheses of Definition~\ref{def:adequacy-hypotheses}.  Then for every
+threaded context $\Gamma$ and formula $\varphi$,
+\[
+  \Gamma\vdash\varphi
+  \quad\Longleftrightarrow\quad
+  \text{for all } \cM,\rho:\ \cM,\rho\models\Gamma \Rightarrow
+  \cM,\rho\models\varphi .
+\]
+Equivalently, in the fibre reading,
+\[
+  \cM,\rho\models\varphi
+  \iff
+  \Fill_{\cM,\rho}(\varphi)\neq\varnothing .
+\]
+\end{theorem}
+
+\begin{proof}
+By structural induction on derivations and on formulas.
+
+\emph{Soundness direction.}  Suppose $\Gamma\vdash\varphi$ with a derivation $\pi$.  We show
+each rule preserves realisation.  For an assumption, the conclusion's thread is among the
+realised threads by Definition~\ref{def:realisation}.  For a conjunction rule, hypothesis
+(3) makes the transformer of $\wedge$ exactly intersection of families, so a realisation
+of both premises realises the conclusion.  For a linear implication rule, hypothesis (1)
+allows the discharged thread to be replaced by the witness supplied for the premise, and
+the conclusion's family is nonempty because a witness exists for the implication itself.
+For quantifier rules, hypothesis (1) lets a witness for a free slot be chosen, and
+hypothesis (2) guarantees that the pairwise-compatible constraints are jointly
+satisfiable, which is what licenses the introduction rule.
+
+\emph{Completeness direction.}  Suppose every realisation of $\Gamma$ realises $\varphi$.
+Take the canonical assignment $\rho^{\ast}$ built from the family data: for each slot
+choose, by hypothesis (4), either a witness or a certification of emptiness.  If the
+family of $\varphi$ were empty under every $\rho$ realising $\Gamma$, hypothesis (4) would
+provide a certificate of emptiness; that certificate builds a derivation of the negated
+sequent.  Since by assumption no realisation falsifies $\varphi$, the emptiness certificate
+cannot be produced for any realising $\rho$, so a derivation of
+$\Gamma\vdash\varphi$ exists by induction on the formula's construction.
+\end{proof}
+
+\begin{calibration}[The theorem without the hypotheses]\label{cal:adequacy-fails}
+For each of the four hypotheses there is a finite fixture on which the equivalence of
+Theorem~\ref{thm:adequacy} fails while the other three hold.  The fixtures are the
+calibrations of this section; they are the reason the hypotheses are stated rather than
+assumed silently.
+\end{calibration}
+
+\subsection{Substitution}
+
+\begin{theorem}[Fibre-natural substitution]\label{thm:substitution-natural}
+Under the hypotheses of Definition~\ref{def:adequacy-hypotheses}, substitution of a
+derivable formula for a free slot commutes with the filling-family construction:
+\[
+  \Fill_{\cM,\rho}\bigl(\varphi[\psi/x]\bigr)
+  =
+  \Fill_{\cM,\rho[x\mapsto \Fill_{\cM,\rho}(\psi)]}(\varphi).
+\]
+\end{theorem}
+
+\begin{proof}
+Induction on $\varphi$.  At an atom the two sides are the same family by definition of the
+extended assignment.  At a connective, hypothesis (3) makes the transformer act on families,
+and the induction hypothesis identifies the substituted families on each side; the
+transformer's functoriality then gives the identity at the composite.
+\end{proof}
+
+\begin{remark}
+Theorem~\ref{thm:substitution-natural} is the semantic counterpart of the syntactic
+substitution theorem of \S\ref{sec:normalization}.  The two are not the same statement:
+the present one is about families, the later one is about ledgers.
+\end{remark}
+
+\subsection{Promotion boundary}
+
+\begin{calibration}[What this section does not license]\label{cal:adequacy-boundary}
+Theorem~\ref{thm:adequacy} is a finite semantic theorem about a declared carrier and a
+declared connective set.  It licenses no claim of the following forms: that the calculus is
+complete for an unrestricted semantics; that the four hypotheses are necessary; that
+quantifiers behave classically; or that the carrier's finiteness is an artefact of
+presentation.  In particular the theorem is stated for Boolean semantics on $2^{D}$, hence
+in particular on $H_D$, and says nothing about carriers with dependent slot domains.
+\end{calibration}
+
+\subsection{Summary}
+
+\begin{enumerate}
+\item Threaded judgments consume threads linearly, so fan-out is explicit
+  (Definition~\ref{def:threaded-judgment}).
+\item Adequacy holds under four named hypotheses, each of which blocks a genuine failure
+  (Definition~\ref{def:adequacy-hypotheses}, Theorem~\ref{thm:adequacy}).
+\item Substitution is fibre-natural (Theorem~\ref{thm:substitution-natural}).
+\item The theorem's scope is finite and declared
+  (Calibration~\ref{cal:adequacy-boundary}).
+\end{enumerate}

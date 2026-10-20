@@ -1,0 +1,228 @@
+% Section 2: Observers, fibres, and the residual principle
+\label{sec:observers-body}
+
+Everything in this paper is relative to what some observer is allowed to see.  This
+section fixes that relativity once, so that later statements about "what cannot be
+recovered" have a definite scope.  The material is developed on one deliberately
+small worked model, the binary affine monoid; nothing in \S\ref{sec:triadic-inference}
+or later depends on that model being the only one available.
+
+\subsection{The observer contract}
+
+\begin{definition}[Observer contract]\label{def:observer-contract}
+Let $\cD$ be a class of processes.  A \emph{finite observer contract} on $\cD$ is a
+tuple
+\[
+  Q=(F_Q,\equiv_Q,\Pi_Q,B_Q)
+\]
+consisting of
+\begin{enumerate}
+\item an \emph{observation map} $F_Q\colon\cD\to\cO_Q$ into a codomain of readable
+  data, possibly many-sorted;
+\item an \emph{equivalence} $\equiv_Q$ on $\cO_Q$, declaring when two readable data
+  are indistinguishable to $Q$;
+\item a family of \emph{projectors} $\Pi_Q$, each specifying which part of an
+  observation is retained by a given reading;
+\item a \emph{budget} $B_Q$, bounding the finite computations $Q$ may perform.
+\end{enumerate}
+\end{definition}
+
+The budget is part of the contract, not an implementation detail.  A claim of the
+form "no observer of class $\cO$ can determine $X$" has no content unless $\cO$ is
+fixed, and $B_Q$ is where the finiteness of the observation enters.
+
+\begin{remark}
+The four components are not independent.  Enlarging a budget can refine
+$\equiv_Q$, and adding a projector can shrink $F_Q$'s image.  Every statement below
+that quantifies over observers therefore names the contract it uses.
+\end{remark}
+
+\subsection{Fibres and characteristics}
+
+\begin{definition}[Observation fibre]\label{def:observation-fibre}
+For $o\in\cO_Q$ and a reading $D\in\{t,X,\cK\}$ (temporal, spatial, constructive), the
+\emph{fibre} of $o$ under $D$ is
+\[
+  \Fib_{D,Q}(o)=\{\,p\in\cD : F_{D,Q}(p)\equiv_Q o\,\}.
+\]
+\end{definition}
+
+\begin{definition}[Characteristic]\label{def:characteristic}
+A \emph{characteristic} of $p$ for the contract $Q$ is a triple
+\[
+  \chi_Q(p)=\bigl(\bar\chi_Q(p),\,\pi_p,\,R_{Q}(p)\bigr),
+\]
+where $\bar\chi_Q(p)$ is the operational quotient (the readable value),
+$\pi_p$ is a certificate that $p$ maps to it, and $R_Q(p)$ is the \emph{residual}:
+the data retained about $p$ that the quotient does not determine.
+\end{definition}
+
+\begin{remark}[A characteristic is not a value]
+Definition~\ref{def:characteristic} is where this paper departs from the usual
+usage.  A spectrum, a gradient, an eigenvalue, or a scalar is at best
+$\bar\chi_Q$; the residual is part of the object, and propositions below exhibit
+cases where discarding it destroys exactly the information a later reading needs.
+\end{remark}
+
+\subsection{The residual principle}
+
+The following principle is used as an admissibility test throughout; it is the
+Part~I counterpart of the rule that no quotient may be used without a declared
+residual.
+
+\begin{proposal}[Residual principle]\label{prop:residual-principle}
+A quotient $\bar\chi_Q$ of a class $\cD$ may be used as a state for a declared class
+of continuations and observations only when accompanied by
+\begin{enumerate}
+\item an exact reconstruction statement for the continuations in question, or
+\item a residual $R_Q$ whose contents are characterized, together with a stated
+  sense in which the continuation cannot depend on what $R_Q$ omits.
+\end{enumerate}
+\end{proposal}
+
+This is a \textsf{Proposal} rather than a theorem because options (i) and (ii) are
+requirements on presentation, not mathematical assertions.  Its bite is in what it
+forbids: a quotient presented without either is \emph{not} eligible as a state.
+
+\subsection{Identifiability is relative to a hypothesis class}
+
+The worked model is the binary affine monoid.  Let
+\[
+  f_{k,b}(x)=2^{k}x+b,\qquad k,b\in\Z,
+\]
+with composition in execution order.  Writing $S$ for $f_{0,1}$ (successor) and $D$
+for $f_{1,0}$ (doubling), every element has a normal form $D^{k};S^{b}$.
+
+\begin{lemma}[Affine product law]\label{lem:affine-product}
+For $f_{i}=f_{k_i,b_i}$ executed in the order $f_1$ then $f_2$,
+\[
+  f_2\odot f_1
+  =\bigl(k_1+k_2,\ 2^{k_2}b_1+b_2\bigr),
+\]
+with identity $f_{0,0}$.  In particular
+\[
+  \chi(S;D)=(1,2)\neq(1,1)=\chi(D;S).
+\]
+\end{lemma}
+
+\begin{proof}
+$f_2(f_1(x))=2^{k_2}(2^{k_1}x+b_1)+b_2=2^{k_1+k_2}x+2^{k_2}b_1+b_2$.  The two
+composites differ in their second coordinate because $2\cdot1+0=2$ while
+$2^{0}\cdot 0+1=1$.
+\end{proof}
+
+Identifiability of $(k,b)$ is not an absolute property; it is relative to a declared
+class of hypotheses and to the probes the contract allows.
+
+\begin{proposition}[Two-probe temporal recovery]\label{prop:two-probe}
+Probing the temporal reading at $x=0$ and $x=1$ recovers $(k,b)$ uniquely within the
+affine class: with $y_i=f_{k,b}(i)$ one has $b=y_0$ and $2^{k}=y_1-y_0$.
+\end{proposition}
+
+\begin{proof}
+Immediate from $f_{k,b}(0)=b$ and $f_{k,b}(1)=2^{k}+b$.
+\end{proof}
+
+\begin{remark}[One probe is not enough]\label{rem:one-probe}
+A single probe at $x=1$ cannot separate $S$ from $D$, since $f_{0,1}(1)=2=f_{1,0}(1)$.
+The two-probe result is therefore a statement about the contract, not about the
+process.
+\end{remark}
+
+The same phenomenon appears on the spatial side, and the contrast is instructive:
+there a single \emph{exact interval} suffices, whereas a radius alone does not.
+
+\begin{proposition}[Spatial recovery from one exact interval]\label{prop:interval-recovery}
+Let the spatial reading act on closed intervals by inverse image,
+$\rho_X(k,b)\bigl(I(m,r)\bigr)=I\bigl((m-b)/2^{k},\,r/2^{k}\bigr)$.  From the single
+observation $I(m,r)\mapsto I(m',r')$ one recovers $2^{k}=r/r'$ and hence
+$b=m-2^{k}m'$.
+\end{proposition}
+
+\begin{proof}
+The observed image has midpoint $(m-b)/2^{k}$ and radius $r/2^{k}$.  Dividing gives
+$2^{k}$, and substituting gives $b$.
+\end{proof}
+
+\begin{warning}
+Proposition~\ref{prop:interval-recovery} does not say that radii determine
+translations.  With the radius alone the observation is $r\mapsto r/2^{k}$, which is
+blind to $b$ entirely.  The informative observer is doing the work, not the
+mathematics of affine maps.
+\end{warning}
+
+\subsection{The four-valued outcome, and what ``unknown'' means}
+
+Inference in this setting is not a function into answers; it is a computation that
+may fail to conclude.  We therefore insist on four outcomes.
+
+\begin{definition}[Outcome discipline]\label{def:outcome-discipline}
+An inference query returns exactly one of \emph{unique}, \emph{ambiguous},
+\emph{inconsistent}, or \emph{unknown}.  An empty candidate set is reported as
+\emph{inconsistent} only when exhaustion of the declared search space is certified;
+a budget expiry or an incomplete enumeration is reported as \emph{unknown}.
+\end{definition}
+
+\begin{warning}[Failure to find is not a proof of absence]
+\label{warn:unknown-not-nonexistence}
+Definition~\ref{def:outcome-discipline} forbids the inference
+``search found nothing, therefore nothing exists''.  This prohibition recurs in
+Part~II, where an exhausted search and a certified empty fibre are deliberately
+distinguished (\S\ref{sec:adequacy}).
+\end{warning}
+
+\subsection{The quotient is lossy, and the loss is the point}
+
+It is tempting to treat a characteristic as a compressed description of a process.
+The affine model shows immediately that compression and loss are the same phenomenon.
+
+\begin{proposition}[Quotient without section]\label{prop:lossy-quotient}
+Let $\chi_\cK$ be the constructive characteristic that records the parameter pair of
+a normal form.  Then
+\[
+  \chi_\cK(S;D)=\chi_\cK(D;S;S)=(1,2),
+\]
+so $\chi_\cK$ does not distinguish the raw histories, although
+$\chi_\cK\circ\operatorname{NF}=\id$ holds on parameter pairs.  Consequently
+$\operatorname{NF}\circ\chi_\cK\neq\id$ on raw histories.
+\end{proposition}
+
+\begin{proof}
+The composites are $f_{1,0}\circ f_{0,1}=f_{1,2}$ and
+$f_{0,1}\circ f_{0,1}\circ f_{1,0}=f_{1,2}$ by Lemma~\ref{lem:affine-product}, while
+the words $S;D$ and $D;S;S$ are distinct.
+\end{proof}
+
+\begin{proposition}[Compression is inseparable from loss]\label{prop:compression-loss}
+The characteristic of $S;D^{n}$ is the pair $(n,2^{n})$, whose canonical word
+$D^{n};S^{2^{n}}$ has $2^{n}$ successor symbols, while the parameter pair requires
+$O(n)$ bits.  The compression ratio is therefore exponential, and it is purchased
+exactly by the identification in Proposition~\ref{prop:lossy-quotient}.
+\end{proposition}
+
+\begin{proof}
+By induction on $n$ using Lemma~\ref{lem:affine-product}: $f_{n,2^{n}}\odot S=f_{n,2^{n}+1}$
+and doubling increments the first coordinate.  The normal form of $(n,2^{n})$ is
+$D^{n};S^{2^{n}}$ by construction.
+\end{proof}
+
+\begin{remark}
+Propositions~\ref{prop:lossy-quotient} and~\ref{prop:compression-loss} are the
+smallest instance of the pattern that organises the whole paper: a quotient is
+useful in proportion to what it forgets, and admissible in proportion to whether the
+forgotten part is accounted for.
+\end{remark}
+
+\subsection{Summary of what this section fixes}
+
+The section has introduced the observer contract, the fibre, the characteristic with
+its residual, and the outcome discipline.  Two things should be carried forward.
+
+First, \emph{identifiability is a property of a contract}, not of a process
+(Proposition~\ref{prop:two-probe} and Remark~\ref{rem:one-probe}).
+
+Second, \emph{a quotient must be presented with a residual}
+(Proposition~\ref{prop:residual-principle} and
+Proposition~\ref{prop:lossy-quotient}).  Every later section that computes a
+characteristic states which of the two options in
+Proposition~\ref{prop:residual-principle} it uses.

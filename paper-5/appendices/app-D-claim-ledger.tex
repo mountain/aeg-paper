@@ -1,0 +1,301 @@
+% Appendix D: Claim ledger and source provenance
+\label{app:ledger-body}
+
+Every substantial result of this paper is traceable to a numbered research note of
+\texttt{adva/docs/research}, and the status recorded here is the status the source note
+assigns to itself, not an upgraded one.  Where the paper states something the source does
+not, the entry says so.
+
+\subsection{How to read the ledger}
+
+The columns are: the paper's item; the source note; and the inherited status.  The status
+vocabulary is that of the repository governance:
+
+\begin{itemize}
+\item \emph{exact} --- an algebraic or combinatorial identity proved in the paper;
+\item \emph{proved} --- proved in the paper under stated hypotheses;
+\item \emph{calibration} --- established only by a finite exhaustive check of a declared
+  fixture;
+\item \emph{proposal} --- a definitional or organisational choice with no theorem;
+\item \emph{no-go} --- a proved negative result;
+\item \emph{conjecture}, \emph{open problem} --- explicitly unproved.
+\end{itemize}
+
+\subsection{Part I: observers, scalars, and the six-state carrier}
+
+\begin{longtable}{@{}p{0.36\textwidth}p{0.16\textwidth}p{0.40\textwidth}@{}}
+\toprule
+Item & Source & Inherited status \\
+\midrule
+\endhead
+Observer contract, Definition~\ref{def:observer-contract} & 0038 & definition \\
+Observation fibre, Definition~\ref{def:observation-fibre} & 0038 & definition \\
+Characteristic with residual, Definition~\ref{def:characteristic} & 0038 & definition,
+  strengthened by this paper to require the residual explicitly \\
+Residual principle, Proposal~\ref{prop:residual-principle} & paper & proposal, derived from
+  0038 and the scope file \\
+Affine product law, Lemma~\ref{lem:affine-product} & 0038 & exact \\
+Two-probe recovery, Proposition~\ref{prop:two-probe} & 0038 & exact within the affine class \\
+Interval recovery, Proposition~\ref{prop:interval-recovery} & 0038 & exact; relies on the
+  exact-interval observer \\
+Outcome discipline, Definition~\ref{def:outcome-discipline} & 0038 & methodological
+  requirement \\
+Lossy quotient, Proposition~\ref{prop:lossy-quotient} & 0038 & exact \\
+Compression and loss, Proposition~\ref{prop:compression-loss} & 0038 & exact \\
+Quadratic structure, Proposition~\ref{prop:quadratic-structure} & 0008 & exact \\
+Three separators, Proposition~\ref{prop:three-separators} & 0008 & exact \\
+Negative inverse, Proposition~\ref{prop:negative-inverse} & 0008 & exact \\
+Inversion criterion, Proposal~\ref{prop:inversion-criterion} & 0008 & proposal: selects,
+  does not derive \\
+Exchange lift, Definition~\ref{def:exchange-lift} & 0008 & definition \\
+Order two versus four, Proposition~\ref{prop:order-two-four} & 0008 & exact \\
+Chirality, Definition~\ref{def:chirality} & 0008 & definition \\
+Not orientation reversal, Proposition~\ref{prop:not-orientation} & 0008 & exact \\
+Generator action, Proposition~\ref{prop:generator-action} & 0008 & exact \\
+Bridge hypothesis, Calibration~\ref{cal:bridge-hypothesis} & 0008 & calibration \\
+Conjugated generators, Proposition~\ref{prop:conjugated-generators} & 0008 & exact \\
+Bounded trichotomy, Calibration~\ref{cal:trichotomy-bounded} & 0008 & calibration \\
+Three readings of $6=2+2+2$, Proposal~\ref{prop:three-readings} & 0008 & proposal \\
+Six-state carrier, Definition~\ref{def:six-state-carrier} & 0009 & definition \\
+One complex unit, Proposition~\ref{prop:one-complex-unit} & 0009 & exact but conditional on
+  stated anticommutation \\
+Algebraic form is an assumption, Calibration~\ref{cal:algebraic-form} & 0009 & calibration \\
+Sign law, Proposition~\ref{prop:sign-law} & 0009, 0010 & exact; verified for all six
+  permutations \\
+Signature trichotomy, Proposition~\ref{prop:signature-trichotomy} & 0009 & exact \\
+Temporality is not a metric sign, Warning~\ref{warn:temporality} & 0009 & warning \\
+Cut interval, Construction~\ref{con:cut-interval} & 0010 & construction \\
+Endogenous Clifford, Theorem~\ref{thm:endogenous-clifford} & 0010 & bounded endogenous
+  derivation on one local three-cube \\
+Interchange insufficient, Theorem~\ref{thm:interchange-insufficient} & 0010 & no-go \\
+Filtration, Proposition~\ref{prop:filtration} & 0011 & exact \\
+Regrouping is not chirality, Theorem~\ref{thm:regrouping-not-chirality} & 0011 & no-go \\
+\bottomrule
+\end{longtable}
+
+\subsection{Part I: triadic inference and crossings}
+
+\begin{longtable}{@{}p{0.36\textwidth}p{0.16\textwidth}p{0.40\textwidth}@{}}
+\toprule
+Item & Source & Inherited status \\
+\midrule
+\endhead
+Typed readings, Definition~\ref{def:typed-readings} & 0038 & definition \\
+Variance signature, Proposition~\ref{prop:variance-signature} & 0038 (also 0039, 0040) &
+  proved inside the finite affine model; not a general theorem \\
+Scope of the signature, Calibration~\ref{cal:variance-scope} & 0038 & calibration \\
+Triadic inference, Proposition~\ref{prop:triadic-inference} & 0038 & definitional
+  identification \\
+Deformed crossing, Proposition~\ref{prop:deformed-crossing} & 0038 & exact extensional law;
+  explicitly not confluent \\
+Square orbit quotient, Proposition~\ref{prop:square-orbit} & 0039 & exact \\
+Two-sheeted covering, Proposition~\ref{prop:square-covering} & 0039 & exact \\
+Relation-valued reverse, Proposition~\ref{prop:relation-valued} & 0039 & exact \\
+Scaling crosses, Proposition~\ref{prop:scaling-crosses} & 0039 & exact \\
+Translation obstruction, Theorem~\ref{thm:translation-obstruction} & 0039 & no-go; forbids an
+  \emph{affine} crossing only \\
+Word-to-graph boundary, Proposition~\ref{prop:word-to-graph} & 0039 & structural consequence \\
+Constructive fibre, Calibration~\ref{cal:constructive-fibre} & 0039 & exact finite witness \\
+Degree profile, Definition~\ref{def:degree-profile} & 0040 & definition \\
+Cube degrees, Calibration~\ref{cal:cube-degrees} & 0040 & calibration \\
+Criticality warning, Warning~\ref{warn:criticality} & 0040 & warning \\
+Equivariance law, Proposition~\ref{prop:equivariance} & 0040 & exact \\
+Equivariant characteristics, Proposal~\ref{prop:equivariant-characteristics} & 0040 &
+  proposal \\
+Binomial coaction, Proposition~\ref{prop:binomial-coaction} & 0040 & exact \\
+Translation expands, Corollary~\ref{cor:translation-expands} & paper & corollary of
+  Proposition~\ref{prop:binomial-coaction} \\
+Isogeny three readings, Theorem~\ref{thm:isogeny-three-readings} & 0041 & external classical
+  theorem, restated \\
+Isogeny novelty, Calibration~\ref{cal:isogeny-novelty} & 0041 & calibration: the bridge is
+  prior art \\
+Characteristics as groupoid, Proposal~\ref{prop:characteristic-groupoid} & 0041 & proposal \\
+Three cusps, Proposition~\ref{prop:three-cusps} & 0034 & standard exact geometry \\
+Mod-two erases chirality, Remark~\ref{rem:mod2-erases} & 0034, 0010 & no-go, repaired by
+  0037 \\
+Oriented integer lift, Construction~\ref{con:oriented-lift} & 0037 & construction \\
+Tri-chart coherence, Lemma~\ref{lem:tri-chart} & 0037 & lemma, direct calculation \\
+Legendre three readings, Proposition~\ref{prop:legendre-three-readings} & 0042 & classical
+  local facts; the reading identification is open \\
+Bare monodromy unipotent, No-go~\ref{nogo:unipotent} & 0034 & no-go \\
+Central sign closure, Proposition~\ref{prop:central-sign-closure} & 0042 & exact \\
+Label transport, Proposition~\ref{prop:label-transport} & 0042 & exact \\
+Crossing prism, Construction~\ref{con:prism} & 0043 (prism) & construction \\
+Crossing squares, Theorem~\ref{thm:crossing-squares} & 0043 (prism) & exact for two pairs,
+  residual for the third \\
+Two residual channels, Proposition~\ref{prop:two-residual-channels} & 0043 (prism) & exact \\
+Defect decomposes, Theorem~\ref{thm:defect-decomposes} & 0043 (prism) & no-go; the paper's
+  principal negative calibration \\
+Coherence defect, Proposal~\ref{prop:coherence-defect} & 0042 & proposal \\
+Triadic crossing, Conjecture~\ref{conj:triadic-crossing} & 0042 & conjecture \\
+\bottomrule
+\end{longtable}
+
+\subsection{Part I: through-crossings, logic, and the residual catalogue}
+
+\begin{longtable}{@{}p{0.36\textwidth}p{0.16\textwidth}p{0.40\textwidth}@{}}
+\toprule
+Item & Source & Inherited status \\
+\midrule
+\endhead
+Through-crossing, Definition~\ref{def:through-crossing} & 0047 & definition \\
+Crossing is not an arrow, Proposal~\ref{prop:crossing-not-arrow} & 0047 & proposal \\
+Resolution torsor, Definition~\ref{def:resolution-torsor} & 0047 & definition \\
+Monodromy as difference, Theorem~\ref{thm:monodromy-difference} & 0047 & proved \\
+Legendre reduction, Proposition~\ref{prop:legendre-reduction} & 0047 & proved from the base
+  change \\
+Cubical annulus, Construction~\ref{con:cubical-annulus} & 0048 (cellular) & construction \\
+Shear transvection, Proposition~\ref{prop:shear-transvection} & 0048 (cellular) & proved \\
+Vertex not path, Theorem~\ref{thm:vertex-not-path} & 0048 (cellular) & no-go \\
+Marked identity, Proposition~\ref{prop:marked-identity} & 0048 (cellular) & proved \\
+Through form, Definition~\ref{def:through-form} & 0070 & definition \\
+Order and compatibility, Proposition~\ref{prop:order-compat-independent} & 0070 & proved \\
+Resolution count, Proposition~\ref{prop:resolution-count} & 0070 & exact count \\
+Figure-eight, Theorem~\ref{thm:figure-eight} & 0071 & calibration on one word \\
+Double periods, Proposition~\ref{prop:double-periods} & 0072 & exact arithmetic \\
+Return is not period, No-go~\ref{nogo:return-not-period} & 0073 & no-go \\
+Satisfaction form, Definition~\ref{def:satisfaction-form} & 0044 & definition \\
+Opposite-pair sections, Definition~\ref{def:opposite-pair-sections} & 0044 & definition \\
+Generated propositions, Proposal~\ref{prop:generated-propositions} & 0046 & proposal \\
+Support preorder, Definition~\ref{def:support-preorder} & 0044 & definition \\
+Refinement preorder, Proposition~\ref{prop:refinement-preorder} & 0044 & exact \\
+Observer quotient, Calibration~\ref{cal:observer-quotient} & 0044 & calibration \\
+Adjoint quantifiers, Proposal~\ref{prop:adjoint-quantifiers} & 0046 & proposal \\
+Triadicity test, Proposal~\ref{prop:triadicity-test} & 0046 & proposal, falsifiable \\
+Triadicity fails, Calibration~\ref{cal:triadicity-fails} & 0044 & calibration \\
+Three grades of logicality, Proposal~\ref{prop:three-grades} & 0045 & proposal \\
+Bivalence warning, Warning~\ref{warn:bivalence-completeness-decidability} & 0045 & warning \\
+Directional energy, Definition~\ref{def:directional-energy} & 0048 (energy) & definition \\
+Energy split, Proposition~\ref{prop:energy-split} & 0048 (energy) & exact \\
+Energy invariance, Proposition~\ref{prop:energy-invariance} & 0048 (energy) & exact \\
+Zero-energy trap, No-go~\ref{nogo:zero-energy-trap} & 0048 (energy) & no-go \\
+Spectrum versus history, Theorem~\ref{thm:spectrum-history} & 0001, 0002 & no-go \\
+Affine spectrum, Proposition~\ref{prop:affine-spectrum} & 0002 & exact \\
+Marked second jet, Theorem~\ref{thm:second-jet} & 0003 & proved under the marked hypothesis \\
+Co-generation, Theorem~\ref{thm:cogeneration} & 0019 & proved for the declared probe class \\
+Observation tower, Theorem~\ref{thm:observation-tower} & 0013 & no-go \\
+Objectification, No-go~\ref{nogo:objectification} & 0021 & no-go \\
+Effective one-sidedness, Proposition~\ref{prop:effective-onesided} & 0033 & standard, restated \\
+Mass is not fibre, Proposition~\ref{prop:mass-not-fibre} & 0033 & proved \\
+No finite coding, Proposition~\ref{prop:no-finite-coding} & 0037 & proved \\
+Snapshot not empty, Proposition~\ref{prop:snapshot-not-empty} & 0023 & exact witness \\
+Zero-event fibre, Proposition~\ref{prop:zero-event-fibre} & 0027 & no-go \\
+Trace sides, Proposition~\ref{prop:trace-sides} & 0114 & calibration \\
+Count factorization, Proposition~\ref{prop:count-factorization} & 0124 & exact count plus
+  explicit obstruction \\
+Period not history, Proposition~\ref{prop:period-not-history} & 0043 (prism) & no-go \\
+Order obstruction, Theorem~\ref{thm:order-obstruction} & 0126 & proved with exact minimum \\
+Scale forgetting, Proposition~\ref{prop:scale-forgetting} & 0043 (scale) & exact \\
+Winding insufficient, No-go~\ref{nogo:winding} & 0043 (path-bound) & no-go \\
+\bottomrule
+\end{longtable}
+
+\subsection{Part II: apertures, deduction, and the kernel}
+
+\begin{longtable}{@{}p{0.36\textwidth}p{0.16\textwidth}p{0.40\textwidth}@{}}
+\toprule
+Item & Source & Inherited status \\
+\midrule
+\endhead
+Aperture-first, Proposal~\ref{prop:aperture-first} & 0079 & proposal \\
+Typed aperture, Definition~\ref{def:aperture} & 0079 & definition \\
+Open and close, Proposal~\ref{prop:open-close} & 0079 & proposal \\
+Aperture status, Definition~\ref{def:aperture-status} & 0079 & definition \\
+Terminal worlds, Definition~\ref{def:terminal-worlds} & 0081 & definition \\
+Seven faces, Proposition~\ref{prop:seven-faces} & 0096 & calibration \\
+Mask direction, No-go~\ref{nogo:mask-direction} & 0096 & no-go \\
+Filling fibre, Definition~\ref{def:filling-fibre} & 0081 & definition \\
+Fibre connectives, Proposal~\ref{prop:fibre-connectives} & 0081 & proposal \\
+Surface observer, Proposal~\ref{prop:surface-observer} & 0080 & proposal \\
+Geometric warning, Warning~\ref{warn:geometric-conditional} & 0080 & warning \\
+Threaded judgment, Definition~\ref{def:threaded-judgment} & 0084 & definition \\
+Realisation, Definition~\ref{def:realisation} & 0082 & definition \\
+Adequacy hypotheses, Definition~\ref{def:adequacy-hypotheses} & 0082 & hypotheses \\
+Adequacy, Theorem~\ref{thm:adequacy} & 0082 & proved under the four hypotheses \\
+Adequacy boundary, Calibration~\ref{cal:adequacy-boundary} & 0082 & calibration \\
+Substitution natural, Theorem~\ref{thm:substitution-natural} & 0082 & proved \\
+$\mathrm{TND}_0$, Definition~\ref{def:tnd0} & 0084 & definition \\
+Ledger judgment, Definition~\ref{def:ledger-judgment} & 0084 & definition \\
+Soundness, Theorem~\ref{thm:soundness} & 0084 & proved \\
+Grade, Definition~\ref{def:grade} & 0084 & definition \\
+Incompleteness, Theorem~\ref{thm:incompleteness} & 0084 & proved \\
+Grade measures the gap, Proposition~\ref{prop:grade-measures} & 0084 & proved with exact
+  family \\
+Conflict aperture, Proposal~\ref{prop:conflict-aperture} & 0083 & proposal \\
+Common lift, Proposition~\ref{prop:common-lift} & 0083 & proved \\
+One-hole context, Definition~\ref{def:one-hole-context} & 0085 & definition \\
+Ordered substitution, Definition~\ref{def:ordered-substitution} & 0085 & definition \\
+Ledger splice, Theorem~\ref{thm:substitution-splice} & 0085 & proved \\
+Fresh cut, Corollary~\ref{cor:fresh-cut} & 0085 & conditional \\
+Raw ledger fails, No-go~\ref{nogo:raw-ledger} & 0085 & no-go \\
+Ledger transport, Proposal~\ref{prop:ledger-transport} & 0086 & proposal \\
+Freshness reflects, Lemma~\ref{lem:freshness-reflects} & 0086 & proved \\
+Root transport, Theorem~\ref{thm:root-transport} & 0086 & proved \\
+Contextual closure, Corollary~\ref{cor:contextual-closure} & 0086 & proved \\
+Two measures, Definition~\ref{def:two-measures} & 0086 & definition \\
+Strong normalization, Theorem~\ref{thm:strong-normalization} & 0086 & proved \\
+Overlapping redexes, Definition~\ref{def:overlapping-redexes} & 0093 & definition \\
+Four paths, Proposition~\ref{prop:four-paths} & 0093 & proved \\
+Substitution and graft, Lemma~\ref{lem:substitution-graft} & 0093 & proved \\
+Strong diamond, Theorem~\ref{thm:strong-diamond} & 0093 & proved \\
+Confluence, Corollary~\ref{cor:confluence} & 0093 & proved per fixed proof \\
+Confluence is not coherence, No-go~\ref{nogo:confluence-coherence} & 0093 & no-go \\
+Normal and neutral, Definition~\ref{def:normal-neutral} & 0094 & definition \\
+Subformula property, Theorem~\ref{thm:subformula} & 0094 & proved \\
+Leftmost head, Proposition~\ref{prop:leftmost-head} & 0094 & proved \\
+Decidability, Theorem~\ref{thm:decidability} & 0094 & proved \\
+Skeleton positioning, Proposition~\ref{prop:skeleton-position} & 0094 & proved \\
+No compactification, Warning~\ref{warn:no-compactification} & 0093, 0094 & warning \\
+Whole-cut carrier, Definition~\ref{def:whole-cut-carrier} & 0101 & definition \\
+Six-port contract, Definition~\ref{def:six-port-contract} & 0101 & declared contract \\
+Counting bound, Theorem~\ref{thm:counting-bound} & 0101 & proved under the contract \\
+Six is conditional, Warning~\ref{warn:six-conditional} & 0101 & warning \\
+The carrier $\bW_6$, Definition~\ref{def:w6} & 0101 & definition \\
+Line and circle as views, Proposal~\ref{prop:line-circle-views} & 0101, 0102 & proposal \\
+Whole-cut record, Definition~\ref{def:whole-cut-record} & 0102 & definition \\
+Collision conservation, Proposition~\ref{prop:collision-conservation} & 0102 & proved \\
+Cell--carrier--view, Proposal~\ref{prop:cell-carrier-view} & 0103 & proposal \\
+Envelope count, Proposition~\ref{prop:envelope} & 0103 & exact count \\
+$M_6$ bridge, Theorem~\ref{thm:m6-bridge} & 0104 & proved under explicit hypotheses \\
+Filler open, Calibration~\ref{cal:m6-open} & 0104, 0113 & calibration: no filler \\
+Relative initiality, Proposal~\ref{prop:relative-initiality} & 0101 & proposal \\
+Not universal, Warning~\ref{warn:not-universal} & 0101 & warning \\
+Matching counts, Proposition~\ref{prop:matching-counts} & paper & elementary count, check of
+  Theorem~\ref{thm:m6-bridge} \\
+\bottomrule
+\end{longtable}
+
+\subsection{Source notes not absorbed as main text}
+
+The following clusters of the source corpus are mathematical but belong to neither part of
+this paper, and are recorded here so that the omission is visible rather than accidental.
+
+\begin{itemize}
+\item \textbf{0004--0007}: whole-cut program cells, the Alexandrov topology of completed
+  causal pasts, frontier transport with its interchange square, and the occurrence-affine cut
+  lift.  This is a theory of causal cuts with its own space--time duality, presupposing
+  Paper~I's histories.
+\item \textbf{0015--0018}: occurrence-resolved backward probe pairing, expression-valued
+  backward transport, and the intensional cut-composition law.  Its natural home is with
+  Paper~IV's continuation residuals.
+\item \textbf{0020, 0022--0031}: the finite dual-cut surgery programme, the relational and
+  polarized $PSP^{\ast}$ factorizations, and boundary polarization.  Much of this is stated
+  relative to checked finite artifacts and would require its own careful separation of
+  mathematics from fixture.
+\item \textbf{0033, 0035--0037}: the $\Omega$-type effective boundary, the decorated handle
+  operator, the triangular symbolic calculus, and the finite-observer tri-cusp reduction.
+  Only Proposition~\ref{prop:effective-onesided} and
+  Proposition~\ref{prop:no-finite-coding} are imported.
+\item \textbf{0050--0058}: the triadic transformation monoid, context-generated proposition
+  algebras, causal evidence layers, and the braid/gate comparison.  These are the finite
+  models that motivate \S\ref{sec:satisfaction-logic} but are not restated.
+\item \textbf{0059--0069, 0074--0078, 0087--0092, 0105--0127}: the bracket and shell
+  calculi, the research-instrument reports, the multi-hole syntax, the venture and
+  failure-frontier programme, and the later formation-gate notes.
+\end{itemize}
+
+Fifteen of the 133 surveyed files are predominantly engineering and contribute no main-text
+mathematics: \texttt{0026}, \texttt{0050} (LABS search), \texttt{0054} (sorting networks),
+\texttt{0074}, \texttt{0090}, \texttt{0092}, the three \texttt{0102} follow-ups,
+\texttt{0108}, \texttt{0110}, \texttt{0115}, \texttt{0116}, \texttt{0123}, and one SVG
+figure.

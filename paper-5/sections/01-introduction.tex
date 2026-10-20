@@ -1,0 +1,180 @@
+% Section 1: Introduction and programme
+\label{sec:intro-body}
+
+\subsection{The question this paper asks}
+
+Papers~0--IV of this series follow one expression through four successively coarser
+stages: an expression tree, a marked history, the operator that the history induces,
+and the endpoint value where it lands \cite{Yuan2026AEGPaperZero,Yuan2026AEGFoundations}.
+Paper~IV then asks when a quotient of that data is still sufficient for future
+continuation, and separates a semantic residual from an operational trace
+\cite{Yuan2026AEGCondensation}.
+
+This paper asks a different question, which the earlier papers deliberately do not
+answer.  Suppose one and the same carrier is to be read in three coordinated ways ---
+say as a process, as a space, and as a construction --- and suppose each reading is
+a typed interpretation with its own direction of information flow.  What is the
+minimal structure that lets such readings be compared at all?  What is necessarily
+lost in the comparison, and how is that loss to be accounted for?  And what is the
+syntax in which the places of loss --- the places where a reading is *not yet*
+determined --- can be written down, filled, and checked?
+
+The answer developed here has two halves, and they are the two parts of the paper.
+
+\subsection{Part I in one paragraph}
+
+Part~I develops a theory of \emph{triadic characteristics}.  Its primitive is not a
+value but an \emph{observer contract}: a finite datum fixing what is seen, when two
+things are declared indistinguishable, which projections are available, and what
+budget is granted.  A characteristic of a process is then an operational quotient of
+that process together with a residual, and the residual is not a bookkeeping
+afterthought: it is the part of the construction that the quotient cannot see.
+
+Given that framing, several classical-looking questions become sharp.
+
+\begin{itemize}
+\item Among the one-parameter quadratic scalar families
+  $A_\kappa=\R[j]/(j^2-\kappa)$, which one does the geometry force?  The answer is
+  that nothing in rank-one characteristic recovery, conjugation, or a multiplicative
+  quadratic norm forces any of them; what selects $\C$ is a global negative-inverse
+  involution on the punctured carrier, and this is equivalent, under one explicit
+  bridge hypothesis, to the existence of an oriented order-four exchange lift
+  $J$ satisfying $J^2=-I$ whose projective class satisfies $[J]^2=[I]$.
+  \emph{Chirality} is precisely the central sign that projectivization forgets.
+\item Where does the six-state carrier $V\oplus\Lambda^2 V$ come from?  Not from a
+  postulate: on a declared finite cut interval, cut-membership cochains together
+  with oriented interchange generate the Clifford anticommutator, whereas
+  interchange alone provably cannot.
+\item What survives when one finite characteristic algebra is read temporally,
+  spatially, and constructively?  A stable variance signature, inference as
+  constrained intersection of observation fibres, and a hard separation between four
+  numeric invariants that a naive theory conflates.
+\item What is the right notion of \emph{crossing}?  Not a transport arrow, but a
+  cospan with a resolution torsor; monodromy is then the difference of two
+  resolutions, and the Legendre monodromy is \emph{derived} from the quadratic base
+  change rather than inserted by hand.
+\end{itemize}
+
+Part~I also contains the paper's principal \emph{negative} calibration.  On the
+finite Legendre prism the total defect decomposes into a central sign channel and a
+history-suffix channel; therefore no irreducible triadic $3$-cocycle is exhibited
+there.  We report this as a failure of the finite model, not as a success in
+disguise.
+
+\subsection{Part II in one paragraph}
+
+Part~II takes seriously the place where a reading is undetermined.  It makes the
+typed hole --- the \emph{aperture} --- the primitive: syntactically empty,
+semantically a family of fillings, and with open and close operations that are
+deliberately not inverse.
+
+On that primitive it builds a finite semantics (a terminal-world carrier, filling
+fibres, and an adequacy theorem for threaded logic under explicit hypotheses), an
+ordered linear natural-deduction fragment that is sound but provably incomplete for
+Boolean semantics, and a proof theory strong enough to be interesting: an ordered
+one-hole substitution law with a ledger splice, conditional fresh-cut admissibility,
+strong normalization via two decreasing measures, local and global confluence with a
+unique normal form per fixed proof, and finally a focused normal-form characterization
+with the subformula property that yields a terminating, sound, and complete decision
+procedure for derivability.
+
+Part~II closes with the six-port whole-cut kernel, which answers the question ``why
+six ports?'' by a counting theorem $n\ge 2m$ under a stated contract, and which
+weakens universality to relative initiality rather than claiming it.
+
+\subsection{The discipline the two parts share}
+
+Three rules govern every claim in this paper, and the reader is invited to hold the
+paper to them.
+
+\begin{enumerate}
+\item \textbf{A quotient is admissible only with a declared residual.}  Every
+  quotient result must either be accompanied by an exact reconstruction statement or
+  name a residual whose contents are characterized.  The phrase ``the quotient loses
+  nothing important'' is not an available move in this paper.
+\item \textbf{A calibration is never promoted to a theorem.}  Where a statement is
+  established only by an exhaustive check of a declared finite fixture, it is
+  labelled a calibration, and the fixture is named.  Where it is established by an
+  argument, the argument appears in the paper or in an appendix.
+\item \textbf{A property is certified, not named.}  Three readings are triadic only
+  if the pairwise crossings are given and the cyclic residual is exhibited.
+  Universality is only relative initiality unless a stronger theorem is supplied.
+  A boundary-return word is not a periodic orbit.
+\end{enumerate}
+
+These rules are the reason Part~I contains as many no-go results as positive ones.
+They are also the reason Part~II spends effort on metatheorems: soundness alone is
+cheap, and the interesting question is always what fails.
+
+\subsection{Reading guide and dependencies}
+
+A reader interested only in the geometry of readings may read Part~I, taking
+\S\ref{sec:observers}--\S\ref{sec:triadic-inference} as the core and
+\S\ref{sec:classical}--\S\ref{sec:through} as the calibrations that constrain it.
+A reader interested in the syntax of apertures may read Part~II from
+\S\ref{sec:apertures}, taking \S\ref{sec:ordered-linear}--\S\ref{sec:confluence-decidability}
+as its proof-theoretic content.  The two parts meet at the notion of a filling fibre:
+in Part~I a residual is what a quotient cannot see, and in Part~II an aperture is
+where a partial reading records that it cannot yet see.
+
+The paper imports, and does not redefine:
+
+\begin{itemize}
+\item from Paper~0, the hyperbolic model, the affine cocycle and its relative defect,
+  the M\"obius involution $z\mapsto -1/z$, and the cut-and-glue language
+  \cite{Yuan2026AEGPaperZero};
+\item from Paper~I, the separation of literal syntax, marked history, induced
+  operator, and endpoint value, and the projective-versus-affine distinction
+  \cite{Yuan2026AEGFoundations};
+\item from Paper~IV, the requirement that a quotient be judged against a declared
+  continuation class and observation, and the separation of a semantic bound from an
+  operational trace \cite{Yuan2026AEGCondensation}.
+\end{itemize}
+
+\subsection{Conventions and notation}
+
+Throughout, $\R$ and $\C$ are the real and complex fields, $\F_2$ the field with two
+elements, and $\PP^1$ the projective line.  For a finite set $X$ we write
+$\cP(X)$ for its powerset and $\mathbf 2=\{\bot,\top\}$ for the Sierpinski lattice
+with $\bot<\top$.
+
+An \emph{observer} is written $Q$; its components are introduced in
+\S\ref{sec:observers} and are never abbreviated away.  A \emph{characteristic} is
+written $\chi$, and $\Fib_{D,Q}(x)$ denotes an observation fibre; the subscript
+always names both the domain and the observer, because omitting either is the most
+common source of error in this material.
+
+Crossings are written with subscripts naming the two readings being compared, so
+that $J_{\cK\cX}$ and $J_{\cX t}$ are different maps and composition order matters.
+The orientation expression of the six-state carrier is $\Omega$, and it is a
+\emph{derived} object (\S\ref{sec:six-state}) whenever the derivation is available.
+
+In Part~II, a hole is written $h_d$ with $d$ its domain slot; $\Fill_{\cM,\rho}$ is
+the filling family in model $\cM$ under assignment $\rho$; $\mathrm{TND}_0$ names the
+ordered linear natural-deduction fragment of \S\ref{sec:ordered-linear}.  The
+dedicated environments \textsf{Calibration}, \textsf{Proposal}, and
+\textsf{Conjecture} carry the epistemic weight that the words suggest, and a
+\textsf{Theorem} or \textsf{Proposition} is never used for a finite fixture check.
+
+\subsection{What this paper does not establish}
+
+For emphasis, and because the material is exploratory in places, the following are
+\emph{not} claimed anywhere in this paper.
+
+\begin{itemize}
+\item That the three named readings are canonically identified.  They are compared
+  through declared crossings with declared residuals; a canonical identification is
+  an open problem (\S\ref{sec:boundaries}).
+\item That arithmetic programs must use complex foundational scalars.  Only that,
+  within the tested quadratic family and under a stated bridge hypothesis, one
+  property selects $\C$ (\S\ref{sec:scalar-trichotomy}).
+\item That the six-state carrier is a spacetime decomposition or a physical claim of
+  any kind.  The derivation is finite and combinatorial (\S\ref{sec:six-state}).
+\item That any finite calibration demonstrates universality, non-computability, or a
+  physical realization.
+\item That order can be inferred from an energy, a grade, or a scalar.  The opposite
+  is proved in several places (\S\ref{sec:satisfaction-logic},
+  \S\ref{sec:residual-catalogue}).
+\item That the triadic programme has been completed.  Its decisive missing theorem
+  is named in \S\ref{sec:boundaries}.
+\end{itemize}

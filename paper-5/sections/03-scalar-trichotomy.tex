@@ -1,0 +1,285 @@
+% Section 3: The quadratic trichotomy and the central sign
+\label{sec:scalar-body}
+
+A recurring temptation in this material is to declare the complex field as the
+foundational scalar and then to derive the geometry.  This section shows why that
+order is unavailable.  Within the natural one-parameter family of two-dimensional real
+algebras, the coarse requirements that a "characteristic" theory might impose are
+satisfied by all three members; only a genuinely geometric condition separates them,
+and that condition has a precise meaning: it is the retention of a central sign.
+
+\subsection{The quadratic family}
+
+\begin{definition}[Quadratic scalar family]\label{def:quadratic-family}
+For $\kappa\in\{-1,0,1\}$ let
+\[
+  A_\kappa=\R[j]/(j^{2}-\kappa),
+\]
+so that $a+bj$ with $a,b\in\R$ multiplies by
+\[
+  (a+bj)(c+dj)=(ac+\kappa bd)+(ad+bc)j .
+\]
+\end{definition}
+
+\begin{proposition}[Elementary structure]\label{prop:quadratic-structure}
+In each $A_\kappa$: the quadratic norm $N_\kappa(x)=x\bar x$ with
+$\overline{a+bj}=a-bj$ is multiplicative, and conjugation is a multiplicative
+involution.  Moreover for every $u\in A_\kappa$ the rank-one map $L_u(x)=ux$
+satisfies
+\[
+  L_u(1)=u,\qquad L_u\circ L_v=L_{uv},
+\]
+so a scalar is recovered from its own characteristic action without coordinates, and
+the three aspect units $\tau,\sigma,\rho\in A_\kappa$ compose cyclically to a single
+characteristic $L_{\rho\sigma\tau}$.
+\end{proposition}
+
+\begin{proof}
+Multiplicativity of $N_\kappa$ is the identity
+$(ac+\kappa bd)^{2}-\kappa(ad+bc)^{2}=(a^{2}-\kappa b^{2})(c^{2}-\kappa d^{2})$,
+which is a direct expansion.  The rest is immediate from associativity of $A_\kappa$
+and $L_u(1)=u$.
+\end{proof}
+
+The three cases are conventionally named by the sign of the norm:
+
+\begin{center}
+\begin{tabular}{@{}ccll@{}}
+\toprule
+$\kappa$ & algebra & $N_\kappa(a,b)$ & type \\
+\midrule
+$-1$ & complex numbers & $a^{2}+b^{2}$ & elliptic \\
+$0$ & dual numbers & $a^{2}$ & parabolic \\
+$1$ & split-complex numbers & $a^{2}-b^{2}$ & hyperbolic \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{remark}[What Proposition~\ref{prop:quadratic-structure} does not do]
+\label{rem:not-enough}
+It does not select $\kappa=-1$.  Rank-one recovery of a characteristic from its own
+action, multiplicative conjugation, and a multiplicative quadratic norm are all
+satisfied by the three members.  Any argument that begins "the scalar must be
+complex, since only then can one conjugate and take norms" is therefore invalid.
+\end{remark}
+
+\subsection{The three nondegeneracy conditions, and why they are not derivations}
+
+Three further requirements do separate the cases.
+
+\begin{proposition}\label{prop:three-separators}
+Within $\{A_\kappa\}$ each of the following conditions holds for $\kappa=-1$ alone:
+\begin{enumerate}
+\item every nonzero element is invertible;
+\item $N_\kappa$ is positive definite;
+\item the unit-norm group $\{x:N_\kappa(x)=1\}$ is compact.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+For $\kappa=-1$ the inverse is $(a+bj)^{-1}=(a-bj)/(a^{2}+b^{2})$ and the unit group
+is $S^{1}$.  For $\kappa=0$, every $bj$ with $b\neq0$ is a noninvertible nonzero
+element.  For $\kappa=1$, $(1+j)(1-j)=0$ exhibits nonzero zero divisors and the norm
+is indefinite with noncompact unit locus.
+\end{proof}
+
+\begin{warning}
+Proposition~\ref{prop:three-separators} is a separation result, not a derivation.
+None of the three conditions is forced by the geometry of readings.  They are
+\emph{available} selection principles, and choosing one is a mathematical decision
+that must be declared.
+\end{warning}
+
+\subsection{The negative-inverse criterion}
+
+A better candidate comes from the geometry itself.  Paper~0 already contains the
+M\"obius involution $S(z)=-1/z$ as the reciprocal reading
+\cite{Yuan2026AEGPaperZero}; the question is which quadratic scalars admit it
+globally.
+
+\begin{proposition}[Negative inverse in the quadratic family]\label{prop:negative-inverse}
+For $z=a+bj\in A_\kappa$ with $a^{2}-\kappa b^{2}\neq0$,
+\[
+  S_\kappa(a,b)=\Bigl(\frac{-a}{a^{2}-\kappa b^{2}},\ \frac{b}{a^{2}-\kappa b^{2}}\Bigr)
+\]
+satisfies $z\,S_\kappa(z)=-1$.  For $\kappa=-1$ the formula
+\begin{enumerate}
+\item is defined on the whole punctured plane $\R^{2}\setminus\{0\}$;
+\item is an involution;
+\item satisfies $zS_{-1}(z)=-1$ identically;
+\item preserves the upper half-plane $\{b>0\}$.
+\end{enumerate}
+For $\kappa=0$ the entire nilpotent axis $a=0$ is excluded.  For $\kappa=1$ the two
+light rays $a=\pm b$ are excluded, and the sign of the second coordinate need not be
+preserved across the components they separate.
+\end{proposition}
+
+\begin{proof}
+$1/z=(a-bj)/(a^{2}-\kappa b^{2})$, so $-1/z=S_\kappa(a,b)$ as displayed, and
+$zS_\kappa(z)=-1$ follows.  For $\kappa=-1$ the denominator $a^{2}+b^{2}$ never
+vanishes off the origin, and $b/(a^{2}+b^{2})>0$ whenever $b>0$; involutivity is the
+usual $(S\circ S)(z)=z$ for a M\"obius involution on a chart where it is defined.  The
+excluded loci for $\kappa=0,1$ are exactly the zero divisors.
+\end{proof}
+
+\begin{proposal}[The AEG inversion criterion]\label{prop:inversion-criterion}
+Among the tested family, $\C$ is selected by the requirement that a globally defined
+negative-inverse involution exist on every nonzero scalar and preserve one connected
+real half-plane.
+\end{proposal}
+
+This is labelled \textsf{Proposal} because the requirement is imported from the
+observed transition between two real grids, not derived from program geometry; what
+is proved is only that it selects.
+
+\subsection{The oriented lift, and chirality as a central sign}
+
+The inversion criterion has a sharper form which explains \emph{why} it selects, and
+which supplies the paper's working definition of chirality.
+
+\begin{definition}[Time--space exchange and its lift]\label{def:exchange-lift}
+On a homogeneous pair $(t,s)$ put
+\[
+  J(t,s)=(-s,t),\qquad J=\begin{pmatrix}0&-1\\ 1&0\end{pmatrix}.
+\]
+On the projective chart $z=t/s$ this induces $[t:s]\mapsto[-s:t]$, i.e.
+$z\mapsto-1/z$.  We call $J$ the \emph{oriented lift} of the projective exchange.
+\end{definition}
+
+\begin{proposition}[Order two versus order four]\label{prop:order-two-four}
+$[J]^{2}=[I]$ on the projective line, while $J^{2}=-I$ on the oriented lift.  Hence
+$J^{-1}=-J$, and the forward and reverse exchanges induce the same projective
+involution although they are distinct on the lift.
+\end{proposition}
+
+\begin{proof}
+$J^{2}=\begin{pmatrix}-1&0\\0&-1\end{pmatrix}$.  Projectively $[-\id]=[\id]$, so
+$[J]^{2}=[\id]$, while on the lift the scalar $-1$ is retained.
+\end{proof}
+
+\begin{definition}[Chirality]\label{def:chirality}
+\emph{Chirality} is the central sign distinguishing the forward and reverse oriented
+lifts of one projective exchange: the datum that $J$ and $J^{-1}=-J$ are different
+lifts of the same projective involution.
+\end{definition}
+
+This definition is deliberately austere.  It says nothing about the orientation of the
+ambient plane, and the following computation shows that it must not.
+
+\begin{proposition}[Chirality is not ambient orientation reversal]\label{prop:not-orientation}
+In real coordinates $S(x,y)=\bigl(-x/(x^{2}+y^{2}),\,y/(x^{2}+y^{2})\bigr)$ has
+Jacobian determinant
+\[
+  \det DS=\frac{1}{(x^{2}+y^{2})^{2}}>0 .
+\]
+Thus the involution is holomorphic and orientation-preserving on the plane; the
+chirality change is not a reversal of that plane but the difference between the two
+lifts of one projective map.
+\end{proposition}
+
+\begin{proof}
+$S$ is the M\"obius map $-1/z$ with derivative $1/z^{2}$, so
+$\det DS=|z|^{-4}=(x^{2}+y^{2})^{-2}>0$.
+\end{proof}
+
+\subsection{The generator action under one bridge hypothesis}
+
+The central sign becomes a selection mechanism for the algebra when the same oriented
+two-dimensional carrier is asked to represent both the exchange lift and the action of
+the quadratic generator.
+
+\begin{proposition}[Generator action]\label{prop:generator-action}
+Let $L_j$ be multiplication by $j$ on $(a,b)$, so that
+\[
+  L_j=\begin{pmatrix}0&\kappa\\ 1&0\end{pmatrix},\qquad L_j^{2}=\kappa I .
+\]
+Then:
+\begin{enumerate}
+\item for $\kappa=-1$, $L_j=J$ is orientation-preserving, invertible, of order four
+  before projectivization;
+\item for $\kappa=1$, $L_j^{2}=+I$, $\det L_j=-1$, and the generator is already its own
+  inverse on the lift;
+\item for $\kappa=0$, $L_j$ is singular and nilpotent.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Direct computation for each $\kappa$; $\det L_j=-\kappa$ and $L_j^{2}=\kappa I$.
+\end{proof}
+
+\begin{calibration}[The bridge is a hypothesis]\label{cal:bridge-hypothesis}
+Requiring an oriented time--space exchange whose projective class has order two while
+its lift distinguishes forward from reverse selects $j^{2}=-1$, \emph{provided} the
+same oriented two-dimensional carrier is declared to represent both the exchange lift
+and the generator action.  Both halves are calibrated, not proved: the selection is a
+finite algebraic check, and the bridge is a declared identification.
+\end{calibration}
+
+\begin{warning}
+The matrix $J\in SL(2,\R)$ already defines the real-coefficient M\"obius map $-1/z$;
+complex notation is therefore not by itself evidence that the underlying scalars are
+complex.  What is new is that retaining the lift rather than quotienting to
+$\PSL(2,\R)$ exposes the central sign.  Calling that sign chirality requires the
+oriented carrier to remember it.
+\end{warning}
+
+\subsection{The conjugated presentation}
+
+The last piece of the trichotomy is what the involution does to the two AEG
+generators, because it shows the central sign in operational form.
+
+\begin{proposition}[Conjugated generators]\label{prop:conjugated-generators}
+Write $A(z)=z+1$ and $M_\lambda(z)=\lambda z$ for $\lambda>0$ in the upper
+half-plane chart.  Then
+\[
+  S M_\lambda S=M_{\lambda^{-1}},\qquad
+  S A S(z)=\frac{z}{1-z}.
+\]
+Thus conjugation inverts the scale direction while turning the translation grid into a
+parabolic grid organised around the other fixed point.  For a Baumslag--Solitar-type
+relation $MAM^{-1}=A^{n}$ the conjugated presentation has scale generator $M^{-1}$ and
+ripple generator $SAS$.
+\end{proposition}
+
+\begin{proof}
+For the first identity, $S M_\lambda S(z)=-1/(\lambda\cdot(-1/z))=z/\lambda
+=M_{\lambda^{-1}}(z)$.  For the second,
+$SAS(z)=-1/((-1/z)+1)=z/(1-z)$, which is parabolic with the single fixed point $1/2$.
+\end{proof}
+
+\begin{remark}[Baumslag--Solitar background]
+The relation $MAM^{-1}=A^{n}$ is the Baumslag--Solitar presentation
+\cite{BaumslagSolitar1962NonHopfian}; Paper~0 records the exact routing of
+copy/branch/recombine programs through these relations.  The content here is only that
+conjugation exchanges the forward and reverse presentations of the selected scale
+direction, which is the visible consequence of lift-level chirality.
+\end{remark}
+
+\subsection{What the trichotomy settles, and what it leaves open}
+
+\begin{calibration}[Bounded red-team calibration]\label{cal:trichotomy-bounded}
+Within the tested quadratic family: two real dimensions per aspect, cyclic rank-one
+action, recovery of a characteristic from its unit action, conjugation, and a
+multiplicative norm do \emph{not} select $\C$; a global negative-inverse involution
+preserving a connected real AEG half-plane \emph{does} select $\C$; and the
+mechanism is that the projective exchange has order two while its
+orientation-preserving lift has order four.
+\end{calibration}
+
+Three interpretations of the six real degrees of freedom remain live and are not
+separated by anything proved here.
+
+\begin{proposal}[Three readings of $6=2+2+2$]\label{prop:three-readings}
+The cases $\kappa=-1,0,1$ may respectively encode phase/orientation, infinitesimal
+extension, and causal scale; alternatively the three pairs may be three complex
+lines; alternatively $\C$, dual, and split behaviour may be charts or strata of one
+expression-valued scalar geometry.  No canonical assignment of the three cases to
+temporal, spatial, and relational roles is established.
+\end{proposal}
+
+\begin{remark}[The Jordan shoulder]
+The dual case is not a pathology to be eliminated.  A nilpotent extension naturally
+records a first-order shoulder that survives complexification, which suggests that a
+faithful spectrum may require both a semisimple character and a residual extension
+object.  \S\ref{sec:residual-catalogue} returns to this.
+\end{remark}

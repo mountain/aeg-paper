@@ -1,0 +1,149 @@
+% Section 6: Typed multiplicity, equivariance, and the word-to-graph boundary
+\label{sec:multiplicity-body}
+
+The temptation produced by \S\ref{sec:triadic-inference} is to suppose that a reading
+has a single "multiplicity" --- a degree, a number of preimages, a count of sheets ---
+and that these agree.  They do not.  This section separates them, shows that the
+correct general form of the stability a characteristic enjoys is equivariance rather
+than invariance, and exhibits the coaction responsible for the failure of translation
+to cross a power inside a word normal form.
+
+\subsection{Four invariants, not one}
+
+\begin{definition}[Observer-relative degree profile]\label{def:degree-profile}
+For a process $P$ and a contract $Q$, the \emph{degree profile} is the quadruple
+\[
+  \mathbf d_Q(P)=\bigl(d_{\mathrm{alg}},\,d_{\mathrm{fib}},\,d_{\mathrm{sheet}},\,
+  d_{\mathrm{occ}}\bigr),
+\]
+where $d_{\mathrm{alg}}$ is the algebraic degree of the induced characteristic,
+$d_{\mathrm{fib}}$ the cardinality of a generic fibre of the reverse reading over the
+declared scalar domain, $d_{\mathrm{sheet}}$ the covering degree of the associated
+spatial correspondence, and $d_{\mathrm{occ}}$ the constructive occurrence
+multiplicity.
+\end{definition}
+
+The point of Definition~\ref{def:degree-profile} is that these four quantities are
+\emph{typed}: they live in different codomains, are computed by different readings, and
+may take different values for one process.
+
+\subsection{The cube counter-calibration}
+
+The square of \S\ref{sec:triadic-inference} is too symmetric to make the point, because
+over $\R$ it already has a genuine branch.  The cube is decisive: it is algebraically
+of degree three, it is a real homeomorphism, and it has three constructive occurrences.
+
+\begin{calibration}[Power maps separate the invariants]\label{cal:cube-degrees}
+For $P_{\R}$ the real cube $x\mapsto x^{3}$ read through the contract $Q_{\R}$, and for
+$P_{\C}$ the complex cube read through $Q_{\C}$ whose scalar domain is $\C$,
+\[
+  \mathbf d_{Q_{\R}}(P_{\R})=(3,1,1,3),\qquad
+  \mathbf d_{Q_{\C}}(P_{\C})=(3,3,3,3).
+\]
+The total multiplicity $3$ appears in both profiles but in different coordinates, so
+the two cannot be reconciled by a single number.
+\end{calibration}
+
+\begin{warning}[Criticality does not imply branching]\label{warn:criticality}
+$C(x)=x^{3}$ has $C'(0)=0$, so the map is critically singular at the origin, yet it is
+a real homeomorphism: crucially, criticality does not split a real open neighbourhood
+into several branches.  Consequently no argument of the form "the derivative vanishes,
+therefore there are several sheets over the image" is admissible.  A branch count is a
+statement about the covering over the declared scalar domain and must be computed
+there.
+\end{warning}
+
+\begin{remark}
+Warning~\ref{warn:criticality} is the exact obstruction to the naive reading of
+\S\ref{sec:six-state}: the complex structure $J$ detects the presence of a
+second direction, not the multiplicity of preimages.  The two data are independent.
+\end{remark}
+
+\subsection{Invariance is the trivial case of equivariance}
+
+A characteristic need not be invariant under a symmetry of its carrier; it may
+transform.
+
+\begin{proposition}[Equivariance law]\label{prop:equivariance}
+Let $\sigma(x)=-x$ and let $P_n(x)=x^{n}$.  Then
+\[
+  P_n(\sigma x)=\sigma^{n}\,P_n(x),\qquad\text{i.e.}\qquad P_n(-x)=(-1)^{n}P_n(x).
+\]
+Equivalently, $P_n$ is equivariant for the sign representation of $C_2$ when $n$ is odd,
+and invariant --- the trivial representation --- when $n$ is even.
+\end{proposition}
+
+\begin{proof}
+$(-x)^{n}=(-1)^{n}x^{n}$.
+\end{proof}
+
+\begin{proposal}[Equivariant characteristics]\label{prop:equivariant-characteristics}
+The correct general notion of "a characteristic that a symmetry preserves" is
+equivariance $f(gx)=\pi(g)f(x)$ for a declared representation $\pi$; invariance
+$f(gx)=f(x)$ is the case $\pi$ trivial.  Characteristics should be recorded together
+with $\pi$.
+\end{proposal}
+
+\begin{remark}
+Proposition~\ref{prop:equivariance} is elementary, and it is included because the
+distinction it names is the one that fails in practice: characters are frequently
+assumed invariant, and the resulting theory then appears to lose odd-degree data.  The
+data are not lost; the variance was mis-declared.
+\end{remark}
+
+\subsection{The binomial coaction}
+
+The final piece explains the obstruction of Theorem~\ref{thm:translation-obstruction}
+in structural terms.
+
+\begin{proposition}[Binomial coaction]\label{prop:binomial-coaction}
+On $\Q[x]$ define $\Delta(x)=x\otimes 1+1\otimes x$, extended as an algebra map.  Then
+for every $b$,
+\[
+  (\id\otimes \mathrm{ev}_b)\Delta(x^{n})=(x+b)^{n},
+\]
+where $\mathrm{ev}_b$ evaluates the right tensor factor at $b$.
+\end{proposition}
+
+\begin{proof}
+$\Delta(x^{n})=(x\otimes1+1\otimes x)^{n}=\sum_{k}\binom{n}{k}x^{n-k}\otimes x^{k}$ by
+the binomial theorem in the commutative algebra $\Q[x]\otimes\Q[x]$.  Applying
+$\id\otimes\mathrm{ev}_b$ gives $\sum_k\binom{n}{k}b^{k}x^{n-k}=(x+b)^{n}$.
+\end{proof}
+
+\begin{corollary}[Why translation expands a word]\label{cor:translation-expands}
+The passage of a translation through the $n$-th power is governed by a coaction with
+$n+1$ terms; hence it is a multi-term expansion for $n\ge 2$ and cannot be a single
+post-composite.  This is the structural reason behind
+Theorem~\ref{thm:translation-obstruction}.
+\end{corollary}
+
+\begin{proof}
+The expansion has $\binom{n}{k}$ nonvanishing summands for $k=0,\dots,n$; for $n\ge2$
+there are at least three terms with distinct powers of $x$, whereas a post-composite of
+$x^{n}$ with an affine map produces exactly one term of degree $n$ and one constant.
+\end{proof}
+
+\begin{remark}[Vocabulary closed under translation]
+Proposition~\ref{prop:binomial-coaction} also says which vocabularies are stable under
+translation: a power vocabulary is translation-closed exactly when it is closed under
+the coaction, which for a finite generating set forces the vocabulary to be
+translation-invariant as a set.  \S\ref{sec:boundaries} records the corresponding open
+problem for finite vocabularies.
+\end{remark}
+
+\subsection{Consequences carried forward}
+
+\begin{enumerate}
+\item A characteristic is typed by the reading that produces it, and its multiplicity
+  coordinates are not interchangeable
+  (Calibration~\ref{cal:cube-degrees}, Warning~\ref{warn:criticality}).
+\item Stability under a symmetry is equivariance for a declared representation, not
+  invariance (Proposition~\ref{prop:equivariance},
+  Proposal~\ref{prop:equivariant-characteristics}).
+\item Translation cannot cross a power inside a word normal form, for a structural
+  reason given by a coaction (Proposition~\ref{prop:binomial-coaction},
+  Corollary~\ref{cor:translation-expands}).  Combined with
+  Proposition~\ref{prop:word-to-graph}, this is the paper's justification for replacing
+  words by typed graphs with explicit copy.
+\end{enumerate}

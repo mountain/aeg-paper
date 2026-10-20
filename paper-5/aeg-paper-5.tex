@@ -1,0 +1,270 @@
+% Canonical entry point for Arithmetic Expression Geometry V.
+\documentclass[11pt]{article}
+
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,longtable,array}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,decorations.pathreplacing}
+\usepackage{enumitem}
+\usepackage{url}
+\usepackage[
+  colorlinks=true,
+  linkcolor=blue!45!black,
+  citecolor=green!35!black,
+  urlcolor=blue!55!black,
+  pdfencoding=auto
+]{hyperref}
+\hypersetup{
+  pdftitle={Arithmetic Expression Geometry V: Triadic Characteristics and Threaded Apertures},
+  pdfauthor={Mingli Yuan},
+  pdfsubject={Three Readings, Observation Fibres, and the Syntax of Apertures},
+  pdfkeywords={arithmetic expression geometry, triadic characteristic, observation fibre, residual, chirality, through-crossing, aperture, linear logic, normalization}
+}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{convention}[theorem]{Convention}
+\newtheorem{construction}[theorem]{Construction}
+\newtheorem{calibration}[theorem]{Calibration}
+\newtheorem{proposal}[theorem]{Proposal}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{nogo}[theorem]{No-go}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{warning}[theorem]{Warning}
+\newtheorem{problem}[theorem]{Open problem}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\No}{\mathbf{No}}
+\newcommand{\PGL}{\operatorname{PGL}}
+\newcommand{\PSL}{\operatorname{PSL}}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\Aff}{\operatorname{Aff}}
+\newcommand{\Hist}{\operatorname{Hist}}
+\newcommand{\Obs}{\operatorname{Obs}}
+\newcommand{\Fib}{\operatorname{Fib}}
+\newcommand{\Fill}{\operatorname{Fill}}
+\newcommand{\Sect}{\operatorname{Sect}}
+\newcommand{\Fix}{\operatorname{Fix}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\sgn}{\operatorname{sgn}}
+\newcommand{\lcm}{\operatorname{lcm}}
+\newcommand{\dd}{\,\mathrm{d}}
+\newcommand{\defeq}{\mathrel{:=}}
+\newcommand{\cA}{\mathcal A}
+\newcommand{\cB}{\mathcal B}
+\newcommand{\cC}{\mathcal C}
+\newcommand{\cD}{\mathcal D}
+\newcommand{\cE}{\mathcal E}
+\newcommand{\cF}{\mathcal F}
+\newcommand{\cG}{\mathcal G}
+\newcommand{\cH}{\mathcal H}
+\newcommand{\cI}{\mathcal I}
+\newcommand{\cK}{\mathcal K}
+\newcommand{\cL}{\mathcal L}
+\newcommand{\cM}{\mathcal M}
+\newcommand{\cN}{\mathcal N}
+\newcommand{\cO}{\mathcal O}
+\newcommand{\cP}{\mathcal P}
+\newcommand{\cQ}{\mathcal Q}
+\newcommand{\cR}{\mathcal R}
+\newcommand{\cS}{\mathcal S}
+\newcommand{\cT}{\mathcal T}
+\newcommand{\cU}{\mathcal U}
+\newcommand{\cV}{\mathcal V}
+\newcommand{\cW}{\mathcal W}
+\newcommand{\cX}{\mathcal X}
+\newcommand{\cZ}{\mathcal Z}
+\newcommand{\bW}{\mathbb{W}}
+\newcommand{\bE}{\mathbb{E}}
+\newcommand{\bH}{\mathbb{H}}
+\newcommand{\bP}{\mathbb{P}}
+
+\setlist[itemize]{topsep=0.35em,itemsep=0.2em,leftmargin=1.8em}
+\setlist[enumerate]{topsep=0.35em,itemsep=0.2em,leftmargin=2.1em}
+
+\title{\textbf{Arithmetic Expression Geometry V:\\Triadic Characteristics and Threaded Apertures}\\[0.45em]
+\large Three Readings, Observation Fibres, and the Syntax of Apertures}
+
+\author{Mingli Yuan\\Swarma Research\\Beijing 100083, China}
+\date{October 20, 2026\\[0.25em]\small Draft manuscript under mathematical review}
+
+\begin{document}
+\maketitle
+
+\begin{quote}\small
+\textbf{Draft notice.}
+This manuscript is a working draft in the editorial and publication sense, and it is
+the first manuscript of a slot in the series that the earlier governance files did
+not yet cover; its governing scope is
+\texttt{governance/00c-paper-V-triadic-aperture-scope.md}.  Here ``draft'' is not a
+mathematical claim-status label in the repository governance system and does not
+alter the stated status of any theorem, proposition, calibration, proposal,
+conjecture, or open problem.
+\end{quote}
+
+\begin{abstract}
+Papers~0--IV of this series develop one process-to-result architecture: expansion and
+motion, sequential histories and projective semantics, hyperbolic real function
+theory, singular zero geometry, and projective condensation with computational cost.
+This paper develops a second body of mathematics that those papers do not own: a
+theory of three coordinated typed readings of one carrier, of the observation fibres
+and residuals such readings produce, and of the syntax of apertures through which
+they are filled and checked.
+
+Part~I concerns triadic characteristics.  A finite \emph{observer contract} fixes an
+observation map, an equivalence, projectors, and a budget.  A \emph{characteristic}
+is then not a value but an operational quotient together with a residual, and the
+paper's recurring theorem-shape is negative: values, gradients, spectra, terminal
+cycles, frontier snapshots, objectified surreal numbers, and energies do not recover
+construction history, and each such failure is stated as a no-go result with the
+class of observations fixed.  Within the quadratic scalar family
+$A_\kappa=\R[j]/(j^2-\kappa)$ all members satisfy rank-one characteristic recovery,
+conjugation, and a multiplicative quadratic norm; a global negative-inverse
+involution on the punctured carrier, or equivalently an oriented order-four exchange
+lift with $J^2=-I$ while the projective class satisfies $[J]^2=[I]$, selects the
+complex member.  \emph{Chirality} is exactly the central sign that projectivization
+forgets.  On a declared finite cut interval the six-state carrier $V\oplus\Lambda^2V$
+and its orientation expression $\Omega$ with $\Omega^2=-\varepsilon_T\varepsilon_S
+\varepsilon_R$ are not postulated: cut-membership cochains together with oriented
+interchange generate the Clifford anticommutator, whereas interchange alone provably
+cannot.
+
+Three typed interpretations of one finite characteristic algebra --- read temporally,
+spatially, and constructively --- are shown to carry a stable variance signature, and
+inference is the constrained intersection of the corresponding observation fibres.
+The four numeric invariants that a naive theory conflates, namely algebraic degree,
+real fibre cardinality, sheet count, and constructive occurrence multiplicity, are
+exactly separated on $x\mapsto x^3$; invariance appears as the trivial case of
+equivariance; and translation is proved unable to cross a power inside any affine
+word normal form, which is why word rewriting must be replaced by typed graph
+rewriting with explicit copy and merge.  Classical elliptic isogenies calibrate the
+triadic bridge, and the honest conclusion is that the bridge is prior art, so the
+programme's claimable novelty is observer relativity and accountable residual.  In
+the Legendre family one cusp is simultaneously a branch-factor collision, a vanishing
+class carrying a Dehn transvection, and a period monodromy; writing through-crossing
+as a cospan with a resolution torsor rather than as a transport arrow derives
+$M_{\mathrm{Legendre}}=T_\delta^2$ from the quadratic base change and realizes the
+Picard--Lefschetz transvection on a finite cellular annulus.  A Sierpinski-valued
+satisfaction form generates a proposition language whose entailment is refinement of
+opposite-pair sections, with the standing constraint that the sections, not the
+ambient powerset, are the atoms.  The paper reports its own principal negative
+calibration: on the finite Legendre prism the total defect decomposes, so no
+irreducible triadic $3$-cocycle is exhibited.
+
+Part~II concerns apertures.  The typed hole is taken as the primitive: syntactically
+empty, semantically a filling family, and with open and close operations that are
+deliberately not inverse.  Over a finite terminal-world carrier, threaded
+propositional and predicate logic is proved adequate for its fibre-filling semantics
+by structural induction under explicit Cartesian, compatibility, transformer, and
+exhaustiveness hypotheses.  An ordered linear natural-deduction fragment is then
+proved sound but not complete for Boolean semantics, separated by a grade invariant;
+an ordered one-hole substitution theorem gives a ledger splice law, conditional fresh
+cut admissibility, and the failure of raw ledger equality; and beta-ledger transport
+is shown to lift through every proof context with two decreasing measures, giving
+strong normalization.  The critical-pair analysis yields local and global confluence
+and a unique normal form per fixed proof, and the resulting normal and neutral
+characterization with the subformula property yields a terminating, sound, and
+complete focused decision procedure for derivability.  Finally the six-port
+whole-cut kernel answers ``why six ports'' by the counting theorem $n\ge 2m$, hence
+$n_{\min}=6$, under a stated contract; universality is weakened to relative
+initiality in a category of presented models, and the boundary object $M_6^{\partial}$
+is shown to be presented by two fixed-point-free involutions whose union is connected.
+
+The two parts are joined by one discipline.  A quotient is admissible only with a
+declared residual; a calibration is never promoted to a theorem; and triadicity,
+universality, and periodicity are properties to be certified rather than names to be
+assumed.  The paper closes with an explicit list of what it does not establish.
+\end{abstract}
+
+\noindent\textbf{Keywords:}
+arithmetic expression geometry; triadic characteristic; observation fibre;
+operational quotient; residual; chirality; oriented exchange lift; Clifford relation;
+through-crossing; resolution torsor; monodromy; satisfaction form; aperture; typed
+hole; linear logic; strong normalization; confluence; focused derivability; six-port
+kernel
+
+\setcounter{tocdepth}{2}
+\tableofcontents
+\newpage
+
+\part{Triadic characteristic geometry}
+
+\section{Introduction and programme}\label{sec:introduction}
+\input{sections/01-introduction.tex}
+\section{Observers, fibres, and the residual principle}\label{sec:observers}
+\input{sections/02-observers-and-residuals.tex}
+\section{The quadratic trichotomy and the central sign}\label{sec:scalar-trichotomy}
+\input{sections/03-scalar-trichotomy.tex}
+\section{The six-state carrier and the derived Clifford relation}\label{sec:six-state}
+\input{sections/04-six-state-carrier.tex}
+\section{Triadic characteristic inference}\label{sec:triadic-inference}
+\input{sections/05-triadic-inference.tex}
+\section{Typed multiplicity, equivariance, and the word-to-graph boundary}\label{sec:multiplicity}
+\input{sections/06-multiplicity-equivariance.tex}
+\section{Classical calibrations: isogenies and the Legendre crossing}\label{sec:classical}
+\input{sections/07-classical-calibrations.tex}
+\section{Through-crossings, resolution, and monodromy}\label{sec:through}
+\input{sections/08-through-crossings.tex}
+\section{A logic generated by a satisfaction form}\label{sec:satisfaction-logic}
+\input{sections/09-satisfaction-logic.tex}
+\section{Non-faithfulness: the residual catalogue}\label{sec:residual-catalogue}
+\input{sections/10-residual-catalogue.tex}
+
+\part{Threaded apertures and the six-port kernel}
+
+\section{Aperture-first semantics: the typed hole}\label{sec:apertures}
+\input{sections/11-apertures.tex}
+\section{Finite adequacy of threaded logic}\label{sec:adequacy}
+\input{sections/12-threaded-adequacy.tex}
+\section{Ordered linear deduction: soundness and its limit}\label{sec:ordered-linear}
+\input{sections/13-ordered-linear-deduction.tex}
+\section{Substitution, ledger transport, and strong normalization}\label{sec:normalization}
+\input{sections/14-normalization.tex}
+\section{Confluence and decidable derivability}\label{sec:confluence-decidability}
+\input{sections/15-confluence-decidability.tex}
+\section{The six-port whole-cut kernel}\label{sec:six-port}
+\input{sections/16-six-port-kernel.tex}
+\section{Claim boundaries and the remaining programme}\label{sec:boundaries}
+\input{sections/17-boundaries.tex}
+\section{Conclusion}\label{sec:conclusion}
+\input{sections/18-conclusion.tex}
+
+\appendix
+\part*{Appendices}
+\addcontentsline{toc}{part}{Appendices}
+
+\section{Scalar, chiral, and Clifford calculations}\label{app:scalar-clifford}
+\input{appendices/app-A-scalar-and-clifford.tex}
+\section{Proofs and finite counts of Part~II}\label{app:proofs}
+\input{appendices/app-B-proofs-part-two.tex}
+\section{Six-port incidence and orbit counts}\label{app:six-port-counts}
+\input{appendices/app-C-six-port-counts.tex}
+\section{Claim ledger and source provenance}\label{app:ledger}
+\input{appendices/app-D-claim-ledger.tex}
+
+\bibliographystyle{plain}
+\bibliography{../bibliography/aeg-paper}
+\end{document}

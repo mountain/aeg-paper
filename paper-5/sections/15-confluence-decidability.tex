@@ -1,0 +1,207 @@
+% Section 15: Confluence and decidable derivability
+\label{sec:confluence-body}
+
+Normalization in \S\ref{sec:normalization} guarantees that a normal form exists.  It does
+not guarantee that the normal form is unique, and uniqueness is what a decision procedure
+needs.  This section supplies the critical-pair analysis that yields confluence, then the
+normal/neutral characterization that yields the subformula property, and finally the
+focused decision procedure that follows.  It closes by describing precisely what finite
+decidability does \emph{not} give.
+
+\subsection{Critical pairs}
+
+Because $\mathrm{TND}_0$ is linear and ordered, the only way two redexes can interfere is
+that their ledgers overlap.  This makes the critical-pair analysis finite and explicit.
+
+\begin{definition}[Overlapping redexes]\label{def:overlapping-redexes}
+Two redexes in a $\mathrm{TND}_0$ proof tree \emph{overlap} when their ledgers share an
+antecedent occurrence.  Since ledgers are consumed linearly
+(Definition~\ref{def:tnd0}), a shared occurrence means one redex lies on the path from the
+other to its discharged assumption.
+\end{definition}
+
+\begin{proposition}[Four-way path classification]\label{prop:four-paths}
+For an overlapping pair of redexes, exactly one of four configurations occurs:
+\begin{enumerate}
+\item one redex strictly above the other, on the discharged spine;
+\item one redex strictly above the other, off the discharged spine;
+\item the two redexes are adjacent along one ledger block;
+\item the two redexes are disjoint but order-adjacent in the ledger.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+By Definition~\ref{def:overlapping-redexes} the two redexes lie on one spine, and the
+relative position of the shared occurrence in their ledger blocks gives the four cases.
+Linearity excludes any configuration in which a ledger block is shared without one redex
+containing the other.
+\end{proof}
+
+\begin{lemma}[Substitution and graft equations]\label{lem:substitution-graft}
+In configurations (1) and (3) the two reduction orders are related by the ledger splice of
+Theorem~\ref{thm:substitution-splice}; in configurations (2) and (4) they commute exactly.
+\end{lemma}
+
+\begin{proof}
+Configurations (2) and (4) act on disjoint ledger blocks, so the root transports of
+Theorem~\ref{thm:root-transport} commute by inspection.  Configurations (1) and (3) nest
+one substitution inside the other, and the splice law identifies the two composites; the
+only thing to check is that the ledger blocks compose in the same order in both, which is
+the content of freshness.
+\end{proof}
+
+\subsection{The one-step strong diamond}
+
+\begin{theorem}[One-step strong diamond]\label{thm:strong-diamond}
+If $P\leadsto P_1$ and $P\leadsto P_2$ with $P_1\neq P_2$, then there is $P_3$ with
+$P_1\leadsto P_3$ and $P_2\leadsto P_3$, and the two-step reductions can be chosen to have
+equal length.
+\end{theorem}
+
+\begin{proof}
+By Lemma~\ref{lem:substitution-graft}, each configuration of
+Proposition~\ref{prop:four-paths} either commutes or is joined after one further step.  The
+equal-length clause follows because both reductions remove the same number of detours in
+configurations (2) and (4), and differ by a single commuting step in (1) and (3).
+\end{proof}
+
+\begin{corollary}[Local and global confluence]\label{cor:confluence}
+The reduction relation of $\mathrm{TND}_0$ is locally confluent and, being strongly
+normalizing (Theorem~\ref{thm:strong-normalization}), globally confluent by Newman's
+lemma.  Consequently every proof has a unique normal form.
+\end{corollary}
+
+\begin{remark}
+Corollary~\ref{cor:confluence} is stated for a \emph{fixed} proof tree.  It does not say
+that two distinct proofs of the same sequent share a normal form; the fragment is
+incomplete (Theorem~\ref{thm:incompleteness}), so distinct derivations of one sequent need
+not be related at all.
+\end{remark}
+
+\subsection{Confluence is not coherence}
+
+\begin{nogo}[Confluence does not give a 2-cell structure]\label{nogo:confluence-coherence}
+The fact that reductions commute is not the fact that they are coherent.  There is a
+four-level ladder
+\[
+  \text{proof endpoint}\ \subsetneq\ \text{composite boundary transport}\ \subsetneq\
+  \text{history}\ \subsetneq\ \text{history 2-cell},
+\]
+and confluence at the first level determines nothing at the fourth.  Reading
+Corollary~\ref{cor:confluence} as a coherence theorem is therefore invalid.
+\end{nogo}
+
+\begin{proof}
+Levels 1 and 2 are quotients of level 3, and level 4 records relations among histories
+that are collapsed by the quotient.  Confluence is a statement about the image at level 1;
+a nontrivial 2-cell lives in the kernel of the forgetful map from level 3 to level 1, and
+that kernel is not determined by level 1.
+\end{proof}
+
+\begin{remark}
+No-go~\ref{nogo:confluence-coherence} is the proof-theoretic counterpart of
+Proposition~\ref{prop:lossy-quotient}.  In both cases the error is the same: taking a
+quotient for the object.
+\end{remark}
+
+\subsection{Normal and neutral forms}
+
+\begin{definition}[Normal and neutral]\label{def:normal-neutral}
+A derivation is \emph{normal} if it contains no principal-implication detour.  It is
+\emph{neutral} if it ends in an elimination whose major premise is a hypothesis.  The
+standard characterization is: normal derivations end either in an introduction or are
+neutral, and neutral derivations are closed under the eliminations of the fragment.
+\end{definition}
+
+\begin{theorem}[Subformula property]\label{thm:subformula}
+Every formula occurring in a normal $\mathrm{TND}_0$ derivation is a subformula of the end
+sequent or of a discharged hypothesis.
+\end{theorem}
+
+\begin{proof}
+Induction on the normal derivation using Definition~\ref{def:normal-neutral}.  An
+introduction rule's premises contain only subformulas of its conclusion; an elimination
+whose major premise is neutral has a minor premise that is a subformula of the major
+premise's type, and the absence of detours means no formula is introduced only to be
+eliminated.
+\end{proof}
+
+\begin{proposition}[Leftmost-head canonicity]\label{prop:leftmost-head}
+In a normal derivation of an implicational sequent, the construction of the proof is
+determined by the ordered context together with the leftmost hypothesis of the end
+sequent's antecedent block.  Hence the leftmost-head strategy is complete for the
+fragment.
+\end{proposition}
+
+\begin{proof}
+By Theorem~\ref{thm:subformula} every formula of a normal derivation is a subformula of the
+goal, and by linearity no antecedent is reused, so at each stage the possible rules are
+determined by the leftmost unconsumed antecedent and the goal.  The choices are therefore
+forced up to the order in which independent threads are processed.
+\end{proof}
+
+\subsection{Decidable derivability}
+
+\begin{theorem}[Focused decision procedure]\label{thm:decidability}
+Derivability in $\mathrm{TND}_0$ is decidable.  There is a terminating, sound, and complete
+procedure: search normal derivations in leftmost-head order, using
+Theorem~\ref{thm:subformula} to bound the formula set, Definition~\ref{def:normal-neutral}
+to alternate focused and unfocused phases, and Proposition~\ref{prop:leftmost-head} to fix
+the branching.
+\end{theorem}
+
+\begin{proof}
+Termination: by Theorem~\ref{thm:subformula} only finitely many formulas may occur, and
+linearity bounds the number of introductions by the number of antecedents.  Soundness: each
+step of the procedure builds a derivation, so a found proof is a proof.  Completeness: by
+Corollary~\ref{cor:confluence} a normal form exists if any derivation does, and by
+Proposition~\ref{prop:leftmost-head} the procedure explores a branch containing it.
+\end{proof}
+
+\begin{proposition}[Positioning of the skeleton]\label{prop:skeleton-position}
+The $\mathrm{TND}_0$ skeleton is the associative, empty-antecedent, right-residual fragment
+of ordered linear logic.  Under this reading, the erasure of audited nominal data to a
+skeleton is a functor, and lifting back is by fresh, noncanonical decoration; long forms
+are not identified with their eta-expansions, and multiple focused proofs of one sequent
+are admitted.
+\end{proposition}
+
+\begin{proof}[Status]
+The fragment identification is a syntactic matching of rule shapes.
+Proposition~\ref{prop:leftmost-head} and Theorem~\ref{thm:decidability} are the substantive
+content; the erasure/lift discipline is a definitional choice, recorded so that the
+decision procedure's non-canonicity of decoration is visible rather than implicit.
+\end{proof}
+
+\subsection{What finite decidability does not give}
+
+\begin{warning}[No compactification from finite search]\label{warn:no-compactification}
+Theorem~\ref{thm:decidability} is a statement about a finite fragment.  It does not
+produce, and must not be read as producing, a halting measure, a limit object, or any
+$\Omega$-type boundary.  Neither finite confluence
+(Corollary~\ref{cor:confluence}) nor finite focused search
+(Theorem~\ref{thm:decidability}) yields such an object; they are finite statements and the
+boundary is not their limit.
+\end{warning}
+
+\begin{remark}
+Warning~\ref{warn:no-compactification} is the sharpest instance of the discipline that
+organises this paper.  A decision procedure terminates; that is not the same as exhibiting
+a limit of a non-terminating process, and conflating the two would convert a finite theorem
+into an infinite claim.
+\end{remark}
+
+\subsection{Summary}
+
+\begin{enumerate}
+\item The critical-pair analysis is finite, with four configurations
+  (Proposition~\ref{prop:four-paths}, Lemma~\ref{lem:substitution-graft}).
+\item Reduction satisfies a one-step strong diamond and is confluent, so normal forms are
+  unique per proof (Theorem~\ref{thm:strong-diamond}, Corollary~\ref{cor:confluence}).
+\item Confluence is not coherence (No-go~\ref{nogo:confluence-coherence}).
+\item The subformula property plus leftmost-head canonicity give a terminating, sound, and
+  complete decision procedure (Theorems~\ref{thm:subformula}, \ref{thm:decidability},
+  Proposition~\ref{prop:leftmost-head}).
+\item Decidability yields no $\Omega$-type boundary
+  (Warning~\ref{warn:no-compactification}).
+\end{enumerate}

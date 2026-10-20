@@ -1,0 +1,298 @@
+% Section 8: Through-crossings, resolution, and monodromy
+\label{sec:through-body}
+
+\S\ref{sec:classical} produced local monodromy operators and then observed
+(No-go~\ref{nogo:unipotent}) that a single one of them carries no spectrum.  This
+section supplies the missing structure.  Its central claim is a change of genre: passing
+through a singular fibre is not an arrow but a cospan together with a choice, and once
+that is made explicit, monodromy becomes a \emph{difference} of the two choices rather
+than a primitive.  The change pays immediately: the Legendre monodromy is derived from
+a quadratic base change, and a primitive transvection is realised on a finite cell
+complex.
+
+\subsection{Crossing is a cospan with a resolution}
+
+\begin{definition}[Through-crossing]\label{def:through-crossing}
+Let $F_0$ be a singular fibre and $F_{\pm}$ the two smooth fibres on either side of the
+critical value.  A \emph{through-crossing} is the cospan
+\[
+  F_-\xrightarrow{\ \pi_- \ } F_0 \xleftarrow{\ \pi_+ \ } F_+ ,
+\]
+whose \emph{through relation} is the fibre product
+\[
+  R_c=F_-\times_{F_0}F_+ .
+\]
+\end{definition}
+
+\begin{proposal}[A crossing is not a transport arrow]\label{prop:crossing-not-arrow}
+There is no canonical smooth transport arrow $F_-\to F_+$ across a singular fibre.
+What exists is the through relation $R_c$ together with a further choice, and the choice
+is the mathematical content.
+\end{proposal}
+
+\begin{definition}[Resolution torsor]\label{def:resolution-torsor}
+A \emph{resolution} of the through-crossing is a selection, for each point of the
+critical fibre, of which smooth point on the negative side is joined to which on the
+positive side.  The set of resolutions is a torsor under the monodromy group generated
+by the vanishing transvection:
+\[
+  \mathrm{Res}(R_c)\ \text{is a torsor under}\ \langle T_\delta\rangle\cong\Z .
+\]
+\end{definition}
+
+\begin{remark}[Why the torsor language is not decoration]
+A resolution has no privileged origin: any two resolutions differ by a power of the
+transvection, and no resolution is singled out by the geometry of the cospan alone.  This
+is the precise sense in which \S\ref{sec:classical}'s monodromy operators are not
+intrinsic to a single fibre.
+\end{remark}
+
+\subsection{Monodromy as a difference of resolutions}
+
+\begin{theorem}[Monodromy from two through-resolutions]\label{thm:monodromy-difference}
+Let $P^{\uparrow}$ and $P^{\downarrow}$ be the two resolutions of
+Definition~\ref{def:resolution-torsor} obtained by passing through the critical value
+along the two admissible sides.  Then the around-the-critical-value monodromy is
+\[
+  \bigl(P^{\downarrow}\bigr)^{-1}P^{\uparrow}=T_\delta ,
+\]
+the vanishing transvection.
+\end{theorem}
+
+\begin{proof}
+Both resolutions identify the same two smooth fibres, and their composite is the deck
+transformation of the passage around the critical value.  For a single node that deck
+transformation is the Picard--Lefschetz transvection of the vanishing cycle $\delta$, by
+the local theory of nondegenerate critical points.
+\end{proof}
+
+\begin{remark}
+Theorem~\ref{thm:monodromy-difference} is the section's organising result.  It replaces
+"insert the monodromy matrix" by "compare two resolutions", and it explains why
+No-go~\ref{nogo:unipotent} had to be true: one resolution alone determines nothing,
+because the torsor has no origin.
+\end{remark}
+
+\subsection{The Legendre cusp as a quadratic base change}
+
+\begin{proposition}[Local reduction]\label{prop:legendre-reduction}
+The local equation of the Legendre family at a cusp reduces, after an analytic change
+of coordinates, to
+\[
+  UV=\lambda^{2}.
+\]
+The map $\lambda\mapsto s=\lambda^{2}$ is a quadratic base change of the node
+$UV=s$, and consequently
+\[
+  M_{\mathrm{Legendre}}=T_\delta^{2}.
+\]
+\end{proposition}
+
+\begin{proof}
+The Legendre family has an $A_1$ node at $\lambda=0$ (and, after the standard change of
+chart, at the other two cusps as well).  Pulling a node back along $\lambda\mapsto\lambda^{2}$
+doubles the local monodromy, since a full turn in $s$ is covered by half a turn in
+$\lambda$.  By Theorem~\ref{thm:monodromy-difference} the node monodromy is $T_\delta$,
+so the pullback has monodromy $T_\delta^{2}$.
+\end{proof}
+
+\begin{remark}[What has been gained]
+Proposition~\ref{prop:legendre-reduction} derives a monodromy matrix that
+\S\ref{sec:classical} could only state.  The derivation uses the \emph{shape} of the
+base change, not a computation with periods.  This is the sense in which the through
+form is a better carrier than the operator: the operator is its shadow.
+\end{remark}
+
+\subsection{Cellular realisation on a finite annulus}
+
+The abstract torsor has an exact finite model.
+
+\begin{construction}[Cubical annulus and shear]\label{con:cubical-annulus}
+Let $A_n$ be the cubical annulus obtained from a strip of $n$ squares by identifying the
+two boundary circles with a shift, so that
+\[
+  \chi(A_n)=0,\qquad (b_0,b_1,b_2)(A_n)=(1,1,0).
+\]
+Let $D$ be the cellular shear that displaces each vertex one step along the annulus, and
+let $g\colon A_n\to T_n$ be the gluing to the torus obtained by identifying the two
+boundaries.
+\end{construction}
+
+\begin{proposition}[Shear induces the transvection]\label{prop:shear-transvection}
+The induced map on homology is the Picard--Lefschetz transvection
+\[
+  D_\ast(x)=x+\langle \delta,x\rangle\,\delta ,\qquad
+  M_D=\begin{pmatrix}1&1\\ 0&1\end{pmatrix},\qquad
+  M_D^{T}JM_D=J ,
+\]
+where $J$ is the symplectic form.  Hence the shear is symplectic and realises the
+primitive Dehn twist.
+\end{proposition}
+
+\begin{proof}
+The shear displaces a representative of $\delta$ once around the annulus while fixing
+the transverse class, which is precisely the defining formula of the transvection.  The
+matrix is read off on the basis $(\delta,\gamma)$ with
+$\langle\delta,\gamma\rangle=1$, and symplecticity follows from
+$\langle x+\langle\delta,x\rangle\delta,\ y+\langle\delta,y\rangle\delta\rangle
+=\langle x,y\rangle$ by antisymmetry and $\langle\delta,\delta\rangle=0$.
+\end{proof}
+
+\begin{theorem}[No-go: vertex closure does not imply path closure]
+\label{thm:vertex-not-path}
+In Construction~\ref{con:cubical-annulus} the vertex-level shear satisfies $D_0^{\,n}=I$,
+while the lifted one-chain level satisfies $D_1^{\,n}\neq I$ and
+$M_D^{\,n}=\begin{pmatrix}1&n\\ 0&1\end{pmatrix}\neq I$ for $n\neq0$.  Thus closure of a
+finite vertex permutation is not the closure of the lifted path.
+\end{theorem}
+
+\begin{proof}
+The vertex permutation is a cyclic shift of a finite set, hence has finite order dividing
+$n$.  The induced homology map is unipotent with nontrivial nilpotent part, so it has
+infinite order.
+\end{proof}
+
+\begin{remark}[The pair of separations]
+Theorem~\ref{thm:vertex-not-path} is the finite model of
+Proposition~\ref{prop:crossing-not-arrow}: a closed finite quotient can look trivial
+while the lifted object is not.  \S\ref{sec:residual-catalogue} records this as one
+instance of a general pattern rather than as an isolated curiosity.
+\end{remark}
+
+\begin{proposition}[Marked identity and the nodal pinch]\label{prop:marked-identity}
+Let $q\colon T_n\to$ (the nodal quotient) be the pinch.  Then $q_\ast D_\ast=q_\ast$, so
+the shear is invisible to the nodal reading; but the marked outgoing condition gives a
+strict identity $q_+D=q_-$, which upgrades $D$ to a genuine through-resolution.
+\end{proposition}
+
+\begin{proof}
+The pinch kills precisely the vanishing direction, and the shear acts on the transverse
+direction by the transvection, which is trivial modulo $\delta$.  The marked statement
+tracks which boundary the identity is asserted on, whence the strict identity.
+\end{proof}
+
+\subsection{Through forms as fibre products over a singular middle}
+
+\begin{definition}[Through form]\label{def:through-form}
+For a typed singular middle object $N$ and two fibres $F_\pm$ over it, the \emph{through
+form} is
+\[
+  \langle L\mid_N R\rangle \defeq F_-\times_N F_+ .
+\]
+\end{definition}
+
+\begin{proposition}[Order and compatibility are independent]\label{prop:order-compat-independent}
+Conway number-admissibility of a cut $\{L\mid R\}$ and through-compatibility of
+$\langle L\mid_N R\rangle$ are logically independent: either may hold while the other
+fails.
+\end{proposition}
+
+\begin{proof}
+Admissibility is a condition on the order structure of $L$ and $R$ alone; compatibility
+is a condition on the projections to $N$.  Choosing $N$ degenerate makes compatibility
+fail with admissible sides, and choosing an incompatible order on $N$ makes compatibility
+hold with inadmissible sides.
+\end{proof}
+
+\begin{proposition}[Resolution fibre count]\label{prop:resolution-count}
+If the critical fibre consists of $r$ regular points together with $n$ phase points,
+the through form carries $r+n^{2}$ resolutions, indexed by the relative offset
+$P_k\colon i\mapsto i+k$ modulo $n$.
+\end{proposition}
+
+\begin{proof}
+Each regular point has one resolution; each pair of phase points may be joined, and the
+join is determined by a relative offset $k$ modulo $n$, giving $n$ classes for each of
+$n$ points.
+\end{proof}
+
+\begin{remark}[Duality is relational converse]
+The duality appropriate to through forms is not an inverse but the relational converse
+$T^{\star}=T^{\mathrm{op}}$ with contravariant composition.  This is forced by
+Proposition~\ref{prop:relation-valued}: a transport that is relation-valued cannot have a
+functional dual.
+\end{remark}
+
+\subsection{One feature, three readings}
+
+\begin{theorem}[Figure-eight calibration]\label{thm:figure-eight}
+There is a specific figure-eight braid word $w$ for which
+\[
+  -D_w=-\phi\!\left(\frac{\partial w}{\partial b}\right)
+  =\det(tI-M)=t^{2}-3t+1 ,
+\]
+where $D_w$ is the AEG affine defect, $\phi$ is the abelianised Fox derivative
+\cite{Fox1953FreeDifferential}, and $M$ the fibre monodromy.  The common value is a
+feature of the ordered history and does not reconstruct the knot.
+\end{theorem}
+
+\begin{proof}[Status]
+An exact computation for one word, with all three quantities evaluated independently.
+The equality is a calibration on a single word, not a general identity, and the
+non-reconstruction clause is essential: the polynomial is a characteristic in the sense
+of Definition~\ref{def:characteristic}, with the word as its residual.
+\end{proof}
+
+\begin{proposition}[Double periods]\label{prop:double-periods}
+Two visible periods $p,q$ give a phase torus $\Z/p\times\Z/q$ under the successor
+$\tau(i,j)=(i+1,j+1)$, with
+\[
+  \#\text{orbits}=\gcd(p,q),\qquad \text{orbit length}=\lcm(p,q),\qquad
+  \text{primitive winding}=\bigl(q/g,\ p/g\bigr),\quad g=\gcd(p,q).
+\]
+The unit-tangent lift supplies the third direction, and the orbifold meridians
+\[
+  m_P=(p-1,-1),\qquad m_Q=(-1,q-1),\qquad \det = pq-p-q
+\]
+recover the arithmetic.  Equal numerals across the three types are not identified.
+\end{proposition}
+
+\begin{proof}
+An orbit of $\tau$ has length $\lcm(p,q)$ because both coordinates must return, and the
+number of orbits is $pq/\lcm(p,q)=\gcd(p,q)$.  The winding is read off by dividing the
+periods by $g$.  The determinant computation is direct.
+\end{proof}
+
+\subsection{Return is not period}
+
+\begin{nogo}[No intrinsic periodic dynamics]\label{nogo:return-not-period}
+There is a finite diagram containing the source-free components
+$\mathrm{constant};\mathrm{discard}$ and
+$\mathrm{constant};\mathrm{neg};\mathrm{discard}$ whose least boundary-return lengths are
+$2$ and $3$ respectively; but monotonicity of the completed-past rank forces the verdict
+\emph{NotRepresentable} for intrinsic periodic dynamics.  Hence a boundary-return word is
+not a periodic orbit.
+\end{nogo}
+
+\begin{proof}
+The completed past of a state grows monotonically along a checked execution, so no state
+can recur.  The return lengths are therefore properties of words, not periods of a
+dynamical system; a genuine period requires a feedback operator that the syntax does not
+supply.
+\end{proof}
+
+\begin{remark}
+No-go~\ref{nogo:return-not-period} is the most frequently violated boundary in this
+material.  It is why Part~II treats iteration as a syntactic structure
+(\S\ref{sec:boundaries}) rather than as a semantic one.
+\end{remark}
+
+\subsection{Summary}
+
+\begin{enumerate}
+\item A crossing is a cospan with a resolution torsor
+  (Definition~\ref{def:through-crossing}, Proposal~\ref{prop:crossing-not-arrow},
+  Definition~\ref{def:resolution-torsor}).
+\item Monodromy is the difference of two resolutions, and the Legendre monodromy follows
+  from the quadratic base change (Theorem~\ref{thm:monodromy-difference},
+  Proposition~\ref{prop:legendre-reduction}).
+\item A primitive transvection is realised by an exact cellular shear, and vertex
+  closure does not imply path closure
+  (Proposition~\ref{prop:shear-transvection}, Theorem~\ref{thm:vertex-not-path}).
+\item Through forms are fibre products over a singular middle, whose duality is
+  relational converse (Definition~\ref{def:through-form},
+  Propositions~\ref{prop:order-compat-independent}, \ref{prop:resolution-count}).
+\item One feature can be read three ways on one word, and a boundary-return word is still
+  not a period (Theorem~\ref{thm:figure-eight},
+  Proposition~\ref{prop:double-periods}, No-go~\ref{nogo:return-not-period}).
+\end{enumerate}

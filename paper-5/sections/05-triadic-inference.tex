@@ -1,0 +1,241 @@
+% Section 5: Triadic characteristic inference
+\label{sec:triadic-inference-body}
+
+\S\ref{sec:observers} fixed what an observer is and what a characteristic costs.
+This section reads one finite characteristic algebra in three ways at once and asks
+what the three readings share.  The answer has two parts: a variance signature that is
+stable under every calibration performed so far, and an inference procedure that is
+nothing more than the intersection of three fibres.  Both are developed on the
+affine monoid of Lemma~\ref{lem:affine-product} and then calibrated on the square and
+the cube in \S\ref{sec:multiplicity}.
+
+\subsection{The three readings}
+
+\begin{definition}[Typed readings]\label{def:typed-readings}
+Let $\cA$ be a class of processes closed under a composition $\odot$ read in execution
+order.  A \emph{typed reading family} on $\cA$ consists of
+\begin{enumerate}
+\item a \emph{temporal} reading $\rho_t$, covariant in execution, taking values in
+  endomorphisms of the state space;
+\item a \emph{spatial} reading $\rho_X$, contravariant, taking values in inverse-image
+  maps on a space of admissible regions;
+\item a \emph{constructive} reading $\rho_\cK$, covariant modulo a declared
+  canonicalisation $\equiv_{\mathrm{can}}$, taking values in construction data.
+\end{enumerate}
+\end{definition}
+
+The three readings have different variance by design: a process acts forward on states,
+backward on regions, and forward again on constructions.  This asymmetry is not a
+defect; it is what the phrase "three readings" is meant to encode.
+
+\begin{proposition}[Variance signature]\label{prop:variance-signature}
+Let $f_1$ be executed before $f_2$ and write $f_2\odot f_1$ for the composite.  Then
+\[
+  \rho_t(f_2\odot f_1)=\rho_t(f_2)\circ\rho_t(f_1),\qquad
+  \rho_X(f_2\odot f_1)=\rho_X(f_1)\circ\rho_X(f_2),
+\]
+\[
+  \rho_\cK(f_2\odot f_1)\equiv_{\mathrm{can}}\rho_\cK(f_2)\circ\rho_\cK(f_1).
+\]
+Schematically, writing $\mathfrak T$ for the triple,
+\[
+  \mathfrak T(f_2\odot f_1)=\bigl(T_2\circ T_1,\ X_1\circ X_2,\ K_2\circ K_1
+  \bmod \mathrm{can}\bigr),
+\]
+so the signature is $({+},{-},{+})$ in the order $(t,X,\cK)$.
+\end{proposition}
+
+\begin{proof}
+The temporal and constructive statements are functoriality of $\rho_t$ and of
+$\rho_\cK$ modulo canonicalisation.  The spatial statement is contravariance of the
+inverse-image construction: a region transformed by the composite $f_1$ then $f_2$ is
+$\rho_X(f_2)^{-1}\bigl(\rho_X(f_1)^{-1}(R)\bigr)=\bigl(\rho_X(f_1)\circ\rho_X(f_2)
+\bigr)^{-1}(R)$.
+\end{proof}
+
+\begin{calibration}[Scope of the signature]\label{cal:variance-scope}
+The signature of Proposition~\ref{prop:variance-signature} is established by hand
+inside the finite affine model, and re-verified in the calibrations of
+\S\ref{sec:multiplicity} and \S\ref{sec:classical}.  It is \emph{not} claimed as a
+theorem about every conceivable three-domain model.  What changes from model to model
+is the structure each reading must carry; the variance law has so far not changed.
+\end{calibration}
+
+\subsection{Inference as intersection of fibres}
+
+\begin{proposition}[Triadic inference]\label{prop:triadic-inference}
+For observations $o_t,o_X,o_\cK$ presented to the three readings, the inferred set of
+candidates is
+\[
+  \cI(o_t,o_X,o_\cK)
+  =\Fib_{t,Q}(o_t)\cap\Fib_{X,Q}(o_X)\cap\Fib_{\cK,Q}(o_\cK).
+\]
+Each reading contributes constraints and the constraints are intersected.
+\end{proposition}
+
+\begin{proof}
+By Definition~\ref{def:observation-fibre}, a process lies in $\Fib_{D,Q}(o_D)$ exactly
+when its $D$-reading is $Q$-indistinguishable from $o_D$.  A process satisfying all
+three observations therefore lies in the intersection, and conversely.
+\end{proof}
+
+\begin{remark}[What "one algorithm" can and cannot mean]\label{rem:one-algorithm}
+Proposition~\ref{prop:triadic-inference} says that the three readings share one
+\emph{operation} in characteristic space.  It does not say that they share an untyped
+decoder; the fibres live in different codomains and the intersection is taken after
+transport.  Reading the proposition as a claim about a universal interpreter is a
+mistake, and it is the mistake that Part~II is designed to prevent.
+\end{remark}
+
+The outcome of the intersection is reported through
+Definition~\ref{def:outcome-discipline}.  In particular
+Warning~\ref{warn:unknown-not-nonexistence} applies with force here: an empty
+intersection is \emph{inconsistent} only if all three searches were exhausted within
+$B_Q$.
+
+\subsection{The deformed crossing}
+
+Inference is only half the story; the other half is how readings move past one
+another.  The affine model gives an exact law, and it is not a swap.
+
+\begin{proposition}[Order reduction is not a swap]\label{prop:deformed-crossing}
+Write $S$ for successor and $D$ for doubling.  Then
+\[
+  S;D\equiv D;S;S,\qquad\text{while}\qquad S;D\not\equiv D;S,
+\]
+where $\equiv$ denotes extensional equality of the induced value.  Moving $D$ leftward
+across $S$ \emph{duplicates} the translation generator, and every pair has a canonical
+representative $D^{k};S^{b}$.
+\end{proposition}
+
+\begin{proof}
+By Lemma~\ref{lem:affine-product}, $S;D$ has parameters $(1,2)$ while $D;S$ has
+$(1,1)$; and $D;S;S$ has $(1,2)$ as well.  Canonicality of $D^{k};S^{b}$ is the normal
+form of the monoid.
+\end{proof}
+
+\begin{warning}[Extensional, not confluent]\label{warn:not-confluent}
+Proposition~\ref{prop:deformed-crossing} is one exact extensional crossing law.  It is
+\emph{not} a terminating and confluent rewriting theorem for the abstract
+presentation, and this paper does not claim one.  The distinction matters because
+Part~II proves genuine normalization theorems under linearity hypotheses, and
+Proposition~\ref{prop:deformed-crossing} must not be mistaken for one of them.
+\end{warning}
+
+\subsection{The square map: loss, branching, and reverse transport}
+
+The clearest model of what a reading can and cannot retain is the real square.
+
+\begin{proposition}[Temporal loss is an orbit quotient]\label{prop:square-orbit}
+Let $q(x)=x^{2}$ and $\sigma(x)=-x$.  Then $q\circ\sigma=q$, so $q$ factors as
+\[
+  \R\xrightarrow{\ \mathrm{quot}\ } \R/C_2\cong[0,\infty)
+  \xrightarrow{\ \hookrightarrow\ } \R .
+\]
+The generic fibre is a single two-element $C_2$-orbit; $\{0\}$ is a fixed point, so the
+quotient is non-free exactly at the origin.
+\end{proposition}
+
+\begin{proposition}[Spatial branching is the same quotient, read backwards]
+\label{prop:square-covering}
+On $\R^{\times}\to\R_{>0}$, $q$ is a two-sheeted covering and $\sigma$ exchanges the
+sheets.  For $0<a<b$,
+\[
+  q^{-1}(a,b)=(-\sqrt b,-\sqrt a)\cup(\sqrt a,\sqrt b),
+\]
+while $q^{-1}(-1,1)=(-1,1)$ exhibits the sheets merging through the critical source
+point.
+\end{proposition}
+
+\begin{proposition}[Reverse transport is relation-valued]\label{prop:relation-valued}
+The backward reading $q^{\dagger}$ is $\varnothing$, $\{0\}$, or
+$\{-\sqrt y,\sqrt y\}$ according as $y<0$, $y=0$, or $y>0$.  Hence a plain global
+inverse function does not exist, although forward execution remains functional.
+\end{proposition}
+
+\begin{remark}
+Propositions~\ref{prop:square-orbit}--\ref{prop:relation-valued} are the smallest
+complete instance of the warning that contravariance forces relation-valued transports.
+The spatial reading of a critical source is not a function, and any formalism that
+demands one will either lose the singularity or invent a branch convention that is not
+intrinsic to the data.
+\end{remark}
+
+\subsection{Scaling crosses; translation does not}
+
+\begin{proposition}[Scaling crosses by deformation]\label{prop:scaling-crosses}
+For $D_a(x)=ax$ and $Q(x)=x^{2}$,
+\[
+  D_a;Q\equiv Q;D_{a^{2}},
+\]
+with equal extensional value and different raw histories.
+\end{proposition}
+
+\begin{proof}
+$q(D_a x)=a^{2}x^{2}$ and $D_{a^{2}}(q(x))=a^{2}x^{2}$.
+\end{proof}
+
+\begin{theorem}[No-go: translation has no affine crossing]\label{thm:translation-obstruction}
+Let $S_b(x)=x+b$ with $b\neq0$.  There is no affine $A(y)=\alpha y+\beta$ with
+\[
+  S_b;Q\equiv Q;A .
+\]
+\end{theorem}
+
+\begin{proof}
+Every post-composite of $Q$ with an affine map has the form
+$A(q(x))=\alpha x^{2}+\beta$, whose linear coefficient vanishes identically.  But
+$q(S_b x)=x^{2}+2bx+b^{2}$ has linear coefficient $2b\neq0$ since the field has
+characteristic $0$ and $b\neq0$.
+\end{proof}
+
+\begin{remark}[Scope of Theorem~\ref{thm:translation-obstruction}]
+\label{rem:obstruction-scope}
+The theorem forbids an \emph{affine} crossing.  It does not forbid a non-affine
+expansion, and the next result exhibits exactly that.  Reading the obstruction as a
+claim about all rewrites would overstate it; this is the sense in which the statement
+is a boundary statement about the affine post-normal-form language, not about
+reduction in general.
+\end{remark}
+
+\begin{proposition}[The word-to-graph boundary]\label{prop:word-to-graph}
+Crossing a translation through a square forces a parallel decomposition with explicit
+copy:
+\[
+  x\xrightarrow{\ \Delta_3\ } (x_1,x_2,x_3)
+  \xrightarrow{\ Q\otimes D_{2b}\otimes C_{b^{2}}\ } (x_1^{2},\,2bx_2,\,b^{2})
+  \xrightarrow{\ \mathrm{add}_3\ } x^{2}+2bx+b^{2}.
+\]
+Consequently general reduction in this setting is not a global ordering of two word
+alphabets, but typed graph rewriting with declared copy and merge.
+\end{proposition}
+
+\begin{proof}
+The right-hand side of the obstruction is a sum of three terms whose coefficients come
+from three distinct uses of one source.  A word over the one-input alphabets $\{S_b\}$
+and $\{Q\}$ cannot express three simultaneous uses of its single input; a graph with an
+explicit fan-out can.
+\end{proof}
+
+\begin{calibration}[Constructive fibre is not a singleton]\label{cal:constructive-fibre}
+$\chi_\cK(Q)=\chi_\cK(N;Q)=q$ while the raw histories and the construction data of $Q$
+and $N;Q$ remain distinct.  Hence the constructive fibre is not a singleton even when
+the temporal and spatial fibres are, and by
+Proposition~\ref{prop:residual-principle} a usable characteristic must retain the
+residual.
+\end{calibration}
+
+\subsection{Summary}
+
+Three results in this section are load-bearing for what follows.
+
+\begin{enumerate}
+\item The variance signature $(+,-,+)$ is stable across the models tested
+  (Proposition~\ref{prop:variance-signature}, Calibration~\ref{cal:variance-scope}).
+\item Crossings are deformations, and translation does not cross an affine normal form
+  at all (Propositions~\ref{prop:deformed-crossing}, \ref{prop:scaling-crosses},
+  Theorem~\ref{thm:translation-obstruction}).
+\item The consequence is a change of carrier: from words to typed graphs with explicit
+  copy (Proposition~\ref{prop:word-to-graph}).  Part~II takes up precisely this
+  carrier, where the copy discipline becomes a linearity discipline.
+\end{enumerate}

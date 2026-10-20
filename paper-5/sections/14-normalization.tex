@@ -1,0 +1,173 @@
+% Section 14: Substitution, ledger transport, and strong normalization
+\label{sec:normalization-body}
+
+The proof theory of $\mathrm{TND}_0$ begins with substitution, because an ordered linear
+fragment cannot borrow the usual substitution lemma: the order is part of the data, and the
+ledger records uses that an ordinary substitution would silently move.  This section proves
+an ordered one-hole substitution theorem with an exact ledger splice, derives conditional
+cut admissibility from it, shows that raw ledger equality is the wrong target, and then
+transports the whole apparatus through proof contexts to obtain strong normalization.
+
+\subsection{Ordered one-hole substitution}
+
+\begin{definition}[One-hole context]\label{def:one-hole-context}
+A \emph{one-hole proof context} is a proof tree with a distinguished hole at a leaf.  Two
+proof trees are \emph{concatenable} along the hole when the type of the conclusion at the
+hole matches the type of the root of the inserted tree; concatenation is order-respecting
+and is written $Q[\cdot]$.
+\end{definition}
+
+\begin{definition}[Ordered substitution]\label{def:ordered-substitution}
+Let $\sigma$ be a substitution assigning to each free slot of the antecedent block a
+position in a target context.  The \emph{ordered substitution} $P\sigma$ is obtained by
+replacing each free occurrence in order of the context, without permutation.
+\end{definition}
+
+\begin{theorem}[Ordered substitution with ledger splice]\label{thm:substitution-splice}
+Let $\Lambda_\sigma$ be the ledger change induced by the substitution $\sigma$.  For a
+one-hole context $L\,Q\,R$ in which $Q$ sits between a left ledger block $L$ and a right
+ledger block $R$,
+\[
+  \mathrm{ledger}\bigl(L\,\Lambda_\sigma\,R\bigr)
+  =
+  L\circ\Lambda_\sigma\circ R ,
+\]
+an exact splice: the left block is untouched, the middle block is transported by $\sigma$,
+and the right block is untouched, with no reordering.
+\end{theorem}
+
+\begin{proof}
+Induction on the context $L\,Q\,R$.  At the hole the ledger is exactly
+$\Lambda_\sigma$ by Definition~\ref{def:ordered-substitution}.  For each rule above or
+below the hole, the rule's own ledger contribution is a block that does not commute with
+the hole's block, which is the content of linearity: the induction hypothesis is applied
+to the strict subcontexts, and the blocks compose in the order fixed by the derivation.
+\end{proof}
+
+\begin{corollary}[Fresh-cut admissibility, conditionally]\label{cor:fresh-cut}
+If the transported ledger $\Lambda_\sigma$ is \emph{fresh}, meaning no antecedent is
+consumed twice, then the cut on the substituted formula is admissible: the composite
+$L\,\Lambda_\sigma\,R$ is derivable whenever the substitutes are.
+\end{corollary}
+
+\begin{proof}
+Apply Theorem~\ref{thm:substitution-splice} and check that each antecedent in the spliced
+ledger occurs exactly once.  Freshness is exactly the condition that no contraction is
+implicitly required, and without it the splice would duplicate an antecedent in violation
+of Definition~\ref{def:tnd0}(2).
+\end{proof}
+
+\begin{remark}[The condition is not removable]
+Corollary~\ref{cor:fresh-cut} is conditional and stays conditional.  Dropping freshness
+would allow a ledger with a repeated antecedent, which no rule of the fragment can
+introduce; the resulting "admissible" cut would have no derivation.
+\end{remark}
+
+\subsection{Raw ledger equality fails}
+
+\begin{nogo}[Ledger equality is not the right invariant]\label{nogo:raw-ledger}
+Raw equality of ledgers is not preserved by beta-like reduction: there are a proof tree and
+its reduct whose ledgers are unequal as words while both record the same current authority.
+Consequently the target of the proof transformation is not ledger equality but current
+ledger equality plus a certificate for the retired part.
+\end{nogo}
+
+\begin{proof}
+A principal-implication detour consumes the antecedent in one order and its reduct consumes
+it in another; both consume it exactly once.  The ledgers therefore differ as words while
+agreeing in the multiset of current antecedents.
+\end{proof}
+
+\begin{proposal}[Ledger transport, not ledger identity]\label{prop:ledger-transport}
+The correct statement is a \emph{transport}: a reduction relates the pre-state ledger to the
+post-state ledger by a declared transformation, and retired authority leaves the current
+ledger while surviving in the certificate.  This is controlled forgetting in the sense of
+Proposition~\ref{prop:three-grades}, not equality.
+\end{proposal}
+
+\subsection{Transport through contexts}
+
+\begin{lemma}[Freshness reflects through discharge]\label{lem:freshness-reflects}
+If a ledger is fresh above a discharge, then its image under the discharge is fresh, and
+conversely a fresh image implies freshness above whenever the discharge consumes exactly
+one antecedent.
+\end{lemma}
+
+\begin{proof}
+The discharge removes exactly one antecedent occurrence and appends the discharged
+assumption to the premise's right block.  Freshness is a condition on occurrences, so it is
+preserved in both directions under this exact-one bookkeeping.
+\end{proof}
+
+\begin{theorem}[Root transport lifts through every context]\label{thm:root-transport}
+Let
+\[
+  L\,[x^{b}]\,Q\,S\ \leadsto\ L\,S\,Q
+\]
+be the root beta-like transport of a principal detour.  Then for every one-hole proof
+context $C[\cdot]$,
+\[
+  C\bigl(L\,[x^{b}]\,Q\,S\bigr)\ \leadsto\ C\bigl(L\,S\,Q\bigr),
+\]
+and the transported ledger differs from the original by the declared transformation only.
+\end{theorem}
+
+\begin{proof}
+By induction on the context, using Lemma~\ref{lem:freshness-reflects} at each discharge and
+Theorem~\ref{thm:substitution-splice} at each substitution.  Linearity ensures that no
+context can duplicate the detour, so the transport is well defined at every depth.
+\end{proof}
+
+\begin{corollary}[Contextual closure]\label{cor:contextual-closure}
+The beta-like reduction relation of $\mathrm{TND}_0$ is closed under one-hole contexts.
+\end{corollary}
+
+\begin{proof}
+Immediate from Theorem~\ref{thm:root-transport}.
+\end{proof}
+
+\subsection{Strong normalization}
+
+\begin{definition}[The two measures]\label{def:two-measures}
+For a proof tree $P$ let $\mu_1(P)$ be the number of principal-implication detours and let
+$\mu_2(P)$ be the total size of the ledgers above the detours.  Order pairs
+$\bigl(\mu_1(P),\mu_2(P)\bigr)$ lexicographically.
+\end{definition}
+
+\begin{theorem}[Strong normalization]\label{thm:strong-normalization}
+Every reduction sequence in $\mathrm{TND}_0$ terminates.
+\end{theorem}
+
+\begin{proof}
+By Theorem~\ref{thm:root-transport} a reduction step may be applied at any depth, so it
+suffices to show that each step strictly decreases the lexicographic pair of
+Definition~\ref{def:two-measures}.  A root transport removes one detour, hence decreases
+$\mu_1$ by exactly one; the ledgers of the transported subterms are unchanged as words by
+Theorem~\ref{thm:substitution-splice}, so $\mu_2$ cannot increase.  A step inside a context
+leaves $\mu_1$ fixed only if no detour is removed there, in which case it acts on a
+strictly smaller tree and the induction on tree size applies; otherwise $\mu_1$ decreases.
+Since $\N\times\N$ is well ordered under the lexicographic order, no infinite sequence
+exists.
+\end{proof}
+
+\begin{remark}[Where linearity was used]
+Theorem~\ref{thm:strong-normalization} depends on linearity twice: in
+Theorem~\ref{thm:substitution-splice}, which forbids reordering the ledger, and in
+Lemma~\ref{lem:freshness-reflects}, which keeps freshness intact through discharge.  The
+same argument fails for a fragment with contraction, because $\mu_1$ need not decrease when
+one detour is copied into several.
+\end{remark}
+
+\subsection{Summary}
+
+\begin{enumerate}
+\item Ordered substitution produces an exact ledger splice
+  (Theorem~\ref{thm:substitution-splice}).
+\item Cut admissibility is conditional on freshness
+  (Corollary~\ref{cor:fresh-cut}), and the condition is not removable.
+\item Ledger equality is the wrong invariant; transport plus certificate is right
+  (No-go~\ref{nogo:raw-ledger}, Proposal~\ref{prop:ledger-transport}).
+\item Root transport lifts through all contexts, and reduction is strongly normalizing
+  (Theorem~\ref{thm:root-transport}, Corollary~\ref{cor:contextual-closure},
+  Theorem~\ref{thm:strong-normalization}).
+\end{enumerate}
