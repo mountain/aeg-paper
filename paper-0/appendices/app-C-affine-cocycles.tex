@@ -1,9 +1,92 @@
-% Moved from Paper I appendix B (governance/00b, migration map); content unchanged
-% apart from cross-references.  The closing conventions are imported from Paper I
-% appendix A.
+% General calculations moved from Paper I appendix B (governance/00b).
+% The elementary alternating derivation and its historical motivation were
+% restored on 2026-10-20. Closing conventions are imported from Paper I appendix A.
 This appendix supplements Proposition~\ref{prop:affine-cocycle-formulas} with
 expanded calculations.  All discrete formulas hold over an arbitrary field
 $K$, and every multiplier is assumed nonzero.
+
+\subsection{Alternating expressions: the elementary arithmetic origin}
+\label{subsec:appendix-alternating-origin}
+
+Early drafts called these objects \emph{alternating threadlike expressions}
+\cite{Yuan2023AEGAlternatingExpressions}.  The elementary observation behind
+them is that an addition changes a value, whereas each subsequent
+multiplication transports that change to a new scale.  We recover that
+calculation before using affine coordinates or a continuous model.
+
+\begin{definition}[Alternating arithmetic expression]
+\label{def:appendix-alternating-expression}
+Fix $q_i\in K^\times$ and $\mu_i\in K$ for $i=1,\ldots,n$.  An
+\emph{alternating expression} $\alpha$ is the chronological slot-$(1)$ word that,
+in each pair, first multiplies by $q_i$ and then adds $\mu_i$.  Applied to
+the initial value $\mu_0$, its successive values are
+\begin{equation}
+  w_0=\mu_0,\qquad w_i=q_iw_{i-1}+\mu_i.
+  \label{eq:appendix-alternating-arithmetic-recursion}
+\end{equation}
+The two operations in a pair remain distinct marked events, even when the
+pair is evaluated as one affine map.
+\end{definition}
+
+A finite word consisting of additions and nonzero scalings can be padded to
+this alternating pattern by inserting $+0$ or $\times1$.  This preserves its
+operator, not its literal tree or full marked history, and supplies no unique
+normal form.  Slot-$(1)$ subtraction and division by a nonzero constant can
+first be interpreted as addition of a negative constant and multiplication by
+an inverse.  A slot-$(2)$ reciprocal $c/z$ is not covered by this argument.
+
+\begin{proposition}[Arithmetic expansion and exact perturbation]
+\label{prop:appendix-alternating-arithmetic-perturbation}
+With the empty product equal to $1$, the recurrence
+\eqref{eq:appendix-alternating-arithmetic-recursion} has value
+\begin{equation}
+  w_n=\mu_0\prod_{j=1}^n q_j
+      +\sum_{i=1}^n\mu_i\prod_{j=i+1}^n q_j.
+  \label{eq:appendix-alternating-arithmetic-expansion}
+\end{equation}
+Keep the same operations and constants, but replace the initial value by
+$\widetilde\mu_0$, obtaining values $\widetilde w_i$.  Then, at every prefix,
+\begin{equation}
+  \widetilde w_i-w_i
+    =\left(\prod_{j=1}^i q_j\right)(\widetilde\mu_0-\mu_0).
+  \label{eq:appendix-alternating-arithmetic-perturbation}
+\end{equation}
+If $\widetilde\mu_0\ne\mu_0$, the exact difference quotient is
+\begin{equation}
+  \frac{\widetilde w_i-w_i}{\widetilde\mu_0-\mu_0}
+    =\prod_{j=1}^i q_j.
+  \label{eq:appendix-alternating-arithmetic-ratio}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The first two steps, using only distributivity, give
+\[
+  w_1=q_1\mu_0+\mu_1,\qquad
+  w_2=q_2q_1\mu_0+q_2\mu_1+\mu_2.
+\]
+At each next step multiplication by $q_{n+1}$ extends every displayed product,
+and the final addition supplies the term $\mu_{n+1}$ with empty suffix
+product.  Induction, starting at $n=0$, proves
+\eqref{eq:appendix-alternating-arithmetic-expansion}.  For the perturbation,
+subtract the two recurrences directly:
+\[
+  \widetilde w_i-w_i
+   =(q_i\widetilde w_{i-1}+\mu_i)-(q_iw_{i-1}+\mu_i)
+   =q_i(\widetilde w_{i-1}-w_{i-1}).
+\]
+Iterating from $\widetilde w_0-w_0=\widetilde\mu_0-\mu_0$ proves
+\eqref{eq:appendix-alternating-arithmetic-perturbation}; division by the
+nonzero initial difference proves
+\eqref{eq:appendix-alternating-arithmetic-ratio}.
+\end{proof}
+
+No smallness hypothesis, derivative or limit is used.  For example, the rational
+word ``multiply by $2$, add $1$, multiply by $3$, add $4$'' sends $5$ to $37$
+and $6$ to $43$.  The difference $6$ is exactly $2\cdot3$ times the initial
+difference $1$.  It is an exact gain formula, not a truncation of a Taylor
+expansion.  With $q_i=s_i$ and $\mu_i=t_i$, the same calculation is the
+elementary source of the general affine formulas below.
 
 \subsection{Prefix recursion and closed form}
 
@@ -80,8 +163,11 @@ The coefficient in \eqref{eq:appendix-suffix-transport} is therefore exactly
 the transport of an additive event to the target frame.
 
 \subsection{Alternating addition--scale histories}
+\label{subsec:appendix-alternating-logarithmic}
 
-Consider a positive real alternating history with pairs
+Now specialize the arithmetic multipliers to $q_i=e^{m_i}>0$ over
+$\mathbb R$.  This positivity concerns the multipliers; the initial value
+and additive increments may have either sign.  The pairs become
 \[
   x\xmapsto{\,e^{m_i}\,}e^{m_i}x
   \xmapsto{\,+\mu_i\,}e^{m_i}x+\mu_i,
@@ -129,6 +215,47 @@ source instead groups the elementary operations as ``add, then scale'', the
 translation attached to that pair is $e^{m_i}\mu_i$, not $\mu_i$.
 Converting the pair to the common affine form $s_ix+t_i$ before using the
 cocycle formulas prevents this convention change from being hidden.
+
+For the original initial perturbation
+$\widetilde\mu_0=e^{\eta_0}\mu_0+\epsilon_0$, the arithmetic identity gives
+\[
+  \widetilde w_n-w_n
+   =e^{M_n}\bigl((e^{\eta_0}-1)\mu_0+\epsilon_0\bigr).
+\]
+The first recurrence starts at $w_0=\mu_0$, and its companion starts at
+$\widetilde w_0=\widetilde\mu_0$.  Any ratio by their initial difference
+requires that difference to be nonzero.
+
+\subsection{From arithmetic weights to ACS and scale normalization}
+\label{subsec:appendix-alternating-acs-scale}
+
+For this same word, draw the ACS path of Definition~\ref{def:acs}.  The $i$th
+vertical edge adds $m_i$ to $M$, and the following horizontal edge adds
+$\mu_i$ to $A$ at height $M_i$.  Thus direct integration along the horizontal
+edges gives
+\begin{equation}
+  \int_{C_\alpha}e^{-M}\,dA
+    =\sum_{i=1}^n\mu_i e^{-M_i}=\widehat\xi_n,
+  \qquad
+  w_n=e^{M_n}(\mu_0+\widehat\xi_n).
+  \label{eq:appendix-alternating-acs-bridge}
+\end{equation}
+This recovers Proposition~\ref{prop:acs-evaluation} for alternating words.
+The initial perturbation is multiplied by the total scale $e^{M_n}$; an
+additive increment $\mu_i$ is multiplied only by its remaining suffix scale
+$e^{M_n-M_i}$.  These are distinct quantities forced by the same expansion.
+The charge endpoint $(\sum_i\mu_i,M_n)$ forgets the heights at which the
+additions occurred, whereas the weighted integral retains their effect.
+
+Grouping consecutive pairs into blocks uses the chronological cocycle law
+below: each block has an exact effective scale and translation.  Retaining
+the original events distinguishes this operator summary from the full
+history.  Accumulated scale and the normalization $e^{-M_n}$ supplied an
+arithmetic starting point for the later renormalization discussion
+\cite{Yuan2025AEGScaleRenormalization}.  The finite identities proved here
+support that motivation; identifying a particular blocking and rescaling
+procedure with a renormalization transformation requires further definitions.
+The historical interpretation is recorded separately from those identities.
 
 \subsection{Concatenation in target and normalized coordinates}
 
@@ -275,14 +402,9 @@ the same history.  Set
   \qquad
   \widetilde x_k=F_k(\widetilde x).
 \]
-From the prefix recursion,
-\begin{align*}
-  \widetilde x_{k+1}-x_{k+1}
-  &=\bigl(s_{k+1}\widetilde x_k+t_{k+1}\bigr)
-    -\bigl(s_{k+1}x_k+t_{k+1}\bigr)\\
-  &=s_{k+1}(\widetilde x_k-x_k).
-\end{align*}
-Induction gives
+Taking $q_i=s_i$, $\mu_i=t_i$, $\mu_0=x$ and
+$\widetilde\mu_0=\widetilde x$ in the elementary identity
+\eqref{eq:appendix-alternating-arithmetic-perturbation} gives
 \begin{equation}
   \widetilde x_k-x_k
   =\left(\prod_{i=1}^{k}s_i\right)(\widetilde x-x)
@@ -296,6 +418,8 @@ initial difference.  Over $\mathbb R$, if $s_i=e^{\lambda_i}$, then
   =e^{\lambda_1+\cdots+\lambda_k}.
 \]
 No limiting process is involved in this identity.
+The displayed ratio requires $\widetilde x\ne x$; the difference identity
+\eqref{eq:appendix-prefix-perturbation} also includes equal initial values.
 
 \subsection{Differential conversion check}
 

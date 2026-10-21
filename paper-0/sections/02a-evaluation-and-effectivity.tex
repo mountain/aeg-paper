@@ -1,0 +1,88 @@
+\subsection{Evaluable expressions and effective presentations}
+\label{subsec:p0-evaluation-effectivity}
+
+The early formulation of AEG began with rational arithmetic and explicitly
+restricted its subsequent discussion to \emph{evaluable expressions}
+\cite{Yuan2022AEGEvaluableExpressions}.  A later foundational question connected
+this restriction with the difficulty of deciding whether a real expression
+has a value \cite{Yuan2023AEGFoundationalProblem}.  The distinction matters:
+defining an expression, defining its partial interpretation, computing its
+value, and deciding its admissibility are different tasks.
+
+\begin{definition}[Evaluability at an input]
+\label{def:p0-evaluable-expression}
+For a finite one-hole arithmetic expression $e[z]$ over $K$, let $D_e\subseteq K$
+be the set of inputs at which every node admits ordinary arithmetic
+evaluation, including every intermediate division guard.  Write
+\[
+  \nu_e:D_e\longrightarrow K
+\]
+for that evaluation.  The expression is \emph{evaluable at $x$} precisely when
+$x\in D_e$.  A closed expression is \emph{evaluable} when its entire recursive
+evaluation is defined.  These are semantic conditions on an already generated
+syntax tree; they do not assert the existence of a decision procedure.
+\end{definition}
+
+For a comb, $D_e$ is exactly the final prefix domain defined above.  A
+syntactically well-formed tree may have an empty domain: the expression
+$z/0$ is one example.  This is partiality of evaluation, rather than failure
+of the tree grammar or incompleteness of a proof system.  Alternatively, one
+may require evidence of defined operands and a nonzero denominator in the
+formation rule for division; such a rule defines a language of certified
+evaluable expressions.  Checking supplied evidence and automatically finding
+it remain separate tasks.
+
+\begin{example}[A cancelled reciprocal retains its excluded input]
+\label{ex:p0-cancelled-reciprocal-domain}
+Let $e[z]=1/(1/z)$.  Its first reciprocal requires $z\ne0$; for such $z$, the
+value $1/z$ is nonzero, so the second reciprocal is defined and returns $z$.
+Thus
+\[
+  D_e=K\setminus\{0\},\qquad \nu_e(z)=z\quad(z\in D_e).
+\]
+The expression $z$ itself has domain $K$.  The two expressions agree on $D_e$
+but do not define the same partial map.  Recording the pair $(D_e,\nu_e)$
+preserves this difference after algebraic cancellation.  The missing input is
+not a pole of the simplified identity function.  Composing the two projective
+reciprocals instead permits an intermediate infinity and gives the identity
+on $\mathbb P^1(K)$; that is a different interpretation, not an ordinary
+evaluation at zero.  Neither exclusion by itself asserts a singularity of
+the regular AES structure introduced in the next section.
+\end{example}
+
+The choice $K=\mathbb Q$ supplies a useful effective starting point when
+constants and inputs are given as integer fractions with nonzero
+denominators.  With unbounded exact integer arithmetic, evaluation of a finite
+closed tree, or of a finite tree at a supplied rational input, terminates with
+either a rational value or a division-by-zero failure: there are finitely many
+nodes, and each arithmetic operation and zero test is effective.  This does
+not give every syntax tree a value.  A bounded implementation must also
+distinguish a resource refusal from arithmetic undefinedness.
+
+The rational carrier is being used here for its effective presentation,
+not for a discrete topology: $\mathbb Q$ is not discrete in the topology
+inherited from $\mathbb R$.  The algebraic definitions of this section allow
+an arbitrary field $K$ without an effective presentation; finite notation
+cannot, however, name every real constant over a fixed finite alphabet.
+The real geometric models impose their own smoothness hypotheses.  Passing
+to such a model supplies neither exact numerical algorithms nor a general
+test for admissibility.
+
+Richardson's theorem concerns decision problems in a richer function
+language.  With rational constants, $\pi$, $\log 2$, the variable, exponential
+and sine, closed under addition, subtraction, multiplication and composition,
+the existence of a negative value is undecidable; adding absolute value also
+makes functional identity with zero undecidable
+\cite{Richardson1968UndecidableProblems}.  This is not a prohibition on
+defining real expressions, nor a theorem that every language of closed real
+constants has undecidable zero tests.  The signature, presentation and
+question must be specified before transferring such an obstruction.
+
+Adva develops the finite construction viewpoint by retaining typed program
+structure and construction history, and separating exact structural checks
+from later numerical observations \cite{Yuan2026AdvaProgramProcessCore}.
+The rational examples above explain one effective starting point for that
+viewpoint.  Finite syntax and checkable evidence do not entail that every
+semantic question is decidable, and a bounded checker does not replace the
+continuous geometry.  Keeping domains and histories explicit allows these
+discrete constructions and continuous interpretations to be studied together.

@@ -1,0 +1,145 @@
+{
+  "id": "p0-appendix-c-perturbation-step",
+  "source": "paper-0/appendices/app-C-affine-cocycles.tex",
+  "label": "prop:appendix-alternating-arithmetic-perturbation",
+  "lean": "perturbation_step",
+  "coverage": "Symbolic semiring induction step only; unbounded list induction is checked separately by Lean.",
+  "goal": {
+    "kind": "node",
+    "tag": 22,
+    "fields": [
+      {
+        "kind": "node",
+        "tag": 3,
+        "fields": [
+          {
+            "kind": "node",
+            "tag": 4,
+            "fields": [
+              {
+                "kind": "node",
+                "tag": 0,
+                "fields": [
+                  {
+                    "kind": "integer",
+                    "value": 0
+                  }
+                ]
+              },
+              {
+                "kind": "node",
+                "tag": 3,
+                "fields": [
+                  {
+                    "kind": "node",
+                    "tag": 0,
+                    "fields": [
+                      {
+                        "kind": "integer",
+                        "value": 1
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "node",
+                    "tag": 0,
+                    "fields": [
+                      {
+                        "kind": "integer",
+                        "value": 2
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "node",
+            "tag": 0,
+            "fields": [
+              {
+                "kind": "integer",
+                "value": 3
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "node",
+        "tag": 3,
+        "fields": [
+          {
+            "kind": "node",
+            "tag": 3,
+            "fields": [
+              {
+                "kind": "node",
+                "tag": 4,
+                "fields": [
+                  {
+                    "kind": "node",
+                    "tag": 0,
+                    "fields": [
+                      {
+                        "kind": "integer",
+                        "value": 0
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "node",
+                    "tag": 0,
+                    "fields": [
+                      {
+                        "kind": "integer",
+                        "value": 1
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "node",
+                "tag": 0,
+                "fields": [
+                  {
+                    "kind": "integer",
+                    "value": 3
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "node",
+            "tag": 4,
+            "fields": [
+              {
+                "kind": "node",
+                "tag": 0,
+                "fields": [
+                  {
+                    "kind": "integer",
+                    "value": 0
+                  }
+                ]
+              },
+              {
+                "kind": "node",
+                "tag": 0,
+                "fields": [
+                  {
+                    "kind": "integer",
+                    "value": 2
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

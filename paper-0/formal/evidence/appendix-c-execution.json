@@ -1,0 +1,101 @@
+{
+  "schema": "aeg.paper0.appendix-c.execution.v1.1",
+  "status": "Passed",
+  "date": "2026-10-20",
+  "author": "Codex (OpenAI), CC0; no independent human mathematical review claimed.",
+  "contract": "contract-appendix-c-v1.1.json",
+  "contract_sha256": "813ba16935b9372f0f55c6c692fd1034d7619c38e324daaaf7cbf800bd504109",
+  "machine_commit": "51ee98981ebbc62f8614ed20920c11dc76ea298d",
+  "machine_profile": "e9a700a7ca68f73587b18be1230f908e358a7d30f0a3f7d62397493b378b5797",
+  "source_lock_sha256": "7379379a18d4263515e138f1e66426abc4b7087f369a95ededc86b83f577c257",
+  "appendix_map_sha256": "4f5f83b74ffc76d54ef7cf507c43118a977f072777856a57da79aa73ca399db6",
+  "report_sha256": "a8f0b999c2ae40a722ad355ed85fdb0993cf2f25e0f5fc95304f95091f5e3826",
+  "archive": {
+    "path": "appendix-c-run-02.tar.gz",
+    "sha256": "7852caf47e6b9d0375e5ab2e72733800b876c8f61a7b6f777731eddf12af851b",
+    "bytes": 3106478,
+    "members": 508,
+    "uncompressed_bytes": 15428832
+  },
+  "native_runs": 63,
+  "child_commands": 131,
+  "reference_transitions": 49581,
+  "old_native_runs": 61,
+  "named_equational_derivations": 6,
+  "new_native_induction_step_certificates": 1,
+  "new_native_changed_goal_rejections": 1,
+  "previous_lean_statements": 71,
+  "new_lean_statements": 24,
+  "appendix_axioms": {
+    "evaluate_nil": [],
+    "evaluate_append": [],
+    "evaluate_snoc": [],
+    "scale_append": [
+      "propext"
+    ],
+    "scale_snoc": [
+      "propext"
+    ],
+    "contribution_at": [
+      "Quot.sound",
+      "propext"
+    ],
+    "expanded_evaluation": [],
+    "perturbation_step": [],
+    "additive_perturbation": [],
+    "events_length": [
+      "propext"
+    ],
+    "events_correspondence": [],
+    "tree_correspondence": [
+      "Quot.sound",
+      "propext"
+    ],
+    "add_left_comm": [],
+    "restore_difference": [],
+    "difference_of_translation": [],
+    "difference_self": [],
+    "exact_difference": [],
+    "prefix_difference": [],
+    "difference_nonzero": [],
+    "perturbation_ratio": [],
+    "guarded_ratio": [],
+    "prefix_ratio": [],
+    "diagonal_ratio_undefined": [],
+    "scale_nonzero": []
+  },
+  "missing_ratio_guard": "Rejected by Lean with the expected missing-hypothesis type mismatch",
+  "wall_seconds": 182.02770033499837,
+  "retained_failure": {
+    "record": "appendix-c-attempt-1.json",
+    "archive_sha256": "7280d081f2027a959a9b575f1d1557fecebaf6c1cc013523cdab8ed79a86cdda",
+    "status": "Failed",
+    "whole_run_admitted": false,
+    "additional_wall_seconds": 184.11229060999904
+  },
+  "unchanged_across_attempts": {
+    "native_reports_and_receipts": 63,
+    "positive_appendix_lean_audit_output": true,
+    "proof_program_goal_and_case_sources": true,
+    "resource_bounds": true
+  },
+  "unit_tests_before_successor": 17,
+  "unit_tests_after_archive": 18,
+  "manuscript_builds": {
+    "0": {
+      "status": "Passed",
+      "pages": 97,
+      "pdf_bytes": 850119,
+      "unresolved_references_citations_duplicate_labels_missing_assets": false,
+      "pdf_sha256": "c606c71fbb93d7974701bb225f93c958cbf1c1474be54652637ea6ba3b7e32c0"
+    },
+    "1": {
+      "status": "Passed",
+      "pages": 32,
+      "pdf_bytes": 517919,
+      "unresolved_references_citations_duplicate_labels_missing_assets": false,
+      "note": "Fresh build retained externally; tracked Paper I PDF restored after validation."
+    }
+  },
+  "coverage": "The full finite alternating-expansion/perturbation proposition under explicit algebraic laws, including actual tree/word correspondence and ordinary guarded ratio. Native Adva checks the symbolic induction step only. Real exponential, ACS integration, identity-padding transformations, RG and a native induction kernel are outside this continuation."
+}

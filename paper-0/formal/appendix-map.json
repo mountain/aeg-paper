@@ -1,0 +1,136 @@
+{
+  "schema": "aeg.paper0.appendix-c.definition-map.v1",
+  "source": "paper-0/appendices/app-C-affine-cocycles.tex",
+  "source_sha256": "564821c82eee4364f3ad243db16e863deda5c190f57979988cbf1aff7ad1351a",
+  "module": "AEGPaper0.AppendixC",
+  "lean_audit_names": [
+    "evaluate_nil",
+    "evaluate_append",
+    "evaluate_snoc",
+    "scale_append",
+    "scale_snoc",
+    "contribution_at",
+    "expanded_evaluation",
+    "perturbation_step",
+    "additive_perturbation",
+    "events_length",
+    "events_correspondence",
+    "tree_correspondence",
+    "add_left_comm",
+    "restore_difference",
+    "difference_of_translation",
+    "difference_self",
+    "exact_difference",
+    "prefix_difference",
+    "difference_nonzero",
+    "perturbation_ratio",
+    "guarded_ratio",
+    "prefix_ratio",
+    "diagonal_ratio_undefined",
+    "scale_nonzero"
+  ],
+  "expected_axioms": {
+    "evaluate_nil": [],
+    "evaluate_append": [],
+    "evaluate_snoc": [],
+    "scale_append": [
+      "propext"
+    ],
+    "scale_snoc": [
+      "propext"
+    ],
+    "contribution_at": [
+      "Quot.sound",
+      "propext"
+    ],
+    "expanded_evaluation": [],
+    "perturbation_step": [],
+    "additive_perturbation": [],
+    "events_length": [
+      "propext"
+    ],
+    "events_correspondence": [],
+    "tree_correspondence": [
+      "Quot.sound",
+      "propext"
+    ],
+    "add_left_comm": [],
+    "restore_difference": [],
+    "difference_of_translation": [],
+    "difference_self": [],
+    "exact_difference": [],
+    "prefix_difference": [],
+    "difference_nonzero": [],
+    "perturbation_ratio": [],
+    "guarded_ratio": [],
+    "prefix_ratio": [],
+    "diagonal_ratio_undefined": [],
+    "scale_nonzero": []
+  },
+  "index_correspondence": "word[i]=(q_(i+1),mu_(i+1)); word.take k is the chronological k-pair prefix. scale is the finite product. contribution_at identifies mu_(i+1) times scale(word.drop(i+1)); sum folds these contributions with empty sum zero. evaluate_snoc is the manuscript recurrence.",
+  "hypotheses": "Polynomial expansion/additive perturbation use explicit commutative-semiring laws and even allow zero multipliers. Difference and guarded ratio use the existing explicit FieldData. The manuscript restricts q_i!=0; NonzeroMultipliers and scale_nonzero capture that restriction. Only the ratio needs y!=x, giving a nonzero actual denominator. No analytic limit or smallness assumption.",
+  "mapping": [
+    {
+      "source_labels": [
+        "def:appendix-alternating-expression",
+        "eq:appendix-alternating-arithmetic-recursion"
+      ],
+      "formal": [
+        "evaluate_nil",
+        "evaluate_append",
+        "evaluate_snoc",
+        "scale_append",
+        "scale_snoc",
+        "events_length",
+        "events_correspondence",
+        "tree_correspondence",
+        "scale_nonzero"
+      ],
+      "coverage": "Chronological scale-then-add pairs retain two events; the encoded word and its actual planar tree agree with existing ordinary evaluation. Nonzero multiplier hypotheses are tracked separately."
+    },
+    {
+      "source_labels": [
+        "prop:appendix-alternating-arithmetic-perturbation",
+        "eq:appendix-alternating-arithmetic-expansion",
+        "eq:appendix-alternating-arithmetic-perturbation",
+        "eq:appendix-alternating-arithmetic-ratio"
+      ],
+      "formal": [
+        "contribution_at",
+        "expanded_evaluation",
+        "perturbation_step",
+        "additive_perturbation",
+        "add_left_comm",
+        "restore_difference",
+        "difference_of_translation",
+        "difference_self",
+        "exact_difference",
+        "prefix_difference",
+        "difference_nonzero",
+        "perturbation_ratio",
+        "guarded_ratio",
+        "prefix_ratio",
+        "diagonal_ratio_undefined"
+      ],
+      "coverage": "The full finite proposition: independent suffix contributions and their sum, exact arbitrary-length/prefix difference, and ordinary guarded ratio. The diagonal ratio is proved undefined."
+    },
+    {
+      "source_labels": [
+        "eq:appendix-alternating-acs-bridge"
+      ],
+      "formal": [],
+      "coverage": "The real exponential and ACS line-integral interpretation remains an in-manuscript calculation; not covered by these Lean proofs."
+    }
+  ],
+  "native_certificate": {
+    "statement": "appendix-statement.json",
+    "certificate": "appendix-certificate.json",
+    "role": "Symbolic semiring perturbation_step only; not an Adva induction rule."
+  },
+  "excluded": [
+    "ACS integration",
+    "real exponential and topology",
+    "general RG transformation",
+    "universal Adva induction or checker soundness"
+  ]
+}

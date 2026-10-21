@@ -8,6 +8,21 @@ and guarded ordinary domains. Its first source finding, OQ-090, is resolved
 by the marked-data/scalar-projection distinction in the amended proposition.
 Consult the current mathematical-status register for each claim's scope.
 
+Chapter 2 also restores the early concept of an evaluable expression and
+separates partial semantics from effective rational evaluation and semantic
+decision problems. The [historical discussion](../governance/discussions/evaluable-expressions-and-effective-presentations.md)
+records the recovered drafts, the Richardson qualification, and the connection
+to Adva's finite construction viewpoint.
+
+Appendix C restores alternating expressions and their purely arithmetic
+perturbation derivation before the general affine calculations. Its
+[historical record](../governance/discussions/alternating-expressions-perturbation-acs-rg.md)
+tracks the route to ACS and the later scale/RG interpretation, with exact
+identities and interpretive claims kept at their respective scopes.
+The [formal continuation](formal/README.md#appendix-c-induction-successor)
+supplies finite-induction proofs and an explicit source map for the restored
+expansion, perturbation and guarded difference quotient.
+
 **Provisional title:** *Arithmetic Expression Geometry 0*  
 **Subtitle:** *Arithmetic Expression Spaces: Expansion, Motion, Ripple Duals,
 Commutativization, and Tearing*
@@ -50,6 +65,7 @@ paper-0/
   sections/
     01-introduction.tex
     02-expansion.tex
+    02a-evaluation-and-effectivity.tex
     03-aes-and-motion.tex
     04-ripple-geometry.tex
     05-reciprocals-fixed-points.tex

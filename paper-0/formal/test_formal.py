@@ -195,7 +195,12 @@ class FormalTests(unittest.TestCase):
         lock = json.loads(files["sources/machine.lock.json"])
         for name, digest in lock["formal_sources"].items():
             self.assertEqual(hashlib.sha256(files["sources/" + name]).hexdigest(), digest)
-            self.assertEqual(files["sources/" + name], (HERE / name).read_bytes())
+            # The completed archive binds its own inventory. Later editorial
+            # additions update live navigation without extending old proofs.
+            # The successor also adds an appendix coverage map to navigation.
+            # All proof and execution sources still match the old snapshot.
+            if name not in {"inventory.json", "inventory.py"}:
+                self.assertEqual(files["sources/" + name], (HERE / name).read_bytes())
         for row in result["rows"]:
             self.assertEqual(hashlib.sha256(files["run-03/" + row["name"] + ".run.adva"]).hexdigest(), row["report_sha256"])
 

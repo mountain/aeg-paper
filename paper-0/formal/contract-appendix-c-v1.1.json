@@ -1,0 +1,65 @@
+{
+  "schema": "aeg.paper0.formal.contract.appendix-c.v1.1",
+  "date": "2026-10-20",
+  "predecessor": "contract-appendix-c.json; failed evidence/appendix-c-attempt-1.tar.gz",
+  "source_commit": "d3540044552f2815a3eeb785f400f6d8643277d0",
+  "source_binding": "The source commit is the base; exact local editorial additions and the formal continuation are bound by the current source lock and manuscript inventory, captured in the new execution archive.",
+  "machine_commit": "51ee98981ebbc62f8614ed20920c11dc76ea298d",
+  "question": "Verify the restored Appendix C finite expansion and exact perturbation by Lean induction, tie it to existing tree/word evaluation, and check its symbolic induction step with the unchanged Adva checker.",
+  "interpretations": [
+    "Universal finite induction is checked by Lean; Adva checks one symbolic semiring induction-step certificate.",
+    "The quotient is an ordinary guarded Eval division; distinct initial values are required, and the equal-input quotient is undefined.",
+    "Chronological pairs encode multiply then add as two original ordinary events.",
+    "The existing 61 native regression runs and 71 Lean statements remain in the combined run.",
+    "The missing-guard Lean control must fail with one expected type mismatch; wrong pair-order arithmetic must be rejected natively.",
+    "No formal ACS/RG result or new Adva machine rule is introduced."
+  ],
+  "bounds": {
+    "proof_steps": 64,
+    "term_nodes": 63,
+    "proof_stack": 32,
+    "comb_steps": 16,
+    "fuel_per_call": 200000,
+    "native_calls": 64,
+    "child_commands": 160,
+    "reference_steps": 4000000,
+    "wall_seconds": 300,
+    "child_wall_seconds": 30,
+    "child_cpu_seconds": 25,
+    "child_address_space_bytes": 1073741824,
+    "child_file_bytes": 33554432,
+    "artifact_bytes": 536870912,
+    "lean_child_address_space_bytes": 4294967296
+  },
+  "expected_work": {
+    "native_calls": 63,
+    "child_commands": 131,
+    "appendix_lean_theorems": 24,
+    "new_native_certificates": 1,
+    "new_native_negative_controls": 1,
+    "lean_negative_controls": 1
+  },
+  "success": "All old checks pass; one new symbolic certificate and its native/independent replays pass; the changed-goal control rejects; all 24 Appendix C theorem names and exact global axiom sets match the reviewed map; omitting the ratio hypothesis fails with the expected diagnostic.",
+  "exit": "One fresh bounded recorded regression after engineering checks. Stop at the first mismatch or exhausted bound, retain the full failed record, and do not automatically enlarge limits or relabel a failed run. Manuscript builds are separate engineering work.",
+  "preservation": [
+    "Old contracts, original run.py, proofs, programs, cases, goals, certificates and execution archives remain unchanged.",
+    "Historical source snapshots are checked under their own pins; live navigation receives successor pins.",
+    "The old domain proof now also emits its olean import artifact, without modifying its proof text."
+  ],
+  "authorship": "Codex (OpenAI), original CC0 contribution; no independent human review claimed.",
+  "receiving_revision": {
+    "retained_failure_archive_sha256": "7280d081f2027a959a9b575f1d1557fecebaf6c1cc013523cdab8ed79a86cdda",
+    "reason": "Declare the standard propext used by the two finite-product helper proofs that was omitted from the first exact audit map.",
+    "changed_expected_axioms": {
+      "scale_append": [
+        "propext"
+      ],
+      "scale_snoc": [
+        "propext"
+      ]
+    },
+    "proof_program_goal_and_case_bytes_unchanged": true,
+    "bounds_unchanged": true,
+    "permission": "One explicitly versioned fresh bounded regression after checking the repaired exact axiom inventory; preserve the failed invocation and all additional costs."
+  }
+}

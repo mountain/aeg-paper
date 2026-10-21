@@ -44,9 +44,9 @@ jobs:
           tar --zstd -xf "$RUNNER_TEMP/lean.tar.zst" -C "$RUNNER_TEMP"
       - name: Check source, goals and negative-control inventory
         run: python -m unittest discover -s paper-0/formal -p 'test_*.py' -v
-      - name: Check symbolic proofs and their complete native traces
+      - name: Check symbolic proofs, finite inductions and complete native traces
         run: |
-          python paper-0/formal/run.py \
+          python paper-0/formal/appendix_run.py \
             --machine-root "$RUNNER_TEMP/aeg-machine" \
             --binary "$RUNNER_TEMP/aeg-machine/target/debug/adva" \
             --lean "$RUNNER_TEMP/lean-4.24.0-linux/bin/lean" \

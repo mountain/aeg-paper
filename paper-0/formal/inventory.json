@@ -1,16 +1,17 @@
 {
-  "schema": "aeg.paper0.formal.inventory.v2",
+  "schema": "aeg.paper0.formal.inventory.v3",
   "scope": "Theorem-like environments in recursively included TeX files; prose/equation coverage and dependencies require review. No proof truth is assigned by this inventory.",
   "sources": {
-    "paper-0/aeg-paper-0.tex": "46779e92f52ecd0dae029494fe7c06dc336b705cc22e7fe7b30b9a5b0d3045dd",
+    "paper-0/aeg-paper-0.tex": "8569ab288855e054b57bb03c5dcbdeaff7773e4e31070f3ae992917112ef3f52",
     "paper-0/sections/01-introduction.tex": "41f18935ae5bb962ec4a8fc94d6d0d1fc32834495346893c3e756becdac2d7ed",
     "paper-0/sections/02-expansion.tex": "ddc42b0e8f388beccaf413da98a8b2b898ecd64f9a45f5c6e8193252a603a7d2",
+    "paper-0/sections/02a-evaluation-and-effectivity.tex": "bfa42a11c291cb2a42e7ad6000ef89caad10c786eff30ffd049126bb1696dc8d",
     "paper-0/sections/03-aes-and-motion.tex": "07a8b112a05b45c8410459b69b89bb8f951fa954e871b2ea0cc137d67525ba0e",
     "paper-0/sections/04-ripple-geometry.tex": "582281668116a0d01d4874a3eb73d508edbfb8704a2ada9e7ad275c2159ce565",
     "paper-0/sections/04b-pole-covariance.tex": "d1fe37de0ab2a7c83c0a46edc3eaaccd370a5b646b58caef579c794260c71901",
     "paper-0/sections/05-reciprocals-fixed-points.tex": "8f6ce278b622da5f383f90d7a59fc858df404e04042a6691d74fc0fcd6845ddc",
     "paper-0/sections/06-projective-unification.tex": "6c4a433337a564595d1073ca8cbca39b90a18d0c9144e5bdbdbaf753c9a90aec",
-    "paper-0/sections/07-affine-cocycles.tex": "f8c2cdc67f215e3243e71d35d49b0b64144c22b4856595a87de55805ce655746",
+    "paper-0/sections/07-affine-cocycles.tex": "9bbd4d5deab123c5e57cb671de4801c7b75df3d40ce9ec5cc15aea1a9993f5f2",
     "paper-0/sections/08-acs-tearing.tex": "cf3aaa13689f5b11e52e37500dd22b9f220625f74b2dd4230ce8a07cc64817c9",
     "paper-0/sections/09-contact-of-tearing.tex": "355e3a155b8a4d64a59301d92dea8d2c690589ba7ab5cca2a6b08ad773c7945a",
     "paper-0/sections/10-beyond-linear.tex": "d9127836c640e915440acbaca0e58bb46f3f29d94dc1ecef3299cf7db61ac455",
@@ -19,11 +20,12 @@
     "paper-0/sections/12-interface.tex": "7f54af219cdd0435cd8666c2cc8fe64132bf247454f8fd97a32684e15bf83975",
     "paper-0/appendices/app-A-calculations.tex": "ad912be73204804e877d6ab21d2303b8999030d47e8bf2556ae0770371af5643",
     "paper-0/appendices/app-B-hyperbolic-calculations.tex": "f95d8dc41a07265246537fde1b77b293906417466f9087b2b4b7f0137fbdbccc",
-    "paper-0/appendices/app-C-affine-cocycles.tex": "4fd006f4dedf953643ad2cf1967007c0d68acb8c7dcbe3a77b947b4d95674608",
+    "paper-0/appendices/app-C-affine-cocycles.tex": "564821c82eee4364f3ad243db16e863deda5c190f57979988cbf1aff7ad1351a",
     "paper-0/appendices/app-D-acs-contact.tex": "409e919fdb3672126c7b9ee387d0fb0273384704d699a2ea420227e06b486574",
     "paper-0/appendices/app-E-circle-surgery.tex": "f53dca4a016116e77dbad17e6da5c0da91243ef29556c68d6356500c92a9634e"
   },
   "definition_map_sha256": "562d455635bbdc0145b1833e3e4cbe0c73538255f0070d9911effc87b0b58889",
+  "appendix_map_sha256": "4f5f83b74ffc76d54ef7cf507c43118a977f072777856a57da79aa73ca399db6",
   "claims": [
     {
       "source": "paper-0/sections/02-expansion.tex",
@@ -207,6 +209,30 @@
         "undefined_second_prefix_persists",
         "zero_denominator_refused"
       ]
+    },
+    {
+      "source": "paper-0/sections/02a-evaluation-and-effectivity.tex",
+      "line": 12,
+      "environment": "definition",
+      "title": "Evaluability at an input",
+      "labels": [
+        "def:p0-evaluable-expression"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/02a-evaluation-and-effectivity.tex",
+      "line": 35,
+      "environment": "example",
+      "title": "A cancelled reciprocal retains its excluded input",
+      "labels": [
+        "ex:p0-cancelled-reciprocal-domain"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
     },
     {
       "source": "paper-0/sections/03-aes-and-motion.tex",
@@ -1203,6 +1229,60 @@
       "formal_status": "not-yet-formalized",
       "certificates": [],
       "lean_components": []
+    },
+    {
+      "source": "paper-0/appendices/app-C-affine-cocycles.tex",
+      "line": 17,
+      "environment": "definition",
+      "title": "Alternating arithmetic expression",
+      "labels": [
+        "def:appendix-alternating-expression",
+        "eq:appendix-alternating-arithmetic-recursion"
+      ],
+      "formal_status": "component-map-supplied",
+      "certificates": [],
+      "lean_components": [
+        "evaluate_append",
+        "evaluate_nil",
+        "evaluate_snoc",
+        "events_correspondence",
+        "events_length",
+        "scale_append",
+        "scale_nonzero",
+        "scale_snoc",
+        "tree_correspondence"
+      ]
+    },
+    {
+      "source": "paper-0/appendices/app-C-affine-cocycles.tex",
+      "line": 38,
+      "environment": "proposition",
+      "title": "Arithmetic expansion and exact perturbation",
+      "labels": [
+        "prop:appendix-alternating-arithmetic-perturbation",
+        "eq:appendix-alternating-arithmetic-expansion",
+        "eq:appendix-alternating-arithmetic-perturbation",
+        "eq:appendix-alternating-arithmetic-ratio"
+      ],
+      "formal_status": "component-map-supplied",
+      "certificates": [],
+      "lean_components": [
+        "add_left_comm",
+        "additive_perturbation",
+        "contribution_at",
+        "diagonal_ratio_undefined",
+        "difference_nonzero",
+        "difference_of_translation",
+        "difference_self",
+        "exact_difference",
+        "expanded_evaluation",
+        "guarded_ratio",
+        "perturbation_ratio",
+        "perturbation_step",
+        "prefix_difference",
+        "prefix_ratio",
+        "restore_difference"
+      ]
     },
     {
       "source": "paper-0/appendices/app-E-circle-surgery.tex",

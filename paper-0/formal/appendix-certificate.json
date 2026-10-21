@@ -1,0 +1,294 @@
+[
+  {
+    "kind": "node",
+    "tag": 16,
+    "fields": [
+      {
+        "kind": "node",
+        "tag": 0,
+        "fields": [
+          {
+            "kind": "integer",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "kind": "node",
+        "tag": 0,
+        "fields": [
+          {
+            "kind": "integer",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "kind": "node",
+        "tag": 0,
+        "fields": [
+          {
+            "kind": "integer",
+            "value": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "node",
+    "tag": 0,
+    "fields": [
+      {
+        "kind": "node",
+        "tag": 0,
+        "fields": [
+          {
+            "kind": "integer",
+            "value": 3
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "node",
+    "tag": 3,
+    "fields": []
+  },
+  {
+    "kind": "node",
+    "tag": 10,
+    "fields": [
+      {
+        "kind": "node",
+        "tag": 4,
+        "fields": [
+          {
+            "kind": "node",
+            "tag": 0,
+            "fields": [
+              {
+                "kind": "integer",
+                "value": 0
+              }
+            ]
+          },
+          {
+            "kind": "node",
+            "tag": 0,
+            "fields": [
+              {
+                "kind": "integer",
+                "value": 1
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "node",
+        "tag": 4,
+        "fields": [
+          {
+            "kind": "node",
+            "tag": 0,
+            "fields": [
+              {
+                "kind": "integer",
+                "value": 0
+              }
+            ]
+          },
+          {
+            "kind": "node",
+            "tag": 0,
+            "fields": [
+              {
+                "kind": "integer",
+                "value": 2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "node",
+        "tag": 0,
+        "fields": [
+          {
+            "kind": "integer",
+            "value": 3
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "node",
+    "tag": 2,
+    "fields": []
+  },
+  {
+    "kind": "node",
+    "tag": 0,
+    "fields": [
+      {
+        "kind": "node",
+        "tag": 4,
+        "fields": [
+          {
+            "kind": "node",
+            "tag": 0,
+            "fields": [
+              {
+                "kind": "integer",
+                "value": 0
+              }
+            ]
+          },
+          {
+            "kind": "node",
+            "tag": 0,
+            "fields": [
+              {
+                "kind": "integer",
+                "value": 1
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "node",
+    "tag": 11,
+    "fields": [
+      {
+        "kind": "node",
+        "tag": 4,
+        "fields": [
+          {
+            "kind": "node",
+            "tag": 0,
+            "fields": [
+              {
+                "kind": "integer",
+                "value": 0
+              }
+            ]
+          },
+          {
+            "kind": "node",
+            "tag": 0,
+            "fields": [
+              {
+                "kind": "integer",
+                "value": 2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "node",
+        "tag": 0,
+        "fields": [
+          {
+            "kind": "integer",
+            "value": 3
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "node",
+    "tag": 3,
+    "fields": []
+  },
+  {
+    "kind": "node",
+    "tag": 2,
+    "fields": []
+  },
+  {
+    "kind": "node",
+    "tag": 10,
+    "fields": [
+      {
+        "kind": "node",
+        "tag": 4,
+        "fields": [
+          {
+            "kind": "node",
+            "tag": 0,
+            "fields": [
+              {
+                "kind": "integer",
+                "value": 0
+              }
+            ]
+          },
+          {
+            "kind": "node",
+            "tag": 0,
+            "fields": [
+              {
+                "kind": "integer",
+                "value": 1
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "node",
+        "tag": 0,
+        "fields": [
+          {
+            "kind": "integer",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "kind": "node",
+        "tag": 4,
+        "fields": [
+          {
+            "kind": "node",
+            "tag": 0,
+            "fields": [
+              {
+                "kind": "integer",
+                "value": 0
+              }
+            ]
+          },
+          {
+            "kind": "node",
+            "tag": 0,
+            "fields": [
+              {
+                "kind": "integer",
+                "value": 2
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "node",
+    "tag": 1,
+    "fields": []
+  },
+  {
+    "kind": "node",
+    "tag": 2,
+    "fields": []
+  }
+]

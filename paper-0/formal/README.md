@@ -12,8 +12,9 @@ The original theory is equality in a commutative semiring. Its basis is explicit
 listed in `Chapter02.lean`: addition/multiplication associativity and
 commutativity, additive zero, multiplicative one and zero, and distributivity.
 These are parameters of a structure, not axioms asserting the target AEG
-statements. Fields interpret this smaller signature; inverses, subtraction,
-ordered fields, analysis and geometric structures are not yet implemented.
+statements. Fields interpret this smaller signature. The native equality
+kernel has no inverse, subtraction, order, analysis or geometry rules; the
+separate Lean field-law continuation is described below.
 
 `checker.adva` is a new, original Adva-written equational kernel. It uses the
 existing `mountain/adva-machine` data-machine-v1 at the exact revision in
@@ -51,12 +52,15 @@ statement correspondence and the reviewed equality kernel remain trusted.
 | §2 four-operation sections | All eight ordinary values/domains and nonzero affine inverse laws in Lean; separate bounded rational Adva evaluator | These universal field theorems are Lean-checked; finite Adva executions do not promote a new field-proof kernel |
 | §2 distributive operator identity | Unchanged symbolic Adva/Lean identity; new general-field proof of the corrected marked/scalar clauses | The previous counterexample and its old source snapshot remain historical evidence |
 | §§3–6 AES, ripple, reciprocal and projective theory | Inventoried, including the nested pole-covariance subsection | Formal domains, nonzero hypotheses, projective and geometric theories |
-| §7 chronological affine cocycle | Auxiliary pointwise polynomial identity checked by Adva and Lean | Definition/uniqueness of affine coordinates, invertibility and normalized-coordinate laws; full finite-history proof |
+| §7 chronological affine cocycle | Auxiliary pointwise polynomial identity checked by Adva and Lean; shared finite-history scalar expansion in `AppendixC.lean` | Definition/uniqueness of affine coordinates, inverse and normalized-coordinate laws |
 | §§8–12 ACS, contact, nonlinearity, punctures, compactification | Inventoried | Algebraic/differential/topological dependencies and explicit side conditions |
-| §13 interfaces and appendices A–E | Inventoried | Formal statement and dependency correspondence |
+| Appendix C alternating expressions | 24 Lean theorems: independent suffix-sum expansion, arbitrary finite/prefix perturbation, actual tree/word correspondence and guarded ratio; one native symbolic induction-step certificate | ACS/exponentials/RG, identity-padding syntax transformations, and a native Adva induction kernel are outside this continuation |
+| §13 interfaces and appendices A, B, D, E | Inventoried | Formal statement and dependency correspondence |
 
 `inventory.json` follows active `\input` directives from the canonical manuscript
-and records 20 files and 91 theorem-like environments at the pinned checkpoint.
+and recorded 20 files and 91 theorem-like environments at the first checkpoint.
+The current live inventory has 21 source files and 95 theorem-like environments,
+with a separate source-bound map for Appendix C.
 This is navigation and drift detection, not a complete TeX parser or proof of
 coverage of prose and unnumbered equations. `not-yet-formalized` means exactly
 that; it does not downgrade or certify a manuscript's mathematical status.
@@ -144,7 +148,8 @@ The original `contract.json`, equality bytecode, certificate family,
 `Chapter02.lean`, and `evidence/run-01.tar.gz` are unchanged. Historical evidence
 is checked against its archived verifier/mapping snapshot; it is never rebound
 to amended manuscript bytes. Current inventory and source locks are successor
-records. Reproduction uses the command below and the v2.1 finite contract.
+records. That archived Chapter 2 run uses `run.py` and the v2.1 contract;
+the current reproduction command below invokes the Appendix C successor.
 The real-exponential/ACS argument in the charge example remains explicitly
 dependent on the manuscript and Chapter 8; it is not promoted by this pilot.
 
@@ -177,11 +182,106 @@ attempts, confirming the repair changed the receiving resource envelope only.
 Thirteen engineering tests passed before the invocation; a fourteenth checks
 the completed archive and the per-child native/Lean resource split afterward.
 
-The build validation now produces Paper 0's 93-page PDF and Paper I's 32-page
+The v2.1 build validation produced Paper 0's 93-page PDF and Paper I's 32-page
 PDF, with no undefined references, missing citations or duplicate labels.
 Existing layout warnings remain outside the edited chapter: one 11.13 pt
 overfull paragraph in Paper 0 §10, two overfull boxes in Paper I, and hyperref
 math-in-bookmark warnings. The amended proposition page was visually checked.
+
+### Editorial continuation: evaluability and effective presentations
+
+The later §2 subsection `02a-evaluation-and-effectivity.tex` restores historical
+terminology and distinguishes ordinary partial semantics, effective rational
+evaluation and Richardson's decision obstruction. The
+[discussion record](../../governance/discussions/evaluable-expressions-and-effective-presentations.md)
+retains its provenance and the author's connection to Adva's finite viewpoint.
+
+The new definition and example are `not-yet-formalized` in the current
+inventory. The original Chapter 2 source, definition map, proof programs,
+Lean modules and executed evidence are unchanged. Only the live manuscript
+inventory and its source-lock entry advanced; the archived inventory continues
+to describe the source snapshot that was actually checked. The archive test
+verifies those historical bytes. The later Appendix C successor also versions
+the inventory generator, while keeping all old proof and execution sources
+equal to their executed snapshots. No new native or Lean coverage is
+claimed for the added prose, example or cited external theorem.
+
+At the editorial restoration, Appendix C's new definition and proposition were
+`not-yet-formalized`. The successor below supplies their reviewed component
+mapping. The worked ACS connection and historical RG reading retain their
+separate in-manuscript/interpretive status.
+
+## Appendix C induction successor
+
+`AppendixC.lean` imports the unchanged Chapter 2 modules. Its chronological
+list evaluator is related to an actual two-event-per-pair word and its planar
+tree through the existing ordinary `Eval`/`PartialFold` semantics. The snoc
+theorem identifies the manuscript recurrence. An independent list of suffix
+contributions, with an indexed lookup theorem, represents the displayed finite
+sum of each additive constant times its remaining product.
+
+Finite list induction proves the expansion and additive perturbation for
+arbitrary lengths. Explicit field laws then give exact differences at every
+prefix, the nonzero initial-difference condition, the guarded difference
+quotient, and undefinedness of the equal-input quotient. The polynomial
+identities require only commutative-semiring laws, so their proofs even allow
+zero multipliers; `NonzeroMultipliers` and `scale_nonzero` separately recover
+the manuscript's invertible-multiplier hypothesis. No smallness or analytic
+limit is used.
+
+The [source map](appendix-map.json) declares all 24 theorem names and their
+exact global-axiom sets. The primary expansion, perturbation and quotient
+proofs use no global axioms. Two supporting list/tree correspondences report
+`propext` and `Quot.sound`; the event-count lemma and two finite-product
+helpers report `propext`.
+The receiver rejects any changed axiom set, diagnostic or missing audit name.
+
+`appendix-statement.json` and `appendix-certificate.json` supply a separately
+fixed symbolic semiring induction step:
+
+```text
+q * (x + delta) + mu = (q * x + mu) + q * delta
+```
+
+The unchanged `checker.adva` checks that certificate. A changed goal that
+confuses scale-then-add with add-then-scale must reject. The independent
+polynomial oracle, fresh native replay and generic instruction receiver check
+both executions. This is a symbolic induction-step check, not an Adva rule
+for universal induction; Lean checks the arbitrary finite iteration.
+
+`negative/MissingRatioGuard.lean` deliberately omits `y != x`. Reception
+requires Lean to reject it with exactly the expected missing-hypothesis type
+mismatch, after the positive module has compiled; an unrelated import or
+compiler failure is not accepted as a passing negative control.
+
+`contract-appendix-c.json` declared the first combined invocation after
+engineering checks, with the preceding 300-second shared deadline, 64 native
+call cap, 160 child-command cap, unchanged native memory limits and the
+existing 4 GiB Lean limit. `appendix_run.py` reuses the original supervisor,
+also emitting the unchanged domain module's import artifact, and adds the
+new checks. The first invocation stopped at an exact axiom-inventory mismatch:
+`propext` had been omitted for `scale_append` and `scale_snoc`. Its complete
+[failure record](evidence/appendix-c-attempt-1.json) remains `Failed`.
+`contract-appendix-c-v1.1.json` declares a fresh invocation after correcting
+only those two expected axiom entries, with identical proof/program/goal/case
+bytes and resource bounds. The successor is recorded separately in
+[appendix-c-execution.json](evidence/appendix-c-execution.json). Older archives
+remain checked against their own source snapshots; current navigation and
+the two source maps receive successor byte pins. The §2 evaluability example,
+ACS integration, real-exponential interpretation and RG discussion remain
+outside this new proof coverage.
+
+The completed successor is `Passed`: **63 native runs**, **131 child
+commands**, **49,581 independently received instruction transitions**, and all
+24 new Lean statements in addition to the preceding 71. The missing-ratio-guard
+control rejects as intended. The run took 182.03 seconds; the retained failed
+invocation cost an additional 184.11 seconds. All 63 native reports and replay
+receipts, and the positive Appendix C Lean audit, are byte-identical between
+attempts. Seventeen tests passed before the successor; eighteen pass after
+adding the completed archive/source/trace binding test. Both manuscript builds
+pass (Paper 0: 97 pages; Paper I: 32), with no new reference or layout issues.
+These theorem counts include supporting lemmas and are not counts of covered
+manuscript environments.
 
 ## Reproduce
 
@@ -192,7 +292,7 @@ From the AEG repository root:
 
 ```sh
 python -m unittest discover -s paper-0/formal -p 'test_*.py'
-python paper-0/formal/run.py \
+python paper-0/formal/appendix_run.py \
   --machine-root /absolute/path/to/pinned/adva-machine \
   --binary /absolute/path/to/pinned/adva-machine/target/debug/adva \
   --lean /absolute/path/to/lean \
@@ -208,7 +308,12 @@ source/profile mismatch fails the run; no automatic fallback or fuel refill is
 provided. The supplied executable is a declared trusted build: its recorded
 digest is integrity evidence, not an authenticated compiler-provenance proof.
 
-Authoring commands (`author.py`, `fixtures.py`, `inventory.py`) update artifacts
+The CI workflow now invokes this Appendix C successor, including the old
+regression. Calling `run.py` directly uses the older Chapter 2 profile and
+does not check the new induction module.
+
+Authoring commands (`author.py`, `fixtures.py`, `appendix_fixtures.py`,
+`inventory.py`) update artifacts
 for review. Verification never calls them to rewrite expected results or locks.
 An intentional change requires reviewing the new statements, proof rules,
 manuscript mapping and negative controls before publishing successor pins.

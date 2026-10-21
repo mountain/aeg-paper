@@ -17,15 +17,24 @@
     "certificates.json": "c28f502519533428486ba0b12e5d47a160be62512bfa93c9b7d93cce811c7d5c",
     "Chapter02.lean": "b7b3a8cc35fa6c1e2e646fae3577c39a4113c6957ffd0c983b45fd6f07a007ab",
     "Chapter02Domains.lean": "d3c0f718936f128da2e15daf61ec0111cdd956ee7fb23ab6a451e677d7358c4c",
-    "inventory.py": "4d119052ba8c1e4ca43c3646d01ad8d5933cc60df634d4cf9326f2edffe64527",
-    "inventory.json": "2b5c5d3f0158fa96ba44780d7a6acc111075382b9e6aba894c1948484d52fffb",
+    "inventory.py": "57f38fa7d4bbb4b5b977317246954b343de1c01e67c70f1e99e9419b6d1ed3c3",
+    "inventory.json": "673912de04bacf07d066fdfc3ff96d64decdb5ee558dbc14cdcd4617977664e4",
     "run.py": "b0396c9bb279cbe90f2db6a5012ea48b2ceb20429991ec602754ab2d0e7a9fc0",
     "domain_author.py": "a6968582b2a181d9195a900238c29f599d8e5e3475c8c2ebaac9df2d0c23a03c",
     "domain-checker.adva": "de995c4d26f940fb0e35dd78ef2a271b144e0dc4c58c6395f444e6bbe7fbb231",
     "domain_fixtures.py": "b236c8b4aab473d7b868f90ba1ad2f4f33d4983a0ab083ec1fe144f0f834b598",
     "domain-cases.json": "3dc263991085fa810c0257f2614a7d7dc7b2f78cd0e9de0658873edff90956b9",
     "definition-map.json": "562d455635bbdc0145b1833e3e4cbe0c73538255f0070d9911effc87b0b58889",
-    "contract-v2.1.json": "e66f34443202c2da6e64574718dba0f917f94093a9fc31b7c7f5d936567b720a"
+    "contract-v2.1.json": "e66f34443202c2da6e64574718dba0f917f94093a9fc31b7c7f5d936567b720a",
+    "AppendixC.lean": "81192ff043a67965b9041ba9baed45ed268deb20c3c97dc6200659ada7391292",
+    "appendix_run.py": "3d79f7f21a7dee9b9a80cbb614153a4648d4342450dbc22f48b2adf56a50a892",
+    "appendix_fixtures.py": "56cdbaa5cbe64c5d9d656a8ed25ecc06903ea5d4e1fecbb4fe991784af7b27ca",
+    "appendix-map.json": "4f5f83b74ffc76d54ef7cf507c43118a977f072777856a57da79aa73ca399db6",
+    "appendix-statement.json": "b240c73a588ae62a2b068fc2ab94e3b79a65c1b44d35ebe2aa85a3e0e97210a9",
+    "appendix-certificate.json": "0688b3989608129633fa568b298cc825cc22b198184a112b2d14f34c0cc50c64",
+    "contract-appendix-c.json": "bcb2d262df33b7c18afc8aa207f870342aa6ec664e7ae1fa32f02378d72c3fed",
+    "negative/MissingRatioGuard.lean": "c46cee4ec1b9e1f9cfc8b334084235f874ec81bf676bb495ee81b6f432f85916",
+    "contract-appendix-c-v1.1.json": "813ba16935b9372f0f55c6c692fd1034d7619c38e324daaaf7cbf800bd504109"
   },
-  "continuation": "contract-v2.1.json; preserve both previous archives"
+  "continuation": "contract-appendix-c-v1.1.json; retain failed Appendix C attempt and all earlier snapshots"
 }

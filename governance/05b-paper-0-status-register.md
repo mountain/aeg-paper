@@ -43,6 +43,11 @@ EXCLUDED`.
 | distributive expansion identity (`prop:p0-distributive-operator-identity`) | `PROVED` (corrected 2026-10-20) | The operator identity is unchanged. Full operation-labelled words differ for all parameters; their scalar projections coincide exactly at `(0,0)` or `(1,1)`. OQ-090 is resolved by the amended source and separate Lean statements. See section 10. |
 | distributive charge transport (`ex:p0-distributive-charge-transport`) | `PROVED` | worked example; uses `prop:acs-evaluation` |
 | expansion boundary for subtraction and division (`rem:p0-expansion-boundary`) | `PROVED WITH STATED HYPOTHESES` (clarified 2026-10-20) | `kc/z` keeps the original `z!=0` domain even when `kc=0`; only `kc!=0` gives a non-affine invertible projective map. Zero multiplier/subtraction cases remain affine self-maps, with group claims restricted to nonzero multipliers. |
+| evaluability at an input (`def:p0-evaluable-expression`) | `PROVED` | Definitional: an input belongs to the ordinary recursive domain, including every intermediate denominator guard. Restores the early evaluable-expression terminology without restricting the carrier to rationals. |
+| cancelled reciprocal and inherited domain (`ex:p0-cancelled-reciprocal-domain`) | `PROVED WITH STATED HYPOTHESES` | Over a field, `1/(1/z)` has domain `K minus {0}` and returns `z` there. The identity has the larger domain `K`; two projective reciprocals instead compose on `P^1(K)`. The ordinary exclusion is not asserted to be an AES singularity. Elementary calculation is included in the example. |
+| effective rational evaluation (`subsec:p0-evaluation-effectivity`) | `PROVED WITH STATED HYPOTHESES` | Finite four-operation trees, standard integer-fraction data and unbounded exact integer arithmetic; structural recursion returns a rational value or detects division by zero. No claim about all quantified rational arithmetic or bounded implementations. |
+| Richardson qualification (`subsec:p0-evaluation-effectivity`) | `PROVED WITH STATED HYPOTHESES` | External result cited to Richardson (1968), introduction and §2: the specified rich function language, existence of negative values, and identity with zero after allowing absolute value. No arbitrary-field or closed-constant-language undecidability conclusion is imported. |
+| connection to Adva's finite construction viewpoint | `STRUCTURAL PROPOSAL` | Methodological interpretation supported by the pinned Adva report; the author's retrospective motivation and its source history are recorded separately in `discussions/evaluable-expressions-and-effective-presentations.md`. Not a new equivalence theorem or a claim of complete semantic decidability. |
 
 ## 2. Arithmetic expression spaces and motion (Paper 0 §3)
 
@@ -227,3 +232,139 @@ actual division guards. Its finite regression is evidence of that program's
 declared execution, not a universal theorem about all fields and not an
 extension of the unchanged polynomial equality kernel. The successor
 contract, mapping, theorem audit and evidence index state the exact coverage.
+
+## 11. Evaluability and effective presentations (2026-10-20)
+
+The new final subsection of §2 restores the December 2022 evaluable-expression
+concept and the January 2023 foundational question, with pinned historical
+citations and an explicit correction of the inference from decision difficulty
+to inability to define expressions over the reals. Syntax, partial semantics,
+effective evaluation and semantic decision problems remain separate. The
+rational starting point is an effective presentation, not a claim that the
+usual topology on the rational carrier is discrete.
+
+The definition and reciprocal example are registered above. No existing
+theorem is strengthened or moved, and no additional geometric singularity
+claim is introduced. Historical sources remain unchanged. The longer
+discussion and the author's retrospective connection to Adva are retained in
+`discussions/evaluable-expressions-and-effective-presentations.md`.
+
+The original formal source `02-expansion.tex`, proof programs and Lean modules
+are unchanged. The live coverage inventory includes the added source and marks
+its new definition/example `not-yet-formalized`. Archived execution records
+continue to bind their own manuscript and inventory snapshots; this prose
+addition does not extend the scope of their five Adva certificates or 71 Lean
+statements. A current inventory is navigation, not a new executed proof record.
+
+Validation of this editorial continuation: all 14 existing formal regression
+tests pass; `./build.sh 0` produces the 95-page PDF and `./build.sh 1` produces
+32 pages. Neither final log has undefined references, missing citations,
+duplicate labels or missing assets. The added subsection on PDF pages 13--14
+was visually checked and introduces no overfull box. Existing warnings remain:
+Paper 0 §10 has one 11.13 pt overfull paragraph, Paper I has two overfull boxes,
+and Paper 0 has hyperref math-in-bookmark warnings. Paper I's rebuilt PDF is
+retained in the external engineering record; its tracked PDF is unchanged.
+No material is moved to another paper or archive. A next formalization step
+can connect the new evaluability definition and reciprocal example explicitly
+to the existing guarded-evaluation theorems; no general real-language decision
+procedure is claimed by this addition.
+
+## 12. Alternating expressions and arithmetic perturbation (2026-10-20)
+
+Appendix C restores the early alternating-expression presentation ahead of
+its general affine calculations. The full arithmetic derivation is present in
+the February 2023 draft; the May 2025 scale/RG note explicitly refers to its
+perturbation formula. The source timeline and the author's retrospective
+connection to ACS/RG are recorded in
+`discussions/alternating-expressions-perturbation-acs-rg.md`.
+
+| Node | Status | Hypotheses and boundary |
+|---|---|---|
+| `def:appendix-alternating-expression` | `PROVED` | Definition of a finite chronological slot-(1) scale-then-add word over a field; each multiplier is nonzero to retain the surrounding affine-group convention. Pairs remain distinct operation events. |
+| `prop:appendix-alternating-arithmetic-perturbation` | `PROVED WITH STATED HYPOTHESES` | Finite distributive expansion and exact difference propagation over a field, with the same history for both inputs. The ratio additionally requires distinct initial values. An explicit arithmetic induction is included, with no limits or smallness assumptions. |
+| identity padding to alternating form | `PROVED WITH STATED HYPOTHESES` | Only words of additions and nonzero scalings; padding retains the induced operator, not the literal tree or complete marked history. No unique normal form or conversion of arbitrary branching/reciprocal expressions is claimed. |
+| `eq:appendix-alternating-acs-bridge` | `PROVED WITH STATED HYPOTHESES` | Positive real multipliers, chronological scale-then-add pairs and the existing ACS definition. Direct edge integration gives source-normalized translation; terminal scale restores the value. Initial-value gain and additive-event suffix gain are distinct. |
+| scale normalization and the historical RG reading | `STRUCTURAL PROPOSAL` | The archived May 2025 note and the author's recollection establish the research motivation. No specific blocking/rescaling RG transformation, limiting theory, physical identification or complexity theorem is proved by the elementary identity. |
+
+This addition makes the initial accumulator and nonzero difference-quotient
+condition explicit, while leaving the original archives unchanged. The old
+general prefix perturbation formula retains its label and now refers to the
+elementary derivation instead of duplicating its proof. General affine cocycle
+and ACS statements are not strengthened or moved. At this editorial checkpoint
+the inventory marked the added definition/proposition `not-yet-formalized`;
+section 13 records their subsequent formal continuation. Previous Adva and
+Lean execution archives retain their original scope.
+
+Validation: all 14 existing formal regression tests pass after the inventory
+update. Both required builds pass: Paper 0 has 97 pages, Paper I has 32.
+The final logs have no undefined references, missing citations, duplicate
+labels or missing assets. Restored appendix pages 85 and 87 were visually
+checked; no new overfull box appears. The existing layout/bookmark warnings
+recorded in section 11 remain. Paper I's tracked PDF is preserved after its
+separate build.
+
+An exact rational check of the worked example gives initial-value gain 6,
+additive-event suffix gains 3 and 1, and source-normalized translation 7/6;
+the direct recurrence and normalized ACS reading agree. These checks support
+the example, not a universal formal proof. No research material is moved or
+deleted. A next formalization step can connect the finite recurrence induction
+to the existing affine algebra infrastructure; a general RG construction
+remains outside this appendix.
+
+## 13. Appendix C finite-induction continuation (2026-10-20)
+
+`paper-0/formal/AppendixC.lean` supplies 24 explicitly audited statements,
+with the manuscript correspondence declared in `appendix-map.json`. The
+current inventory marks the restored alternating-expression definition and
+arithmetic perturbation proposition `component-map-supplied`. This navigation
+label is not a claim that the entire appendix is formally proved.
+
+The full finite scalar expansion and perturbation proposition is represented
+by `expanded_evaluation`, `contribution_at`, `exact_difference`,
+`prefix_difference`, `perturbation_ratio` and `guarded_ratio`. Contributions
+are independently indexed by their strict suffix products. `evaluate_snoc`
+identifies the chronological recurrence; `events_correspondence` and
+`tree_correspondence` connect each two-event pair to the existing ordinary
+word/tree evaluation. Nonzero multipliers and their nonzero accumulated
+scale are recorded separately. Polynomial induction needs only the explicit
+commutative-semiring laws; difference and quotient use the existing field-law
+parameters. The quotient additionally requires distinct initial values;
+`diagonal_ratio_undefined` proves that equal inputs do not admit this ordinary
+division even though the field structure has a total inverse operation.
+
+Nineteen of the new statements, including the primary expansion, perturbation
+and ratio theorems, use no global axioms. The two product helpers and event
+count use `propext`; two list/tree correspondences use `propext` and
+`Quot.sound`. Exact name and axiom lists are checked rather than inferred from
+successful compilation. One new Adva semiring certificate checks the symbolic
+perturbation step, with changed-goal rejection and independent replay. It does
+not introduce native universal induction.
+
+The first combined invocation is retained as `Failed` in
+`formal/evidence/appendix-c-attempt-1.json` and its complete archive. The exact
+axiom map had omitted `propext` for `scale_append` and `scale_snoc`; reception
+stopped at that mismatch after 63 native runs and the positive Lean module,
+before the missing-guard control. `contract-appendix-c-v1.1.json` declares the
+successor after correcting only those two expected entries, with unchanged
+proof/program/goal/case bytes and resource bounds. The first attempt's
+184.11 seconds are additional costs and are not relabelled as success.
+
+The current execution receipt is recorded separately as
+`formal/evidence/appendix-c-execution.json`. Identity padding, real
+exponentials, ACS integration and the RG interpretation are not promoted by
+this continuation. No existing mathematical statement is strengthened or
+moved. A next step can formalize source normalization and its compatibility
+with the discrete ACS weights before importing analytic integration.
+
+The recorded successor is `Passed`: 63 native runs, 131 child commands,
+49,581 independently received instruction transitions and all 24 new Lean
+audits, alongside the unchanged 71 preceding statements. Omitting the ratio
+hypothesis is rejected with the expected type mismatch. The successful run
+took 182.03 seconds; all 63 native reports/receipts and the positive Appendix C
+audit are byte-identical to the failed invocation, whose additional costs
+remain separately recorded. Eighteen regression tests pass, including source,
+trace and failure-preservation checks. The required Paper 0/Paper I builds pass
+at 97/32 pages without undefined references, missing citations, duplicate
+labels or missing assets. The previously recorded layout/bookmark warnings
+remain, with no new overflow; the tracked Paper I PDF is preserved after its
+build. No material is moved or deleted by this formal continuation.

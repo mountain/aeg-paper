@@ -1,0 +1,24 @@
+{
+  "schema": "aeg.paper0.appendix-c.attempt.v1",
+  "status": "Failed",
+  "whole_run_admitted": false,
+  "date": "2026-10-20",
+  "contract": "contract-appendix-c.json",
+  "error": "ValueError: Appendix C global axiom audit differs",
+  "wall_seconds": 184.11229060999904,
+  "native_runs": 63,
+  "child_commands": 130,
+  "positive_lean_theorems_compiled": 24,
+  "missing_ratio_guard_control_reached": false,
+  "cause": "The exact predeclared axiom map incorrectly omitted propext for scale_append and scale_snoc. All native outcomes matched their expectations and the positive Lean module compiled, but the combined audit correctly rejected the mismatch.",
+  "source_lock_sha256": "6cf197f10baee6b6a27f6c288297a474f34db8c4c8accd9678a8b128f944eb28",
+  "report_sha256": "ee4017c98a51c1f6d7331c49d2863115f2f4bdd64b1837f86e706a2663e06449",
+  "archive": {
+    "path": "appendix-c-attempt-1.tar.gz",
+    "sha256": "7280d081f2027a959a9b575f1d1557fecebaf6c1cc013523cdab8ed79a86cdda",
+    "bytes": 3098154,
+    "members": 502,
+    "uncompressed_bytes": 15298695
+  },
+  "authorship": "Codex (OpenAI), CC0; no independent human review claimed."
+}
