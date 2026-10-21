@@ -368,3 +368,42 @@ at 97/32 pages without undefined references, missing citations, duplicate
 labels or missing assets. The previously recorded layout/bookmark warnings
 remain, with no new overflow; the tracked Paper I PDF is preserved after its
 build. No material is moved or deleted by this formal continuation.
+
+
+## 14. Cuts and expression foundations (2026-10-21)
+
+Appendix F (`app:p0-cuts-foundations`) is a background and research-direction
+appendix requested for the next formal theory of arithmetic expressions.
+It does not expand Paper 0 into a general convergence or complexity theory.
+
+| Node | Status | Note |
+|---|---|---|
+| Bauer--Taylor cuts and observable predicates (`subsec:p0-taylor-cuts`) | `PROVED WITH STATED HYPOTHESES` | External background, cited to Bauer--Taylor (2009), Sections 2 and 6, and Taylor (2006), Sections 2 and 5--6. Inhabited, rounded, disjoint, located rational predicates describe reals; generalized cuts carry interval information. No Boolean comparison procedure is inferred. |
+| Conway options, simplicity, and finite-tree boundary (`subsec:p0-conway-cuts`, `subsec:p0-cut-representation-boundaries`) | `PROVED WITH STATED HYPOTHESES` | External background from Conway (1976), Chapters 0--2, with Ehrlich (2011) for the larger field and hierarchy. Finite primitive option trees yield dyadics; finite names in an expanded signature need not have finite cut unfoldings. |
+| Rational observations in different carriers (`subsec:p0-cut-representation-boundaries`) | `PROVED WITH STATED HYPOTHESES` | Elementary comparison supplied in prose: an embedded irrational real and that real plus a positive infinitesimal have the same strict rational comparisons. The irrationality hypothesis is essential; at a rational target, comparison with that rational distinguishes them. |
+| Adva through precedent (`subsec:p0-cut-formal-programme`) | `COMPUTATIONALLY VERIFIED EXAMPLE` | Reports pinned research note 0075 and its declared finite scope. Relations may be partial or multivalued; the complete program slice remains. Does not import ASD, Conway value selection, or a stable native through operation. |
+| Option-wise scaling versus value selection (`subsec:p0-cut-formal-programme`) | `PROVED WITH STATED HYPOTHESES` | The displayed finite counterexample is calculated in the appendix and traced to pinned Adva note 0021. It does not challenge Conway multiplication: scaling the options is a different operation. |
+| Proposed formal expression programme (`subsec:p0-cut-formal-programme`) | `STRUCTURAL PROPOSAL` | Separate syntax and guards, exact denotation constructors, observations with dependencies and retained remainders, and distinct equality/refinement/compatibility judgments. Their general rules, soundness, effectiveness, and resource guarantees remain open. |
+
+No existing result is strengthened, removed or relocated. The appendix's
+background is not covered by the existing Adva/Lean certificates. Only the
+current navigation inventory and its live source-lock digest are refreshed;
+frozen statements, source maps, archived locks and execution receipts are
+preserved. The Appendix C regression now distinguishes its archived inventory
+from live navigation, while retaining all archived digest and proof-source
+checks. Exposition and organization
+for this addition are by Codex (OpenAI), at the author's request.
+
+Validation: `./build.sh 0` and `./build.sh 1` produced PDFs of 100 and
+32 pages. Both final logs contain no undefined references, missing citations,
+duplicate labels or missing assets. Existing layout warnings remain in
+Paper 0 section 10 and Paper I's older material, with existing Paper 0
+hyperref math-bookmark warnings; Appendix F introduces no overflow. Eighteen
+formal regression tests pass using the existing verification environment.
+The initial system-Python invocation lacked `blake3`; the configured environment
+supplied the pinned dependency. Its other finding was the historical/live
+inventory comparison, corrected as described above without changing archived
+bytes. The validation-only Paper I PDF is retained outside the repository;
+its previously tracked artifact is preserved. The next task is to specify a
+small guarded expression signature and separate denotation, observation and
+through-compatibility judgments before attempting a general calculus.

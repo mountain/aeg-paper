@@ -23,6 +23,12 @@ The [formal continuation](formal/README.md#appendix-c-induction-successor)
 supplies finite-induction proofs and an explicit source map for the restored
 expansion, perturbation and guarded difference quotient.
 
+Appendix F collects [background on cuts and expression foundations](appendices/app-F-cuts-and-expression-foundations.tex):
+Bauer--Taylor's observable two-sided cuts, Conway's recursive simplicity
+construction, and the distinction between finite names, denotations and
+observations. Adva's finite through adapter is a separate research precedent.
+The proposed formal programme remains open and adds no certificate coverage.
+
 **Provisional title:** *Arithmetic Expression Geometry 0*  
 **Subtitle:** *Arithmetic Expression Spaces: Expansion, Motion, Ripple Duals,
 Commutativization, and Tearing*
@@ -83,6 +89,7 @@ paper-0/
     app-C-affine-cocycles.tex
     app-D-acs-contact.tex
     app-E-circle-surgery.tex
+    app-F-cuts-and-expression-foundations.tex
 ```
 
 Sections 7--9 and appendices B--D were moved from Paper I by the amendment

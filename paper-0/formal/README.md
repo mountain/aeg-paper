@@ -56,11 +56,15 @@ statement correspondence and the reviewed equality kernel remain trusted.
 | §§8–12 ACS, contact, nonlinearity, punctures, compactification | Inventoried | Algebraic/differential/topological dependencies and explicit side conditions |
 | Appendix C alternating expressions | 24 Lean theorems: independent suffix-sum expansion, arbitrary finite/prefix perturbation, actual tree/word correspondence and guarded ratio; one native symbolic induction-step certificate | ACS/exponentials/RG, identity-padding syntax transformations, and a native Adva induction kernel are outside this continuation |
 | §13 interfaces and appendices A, B, D, E | Inventoried | Formal statement and dependency correspondence |
+| Appendix F cuts and expression foundations | Background and structural proposal, source inventoried | Cited external constructions and open design obligations; no new formal certificate coverage |
 
 `inventory.json` follows active `\input` directives from the canonical manuscript
 and recorded 20 files and 91 theorem-like environments at the first checkpoint.
-The current live inventory has 21 source files and 95 theorem-like environments,
+The current live inventory has 22 source files and 95 theorem-like environments,
 with a separate source-bound map for Appendix C.
+The Appendix F addition refreshes navigation and its live source-lock digest.
+The Appendix C archive still binds its original inventory and manuscript
+snapshot; its regression checks that snapshot independently of live navigation.
 This is navigation and drift detection, not a complete TeX parser or proof of
 coverage of prose and unnumbered equations. `not-yet-formalized` means exactly
 that; it does not downgrade or certify a manuscript's mathematical status.

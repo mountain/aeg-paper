@@ -2,7 +2,7 @@
   "schema": "aeg.paper0.formal.inventory.v3",
   "scope": "Theorem-like environments in recursively included TeX files; prose/equation coverage and dependencies require review. No proof truth is assigned by this inventory.",
   "sources": {
-    "paper-0/aeg-paper-0.tex": "8569ab288855e054b57bb03c5dcbdeaff7773e4e31070f3ae992917112ef3f52",
+    "paper-0/aeg-paper-0.tex": "9c7ace714160fd91f1815aa1b954e9f2f0c2a3c70561786dc6d83c2c28c67fae",
     "paper-0/sections/01-introduction.tex": "41f18935ae5bb962ec4a8fc94d6d0d1fc32834495346893c3e756becdac2d7ed",
     "paper-0/sections/02-expansion.tex": "ddc42b0e8f388beccaf413da98a8b2b898ecd64f9a45f5c6e8193252a603a7d2",
     "paper-0/sections/02a-evaluation-and-effectivity.tex": "bfa42a11c291cb2a42e7ad6000ef89caad10c786eff30ffd049126bb1696dc8d",
@@ -22,7 +22,8 @@
     "paper-0/appendices/app-B-hyperbolic-calculations.tex": "f95d8dc41a07265246537fde1b77b293906417466f9087b2b4b7f0137fbdbccc",
     "paper-0/appendices/app-C-affine-cocycles.tex": "564821c82eee4364f3ad243db16e863deda5c190f57979988cbf1aff7ad1351a",
     "paper-0/appendices/app-D-acs-contact.tex": "409e919fdb3672126c7b9ee387d0fb0273384704d699a2ea420227e06b486574",
-    "paper-0/appendices/app-E-circle-surgery.tex": "f53dca4a016116e77dbad17e6da5c0da91243ef29556c68d6356500c92a9634e"
+    "paper-0/appendices/app-E-circle-surgery.tex": "f53dca4a016116e77dbad17e6da5c0da91243ef29556c68d6356500c92a9634e",
+    "paper-0/appendices/app-F-cuts-and-expression-foundations.tex": "eebe4bee541da528b32264d4833d5ef724fdcbd0ef71a072239340ebe8981ff3"
   },
   "definition_map_sha256": "562d455635bbdc0145b1833e3e4cbe0c73538255f0070d9911effc87b0b58889",
   "appendix_map_sha256": "4f5f83b74ffc76d54ef7cf507c43118a977f072777856a57da79aa73ca399db6",
