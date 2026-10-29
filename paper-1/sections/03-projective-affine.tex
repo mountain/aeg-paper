@@ -179,51 +179,30 @@ scalings $D_q$, and $J$ generate $\operatorname{PGL}_2(K)$.
 \end{theorem}
 
 \begin{proof}
-Each of $T_s,D_q,J$ is available in the bilateral context language, so every
-composition of them is in the evaluation image.  Conversely, let
-\[
-  f(z)=\frac{Az+B}{Cz+D},
-  \qquad AD-BC\ne0,
-\]
-be an arbitrary element of $\operatorname{PGL}_2(K)$.
+The inclusion $\rho(\operatorname{Hist}^{\mathrm{nd}}_K)\subseteq
+\operatorname{PGL}_2(K)$ holds by definition: every elementary context admitted
+to $\operatorname{Hist}^{\mathrm{nd}}_K$ has an invertible matrix
+representative, and a product of invertible matrices is invertible.
 
-Suppose first that $C=0$.  The determinant condition then gives $A\ne0$ and
-$D\ne0$.  Hence
-\[
-  f(z)=\frac{A}{D}z+\frac{B}{D}
-      =T_{B/D}\circ D_{A/D}(z).
-\]
-This is the projective evaluation of the chronological two-step word that
-first applies $D_{A/D}$ and then $T_{B/D}$.
-
-Now suppose that $C\ne0$.  All parameters in the following expression are
-defined, and $(AD-BC)/C^2$ is nonzero.  Direct calculation gives
-\begin{align*}
-  T_{A/C}\circ D_{(AD-BC)/C^2}\circ J\circ T_{D/C}(z)
-  &=\frac{A}{C}
-    -\frac{AD-BC}{C^2}\frac{1}{z+D/C}\\
-  &=\frac{A(Cz+D)-(AD-BC)}{C(Cz+D)}\\
-  &=\frac{ACz+BC}{C(Cz+D)}
-   =\frac{Az+B}{Cz+D}.
-\end{align*}
-With the fixed chronological convention, the corresponding history word is
-\[
-  \bigl(T_{D/C},\ J,\ D_{(AD-BC)/C^2},\ T_{A/C}\bigr),
-\]
-whose entries are read from left to right in time.
-Thus $f$ is again an evaluation of bilateral contexts.  The two cases exhaust
-$\operatorname{PGL}_2(K)$.
-
-No step uses an ordering or a characteristic assumption on $K$.  In
-characteristic two the signs in $J$ and in the determinant simplify, but the
-same calculation remains valid because $-1=1$ is still nonzero.
+% Cross-paper reference: Paper 0 label thm:p0-pgl2-generation; it is
+% Theorem 6.2 of Paper 0 in the 2026-10-29 build.  If that numbering changes,
+% update this citation and the one in Subsection 3.7.
+For the converse, each of $T_s$, $D_q$, and $J$ is an elementary non-degenerate
+context of the table above, so the image contains the subgroup they generate.
+That subgroup is all of $\operatorname{PGL}_2(K)$ by the generation theorem for
+projective arithmetic, which is Theorem~6.2 of Paper~0 and is proved there for
+an arbitrary field without any ordering or characteristic hypothesis.  Reading
+that theorem through the present history language gives the stated equality.
 \end{proof}
 
-The proof is constructive: it gives a history of length at most four for any
-specified projective matrix, once arbitrary field constants are admitted as
-context parameters.  It establishes surjectivity at the operator level, not
-uniqueness of a representing history.  In fact, many distinct context words
-have the same projective evaluation.
+The generation statement is therefore a theorem of the series rather than of
+this paper alone: its proof, and the constructive factorization it yields, are
+in Paper~0.  What belongs to this paper is the reading of that factorization as
+a chronological word.  Paper~0's proof is constructive, giving a history of
+length at most four for any specified projective matrix once arbitrary field
+constants are admitted as context parameters.  It establishes surjectivity at
+the operator level, not uniqueness of a representing history.  In fact, many
+distinct context words have the same projective evaluation.
 
 \begin{example}[A pole in an ordinarily inadmissible history]
 Let $K=\mathbb Q$ and consider the one-step history $g[z]=1/z$.  It is a
@@ -460,16 +439,19 @@ $K^\times$; the continuous theory is its positive real component.
 
 \subsection{Bruhat placement and the projective infinitesimal direction}
 
-The case division in the proof of
-Theorem~\ref{thm:bilateral-pgl2-generation} also gives the rank-one Bruhat
-decomposition
+% Cross-paper reference: see the note in Subsection 3.3.
+The case division in the proof of Paper~0, Theorem~6.2 also gives the rank-one
+Bruhat decomposition
 \[
-  \operatorname{PGL}_2(K)=B_\infty\sqcup B_\infty J B_\infty.
+  \operatorname{PGL}_2(K)=B_\infty\sqcup B_\infty J B_\infty ,
 \]
-Indeed, $C=0$ is precisely the first cell, while the explicit decomposition
-for $C\ne0$ lies in the second.  This observation places bilateral arithmetic
-as a projective completion of the affine sector; no representation-theoretic
-conclusions beyond this decomposition are needed here.
+which Paper~0 records in the same chapter.  The first cell is the case
+$C=0$; the explicit factorization obtained for $C\ne0$ lies in the second.  The
+same dichotomy separates the contexts of the table above: the affine rows fix
+$\infty$, and the second-slot division $c/z$ is the elementary step that leaves
+the first cell.  This observation places bilateral arithmetic as a projective
+completion of the affine sector; no representation-theoretic conclusions beyond
+this decomposition are needed here.
 
 There is also an infinitesimal counterpart over $\mathbb R$ (or $\mathbb C$).
 The projective vector fields

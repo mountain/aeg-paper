@@ -4,6 +4,24 @@ relation or loop theory.  In each case, histories are marked chronological
 words, operators are affine maps, and endpoint values are obtained only after
 choosing an input.
 
+Two step families are used throughout, with the notation and the parameters
+of Paper~0:
+\[
+  \mathsf A_p(z)=z+p,
+  \qquad
+  \mathsf M_q(z)=e^{q}z,
+  \qquad p,q\in\mathbb R .
+\]
+Negative \(p\) and \(q\) are allowed, so the same notation covers inverse
+translations and inverse positive scalings.  For a word \(\gamma\) of these
+steps we write \(A_\gamma=\sum_i p_i\) and \(M_\gamma=\sum_i q_i\) for its
+two totals.  Paper~0 constructs the space of which the pair
+\((A_\gamma,M_\gamma)\) is the endpoint, proves that this endpoint is the
+abelianization of the history group, and proves the theorems that measure the
+order defect of two histories with equal totals; none of those theorems is
+restated here.  The totals are used below only as bookkeeping, to say exactly
+what a pair of totals retains and what it forgets.
+
 \subsection{Same value, different operators}
 
 Let
@@ -31,25 +49,11 @@ The marked histories
     \delta=(\mathsf A_2,\mathsf A_1)
 \]
 are different chronological words, but both induce \(x\mapsto x+3\).  They
-also have the same total charge.  Thus operator equality does not recover a
-marked history, even when charge data are retained.
+also have the same totals, \(A_\gamma=A_\delta=3\) and
+\(M_\gamma=M_\delta=0\).  Thus operator equality does not recover a marked
+history, even when the totals are retained.
 
-\subsection{Same charge, nonzero relative torsion}
-
-For \(p,q\ne0\), the histories
-\[
-    \gamma=(\mathsf A_p,\mathsf M_q),
-    \qquad
-    \delta=(\mathsf M_q,\mathsf A_p)
-\]
-have the same ACS endpoint \((p,q)\).  Their operators differ by the translation
-\[
-    \tau(\gamma,\delta)=p(e^q-1).
-\]
-The ACS endpoint is therefore insensitive to order, whereas evaluation is not.
-The weighted filling, rather than the terminal charge, detects the difference.
-
-\subsection{Zero endpoint defect, nontrivial history}
+\subsection{Neutral endpoint, nontrivial history}
 
 For \(p\ne0\), the nonempty history
 \[
@@ -61,26 +65,17 @@ operator neutrality does not imply literal or historical equality.
 
 A slightly different phenomenon occurs for
 \[
-    (\mathsf A_p,\mathsf M_q,\mathsf A_{-p},\mathsf M_{-q}).
+    \gamma=(\mathsf A_p,\mathsf M_q,\mathsf A_{-p},\mathsf M_{-q}),
+    \qquad p,q\ne0 .
 \]
-This history has zero total ACS charge but induces translation by
-\(p(1-e^{-q})\).  Thus charge neutrality does not imply operator neutrality.
-
-\subsection{Open torsion and closed-loop drift}
-
-For additive side \(p=\mu h\) and logarithmic multiplicative side
-\(q=\lambda k\), the two open orders differ by
+Its totals vanish, \(A_\gamma=0\) and \(M_\gamma=0\), but it induces the
+translation
 \[
-    T_{\mathrm{open}}=p(e^q-1),
+    z\longmapsto z+p(1-e^{-q}),
 \]
-whereas the chronological closed loop has vertical drift
-\[
-    T_{\mathrm{closed}}=p(1-e^{-q})=e^{-q}T_{\mathrm{open}}.
-\]
-They have the common first-order density \(\mu\lambda\), but they are distinct
-finite quantities.  Consequently local order torsion, raw closed-loop
-holonomy, and infinitesimal curvature should not be used as interchangeable
-notions without the normalization or limiting operation that relates them.
+which is not the identity.  Thus vanishing totals do not imply operator
+neutrality, even though the individual steps are all non-degenerate and
+ordinarily admissible on an open set.
 
 These examples exhibit the hierarchy needed in the main text:
 \[
@@ -88,5 +83,14 @@ These examples exhibit the hierarchy needed in the main text:
       \longrightarrow \text{operator}
       \longrightarrow \text{endpoint value},
 \]
-with total charge providing an additional, order-forgetting projection.  No
+with the two totals providing an additional, order-forgetting projection.  No
 converse implication between adjacent levels holds in general.
+
+Two further separations belong to Paper~0 and are not repeated here: histories
+with equal totals but nonzero relative defect, and the distinction between the
+open two-step defect and the closed-loop drift of the same word.  They are
+proved there as the relative torsion of two charge-compatible histories and as
+the finite comparison of the two orders, in the chapters on the accumulative
+commutative space and on the contact model, and their computations are
+collected in Paper~0's appendices on affine cocycles and on the ACS and contact
+calculations.
