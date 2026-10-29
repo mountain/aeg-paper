@@ -5,7 +5,7 @@
 This section fixes the specific fragment studied in the rest of Part~II and asks the two
 questions that matter about it: is it sound, and is it complete?  The answers are yes and
 no, and the failure of completeness is exact rather than mysterious: it is measured by a
-grade invariant.
+resource grading.
 
 \subsection{The fragment}
 
@@ -37,6 +37,24 @@ between source and occurrence that Part~I insisted on
 (Proposition~\ref{prop:word-to-graph}).  A context lists what is available; a ledger
 records what was used, and by which use.
 
+\begin{definition}[The implicational core]\label{def:tnd0-rules}
+Write $A\multimap B$ for the threaded implication, and $P_d$ for an atom carrying the single
+domain $d\in D$.  Apart from ledger bookkeeping the fragment has exactly three rules.
+\begin{enumerate}
+\item $(\mathrm{Ax})$ the context is the single occurrence $x:A$.  There is no rule
+  $\Gamma,x:A\vdash A$ with an unused $\Gamma$; such a rule would install weakening silently.
+\item $(\multimap I)$ from $\Gamma\circ x:A\vdash B$ infer $\Gamma\vdash A\multimap B$.  The
+  discharged occurrence must be the \emph{right boundary} occurrence of the ordered context
+  and must be open exactly once.  Discharge does not erase that occurrence from the complete
+  ledger of the checked tree; it turns a free resource obligation into a bound record.
+  Discharging an interior occurrence would require an exchange or braid certificate, and
+  none is assumed.
+\item $(\multimap E)$ from $\Gamma\vdash A\multimap B$ and $\Delta\vdash A$, with disjoint
+  source sets in the two ledgers, infer $\Gamma\circ\Delta\vdash B$; the conclusion keeps
+  left-to-right order.
+\end{enumerate}
+\end{definition}
+
 \subsection{Soundness}
 
 \begin{theorem}[Soundness of $\mathrm{TND}_0$]\label{thm:soundness}
@@ -50,19 +68,64 @@ terminal-world carrier $H_D$ of Definition~\ref{def:terminal-worlds}.
 
 \begin{proof}
 Induction on the derivation, using only that the fragment's rules preserve realisation of
-the ordered context: the implication-introduction rule discharges the head of the ordered
-context, implication-elimination consumes it, and no rule moves antecedents.  The argument
+the ordered context: the implication-introduction rule discharges the right-boundary occurrence of the
+ordered context (Definition~\ref{def:tnd0-rules}), implication-elimination consumes it, and no rule moves antecedents.  The argument
 is the ordered specialisation of Theorem~\ref{thm:adequacy} and does not need hypotheses
 (1)--(3) beyond the product structure of $2^{D}$.
 \end{proof}
 
-\subsection{The grade invariant, and incompleteness}
+\subsection{The resource grading, and incompleteness}
 
-\begin{definition}[Grade]\label{def:grade}
-For a formula $\varphi$ and a terminal world assignment, let $\mathrm{gr}(\varphi)$ be the
-alternation count of the leading connective along the leftmost spine, read as a natural
-number.  For a derivation, $\mathrm{gr}$ is the maximum over its judgments.
+\begin{definition}[Resource grading]\label{def:grade}
+Let $G$ be the free abelian group on the symbols $e_d$, one for each domain $d\in D$ of
+\S\ref{sec:observers}, and $P_d$ the atom carrying the single domain $d$.  Extend $g$ to
+formulas and to ordered contexts by
+\[
+  g(P_d)=e_d,
+  \qquad
+  g(A\multimap B)=g(B)-g(A),
+  \qquad
+  g(x_1:A_1,\dots,x_n:A_n)=\sum_{i=1}^{n}g(A_i).
+\]
+The grading is a resource count with signs: it records which domains a formula demands and
+which it supplies, in a free abelian group rather than in a number.
 \end{definition}
+
+\begin{proposition}[The grading is invariant]\label{prop:grade-invariant}
+Every rule of Definition~\ref{def:tnd0-rules} preserves the identity $g(\Gamma)=g(A)$
+between an ordered context and the formula derived from it.
+\end{proposition}
+
+\begin{proof}
+For $(\mathrm{Ax})$ the context is the single occurrence $x:A$, so $g(\Gamma)=g(A)$.
+
+For $(\multimap I)$ the premise has context $\Gamma\circ x:A$ and conclusion $B$, so the
+induction hypothesis gives $g(\Gamma)+g(A)=g(B)$, that is $g(\Gamma)=g(B)-g(A)$, which is
+$g(A\multimap B)$.
+
+For $(\multimap E)$ the two premises give $g(\Gamma)=g(A\multimap B)=g(B)-g(A)$ and
+$g(\Delta)=g(A)$; the conclusion's context is the concatenation $\Gamma\circ\Delta$, of
+grade $g(B)-g(A)+g(A)=g(B)$.
+\end{proof}
+
+\begin{corollary}[Graded non-derivability]\label{cor:graded-nonderivability}
+If $g(\Gamma)\ne g(A)$, then $L\mid\Gamma\vdash A$ has no derivation for any ledger $L$.
+\end{corollary}
+
+\begin{proof}
+A derivation would force $g(\Gamma)=g(A)$ by
+Proposition~\ref{prop:grade-invariant}.
+\end{proof}
+
+\begin{example}[An explicit graded witness]\label{ex:graded-witness}
+Let $\Gamma$ be the single atom $P_t$ and let the conclusion be $P_X\multimap P_t$.  Then
+$g(\Gamma)=e_t$ while $g(P_X\multimap P_t)=e_t-e_X$, so by
+Corollary~\ref{cor:graded-nonderivability} the sequent is underivable for every ledger.  It
+is nevertheless valid in the Boolean reading, where $P_t$ entails every implication with
+consequent $P_t$.  The obstruction is graded rather than merely syntactic:
+$(\multimap I)$ would introduce a $P_X$ obligation that no antecedent supplies, and no
+ledger can repair a missing domain.
+\end{example}
 
 \begin{theorem}[Incompleteness]\label{thm:incompleteness}
 $\mathrm{TND}_0$ is \emph{not} complete for Boolean semantics on $2^{D}$: there exist
@@ -71,25 +134,11 @@ all $\rho$, yet $L\mid\Gamma\vdash\varphi$ is underivable for every ledger $L$.
 \end{theorem}
 
 \begin{proof}
-Semantic entailment on $2^{D}$ is closed under the classical structural rules.  Take a
-semantically valid implication whose witnessing term requires a permutation of antecedents
-(exchange) or the reuse of one antecedent (contraction).  By
-Definition~\ref{def:tnd0} neither is available, and by
-Definition~\ref{def:ledger-judgment} a ledger cannot be shared between two uses.  Hence no
-derivation exists, although the entailment holds.
-\end{proof}
-
-\begin{proposition}[The grade measures the gap]\label{prop:grade-measures}
-The mismatch between Boolean entailment and threaded derivability is measured by the grade
-of Definition~\ref{def:grade}: for a fixed carrier, the minimal grade at which a valid
-entailment becomes derivable is a computable function of the formula, and it is unbounded
-over formulas.
-\end{proposition}
-
-\begin{proof}[Status]
-The computation is finite on each formula by the decision procedure of
-\S\ref{sec:confluence-decidability}; unboundedness is exhibited by the family of formulas
-requiring $n$ nested exchanges.
+Example~\ref{ex:graded-witness} is such a pair: the entailment holds in every Boolean
+realisation, and the grading forbids a derivation.  The same argument covers the two
+structural obstructions named in Definition~\ref{def:tnd0}: a permutation of antecedents
+(exchange) and the reuse of one antecedent (contraction) both change $g(\Gamma)$, and
+neither is available in the fragment.
 \end{proof}
 
 \begin{remark}[Why incompleteness is a result, not a defect]
@@ -146,8 +195,8 @@ itself produce a non-decomposable triple defect
   (Definitions~\ref{def:tnd0}, \ref{def:ledger-judgment}).
 \item It is sound for Boolean semantics on $2^{D}$ and hence on $H_D$
   (Theorem~\ref{thm:soundness}).
-\item It is provably incomplete, and the gap is measured by a grade
-  (Theorem~\ref{thm:incompleteness}, Proposition~\ref{prop:grade-measures}).
+\item It is provably incomplete, and the gap is graded
+  (Theorem~\ref{thm:incompleteness}, Corollary~\ref{cor:graded-nonderivability}).
 \item Its one triadic rule yields a uniquely determined aperture whose cell closes exactly
   under a certified common lift
   (Proposal~\ref{prop:conflict-aperture}, Proposition~\ref{prop:common-lift}).

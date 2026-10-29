@@ -81,24 +81,35 @@ Theorem~\ref{thm:substitution-splice} applied to the nested substitution; the fr
 condition is inherited from the outer redex.  In cases (2) and (4) the blocks are disjoint, so
 the transports of Theorem~\ref{thm:root-transport} act on independent subterms.
 
-\subsection{Monotonicity of the two measures}
+\subsection{Monotonicity of the ledger counts}
 
-Recall $\mu_1$ counts principal-implication detours and $\mu_2$ the total ledger size above
-them, compared lexicographically.
+Recall that $\Lambda_D$ is the complete proof-tree ledger and that $\operatorname{dchg}$ counts
+its discharged records (Definition~\ref{def:proof-ledger}).
 
 \begin{enumerate}
-\item A root transport removes exactly one detour, so $\mu_1$ decreases by one.  The two
-  subterms $Q$ and $S$ are unchanged as trees, and by
-  Theorem~\ref{thm:substitution-splice} the spliced ledger has the same total size as the
-  original block, so $\mu_2$ is unchanged.
-\item A step strictly inside a context leaves the outer detour count fixed and acts on a
-  strictly smaller tree; induction on tree size applies.  If it also removes a detour, case
-  (1) applies.
+\item A root transport retires exactly the bound target record $x$:
+  $\Lambda_R=L\circ[x^{\mathrm{discharged},b}]\circ Q\circ\Lambda_\sigma$ becomes
+  $\Lambda_C=L\circ\Lambda_\sigma\circ Q$, with no other record deleted, duplicated,
+  relabelled, or renamed.  Both $|\Lambda|$ and $\operatorname{dchg}$ therefore fall by one,
+  and the two subterms $Q$ and $S$ are unchanged as trees.
+\item An introduction ancestor above the redex discharges the same surviving open record on
+  both sides, so it raises both counts equally; either elimination ancestor concatenates the
+  same sibling ledger on both sides.  A step strictly inside a context composes with these
+  ancestors, and induction along the proof-position path gives the same two decrements at
+  the outer root.
+\item In the unfolded representation the node count also drops by exactly three, because
+  linearity grafts the argument exactly once: the reduct removes the elimination node, the
+  introduction node, and the target assumption leaf.
 \end{enumerate}
 
-Since $\N\times\N$ is well ordered lexicographically, no infinite reduction sequence exists,
-which is Theorem~\ref{thm:strong-normalization}.  Linearity enters at the first item: with
-contraction available, a detour could be copied and $\mu_1$ would not decrease.
+Since $\N$ is well founded, an infinite sequence of certified steps would give an infinite
+strictly descending sequence of natural numbers, which is
+Theorem~\ref{thm:strong-normalization}.
+
+Linearity enters at the first item and at the node count.  With contraction available the
+argument fails, and it fails through the ledger and the graft rather than through a detour
+count: see the remark of \S\ref{sec:normalization-body} showing that contracting one
+principal detour can expose another.
 
 \subsection{The ledger splice}
 

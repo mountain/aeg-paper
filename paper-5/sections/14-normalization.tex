@@ -128,34 +128,84 @@ Immediate from Theorem~\ref{thm:root-transport}.
 
 \subsection{Strong normalization}
 
-\begin{definition}[The two measures]\label{def:two-measures}
-For a proof tree $P$ let $\mu_1(P)$ be the number of principal-implication detours and let
-$\mu_2(P)$ be the total size of the ledgers above the detours.  Order pairs
-$\bigl(\mu_1(P),\mu_2(P)\bigr)$ lexicographically.
+\begin{definition}[Proof-tree ledger and discharge count]\label{def:proof-ledger}
+For a checked $\mathrm{TND}_0$ proof tree $D$ let $\Lambda_D$ be its \emph{complete ledger}:
+the word of resource records of $D$ in tree order, each carrying an occurrence key, a
+status, and, when discharged, the binder that discharged it.  The status is
+\emph{open} for a use still owed to the ordered context and \emph{discharged} for a use
+bound by $(\multimap I)$.  The open projection of $\Lambda_D$ is the ordered context of the
+judgment at the root, so the complete ledger is finer than the ledger of
+Definition~\ref{def:ledger-judgment}, which records only the current part.  Write
+$\operatorname{dchg}(\Lambda_D)$ for the number of discharged records, and
+$\operatorname{nodes}(D)$ for the number of nodes of the tree.
 \end{definition}
 
-\begin{theorem}[Strong normalization]\label{thm:strong-normalization}
-Every reduction sequence in $\mathrm{TND}_0$ terminates.
+\begin{theorem}[Exact ledger descent]\label{thm:ledger-descent}
+For every certified contextual beta step $D\Longrightarrow_\beta D'$,
+\begin{equation}
+  |\Lambda_{D'}|=|\Lambda_D|-1,
+  \qquad
+  \operatorname{dchg}(\Lambda_{D'})=\operatorname{dchg}(\Lambda_D)-1 .
+  \label{eq:ledger-descent}
+\end{equation}
+In the unfolded proof-tree representation one also has
+$\operatorname{nodes}(D')=\operatorname{nodes}(D)-3$.
 \end{theorem}
 
 \begin{proof}
-By Theorem~\ref{thm:root-transport} a reduction step may be applied at any depth, so it
-suffices to show that each step strictly decreases the lexicographic pair of
-Definition~\ref{def:two-measures}.  A root transport removes one detour, hence decreases
-$\mu_1$ by exactly one; the ledgers of the transported subterms are unchanged as words by
-Theorem~\ref{thm:substitution-splice}, so $\mu_2$ cannot increase.  A step inside a context
-leaves $\mu_1$ fixed only if no detour is removed there, in which case it acts on a
-strictly smaller tree and the induction on tree size applies; otherwise $\mu_1$ decreases.
-Since $\N\times\N$ is well ordered under the lexicographic order, no infinite sequence
-exists.
+At the root, the transport of Theorem~\ref{thm:root-transport} replaces
+\[
+  \Lambda_R
+  =L\circ[x^{\mathrm{discharged},b}]\circ Q\circ\Lambda_\sigma
+  \quad\leadsto\quad
+  \Lambda_C
+  =L\circ\Lambda_\sigma\circ Q ,
+\]
+retiring exactly the bound target record $x$ and moving the argument block $S=\Lambda_\sigma$
+across the discharged suffix $Q$; no other record is deleted, duplicated, relabelled, or
+renamed, so both counts fall by exactly one.  An introduction ancestor discharges the same
+surviving open record on both sides and extends both ledgers by one record at the same
+position; either elimination ancestor concatenates the same sibling ledger on both sides.
+Induction along the proof-position path therefore gives \eqref{eq:ledger-descent} at the
+outer root.
+
+For the node count, linearity makes substitution graft $\sigma$ exactly once: the reduct
+removes the elimination node, the introduction node, and the target assumption leaf, and
+nothing else.
+\end{proof}
+
+\begin{remark}[Why the measure is a ledger count and not a detour count]
+Counting principal-implication detours is the tempting alternative, since a root step
+contracts one.  It is not a descent measure: contracting a detour can expose another at the
+same position.  In the $\lambda$-term reading of the fragment,
+\[
+  \bigl((\lambda f.f)(\lambda x.x)\bigr)z
+  \;\longrightarrow\;
+  (\lambda x.x)z
+\]
+has exactly one principal detour on each side; every variable is used once and no exchange
+is needed.  The ledger counts of Theorem~\ref{thm:ledger-descent} are immune to this,
+because they measure what a step retires rather than what it exposes.
+\end{remark}
+
+\begin{theorem}[Strong normalization]\label{thm:strong-normalization}
+Every reduction sequence in $\mathrm{TND}_0$ terminates.  Indeed, a sequence starting at $D$
+has length at most $\operatorname{dchg}(\Lambda_D)$.
+\end{theorem}
+
+\begin{proof}
+By Theorem~\ref{thm:root-transport} a step may be applied at any depth, and by
+Theorem~\ref{thm:ledger-descent} each step lowers $\operatorname{dchg}$ by exactly one.  An
+infinite sequence would therefore give an infinite strictly descending sequence of natural
+numbers, which is impossible.
 \end{proof}
 
 \begin{remark}[Where linearity was used]
-Theorem~\ref{thm:strong-normalization} depends on linearity twice: in
-Theorem~\ref{thm:substitution-splice}, which forbids reordering the ledger, and in
-Lemma~\ref{lem:freshness-reflects}, which keeps freshness intact through discharge.  The
-same argument fails for a fragment with contraction, because $\mu_1$ need not decrease when
-one detour is copied into several.
+Theorem~\ref{thm:strong-normalization} depends on linearity three times: in
+Theorem~\ref{thm:substitution-splice}, which forbids reordering the ledger; in
+Lemma~\ref{lem:freshness-reflects}, which keeps freshness intact through discharge; and in
+the node count, where linearity makes the graft single-use.  The same argument fails for a
+fragment with contraction, where one retires one record while copying a subtree.
 \end{remark}
 
 \subsection{Summary}

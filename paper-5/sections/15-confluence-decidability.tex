@@ -60,9 +60,13 @@ equal length.
 
 \begin{proof}
 By Lemma~\ref{lem:substitution-graft}, each configuration of
-Proposition~\ref{prop:four-paths} either commutes or is joined after one further step.  The
-equal-length clause follows because both reductions remove the same number of detours in
-configurations (2) and (4), and differ by a single commuting step in (1) and (3).
+Proposition~\ref{prop:four-paths} either commutes or is joined after one further step, the
+residual position being fixed by the case.  The equal-length clause is therefore exact
+rather than approximate: in configurations (2) and (4) the two steps act on disjoint ledger
+blocks and commute, so $P_1\leadsto P_3$ and $P_2\leadsto P_3$ are both single steps, and
+in (1) and (3) each side reaches the join in one step as well.  By
+Theorem~\ref{thm:ledger-descent} every step retires exactly one ledger record, so no
+joining path can be shortened below one step, and none is longer.
 \end{proof}
 
 \begin{corollary}[Local and global confluence]\label{cor:confluence}
@@ -126,18 +130,20 @@ premise's type, and the absence of detours means no formula is introduced only t
 eliminated.
 \end{proof}
 
-\begin{proposition}[Leftmost-head canonicity]\label{prop:leftmost-head}
-In a normal derivation of an implicational sequent, the construction of the proof is
-determined by the ordered context together with the leftmost hypothesis of the end
-sequent's antecedent block.  Hence the leftmost-head strategy is complete for the
-fragment.
+\begin{proposition}[Leftmost-head order]\label{prop:leftmost-head}
+In a normal derivation of an implicational sequent the next rule is read off from the
+leftmost unconsumed antecedent of the ordered context together with the goal: an elimination
+must consume that antecedent first, and an introduction may be applied only once the goal is
+not atomic.  Hence leftmost-head search is complete for the fragment.
 \end{proposition}
 
 \begin{proof}
 By Theorem~\ref{thm:subformula} every formula of a normal derivation is a subformula of the
-goal, and by linearity no antecedent is reused, so at each stage the possible rules are
-determined by the leftmost unconsumed antecedent and the goal.  The choices are therefore
-forced up to the order in which independent threads are processed.
+goal or of a context formula, and by linearity no antecedent is reused.  Order fixes which
+antecedent is consumed next, so the choices at each stage are determined up to the order in
+which independent threads are processed.  This is an order statement about the search, not a
+uniqueness statement about derivations: distinct normal derivations of one sequent, differing
+in how independent threads are interleaved, are admitted.
 \end{proof}
 
 \subsection{Decidable derivability}
