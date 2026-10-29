@@ -109,7 +109,11 @@
 \large Three Readings, Observation Fibres, and the Syntax of Apertures}
 
 \author{Mingli Yuan\\Swarma Research\\Beijing 100083, China}
-\date{October 20, 2026\\[0.25em]\small Draft manuscript under mathematical review}
+\date{October 20, 2026\\[0.25em]
+\small Draft manuscript under mathematical review\\[0.35em]
+\small
+\textbf{MSC 2020:} 03F52 (primary); 03F05, 15A66;
+14D05, 18B10, 68Q55}
 
 \begin{document}
 \maketitle
@@ -125,79 +129,60 @@ alter the stated status of any theorem, proposition, calibration, proposal,
 conjecture, or open problem.
 \end{quote}
 
-\begin{abstract}
-Papers~0--IV of this series develop one process-to-result architecture: expansion and
-motion, sequential histories and projective semantics, hyperbolic real function
-theory, singular zero geometry, and projective condensation with computational cost.
-This paper develops a second body of mathematics that those papers do not own: a
-theory of three coordinated typed readings of one carrier, of the observation fibres
-and residuals such readings produce, and of the syntax of apertures through which
-they are filled and checked.
+% Abstract provenance (compressed 2026-10-29 from the 730-word version).
+% Every sentence is a selection from sentences of the long abstract; no claim was
+% added or strengthened.
+%  S1  <- P1 sents 2-3; Secs 1-2
+%  S2  <- P2 sents 2-3; Sec 2 and the catalogue of Sec 10
+%  S3  <- P2 sents 4-6; Prop 3.2 (prop:quadratic-structure), Prop 3.6
+%         (prop:negative-inverse), Prop 3.9 (prop:order-two-four)
+%  S4  <- P2 sents 7-8; Thm 4.9 (thm:endogenous-clifford), Thm 4.10
+%         (thm:interchange-insufficient)
+%  S5  <- P2 sents 12-13; Prop 7.10 (prop:legendre-three-readings), Thm 8.6
+%         (thm:monodromy-difference), Prop 8.11 (prop:shear-transvection)
+%  S6  <- P2 sent 15; Thm 7.17 (thm:defect-decomposes)
+%  S7  <- P3 sents 1-2; Prop 11.8 (prop:seven-faces), Thm 12.4 (thm:adequacy)
+%  S8  <- P3 sents 3-6; Thm 13.3 (thm:soundness), Thm 13.5 (thm:incompleteness),
+%         Thm 14.3 (thm:substitution-splice), Thm 14.9 (thm:root-transport),
+%         Thm 14.12 (thm:strong-normalization), Thm 15.4 (thm:strong-diamond),
+%         Cor 15.5 (cor:confluence), Thm 15.10 (thm:subformula), Thm 15.12
+%         (thm:decidability)
+%  S9  <- P3 sent 8; Thm 16.3 (thm:counting-bound); relative initiality as
+%         stated in Sec 16 and Sec 17
+%  S10 <- P4, the two-part discipline
+\begin{abstract}This paper develops a theory of three coordinated typed readings of one carrier,
+temporal, spatial, and constructive, and of the syntax of the apertures through
+which they are filled and checked.  A finite observer contract fixes an
+observation map, an equivalence, projectors, and a budget; a characteristic is then
+an operational quotient together with a residual, and the recurring theorem shape is
+negative: values, gradients, spectra, and energies do not recover history.
 
-Part~I concerns triadic characteristics.  A finite \emph{observer contract} fixes an
-observation map, an equivalence, projectors, and a budget.  A \emph{characteristic}
-is then not a value but an operational quotient together with a residual, and the
-paper's recurring theorem-shape is negative: values, gradients, spectra, terminal
-cycles, frontier snapshots, objectified surreal numbers, and energies do not recover
-construction history, and each such failure is stated as a no-go result with the
-class of observations fixed.  Within the quadratic scalar family
-$A_\kappa=\R[j]/(j^2-\kappa)$ all members satisfy rank-one characteristic recovery,
-conjugation, and a multiplicative quadratic norm; a global negative-inverse
-involution on the punctured carrier, or equivalently an oriented order-four exchange
-lift with $J^2=-I$ while the projective class satisfies $[J]^2=[I]$, selects the
-complex member.  \emph{Chirality} is exactly the central sign that projectivization
-forgets.  On a declared finite cut interval the six-state carrier $V\oplus\Lambda^2V$
-and its orientation expression $\Omega$ with $\Omega^2=-\varepsilon_T\varepsilon_S
-\varepsilon_R$ are not postulated: cut-membership cochains together with oriented
-interchange generate the Clifford anticommutator, whereas interchange alone provably
-cannot.
-
-Three typed interpretations of one finite characteristic algebra --- read temporally,
-spatially, and constructively --- are shown to carry a stable variance signature, and
-inference is the constrained intersection of the corresponding observation fibres.
-The four numeric invariants that a naive theory conflates, namely algebraic degree,
-real fibre cardinality, sheet count, and constructive occurrence multiplicity, are
-exactly separated on $x\mapsto x^3$; invariance appears as the trivial case of
-equivariance; and translation is proved unable to cross a power inside any affine
-word normal form, which is why word rewriting must be replaced by typed graph
-rewriting with explicit copy and merge.  Classical elliptic isogenies calibrate the
-triadic bridge, and the honest conclusion is that the bridge is prior art, so the
-programme's claimable novelty is observer relativity and accountable residual.  In
-the Legendre family one cusp is simultaneously a branch-factor collision, a vanishing
-class carrying a Dehn transvection, and a period monodromy; writing through-crossing
-as a cospan with a resolution torsor rather than as a transport arrow derives
-$M_{\mathrm{Legendre}}=T_\delta^2$ from the quadratic base change and realizes the
-Picard--Lefschetz transvection on a finite cellular annulus.  A Sierpinski-valued
-satisfaction form generates a proposition language whose entailment is refinement of
-opposite-pair sections, with the standing constraint that the sections, not the
-ambient powerset, are the atoms.  The paper reports its own principal negative
-calibration: on the finite Legendre prism the total defect decomposes, so no
+In the quadratic family $A_\kappa=\mathbb R[j]/(j^2-\kappa)$ every member satisfies
+rank-one recovery, conjugation, and a multiplicative norm, and a globally defined
+negative-inverse involution, equivalently an oriented order-four lift with
+$J^2=-I$ over $[J]^2=[I]$, selects the complex member;
+chirality is the central sign that projectivization forgets.  On a finite cut
+interval the six-state carrier $V\oplus\Lambda^2V$ is not postulated: cut-membership
+cochains with oriented interchange generate the Clifford anticommutator, whereas
+interchange alone provably cannot.  In the Legendre family one cusp is at once a
+branch-factor collision, a vanishing class carrying a Dehn transvection, and a
+period monodromy; a through-crossing written as a cospan with a resolution torsor
+derives $M_{\mathrm{Legendre}}=T_\delta^2$ and realizes the Picard--Lefschetz
+transvection on a finite cellular annulus.  On the finite Legendre
+prism the total defect $(-I,[\infty,1,0])$ decomposes into two channels, so no
 irreducible triadic $3$-cocycle is exhibited.
 
-Part~II concerns apertures.  The typed hole is taken as the primitive: syntactically
-empty, semantically a filling family, and with open and close operations that are
-deliberately not inverse.  Over a finite terminal-world carrier, threaded
-propositional and predicate logic is proved adequate for its fibre-filling semantics
-by structural induction under explicit Cartesian, compatibility, transformer, and
-exhaustiveness hypotheses.  An ordered linear natural-deduction fragment is then
-proved sound but not complete for Boolean semantics, separated by a grade invariant;
-an ordered one-hole substitution theorem gives a ledger splice law, conditional fresh
-cut admissibility, and the failure of raw ledger equality; and beta-ledger transport
-is shown to lift through every proof context with two decreasing measures, giving
-strong normalization.  The critical-pair analysis yields local and global confluence
-and a unique normal form per fixed proof, and the resulting normal and neutral
-characterization with the subformula property yields a terminating, sound, and
-complete focused decision procedure for derivability.  Finally the six-port
-whole-cut kernel answers ``why six ports'' by the counting theorem $n\ge 2m$, hence
-$n_{\min}=6$, under a stated contract; universality is weakened to relative
-initiality in a category of presented models, and the boundary object $M_6^{\partial}$
-is shown to be presented by two fixed-point-free involutions whose union is connected.
-
-The two parts are joined by one discipline.  A quotient is admissible only with a
-declared residual; a calibration is never promoted to a theorem; and triadicity,
-universality, and periodicity are properties to be certified rather than names to be
-assumed.  The paper closes with an explicit list of what it does not establish.
-\end{abstract}
+Part~II takes the typed hole as primitive and proves threaded logic adequate on a
+finite terminal-world carrier under four explicit hypotheses.  For the ordered
+linear fragment $\mathrm{TND}_0$ it proves soundness and, through a grade invariant,
+incompleteness for Boolean semantics; an ordered one-hole substitution theorem; strong normalization, via ledger transport lifting through every
+context with two decreasing measures; a one-step strong diamond, hence local and
+global confluence and a unique normal form per fixed proof; the subformula property;
+and a terminating sound and complete focused decision procedure.  A six-port whole-cut kernel answers ``why six'' by the counting bound
+$n\ge 2m$, hence $n_{\min}=6$, under a stated contract, universality being weakened
+to relative initiality.  Throughout, a quotient is admissible only with a declared
+residual and a calibration is never promoted to a theorem; triadicity is certified,
+not assumed.\end{abstract}
 
 \noindent\textbf{Keywords:}
 arithmetic expression geometry; triadic characteristic; observation fibre;
