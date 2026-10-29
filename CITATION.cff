@@ -12,6 +12,20 @@ type: software
 authors:
   - family-names: Yuan
     given-names: Mingli
+keywords:
+  - arithmetic expression geometry
+  - eikonal equation on surfaces
+  - positive affine group
+  - Baumslag-Solitar relation
+  - hyperbolic upper half-plane and horocycles
+  - affine cocycles
+  - contact structures and Reeb quotients
+  - Legendre duality
+  - punctured Riemann surfaces and pants decompositions
+  - infinite-dimensional Lie algebras
+  - MSC 53D10
+  - MSC 53C22
+  - MSC 20F65
 repository-code: https://github.com/mountain/aeg-paper
 url: https://github.com/mountain/aeg-paper
 license: CC0-1.0

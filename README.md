@@ -8,8 +8,8 @@ rather than only through final numerical values.
 The active manuscript series is now:
 
 > **Arithmetic Expression Geometry 0**  
-> *Arithmetic Expression Spaces: Expansion, Motion, Ripple Duals,
-> Commutativization, and Tearing*
+> *Arithmetic Expression Spaces: Expansion and Motion, Eikonal Equation,
+> Horocycle Pullbacks, Commutativization, Contact Structure, and Tearing*
 
 > **Arithmetic Expression Geometry I: Foundations**  
 > *Sequential Histories, Projective Semantics, and Zero Geometry*
