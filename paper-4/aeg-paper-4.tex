@@ -85,7 +85,11 @@
 \large From Histories and Quotients to Representation and Cost}
 
 \author{Mingli Yuan\\Swarma Research\\Beijing 100083, China}
-\date{October 9, 2026\\[0.25em]\small Draft manuscript under mathematical review}
+\date{October 9, 2026\\[0.25em]
+\small Draft manuscript under mathematical review\\[0.35em]
+\small
+\textbf{MSC 2020:} 68Q15 (primary); 68Q45, 20G40;
+53C30, 68Q42, 94A17}
 
 \begin{document}
 \maketitle
@@ -100,87 +104,64 @@ claim-status label in the repository governance system and does not alter the st
 status of any theorem, proposition, computation, conjecture, or open problem.
 \end{quote}
 
-\begin{abstract}
-Arithmetic Expression Geometry retains the ordered evaluation history of an
-expression before passing to its induced operator or endpoint.  Papers~I--III
-develop the affine, analytic, and singular-zero sectors of this programme.  We
-study here the quotient architecture itself and ask when information forgotten
-by a quotient can be related to representation or computational resources.
+% Abstract provenance (compressed 2026-10-29 from the 731-word version).
+% Every sentence is a selection from sentences of the long abstract; no claim was
+% added.  Two inherited overstatements were corrected against the theorems and are
+% marked "narrowed" below.
+%  S1  <- P1 sent 1
+%  S2  <- P1 sent 3
+%  S3  <- P2 sents 1-3; Thm 3.2 (thm:bivaluation-projector), Thm 3.3
+%         (thm:projective-quotient-tower)
+%  S4  <- P3 sents 1-4; Cor 4.2 (cor:left-continuation-exact), Thm 4.3
+%         (thm:right-update-descent), Cor 4.4 (cor:right-group-normalizer)
+%  S5  <- P3 sent 5; Cor 4.5 (cor:chronology-dependent-visibility)
+%  S6  <- P4 sents 1-3; Thm 5.5 (thm:minimal-exact-residual), Cor 5.6
+%         (cor:residual-bit-bound), Cor 5.7 (cor:capacity-time-bound).
+%         NARROWED: P4 said "any lossless implementation"; Cor 5.6 requires a
+%         fixed-width register, or a prefix-free code of bounded length, so the
+%         abstract now states exactly that.
+%  S7  <- P4 sents 4-5; Thm 7.3 (thm:completed-set-insufficient)
+%  S8  <- P5 sents 2-3; Prop 6.4 (prop:ported-substitution-preservation), Thm 6.5
+%         (thm:ported-substitution-evaluation).  "Finite" and "acyclic" were
+%         restored from P5 after a first draft dropped them.
+%  S9  <- P6 sents 1-4 and 8; Cor 10.4 (cor:binary-horner-count), Thm 11.2
+%         (thm:eq-block-width), Thm 11.3 (thm:eq-interleaved-width), Prop 13.1
+%         (prop:matrix-chain-costs), Prop 9.3 (prop:pure-gauge-obstruction)
+%  S10 <- P7 sent 2
+%  S11 <- P7 sents 3-4; Thm 4.11 (thm:projective-torsion-solution); the
+%         normalisation gap is the one recorded in Section 13
+\begin{abstract}Arithmetic Expression Geometry keeps the ordered evaluation history before the
+operator or endpoint.  This paper studies the quotient architecture, asking when
+information destroyed by a quotient can be related to representation or
+computational resources.  For non-degenerate bilateral arithmetic over a field
+$K$, projective evaluation lands in $G=\mathrm{PGL}_2(K)$; a regular bivaluation, an ordered pair of distinct projective
+points, is a rank-one idempotent on $K^2$, and the tower $\mathrm{Hist}_K\to G\to G/H\to G/B_\pm$ separates literal
+histories, operators, image--kernel projectors, and points.
 
-For non-degenerate bilateral arithmetic over a field $K$, projective evaluation
-lands in $G=\PGL_2(K)$.  A regular bivaluation is an ordered pair of distinct
-points of $\PP^1(K)$ and is equivalently a rank-one idempotent on $K^2$.  If
-$H$ stabilizes a reference ordered pair and $B_\pm$ stabilize its two members,
-then
-\[
-  \Hist_K\longrightarrow G\longrightarrow G/H
-  \longrightarrow G/B_\pm
-\]
-separates literal histories, projective operators, image--kernel projectors, and
-single projective points.  The fibers have different meanings: the first is a
-relation fiber of words, while the second is an $H$-torsor of projective frames.
-Over $\F_q$ their sizes are completely explicit.
+Continuation is asymmetric: with identity continuation and injective
+observation, the residuals of left continuation are exactly the points of
+$G/H$, whereas a right update by $k$ descends exactly when
+$k^{-1}Hk\subseteq H$, and reversible right continuation only through the
+normalizer $N_G(H)$.  A quotient can thus be a complete online state for one
+chronology while the discarded stabilizer direction is observable in the other.  For a typed interface with a class of legal futures and a declared
+observation, the residual quotient is the canonical minimal exact online state, so a state held in a fixed-width register needs at least
+$\lceil\log_2|\mathcal R_C|\rceil$ bits at the cut~$C$, and a fixed-register
+snapshot convention gives a capacity--time bound.  The semantic bound is separate from an operational
+trace of live configurations: nodes ever computed cannot determine workspace once
+erasure and recomputation are allowed.  Finite typed acyclic networks
+with explicit copy and strict discard admit substitution commuting with partial
+evaluation on the exact composite domain.
 
-The central result identifies the exact condition under which a quotient state
-is sufficient for future continuation.  Left continuation acts canonically on
-$G/H$, and, with identity continuation and an injective observation, its
-contextual residual classes are exactly the points of $G/H$.  A single right
-update by $k$ descends exactly when $k^{-1}Hk\subseteq H$, and reversible right
-continuation descends exactly through the normalizer $N_G(H)$.  Thus a quotient
-can be a complete online state for one chronology while the same discarded
-stabilizer direction becomes observable for the opposite chronology.  This
-gives a precise bridge from projective condensation to future-sensitive
-information; quotient cardinality alone is not such a bridge.
-
-We then define contextual continuation residuals for a typed interface, a class
-of legal futures, and a declared observation, including a distinguished
-undefined outcome for partial arithmetic.  In a finite deterministic exact
-model the residual quotient is the canonical minimal online state space.  Any
-lossless implementation therefore needs at least
-$\lceil\log_2|\cR_C|\rceil$ bits at the cut $C$.  Under a declared fixed-register
-snapshot convention, the same argument gives a corresponding capacity--time
-lower bound.  This semantic bound is kept separate from an operational trace of
-live configurations, whose actions may compute, erase, communicate, checkpoint,
-or recompute.  A monotone set of nodes ever computed cannot determine workspace
-once erasure and recomputation are allowed.
-
-For a ported AES we distinguish geometric punctures, computational holes, and
-ordered input/output ports.  Finite typed acyclic networks with explicit copy
-and strict discard admit source- and occurrence-preserving substitution.
-Substitution commutes with partial evaluation on exactly the composite domain;
-network associativity holds up to an explicit isomorphism while literal call
-receipts remain distinct.  Compatible AES collars and computational interfaces
-descend together under a global acyclicity hypothesis.  Feature observation
-sufficiency is equivalent to refinement of contextual equivalence; online
-feature updates additionally require a right congruence.  A four-input,
-three-output rational example illustrates this interface without claiming that
-its attached gates have been realized as AES motions.
-
-Several exact calibrations show both the reach and the limits of the framework.
-Binary Horner histories with fixed length and Hamming weight have one ACS charge
-but $\binom nm$ distinct affine operators.  For a finite alphabet, a simple
-fiber--entropy inequality relates raw word growth to evaluation-image growth,
-without turning either into a runtime lower bound.  The equality function has
-OBDD width at least $2^n$ under a block order but constant width under an
-interleaved order, although variable restrictions commute.  A radix-2
-butterfly factors as a common matrix times a diagonal torus label; a full NTT
-still requires a multi-wire linear category, central-scalar bookkeeping, and a
-cost model distinguishing static twiddles from dynamic states.  Matrix-chain
-parenthesizations and reverse-mode checkpointing exhibit genuine work--space
-tradeoffs among equal semantic realizations.  Potential-difference labels and
-pure-gauge group labels telescope on every rewrite loop, so they cannot by
-themselves define a nontrivial process holonomy.
-
-The resulting theory has four layers: projective quotient fibers, contextual
-residuals, operational live configurations, and rewrite fibers.  We prove
-comparison theorems among them only when the required actions and observations
-are specified.  We do not infer computational hardness from noncommutativity,
-negative curvature, exponential group growth, or the size of a raw history
-fiber.  The remaining programme is to construct non-flat projective transport,
-faithful multi-wire AES motion realizations, actual opposite-edge feature
-witnesses, costed AEG-native representation changes, and approximate residual
-theories.
-\end{abstract}
+Exact calibrations mark the reach and limits: binary Horner histories of fixed
+length and weight share one charge yet realize $\binom nm$ distinct operators; the
+equality function has OBDD width at least $2^n$ under a block order and constant
+width interleaved; matrix-chain and checkpointing tradeoffs are genuine, while
+potential and pure-gauge labels telescope on every rewrite loop.  No hardness conclusion is drawn from
+noncommutativity, negative curvature, group growth, or raw fiber size.
+Projective transport carries the cross-ratio holonomy $\Lambda(\square)$;
+normalising its first-order density, faithful multi-wire AES realizations,
+opposite-edge witnesses, and costed representation
+changes remain open.\end{abstract}
 
 \noindent\textbf{Keywords:}
 arithmetic expression geometry; projective linear group; homogeneous space;
