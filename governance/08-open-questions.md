@@ -1841,6 +1841,23 @@ Should the main object be:
 
 This determines how relations and condensation are represented.
 
+### Partial affine-sector note (2026-10-24)
+
+Paper 0 §3.6 (`subsec:p0-operation-to-length`) now states what the affine sector
+answers without settling this question.  The source is the comb grammar of
+`def:p0-left-right-combs`; the assignment to motions is the evaluation
+homomorphism `nu` of `prop:p0-history-homomorphisms`; the composite to lengths is
+`ell = |log o L o nu|` of `prop:p0-length-multiplicative-charge`, which is a
+function of the induced motion and therefore not injective on histories
+(`prop:p0-length-losses`).  Because `|.|` is not a homomorphism
+(`eq:p0-length-not-additive`), the length is *not* a functorial target: the
+functorial object is the multiplicative charge `M = log o L o nu` in `(R,+)`, and
+the additive charge is the part that does not descend
+(`thm:p0-descent`(4)).  Two extensions are blocked elsewhere and not by this
+question: `Aff^+(1,R) -> PGL_2(K)` needs the trace trichotomy, which Paper 0 does
+not develop; combs -> arbitrary binary trees needs Paper I's
+`thm:sequential-tree-classification`.  The state of OQ-047 itself is unchanged.
+
 ---
 
 ## OQ-048 — Ordinary versus projective history groupoids

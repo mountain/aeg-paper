@@ -475,6 +475,21 @@ T_{D/C}.
 
 May support P3 after the composition audit.
 
+### Amendment 2026-10-29: canonical proof location
+
+The theorem is now proved once in the series.  Paper 0's chapter on matrix and
+projective unification carries `thm:p0-pgl2-generation` with the full
+factorization proof (including the `C=0` case, the characteristic-two remark and
+the explicit history word), and Paper I's `thm:bilateral-pgl2-generation` states
+the same fact for the non-degenerate bilateral history language and derives it
+in three lines from that theorem.  The status label of the result is unchanged,
+`PROVED WITH STATED HYPOTHESES`; what moved is the proof, not the claim.  The
+history-level statement, the affine-sector corollary `cor:affine-borel-sector`
+(surjectivity of the syntactic affine sublanguage onto `B_inf`, which Paper 0
+does not state), and the `q=4` Hecke sublanguage remain Paper I's.  No claim is
+weakened, and no reader needs Paper I for the generation theorem or Paper 0 for
+the Hecke sublanguage.
+
 ---
 
 ## 17. P3 — Affine/Borel-sector identification
