@@ -30,8 +30,28 @@ observations. Adva's finite through adapter is a separate research precedent.
 The proposed formal programme remains open and adds no certificate coverage.
 
 **Provisional title:** *Arithmetic Expression Geometry 0*  
-**Subtitle:** *Arithmetic Expression Spaces: Expansion, Motion, Ripple Duals,
-Commutativization, and Tearing*
+**Subtitle:** *Arithmetic Expression Spaces: Expansion and Motion, Eikonal
+Equation, Horocycle Pullbacks, Commutativization, Contact Structure, and
+Tearing*  
+**MSC 2020:** 53D10 (primary); 53C22, 20F65; 30F45, 32G15, 11J70, 03F60
+
+The subtitle was revised on 2026-10-29 to use, at conservative strength, only
+two kinds of term: names this paper defines (expansion, motion,
+commutativization, tearing) and standard mathematical names used literally
+(eikonal equation, `def:regular-aes`; horocycle pullback, `thm:p0-ripple-pencil-formula`;
+contact structure, `prop:contact-form`, non-degenerate exactly when
+`mu*lambda != 0`).  Two earlier candidates were rejected as overstating the
+proved content: *eikonal metrics*, since the metric is part of the tuple and it
+is the identity `|grad a|^2 = mu^2 + lambda^2 a^2` that is eikonal, and *contact
+curvature*, since `rem:p0-curvature-invariance` shows that the coefficient
+`mu*lambda` is the curvature scalar of the declared arithmetic frame and
+horizontal metric, not a contact-isomorphism invariant.  The former subtitle was
+*Arithmetic Expression Spaces: Expansion, Motion, Ripple Duals, Commutativization,
+and Tearing*.  The names *ripple geometry* and *tearing* are unchanged in the
+body, where they keep their recorded statuses.  The front matter credits Mingli
+Yuan as author and corresponding author and names DeepSeek Harness as
+formalization and computational assistance; this matches Papers II--V, which
+already carry a single human author.
 
 Paper 0 is the geometric foundation of the series.  It develops:
 
@@ -134,10 +154,19 @@ Proved in the manuscript, at the statuses recorded in
 - the four-circle configuration is the zero locus of an explicit punctured AES
   whose metric is forced by the eikonal identity, with the puncture
   non-extendable and at finite distance (`thm:p0-four-circle-model`);
-- for a punctured space whose assignment extends smoothly, the puncture set is
-  exactly the critical set of the assignment, hence canonical and unique
-  (`thm:p0-punctures-are-critical`), and the number of holes equals the number of
-  critical points;
+- for every `k >= 1` there is a conformally compactifiable punctured AES with
+  exactly `k` essential punctures (`thm:p0-arbitrary-k-punctures`); this is an
+  existence result, not a classification by puncture number;
+- for a punctured space whose assignment extends smoothly, and whose given metric
+  is conformal near each puncture to a background metric extending smoothly and
+  non-degenerately, the puncture set is exactly the critical set of the
+  assignment, hence canonical and unique, and the number of holes equals the
+  number of critical points (`thm:p0-punctures-are-critical`,
+  `cor:p0-puncture-count`; `PROVED WITH STATED HYPOTHESES` in section 8 of
+  `governance/05b-paper-0-status-register.md`).  The unrestricted September 22
+  form of the same statements, without the conformal-background hypothesis,
+  remains refuted and is `UNSUPPORTED AND EXCLUDED` in section 6 of that
+  register; the abstract of this paper claims neither form;
 - the tearing is puncture-independent, no canonical holonomy of a puncture
   exists, and in every regular AES the two orderings of a rectangle end at points
   with different assignments, so the ACS comparison is canonical rather than a

@@ -22,7 +22,7 @@ call these the left- and right-expanded combs, and we prove the two elementary
 facts on which everything else depends: each has a unique internal evaluation
 order, and the two grammars are exchanged by passing to opposite operations.
 The chapter then isolates the distributive law, which is the one algebraic
-identity that relates two *different* expansions of the same expression, and
+identity that relates two \emph{different} expansions of the same expression, and
 shows what it does geometrically: distributivity moves additive charge through
 multiplicative charge, and it therefore produces two expansions with the same
 operator and different charges.  That observation is the seed of the tearing
@@ -35,16 +35,30 @@ the process; here the expansions themselves are the object of study.
 Section~\ref{sec:p0-aes} introduces the geometric object of the series.  An
 arithmetic expression space (AES) carries an assignment function, whose value at
 a point is the current arithmetic value, and a metric, which measures the cost
-of moving.  The four operations act as *motions*: addition and subtraction move
+of moving.  A \emph{regular} AES is exactly a pair $(g,a)$ on an oriented surface
+in which the two arithmetic directions are the two summands of one eikonal
+equation, $|\nabla a|_g^2=\mu^2+\lambda^2a^2$
+(Definition~\ref{def:regular-aes}); that single identity determines the
+canonical oriented frame in which the motions are expressed, and it is what
+converts an algebraic choice of operations into a Riemannian structure.  The
+four operations then act as \emph{motions}: addition and subtraction move
 the value by a constant, multiplication and division scale it, and the motions
 that realize them transport the assignment in exactly that way.  The basic
 model $\mathfrak E_0$ is the upper half-plane with the invariant metric of the
-positive affine group; its additive and multiplicative motions are affine maps
-of the plane, and they satisfy an elementary Baumslag--Solitar-type relation
-which says that a multiplicative motion transports the additive ruler.  The
+positive affine group, of curvature $-\lambda^2$; its additive and multiplicative
+motions are affine maps of the plane that satisfy an elementary
+Baumslag--Solitar-type relation, which says that a multiplicative motion
+transports the additive ruler, and its assignment is a Laplace--Beltrami
+eigenfunction, $\Delta_{g_{\mu,\lambda}}a=2\lambda^2a$
+(Proposition~\ref{prop:laplace-eigenfunction}).  The
 chapter also gives the continuous form of the motion, its rectification, and the
 first model with a puncture, $\mathfrak E_1$, which is a punctured disc whose
-metric extends across the puncture while its assignment does not.
+metric extends across the puncture while its assignment does not.  One subsection
+(Subsection~\ref{subsec:p0-operation-to-length}) then asks whether a composed
+arithmetic word also determines a \emph{length}, and answers in the affine sector:
+the multiplicative coordinate is the translation length of the induced motion up to
+sign, the additive coordinate is not a function of that motion at all, and the
+assignment to lengths is consequently not a homomorphism.
 
 \paragraph{The projective dual.}
 Section~\ref{sec:p0-ripples} reads the same operator word in the opposite
@@ -80,14 +94,28 @@ bracket of the two horizontal fields is the constant $\mu\lambda$ that also
 appears as the density of the tearing.  This is the sense in which the contact
 structure describes the tearing rather than merely accompanying it: it shows
 that no local calibration can make both arithmetic directions straight at once.
+Two further readings of the same three-dimensional carrier are proved in that
+chapter.  The arithmetic flow is the horizontal lift of an Ehresmann connection
+over the direction plane, and the constant $\mu\lambda$ is its curvature
+(Proposition~\ref{prop:p0-curvature-form}); and the two quotients of the carrier
+--- projecting out the assignment, and quotienting along the Reeb field --- are
+Legendre conjugate, so that a fixed-charge comparison and a fixed-state
+comparison of the same pair of histories measure one curvature on two dual
+sides (Theorem~\ref{thm:legendre-dual-tearing}).
 
 \paragraph{Beyond linear language.}
 Section~\ref{sec:p0-beyond-linear} is methodological, and its two propositions
-are the technical reason for it.  The arithmetic tower generates an
-infinite-dimensional Lie algebra, so no finite-dimensional group carries all its
-motions; and every character of the commutativization agrees on
-charge-compatible histories, so no character-based description can see tearing
-at all.  We therefore use manifolds, metrics, and Lie groups where they are
+are the technical reason for it.  The three generators of the arithmetic tower,
+$A=\partial_a$, $M=a\partial_a$, and $P=a\log a\,\partial_a$ --- translation,
+scaling, and exponentiation of the assignment --- do not close: the iterated
+brackets $\operatorname{ad}_A^{\,n}(P)$ are the independent fields
+$a^{1-n}\partial_a$, so the generated Lie algebra is infinite-dimensional and no
+finite-dimensional group carries all its motions
+(Proposition~\ref{prop:p0-arithmetic-generators}); and every observable of the
+commutativized charges agrees on charge-compatible histories, so no such
+observable can see tearing at all
+(Proposition~\ref{prop:p0-characters-cannot-see-tearing}).  We therefore use
+manifolds, metrics, and Lie groups where they are
 proved to apply, and we do not adopt them as the ontology of the subject.  The
 chapter records the alternative vocabulary that a companion programme, process
 geometry, has begun to develop, together with the exact calibrations in which

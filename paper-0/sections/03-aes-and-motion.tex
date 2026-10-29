@@ -1,6 +1,6 @@
 This section introduces the geometric object of the whole series.  An arithmetic
 expression space is a space together with an assignment function and a metric on
-which the four arithmetic operations act as *motions*: each elementary
+which the four arithmetic operations act as \emph{motions}: each elementary
 operation moves the current arithmetic value, and the effect of that motion on
 points is part of the structure.  We give the axioms, the canonical frame they
 determine, the basic hyperbolic model, the four elementary motions, the point
@@ -425,7 +425,7 @@ the model is signed, and it is the elementary instance of the second-slot
 subtraction $c-z$ of Section~\ref{sec:p0-expansion}.  Multiplying by a negative
 constant is realized as the reflection composed with a positive scaling; the
 model therefore carries every nonzero affine multiplier of a real history, while
-the *positive* scalings are the motions that stay in the identity component and
+the \emph{positive} scalings are the motions that stay in the identity component and
 are the ones used in the grid, in the flow, and in the ACS.  Over a general field
 the affine cocycles of Section~\ref{sec:p0-affine-cocycles} again allow every
 nonzero multiplier, and the analytic statements of this paper are made over the
@@ -568,6 +568,266 @@ The lower-left entry remains zero at every stage.  Projectively this means that
 all prefixes stabilize the same point $\infty$.  Section~\ref{sec:p0-ripples}
 shows what changes when right-slot division makes that entry nonzero.
 
+\subsection{The operation-to-length assignment in the affine sector}
+\label{subsec:p0-operation-to-length}
+
+Subsection~\ref{subsec:p0-point-paths} assigns to a bounded affine expression the
+affine matrix product \eqref{eq:p0-affine-prefix-recursion}, and
+Proposition~\ref{prop:affine-cocycle-formulas} condenses a chronological history to
+two real coordinates.  Neither statement says whether a composed arithmetic word
+determines a \emph{length}, that is, a displacement of the model.  The affine sector
+answers that question completely, and the answer separates the two published
+coordinates of one history.  Three extensions are not available here and are listed
+at the end of the subsection.
+
+\paragraph{Length of an affine motion.}
+
+\begin{proposition}[Translation length of a positive dilation]
+\label{prop:p0-dilation-length}
+Let $k>0$ and let $D_k(z)=kz$ act on $\mathbb H^2=\{z:\operatorname{Im}z>0\}$ with
+the hyperbolic metric $ds^2=(dx^2+dy^2)/y^2$.  Then the imaginary axis
+$i\mathbb R_{>0}$ is invariant under $D_k$, it is a complete geodesic, and the
+translation length of $D_k$ along it is
+\begin{equation}\label{eq:p0-dilation-length}
+  \ell(D_k)=\bigl\lvert\ln k\bigr\rvert .
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The map $D_k$ sends $iy$ to $iky$, so $i\mathbb R_{>0}$ is invariant and the
+restriction of $D_k$ to it is the translation $y\mapsto ky$.  The hyperbolic length
+of the segment joining $iy$ to $iky$ is
+$\bigl\lvert\int_y^{ky}dt/t\bigr\rvert=\lvert\ln k\rvert$, and it does not depend on
+$y$.  The displacement is therefore $\lvert\ln k\rvert$, and it is attained on an
+invariant geodesic, which is the defining property of the translation length.
+\end{proof}
+
+\begin{proposition}[The length of an affine motion is its multiplicative charge, up
+to sign]
+\label{prop:p0-length-multiplicative-charge}
+Let $\varphi\in\operatorname{Aff}^{+}(1,\mathbb R)$ be written
+$\varphi(z)=\Phi z+\xi$ with $\Phi>0$, and put $M(\varphi):=\ln\Phi$.  Then the
+translation length of the action of $\varphi$ on $\mathbb H^2$ is
+\begin{equation}\label{eq:p0-affine-length}
+  \ell(\varphi)=\bigl\lvert M(\varphi)\bigr\rvert ,
+\end{equation}
+and consequently, for every history $\gamma\in G$,
+\begin{equation}\label{eq:p0-history-length}
+  \ell\bigl(\nu(\gamma)\bigr)=\bigl\lvert M(\gamma)\bigr\rvert ,
+\end{equation}
+where $\nu:G\to\operatorname{Aff}^{+}(1,\mathbb R)$ is the evaluation of
+Proposition~\ref{prop:p0-history-homomorphisms} and
+$M=\operatorname{pr}_2\circ c=\log\circ L\circ\nu$ is the multiplicative charge of
+Theorem~\ref{thm:p0-descent}(3).
+\end{proposition}
+
+\begin{proof}
+If $\Phi=1$ then $\varphi$ is the translation $z\mapsto z+\xi$; it has no fixed
+point in $\mathbb H^2$, it is parabolic, and its translation length is
+$0=\lvert\ln 1\rvert$.  If $\Phi\ne1$ then $\varphi$ has the fixed point
+$z^{*}=\xi/(1-\Phi)$ on the boundary circle, and conjugating by the translation
+$\psi(z)=z-z^{*}$, which is an isometry of $\mathbb H^2$, gives
+$\psi\varphi\psi^{-1}(w)=\Phi w=D_\Phi(w)$.  The translation length is invariant
+under conjugation by isometries, so
+Proposition~\ref{prop:p0-dilation-length} gives $\lvert\ln\Phi\rvert$.  The second
+display is the first read on histories through
+Theorem~\ref{thm:p0-descent}(3).
+\end{proof}
+
+\paragraph{Two data the length does not carry.}
+
+\begin{proposition}[The length is not a homomorphism, and it is not injective on
+histories]
+\label{prop:p0-length-losses}
+\begin{enumerate}
+\item $\ker\nu\subsetneq\ker M$.  Every nonempty pure additive history lies in
+  $\ker M$ and induces a non-identity motion, so it is not in $\ker\nu$; hence the
+  multiplicative charge, and with it the length, is a function of the induced
+  motion, while the history-to-motion assignment is not injective.
+\item By Theorem~\ref{thm:p0-descent}(4) the additive charge does not factor
+  through $\nu$.  Two histories with the same induced motion, and therefore the
+  same length, may differ in additive charge, and no function of the induced
+  motion, the length included, recovers that difference.
+\item $M$ is a homomorphism $G\to(\mathbb R,+)$, whereas $\ell=\lvert M\rvert$ is
+  not.  Writing $\mathsf M_q$ for the dilation generator,
+  \begin{equation}\label{eq:p0-length-not-additive}
+    \ell\bigl(\mathsf M_q\mathsf M_{-q}\bigr)=0
+    \;\ne\;
+    2\lvert q\rvert
+    =\ell(\mathsf M_q)+\ell(\mathsf M_{-q})
+    \qquad(q\ne0).
+  \end{equation}
+  Equivalently, $\ell$ forgets the sign of $M$, that is, which of the two
+  eigenvalues $e^{\pm M/2}$ of the induced affine motion is the expanding one.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(1) For $p\ne0$ the history $\mathsf A_p$ satisfies $\nu(\mathsf A_p)=T_p\ne
+\mathrm{id}$ and $M(\mathsf A_p)=0$.  (2) is the statement of
+Theorem~\ref{thm:p0-descent}(4).  (3) $\mathsf M_q\mathsf M_{-q}=\mathsf M_0$ has
+multiplicative charge $0$, while $\ell(\mathsf M_{\pm q})=\lvert q\rvert$ by
+Proposition~\ref{prop:p0-dilation-length}.  For the eigenvalue claim: in
+homogeneous coordinates $\varphi$ has the matrix
+$\left(\begin{smallmatrix}\Phi&\xi\\0&1\end{smallmatrix}\right)$ with eigenvalues $\Phi$ and
+$1$, so the eigenvalues of its normalised lift to $\mathrm{SL}_2(\mathbb R)$ are
+$e^{\pm M/2}$.
+\end{proof}
+
+\begin{proposition}[The scale-compatible relative defect changes no length]
+\label{prop:p0-relative-defect-length-zero}
+Let $\gamma,\delta$ be scale-compatible affine histories with common scale $\Phi$.
+Then the relative affine defect $\mathcal K_{\mathrm{aff}}(\gamma,\delta)$ of
+Definition~\ref{def:relative-affine-defect} has multiplier $1$, and its translation
+length is zero:
+\begin{equation}\label{eq:p0-relative-defect-length-zero}
+  M\bigl(\mathcal K_{\mathrm{aff}}(\gamma,\delta)\bigr)=0,
+  \qquad
+  \ell\bigl(\mathcal K_{\mathrm{aff}}(\gamma,\delta)\bigr)=0 .
+\end{equation}
+It is therefore parabolic whenever it is nontrivial, it fixes exactly one boundary
+point, and it preserves every translation length.
+\end{proposition}
+
+\begin{proof}
+By \eqref{eq:scale-compatible-relative-translation} the defect is the translation
+$x\mapsto x+(\xi_\gamma-\xi_\delta)/\Phi$, whose homogeneous matrix
+$\left(\begin{smallmatrix}1&(\xi_\gamma-\xi_\delta)/\Phi\\0&1\end{smallmatrix}\right)$
+has multiplier $1$ and trace $2$.  Apply
+Proposition~\ref{prop:p0-length-multiplicative-charge} in the case $\Phi=1$.
+\end{proof}
+
+\begin{proposition}[Trace classification and length of a projective motion]
+\label{prop:p0-projective-trichotomy}
+Let $M\in\operatorname{PSL}_2(\mathbb R)$ act on $\mathbb H^2$ and let
+$\widetilde M\in\operatorname{SL}_2(\mathbb R)$ be any lift, so that
+$\tau(M)^2:=\operatorname{tr}(\widetilde M)^2$ is well defined.  Then:
+\begin{enumerate}
+\item if $\tau^2>4$, $M$ is hyperbolic, it has two fixed points on the boundary
+  circle, it preserves the geodesic joining them, and its translation length is
+  \begin{equation}\label{eq:p0-projective-length}
+    \ell(M)=2\operatorname{arccosh}\bigl(\lvert\tau(M)\rvert/2\bigr);
+  \end{equation}
+\item if $\tau^2=4$, $M$ is parabolic or the identity; a nontrivial parabolic motion
+  has one fixed point on the boundary circle, preserves no geodesic, and has
+  translation length $0$;
+\item if $\tau^2<4$, $M$ is elliptic, it has one fixed point in $\mathbb H^2$ and
+  none on the boundary circle, it is the rotation about that point by
+  $2\arccos(\lvert\tau(M)\rvert/2)$, and its translation length is $0$.
+\end{enumerate}
+Consequently the trichotomy is decided by the sign of $\tau^2-4$, and on the affine
+slice \eqref{eq:p0-projective-length} agrees with
+Proposition~\ref{prop:p0-length-multiplicative-charge}.
+\end{proposition}
+
+\begin{proof}
+The lift has determinant $1$, so its eigenvalues are $\lambda$ and $\lambda^{-1}$ and
+$\tau=\lambda+\lambda^{-1}$.  The three cases are the three positions of the
+discriminant $\tau^2-4$ of the characteristic polynomial.  If $\tau^2>4$ then
+$\lambda$ is real and not $\pm1$; conjugating $M$ to the diagonal lift
+$\operatorname{diag}(e^{\ell/2},e^{-\ell/2})$, which is possible in
+$\operatorname{SL}_2(\mathbb R)$ for the appropriate $\ell>0$, gives
+$\tau=2\cosh(\ell/2)$, and the translation length is $\ell$ by
+Proposition~\ref{prop:p0-dilation-length} together with the invariance of the length
+under conjugation by isometries.  If $\tau^2=4$ then $\lambda=\pm1$ and the lift is
+unipotent, $\widetilde M=\pm(I+N)$ with $N^2=0$ and $N\neq0$ unless $M$ is the
+identity; such an element fixes exactly one boundary point.  If $\tau^2<4$ then
+$\lambda=e^{\pm i\theta}$ with $\theta\notin\{0,\pi\}$, the lift is conjugate in
+$\operatorname{SL}_2(\mathbb R)$ to a rotation by $2\theta$, and
+$\tau=2\cos\theta$.  For the last claim, an affine motion
+$\varphi(z)=\Phi z+\xi$ with $\Phi>0$ has the lift
+$\Phi^{-1/2}\left(\begin{smallmatrix}\Phi&\xi\\0&1\end{smallmatrix}\right)$, whose
+trace is $\Phi^{1/2}+\Phi^{-1/2}=2\cosh(\tfrac12\ln\Phi)$; so
+\eqref{eq:p0-projective-length} returns $\lvert\ln\Phi\rvert$, which is
+Proposition~\ref{prop:p0-length-multiplicative-charge}.
+\end{proof}
+
+\begin{proposition}[The two layers of the affine conjugacy classification]
+\label{prop:p0-affine-two-layers}
+Work in $\operatorname{Aff}^{+}(1,\mathbb R)$, write $\varphi(z)=\Phi z+\xi$ with
+$\Phi>0$, and write $T_c(z)=z+c$ for the translation by $c$.
+\begin{enumerate}
+\item For every $\Phi>0$ one has $D_\Phi T_c D_\Phi^{-1}=T_{\Phi c}$.  Hence all
+  nontrivial translations of a fixed sign are mutually conjugate, the stabiliser in
+  $\operatorname{Aff}^{+}(1,\mathbb R)$ of $T_c$ is the translation subgroup, and
+  the conjugacy class $\{T_{\Phi c}:\Phi>0\}$ is a torsor under the dilations.
+\item A dilation $D_\Phi$ is conjugate to $D_{\Phi'}$ if and only if
+  $\Phi=\Phi'$; its conjugacy class is therefore determined by the multiplier, so
+  the length $\lvert\ln\Phi\rvert$ is a function of the class.
+\end{enumerate}
+Consequently the conjugacy class carries one continuous invariant in the dilation
+layer and none in the translation layer, where only the sign survives.
+\end{proposition}
+
+\begin{proof}
+(1) $D_\Phi\circ T_c\circ D_\Phi^{-1}(z)=D_\Phi(z/\Phi+c)=z+\Phi c$.  Conjugation by
+a translation fixes $T_c$, so the stabiliser is the translation subgroup, and
+$\operatorname{Aff}^{+}(1,\mathbb R)$ modulo that subgroup is
+$\mathbb R_{>0}$; the orbit is therefore a torsor under the dilations.
+(2) dilations commute, so $D_\Phi D_{\Phi'}D_\Phi^{-1}=D_{\Phi'}$ and conjugacy
+forces $\Phi=\Phi'$.  The length is
+$\lvert\ln\Phi\rvert$ by Proposition~\ref{prop:p0-length-multiplicative-charge}.
+\end{proof}
+
+\begin{remark}[Status: structural proposal --- the two coordinates of one history]
+\label{rem:p0-length-two-coordinates}
+Proposition~\ref{prop:affine-cocycle-formulas} gives one chronological history two
+real coordinates, the accumulated scale $\Phi_n$ of
+\eqref{eq:accumulated-affine-scale} and the target affine cocycle $\xi_n$ of
+\eqref{eq:target-affine-cocycle}.  By
+Proposition~\ref{prop:p0-length-multiplicative-charge} the quantity
+$\log\lvert\Phi_n\rvert$ \emph{is} the translation length of the induced motion, and
+by Proposition~\ref{prop:p0-length-losses}(2) the additive data that $\xi_n$ records
+is not a function of the induced motion at all.  We propose reading
+$(\log\Phi_n,\xi_n)$ as one assignment with two sides: a side that is a function of
+the induced motion, and a side that is a function of the history only.  This is a
+proposal about how to organise statements already proved above; it adds no theorem,
+it does not identify $\xi_n$ with any geometric coordinate, and it makes no claim
+about the Fenchel--Nielsen coordinates of
+Section~\ref{sec:p0-compactification}.  One negative point can be recorded without
+leaving the affine sector: neither $\xi_n$ nor the relative translation
+$(\xi_\gamma-\xi_\delta)/\Phi$ can be a Fenchel--Nielsen twist, because by
+Proposition~\ref{prop:p0-relative-defect-length-zero} both are parabolic of length
+zero, whereas the holonomy of a closed geodesic of length $\ell>0$ is hyperbolic of
+trace $2\cosh(\ell/2)>2$; a twist changes no length, and no rescaling of a
+coefficient changes a conjugacy type.  What does transfer is the compatibility
+condition: ``scale-compatible'' in
+Definition~\ref{def:relative-affine-defect} is exactly the requirement that a glued
+curve carry one agreed length.  The length-zero verdict should be read with
+Proposition~\ref{prop:p0-affine-two-layers}: a translation layer whose class carries
+no continuous invariant is not an empty layer but the layer in which the only datum
+is the choice of conjugate, i.e. a torsor.  So the relative affine defect is not a
+failed length; it is the stratum on which a twist, if this geometry carries one,
+would have to live.  Whether that torsor coincides with a resolution torsor of the kind used in a
+through-crossing theory is not decided here, and the series architecture gives
+Paper~0 no route to say so.
+\end{remark}
+
+\paragraph{What this subsection does not do.}
+\begin{enumerate}
+\item It does not pass from $\operatorname{Aff}^{+}(1,\mathbb R)$ to
+  $\operatorname{PGL}_2(K)$ for a general field $K$.  Over $\mathbb R$ the passage is
+  now made: Proposition~\ref{prop:p0-projective-trichotomy} classifies a projective
+  motion by the sign of $\tau^2-4$ and gives its translation length, so second-slot
+  division, whose affine/projective break is
+  Corollary~\ref{cor:p0-affine-projective-break}, is covered in the real case.  What
+  remains outside is a general $K$: for a field with no order the sign of
+  $\tau^2-4$ is not available, and the classification must be stated through the
+  discriminant's multiplicative character together with the number of rational fixed
+  points.  Paper~0 does not develop that form, and it asserts no length outside
+  $\mathbb R$.
+\item It does not pass from left- and right-expanded combs to arbitrary binary
+  expression trees.  The source of the assignment is the comb grammar of
+  Definition~\ref{def:p0-left-right-combs}, with the unique internal order of
+  Proposition~\ref{prop:p0-combs-unique-order}.  The sequential-tree classification
+  is a Paper~I result, cited here prospectively and not restated.
+\item It does not settle the category in which the assignment lives.  Whether the
+  source should be a free category of partial contexts, an action groupoid, a path
+  groupoid, or a rewriting $2$-category is OQ-047, deferred to Paper~IV.  The
+  affine-sector instance stated here is compatible with each of those choices and
+  selects none of them.
+\end{enumerate}
+
 \subsection{Continuous arithmetic motion}
 \label{subsec:p0-continuous-motion}
 
@@ -692,7 +952,7 @@ The chain rule and \eqref{eq:regular-aes-eikonal} give
 Thus $r$ has constant gradient magnitude.  When $\lambda=0$, the original
 equation already reduces to $|\nabla a|=|\mu|$, and $a/\mu$ is a
 unit-gradient rectifying function.  Rectification of the assignment is
-possible; rectification of *both* arithmetic directions at once is not, by
+possible; rectification of \emph{both} arithmetic directions at once is not, by
 \eqref{eq:horizontal-noncommutation}.  This asymmetry is the discrete root of
 the tearing language of Section~\ref{sec:p0-holed}.
 
@@ -730,7 +990,7 @@ flow.
 
 The historical drafts of this programme used the labels $E_0$ and $E_1$
 inconsistently; in some notes the hyperbolic half-plane is called $E_0$, in
-others $E_1$.  Because later chapters introduce spaces that are *not* smooth,
+others $E_1$.  Because later chapters introduce spaces that are \emph{not} smooth,
 we fix the convention now, once, and record it as a convention rather than a
 theorem.
 
