@@ -1,0 +1,181 @@
+% Canonical Paper I source.
+
+The differential pillar turns the discrete histories of
+Section~\ref{sec:sequential-histories} into continuous flows and identifies the
+order defect of the minimal branching DAG with the contact curvature imported
+from Paper~0.  Throughout this section $\mu,\lambda$ are the fixed real
+intensities of the regular AES of Section~\ref{sec:regular-aes-interface}.
+
+\subsection{The smoothing Lie functor}
+
+Recall the arithmetic contact model $\mathcal C=\mathbb R^3_{(u,v,a)}$ with
+contact one-form
+\[
+  \alpha=da-\mu\,du-\lambda a\,dv,
+\]
+horizontal fields
+\[
+  D_u=\partial_u+\mu\,\partial_a,
+  \qquad
+  D_v=\partial_v+\lambda a\,\partial_a,
+\]
+and curvature bracket
+\[
+  [D_u,D_v]=\mu\lambda\,\partial_a
+\]
+($\texttt{eq:arithmetic-contact-form}$,
+$\texttt{eq:horizontal-arithmetic-fields}$,
+$\texttt{thm:contact-curvature}$ of Paper~0).  The additive and multiplicative
+generators of Section~\ref{sec:sequential-histories} are the exact closed-form
+flows of these two fields.
+
+\begin{lemma}[Generators are exact flows]
+\label{lem:generators-exact-flows}
+The additive generator $A_h=T_{\mu h}$ and the positive multiplicative generator
+$M_k=D_{e^{\lambda k}}$ are the time-$h$ and time-$k$ flows of $D_u$ and $D_v$
+acting on the assignment fiber:
+\[
+  A_h(a)=\bigl.\Phi_u^h(0,0,a)\bigr|_a=a+\mu h,
+  \qquad
+  M_k(a)=\bigl.\Phi_v^k(0,0,a)\bigr|_a=e^{\lambda k}a,
+\]
+where
+\[
+  \Phi_u^h(u,v,a)=(u+h,v,a+\mu h),
+  \qquad
+  \Phi_v^k(u,v,a)=(u,v+k,e^{\lambda k}a).
+\]
+\end{lemma}
+
+\begin{proof}
+Direct substitution: the one-parameter groups of $D_u$ and $D_v$ are the
+displayed affine maps, read on the $a$-coordinate.
+\end{proof}
+
+\begin{lemma}[Word-to-flow anti-homomorphism]
+\label{lem:word-flow-antihomomorphism}
+The assignment $F$ sending $A_h\mapsto\Phi_u^h$ and $M_k\mapsto\Phi_v^k$, and a
+chronological word to the composition of the corresponding flows, satisfies
+\[
+  F(\gamma\delta)=F(\delta)\circ F(\gamma),
+\]
+the same anti-homomorphism as the projective evaluation of
+Equation~\eqref{eq:rho-chronological-antihomomorphism}.
+\end{lemma}
+
+\begin{proof}
+Immediate from the definition on generators and the free-monoid extension.
+\end{proof}
+
+\subsection{Minimal DAG defects and contact curvature}
+
+The smallest nontrivial branching history is the two-element antichain
+$\{A,M\}$: addition and multiplication are incomparable operations.  Its
+evaluation defect is exactly the contact curvature.
+
+\begin{theorem}[DAG defect equals contact curvature]
+\label{thm:dag-defect-equals-curvature}
+Let $P=\{A,M\}$ be the two-element antichain (addition and multiplication
+incomparable).  Its down-set lattice
+$\mathcal O(P)=B_2=\{\varnothing,\{A\},\{M\},\{A,M\}\}$ is the four-element free
+distributive diamond, with Stone spectrum
+$\operatorname{Stone}(\mathcal O(P))=\{A,M\}$, and its two maximal chains are the
+two spinal histories $\gamma_1=(A_h,M_k)$ and $\gamma_2=(M_k,A_h)$.
+\begin{enumerate}
+  \item \textbf{Open and closed defects.} The open order defect is
+  \[
+    \nu_a(\gamma_1)-\nu_a(\gamma_2)=T_{\mathrm{open}}(h,k)=\mu h(e^{\lambda k}-1),
+  \]
+  and the four-step closed loop $(A_h,M_k,A_{-h},M_{-k})$ has vertical drift
+  \[
+    T_{\mathrm{closed}}(h,k)=\mu h(1-e^{-\lambda k})=e^{-\lambda k}T_{\mathrm{open}}(h,k).
+  \]
+  \item \textbf{Infinitesimal density equals the Lie bracket.}
+  \[
+    \left.\frac{\partial^2 T_{\mathrm{open}}}{\partial h\,\partial k}\right|_{0,0}
+    =
+    \left.\frac{\partial^2 T_{\mathrm{closed}}}{\partial h\,\partial k}\right|_{0,0}
+    =[D_u,D_v](a)=\mu\lambda .
+  \]
+  \item \textbf{Structural refinement.} The combinatorial diamond
+  $\mathcal O(\{A,M\})$ and its Stone spectrum are flat (curvature zero); the
+  curvature $\mu\lambda$ arises at the single step that lifts two directions,
+  which commute at the charge level, to a non-commutative realization in the
+  value space --- the difference between the semi-direct rescaling law
+  $D_k\circ T_s=T_{ks}\circ D_k$ and the naive swap $T_s\circ D_k$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(1) is the direct computation
+$\nu_a(A_h,M_k)=e^{\lambda k}(a+\mu h)$ versus
+$\nu_a(M_k,A_h)=e^{\lambda k}a+\mu h$, and the four-step substitution of
+Paper~0 ($\texttt{eq:exact-open-contact-defect}$,
+$\texttt{eq:exact-closed-contact-drift}$).  (2) Differentiate:
+$\partial^2_h\partial^2_k\,\mu h(e^{\lambda k}-1)\to\mu\lambda$ and
+$\partial^2_h\partial^2_k\,\mu h(1-e^{-\lambda k})\to\mu\lambda$, which is
+$[D_u,D_v](a)=\mu\lambda\,\partial_a(a)=\mu\lambda$ by
+$\texttt{thm:contact-curvature}$.  (3) is the structural reading
+$D_k\circ T_s(a)=ka+ks=T_{ks}\circ D_k(a)$ versus $T_s\circ D_k(a)=ka+s$, whose
+difference is $s(k-1)=\mu h(e^{\lambda k}-1)$.
+\end{proof}
+
+\subsection{Graded horizontal calculus}
+
+The horizontal differential of Paper~0 extends to a graded covariant
+differential with a twisted Leibniz law.  Recall the scalar horizontal
+differential
+\[
+  \delta_H F=dF-(\partial_a F)\alpha=(D_uF)\,du+(D_vF)\,dv,
+\]
+and the curvature operator on scalar fields
+\[
+  \mathcal R_H(F)=(D_uD_vF-D_vD_uF)\,du\wedge dv=\mu\lambda\,(\partial_aF)\,du\wedge dv
+\]
+($\texttt{eq:scalar-horizontal-differential}$,
+$\texttt{prop:horizontal-differential-curvature}$ of Paper~0).  In the natural
+arithmetic units $dA=\mu\,du$, $dM=\lambda\,dv$:
+
+\begin{definition}[Graded horizontal differential]
+\label{def:graded-horizontal-differential}
+For a smooth section $f$ of integer weight $n\in\mathbb Z$, define the
+\emph{weight-$n$ horizontal covariant differential}
+\[
+  \nabla^{(n)}f:=\delta_H f-n\,f\,dM .
+\]
+\end{definition}
+
+\begin{proposition}[Graded Leibniz law and gauge rectification]
+\label{prop:graded-leibniz-and-gauge}
+\begin{enumerate}
+  \item The assignment $a$ has weight $1$ and satisfies the propagation law
+  \[
+    \nabla^{(1)}a=\delta_H a-a\,dM=dA .
+  \]
+  \item \textbf{Graded Leibniz law.} For $f$ of weight $m$ and $g$ of weight
+  $n$,
+  \[
+    \nabla^{(m+n)}(fg)=\bigl(\nabla^{(m)}f\bigr)\,g+f\,\bigl(\nabla^{(n)}g\bigr).
+  \]
+  \item \textbf{Gauge rectification and twisted derivative.} Let
+  $\widetilde a:=e^{-M}a$ (weight $0$); then
+  $\delta_H\widetilde a=e^{-M}dA$.  On a one-parameter curve, define the
+  twisted product $(F\star_M G)(t):=e^{-M(t)}F(t)G(t)$ and the twisted
+  derivative $D_M:=\frac{d}{dt}-M'(t)=e^{M}\circ\frac d{dt}\circ e^{-M}$; then
+  $D_M$ is a strict derivation for $\star_M$:
+  \[
+    D_M(F\star_M G)=(D_MF)\star_M G+F\star_M(D_M G).
+  \]
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(1) $\delta_H a=\mu\,du+\lambda a\,dv$ along horizontal directions, so
+$\nabla^{(1)}a=\mu\,du+\lambda a\,dv-a\,\lambda\,dv=\mu\,du=dA$.  (2) Since
+$\delta_H$ is a derivation on scalars,
+$\delta_H(fg)=(\delta_H f)g+f(\delta_H g)$, whence
+$\nabla^{(m+n)}(fg)=(\delta_H f-m f\,dM)g+f(\delta_H g-n g\,dM)$ as claimed.
+(3) $\delta_H\widetilde a=e^{-M}(\delta_H a-a\,dM)=e^{-M}dA$; and the
+conjugation $D_M=e^{M}\circ\frac d{dt}\circ e^{-M}$ is a derivation for the
+multiplicative structure induced by $\star_M$, checked directly.
+\end{proof}

@@ -1,0 +1,62 @@
+% Canonical Paper I appendix.
+
+This appendix records the symbolic verification of the Magnus-series low-order
+terms of Definition~\ref{def:history-magnus-series} and the PBW abelianization
+of Theorem~\ref{thm:pbw-abelianization-difference-substitution}.
+
+\subsection{The order-three free nilpotent matrix model}
+
+Work in the free order-three nilpotent Lie algebra $\mathfrak n_4$ of strictly
+upper-triangular $4\times4$ matrices, realized by the elementary matrices
+\[
+  X=E_{12},\qquad Y=E_{23},\qquad Z=E_{34},
+\]
+whose only nonzero products are $XY=E_{13}$, $YZ=E_{24}$, $XYZ=E_{14}$; all
+brackets of depth four or more vanish.  The relevant brackets are
+\[
+  [X,Y]=E_{13},\qquad [Y,Z]=E_{24},\qquad [X,[Y,Z]]=[Z,[X,Y]]=E_{14},\qquad
+  [Y,[Z,X]]=0 .
+\]
+
+\subsection{Symbolic expansion to order three}
+
+For scalar parameters $h,k,l$, form the truncated exponentials
+\[
+  e^{hX}=I+hX+\tfrac{h^2}{2}X^2+\tfrac{h^3}{6}X^3,
+\]
+and similarly for $Y,Z$; here $X^2=0$ in the present model, so the exponential
+is a polynomial.  The chronological product $e^{lZ}e^{kY}e^{hX}$ has formal
+logarithm obtained from the series $\log(I+T)=T-\tfrac12T^2+\tfrac13T^3$, with
+$T=e^{lZ}e^{kY}e^{hX}-I$.  The nonzero upper-triangular entries are
+\[
+  \Omega_{12}=h,\qquad
+  \Omega_{23}=k,\qquad
+  \Omega_{34}=l,\qquad
+  \Omega_{13}=\tfrac12hk,\qquad
+  \Omega_{24}=\tfrac12kl,\qquad
+  \Omega_{14}=\tfrac13hkl .
+\]
+These are the coefficients claimed in
+Proposition~\ref{prop:arity-cell-correspondence-low-order}: the order-one terms
+$h,k,l$ are the arity-$1$ charges, the order-two terms $\tfrac12hk,\tfrac12kl$
+are the arity-$2$ commutators $[X,Y],[Y,Z]$, and the order-three term
+$\tfrac13hkl$ is the arity-$3$ bracket $[X,[Y,Z]]$.  The repeated-generator
+self-nesting terms $[X,[X,Y]]$ and $[Y,[X,Y]]$ vanish in $\mathfrak n_4$ because
+$X^2=Y^2=0$; they are nonzero only in a step-$3$ model with nonzero squares,
+which is not needed for the low-order arity correspondence.
+
+\subsection{PBW abelianization check}
+
+Setting all brackets to zero abelianizes $\mathfrak L$: the bracket monomials
+$[X,Y]\mapsto0$, $[X,[Y,Z]]\mapsto0$, and the Magnus series degenerates to the
+abelian sum
+\[
+  \Omega(\gamma)\mapsto hX+kY+lZ,
+\]
+whose coefficient vector $(h,k,l)$ is the cumulative sum of the increments ---
+the abelian form of the difference substitution of
+Theorem~\ref{thm:pbw-abelianization-difference-substitution}.  Under the PBW
+filtration, the word $ZYX$ (i.e.\ $Z\otimes Y\otimes X$) has associated graded
+the monomial $XYZ$ in the symmetric algebra $S(\mathfrak L)$, which is the
+commutative degeneration of the Lyndon word $[X,[Y,Z]]$ together with the
+abelian part.

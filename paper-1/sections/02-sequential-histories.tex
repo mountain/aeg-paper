@@ -471,3 +471,139 @@ when the history is bounded and all planar labels are retained.  The first arrow
 choice and the double arrow is a bijection; only the later evaluation arrows forget
 process data.  Chapter~\ref{sec:projective-affine}
 constructs the operator stage for all non-degenerate bilateral contexts.
+
+\subsection{The prefix information order and ideal completion}
+
+The chronological concatenation of \eqref{eq:chronological-history-concatenation}
+makes the free marked spinal histories $\Gamma^*$ a monoid.  Domain theory turns
+this monoid into an ordered and then a complete object.  Throughout,
+$\Gamma=\{\,C_{\omega,c}^{(\varepsilon)}\,\}$ denotes the alphabet of elementary
+one-hole contexts.
+
+\begin{definition}[Prefix information order]
+\label{def:prefix-information-order}
+For free marked spinal histories $\gamma,\gamma'\in\Gamma^*$, write
+$\gamma\sqsubseteq\gamma'$ when $\gamma'=\gamma\delta$ for some
+$\delta\in\Gamma^*$.  This is the \emph{chronological prefix order}: $\gamma$ is
+an earlier truncation of $\gamma'$, retaining strictly less process data.
+\end{definition}
+
+The prefix order is a partial order, but $\Gamma^*$ is not directed complete: an
+infinite chain $\gamma_0\sqsubseteq\gamma_1\sqsubseteq\cdots$ has no join in
+$\Gamma^*$.  Its completion is the classical ideal completion of a poset.
+
+\begin{proposition}[Spinal ideal completion]
+\label{prop:spinal-ideal-completion}
+The ideal completion of $(\Gamma^*,\sqsubseteq)$ is
+\[
+\operatorname{Idl}(\Gamma^*)\ \cong\ \Gamma^{\le\omega}:=\Gamma^*\cup\Gamma^\omega,
+\]
+the dcpo of finite and countably infinite chronological words, ordered by
+prefix.  Its compact elements are exactly the finite words $\Gamma^*$, and each
+infinite word $\gamma_\infty=(g_1,g_2,\ldots)$ is the directed join of its
+finite prefixes:
+\[
+\gamma_\infty=\bigsqcup_{n\ge0}(g_1,\ldots,g_n).
+\]
+\end{proposition}
+
+\begin{proof}
+The ideals of a prefix-ordered free monoid are exactly the principal ideals
+$\mathord\downarrow\gamma$ for finite $\gamma$ and the directed families of all
+finite prefixes of an infinite word; the bijection sends an infinite word to the
+directed union of its prefixes.  This is the standard ideal-completion
+construction for the domain of finite and infinite words
+\cite{Scott1972ContinuousLattices,GHKLM2003ContinuousLattices}.
+\end{proof}
+
+\subsection{Branching histories and the down-set information order}
+
+The prefix order is the special case in which the dependency poset is a chain.
+For a general (branching) tree the internal dependency poset
+$P=(I(T),\preccurlyeq_T)$ is not a chain, and the natural information order is
+the \emph{down-set} (order-ideal) embedding.
+
+\begin{definition}[Down-set information order]
+\label{def:downset-information-order}
+Let $\operatorname{FinDAG}$ be the class of finite computation DAGs: finite
+dependency posets $P$ whose vertices carry operation, constant, and operand-slot
+decorations, as in Definition~\ref{def:internal-dependency-poset}.  For
+$P,Q\in\operatorname{FinDAG}$, write $P\sqsubseteq Q$ when $P$ is a decorated
+\emph{down-set} (order ideal) of $Q$: $P\subseteq Q$, the order of $P$ is the
+restriction of that of $Q$, and
+\[
+x\in P,\ y\in Q,\ y\le_Q x \ \Longrightarrow\ y\in P .
+\]
+Read ``$P\sqsubseteq Q$'' as ``$P$ is a completed sub-computation of $Q$''.
+\end{definition}
+
+Directed families under $\sqsubseteq$ are towers of sub-computations, and their
+direct union is a well-defined (possibly infinite) poset.  The completion is
+again classical.
+
+\begin{theorem}[Branching DAG dcpo]
+\label{thm:branching-dag-dcpo}
+The ideal completion $\operatorname{Idl}(\operatorname{FinDAG},\sqsubseteq)$ is
+isomorphic to the class of computation DAGs in which every vertex has only
+finitely many predecessors (equivalently, DAGs that are the directed union of
+their finite down-sets).  The compact elements are exactly the finite
+computation DAGs, and each such infinite DAG $Q$ is the directed join of its
+finite down-sets:
+\[
+Q=\bigsqcup\{\,P\subseteq Q:P \text{ finite down-set}\,\}.
+\]
+A ``broom'' DAG --- infinitely many minimal vertices feeding a single top
+vertex --- is excluded, because its top vertex has infinitely many predecessors
+and lies in no finite down-set.  When $P$ is a chain (a sequential tree), the
+down-set order restricts to the prefix order of
+Definition~\ref{def:prefix-information-order}.
+\end{theorem}
+
+\begin{proof}
+An ideal $I$ is a directed, downward-closed family of finite DAGs; its direct
+union $\bigcup I$ is well-defined, and every element of it lies in some finite
+member of $I$ (hence has finitely many predecessors).  Conversely, a DAG in
+which every vertex has finitely many predecessors is the direct union of its
+finite down-sets, and that family is an ideal.  The two maps are inverse.  The
+excluded-broom observation is immediate, and the chain specialization is the
+bijection between the down-sets of a chain and its prefixes.
+\end{proof}
+
+\subsection{Partial evaluations and Birkhoff duality}
+
+For a fixed finite dependency poset $P$, the partial evaluations --- the
+completed sub-computations --- form a finite distributive lattice, and the legal
+evaluation orders are its maximal chains.
+
+\begin{theorem}[Down-set lattice and spinal histories]
+\label{thm:birkhoff-downset-spinal}
+Let $P=I(T)$ be the internal dependency poset of a finite expression tree $T$,
+and let $\mathcal{O}(P)$ be its set of down-sets ordered by inclusion.
+\begin{enumerate}
+  \item $\mathcal{O}(P)$ is a finite distributive lattice --- the lattice of
+  partial evaluations of $T$ --- and by Birkhoff duality
+  $\operatorname{Stone}(\mathcal{O}(P))\cong P$ (the join-irreducibles recover
+  the dependency poset).
+  \item The legal internal evaluation orders of $T$ are in bijection with the
+  maximal chains
+  \[
+  \varnothing=D_0\subsetneq D_1\subsetneq\cdots\subsetneq D_{|P|}=P
+  \]
+  of $\mathcal{O}(P)$, each step adjoining one minimal vertex.
+  \item After a choice of initial accumulator and operand-slot marking, each
+  maximal chain encodes exactly one marked spinal history.  A sequential tree is
+  the case in which $\mathcal{O}(P)$ is a single chain; a branching tree has
+  $\mathcal{O}(P)$ a nontrivial distributive lattice, and its complete
+  evaluation space is organized by $\mathcal{O}(P)$ together with its maximal
+  chains.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Part (1) is Birkhoff's representation theorem.  For part (2), a maximal chain
+from $\varnothing$ to $P$ must add exactly one vertex at a time, and the added
+vertex is minimal in the complement, so the sequence of additions is precisely a
+linear extension of $P$; the converse is direct.  Part (3) reads that linear
+extension through the marked-tree--history correspondence of
+Proposition~\ref{prop:marked-tree-history-correspondence}.
+\end{proof}

@@ -474,3 +474,211 @@ Consequently a general scalar projective flow has Riccati form
 Paper~I develops only the affine slice $\kappa=0$.  No projective metric,
 projective arithmetic expression space, or projective contact theory is
 asserted here.
+
+\subsection{Scott--Lawson roles of the elementary contexts}
+
+The three elementary contexts of the table have a precise order-topological
+meaning on the continuous lattice $L=[0,\infty]$ with its usual order; this
+reading is the bridge from the algebraic side of this section to the analytic
+chapters that follow.  Write $\sigma$, $\omega$, and $\lambda$ for the Scott,
+lower, and Lawson topologies of $L$, and identify $L$ with the closure of
+$\mathbb R_{>0}$ in $\mathbb P^1(\mathbb R)$.
+
+\begin{proposition}[Domain-theoretic roles of the generators]
+\label{prop:generator-domain-roles}
+On $L=[0,\infty]$:
+\begin{enumerate}
+  \item the additive translation $T_s=C_{+,s}^{(1)}$ ($s\ge0$) is a
+  Scott-continuous embedding, not onto for $s>0$, and is the way-below witness:
+  for $a>0$,
+  \[
+  a\ll b \iff a<b \iff \exists s>0:\ T_s(a)=a+s\le b ,
+  \]
+  while $0\ll 0$; the forward orbits generate the Scott basis
+  $\{(a,\infty]:a\in L\}$;
+  \item the positive scaling $D_k=C_{\times,k}^{(1)}$ ($k>0$) is an order
+  automorphism of $(L,\le)$, hence a Scott homeomorphism;
+  \item the second-slot division (reciprocal) $\neg=C_{/,1}^{(2)}:a\mapsto 1/a$
+  (with $0\leftrightarrow\infty$) is an order-reversing involution, hence a
+  homeomorphism $\neg:(L,\sigma)\xrightarrow{\sim}(L,\omega)$ with
+  $\omega=\neg_*\sigma$, and it conjugates scaling to its inverse,
+  $\neg\circ D_k\circ\neg=D_{1/k}$;
+  \item the Lawson topology $\lambda=\sigma\vee\omega=\sigma\vee\neg_*\sigma$ is
+  the compact Hausdorff Euclidean topology of $[0,\infty]$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Translation preserves order and directed suprema (with $T_s(\infty)=\infty$),
+so it is Scott-continuous, and its image $[s,\infty]$ is proper for $s>0$.  The
+way-below relation of the chain $L$ is $a\ll b\iff a<b$ for $a>0$ and $0\ll0$,
+which is exactly the displayed witnessing.  Scaling is a bijective order map,
+hence a Scott homeomorphism.  The reciprocal reverses order, so it is an order
+isomorphism $L\to L^{\mathrm{op}}$, i.e.\ a homeomorphism from the Scott
+topology to the Scott topology of the opposite order, which is the lower
+topology; $\neg_*\sigma=\omega$ follows by pushing forward the basic opens
+$(a,\infty]$ to $[0,1/a)$.  The last assertion is the classical fact that the
+join of the right and left half-open topologies on $[0,\infty]$ is the
+Euclidean topology \cite{Warner1990FuzzyTopology,GHKLM2003ContinuousLattices}.
+\end{proof}
+
+\subsection{The affine hierarchy and the Scott--Lawson functorial square}
+
+The additive and multiplicative directions assemble into a four-level algebraic
+hierarchy, and the passage from the one-sided Scott side to the two-sided
+Lawson side is exactly the passage from the positive affine semigroup to the
+full projective group.
+
+\begin{lemma}[Four-level affine hierarchy]
+\label{lem:four-level-affine-hierarchy}
+Over $\mathbb R$, write
+\[
+\operatorname{Aff}^+:=\{a\mapsto ka+s:k>0,\ s\ge0\},
+\qquad
+B_\infty=\operatorname{Stab}_{\operatorname{PGL}_2(\mathbb R)}(\infty).
+\]
+Then
+\[
+\operatorname{Aff}^+=B_\infty\cap\operatorname{Stab}([0,\infty]),
+\qquad
+\langle\operatorname{Aff}^+\rangle=B_\infty^+:=\{a\mapsto ka+s:k>0,\ s\in\mathbb R\},
+\]
+\[
+B_\infty=B_\infty^+\sqcup D_{-1}B_\infty^+,
+\qquad
+\operatorname{PGL}_2(\mathbb R)=\langle\operatorname{Aff}^+,\neg\rangle .
+\]
+The reflection $D_{-1}(z)=-z$ is not in $\langle\operatorname{Aff}^+\rangle$, but
+admits the explicit six-step decomposition
+\[
+D_{-1}=T_1\circ\neg\circ T_{-1}\circ\neg\circ T_1\circ\neg
+\ \in\ \langle\operatorname{Aff}^+,\neg\rangle .
+\]
+Hence the full affine group $B_\infty$ already carries dual data borrowed
+through the second-slot division $\neg$; the purely one-sided Scott carrier is
+the positive affine semigroup $\operatorname{Aff}^+$.
+\end{lemma}
+
+\begin{proof}
+An affine map $a\mapsto ka+s$ preserves $[0,\infty]$ exactly when $k>0$ and
+$s\ge0$, giving the intersection formula.  The group closure adds the inverses
+$T_{-s}=T_s^{-1}$ but keeps the diagonal positive, so it is $B_\infty^+$; the
+full $B_\infty$ is obtained by adjoining the reflection $D_{-1}$.  The six-step
+decomposition is checked by applying the maps in the displayed order:
+$z\mapsto1/z\mapsto 1/z+1\mapsto z/(1+z)\mapsto -1/(1+z)\mapsto -(1+z)\mapsto -z$.
+Finally $B_\infty^+\cup\{D_{-1}\}\subseteq\langle\operatorname{Aff}^+,\neg\rangle$
+forces $B_\infty\subseteq\langle\operatorname{Aff}^+,\neg\rangle$, and the Bruhat
+decomposition of \S\ref{sec:projective-affine} gives the whole of
+$\operatorname{PGL}_2(\mathbb R)$.
+\end{proof}
+
+\begin{theorem}[Scott--Lawson functorial square]
+\label{thm:scott-lawson-functorial-square}
+On $L=[0,\infty]$ consider the projective restrictions
+$A(\tau)=C(L,\tau)\cap B_\infty$,
+$E(\tau)=C(L,\tau)\cap\operatorname{PGL}_2(\mathbb R)$, and
+$H(\tau)=\operatorname{Homeo}(L,\tau)\cap\operatorname{PGL}_2(\mathbb R)$.
+\begin{enumerate}
+  \item \textbf{Homeomorphism level.} $H(\sigma)=\{D_k:k>0\}$ and
+  $H(\lambda)=\operatorname{Stab}([0,\infty])=\langle H(\sigma),\neg\rangle$ is a
+  proper subgroup of $\operatorname{PGL}_2(\mathbb R)$, because the translations
+  $T_s$ are not onto and so are invisible to the homeomorphism level.
+  \item \textbf{Endomorphism level.} $A(\sigma)=\operatorname{Aff}^+$.  On the
+  generating set $S_0=\{T_s(s\ge0),D_k(k>0)\}$, adjoining $\neg$ on the
+  topological side (the patch topology $\tau\mapsto\tau\vee\neg_*\tau$) and
+  adjoining $\neg$ on the group side (the closure $S\mapsto\langle S,\neg\rangle$)
+  form a commutative square with the naturality identity
+  \[
+  \Phi(\sigma\vee\neg_*\sigma)=\langle\Phi(\sigma),\neg\rangle
+  =\operatorname{PGL}_2(\mathbb R),
+  \qquad
+  \Phi(\sigma)=A(\sigma)=\operatorname{Aff}^+ .
+  \]
+  \item \textbf{No full Galois equivalence.} There is no single functor
+  $\operatorname{Top}(L)\to\operatorname{Sub}(\operatorname{PGL}_2(\mathbb R))$
+  that is injective on $\{\sigma,\lambda\}$ and takes the values
+  $(\operatorname{Aff}^+,\operatorname{PGL}_2)$: indeed
+  $A(\sigma)=A(\lambda)=\operatorname{Aff}^+$ (collapse),
+  $H(\lambda)\subsetneq\operatorname{PGL}_2$ (too small), and
+  $E(\sigma)\ni\neg T_s\neg$ (too large, already containing the non-affine
+  M\"obius map $a\mapsto a/(1+sa)$).
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(1) A projective $\sigma$-homeomorphism is an order-preserving M\"obius bijection
+of $[0,\infty]$, which must fix $0$ and $\infty$, hence is $a\mapsto ka$ with
+$k>0$; adjoining $\neg$ gives the set-wise stabilizer of $[0,\infty]$, which is
+the two classes $a\mapsto ka$ and $a\mapsto k/a$, a proper subgroup.  (2) The
+affine Scott-continuous self-maps of $L$ are exactly $a\mapsto ka+s$ with
+$k>0,s\ge0$ (order-preserving and mapping $L$ into $L$), which is
+$\operatorname{Aff}^+$; the commutativity is the observation that the patch
+topology $\sigma\vee\neg_*\sigma$ and the group closure $\langle\operatorname{Aff}^+,\neg\rangle$
+both adjoin the same generator $\neg$ to the same base.  (3) The three
+witnesses are displayed in the statement; $a\mapsto a/(1+sa)=\neg T_s\neg$ is
+order-preserving (Scott-continuous) but non-affine.
+\end{proof}
+
+\subsection{Scott continuity of evaluation and the Hecke boundary}
+
+The projective evaluation map $\rho$ of \S\ref{sec:projective-affine} is a
+monoid map, not an order-continuous one, and this fact pins down the scope
+boundary of the finite-history formalism.
+
+\begin{theorem}[Monotonicity obstruction]
+\label{thm:rho-monotonicity-obstruction}
+Let $\le$ be any partial order on $\operatorname{PGL}_2(K)$.  If
+$\rho:(\Gamma^*,\sqsubseteq)\to(\operatorname{PGL}_2(K),\le)$ is monotone, then
+$\le$ is the trivial preorder ($x\le y$ for all $x,y$).  Consequently $\rho$
+has no Scott-continuous extension to the history dcpo $\Gamma^{\le\omega}$
+valued in a non-degenerate dcpo.  In the Lawson (product) topology on
+$\Gamma^{\le\omega}$, the only candidate limit extension is the infinite matrix
+product
+\[
+\hat\rho(\gamma_\infty)=\lim_{n\to\infty}[M_n\cdots M_1],
+\]
+whose convergence on the alternating history $\gamma_i=(\neg,T_{a_i})$ is exactly
+the convergence of the generalized continued fraction $[a_0;a_1,a_2,\dots]$.
+\end{theorem}
+
+\begin{proof}
+Monotonicity of $\rho$ under the prefix order, together with the
+anti-homomorphism $\rho(\gamma\delta)=\rho(\delta)\rho(\gamma)$ and the
+surjectivity of $\rho$ (Theorem~\ref{thm:bilateral-pgl2-generation}), gives
+$h\le g\,h$ for all $g,h$.  Taking $g=h^{-1}$ yields $h\le 1$, and taking
+$h=1$ yields $1\le g$; hence every element is comparable to $1$ in both
+directions, i.e.\ the order is trivial.  The Scott-continuity claim follows from
+the free-dcpo universal property, which extends a monotone map uniquely.  The
+continued-fraction identification is the standard fact that an infinite product
+of M\"obius maps evaluated at a base point is a generalized continued fraction.
+\end{proof}
+
+\begin{proposition}[Hecke ends versus limit set]
+\label{prop:hecke-ends-vs-limit-set}
+For the $q=4$ Hecke sublanguage $\operatorname{Hist}_4$ with alphabet
+$\Gamma_4=\{\mathsf t_+,\mathsf t_-,\mathsf j\}$:
+\begin{enumerate}
+  \item the completed history space $\Gamma_4^{\le\omega}$ is compact Hausdorff
+  in the Lawson topology, and its infinite boundary
+  $\Gamma_4^\omega\cong 3^\omega$ is the standard Cantor space;
+  \item the projective group $G_4=\langle T,J\mid J^2=(JT)^4=1\rangle\cong C_2*C_4$
+  is virtually free, and its space of ends $\operatorname{Ends}(G_4)$ (the
+  boundary of the Bass--Serre tree) is a Cantor set, coded by the subshift of
+  finite type of reduced words avoiding $\{JJ,(JT)^4,(TJ)^4\}$;
+  \item as a Fuchsian group, $G_4=H(\sqrt2)$ (parameter
+  $\lambda_4=2\cos(\pi/4)=\sqrt2\le2$) is a first-kind lattice of finite
+  covolume, whose geometric limit set is the whole real projective circle
+  $\Lambda(G_4)=\mathbb P^1(\mathbb R)$, not a Cantor set.
+\end{enumerate}
+Thus the history Cantor space codes the combinatorial space of ends, not the
+first-kind limit set; the latter belongs to the downstream function theory.
+\end{proposition}
+
+\begin{proof}
+(1) is the product-topology description of the Lawson topology on the
+finite-alphabet word domain.  (2) is the identification of $G_4$ with the free
+product $C_2*C_4$ via $x=J$, $y=JT$, together with the classical description of
+the space of ends of a virtually free group as the boundary of its Bass--Serre
+tree.  (3) is the standard fact that the Hecke triangle group of parameter
+$\lambda_q=2\cos(\pi/q)$ is a lattice exactly for $\lambda_q\le2$.
+\end{proof}

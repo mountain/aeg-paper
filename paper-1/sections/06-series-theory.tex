@@ -1,0 +1,147 @@
+% Canonical Paper I source.
+
+The series pillar expands the history evaluation into the free Lie algebra: the
+formal logarithm of a word is a Magnus series whose arity-$k$ terms are carried
+by the $(k-1)$-cells of the down-set lattice of
+Theorem~\ref{thm:birkhoff-downset-spinal}.
+
+\subsection{The Magnus series of a history}
+
+\begin{definition}[History Magnus series]
+\label{def:history-magnus-series}
+For a chronological history $\gamma=(e^{X_1},\dots,e^{X_n})$ of infinitesimal
+generators, the formal logarithm of its evaluation
+$\rho(\gamma)=e^{X_n}\cdots e^{X_1}$ is the \emph{Magnus series} in the
+completed free Lie algebra $\operatorname{Lie}(X_1,\dots,X_n)$:
+\[
+  \Omega(\gamma)
+  =\log\bigl(e^{X_n}\cdots e^{X_1}\bigr)
+  =\underbrace{\sum_{i=1}^n X_i}_{\Omega_1}
+  +\underbrace{\tfrac12\sum_{i<j}[X_j,X_i]}_{\Omega_2}
+  +\underbrace{\tfrac1{12}\sum_{i,j,k}\bigl(2[X_i,[X_j,X_k]]+\cdots\bigr)}_{\Omega_3}
+  +\cdots
+\]
+\end{definition}
+
+The three leading orders have the following meaning: $\Omega_1$ is the abelian
+charge (the sum of the generators), $\Omega_2$ is the commutator (the curvature
+of Section~\ref{sec:differential-theory}), and $\Omega_3$ and higher are the
+nested brackets.  The exact coefficients are recorded, together with their
+symbolic verification, in Appendix~\ref{app:magnus-verification}.
+
+\subsection{Arity--cell correspondence and DAG completeness}
+
+Decompose the brackets of $\Omega(\gamma)$ by the number of \emph{distinct}
+generators they contain (the arity) versus the repeated-generator self-nesting.
+
+\begin{proposition}[Arity--cell correspondence, low order]
+\label{prop:arity-cell-correspondence-low-order}
+\begin{enumerate}
+  \item \textbf{Low orders (verified).} For the Magnus series of
+  Definition~\ref{def:history-magnus-series}:
+  \begin{itemize}
+    \item $\mathrm{arity}=1$ (the generators $X_i$) $\leftrightarrow$ the
+    $0$-cells of $\mathcal O(P)$ (the scalar charges);
+    \item $\mathrm{arity}=2$ (the commutators $[X_i,X_j]$) $\leftrightarrow$ the
+    $1$-cells of $\mathcal O(P)$ (the two-element antichains, i.e.\ the diamonds
+    $B_2$), whose coefficient is the contact curvature $\mu\lambda$;
+    \item $\mathrm{arity}=3$ (the nested brackets $[X,[Y,Z]]$,
+    $[Y,[Z,X]]$, $[Z,[X,Y]]$) $\leftrightarrow$ the $2$-cells of $\mathcal O(P)$
+    (the three-element antichains).  In the order-three free nilpotent matrix
+    model $X=E_{12}$, $Y=E_{23}$, $Z=E_{34}$ the coefficient of the
+    $E_{14}$-term of $\log(e^{hX}e^{kY}e^{lZ})$ is
+    $\tfrac13 hkl\,[X,[Y,Z]]$ (Appendix~\ref{app:magnus-verification}).
+  \end{itemize}
+  Repeated-generator terms such as $[X,[X,Y]]$ do not correspond to a new
+  antichain cell; they are the higher-order self-corrections of the single flow
+  $e^{hX}$.
+  \item \textbf{DAG completeness.} The two-dimensional contact distribution
+  $\mathcal D=\operatorname{span}\{D_u,D_v\}$ has only two generators, so its
+  free Lie algebra has $\mathrm{arity}\le2$: every bracket of depth three or
+  more is a repeated-generator self-nesting.  Only on a general branching DAG
+  with $n$ mutually incomparable operations does $\operatorname{Lie}(X_1,\dots,X_n)$
+  contain arity-$3,\dots,n$ brackets, encoding the higher-dimensional cells of
+  $\mathcal O(P)$.
+  \item \textbf{Open boundary.} The general arity-$k$ localization theorem (that
+  the arity-$k$ terms are carried exactly by the $k$-element antichains) and the
+  full DAG Lie realization functor
+  $F:\operatorname{FinDAG}\to\operatorname{Lie}(g_1,\dots,g_n)$ are open
+  (OQ-095.1, OQ-095.2); beyond order three they are a structural proposal, not a
+  theorem.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+The low-order correspondence is the computation of
+Appendix~\ref{app:magnus-verification}; the DAG-completeness observation is the
+rank of the free Lie algebra on two versus on $n$ generators; the open
+boundary is stated explicitly and not proved here.
+\end{proof}
+
+\subsection{Bulk--boundary reduction of the series}
+
+\begin{proposition}[Bulk--boundary series reduction]
+\label{prop:bulk-boundary-series-reduction}
+The Magnus series of the bulk undergoes three simplifications on projection to
+the surface:
+\begin{enumerate}
+  \item \textbf{Degree descent.} The two-form curvature carrier $d\alpha$
+  (corresponding to the arity-$2$ brackets) descends to the one-form potential
+  $-\lambda a\,dv$ on the surface (Stokes of
+  Proposition~\ref{prop:holographic-stokes-minimal});
+  \item \textbf{Cocycle reduction.} By the closure of
+  Theorem~\ref{thm:defect-group-1-cocycle}, the interior-cell higher-order terms
+  cancel in pairs around the closed boundary, leaving only the cohomology class;
+  \item \textbf{Canonical form.} The Magnus series depends on the ordering of
+  the generators and the Hall/Lyndon basis (non-canonical), while its evaluation
+  at the ideal boundary $\Gamma^\omega$ is the infinite M\"obius product, i.e.\
+  the continued fraction, which is canonical (unique partial quotients).
+\end{enumerate}
+\end{proposition}
+
+\subsection{PBW abelianization and the difference substitution}
+
+The abelianization of the Magnus series is exactly the cumulative sum, which is
+the algebraic form of the difference substitution of automated inequality
+proving.
+
+\begin{theorem}[PBW abelianization equals the difference substitution]
+\label{thm:pbw-abelianization-difference-substitution}
+Let $\mathfrak L=\operatorname{Lie}(X_1,\dots,X_n)$.  By the
+Poincar\'e--Birkhoff--Witt theorem,
+$\operatorname{gr}(U(\mathfrak L))\cong S(\mathfrak L)$, the symmetric algebra.
+Setting all brackets to zero (abelianization, i.e.\ the contact defect
+$\mu\lambda=0$):
+\begin{enumerate}
+  \item the Lyndon/Hall basis of $\mathfrak L$ degenerates to the commutative
+  monomial basis $d_1^{\alpha_1}\cdots d_n^{\alpha_n}$ of $S(\mathfrak L)$;
+  \item the non-commutative Magnus series $\log(e^{X_1}\cdots e^{X_j})$
+  degenerates to the abelian cumulative sum $x_j=d_1+\cdots+d_j$;
+  \item this cumulative sum and the monomial expansion are the algebraic
+  structure of the \emph{difference substitution} used in automated inequality
+  proving: on the non-commutative side one extracts the Magnus defect
+  coefficients, while on the commutative side one tests the nonnegativity of the
+  monomial coefficients over all $n!$ orderings.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(1) is the PBW theorem; (2) is the BCH formula with all brackets set to zero,
+$e^Xe^Y=e^{X+Y}$; (3) is the structural identification of the cumulative sum
+with the difference substitution, stated as a correspondence rather than a
+claim of equivalence of the two algorithms.
+\end{proof}
+
+\begin{remark}[Wu--Zhang nondegeneracy correspondence]
+\label{rem:wu-zhang-nondegeneracy-correspondence}
+The pseudodivision of the Wu elimination method (multiplying instead of
+dividing, pushing the singularity to the initial $\operatorname{lc}\ne0$
+boundary) and the weak-nondegeneracy improvement of the area method correspond
+structurally to replacing, in AEG, the naive swap $T_s\circ D_k$ (with defect
+$\mu\lambda$) by the semi-direct rescaling law $D_k\circ T_s=T_{ks}\circ D_k$
+(no defect).  The two degenerations differ: $\operatorname{lc}=0$ is
+non-invertibility of the multiplicative side, while $\mu\lambda=0$ is
+integrability of the horizontal distribution; and the carriers differ (the
+polynomial ring versus the affine flow).  This correspondence is a structural
+proposal, not a theorem.
+\end{remark}
