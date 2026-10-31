@@ -4075,3 +4075,53 @@ reserve and require integration audit before manuscript promotion.
 production residuals). General composition is V3; the AES/Seal bridge is V4.
 Their results must not be inferred from V1 success.
 
+---
+
+## OQ-097 — The surface series (Magnus series projected to the Legendre quotients)
+
+**Priority:** P2
+**State:** OPEN (2026-10-31) — registered with the calculus-dictionary surface
+column rewrite; the series pillar is developed for the bulk, not for the
+surface.
+
+**Question:** The Magnus series `Ω(γ)` of the series pillar (Paper I §6) is
+expanded in the free Lie algebra of the bulk contact model. What is its
+reduction to the two Legendre quotients — the charge plane `π` and the Reeb
+quotient `Q` — and in what sense is that reduction a "surface series"?
+
+**Why it matters:** The calculus dictionary's surface column is now the
+Legendre pair `(π, Q)`, whose differential and integral calculus are symbolic
+(`e^{M_*−M} dA∧dM` on `π`, `dvol` on `Q`). The series column has no
+corresponding symbolic surface form: the only candidate reduction is the
+continued fraction as a canonical `Q`-boundary form
+(`prop:bulk-boundary-series-reduction`), which is a structural proposal, not a
+theorem. A symbolic surface series would complete the four-column dictionary
+(classical / bulk / surface / series) on the Taylor row.
+
+**Current evidence:** `prop:bulk-boundary-series-reduction` records the degree
+descent (two-form curvature → one-form potential, Stokes) and the cocycle
+reduction (interior cancellations by the 1-cocycle closure), both proved, and
+the continued-fraction canonical form, a structural proposal. The PBW
+abelianization (`thm:pbw-abelianization-difference-substitution`) is a bulk
+abelianization, not a projection to `π` or `Q`.
+
+**Default rule while open:** Do not state a symbolic "surface series" as proved.
+Cite the continued fraction only as a structural proposal; keep the series
+column's surface cell marked open (OQ-097).
+
+**Resolution condition:**
+- 097.1: a well-defined reduction of `Ω(γ)` to the charge plane `π` (the
+  `e^{−M}`-normalized / weighted series) with a convergence or asymptotic
+  statement.
+- 097.2: a well-defined reduction to the Reeb quotient `Q` (the hyperbolic /
+  continued-fraction side) and its relation to 097.1 under Legendre duality.
+
+**Affected files:** `paper-1/sections/07-calculus-dictionary.tex`,
+`paper-1/sections/06-series-theory.tex`.
+**Affected theorem nodes:** none (no Paper I theorem depends on a surface
+series).
+**Owner:** author.
+**Decision record:** the surface series is the series-side counterpart of
+OQ-095.3/OQ-095.4 (macro Stokes and spectral docking); registered alongside the
+calculus-dictionary surface-column rewrite of 2026-10-31.
+
