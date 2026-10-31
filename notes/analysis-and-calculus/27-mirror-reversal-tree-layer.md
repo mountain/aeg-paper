@@ -66,13 +66,23 @@ $$
 
 ---
 
-## 4. `[Donaghey]` `Z₂*Z₂`/无限阶依赖**分支**，不属于 comb 层
+## 4. `[Donaghey]` `Z₂*Z₂`/无限阶依赖**分支**，不属于 comb 层（已计算验证）
 
 - **Theorem 6.4**（Pushkarev–Byzov）：$\langle\sigma,\tilde\theta\rangle\cong\mathbb Z_2*\mathbb Z_2$；$\tau$ 无限阶（Cor 6.3：存在任意长轨道）。
-- **关键观察**：Cor 6.3 的长轨道构造是"**完全 $n$ 层树**"的**迭代 fringing**（$Q(T)$）。fringing 给每个叶加左右二子——把 **comb 的叶**变成带子的内部点，**产生分支**。故长轨道 / `Z₂*Z₂` 只出现在**分支树**上，而 **comb（单脊）上 $\tau$ 是温顺的**（阶有界）。
-- 也就是说：**Donaghey 的"双曲性"是分支层的现象**，对应 AEG 的**分支层**（依赖偏序 $P$、线性扩张、$\mathcal O(P)$），**不是** marked-history（comb）层。
+- **构造提示**：Cor 6.3 的长轨道是"**完全 $n$ 层树**"的**迭代 fringing**（$Q(T)$）；fringing 给每个叶加左右二子，**产生分支**。
+- **计算验证**（`research/donaghey-orbits/`，见 §4bis）：在 $n\le10$ 的 PPCT 上直接实现 `τ`（右分解→左分解），**精确复现 Donaghey 的轨道多项式 $M_n(x)$（$n=1..10$ 全中）**；并证：
+  - **`τ` 不保持 caterpillar（单脊 comb）子族**：$n$ 叶有 $2^{n-2}$ 个 caterpillar，但只有 $n-1$ 个被 `τ` 映回 caterpillar，其余立刻进入分支树；
+  - **所有长度 $>6$ 的长轨道都不含 caterpillar**（$n=4..10$ 全成立）。
 
-`[Donaghey]`（`CLASSICAL`，Theorem 6.4 / Cor 6.3；"comb 层温顺"是从 fringing 构造推出的观察，**需独立验证**，见 §6 残余）。
+故 **`τ` 甚至不是 comb 层的自映射**；"双曲性/长轨道"是**分支层**（依赖偏序 $P$、线性扩张、$\mathcal O(P)$）的现象，**不是** marked-history（comb）层。
+
+`[Donaghey]`（`CLASSICAL`，Theorem 6.4/Cor 6.3；caterpillar 非保持与长轨道全分支为 **`COMPUTATIONALLY VERIFIED EXAMPLE`**，`n≤10`，见 §4bis）。
+
+### 4bis. 计算验证（`research/donaghey-orbits/`）
+
+- 脚本 `verify_orbits.py` 实现 `τ`（Pushkarev–Byzov Definition 2.1），`n=1..10` 的轨道分布与 $M_n(x)$ 逐项一致：$n=1{:[1]},\ 2{:[1]},\ 3{:[2]},\ 4{:[2,3]},\ 5{:[2,6,6]},\dots,10$（见 `evidence-v1.json`）。
+- Caterpillar：$n=4..10$ 的 caterpillar 总数 $2^{n-2}$，`cat→cat` 数恰为 $n-1$；长度 $>6$ 的长轨道无一含 caterpillar。
+- 状态：`COMPUTATIONALLY VERIFIED EXAMPLE`（同作者有限计算，非独立人工复核；不证明一般 $n$）。
 
 ---
 
@@ -99,14 +109,14 @@ $$
 | §2 双射保交换、comb 层 Klein | `CLASSICAL` 双射 + 群论恒等式 |
 | §3 `σ=m` | `[对应]` 精确 |
 | §3 `θ̃≠r` | `[对应]` `structural proposal` |
-| §4 `Z₂*Z₂`/无限阶在分支 | `CLASSICAL`（Thm 6.4/Cor 6.3）；"comb 温顺"待证 |
+| §4 `Z₂*Z₂`/无限阶在分支 | `CLASSICAL`（Thm 6.4/Cor 6.3）；caterpillar 非保持与长轨道全分支 = **`COMPUTATIONALLY VERIFIED EXAMPLE`**（`n≤10`，§4bis）|
 | §5 098.1 comb 层否定 | `[对应]`（精确） |
 
 **残余（`open`）**：
 
-1. **comb 上 `τ` 的确切阶**（§4 的"温顺"断言）：需实现 Definition 2.1/2.2（右分解→左分解）并在 $n\le 4$ 的 PPCT 上验证轨道长与 Donaghey 的 $M_n(x)$ 一致；再单独看 comb 子集的阶是否 ≤2。
+1. **`τ` 在 comb 上的确切结构（一般 $n$）**：计算已验证 $n\le10$ 时 `τ` 不保持 caterpillar（只有 $n-1$ 个 cat→cat）且长轨道全分支；但"$n$ 叶恰有 $n-1$ 个 cat→cat"的一般性、以及 $n-1$ 个稳定 caterpillar 的具体刻画，仍是 `open`（有限证据不支持一般断言）。
 2. **`θ̃` 的 AEG 内在定义**（§5.1）：能否不借助 Donaghey，在 comb 的 up-down 码上定义"路径反射"，并证明它与 `m` 生成 `Z₂*Z₂`？
-3. **分支层的提升**（§5.2）：Donaghey 的 `τ` 在"依赖偏序 → 线性扩张"层面是否有对应？这会把 §5.2 与 OQ-098.2（$\mathcal O(P)$ 格）连起来。
+3. **分支层的提升**（§5.2）：Donaghey 的 `τ` 在"依赖偏序 → 线性扩张"层面是否有对应？这与 OQ-098.2（$\mathcal O(P)$ 格）相连。
 
 ---
 

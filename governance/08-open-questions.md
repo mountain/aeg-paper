@@ -4182,8 +4182,14 @@ four Catalan families ↔ binary vs general trees. The difference `Z₂×Z₂` v
   *Shifted residuals* (open): (a) is there an intrinsic AEG definition of a
   "path reflection" `θ̃ ≠ r`, and does it generate `Z₂*Z₂` with `m`? (b) does the
   branching layer (dependence poset `P`, linear extensions, `O(P)`) reproduce the
-  infinite-order / "hyperbolic" behaviour of `τ`? (c) the exact order of `τ` on
-  combs (the "tame" claim) still needs a direct check against Donaghey's `M_n(x)`.
+  infinite-order / "hyperbolic" behaviour of `τ`? (c) the general-`n` structure of
+  `τ` on caterpillars ("only `n-1` of the `2^{n-2}` map to caterpillars" is
+  verified for `n ≤ 10` but not proved in general). **Finite update (2026-10-31):**
+  `research/donaghey-orbits/` implements `τ` (Pushkarev–Byzov Def. 2.1) and
+  reproduces Donaghey's `M_n(x)` for `n = 1..10`; caterpillars (single-spine /
+  comb trees) are **not** preserved by `τ` (`n-1` cat→cat out of `2^{n-2}`), and
+  every orbit of length `> 6` is entirely branching. This is a same-author finite
+  computation (`COMPUTATIONALLY VERIFIED EXAMPLE`, `n ≤ 10`), not a general proof.
 - **098.2 — PPCT lattice vs `O(P)`.** The Pushkarev–Byzov text states that PPCTs
   form a distributive lattice whose irreducibles are ordered as the infinite
   cubic tree. Identify this lattice (Tamari-type or otherwise), and determine
@@ -4207,6 +4213,8 @@ bijections themselves are classical and may be cited as such.
 
 **Affected files:**
 `notes/analysis-and-calculus/26-donaghey-general-to-binary-tree.md`;
+`notes/analysis-and-calculus/27-mirror-reversal-tree-layer.md`;
+`research/donaghey-orbits/` (finite verification);
 `paper-0/sections/03-aes-and-motion.tex` (left/right comb convention);
 `paper-1/sections/02-sequential-histories.tex` (mirror / reversal / path inverse,
 Birkhoff).

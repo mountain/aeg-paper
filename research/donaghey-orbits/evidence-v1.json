@@ -1,0 +1,424 @@
+{
+  "M_n_validation": {
+    "1": {
+      "expected": {
+        "1": 1
+      },
+      "match": true,
+      "orbit_lengths": {
+        "1": 1
+      },
+      "trees": 1
+    },
+    "10": {
+      "expected": {
+        "10": 1,
+        "126": 2,
+        "14": 10,
+        "144": 3,
+        "147": 1,
+        "18": 4,
+        "2": 3,
+        "20": 13,
+        "24": 1,
+        "27": 1,
+        "28": 2,
+        "3": 15,
+        "30": 2,
+        "33": 1,
+        "36": 6,
+        "42": 10,
+        "45": 1,
+        "48": 5,
+        "5": 1,
+        "54": 4,
+        "6": 127,
+        "72": 15,
+        "8": 1,
+        "9": 4,
+        "90": 3
+      },
+      "match": true,
+      "orbit_lengths": {
+        "10": 1,
+        "126": 2,
+        "14": 10,
+        "144": 3,
+        "147": 1,
+        "18": 4,
+        "2": 3,
+        "20": 13,
+        "24": 1,
+        "27": 1,
+        "28": 2,
+        "3": 15,
+        "30": 2,
+        "33": 1,
+        "36": 6,
+        "42": 10,
+        "45": 1,
+        "48": 5,
+        "5": 1,
+        "54": 4,
+        "6": 127,
+        "72": 15,
+        "8": 1,
+        "9": 4,
+        "90": 3
+      },
+      "trees": 4862
+    },
+    "2": {
+      "expected": {
+        "1": 1
+      },
+      "match": true,
+      "orbit_lengths": {
+        "1": 1
+      },
+      "trees": 1
+    },
+    "3": {
+      "expected": {
+        "2": 1
+      },
+      "match": true,
+      "orbit_lengths": {
+        "2": 1
+      },
+      "trees": 2
+    },
+    "4": {
+      "expected": {
+        "2": 1,
+        "3": 1
+      },
+      "match": true,
+      "orbit_lengths": {
+        "2": 1,
+        "3": 1
+      },
+      "trees": 5
+    },
+    "5": {
+      "expected": {
+        "2": 1,
+        "6": 2
+      },
+      "match": true,
+      "orbit_lengths": {
+        "2": 1,
+        "6": 2
+      },
+      "trees": 14
+    },
+    "6": {
+      "expected": {
+        "2": 2,
+        "3": 3,
+        "5": 1,
+        "6": 4
+      },
+      "match": true,
+      "orbit_lengths": {
+        "2": 2,
+        "3": 3,
+        "5": 1,
+        "6": 4
+      },
+      "trees": 42
+    },
+    "7": {
+      "expected": {
+        "2": 2,
+        "20": 1,
+        "24": 1,
+        "6": 14
+      },
+      "match": true,
+      "orbit_lengths": {
+        "2": 2,
+        "20": 1,
+        "24": 1,
+        "6": 14
+      },
+      "trees": 132
+    },
+    "8": {
+      "expected": {
+        "10": 1,
+        "15": 1,
+        "18": 1,
+        "2": 2,
+        "20": 2,
+        "24": 1,
+        "3": 7,
+        "48": 1,
+        "6": 28,
+        "72": 1,
+        "9": 1
+      },
+      "match": true,
+      "orbit_lengths": {
+        "10": 1,
+        "15": 1,
+        "18": 1,
+        "2": 2,
+        "20": 2,
+        "24": 1,
+        "3": 7,
+        "48": 1,
+        "6": 28,
+        "72": 1,
+        "9": 1
+      },
+      "trees": 429
+    },
+    "9": {
+      "expected": {
+        "10": 2,
+        "12": 3,
+        "14": 2,
+        "144": 1,
+        "2": 3,
+        "20": 5,
+        "24": 1,
+        "36": 1,
+        "4": 1,
+        "42": 2,
+        "48": 1,
+        "54": 1,
+        "6": 66,
+        "72": 5,
+        "90": 1
+      },
+      "match": true,
+      "orbit_lengths": {
+        "10": 2,
+        "12": 3,
+        "14": 2,
+        "144": 1,
+        "2": 3,
+        "20": 5,
+        "24": 1,
+        "36": 1,
+        "4": 1,
+        "42": 2,
+        "48": 1,
+        "54": 1,
+        "6": 66,
+        "72": 5,
+        "90": 1
+      },
+      "trees": 1430
+    }
+  },
+  "caterpillar": {
+    "10": {
+      "caterpillars": 256,
+      "caterpillars_mapping_to_caterpillars": 9,
+      "caterpillars_total_expected": 256,
+      "long_orbit_lengths": [
+        8,
+        9,
+        9,
+        9,
+        9,
+        10,
+        14,
+        14,
+        14,
+        14,
+        14,
+        14,
+        14,
+        14,
+        14,
+        14,
+        18,
+        18,
+        18,
+        18,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        24,
+        27,
+        28,
+        28,
+        30,
+        30,
+        33,
+        36,
+        36,
+        36,
+        36,
+        36,
+        36,
+        42,
+        42,
+        42,
+        42,
+        42,
+        42,
+        42,
+        42,
+        42,
+        42,
+        45,
+        48,
+        48,
+        48,
+        48,
+        48,
+        54,
+        54,
+        54,
+        54,
+        72,
+        72,
+        72,
+        72,
+        72,
+        72,
+        72,
+        72,
+        72,
+        72,
+        72,
+        72,
+        72,
+        72,
+        72,
+        90,
+        90,
+        90,
+        126,
+        126,
+        144,
+        144,
+        144,
+        147
+      ],
+      "long_orbits_containing_caterpillar": 0,
+      "long_orbits_gt6": 90,
+      "orbits": 236,
+      "trees": 4862
+    },
+    "4": {
+      "caterpillars": 4,
+      "caterpillars_mapping_to_caterpillars": 3,
+      "caterpillars_total_expected": 4,
+      "long_orbit_lengths": [],
+      "long_orbits_containing_caterpillar": 0,
+      "long_orbits_gt6": 0,
+      "orbits": 2,
+      "trees": 5
+    },
+    "5": {
+      "caterpillars": 8,
+      "caterpillars_mapping_to_caterpillars": 4,
+      "caterpillars_total_expected": 8,
+      "long_orbit_lengths": [],
+      "long_orbits_containing_caterpillar": 0,
+      "long_orbits_gt6": 0,
+      "orbits": 3,
+      "trees": 14
+    },
+    "6": {
+      "caterpillars": 16,
+      "caterpillars_mapping_to_caterpillars": 5,
+      "caterpillars_total_expected": 16,
+      "long_orbit_lengths": [],
+      "long_orbits_containing_caterpillar": 0,
+      "long_orbits_gt6": 0,
+      "orbits": 10,
+      "trees": 42
+    },
+    "7": {
+      "caterpillars": 32,
+      "caterpillars_mapping_to_caterpillars": 6,
+      "caterpillars_total_expected": 32,
+      "long_orbit_lengths": [
+        20,
+        24
+      ],
+      "long_orbits_containing_caterpillar": 0,
+      "long_orbits_gt6": 2,
+      "orbits": 18,
+      "trees": 132
+    },
+    "8": {
+      "caterpillars": 64,
+      "caterpillars_mapping_to_caterpillars": 7,
+      "caterpillars_total_expected": 64,
+      "long_orbit_lengths": [
+        9,
+        10,
+        15,
+        18,
+        20,
+        20,
+        24,
+        48,
+        72
+      ],
+      "long_orbits_containing_caterpillar": 0,
+      "long_orbits_gt6": 9,
+      "orbits": 46,
+      "trees": 429
+    },
+    "9": {
+      "caterpillars": 128,
+      "caterpillars_mapping_to_caterpillars": 8,
+      "caterpillars_total_expected": 128,
+      "long_orbit_lengths": [
+        10,
+        10,
+        12,
+        12,
+        12,
+        14,
+        14,
+        20,
+        20,
+        20,
+        20,
+        20,
+        24,
+        36,
+        42,
+        42,
+        48,
+        54,
+        72,
+        72,
+        72,
+        72,
+        72,
+        90,
+        144
+      ],
+      "long_orbits_containing_caterpillar": 0,
+      "long_orbits_gt6": 25,
+      "orbits": 95,
+      "trees": 1430
+    }
+  },
+  "summary": {
+    "M_n_match_all": true,
+    "caterpillar_count_formula": "2^(n-2)",
+    "comment": "tau does not preserve caterpillars; every long (>6) orbit is entirely branching. See note 27 / OQ-098.1.",
+    "long_orbits_contain_caterpillar": false
+  }
+}
