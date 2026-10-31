@@ -4005,7 +4005,8 @@ them yet).
 ## OQ-096 — Pants, interface disks and certified capping
 
 **Priority:** P2
-**State:** OPEN (2026-10-31).
+**State:** OPEN (2026-10-31); 096.1 has a completed V1 finite example, with
+general composition still open. Sub-items 096.2–096.4 remain open.
 **Origin:** Mingli Yuan asks to clarify pants, DAG substitution, the shared
 boundary's cap and its spectral value before assigning geometric meaning to
 Adva sealing. Codex (OpenAI) formalized the initial proposal and finite
@@ -4054,10 +4055,23 @@ boundary, a TQFT or native Adva admission. Keep pure dataflow scheduling
 separate from noncommuting actions on a shared accumulator. OQ-095 remains
 open and is not a prerequisite for the finite topological example.
 
-**Affected files:** note 25 and its future explicitly versioned finite evidence.
+**Finite update (2026-10-31):** V1 is implemented at
+`research/pants-interface-disks/`: 56 cubes, 336 tetrahedra, all 132 whole-body
+vertex links checked, two three-boundary pants and one four-boundary side
+surface. The explicit internal disk fills the seam circle, whereas the
+side-surface mod-two boundary matrix has rank 110 and augmented rank 111:
+the same circle does not bound a surface two-chain. Exact substitution gives
+interface 5 and output 20. Ten negative controls reject; normal/optimized
+output and fresh-process saved-candidate reception agree. This is one
+same-author finite calibration, not a general thickening functor or native
+Adva execution. It records Mingli Yuan's complementary surface-hole/body-disk
+view as a precisely bounded result.
+
+**Affected files:** note 25 and `research/pants-interface-disks/` (V1).
 **Affected theorem nodes:** none; the new proofs remain in the working-note
 reserve and require integration audit before manuscript promotion.
 **Owner:** author.
-**Next bounded target:** note 25 V1 only; later stages require their stated
-prerequisites and their results must not be inferred from V1 success.
+**Next bounded target:** note 25 V2 (equal interface values with distinct
+production residuals). General composition is V3; the AES/Seal bridge is V4.
+Their results must not be inferred from V1 success.
 

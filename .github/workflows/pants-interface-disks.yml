@@ -1,0 +1,36 @@
+name: OQ-096 pants and interface disk calibration
+
+on:
+  pull_request:
+    paths:
+      - "research/pants-interface-disks/**"
+      - "notes/analysis-and-calculus/25-pants-interface-disks-and-substitution.md"
+      - ".github/workflows/pants-interface-disks.yml"
+  push:
+    branches: [main]
+    paths:
+      - "research/pants-interface-disks/**"
+      - "notes/analysis-and-calculus/25-pants-interface-disks-and-substitution.md"
+      - ".github/workflows/pants-interface-disks.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  finite-example:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Replay geometry, substitution, homology and negative controls
+        run: |
+          python3 research/pants-interface-disks/verify_v1.py > /tmp/oq096-normal.json
+          cmp /tmp/oq096-normal.json research/pants-interface-disks/evidence-v1.json
+          python3 -O research/pants-interface-disks/verify_v1.py > /tmp/oq096-optimized.json
+          cmp /tmp/oq096-normal.json /tmp/oq096-optimized.json
+      - name: Receive the saved candidate in a fresh process
+        run: python3 research/pants-interface-disks/verify_v1.py --receive research/pants-interface-disks/evidence-v1.json
