@@ -178,29 +178,44 @@ Paper I must not claim that:
 
 ## 7. Recommended section sequence
 
+> **Version 2.0 (2026-10-31).** This sequence supersedes the ten-section
+> sequence of Version 1.x per `governance/00d-paper-I-calculus-and-capping-amendment.md`
+> (Plan B: self-contained combined volume). The analysis three pillars and the
+> hole–cap geometry are now Paper I's own chapters.
+
 The target Paper I should have the following main structure:
 
 ```text
-1. Introduction
-2. Sequential Arithmetic Histories
-3. Projective Semantics and the Affine Sector
-4. Affine Cocycles and Relative Defects
-5. Continuous Arithmetic Flow
-6. The Basic Hyperbolic Expression Space
-7. Zero Loci and Singular Expression Spaces
-8. Global Torsion and the Accumulative Commutative Space
-9. Contact Connection and Horizontal Curvature
-10. Conclusions and Research Interfaces
+Section 0. Interface: Imported Geometric Primitives from Paper 0
+Section 1. Introduction: From Process Histories to Order-Topological Calculus
+           and Hole–Cap Geometry
+Section 2. Sequential and Branching Arithmetic Histories: Spine Classification,
+           Down-Set DCPOs, and Birkhoff Duality
+Section 3. Bilateral Projective Semantics, the Affine Sector, and the
+           Scott–Lawson Topological Correspondence
+Section 4. Analytical Pillar I — Differential Theory: the Smoothing Lie Functor,
+           Minimal DAG Defects, and Graded Horizontal Calculus
+Section 5. Analytical Pillar II — Integral Theory: Mixed Affine Integration,
+           Dual Adjoint Pairing, 1-Cocycles, and Holographic Stokes
+Section 6. Analytical Pillar III — Series Theory: Free Lie Algebra Magnus
+           Expansion, Arity–Cell Correspondence, and Abelianization
+Section 7. Geometric Characterization I — Taxonomy of Holes, Essential
+           Punctures, and Regular Zero Rigidity
+Section 8. Geometric Characterization II — Theory of Caps: Ball-and-Tube
+           Thickening, Hole–Disk Complementarity, Capping Obstructions, and
+           Certified Sealing
+Section 9. Conclusions, Claim-Status Ledger, and Downstream Research Interfaces
 ```
 
 Recommended appendices:
 
 ```text
-Appendix A. Conventions for chronological composition and matrix actions
-Appendix B. Supplementary affine-cocycle calculations
-Appendix C. Hyperbolic-model calculations
-Appendix D. Supplementary ACS and contact computations
-Appendix E. Examples separating equality and neutrality levels
+Appendix A. Chronological Composition, Matrix Actions, and Orientation Conventions
+Appendix B. Equality, Neutrality, and Residual Separation Examples
+Appendix C. Symbolic and Computational Verifications for the Magnus Series
+            (Up to Order 3) and PBW Abelianization
+Appendix D. Finite Cellulation and Mod-2 Homology Verification Protocol for
+            Pants Gluing and Interface Disks (V1–V4)
 ```
 
 ---

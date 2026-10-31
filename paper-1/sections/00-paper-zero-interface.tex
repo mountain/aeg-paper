@@ -20,21 +20,35 @@ The division of labour is therefore the following.
   $\mathfrak E_0$ and $\mathfrak E_1$, ripple geometry, affine cocycles, the
   accumulative commutative space and tearing, and the contact structure of the
   tearing.
-  \item \textbf{Paper I:} intrinsic sequential histories, bilateral projective
-  evaluation, the Hecke sublanguage, and the zero geometry of regular and
-  singular spaces.
+  \item \textbf{Paper I:} intrinsic sequential and branching histories, bilateral
+  projective evaluation, the Scott--Lawson order topology of histories, the
+  analysis three pillars (differential, integral, series), and the hole--cap
+  fine geometry of the regular and singular zero theory.
 \end{itemize}
-This is the reverse of the arrangement that held before the amendment recorded
-in \path{governance/00b-paper-0-geometric-foundation-amendment.md}: the
-geometric chapters that formerly stood here are now developed there, at the same
-labels and with the same proofs.  Paper~I repeats exactly one imported
-definition --- the regular AES and its canonical frame, in
-Section~\ref{sec:regular-aes-interface} --- because the zero theorems below are
-stated in those terms; every other result of Paper~0 is cited rather than
-repeated.
+Per the amendment recorded in
+\path{governance/00d-paper-I-calculus-and-capping-amendment.md}, the analysis
+and the hole--cap geometry are now developed \emph{here}; Paper~0's contact,
+ACS, and punctured-AES chapters are the canonical upstream, and this paper
+restates the specific primitives it needs at the same labels.
 
-Two conventions are shared and used identically in both papers.  A pole or
-projective value at infinity never certifies ordinary admissibility of a
-division step; that distinction remains active here.  And a historical word such
-as ``left-expanded'' is meaningful only under the explicit operand-slot
-recursion fixed in Paper~0.
+This paper imports, with labels and proofs unchanged from Paper~0:
+\begin{enumerate}
+  \item the regular arithmetic expression space
+  $\bigl(M,g,a;\mu,\lambda\bigr)$ and its eikonal axiom
+  $|\nabla a|_g^2=\mu^2+\lambda^2 a^2$ with $\mu\ne0$
+  (\texttt{def:regular-aes}), together with the canonical arithmetic frame
+  (\texttt{prop:canonical-arithmetic-frame});
+  \item the arithmetic contact model $\mathcal C=\mathbb R^3_{(u,v,a)}$, the
+  contact one-form $\alpha=da-\mu\,du-\lambda a\,dv$
+  (\texttt{eq:arithmetic-contact-form}), the horizontal fields
+  $D_u=\partial_u+\mu\partial_a$, $D_v=\partial_v+\lambda a\partial_a$
+  (\texttt{eq:horizontal-arithmetic-fields}), and the contact curvature bracket
+  $[D_u,D_v]=\mu\lambda\,\partial_a$ (\texttt{thm:contact-curvature});
+  \item the accumulative commutative space $\mathcal A=\mathbb R^2_{(A,M)}$ and
+  the weighted torsion--Stokes theorem (\texttt{thm:torsion-stokes});
+  \item the punctured AES (\texttt{def:p0-punctured-aes}) and the two-sided
+  collar contract (\texttt{def:p0-collar-contract}).
+\end{enumerate}
+These imports are restated in the chapters that use them; no theorem of Paper~0
+is re-proved here, and the ordinary-admissibility / projective-continuation
+distinction remains active throughout.
