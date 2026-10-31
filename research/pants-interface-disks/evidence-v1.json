@@ -1,0 +1,2895 @@
+{
+  "accepted": {
+    "circle_edges": 4,
+    "halves": {
+      "left": {
+        "boundary": {
+          "boundary_components": 0,
+          "chi": 2,
+          "connected": true,
+          "edges": 174,
+          "orientable": true,
+          "triangles": 116,
+          "vertex_links_checked": 60,
+          "vertices": 60
+        },
+        "cubical": {
+          "chi": 1,
+          "cubes": 28,
+          "edges": 152,
+          "faces": 113,
+          "vertices": 68
+        },
+        "tetrahedra": 168,
+        "vertex_links": {
+          "disk": 60,
+          "sphere": 8
+        }
+      },
+      "right": {
+        "boundary": {
+          "boundary_components": 0,
+          "chi": 2,
+          "connected": true,
+          "edges": 174,
+          "orientable": true,
+          "triangles": 116,
+          "vertex_links_checked": 60,
+          "vertices": 60
+        },
+        "cubical": {
+          "chi": 1,
+          "cubes": 28,
+          "edges": 152,
+          "faces": 113,
+          "vertices": 68
+        },
+        "tetrahedra": 168,
+        "vertex_links": {
+          "disk": 60,
+          "sphere": 8
+        }
+      }
+    },
+    "hole_disk_complement": {
+      "bulk_has_explicit_filling_disk": true,
+      "cut_pants_have_circle_in_boundary": true,
+      "glued_side_has_circle_as_interior_seam": true,
+      "surface_homology": {
+        "augmented_rank": 111,
+        "boundary_matrix_rank": 110,
+        "coefficient_field": "F_2",
+        "cycle_bounds_in_side_surface": false,
+        "face_boundary_positive_controls": 110,
+        "side_first_betti_number": 3
+      }
+    },
+    "oriented_chain_identities": "pass",
+    "program": {
+      "binding": {
+        "consumer": "times#1",
+        "input_occurrence": "P:z:in",
+        "input_slot": 0,
+        "output_occurrence": "Q:z:out",
+        "output_slot": 0,
+        "producer": "plus#1",
+        "type": "rational",
+        "wire": "z"
+      },
+      "direct_substitution": "20",
+      "distinct_interface_occurrences_retained": true,
+      "events": 2,
+      "interface_value": "5",
+      "output_value": "20"
+    },
+    "surfaces": {
+      "disk": {
+        "cubical": {
+          "chi": 1,
+          "cubes": 0,
+          "edges": 4,
+          "faces": 1,
+          "vertices": 4
+        },
+        "simplicial": {
+          "boundary_components": 1,
+          "chi": 1,
+          "connected": true,
+          "edges": 5,
+          "orientable": true,
+          "triangles": 2,
+          "vertex_links_checked": 4,
+          "vertices": 4
+        }
+      },
+      "left_pants": {
+        "cubical": {
+          "chi": -1,
+          "cubes": 0,
+          "edges": 116,
+          "faces": 55,
+          "vertices": 60
+        },
+        "simplicial": {
+          "boundary_components": 3,
+          "chi": -1,
+          "connected": true,
+          "edges": 171,
+          "orientable": true,
+          "triangles": 110,
+          "vertex_links_checked": 60,
+          "vertices": 60
+        }
+      },
+      "right_pants": {
+        "cubical": {
+          "chi": -1,
+          "cubes": 0,
+          "edges": 116,
+          "faces": 55,
+          "vertices": 60
+        },
+        "simplicial": {
+          "boundary_components": 3,
+          "chi": -1,
+          "connected": true,
+          "edges": 171,
+          "orientable": true,
+          "triangles": 110,
+          "vertex_links_checked": 60,
+          "vertices": 60
+        }
+      },
+      "side": {
+        "cubical": {
+          "chi": -2,
+          "cubes": 0,
+          "edges": 228,
+          "faces": 110,
+          "vertices": 116
+        },
+        "simplicial": {
+          "boundary_components": 4,
+          "chi": -2,
+          "connected": true,
+          "edges": 338,
+          "orientable": true,
+          "triangles": 220,
+          "vertex_links_checked": 116,
+          "vertices": 116
+        }
+      }
+    },
+    "volume": {
+      "boundary": {
+        "boundary_components": 0,
+        "chi": 2,
+        "connected": true,
+        "edges": 342,
+        "orientable": true,
+        "triangles": 228,
+        "vertex_links_checked": 116,
+        "vertices": 116
+      },
+      "cubical": {
+        "chi": 1,
+        "cubes": 56,
+        "edges": 300,
+        "faces": 225,
+        "vertices": 132
+      },
+      "tetrahedra": 336,
+      "vertex_links": {
+        "disk": 116,
+        "sphere": 16
+      }
+    }
+  },
+  "baseline_adva_read_only": "87a1a6933bca3fdb5c176cbf612729e278d172f7",
+  "baseline_aeg": "b77ca915902670863cd718e1df3f308defa59ad2",
+  "candidate": {
+    "circle": [
+      {
+        "cell": [
+          4,
+          1,
+          1,
+          2
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          4,
+          1,
+          1,
+          4
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          4,
+          1,
+          2,
+          2
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          4,
+          2,
+          1,
+          4
+        ],
+        "coefficient": 1
+      }
+    ],
+    "left": [
+      {
+        "cell": [
+          0,
+          0,
+          0,
+          7
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          0,
+          0,
+          1,
+          7
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          0,
+          0,
+          2,
+          7
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          0,
+          1,
+          0,
+          7
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          0,
+          1,
+          1,
+          7
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          0,
+          1,
+          2,
+          7
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          0,
+          2,
+          0,
+          7
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          0,
+          2,
+          1,
+          7
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          0,
+          2,
+          2,
+          7
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          1,
+          0,
+          0,
+          7
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          1,
+          0,
+          1,
+          7
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          1,
+          0,
+          2,
+          7
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          1,
+          1,
+          0,
+          7
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          1,
+          1,
+          1,
+          7
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          1,
+          1,
+          2,
+          7
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          1,
+          2,
+          0,
+          7
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          1,
+          2,
+          1,
+          7
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          1,
+          2,
+          2,
+          7
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          2,
+          0,
+          0,
+          7
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          2,
+          0,
+          1,
+          7
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          2,
+          0,
+          2,
+          7
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          2,
+          1,
+          0,
+          7
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          2,
+          1,
+          1,
+          7
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          2,
+          1,
+          2,
+          7
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          2,
+          2,
+          0,
+          7
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          2,
+          2,
+          1,
+          7
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          2,
+          2,
+          2,
+          7
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          3,
+          1,
+          1,
+          7
+        ],
+        "coefficient": 1
+      }
+    ],
+    "left_pants": [
+      {
+        "cell": [
+          0,
+          0,
+          0,
+          3
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          0,
+          0,
+          0,
+          5
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          0,
+          0,
+          0,
+          6
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          0,
+          0,
+          1,
+          5
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          0,
+          0,
+          1,
+          6
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          0,
+          0,
+          2,
+          5
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          0,
+          0,
+          2,
+          6
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          0,
+          0,
+          3,
+          3
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          0,
+          1,
+          0,
+          3
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          0,
+          1,
+          0,
+          6
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          0,
+          1,
+          2,
+          6
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          0,
+          1,
+          3,
+          3
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          0,
+          2,
+          0,
+          3
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          0,
+          2,
+          0,
+          6
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          0,
+          2,
+          1,
+          6
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          0,
+          2,
+          2,
+          6
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          0,
+          2,
+          3,
+          3
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          0,
+          3,
+          0,
+          5
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          0,
+          3,
+          1,
+          5
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          0,
+          3,
+          2,
+          5
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          1,
+          0,
+          0,
+          3
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          1,
+          0,
+          0,
+          5
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          1,
+          0,
+          2,
+          5
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          1,
+          0,
+          3,
+          3
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          1,
+          1,
+          0,
+          3
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          1,
+          1,
+          3,
+          3
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          1,
+          2,
+          0,
+          3
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          1,
+          2,
+          3,
+          3
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          1,
+          3,
+          0,
+          5
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          1,
+          3,
+          1,
+          5
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          1,
+          3,
+          2,
+          5
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          2,
+          0,
+          0,
+          3
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          2,
+          0,
+          0,
+          5
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          2,
+          0,
+          1,
+          5
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          2,
+          0,
+          2,
+          5
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          2,
+          0,
+          3,
+          3
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          2,
+          1,
+          0,
+          3
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          2,
+          1,
+          3,
+          3
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          2,
+          2,
+          0,
+          3
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          2,
+          2,
+          3,
+          3
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          2,
+          3,
+          0,
+          5
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          2,
+          3,
+          1,
+          5
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          2,
+          3,
+          2,
+          5
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          3,
+          0,
+          0,
+          6
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          3,
+          0,
+          1,
+          6
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          3,
+          0,
+          2,
+          6
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          3,
+          1,
+          0,
+          6
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          3,
+          1,
+          1,
+          3
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          3,
+          1,
+          1,
+          5
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          3,
+          1,
+          2,
+          3
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          3,
+          1,
+          2,
+          6
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          3,
+          2,
+          0,
+          6
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          3,
+          2,
+          1,
+          5
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          3,
+          2,
+          1,
+          6
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          3,
+          2,
+          2,
+          6
+        ],
+        "coefficient": 1
+      }
+    ],
+    "ports": {
+      "t": [
+        {
+          "cell": [
+            6,
+            0,
+            1,
+            5
+          ],
+          "coefficient": 1
+        }
+      ],
+      "w": [
+        {
+          "cell": [
+            8,
+            1,
+            1,
+            6
+          ],
+          "coefficient": 1
+        }
+      ],
+      "x": [
+        {
+          "cell": [
+            0,
+            1,
+            1,
+            6
+          ],
+          "coefficient": -1
+        }
+      ],
+      "y": [
+        {
+          "cell": [
+            1,
+            0,
+            1,
+            5
+          ],
+          "coefficient": 1
+        }
+      ]
+    },
+    "program": {
+      "binding": {
+        "consumer": "times#1",
+        "input_occurrence": "P:z:in",
+        "input_slot": 0,
+        "output_occurrence": "Q:z:out",
+        "output_slot": 0,
+        "producer": "plus#1",
+        "type": "rational",
+        "wire": "z"
+      },
+      "events": [
+        {
+          "id": "plus#1",
+          "inputs": [
+            "x",
+            "y"
+          ],
+          "op": "add",
+          "output": "z",
+          "source": "Q:add"
+        },
+        {
+          "id": "times#1",
+          "inputs": [
+            "z",
+            "t"
+          ],
+          "op": "mul",
+          "output": "w",
+          "source": "P:mul"
+        }
+      ],
+      "external_order": [
+        "x",
+        "y",
+        "t",
+        "w"
+      ],
+      "inputs": {
+        "t": "4",
+        "x": "2",
+        "y": "3"
+      },
+      "patch_events": {
+        "left": "plus#1",
+        "right": "times#1"
+      }
+    },
+    "right": [
+      {
+        "cell": [
+          4,
+          1,
+          1,
+          7
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          5,
+          0,
+          0,
+          7
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          5,
+          0,
+          1,
+          7
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          5,
+          0,
+          2,
+          7
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          5,
+          1,
+          0,
+          7
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          5,
+          1,
+          1,
+          7
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          5,
+          1,
+          2,
+          7
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          5,
+          2,
+          0,
+          7
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          5,
+          2,
+          1,
+          7
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          5,
+          2,
+          2,
+          7
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          6,
+          0,
+          0,
+          7
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          6,
+          0,
+          1,
+          7
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          6,
+          0,
+          2,
+          7
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          6,
+          1,
+          0,
+          7
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          6,
+          1,
+          1,
+          7
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          6,
+          1,
+          2,
+          7
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          6,
+          2,
+          0,
+          7
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          6,
+          2,
+          1,
+          7
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          6,
+          2,
+          2,
+          7
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          7,
+          0,
+          0,
+          7
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          7,
+          0,
+          1,
+          7
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          7,
+          0,
+          2,
+          7
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          7,
+          1,
+          0,
+          7
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          7,
+          1,
+          1,
+          7
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          7,
+          1,
+          2,
+          7
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          7,
+          2,
+          0,
+          7
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          7,
+          2,
+          1,
+          7
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          7,
+          2,
+          2,
+          7
+        ],
+        "coefficient": 1
+      }
+    ],
+    "right_pants": [
+      {
+        "cell": [
+          4,
+          1,
+          1,
+          3
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          4,
+          1,
+          1,
+          5
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          4,
+          1,
+          2,
+          3
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          4,
+          2,
+          1,
+          5
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          5,
+          0,
+          0,
+          3
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          5,
+          0,
+          0,
+          5
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          5,
+          0,
+          0,
+          6
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          5,
+          0,
+          1,
+          5
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          5,
+          0,
+          1,
+          6
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          5,
+          0,
+          2,
+          5
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          5,
+          0,
+          2,
+          6
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          5,
+          0,
+          3,
+          3
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          5,
+          1,
+          0,
+          3
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          5,
+          1,
+          0,
+          6
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          5,
+          1,
+          2,
+          6
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          5,
+          1,
+          3,
+          3
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          5,
+          2,
+          0,
+          3
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          5,
+          2,
+          0,
+          6
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          5,
+          2,
+          1,
+          6
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          5,
+          2,
+          2,
+          6
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          5,
+          2,
+          3,
+          3
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          5,
+          3,
+          0,
+          5
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          5,
+          3,
+          1,
+          5
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          5,
+          3,
+          2,
+          5
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          6,
+          0,
+          0,
+          3
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          6,
+          0,
+          0,
+          5
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          6,
+          0,
+          2,
+          5
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          6,
+          0,
+          3,
+          3
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          6,
+          1,
+          0,
+          3
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          6,
+          1,
+          3,
+          3
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          6,
+          2,
+          0,
+          3
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          6,
+          2,
+          3,
+          3
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          6,
+          3,
+          0,
+          5
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          6,
+          3,
+          1,
+          5
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          6,
+          3,
+          2,
+          5
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          7,
+          0,
+          0,
+          3
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          7,
+          0,
+          0,
+          5
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          7,
+          0,
+          1,
+          5
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          7,
+          0,
+          2,
+          5
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          7,
+          0,
+          3,
+          3
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          7,
+          1,
+          0,
+          3
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          7,
+          1,
+          3,
+          3
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          7,
+          2,
+          0,
+          3
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          7,
+          2,
+          3,
+          3
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          7,
+          3,
+          0,
+          5
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          7,
+          3,
+          1,
+          5
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          7,
+          3,
+          2,
+          5
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          8,
+          0,
+          0,
+          6
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          8,
+          0,
+          1,
+          6
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          8,
+          0,
+          2,
+          6
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          8,
+          1,
+          0,
+          6
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          8,
+          1,
+          2,
+          6
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          8,
+          2,
+          0,
+          6
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          8,
+          2,
+          1,
+          6
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          8,
+          2,
+          2,
+          6
+        ],
+        "coefficient": 1
+      }
+    ],
+    "schema": "oq096-pants-interface-v1",
+    "seam": [
+      {
+        "cell": [
+          4,
+          1,
+          1,
+          6
+        ],
+        "coefficient": 1
+      }
+    ],
+    "side": [
+      {
+        "cell": [
+          0,
+          0,
+          0,
+          3
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          0,
+          0,
+          0,
+          5
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          0,
+          0,
+          0,
+          6
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          0,
+          0,
+          1,
+          5
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          0,
+          0,
+          1,
+          6
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          0,
+          0,
+          2,
+          5
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          0,
+          0,
+          2,
+          6
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          0,
+          0,
+          3,
+          3
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          0,
+          1,
+          0,
+          3
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          0,
+          1,
+          0,
+          6
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          0,
+          1,
+          2,
+          6
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          0,
+          1,
+          3,
+          3
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          0,
+          2,
+          0,
+          3
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          0,
+          2,
+          0,
+          6
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          0,
+          2,
+          1,
+          6
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          0,
+          2,
+          2,
+          6
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          0,
+          2,
+          3,
+          3
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          0,
+          3,
+          0,
+          5
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          0,
+          3,
+          1,
+          5
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          0,
+          3,
+          2,
+          5
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          1,
+          0,
+          0,
+          3
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          1,
+          0,
+          0,
+          5
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          1,
+          0,
+          2,
+          5
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          1,
+          0,
+          3,
+          3
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          1,
+          1,
+          0,
+          3
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          1,
+          1,
+          3,
+          3
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          1,
+          2,
+          0,
+          3
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          1,
+          2,
+          3,
+          3
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          1,
+          3,
+          0,
+          5
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          1,
+          3,
+          1,
+          5
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          1,
+          3,
+          2,
+          5
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          2,
+          0,
+          0,
+          3
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          2,
+          0,
+          0,
+          5
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          2,
+          0,
+          1,
+          5
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          2,
+          0,
+          2,
+          5
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          2,
+          0,
+          3,
+          3
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          2,
+          1,
+          0,
+          3
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          2,
+          1,
+          3,
+          3
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          2,
+          2,
+          0,
+          3
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          2,
+          2,
+          3,
+          3
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          2,
+          3,
+          0,
+          5
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          2,
+          3,
+          1,
+          5
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          2,
+          3,
+          2,
+          5
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          3,
+          0,
+          0,
+          6
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          3,
+          0,
+          1,
+          6
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          3,
+          0,
+          2,
+          6
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          3,
+          1,
+          0,
+          6
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          3,
+          1,
+          1,
+          3
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          3,
+          1,
+          1,
+          5
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          3,
+          1,
+          2,
+          3
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          3,
+          1,
+          2,
+          6
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          3,
+          2,
+          0,
+          6
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          3,
+          2,
+          1,
+          5
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          3,
+          2,
+          1,
+          6
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          3,
+          2,
+          2,
+          6
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          4,
+          1,
+          1,
+          3
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          4,
+          1,
+          1,
+          5
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          4,
+          1,
+          2,
+          3
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          4,
+          2,
+          1,
+          5
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          5,
+          0,
+          0,
+          3
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          5,
+          0,
+          0,
+          5
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          5,
+          0,
+          0,
+          6
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          5,
+          0,
+          1,
+          5
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          5,
+          0,
+          1,
+          6
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          5,
+          0,
+          2,
+          5
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          5,
+          0,
+          2,
+          6
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          5,
+          0,
+          3,
+          3
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          5,
+          1,
+          0,
+          3
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          5,
+          1,
+          0,
+          6
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          5,
+          1,
+          2,
+          6
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          5,
+          1,
+          3,
+          3
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          5,
+          2,
+          0,
+          3
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          5,
+          2,
+          0,
+          6
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          5,
+          2,
+          1,
+          6
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          5,
+          2,
+          2,
+          6
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          5,
+          2,
+          3,
+          3
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          5,
+          3,
+          0,
+          5
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          5,
+          3,
+          1,
+          5
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          5,
+          3,
+          2,
+          5
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          6,
+          0,
+          0,
+          3
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          6,
+          0,
+          0,
+          5
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          6,
+          0,
+          2,
+          5
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          6,
+          0,
+          3,
+          3
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          6,
+          1,
+          0,
+          3
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          6,
+          1,
+          3,
+          3
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          6,
+          2,
+          0,
+          3
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          6,
+          2,
+          3,
+          3
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          6,
+          3,
+          0,
+          5
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          6,
+          3,
+          1,
+          5
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          6,
+          3,
+          2,
+          5
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          7,
+          0,
+          0,
+          3
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          7,
+          0,
+          0,
+          5
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          7,
+          0,
+          1,
+          5
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          7,
+          0,
+          2,
+          5
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          7,
+          0,
+          3,
+          3
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          7,
+          1,
+          0,
+          3
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          7,
+          1,
+          3,
+          3
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          7,
+          2,
+          0,
+          3
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          7,
+          2,
+          3,
+          3
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          7,
+          3,
+          0,
+          5
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          7,
+          3,
+          1,
+          5
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          7,
+          3,
+          2,
+          5
+        ],
+        "coefficient": -1
+      },
+      {
+        "cell": [
+          8,
+          0,
+          0,
+          6
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          8,
+          0,
+          1,
+          6
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          8,
+          0,
+          2,
+          6
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          8,
+          1,
+          0,
+          6
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          8,
+          1,
+          2,
+          6
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          8,
+          2,
+          0,
+          6
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          8,
+          2,
+          1,
+          6
+        ],
+        "coefficient": 1
+      },
+      {
+        "cell": [
+          8,
+          2,
+          2,
+          6
+        ],
+        "coefficient": 1
+      }
+    ]
+  },
+  "candidate_sha256": "66842234e631aefa4ecab72960b58f102ebbb97b3e9d706038f01b07dc6c45bd",
+  "limitations": [
+    "one fixed two-event example",
+    "one author; no independent implementation",
+    "no general decorated-composition theorem",
+    "no AES metric or motion realization",
+    "no native Adva execution or Seal",
+    "no ideal-boundary identification"
+  ],
+  "negative_controls": [
+    {
+      "name": "reverse-one-circle-edge",
+      "reason": "seam:boundary-circle",
+      "result": "rejected"
+    },
+    {
+      "name": "remove-one-pants-face",
+      "reason": "left:boundary-decomposition",
+      "result": "rejected"
+    },
+    {
+      "name": "reverse-one-pants-face",
+      "reason": "left:boundary-decomposition",
+      "result": "rejected"
+    },
+    {
+      "name": "external-port-as-internal-disk",
+      "reason": "seam:fixed-interface",
+      "result": "rejected"
+    },
+    {
+      "name": "alias-two-port-disks",
+      "reason": "ports:identity-or-orientation",
+      "result": "rejected"
+    },
+    {
+      "name": "wrong-slot-despite-commutative-output",
+      "reason": "program:frozen-slot-source-contract",
+      "result": "rejected"
+    },
+    {
+      "name": "collapse-interface-occurrences",
+      "reason": "program:frozen-slot-source-contract",
+      "result": "rejected"
+    },
+    {
+      "name": "erase-producer-event",
+      "reason": "program:frozen-slot-source-contract",
+      "result": "rejected"
+    },
+    {
+      "name": "vertex-only-cube-contact",
+      "reason": "vertex-only-cube-contact:boundary:vertex-link-disconnected",
+      "result": "rejected"
+    },
+    {
+      "name": "internal-cavity",
+      "reason": "internal-cavity:boundary:disconnected",
+      "result": "rejected"
+    }
+  ],
+  "schema": "oq096-pants-interface-evidence-v1",
+  "status": "finite-example-verified",
+  "verifier_sha256": "fac64f82cea293ef58de9d0f1929ab4d3164d380b4d63f37be7a15b6fcfe644f"
+}

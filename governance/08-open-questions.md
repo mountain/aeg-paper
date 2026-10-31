@@ -4001,3 +4001,77 @@ defect integral for arbitrary `P` as proved.
 them yet).
 **Owner:** author.
 **Decision record:** `governance/scott-lawson-paper-1-integration-2026-10-31.md`.
+
+## OQ-096 — Pants, interface disks and certified capping
+
+**Priority:** P2
+**State:** OPEN (2026-10-31); 096.1 has a completed V1 finite example, with
+general composition still open. Sub-items 096.2–096.4 remain open.
+**Origin:** Mingli Yuan asks to clarify pants, DAG substitution, the shared
+boundary's cap and its spectral value before assigning geometric meaning to
+Adva sealing. Codex (OpenAI) formalized the initial proposal and finite
+obstruction in note 25; no independent human mathematical review is asserted.
+
+**Question:** Can a decorated finite program be presented by a compatible
+ball-and-tube thickening whose surface pants glue along the boundary of an
+internal interface disk, while interface states compose by exact substitution
+and retained evidence supports a precisely scoped closure certificate?
+
+**Current evidence:**
+`notes/analysis-and-calculus/25-pants-interface-disks-and-substitution.md`
+gives short proofs for a specified topological model, the polynomial interface
+example, and the impossibility of a compact regular AES disk with constant
+assignment on its entire boundary when mu is nonzero. Paper IV PIV-S1–S4
+already supply finite program substitution and conditional collar descent.
+The model's canonical AEG status and its relation to native Seal are open.
+
+**Sub-items and resolution conditions:**
+
+- **096.1 — Decorated finite thickening and composition.** Start with the
+  two-node example `z=x+y; w=zt`: construct and check a finite cellulation,
+  local manifold links, the disk/seam boundary identity, four external ports,
+  and exact correspondence to substitution. Then extend to compatible
+  composition, preserving slots, sources, occurrences and distinct receipts;
+  reject global feedback. The single example does not close this sub-item.
+- **096.2 — Interface state, spectrum and reopening.** Define the observation
+  algebra/state carrier; distinguish equal numerical values from production
+  identity; demonstrate recovery of retained residuals under a stronger
+  observer. An ordinary operator spectrum, the order spectrum and the
+  interface character space are not identified by terminology.
+- **096.3 — AES extension or explicit singular capping.** Specify actual
+  metric/assignment collars and prove their extension or the exact obstruction.
+  Respect note 25's constant-boundary obstruction and Paper 0's essential
+  puncture definition; a numerical port label is not constant geometric
+  boundary data.
+- **096.4 — Evidence-preserving native Seal bridge.** Define a map from one
+  explicit geometric closure obligation to the current witness kernel and
+  prove what its additive/multiplicative residual checks certify. Retain body,
+  source history and nonzero obligations. A disk or a matching value alone
+  cannot issue Seal.
+
+**Default rule while open:** Use the specified thickening only as a research
+presentation. Do not identify it with a regular AES, an ideal-completion
+boundary, a TQFT or native Adva admission. Keep pure dataflow scheduling
+separate from noncommuting actions on a shared accumulator. OQ-095 remains
+open and is not a prerequisite for the finite topological example.
+
+**Finite update (2026-10-31):** V1 is implemented at
+`research/pants-interface-disks/`: 56 cubes, 336 tetrahedra, all 132 whole-body
+vertex links checked, two three-boundary pants and one four-boundary side
+surface. The explicit internal disk fills the seam circle, whereas the
+side-surface mod-two boundary matrix has rank 110 and augmented rank 111:
+the same circle does not bound a surface two-chain. Exact substitution gives
+interface 5 and output 20. Ten negative controls reject; normal/optimized
+output and fresh-process saved-candidate reception agree. This is one
+same-author finite calibration, not a general thickening functor or native
+Adva execution. It records Mingli Yuan's complementary surface-hole/body-disk
+view as a precisely bounded result.
+
+**Affected files:** note 25 and `research/pants-interface-disks/` (V1).
+**Affected theorem nodes:** none; the new proofs remain in the working-note
+reserve and require integration audit before manuscript promotion.
+**Owner:** author.
+**Next bounded target:** note 25 V2 (equal interface values with distinct
+production residuals). General composition is V3; the AES/Seal bridge is V4.
+Their results must not be inferred from V1 success.
+

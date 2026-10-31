@@ -86,10 +86,46 @@ independent human mathematical review or promote a finite result to a theorem.
   motion certification, planar local-move certification and native Adva
   continuation/learning integration remain open; no manuscript theorem changes.
 
+## New research thread — 2026-10-31: pants, interface disks and substitution
+
+- **Human origin/direction:** Mingli Yuan proposed using pants gluing and DAG
+  algebraic substitution to clarify the shared boundary's cap, its spectral
+  value and the geometric interpretation of Adva sealing; he requested the
+  next research note and then advancement of OQ-096.
+- **Model assistance:** Codex (OpenAI) supplied note 25's decorated thickening
+  model, interface-state formalization, short conditional proofs, constant-
+  boundary regular-AES disk obstruction, dependency cautions and validation
+  plan, and drafted the OQ-096 and reserve entries.
+- **Objects:** `notes/analysis-and-calculus/25-pants-interface-disks-and-substitution.md`,
+  `governance/08-open-questions.md` (OQ-096), and the corresponding reserve row.
+- **Boundary:** a new research proposal with proofs in a specified finite
+  model; no manuscript theorem promotion, canonical AES realization or native
+  Adva Seal implementation. Independent human mathematical review is not
+  asserted. Subsequent executed finite evidence must be recorded separately
+  from this initial note.
+
+### Executed finite successor and complementary view — 2026-10-31
+
+- **Human contribution:** Mingli Yuan requested advancement of OQ-096 and
+  proposed the complementary view that the body gives the disk its geometric
+  meaning while the surface gives the hole its geometric meaning.
+- **Model contribution:** Codex (OpenAI) implemented the finite voxel/cell-chain
+  construction, local manifold-link and orientation checks, mod-two homology
+  calculation, exact substitution, negative controls, replay workflow and
+  report in `research/pants-interface-disks/`; note 25 v0.2 records the result.
+- **Executed evidence:** 56 cubes / 336 tetrahedra; 132 whole-body vertex
+  links checked; the seam is nonbounding in the side surface over F_2 but
+  bounds the explicit body disk; interface 5 / output 20; ten rejected controls;
+  normal/optimized byte agreement and fresh-process saved-candidate reception.
+- **Boundary:** construction and checking share one author. This is a finite
+  example, not an independent implementation review, a general functor,
+  a regular AES extension, or a native Adva Seal. OQ-096 remains open.
+
 ## Contribution interpretation
 
 Mingli Yuan is the human research director, acceptance and release authority,
 and final human scientific responsibility holder. Model contributions must be
 named per commit/PR when known and must not be reassigned to the GitHub account
 holder. Model cross-review is not independent human review.
+
 
