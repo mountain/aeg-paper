@@ -3,7 +3,7 @@
 **File:** `governance/notes-reserve-audit.md`
 **Status:** Audit record (inventory and status register for `notes/`; non-authoritative, does not revise scope)
 **Version:** 1.1
-**Date:** 2026-08-10; amended 2026-09-29
+**Date:** 2026-08-10; amended 2026-09-29, 2026-10-31
 **Prepared by:** DeepSeekHarness (AI coding agent), working under the repository
 author's direction; all mathematical grades follow the official status
 vocabulary of `governance/05-mathematical-status.md` and no claim status is
@@ -32,6 +32,21 @@ does not revise any grade assigned in version 1.0, promote any note, or change
 any paper claim. The notes added are themselves exploratory records, and the one
 substantive consequence — that a registered Paper 0 claim is refuted as printed —
 is recorded in C-10 and carried into the registers it names, not decided here.
+
+**Amendment (2026-10-31).** One note was added to
+`notes/analysis-and-calculus/` after the 2026-09-29 amendment:
+`09-order-topology-scott-lawson`. It was first recorded ungraded in section 2.7's
+coverage-gap list (counts nine→ten) and then, on the same date, read and graded:
+section 2.2 gains a row and section 4 Tier C a bullet, and section 2.7 reverts to
+nine. The grade is `STRUCTURAL PROPOSAL` + `REFORMULATION` — the classical
+domain-theory content is marked `CLASSICAL` in the note, the AEG instantiations
+(prefix-order information order, additive = way-below, multiplicative =
+Scott-automorphism, backward adjoint = reciprocal, separate Scott-continuity) are
+correct reformulations, and the integrative "missing-involution = backward
+adjoint = order-topology-analysis foundation" reading is a structural proposal,
+not a theorem. Three companion open questions (OQ-091–OQ-093) are added to
+`governance/08-open-questions.md`; OQ-092 and OQ-093 are resolved, OQ-091 is
+partially resolved with the branching-history case still open.
 
 ---
 
@@ -86,6 +101,7 @@ Grade labels used below:
 | 01-horizontal-analysis-program | Incorporated | program | Realized by Paper II: operator selection (factorization vs variational), frame drift `Δ_g = X_u²+X_v²−c_vX_u+c_uX_v`, Appell modules, boundaries. |
 | 02-mixed-affine-integration | Unincorporated | WORKING-NOTE PROVED | Continuous mixed integral `∫u·exp(∫_x^b v)`, transport/splitting/window-derivative identities, adjoint pairing, continuous ACS triple identity. Complete proofs; **integration audit required** (which paper, which conventions). |
 | 03-weighted-contact-calculus | Unincorporated | WORKING-NOTE PROVED | Graded covariant differential `∇^{(n)}f=δf−nf dM`, graded Leibniz law, gauge rectification `ã=e^{−M}a`, twisted product `⋆_M` with derivation `D_M`, twisted Rota–Baxter identity, dual weight-line adjoint geometry, E₀/ACS structure equations `dω_A=ω_M∧ω_A`. Complete proofs; **integration audit required**. |
+| 09-order-topology-scott-lawson | Unincorporated | STRUCTURAL PROPOSAL + REFORMULATION | Reference vocabulary (Scott/Lawson/way-below/ideal completion, cited `CLASSICAL`) plus a faithful instantiation to AEG marked spinal histories: information order = chronological prefix order, ideal completion = finite∪infinite histories (OQ-091, partial — branching case open); additive = way-below, multiplicative = Scott-automorphism, dual = reciprocal involution (OQ-092, resolves and corrects the §6 wording); backward adjoint `p=¬(K)` mod constant, join = Lawson = Euclidean (OQ-093); mixed integral separately Scott-continuous (functional pairing). The integrative "missing-involution = backward adjoint = order-topology-analysis foundation" reading is a structural proposal, not a theorem. |
 
 ### 2.3 `notes/computation-and-resources/`
 
@@ -229,6 +245,11 @@ analysis and a proof.
 
 ### Tier C — structural proposals and open programs
 
+* `analysis-and-calculus/09` — Scott/Lawson reference vocabulary plus a faithful
+  AEG instantiation (prefix-order information order, additive = way-below,
+  backward adjoint = reciprocal, Lawson = Euclidean). The integrative
+  "order-topology analysis" reading is a structural proposal; the
+  branching-history dcpo remains open (OQ-091).
 * `computation-and-resources/05`, `06` — PD₃ program and Route B 2-groupoid.
   Milestone 1 is well-posed with a pass/fail criterion and should be attempted
   or retired explicitly.

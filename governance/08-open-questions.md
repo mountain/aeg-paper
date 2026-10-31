@@ -3619,3 +3619,203 @@ continuation. `c=0` leaves a partial zero map on `K\{0}`, not a Möbius map.
 Source-to-formal correspondence remains an explicit reviewed mapping, not a
 claim that TeX prose was mechanically translated. Implementation and review
 by Codex (OpenAI); no independent human mathematical review is asserted.
+
+## OQ-091 — Information order and directed completeness of AEG histories
+
+**Priority:** P3
+**State:** PARTIALLY RESOLVED (2026-10-31) — the marked-spinal-history case is
+settled; the branching case and a concrete value-domain instantiation remain
+open.
+
+**Question:** Can the histories treated in
+`notes/analysis-and-calculus/09-order-topology-scott-lawson.md` — expression
+trees, rewrite graphs, computation DAGs — be given an information order
+`h ⊑ h'` ("`h'` refines / extends `h`") under which they form a dcpo
+(directed-complete partial order), so that evaluation `ev` becomes a
+Scott-continuous (directed-sup preserving) map?
+
+**Why it matters:** This is the precondition for importing the Scott-topology
+machinery into AEG's "history → compression → representation → geometry" ladder.
+Without it, "the value of a limit process is the limit of its finite-history
+values" (`ev` continuous) has no domain on which continuity is even defined.
+
+**Current evidence:** `09` §8 now settles the marked-spinal-history case: the
+information order is the chronological prefix order `γ ⊑ γδ`; its ideal
+completion is the dcpo of finite and infinite histories (finite histories =
+compact elements); and the free-dcpo universal property makes `ev` extend
+Scott-continuously iff `ev` is monotone. Ordinary arithmetic evaluation fails
+that test (the value field is not a dcpo, and `ev` is partial and non-monotone).
+
+**Default rule while open:** Treat "Scott continuity of evaluation" as a
+structural proposal, not a theorem; state no limit-of-histories convergence
+result.
+
+**Resolution condition:** Exhibit an information order on a fixed class of
+histories, prove directed completeness, identify the compact (finite) elements,
+and prove `ev` preserves directed suprema (or record the obstruction).
+
+**Affected files:** `notes/analysis-and-calculus/09-order-topology-scott-lawson.md`.
+**Affected theorem nodes:** none (research note; no paper node depends on it).
+**Owner:** author.
+**Decision record:** `governance/notes-reserve-audit.md` §2.7 (coverage gap).
+
+### Partial resolution — 2026-10-31
+
+For the marked spinal histories of `def:marked-spinal-history`
+(`paper-1/sections/02-sequential-histories.tex`):
+
+1. **Information order** = chronological prefix order `γ ⊑ γ' ⟺ γ' = γδ`,
+   read directly from `eq:chronological-history-concatenation`.
+2. **Directed completeness**: the ideal completion of the prefix-ordered free
+   monoid is `Idl(H) ≅ Γ^∞ = Γ^* ∪ Γ^ω`, the dcpo of finite and countably
+   infinite histories; the finite histories are exactly the compact elements,
+   and each infinite history is the directed join of its finite prefixes
+   (classical ideal-completion theorem, instantiated).
+3. **Evaluation**: by the free-dcpo universal property, `ev` extends to a
+   Scott-continuous map on all histories iff `ev` is monotone. Ordinary
+   arithmetic evaluation is not monotone (and is partial, with a non-dcpo value
+   field), so it is **not** order-continuous; this is recorded as the
+   obstruction, and it motivates the lower-semicontinuous/monotone sector and
+   the projective continuation of `paper-1/sections/03-projective-affine.tex`.
+
+Remaining open: the branching (non-spinal) case, the concrete monotone-sector +
+value-dcpo instantiation, and the reconciliation with projective continuation.
+
+## OQ-092 — Order-theoretic placement of the additive versus multiplicative sides
+
+**Priority:** P3
+**State:** RESOLVED (2026-10-31) — the correspondence is made precise on the
+value lattice `[0,∞]`, with a correction to `09` §6 (the dual side is carried by
+the reciprocal involution, not by multiplication itself). The operator-level
+backward-adjoint tie-in is folded into OQ-093.
+
+**Question:** The correspondence in `09` §6 ("Scott ⟷ additive / forward /
+accumulation side; lower topology ⟷ multiplicative / backward / scaling side")
+is currently an intuition. What map or realization sends the AEG add/scale
+process structure to a value-lattice order so that the correspondence becomes a
+theorem (or is refuted)?
+
+**Why it matters:** This is the bridge that would justify reading AEG's one-sided
+accumulation as lower semicontinuity (`[0,1]`-valued, Scott topology) and its
+backward adjoint as the dual/lower side, rather than a loose analogy.
+
+**Current evidence:** `09` §9 now constructs the map. On the continuous lattice
+`L=[0,∞]`, the additive generator `T_s(a)=a+s` is a Scott-continuous embedding
+and is exactly the way-below witness (`a ≪ b ⟺ ∃s>0: a+s ≤ b`); the
+multiplicative generator `D_k(a)=ka` is a Scott-automorphism (order
+automorphism). The dual/lower side is carried by the order-reversing reciprocal
+`¬(a)=1/a`, a homeomorphism `(L,σ) → (L,ω)` conjugating `D_k` to `D_{1/k}`.
+The §6 wording "lower topology ⟷ multiplication" was therefore imprecise and is
+corrected.
+
+**Default rule while open:** Keep the Scott/lower correspondence as a heuristic;
+cite it only as such.
+
+**Resolution condition:** A concrete map from add/scale processes to a continuous
+frame (or a counterexample), plus a proof that Scott-continuity ↔
+lower-semicontinuous accumulation and the dual topology ↔ the backward side hold
+under that map.
+
+**Affected files:** `notes/analysis-and-calculus/09-order-topology-scott-lawson.md`,
+`notes/analysis-and-calculus/02-mixed-affine-integration.tex`.
+**Affected theorem nodes:** none.
+**Owner:** author.
+**Decision record:** `governance/notes-reserve-audit.md` §2.7 (coverage gap).
+
+### Resolution — 2026-10-31
+
+On the continuous lattice `L=[0,∞]` with Scott topology `σ` and lower topology
+`ω`:
+
+1. **Additive side**: the additive generator `T_s(a)=a+s` (`s≥0`) is a
+   Scott-continuous embedding (not onto for `s>0`) and is precisely the
+   way-below witness: `a ≪ b ⟺ a < b ⟺ ∃s>0, a+s ≤ b` (with the compact bottom
+   `0` as the sole exception). So addition = the approximation / way-below
+   primitive of the Scott topology — the "accumulate from below" direction.
+2. **Multiplicative side**: `D_k(a)=ka` (`k>0`) is an order-automorphism, hence
+   a Scott-homeomorphism (the "scale symmetry" primitive); in log coordinates it
+   is a translation.
+3. **Dual side**: the reciprocal `¬(a)=1/a` (`0↔∞`) is an order-reversing
+   bijection, hence a homeomorphism `(L,σ) → (L,ω)`, and `¬∘D_k∘¬ = D_{1/k}`,
+   i.e. it interchanges the forward scale `e^M` and the backward multiplier
+   `e^{-M}`. So the lower/backward side is carried by the involution, and
+   `ω = ¬_*σ`; this is exactly Warner's omitted involution.
+
+Consequently the §6 correspondence holds in the refined form: additive ⟷ Scott
+(way-below / forward accumulation); multiplicative ⟷ Scott-automorphism (scale
+symmetry); lower/backward ⟷ reciprocal involution. The earlier statement that
+multiplication itself is the "lower-topology side" was corrected. The remaining
+task — matching `¬` with the backward adjoint `p(b)=1` of
+`02-mixed-affine-integration` at the operator-equation level — is folded into
+OQ-093.
+
+## OQ-093 — Scott ∨ lower = Lawson as the topological form of backward-adjoint completion
+
+**Priority:** P3
+**State:** RESOLVED (2026-10-31) — the backward-adjoint multiplier is the
+reciprocal-involution image of the forward scale, and their join is exactly the
+Lawson (Euclidean/Hausdorff) topology; see resolution below.
+
+**Question:** Does adjoining the dual (lower) topology to Scott — i.e. passing to
+the Lawson topology — realize AEG's two-sided (add × multiply, forward ×
+backward) structure, with the recovery of the Hausdorff/Euclidean topology
+corresponding to the backward-adjoint completion of
+`02-mixed-affine-integration`?
+
+**Why it matters:** This is the strongest potential payoff of the Warner import:
+it would explain "补上 Warner 故意丢掉的对合" as "从 Scott 升到 Lawson", i.e.
+the missing involution side = the backward adjoint multiplier = the lower
+topology. It is currently a conjecture.
+
+**Current evidence:** `09` §10 now proves the correspondence. From
+`02-mixed-affine-integration.tex`, the forward scale is `K(t)=e^{M(t)}` and the
+backward adjoint is `p(t)=exp(∫_t^b v)`, `p(b)=1`; a direct computation gives
+`p(t)=e^{M(b)}·¬(K(t))` with `¬(a)=1/a`. By `09` §9.3, `¬` is an order-reversing
+homeomorphism `(L,σ)→(L,ω)`. Hence the forward scale is the Scott (from-below)
+side, the backward adjoint is the lower (from-above) side, and their join is
+Lawson = Euclidean.
+
+**Default rule while open:** Do not claim the add/multiply double-sided structure
+is the Scott/Lawson double-sided structure.
+
+**Resolution condition:** A proof (or counterexample) that the backward
+adjoint/dual side of the AEG mixed calculus corresponds, under OQ-092's map, to
+the lower topology, so that their join recovers the classical symmetric geometry.
+
+**Affected files:** `notes/analysis-and-calculus/09-order-topology-scott-lawson.md`,
+`notes/analysis-and-calculus/02-mixed-affine-integration.tex`.
+**Affected theorem nodes:** none.
+**Owner:** author.
+**Decision record:** `governance/notes-reserve-audit.md` §2.7 (coverage gap).
+
+### Resolution — 2026-10-31
+
+From `02-mixed-affine-integration.tex` (`eq:acs-path`, `eq:adjoint-solution`),
+with multiplicative charge `M(t)=∫_a^t v`:
+
+1. forward scale `K(t)=e^{M(t)}` (direct / past weighting);
+2. backward adjoint `p(t)=exp(∫_t^b v)`, `p(b)=1`, solving `-p'(t)=v(t)p(t)`;
+3. direct computation: `p(t)=e^{M(b)-M(t)}=e^{M(b)}·¬(K(t))`, `¬(a)=1/a`.
+
+By `09` §9.3, `¬` is an order-reversing homeomorphism `(L,σ)→(L,ω)` with
+`ω=¬_*σ`. Therefore:
+
+- forward scale `K` = Scott / lower (from-below) side: `K(t)>a ⟺ M(t)>log a`;
+- backward adjoint `p=¬(K)` (mod the constant `K(b)`) = lower / dual (from-above)
+  side: `p(t)>a ⟺ M(t)<M(b)-log a`;
+- their join `σ ∨ ω = λ` = Lawson = the Euclidean topology on `[0,∞]` /
+  `[−∞,+∞]` (classical).
+
+So backward-adjoint completion = adjoining `¬(K)` = passing Scott → Lawson =
+recovering the Hausdorff/Euclidean topology, exactly as OQ-093 conjectured. The
+constant `K(b)=e^{M(b)}` is the reference scale fixed by the terminal condition
+`p(b)=1`.
+
+Residual (non-blocking remark): a functional-level statement that the mixed
+integral `𝔐[u;v]=∫_a^b p·u` is itself Lawson-continuous on the two-sided data is
+not yet formulated; the additive source `u` enters via the way-below primitive
+of `09` §9.2 and the pairing `eq:adjoint-pairing`.
+
+Addressed in `09` §11 (2026-10-31): `𝔐` is separately Scott-continuous in `u`
+and in `v` (nonnegative densities), and `∫u·p` is the two-sided duality pairing
+— the functional-level form of Scott ∨ lower = Lawson.
