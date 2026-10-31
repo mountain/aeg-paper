@@ -4250,6 +4250,13 @@ the Donaghey correspondence yet).
 tight `[对应]` and the `Z₂×Z₂` vs `Z₂*Z₂` difference. Note 27 (2026-10-31)
 resolves 098.1 at the comb layer (AEG's `m,r` give Klein; `θ̃≠r`; infinite order
 requires branching) and shifts the residuals to `θ̃` naturality, the branching
-layer, and the exact order of `τ` on combs. The lattice identification,
-carousel/orbit correspondence and functoriality remain the other three residuals.
+layer, and the exact order of `τ` on combs. Note 28 (2026-10-31) advances 098.2
+(the "distributive lattice" is the Birkhoff down-set lattice of the infinite
+cubic tree, not the Tamari lattice; `O(P)` is the same construction over a finite
+poset). Note 29 (2026-10-31) resolves 098.1(b) negatively (`τ` does not descend to
+the dependency poset / `O(P)`; the hyperbolic behaviour is strictly planar-tree).
+Note 30 (2026-10-31) is the synthesis of 26–29. Remaining residuals: 098.1(a)
+`θ̃` naturality, 098.2 sublattice embedding / source meaning, 098.1(b) general-`n`
+and the branching layer's own dynamics, 098.3 carousel/orbit correspondence,
+098.4 functoriality.
 
