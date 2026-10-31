@@ -418,6 +418,45 @@ a puncture is recorded (C-10 of the notes reserve); the two inclusions must not
 be conflated.
 \end{remark}
 
+\subsection{The puncture holonomy}
+
+The essential puncture of Definition~\ref{def:fivefold-hole-taxonomy} has an
+analytic residue alongside its topological essentiality, parallel to the
+seam-circle holonomy of Section~\ref{sec:theory-of-caps}.  On the punctured
+regular part the surface potential
+\[
+  \beta=(-\lambda a\,dv)\big|_{M\setminus S}
+\]
+of Definition~\ref{def:surface-potential} is available.
+
+\begin{proposition}[Puncture holonomy]
+\label{prop:puncture-holonomy}
+Let $\gamma$ be a small loop in $M\setminus S$ encircling an essential puncture
+$p\in S$.  The loop integral
+\[
+  \oint_\gamma\beta=\oint_\gamma(-\lambda a\,dv)
+\]
+is the \emph{puncture holonomy}.  By Stokes it equals the bulk curvature integral
+$\int_\Sigma d\alpha$ over the punctured region $\Sigma$ bounded by $\gamma$, so
+it is the analytic residue of the puncture --- the same surface potential whose
+loop integral around a seam circle is the seam-circle holonomy of
+Proposition~\ref{prop:seam-circle-holonomy}.  For the two mechanisms of
+Theorem~\ref{thm:two-essential-puncture-mechanisms}, this holonomy is the
+analytic companion of the two degenerations: the non-$C^1$ assignment (type 1)
+and the conformal-background critical point (type 2).
+\end{proposition}
+
+\begin{remark}[The puncture holonomy needs the declared data]
+\label{rem:puncture-holonomy-declared}
+As in Remark~\ref{rem:analytic-thickening-declared}, the surface potential
+$\beta$ is defined only where the arithmetic data $(a,v)$ are declared on the
+punctured regular part; the holonomy of
+Proposition~\ref{prop:puncture-holonomy} is meaningful precisely under that
+declaration.  Whether the holonomy converges to a well-defined residue as
+$\gamma$ shrinks to $p$, and how that residue classifies the two puncture
+mechanisms, is open (part of OQ-096.3).
+\end{remark}
+
 \subsection{Smooth parameter families and their total zero sets}
 
 Let \(I\subset\mathbb R\) be an open interval, let \(M\) be a smooth

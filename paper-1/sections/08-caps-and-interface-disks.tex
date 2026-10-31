@@ -110,6 +110,62 @@ points from $U$ to $P\setminus U$ yields the family of interface disks
 $\{D_e\}_{e\in\partial^+U}$ representing the computational frontier.
 \end{remark}
 
+\subsection{The seam-circle holonomy}
+
+The hole--disk complementarity of
+Theorem~\ref{thm:hole-disk-complementarity} is topological.  It has an analytic
+counterpart: the seam circle carries a holonomy of the surface potential, which
+is the boundary reading of the bulk curvature of
+Section~\ref{sec:differential-theory}.
+
+\begin{definition}[Surface potential]
+\label{def:surface-potential}
+Let the arithmetic data $(a,v)$ be declared along the side surface $S_G$, with
+$a$ the assignment and $v$ the multiplicative coordinate.  The \emph{surface
+potential} is the one-form
+\[
+  \beta:=(-\lambda a\,dv)\big|_{S_G},
+\]
+the restriction to $S_G$ of the primitive $-\lambda a\,dv$ whose exterior
+derivative is the contact curvature $d\alpha=-\lambda\,da\wedge dv$.
+\end{definition}
+
+\begin{proposition}[Seam-circle holonomy]
+\label{prop:seam-circle-holonomy}
+For the seam circle $C_e=\partial D_e$ of
+Proposition~\ref{prop:pants-gluing-interface-disk}, the loop integral
+\[
+  \oint_{C_e}\beta=\oint_{C_e}(-\lambda a\,dv)
+\]
+is the \emph{seam-circle holonomy}.  By the holographic Stokes theorem of
+Proposition~\ref{prop:holographic-stokes-minimal}, this holonomy is the boundary
+reading of the bulk curvature $\int_\Sigma d\alpha$ over the disk $\Sigma=D_e$
+that fills $C_e$; hence the same circle that is topologically non-fillable in
+$S_G$ ($[C_e]\neq0$) is analytically the carrier of a holonomy that the filling
+disk realizes.
+\end{proposition}
+
+\begin{proof}
+The first assertion is the definition.  The second is
+Proposition~\ref{prop:holographic-stokes-minimal} applied to the filling disk
+$\Sigma=D_e$ with boundary $\partial\Sigma=C_e$: the exactness of $d\alpha$ makes
+the bulk area integral equal to the boundary holonomy.  The juxtaposition with
+the topological non-fillability is Theorem~\ref{thm:hole-disk-complementarity}.
+\end{proof}
+
+\begin{remark}[The analytic thickening is a declared structure]
+\label{rem:analytic-thickening-declared}
+The surface potential $\beta$ is well-defined only after the arithmetic data
+$(a,v)$ are declared on $S_G$; the ball-and-tube thickening of
+Definition~\ref{def:decorated-ball-tube-thickening} is purely topological and
+does not by itself carry $a,v$.  Extending the AES data from the bulk to the
+thickened body and restricting to $S_G$ is the \emph{analytic thickening}, a
+declared structure not yet constructed in general; the holonomy of
+Proposition~\ref{prop:seam-circle-holonomy} is meaningful precisely under that
+declaration.  This is the analytic counterpart of the observation that a bare
+$S_G$ carries no program identity.
+\end{remark}
+
 \subsection{Interface state, substitution, and the spectrum}
 
 \begin{proposition}[Polynomial interface spectrum]
