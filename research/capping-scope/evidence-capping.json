@@ -1,0 +1,157 @@
+{
+  "A1_sufficiency": {
+    "claim": "RHS = mu^2 + lambda^2 a^2 >= mu^2 > 0 whenever mu != 0, for every a, lambda and g",
+    "consequence": "the obstruction as proved is metric- and lambda-independent (sufficiency only)",
+    "identity_checked": true,
+    "proof_steps": [
+      "|da|^2 >= mu^2 > 0  =>  da has no zero on int D",
+      "non-constant a with constant boundary value has an interior extremum, da = 0 there",
+      "constant a satisfies the boundary value but da = 0 everywhere"
+    ],
+    "status": "proved with stated hypotheses"
+  },
+  "A2_degenerate_caps_exist": {
+    "case_c_zero_mu_zero": {
+      "a": "a = 0 (constant)",
+      "identity_holds": true,
+      "mu^2+lambda^2a^2": "0"
+    },
+    "case_lambda_zero_mu_zero": {
+      "a": "a = c (constant)",
+      "identity_holds": true,
+      "mu^2+lambda^2a^2": "0",
+      "|da|^2": "0"
+    },
+    "claim": "mu = 0 and (lambda = 0 or c = 0) admit an explicit smooth cap",
+    "consequence": "the theorem's conclusion does NOT extend to the whole of mu = 0",
+    "status": "proved"
+  },
+  "A3_eikonal_mechanism": {
+    "claim": "mu = 0, lambda != 0, c != 0: no smooth cap; mechanism is the equidistant structure of u = log|a|/|lambda| plus the impossibility of an interior zero",
+    "hypotheses_used": [
+      "|du| = 1 implies the level sets are equidistants (standard)",
+      "the distance to a closed curve in a compact region is not smooth on a non-empty interior set (the cut locus / medial axis)",
+      "a smooth a with |da| = |lambda||a| cannot vanish at an interior point (scaling argument, verified separately below)"
+    ],
+    "series_about_centre_has_odd_power": true,
+    "status": "partially proved",
+    "step1_holds": true,
+    "step1_identity_du_times_lambda_a_minus_da": "1",
+    "step1_reading": "du = da/(lambda a), so |da| = |lambda||a| on {a != 0} gives |du| = 1",
+    "step2_gradient_of_circular_level_u": "1",
+    "step2_reading": "a circular level set with |du| = 1 forces u = k -+ (1-r); then a = exp(lambda u) has odd powers of r = sqrt(x^2+y^2) about the centre, hence is not C^infinity there"
+  },
+  "A3b_interior_zero_impossible": {
+    "claim": "a smooth a with |da| = |lambda||a| cannot vanish at an interior point",
+    "limit_at_the_zero": "oo",
+    "ratio_|da|/(|lambda||a|)_model": "m/(lambda*r_sym)",
+    "reading": "if a ~ r^m (m >= 1) near its zero, then |da|/|a| ~ m/(|lambda| r) -> infinity, contradicting |da| = |lambda||a|, which needs the ratio to be 1",
+    "status": "proved (scaling argument)"
+  },
+  "A5_singular_cap": {
+    "C_from_a(1)=c": [
+      "(-lambda - log(mu) + log(c*lambda - sqrt(c**2*lambda**2 + mu**2)))/lambda",
+      "(-lambda - log(mu) + log(c*lambda + sqrt(c**2*lambda**2 + mu**2)))/lambda"
+    ],
+    "a_at_centre": "mu*sinh(C*lambda)/lambda",
+    "claim": "a(r) = (mu/lambda) sinh(lambda (r+C)) solves |da|^2 = mu^2 + lambda^2 a^2 exactly on the punctured disk, with a(1) = c",
+    "equation_identity": true,
+    "regularity": "C^0 on the closed disk, C^infinity on the punctured disk, not C^1 at the centre",
+    "slope_at_centre": "mu*cosh(C*lambda)",
+    "slope_over_mu": "cosh(C*lambda)",
+    "status": "proved"
+  },
+  "A5b_one_sided_derivatives": {
+    "claim": "the two axes at the centre give +B and -B, so the cap is not C^1 there",
+    "difference": "2*mu*x*cosh(C*lambda)",
+    "difference_at_x_eq_1": "2*mu*cosh(C*lambda)",
+    "status": "proved"
+  },
+  "A5c_numeric": {
+    "a_at_1": 2.0,
+    "max_relative_pde_residual": 1.8349765963203314e-16,
+    "parameters": {
+      "C": 0.4436354751788103,
+      "c": 2.0,
+      "lambda": 1.0,
+      "mu": 1.0
+    },
+    "rows": [
+      {
+        "a": 0.4583315134040537,
+        "mu^2+lambda^2a^2": 1.2100677761792502,
+        "r": 0.0,
+        "|da|^2": 1.2100677761792504
+      },
+      {
+        "a": 0.5708115921735628,
+        "mu^2+lambda^2a^2": 1.3258258737597177,
+        "r": 0.1,
+        "|da|^2": 1.3258258737597177
+      },
+      {
+        "a": 0.7506104577097013,
+        "mu^2+lambda^2a^2": 1.5634160592231672,
+        "r": 0.25,
+        "|da|^2": 1.5634160592231674
+      },
+      {
+        "a": 1.0900474045727229,
+        "mu^2+lambda^2a^2": 2.1882033442157294,
+        "r": 0.5,
+        "|da|^2": 2.1882033442157294
+      },
+      {
+        "a": 1.4979678874223692,
+        "mu^2+lambda^2a^2": 3.2439077917486356,
+        "r": 0.75,
+        "|da|^2": 3.243907791748636
+      },
+      {
+        "a": 2.0,
+        "mu^2+lambda^2a^2": 5.0,
+        "r": 1.0,
+        "|da|^2": 5.000000000000001
+      }
+    ],
+    "slope_at_centre": 1.1000308069228109,
+    "status": "computationally verified example"
+  },
+  "A6_move_the_singularity": {
+    "claim": "for a boundary-fixing diffeomorphism phi with phi(p0) = p1, the pair (a o phi^{-1}, (phi^{-1})^* g) satisfies the same equation with the singularity at p1",
+    "status": "proved",
+    "why": "|d(a o phi^{-1})|^2_{(phi^{-1})^*g} = |da|^2_g by definition of the pullback metric; phi fixes the boundary, so the boundary value is unchanged"
+  },
+  "A7_topological_half": {
+    "fact": "[C] != 0 in H_1(S;F_2) (rank 110 -> 111 on adjoining C) while C = dD in the body",
+    "pointer": "research/pants-interface-disks/README.md (OQ-096 V1)",
+    "reading": "topological fillability (Thm 10.4) and analytic fillability (Thm 10.12) are different statements; A5 supplies the middle case: one admissible singularity",
+    "status": "standard consequence requiring an in-paper proof"
+  },
+  "limitations": [
+    "construction and reception by the same author; no independent review",
+    "A3 is a mechanism with two cited standard facts, not a completed proof in this repository",
+    "A2 and A5 are explicit on the flat disk; the paper's theorem is stated for arbitrary smooth g",
+    "only the conical singularity type is examined; the 'interior critical point' sub-branch of Cor 10.13(2) is not constructed",
+    "the relation to notes/analysis-and-calculus/25-* has not been checked statement by statement"
+  ],
+  "question": "which hypotheses of the constant-boundary capping obstruction are sharp?",
+  "recommended_paper_action": [
+    "option 1 (minimal): add a remark after Thm 10.12 recording that mu != 0 is sufficient but not necessary, and that the sharp condition is mu = 0 and lambda*c = 0 (A2 for the 'only if' direction of the degenerate cases, A3 for the rest);",
+    "option 2 (stronger): state the iff-condition as its own proposition, citing A3's two standard facts, and keep Thm 10.12 as the short sufficient statement;",
+    "add a remark after Cor 10.13 exhibiting the A5 family, so branch (2) is known to be non-empty;",
+    "keep the hypothesis list of Thm 10.12 unchanged."
+  ],
+  "schema": "aeg-capping-scope-v2",
+  "verdict": {
+    "not_claimed": [
+      "no change to Thm 10.12 or Cor 10.13 is proposed by this file",
+      "A3 is labelled 'partially proved': it rests on two standard facts listed there, and this file verifies only its algebraic steps",
+      "no claim that the singular cap is unique or canonical",
+      "no claim about non-flat metrics for A2/A5 (only the obstruction A1 is metric-independent)"
+    ],
+    "sharp_statement": "a smooth cap (|da|^2 = mu^2 + lambda^2 a^2, a|_dD = c) exists iff mu = 0 and lambda*c = 0",
+    "what_this_says_about_cor_10_13": "branch (2) ('admit an interior critical point or a non-C^1/metric singularity') is NON-EMPTY: A5 exhibits a witness, and A6 shows its singular point is movable",
+    "what_this_says_about_thm_10_12": "its hypothesis mu != 0 is SUFFICIENT but NOT NECESSARY: the obstruction also holds for mu = 0, lambda != 0, c != 0 (A3), and fails exactly in the degenerate cases (A2)"
+  }
+}

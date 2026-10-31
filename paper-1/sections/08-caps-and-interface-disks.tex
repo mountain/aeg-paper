@@ -264,6 +264,26 @@ $da=0$, a contradiction; if $a$ is constant, $da=0$ everywhere, also a
 contradiction.
 \end{proof}
 
+\begin{remark}[The hypothesis $\mu\ne0$ is sufficient but not necessary]
+\label{rem:capping-scope-mu-essential}
+The proof of Theorem~\ref{thm:constant-boundary-capping-obstruction} uses exactly
+one consequence of its hypotheses, namely $|da|_g^2=\mu^2+\lambda^2a^2\ge\mu^2>0$
+whenever $\mu\ne0$; neither $\lambda$ nor the metric $g$ enters the argument.  The
+condition $\mu\ne0$ is nevertheless not necessary for the obstruction.  On
+$\{a\ne0\}$ the function $u=\log|a|/|\lambda|$ satisfies $|du|_g=1$ whenever
+$|da|_g=|\lambda||a|$, so the level sets of $u$ are the equidistant hypersurfaces
+of $\partial D$; a constant boundary value then forces
+$u=k\mp d_g(\cdot,\partial D)$ on the side of $\partial D$, which is not smooth on
+the interior cut locus.  (The two standard facts used here are that $|du|_g=1$
+makes the level sets equidistant, and that the distance to a closed curve in a
+compact region fails to be smooth on its non-empty interior cut locus; the
+argument is recorded in full in \texttt{research/capping-scope/}.)  Hence no
+smooth cap with constant boundary exists when
+$\mu=0$, $\lambda\ne0$ and $c\ne0$ either.  Conversely a smooth cap does exist in
+the degenerate cases $\mu=0=\lambda$ (take $a\equiv c$) and $\mu=0$, $c=0$ (take
+$a\equiv0$).  The sharp condition is therefore $\mu=0$ and $\lambda c=0$.
+\end{remark}
+
 \begin{corollary}[Capping dichotomy]
 \label{cor:capping-dichotomy}
 \begin{enumerate}
@@ -279,6 +299,25 @@ contradiction.
   ($\texttt{def:p0-collar-contract}$).
 \end{enumerate}
 \end{corollary}
+
+\begin{remark}[The singular branch of the capping dichotomy is non-empty]
+\label{rem:capping-singular-branch-nonempty}
+Corollary~\ref{cor:capping-dichotomy}(2) permits an interior critical point or a
+non-$C^1$/metric singularity.  That branch is realised explicitly.  On the flat
+unit disk, for $\mu\ne0$ and $\lambda\ne0$, put
+\[
+  a(r)=\frac{\mu}{\lambda}\sinh\bigl(\lambda(r+C)\bigr),
+\]
+where $C$ is chosen so that $a(1)=c$.  Then
+$(a')^2=\mu^2\cosh^2\bigl(\lambda(r+C)\bigr)=\mu^2+\lambda^2a(r)^2$ holds exactly
+on the punctured disk, while at the centre $a(r)=A+Br+O(r^2)$ with
+$A=\frac{\mu}{\lambda}\sinh(\lambda C)$ and $B=\mu\cosh(\lambda C)\ne0$; the
+one-sided expansions along $+x$ and $-x$ are $A\pm Bx$, so $a$ is $C^0$ but not
+$C^1$ there.  The singular point is a single interior point, and it may be
+prescribed anywhere in $\operatorname{int}D$ by transporting both $a$ and $g$
+along a diffeomorphism that fixes $\partial D$.  Thus branch (2) is non-empty
+rather than merely permitted.
+\end{remark}
 
 \begin{definition}[Certified cap tuple]
 \label{def:certified-cap-tuple}
