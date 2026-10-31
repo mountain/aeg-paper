@@ -1,0 +1,154 @@
+% Canonical Paper I source.
+
+This section collects the classical theorems of one-variable calculus and their
+realizations in the three layers developed above: the bulk (the contact model of
+Section~\ref{sec:differential-theory}), the surface (the boundary and the
+holonomy of Sections~\ref{sec:integral-theory} and
+\ref{sec:theory-of-caps}), and the series (the free Lie algebra of
+Section~\ref{sec:series-theory}).  Each entry is a dictionary row, not a new
+theorem: the statements are proved in the sections cited, and a row only
+records the correspondence, with its status.
+
+Throughout, $\gamma,\delta$ are marked histories, $X_i$ their infinitesimal
+generators, $\Omega(\gamma)$ the Magnus series, $\alpha$ the contact form, and
+$\beta=-\lambda a\,dv$ the surface potential.
+
+\subsection{The dictionary}
+
+\paragraph{Leibniz rule (product rule).} \hfill
+\begin{center}
+\begin{tabular}{ll}
+classical & $(fg)'=f'g+fg'$,\\[2pt]
+bulk & $\nabla^{(m+n)}(fg)=\bigl(\nabla^{(m)}f\bigr)g+f\bigl(\nabla^{(n)}g\bigr)$
+  \ (Prop.~\ref{prop:graded-leibniz-and-gauge}),\\[2pt]
+surface & the restriction of the potential $\beta$ to the side surface,\\[2pt]
+series & the graded Leibniz law of the twisted derivation $D_M$.
+\end{tabular}
+\end{center}
+{\small Status: the bulk form is proved; the surface and series forms are
+readings.}
+
+\paragraph{Chain rule.} \hfill
+\begin{center}
+\begin{tabular}{ll}
+classical & $(f\circ g)'=f'(g)\,g'$,\\[2pt]
+bulk & $\rho(\gamma\delta)=\rho(\delta)\rho(\gamma)$
+  \ (Eq.~\eqref{eq:rho-chronological-antihomomorphism}) and
+  $F(\gamma\delta)=F(\delta)\circ F(\gamma)$,\\[2pt]
+surface & the composition of the seam holonomies under gluing,\\[2pt]
+series & the composition law of the Magnus series under concatenation.
+\end{tabular}
+\end{center}
+{\small Status: the bulk anti-homomorphism is proved; the surface and series
+forms are readings.}
+
+\paragraph{Rolle's theorem.} \hfill
+\begin{center}
+\begin{tabular}{ll}
+classical & $f(a)=f(b)\ \Longrightarrow\ \exists c:\ f'(c)=0$,\\[2pt]
+bulk & $T_{\mathrm{closed}}=\mu h(1-e^{-\lambda k})=0\iff\mu\lambda=0$,\\[2pt]
+surface & a zero seam holonomy $\oint_{C_e}\beta=0$,\\[2pt]
+series & the vanishing of the order-two bracket $[D_u,D_v]=0$.
+\end{tabular}
+\end{center}
+{\small Status: the bulk equivalence is proved; the identification of the
+critical point $da=0$ with the type-2 puncture
+(Theorem~\ref{thm:two-essential-puncture-mechanisms}) is a structural reading.}
+
+\paragraph{Fundamental theorem of calculus.} \hfill
+\begin{center}
+\begin{tabular}{ll}
+classical & $F(b)-F(a)=\int_a^b F'(x)\,dx$,\\[2pt]
+bulk & $d\alpha=d(-\lambda a\,dv)$ is exact
+  \ (Prop.~\ref{prop:holographic-stokes-minimal}),\\[2pt]
+surface & $\int_\Sigma d\alpha=\oint_{\partial\Sigma}\beta$
+  \ (Prop.~\ref{prop:holographic-stokes-minimal}),\\[2pt]
+series & $\Omega(\gamma)=\log\rho(\gamma)$: the logarithm is the primitive.
+\end{tabular}
+\end{center}
+{\small Status: the bulk exactness and the surface Stokes are proved; the
+series form is a reading.}
+
+\paragraph{Mean value theorem.} \hfill
+\begin{center}
+\begin{tabular}{ll}
+classical & $\exists c:\ f'(c)=\dfrac{f(b)-f(a)}{b-a}$,\\[2pt]
+bulk & $T_{\mathrm{open}}=\iint_\Sigma e^{\lambda k-M}dA\wedge dM$,
+  and $\exists\,(A_*,M_*):\ e^{\lambda k-M_*}=\dfrac{e^{\lambda k}-1}{\lambda k}$,\\[2pt]
+surface & the mean point realized as the seam/puncture holonomy
+  $\oint\beta$ (Prop.~\ref{prop:seam-circle-holonomy},
+  Prop.~\ref{prop:puncture-holonomy}),\\[2pt]
+series & the Lagrange remainder of the Magnus series.
+\end{tabular}
+\end{center}
+{\small Status: the bulk weighted mean is proved
+($\texttt{thm:torsion-stokes}$ of Paper~0); the surface realization of the mean
+point and the series remainder reading are structural proposals.}
+
+\paragraph{Integration by parts / Rota--Baxter.} \hfill
+\begin{center}
+\begin{tabular}{ll}
+classical & $\int u\,dv=uv-\int v\,du$,\\[2pt]
+bulk & $I_M(f)\star_M I_M(g)=I_M\bigl(I_M(f)\star_M g+f\star_M I_M(g)\bigr)$
+  \ (Prop.~\ref{prop:mixed-integral-equivalences}),\\[2pt]
+surface & the pairing of the forward source and the backward adjoint
+  $p=K(b)\neg(K)$ (Thm.~\ref{thm:lawson-dual-adjoint-pairing}),\\[2pt]
+series & the Magnus recursion across adjacent generators.
+\end{tabular}
+\end{center}
+{\small Status: the bulk Rota--Baxter identity is proved; the surface and
+series forms are readings.}
+
+\paragraph{Change of variables / substitution.} \hfill
+\begin{center}
+\begin{tabular}{ll}
+classical & $\int f(g(x))\,g'(x)\,dx=\int f(u)\,du$,\\[2pt]
+bulk & the interface substitution $s^*:\mathbb Q[z]\to\mathbb Q[x,y]$, $z\mapsto x+y$
+  \ (Prop.~\ref{prop:polynomial-interface-spectrum}),\\[2pt]
+surface & the spectrum value $\chi_c(z)=c$ on the interface disk,\\[2pt]
+series & the PBW abelianization
+  (Thm.~\ref{thm:pbw-abelianization-difference-substitution}).
+\end{tabular}
+\end{center}
+{\small Status: the bulk substitution is proved; the surface and series forms
+are readings.}
+
+\paragraph{Taylor's theorem.} \hfill
+\begin{center}
+\begin{tabular}{ll}
+classical & $f(b)=\sum_{k=0}^{n}\dfrac{f^{(k)}(a)}{k!}(b-a)^k+\text{remainder}$,\\[2pt]
+bulk & $\Omega(\gamma)=\Omega_1+\Omega_2+\Omega_3+\cdots$
+  \ (Def.~\ref{def:history-magnus-series}),\\[2pt]
+surface & the continued fraction as the canonical boundary form
+  \ (Prop.~\ref{prop:bulk-boundary-series-reduction}),\\[2pt]
+series & the free Lie algebra with Hall/Lyndon basis.
+\end{tabular}
+\end{center}
+{\small Status: the Magnus series is classical; the identification of the
+higher brackets with the Taylor remainder and the surface canonical form are
+structural proposals.}
+
+\paragraph{Stokes' theorem.} \hfill
+\begin{center}
+\begin{tabular}{ll}
+classical & $\iint_\Sigma \operatorname{curl}F\cdot n\,dS=\oint_{\partial\Sigma}F\cdot dr$,\\[2pt]
+bulk & $\int_\Sigma d\alpha$ (the curvature integral),\\[2pt]
+surface & $\oint_{\partial\Sigma}\beta$ (the holonomy),\\[2pt]
+series & the $1$-cocycle and the Jacobi closure
+  \ (Thm.~\ref{thm:defect-group-1-cocycle}).
+\end{tabular}
+\end{center}
+{\small Status: the bulk--surface Stokes is proved; the series form (the
+$1$-cocycle as the discrete Stokes) is proved.}
+
+\subsection{Reading the dictionary}
+
+The four columns carry the same classical content at four levels.  The bulk and
+series columns are the two sides of the contact model; the surface column is
+their common boundary.  The non-commutativity of the bulk is what distinguishes
+every AEG entry from its classical form: the classical ``difference''
+$f(b)-f(a)$ becomes the order defect $T_{\mathrm{open}}$, and the classical
+``derivative'' $f'$ becomes the curvature $\mu\lambda$.  Consequently the
+mean-value and Stokes rows are the two anchors of the whole dictionary --- they
+express, respectively, that a defect is realized at a mean point and that a bulk
+integral is realized on the boundary.
