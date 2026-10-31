@@ -132,20 +132,21 @@
     "construction and reception by the same author; no independent review",
     "A3 is a mechanism with two cited standard facts, not a completed proof in this repository",
     "A2 and A5 are explicit on the flat disk; the paper's theorem is stated for arbitrary smooth g",
-    "only the conical singularity type is examined; the 'interior critical point' sub-branch of Cor 10.13(2) is not constructed",
+    "only the conical singularity type is examined; the 'interior critical point' sub-branch of Cor 10.14(2) is not constructed",
     "the relation to notes/analysis-and-calculus/25-* has not been checked statement by statement"
   ],
+  "paper_action_taken": "APPLIED 2026-11-01: the two remarks now sit in paper-1/sections/08-caps-and-interface-disks.tex as Remark 10.13 (rem:capping-scope-mu-essential) and Remark 10.15 (rem:capping-singular-branch-nonempty); Corollary shifted 10.13 -> 10.14, Definition (certified cap tuple) shifted 10.14 -> 10.16.",
   "question": "which hypotheses of the constant-boundary capping obstruction are sharp?",
   "recommended_paper_action": [
     "option 1 (minimal): add a remark after Thm 10.12 recording that mu != 0 is sufficient but not necessary, and that the sharp condition is mu = 0 and lambda*c = 0 (A2 for the 'only if' direction of the degenerate cases, A3 for the rest);",
     "option 2 (stronger): state the iff-condition as its own proposition, citing A3's two standard facts, and keep Thm 10.12 as the short sufficient statement;",
-    "add a remark after Cor 10.13 exhibiting the A5 family, so branch (2) is known to be non-empty;",
+    "add a remark after Cor 10.14 exhibiting the A5 family, so branch (2) is known to be non-empty;",
     "keep the hypothesis list of Thm 10.12 unchanged."
   ],
   "schema": "aeg-capping-scope-v2",
   "verdict": {
     "not_claimed": [
-      "no change to Thm 10.12 or Cor 10.13 is proposed by this file",
+      "no change to Thm 10.12 or Cor 10.14 is proposed by this file",
       "A3 is labelled 'partially proved': it rests on two standard facts listed there, and this file verifies only its algebraic steps",
       "no claim that the singular cap is unique or canonical",
       "no claim about non-flat metrics for A2/A5 (only the obstruction A1 is metric-independent)"

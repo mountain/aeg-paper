@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""OQ-097 candidate: the *scope* of the constant-boundary capping obstruction.
+"""OQ-099 candidate: the *scope* of the constant-boundary capping obstruction.
 
 Target: Paper I, `thm:constant-boundary-capping-obstruction` (printed Thm 10.12)
 and `cor:capping-dichotomy` (printed 10.14 since 2026-11-01; 10.13 before).
@@ -43,10 +43,15 @@ for construction and reception; NOT independently reviewed.  No paper source is
 modified by this file and no proof of the paper is altered.
 
 Run:
-    python3 verify_capping.py            # JSON report
-    python3 verify_capping.py --check    # human-readable verdicts
+    python3 verify_capping.py                          # JSON report
+    python3 verify_capping.py --check                  # human-readable verdicts
+    python3 verify_capping.py --verify-evidence FILE   # replay the committed evidence
+
+Exit code is non-zero if any embedded status starts with FAIL (used by CI at
+.github/workflows/capping-scope.yml).
 """
 import json
+import pathlib
 import sys
 
 import sympy as sp
@@ -56,6 +61,11 @@ C = sp.symbols("C", real=True)
 c = sp.symbols("c", real=True)
 x, y = sp.symbols("x y", real=True)
 rr = sp.sqrt(x ** 2 + y ** 2)
+
+
+def demand(condition, reason):
+    if not condition:
+        raise SystemExit("verify_capping: " + reason)
 
 
 # ======================================================================
@@ -274,9 +284,69 @@ def run():
     }
 
 
+def _normalised(report):
+    """让内存里的报告与写进 JSON 的形态一致（sort_keys + default=str）。"""
+    return json.loads(json.dumps(report, sort_keys=True, default=str))
+
+
+def _compare(a, b, path="", diffs=None):
+    """严格比较，浮点用相对容差。返回差异列表（空 = 通过）。"""
+    if diffs is None:
+        diffs = []
+    if isinstance(a, dict) and isinstance(b, dict):
+        for key in sorted(set(a) | set(b)):
+            if key not in a or key not in b:
+                diffs.append("%s.%s: missing on one side" % (path, key))
+            else:
+                _compare(a[key], b[key], "%s.%s" % (path, key), diffs)
+    elif isinstance(a, list) and isinstance(b, list):
+        if len(a) != len(b):
+            diffs.append("%s: length %d != %d" % (path, len(a), len(b)))
+        for index, (x, y) in enumerate(zip(a, b)):
+            _compare(x, y, "%s[%d]" % (path, index), diffs)
+    elif isinstance(a, float) or isinstance(b, float):
+        if abs(a - b) > 1e-9 * max(1.0, abs(a), abs(b)):
+            diffs.append("%s: %r != %r" % (path, a, b))
+    elif a != b:
+        diffs.append("%s: %r != %r" % (path, a, b))
+    return diffs
+
+
+def _failures(report):
+    """报告里任何 status 落到 FAIL 都算失败。"""
+    found = []
+
+    def walk(node, path):
+        if isinstance(node, dict):
+            for key, value in node.items():
+                if key == "status" and isinstance(value, str) and value.startswith("FAIL"):
+                    found.append("%s.status = %s" % (path, value))
+                walk(value, "%s.%s" % (path, key))
+        elif isinstance(node, list):
+            for index, value in enumerate(node):
+                walk(value, "%s[%d]" % (path, index))
+
+    walk(report, "")
+    return found
+
+
 def main():
+    args = sys.argv[1:]
     report = run()
-    if "--check" in sys.argv:
+
+    if args[:1] == ["--verify-evidence"]:
+        demand(len(args) == 2, "usage: verify_capping.py --verify-evidence evidence.json")
+        saved = json.loads(pathlib.Path(args[1]).read_text(encoding="utf-8"))
+        diffs = _compare(_normalised(report), _normalised(saved))
+        if diffs:
+            print(json.dumps({"status": "evidence-mismatch", "count": len(diffs),
+                              "first": diffs[:10]}, ensure_ascii=False, indent=2))
+            raise SystemExit(1)
+        print(json.dumps({"status": "evidence-reproduced", "path": args[1]}, sort_keys=True))
+        return
+
+    failures = _failures(report)
+    if "--check" in args:
         print("[A1] 充分性（只用到 mu != 0）：", report["A1_sufficiency"]["status"])
         a = report["A2_degenerate_caps_exist"]
         print("[A2] 退化情形**有**光滑封盖：", a["status"],
@@ -296,6 +366,11 @@ def main():
         print("        ⇒ Thm 10.12 的 μ≠0 是**充分而非必要**；退化情形恰是 μ=0 且 λc=0")
     else:
         print(json.dumps(report, ensure_ascii=False, indent=2, sort_keys=True, default=str))
+
+    if failures:
+        print(json.dumps({"status": "checks-failed", "failures": failures},
+                         ensure_ascii=False, indent=2))
+        raise SystemExit(1)
 
 
 if __name__ == "__main__":
