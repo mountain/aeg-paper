@@ -199,6 +199,41 @@ interface-spectrum semantics is a structural proposal, the displayed algebra
 itself being a proved identity in the polynomial fragment.
 \end{proof}
 
+\begin{remark}[Three interface readings: value, order, and analytic defect]
+\label{rem:three-interface-layers}
+The spectrum of Proposition~\ref{prop:polynomial-interface-spectrum} is one of
+three interface readings, which are not three names for one object: they live at
+different layers and are kept distinct here.
+\begin{enumerate}
+  \item \textbf{Algebraic spectrum (value layer).} The characters
+  $\chi_c(z)=c$ of $\operatorname{Spec}\mathbb Q[z]$ parametrize the value at a
+  single interface (the shared variable $z$) through the substitution $s^*$ and
+  the fiber product; they need only the interface algebra, not the thickening.
+  \item \textbf{Stone order spectrum (order layer).} The Stone spectrum of the
+  down-set lattice $\mathcal O(P)$ recovers the dependency poset $P$ itself ---
+  the bare skeleton of which operations occur and in what partial order
+  (Theorem~\ref{thm:birkhoff-downset-spinal}).
+  \item \textbf{Seam/puncture holonomy (analytic layer).} The loop integral
+  $\oint_{C_e}\beta$ of Proposition~\ref{prop:seam-circle-holonomy} is the
+  analytic realization of the order defect: the defect of
+  Theorem~\ref{thm:dag-defect-equals-curvature}, integrated to the boundary by
+  Stokes (Proposition~\ref{prop:holographic-stokes-minimal}).  It is derived
+  from the order structure $P$ through the differential/integral pillar, not
+  from the algebraic spectrum.
+\end{enumerate}
+Two of the three relations are settled.  First, the algebraic spectrum and the
+holonomy are linked by an obstruction, not a derivation: the spectrum assigns
+the interface a constant label $\chi_c(z)=c$, while
+Theorem~\ref{thm:constant-boundary-capping-obstruction} forbids realizing that
+constant as the boundary assignment of a compact regular AES disk
+(Corollary~\ref{cor:capping-dichotomy}).  Second, no bridge from
+$\operatorname{Spec}\mathbb Q[z]$ to
+$\operatorname{Stone}(\mathcal O(P))$ is established here; whether the
+compact-open lattice of the former relates to the down-set lattice $\mathcal
+O(P)$ of the latter is open (OQ-096.2).  The three-layer organization is a
+structural reading; the proved facts are the cited theorems.
+\end{remark}
+
 \begin{definition}[Interface record with residual]
 \label{def:interface-record-with-residual}
 An interface disk record is the five-tuple

@@ -4037,7 +4037,14 @@ The model's canonical AEG status and its relation to native Seal are open.
   algebra/state carrier; distinguish equal numerical values from production
   identity; demonstrate recovery of retained residuals under a stronger
   observer. An ordinary operator spectrum, the order spectrum and the
-  interface character space are not identified by terminology.
+  interface character space are not identified by terminology. No bridge from
+  the algebraic spectrum `Spec Q[z]` (value layer) to the Stone spectrum of the
+  down-set lattice `O(P)` (order layer) is established; whether the compact-open
+  lattice of the former relates to the down-set lattice `O(P)` of the latter is
+  open. The seam-circle holonomy is the analytic realization of the order defect
+  (derived from `P` through curvature + Stokes), linked to the algebraic spectrum
+  only by the constant-boundary capping obstruction, not by derivation
+  (`rem:three-interface-layers`).
 - **096.3 — AES extension or explicit singular capping.** Specify actual
   metric/assignment collars and prove their extension or the exact obstruction.
   Respect note 25's constant-boundary obstruction and Paper 0's essential
