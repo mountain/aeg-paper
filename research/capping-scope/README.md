@@ -157,6 +157,21 @@ python3 verify_capping.py > evidence-capping.json
 插入位置写在文件头部注释里（Thm 10.12 之后 / Cor 10.14 之后）。
 是否采用、以及如何与 `governance/03-theorem-dependency-graph.md` 对齐，由作者决定。
 
+## 6.6 为 PR #21 合并准备的交叉引用稿：`CROSSREF-DRAFT.tex`
+
+与 PR #21（`paper-1/handle-surgery-annular-interfaces`，commit `fc61fbc`，**仍开着**）的对撞分析见
+`public/electrodynamics/BRANCH-COLLISION-2026-11-01.md`。三个可即插即用的块：
+
+| 块 | 内容 | 何时可用 | `\ref` 目标现居何处（已核） |
+|---|---|---|---|
+| A | 接到 `rem:capping-singular-branch-nonempty`：**圆锥奇异点 ≠ 钻穿的 cap** | **PR #21 合并后** | `prop:tunnel-boundary-surgery`、`prop:pierced-cap-annulus`、`rem:drilled-body-meridian` 仅在 PR21 分支 |
+| B | 接到 `rem:drilled-body-meridian`：幸存的子午圆盘只是**拓扑**正则 | **PR #21 合并后** | `rem:capping-scope-mu-essential`、`rem:capping-singular-branch-nonempty` 在 main；`def:surface-potential` 两边都有 |
+| C | 澄清 "cap" 一词 = 圆盘的填充 | **main 现在即可** | `def:decorated-ball-tube-thickening`（main 有） |
+
+三块都已核：`$` 配对、花括号配平、`\ref` 目标存在性。
+**均未应用**；合并后用 `public/electrodynamics/tools/check-aeg-numbering.py` 重导编号，
+再决定是否插入（那是作者的编辑决定）。
+
 ---
 
 ## 7 修订记录（不覆盖，保留）

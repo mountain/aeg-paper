@@ -1,0 +1,72 @@
+% ---------------------------------------------------------------------
+% CROSSREF-DRAFT.tex  --  DRAFT ONLY, NOT APPLIED.
+%
+% Purpose: the cross-references between the two capping remarks of this
+% directory (already in the paper) and the handle/annular-interface material of
+% PR #21 (branch paper-1/handle-surgery-annular-interfaces, commit fc61fbc).
+%
+% WHEN EACH BLOCK MAY BE APPLIED
+%   Block A  after PR #21 is merged (it \ref's prop:pierced-cap-annulus,
+%            prop:tunnel-boundary-surgery and rem:drilled-body-meridian, which do
+%            not exist on main today);
+%   Block B  after PR #21 is merged (it \ref's the two remarks of main, which do
+%            not exist on the PR #21 branch);
+%   Block C  may be applied on main NOW (it refers only to labels that exist).
+%
+% After merging, re-derive the printed numbers with
+%   public/electrodynamics/tools/check-aeg-numbering.py
+% and update the CITED table there; every \ref below is label-based on purpose,
+% so only the prose numbers in external documents need propagation.
+%
+% Rationale (from BRANCH-COLLISION-2026-11-01.md):
+%   PR #21 adds topological handle surgery (drilling changes chi(S) by -2 and
+%   turns a filling disk into an annulus) and *rewrites clause (3)* of
+%   cor:capping-dichotomy so that "nonconstant a|_{C_e}" is required only when a
+%   compact regular AES disk also fills the seam.  The two capping remarks of
+%   main concern disc fillings with constant boundary value, i.e. exactly the
+%   case that clause (3) now keeps separate.  Neither set of statements is
+%   changed by the other; what is needed is that a reader does not identify
+%   "pierced cap" (topological) with "singular cap" (analytic).
+% ---------------------------------------------------------------------
+
+
+% =========== Block A: to append to rem:capping-singular-branch-nonempty ===========
+% (the remark after cor:capping-dichotomy in paper-1/sections/08-caps-and-interface-disks.tex)
+%
+% A CONICAL POINT IS NOT A DRILLED CAP
+% The singular point produced above must not be confused with the drilled
+% interface disks of the tunnel surgery: drilling a tunnel removes a tube from
+% the body and replaces a filling disk by an annulus, which changes the side
+% surface by chi(S) -> chi(S) - 2 and adds a handle
+% (Proposition~\ref{prop:tunnel-boundary-surgery},
+% Proposition~\ref{prop:pierced-cap-annulus}), whereas the conical point above is
+% a failure of regularity of the analytic assignment $a$ on a disk that still
+% fills its circle (Remark~\ref{rem:drilled-body-meridian}).  The two statements
+% are complementary rather than competitive: the surgery records which fillings
+% remain available topologically, and the present remark records that a disc
+% filling with constant boundary value is available only at the price of one
+% interior singularity.
+
+
+% =========== Block B: to append to rem:drilled-body-meridian (PR #21) ===========
+%
+% A SURVIVING MERIDIAN DISK NEED NOT CARRY A REGULAR ASSIGNMENT
+% Conversely, the meridian disks that survive the surgery are regular in the
+% topological sense only.  The analytic assignment of
+% Definition~\ref{def:surface-potential} cannot be continued across a circle
+% whose boundary value is constant without admitting one interior singularity
+% (Remark~\ref{rem:capping-scope-mu-essential},
+% Remark~\ref{rem:capping-singular-branch-nonempty}), so the topological
+% availability of a filling disk and the regularity of an analytic filling are
+% separate questions.
+
+
+% =========== Block C: applicable on main NOW ===========
+% (a one-clause clarification; may be appended to rem:capping-scope-mu-essential
+%  or to rem:capping-singular-branch-nonempty)
+%
+% SCOPE OF THE WORD "CAP"
+% Throughout this remark "cap" means a disc filling of the seam circle
+% $\partial D_e$ of Definition~\ref{def:decorated-ball-tube-thickening}; the
+% annular collars that arise when a seam is glued without a disc filling are not
+% asserted to carry a constant boundary value, and nothing here constrains them.
