@@ -129,3 +129,36 @@ named per commit/PR when known and must not be reassigned to the GitHub account
 holder. Model cross-review is not independent human review.
 
 
+
+## New research thread — 2026-11-01: scope of the capping obstruction
+
+- **Human origin/direction:** Mingli Yuan asked which hypothesis of
+  `thm:constant-boundary-capping-obstruction` is sharp, then approved applying
+  the resulting remarks to the manuscript and updating the governance records.
+- **Model assistance:** DeepSeek Harness agent (deepseek-v4-flash-vision-exp)
+  supplied the scope analysis, the explicit singular cap, the verifier and its
+  evidence, the two manuscript remarks, the OQ-099 draft and the dependency-graph
+  propagation entry. An earlier draft of its own claim (a flat-disk family
+  presented as a smooth cap with `mu = 0`) was withdrawn by the same agent before
+  release, because the family is analytic in `r` but not in `(x, y)`; the
+  withdrawn claim is recorded in `research/capping-scope/README.md` §7.
+- **Objects:** `research/capping-scope/` (README, `verify_capping.py`,
+  `evidence-capping.json`, `PROPOSED-REMARK.tex` now a transfer record);
+  `paper-1/sections/08-caps-and-interface-disks.tex` (Remarks
+  `rem:capping-scope-mu-essential` and `rem:capping-singular-branch-nonempty`,
+  printed 10.13 and 10.15); `governance/08-open-questions.md` (OQ-099);
+  `governance/03-theorem-dependency-graph.md` (propagation entry and the
+  registration gap of the caps/interface branch).
+- **Manuscript effect:** two remarks added; no hypothesis and no wording of
+  Theorem 10.12 or of the capping dichotomy was changed. Printed numbering
+  downstream shifted (`cor:capping-dichotomy` 10.13 -> 10.14;
+  `def:certified-cap-tuple` 10.14 -> 10.16). Build `./build.sh 1` produced a
+  57-page PDF with no undefined references, no duplicate labels and no missing
+  citations.
+- **Boundary:** the `mu = 0`, `lambda != 0`, `c != 0` half of Remark 10.13 rests
+  on two cited standard facts and is registered as `partially proved` in OQ-099,
+  not as a theorem; the "interior critical point" alternative inside branch (2)
+  of the dichotomy is not constructed; the examples are flat-metric. The
+  representation-theoretic reading of the seam (trivial label `j = 0`) recorded in
+  OQ-099 is a structural proposal with falsifiers and asserts nothing about the
+  manuscript. No independent human mathematical review is asserted.

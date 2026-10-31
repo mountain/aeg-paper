@@ -4260,3 +4260,72 @@ Note 30 (2026-10-31) is the synthesis of 26–29. Remaining residuals: 098.1(a)
 and the branching layer's own dynamics, 098.3 carousel/orbit correspondence,
 098.4 functoriality.
 
+
+---
+
+## OQ-099 — Scope of the constant-boundary capping obstruction, and the seam-label (trivial-representation) reading
+
+**Priority:** P2
+**State:** PARTIALLY RESOLVED (2026-11-01). The scope statement and the explicit
+singular cap are in the paper as Remark 10.13 and Remark 10.15; the
+representation-theoretic reading of the seam is `STRUCTURAL PROPOSAL` and remains
+open (099.2). 099.1 is resolved for the flat disk and, for the obstruction
+direction, for arbitrary smooth `g`.
+**Origin:** Mingli Yuan asked (2026-11-01) which hypothesis of the capping
+obstruction is sharp, and separately whether the obstruction and the "missing seam
+weight" found on the QED side are the same deficiency. Construction, checker and
+text: DeepSeek Harness agent (deepseek-v4-flash-vision-exp). No independent human
+mathematical review is asserted.
+
+**Question (099.1).** Which hypotheses of
+`thm:constant-boundary-capping-obstruction` are sharp, and is branch (2) of
+`cor:capping-dichotomy` non-empty?
+
+**Current evidence (099.1).** `research/capping-scope/` (README, `verify_capping.py`,
+`evidence-capping.json`) establishes:
+
+* `A1` (proved with stated hypotheses): the published proof uses only `mu != 0`,
+  via `|da|_g^2 >= mu^2 > 0`; neither `lambda` nor `g` enters, so the obstruction
+  as proved is metric- and `lambda`-independent.
+* `A2` (proved): in the degenerate cases `mu = 0 = lambda` (`a ≡ c`) and
+  `mu = 0, c = 0` (`a ≡ 0`) a smooth cap does exist, so the conclusion does not
+  extend over the whole of `mu = 0`.
+* `A3` (partially proved): for `mu = 0`, `lambda != 0`, `c != 0` there is no smooth
+  cap either. On `{a != 0}`, `u = log|a|/|lambda|` satisfies `|du|_g = 1`, so its
+  level sets are equidistants of `partial D`; a constant boundary value forces
+  `u = k ∓ d_g(., partial D)`, which is not smooth on the interior cut locus.
+  Two standard facts are used and cited, not proved, in the note.
+* Sharp statement (`A4`, combining A1–A3): a smooth cap exists iff `mu = 0` and
+  `lambda c = 0`. Hence `mu != 0` is **sufficient but not necessary**.
+* `A5`/`A6` (proved; computationally verified example): with `mu != 0`,
+  `a(r) = (mu/lambda) sinh(lambda (r+C))` solves the equation exactly on the
+  punctured flat disk, has `a(1) = c`, and is `C^0` but not `C^1` at a single
+  interior conical point, which may be prescribed anywhere in `int D`.
+  Branch (2) of the corollary is therefore **non-empty**, not merely permitted.
+
+**Question (099.2).** Is there a representation-theoretic reading of the seam that
+unifies the capping obstruction with the QED seam-weight question?
+
+**Current evidence (099.2), `STRUCTURAL PROPOSAL` only.**
+`public/electrodynamics/pants-v7-translation/` notes that "`a|_dD` is constant" is
+the statement "the boundary datum lies in the trivial representation" (Fourier
+decomposition on the circle), so the obstruction is about the label `j = 0`, while
+a photon seam carries `j = 1` with two physical transverse states. In that reading
+the obstruction and the missing seam weight are two faces of "the interface has a
+single number, so the angular datum has nowhere to live". This is explicitly
+recorded as a proposal with falsifiers, and is **not** a statement of the paper.
+
+**Why it matters.** If 099.2 were established, the caps/interface chapter and the
+"labelled interface" extension would be one construction rather than two; the
+`dim V_e` capping count and Theorem 10.12 would then be two layers of one label
+rather than competing claims.
+
+**Residuals.** 099.1: `A3` is a mechanism resting on two cited standard facts; the
+"interior critical point" alternative inside branch (2) is not constructed; the
+examples are flat-metric. 099.2: no definition of a labelled interface exists in
+the paper; no theorem; the relation to `notes/analysis-and-calculus/25-*` has not
+been checked statement by statement.
+
+**Next steps.** (i) Either promote `A4` to a proposition with a full proof of `A3`,
+or keep it as Remark 10.13; (ii) construct the interior-critical-point branch;
+(iii) decide whether a labelled interface belongs to the paper scope at all.
