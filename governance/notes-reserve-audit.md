@@ -118,6 +118,7 @@ Grade labels used below:
 | 03-weighted-contact-calculus | Unincorporated | WORKING-NOTE PROVED | Graded covariant differential `∇^{(n)}f=δf−nf dM`, graded Leibniz law, gauge rectification `ã=e^{−M}a`, twisted product `⋆_M` with derivation `D_M`, twisted Rota–Baxter identity, dual weight-line adjoint geometry, E₀/ACS structure equations `dω_A=ω_M∧ω_A`. Complete proofs; **integration audit required**. |
 | 09-order-topology-scott-lawson | Unincorporated | STRUCTURAL PROPOSAL + REFORMULATION | Reference vocabulary (Scott/Lawson/way-below/ideal completion, cited `CLASSICAL`) plus a faithful instantiation to AEG marked spinal histories: information order = chronological prefix order, ideal completion = finite∪infinite histories (OQ-091, partial — branching case open); additive = way-below, multiplicative = Scott-automorphism, dual = reciprocal involution (OQ-092, resolves and corrects the §6 wording); backward adjoint `p=¬(K)` mod constant, join = Lawson = Euclidean (OQ-093); mixed integral separately Scott-continuous (functional pairing). The integrative "missing-involution = backward adjoint = order-topology-analysis foundation" reading is a structural proposal, not a theorem. |
 | 10–20 (Scott–Lawson thread) | Unincorporated | STRUCTURAL PROPOSAL + REFORMULATION (+ CLASSICAL); two proved sub-results | One continuous argument (2026-10-31) reading `09` back into the Paper I main body and the Paper 0 contact structure. `10` generator correspondence `T_s=C_{+,s}^{(1)}`, `D_k=C_{×,k}^{(1)}`, `¬=C_{/,1}^{(2)}`; `11`–`13` OQ-094a (Scott ⟷ `Aff^+`, Lawson ⟷ `PGL₂`, "adjoin ¬" commutes, **not** a Galois equivalence); `14` OQ-094b (`ρ` monotone only for the trivial preorder — **`WORKING-NOTE PROVED` Theorem 1** — and the only candidate extension is the infinite matrix product = continued fraction, out of Paper I scope); `15` OQ-094c (branching-history dcpo: information order = down-set embedding, `Idl(FinDAG)` = finite∪infinite DAGs, Birkhoff `O(P)`, prefix = chain specialization — `CLASSICAL` ideal completion instantiated); `16` OQ-094d (Hecke history space = Cantor, `G₄≅C₂*C₄` ends = Cantor, `H(√2)` first-kind limit set = circle; corrects `10` §4); `17`–`18` contact curvature = minimal-DAG order defect (generators = exact flows, order defect = Lie bracket `[D_u,D_v]=μλ∂a`, BCH); `19` holographic Stokes + bulk-boundary (bulk flat, defect = boundary holonomy — `STRUCTURAL PROPOSAL`); `20` defect is a group-valued 1-cocycle (telescoping additivity, local defect = conjugated commutator, hexagon = Jacobi identity — **`WORKING-NOTE PROVED`**, though largely classical/trivial). Computational checks: `D_{-1}=T_1¬T_{-1}¬T_1¬`, the BCH density `μλ`, the ends enumeration. The integrative "Contact = the DAG language of volume computation" and the bulk-boundary ("holographic") readings are structural proposals, not theorems. Residuals: OQ-095 (higher-order brackets, full DAG Lie realization, macro Stokes, spectral docking). Disposition in `governance/scott-lawson-paper-1-integration-2026-10-31.md`. |
+| 25-pants-interface-disks-and-substitution | Unincorporated; new thread | STRUCTURAL PROPOSAL + PROVED WITH STATED HYPOTHESES (working note; integration audit required) | Specifies decorated ball-and-tube thickening, surface pants and internal interface disks; gives finite topological proofs, the polynomial substitution/character example, and the constant-boundary regular-AES disk obstruction. Canonical AEG realization, general decorated composition and the native Seal bridge remain open (OQ-096). The note's verification plan is not executed evidence. Does not promote or rewrite notes 15–24 or manuscript claims. Direction: Mingli Yuan; construction, proofs and drafting: Codex (OpenAI), 2026-10-31. |
 
 ### 2.3 `notes/computation-and-resources/`
 
@@ -261,6 +262,12 @@ analysis and a proof.
 
 ### Tier C — structural proposals and open programs
 
+* `analysis-and-calculus/25` — new pants/interface-disk/substitution thread
+  (2026-10-31), OQ-096. Short conditional proofs are supplied inside a specified
+  finite model, including the constant-boundary regular-AES capping obstruction.
+  Its semantic/geometric identification and native Seal bridge remain open;
+  it is not a manuscript promotion candidate as a whole.
+
 * `analysis-and-calculus/09` — Scott/Lawson reference vocabulary plus a faithful
   AEG instantiation (prefix-order information order, additive = way-below,
   backward adjoint = reciprocal, Lawson = Euclidean). The integrative
@@ -388,3 +395,4 @@ range is updated to C-1 … C-10 accordingly.
   2026-08-10; the 2026-09-29 amendment extends it to the four notes added since.
   Any note added later must be appended the same way, or this file stops
   covering what its "Applies to" line claims.
+

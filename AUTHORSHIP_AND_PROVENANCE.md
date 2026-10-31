@@ -86,10 +86,29 @@ independent human mathematical review or promote a finite result to a theorem.
   motion certification, planar local-move certification and native Adva
   continuation/learning integration remain open; no manuscript theorem changes.
 
+## New research thread — 2026-10-31: pants, interface disks and substitution
+
+- **Human origin/direction:** Mingli Yuan proposed using pants gluing and DAG
+  algebraic substitution to clarify the shared boundary's cap, its spectral
+  value and the geometric interpretation of Adva sealing; he requested the
+  next research note and then advancement of OQ-096.
+- **Model assistance:** Codex (OpenAI) supplied note 25's decorated thickening
+  model, interface-state formalization, short conditional proofs, constant-
+  boundary regular-AES disk obstruction, dependency cautions and validation
+  plan, and drafted the OQ-096 and reserve entries.
+- **Objects:** `notes/analysis-and-calculus/25-pants-interface-disks-and-substitution.md`,
+  `governance/08-open-questions.md` (OQ-096), and the corresponding reserve row.
+- **Boundary:** a new research proposal with proofs in a specified finite
+  model; no manuscript theorem promotion, canonical AES realization or native
+  Adva Seal implementation. Independent human mathematical review is not
+  asserted. Subsequent executed finite evidence must be recorded separately
+  from this initial note.
+
 ## Contribution interpretation
 
 Mingli Yuan is the human research director, acceptance and release authority,
 and final human scientific responsibility holder. Model contributions must be
 named per commit/PR when known and must not be reassigned to the GitHub account
 holder. Model cross-review is not independent human review.
+
 
