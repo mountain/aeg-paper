@@ -4006,7 +4006,8 @@ them yet).
 
 **Priority:** P2
 **State:** OPEN (2026-10-31); 096.1 has a completed V1 finite example, with
-general composition still open. Sub-items 096.2–096.4 remain open.
+general composition still open. Sub-items 096.2–096.4 remain open; 096.5
+records the subsequent handle/annular-interface direction.
 **Origin:** Mingli Yuan asks to clarify pants, DAG substitution, the shared
 boundary's cap and its spectral value before assigning geometric meaning to
 Adva sealing. Codex (OpenAI) formalized the initial proposal and finite
@@ -4048,6 +4049,15 @@ The model's canonical AEG status and its relation to native Seal are open.
   prove what its additive/multiplicative residual checks certify. Retain body,
   source history and nonzero obligations. A disk or a matching value alone
   cannot issue Seal.
+- **096.5 — Handle surgery and annular interface compatibility.** The explicit
+  product tunnel, the change from boundary(D)=C to boundary(A)=C-c, double
+  pants gluing and the conditional annular Stokes balance have in-paper proofs.
+  Define the two boundary state spaces and their arithmetic compatibility
+  relation, preserve slots/occurrences/production residuals, and determine
+  which decorated surgeries admit regular AES data or a specified singular
+  extension. Specify whether a chosen surgery preserves the numerical
+  function; split--merge alone need not do so. Neither the event poset nor
+  equality of endpoint values determines these geometric data.
 
 **Default rule while open:** Use the specified thickening only as a research
 presentation. Do not identify it with a regular AES, an ideal-completion
@@ -4067,9 +4077,19 @@ same-author finite calibration, not a general thickening functor or native
 Adva execution. It records Mingli Yuan's complementary surface-hole/body-disk
 view as a precisely bounded result.
 
-**Affected files:** note 25 and `research/pants-interface-disks/` (V1).
-**Affected theorem nodes:** none; the new proofs remain in the working-note
-reserve and require integration audit before manuscript promotion.
+**Manuscript update (2026-10-31):** Main's combined-volume revision has already
+integrated note 25 into Paper I's cap chapter. The handle successor adds
+`prop:tunnel-boundary-surgery`, `prop:pierced-cap-annulus`,
+`prop:double-pants-dag-handle` and `prop:annular-stokes-balance`, with the
+bounded audit and PI-H1–PI-H6 statuses recorded in
+`paper-I-handles-integration-2026-10-31.md` and `05-mathematical-status.md`.
+The 27/26/24-cube ball, indentation and tunnel calibration supplements those
+proofs; it is not the planned equal-value residual experiment V2.
+
+**Affected files:** note 25, `research/pants-interface-disks/`,
+`paper-1/sections/08-caps-and-interface-disks.tex` and Appendix D.
+**Affected theorem nodes:** the four handle/annular propositions above;
+the earlier note-only disposition is superseded for these integrated claims.
 **Owner:** author.
 **Next bounded target:** note 25 V2 (equal interface values with distinct
 production residuals). General composition is V3; the AES/Seal bridge is V4.

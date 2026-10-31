@@ -166,9 +166,11 @@ reading of the geometric contact structure imported from Paper~0.
 
 On the geometric side, the ``holes'' of the theory are of five distinct kinds and
 the ``boundaries'' of four; a decorated network thickened to a ball-and-tube
-body makes the distinction concrete.  A surface hole is not filled inside the
-surface but is filled by an interior disk, and cutting along that disk exposes
-two caps.  A constant-boundary disk admits no regular AES capping, which is why
+body makes the distinction concrete.  In the two-pants model, the seam is not
+filled inside the side surface but is filled by an interior disk; cutting along
+that disk exposes two caps.  Drilling through such a disk can turn it into an
+annulus and make its surviving edge nonbounding even in the remaining body.
+A constant-boundary disk admits no regular AES capping, which is why
 port substitution, topological filling, regular collar descent, and certified
 sealing must be kept apart.
 
@@ -220,7 +222,12 @@ lattice and whose abelianization is the difference substitution.
 The fifth group is the hole--cap geometry.  Five notions of hole and four of
 boundary are kept distinct; a decorated network thickened to a ball-and-tube
 body exhibits the hole--disk complementarity, and a constant-boundary disk
-admits no regular AES capping.
+admits no regular AES capping.  Propositions~\ref{prop:tunnel-boundary-surgery}
+and~\ref{prop:pierced-cap-annulus} describe handle creation and the loss of a
+disk filling; Proposition~\ref{prop:double-pants-dag-handle} realizes a handle
+with an acyclic split--merge network.  With separately declared smooth data,
+Proposition~\ref{prop:annular-stokes-balance} gives the resulting two-boundary
+period balance.
 
 The sixth group is the zero theory of regular arithmetic expression spaces.
 Section~\ref{sec:regular-aes-interface} restates the definition imported from

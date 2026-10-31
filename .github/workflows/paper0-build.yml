@@ -6,6 +6,9 @@ on:
       - "paper-0/**"
       - "paper-1/**"
       - "paper-4/**"
+      - "research/pants-interface-disks/verify_handles.py"
+      - "research/pants-interface-disks/evidence-handles.json"
+      - "research/pants-interface-disks/verify_v1.py"
       - "bibliography/**"
       - "build.sh"
       - ".github/workflows/paper0-build.yml"
@@ -60,6 +63,13 @@ jobs:
           cmp /tmp/process-receiver.json paper-4/scripts/fixtures/process-spectrum/receiver-evidence.json
           python3 -O paper-4/scripts/receive-process-spectrum.py /tmp/process-spectrum.json > /tmp/process-receiver-O.json
           cmp /tmp/process-receiver.json /tmp/process-receiver-O.json
+
+      - name: Verify the product tunnel and annular Stokes balance
+        run: |
+          python3 research/pants-interface-disks/verify_handles.py > /tmp/handles.json
+          cmp /tmp/handles.json research/pants-interface-disks/evidence-handles.json
+          python3 -O research/pants-interface-disks/verify_handles.py > /tmp/handles-O.json
+          cmp /tmp/handles.json /tmp/handles-O.json
 
       - name: Build Paper 0
         run: ./build.sh 0

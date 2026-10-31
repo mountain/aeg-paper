@@ -3651,3 +3651,27 @@ Independent synthetic models; no manuscript theorem or PR #16 evidence changes.
 | PIV-PS4 | `COMPUTATIONALLY VERIFIED EXAMPLE` | Exact polynomial/frontier reconstruction, all 19 labelled three-element posets, shared/independent source controls, role controls, and horizons 0,1,2,3,6 replay in normal and optimized modes. |
 | PIV-F2 | `OPEN PROBLEM` | Faithful Alexandrov-based spectral object, source-aware transport/coherence, and native cyclic three-side updates remain open. Nonlinear eigenproblems are not instantiated. |
 
+## Paper I handle and annular-interface integration (2026-10-31)
+
+Canonical source: `paper-1/sections/08-caps-and-interface-disks.tex`.
+Integration audit: `paper-I-handles-integration-2026-10-31.md`.
+This adds the user's tunnel/handle discussion to the combined-volume scope
+of `00d-paper-I-calculus-and-capping-amendment.md`; it does not certify the
+other analytical pillars or close OQ-096.
+
+| ID | Status | Statement and boundary |
+|---|---|---|
+| PI-H1 | `PROVED WITH STATED HYPOTHESES` | `prop:tunnel-boundary-surgery`: two tunnel mouths in the interior of the same connected oriented side surface, disjoint from fixed port disks, give genus +1 and unchanged port count. Classifies the boundary, not arbitrary knotted tunnel complements. |
+| PI-H2 | `PROVED WITH STATED HYPOTHESES` | `prop:pierced-cap-annulus`: in the explicit interval-times-disk model, drilling changes a disk into an annulus with boundary C-c, and C becomes a generator of integral H_1 of the remaining solid torus. Explicit radial rectangle retains a meridian disk. |
+| PI-H3 | `PROVED WITH STATED HYPOTHESES` | `prop:double-pants-dag-handle`: two forward parallel wires between a split and merge give S_(1,2) in the declared minimal thickening. An undirected cycle is not directed feedback; the reachability poset omits wire multiplicity. No canonical drilling-to-program map is claimed. |
+| PI-H4 | `PROVED WITH STATED HYPOTHESES` | `prop:annular-stokes-balance`: for a smooth declared one-form near A with boundary C-c, period(C)-period(c)=integral_A d(beta). The seam-disk formula now explicitly requires extension to the disk. Non-fillability does not force a nonzero period. |
+| PI-H5 | `COMPUTATIONALLY VERIFIED EXAMPLE` | Three fixed cubical bodies, all vertex links, mod-2 body filling ranks, exact oriented chains and -y dz periods; eight negative controls. Same-author reuse of V1 routines, not independent implementation or general classification. |
+| PI-H6 | `STRUCTURAL PROPOSAL` / `OPEN PROBLEM` | Arithmetic annular interfaces need two declared state spaces, a compatibility relation, provenance and residuals; regular AES realization and a native Seal bridge remain open (OQ-096.5). |
+
+**Related clarification:** `cor:capping-dichotomy` item 3 now restricts the
+nonconstant-boundary requirement to an actual compact regular AES disk
+filling. The disk extremum argument does not prohibit gluing constant-level
+annular collars in the absence of such a disk. This weakens the prior
+overbroad gluing inference; it changes neither the eikonal obstruction nor the
+full collar contract.
+
