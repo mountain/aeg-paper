@@ -5,11 +5,11 @@ on:
     paths:
       - "research/capping-scope/**"
       - ".github/workflows/capping-scope.yml"
+  # Required-check contract: a push to ANY branch must produce this check, so the
+  # push trigger carries no path filter.  The pull_request trigger keeps its
+  # filter to save minutes on unrelated PRs.
   push:
-    branches: [main]
-    paths:
-      - "research/capping-scope/**"
-      - ".github/workflows/capping-scope.yml"
+    branches: ["**"]
   workflow_dispatch:
 
 permissions:

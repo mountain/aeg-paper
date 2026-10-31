@@ -8,6 +8,9 @@ on:
       - 'paper-0/appendices/**'
       - 'paper-0/aeg-paper-0.tex'
       - '.github/workflows/paper0-formal.yml'
+  # Required-check contract: see paper0-build.yml.
+  push:
+    branches: ["**"]
   workflow_dispatch:
 
 permissions:

@@ -6,12 +6,9 @@ on:
       - "research/pants-interface-disks/**"
       - "notes/analysis-and-calculus/25-pants-interface-disks-and-substitution.md"
       - ".github/workflows/pants-interface-disks.yml"
+  # Required-check contract: see capping-scope.yml.
   push:
-    branches: [main]
-    paths:
-      - "research/pants-interface-disks/**"
-      - "notes/analysis-and-calculus/25-pants-interface-disks-and-substitution.md"
-      - ".github/workflows/pants-interface-disks.yml"
+    branches: ["**"]
   workflow_dispatch:
 
 permissions:
