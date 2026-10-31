@@ -3819,3 +3819,185 @@ of `09` §9.2 and the pairing `eq:adjoint-pairing`.
 Addressed in `09` §11 (2026-10-31): `𝔐` is separately Scott-continuous in `u`
 and in `v` (nonnegative densities), and `∫u·p` is the two-sided duality pairing
 — the functional-level form of Scott ∨ lower = Lawson.
+
+## OQ-094 — Scott/Lawson reading of the Paper I affine sector and PGL₂
+
+**Priority:** P3
+**State:** 094a RESOLVED (2026-10-31) — the provable core, the Galois-connection
+step, and the functorial language are all closed
+(`11-oq094a-proof-skeleton.md`, `12-galois-connection-oq094a.md`,
+`13-functorial-language-oq094a.md`). The precise form of 094a is: `Scott ⟷
+Aff^+ = C(σ)∩B_∞ = {ka+s : k>0, s≥0}`, `Lawson ⟷ PGL₂ = ⟨Aff^+, ¬⟩`, with
+"adjoin ¬" commuting (`Φ(σ∨¬_*σ) = ⟨Φ(σ),¬⟩`), and it is a natural isomorphism
+of "generating data + adjoin ¬", *not* a full Galois equivalence over `Top(L)`
+(three proved reasons: `A(σ)=A(λ)`, `H(λ)=Stab([0,∞])⊊PGL₂`,
+`¬T_s¬∈E(σ)∖Aff^+`).
+
+094b RESOLVED (2026-10-31) — `14-rho-scott-continuity-boundary.md` proves the
+clean negative: `ρ` is monotone only for the trivial preorder (so no
+Scott-continuous extension to the history dcpo `Γ^≤ω`), and the only candidate
+limit extension is the infinite matrix product = continued-fraction convergence,
+which is the excluded "general convergence theory for infinite arithmetic
+expressions" (Paper II/III). This gives Paper I's finite-word scope an
+order-topological + analytic justification.
+
+094c RESOLVED (2026-10-31, core) — `15-branching-history-dcpo.md` gives the
+branching-history dcpo: information order = down-set (order-ideal) embedding
+("sub-computation"), ideal completion = finite ∪ infinite computation DAGs
+(each operation with finitely many predecessors), compact = finite; the spinal
+prefix order is the chain specialization (Theorem 2); partial evaluations form
+the finite distributive lattice `O(P)` and legal evaluation orders = linear
+extensions = maximal chains = spinal histories (Theorem 3, Birkhoff). Residual
+(non-blocking): carrying the operation/constant/chirality labels, and the
+branching `ev` Scott-continuity sector.
+
+094d RESOLVED (2026-10-31) — `16-hecke-history-boundary.md`: the Hecke history
+space `Γ_4^≤ω` is a Cantor space (proved in `10`/`12`); `G_4 ≅ C₂*C₄` is
+virtually free so its space of ends is a Cantor set, while `G_4 = H(√2)` is a
+first-kind Fuchsian lattice whose limit set is the full circle `P^1(ℝ)` (not
+Cantor). The history Cantor space codes the space of ends (the symbolic
+boundary), realizing the history-level form of
+`rem:hecke-history-operator-coset`. This corrects `10` §4's "Cantor boundary"
+wording (Cantor = ends, not limit set). Full cellulation + limit-set
+correspondence is deferred to Paper II/III.
+
+All of OQ-094 (094a–094d) is now addressed.
+
+**Question:** The `09` note closes its value-lattice chain, but that chain works
+on `[0,∞]` and on the analysis layer (`02-mixed-affine-integration`). Can the
+same Scott/Lawson framework be read back into the Paper I *main body* — the
+history layer (`paper-1/sections/02-sequential-histories.tex`) and the
+projective semantics (`paper-1/sections/03-projective-affine.tex`) — so that the
+affine/projective dichotomy and the Bruhat decomposition acquire an
+order-topological meaning?
+
+**Why it matters:** The three generators of `09` §9.1 are literally the three
+elementary contexts of Paper I (`T_s = C_{+,s}^{(1)}`, `D_k = C_{×,k}^{(1)}`,
+`¬ = C_{/,1}^{(2)}`), so "Scott → Lawson" (adjoining the reciprocal involution)
+is group-theoretically the same move as "affine sector `B_∞` → `PGL₂`"
+(adjoining the projective step `J = -1/z`). If this is made precise it gives
+Paper I §3's affine/Borel placement and rank-one Bruhat decomposition a
+topological justification rather than a purely algebraic one.
+
+**Current evidence:** `10` §1–§5 record the precise correspondences and the
+honest negative result (the operator map `ρ` carries no dcpo order on `PGL₂`,
+so "Scott continuity of ρ" is not well-posed until an order is fixed; the
+infinite-history limit of `ρ` is the infinite matrix product = continued-fraction
+convergence, i.e. the excluded convergence theory of Paper II/III). The
+history-layer topology is classical: the prefix dcpo's Lawson topology on
+`Γ^∞ = Γ^* ∪ Γ^ω` is the product topology (Cantor space for finite `Γ`, Baire
+space for countable `Γ`).
+
+**Default rule while open:** Keep the "Scott ⟷ affine sector, Lawson ⟷ PGL₂"
+correspondence as a `structural proposal`; cite it only as such; do not state a
+topological equivalence between `B_∞` and a Scott space or between `PGL₂` and a
+Lawson space. Per `11` §2/§6, the precise reading is `Scott ⟷ Aff^+` (the
+positive affine *semigroup* `{ka+s : k>0, s≥0}`, = `B_∞ ∩ Stab([0,∞])`) and
+`Lawson ⟷ PGL₂ = ⟨Aff^+, ¬⟩`; the group `⟨T_s(s≥0), D_k(k>0), ¬⟩` *does* equal
+`PGL₂` (since `D_{-1} = T_1¬T_{-1}¬T_1¬`), but the Scott *side* is the
+semigroup `Aff^+`, whose group closure is the identity component `B_∞^+ =
+{ka+s : k>0, s∈ℝ}`, not all of `B_∞`; the reflection `D_{-1}` requires `¬`.
+Distinguish semigroup from group closure, and `B_∞^+` from `B_∞`, when writing
+these.
+
+**Resolution condition:** For 094a, an explicit functor/order matching the
+`[0,∞]` Scott/Lawson structure to `B_∞`/`PGL₂` at the level of generators and
+Bruhat cells, respecting the three domain caveats of `10` §3. For 094b, a clean
+statement and proof of the "infinite matrix product = out-of-scope convergence"
+boundary. For 094c, a directed-complete sub-DAG refinement order on branching
+histories with identified compact elements. For 094d, a history-level
+topological realization of the Hecke cell/coset interface
+`rem:hecke-history-operator-coset`.
+
+**Affected files:**
+`notes/analysis-and-calculus/10-scott-lawson-on-paper-1-main-body.md`,
+`notes/analysis-and-calculus/11-oq094a-proof-skeleton.md`,
+`notes/analysis-and-calculus/12-galois-connection-oq094a.md`,
+`notes/analysis-and-calculus/13-functorial-language-oq094a.md`,
+`notes/analysis-and-calculus/14-rho-scott-continuity-boundary.md`,
+`notes/analysis-and-calculus/15-branching-history-dcpo.md`,
+`notes/analysis-and-calculus/16-hecke-history-boundary.md`,
+`notes/analysis-and-calculus/09-order-topology-scott-lawson.md`.
+**Affected theorem nodes:** none (research note; no Paper I theorem node depends
+on it yet).
+**Owner:** author.
+**Decision record:** `11` §6 (2026-10-31, v0.3) refines `10` §2: the correct
+levels are the semigroup `Aff^+ = {ka+s : k>0, s≥0}` (= `B_∞ ∩ Stab([0,∞])`),
+its group closure `B_∞^+ = {ka+s : k>0, s∈ℝ}` (identity component), the full
+affine group `B_∞ = B_∞^+ ⊔ D_{-1}B_∞^+`, and `PGL₂ = ⟨Aff^+, ¬⟩` via
+`D_{-1} = T_1¬T_{-1}¬T_1¬`. The reflection `D_{-1}` is dual data (requires
+`¬`), so `B_∞` is not purely order-one-sided. `12` §3 (2026-10-31) proves the
+Galois-connection commutativity: at the homeomorphism level
+`Homeo(L,σ)∩PGL₂ = {D_k}` and `Homeo(L,λ)∩PGL₂ = Stab([0,∞]) = ⟨D_k,¬⟩`
+(reaching only a proper subgroup), while at the endomorphism level
+`Aff^+ = C(L,σ)∩B_∞` and `⟨Aff^+,¬⟩ = PGL₂` (the full group); the latter is
+what makes "Lawson ⟷ PGL₂" hold. `13` (2026-10-31) completes the functorial
+language: the correspondence is the commutative square on the generating set
+`S_0 = {T_s, D_k}` with "adjoin ¬" naturality `Φ(σ∨¬_*σ) = ⟨Φ(σ),¬⟩`, and it
+is *not* a full Galois equivalence over `Top(L)` (the three functors
+`A, E, H` respectively collapse `σ`/`λ`, overshoot, or undershoot — proved in
+`13` §4). `14` (2026-10-31) resolves 094b: `ρ` is monotone only for the trivial
+preorder (Thm 1), so it has no Scott-continuous extension to the history dcpo;
+the only candidate limit extension is the infinite matrix product =
+continued-fraction convergence (Thm 2), i.e. the excluded convergence theory.
+`15` (2026-10-31) resolves 094c (core): branching histories form the dcpo
+`Idl(FinDAG)` = finite ∪ infinite computation DAGs under down-set (order-ideal)
+embedding, compact = finite; the spinal prefix order is the chain
+specialization; partial evaluations = the finite distributive lattice `O(P)`
+with linear extensions = maximal chains = spinal histories (Birkhoff). `16`
+(2026-10-31) resolves 094d: the Hecke history space is a Cantor space coding
+the space of ends of the virtually-free group `G₄ ≅ C₂*C₄` (not the limit set —
+`H(√2)` is first kind with limit set `P^1(ℝ)`), correcting `10` §4.
+
+## OQ-095 — Macro Stokes and the full DAG Lie realization (residuals of the Scott–Lawson thread)
+
+**Priority:** P3
+**State:** OPEN (2026-10-31) — registered from
+`governance/scott-lawson-paper-1-integration-2026-10-31.md` §5; sub-items
+095.1–095.4.
+
+**Question:** The Scott/Lawson thread (`notes/analysis-and-calculus/09`–`20`)
+established the provable core that the contact curvature `μλ` is the order
+defect of the minimal branching DAG `{A,M}`, integrated as a group-valued
+1-cocycle (`20`). The macroscopic generalization — the "discrete Stokes on
+`O(P)`" for arbitrary branching DAGs, and the full DAG Lie realization — is not
+yet established.
+
+**Why it matters:** This is the step that upgrades "Contact = the infinitesimal
+form of the minimal DAG" (`17`) to "the curvature `μλ` integrates over an
+arbitrary `O(P)` to the order defect between any two threads" (`19` §3). It is
+the integration theory that links the infinitesimal (contact) to the
+macroscopic (DAG), and it is the gate to a faithful bulk-boundary
+correspondence beyond the minimal antichain.
+
+**Current evidence:** `20` proves the defect is a 1-cocycle on the
+linear-extension graph (telescoping additivity, local defect = conjugated
+commutator, hexagon = Jacobi identity). `19` §2 proves the holographic Stokes
+for the minimal case. The four residuals below are open.
+
+**Default rule while open:** Cite the macro Stokes and the full DAG Lie
+realization only as `structural proposal` / `open problem`; do not state a
+defect integral for arbitrary `P` as proved.
+
+**Resolution condition:**
+- 095.1 (higher-order brackets): identify the BCH higher-order terms
+  `[X,[X,Y]]`, `[Y,[X,Y]]`, … with the defects of nested antichain edges in
+  `O(P)`'s higher-dimensional cells.
+- 095.2 (full DAG Lie realization): a functor from the branching-history dcpo
+  (`15`) to a free Lie algebra / free flow group, generalizing `18`'s `F` from
+  two generators to an arbitrary generator set.
+- 095.3 (macro Stokes): assemble `19` §3 into a full statement — the defect
+  between two threads of arbitrary `P` = `∫∫ μλ` over the region — using the
+  1-cocycle (`20`) and the additivity/exactness/spectral docking.
+- 095.4 (spectral docking): `O(P)`'s Scott/Lawson topology (`15` §6) as the
+  spectral space of the discrete Stokes complex.
+
+**Affected files:**
+`notes/analysis-and-calculus/15-branching-history-dcpo.md`,
+`notes/analysis-and-calculus/18-limit-smoothing-functor.md`,
+`notes/analysis-and-calculus/19-integration-and-bulk-boundary.md`,
+`notes/analysis-and-calculus/20-defect-1-cocycle-bch.md`.
+**Affected theorem nodes:** none (research notes; no paper theorem depends on
+them yet).
+**Owner:** author.
+**Decision record:** `governance/scott-lawson-paper-1-integration-2026-10-31.md`.

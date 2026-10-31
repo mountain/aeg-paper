@@ -48,6 +48,21 @@ not a theorem. Three companion open questions (OQ-091–OQ-093) are added to
 `governance/08-open-questions.md`; OQ-092 and OQ-093 are resolved, OQ-091 is
 partially resolved with the branching-history case still open.
 
+**Amendment (2026-10-31, second).** Eleven further notes were added to
+`notes/analysis-and-calculus/` on the same date, continuing the thread opened by
+`09` and applying it to the Paper I main body and the Paper 0 contact structure:
+`10`–`20`. Section 2.2 gains one consolidated row for the thread (the eleven
+notes are graded together, since they form one continuous argument), section 4
+Tier C gains a thread bullet, and the residuals are registered as OQ-094
+(094a–094d, resolved in `11`–`16`) and OQ-095 (macro Stokes and the full DAG Lie
+realization, open). The thread's grade is `STRUCTURAL PROPOSAL` + `REFORMULATION`
+(+ `CLASSICAL`), with two provable sub-results noted explicitly: the monotonicity
+obstruction of `14` Theorem 1 (`WORKING-NOTE PROVED`) and the computational
+verifications (`D_{-1}=T_1¬T_{-1}¬T_1¬`, the BCH density, the ends enumeration).
+No paper source is edited and no claim is promoted by this amendment; the
+consolidated disposition is recorded in
+`governance/scott-lawson-paper-1-integration-2026-10-31.md`.
+
 ---
 
 ## 1. Purpose and method
@@ -102,6 +117,7 @@ Grade labels used below:
 | 02-mixed-affine-integration | Unincorporated | WORKING-NOTE PROVED | Continuous mixed integral `∫u·exp(∫_x^b v)`, transport/splitting/window-derivative identities, adjoint pairing, continuous ACS triple identity. Complete proofs; **integration audit required** (which paper, which conventions). |
 | 03-weighted-contact-calculus | Unincorporated | WORKING-NOTE PROVED | Graded covariant differential `∇^{(n)}f=δf−nf dM`, graded Leibniz law, gauge rectification `ã=e^{−M}a`, twisted product `⋆_M` with derivation `D_M`, twisted Rota–Baxter identity, dual weight-line adjoint geometry, E₀/ACS structure equations `dω_A=ω_M∧ω_A`. Complete proofs; **integration audit required**. |
 | 09-order-topology-scott-lawson | Unincorporated | STRUCTURAL PROPOSAL + REFORMULATION | Reference vocabulary (Scott/Lawson/way-below/ideal completion, cited `CLASSICAL`) plus a faithful instantiation to AEG marked spinal histories: information order = chronological prefix order, ideal completion = finite∪infinite histories (OQ-091, partial — branching case open); additive = way-below, multiplicative = Scott-automorphism, dual = reciprocal involution (OQ-092, resolves and corrects the §6 wording); backward adjoint `p=¬(K)` mod constant, join = Lawson = Euclidean (OQ-093); mixed integral separately Scott-continuous (functional pairing). The integrative "missing-involution = backward adjoint = order-topology-analysis foundation" reading is a structural proposal, not a theorem. |
+| 10–20 (Scott–Lawson thread) | Unincorporated | STRUCTURAL PROPOSAL + REFORMULATION (+ CLASSICAL); two proved sub-results | One continuous argument (2026-10-31) reading `09` back into the Paper I main body and the Paper 0 contact structure. `10` generator correspondence `T_s=C_{+,s}^{(1)}`, `D_k=C_{×,k}^{(1)}`, `¬=C_{/,1}^{(2)}`; `11`–`13` OQ-094a (Scott ⟷ `Aff^+`, Lawson ⟷ `PGL₂`, "adjoin ¬" commutes, **not** a Galois equivalence); `14` OQ-094b (`ρ` monotone only for the trivial preorder — **`WORKING-NOTE PROVED` Theorem 1** — and the only candidate extension is the infinite matrix product = continued fraction, out of Paper I scope); `15` OQ-094c (branching-history dcpo: information order = down-set embedding, `Idl(FinDAG)` = finite∪infinite DAGs, Birkhoff `O(P)`, prefix = chain specialization — `CLASSICAL` ideal completion instantiated); `16` OQ-094d (Hecke history space = Cantor, `G₄≅C₂*C₄` ends = Cantor, `H(√2)` first-kind limit set = circle; corrects `10` §4); `17`–`18` contact curvature = minimal-DAG order defect (generators = exact flows, order defect = Lie bracket `[D_u,D_v]=μλ∂a`, BCH); `19` holographic Stokes + bulk-boundary (bulk flat, defect = boundary holonomy — `STRUCTURAL PROPOSAL`); `20` defect is a group-valued 1-cocycle (telescoping additivity, local defect = conjugated commutator, hexagon = Jacobi identity — **`WORKING-NOTE PROVED`**, though largely classical/trivial). Computational checks: `D_{-1}=T_1¬T_{-1}¬T_1¬`, the BCH density `μλ`, the ends enumeration. The integrative "Contact = the DAG language of volume computation" and the bulk-boundary ("holographic") readings are structural proposals, not theorems. Residuals: OQ-095 (higher-order brackets, full DAG Lie realization, macro Stokes, spectral docking). Disposition in `governance/scott-lawson-paper-1-integration-2026-10-31.md`. |
 
 ### 2.3 `notes/computation-and-resources/`
 
@@ -250,6 +266,16 @@ analysis and a proof.
   backward adjoint = reciprocal, Lawson = Euclidean). The integrative
   "order-topology analysis" reading is a structural proposal; the
   branching-history dcpo remains open (OQ-091).
+* `analysis-and-calculus/10`–`20` — the Scott–Lawson thread (added 2026-10-31):
+  reads `09` into the Paper I main body and the Paper 0 contact structure. The
+  provable core (OQ-094a–d resolved; contact curvature `μλ` = minimal-DAG order
+  defect; defect is a 1-cocycle) assembles `CLASSICAL` domain/Lie theory and
+  `proved in paper-0/paper-1` facts; the integrative "Contact = the DAG language
+  of volume computation" and the bulk-boundary ("holographic") readings are
+  structural proposals. Residuals: OQ-095 (higher-order brackets, full DAG Lie
+  realization, macro Stokes, spectral docking). Not a promotion candidate as a
+  whole; any paper entry requires the integration audits of
+  `05-mathematical-status.md` §4.
 * `computation-and-resources/05`, `06` — PD₃ program and Route B 2-groupoid.
   Milestone 1 is well-posed with a pass/fail criterion and should be attempted
   or retired explicitly.
