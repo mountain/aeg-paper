@@ -4141,10 +4141,11 @@ calculus-dictionary surface-column rewrite of 2026-10-31.
 AEG's `m,r` commute and give `Z₂×Z₂` (Klein) on both the word and comb layers
 (note 27), so the non-commutative `Z₂*Z₂` is *not* obtained by transporting
 AEG's existing operations; the question shifts to the branching layer (`θ̃`
-naturality, `τ` on branching trees). 098.2 ADVANCED (2026-10-31) — the
-"distributive lattice" phrase is the Birkhoff down-set lattice of the infinite
-cubic tree, not the Tamari (rotation) lattice; AEG's `O(P)` is the same
-construction over a finite poset (note 28). 098.3–098.4 remain open. The pure
+naturality, `τ` on branching trees). 098.1(b) RESOLVED NEGATIVE (2026-10-31) —
+`τ` does not descend to the dependency poset / `O(P)` (note 29). 098.2 ADVANCED
+(2026-10-31) — the "distributive lattice" phrase is the Birkhoff down-set lattice
+of the infinite cubic tree, not the Tamari (rotation) lattice; AEG's `O(P)` is the
+same construction over a finite poset (note 28). 098.3–098.4 remain open. The pure
 combinatorial correspondences are established in note 26.
 
 **Question:** The classical general-tree ↔ binary-tree bijections (De
@@ -4182,12 +4183,19 @@ four Catalan families ↔ binary vs general trees. The difference `Z₂×Z₂` v
   reversal), and `τ`'s infinite order / arbitrarily long orbits are constructed
   on *branching* trees (complete tree + fringing, Cor 6.3), not combs. Hence the
   non-commutative `Z₂*Z₂` is not an extension of AEG's existing operations.
-  *Shifted residuals* (open): (a) is there an intrinsic AEG definition of a
-  "path reflection" `θ̃ ≠ r`, and does it generate `Z₂*Z₂` with `m`? (b) does the
-  branching layer (dependence poset `P`, linear extensions, `O(P)`) reproduce the
-  infinite-order / "hyperbolic" behaviour of `τ`? (c) the general-`n` structure of
-  `τ` on caterpillars ("only `n-1` of the `2^{n-2}` map to caterpillars" is
-  verified for `n ≤ 10` but not proved in general). **Finite update (2026-10-31):**
+  *Shifted residuals*: (a) [open] is there an intrinsic AEG definition of a
+  "path reflection" `θ̃ ≠ r`, and does it generate `Z₂*Z₂` with `m`? (b) [RESOLVED
+  NEGATIVE, note 29] does the branching layer (dependence poset `P`, `O(P)`)
+  reproduce the infinite-order / "hyperbolic" behaviour of `τ`? — No: `τ` does
+  **not** descend to the dependency poset / `O(P)`; two trees with isomorphic
+  dependency posets can map to trees whose dependency posets differ (explicit
+  `n = 4` witness: a 3-chain-class tree maps to a 3-chain and another to a "V";
+  every skeleton class has a non-unique `τ`-image for `n ≥ 5`, verified `n ≤ 8`,
+  `research/donaghey-orbits/verify_descent.py`). The hyperbolic/long-orbit
+  behaviour is strictly a **planar-tree** phenomenon, not a poset-layer one.
+  (c) [open] the general-`n` structure of `τ` on caterpillars ("only `n-1` of the
+  `2^{n-2}` map to caterpillars" is verified for `n ≤ 10` but not proved in
+  general). **Finite update (2026-10-31):**
   `research/donaghey-orbits/` implements `τ` (Pushkarev–Byzov Def. 2.1) and
   reproduces Donaghey's `M_n(x)` for `n = 1..10`; caterpillars (single-spine /
   comb trees) are **not** preserved by `τ` (`n-1` cat→cat out of `2^{n-2}`), and
@@ -4229,6 +4237,7 @@ bijections themselves are classical and may be cited as such.
 `notes/analysis-and-calculus/26-donaghey-general-to-binary-tree.md`;
 `notes/analysis-and-calculus/27-mirror-reversal-tree-layer.md`;
 `notes/analysis-and-calculus/28-ppct-lattice-attribution.md`;
+`notes/analysis-and-calculus/29-branching-layer-descent.md`;
 `research/donaghey-orbits/` (finite verification);
 `research/ppct-lattice/` (finite verification);
 `paper-0/sections/03-aes-and-motion.tex` (left/right comb convention);
