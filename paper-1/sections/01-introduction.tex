@@ -133,6 +133,45 @@ example, $c/z$ has a well-defined projective value at $z=0$, namely infinity, wh
 ordinary division by zero remains undefined.  We keep the ordinary domain and the
 projective extension as separate data throughout.
 
+\subsection{Why branching histories and order topology}
+
+The sequential fragment is the boundary case in which the dependency poset is a
+chain.  A general branching tree has incomparable internal operations, hence many
+legal evaluation orders; these orders are exactly the maximal chains of a finite
+distributive lattice, the lattice of down-sets (partial evaluations).  Domain
+theory then supplies the completion: the prefix order on words and the down-set
+order on computation DAGs each have an ideal completion into a dcpo whose compact
+elements are the finite histories.  The Scott topology of this dcpo records
+``finitely observable'' properties --- those a finite prefix can certify --- while
+the Lawson topology adjoins the dual side through the reciprocal involution,
+turning the one-sided order into a two-sided Hausdorff space.  This is the
+order-topological carrier on which the analysis below is defined, and it is what
+makes ``continuity of evaluation'' a well-posed question rather than a slogan.
+
+\subsection{The analysis of histories}
+
+The histories carry a three-pillar analysis.  The differential pillar turns the
+discrete generators into the exact flows of the two horizontal contact fields and
+identifies the order defect of the minimal branching DAG with the contact
+curvature $[D_u,D_v]=\mu\lambda\,\partial_a$.  The integral pillar reads the same
+defect as a group-valued $1$-cocycle on the linear-extension graph, closed by the
+Jacobi identity, and as the boundary holonomy of a holographic Stokes theorem.
+The series pillar expands the history evaluation into the free Lie algebra as a
+Magnus series, whose arity-$k$ brackets are carried by the $(k-1)$-cells of the
+down-set lattice and whose abelianization is the difference substitution of
+automated inequality proving.  These three pillars are the order-topological
+reading of the geometric contact structure imported from Paper~0.
+
+\subsection{The hole--cap geometry}
+
+On the geometric side, the ``holes'' of the theory are of five distinct kinds and
+the ``boundaries'' of four; a decorated network thickened to a ball-and-tube
+body makes the distinction concrete.  A surface hole is not filled inside the
+surface but is filled by an interior disk, and cutting along that disk exposes
+two caps.  A constant-boundary disk admits no regular AES capping, which is why
+port substitution, topological filling, regular collar descent, and certified
+sealing must be kept apart.
+
 \subsection{Main results}
 
 The first group of results is combinatorial and syntactic.  The trees with a
@@ -154,7 +193,36 @@ eight-step marked history that is projectively trivial and ordinarily inadmissib
 at one initial value.  That example is the reason this paper keeps ordinary
 admissibility as a separate hypothesis from projective non-degeneracy.
 
-The third group is the zero theory of regular arithmetic expression spaces.
+The third group is order-topological.  For a branching tree the dependency
+poset carries a down-set information order whose ideal completion is a dcpo of
+finite and infinite computation DAGs, and the partial evaluations of a fixed
+tree form a finite distributive lattice whose maximal chains are the spinal
+histories.  On the continuous lattice $[0,\infty]$ the three elementary contexts
+are the Scott--Lawson primitives: addition witnesses the way-below relation,
+scaling is a Scott automorphism, and the reciprocal is the order-reversing
+involution whose adjoining turns the one-sided Scott topology into the two-sided
+Hausdorff Lawson topology, mirroring the passage from the positive affine
+semigroup to $\PGL_2(\mathbb R)$.  The projective evaluation map has no
+Scott-continuous extension to the infinite histories: its only candidate limit
+is the infinite matrix product, i.e.\ the continued fraction, which pins down
+the finite-history scope of the formalism.
+
+The fourth group is the analysis of histories, in three pillars.  The
+differential pillar identifies the order defect of the minimal branching DAG
+$\{\text{add},\text{multiply}\}$ with the contact curvature
+$[D_u,D_v]=\mu\lambda\,\partial_a$.  The integral pillar expresses the order
+defect as a group-valued $1$-cocycle on the linear-extension graph, closed by
+the Jacobi identity and by the holographic Stokes theorem.  The series pillar
+expands the history evaluation into the free Lie algebra as a Magnus series,
+whose arity-$k$ brackets are carried by the $(k-1)$-cells of the down-set
+lattice and whose abelianization is the difference substitution.
+
+The fifth group is the hole--cap geometry.  Five notions of hole and four of
+boundary are kept distinct; a decorated network thickened to a ball-and-tube
+body exhibits the hole--disk complementarity, and a constant-boundary disk
+admits no regular AES capping.
+
+The sixth group is the zero theory of regular arithmetic expression spaces.
 Section~\ref{sec:regular-aes-interface} restates the definition imported from
 Paper~0; Section~\ref{sec:zero-geometry} proves that the zero locus of a regular
 assignment is a smooth curve, that a complete connected boundaryless regular AES
@@ -168,9 +236,12 @@ isolated-zero model in detail.
 Everything else that earlier versions of this paper developed --- the two affine
 translation coordinates, the continuous arithmetic motion, the basic hyperbolic
 model $\mathfrak E_0$, the accumulative commutative space, tearing, and the
-contact structure --- now belongs to Paper~0, where it is proved at the same
-labels.  This paper cites those results rather than restating them, with the sole
-exception of the regular-AES interface needed to state its own zero theorems.
+contact structure --- remains developed in Paper~0, where it is proved at the same
+labels.  Per the amendment in \path{governance/00d-paper-I-calculus-and-capping-amendment.md},
+this paper now restates, at the same labels, the contact model, the ACS area
+formula, and the punctured-AES collar contract it uses, and develops the
+order-topological and analytic structure and the hole--cap geometry as its own
+chapters.
 
 \subsection{Scope and relation to standard geometry}
 
@@ -193,12 +264,18 @@ bound follows from noncommutativity or negative curvature alone.
 
 \subsection{Organization}
 
-Section~\ref{sec:sequential-histories} develops sequential trees and marked
-histories.  Section~\ref{sec:projective-affine} gives the bilateral projective
-semantics and locates the affine sector.
+Section~\ref{sec:sequential-histories} develops sequential and branching trees
+and marked histories, the down-set dcpo, and Birkhoff duality.
+Section~\ref{sec:projective-affine} gives the bilateral projective semantics,
+the affine sector, and the Scott--Lawson topological correspondence.
+Section~\ref{sec:differential-theory} develops the differential pillar,
+Section~\ref{sec:integral-theory} the integral pillar, and
+Section~\ref{sec:series-theory} the series pillar.
 Section~\ref{sec:regular-aes-interface} restates the regular-AES interface
-imported from Paper~0.  Section~\ref{sec:zero-geometry} develops the regular and
-singular zero geometry.  Section~\ref{sec:conclusion} records what is proved,
-what remains open, and the interfaces to the later papers.  The appendices
-collect convention checks and the small examples that separate the equality
-levels of \eqref{eq:process-result-hierarchy}.
+imported from Paper~0.  Section~\ref{sec:zero-geometry} develops the taxonomy of
+holes and the regular and singular zero geometry, and
+Section~\ref{sec:theory-of-caps} the theory of caps and interface disks.
+Section~\ref{sec:conclusion} records what is proved, what remains open, and the
+interfaces to the later papers.  The appendices collect convention checks, the
+equality-level examples, the Magnus-series symbolic verification, and the
+pants-cellulation homology verification.

@@ -40,7 +40,8 @@
 \newcommand{\sing}{\mathrm{sing}}
 
 \title{\textbf{Arithmetic Expression Geometry I: Foundations}\\[0.45em]
-\large Sequential Histories, Projective Semantics, and Zero Geometry}
+\large Sequential and Branching Histories, Order-Topological Calculus, and
+Hole--Cap Geometry}
 \author{
 Mingli Yuan\thanks{Corresponding author and sole holder of scientific
 responsibility for this manuscript
@@ -80,15 +81,27 @@ developed in Paper~0; the migration is recorded in
 \begin{abstract}
 Ordinary arithmetic evaluation collapses an expression tree into an endpoint
 value and discards the order of the computation.
-This paper develops the syntax of that discarded order, the projective semantics
-of arithmetic words, and the zero geometry of the spaces on which the words act.
+This paper develops the syntax of that discarded order, its order-topological
+and analytic structure, and the zero and hole--cap geometry of the spaces on
+which the words act.
 A finite binary expression tree has a unique legal internal evaluation order
 exactly when its internal dependency poset is a chain, equivalently when its
 internal vertices form a single spine; marking an accumulator then makes fully
 marked planar trees and chronological words of one-hole contexts correspond
 bijectively.  Operand-slot chirality is retained as explicit data, distinct
-from planar mirror, temporal reversal, and path inverse.  For
-non-degenerate bilateral contexts over an arbitrary field $K$, projective
+from planar mirror, temporal reversal, and path inverse.
+For a general branching tree the dependency poset carries a down-set
+information order whose ideal completion is the dcpo of finite and (finitely
+predicated) infinite computation DAGs, and the partial evaluations of a fixed
+tree form a finite distributive lattice whose maximal chains are exactly the
+spinal histories (Birkhoff duality).
+On the continuous lattice $[0,\infty]$, the elementary contexts realize the
+Scott and Lawson structure: addition is the way-below witness, scaling is a
+Scott automorphism, and the reciprocal is the order-reversing involution whose
+adjoining turns the one-sided Scott topology into the two-sided Hausdorff Lawson
+topology, mirroring the passage from the positive affine semigroup to
+$\mathrm{PGL}_2(\mathbb R)$.
+For non-degenerate bilateral contexts over an arbitrary field $K$, projective
 evaluation is compatible with chronological composition; the elementary contexts
 generate $\mathrm{PGL}_2(K)$, those fixing infinity form the affine sector
 $B_\infty\cong\mathrm{Aff}(1,K)$ onto which the affine sublanguage maps
@@ -98,23 +111,42 @@ by $z\mapsto z\pm\sqrt2$ and $z\mapsto-1/z$ realizes the $q=4$ Hecke group, and
 the order-four relation $(JT)^4=1$ is carried by an explicit eight-step marked
 history that is projectively trivial yet ordinarily inadmissible at
 $x=-\sqrt2$; projective non-degeneracy is therefore kept separate from ordinary
-admissibility.  In a regular arithmetic expression space, subject to the eikonal
+admissibility.
+The analysis of these histories has three pillars.  The differential pillar
+identifies the order defect of the minimal branching DAG $\{\mathrm{add},
+\mathrm{multiply}\}$ with the contact curvature $[D_u,D_v]=\mu\lambda\,\partial_a$.
+The integral pillar expresses the order defect as a group-valued $1$-cocycle on
+the linear-extension graph, closed by the Jacobi identity and by the holographic
+Stokes theorem, which pushes the bulk curvature to the boundary holonomy.  The
+series pillar expands the history evaluation into the free Lie algebra as a
+Magnus series, whose arity-$k$ brackets are carried by the $(k-1)$-cells of the
+down-set lattice and whose abelianization is the difference substitution.
+On the geometric side, five notions of hole and four of boundary are kept
+distinct; a decorated network thickened to a ball-and-tube body exhibits the
+hole--disk complementarity ``the surface gives the hole its meaning, the body
+gives the disk its meaning'', and a constant-boundary disk admits no regular AES
+capping.
+In a regular arithmetic expression space, subject to the eikonal
 axiom $|\nabla a|_g^2=\mu^2+\lambda^2a^2$ with $\mu\ne0$, the zero locus of the
 assignment is a smooth curve with no isolated point, crossing, or branch point;
 on a connected, complete, boundaryless space the unit-gradient rectification of
 the assignment gives a diffeomorphism $M\cong Z(a)\times\mathbb R$, so branching
 zero networks are excluded in the regular category.  Singular arithmetic
 expression spaces, whose singular set is closed, nowhere dense, and locally
-essential, are then defined; a disc model with an isolated non-$C^1$ zero is
-verified, and parameter families with spatially regular zeros are shown to have
-submersive total zero sets under a stated properness hypothesis.
+essential, are then defined, with two essential puncture mechanisms
+(non-$C^1$ assignment versus conformal-background degeneration); a disc model
+with an isolated non-$C^1$ zero is verified, and parameter families with
+spatially regular zeros are shown to have submersive total zero sets under a
+stated properness hypothesis.
 \end{abstract}
 
 \noindent\textbf{Keywords:}
 arithmetic expression geometry; binary expression trees; dependency posets and
-linear extensions; one-hole contexts; projective linear group; Bruhat
-decomposition; Hecke groups; eikonal equation and zero loci; complete splitting
-theorem; singular arithmetic expression spaces
+linear extensions; one-hole contexts; down-set dcpo and Birkhoff duality;
+Scott--Lawson topology; projective linear group; Bruhat decomposition; Hecke
+groups; order defect and contact curvature; Magnus series and free Lie algebra;
+hole--cap geometry; eikonal equation and zero loci; complete splitting theorem;
+singular arithmetic expression spaces
 
 \setcounter{tocdepth}{2}
 \tableofcontents
@@ -138,8 +170,10 @@ theorem; singular arithmetic expression spaces
 \input{sections/06-series-theory.tex}
 \section{The Regular AES Interface}\label{sec:regular-aes-interface}
 \input{sections/04-regular-aes-interface.tex}
-\section{Zero Loci and Singular Expression Spaces}\label{sec:zero-geometry}
-\input{sections/05-zero-geometry.tex}
+\section{Holes and Zero Geometry}\label{sec:zero-geometry}
+\input{sections/07-holes-and-zero-geometry.tex}
+\section{Theory of Caps and Interface Disks}\label{sec:theory-of-caps}
+\input{sections/08-caps-and-interface-disks.tex}
 \section{Conclusions and Research Interfaces}\label{sec:conclusion}
 \input{sections/06-conclusion.tex}
 
@@ -170,6 +204,8 @@ structural proposals, are those registered in
 \input{appendices/app-B-equality-neutrality.tex}
 \section{Symbolic verification of the Magnus series and PBW abelianization}\label{app:magnus-verification}
 \input{appendices/app-C-magnus-sympy-verification.tex}
+\section{Finite cellulation and mod-2 homology verification for pants gluing}\label{app:pants-cellulation-verification}
+\input{appendices/app-D-pants-cellulation-verification.tex}
 
 \bibliographystyle{plain}
 \bibliography{aeg-paper-1}

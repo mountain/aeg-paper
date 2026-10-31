@@ -1,0 +1,41 @@
+% Canonical Paper I appendix.
+
+This appendix records the finite cellulation and mod-2 homology verification of
+Theorem~\ref{thm:hole-disk-complementarity} (V1 of OQ-096).
+
+\subsection{The V1 finite model}
+
+Two solid boxes $[0,3]^3$ and $[5,8]\times[0,3]^2$ model two three-port gates,
+joined by the connecting tube $[3,5]\times[1,2]^2$.  The cellulation has $56$
+unit cubes, $336$ tetrahedra, and $132$ vertices.  Every vertex link was checked
+for being a disk or a sphere ($116$ disks, $16$ spheres), establishing the
+local manifoldness of the thickened body.
+
+\subsection{Surface and body homology data}
+
+The two pants side surfaces each have $(V,E,F)=(60,116,55)$ with three boundary
+circles; the glued side surface has $(V,E,F)=(116,228,110)$ with four boundary
+circles and Euler characteristic $\chi=-2$, matching
+Proposition~\ref{prop:local-pants-handlebody-genus} ($\beta_1=0$, $b=4$).  The
+shared interface disk is one square; its four oriented edges form the seam
+circle $C$, with opposite orientation on the two sides.
+
+The mod-2 side-surface boundary matrix has rank $110$; adjoining the chain $C$
+raises the rank to $111$, proving
+$[C]\neq0\in H_1(S_G;\mathbb F_2)$.  In the body, the explicit disk gives
+$\partial D=C$, so $i_*[C]=0\in H_1(H_G;\mathbb F_2)$.
+
+\subsection{Negative controls}
+
+Ten negative controls were executed and all rejected: a control is accepted only
+if it violates a declared condition (wrong orientation, a non-manifold link, a
+mismatched boundary count, or a spurious disk filling in the side surface).
+The substitution $z=x+y$, $w=zt$ at $(x,y,t)=(2,3,4)$ gives interface value $5$
+and output $20$ by exact rational arithmetic, agreeing with the graph binding.
+
+\subsection{Status}
+
+This is a \emph{computationally verified example} for a single fixed model.  The
+construction and the checker are by the same author; it does not close the
+general composition, the AES-extension, or the native \texttt{Seal} bridge
+obligations (V2--V4 of OQ-096).

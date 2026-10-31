@@ -1,0 +1,203 @@
+% Canonical Paper I source.
+
+This chapter gives the ``hole'' and the ``cap'' a finite geometric carrier.  A
+decorated directed acyclic network is thickened to a three-dimensional body
+whose side surface carries the holes and whose interior carries the interface
+disks; cutting the body along a disk exposes two caps.
+
+\subsection{The decorated ball-and-tube thickening}
+
+\begin{definition}[Decorated ball-and-tube thickening]
+\label{def:decorated-ball-tube-thickening}
+Let $G$ be a finite directed acyclic network with ordered typed external inputs
+and outputs, ordered input/output slots and deterministic partial functions at
+each gate, immutable sources, distinct occurrences, explicit copy/discard, and
+binding records.  Forget the direction to obtain the underlying multigraph
+$|G|$.  Choose, for each gate $v$, an oriented $3$-ball $B_v$ with disjoint
+parametrized port disks on its boundary, one per slot; for each internal wire
+$e$ choose a tube $T_e=D^2\times[0,1]$ and glue its end disks to the matching
+port disks, orientation-compatibly.  The resulting body is $H_G$; the external
+port disks are $E_G$, and the observed side surface is
+\[
+  S_G=\partial H_G\setminus\bigcup_{D\in E_G}\operatorname{int}(D).
+\]
+\end{definition}
+
+This is a declared minimal thickening rule, not an intrinsic geometry forced by
+the operation arity; the bare $H_G$ or $S_G$ carries no program identity.
+
+\begin{proposition}[Local pants and no-hidden-handle genus]
+\label{prop:local-pants-handlebody-genus}
+\begin{enumerate}
+  \item A gate with total port count three has its sphere minus the three open
+  port disks a \emph{pair of pants}; total port count two gives a cylinder, one
+  gives a disk.  The $2\to1$ and $1\to2$ decorations are distinct.
+  \item For a connected $G$, $H_G$ is a handlebody with
+  \[
+    g(H_G)=\beta_1(|G|),
+    \qquad
+    \chi(S_G)=2-2\beta_1(|G|)-b,
+  \]
+  where $b=|E_G|$ is the number of external ports.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(1) is the classification of surfaces with boundary.  (2) Assemble along a
+spanning tree of $|G|$: each gate ball is a $0$-handle, each tree edge glues two
+balls into one, and each remaining internal edge adds a $1$-handle; hence the
+genus is the number of independent cycles.  The closed boundary of a genus-$g$
+handlebody has Euler characteristic $2-2g$, and deleting $b$ open port disks
+lowers it by $b$.
+\end{proof}
+
+\subsection{Interface disks and the hole--disk complementarity}
+
+\begin{proposition}[Pants gluing along an interface disk]
+\label{prop:pants-gluing-interface-disk}
+Let two three-port gate balls be connected by one output--input tube.  At the
+mid-section take the disk $D_e=D^2\times\{1/2\}$ and its boundary circle
+$C_e=\partial D_e$.  Cutting along $D_e$ and absorbing the half-tubes into the
+two collars, the two bodies are $3$-balls and the side surfaces are pants;
+regluing along $D_e$ is, on the side surfaces, gluing along $C_e$:
+\[
+  B_1\cup_{D_e}B_2\cong B^3,
+  \qquad
+  S_G\cong P_1\cup_{C_e}P_2,
+  \qquad
+  \partial D_e=C_e .
+\]
+\end{proposition}
+
+\begin{proof}
+Two balls joined by one $1$-handle is again a ball (the underlying graph is a
+tree); the interior disk is not part of the exposed boundary, and its circle
+becomes the seam of the remaining boundary, a four-holed sphere with
+$\chi=-1-1=-2$.
+\end{proof}
+
+\begin{theorem}[Hole--disk complementarity]
+\label{thm:hole-disk-complementarity}
+In the four-holed side surface $S_G$ and the thickened body $H_G$ of the
+preceding proposition:
+\begin{enumerate}
+  \item \textbf{Surface non-fillability (hole).} $[C_e]\neq0\in H_1(S_G;\mathbb F_2)$:
+  $C_e$ bounds no disk inside $S_G$.
+  \item \textbf{Body fillability (disk/cap).} Under the inclusion
+  $i:S_G\hookrightarrow H_G$, $i_*[C_e]=0\in H_1(H_G;\mathbb F_2)$, witnessed by
+  the explicit disk $D_e\subset H_G$ with $\partial D_e=C_e$.
+  \item \textbf{Cutting exposes caps.} Cutting $H_G$ along $D_e$ splits the single
+  internal disk into two copies $D_e^+,D_e^-$ with opposite boundary
+  orientations, each capping one pants opening.
+\end{enumerate}
+Hence the surface gives the hole its meaning and the body gives the disk its
+meaning, the two being linked by the oriented common edge $C_e=\partial D_e$.
+\end{theorem}
+
+\begin{proof}
+(1) and (2) are the mod-$2$ homology computation recorded and verified in
+Appendix~\ref{app:pants-cellulation-verification}: the side-surface boundary
+matrix has rank $110$, rising to $111$ on adjoining $C_e$, so $C_e$ is not a
+boundary in $S_G$, while $C_e=\partial D_e$ is a boundary in $H_G$.  (3) is the
+cut description of Proposition~\ref{prop:pants-gluing-interface-disk}.
+\end{proof}
+
+\begin{remark}[Down-set frontier disks]
+\label{rem:downset-frontier-disks}
+For a down-set $U\in\mathcal O(P)$ of the dependency poset of
+Theorem~\ref{thm:birkhoff-downset-spinal}, cutting every internal tube that
+points from $U$ to $P\setminus U$ yields the family of interface disks
+$\{D_e\}_{e\in\partial^+U}$ representing the computational frontier.
+\end{remark}
+
+\subsection{Interface state, substitution, and the spectrum}
+
+\begin{proposition}[Polynomial interface spectrum]
+\label{prop:polynomial-interface-spectrum}
+In the rational-polynomial fragment, with $Q_+:z=x+y$ and $P_\times:w=zt$ glued
+along the interface disk $D_z$, the substitution is the algebra homomorphism
+\[
+  s^*:\mathbb Q[z]\to\mathbb Q[x,y],\qquad z\mapsto x+y ,
+\]
+and evaluation characters satisfy $\chi_{r,s}\circ s^*=\chi_{r+s}$.  The
+``spectrum value'' on the interface is the rational point $\chi_c(z)=c$ of
+$\operatorname{Spec}\mathbb Q[z]$, and the relation gluing is the tensor product
+(geometric fiber product)
+\[
+  \mathbb Q[x,y,z]/(z-x-y)\otimes_{\mathbb Q[z]}\mathbb Q[z,t,w]/(w-zt)
+  \cong\mathbb Q[x,y,t,w]/(w-(x+y)t).
+\]
+The spectrum $\operatorname{Spec}A_z$ is a state-parameter space, not the
+geometric seam circle $C_z$ and not the Stone order spectrum of
+Theorem~\ref{thm:birkhoff-downset-spinal}.
+\end{proposition}
+
+\begin{proof}
+Direct substitution and elimination of $z$; the choice of this model as the AEG
+interface-spectrum semantics is a structural proposal, the displayed algebra
+itself being a proved identity in the polynomial fragment.
+\end{proof}
+
+\begin{definition}[Interface record with residual]
+\label{def:interface-record-with-residual}
+An interface disk record is the five-tuple
+\[
+  \mathcal I_e=(D_e,C_e;\sigma_e,r_e,\beta_e),
+\]
+where $\sigma_e$ is the interface state under the declared observation layer,
+$r_e$ is a recoverable production-process residual (together with any tangential
+geometric residual), and $\beta_e$ is the port binding credential.  Numerical
+equality of $\sigma_e$ does not identify two production histories ($2+3$ and
+$1+4$ both carry $\sigma_e=5$).
+\end{definition}
+
+\subsection{The capping obstruction and certified sealing}
+
+\begin{theorem}[Constant-boundary capping obstruction]
+\label{thm:constant-boundary-capping-obstruction}
+Let $D$ be a compact smooth disk, $g$ a smooth Riemannian metric, $a\in C^\infty(D)$,
+and $\mu\ne0$, $\lambda\in\mathbb R$.  There is no data $(g,a)$ satisfying
+$|da|_g^2=\mu^2+\lambda^2 a^2$ on $\operatorname{int}D$ and $a|_{\partial D}=c$
+(constant).
+\end{theorem}
+
+\begin{proof}
+Since $\mu^2+\lambda^2a^2\ge\mu^2>0$, one has $da\ne0$ throughout the interior.
+If $a$ is nonconstant, compactness gives an interior extremum of $a$, where
+$da=0$, a contradiction; if $a$ is constant, $da=0$ everywhere, also a
+contradiction.
+\end{proof}
+
+\begin{corollary}[Capping dichotomy]
+\label{cor:capping-dichotomy}
+\begin{enumerate}
+  \item An interface disk with numeric label $\sigma_e=c$ must not be realized
+  as a compact regular AES disk with constant boundary assignment
+  $a|_{C_e}=c$.
+  \item To cap a level circle geometrically one must admit an interior critical
+  point or a non-$C^1$/metric singularity (the singular category of
+  Section~\ref{sec:zero-geometry}).
+  \item To glue across a seam $C_e$ in the regular category the boundary
+  assignment $a|_{C_e}$ must be nonconstant and both sides must satisfy the
+  two-sided smooth collar contract of Paper~0
+  ($\texttt{def:p0-collar-contract}$).
+\end{enumerate}
+\end{corollary}
+
+\begin{definition}[Certified cap tuple]
+\label{def:certified-cap-tuple}
+A candidate \emph{certified cap} is a six-tuple
+\[
+  \mathcal C=(D,C,\sigma,r,w;\mathcal Q),
+\]
+where $D,C$ are the declared fill and its edge, $\sigma$ a state, $r$ a
+residual, $w$ a verification certificate against an explicit closure obligation,
+and $\mathcal Q$ the declared observation scope.  Four closure judgments are kept
+distinct: (i) computational port substitution binding, (ii) topological
+disk-filling $\partial D=C$ or conformal cusp filling, (iii) regular AES collar
+descent or essential-singularity removal, and (iv) the Adva
+\texttt{Seal \{ body \}} witness closure (additive residual zero, multiplicative
+residual unit, with the non-vanishing domain obligations retained).  A
+substitution success does not imply \texttt{Seal}, and $A=0,M=1$ does not by
+itself produce an AES cap.
+\end{definition}

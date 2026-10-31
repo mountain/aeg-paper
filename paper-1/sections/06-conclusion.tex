@@ -34,8 +34,32 @@ separates four levels that are needed downstream: history, operator, cell coset,
 and endpoint.  In particular, arithmetic words are not identified one-to-one
 with tiles in a chosen Hecke cellulation.
 
-The second part of the paper developed the zero theory of regular arithmetic
-expression spaces, using only the imported interface of
+The order-topological part of the paper extended the history layer to branching
+trees.  The down-set information order gives a dcpo of finite and infinite
+computation DAGs, and the partial evaluations of a fixed tree form a finite
+distributive lattice whose maximal chains are the spinal histories.  On the
+value lattice $[0,\infty]$, the elementary contexts realize the Scott--Lawson
+structure: the affine semigroup is the one-sided Scott carrier and the reciprocal
+involution is the step to the two-sided Lawson topology, mirroring the passage to
+$\operatorname{PGL}_2(\mathbb R)$.  The projective evaluation map has no
+Scott-continuous extension to the infinite histories, its only candidate limit
+being the continued fraction, which fixes the finite-history scope.
+
+The analytic part of the paper established three pillars on this layer.  The
+differential pillar identified the order defect of the minimal branching DAG with
+the contact curvature $[D_u,D_v]=\mu\lambda\,\partial_a$.  The integral pillar
+expressed the order defect as a group-valued $1$-cocycle on the linear-extension
+graph, closed by the Jacobi identity and by the holographic Stokes theorem.  The
+series pillar expanded the history evaluation into the free Lie algebra as a
+Magnus series, whose arity-$k$ brackets are carried by the $(k-1)$-cells of the
+down-set lattice and whose abelianization is the difference substitution.
+
+The hole--cap part of the paper kept five notions of hole and four of boundary
+apart, thickened a decorated network to a ball-and-tube body exhibiting the
+hole--disk complementarity, and proved the constant-boundary capping obstruction.
+
+The geometric part of the paper developed the zero theory of regular arithmetic
+expression spaces, using the imported interface of
 Section~\ref{sec:regular-aes-interface}.  At a zero of a regular assignment one
 has $|\nabla a|=|\mu|\ne0$, so the interior zero locus is a smooth
 codimension-one set and cannot have isolated points, crossings, or branch
@@ -50,10 +74,11 @@ incomplete models or manifolds with boundary, and it is not in general a
 Riemannian product decomposition.  The splitting theorem is therefore a no-go
 statement for branching zero networks in the regular category, and the paper
 accordingly defines singular arithmetic expression spaces by a closed
-nowhere-dense singular set admitting no local regular extension.  One
-isolated-zero model is verified in detail; a smooth parameter family with
-spatially regular zeros has a submersive total zero set, and the properness
-warning records exactly how far that statement may be used.
+nowhere-dense singular set admitting no local regular extension.  Two essential
+puncture mechanisms are contrasted, one isolated-zero model is verified in
+detail; a smooth parameter family with spatially regular zeros has a submersive
+total zero set, and the properness warning records exactly how far that
+statement may be used.
 
 The proved logical spine may therefore be summarized as
 \[
@@ -61,19 +86,29 @@ The proved logical spine may therefore be summarized as
     \text{sequential tree}
       \longrightarrow \text{marked planar sequential tree}
       \longleftrightarrow \text{bounded marked history},\\
+    \text{branching tree}
+      \longrightarrow \text{dependency poset } P
+      \longrightarrow \text{down-set dcpo } \operatorname{Idl}(\mathrm{FinDAG})
+      \longrightarrow \text{Birkhoff lattice } \mathcal O(P),\\
     \text{marked history}
       \longrightarrow \text{projective operator}
       \longrightarrow \text{ordinary endpoint or pole},\\
-    \operatorname{PGL}_2
-      \supset \operatorname{Aff}(1)
-      \longrightarrow \text{Bruhat placement},\\
+    \operatorname{Aff}^+
+      \xrightarrow{\ \neg\ } \operatorname{PGL}_2
+      \longleftrightarrow
+    \sigma \xrightarrow{\ \neg\ } \lambda,\\
     \operatorname{Hist}_4
       \longrightarrow G_4
       \longrightarrow G_4/H_{\mathcal C}
       \longrightarrow \text{Hecke cell},\\
+    \text{minimal DAG defect } T_{\mathrm{open}}
+      \longrightarrow [D_u,D_v]=\mu\lambda\,\partial_a
+      \longrightarrow \text{Magnus series } \Omega(\gamma),\\
     \text{regular AES}
       \longrightarrow Z(a)\text{ smooth}
       \longrightarrow M\cong Z(a)\times\mathbb R \text{ when complete},\\
+    \text{hole--disk complementarity}
+      \longrightarrow \text{capping obstruction},\\
     \text{singular set} \longrightarrow Z_{\mathrm{reg}}(a),\,Z_{\mathrm{sing}}(a).
 \end{gathered}
 \]

@@ -4,6 +4,49 @@ assignment: its gradient cannot vanish there.  This separates regular zero geome
 from isolated zeros, crossings, and the parameter-dependent singular phenomena
 reserved for later work.
 
+\subsection{A taxonomy of holes and boundaries}
+
+Five notions of ``hole'' occur across the series and must not be conflated.
+
+\begin{definition}[Fivefold hole taxonomy]
+\label{def:fivefold-hole-taxonomy}
+\begin{enumerate}
+  \item \textbf{Syntactic one-hole placeholder.} The formal slot $z$ of a
+  one-hole context $C_{\omega,c}^{(\varepsilon)}[z]$ of
+  Section~\ref{sec:sequential-histories}.
+  \item \textbf{Computational port / wire hole.} A typed input or output
+  occurrence of a strict finite directed acyclic network, awaiting a
+  substitution binding, with a strict partial definition domain such as
+  $\operatorname{discard}(1/0)$.
+  \item \textbf{Topological surface hole / seam circle.} A boundary circle of
+  the side surface of a thickened body, or the seam circle $C_e=\partial D_e$
+  exposed when a thickened body is cut along an internal interface disk
+  (Section~\ref{sec:theory-of-caps}).
+  \item \textbf{Essential geometric puncture / singular set.} A closed
+  nowhere-dense subset $S\subset\overline M$ on which the regular AES data
+  $(g,a;\mu,\lambda)$ admit no smooth nondegenerate local extension.
+  \item \textbf{Combinatorial interaction site.} A channel of a multi-component
+  coupled system carrying the two-way exchange and the frame/phase monodromy
+  twist (as in the $K_3$ edges and $\mathbb Z_3\times\mathbb Z_4\cong\mathbb Z_{12}$
+  twist of Paper~0).
+\end{enumerate}
+\end{definition}
+
+\begin{convention}[Four boundaries]
+\label{conv:four-boundaries-distinction}
+\begin{enumerate}
+  \item \textbf{Computational frontier.} The directed wire occurrences cut
+  between a down-set $U\in\mathcal O(P)$ and the uncompleted events.
+  \item \textbf{Geometric boundary.} The boundary of a thickened body,
+  $\partial H_G=S_G\cup\bigcup_{D\in E_G}D$.
+  \item \textbf{Integration boundary.} The oriented one-chain $\partial\Sigma$
+  of the Stokes formula $\int_\Sigma d\alpha=\int_{\partial\Sigma}\beta$.
+  \item \textbf{Completion boundary.} The infinite histories $\Gamma^\omega$ of
+  the ideal completion of
+  Proposition~\ref{prop:spinal-ideal-completion}.
+\end{enumerate}
+\end{convention}
+
 \subsection{Regular zero loci}
 
 For an assignment function \(a\), write
@@ -331,6 +374,49 @@ from the center, then
 This identity describes radial propagation on the punctured regular part; it
 does not repair the failure of differentiability at the center.  The metric is
 regular there, while the assignment is singular.
+
+\subsection{Two essential puncture mechanisms}
+
+The isolated-zero disc is one of two verified mechanisms by which an essential
+puncture arises; they differ in which datum degenerates.
+
+\begin{theorem}[Two essential puncture mechanisms]
+\label{thm:two-essential-puncture-mechanisms}
+\begin{enumerate}
+  \item \textbf{Type 1: metric extends, assignment is not $C^1$.} The disc model
+  $\mathfrak E_1$ of Proposition~\ref{prop:isolated-zero-singular-model}: the
+  Poincar\'e metric extends smoothly and nondegenerately across the center,
+  while the assignment is continuous but not $C^1$ there, with one-sided
+  directional limits $\pm 2\mu/\lambda$.  Hence $S=\{0\}$ is essential,
+  $Z_{\mathrm{reg}}=\varnothing$, $Z_{\mathrm{sing}}=\{0\}$, and the punctured
+  disc is metrically incomplete (the puncture is at finite distance).
+  \item \textbf{Type 2: assignment extends, conformal background degenerates.}
+  When the assignment $a$ extends smoothly to $\widetilde a$ on $\overline M$,
+  and the metric is conformal to a smooth nondegenerate background $g_0$ on
+  $U\setminus S$, the essential puncture set is exactly the critical locus:
+  \[
+    S=\operatorname{Crit}(\widetilde a)=\{p:d\widetilde a(p)=0\},
+    \qquad
+    g=\frac{|d\widetilde a|_{g_0}^2}{\mu^2+\lambda^2\widetilde a^2}\,g_0 .
+  \]
+  In the four-circle polynomial model the tangent cone at the origin is the
+  double coordinate-axes union $(xy)^2=0$, and the zero locus is four circles
+  with eight branches meeting at the puncture, the conformal factor degenerating
+  like $O(|x|^{10})$ so that the puncture is at finite distance
+  ($\texttt{thm:p0-punctures-are-critical}$, $\texttt{thm:p0-four-circle-model}$
+  of Paper~0).
+\end{enumerate}
+\end{theorem}
+
+\begin{remark}[The criticality hypothesis]
+\label{rem:critical-puncture-hypothesis}
+The inclusion $\operatorname{Crit}(\widetilde a)\subseteq S$ always holds when
+$\widetilde a$ extends smoothly; the reverse inclusion $S\subseteq
+\operatorname{Crit}(\widetilde a)$ requires the stated conformal-background
+hypothesis.  Without it, a counterexample with $da\neq0$ yet singular metric at
+a puncture is recorded (C-10 of the notes reserve); the two inclusions must not
+be conflated.
+\end{remark}
 
 \subsection{Smooth parameter families and their total zero sets}
 
