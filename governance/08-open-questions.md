@@ -4137,10 +4137,12 @@ calculus-dictionary surface-column rewrite of 2026-10-31.
 ## OQ-098 — Donaghey / De Bruijn–Morselt transform and the AEG tree layer
 
 **Priority:** P2
-**State:** OPEN (2026-10-31) — registered after reading Donaghey 1980,
-Pushkarev–Byzov 2014 and the OEIS A014486 chart; the pure-combinatorial
-correspondences are established in note 26, the structural consequences for AEG
-remain open.
+**State:** OPEN (2026-10-31); 098.1 RESOLVED AT THE COMB LAYER (2026-10-31) —
+AEG's `m,r` commute and give `Z₂×Z₂` (Klein) on both the word and comb layers
+(note 27), so the non-commutative `Z₂*Z₂` is *not* obtained by transporting
+AEG's existing operations; the question shifts to the branching layer (`θ̃`
+naturality, `τ` on branching trees). 098.2–098.4 remain open. The pure
+combinatorial correspondences are established in note 26.
 
 **Question:** The classical general-tree ↔ binary-tree bijections (De
 Bruijn–Morselt / Donaghey) and Donaghey's transformation `τ = φ⁻¹θφσ` are precise
@@ -4168,11 +4170,20 @@ four Catalan families ↔ binary vs general trees. The difference `Z₂×Z₂` v
 
 **Sub-items and resolution conditions:**
 
-- **098.1 — Non-commutative extension.** Decide whether AEG's mirror and
-  reversal, transported from words to trees, generate `Z₂*Z₂` (infinite
-  dihedral) rather than the word-level `Z₂×Z₂`; and explain structurally why
-  word reversal and path-reversal-induced tree reversal stop commuting. If it
-  holds, give the "hyperbolic"/long-orbit analogue in AEG.
+- **098.1 — Non-commutative extension.** *RESOLVED AT THE COMB LAYER (note 27).*
+  AEG's mirror `m` and reversal `r` commute (`def:mirror-temporal-reversal`), and
+  the word ↔ comb bijection (`prop:marked-tree-history-correspondence`) preserves
+  commutation, so the pair generates `Z₂×Z₂` (Klein) on both layers; a compatible
+  `n=2` comb computation confirms `mr=rm`. Donaghey's `σ` equals `m`, but its
+  reversal `θ̃=φ⁻¹θφ` (Dyck-path reflection) is **not** AEG's `r` (word
+  reversal), and `τ`'s infinite order / arbitrarily long orbits are constructed
+  on *branching* trees (complete tree + fringing, Cor 6.3), not combs. Hence the
+  non-commutative `Z₂*Z₂` is not an extension of AEG's existing operations.
+  *Shifted residuals* (open): (a) is there an intrinsic AEG definition of a
+  "path reflection" `θ̃ ≠ r`, and does it generate `Z₂*Z₂` with `m`? (b) does the
+  branching layer (dependence poset `P`, linear extensions, `O(P)`) reproduce the
+  infinite-order / "hyperbolic" behaviour of `τ`? (c) the exact order of `τ` on
+  combs (the "tame" claim) still needs a direct check against Donaghey's `M_n(x)`.
 - **098.2 — PPCT lattice vs `O(P)`.** The Pushkarev–Byzov text states that PPCTs
   form a distributive lattice whose irreducibles are ordered as the infinite
   cubic tree. Identify this lattice (Tamari-type or otherwise), and determine
@@ -4203,7 +4214,9 @@ Birkhoff).
 the Donaghey correspondence yet).
 **Owner:** author.
 **Decision record:** note 26 (2026-10-31) reads the three sources and records the
-tight `[对应]` and the `Z₂×Z₂` vs `Z₂*Z₂` difference; the tree-level
-non-commutativity, lattice identification, carousel/orbit correspondence and
-functoriality are the four residuals.
+tight `[对应]` and the `Z₂×Z₂` vs `Z₂*Z₂` difference. Note 27 (2026-10-31)
+resolves 098.1 at the comb layer (AEG's `m,r` give Klein; `θ̃≠r`; infinite order
+requires branching) and shifts the residuals to `θ̃` naturality, the branching
+layer, and the exact order of `τ` on combs. The lattice identification,
+carousel/orbit correspondence and functoriality remain the other three residuals.
 
