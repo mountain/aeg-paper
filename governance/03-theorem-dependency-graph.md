@@ -3180,6 +3180,39 @@ Recheck:
 * zero-set examples;
 * Paper II operator formulas.
 
+### If the caps/interface remarks change
+
+`rem:capping-scope-mu-essential` (Remark 10.13) and
+`rem:capping-singular-branch-nonempty` (Remark 10.15) are scope remarks on
+`thm:constant-boundary-capping-obstruction` (Theorem 10.12) and
+`cor:capping-dichotomy` (Corollary 10.14).  They add **no nodes and no edges**
+to this graph, and they change no hypothesis of the two statements they comment
+on.  Editing them nevertheless requires a recheck of:
+
+* the printed numbering downstream of Theorem 10.12 (the two remarks share the
+  chapter counter: inserting or removing one shifts
+  `cor:capping-dichotomy` and `def:certified-cap-tuple`, and any textual
+  cross-reference to their printed numbers);
+* the status table in `governance/08-open-questions.md` OQ-099;
+* `research/capping-scope/` (its README quotes the printed numbers), and
+  `verify_capping.py`'s `paper_action_taken` field.
+
+### Registration gap: the caps/interface branch
+
+The capped-interface material (Theorem 10.4 hole--disk complementarity,
+Proposition 10.7 seam-circle holonomy, Proposition 10.9 polynomial interface
+spectrum, Theorem 10.12 capping obstruction, Corollary 10.14 capping dichotomy,
+Definition 10.16 certified cap tuple) is **not yet registered as nodes in this
+graph**.  Two consequences follow and are recorded rather than silently repaired:
+
+* the change-propagation rule above cannot yet recheck this material by node;
+* its proof status is not entered in `governance/05-mathematical-status.md`.
+
+Both remarks added on 2026-11-01 are **scope remarks**: they neither create a node
+nor alter a hypothesis, so no edge in Parts I--XVII changes.  Registering the
+branch as nodes (with an explicit ``AES disk has constant boundary'' hypothesis
+node, which is what the obstruction actually consumes) is a separate task.
+
 ---
 
 # Part XVIII. Exports to later papers

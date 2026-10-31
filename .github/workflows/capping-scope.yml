@@ -1,0 +1,47 @@
+name: OQ-099 capping-scope verification
+
+on:
+  pull_request:
+    paths:
+      - "research/capping-scope/**"
+      - ".github/workflows/capping-scope.yml"
+  # Required-check contract: a push to ANY branch must produce this check, so the
+  # push trigger carries no path filter.  The pull_request trigger keeps its
+  # filter to save minutes on unrelated PRs.
+  push:
+    branches: ["**"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  scope-checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      # The committed evidence file records exact symbolic strings, so the
+      # symbolic backend is pinned to the version the evidence was produced with.
+      - name: Install symbolic dependency (pinned)
+        run: python3 -m pip install --quiet "sympy==1.14.0"
+
+      - name: Version record
+        run: python3 -c "import sys, sympy; print('python', sys.version.split()[0], '| sympy', sympy.__version__)"
+
+      - name: Scope checks (non-zero exit on any FAIL status)
+        run: python3 research/capping-scope/verify_capping.py --check
+
+      - name: Determinism (normal vs optimised byte comparison)
+        run: |
+          python3 research/capping-scope/verify_capping.py > /tmp/capping-normal.json
+          python3 -O research/capping-scope/verify_capping.py > /tmp/capping-optimized.json
+          cmp /tmp/capping-normal.json /tmp/capping-optimized.json
+          echo "normal and -O output are byte-identical"
+
+      - name: Committed evidence still reproduces
+        run: |
+          python3 research/capping-scope/verify_capping.py \
+            --verify-evidence research/capping-scope/evidence-capping.json

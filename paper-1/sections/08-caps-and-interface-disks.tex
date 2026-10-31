@@ -116,7 +116,12 @@ The hole--disk complementarity of
 Theorem~\ref{thm:hole-disk-complementarity} is topological.  It has an analytic
 counterpart: the seam circle carries a holonomy of the surface potential, which
 is the boundary reading of the bulk curvature of
-Section~\ref{sec:differential-theory}.
+Section~\ref{sec:differential-theory}.  The side surface $S_G$ is one specific,
+purely topological realization of the ``surface'' of that correspondence; the
+canonical surface is the Legendre pair $(\pi,Q)$ of
+Section~\ref{sec:calculus-dictionary}
+(Remark~\ref{rem:surface-is-legendre-quotient}), and the potential $\beta$
+defined below is meaningful on $S_G$ only under the declared analytic thickening.
 
 \begin{definition}[Surface potential]
 \label{def:surface-potential}
@@ -380,6 +385,41 @@ interface-spectrum semantics is a structural proposal, the displayed algebra
 itself being a proved identity in the polynomial fragment.
 \end{proof}
 
+\begin{remark}[Three interface readings: value, order, and analytic defect]
+\label{rem:three-interface-layers}
+The spectrum of Proposition~\ref{prop:polynomial-interface-spectrum} is one of
+three interface readings, which are not three names for one object: they live at
+different layers and are kept distinct here.
+\begin{enumerate}
+  \item \textbf{Algebraic spectrum (value layer).} The characters
+  $\chi_c(z)=c$ of $\operatorname{Spec}\mathbb Q[z]$ parametrize the value at a
+  single interface (the shared variable $z$) through the substitution $s^*$ and
+  the fiber product; they need only the interface algebra, not the thickening.
+  \item \textbf{Stone order spectrum (order layer).} The Stone spectrum of the
+  down-set lattice $\mathcal O(P)$ recovers the dependency poset $P$ itself ---
+  the bare skeleton of which operations occur and in what partial order
+  (Theorem~\ref{thm:birkhoff-downset-spinal}).
+  \item \textbf{Seam/puncture holonomy (analytic layer).} The loop integral
+  $\oint_{C_e}\beta$ of Proposition~\ref{prop:seam-circle-holonomy} is the
+  analytic realization of the order defect: the defect of
+  Theorem~\ref{thm:dag-defect-equals-curvature}, integrated to the boundary by
+  Stokes (Proposition~\ref{prop:holographic-stokes-minimal}).  It is derived
+  from the order structure $P$ through the differential/integral pillar, not
+  from the algebraic spectrum.
+\end{enumerate}
+Two of the three relations are settled.  First, the algebraic spectrum and the
+holonomy are linked by an obstruction, not a derivation: the spectrum assigns
+the interface a constant label $\chi_c(z)=c$, while
+Theorem~\ref{thm:constant-boundary-capping-obstruction} forbids realizing that
+constant as the boundary assignment of a compact regular AES disk
+(Corollary~\ref{cor:capping-dichotomy}).  Second, no bridge from
+$\operatorname{Spec}\mathbb Q[z]$ to
+$\operatorname{Stone}(\mathcal O(P))$ is established here; whether the
+compact-open lattice of the former relates to the down-set lattice $\mathcal
+O(P)$ of the latter is open (OQ-096.2).  The three-layer organization is a
+structural reading; the proved facts are the cited theorems.
+\end{remark}
+
 \begin{definition}[Interface record with residual]
 \label{def:interface-record-with-residual}
 An interface disk record is the five-tuple
@@ -410,6 +450,26 @@ $da=0$, a contradiction; if $a$ is constant, $da=0$ everywhere, also a
 contradiction.
 \end{proof}
 
+\begin{remark}[The hypothesis $\mu\ne0$ is sufficient but not necessary]
+\label{rem:capping-scope-mu-essential}
+The proof of Theorem~\ref{thm:constant-boundary-capping-obstruction} uses exactly
+one consequence of its hypotheses, namely $|da|_g^2=\mu^2+\lambda^2a^2\ge\mu^2>0$
+whenever $\mu\ne0$; neither $\lambda$ nor the metric $g$ enters the argument.  The
+condition $\mu\ne0$ is nevertheless not necessary for the obstruction.  On
+$\{a\ne0\}$ the function $u=\log|a|/|\lambda|$ satisfies $|du|_g=1$ whenever
+$|da|_g=|\lambda||a|$, so the level sets of $u$ are the equidistant hypersurfaces
+of $\partial D$; a constant boundary value then forces
+$u=k\mp d_g(\cdot,\partial D)$ on the side of $\partial D$, which is not smooth on
+the interior cut locus.  (The two standard facts used here are that $|du|_g=1$
+makes the level sets equidistant, and that the distance to a closed curve in a
+compact region fails to be smooth on its non-empty interior cut locus; the
+argument is recorded in full in \texttt{research/capping-scope/}.)  Hence no
+smooth cap with constant boundary exists when
+$\mu=0$, $\lambda\ne0$ and $c\ne0$ either.  Conversely a smooth cap does exist in
+the degenerate cases $\mu=0=\lambda$ (take $a\equiv c$) and $\mu=0$, $c=0$ (take
+$a\equiv0$).  The sharp condition is therefore $\mu=0$ and $\lambda c=0$.
+\end{remark}
+
 \begin{corollary}[Capping dichotomy]
 \label{cor:capping-dichotomy}
 \begin{enumerate}
@@ -427,6 +487,25 @@ contradiction.
   without a disk filling.
 \end{enumerate}
 \end{corollary}
+
+\begin{remark}[The singular branch of the capping dichotomy is non-empty]
+\label{rem:capping-singular-branch-nonempty}
+Corollary~\ref{cor:capping-dichotomy}(2) permits an interior critical point or a
+non-$C^1$/metric singularity.  That branch is realised explicitly.  On the flat
+unit disk, for $\mu\ne0$ and $\lambda\ne0$, put
+\[
+  a(r)=\frac{\mu}{\lambda}\sinh\bigl(\lambda(r+C)\bigr),
+\]
+where $C$ is chosen so that $a(1)=c$.  Then
+$(a')^2=\mu^2\cosh^2\bigl(\lambda(r+C)\bigr)=\mu^2+\lambda^2a(r)^2$ holds exactly
+on the punctured disk, while at the centre $a(r)=A+Br+O(r^2)$ with
+$A=\frac{\mu}{\lambda}\sinh(\lambda C)$ and $B=\mu\cosh(\lambda C)\ne0$; the
+one-sided expansions along $+x$ and $-x$ are $A\pm Bx$, so $a$ is $C^0$ but not
+$C^1$ there.  The singular point is a single interior point, and it may be
+prescribed anywhere in $\operatorname{int}D$ by transporting both $a$ and $g$
+along a diffeomorphism that fixes $\partial D$.  Thus branch (2) is non-empty
+rather than merely permitted.
+\end{remark}
 
 \begin{definition}[Certified cap tuple]
 \label{def:certified-cap-tuple}

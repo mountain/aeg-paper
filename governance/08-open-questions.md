@@ -4038,7 +4038,14 @@ The model's canonical AEG status and its relation to native Seal are open.
   algebra/state carrier; distinguish equal numerical values from production
   identity; demonstrate recovery of retained residuals under a stronger
   observer. An ordinary operator spectrum, the order spectrum and the
-  interface character space are not identified by terminology.
+  interface character space are not identified by terminology. No bridge from
+  the algebraic spectrum `Spec Q[z]` (value layer) to the Stone spectrum of the
+  down-set lattice `O(P)` (order layer) is established; whether the compact-open
+  lattice of the former relates to the down-set lattice `O(P)` of the latter is
+  open. The seam-circle holonomy is the analytic realization of the order defect
+  (derived from `P` through curvature + Stokes), linked to the algebraic spectrum
+  only by the constant-boundary capping obstruction, not by derivation
+  (`rem:three-interface-layers`).
 - **096.3 — AES extension or explicit singular capping.** Specify actual
   metric/assignment collars and prove their extension or the exact obstruction.
   Respect note 25's constant-boundary obstruction and Paper 0's essential
@@ -4095,3 +4102,250 @@ the earlier note-only disposition is superseded for these integrated claims.
 production residuals). General composition is V3; the AES/Seal bridge is V4.
 Their results must not be inferred from V1 success.
 
+---
+
+## OQ-097 — The surface series (Magnus series projected to the Legendre quotients)
+
+**Priority:** P2
+**State:** OPEN (2026-10-31) — registered with the calculus-dictionary surface
+column rewrite; the series pillar is developed for the bulk, not for the
+surface.
+
+**Question:** The Magnus series `Ω(γ)` of the series pillar (Paper I §6) is
+expanded in the free Lie algebra of the bulk contact model. What is its
+reduction to the two Legendre quotients — the charge plane `π` and the Reeb
+quotient `Q` — and in what sense is that reduction a "surface series"?
+
+**Why it matters:** The calculus dictionary's surface column is now the
+Legendre pair `(π, Q)`, whose differential and integral calculus are symbolic
+(`e^{M_*−M} dA∧dM` on `π`, `dvol` on `Q`). The series column has no
+corresponding symbolic surface form: the only candidate reduction is the
+continued fraction as a canonical `Q`-boundary form
+(`prop:bulk-boundary-series-reduction`), which is a structural proposal, not a
+theorem. A symbolic surface series would complete the four-column dictionary
+(classical / bulk / surface / series) on the Taylor row.
+
+**Current evidence:** `prop:bulk-boundary-series-reduction` records the degree
+descent (two-form curvature → one-form potential, Stokes) and the cocycle
+reduction (interior cancellations by the 1-cocycle closure), both proved, and
+the continued-fraction canonical form, a structural proposal. The PBW
+abelianization (`thm:pbw-abelianization-difference-substitution`) is a bulk
+abelianization, not a projection to `π` or `Q`.
+
+**Default rule while open:** Do not state a symbolic "surface series" as proved.
+Cite the continued fraction only as a structural proposal; keep the series
+column's surface cell marked open (OQ-097).
+
+**Resolution condition:**
+- 097.1: a well-defined reduction of `Ω(γ)` to the charge plane `π` (the
+  `e^{−M}`-normalized / weighted series) with a convergence or asymptotic
+  statement.
+- 097.2: a well-defined reduction to the Reeb quotient `Q` (the hyperbolic /
+  continued-fraction side) and its relation to 097.1 under Legendre duality.
+
+**Affected files:** `paper-1/sections/07-calculus-dictionary.tex`,
+`paper-1/sections/06-series-theory.tex`.
+**Affected theorem nodes:** none (no Paper I theorem depends on a surface
+series).
+**Owner:** author.
+**Decision record:** the surface series is the series-side counterpart of
+OQ-095.3/OQ-095.4 (macro Stokes and spectral docking); registered alongside the
+calculus-dictionary surface-column rewrite of 2026-10-31.
+
+---
+
+## OQ-098 — Donaghey / De Bruijn–Morselt transform and the AEG tree layer
+
+**Priority:** P2
+**State:** OPEN (2026-10-31); 098.1 RESOLVED AT THE COMB LAYER (2026-10-31) —
+AEG's `m,r` commute and give `Z₂×Z₂` (Klein) on both the word and comb layers
+(note 27), so the non-commutative `Z₂*Z₂` is *not* obtained by transporting
+AEG's existing operations; the question shifts to the branching layer (`θ̃`
+naturality, `τ` on branching trees). 098.1(b) RESOLVED NEGATIVE (2026-10-31) —
+`τ` does not descend to the dependency poset / `O(P)` (note 29). 098.2 ADVANCED
+(2026-10-31) — the "distributive lattice" phrase is the Birkhoff down-set lattice
+of the infinite cubic tree, not the Tamari (rotation) lattice; AEG's `O(P)` is the
+same construction over a finite poset (note 28). 098.3–098.4 remain open. The pure
+combinatorial correspondences are established in note 26.
+
+**Question:** The classical general-tree ↔ binary-tree bijections (De
+Bruijn–Morselt / Donaghey) and Donaghey's transformation `τ = φ⁻¹θφσ` are precise
+combinatorial models of the operations AEG keeps distinct (mirror `m`, temporal
+reversal `r`, path inverse). Two things follow and are partly open: the
+**non-commutative extension** and the **lattice/orbit correspondence**.
+
+**Why it matters:** Note 26 (§6) records a genuine structural difference. AEG's
+word-level mirror `m` and reversal `r` commute, so `⟨m,r⟩ ≅ Z₂×Z₂` (Klein). But
+Donaghey's tree-level transposition `σ` and (conjugated) reflection `θ` do not
+commute: Pushkarev–Byzov, Theorem 6.4, prove `⟨σ,θ⟩ ≅ Z₂*Z₂` (infinite dihedral)
+and `τ` has infinite order (Corollary 6.3: arbitrarily long orbits). The two
+"reversal" operations differ — word reversal `r` is a plain sequence reversal,
+whereas the path-reversal-induced tree involution `φ⁻¹θφ` is a genuine tree
+restructuring — which is exactly the source of the "hyperbolicity" in the
+Donaghey paper. If AEG's tree layer exhibits the non-commutative
+(`Z₂*Z₂`, infinite-order) version, the path-inverse / reversal distinction is
+richer than the word-level Klein structure.
+
+**Current evidence:** Note 26, `notes/analysis-and-calculus/26-donaghey-general-to-binary-tree.md`.
+`[对应]` items that are tight: `σ ↔ m`, `θ ↔ r`, `φ ↔` up-down code,
+right/left bijection ↔ `conv:p0-left-right-convention` (right/left comb),
+four Catalan families ↔ binary vs general trees. The difference `Z₂×Z₂` vs
+`Z₂*Z₂` is a precise group-theoretic fact; the tree-level realization is open.
+
+**Sub-items and resolution conditions:**
+
+- **098.1 — Non-commutative extension.** *RESOLVED AT THE COMB LAYER (note 27).*
+  AEG's mirror `m` and reversal `r` commute (`def:mirror-temporal-reversal`), and
+  the word ↔ comb bijection (`prop:marked-tree-history-correspondence`) preserves
+  commutation, so the pair generates `Z₂×Z₂` (Klein) on both layers; a compatible
+  `n=2` comb computation confirms `mr=rm`. Donaghey's `σ` equals `m`, but its
+  reversal `θ̃=φ⁻¹θφ` (Dyck-path reflection) is **not** AEG's `r` (word
+  reversal), and `τ`'s infinite order / arbitrarily long orbits are constructed
+  on *branching* trees (complete tree + fringing, Cor 6.3), not combs. Hence the
+  non-commutative `Z₂*Z₂` is not an extension of AEG's existing operations.
+  *Shifted residuals*: (a) [open] is there an intrinsic AEG definition of a
+  "path reflection" `θ̃ ≠ r`, and does it generate `Z₂*Z₂` with `m`? (b) [RESOLVED
+  NEGATIVE, note 29] does the branching layer (dependence poset `P`, `O(P)`)
+  reproduce the infinite-order / "hyperbolic" behaviour of `τ`? — No: `τ` does
+  **not** descend to the dependency poset / `O(P)`; two trees with isomorphic
+  dependency posets can map to trees whose dependency posets differ (explicit
+  `n = 4` witness: a 3-chain-class tree maps to a 3-chain and another to a "V";
+  every skeleton class has a non-unique `τ`-image for `n ≥ 5`, verified `n ≤ 8`,
+  `research/donaghey-orbits/verify_descent.py`). The hyperbolic/long-orbit
+  behaviour is strictly a **planar-tree** phenomenon, not a poset-layer one.
+  (c) [open] the general-`n` structure of `τ` on caterpillars ("only `n-1` of the
+  `2^{n-2}` map to caterpillars" is verified for `n ≤ 10` but not proved in
+  general). **Finite update (2026-10-31):**
+  `research/donaghey-orbits/` implements `τ` (Pushkarev–Byzov Def. 2.1) and
+  reproduces Donaghey's `M_n(x)` for `n = 1..10`; caterpillars (single-spine /
+  comb trees) are **not** preserved by `τ` (`n-1` cat→cat out of `2^{n-2}`), and
+  every orbit of length `> 6` is entirely branching. This is a same-author finite
+  computation (`COMPUTATIONALLY VERIFIED EXAMPLE`, `n ≤ 10`), not a general proof.
+- **098.2 — PPCT lattice vs `O(P)`.** *ADVANCED (note 28).* The Pushkarev–Byzov
+  text states that PPCTs form "a distributive lattice whose irreducible elements
+  are ordered as the vertices of the infinite cubic tree". This phrase conflates
+  two different lattices. (A) The **Tamari / rotation lattice** on PPCTs is a
+  lattice but **not distributive** (verified for `T_4`, `n = 5` leaves:
+  `research/ppct-lattice/`). (B) The **Birkhoff down-set lattice** of the
+  infinite binary (cubic) tree is distributive by construction, with
+  join-irreducibles = the vertices and `R(N) = Catalan(N)` down-sets of size `N`;
+  its *elements* are down-sets (ordered binary trees / plane trees), not the full
+  binary PPCTs directly. So "distributive + irreducibles = infinite cubic tree"
+  matches (B), while the "standard lattice ordering of all trees" is (A); the two
+  are mutually exclusive. AEG's `O(P)` (`thm:birkhoff-downset-spinal`) is the
+  **same Birkhoff construction over a finite dependency poset `P`**, so the
+  distributive reading aligns with AEG; the two are **not isomorphic in general**
+  (different posets). *Residual*: whether `O(P)` embeds as a sublattice of some
+  down-set lattice over a sub-poset of `T_∞` is open; the correct source meaning
+  of "standard lattice ordering" should be checked against Donaghey 1980.
+- **098.3 — Carousel / fringing / orbit growth.** Decide whether the carousel
+  effect (cyclic motion of corner classes SR/LL/RL/RN/LN), the fringing theorem
+  (`Δ(Q(T)) = 3Δ(T)` or `(3/2)Δ(T)`) and the `O(n^{log₂ 3})` orbit growth
+  correspond to AEG's Hecke periodic orbits / "fractal rotation" (Pushkarev's
+  name). This needs AEG's own orbit/period structure.
+- **098.4 — Functoriality of the right/left bijection.** Determine whether the
+  right/left bijection gives a functor from the branching layer to the sequential
+  layer that respects AEG's order defect and linear-extension structure. At
+  present it is only a set bijection; no functoriality is established.
+
+**Default rule while open:** Use Donaghey/De Bruijn–Morselt only as
+`structural proposal` / `open`; do not state a functorial bridge, an orbit
+correspondence, or a lattice identification as proved. The pure Catalan
+bijections themselves are classical and may be cited as such.
+
+**Affected files:**
+`notes/analysis-and-calculus/26-donaghey-general-to-binary-tree.md`;
+`notes/analysis-and-calculus/27-mirror-reversal-tree-layer.md`;
+`notes/analysis-and-calculus/28-ppct-lattice-attribution.md`;
+`notes/analysis-and-calculus/29-branching-layer-descent.md`;
+`research/donaghey-orbits/` (finite verification);
+`research/ppct-lattice/` (finite verification);
+`paper-0/sections/03-aes-and-motion.tex` (left/right comb convention);
+`paper-1/sections/02-sequential-histories.tex` (mirror / reversal / path inverse,
+Birkhoff).
+**Affected theorem nodes:** none (research note; no Paper I theorem depends on
+the Donaghey correspondence yet).
+**Owner:** author.
+**Decision record:** note 26 (2026-10-31) reads the three sources and records the
+tight `[对应]` and the `Z₂×Z₂` vs `Z₂*Z₂` difference. Note 27 (2026-10-31)
+resolves 098.1 at the comb layer (AEG's `m,r` give Klein; `θ̃≠r`; infinite order
+requires branching) and shifts the residuals to `θ̃` naturality, the branching
+layer, and the exact order of `τ` on combs. Note 28 (2026-10-31) advances 098.2
+(the "distributive lattice" is the Birkhoff down-set lattice of the infinite
+cubic tree, not the Tamari lattice; `O(P)` is the same construction over a finite
+poset). Note 29 (2026-10-31) resolves 098.1(b) negatively (`τ` does not descend to
+the dependency poset / `O(P)`; the hyperbolic behaviour is strictly planar-tree).
+Note 30 (2026-10-31) is the synthesis of 26–29. Remaining residuals: 098.1(a)
+`θ̃` naturality, 098.2 sublattice embedding / source meaning, 098.1(b) general-`n`
+and the branching layer's own dynamics, 098.3 carousel/orbit correspondence,
+098.4 functoriality.
+
+
+---
+
+## OQ-099 — Scope of the constant-boundary capping obstruction, and the seam-label (trivial-representation) reading
+
+**Priority:** P2
+**State:** PARTIALLY RESOLVED (2026-11-01). The scope statement and the explicit
+singular cap are in the paper as Remark 10.13 and Remark 10.15; the
+representation-theoretic reading of the seam is `STRUCTURAL PROPOSAL` and remains
+open (099.2). 099.1 is resolved for the flat disk and, for the obstruction
+direction, for arbitrary smooth `g`.
+**Origin:** Mingli Yuan asked (2026-11-01) which hypothesis of the capping
+obstruction is sharp, and separately whether the obstruction and the "missing seam
+weight" found on the QED side are the same deficiency. Construction, checker and
+text: DeepSeek Harness agent (deepseek-v4-flash-vision-exp). No independent human
+mathematical review is asserted.
+
+**Question (099.1).** Which hypotheses of
+`thm:constant-boundary-capping-obstruction` are sharp, and is branch (2) of
+`cor:capping-dichotomy` non-empty?
+
+**Current evidence (099.1).** `research/capping-scope/` (README, `verify_capping.py`,
+`evidence-capping.json`) establishes:
+
+* `A1` (proved with stated hypotheses): the published proof uses only `mu != 0`,
+  via `|da|_g^2 >= mu^2 > 0`; neither `lambda` nor `g` enters, so the obstruction
+  as proved is metric- and `lambda`-independent.
+* `A2` (proved): in the degenerate cases `mu = 0 = lambda` (`a ≡ c`) and
+  `mu = 0, c = 0` (`a ≡ 0`) a smooth cap does exist, so the conclusion does not
+  extend over the whole of `mu = 0`.
+* `A3` (partially proved): for `mu = 0`, `lambda != 0`, `c != 0` there is no smooth
+  cap either. On `{a != 0}`, `u = log|a|/|lambda|` satisfies `|du|_g = 1`, so its
+  level sets are equidistants of `partial D`; a constant boundary value forces
+  `u = k ∓ d_g(., partial D)`, which is not smooth on the interior cut locus.
+  Two standard facts are used and cited, not proved, in the note.
+* Sharp statement (`A4`, combining A1–A3): a smooth cap exists iff `mu = 0` and
+  `lambda c = 0`. Hence `mu != 0` is **sufficient but not necessary**.
+* `A5`/`A6` (proved; computationally verified example): with `mu != 0`,
+  `a(r) = (mu/lambda) sinh(lambda (r+C))` solves the equation exactly on the
+  punctured flat disk, has `a(1) = c`, and is `C^0` but not `C^1` at a single
+  interior conical point, which may be prescribed anywhere in `int D`.
+  Branch (2) of the corollary is therefore **non-empty**, not merely permitted.
+
+**Question (099.2).** Is there a representation-theoretic reading of the seam that
+unifies the capping obstruction with the QED seam-weight question?
+
+**Current evidence (099.2), `STRUCTURAL PROPOSAL` only.**
+`public/electrodynamics/pants-v7-translation/` notes that "`a|_dD` is constant" is
+the statement "the boundary datum lies in the trivial representation" (Fourier
+decomposition on the circle), so the obstruction is about the label `j = 0`, while
+a photon seam carries `j = 1` with two physical transverse states. In that reading
+the obstruction and the missing seam weight are two faces of "the interface has a
+single number, so the angular datum has nowhere to live". This is explicitly
+recorded as a proposal with falsifiers, and is **not** a statement of the paper.
+
+**Why it matters.** If 099.2 were established, the caps/interface chapter and the
+"labelled interface" extension would be one construction rather than two; the
+`dim V_e` capping count and Theorem 10.12 would then be two layers of one label
+rather than competing claims.
+
+**Residuals.** 099.1: `A3` is a mechanism resting on two cited standard facts; the
+"interior critical point" alternative inside branch (2) is not constructed; the
+examples are flat-metric. 099.2: no definition of a labelled interface exists in
+the paper; no theorem; the relation to `notes/analysis-and-calculus/25-*` has not
+been checked statement by statement.
+
+**Next steps.** (i) Either promote `A4` to a proposition with a full proof of `A3`,
+or keep it as Remark 10.13; (ii) construct the interior-critical-point branch;
+(iii) decide whether a labelled interface belongs to the paper scope at all.

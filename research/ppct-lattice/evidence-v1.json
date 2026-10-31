@@ -1,0 +1,34 @@
+{
+  "downset_catalan": [
+    1,
+    1,
+    2,
+    5,
+    14,
+    42,
+    132,
+    429,
+    1430
+  ],
+  "downset_catalan_ok": true,
+  "tamari_non_distributive": {
+    "distributive": false,
+    "is_lattice": true,
+    "n_leaves": 5,
+    "trees": 14,
+    "witness": {
+      "indices": [
+        1,
+        2,
+        3
+      ],
+      "lhs_meet_a_join_bc": "N(L,N(L,N(N(L,L),L)))",
+      "rhs_join_meet_ab_meet_ac": "N(L,N(N(L,N(L,L)),L))",
+      "trees": [
+        "N(L,N(L,N(N(L,L),L)))",
+        "N(L,N(N(L,L),N(L,L)))",
+        "N(L,N(N(L,N(L,L)),L))"
+      ]
+    }
+  }
+}

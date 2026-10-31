@@ -14,12 +14,9 @@ on:
     paths:
       - "research/process-representation-gap/**"
       - ".github/workflows/research-process-representation-gap.yml"
+  # Required-check contract: see capping-scope.yml.
   push:
-    branches:
-      - main
-    paths:
-      - "research/process-representation-gap/**"
-      - ".github/workflows/research-process-representation-gap.yml"
+    branches: ["**"]
   workflow_dispatch:
 
 permissions:

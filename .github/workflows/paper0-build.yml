@@ -12,6 +12,9 @@ on:
       - "bibliography/**"
       - "build.sh"
       - ".github/workflows/paper0-build.yml"
+  # Required-check contract: a push to ANY branch must produce this check.
+  push:
+    branches: ["**"]
   workflow_dispatch:
 
 permissions:
