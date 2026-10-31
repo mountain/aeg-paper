@@ -4132,3 +4132,78 @@ series).
 OQ-095.3/OQ-095.4 (macro Stokes and spectral docking); registered alongside the
 calculus-dictionary surface-column rewrite of 2026-10-31.
 
+---
+
+## OQ-098 — Donaghey / De Bruijn–Morselt transform and the AEG tree layer
+
+**Priority:** P2
+**State:** OPEN (2026-10-31) — registered after reading Donaghey 1980,
+Pushkarev–Byzov 2014 and the OEIS A014486 chart; the pure-combinatorial
+correspondences are established in note 26, the structural consequences for AEG
+remain open.
+
+**Question:** The classical general-tree ↔ binary-tree bijections (De
+Bruijn–Morselt / Donaghey) and Donaghey's transformation `τ = φ⁻¹θφσ` are precise
+combinatorial models of the operations AEG keeps distinct (mirror `m`, temporal
+reversal `r`, path inverse). Two things follow and are partly open: the
+**non-commutative extension** and the **lattice/orbit correspondence**.
+
+**Why it matters:** Note 26 (§6) records a genuine structural difference. AEG's
+word-level mirror `m` and reversal `r` commute, so `⟨m,r⟩ ≅ Z₂×Z₂` (Klein). But
+Donaghey's tree-level transposition `σ` and (conjugated) reflection `θ` do not
+commute: Pushkarev–Byzov, Theorem 6.4, prove `⟨σ,θ⟩ ≅ Z₂*Z₂` (infinite dihedral)
+and `τ` has infinite order (Corollary 6.3: arbitrarily long orbits). The two
+"reversal" operations differ — word reversal `r` is a plain sequence reversal,
+whereas the path-reversal-induced tree involution `φ⁻¹θφ` is a genuine tree
+restructuring — which is exactly the source of the "hyperbolicity" in the
+Donaghey paper. If AEG's tree layer exhibits the non-commutative
+(`Z₂*Z₂`, infinite-order) version, the path-inverse / reversal distinction is
+richer than the word-level Klein structure.
+
+**Current evidence:** Note 26, `notes/analysis-and-calculus/26-donaghey-general-to-binary-tree.md`.
+`[对应]` items that are tight: `σ ↔ m`, `θ ↔ r`, `φ ↔` up-down code,
+right/left bijection ↔ `conv:p0-left-right-convention` (right/left comb),
+four Catalan families ↔ binary vs general trees. The difference `Z₂×Z₂` vs
+`Z₂*Z₂` is a precise group-theoretic fact; the tree-level realization is open.
+
+**Sub-items and resolution conditions:**
+
+- **098.1 — Non-commutative extension.** Decide whether AEG's mirror and
+  reversal, transported from words to trees, generate `Z₂*Z₂` (infinite
+  dihedral) rather than the word-level `Z₂×Z₂`; and explain structurally why
+  word reversal and path-reversal-induced tree reversal stop commuting. If it
+  holds, give the "hyperbolic"/long-orbit analogue in AEG.
+- **098.2 — PPCT lattice vs `O(P)`.** The Pushkarev–Byzov text states that PPCTs
+  form a distributive lattice whose irreducibles are ordered as the infinite
+  cubic tree. Identify this lattice (Tamari-type or otherwise), and determine
+  whether it is isomorphic or embeds into AEG's Birkhoff lattice `O(P)`
+  (`thm:birkhoff-downset-spinal`). Do not assert distributivity without checking
+  the source's ordering.
+- **098.3 — Carousel / fringing / orbit growth.** Decide whether the carousel
+  effect (cyclic motion of corner classes SR/LL/RL/RN/LN), the fringing theorem
+  (`Δ(Q(T)) = 3Δ(T)` or `(3/2)Δ(T)`) and the `O(n^{log₂ 3})` orbit growth
+  correspond to AEG's Hecke periodic orbits / "fractal rotation" (Pushkarev's
+  name). This needs AEG's own orbit/period structure.
+- **098.4 — Functoriality of the right/left bijection.** Determine whether the
+  right/left bijection gives a functor from the branching layer to the sequential
+  layer that respects AEG's order defect and linear-extension structure. At
+  present it is only a set bijection; no functoriality is established.
+
+**Default rule while open:** Use Donaghey/De Bruijn–Morselt only as
+`structural proposal` / `open`; do not state a functorial bridge, an orbit
+correspondence, or a lattice identification as proved. The pure Catalan
+bijections themselves are classical and may be cited as such.
+
+**Affected files:**
+`notes/analysis-and-calculus/26-donaghey-general-to-binary-tree.md`;
+`paper-0/sections/03-aes-and-motion.tex` (left/right comb convention);
+`paper-1/sections/02-sequential-histories.tex` (mirror / reversal / path inverse,
+Birkhoff).
+**Affected theorem nodes:** none (research note; no Paper I theorem depends on
+the Donaghey correspondence yet).
+**Owner:** author.
+**Decision record:** note 26 (2026-10-31) reads the three sources and records the
+tight `[对应]` and the `Z₂×Z₂` vs `Z₂*Z₂` difference; the tree-level
+non-commutativity, lattice identification, carousel/orbit correspondence and
+functoriality are the four residuals.
+
