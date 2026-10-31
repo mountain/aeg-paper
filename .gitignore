@@ -284,3 +284,32 @@ TSWLatexianTemp*
 # Python bytecode from the research checkers
 __pycache__/
 *.pyc
+
+## Working-tree scratch (2026-10-31): local untracked artifacts, kept on disk
+# downloaded reference papers (arXiv and others)
+/0602363v2.pdf
+/0906.4747v1.pdf
+/1706.09078v1.pdf
+/2005.14178v3.pdf
+/9904100v2.pdf
+/kleinian_groups.pdf
+
+# generated figures (root-level)
+/*.png
+/*.webp
+
+# exported Observable page
+/Untitled _ ClimateTensor _ Observable.html
+/Untitled _ ClimateTensor _ Observable_files/
+
+# consolidation plan draft
+/AEG-Paper-1-consolidation-plan-2026-09-24-v0.1.md
+
+# extracted/archived paper-0 copy
+/aeg-paper-0.zip
+/aeg-paper-0/
+
+# local scratch scripts and outputs
+/temp/canonical_threadlike.py
+/temp/threadlike_canonical_demo_output_v0.1.txt
+/temp/可线索化典范形_多项式到线索链_v0.1.md
