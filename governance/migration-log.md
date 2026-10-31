@@ -553,7 +553,7 @@ closure.
 ## Migration M-0013
 
 - Date: 2026-08-07
-- Source: root `aeg-paper.bib`
+- Source: root `aeg-paper-0.bib`
 - Destination: `bibliography/aeg-paper.bib`
 - Migration state: SHARED RESOURCE RELOCATION
 - Claim treatment: no mathematical claims, citation entries, assumptions, or

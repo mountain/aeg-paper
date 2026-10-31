@@ -28,7 +28,7 @@ legacy source.  Claim-level provenance is recorded in `migration-log.md`.
 | `README.md` | REWRITE | Four-paper entry point and DOI distinction |
 | `restructure/AGENTS.md` | KEEP / AUTHORITATIVE | Currently consolidated as the repository-wide root `AGENTS.md` |
 | `aeg-paper.tex` | REWRITE / CANONICALIZE | Replaced by the sole active Paper I entry point `paper-1/aeg-paper-1.tex` |
-| `aeg-paper.bib` | KEEP / CLEAN | Currently the shared bibliography at `bibliography/aeg-paper.bib` |
+| `aeg-paper-0.bib` | KEEP / CLEAN | Currently the shared bibliography at `bibliography/aeg-paper.bib` |
 | `aeg-paper.pdf` | REBUILD | Replaced by the canonical artifact `paper-1/aeg-paper-1.pdf` |
 | `build.sh` | STABILIZE | Canonical multi-paper build for Papers I--IV |
 | `aeg-lemma.tex` | HOLD | References absent sections 13--17; no Paper I dependency |
@@ -98,7 +98,7 @@ missing tracked files.
 | `.lean` | 6 | experimental formalization under `revision-2`; not proof authority for Paper I |
 | `.sh` | 6 | root and alternative build scripts; only root `build.sh` is canonical |
 | `.sty` | 4 | historical styles; active Paper I uses installed packages only |
-| `.bib` / `.bbl` | 2 / 1 | baseline root `aeg-paper.bib` plus arXiv snapshot; shared bibliography now under `bibliography/` |
+| `.bib` / `.bbl` | 2 / 1 | baseline root `aeg-paper-0.bib` plus arXiv snapshot; shared bibliography now under `bibliography/` |
 | other repository/config files | 11 | license, ignores, Docker, HTML, JSON, TOML, text, toolchain, and one `.DS_Store` in the historical ideal-glass tree |
 
 ## 4. Active dependency closure
