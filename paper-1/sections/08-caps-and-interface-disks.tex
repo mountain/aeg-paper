@@ -138,7 +138,10 @@ derivative is the contact curvature $d\alpha=-\lambda\,da\wedge dv$.
 \begin{proposition}[Seam-circle holonomy]
 \label{prop:seam-circle-holonomy}
 For the seam circle $C_e=\partial D_e$ of
-Proposition~\ref{prop:pants-gluing-interface-disk}, the loop integral
+Proposition~\ref{prop:pants-gluing-interface-disk}, assume that the declared
+data $a,v$ extend smoothly to a neighborhood of $D_e$ and that $\lambda$ is
+constant.  Write $\widetilde\beta=-\lambda a\,dv$ on that neighborhood, with
+boundary restriction $\beta$.  With the induced boundary orientation, the loop integral
 \[
   \oint_{C_e}\beta=\oint_{C_e}(-\lambda a\,dv)
 \]
@@ -169,6 +172,189 @@ declared structure not yet constructed in general; the holonomy of
 Proposition~\ref{prop:seam-circle-holonomy} is meaningful precisely under that
 declaration.  This is the analytic counterpart of the observation that a bare
 $S_G$ carries no program identity.
+\end{remark}
+
+\subsection{Drilling a tunnel and adding a surface handle}
+\label{subsec:tunnel-handle-surgery}
+
+The preceding construction distinguishes a circle that is unfillable on the
+side surface from a disk that fills it in the body.  Drilling through the body
+can change that filling relation.  We first describe the topological operation,
+keeping all external port disks fixed; no arithmetic assignment is assumed.
+
+\begin{proposition}[Two mouths and one new handle]
+\label{prop:tunnel-boundary-surgery}
+Let $H$ be a compact oriented $3$-manifold, let $\Sigma$ be a connected component
+of $\partial H$, and mark $b$ disjoint external port disks on $\Sigma$.  Write
+$S=\Sigma\setminus\bigcup_j\operatorname{int}E_j\cong S_{g,b}$.
+Let a properly embedded arc have a closed tubular neighborhood
+$N\cong D^2\times I$, meeting $\partial H$ exactly in its two end disks
+$D_0,D_1\subset\operatorname{int}S$.  Drill out the relative interior of $N$
+and round the corners.  The replacement side surface is
+\[
+ S'=\bigl(S\setminus(\operatorname{int}D_0\cup\operatorname{int}D_1)\bigr)
+       \cup_{\partial D_0\sqcup\partial D_1}(S^1\times I),
+ \qquad S'\cong S_{g+1,b}.
+\]
+Thus the tunnel wall becomes part of the boundary, the number of external
+ports stays $b$, and $\chi(S')=\chi(S)-2$.  Attaching an oriented $3$-dimensional
+$1$-handle along $D_0,D_1$ induces the same abstract surface replacement.
+\end{proposition}
+
+\begin{proof}
+The two end disks cease to be boundary faces of the remaining body, whereas
+the lateral boundary of $N$ becomes exposed.  Removing the two open disks
+preserves connectedness and decreases Euler characteristic by two.  The
+inserted annulus and its attaching circles all have Euler characteristic zero,
+so they do not change that number.  The result is orientable, connected, and
+has the original $b$ boundary circles.  The formula $\chi=2-2g-b$ gives
+$g'=g+1$.  A $1$-handle also has two attaching disks and one lateral annulus,
+which proves the last assertion.
+\end{proof}
+
+\begin{remark}[Extent of the surgery statement]
+\label{rem:tunnel-scope}
+A blind indentation replaces one boundary disk by another and adds no handle.
+If the two mouths lie on distinct boundary components, the operation joins
+those components: their genera add, rather than increasing one genus by one.
+The proposition determines the boundary surface even for a knotted tunnel; it
+does not classify the remaining $3$-manifold.  Removing a tunnel and attaching
+material outside the body are also different operations on an embedded body.
+The next product model fixes an unknotted tunnel and proves its body type
+directly.
+\end{remark}
+
+\begin{proposition}[A pierced cap becomes an annulus]
+\label{prop:pierced-cap-annulus}
+Let $I=[0,1]$, let $D^2$ be an oriented closed round disk, and let $d^2$ be a
+smaller concentric closed disk in its interior.  Set
+\[
+ H_0=I\times D^2,\qquad
+ H_1=I\times\bigl(D^2\setminus\operatorname{int}d^2\bigr).
+\]
+Then $H_0$ is a $3$-ball and $H_1$ is a solid torus.  For $0<t_0<1$, put
+\[
+ D=\{t_0\}\times D^2,\quad C=\partial D,\quad
+ d=\{t_0\}\times d^2,\quad c=\partial d,\quad
+ A=D\setminus\operatorname{int}d.
+\]
+Give $c$ the boundary orientation of $d$, so that the inner boundary of $A$
+has orientation $-c$.  As oriented chains,
+\begin{equation}\label{eq:pierced-cap-chain}
+ \partial D=C,\qquad \partial A=C-c.
+\end{equation}
+The same surviving curve $C$ satisfies
+\[
+ [C]=0\ \text{in }H_1(H_0;\mathbb Z),\qquad
+ [C]=[c]\ne0\ \text{in }H_1(H_1;\mathbb Z)\cong\mathbb Z.
+\]
+In particular, $C$ bounds no disk, or integral $2$-chain, in the drilled body.
+\end{proposition}
+
+\begin{proof}
+The annulus $D^2\setminus\operatorname{int}d^2$ is $S^1\times I$, hence
+$H_1\cong S^1\times I^2\cong S^1\times D^2$ after rounding corners.
+Subtracting the chain $d$ from $D$ gives
+\eqref{eq:pierced-cap-chain}.  Retraction of the annulus onto its circular
+factor, together with contraction of the first interval, is a deformation
+retraction of $H_1$ onto $S^1$.  Both $C$ and $c$ map with degree one to this
+circle, proving that their common class generates $H_1(H_1;\mathbb Z)$.
+In $H_0$ the original disk $D$ fills $C$.
+\end{proof}
+
+\begin{remark}[Which circle still has a cap?]
+\label{rem:drilled-body-meridian}
+There are still disk-bounding curves on the new boundary.  If $r$ is a radial
+arc joining the two boundaries of the annulus, then $I\times r$ is a properly
+embedded disk in $H_1$.  Its boundary is a meridian of the remaining solid
+torus, whereas $C$ represents its surviving longitudinal class.  In particular,
+the inclusion $\partial H_1\hookrightarrow H_1$ has
+\[
+ H_1(\partial H_1;\mathbb Z)\cong\mathbb Z^2
+ \longrightarrow H_1(H_1;\mathbb Z)\cong\mathbb Z
+\]
+with kernel generated by that meridian.  Calling a curve a ``hole boundary''
+does not decide whether it has a filling disk; the body and the curve both
+matter.  Nor, in general, is vanishing of a homology class by itself a
+certificate of an embedded disk filling.
+\end{remark}
+
+\subsection{Double pants gluing and annular interface data}
+\label{subsec:double-pants-annular-interface}
+
+\begin{proposition}[A handle without directed feedback]
+\label{prop:double-pants-dag-handle}
+In the declared minimal thickening, join a $1\to2$ gate and a $2\to1$ gate
+by two distinct output--input wires.  The side surface is $S_{1,2}$, obtained
+by gluing two pants along two pairs of boundary circles.  The directed graph
+is acyclic, while its underlying multigraph has first Betti number one.
+\end{proposition}
+
+\begin{proof}
+Each pants has Euler characteristic $-1$; gluing along circles preserves their
+sum $-2$, and four of the six boundary circles are consumed.  Thus $b=2$ and
+$2-2g-2=-2$, giving $g=1$.  Both wires point from the first gate to the second,
+so there is no directed cycle.  The underlying connected multigraph has two
+vertices and two edges, giving $\beta_1=2-2+1=1$, in agreement with
+Proposition~\ref{prop:local-pants-handlebody-genus}.  The first gluing connects
+the two components; the second creates the handle.
+\end{proof}
+
+\begin{example}[The algebraic decoration is additional data]
+\label{ex:split-merge-handle}
+Declare a copy gate $\Delta(x)=(x,x)$, unary branch maps $f,g$, and a binary
+merge $m$.  The corresponding computation is
+\[
+ x\longmapsto(f(x),g(x))\longmapsto m(f(x),g(x)),
+\]
+on its declared partial domain.  Unary gates only subdivide the two wires and
+do not change the genus.  For $f=g=\id$ and $m(u,v)=u+v$ the output is $2x$,
+so handle insertion does not by itself preserve the previous numerical
+function.  The two parallel wires also show why the event reachability poset
+alone is insufficient: one wire and two wires between the same two events
+give the same order but different $\beta_1$.  Port incidence and multiplicity
+must be retained alongside $P$ and $\mathcal O(P)$.
+\end{example}
+
+\begin{proposition}[Annular Stokes balance]
+\label{prop:annular-stokes-balance}
+In Proposition~\ref{prop:pierced-cap-annulus}, suppose a smooth one-form
+$\widetilde\beta$ is declared on a neighborhood of $A$ in the drilled body.
+Using the orientations in \eqref{eq:pierced-cap-chain},
+\begin{equation}\label{eq:annular-stokes-balance}
+ \oint_C\widetilde\beta-\oint_c\widetilde\beta
+       =\int_A d\widetilde\beta.
+\end{equation}
+If $\widetilde\beta=-\lambda a\,dv$ for smooth declared data $a,v$ and constant
+$\lambda$, this is the annular version of the seam-circle formula.  It requires
+no extension across the removed disk.
+\end{proposition}
+
+\begin{proof}
+Apply Stokes to the compact oriented annulus $A$ with boundary $C-c$.
+For the specified potential, $d\widetilde\beta=-\lambda\,da\wedge dv$.
+\end{proof}
+
+\begin{remark}[Periods and the open arithmetic interface]
+\label{rem:annular-interface-open}
+If $d\widetilde\beta=0$, the two periods in
+\eqref{eq:annular-stokes-balance} agree but need not vanish.  For example, on
+the punctured disk with coordinates $(\xi,\eta)$,
+\[
+ \omega=\frac{-\eta\,d\xi+\xi\,d\eta}{\xi^2+\eta^2}
+\]
+is smooth and closed, and both positively oriented circular periods are
+$2\pi$.  This is an example for a general one-form; it does not assert a
+global representation of $\omega$ by arithmetic data $-\lambda a\,dv$.
+
+Topological non-fillability neither forces a nonzero period nor assigns a
+spectral value to a circle.  A proposed arithmetic annular interface must
+specify both boundary state spaces and their compatibility relation, retaining
+source, occurrence and production residuals.  Neither the topological surgery
+nor \eqref{eq:annular-stokes-balance} supplies that relation, a regular AES
+realization, or a native \texttt{Seal} rule.  These remain open under OQ-096;
+the product-model calibration is recorded in
+Appendix~\ref{app:pants-cellulation-verification}.
 \end{remark}
 
 \subsection{Interface state, substitution, and the spectrum}
@@ -293,10 +479,12 @@ $a\equiv0$).  The sharp condition is therefore $\mu=0$ and $\lambda c=0$.
   \item To cap a level circle geometrically one must admit an interior critical
   point or a non-$C^1$/metric singularity (the singular category of
   Section~\ref{sec:zero-geometry}).
-  \item To glue across a seam $C_e$ in the regular category the boundary
-  assignment $a|_{C_e}$ must be nonconstant and both sides must satisfy the
-  two-sided smooth collar contract of Paper~0
-  ($\texttt{def:p0-collar-contract}$).
+  \item To glue across a seam $C_e$ in the regular category, both sides must
+  satisfy the two-sided smooth collar contract of Paper~0
+  ($\texttt{def:p0-collar-contract}$).  Nonconstant $a|_{C_e}$ is necessary
+  if a compact regular AES disk is also to fill that seam.  The disk
+  obstruction alone imposes no such conclusion on gluing annular collars
+  without a disk filling.
 \end{enumerate}
 \end{corollary}
 
