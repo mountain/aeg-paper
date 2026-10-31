@@ -4141,7 +4141,10 @@ calculus-dictionary surface-column rewrite of 2026-10-31.
 AEG's `m,r` commute and give `Z₂×Z₂` (Klein) on both the word and comb layers
 (note 27), so the non-commutative `Z₂*Z₂` is *not* obtained by transporting
 AEG's existing operations; the question shifts to the branching layer (`θ̃`
-naturality, `τ` on branching trees). 098.2–098.4 remain open. The pure
+naturality, `τ` on branching trees). 098.2 ADVANCED (2026-10-31) — the
+"distributive lattice" phrase is the Birkhoff down-set lattice of the infinite
+cubic tree, not the Tamari (rotation) lattice; AEG's `O(P)` is the same
+construction over a finite poset (note 28). 098.3–098.4 remain open. The pure
 combinatorial correspondences are established in note 26.
 
 **Question:** The classical general-tree ↔ binary-tree bijections (De
@@ -4190,12 +4193,23 @@ four Catalan families ↔ binary vs general trees. The difference `Z₂×Z₂` v
   comb trees) are **not** preserved by `τ` (`n-1` cat→cat out of `2^{n-2}`), and
   every orbit of length `> 6` is entirely branching. This is a same-author finite
   computation (`COMPUTATIONALLY VERIFIED EXAMPLE`, `n ≤ 10`), not a general proof.
-- **098.2 — PPCT lattice vs `O(P)`.** The Pushkarev–Byzov text states that PPCTs
-  form a distributive lattice whose irreducibles are ordered as the infinite
-  cubic tree. Identify this lattice (Tamari-type or otherwise), and determine
-  whether it is isomorphic or embeds into AEG's Birkhoff lattice `O(P)`
-  (`thm:birkhoff-downset-spinal`). Do not assert distributivity without checking
-  the source's ordering.
+- **098.2 — PPCT lattice vs `O(P)`.** *ADVANCED (note 28).* The Pushkarev–Byzov
+  text states that PPCTs form "a distributive lattice whose irreducible elements
+  are ordered as the vertices of the infinite cubic tree". This phrase conflates
+  two different lattices. (A) The **Tamari / rotation lattice** on PPCTs is a
+  lattice but **not distributive** (verified for `T_4`, `n = 5` leaves:
+  `research/ppct-lattice/`). (B) The **Birkhoff down-set lattice** of the
+  infinite binary (cubic) tree is distributive by construction, with
+  join-irreducibles = the vertices and `R(N) = Catalan(N)` down-sets of size `N`;
+  its *elements* are down-sets (ordered binary trees / plane trees), not the full
+  binary PPCTs directly. So "distributive + irreducibles = infinite cubic tree"
+  matches (B), while the "standard lattice ordering of all trees" is (A); the two
+  are mutually exclusive. AEG's `O(P)` (`thm:birkhoff-downset-spinal`) is the
+  **same Birkhoff construction over a finite dependency poset `P`**, so the
+  distributive reading aligns with AEG; the two are **not isomorphic in general**
+  (different posets). *Residual*: whether `O(P)` embeds as a sublattice of some
+  down-set lattice over a sub-poset of `T_∞` is open; the correct source meaning
+  of "standard lattice ordering" should be checked against Donaghey 1980.
 - **098.3 — Carousel / fringing / orbit growth.** Decide whether the carousel
   effect (cyclic motion of corner classes SR/LL/RL/RN/LN), the fringing theorem
   (`Δ(Q(T)) = 3Δ(T)` or `(3/2)Δ(T)`) and the `O(n^{log₂ 3})` orbit growth
@@ -4214,7 +4228,9 @@ bijections themselves are classical and may be cited as such.
 **Affected files:**
 `notes/analysis-and-calculus/26-donaghey-general-to-binary-tree.md`;
 `notes/analysis-and-calculus/27-mirror-reversal-tree-layer.md`;
+`notes/analysis-and-calculus/28-ppct-lattice-attribution.md`;
 `research/donaghey-orbits/` (finite verification);
+`research/ppct-lattice/` (finite verification);
 `paper-0/sections/03-aes-and-motion.tex` (left/right comb convention);
 `paper-1/sections/02-sequential-histories.tex` (mirror / reversal / path inverse,
 Birkhoff).
