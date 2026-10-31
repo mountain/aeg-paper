@@ -1,0 +1,172 @@
+{
+  "annulus": {
+    "boundary_components": 2,
+    "chi": 0,
+    "connected": true,
+    "edges": 32,
+    "orientable": true,
+    "triangles": 16,
+    "vertex_links_checked": 16,
+    "vertices": 16
+  },
+  "cases": {
+    "ball": {
+      "boundary": {
+        "boundary_components": 0,
+        "chi": 2,
+        "connected": true,
+        "edges": 162,
+        "orientable": true,
+        "triangles": 108,
+        "vertex_links_checked": 56,
+        "vertices": 56
+      },
+      "cubical": {
+        "chi": 1,
+        "cubes": 27,
+        "edges": 144,
+        "faces": 108,
+        "vertices": 64
+      },
+      "outer_circle": {
+        "augmented_rank": 81,
+        "body_first_betti_number": 0,
+        "boundary_matrix_rank": 81,
+        "bounds_body_2chain": true,
+        "coefficient_field": "F_2",
+        "face_boundary_positive_controls": 108
+      },
+      "tetrahedra": 162,
+      "vertex_links": {
+        "disk": 56,
+        "sphere": 8
+      }
+    },
+    "blind_pit": {
+      "boundary": {
+        "boundary_components": 0,
+        "chi": 2,
+        "connected": true,
+        "edges": 174,
+        "orientable": true,
+        "triangles": 116,
+        "vertex_links_checked": 60,
+        "vertices": 60
+      },
+      "cubical": {
+        "chi": 1,
+        "cubes": 26,
+        "edges": 144,
+        "faces": 107,
+        "vertices": 64
+      },
+      "outer_circle": {
+        "augmented_rank": 81,
+        "body_first_betti_number": 0,
+        "boundary_matrix_rank": 81,
+        "bounds_body_2chain": true,
+        "coefficient_field": "F_2",
+        "face_boundary_positive_controls": 107
+      },
+      "tetrahedra": 156,
+      "vertex_links": {
+        "disk": 60,
+        "sphere": 4
+      }
+    },
+    "through_tunnel": {
+      "boundary": {
+        "boundary_components": 0,
+        "chi": 0,
+        "connected": true,
+        "edges": 192,
+        "orientable": true,
+        "triangles": 128,
+        "vertex_links_checked": 64,
+        "vertices": 64
+      },
+      "cubical": {
+        "chi": 0,
+        "cubes": 24,
+        "edges": 144,
+        "faces": 104,
+        "vertices": 64
+      },
+      "outer_circle": {
+        "augmented_rank": 81,
+        "body_first_betti_number": 1,
+        "boundary_matrix_rank": 80,
+        "bounds_body_2chain": false,
+        "coefficient_field": "F_2",
+        "face_boundary_positive_controls": 104
+      },
+      "tetrahedra": 144,
+      "vertex_links": {
+        "disk": 64
+      }
+    }
+  },
+  "construction": {
+    "annulus_face_count": 8,
+    "blind_pit_removed_cube": [
+      0,
+      1,
+      1
+    ],
+    "box": "[0,3]^3",
+    "interface_plane": "x=1",
+    "tunnel_removed_cubes": [
+      [
+        0,
+        1,
+        1
+      ],
+      [
+        1,
+        1,
+        1
+      ],
+      [
+        2,
+        1,
+        1
+      ]
+    ]
+  },
+  "inner_circle": {
+    "augmented_rank": 81,
+    "body_first_betti_number": 1,
+    "boundary_matrix_rank": 80,
+    "bounds_body_2chain": false,
+    "coefficient_field": "F_2",
+    "face_boundary_positive_controls": 104
+  },
+  "meridian_circle": {
+    "augmented_rank": 80,
+    "body_first_betti_number": 1,
+    "boundary_matrix_rank": 80,
+    "bounds_body_2chain": true,
+    "coefficient_field": "F_2",
+    "face_boundary_positive_controls": 104
+  },
+  "minus_y_dz_periods": {
+    "curvature_over_annulus": -8,
+    "inner": -1,
+    "outer": -9
+  },
+  "negative_controls_rejected": [
+    "blind_pit_claimed_to_add_handle",
+    "through_tunnel_claimed_to_remain_ball",
+    "old_disk_claimed_to_survive",
+    "outer_circle_claimed_to_bound",
+    "wrong_inner_boundary_sign",
+    "zero_curvature_claimed_for_minus_y_dz",
+    "missing_annular_face",
+    "vertex_only_contact"
+  ],
+  "oriented_boundary_identity": "boundary(A) = C - c",
+  "schema": 1,
+  "scope": "Fixed product tunnel; same-author calibration, no AES or native Seal",
+  "source_sha256": "5848aff8251460874e9eda02ba3c0081376fecd2831f206303a0a41bb833d342",
+  "v1_helper_sha256": "fac64f82cea293ef58de9d0f1929ab4d3164d380b4d63f37be7a15b6fcfe644f"
+}

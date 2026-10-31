@@ -121,6 +121,26 @@ independent human mathematical review or promote a finite result to a theorem.
   example, not an independent implementation review, a general functor,
   a regular AES extension, or a native Adva Seal. OQ-096 remains open.
 
+## Paper I handle and annular-interface successor — 2026-10-31
+
+- **Human origin/direction:** Mingli Yuan asked how drilling at a body's
+  boundary adds a handle to its surface, then explicitly requested integration
+  of that discussion into Paper I after checking the latest repository changes.
+- **Baseline read:** `24ddba56242800b0a8ae837a2eb991d00502d00c`, including the
+  merged note-25 work, combined-volume revision, surface holonomy and calculus
+  dictionary. Existing contributions by other models remain separately credited.
+- **Model assistance:** Codex (OpenAI) supplied the surgery and punctured-disk
+  proofs, double-pants/DAG distinction, annular Stokes statement, narrow
+  hypothesis repairs, finite checker and evidence, manuscript integration,
+  status records, build and visual checks. This entry does not attribute other
+  newly integrated analytical claims to Codex.
+- **Boundary:** the topology and conditional differential-form identities have
+  explicit proofs. A canonical arithmetic surgery, annular state relation,
+  regular AES realization and native Adva Seal bridge remain open. Construction
+  and checking share one model author and reuse V1 routines; no independent
+  human review or independent implementation is claimed.
+- **Audit:** `governance/paper-I-handles-integration-2026-10-31.md`.
+
 ## Contribution interpretation
 
 Mingli Yuan is the human research director, acceptance and release authority,

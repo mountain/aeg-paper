@@ -39,3 +39,56 @@ This is a \emph{computationally verified example} for a single fixed model.  The
 construction and the checker are by the same author; it does not close the
 general composition, the AES-extension, or the native \texttt{Seal} bridge
 obligations (V2--V4 of OQ-096).
+
+\subsection{Product-tunnel calibration}
+\label{app:product-tunnel-calibration}
+
+The successor \path{research/pants-interface-disks/verify_handles.py} checks
+the fixed cubical version of Proposition~\ref{prop:pierced-cap-annulus}.
+Start with $[0,3]^3$.  Removing only the cube with lower corner $(0,1,1)$
+makes a blind indentation; removing all three cubes with lower corners
+$(j,1,1)$, $j=0,1,2$, makes a through tunnel.  The interface is the square
+$D=\{1\}\times[0,3]^2$, with outer boundary $C$, and its removed central
+square has boundary $c$.  The surviving eight faces form the annulus $A$.
+
+\begin{center}
+\begin{tabular}{lrrrr}
+\toprule
+Body & Cubes & $\chi(H)$ & $\chi(\partial H)$ & $b_1(H;\mathbb F_2)$\\
+\midrule
+Solid box & 27 & 1 & 2 & 0\\
+Blind indentation & 26 & 1 & 2 & 0\\
+Through tunnel & 24 & 0 & 0 & 1\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The checker verifies face incidences, boundary orientability and connectedness,
+and all $64$ vertex links in each body.  The solid box has $56$ disk and $8$
+sphere links, the indentation $60$ disk and $4$ sphere links, and the tunnel
+$64$ disk links.  The tunnel boundary has $64$ vertices, $192$ edges and
+$128$ triangles.  These local checks supplement the product-model proof;
+Euler characteristic alone is not used to identify a $3$-manifold.
+
+The body boundary map $\partial_2$ has rank $81$ for the box and $80$ for the
+tunnel.  Adjoining $C$ leaves rank $81$ in the former and raises $80$ to $81$
+in the latter.  Thus $C$ changes from bounding to nonbounding over
+$\mathbb F_2$.  The inner circle $c$ is also nonbounding in the tunnel, while
+the explicit radial rectangle gives a meridian disk.  The exact oriented-chain
+check is $\partial A=C-c$.  For $\widetilde\beta=-y\,dz$, exact edge integrals
+give
+\[
+ \oint_C\widetilde\beta=-9,\qquad
+ \oint_c\widetilde\beta=-1,\qquad
+ \int_A d\widetilde\beta=-8,
+\]
+checking the sign of Proposition~\ref{prop:annular-stokes-balance}.
+
+Eight negative controls reject a blind pit labelled as a handle, a tunnel
+labelled as a ball, survival of the removed disk, a false filling claim for
+$C$, the wrong inner-boundary sign, a false zero-curvature period equality,
+a missing annular face, and a vertex-only contact.  Normal and optimized Python
+outputs reproduce \path{research/pants-interface-disks/evidence-handles.json}.
+This is a same-author finite calibration using the V1 helper routines, not an
+independent verifier or an AES/Adva realization.  It supplements the in-paper
+proofs and does not discharge the annular state-compatibility problem.
