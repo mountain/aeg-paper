@@ -974,3 +974,20 @@ Baseline: `968c5c29557e8f7d70fe8baea2733726b852507d`.
 - No existing note, manuscript section or archival artifact was deleted or
   moved. Source coverage, unresolved artifact recovery and validation are in
   `h2-integration-2026-10-09.md`.
+
+## Paper VI process-geometry intake (2026-11-01)
+
+- `notes/analysis-and-calculus/26`--`40` (Donaghey transform, mirror/reversal,
+  PPCT lattice, carousel and iota, canonical choice) contributed the
+  combinatorics of Paper VI; the notes stay in place and are cited, not moved.
+- `research/iota-carousel/` (seven verifiers and stored evidence) and
+  `research/donaghey-orbits/` supply the finite calibrations; their evidence
+  files are unchanged and are replayed by CI.
+- `research/process-representation-gap/` pins the imported process sources: the
+  Adva technical report at `1b9bd090` and the Process Geometry mathematical core
+  at `c47c96fa`. Both are cited in `paper-6/aeg-paper-6.bib`; no source text is
+  copied into the manuscript.
+- The new manuscript is `paper-6/`; its scope is
+  `governance/00e-paper-VI-process-geometry-scope.md` and its claims are
+  registered in `governance/05c-paper-VI-status-register.md`. No material of
+  Papers 0--V was deleted, moved, or promoted by this intake.

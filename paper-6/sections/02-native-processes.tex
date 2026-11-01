@@ -66,9 +66,10 @@ The three readings are coupled by
 \]
 and it is exactly this coupling that a schedule linearizes.  The statement that $K$,
 $C$ and $F$ are readings of one process, rather than three structures, is the
-primitive of the theory; it is imported from the process corpus at commit
-\texttt{c47c96fa79123c677172278be59d67ca1cc891b1}, where the finite slices and their
-composition laws are checked \cite{AdvaProcessCore2026}.
+primitive of the theory; it is imported at the revisions the bibliography pins: the Adva technical report at
+\texttt{1b9bd090} and the Process Geometry mathematical core at
+\texttt{c47c96fa79123c677172278be59d67ca1cc891b1}; there the finite slices and their
+composition laws are checked \cite{AdvaProcessCore2026,ProcessGeometryCore2026}.
 
 \begin{remark}[Slices]\label{rem:slices}
 For downward-closed $U\subseteq V$, the slice of $P$ between the cuts $U$ and $V$
@@ -122,8 +123,8 @@ Every \emph{free} marked spinal history of Paper~I (one without an initial mark)
 open finite program with exactly one hole and a construction order whose unique linear
 extension is the history itself.
 Conversely, an open finite program with one hole whose body is a chain of unary
-one-hole contexts, up to the slot convention of its contexts, is a marked spinal
-history.
+one-hole contexts, with the slot convention of its contexts declared as data, is a
+marked spinal history.
 \end{proposition}
 
 \begin{proof}
@@ -133,8 +134,9 @@ order, and the unique linear extension is the chronological order.  The slot
 convention is exactly the chirality word.  A bounded history $(x_0;\gamma)$ keeps the
 initial mark $x_0$ as an extra datum; the one-hole program encodes the context chain,
 not the mark, so the proposition is stated for free histories.  The converse reads the
-same data in the other direction; the two constructions are inverse up to the declared
-convention on slot labels.
+same data in the other direction; the two constructions are inverse once the slot
+labels are declared.  Composition of chain programs is concatenation of their context
+chains, and it corresponds to chronological concatenation of histories.
 \end{proof}
 
 \begin{remark}[What the sequential case does not see]\label{rem:sequential-blind}

@@ -5,7 +5,8 @@
 \begin{definition}[Plane binary tree]\label{def:plane-binary}
 A \emph{plane binary tree} is a rooted tree in which every internal vertex has a left
 and a right child, either of which may be a leaf; the children are ordered.  Write
-$I(t)$ for the set of internal vertices and $n(t)=|I(t)|$.  A vertex is a leaf when
+$I(t)$ for the set of internal vertices, $n(t)=|I(t)|$, and
+$\ell(t)=n(t)+1$ for the number of leaves.  A vertex is a leaf when
 it has no children; every other vertex is internal and has a left and a right child
 position, either of which may lead to a leaf.  Trees are drawn with the root at the top and the left
 child to the left.
@@ -17,9 +18,8 @@ contracted, and this paper keeps the plane binary presentation throughout.
 
 \begin{definition}[Corner order]\label{def:corner-order}
 The \emph{corner order} $P(t)$ is the preorder of $I(t)$: the root, then the left
-subtree, then the right subtree.  It is the left standard traversal of the source,
-and it is the order in which the corners of the tree are met when the boundary is
-walked from the left.
+subtree, then the right subtree.  It is the left standard traversal of the source: the
+vertex, then the left subtree, then the right subtree.
 \end{definition}
 
 \begin{definition}[Dependency order]\label{def:dependency-order}
@@ -122,8 +122,8 @@ descendant order.  It does not by itself say that an arbitrary program's depende
 order is tree-shaped, nor that a general program has a unique canonical schedule: a
 program DAG may admit incomparable events that no planar structure orders.  What the
 theorem does supply is the canonical choice on the planar layer.  The carousel's index
-is a different object: it is the source's traversal position over the corners (the
-preorder over all corners), not the canonical postorder schedule;
+is a different object: it is the source's traversal position over the vertex classes
+(the preorder over all classes), not the canonical postorder schedule;
 \S\ref{sec:carousel} states what is and is not established about the relation, and the
 relation is not an equality of orders.
 

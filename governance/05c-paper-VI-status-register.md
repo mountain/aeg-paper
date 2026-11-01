@@ -15,13 +15,17 @@
 
 **Vocabulary.** Paper VI uses the labels of `05` (`PROVED`,
 `PROVED WITH STATED HYPOTHESES`, `COMPUTATIONALLY VERIFIED EXAMPLE`,
-`STRUCTURAL PROPOSAL`, `CONJECTURE`, `OPEN PROBLEM`) and two labels specific to
-its imported sources:
+`STRUCTURAL PROPOSAL`, `CONJECTURE`, `OPEN PROBLEM`) and labels specific to its
+imported sources and its definitions:
 
 * `IMPORTED CLASSICAL` — an external theorem used with attribution.
 * `IMPORTED TECHNICAL` — a statement of a companion technical report at a
   declared revision, reproducible only as that report states; not a theorem of
   this paper and not `CLASSICAL`.
+* `DEFINITION` — an object or construction fixed by the paper, not a claim.
+* `CONSTRUCTION` — an explicit construction whose identities are checked.
+* `CORRESPONDENCE` — a stated alignment between two structures with cited
+  evidence; not a theorem and not an identification.
 
 ---
 
@@ -40,8 +44,8 @@ may depend on it.
 | PVI-3 | `PROVED` | Theorem 3.6 (`thm:canonical-order`): for every plane binary tree, the left-first postorder is the unique linear extension of the dependency order minimizing inversions against the corner order. Proof: induction on the tree with the parent/block decomposition. |
 | PVI-4 | `COMPUTATIONALLY VERIFIED EXAMPLE` | Calibration 3.9: the canonical order is checked on all plane binary trees with 3–6 internal vertices, equivalently 4–7 leaves (193 trees) by `research/iota-carousel/verify_canonical_choice.py`. Evidence for the implementation, not for the theorem. |
 | PVI-5 | `PROVED` (correspondence record) | Proposition 4.2: the strong form "carousel class-cycle = J" is false; the surviving alignment is non-canonical (3 planes × 2 orientations) and the `SR` entry with the index shift have no `J` counterpart. The plane/sign part is imported from Paper V; the carrier identities are replayed by `research/iota-carousel/verify_omega.py`, while the six plane/orientation candidates are enumerated by hand in the alignment note, not by that script. Negative calibration, not a positivity claim. |
-| PVI-6 | `PROVED` (finite obstruction) | No-go 4.3: the cut Laplacian cannot carry the planar statistic `k(t)` = number of left leaves, the statistic the shift note and its verifier compute; four trees at `n = 4` share one cut-graph spectrum with different `k`. Whether the source's traversal index equals `k(t)` on every tree is open (`OQ-100.2`). Planarity obstruction. |
-| PVI-7 | `COMPUTATIONALLY VERIFIED EXAMPLE` | Calibration 4.6: the planar screw module satisfies `C^4 = S`, `J^4 = id`, `[J,S] = 0`, `M^2 = id` on the declared finite range (`research/iota-carousel/verify_planar.py`). The reading of the module as *the* carrier is a proposal, not part of this row. |
+| PVI-6 | `PROVED` (finite obstruction) | No-go 4.3: the normalized Laplacian of the Hasse diagram of the down-set lattice `O(P)` cannot carry the planar statistic `k(t)` = number of left leaves, the statistic the shift note and its verifier compute; with four leaves (three internal vertices) four trees share the normalized spectrum `(0, 0.1464, 0.5, 0.8536)` with different `k`. Whether the source's traversal index equals `k(t)` on every tree is open (`OQ-100.2`). Planarity obstruction. |
+| PVI-7 | `COMPUTATIONALLY VERIFIED EXAMPLE` | Calibration 4.6: the relations `C^4 = S`, `J_cl^4 = id`, `[J_cl,S] = 0`, `M^2 = id` are exact identities of the definitions and are replayed on a finite range by `research/iota-carousel/verify_planar.py`, which reproduces `evidence-planar-v1.json`. `S` is a unilateral shift, so `C` is not invertible (semigroup action). The identification of `C` with the source's carousel is a proposal, not part of this row. The doubled screw construction `H_iota = diag(H,H)` is `PROVED` for its block form and replayed by `verify_shift.py`. |
 | PVI-8 | `STRUCTURAL PROPOSAL` | The arity-one principle (slot order induced by the carrier) and the reading of the carousel as the planar screw. Named mechanisms with supporting calibrations; not theorems. |
 | PVI-9 | `PROVED` | Theorem 5.2 (`thm:sequential-recovery`): the single-spine fragment of the dictionary is an object-level equivalence (a bijection compatible with concatenation of one-hole contexts) between free histories and chain programs, up to the slot convention. Bounded histories keep the initial mark outside the map; the branching case is excluded. |
 | PVI-10 | `CONJECTURE` | Conjecture 5.3: a natural general assignment from plane trees with planar schedule structure to open finite programs, restricting to PVI-9 on the sequential fragment. Unproved; see `OQ-100.1`. |

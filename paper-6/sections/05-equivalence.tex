@@ -33,31 +33,31 @@ than patched.
 Arithmetic expression geometry & Process geometry & Status \\
 \midrule
 expression tree (Paper~I) & program body with ordered slots
-  & objects, \texttt{PROVED} \\
-marked spinal history (Paper~I) & schedule of a single-spine program
+  & \texttt{DEFINITION} \\
+free marked spinal history (Paper~I) & schedule of a single-spine program
   & Proposition~\ref{prop:sequential-leaf}, \texttt{PROVED} \\
 chirality word (Paper~I) & slot order induced by the arity-one carrier
   & \texttt{STRUCTURAL PROPOSAL} \\
 spine and left/right combs (Paper~I) & single-spine and path cases of a slot order
   & \texttt{STRUCTURAL PROPOSAL} \\
 dependency poset (Paper~I) & construction order (Definition~\ref{def:construction-order})
-  & objects, \texttt{PROVED} for trees \\
+  & \texttt{DEFINITION} (tree bodies) \\
 corner order and linear extensions & schedules and their inversions
   & Theorem~\ref{thm:canonical-order}, \texttt{PROVED} \\
 evaluation order of a sequential history & unique linear extension of a chain
   & \texttt{PROVED} (Proposition~\ref{prop:sequential-leaf}) \\
 six-state carrier (Paper~V) & iota frame of the process corpus
-  & \texttt{CLASSICAL} correspondence \\
+  & \texttt{CORRESPONDENCE} (note~40) \\
 chirality sign law (Paper~V) & sign action of $J$ on the planes
-  & \texttt{CLASSICAL} \\
-carousel class four-cycle & projective image of $J$ plus a shift
-  & \texttt{STRUCTURAL PROPOSAL} + finite calibration \\
+  & \texttt{CORRESPONDENCE} \\
+carousel class four-cycle & non-canonical alignment with $J$'s four-cycle plus a shift
+  & \texttt{STRUCTURAL PROPOSAL} + \texttt{CORRESPONDENCE} \\
 carousel count shadow & involution $M^{2}=\mathrm{id}$
-  & \texttt{CLASSICAL} (source) + computation \\
+  & \texttt{CORRESPONDENCE} (source) + calibration \\
 one-hole contexts and projective evaluation & observations compiled from a program
-  & \texttt{OPEN} at the general layer \\
+  & \texttt{OPEN PROBLEM} \\
 accumulative commutative charge & cut linkage / frontier data
-  & \texttt{OPEN} \\
+  & \texttt{OPEN PROBLEM} \\
 \bottomrule
 \end{longtable}
 \end{center}
@@ -76,8 +76,8 @@ The single-spine fragment of the dictionary is an equivalence on objects: the ma
 sending a \emph{free} marked spinal history to its chain program and back is a
 bijection, compatible with concatenation of one-hole contexts, between free marked spinal
 histories with their chronological order and open finite programs with one hole and a
-chain body whose unary contexts carry the Paper~I signature, up to the declared slot
-convention.  A bounded history keeps its initial mark as an extra datum, outside the
+chain body whose unary contexts carry the Paper~I signature, with the slot convention
+declared as data.  A bounded history keeps its initial mark as an extra datum, outside the
 bijection.  Under it, the
 chirality word is the slot sequence, the unique schedule is the chronological order,
 and the spine is the body chain.
@@ -99,12 +99,12 @@ on the single-spine fragment and sends the canonical evaluation order to the uni
 planar schedule closest to the corner order.
 \end{conjecture}
 
-The conjecture is deliberately narrow: it asks for a functor on the planar layer, not
+The conjecture is deliberately narrow: it asks for an assignment on the planar layer, not
 for an identification of arbitrary programs with expressions.  What is presently
 known toward it is: the sequential fragment (Theorem~\ref{thm:sequential-recovery});
 the canonical order on all plane trees (Theorem~\ref{thm:canonical-order}); the
 carrier identification (\texttt{CLASSICAL}); and the screw calibration
-(\S\ref{sec:carousel}).  What is missing is a general construction of the functor and
+(\S\ref{sec:carousel}).  What is missing is a general construction of the assignment and
 a proof that it preserves the schedule structure; both are recorded as open.
 
 \begin{proposal}[What the equivalence is for]\label{prop:equivalence-role}
@@ -122,7 +122,8 @@ Three finite tests are stated so that later work can refute the conjecture rathe
 than illustrate it.
 
 \begin{enumerate}
-\item \emph{Tree census}: for every plane binary tree with $n\le 7$, the dictionary
+\item \emph{Tree census}: for every plane binary tree with at most six internal
+  vertices (seven leaves), the dictionary
   image of the canonical order is the canonical schedule of the image program, and the
   inversion count is preserved.  The tree side is already calibrated; the program side
   needs an executed fixture.

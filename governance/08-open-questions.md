@@ -4472,7 +4472,9 @@ or keep it as Remark 10.13; (ii) construct the interior-critical-point branch;
 **Depends on:** `governance/00-authoritative-scope.md`,
 `governance/01-paper-series-architecture.md`,
 `governance/00c-paper-V-triadic-aperture-scope.md`,
+`governance/00e-paper-VI-process-geometry-scope.md`,
 `governance/05-mathematical-status.md`,
+`governance/05c-paper-VI-status-register.md`,
 `notes/analysis-and-calculus/26`--`40`,
 `research/iota-carousel/`, `research/donaghey-orbits/`,
 `research/process-representation-gap/`.

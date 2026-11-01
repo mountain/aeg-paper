@@ -1,4 +1,4 @@
-name: Paper 0, I and IV integration checks
+name: Paper and calibration integration checks
 
 on:
   pull_request:
@@ -106,21 +106,18 @@ jobs:
           python3 research/iota-carousel/verify_canonical_choice.py /tmp/canonical.json
           cmp /tmp/canonical.json research/iota-carousel/evidence-canonical-choice-v1.json
           python3 research/iota-carousel/verify_omega.py /tmp/omega.json
-          python3 - <<'PY'
-          import json
-          import sys
-          ev = json.load(open('/tmp/omega.json'))
-          ok = (ev['Omega_squared_is_minus_I'] and ev['Omega_fourth_is_I']
-                and all(p['j_preserves'] for p in ev['planes']))
-          print('omega gate:', ok)
-          sys.exit(0 if ok else 1)
-          PY
+          cmp /tmp/omega.json research/iota-carousel/evidence-omega-v1.json
           python3 research/donaghey-orbits/verify_orbits.py
 
       - name: Check important LaTeX warnings
         run: |
           status=0
           for log in paper-0/aeg-paper-0.log paper-1/aeg-paper-1.log paper-4/aeg-paper-4.log paper-6/aeg-paper-6.log; do
+            if [ ! -f "$log" ]; then
+              echo "$log is missing" >&2
+              status=1
+              continue
+            fi
             if grep -E "(Undefined control sequence|LaTeX Warning: Reference .* undefined|LaTeX Warning: Citation .* undefined|There were undefined references|multiply defined)" "$log"; then
               echo "$log contains unresolved LaTeX warnings" >&2
               status=1
