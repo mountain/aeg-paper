@@ -4430,10 +4430,17 @@ the dependency poset / `O(P)`; the hyperbolic behaviour is strictly planar-tree)
 Note 30 (2026-10-31) is the synthesis of 26–29. Note 40 (2026-11-01) is the
 synthesis of 31–39 (the carousel ↔ iota thread). Note 41 (2026-11-01) is the
 grand synthesis of the whole 26–40 line (tree layer + carousel–iota; one object `τ`,
-two orthogonal halves, one planarity obstruction, one proved canonicalization). Remaining residuals: 098.1(a)
-`θ̃` naturality, 098.2 sublattice embedding / source meaning, 098.1(b) general-`n`
-and the branching layer's own dynamics, 098.3 carousel/orbit correspondence
-(fringing, `O(n^{log₂3})`), 098.4 functoriality.
+two orthogonal halves, one planarity obstruction, one proved canonicalization).
+Subsequent notes close the remaining OQ-098 sub-items: note 42 (098.3) —
+structural correspondence with Hecke periodic orbits holds, growth-rate does not;
+note 43 (098.1a) — `θ̃ = τ∘m` is the intrinsic path reflection, an involution,
+with `⟨m,θ̃⟩ ≅ Z₂*Z₂`; note 44 (098.4) — **negative**: the right/left bijection
+does not preserve the operation count (PPCT always `n-1`, PPT ranges `{1,…,n-1}`),
+so no functor preserves the operation poset / order defect. Remaining residuals:
+098.2 sublattice embedding / source meaning; 098.1(b) general-`n` and the
+branching layer's own dynamics; 098.3 the precise order-4 iso/embedding and the
+correct growth-rate pairing; 098.4 the general "no Catalan bijection preserves the
+operation-count multiset" claim and functors on other objects (`O(P)`, `Hist_4`).
 
 
 ---
