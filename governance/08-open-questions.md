@@ -4326,6 +4326,15 @@ four Catalan families ↔ binary vs general trees. The difference `Z₂×Z₂` v
   choice across chains; general `n`; `S`-to-screw link; distinguish note 29's
   multi-valued descent obstruction from the "corner order is not a linear
   extension" gap (two different obstructions).
+  *Cross-chain choice canonicalized (note 38, 2026-11-01):* define the canonical
+  linear extension as the one **minimizing inversions (Kendall tau) with the corner
+  order (preorder)**. Verified for all PPCTs with `n = 4, 5`: the minimizer is
+  **unique** and equals the **left-first postorder** (`research/iota-carousel/verify_canonical_choice.py`).
+  So the "choice" is resolved — `S` (note 36) is not an arbitrary left-first pick
+  but the unique evaluation order closest to the corner order. Residuals:
+  general-`n` proof; other intrinsic criteria (leaf-order preservation) giving the
+  same minimizer; `σ`-equivariance (the criterion is σ-invariant, the output
+  σ-equivariant); and a formal separation from note 29's multi-valued descent.
 - **098.4 — Functoriality of the right/left bijection.** Determine whether the
   right/left bijection gives a functor from the branching layer to the sequential
   layer that respects AEG's order defect and linear-extension structure. At
@@ -4348,6 +4357,7 @@ bijections themselves are classical and may be cited as such.
 `notes/analysis-and-calculus/35-derive-shift.md`;
 `notes/analysis-and-calculus/36-branching-layer-shift.md`;
 `notes/analysis-and-calculus/37-corner-order-alignment.md`;
+`notes/analysis-and-calculus/38-canonical-cross-chain-choice.md`;
 `research/donaghey-orbits/` (finite verification);
 `research/ppct-lattice/` (finite verification);
 `paper-0/sections/03-aes-and-motion.tex` (left/right comb convention);
