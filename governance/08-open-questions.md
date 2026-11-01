@@ -4368,6 +4368,7 @@ bijections themselves are classical and may be cited as such.
 `notes/analysis-and-calculus/37-corner-order-alignment.md`;
 `notes/analysis-and-calculus/38-canonical-cross-chain-choice.md`;
 `notes/analysis-and-calculus/39-canonical-choice-general-proof.md`;
+`notes/analysis-and-calculus/40-carousel-iota-overview.md`;
 `research/donaghey-orbits/` (finite verification);
 `research/ppct-lattice/` (finite verification);
 `paper-0/sections/03-aes-and-motion.tex` (left/right comb convention);
@@ -4385,10 +4386,11 @@ layer, and the exact order of `τ` on combs. Note 28 (2026-10-31) advances 098.2
 cubic tree, not the Tamari lattice; `O(P)` is the same construction over a finite
 poset). Note 29 (2026-10-31) resolves 098.1(b) negatively (`τ` does not descend to
 the dependency poset / `O(P)`; the hyperbolic behaviour is strictly planar-tree).
-Note 30 (2026-10-31) is the synthesis of 26–29. Remaining residuals: 098.1(a)
+Note 30 (2026-10-31) is the synthesis of 26–29. Note 40 (2026-11-01) is the
+synthesis of 31–39 (the carousel ↔ iota thread). Remaining residuals: 098.1(a)
 `θ̃` naturality, 098.2 sublattice embedding / source meaning, 098.1(b) general-`n`
-and the branching layer's own dynamics, 098.3 carousel/orbit correspondence,
-098.4 functoriality.
+and the branching layer's own dynamics, 098.3 carousel/orbit correspondence
+(fringing, `O(n^{log₂3})`), 098.4 functoriality.
 
 
 ---
