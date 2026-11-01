@@ -4203,8 +4203,14 @@ four Catalan families ↔ binary vs general trees. The difference `Z₂×Z₂` v
   reversal), and `τ`'s infinite order / arbitrarily long orbits are constructed
   on *branching* trees (complete tree + fringing, Cor 6.3), not combs. Hence the
   non-commutative `Z₂*Z₂` is not an extension of AEG's existing operations.
-  *Shifted residuals*: (a) [open] is there an intrinsic AEG definition of a
-  "path reflection" `θ̃ ≠ r`, and does it generate `Z₂*Z₂` with `m`? (b) [RESOLVED
+  *Shifted residuals*: (a) [RESOLVED, note 43] is there an intrinsic AEG
+  definition of a "path reflection" `θ̃ ≠ r`, and does it generate `Z₂*Z₂` with
+  `m`? — Yes: since `τ = φ⁻¹θφσ` and `σ = m`, one has `θ̃ := φ⁻¹θφ = τ∘m`
+  (defined via `τ` and `m`, without the Dyck path). It is an involution, and
+  `m∘θ̃ = τ⁻¹`, so `⟨m,θ̃⟩ = ⟨m,τ⟩ ≅ Z₂*Z₂` (Donaghey Thm 6.4). Verified for
+  `n ≤ 6` (`research/iota-carousel/verify_theta.py`: `θ̃²=id`, `m∘θ̃=τ⁻¹`,
+  `θ̃` orbits of length 1 or 2). The intrinsic word-level formula and the direct
+  "contour reflection" description remain open. (b) [RESOLVED
   NEGATIVE, note 29] does the branching layer (dependence poset `P`, `O(P)`)
   reproduce the infinite-order / "hyperbolic" behaviour of `τ`? — No: `τ` does
   **not** descend to the dependency poset / `O(P)`; two trees with isomorphic
@@ -4386,6 +4392,7 @@ bijections themselves are classical and may be cited as such.
 `notes/analysis-and-calculus/40-carousel-iota-overview.md`;
 `notes/analysis-and-calculus/41-donaghey-iota-grand-overview.md`;
 `notes/analysis-and-calculus/42-fringing-hecke.md`;
+`notes/analysis-and-calculus/43-theta-tilde-intrinsic.md`;
 `research/donaghey-orbits/` (finite verification);
 `research/ppct-lattice/` (finite verification);
 `paper-0/sections/03-aes-and-motion.tex` (left/right comb convention);

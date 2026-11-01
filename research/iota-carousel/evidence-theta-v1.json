@@ -1,0 +1,34 @@
+{
+  "m_theta_eq_tau_inverse": true,
+  "note": "theta_tilde = tau o m is an involution; m o theta_tilde = tau^{-1}; so <m, theta_tilde> = <m, tau> = Z2*Z2 (Donaghey Thm 6.4, sigma=m). Defined intrinsically (via tau and m), without the Dyck path phi.",
+  "tau_and_mtheta_same_orbit_lengths": {
+    "4": true,
+    "5": true
+  },
+  "theta_is_involution": true,
+  "theta_orbit_lengths": {
+    "3": [
+      1,
+      1
+    ],
+    "4": [
+      1,
+      1,
+      1,
+      2
+    ],
+    "5": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      2,
+      2,
+      2,
+      2
+    ]
+  },
+  "theta_squared_is_id": true
+}
