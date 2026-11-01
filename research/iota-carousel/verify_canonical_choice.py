@@ -157,7 +157,7 @@ def inversions(order, ref):
 def main(out_path="/tmp/canonical_choice.json"):
     ev = {}
     all_unique, all_post = True, True
-    for n in range(4, 6):
+    for n in range(4, 8):
         rows = []
         for t in ppcts(n):
             nodes = internals(t)

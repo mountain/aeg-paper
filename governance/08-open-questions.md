@@ -4335,6 +4335,15 @@ four Catalan families ↔ binary vs general trees. The difference `Z₂×Z₂` v
   general-`n` proof; other intrinsic criteria (leaf-order preservation) giving the
   same minimizer; `σ`-equivariance (the criterion is σ-invariant, the output
   σ-equivariant); and a formal separation from note 29's multi-valued descent.
+  *General-`n` proof (note 39, 2026-11-01):* by induction on the tree. For
+  `t = Node(a,b)`, any linear extension is `M+[root]` with `M` an interleaving of
+  extensions of `a,b`; the root contributes a constant `m-1` inversions, the
+  cross `a`/`b` inversions are `≥0` with equality **iff** `M = E_a + E_b`
+  (block), and the induction hypothesis gives `Q(a)`, `Q(b)` uniquely. Hence
+  `Q(t)` is the **unique** inversion-minimizer for every PPCT. Extended
+  computation to `n ≤ 7` (193 trees) agrees. So the cross-chain canonicalization
+  is **proved**, not just verified. Residuals now: other intrinsic criteria, σ-
+  equivariance, and the formal separation from note 29.
 - **098.4 — Functoriality of the right/left bijection.** Determine whether the
   right/left bijection gives a functor from the branching layer to the sequential
   layer that respects AEG's order defect and linear-extension structure. At
@@ -4358,6 +4367,7 @@ bijections themselves are classical and may be cited as such.
 `notes/analysis-and-calculus/36-branching-layer-shift.md`;
 `notes/analysis-and-calculus/37-corner-order-alignment.md`;
 `notes/analysis-and-calculus/38-canonical-cross-chain-choice.md`;
+`notes/analysis-and-calculus/39-canonical-choice-general-proof.md`;
 `research/donaghey-orbits/` (finite verification);
 `research/ppct-lattice/` (finite verification);
 `paper-0/sections/03-aes-and-motion.tex` (left/right comb convention);

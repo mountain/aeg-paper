@@ -136,6 +136,1228 @@
       "tree": "N(N(N(N(L,L),L),L),L)"
     }
   ],
+  "6": [
+    {
+      "min_inv": 10,
+      "num_exts": 1,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(L,N(L,N(L,N(L,N(L,L)))))"
+    },
+    {
+      "min_inv": 10,
+      "num_exts": 1,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(L,N(L,N(L,N(N(L,L),L))))"
+    },
+    {
+      "min_inv": 9,
+      "num_exts": 2,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(L,N(L,N(N(L,L),N(L,L))))"
+    },
+    {
+      "min_inv": 10,
+      "num_exts": 1,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(L,N(L,N(N(L,N(L,L)),L)))"
+    },
+    {
+      "min_inv": 10,
+      "num_exts": 1,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(L,N(L,N(N(N(L,L),L),L)))"
+    },
+    {
+      "min_inv": 8,
+      "num_exts": 3,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(L,N(N(L,L),N(L,N(L,L))))"
+    },
+    {
+      "min_inv": 8,
+      "num_exts": 3,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(L,N(N(L,L),N(N(L,L),L)))"
+    },
+    {
+      "min_inv": 8,
+      "num_exts": 3,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(L,N(N(L,N(L,L)),N(L,L)))"
+    },
+    {
+      "min_inv": 8,
+      "num_exts": 3,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(L,N(N(N(L,L),L),N(L,L)))"
+    },
+    {
+      "min_inv": 10,
+      "num_exts": 1,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(L,N(N(L,N(L,N(L,L))),L))"
+    },
+    {
+      "min_inv": 10,
+      "num_exts": 1,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(L,N(N(L,N(N(L,L),L)),L))"
+    },
+    {
+      "min_inv": 9,
+      "num_exts": 2,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(L,N(N(N(L,L),N(L,L)),L))"
+    },
+    {
+      "min_inv": 10,
+      "num_exts": 1,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(L,N(N(N(L,N(L,L)),L),L))"
+    },
+    {
+      "min_inv": 10,
+      "num_exts": 1,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(L,N(N(N(N(L,L),L),L),L))"
+    },
+    {
+      "min_inv": 7,
+      "num_exts": 4,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(L,L),N(L,N(L,N(L,L))))"
+    },
+    {
+      "min_inv": 7,
+      "num_exts": 4,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(L,L),N(L,N(N(L,L),L)))"
+    },
+    {
+      "min_inv": 6,
+      "num_exts": 8,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(L,L),N(N(L,L),N(L,L)))"
+    },
+    {
+      "min_inv": 7,
+      "num_exts": 4,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(L,L),N(N(L,N(L,L)),L))"
+    },
+    {
+      "min_inv": 7,
+      "num_exts": 4,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(L,L),N(N(N(L,L),L),L))"
+    },
+    {
+      "min_inv": 6,
+      "num_exts": 6,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(L,N(L,L)),N(L,N(L,L)))"
+    },
+    {
+      "min_inv": 6,
+      "num_exts": 6,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(L,N(L,L)),N(N(L,L),L))"
+    },
+    {
+      "min_inv": 6,
+      "num_exts": 6,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(L,L),L),N(L,N(L,L)))"
+    },
+    {
+      "min_inv": 6,
+      "num_exts": 6,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(L,L),L),N(N(L,L),L))"
+    },
+    {
+      "min_inv": 7,
+      "num_exts": 4,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(L,N(L,N(L,L))),N(L,L))"
+    },
+    {
+      "min_inv": 7,
+      "num_exts": 4,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(L,N(N(L,L),L)),N(L,L))"
+    },
+    {
+      "min_inv": 6,
+      "num_exts": 8,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(L,L),N(L,L)),N(L,L))"
+    },
+    {
+      "min_inv": 7,
+      "num_exts": 4,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(L,N(L,L)),L),N(L,L))"
+    },
+    {
+      "min_inv": 7,
+      "num_exts": 4,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(N(L,L),L),L),N(L,L))"
+    },
+    {
+      "min_inv": 10,
+      "num_exts": 1,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(L,N(L,N(L,N(L,L)))),L)"
+    },
+    {
+      "min_inv": 10,
+      "num_exts": 1,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(L,N(L,N(N(L,L),L))),L)"
+    },
+    {
+      "min_inv": 9,
+      "num_exts": 2,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(L,N(N(L,L),N(L,L))),L)"
+    },
+    {
+      "min_inv": 10,
+      "num_exts": 1,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(L,N(N(L,N(L,L)),L)),L)"
+    },
+    {
+      "min_inv": 10,
+      "num_exts": 1,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(L,N(N(N(L,L),L),L)),L)"
+    },
+    {
+      "min_inv": 8,
+      "num_exts": 3,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(L,L),N(L,N(L,L))),L)"
+    },
+    {
+      "min_inv": 8,
+      "num_exts": 3,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(L,L),N(N(L,L),L)),L)"
+    },
+    {
+      "min_inv": 8,
+      "num_exts": 3,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(L,N(L,L)),N(L,L)),L)"
+    },
+    {
+      "min_inv": 8,
+      "num_exts": 3,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(N(L,L),L),N(L,L)),L)"
+    },
+    {
+      "min_inv": 10,
+      "num_exts": 1,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(L,N(L,N(L,L))),L),L)"
+    },
+    {
+      "min_inv": 10,
+      "num_exts": 1,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(L,N(N(L,L),L)),L),L)"
+    },
+    {
+      "min_inv": 9,
+      "num_exts": 2,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(N(L,L),N(L,L)),L),L)"
+    },
+    {
+      "min_inv": 10,
+      "num_exts": 1,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(N(L,N(L,L)),L),L),L)"
+    },
+    {
+      "min_inv": 10,
+      "num_exts": 1,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(N(N(L,L),L),L),L),L)"
+    }
+  ],
+  "7": [
+    {
+      "min_inv": 15,
+      "num_exts": 1,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(L,N(L,N(L,N(L,N(L,N(L,L))))))"
+    },
+    {
+      "min_inv": 15,
+      "num_exts": 1,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(L,N(L,N(L,N(L,N(N(L,L),L)))))"
+    },
+    {
+      "min_inv": 14,
+      "num_exts": 2,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(L,N(L,N(L,N(N(L,L),N(L,L)))))"
+    },
+    {
+      "min_inv": 15,
+      "num_exts": 1,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(L,N(L,N(L,N(N(L,N(L,L)),L))))"
+    },
+    {
+      "min_inv": 15,
+      "num_exts": 1,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(L,N(L,N(L,N(N(N(L,L),L),L))))"
+    },
+    {
+      "min_inv": 13,
+      "num_exts": 3,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(L,N(L,N(N(L,L),N(L,N(L,L)))))"
+    },
+    {
+      "min_inv": 13,
+      "num_exts": 3,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(L,N(L,N(N(L,L),N(N(L,L),L))))"
+    },
+    {
+      "min_inv": 13,
+      "num_exts": 3,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(L,N(L,N(N(L,N(L,L)),N(L,L))))"
+    },
+    {
+      "min_inv": 13,
+      "num_exts": 3,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(L,N(L,N(N(N(L,L),L),N(L,L))))"
+    },
+    {
+      "min_inv": 15,
+      "num_exts": 1,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(L,N(L,N(N(L,N(L,N(L,L))),L)))"
+    },
+    {
+      "min_inv": 15,
+      "num_exts": 1,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(L,N(L,N(N(L,N(N(L,L),L)),L)))"
+    },
+    {
+      "min_inv": 14,
+      "num_exts": 2,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(L,N(L,N(N(N(L,L),N(L,L)),L)))"
+    },
+    {
+      "min_inv": 15,
+      "num_exts": 1,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(L,N(L,N(N(N(L,N(L,L)),L),L)))"
+    },
+    {
+      "min_inv": 15,
+      "num_exts": 1,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(L,N(L,N(N(N(N(L,L),L),L),L)))"
+    },
+    {
+      "min_inv": 12,
+      "num_exts": 4,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(L,N(N(L,L),N(L,N(L,N(L,L)))))"
+    },
+    {
+      "min_inv": 12,
+      "num_exts": 4,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(L,N(N(L,L),N(L,N(N(L,L),L))))"
+    },
+    {
+      "min_inv": 11,
+      "num_exts": 8,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(L,N(N(L,L),N(N(L,L),N(L,L))))"
+    },
+    {
+      "min_inv": 12,
+      "num_exts": 4,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(L,N(N(L,L),N(N(L,N(L,L)),L)))"
+    },
+    {
+      "min_inv": 12,
+      "num_exts": 4,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(L,N(N(L,L),N(N(N(L,L),L),L)))"
+    },
+    {
+      "min_inv": 11,
+      "num_exts": 6,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(L,N(N(L,N(L,L)),N(L,N(L,L))))"
+    },
+    {
+      "min_inv": 11,
+      "num_exts": 6,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(L,N(N(L,N(L,L)),N(N(L,L),L)))"
+    },
+    {
+      "min_inv": 11,
+      "num_exts": 6,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(L,N(N(N(L,L),L),N(L,N(L,L))))"
+    },
+    {
+      "min_inv": 11,
+      "num_exts": 6,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(L,N(N(N(L,L),L),N(N(L,L),L)))"
+    },
+    {
+      "min_inv": 12,
+      "num_exts": 4,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(L,N(N(L,N(L,N(L,L))),N(L,L)))"
+    },
+    {
+      "min_inv": 12,
+      "num_exts": 4,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(L,N(N(L,N(N(L,L),L)),N(L,L)))"
+    },
+    {
+      "min_inv": 11,
+      "num_exts": 8,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(L,N(N(N(L,L),N(L,L)),N(L,L)))"
+    },
+    {
+      "min_inv": 12,
+      "num_exts": 4,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(L,N(N(N(L,N(L,L)),L),N(L,L)))"
+    },
+    {
+      "min_inv": 12,
+      "num_exts": 4,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(L,N(N(N(N(L,L),L),L),N(L,L)))"
+    },
+    {
+      "min_inv": 15,
+      "num_exts": 1,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(L,N(N(L,N(L,N(L,N(L,L)))),L))"
+    },
+    {
+      "min_inv": 15,
+      "num_exts": 1,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(L,N(N(L,N(L,N(N(L,L),L))),L))"
+    },
+    {
+      "min_inv": 14,
+      "num_exts": 2,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(L,N(N(L,N(N(L,L),N(L,L))),L))"
+    },
+    {
+      "min_inv": 15,
+      "num_exts": 1,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(L,N(N(L,N(N(L,N(L,L)),L)),L))"
+    },
+    {
+      "min_inv": 15,
+      "num_exts": 1,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(L,N(N(L,N(N(N(L,L),L),L)),L))"
+    },
+    {
+      "min_inv": 13,
+      "num_exts": 3,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(L,N(N(N(L,L),N(L,N(L,L))),L))"
+    },
+    {
+      "min_inv": 13,
+      "num_exts": 3,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(L,N(N(N(L,L),N(N(L,L),L)),L))"
+    },
+    {
+      "min_inv": 13,
+      "num_exts": 3,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(L,N(N(N(L,N(L,L)),N(L,L)),L))"
+    },
+    {
+      "min_inv": 13,
+      "num_exts": 3,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(L,N(N(N(N(L,L),L),N(L,L)),L))"
+    },
+    {
+      "min_inv": 15,
+      "num_exts": 1,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(L,N(N(N(L,N(L,N(L,L))),L),L))"
+    },
+    {
+      "min_inv": 15,
+      "num_exts": 1,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(L,N(N(N(L,N(N(L,L),L)),L),L))"
+    },
+    {
+      "min_inv": 14,
+      "num_exts": 2,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(L,N(N(N(N(L,L),N(L,L)),L),L))"
+    },
+    {
+      "min_inv": 15,
+      "num_exts": 1,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(L,N(N(N(N(L,N(L,L)),L),L),L))"
+    },
+    {
+      "min_inv": 15,
+      "num_exts": 1,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(L,N(N(N(N(N(L,L),L),L),L),L))"
+    },
+    {
+      "min_inv": 11,
+      "num_exts": 5,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(L,L),N(L,N(L,N(L,N(L,L)))))"
+    },
+    {
+      "min_inv": 11,
+      "num_exts": 5,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(L,L),N(L,N(L,N(N(L,L),L))))"
+    },
+    {
+      "min_inv": 10,
+      "num_exts": 10,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(L,L),N(L,N(N(L,L),N(L,L))))"
+    },
+    {
+      "min_inv": 11,
+      "num_exts": 5,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(L,L),N(L,N(N(L,N(L,L)),L)))"
+    },
+    {
+      "min_inv": 11,
+      "num_exts": 5,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(L,L),N(L,N(N(N(L,L),L),L)))"
+    },
+    {
+      "min_inv": 9,
+      "num_exts": 15,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(L,L),N(N(L,L),N(L,N(L,L))))"
+    },
+    {
+      "min_inv": 9,
+      "num_exts": 15,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(L,L),N(N(L,L),N(N(L,L),L)))"
+    },
+    {
+      "min_inv": 9,
+      "num_exts": 15,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(L,L),N(N(L,N(L,L)),N(L,L)))"
+    },
+    {
+      "min_inv": 9,
+      "num_exts": 15,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(L,L),N(N(N(L,L),L),N(L,L)))"
+    },
+    {
+      "min_inv": 11,
+      "num_exts": 5,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(L,L),N(N(L,N(L,N(L,L))),L))"
+    },
+    {
+      "min_inv": 11,
+      "num_exts": 5,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(L,L),N(N(L,N(N(L,L),L)),L))"
+    },
+    {
+      "min_inv": 10,
+      "num_exts": 10,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(L,L),N(N(N(L,L),N(L,L)),L))"
+    },
+    {
+      "min_inv": 11,
+      "num_exts": 5,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(L,L),N(N(N(L,N(L,L)),L),L))"
+    },
+    {
+      "min_inv": 11,
+      "num_exts": 5,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(L,L),N(N(N(N(L,L),L),L),L))"
+    },
+    {
+      "min_inv": 9,
+      "num_exts": 10,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(L,N(L,L)),N(L,N(L,N(L,L))))"
+    },
+    {
+      "min_inv": 9,
+      "num_exts": 10,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(L,N(L,L)),N(L,N(N(L,L),L)))"
+    },
+    {
+      "min_inv": 8,
+      "num_exts": 20,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(L,N(L,L)),N(N(L,L),N(L,L)))"
+    },
+    {
+      "min_inv": 9,
+      "num_exts": 10,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(L,N(L,L)),N(N(L,N(L,L)),L))"
+    },
+    {
+      "min_inv": 9,
+      "num_exts": 10,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(L,N(L,L)),N(N(N(L,L),L),L))"
+    },
+    {
+      "min_inv": 9,
+      "num_exts": 10,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(L,L),L),N(L,N(L,N(L,L))))"
+    },
+    {
+      "min_inv": 9,
+      "num_exts": 10,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(L,L),L),N(L,N(N(L,L),L)))"
+    },
+    {
+      "min_inv": 8,
+      "num_exts": 20,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(L,L),L),N(N(L,L),N(L,L)))"
+    },
+    {
+      "min_inv": 9,
+      "num_exts": 10,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(L,L),L),N(N(L,N(L,L)),L))"
+    },
+    {
+      "min_inv": 9,
+      "num_exts": 10,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(L,L),L),N(N(N(L,L),L),L))"
+    },
+    {
+      "min_inv": 9,
+      "num_exts": 10,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(L,N(L,N(L,L))),N(L,N(L,L)))"
+    },
+    {
+      "min_inv": 9,
+      "num_exts": 10,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(L,N(L,N(L,L))),N(N(L,L),L))"
+    },
+    {
+      "min_inv": 9,
+      "num_exts": 10,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(L,N(N(L,L),L)),N(L,N(L,L)))"
+    },
+    {
+      "min_inv": 9,
+      "num_exts": 10,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(L,N(N(L,L),L)),N(N(L,L),L))"
+    },
+    {
+      "min_inv": 8,
+      "num_exts": 20,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(L,L),N(L,L)),N(L,N(L,L)))"
+    },
+    {
+      "min_inv": 8,
+      "num_exts": 20,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(L,L),N(L,L)),N(N(L,L),L))"
+    },
+    {
+      "min_inv": 9,
+      "num_exts": 10,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(L,N(L,L)),L),N(L,N(L,L)))"
+    },
+    {
+      "min_inv": 9,
+      "num_exts": 10,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(L,N(L,L)),L),N(N(L,L),L))"
+    },
+    {
+      "min_inv": 9,
+      "num_exts": 10,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(N(L,L),L),L),N(L,N(L,L)))"
+    },
+    {
+      "min_inv": 9,
+      "num_exts": 10,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(N(L,L),L),L),N(N(L,L),L))"
+    },
+    {
+      "min_inv": 11,
+      "num_exts": 5,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(L,N(L,N(L,N(L,L)))),N(L,L))"
+    },
+    {
+      "min_inv": 11,
+      "num_exts": 5,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(L,N(L,N(N(L,L),L))),N(L,L))"
+    },
+    {
+      "min_inv": 10,
+      "num_exts": 10,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(L,N(N(L,L),N(L,L))),N(L,L))"
+    },
+    {
+      "min_inv": 11,
+      "num_exts": 5,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(L,N(N(L,N(L,L)),L)),N(L,L))"
+    },
+    {
+      "min_inv": 11,
+      "num_exts": 5,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(L,N(N(N(L,L),L),L)),N(L,L))"
+    },
+    {
+      "min_inv": 9,
+      "num_exts": 15,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(L,L),N(L,N(L,L))),N(L,L))"
+    },
+    {
+      "min_inv": 9,
+      "num_exts": 15,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(L,L),N(N(L,L),L)),N(L,L))"
+    },
+    {
+      "min_inv": 9,
+      "num_exts": 15,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(L,N(L,L)),N(L,L)),N(L,L))"
+    },
+    {
+      "min_inv": 9,
+      "num_exts": 15,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(N(L,L),L),N(L,L)),N(L,L))"
+    },
+    {
+      "min_inv": 11,
+      "num_exts": 5,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(L,N(L,N(L,L))),L),N(L,L))"
+    },
+    {
+      "min_inv": 11,
+      "num_exts": 5,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(L,N(N(L,L),L)),L),N(L,L))"
+    },
+    {
+      "min_inv": 10,
+      "num_exts": 10,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(N(L,L),N(L,L)),L),N(L,L))"
+    },
+    {
+      "min_inv": 11,
+      "num_exts": 5,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(N(L,N(L,L)),L),L),N(L,L))"
+    },
+    {
+      "min_inv": 11,
+      "num_exts": 5,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(N(N(L,L),L),L),L),N(L,L))"
+    },
+    {
+      "min_inv": 15,
+      "num_exts": 1,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(L,N(L,N(L,N(L,N(L,L))))),L)"
+    },
+    {
+      "min_inv": 15,
+      "num_exts": 1,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(L,N(L,N(L,N(N(L,L),L)))),L)"
+    },
+    {
+      "min_inv": 14,
+      "num_exts": 2,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(L,N(L,N(N(L,L),N(L,L)))),L)"
+    },
+    {
+      "min_inv": 15,
+      "num_exts": 1,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(L,N(L,N(N(L,N(L,L)),L))),L)"
+    },
+    {
+      "min_inv": 15,
+      "num_exts": 1,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(L,N(L,N(N(N(L,L),L),L))),L)"
+    },
+    {
+      "min_inv": 13,
+      "num_exts": 3,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(L,N(N(L,L),N(L,N(L,L)))),L)"
+    },
+    {
+      "min_inv": 13,
+      "num_exts": 3,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(L,N(N(L,L),N(N(L,L),L))),L)"
+    },
+    {
+      "min_inv": 13,
+      "num_exts": 3,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(L,N(N(L,N(L,L)),N(L,L))),L)"
+    },
+    {
+      "min_inv": 13,
+      "num_exts": 3,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(L,N(N(N(L,L),L),N(L,L))),L)"
+    },
+    {
+      "min_inv": 15,
+      "num_exts": 1,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(L,N(N(L,N(L,N(L,L))),L)),L)"
+    },
+    {
+      "min_inv": 15,
+      "num_exts": 1,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(L,N(N(L,N(N(L,L),L)),L)),L)"
+    },
+    {
+      "min_inv": 14,
+      "num_exts": 2,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(L,N(N(N(L,L),N(L,L)),L)),L)"
+    },
+    {
+      "min_inv": 15,
+      "num_exts": 1,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(L,N(N(N(L,N(L,L)),L),L)),L)"
+    },
+    {
+      "min_inv": 15,
+      "num_exts": 1,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(L,N(N(N(N(L,L),L),L),L)),L)"
+    },
+    {
+      "min_inv": 12,
+      "num_exts": 4,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(L,L),N(L,N(L,N(L,L)))),L)"
+    },
+    {
+      "min_inv": 12,
+      "num_exts": 4,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(L,L),N(L,N(N(L,L),L))),L)"
+    },
+    {
+      "min_inv": 11,
+      "num_exts": 8,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(L,L),N(N(L,L),N(L,L))),L)"
+    },
+    {
+      "min_inv": 12,
+      "num_exts": 4,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(L,L),N(N(L,N(L,L)),L)),L)"
+    },
+    {
+      "min_inv": 12,
+      "num_exts": 4,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(L,L),N(N(N(L,L),L),L)),L)"
+    },
+    {
+      "min_inv": 11,
+      "num_exts": 6,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(L,N(L,L)),N(L,N(L,L))),L)"
+    },
+    {
+      "min_inv": 11,
+      "num_exts": 6,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(L,N(L,L)),N(N(L,L),L)),L)"
+    },
+    {
+      "min_inv": 11,
+      "num_exts": 6,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(N(L,L),L),N(L,N(L,L))),L)"
+    },
+    {
+      "min_inv": 11,
+      "num_exts": 6,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(N(L,L),L),N(N(L,L),L)),L)"
+    },
+    {
+      "min_inv": 12,
+      "num_exts": 4,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(L,N(L,N(L,L))),N(L,L)),L)"
+    },
+    {
+      "min_inv": 12,
+      "num_exts": 4,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(L,N(N(L,L),L)),N(L,L)),L)"
+    },
+    {
+      "min_inv": 11,
+      "num_exts": 8,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(N(L,L),N(L,L)),N(L,L)),L)"
+    },
+    {
+      "min_inv": 12,
+      "num_exts": 4,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(N(L,N(L,L)),L),N(L,L)),L)"
+    },
+    {
+      "min_inv": 12,
+      "num_exts": 4,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(N(N(L,L),L),L),N(L,L)),L)"
+    },
+    {
+      "min_inv": 15,
+      "num_exts": 1,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(L,N(L,N(L,N(L,L)))),L),L)"
+    },
+    {
+      "min_inv": 15,
+      "num_exts": 1,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(L,N(L,N(N(L,L),L))),L),L)"
+    },
+    {
+      "min_inv": 14,
+      "num_exts": 2,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(L,N(N(L,L),N(L,L))),L),L)"
+    },
+    {
+      "min_inv": 15,
+      "num_exts": 1,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(L,N(N(L,N(L,L)),L)),L),L)"
+    },
+    {
+      "min_inv": 15,
+      "num_exts": 1,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(L,N(N(N(L,L),L),L)),L),L)"
+    },
+    {
+      "min_inv": 13,
+      "num_exts": 3,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(N(L,L),N(L,N(L,L))),L),L)"
+    },
+    {
+      "min_inv": 13,
+      "num_exts": 3,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(N(L,L),N(N(L,L),L)),L),L)"
+    },
+    {
+      "min_inv": 13,
+      "num_exts": 3,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(N(L,N(L,L)),N(L,L)),L),L)"
+    },
+    {
+      "min_inv": 13,
+      "num_exts": 3,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(N(N(L,L),L),N(L,L)),L),L)"
+    },
+    {
+      "min_inv": 15,
+      "num_exts": 1,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(N(L,N(L,N(L,L))),L),L),L)"
+    },
+    {
+      "min_inv": 15,
+      "num_exts": 1,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(N(L,N(N(L,L),L)),L),L),L)"
+    },
+    {
+      "min_inv": 14,
+      "num_exts": 2,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(N(N(L,L),N(L,L)),L),L),L)"
+    },
+    {
+      "min_inv": 15,
+      "num_exts": 1,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(N(N(L,N(L,L)),L),L),L),L)"
+    },
+    {
+      "min_inv": 15,
+      "num_exts": 1,
+      "num_minimizers": 1,
+      "postorder_is_minimizer": true,
+      "tree": "N(N(N(N(N(N(L,L),L),L),L),L),L)"
+    }
+  ],
   "summary": {
     "all_unique": true,
     "comment": "The unique linear extension minimizing inversions with the preorder (corner order) is the left-first postorder. See note 38.",
