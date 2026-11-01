@@ -297,7 +297,77 @@ This yields a checkable question for Paper VI:
 The question is open, and it is the precise form of the guess that "any arity-one
 basis fits the theory".
 
-## 8. Falsifiers and next checks
+
+## 8. The one-relator reading of one-basis
+
+A one-point basis is a *single object that presents a whole family*: one term whose
+application closure is all the terms. The geometric counterpart with the same shape
+is a **one-relator presentation**: one word whose normal closure is the whole
+relation of a group. This section records that reading, which was the chosen one in
+the discussion that produced this note.
+
+**Blocks.** Let $F_n$ be free of rank $n$, let $w\in F_n$ be a cyclically reduced
+word, and let $\Gamma_w=F_n/\langle\!\langle w\rangle\!\rangle$. When $\Gamma_w$
+embeds in $\mathrm{PSL}_2(\mathbb R)$ as a discrete subgroup, the quotient
+$\mathbb H^2/\Gamma_w$ is a **one-relator block**: a fundamental polygon whose
+boundary word is $w$, with side pairings by the generators, and whose hyperbolic
+structure is given by the Poincaré polygon theorem when the angle conditions hold.
+Torsion words $u^n$ give cone points of order $n$; parabolic words give cusps.
+
+**Surfaces are one-relator blocks.** The standard presentation
+\[
+\pi_1(S_g)=\langle a_1,b_1,\dots,a_g,b_g\mid
+[a_1,b_1]\cdots[a_g,b_g]=1\rangle
+\]
+has $2g$ generators and *one* relation, and its polygon is the standard $4g$-gon.
+Every closed orientable hyperbolic surface is therefore a one-relator block; the
+octagon construction of `math-notes` is the case $g=2$ with a $Z_{g-1}$-cover
+structure on top.
+
+**Infinitely many blocks.** Words $w$ up to conjugacy, inversion and Nielsen
+equivalence give countably many one-relator groups, and only those with a Fuchsian
+quotient give hyperbolic blocks. The family is infinite; most words give
+non-Fuchsian groups (torsion, non-residually-finite, or indiscrete images), so the
+geometric blocks form an infinite but sparse subfamily. Continuous moduli do not
+enter at this level: a one-relator block is a *combinatorial* presentation, and its
+hyperbolic metric, when it exists, is the one forced by the polygon angles.
+
+**The one-basis analogy.** Goldberg's one-point basis packages a recursively
+enumerable set of terms into a single term; a one-relator presentation packages a
+group into a single word. Both are "one object carries the whole presentation".
+The bridge to be built is a reading of a term as a word: the boundary of its binary
+application tree is a Dyck-like word, and the depth of self-application is the word
+length. That suggests the following proposal, which is *not* a theorem.
+
+> **Proposal (term-to-relator).** For a one-point basis $B$ there is a map from the
+> self-application terms $B, B(B), B(B(B)),\dots$ to cyclically reduced words
+> $w_k$ such that free reduction of $w_k$ corresponds to $\beta$-reduction of the
+> term, and the surface relators appear among the $w_k$ at some depth.
+
+What is classical is the right-hand side: one-relator groups, surface presentations,
+the polygon theorem. What is open is the left-hand side: no term-to-word map is
+constructed here, and no claim is made that the map is functorial.
+
+**What this reading does and does not give.** It gives universality *per surface*:
+every closed hyperbolic surface is one block. It does **not** give a decomposition
+into pieces: a pair of pants has $\pi_1=F_2$, a free group, i.e. *zero* relators, so
+pants blocks are not one-relator blocks. Decomposing a surface into blocks is the
+free-group/pants operation, while the one-relator reading presents the surface as a
+single block. The two readings of "block" must therefore be kept apart:
+
+| Reading | Block | Generator count | Relation count | Infinite family |
+|---|---|---|---|---|
+| one-generator (§7) | annulus, cusp, cone (after a representation) | 1 | 0 | yes: closed geodesics, continuous moduli |
+| one-relator (this section) | closed surface or orbifold | $2g$ (or $n$) | 1 | yes: words up to Nielsen, discrete moduli |
+| pants (§4) | pair of pants | 2 | 0 | no: one topological block type, continuous gluing moduli |
+
+The one-relator reading is the one that matches "one-basis" most literally, because
+in both cases a *single written object* — one term, one word — determines the whole
+structure. It is also the reading in which "all hyperbolic cases" is true without a
+dimension obstruction: each closed surface is one block. The price is that the
+block is the whole surface, not a proper piece.
+
+## 9. Falsifiers and next checks
 
 1. **Universality falsifier (already available).** A dimension count: for $g\ge3$
    the image of the octagon construction has dimension at most $6$ inside
@@ -312,7 +382,7 @@ basis fits the theory".
    two universality statements — topological or metric — the process side can
    support.
 
-## 9. References and provenance
+## 10. References and provenance
 
 * `mountain/math-notes`, `octagons.tex` (the construction under discussion;
   authored by Mingli Yuan with Gemini, ChatGPT and DeepSeek).
@@ -329,6 +399,9 @@ basis fits the theory".
   one-combinator basis for lambda-terms", *Formal Aspects of Computing* 4 (1992),
   doi:10.1007/BF03180572; M. Goldberg, "A general schema for constructing
   one-point bases in the lambda calculus", BRICS RS-01-35 (2001).
+* One-relator groups and polygon presentations: Lyndon--Schupp, *Combinatorial
+  Group Theory* (one-relator groups, surface presentations); Poincaré's polygon
+  theorem; Maskit, *Kleinian Groups*, for the discrete/angle conditions.
 
 No claim of this note is entered in `governance/05-mathematical-status.md`; it is
 research scaffold, and any promotion would go through the Paper VI scope
