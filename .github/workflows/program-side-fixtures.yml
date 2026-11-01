@@ -1,0 +1,44 @@
+name: Paper VI native sequential fixture
+
+on:
+  push:
+    branches: ["**"]
+    paths:
+      - "research/program-side-fixtures/**"
+      - "research/iota-carousel/verify_canonical_choice.py"
+      - "research/iota-carousel/evidence-canonical-choice-v1.json"
+      - ".github/workflows/program-side-fixtures.yml"
+  pull_request:
+    paths:
+      - "research/program-side-fixtures/**"
+      - "research/iota-carousel/verify_canonical_choice.py"
+      - "research/iota-carousel/evidence-canonical-choice-v1.json"
+      - ".github/workflows/program-side-fixtures.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  native-sequential:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: aeg-paper
+          fetch-depth: 0
+      - uses: actions/checkout@v4
+        with:
+          repository: mountain/adva
+          ref: 87a1a6933bca3fdb5c176cbf612729e278d172f7
+          path: adva
+          submodules: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install the fixed Rust toolchain
+        run: rustup toolchain install 1.94.0 --profile minimal --component rustfmt --component clippy
+      - name: Replay native fixtures and independent combinatorial oracle
+        working-directory: aeg-paper
+        run: python3 research/program-side-fixtures/replay.py

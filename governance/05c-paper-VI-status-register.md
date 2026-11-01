@@ -2,7 +2,7 @@
 
 **File:** `governance/05c-paper-VI-status-register.md`
 **Status:** Authoritative for Paper VI
-**Version:** 1.0
+**Version:** 1.1
 **Date:** 2026-11-01
 **Depends on:**
 
@@ -49,7 +49,8 @@ may depend on it.
 | PVI-8 | `STRUCTURAL PROPOSAL` | The arity-one principle (slot order induced by the carrier) and the reading of the carousel as the planar screw. Named mechanisms with supporting calibrations; not theorems. |
 | PVI-9 | `PROVED` | Theorem 5.2 (`thm:sequential-recovery`): the single-spine fragment of the dictionary is an object-level equivalence (a bijection compatible with concatenation of one-hole contexts) between free histories and chain programs, up to the slot convention. Bounded histories keep the initial mark outside the map; the branching case is excluded. |
 | PVI-10 | `CONJECTURE` | Conjecture 5.3: a natural general assignment from plane trees with planar schedule structure to open finite programs, restricting to PVI-9 on the sequential fragment. Unproved; see `OQ-100.1`. |
-| PVI-11 | `OPEN` | The dictionary rows "one-hole contexts as compiled observations" and "charge as frontier data"; the three program-side acceptance fixtures; presentation and objectification scope (`OQ-100.7`, `OQ-100.8`). |
+| PVI-11 | `OPEN` | The dictionary rows "one-hole contexts as compiled observations" and "charge as frontier data"; the three full program-side acceptance tests (a first restricted example is PVI-12); presentation and objectification scope (`OQ-100.7`, `OQ-100.8`). |
+| PVI-12 | `COMPUTATIONALLY VERIFIED EXAMPLE` | `research/program-side-fixtures/`: one fixed three-context free spine, slots `(1,2,1)`, multiplication by -1 represented by native `neg` with checked call/graft signature data. At `mountain/adva@87a1a6933bca3fdb5c176cbf612729e278d172f7`, one schedule and inversion count 3 agree with the tree. Literal constants instead give six events and fifteen schedules; forgetting constants is a 15-to-1 projection. Native replay, source-bound reception, a separate combinatorial oracle and refusal controls are stored. Only the declared two-context signature is tested; no general assignment, full 193-tree native census, carrier check or theorem promotion. OQ-100.7 remains OPEN. |
 
 **Boundary note.** The paper is a draft whose content is partly programme. A reader
 must not infer a general equivalence from PVI-9, a general carrier claim from PVI-7,

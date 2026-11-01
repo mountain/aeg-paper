@@ -1,0 +1,5 @@
+; Same arithmetic tree, now with literal constants as native events.
+(module oq1007-expanded
+  (export root)
+  (def root (fn ((x Real)) Real
+    (mul (mul -1 (mul (use x) -1)) -1))))

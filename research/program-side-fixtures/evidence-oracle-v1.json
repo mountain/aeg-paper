@@ -1,0 +1,99 @@
+{
+  "authority": "combinatorial cross-check only; native import/replay is Rust-owned",
+  "carrier_check": "not_run",
+  "catalogue_scope": [
+    {
+      "branching_shapes": 1,
+      "internal_vertices": 3,
+      "sequential_shapes": 4,
+      "trees": 5
+    },
+    {
+      "branching_shapes": 6,
+      "internal_vertices": 4,
+      "sequential_shapes": 8,
+      "trees": 14
+    },
+    {
+      "branching_shapes": 26,
+      "internal_vertices": 5,
+      "sequential_shapes": 16,
+      "trees": 42
+    },
+    {
+      "branching_shapes": 100,
+      "internal_vertices": 6,
+      "sequential_shapes": 32,
+      "trees": 132
+    }
+  ],
+  "expanded_event_count": 6,
+  "expanded_inversions": 9,
+  "expanded_projection_fibre_size": 15,
+  "expanded_schedule_count": 15,
+  "full_193_native_census": "not_run",
+  "rejected_controls": 9,
+  "spine_event_count": 3,
+  "spine_inversions": 3,
+  "spine_schedule_count": 1,
+  "tree": {
+    "canonical": [
+      "v2",
+      "v1",
+      "v0"
+    ],
+    "contexts": [
+      [
+        "v2",
+        1
+      ],
+      [
+        "v1",
+        2
+      ],
+      [
+        "v0",
+        1
+      ]
+    ],
+    "corner": [
+      "v0",
+      "v1",
+      "v2"
+    ],
+    "edges": [
+      [
+        "v1",
+        "v0"
+      ],
+      [
+        "v2",
+        "v1"
+      ]
+    ],
+    "hook_length_count": 1,
+    "inversions": 3,
+    "linear_extensions": [
+      [
+        "v2",
+        "v1",
+        "v0"
+      ]
+    ],
+    "schedule_count": 1,
+    "strict_order": [
+      [
+        "v1",
+        "v0"
+      ],
+      [
+        "v2",
+        "v0"
+      ],
+      [
+        "v2",
+        "v1"
+      ]
+    ]
+  }
+}

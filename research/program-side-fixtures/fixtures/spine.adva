@@ -1,0 +1,9 @@
+; Finite signature: mul-m1-s1[z] = z*(-1); mul-m1-s2[z] = (-1)*z.
+; Each uses one native neg event. Slot data are retained in call/graft names.
+; This is not a lowering for arbitrary Paper I contexts.
+(module oq1007-spine
+  (export root)
+  (def mul-m1-s1 (fn ((z Real)) Real (neg (use z))))
+  (def mul-m1-s2 (fn ((z Real)) Real (neg (use z))))
+  (def root (fn ((x Real)) Real
+    (call mul-m1-s1 (call mul-m1-s2 (call mul-m1-s1 (use x)))))))
