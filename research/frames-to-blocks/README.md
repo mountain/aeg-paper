@@ -329,9 +329,12 @@ structure on top.
 equivalence give countably many one-relator groups, and only those with a Fuchsian
 quotient give hyperbolic blocks. The family is infinite; most words give
 non-Fuchsian groups (torsion, non-residually-finite, or indiscrete images), so the
-geometric blocks form an infinite but sparse subfamily. Continuous moduli do not
-enter at this level: a one-relator block is a *combinatorial* presentation, and its
-hyperbolic metric, when it exists, is the one forced by the polygon angles.
+geometric blocks form an infinite but sparse subfamily. A one-relator presentation is
+combinatorial and does **not** fix a hyperbolic metric: for a surface word the
+hyperbolic realizations form the Teichmüller space of the group (continuous moduli,
+as in §4), and a polygon with prescribed angles is one realization rather than a
+canonical metric. What the presentation fixes is the topology and the side-pairing
+pattern, not the metric.
 
 **The one-basis analogy.** Goldberg's one-point basis packages a recursively
 enumerable set of terms into a single term; a one-relator presentation packages a
