@@ -4263,7 +4263,16 @@ four Catalan families ↔ binary vs general trees. The difference `Z₂×Z₂` v
   four signed states; but the `SR→LL` entry and the index shift have **no J
   counterpart** (J is plane-preserving). So carousel = (J-type rotation) +
   (shift), and the shift's iota carrier is open (candidate: the Laplacian `H` or
-  the `Λ¹↔Λ²` grading).
+  the `Λ¹↔Λ²` grading). *Shift result (note 33, 2026-11-01):* the iota frame **is**
+  a screw — `[J,H]=0`, `J²=-I`, `A²=-H²`, and `exp(tA)=cos(tH)-J sin(tH)` (rotation
+  angle ∝ H eigenvalue). But `H` **cannot** carry the shift: the cut graph is the
+  down-set Hasse diagram of the dependency poset (which forgets left/right),
+  whereas `k = #left leaves` is planar. Verified at `n=4`: four trees share the
+  same cut-graph spectrum `(0,.1464,.5,.8536)` yet have `k = 3,2,1`. This is the
+  same planarity obstruction as note 29. So the shift needs a **planar, unbounded**
+  carrier (candidates: chirality Z/2 × dimension `n`, or the signed 12-state
+  carrier + exterior powers); none is established. Residuals: general-`n`
+  same-spectrum-different-`k`; fringing `3×` vs H spectrum; planar carrier.
 - **098.4 — Functoriality of the right/left bijection.** Determine whether the
   right/left bijection gives a functor from the branching layer to the sequential
   layer that respects AEG's order defect and linear-extension structure. At
@@ -4281,6 +4290,7 @@ bijections themselves are classical and may be cited as such.
 `notes/analysis-and-calculus/29-branching-layer-descent.md`;
 `notes/analysis-and-calculus/31-carousel-and-iota.md`;
 `notes/analysis-and-calculus/32-carousel-iota-alignment.md`;
+`notes/analysis-and-calculus/33-shift-research.md`;
 `research/donaghey-orbits/` (finite verification);
 `research/ppct-lattice/` (finite verification);
 `paper-0/sections/03-aes-and-motion.tex` (left/right comb convention);

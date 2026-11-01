@@ -1,0 +1,77 @@
+{
+  "comment": "exp(tA) is a screw (rotation by angle proportional to H eigenvalue); but the cut-graph Laplacian spectrum does not determine the carousel index k (#left leaves): same-spectrum trees have different k. The shift is planar; the cut graph is not.",
+  "screw": {
+    "A2_eq_minus_H2": true,
+    "J2_eq_minusI": true,
+    "JH_eq_HJ": true,
+    "exp_tA_eq_cos_tH_minus_J_sin_tH": true
+  },
+  "shift": {
+    "n_leaves": 4,
+    "rows": [
+      {
+        "cuts": 4,
+        "k_left_leaves": 3,
+        "spectrum": [
+          0.0,
+          0.1464,
+          0.5,
+          0.8536
+        ],
+        "tree": "N(L,N(L,N(L,L)))"
+      },
+      {
+        "cuts": 4,
+        "k_left_leaves": 2,
+        "spectrum": [
+          0.0,
+          0.1464,
+          0.5,
+          0.8536
+        ],
+        "tree": "N(L,N(N(L,L),L))"
+      },
+      {
+        "cuts": 5,
+        "k_left_leaves": 2,
+        "spectrum": [
+          0.0,
+          0.1383,
+          0.3333,
+          0.4481,
+          0.7469
+        ],
+        "tree": "N(N(L,L),N(L,L))"
+      },
+      {
+        "cuts": 4,
+        "k_left_leaves": 2,
+        "spectrum": [
+          0.0,
+          0.1464,
+          0.5,
+          0.8536
+        ],
+        "tree": "N(N(L,N(L,L)),L)"
+      },
+      {
+        "cuts": 4,
+        "k_left_leaves": 1,
+        "spectrum": [
+          0.0,
+          0.1464,
+          0.5,
+          0.8536
+        ],
+        "tree": "N(N(N(L,L),L),L)"
+      }
+    ],
+    "spectra_with_different_k": {
+      "(0.0, 0.1464, 0.5, 0.8536)": [
+        1,
+        2,
+        3
+      ]
+    }
+  }
+}
