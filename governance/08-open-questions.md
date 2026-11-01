@@ -4241,9 +4241,21 @@ four Catalan families ↔ binary vs general trees. The difference `Z₂×Z₂` v
   are mutually exclusive. AEG's `O(P)` (`thm:birkhoff-downset-spinal`) is the
   **same Birkhoff construction over a finite dependency poset `P`**, so the
   distributive reading aligns with AEG; the two are **not isomorphic in general**
-  (different posets). *Residual*: whether `O(P)` embeds as a sublattice of some
-  down-set lattice over a sub-poset of `T_∞` is open; the correct source meaning
-  of "standard lattice ordering" should be checked against Donaghey 1980.
+  (different posets). *Residuals and their resolution (note 45, 2026-11-01)*: (i)
+  the OCR'd sentence in Pushkarev–Byzov §5 reads "not monotone with respect to the
+  **standard lattice ordering of all trees** (**recall that the PPCTs form a
+  distributive lattice whose irreducible elements are ordered as the vertices of
+  the infinite cubic tree**)" — the parenthetical **defines** the "standard lattice
+  ordering" as the distributive (down-set) lattice order, **not Tamari**; this
+  corrects note 28's "most likely Tamari" reading (either way the "distributive +
+  irreducibles" object is `Down(T_∞)`). (ii) The precise relation of `O(P)` to
+  `Down(T_∞)`: `O(P) = Down(P)` is a **lattice quotient** (not a sublattice) of
+  `Down(T_∞)` (more precisely, of `Down(Q)` for a finite subtree `Q ⊂ T_∞`
+  containing `P`): the restriction `ρ: S ↦ S ∩ P` is a **surjective lattice
+  homomorphism**, verified for four small `P` (`research/iota-carousel/verify_downset_quotient.py`).
+  Residuals now: exact conditions for `Down(P)` to be an actual sublattice; the
+  original source of "standard lattice ordering" (Donaghey 1980 has no "distributive
+  lattice" statement, only the Huang–Tamari "lattice property" reference).
 - **098.3 — Carousel / fringing / orbit growth.** Decide whether the carousel
   effect (cyclic motion of corner classes SR/LL/RL/RN/LN), the fringing theorem
   (`Δ(Q(T)) = 3Δ(T)` or `(3/2)Δ(T)`) and the `O(n^{log₂ 3})` orbit growth
@@ -4410,6 +4422,7 @@ bijections themselves are classical and may be cited as such.
 `notes/analysis-and-calculus/42-fringing-hecke.md`;
 `notes/analysis-and-calculus/43-theta-tilde-intrinsic.md`;
 `notes/analysis-and-calculus/44-functoriality-rl.md`;
+`notes/analysis-and-calculus/45-downset-lattice-residual.md`;
 `research/donaghey-orbits/` (finite verification);
 `research/ppct-lattice/` (finite verification);
 `paper-0/sections/03-aes-and-motion.tex` (left/right comb convention);
