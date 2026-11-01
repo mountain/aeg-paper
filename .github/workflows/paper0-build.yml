@@ -109,8 +109,25 @@ jobs:
           import json
           import sys
           ev = json.load(open('/tmp/shift.json'))
-          ok = all(ev['screw'].values()) and bool(ev['shift']['spectra_with_different_k'])
-          print('shift gate:', ok)
+          expected = (0.0, 0.1464, 0.5, 0.8536)
+
+          def parse(key):
+              return tuple(float(x) for x in key.strip('()').split(','))
+
+          def close(a, b):
+              return abs(a - b) < 5e-3
+
+          hits = 0
+          for key, ks in ev['shift']['spectra_with_different_k'].items():
+              try:
+                  vals = parse(key)
+              except ValueError:
+                  continue
+              if len(vals) == 4 and all(close(v, w) for v, w in zip(vals, expected)):
+                  if sorted(set(ks)) == [1, 2, 3]:
+                      hits += 1
+          ok = all(ev['screw'].values()) and hits >= 1
+          print('shift gate:', ok, 'matching spectra:', hits)
           sys.exit(0 if ok else 1)
           PY
           python3 research/iota-carousel/verify_canonical_choice.py /tmp/canonical.json
