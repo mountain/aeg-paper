@@ -186,6 +186,8 @@ The honest summary is therefore:
 | Block assembly has a finitary topological generator set (edge flips) | **Not established**: flips give connectivity of triangulations, not a block basis |
 | Block assembly is a finite combinator basis in the SKI/iota sense | **Not established** at either level; the metric level has continuous parameters |
 | The iota carrier at a slot plus a gluing cocycle reproduces the hyperbolic block assembly | **Proposal / conjecture** (Paper VI programme, §6); no precise functor or cocycle calculus is constructed here |
+| Every one-point basis is arity one, so the syntactic layer applies to all of them | **Standard** (Barendregt; Fokker; Goldberg) |
+| The geometric frame transfers to an arbitrary one-point basis | **Open**: it requires a representation into the carrier, which the known constructions do not supply |
 
 ## 6. Relation to Paper VI and the iota carrier
 
@@ -215,7 +217,73 @@ resulting discrete $(G,X)$-structures are rich enough to recover the classical
 polygon presentations. This is exactly the kind of statement Paper VI currently
 records as a programme rather than a theorem.
 
-## 7. Falsifiers and next checks
+
+## 7. One-point bases: arity one is generic
+
+The iota term is not the only single-term basis, and its arity-one shape is shared
+by all of them. Two constructions make the point.
+
+* **Barendregt's example.** A set $B$ is a basis for a set $W$ when every
+  $M\in W$ is $\beta\eta$-equal to some term in the closure of $B$ under
+  application. The term
+  \[
+  X\equiv\lambda x.xSK
+  \]
+  is a one-point basis for the $\lambda K$-combinators:
+  $X(X(XX))\to_\beta K$ and $X(X(X(XX)))\to_\beta S$.
+  This $X$ *is* the iota combinator of the process corpus; it consumes one
+  argument and hands the argument to $S$ and $K$.  Note~40 distinguishes three
+  different objects called iota: the six-state carrier (AEG $\iota$), the Adva
+  iota frame ($J$), and this iota *combinator*; the present section is about the
+  third, the syntactic basis.
+* **Fokker (1992).** A single closed $\lambda$-expression generating all
+  $\lambda$-expressions is constructed, with simplicity as the criterion; the
+  abstract states the result is simpler than known single-combinator bases.
+* **Goldberg (BRICS RS-01-35, 2001).** For every recursively enumerable set $S$
+  of terms (possibly with constants and free variables) there is a single term
+  $X$ with
+  $X(\underbrace{X\cdots X}_{k+1})\to_\beta S_k$; the construction packages the
+  enumeration into one term. The basis term is again a unary $\lambda$-term, and
+  generation proceeds by self-application.
+
+The consequence for the present note is a sharpening, not a weakening, of the
+arity-one principle:
+
+1. **Arity one is generic.** Every $\lambda$-term is unary at the head, and every
+   one-point basis is arity one. What distinguishes bases is what they generate
+   (combinators, all $\lambda$-terms, terms with constants), how they reduce, and
+   whether they come with a carrier representation. "Arity one" alone therefore
+   does not single out iota.
+2. **The syntactic layer is basis-independent.** Slot occurrences, construction
+   order, schedules and the canonical evaluation order are properties of the
+   application tree. They apply unchanged to terms written in any one-point
+   basis, because the tree is the same kind of object whatever the leaves are
+   called.
+3. **The geometric layer is basis-relative.** The six-state carrier, $\Omega$ and
+   the chirality sign law are extra data. To obtain a frame from a basis $B$ one
+   needs a representation $\rho_B$ of its term algebra into the carrier that
+   respects application, $\rho_B(xy)=\rho_B(x)\rho_B(y)$, and sends the basis
+   term to an element satisfying the frame identities. For $B=\iota$ such a
+   reading is available (Paper V's carrier together with the note-40
+   correspondence). For the Fokker and Goldberg terms the construction is a
+   *syntactic packaging*; no representation into the carrier is supplied, and its
+   existence is open.
+4. **Basis-independence is up to translation.** Generation by self-application
+   means the encoded term is not the source program; the induced order is the
+   order of the encoding. Different one-point bases give different encodings,
+   hence different trees, and no canonical cross-basis order is claimed.
+
+This yields a checkable question for Paper VI:
+
+> For which one-point bases $B$ does a representation
+> $\rho_B:\mathrm{Term}(B)\to W$ exist that respects application and carries the
+> frame identities of Paper V? The syntactic layer holds for all; the geometric
+> layer holds exactly for those $B$.
+
+The question is open, and it is the precise form of the guess that "any arity-one
+basis fits the theory".
+
+## 8. Falsifiers and next checks
 
 1. **Universality falsifier (already available).** A dimension count: for $g\ge3$
    the image of the octagon construction has dimension at most $6$ inside
@@ -230,7 +298,7 @@ records as a programme rather than a theorem.
    two universality statements — topological or metric — the process side can
    support.
 
-## 8. References and provenance
+## 9. References and provenance
 
 * `mountain/math-notes`, `octagons.tex` (the construction under discussion;
   authored by Mingli Yuan with Gemini, ChatGPT and DeepSeek).
@@ -242,6 +310,11 @@ records as a programme rather than a theorem.
 * Classical: Poincaré polygon theorem; Thurston's $(G,X)$-structures; pants
   decomposition and Fenchel--Nielsen coordinates; Hatcher--Thurston and Penner on
   flips and the mapping class groupoid; Bolza surface.
+* One-point bases: Barendregt, *The Lambda Calculus* (Definition 8.1.1 and the
+  example $X\equiv\lambda x.xSK$); J. Fokker, "The systematic construction of a
+  one-combinator basis for lambda-terms", *Formal Aspects of Computing* 4 (1992),
+  doi:10.1007/BF03180572; M. Goldberg, "A general schema for constructing
+  one-point bases in the lambda calculus", BRICS RS-01-35 (2001).
 
 No claim of this note is entered in `governance/05-mathematical-status.md`; it is
 research scaffold, and any promotion would go through the Paper VI scope
