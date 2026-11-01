@@ -1,0 +1,72 @@
+{
+  "0": {
+    "catalan_expected": 1,
+    "internal_distribution": {
+      "0": 1
+    },
+    "num_trees": 1
+  },
+  "1": {
+    "catalan_expected": 1,
+    "internal_distribution": {
+      "1": 1
+    },
+    "num_trees": 1
+  },
+  "2": {
+    "catalan_expected": 2,
+    "internal_distribution": {
+      "1": 1,
+      "2": 1
+    },
+    "num_trees": 2
+  },
+  "3": {
+    "catalan_expected": 5,
+    "internal_distribution": {
+      "1": 1,
+      "2": 3,
+      "3": 1
+    },
+    "num_trees": 5
+  },
+  "4": {
+    "catalan_expected": 14,
+    "internal_distribution": {
+      "1": 1,
+      "2": 6,
+      "3": 6,
+      "4": 1
+    },
+    "num_trees": 14
+  },
+  "5": {
+    "catalan_expected": 42,
+    "internal_distribution": {
+      "1": 1,
+      "2": 10,
+      "3": 20,
+      "4": 10,
+      "5": 1
+    },
+    "num_trees": 42
+  },
+  "comparison_n4": {
+    "conclusion": "PPCT: all trees have n-1 operations; PPT: operation count ranges over {1,...,n-1}. Multisets differ, so no bijection preserves the operation count, hence none preserves the operation poset / linear extensions / order defect.",
+    "multisets_equal": false,
+    "ppct_operation_multiset": [
+      3,
+      3,
+      3,
+      3,
+      3
+    ],
+    "ppt_operation_multiset": [
+      1,
+      2,
+      2,
+      2,
+      3
+    ]
+  }
+}

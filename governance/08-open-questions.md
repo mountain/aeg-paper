@@ -4369,6 +4369,22 @@ four Catalan families ↔ binary vs general trees. The difference `Z₂×Z₂` v
   right/left bijection gives a functor from the branching layer to the sequential
   layer that respects AEG's order defect and linear-extension structure. At
   present it is only a set bijection; no functoriality is established.
+  *Structural obstruction (note 44, 2026-11-01):* functoriality preserving the
+  order defect / linear-extension structure requires preserving the **operation
+  poset**, hence at least the **number of operations**. Computed: the right/left
+  bijection maps `PPCT(n leaves)` (always `n-1` binary internal nodes) to
+  `PPT(n-1 edges)`, whose internal-node count ranges over `{1, …, n-1}`. For
+  `n = 4` the multisets are `{3,3,3,3,3}` vs `{1,2,2,2,3}`
+  (`research/iota-carousel/verify_functor.py`). **No bijection can preserve the
+  operation count**, hence none can preserve the operation poset / linear
+  extensions / order defect on these families. So the answer is **negative**
+  (not "not yet established") at the level of the operation poset; the `R/L`
+  bijection remains a genuine *set* (Catalan) bijection. Residuals: (i) prove/
+  refute "no Catalan bijection preserves the operation-count multiset" (this note
+  only shows the `R/L` image distribution differs); (ii) look for a functor on a
+  different object (down-set lattice `O(P)`, history words `Hist_4`); (iii) relate
+  this "operation number not preserved" obstruction to the same family as notes
+  29/33 (see note 41's planarity obstruction).
 
 **Default rule while open:** Use Donaghey/De Bruijn–Morselt only as
 `structural proposal` / `open`; do not state a functorial bridge, an orbit
@@ -4393,6 +4409,7 @@ bijections themselves are classical and may be cited as such.
 `notes/analysis-and-calculus/41-donaghey-iota-grand-overview.md`;
 `notes/analysis-and-calculus/42-fringing-hecke.md`;
 `notes/analysis-and-calculus/43-theta-tilde-intrinsic.md`;
+`notes/analysis-and-calculus/44-functoriality-rl.md`;
 `research/donaghey-orbits/` (finite verification);
 `research/ppct-lattice/` (finite verification);
 `paper-0/sections/03-aes-and-motion.tex` (left/right comb convention);
