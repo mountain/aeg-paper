@@ -4388,6 +4388,19 @@ four Catalan families ↔ binary vs general trees. The difference `Z₂×Z₂` v
   quantity, different rate. Residuals: precise order-4 iso/embedding; code
   translation (dessin cutting vs class 4-cycle); correct growth-rate pairing
   (substitution Perron values); `Hist_4^{ph}` vs `τ`-orbit classes.
+  *Precise order-4 match (note 47, 2026-11-01):* the carousel `J` does **not**
+  align with the Hecke `C₄` generator `R` directly — their characteristic
+  polynomials differ (`λ²+1` vs `λ²-√2λ+1`). The precise alignment is
+  **`J|_plane ~ R²`**: both are complex structures (`(·)² = -I`, char poly `λ²+1`,
+  eigenvalues `±i`, order 4 linear / 2 projective), and `R` (with `R⁴ = -I`,
+  order 8 in `SL₂` / 4 in `PGL₂`) is a **square root** of the carousel's complex
+  structure. So the carousel's "order-4 rotation" is the **square** of the Hecke
+  `C₄` generator, not the generator itself. Verified
+  (`research/iota-carousel/verify_order4.py`). Residuals: naturalness of the
+  isomorphism (needs a common space for `W ≅ ℂ³` and the `H²` tangent plane);
+  the "three planes vs one tangent plane" multiplicity; whether the Hecke `χ` and
+  the carousel `sgn` are the same sign character; and what plays "a square root
+  of `J`" on the carousel side.
 - **098.4 — Functoriality of the right/left bijection.** Determine whether the
   right/left bijection gives a functor from the branching layer to the sequential
   layer that respects AEG's order defect and linear-extension structure. At
@@ -4435,6 +4448,7 @@ bijections themselves are classical and may be cited as such.
 `notes/analysis-and-calculus/44-functoriality-rl.md`;
 `notes/analysis-and-calculus/45-downset-lattice-residual.md`;
 `notes/analysis-and-calculus/46-lifting-trace-planar.md`;
+`notes/analysis-and-calculus/47-order4-alignment.md`;
 `research/donaghey-orbits/` (finite verification);
 `research/ppct-lattice/` (finite verification);
 `paper-0/sections/03-aes-and-motion.tex` (left/right comb convention);
