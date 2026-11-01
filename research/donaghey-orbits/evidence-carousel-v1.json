@@ -1,0 +1,58 @@
+{
+  "class_cycle": "LL -> RL -> RN -> LN -> LL (4-cycle), SR base",
+  "formula": {
+    "2": true,
+    "3": true,
+    "4": true,
+    "5": true,
+    "6": true,
+    "7": true
+  },
+  "formula_all_ok": true,
+  "note": "Count map M is an involution (order 2); the class-level core is a 4-cycle. See note 31.",
+  "orbit_M": [
+    [
+      2,
+      3,
+      1,
+      2
+    ],
+    [
+      3,
+      2,
+      2,
+      1
+    ],
+    [
+      2,
+      3,
+      1,
+      2
+    ],
+    [
+      3,
+      2,
+      2,
+      1
+    ],
+    [
+      2,
+      3,
+      1,
+      2
+    ],
+    [
+      3,
+      2,
+      2,
+      1
+    ],
+    [
+      2,
+      3,
+      1,
+      2
+    ]
+  ],
+  "order_of_M": 2
+}

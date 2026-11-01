@@ -4242,7 +4242,19 @@ four Catalan families ↔ binary vs general trees. The difference `Z₂×Z₂` v
   effect (cyclic motion of corner classes SR/LL/RL/RN/LN), the fringing theorem
   (`Δ(Q(T)) = 3Δ(T)` or `(3/2)Δ(T)`) and the `O(n^{log₂ 3})` orbit growth
   correspond to AEG's Hecke periodic orbits / "fractal rotation" (Pushkarev's
-  name). This needs AEG's own orbit/period structure.
+  name). This needs AEG's own orbit/period structure. *Iota direction added
+  (note 31, 2026-11-01):* the carousel's **class-level core is a 4-cycle**
+  (`LL→RL→RN→LN→LL`, `SR` base, index shift), while its **count shadow is an
+  involution** (order 2, computed). AEG's **iota** (six-state carrier, `Ω=TSR`,
+  `Ω²=-1`) and Adva's **iota frame** (`J²=-I`) are the **same chirality carrier**
+  (`W=Λ¹E⊕Λ²E`, `(T⊕SR)⊕(S⊕RT)⊕(R⊕TS)`); both give a Z/4 complex unit with the
+  chirality sign law (even/cyclic preserves `Ω`, odd/transposition flips it). So
+  the natural conjecture is: the carousel's 4-cycle is the discrete shadow of the
+  iota complex unit, with the index `k` a separate height/ shift. Status:
+  `structural proposal`/conjecture; the order-2 vs order-4 mismatch is open.
+  Adva's **iota combinator** (SKI single-combinator basis) is *not* the vehicle:
+  adva `0168` already rules out braid/switch/swap under it (convergence vs
+  divergence).
 - **098.4 — Functoriality of the right/left bijection.** Determine whether the
   right/left bijection gives a functor from the branching layer to the sequential
   layer that respects AEG's order defect and linear-extension structure. At
@@ -4258,6 +4270,7 @@ bijections themselves are classical and may be cited as such.
 `notes/analysis-and-calculus/27-mirror-reversal-tree-layer.md`;
 `notes/analysis-and-calculus/28-ppct-lattice-attribution.md`;
 `notes/analysis-and-calculus/29-branching-layer-descent.md`;
+`notes/analysis-and-calculus/31-carousel-and-iota.md`;
 `research/donaghey-orbits/` (finite verification);
 `research/ppct-lattice/` (finite verification);
 `paper-0/sections/03-aes-and-motion.tex` (left/right comb convention);
