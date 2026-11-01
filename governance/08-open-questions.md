@@ -4254,7 +4254,16 @@ four Catalan families ↔ binary vs general trees. The difference `Z₂×Z₂` v
   `structural proposal`/conjecture; the order-2 vs order-4 mismatch is open.
   Adva's **iota combinator** (SKI single-combinator basis) is *not* the vehicle:
   adva `0168` already rules out braid/switch/swap under it (convergence vs
-  divergence).
+  divergence). *Alignment result (note 32, 2026-11-01):* the strong form
+  "carousel = J on the six states" is **refuted** — J sends positive states to
+  signed states (`SR↦-T`) and preserves each plane `W_T,W_S,W_R`, while the
+  carousel has 5 classes and a class-level 4-cycle `LL→RL→RN→LN→LL` plus an
+  `SR` entry. The carousel's 4-cycle **can** be aligned (non-canonically, 3
+  plane choices × 2 orientations = 6 candidates) to J's 4-cycle on one plane's
+  four signed states; but the `SR→LL` entry and the index shift have **no J
+  counterpart** (J is plane-preserving). So carousel = (J-type rotation) +
+  (shift), and the shift's iota carrier is open (candidate: the Laplacian `H` or
+  the `Λ¹↔Λ²` grading).
 - **098.4 — Functoriality of the right/left bijection.** Determine whether the
   right/left bijection gives a functor from the branching layer to the sequential
   layer that respects AEG's order defect and linear-extension structure. At
@@ -4271,6 +4280,7 @@ bijections themselves are classical and may be cited as such.
 `notes/analysis-and-calculus/28-ppct-lattice-attribution.md`;
 `notes/analysis-and-calculus/29-branching-layer-descent.md`;
 `notes/analysis-and-calculus/31-carousel-and-iota.md`;
+`notes/analysis-and-calculus/32-carousel-iota-alignment.md`;
 `research/donaghey-orbits/` (finite verification);
 `research/ppct-lattice/` (finite verification);
 `paper-0/sections/03-aes-and-motion.tex` (left/right comb convention);
