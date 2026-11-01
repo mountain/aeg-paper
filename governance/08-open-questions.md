@@ -4298,6 +4298,19 @@ four Catalan families ↔ binary vs general trees. The difference `Z₂×Z₂` v
   Residuals: the branching-layer `S`; `V_class`⊗`V_index` direct product vs
   semi-direct (left/right flips the order); general `n`; cut-basis/clock index vs
   word index.
+  *Branching-layer `S` derived (note 36, 2026-11-01):* note 35's "left traversal"
+  was the **preorder**; the chronological/evaluation order is the **postorder**.
+  Verified: the **left-first postorder** of the internal nodes is a **linear
+  extension** of the dependency poset for every PPCT (`n≤5`), and equals the
+  chronological order `[2,1,0]` for **both** left and right combs
+  (`research/iota-carousel/verify_branching_shift.py`); the preorder is **not** a
+  linear extension. So the branching-layer `S` = **"successor in the left-first
+  postorder linear extension"** = "advance along the canonical (left-first) spinal
+  history" (`thm:birkhoff-downset-spinal`). It is planar (left-first), unbounded,
+  and AEG-native. Residuals: align the carousel's *corner* order with the
+  postorder *evaluation* order (Thm 4.2 convention); left- vs right-first choice;
+  general-`n` proof; and the relation to note 29's descent obstruction (choosing
+  one canonical chain is a "single-valued descent").
 - **098.4 — Functoriality of the right/left bijection.** Determine whether the
   right/left bijection gives a functor from the branching layer to the sequential
   layer that respects AEG's order defect and linear-extension structure. At
@@ -4318,6 +4331,7 @@ bijections themselves are classical and may be cited as such.
 `notes/analysis-and-calculus/33-shift-research.md`;
 `notes/analysis-and-calculus/34-planar-carrier.md`;
 `notes/analysis-and-calculus/35-derive-shift.md`;
+`notes/analysis-and-calculus/36-branching-layer-shift.md`;
 `research/donaghey-orbits/` (finite verification);
 `research/ppct-lattice/` (finite verification);
 `paper-0/sections/03-aes-and-motion.tex` (left/right comb convention);

@@ -1,0 +1,47 @@
+{
+  "comb_checks": {
+    "left_comb": {
+      "postorder": [
+        2,
+        1,
+        0
+      ],
+      "postorder_equals_chronological": true,
+      "preorder": [
+        0,
+        1,
+        2
+      ],
+      "tree": "N(N(N(L,L),L),L)"
+    },
+    "right_comb": {
+      "postorder": [
+        2,
+        1,
+        0
+      ],
+      "postorder_equals_chronological": true,
+      "preorder": [
+        0,
+        1,
+        2
+      ],
+      "tree": "N(L,N(L,N(L,L)))"
+    }
+  },
+  "postorder_is_linear_extension": {
+    "3": true,
+    "4": true,
+    "5": true
+  },
+  "preorder_is_linear_extension": {
+    "3": false,
+    "4": false,
+    "5": false
+  },
+  "summary": {
+    "comment": "left-first postorder is a linear extension (all n<=5); preorder is not (root first). For both combs the postorder is the chronological order [2,1,0]. S = postorder successor. See note 36.",
+    "postorder_all_linear_extensions": true,
+    "preorder_is_linear_extension": false
+  }
+}
