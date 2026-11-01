@@ -1,0 +1,51 @@
+{
+  "C_4th_power_equals_S": true,
+  "J_4th_power_is_id": true,
+  "J_S_commute": true,
+  "carousel_orbit": [
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      1
+    ],
+    [
+      2,
+      1
+    ],
+    [
+      3,
+      1
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      2
+    ],
+    [
+      3,
+      2
+    ],
+    [
+      0,
+      3
+    ]
+  ],
+  "class_labels": {
+    "0": "LL left leaf",
+    "1": "RL right leaf",
+    "2": "RN right nonleaf",
+    "3": "LN left nonleaf"
+  },
+  "count_shadow_M2_is_id": true,
+  "note": "The carousel is a screw: C^4 = S (index shift).  The pure rotation J (= iota complex unit) is the mod-S reduction.  The count shadow M is an involution (screw invisible).  See note 34."
+}

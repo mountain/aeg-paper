@@ -4273,6 +4273,17 @@ four Catalan families ↔ binary vs general trees. The difference `Z₂×Z₂` v
   carrier (candidates: chirality Z/2 × dimension `n`, or the signed 12-state
   carrier + exterior powers); none is established. Residuals: general-`n`
   same-spectrum-different-`k`; fringing `3×` vs H spectrum; planar carrier.
+  *Planar carrier constructed (note 34, 2026-11-01):* the explicit **screw module**
+  `V = V_class ⊗ V_index`, with `V_class = ⟨LL,RL,RN,LN⟩` (planar: left/right ×
+  leaf/nonleaf) and `V_index = ⟨e_k : k ≥ 1⟩` (unbounded). Operators
+  `J:(c,k)↦(c+1,k)` (the iota complex unit, order 4), `S:(c,k)↦(c,k+1)` (the
+  shift/height), and the carousel `C:(c,k)↦(c+1 mod 4, k+[c=LN])`. Verified:
+  `C⁴=S` (the carousel is a **screw**, a projective Z/4 / 4th root of the shift),
+  `J⁴=id`, `[J,S]=0`, and the count shadow `M²=id` (the screw is invisible to the
+  counts). So a planar carrier **exists**; the iota supplies `J` (rotation half),
+  while `S` (the height) is an independent structure **not** supplied by
+  iota/`H`. Residuals: derive `S` from AEG/Adva; absorb `SR`/wrap into `V`; test
+  the word/history carrier's Z/4; align with the corner-level Thm 4.3 in general `n`.
 - **098.4 — Functoriality of the right/left bijection.** Determine whether the
   right/left bijection gives a functor from the branching layer to the sequential
   layer that respects AEG's order defect and linear-extension structure. At
@@ -4291,6 +4302,7 @@ bijections themselves are classical and may be cited as such.
 `notes/analysis-and-calculus/31-carousel-and-iota.md`;
 `notes/analysis-and-calculus/32-carousel-iota-alignment.md`;
 `notes/analysis-and-calculus/33-shift-research.md`;
+`notes/analysis-and-calculus/34-planar-carrier.md`;
 `research/donaghey-orbits/` (finite verification);
 `research/ppct-lattice/` (finite verification);
 `paper-0/sections/03-aes-and-motion.tex` (left/right comb convention);
