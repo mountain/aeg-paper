@@ -503,7 +503,65 @@ Status: the computation is `COMPUTATIONALLY VERIFIED EXAMPLE` under the
 term-to-word proposal of §8; the proposal itself remains open, and the negative
 discrimination is a property of that proposal, not a theorem about the bases.
 
-## 11. Falsifiers and next checks
+
+## 11. One-stone tilings and mutual representation
+
+The relator reading has a tiling picture that the generator reading does not: one
+word gives one polygon, and the copies of that polygon under the group tile the
+hyperbolic plane. This section states what that picture does and does not give.
+
+**One stone.** Let $\Gamma_w=F_n/\langle\!\langle w\rangle\!\rangle$ be Fuchsian with
+fundamental polygon $P_w$. The images $\gamma P_w$ for $\gamma\in\Gamma_w$ tile
+$\mathbb H^2$; the prototile is one polygon, its sides are paired by the
+generators, and the tiling is invariant under $\Gamma_w$. Every closed hyperbolic
+surface gives such a **monohedral (one-stone) tiling**, and the side-pairing
+pattern is fixed by the word $w$.
+
+**Shape versus combinatorics.** The *combinatorics* of the tiling (which copy meets
+which along which side) is fixed by $w$; the *shape* of the stone is not. Varying
+the polygon inside its Teichmüller space gives a continuous family of geometric
+realizations of the same combinatorial tiling. "One stone" therefore means one
+combinatorial prototile, not one metric polygon.
+
+**What "Einstein" would add, and what it does not.** The Euclidean aperiodic
+monotile is a single tile that admits only non-periodic tilings. The tiling above
+is $\Gamma_w$-periodic by construction, so it is *not* aperiodic in that sense.
+Aperiodic monohedral tilings of $\mathbb H^2$ are a different and stronger
+notion; the relator construction does not produce them. The one-stone analogy is
+about *one prototile*, not about aperiodicity.
+
+**Mutual representation, geometric.** All closed orientable surface groups of
+genus $g\ge 2$ are commensurable: $S_g$ and $S_h$ share the common finite cover of
+degree $h-1$ over $S_g$ and $g-1$ over $S_h$, of genus $(g-1)(h-1)+1$. Hence any
+two one-stone surface blocks represent each other through finite covers. This is
+classical and independent of any computational fact.
+
+**Mutual representation, computational.** Universal one-point bases translate into
+one another: a universal basis generates all $\lambda$-terms, so there is a
+recursive translation between the term languages of any two bases. Under the
+term-to-word proposal this gives a syntactic mutual interpretation of the words
+$w$. Two cautions. First, the frontier-word map of §10 collapses the three bases
+to $F_2$, so the syntactic translation does not yet lift to a map of surface
+blocks. Second, a syntactic translation is not a quasi-isometry and not a
+commensurability: it translates descriptions, not metrics.
+
+**The two must not be conflated.** Commensurability is a geometric equivalence
+with finite covers; universal computation is a syntactic equivalence of
+descriptions. The first is a theorem about surface groups; the second is a
+theorem about term languages. A bridge between them would be a map from term
+translations to covers, and no such map is constructed here; it is the natural
+next proposal.
+
+| statement | status |
+|---|---|
+| one relator gives a monohedral, $\Gamma_w$-periodic tiling by one polygon | classical |
+| the shape of the stone varies over Teichmüller space, the combinatorics does not | classical |
+| the relator tiling is aperiodic in the monotile sense | false: it is lattice-periodic |
+| any two closed surface blocks are commensurable | classical (common finite cover) |
+| universal bases translate into each other syntactically | classical (recursive translation) |
+| syntactic translation lifts to a geometric cover or quasi-isometry | open; no map constructed |
+
+## 12. Falsifiers and next checks
 
 1. **Universality falsifier (already available).** A dimension count: for $g\ge3$
    the image of the octagon construction has dimension at most $6$ inside
@@ -518,7 +576,7 @@ discrimination is a property of that proposal, not a theorem about the bases.
    two universality statements — topological or metric — the process side can
    support.
 
-## 12. References and provenance
+## 13. References and provenance
 
 * `mountain/math-notes`, `octagons.tex` (the construction under discussion;
   authored by Mingli Yuan with Gemini, ChatGPT and DeepSeek).
@@ -541,6 +599,9 @@ discrimination is a property of that proposal, not a theorem about the bases.
 * Graphs of groups and pants decompositions: Serre, *Trees* (Bass--Serre); Scott
   and Wall, "Topological methods in group theory"; the classification of
   isometries of $\mathbb H^2$ (hyperbolic, parabolic, elliptic).
+* Commensurability of surface groups and common finite covers: standard covering
+  theory; see Scott--Wall for the group-theoretic form. Teichmüller space for the
+  variation of the stone's shape.
 
 No claim of this note is entered in `governance/05-mathematical-status.md`; it is
 research scaffold, and any promotion would go through the Paper VI scope
