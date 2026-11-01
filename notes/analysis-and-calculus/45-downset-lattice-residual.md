@@ -7,7 +7,7 @@
 **结论**：
 1. **修正 note 28**：Pushkarev–Byzov §5 的"**standard lattice ordering of all trees**"由同一句的括号**自我解释**为"**distributive lattice**"——即**下集格序**，**不是 Tamari**（note 28 曾按"最可能 = Tamari"处理）。
 2. **该分配格 = `Down(T_∞)`**：无限二叉树 `T_∞` 的下集格；元素是 **0/1/2 子有序二叉树（plane forests）**，经 rotation 双射与 PPCT 对应（二者**不是同一集合**，note 28 §2）。
-3. **`O(P)` 与 `Down(T_∞)` 的精确关系**：`O(P)=Down(P)` 是 `Down(T_∞)`（的有限截断）的**格商（lattice quotient）**——restriction `S↦S∩P` 是**满射格同态**；但**不是子格**（`Down(P) ⊄ Down(Q)`）。故 note 28 残余里"sublattice 嵌入"的版本为**假**，"quotient"版本为**真**（已计算验证，`n≤7` 节点）。
+3. **`O(P)` 与 `Down(T_∞)` 的精确关系**：`O(P)=Down(P)` 是 `Down(T_∞)`（的有限截断）的**格商（lattice quotient）**——restriction `S↦S∩P` 是**满射格同态**；但它**不是 `Down(Q)` 的包含子格**（`Down(P) ⊄ Down(Q)`）。故 "quotient"版本为**真**；"以包含方式成为子格"为**假**；而 note 28 残余所问的**抽象子格嵌入**仍 **open**（已计算验证的是非包含，`n≤7` 节点）。
 
 ---
 
@@ -69,13 +69,15 @@ $$
 
 **结论**：
 $$
-\boxed{\mathcal O(P)=\mathrm{Down}(P)\ \text{是}\ \mathrm{Down}(T_\infty)\ \text{的格商（满射格同态像），不是子格。}}
+\boxed{\mathcal O(P)=\mathrm{Down}(P)\ \text{是}\ \mathrm{Down}(T_\infty)\ \text{的格商（限制映射的满射同态像），且不是}\ \mathrm{Down}(Q)\ \text{的包含子格。}}
 $$
 
+这里能证明的是"**非包含子格**"（$\mathrm{Down}(P)\not\subseteq\mathrm{Down}(Q)$）；它不排除 $O(P)$ 作为抽象格**嵌入**某个 $\mathrm{Down}(Q)$。后者正是 OQ-098.2 原来的问题，仍 open（见 §5 残余 1）。
+
 **理由**：
-- `ρ` 满射：对任意 `P` 的下集 `S'`，`↓_{T_∞}(S')` 是 `Q` 的下集且 `↓_{T_∞}(S') ∩ P = S'`（因 `P` 序嵌入、`S'` 对 `P` 下闭）。
+- `ρ` 满射：对任意 `P` 的下集 `S'`，取 `S'` 在 `Q` 中的下闭包 `↓_Q(S') = {q∈Q : q≤s 对某 s∈S'}`；它是 `Q` 的下集且 `↓_Q(S') ∩ P = S'`（因 `P` 序嵌入、`S'` 对 `P` 下闭）。注意不能用 `↓_{T_∞}(S')`——它一般不在 `Q` 内。
 - `ρ` 保 `∪,∩`：`(S∪T)∩P=(S∩P)∪(T∩P)`、`(S∩T)∩P=(S∩P)∩(T∩P)`。
-- **非子格**：`P` 的下集（如 `{a}`）一般**不是** `Q` 的下集（`Q` 中有下方元素），故 `Down(P) ⊄ Down(Q)`。
+- **非包含子格**：`P` 的下集（如 `{a}`）一般**不是** `Q` 的下集（`Q` 中有下方元素），故 `Down(P) ⊄ Down(Q)`。这只排除了"以包含方式成为子格"，不排除抽象嵌入。
 
 ---
 
@@ -83,7 +85,7 @@ $$
 
 | note 28 残余 | 本轮结论 |
 |---|---|
-| 1. `O(P)` 与 `Down(T_∞)` 的精确关系 | **格商（restriction），非子格**（§3，已验）|
+| 1. `O(P)` 与 `Down(T_∞)` 的精确关系 | **格商（restriction），非包含子格**（§3，已验）；抽象嵌入 open |
 | 2. "standard lattice ordering"的出处 | **= 下集格序（分配），非 Tamari**（§1，OCR）|
 | 3. 098.1(b) 的提升 | 仍 open（见 note 29 与 note 41）|
 
@@ -98,10 +100,11 @@ $$
 | §1 OCR 原文；"standard"由括号解释为"distributive" | `CLASSICAL`（原文）|
 | §1 "standard = 下集格序，非 Tamari"（修正 note 28）| `[对应]` `structural proposal`（措辞澄清）|
 | §2 该分配格 = `Down(T_∞)`；元素 = 0/1/2-子树 | `CLASSICAL`（Birkhoff + Catalan）|
-| §3 `O(P)` 是 `Down(T_∞)` 的格商，非子格 | **`PROVED`（集合论）+ `COMPUTATIONALLY VERIFIED EXAMPLE`** |
+| §3 `O(P)` 是 `Down(T_∞)` 的格商，非包含子格 | **`PROVED`（集合论）+ `COMPUTATIONALLY VERIFIED EXAMPLE`** |
+| §3 抽象嵌入：`O(P)` 是否嵌入某个 `Down(Q)` 作子格 | **`OPEN`**（本笔记未回答）|
 
 **残余（`open`）**：
-1. **"quasi-sublattice" 的精确条件**：何时 `Down(P)` 能作为 `Down(Q)` 的**子格**出现（需 `P` 为 `Q` 的"上闭"子偏序等）？目前只有反例，无完整刻画。
+1. **抽象子格嵌入（OQ-098.2 原问题）**：`O(P)` 是否作为抽象格嵌入某个 `Down(Q)`？非包含只排除了一种实现；完整嵌入问题仍 open。"quasi-sublattice" 的精确条件（如 `P` 为 `Q` 的上闭子偏序）也未有完整刻画。
 2. **"standard lattice ordering"的原始出处**：Donaghey 1980 并无"distributive lattice"（只引 Huang–Tamari "lattice property"）；PB 的"standard"指什么、引自何处，仍需查更早文献。
 3. **对偶方向**：`O(P)` 是否也是 `Down(T_∞)` 的**同态像**的更细结构（如"Galois 连接"）？
 4. **098.1(b) 的提升**：`τ`（Tamari 格上）是否在 `O(P)` 的**商结构**上留下痕迹？（仍 open。）

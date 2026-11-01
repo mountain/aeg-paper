@@ -45,7 +45,11 @@ $$
 
 ## 2. 代数事实
 
-- **对合**：$\tilde\theta^2=(\tau m)(\tau m)=\tau m\tau m$。代入 $\tau=\tilde\theta m$：$=(\tilde\theta m)m(\tilde\theta m)m=\tilde\theta^2=\mathrm{id}$。∎
+- **对合**：由经典分解 $\tau=\varphi^{-1}\theta\varphi\,m$（Pushkarev--Byzov Thm 2.1 与 $\sigma=m$）得
+  $\tilde\theta=\tau m=\varphi^{-1}\theta\varphi$。Dyck 路径反射满足
+  $\theta^2=\mathrm{id}$（经典），故
+  $\tilde\theta^2=\varphi^{-1}\theta^2\varphi=\mathrm{id}$。∎
+  （不能把 $\tau=\tilde\theta m$ 代回 $\tau m\tau m$ 再断言 $\tilde\theta^2=\mathrm{id}$：那一步正是要证的结论。）
 - **`m∘θ̃ = τ⁻¹`**：$m\tilde\theta=m(\tau m)=m\tau m$；而 $\tau=\tilde\theta m$ 取逆（两者都是对合）得 $\tau^{-1}=m\tilde\theta$。故 $m\tilde\theta=\tau^{-1}$。∎
 - **群**：由 `m∘θ̃ = τ⁻¹`，$\langle m,\tilde\theta\rangle=\langle m,\tau\rangle$；由 Donaghey **Thm 6.4**，$\langle\sigma,\tilde\theta\rangle\cong\mathbb Z_2*\mathbb Z_2$，而 $\sigma=m$，故 $\langle m,\tilde\theta\rangle\cong\mathbb Z_2*\mathbb Z_2$。
 
@@ -53,7 +57,7 @@ $$
 
 ## 3. 计算验证（`research/iota-carousel/verify_theta.py`）
 
-对 $n\le6$ 的**全部** PPCT（$1+2+5+14+42+132=\dots$ 棵，含 $n=2..6$）：
+对 $n=2..6$ 叶的**全部** PPCT（$1+2+5+14+42=64$ 棵；`ppcts(n)` 按叶数计）：
 
 | 检查 | 结果 |
 |---|---|

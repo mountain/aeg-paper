@@ -13,10 +13,11 @@ version: are the natural poset statistics preserved by tau?
   height(P) = longest chain
   incomp(P) = number of incomparable pairs
 
-Result: NONE of them is tau-invariant (witnesses below).  By contrast the
-*planar* corner-type (k, l) = (#LL, #RL) is tau-invariant up to swap along
-every tau-orbit (Pushkarev-Byzov Cor 4.5).  So tau's invariants are strictly
-planar, not poset-level.
+Result (checked range n = 4, 5, 6 for the statistics and n = 4, 5 for the
+orbits): none of them is tau-invariant on that range (witnesses below).  By
+contrast the *planar* corner-type (k, l) = (#LL, #RL) is tau-invariant up to
+swap along the checked orbits (Pushkarev-Byzov Cor 4.5).  A general-n statement
+is open; the evidence note says n <= 6.
 """
 
 from functools import lru_cache
@@ -199,8 +200,10 @@ def main(out_path="/tmp/lifting.json"):
             if repr(T) in seen:
                 continue
             ob, cur = [], T
-            while repr(cur) not in ob and len(ob) <= 200:
+            orbit_seen = set()
+            while repr(cur) not in orbit_seen and len(ob) <= 200:
                 ob.append(cur)
+                orbit_seen.add(repr(cur))
                 cur = tau(cur)
             for x in ob:
                 seen.add(repr(x))
@@ -215,8 +218,9 @@ def main(out_path="/tmp/lifting.json"):
           "witnesses": {k: v[:2] for k, v in witnesses.items()},
           "corner_type_kl_up_to_swap_invariant_along_orbits": orbit_ok,
           "orbit_rows": orbit_rows,
-          "note": "No poset statistic (e, |O|, height, incomparability) is tau-invariant; "
-                  "the planar corner-type (k,l) up to swap is. tau's trace is strictly planar."}
+          "note": "For n <= 6 (checked), no poset statistic (e, |O|, height, "
+                  "incomparability) is tau-invariant; the planar corner-type (k,l) up to "
+                  "swap is preserved along the checked orbits. General n is open."}
     with open(out_path, "w") as f:
         json.dump(ev, f, indent=2, sort_keys=True)
     print(json.dumps({"poset_statistics_tau_invariant": inv,

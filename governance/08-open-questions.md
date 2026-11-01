@@ -4219,17 +4219,18 @@ four Catalan families ↔ binary vs general trees. The difference `Z₂×Z₂` v
   every skeleton class has a non-unique `τ`-image for `n ≥ 5`, verified `n ≤ 8`,
   `research/donaghey-orbits/verify_descent.py`). The hyperbolic/long-orbit
   behaviour is strictly a **planar-tree** phenomenon, not a poset-layer one.
-  *Lifting residual closed (note 46, 2026-11-01):* even the *coarse* poset
+  *Lifting residual, finite evidence (note 46, 2026-11-01; general `n` open):* even the *coarse* poset
   statistics fail to be `τ`-invariant. For all `n ≤ 6`, none of `e(P)` (linear
   extensions), `|O(P)|` (down-sets), `height(P)`, `incomp(P)` (incomparable pairs)
   is preserved by `τ` — witness at `n = 4`: `N(L,N(N(L,L),L))` has `e = 1` but its
   `τ`-image `N(N(L,L),N(L,L))` has `e = 2` (chain class -> branching)
   (`research/iota-carousel/verify_lifting_trace.py`). The genuine invariant is the
   **planar** corner-type `(k,l) = (#LL, #RL)`, preserved up to swap along every
-  orbit (Pushkarev–Byzov Cor 4.5, verified). So `τ` leaves **no trace** at the
-  `O(P)` level (neither exact nor coarse); its trace is strictly planar. Residuals:
-  a general-`n` statement; whether orbit-level *distributions* of a poset statistic
-  are preserved; and a fifth appearance of note 41's planarity obstruction.
+  orbit (Pushkarev–Byzov Cor 4.5, verified). So **in the checked range `n ≤ 6`**
+  `τ` leaves no coarse trace at the `O(P)` level; its trace there is planar.
+  Residuals: the general-`n` statement (the finite check does not prove it);
+  whether orbit-level *distributions* of a poset statistic are preserved; and a
+  fifth appearance of note 41's planarity obstruction.
   (c) [open] the general-`n` structure of `τ` on caterpillars ("only `n-1` of the
   `2^{n-2}` map to caterpillars" is verified for `n ≤ 10` but not proved in
   general). **Finite update (2026-10-31):**
@@ -4248,8 +4249,9 @@ four Catalan families ↔ binary vs general trees. The difference `Z₂×Z₂` v
   join-irreducibles = the vertices and `R(N) = Catalan(N)` down-sets of size `N`;
   its *elements* are down-sets (ordered binary trees / plane trees), not the full
   binary PPCTs directly. So "distributive + irreducibles = infinite cubic tree"
-  matches (B), while the "standard lattice ordering of all trees" is (A); the two
-  are mutually exclusive. AEG's `O(P)` (`thm:birkhoff-downset-spinal`) is the
+  matches (B); note 28 read the "standard lattice ordering of all trees" as (A),
+  and the OCR in (i) below corrects that reading to (B). The two lattices are
+  mutually exclusive as objects. AEG's `O(P)` (`thm:birkhoff-downset-spinal`) is the
   **same Birkhoff construction over a finite dependency poset `P`**, so the
   distributive reading aligns with AEG; the two are **not isomorphic in general**
   (different posets). *Residuals and their resolution (note 45, 2026-11-01)*: (i)
@@ -4260,11 +4262,13 @@ four Catalan families ↔ binary vs general trees. The difference `Z₂×Z₂` v
   ordering" as the distributive (down-set) lattice order, **not Tamari**; this
   corrects note 28's "most likely Tamari" reading (either way the "distributive +
   irreducibles" object is `Down(T_∞)`). (ii) The precise relation of `O(P)` to
-  `Down(T_∞)`: `O(P) = Down(P)` is a **lattice quotient** (not a sublattice) of
+  `Down(T_∞)`: `O(P) = Down(P)` is a **lattice quotient** of
   `Down(T_∞)` (more precisely, of `Down(Q)` for a finite subtree `Q ⊂ T_∞`
   containing `P`): the restriction `ρ: S ↦ S ∩ P` is a **surjective lattice
   homomorphism**, verified for four small `P` (`research/iota-carousel/verify_downset_quotient.py`).
-  Residuals now: exact conditions for `Down(P)` to be an actual sublattice; the
+  It is **not a subset-sublattice** (`Down(P) ⊄ Down(Q)`); whether it embeds as an
+  **abstract sublattice** of some `Down(Q)` remains open. Residuals now: that
+  embedding question; exact conditions for a subset-sublattice; the
   original source of "standard lattice ordering" (Donaghey 1980 has no "distributive
   lattice" statement, only the Huang–Tamari "lattice property" reference).
 - **098.3 — Carousel / fringing / orbit growth.** Decide whether the carousel
@@ -4415,9 +4419,10 @@ four Catalan families ↔ binary vs general trees. The difference `Z₂×Z₂` v
   operation count**, hence none can preserve the operation poset / linear
   extensions / order defect on these families. So the answer is **negative**
   (not "not yet established") at the level of the operation poset; the `R/L`
-  bijection remains a genuine *set* (Catalan) bijection. Residuals: (i) prove/
-  refute "no Catalan bijection preserves the operation-count multiset" (this note
-  only shows the `R/L` image distribution differs); (ii) look for a functor on a
+  bijection remains a genuine *set* (Catalan) bijection. Residuals: (i) construct
+  the `R/L` map itself and check its specific image and defect behaviour (the
+  multiset argument rules out any operation-count-preserving bijection, including
+  `R/L`, but the map is not constructed in the verifier); (ii) look for a functor on a
   different object (down-set lattice `O(P)`, history words `Hist_4`); (iii) relate
   this "operation number not preserved" obstruction to the same family as notes
   29/33 (see note 41's planarity obstruction).
@@ -4478,8 +4483,8 @@ does not preserve the operation count (PPCT always `n-1`, PPT ranges `{1,…,n-1
 so no functor preserves the operation poset / order defect. Remaining residuals:
 098.2 sublattice embedding / source meaning; 098.1(b) general-`n` and the
 branching layer's own dynamics; 098.3 the precise order-4 iso/embedding and the
-correct growth-rate pairing; 098.4 the general "no Catalan bijection preserves the
-operation-count multiset" claim and functors on other objects (`O(P)`, `Hist_4`).
+correct growth-rate pairing; 098.4 the construction and check of the `R/L` image, and functors on other
+objects (`O(P)`, `Hist_4`).
 
 
 ---
