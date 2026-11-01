@@ -443,7 +443,67 @@ orders). The closed blocks belong to the relator reading; the seams belong to th
 generator reading; the two together are exactly the vertex/edge data of the same
 graph of groups.
 
-## 10. Falsifiers and next checks
+
+## 10. Two computations: the carrier polygon and the frontier-word groups
+
+The script `research/iota-carousel/verify_basis_polygons.py` computes the groups
+and polygons of §8--§9 for the three one-point bases (iota, Fokker's term, Rosser's
+term). Its evidence is `evidence-basis-polygons-v1.json`.
+
+### 10.1 The carrier polygon for iota
+
+Under the carrier reading the iota symbol is the complex unit $J$ with $J^2=-I$,
+so the minimal group is $\mathbb Z/4$ and its quotient block is a cone of angle
+$\pi/2$. Together with the negative-inverse involution the pair generates
+\[
+C_2 * C_4 \;\cong\; \Delta(2,4,\infty),
+\]
+the $(2,4,\infty)$ triangle group. Its fundamental polygon is the ideal hyperbolic
+triangle with angles
+\[
+\left(\frac{\pi}{2},\ \frac{\pi}{4},\ 0\right).
+\]
+The finite side (between the two non-ideal vertices) has length
+\[
+c=\operatorname{arcosh}\sqrt{2}\approx 0.8814,
+\]
+from $\cosh c=(\cos A\cos B+\cos C)/(\sin A\sin B)$ with $A=\pi/2$, $B=\pi/4$,
+$C=0$; the area is
+\[
+\pi-\left(\frac{\pi}{2}+\frac{\pi}{4}+0\right)=\frac{\pi}{4}.
+\]
+The two sides incident to the ideal vertex are infinite. Status: the triangle
+group, its polygon and these numbers are `CLASSICAL`; the step "iota $\mapsto$ the
+carrier $J$" is the proposal of §6, not a theorem.
+
+### 10.2 The frontier-word groups
+
+Under the word reading of §8, take the frontier word of each basis term's body
+(leaves of the application tree, left to right) and present the one-relator group
+on its letters:
+
+| basis | body | word | presentation | group |
+|---|---|---|---|---|
+| iota | $\lambda x.(xS)K$ | $xSK$ | $\langle x,S,K\mid xSK\rangle$ | $F_2$ |
+| Fokker | $\lambda f.(fS)Q$ | $fSQ$ | $\langle f,S,Q\mid fSQ\rangle$ | $F_2$ |
+| Rosser | $\lambda f.((fK)S)K$ | $fKSK$ | $\langle f,K,S\mid fKSK\rangle$ | $F_2$ |
+
+In each case one generator occurs exactly once, so a Tietze elimination solves for
+it (`x = (SK)^{-1}`, etc.) and the relation is absorbed; the group is free of rank
+two, the pair of pants. Its hyperbolic block is the right-angled hexagon with three
+boundary geodesics.
+
+The result is a **negative discrimination**: the frontier-word reading sends all
+three one-point bases to the same block. It cannot distinguish iota from Fokker's
+or Rosser's term, and it gives no surface; the discriminating information lives in
+the carrier representation, not in the leaf word. This is consistent with §9: the
+word is the vertex datum, and the vertex block here is the pants, not a surface.
+
+Status: the computation is `COMPUTATIONALLY VERIFIED EXAMPLE` under the
+term-to-word proposal of §8; the proposal itself remains open, and the negative
+discrimination is a property of that proposal, not a theorem about the bases.
+
+## 11. Falsifiers and next checks
 
 1. **Universality falsifier (already available).** A dimension count: for $g\ge3$
    the image of the octagon construction has dimension at most $6$ inside
@@ -458,7 +518,7 @@ graph of groups.
    two universality statements — topological or metric — the process side can
    support.
 
-## 11. References and provenance
+## 12. References and provenance
 
 * `mountain/math-notes`, `octagons.tex` (the construction under discussion;
   authored by Mingli Yuan with Gemini, ChatGPT and DeepSeek).

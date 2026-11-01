@@ -1,0 +1,67 @@
+{
+  "carrier": {
+    "area": 0.7853981633974483,
+    "cone_angle": 1.5707963267948966,
+    "finite_side_arcosh_sqrt2": 0.8813735870195432,
+    "minimal_group": "Z/4",
+    "note": "Z/4 is the group of the complex unit J; with the negative-inverse involution the pair gives the (2,4,infinity) triangle group. The iota -> carrier step is a proposal, the triangle group and its polygon are classical.",
+    "triangle_angles": [
+      1.5707963267948966,
+      0.7853981633974483,
+      0.0
+    ],
+    "triangle_group": "C2 * C4 = (2,4,infinity)"
+  },
+  "note": "Under the frontier-word proposal all three one-point bases give the free group of rank two, i.e. the pair of pants; the word reading does not distinguish the bases. See the note's section 10.",
+  "word_reading": {
+    "fokker (lambda f. f S (lambda xyz.x))": {
+      "eliminated": [
+        "Q"
+      ],
+      "generators": [
+        "S",
+        "f"
+      ],
+      "rank": 2,
+      "remaining_word": [],
+      "word": [
+        "f",
+        "S",
+        "Q"
+      ]
+    },
+    "iota (lambda x. x S K)": {
+      "eliminated": [
+        "K"
+      ],
+      "generators": [
+        "S",
+        "x"
+      ],
+      "rank": 2,
+      "remaining_word": [],
+      "word": [
+        "x",
+        "S",
+        "K"
+      ]
+    },
+    "rosser (lambda f. f K S K)": {
+      "eliminated": [
+        "S"
+      ],
+      "generators": [
+        "K",
+        "f"
+      ],
+      "rank": 2,
+      "remaining_word": [],
+      "word": [
+        "f",
+        "K",
+        "S",
+        "K"
+      ]
+    }
+  }
+}
