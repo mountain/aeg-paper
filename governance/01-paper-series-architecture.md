@@ -7,6 +7,12 @@
 **Depends on:** `governance/00-authoritative-scope.md`
 **Applies to:** Papers I–IV of the Arithmetic Expression Geometry series
 
+**Later slots.** Papers V and VI are governed by their own scope files,
+`governance/00c-paper-V-triadic-aperture-scope.md` and
+`governance/00e-paper-VI-process-geometry-scope.md`. This document remains
+authoritative for Papers I–IV and neither constrains nor describes the later
+slots.
+
 ---
 
 ## 1. Purpose

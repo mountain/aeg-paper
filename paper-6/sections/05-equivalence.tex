@@ -1,0 +1,137 @@
+% Section 5: The arithmetic--process dictionary and the equivalence.
+
+\subsection{What an equivalence must consist of}
+
+An equivalence between arithmetic expression geometry and process geometry is not a
+single theorem.  It consists of four layers, and each layer has its own strength:
+
+\begin{enumerate}
+\item \emph{Objects}: an expression tree corresponds to a program body; a marked
+  spinal history corresponds to a schedule; a chirality word corresponds to a slot
+  order.
+\item \emph{Orders}: the dependency order of Paper~I corresponds to the construction
+  order of the process; the chronological order of a sequential history corresponds
+  to the unique linear extension of a single-spine program.
+\item \emph{Carrier}: the six-state carrier of Paper~V corresponds to the iota frame
+  of the process corpus, plane by plane.
+\item \emph{Structure}: the arithmetic structures --- one-hole contexts, projective
+  evaluation, charge --- correspond to process structures (graft traces, observations,
+  cut linkage), or they do not, and the failure is recorded.
+\end{enumerate}
+
+The paper states the dictionary at the first three layers and treats the fourth as a
+programme: the layers already established are listed with status, the layers that are
+only proposed are marked, and the layers that fail are recorded as boundaries rather
+than patched.
+
+\subsection{The dictionary}
+
+\begin{center}
+\small
+\begin{longtable}{@{}p{0.34\linewidth}p{0.40\linewidth}p{0.18\linewidth}@{}}
+\toprule
+Arithmetic expression geometry & Process geometry & Status \\
+\midrule
+expression tree (Paper~I) & program body with ordered slots
+  & objects, \texttt{PROVED} \\
+marked spinal history (Paper~I) & schedule of a single-spine program
+  & Proposition~\ref{prop:sequential-leaf}, \texttt{PROVED} \\
+chirality word (Paper~I) & slot order induced by the arity-one carrier
+  & \texttt{STRUCTURAL PROPOSAL} \\
+spine and left/right combs (Paper~I) & single-spine and path cases of a slot order
+  & \texttt{STRUCTURAL PROPOSAL} \\
+dependency poset (Paper~I) & construction order (Definition~\ref{def:construction-order})
+  & objects, \texttt{PROVED} for trees \\
+corner order and linear extensions & schedules and their inversions
+  & Theorem~\ref{thm:canonical-order}, \texttt{PROVED} \\
+evaluation order of a sequential history & unique linear extension of a chain
+  & \texttt{PROVED} (Proposition~\ref{prop:sequential-leaf}) \\
+six-state carrier (Paper~V) & iota frame of the process corpus
+  & \texttt{CLASSICAL} correspondence \\
+chirality sign law (Paper~V) & sign action of $J$ on the planes
+  & \texttt{CLASSICAL} \\
+carousel class four-cycle & projective image of $J$ plus a shift
+  & \texttt{STRUCTURAL PROPOSAL} + finite calibration \\
+carousel count shadow & involution $M^{2}=\mathrm{id}$
+  & \texttt{CLASSICAL} (source) + computation \\
+one-hole contexts and projective evaluation & observations compiled from a program
+  & \texttt{OPEN} at the general layer \\
+accumulative commutative charge & cut linkage / frontier data
+  & \texttt{OPEN} \\
+\bottomrule
+\end{longtable}
+\end{center}
+
+\begin{remark}[Reading the table]\label{rem:reading-table}
+The table is a typed dictionary, not a theorem.  Each row asserts that a construction
+on one side has a counterpart on the other, at the strength named.  The rows marked
+\texttt{OPEN} are directions, not identifications: no claim of this paper depends on
+them, and the equivalence statements below do not use them.
+\end{remark}
+
+\subsection{The equivalence statements}
+
+\begin{theorem}[Sequential recovery]\label{thm:sequential-recovery}
+The single-spine fragment of the dictionary is an equivalence of categories between
+marked spinal histories with their chronological order and open finite programs with
+one hole and a chain body, up to the declared slot convention.  Under it, the
+chirality word is the slot sequence, the unique schedule is the chronological order,
+and the spine is the body chain.
+\end{theorem}
+
+\begin{proof}
+Both directions are the explicit construction of
+Proposition~\ref{prop:sequential-leaf}; functoriality is immediate because both sides
+compose by concatenation of contexts along the slot sequence, and the slot convention
+is the only choice involved.  No statement is made about the branching case.
+\end{proof}
+
+\begin{conjecture}[General process--expression equivalence]\label{conj:general-equivalence}
+There is a faithful functor from the category of plane binary trees equipped with the
+corner order and dependency order to the category of open finite programs equipped
+with a planar schedule structure, which restricts to Theorem~\ref{thm:sequential-recovery}
+on the single-spine fragment and sends the canonical evaluation order to the unique
+planar schedule closest to the corner order.
+\end{conjecture}
+
+The conjecture is deliberately narrow: it asks for a functor on the planar layer, not
+for an identification of arbitrary programs with expressions.  What is presently
+known toward it is: the sequential fragment (Theorem~\ref{thm:sequential-recovery});
+the canonical order on all plane trees (Theorem~\ref{thm:canonical-order}); the
+carrier identification (\texttt{CLASSICAL}); and the screw calibration
+(\S\ref{sec:carousel}).  What is missing is a general construction of the functor and
+a proof that it preserves the schedule structure; both are recorded as open.
+
+\begin{proposal}[What the equivalence is for]\label{prop:equivalence-role}
+The purpose of the equivalence is to let one theory's established results be reused
+in the other without collapsing their objects.  Concretely: an order-theoretic result
+about schedules becomes a statement about histories, and a geometric statement about
+the carrier becomes a statement about the process's chirality.  It is not a licence to
+identify values with programs, schedules with processes, or charges with frontier
+data.
+\end{proposal}
+
+\subsection{Finite tests the equivalence must pass}
+
+Three finite tests are stated so that later work can refute the conjecture rather
+than illustrate it.
+
+\begin{enumerate}
+\item \emph{Tree census}: for every plane binary tree with $n\le 7$, the dictionary
+  image of the canonical order is the canonical schedule of the image program, and the
+  inversion count is preserved.  The tree side is already calibrated; the program side
+  needs an executed fixture.
+\item \emph{Schedule count}: the number of schedules of the image of a tree equals the
+  number of linear extensions of its dependency order, and the canonical schedule is
+  the image of the canonical extension.  The count is the tree's hook-length product;
+  a mismatch is a refutation.
+\item \emph{Carrier check}: the dictionary's carrier map sends the sign law of
+  Paper~V to the sign action of $J$, including the transposition reversal; a mismatch
+  at any of the three planes is a refutation.
+\end{enumerate}
+
+None of the three tests is currently stored as an executed fixture on the program
+side; they are stated here as acceptance tests for the programme and are registered in
+\S\ref{sec:boundaries}.  This is the honest status: the equivalence is proved on the
+sequential fragment, supported by the carrier identification and the carousel
+calibration, and conjectural in general.

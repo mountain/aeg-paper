@@ -1,0 +1,143 @@
+% Section 3: Evaluation orders and the canonical linear extension.
+
+\subsection{Plane trees, corner order, dependency order}
+
+\begin{definition}[Plane binary tree]\label{def:plane-binary}
+A \emph{plane binary tree} is a rooted tree in which every internal vertex has a left
+and a right child, either of which may be a leaf; the children are ordered.  Write
+$I(t)$ for the set of internal vertices and $n(t)=|I(t)|$.  A vertex is a leaf when
+both children are leaves.  Trees are drawn with the root at the top and the left
+child to the left.
+\end{definition}
+
+The combinatorics of the carousel is stated for this class; the phrase \emph{plane
+planted complete tree} used in the source is the same object once the root edge is
+contracted, and this paper keeps the plane binary presentation throughout.
+
+\begin{definition}[Corner order]\label{def:corner-order}
+The \emph{corner order} $P(t)$ is the preorder of $I(t)$: the root, then the left
+subtree, then the right subtree.  It is the left standard traversal of the source,
+and it is the order in which the corners of the tree are met when the boundary is
+walked from the left.
+\end{definition}
+
+\begin{definition}[Dependency order]\label{def:dependency-order}
+The \emph{dependency order} on $I(t)$ is the descendant order: $u\preceq v$ when $u$
+lies in the subtree of $v$.  A \emph{linear extension} of $t$ is a total order $E$ of
+$I(t)$ in which every descendant precedes its ancestors; $\mathcal{L}(t)$ denotes the
+set of linear extensions.
+\end{definition}
+
+A linear extension is exactly an evaluation schedule of the tree read as a program:
+children must be constructed before their parent, and independent subtrees may be
+interleaved arbitrarily.  This is the special case of Definition~\ref{def:schedule}
+in which the program body is a tree.
+
+\subsection{The canonical order}
+
+\begin{definition}[Left-first postorder]\label{def:postorder}
+The \emph{left-first postorder} $Q(t)$ is the order: left subtree, then right
+subtree, then root.  Equivalently, traverse the tree depth-first, always visiting the
+left child before the right, and list an internal vertex after both of its subtrees.
+\end{definition}
+
+\begin{definition}[Inversion count]\label{def:inversions}
+For $E\in\mathcal{L}(t)$ and the corner order $P(t)$,
+\[
+\inv(E,P(t))=\#\{(u,v)\;:\;u\text{ precedes }v\text{ in }P(t)\ \text{and}\ v
+\text{ precedes }u\text{ in }E\}.
+\]
+It counts the pairs on which the evaluation order departs from the corner order; it
+is the Kendall tau distance between the two orders restricted to pairs that the
+corner order orients.
+\end{definition}
+
+\begin{theorem}[Canonical evaluation order]\label{thm:canonical-order}
+For every plane binary tree $t$,
+\[
+Q(t)=\Argmin_{E\in\mathcal{L}(t)}\inv(E,P(t)),
+\]
+and the minimizer is unique.
+\end{theorem}
+
+\begin{proof}
+Induction on $n(t)$.  For $n(t)=1$ the only extension is the root and the statement
+is immediate.  Let $t=\mathrm{Node}(a,b)$ with $m=n(t)$, so that
+$I(t)=\{t\}\sqcup I(a)\sqcup I(b)$ and
+\[
+P(t)=[t]+P(a)+P(b),\qquad Q(t)=Q(a)+Q(b)+[t].
+\]
+Every $E\in\mathcal{L}(t)$ has the form $E=M+[t]$, where $M$ is an interleaving of
+some $E_a\in\mathcal{L}(a)$ and $E_b\in\mathcal{L}(b)$: the root is last because it
+depends on both subtrees, and the restrictions of $E$ to the two subtrees are linear
+extensions of them.  Decompose
+\[
+\inv(E,P(t))=(m-1)+\inv(E_a,P(a))+\inv(E_b,P(b))+\mathrm{cross}(M),
+\]
+where the first term counts the root against every other vertex, and
+$\mathrm{cross}(M)$ counts the inversions between a vertex of $a$ and a vertex of
+$b$: pairs that $P(t)$ orders $a$-before-$b$ but $M$ orders $b$-before-$a$.
+
+Two observations finish the proof.  First, $\mathrm{cross}(M)\ge 0$, with equality
+exactly when every vertex of $a$ precedes every vertex of $b$ in $M$, that is, when
+$M=E_a+E_b$ is a block.  Second, by the induction hypothesis
+$\inv(E_a,P(a))$ is minimized uniquely at $Q(a)$ and $\inv(E_b,P(b))$ uniquely at
+$Q(b)$.  Hence the right-hand side is minimized uniquely at
+$E_a=Q(a)$, $E_b=Q(b)$, and the block interleaving, that is, at
+$Q(a)+Q(b)+[t]=Q(t)$.
+\end{proof}
+
+\begin{corollary}[The canonical schedule]\label{cor:canonical-schedule}
+Every plane binary tree has exactly one evaluation schedule that is closest to the
+corner order in the inversion metric, and it is the left-first postorder.  In
+particular the choice of schedule across incomparable branches is not free once the
+criterion is fixed: it is forced.
+\end{corollary}
+
+\begin{remark}[Why the extremal criterion is the right one]\label{rem:why-criterion}
+The corner order is the order in which the tree's boundary is walked; it is the only
+order the planar structure supplies without a choice.  The canonical schedule is the
+linear extension that departs from it as little as the dependency order allows.  The
+criterion is therefore not an optimisation chosen for convenience but the closest
+linearization of a planar order under a poset constraint; other criteria --- for
+example preserving the left-to-right order of leaves --- are recorded as open
+directions in \S\ref{sec:boundaries} because they have not been shown to select the
+same extension.
+\end{remark}
+
+\subsection{Finite calibration and the limits of the statement}
+
+\begin{calibration}[Canonical order, small trees]\label{cal:canonical-order}
+For every plane binary tree with $n(t)\le 7$ (193 trees), the left-first postorder is
+the unique linear extension minimizing $\inv(\cdot,P(t))$.  The check is stored at
+\texttt{research/iota-carousel/verify\_canonical\_choice.py}; the closed form of the
+calibration is the statement of Theorem~\ref{thm:canonical-order}, so the calibration
+is evidence for the implementation, not for the theorem.
+\end{calibration}
+
+Theorem~\ref{thm:canonical-order} is a statement about plane binary trees and their
+descendant order.  It does not by itself say that an arbitrary program's dependency
+order is tree-shaped, nor that a general program has a unique canonical schedule: a
+program DAG may admit incomparable events that no planar structure orders.  What the
+theorem does supply is the canonical choice on the planar layer, and with it the
+bridge to the carousel, whose index is exactly a traversal position of the corner
+order.
+
+\subsection{The planar and poset layers}
+
+Two orders must be kept apart when this result is used.
+
+\begin{itemize}
+\item The \emph{corner order} $P(t)$ is planar: it records left and right.
+\item The \emph{down-set lattice} $O(Q)$ of a dependency poset $Q$ records only
+  dependency and forgets left and right; it is the lattice of Paper~I, and its
+  elements are down-sets rather than orderings of vertices.
+\end{itemize}
+
+The canonical order is a statement in the planar layer.  Donaghey-type transforms act
+on the planar layer as well, and the question whether they descend to $O(Q)$ has a
+negative answer for the transform $\tau$ studied in the research notes
+(\texttt{OQ-098}); the exact statement is not needed here and is recorded in
+\S\ref{sec:boundaries}.  The distinction matters for the equivalence of
+\S\ref{sec:equivalence}: a dictionary that identified the two layers would be wrong,
+and the equivalence is therefore stated with the planar data retained.

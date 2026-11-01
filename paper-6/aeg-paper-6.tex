@@ -1,0 +1,146 @@
+% Canonical entry point for Arithmetic Expression Geometry VI.
+\documentclass[11pt]{article}
+
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,longtable,array}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{url}
+\usepackage[
+  colorlinks=true,
+  linkcolor=blue!45!black,
+  citecolor=green!35!black,
+  urlcolor=blue!55!black,
+  pdfencoding=auto
+]{hyperref}
+\hypersetup{
+  pdftitle={Arithmetic Expression Geometry VI: Process Geometry},
+  pdfauthor={Mingli Yuan},
+  pdfsubject={Native Programs, Evaluation Orders, and the Arithmetic--Process Equivalence},
+  pdfkeywords={arithmetic expression geometry, process geometry, open program, evaluation order, linear extension, canonical form, carousel, iota, chirality}
+}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{construction}[theorem]{Construction}
+\newtheorem{calibration}[theorem]{Calibration}
+\newtheorem{proposal}[theorem]{Proposal}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{nogo}[theorem]{No-go}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{warning}[theorem]{Warning}
+\newtheorem{problem}[theorem]{Open problem}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\Prog}{\mathsf{Prog}}
+\newcommand{\Sch}{\mathsf{Sch}}
+\newcommand{\inv}{\operatorname{inv}}
+\newcommand{\Argmin}{\operatorname{argmin}}
+\newcommand{\im}{\operatorname{im}}
+
+\setlist[itemize]{topsep=0.35em,itemsep=0.2em,leftmargin=1.8em}
+\setlist[enumerate]{topsep=0.35em,itemsep=0.2em,leftmargin=2.1em}
+
+\title{\textbf{Arithmetic Expression Geometry VI:\\Process Geometry}\\[0.45em]
+\large Native Programs, Evaluation Orders, and the Arithmetic--Process Equivalence}
+
+\author{Mingli Yuan\\Swarma Research\\Beijing 100083, China}
+\date{November 1, 2026\\[0.25em]
+\small Draft manuscript under mathematical review\\[0.35em]
+\small
+\textbf{MSC 2020:} 68Q55 (primary); 03G10, 05C05, 06A07, 18C50}
+
+\begin{document}
+\maketitle
+
+\begin{quote}\small
+\textbf{Draft notice.}
+This manuscript is a working draft, and it opens a slot in the series that the
+earlier governance files did not cover; its governing scope is
+\texttt{governance/00e-paper-VI-process-geometry-scope.md}.  Here ``draft'' is an
+editorial and publication label, not a mathematical claim status, and it does not
+alter the stated status of any theorem, proposition, calibration, proposal,
+conjecture, or open problem.
+\end{quote}
+
+\begin{abstract}This paper opens the process side of arithmetic expression geometry.
+Papers~0--V take a sequence of arithmetic operations as their primitive history and
+develop its geometry; the present paper starts instead from an open finite program,
+which retains its holes, its sharing and discarding, its source and occurrence
+identity, and its construction order.  Three coupled readings of one program process
+--- construction, causal development, and frontier --- are introduced, and an
+evaluation schedule is separated from the order it linearizes.
+
+The organising principle is that the iota carrier of Paper~V has arity one: acting at
+one slot, it induces an order on slots, and the spine and left/right comb orders of a
+sequential arithmetic expression are recovered as the single-spine case.  On this
+basis a general evaluation-order theory is stated.  For an arbitrary plane binary
+tree, among all linear extensions of the dependency order, the left-first postorder
+is the unique extension minimizing inversions against the corner order; the statement
+is proved for all trees and calibrated on all trees with at most seven internal
+vertices.
+
+The carousel of Pushkarev--Byzov is then related to the iota complex unit: its
+class-level four-cycle is a screw over an index, realized on the planar module
+$V_{\mathrm{class}}\otimes V_{\mathrm{index}}$ by $C^{4}=S$, while the strong form
+``carousel $=J$'' is refuted and the surviving correspondence is stated at exactly
+the strength established.  The paper closes with a typed dictionary between
+arithmetic and process objects and with the equivalence statement the dictionary
+supports, separating what is proved, conditionally proved, finitely calibrated,
+proposed, and open.  No theorem of Papers~0--V is redefined, strengthened, or
+weakened; the sequential theory appears as one leaf of the process theory.
+\end{abstract}
+
+\noindent\textbf{Keywords:}
+arithmetic expression geometry; process geometry; open program; construction order;
+evaluation schedule; linear extension; canonical evaluation order; carousel; iota;
+chirality; screw module; equivalence.
+
+\setcounter{tocdepth}{2}
+\tableofcontents
+\newpage
+
+\part{Native processes and evaluation order}
+
+\section{Introduction and programme}\label{sec:introduction}
+\input{sections/01-introduction.tex}
+
+\section{Program processes and the arity-one carrier}\label{sec:processes}
+\input{sections/02-native-processes.tex}
+
+\section{Evaluation orders and the canonical linear extension}\label{sec:orders}
+\input{sections/03-evaluation-orders.tex}
+
+\part{The carousel correspondence and the equivalence}
+
+\section{The carousel, the iota carrier, and the screw module}\label{sec:carousel}
+\input{sections/04-carousel.tex}
+
+\section{The arithmetic--process dictionary and the equivalence}\label{sec:equivalence}
+\input{sections/05-equivalence.tex}
+
+\section{Claim boundaries and the remaining programme}\label{sec:boundaries}
+\input{sections/06-boundaries.tex}
+
+\bibliographystyle{plain}
+\bibliography{aeg-paper-6}
+
+\end{document}

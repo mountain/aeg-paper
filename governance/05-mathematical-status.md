@@ -3675,3 +3675,29 @@ annular collars in the absence of such a disk. This weakens the prior
 overbroad gluing inference; it changes neither the eikonal obstruction nor the
 full collar contract.
 
+
+## Paper VI process-geometry integration (2026-11-01)
+
+Canonical source: `paper-6/`. Scope:
+`governance/00e-paper-VI-process-geometry-scope.md`. Open questions: `OQ-100`.
+This section registers the claim statuses of the new paper. It does not promote,
+weaken, or redefine any claim of Papers 0--V, and no proved node of those papers
+may depend on it.
+
+| ID | Status | Statement and boundary |
+|---|---|---|
+| PVI-1 | `CLASSICAL` (import) | The native open program, the three readings K/C/F, and the exact slice laws are imported from Process Geometry at the revision cited in `paper-6/aeg-paper-6.bib` and `research/process-representation-gap/reports/manifest-baseline.md`. Import is not proof of a new theorem. |
+| PVI-2 | `PROVED` | Proposition 2.7 (`prop:sequential-leaf`): marked spinal histories are exactly open finite programs with one hole and a chain body, up to the declared slot convention. Sequential-only; no branching claim. |
+| PVI-3 | `PROVED` | Theorem 3.6 (`thm:canonical-order`): for every plane binary tree, the left-first postorder is the unique linear extension of the dependency order minimizing inversions against the corner order. Proof: induction on the tree with the parent/block decomposition. |
+| PVI-4 | `COMPUTATIONALLY VERIFIED EXAMPLE` | Calibration 3.9: the canonical order is checked on all plane binary trees with at most 7 internal vertices (193 trees) by `research/iota-carousel/verify_canonical_choice.py`. Evidence for the implementation, not for the theorem. |
+| PVI-5 | `PROVED` (correspondence record) | Proposition 4.2: the strong form "carousel class-cycle = J" is false; the surviving alignment is non-canonical (3 planes × 2 orientations) and the `SR` entry with the index shift have no `J` counterpart. Negative calibration, not a positivity claim. |
+| PVI-6 | `PROVED` (finite obstruction) | No-go 4.3: the cut Laplacian cannot carry the index `k`; four trees at `n = 4` share one cut-graph spectrum with different indices. Planarity obstruction. |
+| PVI-7 | `COMPUTATIONALLY VERIFIED EXAMPLE` | Calibration 4.6: the planar screw module satisfies `C^4 = S`, `J^4 = id`, `[J,S] = 0`, `M^2 = id` on the declared finite range (`research/iota-carousel/verify_planar.py`). The reading of the module as *the* carrier is a proposal, not part of this row. |
+| PVI-8 | `STRUCTURAL PROPOSAL` | The arity-one principle (slot order induced by the carrier) and the reading of the carousel as the planar screw. Named mechanisms with supporting calibrations; not theorems. |
+| PVI-9 | `PROVED` | Theorem 5.2 (`thm:sequential-recovery`): the single-spine fragment of the dictionary is an equivalence of categories up to the slot convention. Branching case excluded. |
+| PVI-10 | `CONJECTURE` | Conjecture 5.3: a faithful general functor from plane trees with planar schedule structure to open finite programs, restricting to PVI-9 on the sequential fragment. Unproved; see `OQ-100.1`. |
+| PVI-11 | `OPEN` | The dictionary rows "one-hole contexts as compiled observations" and "charge as frontier data"; the three program-side acceptance fixtures; presentation and objectification scope (`OQ-100.7`, `OQ-100.8`). |
+
+**Boundary note.** The paper is a draft whose content is partly programme. A reader
+must not infer a general equivalence from PVI-9, a general carrier claim from PVI-7,
+or a canonical carousel correspondence from PVI-5.

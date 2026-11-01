@@ -1,0 +1,121 @@
+% Section 4: The carousel, the iota carrier, and the screw module.
+
+\subsection{The carousel of a plane tree}
+
+Pushkarev--Byzov study a transformation of plane planted trees and its action on the
+corners of the binary picture \cite{PushkarevByzov2014}.  The corners fall into five
+classes, written $SR$, $LL$, $RL$, $RN$, $LN$: the root corner $SR$, and the left and
+right corners of leaves ($LL$, $RL$) and of non-leaf chains ($LN$, $RN$).  Under the
+transformation the classes are transported cyclically at the class level,
+\[
+LL\longrightarrow RL\longrightarrow RN\longrightarrow LN\longrightarrow LL,
+\]
+with $SR$ as the base corner and an index shift that records the traversal position;
+the counts of the five classes obey the closed transport law of the source
+(Theorem~4.3 and Corollary~4.4 of \cite{PushkarevByzov2014}).
+
+\begin{remark}[Two levels, and the one that is not a rotation]\label{rem:two-levels}
+The class-level four-cycle and the count-level transport are different structures.  On
+the constraint surface of the corner counts the transport is an \emph{involution} of
+order two, not a four-cycle; the class-level cycle is invisible to the counts.  This
+is the first reason the correspondence with the iota carrier must be stated carefully:
+an alignment at one level does not automatically descend to the other.
+\end{remark}
+
+\subsection{The iota complex unit}
+
+Paper~V's carrier is $W=\Lambda^{1}E\oplus\Lambda^{2}E$ with basis
+$T,S,R,SR,RT,TS$ and the three aspect--opposite-relation planes
+\[
+W_T=\langle T,SR\rangle,\qquad W_S=\langle S,RT\rangle,\qquad W_R=\langle R,TS\rangle .
+\]
+The generators satisfy $T^{2}=S^{2}=R^{2}=1$ and $\varepsilon_i\varepsilon_j+
+\varepsilon_j\varepsilon_i=0$ for $i\neq j$, and $\Omega=TSR$ is central with
+$\Omega^{2}=-1$; cyclic permutations preserve $\Omega$ and transpositions reverse it,
+the chirality sign law \cite{Yuan2026AEGPaperFive}.  The complex unit $J$ acts by
+rotation by a quarter turn inside each plane, sending a positive state to a signed
+state and preserving each plane.
+
+\begin{proposition}[A screened alignment]\label{prop:screened-alignment}
+The strong statement ``the carousel class-cycle is $J$ on the six states'' is false.
+The carousel has five classes with a four-cycle on four of them plus an entry from
+$SR$, while $J$ is plane-preserving and moves a positive state to a signed one.  A
+non-canonical alignment exists: the four-cycle can be matched to $J$'s four-cycle on
+one plane in $3\times 2=6$ ways (three planes, two orientations), but the $SR$ entry
+and the index shift have no $J$ counterpart.
+\end{proposition}
+
+\begin{proof}[Proof record]
+The statement is the alignment result of the research notes; it is recorded as a
+correspondence with a computed finite check, not as a theorem of the carrier.  The
+plane-preservation and sign action of $J$ are the sign law of Paper~V; the class list
+and cycle are the source's Theorem~4.1--4.3.  The $3\times2$ count is exhaustive for
+the alignment of a four-cycle to a plane's signed four states.
+\end{proof}
+
+The proposition is deliberately negative: it fixes what the correspondence is
+\emph{not}, and leaves the surviving positive statement to be stated at its own
+strength.  That statement is a screw.
+
+\subsection{The index shift and the obstruction from the Laplacian}
+
+The carousel's index $k$ is a traversal position.  A natural candidate for carrying it
+is the cut Laplacian $H$ of the process, which supplies an operator with the right
+symmetry.  The candidate fails.
+
+\begin{nogo}[The Laplacian does not carry the index]\label{nogo:laplacian-index}
+The cut graph is the Hasse diagram of the dependency poset, which forgets left and
+right, whereas the index $k$ is planar: at $n=4$ four trees share the cut-graph
+spectrum $(0,\,0.1464,\,0.5,\,0.8536)$ yet carry different indices.  Hence no function
+of the cut Laplacian's spectrum can recover $k$.
+\end{nogo}
+
+\begin{proof}[Proof record]
+The finite computation is stored with the shift notes; the four trees and their
+spectra are listed there.  The argument is the planarity obstruction: the cut graph is
+a poset invariant, the index is not.
+\end{proof}
+
+The iota frame is nevertheless a screw in the sense that $[J,H]=0$, $J^{2}=-I$ and
+$\exp(tA)=\cos(tH)-J\sin(tH)$, so the rotation angle is proportional to an $H$
+eigenvalue.  What fails is only the attempt to make $H$ carry the shift; the rotation
+half survives.  The shift must therefore be carried by a planar, unbounded structure.
+
+\subsection{The planar screw module}
+
+\begin{construction}[Planar screw module]\label{con:screw-module}
+Let $V_{\mathrm{class}}$ be the four-dimensional real space on the class-cycle
+$\{LL,RL,RN,LN\}$ and let $V_{\mathrm{index}}$ be the real space on the index set
+$\{e_k:k\ge 1\}$.  Put $V=V_{\mathrm{class}}\otimes V_{\mathrm{index}}$ and define
+\begin{align*}
+J:(c,k)&\longmapsto(c+1,k) &&\text{(the iota complex unit, order four)},\\
+S:(c,k)&\longmapsto(c,k+1) &&\text{(the shift/height)},\\
+C:(c,k)&\longmapsto(c+1\bmod 4,\;k+[c=LN]) &&\text{(the carousel)}.
+\end{align*}
+\end{construction}
+
+\begin{proposal}[The carousel is a screw]\label{prop:carousel-screw}
+On $V$ the carousel satisfies $C^{4}=S$, the complex unit satisfies $J^{4}=\mathrm{id}$,
+and $[J,S]=0$.  The count shadow satisfies $M^{2}=\mathrm{id}$, so the screw structure
+is invisible to the corner counts.  The carousel is therefore a projective fourth root
+of the shift: the rotation half is supplied by the iota carrier, and the height half
+is an independent structure.
+\end{proposal}
+
+\begin{calibration}[Finite check of the screw]\label{cal:screw}
+The relations $C^{4}=S$, $J^{4}=\mathrm{id}$, $[J,S]=0$ and $M^{2}=\mathrm{id}$ are
+checked by \texttt{research/iota-carousel/verify\_planar.py} on the declared finite
+range; the calibration is a stored finite instance, not a proof of the general
+statement.
+\end{calibration}
+
+\begin{remark}[What is proved and what is proposed]\label{rem:screw-status}
+The existence of the module and the finite relations are
+\texttt{COMPUTATIONALLY VERIFIED EXAMPLE}.  The reading of the module as \emph{the}
+carrier of the carousel is a \texttt{STRUCTURAL PROPOSAL}: it is a choice of
+presentation, supported by the relations and by the refutation of the alternatives,
+but not forced by them.  The paper keeps the two apart, and \S\ref{sec:boundaries}
+records the residual questions: whether $S$ can be derived from AEG/Adva data rather
+than postulated, whether $SR$ can be absorbed into $V$, and whether the construction
+extends beyond the planar class.
+\end{remark}

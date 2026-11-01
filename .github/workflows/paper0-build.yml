@@ -6,6 +6,7 @@ on:
       - "paper-0/**"
       - "paper-1/**"
       - "paper-4/**"
+      - "paper-6/**"
       - "research/pants-interface-disks/verify_handles.py"
       - "research/pants-interface-disks/evidence-handles.json"
       - "research/pants-interface-disks/verify_v1.py"
@@ -83,10 +84,13 @@ jobs:
       - name: Build Paper IV
         run: ./build.sh 4
 
+      - name: Build Paper VI
+        run: ./build.sh 6
+
       - name: Check important LaTeX warnings
         run: |
           status=0
-          for log in paper-0/aeg-paper-0.log paper-1/aeg-paper-1.log paper-4/aeg-paper-4.log; do
+          for log in paper-0/aeg-paper-0.log paper-1/aeg-paper-1.log paper-4/aeg-paper-4.log paper-6/aeg-paper-6.log; do
             if grep -E "(Undefined control sequence|LaTeX Warning: Reference .* undefined|LaTeX Warning: Citation .* undefined|There were undefined references|multiply defined)" "$log"; then
               echo "$log contains unresolved LaTeX warnings" >&2
               status=1
