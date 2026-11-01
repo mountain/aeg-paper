@@ -162,6 +162,7 @@ Paper 0 -> Paper I -> Paper II
                    -> Paper IV -> Paper V
 Paper I -> Paper VI
 Paper V -> Paper VI
+Paper 0 -> Paper VI
 ```
 
 ## Path--ripple research spine

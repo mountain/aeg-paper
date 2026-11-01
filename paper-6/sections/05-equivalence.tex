@@ -73,17 +73,19 @@ them, and the equivalence statements below do not use them.
 
 \begin{theorem}[Sequential recovery]\label{thm:sequential-recovery}
 The single-spine fragment of the dictionary is an equivalence on objects: the map
-sending a marked spinal history to its chain program and back is a bijection, natural
-for concatenation of one-hole contexts, between marked spinal histories with their
-chronological order and open finite programs with one hole and a chain body whose
-unary contexts carry the Paper~I signature, up to the declared slot convention.  Under it, the
+sending a \emph{free} marked spinal history to its chain program and back is a
+bijection, compatible with concatenation of one-hole contexts, between free marked spinal
+histories with their chronological order and open finite programs with one hole and a
+chain body whose unary contexts carry the Paper~I signature, up to the declared slot
+convention.  A bounded history keeps its initial mark as an extra datum, outside the
+bijection.  Under it, the
 chirality word is the slot sequence, the unique schedule is the chronological order,
 and the spine is the body chain.
 \end{theorem}
 
 \begin{proof}
 Both directions are the explicit construction of
-Proposition~\ref{prop:sequential-leaf}; naturality is immediate because both sides
+Proposition~\ref{prop:sequential-leaf}; compatibility is immediate because both sides
 compose by concatenation of contexts along the slot sequence, and the slot convention
 is the only choice involved.  No statement is made about the branching case.
 \end{proof}

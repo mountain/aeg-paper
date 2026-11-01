@@ -14,7 +14,7 @@ about Papers 0--V, and it grants Paper VI no right to redefine their objects.
 
 ---
 
-## 1. Why a sixth paper exists
+## 1. Why a seventh paper exists
 
 Papers 0--V develop arithmetic expression geometry from syntax to geometry,
 analysis, singularity, condensation, and triadic characteristics. Every one of
@@ -118,16 +118,15 @@ Paper VI may define and develop the following as its own main theory.
 The dependency is one-way:
 
 ```text
-Paper I (marked spinal histories, mirror/reversal)
-     \
-      -> Paper VI (program processes, evaluation order,
-                   carousel correspondence, equivalence)
-     /
-Paper V (six-state carrier, iota, chirality sign law)
+Paper 0 (expression-space and charge vocabulary) --+
+Paper I (marked spinal histories, mirror/reversal) --+--> Paper VI
+Paper V (six-state carrier, iota, chirality sign law) -+    (program processes, evaluation order,
+                                                             carousel correspondence, equivalence)
 ```
 
-Paper VI may state results about the sequential case by citing Paper I, and about
-the carrier by citing Paper V. It may not prove new claims inside their scope,
+Paper VI may state results about the sequential case by citing Paper I, about the
+carrier by citing Paper V, and about the expression spaces and charge vocabulary by
+citing Paper 0. It may not prove new claims inside their scope,
 and it may not be used as a dependency of any proved node in Papers 0--V.
 
 ## 5. Source corpus and status
@@ -155,9 +154,10 @@ classical attribution.
 
 ## 6. Claim status and honesty requirements
 
-Paper VI uses the status vocabulary of `05-mathematical-status.md`:
-`PROVED`, `PROVED WITH STATED HYPOTHESES`, `CLASSICAL`,
-`COMPUTATIONALLY VERIFIED EXAMPLE`, `STRUCTURAL PROPOSAL`, `CONJECTURE`, `OPEN`.
+Paper VI uses the vocabulary of `governance/05c-paper-VI-status-register.md`:
+`PROVED`, `PROVED WITH STATED HYPOTHESES`, `COMPUTATIONALLY VERIFIED EXAMPLE`,
+`STRUCTURAL PROPOSAL`, `CONJECTURE`, `OPEN PROBLEM`, and the imported-source
+labels `IMPORTED CLASSICAL` and `IMPORTED TECHNICAL`.
 
 * A finite calibration is never promoted to a theorem.
 * An alignment that is non-canonical is stated as non-canonical.

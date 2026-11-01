@@ -30,6 +30,14 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install the calibration dependency
+        run: python3 -m pip install numpy==2.3.3
+
       - name: Install TeX dependencies
         run: |
           sudo apt-get update
@@ -91,10 +99,22 @@ jobs:
 
       - name: Replay the iota-carousel and Donaghey calibrations
         run: |
-          python3 research/iota-carousel/verify_omega.py
-          python3 research/iota-carousel/verify_planar.py
-          python3 research/iota-carousel/verify_shift.py
-          python3 research/iota-carousel/verify_canonical_choice.py
+          python3 research/iota-carousel/verify_planar.py /tmp/planar.json
+          cmp /tmp/planar.json research/iota-carousel/evidence-planar-v1.json
+          python3 research/iota-carousel/verify_shift.py /tmp/shift.json
+          cmp /tmp/shift.json research/iota-carousel/evidence-shift-v1.json
+          python3 research/iota-carousel/verify_canonical_choice.py /tmp/canonical.json
+          cmp /tmp/canonical.json research/iota-carousel/evidence-canonical-choice-v1.json
+          python3 research/iota-carousel/verify_omega.py /tmp/omega.json
+          python3 - <<'PY'
+          import json
+          import sys
+          ev = json.load(open('/tmp/omega.json'))
+          ok = (ev['Omega_squared_is_minus_I'] and ev['Omega_fourth_is_I']
+                and all(p['j_preserves'] for p in ev['planes']))
+          print('omega gate:', ok)
+          sys.exit(0 if ok else 1)
+          PY
           python3 research/donaghey-orbits/verify_orbits.py
 
       - name: Check important LaTeX warnings

@@ -46,9 +46,12 @@ and the index shift have no $J$ counterpart.
 \end{proposition}
 
 \begin{proof}[Proof record]
-The statement is the alignment result of the research notes, with the computed check
-replayed by \path{research/iota-carousel/verify_omega.py}; it is recorded as a
-correspondence, not as a theorem of the carrier.  The
+The statement is the alignment result of the research notes.  The carrier identities
+$\Omega^{2}=-I$, $\Omega^{4}=I$ and plane preservation are replayed by
+\path{research/iota-carousel/verify_omega.py}; the six plane/orientation candidates are
+enumerated by hand in the alignment note, not by that script, and the absence of an
+$SR$/index counterpart is structural (it follows from the class list).  The claim is
+recorded as a correspondence, not as a theorem of the carrier.  The
 plane-preservation and sign action of $J$ are the sign law of Paper~V; the class list
 and cycle are the source's Theorem~4.1--4.3.  The $3\times2$ count is exhaustive for
 the alignment of a four-cycle to a plane's signed four states.
@@ -60,16 +63,19 @@ strength.  That statement is a screw.
 
 \subsection{The index shift and the obstruction from the Laplacian}
 
-The carousel's index $k$ is the \emph{preorder} position supplied by the corner order
-(Definition~\ref{def:corner-order}); it is not the postorder of the canonical schedule.
-A natural candidate for carrying it is the cut Laplacian $H$ of the process: the
-graph Laplacian of the cut graph, the Hasse diagram of the dependency poset, acting on
+The carousel's index is a traversal position of the source, defined on all corners.
+The finite obstruction below uses the planar statistic
+$k(t)=\#\{\text{left leaves of }t\}$, which is the statistic the shift note and its
+verifier compute; whether the source's traversal index agrees with $k(t)$ on every
+tree is part of the correspondence and is not assumed here (Problem~\ref{prob:derive-shift}).  A
+natural candidate for carrying $k$ is the cut Laplacian $H$ of the process: the graph
+Laplacian of the cut graph, the Hasse diagram of the dependency poset, acting on
 functions on that graph.  The candidate fails.
 
 \begin{nogo}[The Laplacian does not carry the index]\label{nogo:laplacian-index}
 The cut graph is the Hasse diagram of the dependency poset, which forgets left and
-right, whereas the index $k$ is planar: at $n=4$ four trees share the cut-graph
-spectrum $(0,\,0.1464,\,0.5,\,0.8536)$ yet carry different indices.  Hence no function
+right, whereas $k(t)$ is planar: at $n=4$ four trees share the cut-graph
+spectrum $(0,\,0.1464,\,0.5,\,0.8536)$ yet carry different numbers of left leaves.  Hence no function
 of the cut Laplacian's spectrum can recover $k$.
 \end{nogo}
 

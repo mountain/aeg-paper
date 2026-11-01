@@ -68,7 +68,7 @@ and it is exactly this coupling that a schedule linearizes.  The statement that 
 $C$ and $F$ are readings of one process, rather than three structures, is the
 primitive of the theory; it is imported from the process corpus at commit
 \texttt{c47c96fa79123c677172278be59d67ca1cc891b1}, where the finite slices and their
-composition laws are checked \cite{ProcessGeometryCore2026}.
+composition laws are checked \cite{AdvaProcessCore2026}.
 
 \begin{remark}[Slices]\label{rem:slices}
 For downward-closed $U\subseteq V$, the slice of $P$ between the cuts $U$ and $V$
@@ -118,8 +118,9 @@ word.  A \emph{left comb} is the spine whose contexts are all left slots, and a
 \end{definition}
 
 \begin{proposition}[Sequential histories are single-spine programs]\label{prop:sequential-leaf}
-Every marked spinal history of Paper~I is an open finite program with exactly one
-hole and a construction order whose unique linear extension is the history itself.
+Every \emph{free} marked spinal history of Paper~I (one without an initial mark) is an
+open finite program with exactly one hole and a construction order whose unique linear
+extension is the history itself.
 Conversely, an open finite program with one hole whose body is a chain of unary
 one-hole contexts, up to the slot convention of its contexts, is a marked spinal
 history.
@@ -129,9 +130,11 @@ history.
 Immediate from the definitions: the body of the history is the chain of contexts,
 the single hole is the accumulator position, the construction order is the chain
 order, and the unique linear extension is the chronological order.  The slot
-convention is exactly the chirality word.  The converse reads the same data in the
-other direction; the two constructions are inverse up to the declared convention on
-slot labels.
+convention is exactly the chirality word.  A bounded history $(x_0;\gamma)$ keeps the
+initial mark $x_0$ as an extra datum; the one-hole program encodes the context chain,
+not the mark, so the proposition is stated for free histories.  The converse reads the
+same data in the other direction; the two constructions are inverse up to the declared
+convention on slot labels.
 \end{proof}
 
 \begin{remark}[What the sequential case does not see]\label{rem:sequential-blind}
