@@ -4226,10 +4226,11 @@ four Catalan families ↔ binary vs general trees. The difference `Z₂×Z₂` v
   `τ`-image `N(N(L,L),N(L,L))` has `e = 2` (chain class -> branching)
   (`research/iota-carousel/verify_lifting_trace.py`). The genuine invariant is the
   **planar** corner-type `(k,l) = (#LL, #RL)`, preserved up to swap along every
-  orbit (Pushkarev–Byzov Cor 4.5, verified). So `τ` leaves **no trace** at the
-  `O(P)` level (neither exact nor coarse); its trace is strictly planar. Residuals:
-  a general-`n` statement; whether orbit-level *distributions* of a poset statistic
-  are preserved; and a fifth appearance of note 41's planarity obstruction.
+  orbit (Pushkarev–Byzov Cor 4.5, verified). So **in the checked range `n ≤ 6`**
+  `τ` leaves no coarse trace at the `O(P)` level; its trace there is planar.
+  Residuals: the general-`n` statement (the finite check does not prove it);
+  whether orbit-level *distributions* of a poset statistic are preserved; and a
+  fifth appearance of note 41's planarity obstruction.
   (c) [open] the general-`n` structure of `τ` on caterpillars ("only `n-1` of the
   `2^{n-2}` map to caterpillars" is verified for `n ≤ 10` but not proved in
   general). **Finite update (2026-10-31):**

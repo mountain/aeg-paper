@@ -13,10 +13,11 @@ version: are the natural poset statistics preserved by tau?
   height(P) = longest chain
   incomp(P) = number of incomparable pairs
 
-Result: NONE of them is tau-invariant (witnesses below).  By contrast the
-*planar* corner-type (k, l) = (#LL, #RL) is tau-invariant up to swap along
-every tau-orbit (Pushkarev-Byzov Cor 4.5).  So tau's invariants are strictly
-planar, not poset-level.
+Result (checked range n = 4, 5, 6 for the statistics and n = 4, 5 for the
+orbits): none of them is tau-invariant on that range (witnesses below).  By
+contrast the *planar* corner-type (k, l) = (#LL, #RL) is tau-invariant up to
+swap along the checked orbits (Pushkarev-Byzov Cor 4.5).  A general-n statement
+is open; the evidence note says n <= 6.
 """
 
 from functools import lru_cache

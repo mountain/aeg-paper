@@ -7,7 +7,7 @@
 **结论**：
 1. **修正 note 28**：Pushkarev–Byzov §5 的"**standard lattice ordering of all trees**"由同一句的括号**自我解释**为"**distributive lattice**"——即**下集格序**，**不是 Tamari**（note 28 曾按"最可能 = Tamari"处理）。
 2. **该分配格 = `Down(T_∞)`**：无限二叉树 `T_∞` 的下集格；元素是 **0/1/2 子有序二叉树（plane forests）**，经 rotation 双射与 PPCT 对应（二者**不是同一集合**，note 28 §2）。
-3. **`O(P)` 与 `Down(T_∞)` 的精确关系**：`O(P)=Down(P)` 是 `Down(T_∞)`（的有限截断）的**格商（lattice quotient）**——restriction `S↦S∩P` 是**满射格同态**；但**不是子格**（`Down(P) ⊄ Down(Q)`）。故 note 28 残余里"sublattice 嵌入"的版本为**假**，"quotient"版本为**真**（已计算验证，`n≤7` 节点）。
+3. **`O(P)` 与 `Down(T_∞)` 的精确关系**：`O(P)=Down(P)` 是 `Down(T_∞)`（的有限截断）的**格商（lattice quotient）**——restriction `S↦S∩P` 是**满射格同态**；但它**不是 `Down(Q)` 的包含子格**（`Down(P) ⊄ Down(Q)`）。故 "quotient"版本为**真**；"以包含方式成为子格"为**假**；而 note 28 残余所问的**抽象子格嵌入**仍 **open**（已计算验证的是非包含，`n≤7` 节点）。
 
 ---
 
@@ -75,7 +75,7 @@ $$
 这里能证明的是"**非包含子格**"（$\mathrm{Down}(P)\not\subseteq\mathrm{Down}(Q)$）；它不排除 $O(P)$ 作为抽象格**嵌入**某个 $\mathrm{Down}(Q)$。后者正是 OQ-098.2 原来的问题，仍 open（见 §5 残余 1）。
 
 **理由**：
-- `ρ` 满射：对任意 `P` 的下集 `S'`，`↓_{T_∞}(S')` 是 `Q` 的下集且 `↓_{T_∞}(S') ∩ P = S'`（因 `P` 序嵌入、`S'` 对 `P` 下闭）。
+- `ρ` 满射：对任意 `P` 的下集 `S'`，取 `S'` 在 `Q` 中的下闭包 `↓_Q(S') = {q∈Q : q≤s 对某 s∈S'}`；它是 `Q` 的下集且 `↓_Q(S') ∩ P = S'`（因 `P` 序嵌入、`S'` 对 `P` 下闭）。注意不能用 `↓_{T_∞}(S')`——它一般不在 `Q` 内。
 - `ρ` 保 `∪,∩`：`(S∪T)∩P=(S∩P)∪(T∩P)`、`(S∩T)∩P=(S∩P)∩(T∩P)`。
 - **非包含子格**：`P` 的下集（如 `{a}`）一般**不是** `Q` 的下集（`Q` 中有下方元素），故 `Down(P) ⊄ Down(Q)`。这只排除了"以包含方式成为子格"，不排除抽象嵌入。
 
