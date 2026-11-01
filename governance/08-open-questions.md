@@ -4219,6 +4219,17 @@ four Catalan families ↔ binary vs general trees. The difference `Z₂×Z₂` v
   every skeleton class has a non-unique `τ`-image for `n ≥ 5`, verified `n ≤ 8`,
   `research/donaghey-orbits/verify_descent.py`). The hyperbolic/long-orbit
   behaviour is strictly a **planar-tree** phenomenon, not a poset-layer one.
+  *Lifting residual closed (note 46, 2026-11-01):* even the *coarse* poset
+  statistics fail to be `τ`-invariant. For all `n ≤ 6`, none of `e(P)` (linear
+  extensions), `|O(P)|` (down-sets), `height(P)`, `incomp(P)` (incomparable pairs)
+  is preserved by `τ` — witness at `n = 4`: `N(L,N(N(L,L),L))` has `e = 1` but its
+  `τ`-image `N(N(L,L),N(L,L))` has `e = 2` (chain class -> branching)
+  (`research/iota-carousel/verify_lifting_trace.py`). The genuine invariant is the
+  **planar** corner-type `(k,l) = (#LL, #RL)`, preserved up to swap along every
+  orbit (Pushkarev–Byzov Cor 4.5, verified). So `τ` leaves **no trace** at the
+  `O(P)` level (neither exact nor coarse); its trace is strictly planar. Residuals:
+  a general-`n` statement; whether orbit-level *distributions* of a poset statistic
+  are preserved; and a fifth appearance of note 41's planarity obstruction.
   (c) [open] the general-`n` structure of `τ` on caterpillars ("only `n-1` of the
   `2^{n-2}` map to caterpillars" is verified for `n ≤ 10` but not proved in
   general). **Finite update (2026-10-31):**
@@ -4423,6 +4434,7 @@ bijections themselves are classical and may be cited as such.
 `notes/analysis-and-calculus/43-theta-tilde-intrinsic.md`;
 `notes/analysis-and-calculus/44-functoriality-rl.md`;
 `notes/analysis-and-calculus/45-downset-lattice-residual.md`;
+`notes/analysis-and-calculus/46-lifting-trace-planar.md`;
 `research/donaghey-orbits/` (finite verification);
 `research/ppct-lattice/` (finite verification);
 `paper-0/sections/03-aes-and-motion.tex` (left/right comb convention);
