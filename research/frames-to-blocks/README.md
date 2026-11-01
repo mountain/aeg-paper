@@ -1,9 +1,15 @@
 # From local frames to global blocks
 
 **Status:** research note v0.1, 2026-11-01. Not a paper claim, not a trial, not a
-proof record. It is scaffold for Paper VI
-(`governance/00e-paper-VI-process-geometry-scope.md`) and for the octagon note in
+proof record. It is scaffold for the Paper VI draft and for the octagon note in
 `mountain/math-notes`.
+
+**Branch dependency.** This note is stacked on the Paper VI draft
+(`agent/paper-6-process-geometry`, PR #22). The paths `paper-6/`,
+`governance/00e-paper-VI-process-geometry-scope.md` and
+`governance/05c-paper-VI-status-register.md` exist on that branch, not on `main`;
+until PR #22 lands, they refer to that branch. The note itself makes no claim
+inside Paper VI's scope.
 
 **Question.** A local frame theory — the iota frame of Paper V and of the process
 corpus — describes one chart, one cut, one slot. A global object is assembled from
@@ -53,8 +59,8 @@ Three features of what has been constructed matter below.
    elements $\phi(X)\in Z_N$; consistency around a vertex is the statement that the
    relation word of $\Gamma_2$ maps to the identity of $Z_N$.
 
-Status: `CLASSICAL` (covering theory, Euler characteristic, Poincaré polygon
-theorem), with the note's construction as the instance.
+Provenance: standard covering theory, Euler characteristic and the Poincaré polygon
+theorem, with the note's construction as the instance; no new theorem is claimed.
 
 ## 2. Why the construction cannot be "all hyperbolic cases"
 
@@ -73,13 +79,15 @@ trivial isometry group, and a surface with a non-trivial isometry group is a pro
 closed subset. This is an independent obstruction.
 
 **Cover structure.** A degree-$(g-1)$ cover of a genus-2 surface is a cover of a
-*fixed* base; not every $S_g$ admits such a cover at all, and among those that do
-the metric is the pullback, not an arbitrary one.
+*fixed* base; when such a cover exists, the metric is the pullback, not an arbitrary
+one. Topological coverability is a separate question from the metric obstruction
+above, and the dimension and symmetry counts already decide the metric question.
 
 The count is not a defect of the note: the note proves exactly what it states. What
 fails is the strengthening of its scope.
 
-Status: `PROVED` (dimension and symmetry counts, standard moduli theory).
+Provenance: elementary counts on standard moduli theory (Teichmüller dimension and
+isometry groups); not a new theorem.
 
 ## 3. The local-to-global bridge: developing map and holonomy
 
@@ -96,15 +104,23 @@ surfaces is the theory of $(\mathrm{PSL}_2(\mathbb R),\mathbb H^2)$-structures.
   pairings are elements of $\mathrm{PSL}_2(\mathbb R)$, and the polygon relation
   is the cocycle identity for $\rho$.
 
-The octagon construction is the special case in which the holonomy factors through
-a finite deck group, $\rho=\iota\circ\phi$ with $\phi:\Gamma_2\to Z_N$; the gluing
-rules of the note are precisely the side pairings induced by $\rho$. "Chunking" —
-assembling a global object from blocks — is therefore not a different operation
-from the local frame theory: it is the same developing data read on a presentation
-of $\pi_1$. The consistency condition is always the cocycle identity on relation
-words.
+Two different data must not be conflated here. The hyperbolic structure on the
+cover has a Fuchsian holonomy
+$\rho_g:\pi_1(S_g)\to\mathrm{PSL}_2(\mathbb R)$, namely the restriction of the base
+holonomy $\rho_2$ to $\ker\phi$; it does **not** factor through $Z_N$. The finite
+group $Z_N$ is the cover's *deck monodromy*: it records which sheet is glued to
+which, not the structure group of the geometric structure. The octagon note uses
+both: the base octagon's side pairings are elements of
+$\mathrm{PSL}_2(\mathbb R)$, while the rule that glues sheet $j$ to sheet
+$j+\phi(X)$ uses the deck element $\phi(X)$.
 
-Status: `CLASSICAL` (Thurston's $(G,X)$-structures; Poincaré polygon theorem).
+"Chunking" — assembling a global object from blocks — is therefore the pair
+(geometric side pairings, deck monodromy) read on a presentation of $\pi_1$; the
+consistency condition on the geometric side is the cocycle identity for $\rho$, and
+on the covering side it is the identity for $\phi$ on relation words. Keeping the
+two groups apart is part of the content of the bridge.
+
+Provenance: Thurston's $(G,X)$-structures and the Poincaré polygon theorem.
 
 ## 4. The universal version: pants blocks and Fenchel--Nielsen
 
@@ -135,20 +151,22 @@ This is the precise sense in which "all hyperbolic cases" can be reached: by
 changing the block and allowing arbitrary transitions, not by adding more copies of
 one block.
 
-Status: `CLASSICAL` (pants decomposition, Fenchel--Nielsen theorem).
+Provenance: pants decomposition and the Fenchel--Nielsen theorem (Wolpert for the
+Weil--Petersson form; the coordinates are classical).
 
 ## 5. Is it a universal combinatorial basis like iota?
 
 The comparison must separate two levels.
 
-**Topological level — a finitary generation exists.** Every closed orientable
-surface has a polygon presentation. Any two triangulations of a surface are
-connected by edge flips, and the flip graph is connected (Hatcher--Thurston);
-equivalently, pants decompositions are connected by the moves of the
-Hatcher--Thurston complex (Penner). In this sense block assembly has a finite
-generator set and a normal-form-like calculus on *topological* data. That is a
-genuine universality statement, and it is the closest analogue of "a universal
-basis".
+**Topological level — a connectivity statement.** Every closed orientable surface
+has a polygon presentation. Any two triangulations of a fixed surface are connected
+by edge flips, and the flip graph is connected (Hatcher--Thurston); equivalently,
+pants decompositions are connected by the moves of the Hatcher--Thurston complex
+(Penner). This is a connectivity theorem about presentations of a fixed surface. It
+does not by itself produce a finite generating set for *block assembly*, nor a
+normal-form calculus, nor the terminating reduction relation that the SKI/iota
+comparison would need. The honest reading is: the topological layer has a
+connectivity property in the right direction, not a demonstrated combinator basis.
 
 **Metric level — the coefficients are continuous.** For hyperbolic structures the
 gluing data are lengths and twists, and no finite combinatorial alphabet encodes
@@ -164,10 +182,10 @@ The honest summary is therefore:
 |---|---|
 | The octagon construction handles all hyperbolic surfaces | **False as stated** (dimension and symmetry; it handles covers of a fixed genus-2 base) |
 | The octagon construction is the local-to-global mechanism of a fundamental polygon with holonomy | **True / `CLASSICAL`** |
-| Replacing octagons by pants blocks and allowing arbitrary gluing reaches all hyperbolic structures | **True / `CLASSICAL`** |
-| Block assembly has a finitary topological generator set (edge flips) | **True / `CLASSICAL`** |
-| Block assembly is a finite combinator basis in the SKI/iota sense | **False for the metric level; open at the topological level** |
-| iota's arity-one local frames plus a gluing cocycle reproduce the hyperbolic block assembly | **`CONJECTURE`** (Paper VI programme; see §6) |
+| Replacing octagons by pants blocks and allowing arbitrary gluing reaches all closed orientable hyperbolic surfaces of genus $g\ge2$ | **Standard (Fenchel--Nielsen)** |
+| Block assembly has a finitary topological generator set (edge flips) | **Not established**: flips give connectivity of triangulations, not a block basis |
+| Block assembly is a finite combinator basis in the SKI/iota sense | **Not established** at either level; the metric level has continuous parameters |
+| The iota carrier at a slot plus a gluing cocycle reproduces the hyperbolic block assembly | **Proposal / conjecture** (Paper VI programme, §6); no precise functor or cocycle calculus is constructed here |
 
 ## 6. Relation to Paper VI and the iota carrier
 
@@ -217,7 +235,9 @@ records as a programme rather than a theorem.
 * `mountain/math-notes`, `octagons.tex` (the construction under discussion;
   authored by Mingli Yuan with Gemini, ChatGPT and DeepSeek).
 * Paper V, §4 (`paper-5/sections/04-six-state-carrier.tex`) for the six-state
-  carrier and the iota frame.
+  carrier only; the identification of that carrier with the Adva iota frame is the
+  correspondence recorded in the carousel--iota overview note (note~40), not a
+  claim of Paper V.
 * Paper VI (`paper-6/`) for the process reading of slots and blocks.
 * Classical: Poincaré polygon theorem; Thurston's $(G,X)$-structures; pants
   decomposition and Fenchel--Nielsen coordinates; Hatcher--Thurston and Penner on
