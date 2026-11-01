@@ -4284,6 +4284,20 @@ four Catalan families ↔ binary vs general trees. The difference `Z₂×Z₂` v
   while `S` (the height) is an independent structure **not** supplied by
   iota/`H`. Residuals: derive `S` from AEG/Adva; absorb `SR`/wrap into `V`; test
   the word/history carrier's Z/4; align with the corner-level Thm 4.3 in general `n`.
+  *`S` derived (note 35, 2026-11-01):* the carousel index `k` is a **traversal
+  position** (Pushkarev–Byzov Thm 4.2), and AEG's **chronological index** of the
+  marked history (`def:marked-spinal-history`, `eq:chronological-history-concatenation`)
+  is the natural AEG-native "unbounded position + successor". So `S` = the
+  **chronological successor** (append one context). Verified: **left comb** — the
+  DFS "left natural traversal" visits the internal spine first, so it agrees with
+  the spine/chronological order (exact match); **right comb** — the DFS visits the
+  off-spine *left* leaf first, so it differs by a left/right flip
+  (`research/iota-carousel/verify_traversal.py`). So `S` matches the carousel's
+  traversal exactly on left combs, differs by a planarity flip on right/general
+  comb trees, and parts ways on the branching layer (same gap as note 29).
+  Residuals: the branching-layer `S`; `V_class`⊗`V_index` direct product vs
+  semi-direct (left/right flips the order); general `n`; cut-basis/clock index vs
+  word index.
 - **098.4 — Functoriality of the right/left bijection.** Determine whether the
   right/left bijection gives a functor from the branching layer to the sequential
   layer that respects AEG's order defect and linear-extension structure. At
@@ -4303,6 +4317,7 @@ bijections themselves are classical and may be cited as such.
 `notes/analysis-and-calculus/32-carousel-iota-alignment.md`;
 `notes/analysis-and-calculus/33-shift-research.md`;
 `notes/analysis-and-calculus/34-planar-carrier.md`;
+`notes/analysis-and-calculus/35-derive-shift.md`;
 `research/donaghey-orbits/` (finite verification);
 `research/ppct-lattice/` (finite verification);
 `paper-0/sections/03-aes-and-motion.tex` (left/right comb convention);

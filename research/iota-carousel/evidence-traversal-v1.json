@@ -1,0 +1,87 @@
+{
+  "left_comb": {
+    "agrees_with_spine_order": true,
+    "first_after_root": [
+      "node",
+      "L"
+    ],
+    "left_traversal": [
+      [
+        "node",
+        null
+      ],
+      [
+        "node",
+        "L"
+      ],
+      [
+        "node",
+        "L"
+      ],
+      [
+        "leaf",
+        "L"
+      ],
+      [
+        "leaf",
+        "R"
+      ],
+      [
+        "leaf",
+        "R"
+      ],
+      [
+        "leaf",
+        "R"
+      ]
+    ],
+    "spine_dirs": [
+      "L",
+      "L"
+    ],
+    "tree": "N(N(N(L,L),L),L)"
+  },
+  "note": "Left comb: DFS first visits the internal spine (agrees with spine/chronological order). Right comb: DFS first visits the off-spine LEFT leaf (disagrees by a left/right flip). See note 35 section 5.",
+  "right_comb": {
+    "agrees_with_spine_order": false,
+    "first_after_root": [
+      "leaf",
+      "L"
+    ],
+    "left_traversal": [
+      [
+        "node",
+        null
+      ],
+      [
+        "leaf",
+        "L"
+      ],
+      [
+        "node",
+        "R"
+      ],
+      [
+        "leaf",
+        "L"
+      ],
+      [
+        "node",
+        "R"
+      ],
+      [
+        "leaf",
+        "L"
+      ],
+      [
+        "leaf",
+        "R"
+      ]
+    ],
+    "spine_dirs": [
+      "R",
+      "R"
+    ],
+    "tree": "N(L,N(L,N(L,L)))"
+  }
+}
