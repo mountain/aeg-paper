@@ -1,0 +1,137 @@
+% Section 1: Introduction and programme.
+
+\subsection{Two native formalisms}
+
+Arithmetic expression geometry begins with a sequential arithmetic expression and
+keeps, rather than discards, its evaluation history.  Paper~I establishes the
+intrinsic classification of sequential trees, the marked spinal history, the
+chirality word, and the projective semantics those histories induce
+\cite{Yuan2026AEGFoundations}.  Paper~0 develops the geometry of the resulting
+spaces, and Paper~V develops the six-state carrier on which three readings of one
+construction are compared \cite{Yuan2026AEGPaperZero,Yuan2026AEGPaperFive}.
+
+Process Geometry begins one level lower.  Its native object is an \emph{open finite
+program}: a typed expression DAG with ordered holes, explicit source and occurrence
+identity, explicit copy and discard, and retained construction history
+\cite{AdvaProcessCore2026,ProcessGeometryCore2026}.  Composition grafts an actual argument program into
+a hole; evaluation is one observation of the resulting process, not its identity.
+One process carries three coupled readings --- construction $K$, causal development
+$C$, and frontier $F$ --- and the theory's recurring statement is negative: the same
+value, the same differential, or the same spectrum does not imply the same program.
+
+The two formalisms meet at a single observation.  The iota carrier of Paper~V has
+\emph{arity one}: it acts at one slot, and acting at one slot induces an order on
+slots.  Once that order is available, the spine of a sequential arithmetic
+expression and the left and right combs that generate it are not primitive data but
+the single-spine case of a process order.  This paper states the general theory that
+results and the equivalence with arithmetic expression geometry to which it leads.
+
+\subsection{What is established, and what this paper adds}
+
+Three bodies of work are imported and cited rather than reproved.
+
+\begin{enumerate}
+\item \emph{The carrier.}  Paper~V defines the six-state carrier
+  $W=\Lambda^{1}E\oplus\Lambda^{2}E$ with its three aspect--opposite-relation
+  planes, the complex unit $\Omega=TSR$, and the chirality sign law
+  \cite{Yuan2026AEGPaperFive}.  The agreement of this carrier with the Adva iota
+  frame is recorded in the carousel--iota overview note (note~40) as a
+  correspondence; it is not a claim of Paper~V's appendix.  This paper uses the
+  carrier as given and cites the correspondence where it uses it.
+\item \emph{The combinatorics.}  Pushkarev--Byzov give the carousel of a plane
+  binary tree, its five corner classes and the four-cycle that permutes them, and
+  the order-two shadow on the corner counts \cite{PushkarevByzov2014}.  Donaghey's
+  transform between general and binary Catalan trees supplies the right/left
+  bijections and the factorisation $\sigma,\theta,\varphi$
+  \cite{Donaghey1980,PushkarevByzov2014}.
+\item \emph{The process corpus.}  Process Geometry supplies the native program,
+  the three readings, cuts and slices, and their exact laws at declared revisions
+  \cite{AdvaProcessCore2026,ProcessGeometryCore2026}.
+\end{enumerate}
+
+On that basis the paper states:
+
+\begin{itemize}
+\item a definition of the program process and of an evaluation schedule as a linear
+  extension of its construction order (\S\ref{sec:processes});
+\item the arity-one principle, which recovers the spine and the comb orders from a
+  slot order (\S\ref{sec:processes});
+\item the evaluation-order theorem: for every plane binary tree, the left-first
+  postorder is the unique linear extension of the dependency order minimizing
+  inversions against the corner order (\S\ref{sec:orders});
+\item the carousel correspondence: up to the non-canonical alignment of
+  Proposition~\ref{prop:screened-alignment}, the class-level four-cycle aligns with
+  the four-cycle of the iota complex unit on the signed states of one plane; the
+  count shadow is an involution; and
+  both are realized on the planar screw module
+  $V_{\mathrm{class}}\otimes V_{\mathrm{index}}$ by $C^{4}=S$
+  (\S\ref{sec:carousel});
+\item the arithmetic--process dictionary and the equivalence statement it supports
+  (\S\ref{sec:equivalence}), with the boundaries collected in
+  \S\ref{sec:boundaries}.
+\end{itemize}
+
+\subsection{Status discipline}
+
+Every statement carries one of the repository's status labels.  In this paper the
+labels are used as follows, and the summary table of
+\S\ref{sec:boundaries} records the assignment statement by statement.
+
+\begin{center}
+\small
+\begin{tabular}{@{}ll@{}}
+\toprule
+Label & Used for \\
+\midrule
+\texttt{PROVED} & a statement proved here or in a cited proof record \\
+\texttt{IMPORTED TECHNICAL} & a companion technical report at a declared revision \\
+\texttt{IMPORTED CLASSICAL} & an external theorem, with attribution \\
+\texttt{DEFINITION} & an object or construction fixed by the paper \\
+\texttt{CORRESPONDENCE} & a stated alignment with cited evidence, not a theorem \\
+\texttt{COMPUTATIONALLY VERIFIED EXAMPLE} & a finite instance checked by a stored verifier \\
+\texttt{STRUCTURAL PROPOSAL} & a reading or construction, not a theorem \\
+\texttt{CONJECTURE} & a precise statement expecting proof or refutation \\
+\texttt{OPEN PROBLEM} & a question with no settled answer \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Three warnings apply throughout.  First, a finite calibration is not a theorem.
+Second, an alignment that requires a choice is stated as non-canonical.  Third, the
+equivalence of \S\ref{sec:equivalence} is stated at the strength the dictionary
+supports; the directions it does not support are listed as open problems rather than
+as consequences.
+
+\subsection{Relation to the earlier papers}
+
+The dependency is one-way and is fixed by
+\path{governance/00e-paper-VI-process-geometry-scope.md}:
+
+\begin{center}
+\begin{tabular}{@{}ll@{}}
+\toprule
+Paper & What this paper imports \\
+\midrule
+Paper I & sequential histories, spine, chirality word, mirror and reversal \\
+Paper 0 & the expression-space language and the charge vocabulary \\
+Paper V & the six-state carrier, $\Omega$, and the chirality sign law \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The paper proves no new statement inside the scope of those papers, and no proved
+node of Papers~0--V may depend on it.  What it adds is the general process theory
+and the dictionary; what it does not do is replace the sequential theory.  The
+sequential case is recovered as the single-spine leaf of the process theory, and the
+recovery is stated as a proposition rather than as a redefinition.
+
+\subsection{Roadmap}
+
+Section~\ref{sec:processes} fixes the native objects: the open program, the three
+readings, the schedule, the arity-one principle, and the spine and comb orders.
+Section~\ref{sec:orders} states and proves the canonical evaluation order and records
+its finite calibration.  Section~\ref{sec:carousel} develops the carousel
+correspondence and the screw carrier, including the refutation of the strong form.
+Section~\ref{sec:equivalence} gives the typed dictionary and the equivalence
+statements.  Section~\ref{sec:boundaries} collects the claim ledger, the open
+problems, and the directions that would extend the paper.

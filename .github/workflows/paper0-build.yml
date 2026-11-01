@@ -1,4 +1,4 @@
-name: Paper 0, I and IV integration checks
+name: Paper and calibration integration checks
 
 on:
   pull_request:
@@ -6,6 +6,9 @@ on:
       - "paper-0/**"
       - "paper-1/**"
       - "paper-4/**"
+      - "paper-6/**"
+      - "research/iota-carousel/**"
+      - "research/donaghey-orbits/**"
       - "research/pants-interface-disks/verify_handles.py"
       - "research/pants-interface-disks/evidence-handles.json"
       - "research/pants-interface-disks/verify_v1.py"
@@ -26,6 +29,14 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install the calibration dependency
+        run: python3 -m pip install numpy==2.3.3
 
       - name: Install TeX dependencies
         run: |
@@ -83,10 +94,30 @@ jobs:
       - name: Build Paper IV
         run: ./build.sh 4
 
+      - name: Build Paper VI
+        run: ./build.sh 6
+
+      - name: Replay the iota-carousel and Donaghey calibrations
+        run: |
+          python3 research/iota-carousel/verify_planar.py /tmp/planar.json
+          cmp /tmp/planar.json research/iota-carousel/evidence-planar-v1.json
+          python3 research/iota-carousel/verify_shift.py /tmp/shift.json
+          cmp /tmp/shift.json research/iota-carousel/evidence-shift-v1.json
+          python3 research/iota-carousel/verify_canonical_choice.py /tmp/canonical.json
+          cmp /tmp/canonical.json research/iota-carousel/evidence-canonical-choice-v1.json
+          python3 research/iota-carousel/verify_omega.py /tmp/omega.json
+          cmp /tmp/omega.json research/iota-carousel/evidence-omega-v1.json
+          python3 research/donaghey-orbits/verify_orbits.py
+
       - name: Check important LaTeX warnings
         run: |
           status=0
-          for log in paper-0/aeg-paper-0.log paper-1/aeg-paper-1.log paper-4/aeg-paper-4.log; do
+          for log in paper-0/aeg-paper-0.log paper-1/aeg-paper-1.log paper-4/aeg-paper-4.log paper-6/aeg-paper-6.log; do
+            if [ ! -f "$log" ]; then
+              echo "$log is missing" >&2
+              status=1
+              continue
+            fi
             if grep -E "(Undefined control sequence|LaTeX Warning: Reference .* undefined|LaTeX Warning: Citation .* undefined|There were undefined references|multiply defined)" "$log"; then
               echo "$log contains unresolved LaTeX warnings" >&2
               status=1
@@ -102,4 +133,5 @@ jobs:
             paper-0/aeg-paper-0.pdf
             paper-1/aeg-paper-1.pdf
             paper-4/aeg-paper-4.pdf
+            paper-6/aeg-paper-6.pdf
           if-no-files-found: error

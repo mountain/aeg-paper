@@ -1,0 +1,133 @@
+% Section 6: Claim boundaries and the remaining programme.
+
+\subsection{The claim ledger}
+
+The following table is the paper's ledger.  It records the status of every substantive
+statement; the governing file is
+\path{governance/00e-paper-VI-process-geometry-scope.md}, and the status labels are
+those of \path{governance/05c-paper-VI-status-register.md}.
+
+\begin{center}
+\footnotesize
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.42\linewidth}>{\raggedright\arraybackslash}p{0.22\linewidth}>{\raggedright\arraybackslash}p{0.30\linewidth}@{}}
+\toprule
+Statement & Status & Evidence \\
+\midrule
+open finite program, construction order, schedule
+  & \texttt{DEFINITION} & process corpus \cite{AdvaProcessCore2026,ProcessGeometryCore2026} \\
+three readings $K,C,F$ of one process
+  & \texttt{IMPORTED TECHNICAL} & process corpus \\
+slice composition and schedule independence
+  & \texttt{IMPORTED TECHNICAL} & process corpus, finite fixtures \\
+arity-one principle (slot order from the carrier)
+  & \texttt{STRUCTURAL PROPOSAL} & this paper, \S\ref{sec:processes} \\
+free histories are single-spine programs
+  & \texttt{PROVED} & Proposition~\ref{prop:sequential-leaf} \\
+canonical evaluation order, all plane trees
+  & \texttt{PROVED} & Theorem~\ref{thm:canonical-order} \\
+canonical order, $3\le n\le 6$ (193 trees)
+  & \texttt{COMPUTATIONALLY VERIFIED EXAMPLE} & the canonical-choice verifier (\S\ref{sec:orders}) \\
+screened alignment: carousel is not $J$
+  & \texttt{PROVED} (correspondence record) & \S\ref{sec:carousel} \\
+Laplacian does not carry the index
+  & \texttt{PROVED} (finite obstruction) & No-go~\ref{nogo:laplacian-index} \\
+screw module $C^{4}=S$
+  & \texttt{COMPUTATIONALLY VERIFIED EXAMPLE} & \texttt{verify\_planar.py} \\
+carousel as \emph{the} carrier of the screw
+  & \texttt{STRUCTURAL PROPOSAL} & \S\ref{sec:carousel} \\
+canonical schedule (Corollary~\ref{cor:canonical-schedule})
+  & \texttt{PROVED} & Theorem~\ref{thm:canonical-order} \\
+doubled screw construction $H_{\iota}=\mathrm{diag}(H,H)$
+  & \texttt{CONSTRUCTION} + exact identities & \path{verify_shift.py} \\
+sequential recovery equivalence
+  & \texttt{PROVED} & Theorem~\ref{thm:sequential-recovery} \\
+general process--expression equivalence
+  & \texttt{CONJECTURE} & Conjecture~\ref{conj:general-equivalence} \\
+one-hole contexts as compiled observations
+  & \texttt{OPEN} & \S\ref{sec:equivalence} \\
+charge as frontier data
+  & \texttt{OPEN} & \S\ref{sec:equivalence} \\
+\bottomrule
+\end{longtable}
+\end{center}
+
+\subsection{Open problems}
+
+\begin{problem}[The general assignment]\label{prob:general-functor}
+Construct the assignment of Conjecture~\ref{conj:general-equivalence} and prove that it
+preserves the canonical order, or refute the conjecture by a tree whose schedule
+structure has no process image.
+\end{problem}
+
+\begin{problem}[Derive the shift]\label{prob:derive-shift}
+Derive the index shift $S$ from the arithmetic or process data rather than postulating
+it.  The candidate carriers supplied by the cut Laplacian are excluded by
+No-go~\ref{nogo:laplacian-index}; the shift must come from a planar datum.
+\end{problem}
+
+\begin{problem}[Absorb the base corner]\label{prob:absorb-sr}
+Extend the planar module so that the base corner $SR$ is represented rather than
+added as an entry, and check whether the extended module still satisfies
+$C^{4}=S$.
+\end{problem}
+
+\begin{problem}[Canonicality of the criterion]\label{prob:criterion}
+Decide whether another natural criterion --- for example preserving the left-to-right
+order of leaves, or invariance under the mirror --- selects the same unique linear
+extension as Theorem~\ref{thm:canonical-order}.  Agreement would strengthen the
+canonicality; disagreement would show that the choice depends on the criterion and
+must be declared.
+\end{problem}
+
+\begin{problem}[Two layers, one transform]\label{prob:layers}
+State precisely the relation between the planar canonicalisation of
+Theorem~\ref{thm:canonical-order} and the poset-layer obstruction for the transform
+$\tau$ (\texttt{OQ-098}): the first chooses one linear extension, the second says that
+$\tau$ does not descend to the down-set lattice.  The two statements are different and
+the difference must be written down, not conflated.
+\end{problem}
+
+\begin{problem}[Fringing and orbit growth]\label{prob:fringing}
+Decide whether the carousel effect, the source's fringing law and the orbit growth
+$O(n^{\log_{2}3})$ correspond to arithmetic periodic orbits, as the research notes
+propose.  This needs the arithmetic orbit structure and is not settled
+by the carrier correspondence.
+\end{problem}
+
+\begin{problem}[Program-side fixtures]\label{prob:fixtures}
+Store the three acceptance tests of \S\ref{sec:equivalence} as executed fixtures on
+the program side: tree census, schedule count, and carrier check.  Until they exist,
+the equivalence remains conjectural even where each side has been checked separately.
+\end{problem}
+
+\begin{problem}[Presentation and objectification]\label{prob:presentation}
+Bring the process corpus's presentation and objectification layers into the paper's
+scope, or state explicitly that they are outside it.  The present draft imports only
+the native process, the three readings, and the slice laws; the rest of the Process
+Geometry programme is cited, not developed.
+\end{problem}
+
+\subsection{What this paper does not claim}
+
+The paper does not claim that every program is an arithmetic expression, that values
+determine programs, that the equivalence is proved in general, that the carousel
+correspondence is canonical, that the screw module is the unique carrier, or that any
+complexity or decidability consequence follows from the correspondence.  None of the
+proved statements of Papers~0--V is redefined, strengthened, or weakened here, and no
+proved node of those papers may depend on this one.
+
+\subsection{The remaining programme}
+
+The programme has a clear order of dependence.  First the general assignment
+(Problem~\ref{prob:general-functor}), because everything else is stated through it.
+Then the derivation of the shift (Problem~\ref{prob:derive-shift}) and the absorption
+of the base corner (Problem~\ref{prob:absorb-sr}), which decide whether the planar
+module is the right carrier.  Then the criterion question
+(Problem~\ref{prob:criterion}), which decides whether canonicality survives a change
+of presentation.  The arithmetic directions --- fringing and orbits
+(Problem~\ref{prob:fringing}) --- come last, because they presuppose the arithmetic
+orbit structure and are not settled by the carrier alone.
+
+The process corpus is cited at a declared revision.  A later revision that changes the
+slice laws or the observer policy is a boundary of this paper, not an automatic
+extension of it: the paper states what it imported and when.

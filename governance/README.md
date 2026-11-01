@@ -30,6 +30,12 @@ Each arrow forgets information. AEG investigates the algebraic, geometric, analy
 > [`governance/00c-paper-V-triadic-aperture-scope.md`](00c-paper-V-triadic-aperture-scope.md);
 > its manuscript is `paper-5/aeg-paper-5.tex`. It is a draft and is not part of the
 > four-manuscript restructuring count.
+>
+> **A sixth slot, Paper VI, has since been opened.** Its scope is fixed in
+> [`governance/00e-paper-VI-process-geometry-scope.md`](00e-paper-VI-process-geometry-scope.md);
+> its manuscript is `paper-6/aeg-paper-6.tex` and its claim register is
+> [`governance/05c-paper-VI-status-register.md`](05c-paper-VI-status-register.md).
+> It is a draft.
 
 The current source contains material developed at different stages of the research program. Some notes are proved mathematics; others are exploratory constructions, structural proposals, conjectures, superseded formulations, or open problems.
 
@@ -41,11 +47,13 @@ The governing specifications are:
 * [`governance/00-authoritative-scope.md`](00-authoritative-scope.md)
 * [`governance/00b-paper-0-geometric-foundation-amendment.md`](00b-paper-0-geometric-foundation-amendment.md)
 * [`governance/00c-paper-V-triadic-aperture-scope.md`](00c-paper-V-triadic-aperture-scope.md)
+* [`governance/00e-paper-VI-process-geometry-scope.md`](00e-paper-VI-process-geometry-scope.md)
 * [`governance/01-paper-series-architecture.md`](01-paper-series-architecture.md)
 * [`governance/02-paper-I-outline.md`](02-paper-I-outline.md)
 * [`governance/03-theorem-dependency-graph.md`](03-theorem-dependency-graph.md)
 * [`governance/04-current-to-target-map.md`](04-current-to-target-map.md)
 * [`governance/05-mathematical-status.md`](05-mathematical-status.md)
+* [`governance/05c-paper-VI-status-register.md`](05c-paper-VI-status-register.md)
 * [`governance/06-editorial-rules.md`](06-editorial-rules.md)
 * [`governance/07-acceptance-checklist.md`](07-acceptance-checklist.md)
 * [`governance/08-open-questions.md`](08-open-questions.md)
@@ -84,7 +92,7 @@ registered as OQ-078--OQ-080 in
 
 # The AEG paper series
 
-The first phase of the program is organized into five papers.
+The programme is organized into seven papers, indexed 0 and I--VI.
 
 | Paper | Current manuscript title                                                                    | Primary question                                                                                                   |
 | ----- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
@@ -101,6 +109,8 @@ Paper 0 ──→ Paper I ──→ Paper II
                     ──→ Paper III
                     ──→ Paper IV
 Paper II ──→ Paper III  [bounded holomorphic-pullback interface]
+Paper IV ──→ Paper V
+Paper 0, Paper I, Paper V ──→ Paper VI
 ```
 
 Paper 0 is the geometric foundation: it owns arithmetic expression spaces, the

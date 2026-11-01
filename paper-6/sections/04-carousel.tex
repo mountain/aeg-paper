@@ -1,0 +1,147 @@
+% Section 4: The carousel, the iota carrier, and the screw module.
+
+\subsection{The carousel of a plane tree}
+
+Pushkarev--Byzov study a transformation of plane planted trees and its action on the
+non-root vertices of the binary picture \cite{PushkarevByzov2014}.  The vertices fall
+into five classes, written $SR$, $LL$, $RL$, $RN$, $LN$: $SR$ is the son of the root,
+$LL$ and $RL$ are the left and right leaves, and $LN$ and $RN$ the left and right
+non-leaves.  The source calls these classes \emph{corners}; they are vertex classes,
+not geometric corners.  Under the
+transformation the classes are transported cyclically at the class level,
+\[
+LL\longrightarrow RL\longrightarrow RN\longrightarrow LN\longrightarrow LL,
+\]
+with $SR$ as the base corner and an index shift that records the traversal position;
+the counts of the five classes obey the closed transport law of the source
+(Theorem~4.3 and Corollary~4.4 of \cite{PushkarevByzov2014}).
+
+\begin{remark}[Two levels, and the one that is not a rotation]\label{rem:two-levels}
+The class-level four-cycle and the count-level transport are different structures.  On
+the constraint surface of the corner counts the transport is an \emph{involution} of
+order two, not a four-cycle; the class-level cycle is invisible to the counts.  This
+is the first reason the correspondence with the iota carrier must be stated carefully:
+an alignment at one level does not automatically descend to the other.
+\end{remark}
+
+\subsection{The iota complex unit}
+
+Paper~V's carrier is $W=\Lambda^{1}E\oplus\Lambda^{2}E$ with basis
+$T,S,R,SR,RT,TS$ and the three aspect--opposite-relation planes
+\[
+W_T=\langle T,SR\rangle,\qquad W_S=\langle S,RT\rangle,\qquad W_R=\langle R,TS\rangle .
+\]
+The generators satisfy $T^{2}=S^{2}=R^{2}=1$ and $\varepsilon_i\varepsilon_j+
+\varepsilon_j\varepsilon_i=0$ for $i\neq j$, and $\Omega=TSR$ is central with
+$\Omega^{2}=-1$; cyclic permutations preserve $\Omega$ and transpositions reverse it,
+the chirality sign law \cite{Yuan2026AEGPaperFive}.  The complex unit $J$ acts by
+rotation by a quarter turn inside each plane, sending a positive state to a signed
+state and preserving each plane.
+
+\begin{proposition}[A screened alignment]\label{prop:screened-alignment}
+The strong statement ``the carousel class-cycle is $J$ on the six states'' is false.
+The carousel has five classes with a four-cycle on four of them plus an entry from
+$SR$, while $J$ is plane-preserving and moves a positive state to a signed one.  A
+non-canonical alignment exists: the four-cycle can be matched to $J$'s four-cycle on
+one plane in $3\times 2=6$ ways (three planes, two orientations), but the $SR$ entry
+and the index shift have no $J$ counterpart.
+\end{proposition}
+
+\begin{proof}[Proof record]
+The statement is the alignment result of the carousel--iota alignment
+note (note~32).  The carrier identities
+$\Omega^{2}=-I$, $\Omega^{4}=I$ and plane preservation are replayed by
+\path{research/iota-carousel/verify_omega.py}; the six plane/orientation candidates are
+enumerated by hand in the alignment note, not by that script, and the absence of an
+$SR$/index counterpart is structural (it follows from the class list).  The claim is
+recorded as a correspondence, not as a theorem of the carrier.  The
+plane-preservation and sign action of $J$ are the sign law of Paper~V; the class list
+and cycle are the source's Theorem~4.1--4.3.  The $3\times2$ count is exhaustive for
+the alignment of a four-cycle to a plane's signed four states.
+\end{proof}
+
+The proposition is deliberately negative: it fixes what the correspondence is
+\emph{not}, and leaves the surviving positive statement to be stated at its own
+strength.  That statement is a screw.
+
+\subsection{The index shift and the obstruction from the Laplacian}
+
+The carousel's index is a traversal position of the source over the vertex classes.
+The finite obstruction below uses the planar statistic
+$k(t)=\#\{\text{left leaves of }t\}$, which is the statistic the shift note and its
+verifier compute; whether the source's traversal index agrees with $k(t)$ on every
+tree is part of the correspondence and is not assumed here
+(Problem~\ref{prob:derive-shift}).  A candidate for carrying $k$ is the cut Laplacian:
+take the down-set lattice $O(P)$ of the dependency poset (the lattice of Paper~I),
+its Hasse diagram $G(O(P))$, and the normalized graph Laplacian
+$H=L/(2d_{\max})$ on functions on its vertices.  The candidate fails.
+
+\begin{nogo}[The Laplacian does not carry the index]\label{nogo:laplacian-index}
+The Hasse diagram of $O(P)$ forgets left and right, whereas $k(t)$ is planar: with
+$\ell=4$ leaves (three internal vertices) four trees share the normalized spectrum
+$(0,\,0.1464,\,0.5,\,0.8536)$ yet carry different numbers of left leaves.  Hence no
+function of this spectrum can recover $k$.
+\end{nogo}
+
+\begin{proof}[Proof record]
+The four trees and their spectra are listed in the shift note; the computation,
+including the down-set Hasse graph and the normalization $L/(2d_{\max})$, is replayed by
+\path{research/iota-carousel/verify_shift.py}.  The argument is the planarity
+obstruction: the down-set lattice is a poset invariant, the index is not.
+\end{proof}
+
+A screw reading exists on a doubled construction: let $H_{\iota}=\mathrm{diag}(H,H)$
+on two copies of the down-set space and
+$J_{\iota}=\begin{psmallmatrix}0&-I\\ I&0\end{psmallmatrix}$.  Then
+$[J_{\iota},H_{\iota}]=0$, $J_{\iota}^{2}=-I$, and with $A=-J_{\iota}H_{\iota}$ one has
+$A^{2}=-H_{\iota}^{2}$ and
+$\exp(tA)=\cos(tH_{\iota})-J_{\iota}\sin(tH_{\iota})$, as replayed by
+\path{research/iota-carousel/verify_shift.py}.  This is a construction on the doubled
+space, not a claim that the cut Laplacian itself carries the index.  We therefore
+\emph{propose} that the height be carried by a planar, unbounded structure
+(Problem~\ref{prob:derive-shift}).
+
+\subsection{The planar screw module}
+
+\begin{construction}[Planar screw module]\label{con:screw-module}
+Let $V_{\mathrm{class}}$ be the four-dimensional real space on the class-cycle
+$\{LL,RL,RN,LN\}$ and let $V_{\mathrm{index}}$ be the real space on the index set
+$\{e_k:k\ge 1\}$.  Put $V=V_{\mathrm{class}}\otimes V_{\mathrm{index}}$ and define
+\begin{align*}
+J_{\mathrm{cl}}:(c,k)&\longmapsto(c+1,k) &&\text{(class part of the iota unit, order four)},\\
+S:(c,k)&\longmapsto(c,k+1) &&\text{(the shift/height)},\\
+C:(c,k)&\longmapsto(c+1\bmod 4,\;k+[c=LN]) &&\text{(the carousel)};
+\end{align*}
+\end{construction}
+
+\begin{proposal}[The carousel is a screw]\label{prop:carousel-screw}
+On $V$ the carousel satisfies $C^{4}=S$, the class rotation satisfies
+$J_{\mathrm{cl}}^{4}=\mathrm{id}$, and $[J_{\mathrm{cl}},S]=0$.  The count shadow
+$M:(a,b,c,d)\mapsto(d+1,a,b-1,c)$ on the constraint surface $a=c+1$, $b=d+1$
+satisfies $M^{2}=\mathrm{id}$, so the screw structure is invisible to the corner
+counts.  The carousel is therefore a projective fourth root
+of the shift: the rotation half is supplied by the iota carrier, and the height half
+is an independent structure.
+\end{proposal}
+
+\begin{calibration}[Finite check of the screw]\label{cal:screw}
+The relations $C^{4}=S$, $J_{\mathrm{cl}}^{4}=\mathrm{id}$,
+$[J_{\mathrm{cl}},S]=0$ and $M^{2}=\mathrm{id}$ are exact identities of the definitions
+(one of four successive classes is $LN$); \path{research/iota-carousel/verify_planar.py}
+replays them on a finite range and reproduces the stored evidence
+\path{evidence-planar-v1.json}.  The non-trivial step is the identification of this $C$
+with the source's carousel, which is the proposal above.  Since $S$ is a unilateral
+shift $e_k\mapsto e_{k+1}$, $C$ is not invertible: the structure is a semigroup action,
+not a group action.
+\end{calibration}
+
+\begin{remark}[What is proved and what is proposed]\label{rem:screw-status}
+The existence of the module and the finite relations are
+\texttt{COMPUTATIONALLY VERIFIED EXAMPLE}.  The reading of the module as \emph{the}
+carrier of the carousel is a \texttt{STRUCTURAL PROPOSAL}: it is a choice of
+presentation, supported by the relations and by the refutation of the alternatives,
+but not forced by them.  The paper keeps the two apart, and \S\ref{sec:boundaries}
+records the residual questions: whether $S$ can be derived from AEG/Adva data rather
+than postulated, whether $SR$ can be absorbed into $V$, and whether the construction
+extends beyond the planar class.
+\end{remark}

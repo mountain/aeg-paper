@@ -1,0 +1,85 @@
+{
+  "Omega_fourth_is_I": true,
+  "Omega_squared_is_minus_I": true,
+  "note": "J preserves each plane; on each plane's four signed states J is one 4-cycle.  The carousel's 4-cycle can align to ONE plane (non-canonical); the SR entry / index shift has no J counterpart.  See note 32.",
+  "planes": [
+    {
+      "generators": [
+        "T",
+        "SR"
+      ],
+      "j_preserves": true,
+      "plane": "W_T",
+      "signed_four_cycle": [
+        [
+          "+",
+          "T"
+        ],
+        [
+          "+",
+          "SR"
+        ],
+        [
+          "-",
+          "T"
+        ],
+        [
+          "-",
+          "SR"
+        ]
+      ]
+    },
+    {
+      "generators": [
+        "S",
+        "RT"
+      ],
+      "j_preserves": true,
+      "plane": "W_S",
+      "signed_four_cycle": [
+        [
+          "+",
+          "S"
+        ],
+        [
+          "+",
+          "RT"
+        ],
+        [
+          "-",
+          "S"
+        ],
+        [
+          "-",
+          "RT"
+        ]
+      ]
+    },
+    {
+      "generators": [
+        "R",
+        "TS"
+      ],
+      "j_preserves": true,
+      "plane": "W_R",
+      "signed_four_cycle": [
+        [
+          "+",
+          "R"
+        ],
+        [
+          "+",
+          "TS"
+        ],
+        [
+          "-",
+          "R"
+        ],
+        [
+          "-",
+          "TS"
+        ]
+      ]
+    }
+  ]
+}
