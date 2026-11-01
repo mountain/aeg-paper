@@ -26,13 +26,17 @@ The active manuscript series is now:
 > **Arithmetic Expression Geometry V: Triadic Characteristics and Threaded Apertures**  
 > *Three Readings, Observation Fibres, and the Syntax of Apertures*
 
+> **Arithmetic Expression Geometry VI: Process Geometry**  
+> *Native Programs, Evaluation Orders, and the Arithmetic--Process Equivalence*
+
 Their canonical entry points are
 [`paper-0/aeg-paper-0.tex`](paper-0/aeg-paper-0.tex),
 [`paper-1/aeg-paper-1.tex`](paper-1/aeg-paper-1.tex),
 [`paper-2/aeg-paper-2.tex`](paper-2/aeg-paper-2.tex),
 [`paper-3/aeg-paper-3.tex`](paper-3/aeg-paper-3.tex),
-[`paper-4/aeg-paper-4.tex`](paper-4/aeg-paper-4.tex), and
-[`paper-5/aeg-paper-5.tex`](paper-5/aeg-paper-5.tex).
+[`paper-4/aeg-paper-4.tex`](paper-4/aeg-paper-4.tex),
+[`paper-5/aeg-paper-5.tex`](paper-5/aeg-paper-5.tex), and
+[`paper-6/aeg-paper-6.tex`](paper-6/aeg-paper-6.tex).
 The governing scope, mathematical-status records, migration map, and acceptance
 criteria are under [`governance/`](governance/README.md). Paper 0 is introduced
 by the authoritative amendment
@@ -93,7 +97,7 @@ The Zenodo DOI identifies an earlier archived version of the manuscript. It does
 not automatically identify any active restructured paper. A future release must
 receive explicit author approval before DOI metadata is changed.
 
-## Six-paper architecture
+## Seven-paper architecture
 
 0. **Paper 0 — Arithmetic Expression Spaces.** Arithmetic expansions under
    explicit operand-slot conventions, the distributive law as the rewrite
@@ -141,12 +145,24 @@ receive explicit author approval before DOI metadata is changed.
    decidable derivability, and the six-port whole-cut kernel. Its scope is fixed
    by [`governance/00c-paper-V-triadic-aperture-scope.md`](governance/00c-paper-V-triadic-aperture-scope.md).
 
+6. **Paper VI — Process Geometry.** Native open programs with ordered holes and
+   retained construction history, the three readings K/C/F, schedules as linear
+   extensions of the construction order, the arity-one carrier and the recovery of
+   the spine and comb orders, the canonical evaluation order for plane trees, the
+   carousel correspondence and the planar screw module, and the typed dictionary and
+   equivalence statements connecting process geometry with Papers I and V. Its
+   scope is fixed by
+   [`governance/00e-paper-VI-process-geometry-scope.md`](governance/00e-paper-VI-process-geometry-scope.md).
+
 The dependency architecture is
 
 ```text
 Paper 0 -> Paper I -> Paper II
                    -> Paper III
                    -> Paper IV -> Paper V
+Paper I -> Paper VI
+Paper V -> Paper VI
+Paper 0 -> Paper VI
 ```
 
 ## Path--ripple research spine
@@ -236,7 +252,7 @@ The local build requires `pdflatex` and `bibtex`:
 ./build.sh
 ```
 
-This builds Papers 0--IV. To build one manuscript only, run
+This builds Papers 0--VI. To build one manuscript only, run
 
 ```bash
 ./build.sh 0
@@ -244,9 +260,11 @@ This builds Papers 0--IV. To build one manuscript only, run
 ./build.sh 2
 ./build.sh 3
 ./build.sh 4
+./build.sh 5
+./build.sh 6
 ```
 
-The expected artifacts are `paper-k/aeg-paper-k.pdf` for `k = 0,1,2,3,4`.
+The expected artifacts are `paper-k/aeg-paper-k.pdf` for `k = 0,1,2,3,4,5,6`.
 
 A container build remains available for environments with Docker:
 

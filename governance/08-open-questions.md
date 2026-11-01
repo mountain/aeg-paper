@@ -4550,3 +4550,77 @@ been checked statement by statement.
 **Next steps.** (i) Either promote `A4` to a proposition with a full proof of `A3`,
 or keep it as Remark 10.13; (ii) construct the interior-critical-point branch;
 (iii) decide whether a labelled interface belongs to the paper scope at all.
+
+---
+
+## OQ-100 — Process geometry and the arithmetic--process equivalence (Paper VI)
+
+**Priority:** P1 for Paper VI; not blocking Papers 0--V.
+**State:** OPEN (2026-11-01).
+**Scope:** `governance/00e-paper-VI-process-geometry-scope.md`, `paper-6/`.
+**Depends on:** `governance/00-authoritative-scope.md`,
+`governance/01-paper-series-architecture.md`,
+`governance/00c-paper-V-triadic-aperture-scope.md`,
+`governance/00e-paper-VI-process-geometry-scope.md`,
+`governance/05-mathematical-status.md`,
+`governance/05c-paper-VI-status-register.md`,
+`notes/analysis-and-calculus/26`--`40`,
+`research/iota-carousel/`, `research/donaghey-orbits/`,
+`research/process-representation-gap/`.
+
+**Question.** Paper VI opens the process side of the series: open finite programs,
+schedules as linear extensions, the arity-one carrier, the canonical evaluation
+order, the carousel correspondence, and a typed dictionary with arithmetic
+expression geometry. The items below are the open parts of that programme; none
+of them is a claim of Paper VI, and none blocks a proved node of Papers 0--V.
+
+**100.1 — The general assignment (`CONJECTURE`).**
+Construct the natural assignment of Conjecture 5.3 (`paper-6/sections/05-equivalence.tex`)
+from plane binary trees with their corner and dependency orders to open finite
+programs with a planar schedule structure, and prove that it preserves the
+canonical order; or refute it with a tree whose schedule structure has no process
+image. The sequential fragment is proved (Theorem 5.2 of the manuscript); the
+general case is open.
+
+**100.2 — Derive the shift (`OPEN`).**
+The index shift `S` is postulated in the planar screw module
+(`V_class ⊗ V_index`, `C^4 = S`). The cut-Laplacian candidate is excluded by the
+finite obstruction in `paper-6/sections/04-carousel.tex`; a planar datum that
+derives `S` from AEG or process data has not been found.
+
+**100.3 — Absorb the base corner (`OPEN`).**
+Extend the planar module so that the base corner `SR` is represented rather than
+added as an entry, and check whether `C^4 = S` survives.
+
+**100.4 — Canonicality of the criterion (`OPEN`).**
+Theorem 3.6 proves that the left-first postorder uniquely minimizes inversions
+against the corner order. Decide whether another natural criterion (leaf order,
+mirror invariance) selects the same unique extension; agreement strengthens
+canonicality, disagreement forces the criterion to be declared.
+
+**100.5 — Planar and poset layers (`OPEN`).**
+The canonical order is a statement in the planar layer; the transform `τ` of
+`OQ-098` does not descend to the down-set lattice `O(P)`. The two statements must
+be related explicitly, not conflated: the first selects one linear extension, the
+second records a poset-layer obstruction.
+
+**100.6 — Fringing and orbit growth (`OPEN`).**
+Decide whether the carousel effect, the fringing law `Δ(Q(T)) = 3Δ(T)` and the
+orbit growth `O(n^{log₂ 3})` correspond to arithmetic periodic orbits
+(`OQ-098.3`). This needs the arithmetic orbit structure and is not settled by the
+carrier correspondence.
+
+**100.7 — Program-side fixtures (`OPEN`).**
+Store the three acceptance tests of `paper-6/sections/05-equivalence.tex` as
+executed fixtures on the process side: tree census, schedule count, carrier
+check. Until they exist, the equivalence is conjectural even where each side is
+separately calibrated.
+
+**100.8 — Presentation and objectification (`OPEN`).**
+Bring the process corpus's presentation and objectification layers into Paper VI's
+scope, or state explicitly that they are outside it. The present draft imports the
+native process, the three readings, and the slice laws only.
+
+**Default rule while open.** Cite Paper VI's proved statements only at their
+registered strength; do not use the equivalence as a dependency of Papers 0--V; do
+not promote a finite calibration to a theorem.

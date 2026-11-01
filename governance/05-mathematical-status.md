@@ -3675,3 +3675,11 @@ annular collars in the absence of such a disk. This weakens the prior
 overbroad gluing inference; it changes neither the eikonal obstruction nor the
 full collar contract.
 
+## Paper VI process-geometry register
+
+Paper VI's claims are registered separately in
+`governance/05c-paper-VI-status-register.md`, because that paper's scope
+(`00e-paper-VI-process-geometry-scope.md`) admits imported technical sources and
+finite calibrations that this register's vocabulary does not cover.  This register
+remains authoritative for Papers I--IV; the pointer does not register any Paper VI
+claim here.
