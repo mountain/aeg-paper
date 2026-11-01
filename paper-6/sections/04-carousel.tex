@@ -46,8 +46,9 @@ and the index shift have no $J$ counterpart.
 \end{proposition}
 
 \begin{proof}[Proof record]
-The statement is the alignment result of the research notes; it is recorded as a
-correspondence with a computed finite check, not as a theorem of the carrier.  The
+The statement is the alignment result of the research notes, with the computed check
+replayed by \path{research/iota-carousel/verify_omega.py}; it is recorded as a
+correspondence, not as a theorem of the carrier.  The
 plane-preservation and sign action of $J$ are the sign law of Paper~V; the class list
 and cycle are the source's Theorem~4.1--4.3.  The $3\times2$ count is exhaustive for
 the alignment of a four-cycle to a plane's signed four states.
@@ -59,9 +60,11 @@ strength.  That statement is a screw.
 
 \subsection{The index shift and the obstruction from the Laplacian}
 
-The carousel's index $k$ is a traversal position.  A natural candidate for carrying it
-is the cut Laplacian $H$ of the process, which supplies an operator with the right
-symmetry.  The candidate fails.
+The carousel's index $k$ is the \emph{preorder} position supplied by the corner order
+(Definition~\ref{def:corner-order}); it is not the postorder of the canonical schedule.
+A natural candidate for carrying it is the cut Laplacian $H$ of the process: the
+graph Laplacian of the cut graph, the Hasse diagram of the dependency poset, acting on
+functions on that graph.  The candidate fails.
 
 \begin{nogo}[The Laplacian does not carry the index]\label{nogo:laplacian-index}
 The cut graph is the Hasse diagram of the dependency poset, which forgets left and
@@ -71,14 +74,15 @@ of the cut Laplacian's spectrum can recover $k$.
 \end{nogo}
 
 \begin{proof}[Proof record]
-The finite computation is stored with the shift notes; the four trees and their
-spectra are listed there.  The argument is the planarity obstruction: the cut graph is
-a poset invariant, the index is not.
+The four trees and their spectra are listed in the shift note, and the spectrum
+computation is replayed by \path{research/iota-carousel/verify_shift.py}.  The
+argument is the planarity obstruction: the cut graph is a poset invariant, the index is
+not.
 \end{proof}
 
-The iota frame is nevertheless a screw in the sense that $[J,H]=0$, $J^{2}=-I$ and
-$\exp(tA)=\cos(tH)-J\sin(tH)$, so the rotation angle is proportional to an $H$
-eigenvalue.  What fails is only the attempt to make $H$ carry the shift; the rotation
+The iota frame is nevertheless a screw: with $A=-JH$ one has $[J,H]=0$, $J^{2}=-I$,
+$A^{2}=-H^{2}$ and $\exp(tA)=\cos(tH)-J\sin(tH)$ (checked in
+\path{verify_shift.py}), so the rotation angle is proportional to an $H$ eigenvalue.  What fails is only the attempt to make $H$ carry the shift; the rotation
 half survives.  The shift must therefore be carried by a planar, unbounded structure.
 
 \subsection{The planar screw module}
@@ -88,23 +92,26 @@ Let $V_{\mathrm{class}}$ be the four-dimensional real space on the class-cycle
 $\{LL,RL,RN,LN\}$ and let $V_{\mathrm{index}}$ be the real space on the index set
 $\{e_k:k\ge 1\}$.  Put $V=V_{\mathrm{class}}\otimes V_{\mathrm{index}}$ and define
 \begin{align*}
-J:(c,k)&\longmapsto(c+1,k) &&\text{(the iota complex unit, order four)},\\
+J_{\mathrm{cl}}:(c,k)&\longmapsto(c+1,k) &&\text{(class part of the iota unit, order four)},\\
 S:(c,k)&\longmapsto(c,k+1) &&\text{(the shift/height)},\\
-C:(c,k)&\longmapsto(c+1\bmod 4,\;k+[c=LN]) &&\text{(the carousel)}.
+C:(c,k)&\longmapsto(c+1\bmod 4,\;k+[c=LN]) &&\text{(the carousel)};
 \end{align*}
 \end{construction}
 
 \begin{proposal}[The carousel is a screw]\label{prop:carousel-screw}
-On $V$ the carousel satisfies $C^{4}=S$, the complex unit satisfies $J^{4}=\mathrm{id}$,
-and $[J,S]=0$.  The count shadow satisfies $M^{2}=\mathrm{id}$, so the screw structure
-is invisible to the corner counts.  The carousel is therefore a projective fourth root
+On $V$ the carousel satisfies $C^{4}=S$, the class rotation satisfies
+$J_{\mathrm{cl}}^{4}=\mathrm{id}$, and $[J_{\mathrm{cl}},S]=0$.  The count shadow
+$M:(k,\ell,m,n)\mapsto(n+1,k,\ell-1,m)$ on the constraint surface $k=m+1$, $\ell=n+1$
+satisfies $M^{2}=\mathrm{id}$, so the screw structure is invisible to the corner
+counts.  The carousel is therefore a projective fourth root
 of the shift: the rotation half is supplied by the iota carrier, and the height half
 is an independent structure.
 \end{proposal}
 
 \begin{calibration}[Finite check of the screw]\label{cal:screw}
-The relations $C^{4}=S$, $J^{4}=\mathrm{id}$, $[J,S]=0$ and $M^{2}=\mathrm{id}$ are
-checked by \texttt{research/iota-carousel/verify\_planar.py} on the declared finite
+The relations $C^{4}=S$, $J_{\mathrm{cl}}^{4}=\mathrm{id}$,
+$[J_{\mathrm{cl}},S]=0$ and $M^{2}=\mathrm{id}$ are checked by
+\path{research/iota-carousel/verify_planar.py} on the declared finite
 range; the calibration is a stored finite instance, not a proof of the general
 statement.
 \end{calibration}

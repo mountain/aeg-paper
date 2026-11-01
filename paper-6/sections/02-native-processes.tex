@@ -66,8 +66,9 @@ The three readings are coupled by
 \]
 and it is exactly this coupling that a schedule linearizes.  The statement that $K$,
 $C$ and $F$ are readings of one process, rather than three structures, is the
-primitive of the theory; it is imported from the process corpus, where the finite
-slices and their composition laws are checked \cite{ProcessGeometryCore2026}.
+primitive of the theory; it is imported from the process corpus at commit
+\texttt{c47c96fa79123c677172278be59d67ca1cc891b1}, where the finite slices and their
+composition laws are checked \cite{ProcessGeometryCore2026}.
 
 \begin{remark}[Slices]\label{rem:slices}
 For downward-closed $U\subseteq V$, the slice of $P$ between the cuts $U$ and $V$
@@ -144,9 +145,11 @@ single-leaf theory and the present paper is the tree-level one.
 \subsection{The poset layer}
 
 Fixing the sequential leaf does not yet fix the order theory of the branching case.
-The dependency poset of a general program is a tree-shaped poset, and its linear
-extensions are counted by the tree's hook-length formula rather than by a single
-chain.  Two independent structures must be kept apart:
+For a program whose body is a tree with no sharing, the dependency poset is
+tree-shaped, and its linear extensions are counted by the tree's hook-length formula
+rather than by a single chain.  A body with sharing has a DAG-shaped dependency poset,
+for which that count does not apply; the tree-level statements of \S\ref{sec:orders}
+are therefore made only in the no-sharing case.  Two independent structures must be kept apart:
 
 \begin{itemize}
 \item the \emph{planar} structure, which records left and right slots and is carried

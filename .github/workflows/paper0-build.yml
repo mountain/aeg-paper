@@ -7,6 +7,8 @@ on:
       - "paper-1/**"
       - "paper-4/**"
       - "paper-6/**"
+      - "research/iota-carousel/**"
+      - "research/donaghey-orbits/**"
       - "research/pants-interface-disks/verify_handles.py"
       - "research/pants-interface-disks/evidence-handles.json"
       - "research/pants-interface-disks/verify_v1.py"
@@ -87,6 +89,14 @@ jobs:
       - name: Build Paper VI
         run: ./build.sh 6
 
+      - name: Replay the iota-carousel and Donaghey calibrations
+        run: |
+          python3 research/iota-carousel/verify_omega.py
+          python3 research/iota-carousel/verify_planar.py
+          python3 research/iota-carousel/verify_shift.py
+          python3 research/iota-carousel/verify_canonical_choice.py
+          python3 research/donaghey-orbits/verify_orbits.py
+
       - name: Check important LaTeX warnings
         run: |
           status=0
@@ -106,4 +116,5 @@ jobs:
             paper-0/aeg-paper-0.pdf
             paper-1/aeg-paper-1.pdf
             paper-4/aeg-paper-4.pdf
+            paper-6/aeg-paper-6.pdf
           if-no-files-found: error

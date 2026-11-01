@@ -6,7 +6,8 @@
 A \emph{plane binary tree} is a rooted tree in which every internal vertex has a left
 and a right child, either of which may be a leaf; the children are ordered.  Write
 $I(t)$ for the set of internal vertices and $n(t)=|I(t)|$.  A vertex is a leaf when
-both children are leaves.  Trees are drawn with the root at the top and the left
+it has no children; every other vertex is internal and has a left and a right child
+position, either of which may lead to a leaf.  Trees are drawn with the root at the top and the left
 child to the left.
 \end{definition}
 
@@ -108,9 +109,10 @@ same extension.
 \subsection{Finite calibration and the limits of the statement}
 
 \begin{calibration}[Canonical order, small trees]\label{cal:canonical-order}
-For every plane binary tree with $n(t)\le 7$ (193 trees), the left-first postorder is
+For every plane binary tree with $3\le n(t)\le 6$ internal vertices, equivalently
+$4\le \ell(t)\le 7$ leaves (193 trees), the left-first postorder is
 the unique linear extension minimizing $\inv(\cdot,P(t))$.  The check is stored at
-\texttt{research/iota-carousel/verify\_canonical\_choice.py}; the closed form of the
+\path{research/iota-carousel/verify_canonical_choice.py}; the closed form of the
 calibration is the statement of Theorem~\ref{thm:canonical-order}, so the calibration
 is evidence for the implementation, not for the theorem.
 \end{calibration}
@@ -119,9 +121,10 @@ Theorem~\ref{thm:canonical-order} is a statement about plane binary trees and th
 descendant order.  It does not by itself say that an arbitrary program's dependency
 order is tree-shaped, nor that a general program has a unique canonical schedule: a
 program DAG may admit incomparable events that no planar structure orders.  What the
-theorem does supply is the canonical choice on the planar layer, and with it the
-bridge to the carousel, whose index is exactly a traversal position of the corner
-order.
+theorem does supply is the canonical choice on the planar layer.  The carousel's index
+is a different object: it is the \emph{preorder} position supplied by the corner order
+itself, not the canonical postorder schedule; \S\ref{sec:carousel} states the relation
+between the two, and the relation is not an equality of orders.
 
 \subsection{The planar and poset layers}
 

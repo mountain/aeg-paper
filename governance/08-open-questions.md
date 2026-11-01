@@ -4483,8 +4483,8 @@ order, the carousel correspondence, and a typed dictionary with arithmetic
 expression geometry. The items below are the open parts of that programme; none
 of them is a claim of Paper VI, and none blocks a proved node of Papers 0--V.
 
-**100.1 — The general functor (`CONJECTURE`).**
-Construct the functor of Conjecture 5.3 (`paper-6/sections/05-equivalence.tex`)
+**100.1 — The general assignment (`CONJECTURE`).**
+Construct the natural assignment of Conjecture 5.3 (`paper-6/sections/05-equivalence.tex`)
 from plane binary trees with their corner and dependency orders to open finite
 programs with a planar schedule structure, and prove that it preserves the
 canonical order; or refute it with a tree whose schedule structure has no process
