@@ -4344,6 +4344,21 @@ four Catalan families ↔ binary vs general trees. The difference `Z₂×Z₂` v
   computation to `n ≤ 7` (193 trees) agrees. So the cross-chain canonicalization
   is **proved**, not just verified. Residuals now: other intrinsic criteria, σ-
   equivariance, and the formal separation from note 29.
+  *Fringing / growth vs Hecke periodic orbits (note 42, 2026-11-01):* the answer is
+  layered. **Structural correspondence holds**: both sides are "codings of
+  primitive periodic orbits of a free-product action" — AEG's `Γ_4 = C₂*C₄`
+  (`eq:q4-sign-kernel-presentation`) with primitive hyperbolic classes ↔ periodic
+  orbits (`prop:q4-hyperbolic-class-knot`) and the zero dessin as coding spine
+  (`thm:q4-zero-dessin-coding-spine`), vs Pushkarev–Byzov's `⟨σ,θ⟩ = Z₂*Z₂` with
+  `τ`-orbits and the corner-order coding. Shared: free product, primitive,
+  coding spine, periodic orbits, **order-4 rotation** (carousel `J`/`C⁴=S` ↔ Hecke
+  `C₄` elliptic rotation). **Growth-rate correspondence does NOT hold**: fringing's
+  `O(n^{log₂3})` is an *orbit-length* substitution growth (verified `Δ(Q(T)) =
+  3Δ(T)` or `(3/2)Δ(T)`, `research/iota-carousel/verify_fringing.py`), whereas the
+  Hecke side is a *count* of periodic orbits (exponential, entropy 1). Different
+  quantity, different rate. Residuals: precise order-4 iso/embedding; code
+  translation (dessin cutting vs class 4-cycle); correct growth-rate pairing
+  (substitution Perron values); `Hist_4^{ph}` vs `τ`-orbit classes.
 - **098.4 — Functoriality of the right/left bijection.** Determine whether the
   right/left bijection gives a functor from the branching layer to the sequential
   layer that respects AEG's order defect and linear-extension structure. At
@@ -4370,6 +4385,7 @@ bijections themselves are classical and may be cited as such.
 `notes/analysis-and-calculus/39-canonical-choice-general-proof.md`;
 `notes/analysis-and-calculus/40-carousel-iota-overview.md`;
 `notes/analysis-and-calculus/41-donaghey-iota-grand-overview.md`;
+`notes/analysis-and-calculus/42-fringing-hecke.md`;
 `research/donaghey-orbits/` (finite verification);
 `research/ppct-lattice/` (finite verification);
 `paper-0/sections/03-aes-and-motion.tex` (left/right comb convention);

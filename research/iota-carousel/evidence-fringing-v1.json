@@ -1,0 +1,42 @@
+{
+  "all_match": true,
+  "note": "fringing doubles leaves (L->2L) and multiplies orbit length by 3 (or 3/2); substitution growth Delta ~ L^{log_2 3}. See note 42.",
+  "rows": [
+    {
+      "Delta": 1,
+      "Delta_Q": 3,
+      "Q_leaves": 4,
+      "Thm6.1_pred": 3,
+      "leaves": 2,
+      "match": true,
+      "tree": "N(L,L)"
+    },
+    {
+      "Delta": 2,
+      "Delta_Q": 3,
+      "Q_leaves": 6,
+      "Thm6.1_pred": 3,
+      "leaves": 3,
+      "match": true,
+      "tree": "N(L,N(L,L))"
+    },
+    {
+      "Delta": 2,
+      "Delta_Q": 3,
+      "Q_leaves": 6,
+      "Thm6.1_pred": 3,
+      "leaves": 3,
+      "match": true,
+      "tree": "N(N(L,L),L)"
+    },
+    {
+      "Delta": 3,
+      "Delta_Q": 9,
+      "Q_leaves": 8,
+      "Thm6.1_pred": 9,
+      "leaves": 4,
+      "match": true,
+      "tree": "N(N(L,L),N(L,L))"
+    }
+  ]
+}
