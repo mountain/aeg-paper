@@ -1,0 +1,89 @@
+{
+  "balanced": {
+    "leaves_agree": true,
+    "nodes_reversed": false,
+    "postorder_leaves": [
+      "LL",
+      "LR",
+      "RL",
+      "RR"
+    ],
+    "postorder_nodes": [
+      "L",
+      "R",
+      ""
+    ],
+    "preorder_leaves": [
+      "LL",
+      "LR",
+      "RL",
+      "RR"
+    ],
+    "preorder_nodes": [
+      "",
+      "L",
+      "R"
+    ],
+    "tree": "N(N(L,L),N(L,L))"
+  },
+  "left_comb": {
+    "leaves_agree": true,
+    "nodes_reversed": true,
+    "postorder_leaves": [
+      "LLL",
+      "LLR",
+      "LR",
+      "R"
+    ],
+    "postorder_nodes": [
+      "LL",
+      "L",
+      ""
+    ],
+    "preorder_leaves": [
+      "LLL",
+      "LLR",
+      "LR",
+      "R"
+    ],
+    "preorder_nodes": [
+      "",
+      "L",
+      "LL"
+    ],
+    "tree": "N(N(N(L,L),L),L)"
+  },
+  "right_comb": {
+    "leaves_agree": true,
+    "nodes_reversed": true,
+    "postorder_leaves": [
+      "L",
+      "RL",
+      "RRL",
+      "RRR"
+    ],
+    "postorder_nodes": [
+      "RR",
+      "R",
+      ""
+    ],
+    "preorder_leaves": [
+      "L",
+      "RL",
+      "RRL",
+      "RRR"
+    ],
+    "preorder_nodes": [
+      "",
+      "R",
+      "RR"
+    ],
+    "tree": "N(L,N(L,N(L,L)))"
+  },
+  "summary": {
+    "balanced_is_choice": true,
+    "comment": "Leaves: preorder = postorder (frontier). Nonleaf chains: reversed. Balanced (incomparable chains): global reversal fails -> a choice. So S for the carousel k should be the PREORDER (corner) successor; postorder is the evaluation order. See note 37.",
+    "leaves_agree_all": true,
+    "nodes_reversed_in_chains": true
+  }
+}

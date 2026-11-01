@@ -4311,6 +4311,21 @@ four Catalan families ↔ binary vs general trees. The difference `Z₂×Z₂` v
   postorder *evaluation* order (Thm 4.2 convention); left- vs right-first choice;
   general-`n` proof; and the relation to note 29's descent obstruction (choosing
   one canonical chain is a "single-valued descent").
+  *Corner-order ↔ evaluation-order alignment (note 37, 2026-11-01):* the OCR'd
+  Pushkarev–Byzov definitions confirm that "corner" here means **vertex**
+  (SR/LL/RL/LN/RN classify vertices) and that the **left standard traversal is
+  the PREORDER** (visit vertex, then left subtree, then right). Hence the
+  carousel's `k` is a **preorder (corner) position**, while the evaluation order
+  is the **postorder**. Their alignment (the paper's own Remark + a computation)
+  is: **leaves** — preorder = postorder = left-to-right frontier order;
+  **nonleaf chains** — preorder = postorder⁻¹ (inverted); **across incomparable
+  chains** — the relative order is a choice (the balanced tree shows the global
+  reversal fails). So `S` for the carousel `k` should be the **preorder (corner)
+  successor**, and note 36's `S` = postorder is the **evaluation order**, equal to
+  the corner order only on leaves and inverted on nonleaves. Residuals: canonical
+  choice across chains; general `n`; `S`-to-screw link; distinguish note 29's
+  multi-valued descent obstruction from the "corner order is not a linear
+  extension" gap (two different obstructions).
 - **098.4 — Functoriality of the right/left bijection.** Determine whether the
   right/left bijection gives a functor from the branching layer to the sequential
   layer that respects AEG's order defect and linear-extension structure. At
@@ -4332,6 +4347,7 @@ bijections themselves are classical and may be cited as such.
 `notes/analysis-and-calculus/34-planar-carrier.md`;
 `notes/analysis-and-calculus/35-derive-shift.md`;
 `notes/analysis-and-calculus/36-branching-layer-shift.md`;
+`notes/analysis-and-calculus/37-corner-order-alignment.md`;
 `research/donaghey-orbits/` (finite verification);
 `research/ppct-lattice/` (finite verification);
 `paper-0/sections/03-aes-and-motion.tex` (left/right comb convention);
