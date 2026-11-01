@@ -239,12 +239,24 @@ by all of them. Two constructions make the point.
 * **Fokker (1992).** A single closed $\lambda$-expression generating all
   $\lambda$-expressions is constructed, with simplicity as the criterion; the
   abstract states the result is simpler than known single-combinator bases.
+  The term is
+  \[
+  X_F=\lambda f.\,f\,S\,(\lambda xyz.x),\qquad
+  X_FX_F=\beta\ K,\quad X_F(X_FX_F)=\beta\ S,
+  \]
+  of size 12 in the paper's metric.  It is arity one but it is *not* the iota
+  term: the second argument is the three-argument constant
+  $\lambda xyz.x$, not $K=\lambda xy.x$, and that difference is what makes the
+  two generation patterns different.  Fokker's basis is therefore a second,
+  genuinely distinct arity-one basis, not a rediscovery of $\lambda x.xSK$.
 * **Goldberg (BRICS RS-01-35, 2001).** For every recursively enumerable set $S$
   of terms (possibly with constants and free variables) there is a single term
   $X$ with
   $X(\underbrace{X\cdots X}_{k+1})\to_\beta S_k$; the construction packages the
   enumeration into one term. The basis term is again a unary $\lambda$-term, and
-  generation proceeds by self-application.
+  generation proceeds by self-application; unlike Fokker's term it may carry
+  constants and free variables, and its reduction uses a computable
+  interpreter for the enumeration.
 
 The consequence for the present note is a sharpening, not a weakening, of the
 arity-one principle:
@@ -253,7 +265,9 @@ arity-one principle:
    one-point basis is arity one. What distinguishes bases is what they generate
    (combinators, all $\lambda$-terms, terms with constants), how they reduce, and
    whether they come with a carrier representation. "Arity one" alone therefore
-   does not single out iota.
+   does not single out iota; the Fokker term above is a concrete second case,
+   and its identity pattern ($X_FX_F=K$, $X_F(X_FX_F)=S$) differs from the iota
+   pattern ($X(X(XX))=K$, $X(X(X(XX)))=S$).
 2. **The syntactic layer is basis-independent.** Slot occurrences, construction
    order, schedules and the canonical evaluation order are properties of the
    application tree. They apply unchanged to terms written in any one-point
