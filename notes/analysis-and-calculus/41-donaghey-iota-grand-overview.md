@@ -1,13 +1,16 @@
 # Donaghey ↔ AEG ↔ iota：总地图
 
-## note 26–40 的大收束（两篇总览 note 30 与 note 40 之上）
+## note 26–44 的大收束（两篇总览 note 30 与 note 40 之上，纳入 42–44）
 
-### Research Note v0.1 · 2026-11-01
+### Research Note v0.2 · 2026-11-01
 
-**一句话**：note 26–40 是**一个对象（Donaghey 变换 `τ`）的两条正交线索**——
-- **树层线（26–30）**：`τ` 把"一般树 ↔ 二叉树"（`R/L`=左右梳，`σ/θ/φ`=镜像/反演/词编码），其轨道/双曲/下降性质；
+**一句话**：note 26–44 是**一个对象（Donaghey 变换 `τ`）的两条正交线索**——
+- **树层线（26–30、42–44）**：`τ` 把"一般树 ↔ 二叉树"（`R/L`=左右梳、`σ/θ/φ`=镜像/反演/词编码），及其轨道/双曲/下降/函子性；
 - **carousel–iota 线（31–40）**：`τ` 的 **carousel 效应**（Thm 4.3）拆成 **旋转半**（↔ iota 复单位 `J`）与 **shift 半**（↔ 角序后继 `S`）。
-两条线被**同一个障碍**串起——**平面（左/右）信息不可丢**（note 29 与 note 32 是同一障碍的两次现身）；并有一个**已证的定论**——shift 半的唯一典范化（note 39）。
+
+**两条主线**贯穿全部：
+1. **一个障碍——平面（左/右）信息不可丢**：在 `τ`（note 29）、`J`（note 32）、`H`（note 33）、**以及 `R/L` 双射的操作数（note 44）** 上四次现身；
+2. **一个已证的定论**——shift 半的唯一典范化（note 39，任意 `n`）；再加 **098.1a 的正结果 `θ̃ = τ∘m`**（note 43）。
 
 **入口**：本笔记（大收束）→ `30`（树层总览）→ `40`（carousel–iota 总览）→ 各详细笔记。
 
@@ -21,9 +24,10 @@
 | Pushkarev–Byzov 2014 | 三定义（右分解/双射/`φ⁻¹θφσ`）、carousel、fringing、轨道、`Z₂*Z₂` |
 | OEIS A014486 图表 | Catalan 结构罗塞塔 |
 | AEG Paper 5 | 六态载体、`Ω=TSR`、`Ω²=-1`、手性符号律 |
+| AEG Paper 3 | Hecke 周期轨道、零 dessin 编码脊（§5-q4-geodesic-knots）|
 | Adva | `0010` 手性载体、iota frame（`J`,`H`,`A=-JH`）、iota 组合子、`0168` |
 
-- `30` = 26–29 综合（树层）；`40` = 31–39 综合（carousel–iota）。**本笔记 = 二者之上。**
+- `30` = 26–29 综合（树层）；`40` = 31–39 综合（carousel–iota）；**本笔记 = 二者之上，并入 42–44。**
 
 ---
 
@@ -35,26 +39,29 @@
 
 **三定义**（Thm 2.1）：归纳式（右分解→左分解）；`T→T^R→T'`；`τ=φ⁻¹θφσ`（σ=transposition、θ=reflection、φ=PPCT↔Dyck）。
 
-**轨道**：carousel（Thm 4.3）；fringing（$\Delta(Q(T))=3\Delta(T)$ 或 $\tfrac32$）；轨道增长 $O(n^{\log_23})$；Thm 6.4 `⟨σ,θ⟩≅Z₂*Z₂`。
+**轨道**：carousel（Thm 4.3）；fringing（$\Delta(Q(T))=3\Delta(T)$ 或 $\tfrac32$）；轨道增长 $O(n^{\log_23})$；Thm 6.4 `⟨σ,θ̃⟩≅Z₂*Z₂`。
 
 ---
 
-## 2. 与 AEG 树层的精确对应（note 30 §2）
+## 2. 与 AEG 树层的精确对应（note 30 §2；`θ̃` 见 note 43）
 
 | Donaghey/PB | AEG | 状态 |
 |---|---|---|
 | **σ**（左右子互换）| 镜像 $m$（`def:mirror-temporal-reversal`）| 精确 |
 | **θ**（Dyck 反向）| 时间反演 $r$ | 精确（路径级）|
+| **θ̃ = φ⁻¹θφ**（路径反射）| **`τ∘m`**（note 43）| **精确（内在定义）** |
 | **φ**（PPCT↔Dyck）| up-down 词编码 | 精确 |
-| **R/L 双射** | 左/右梳 `conv:p0-left-right-convention` | 精确 |
+| **R/L 双射** | 左/右梳 `conv:p0-left-right-convention` | 精确（集合层）|
 | **四族** | 二叉树（顺序）vs 一般树（分支）| 精确 |
 | **τ=φ⁻¹θφσ** | Donaghey 变换 | 结构对应（≠$mr$）|
 
-**群结构**（note 30 §3）：AEG 的 $m,r$ 交换 → `Z₂×Z₂`（Klein）；Donaghey 的 $σ,\tilde θ$ 不交换 → `Z₂*Z₂`（无限二面体）。
+**群结构**（note 30 §3；note 43）：AEG 的 $m,r$ 交换 → `Z₂×Z₂`（Klein）；Donaghey 的 $σ,\tilde θ$ 不交换 → `Z₂*Z₂`（无限二面体）。**note 43** 给出 `θ̃ = τ∘m` 的内在定义（`θ̃²=id`、`m∘θ̃=τ⁻¹`），从而**树层的 `Z₂*Z₂` 不再需要外部构造**。
 
-**下降障碍**（note 29）：`τ` **不保持依赖偏序同构类**（$n=4$ 见证；$n\ge5$ 全骨架类多值）→ **`τ` 不下降到 $O(P)$**；双曲性严格是平面树层现象。
+**下降障碍**（note 29）：`τ` **不保持依赖偏序同构类** → **`τ` 不下降到 $O(P)$**；双曲性严格是平面树层现象。
 
 **格归属**（note 28）：论文"分配格"= **无限三叉树的 Birkhoff 下集格**，非 Tamari（$T_4$ 非分配）；AEG `O(P)` 是同构造、不同偏序。
+
+**函子性障碍**（note 44）：`R/L` 是集合双射 `PPCT(n叶) ↔ PPT(n-1边)`，但**操作数不保持**（PPCT 恒 `n-1`；PPT 分布 `{1,…,n-1}`），故**无"保序缺陷/保线性扩张"的函子性**——结构性否定。
 
 ---
 
@@ -73,15 +80,16 @@ carousel（Thm 4.3）是 `τ` 的一个**具体效应**，可拆成两半：
 
 ---
 
-## 4. 同一个障碍：平面信息不可丢
+## 4. 同一个障碍：平面/结构信息不可丢（四次现身）
 
-这是把两篇总览串起来的**主线**：
+这是把全部笔记串起来的**主线**：
 
-- **note 29**：`τ` 不下降到 $O(P)$——因为 `τ` 用左/右（平面）信息，而 $O(P)$（依赖偏序的下集格）**忘记**左/右。$n=4$ 见证：同属链类的两树，`τ` 后一留串行、一变分支。
-- **note 32**：carousel = `J` 强形式证伪——因为 `J` **保平面**（三平面各自不变），不能做 `SR→LL` 的**跨平面**入口。
+- **note 29**：`τ` 不下降到 $O(P)$——`τ` 用左/右（平面）信息，而 `O(P)` **忘记**左/右。$n=4$ 见证。
+- **note 32**：carousel = `J` 强形式证伪——`J` **保平面**，不能做 `SR→LL` 的**跨平面**入口。
 - **note 33**：`H` 不能承载 index `k`——`H` 来自割图（unplanar），而 `k=#左叶` 是 planar；同谱不同 `k` 见证。
+- **note 44**：`R/L` 双射**不保持操作数**（PPCT `n-1`，PPT `{1,…,n-1}`），故无保操作偏序的函子——"结构量不保"在**双射**上的现身。
 
-> **同一个"平面（左/右）不可丢"的障碍，在 $\tau$、在 $J$、在 $H$ 上三次现身。** 这不是三个巧合，而是**一个结构性事实**：AEG 的"树层"是 planar 的，"偏序/割图/谱"层是 unplanar 的，二者不能互相完全承载。
+> **同一个"结构量不可丢"的障碍，在 $\tau$、$J$、$H$、$R/L$ 上四次现身。** 这不是四个巧合，而是**一个结构性事实**：AEG 的"树层"是 planar 的，"偏序/割图/谱/一般树"层是 unplanar 的，二者不能互相完全承载。
 
 ---
 
@@ -102,12 +110,12 @@ $$
 
 ---
 
-## 6. 大收束：一张地图
+## 6. 大收束：一张地图（26–44）
 
 | # | 问题 | 结论 | 类型 | 笔记 |
 |---|---|---|---|---|
 | 1 | 一般树↔二叉树 | R/L=左右梳；σ/θ/φ=镜像/反演/词编码 | 精确对应 | 26/30 |
-| 2 | `τ` 的群 | `⟨σ,θ⟩≅Z₂*Z₂`；AEG `⟨m,r⟩≅Z₂×Z₂` | 经典+对应 | 30 |
+| 2 | `τ` 的群 | `⟨σ,θ̃⟩≅Z₂*Z₂`；AEG `⟨m,r⟩≅Z₂×Z₂` | 经典+对应 | 30 |
 | 3 | comb 层 | AEG 操作给 Klein，非 `Z₂*Z₂` | 解决（note 27）| 27 |
 | 4 | 依赖偏序下降 | `τ` 不保持偏序同构类 → 不下降 | 解决（负面）| 29 |
 | 5 | 格归属 | = Birkhoff 下集格，非 Tamari | 解决 | 28 |
@@ -117,11 +125,14 @@ $$
 | 9 | planar 载体 | 螺旋模 `C⁴=S` | 计算 | 34 |
 | 10 | `S` 的导出 | 角序后继；分支层=左优先 postorder | 对应 | 35/36/37 |
 | 11 | 跨链典范化 | 唯一最少逆序 = 左优先 postorder | **PROVED（任意 $n$）** | 38/39 |
-| 12 | 总览 | 树层 / carousel–iota | 收束 | 30/40 |
+| 12 | `θ̃` 内在定义（098.1a）| **`θ̃ = τ∘m`**；`θ̃²=id`、`m∘θ̃=τ⁻¹`；`⟨m,θ̃⟩≅Z₂*Z₂` | **PROVED + 计算** | **43** |
+| 13 | fringing/增长（098.3）| **结构对应成立**（自由积/原始/编码脊/order-4 旋转）；**增长律不成立**（长度 vs 计数）| 计算 | **42** |
+| 14 | `R/L` 函子性（098.4）| **否定**：操作数不保持（`{3,3,3,3,3}` vs `{1,2,2,2,3}`）| **PROVED（负面）** | **44** |
+| 15 | 总览 | 树层 / carousel–iota / 大收束 | 收束 | 30/40/41 |
 
 ---
 
-## 7. 地位总表（跨两篇）
+## 7. 地位总表（跨全部笔记）
 
 | 命题 | 地位 |
 |---|---|
@@ -135,26 +146,30 @@ $$
 | 螺旋模 `C⁴=S` | `COMPUTATIONALLY VERIFIED EXAMPLE` |
 | 角序 ↔ 求值序 对齐 | `CLASSICAL`（OCR Remark）+ 计算 |
 | 典范化（唯一最少逆序）| **`PROVED`（note 39，任意 $n$）** |
+| **`θ̃ = τ∘m` 内在定义 + `⟨m,θ̃⟩≅Z₂*Z₂`（098.1a）** | **`PROVED`（note 43）+ 计算（$n\le6$）** |
+| **fringing/增长 ↔ Hecke 周期轨道（098.3）** | **结构 `[对应]`；增长律 `COMPUTATIONALLY VERIFIED` 的否定** |
+| **`R/L` 函子性（098.4）** | **`PROVED`（负面，note 44）+ 计算（$m\le5$）** |
 
 ---
 
-## 8. 开放问题（统一）
+## 8. 开放问题（统一，2026-11-01 更新）
 
 | 编号 | 问题 | 状态 |
 |---|---|---|
-| 098.1(a) | `θ̃` 的 AEG 内在定义；与 `m` 生成 `Z₂*Z₂`？ | open |
+| 098.1(a) | `θ̃` 内在定义 + 与 `m` 生成 `Z₂*Z₂` | **RESOLVED（note 43）** |
 | 098.1(b) 残余 | 一般 $n$ 的下降障碍证明；分支层**自身**（非 τ）的双曲结构 | open |
 | 098.2 残余 | `O(P)` 嵌入 $T_∞$ 子偏序的下集格；原文"standard lattice ordering"出处 | open |
-| 098.3 | fringing（$\Delta$ 三倍）、$O(n^{\log_23})$ 轨道 ↔ Hecke 周期轨道 / "fractal rotation" | open |
-| 098.4 | 右/左双射的函子性（尊重序缺陷） | open |
-| 新 | 平面障碍的"必然性"：能否证明**不存在** unplanar 载体承载 carousel？（即 note 4 的"一个结构性事实"的严格版）| open |
+| 098.3 残余 | 精确 order-4 对接（carousel `J` ↔ Hecke `C₄`）；码的翻译；增长律正确配对（替换 Perron 值）；`Hist_4^{ph}` ↔ `τ`-轨道 | open |
+| 098.4 残余 | 一般"无 Catalan 双射保操作数多重集"；换对象的函子性（`O(P)`、`Hist_4`）| open |
+| 新 | 平面/结构障碍的"必然性"：能否证明**不存在** unplanar 载体承载 carousel / 不存在保结构的 `R/L` 函子？| open |
 | 新 | 典范化的 $\sigma$-等变性；其他内蕴准则同解性 | open |
+| 新 | `θ̃` 的词层直接公式；`θ̃ = r` 的精确条件；`⟨m,θ̃⟩` 的几何实现 | open |
 
 ---
 
 ## 9. 参考
 
 - Donaghey 1980；Pushkarev–Byzov 2014；OEIS A014486。
-- AEG：`paper-5/sections/04-six-state-carrier.tex`；`paper-1/sections/02-sequential-histories.tex`；`paper-0/sections/03-aes-and-motion.tex`。
+- AEG：`paper-5/sections/04-six-state-carrier.tex`；`paper-1/sections/02-sequential-histories.tex`；`paper-0/sections/03-aes-and-motion.tex`；`paper-3/sections/05-q4-geodesic-knots.tex`（Hecke 周期轨道、零 dessin 编码脊）。
 - Adva：`docs/research/0010-causal-cut-chirality-cube.md`、`knowledge/received/iota-frame-knowledge-2026-09-17-v1/materials/{frame.md,algebra.py}`、`docs/research/0168-...`、`murphy-iota-v0/`。
-- 详细笔记：`26`–`40`（两篇总览 `30`/`40`）；计算：`research/donaghey-orbits/`、`research/ppct-lattice/`、`research/iota-carousel/`。
+- 详细笔记：`26`–`44`（两篇总览 `30`/`40`）；计算：`research/donaghey-orbits/`、`research/ppct-lattice/`、`research/iota-carousel/`。
