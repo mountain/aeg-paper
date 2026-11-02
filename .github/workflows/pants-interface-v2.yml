@@ -1,0 +1,31 @@
+name: OQ-096 V2 equal-value source observers
+
+on:
+  pull_request:
+    paths:
+      - "research/pants-interface-disks/**"
+      - "notes/analysis-and-calculus/25-pants-interface-disks-and-substitution.md"
+      - "governance/08-open-questions.md"
+      - ".github/workflows/pants-interface-v2.yml"
+  push:
+    branches: ["**"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  finite-observers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Preserve V1 and replay V2 in normal and optimized modes
+        run: bash research/pants-interface-disks/v2/replay.sh

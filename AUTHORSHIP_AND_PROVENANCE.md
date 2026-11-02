@@ -204,3 +204,24 @@ holder. Model cross-review is not independent human review.
   no full 193-tree native census, no carrier check. Theorem 5.2 remains proved
   on its abstract sequential domain; PVI-12 is finite evidence; Conjecture 5.3
   and OQ-100.7 remain open.
+
+
+## OQ-096 V2 equal-value source observers — 2026-11-02
+
+- **Human direction:** Mingli Yuan requested an independent V2 experiment from
+  the frozen V1, proposed `(2,3)` versus `(1,4)` at fixed `t=4`, and required
+  explicit source/occurrence/slot rules, refusal cases and strict claim boundaries.
+- **Model contribution:** Codex (OpenAI) fixed the pre-execution contract,
+  implemented the separate producer and receiver, added equal-operand source
+  and fresh-occurrence reuse controls, replay/mutation checks, CI and prose in
+  `research/pants-interface-disks/v2/` and the related governance entries.
+- **Evidence:** five receipts, two numeric classes and four source classes;
+  twenty rejected packet mutations, four evidence mutations and duplicate-key
+  refusal; normal/optimized output and fresh-process reception agree. V1 files
+  remain byte-identical to `1c7a1b2a20b8da2e34cd8921cb3314cf5df6523f`.
+- **Boundary:** independent experiment and separate receiver code, same model
+  author; not independent implementation or human review. Local source labels
+  are declared provenance, not external-origin authentication. No general DAG
+  theorem, AES extension, spectral bridge or native Adva Seal certification.
+  Submission through Mingli's authorized account does not imply his authorship
+  of the code, technical review, correctness guarantee or approval to merge.
