@@ -1,0 +1,149 @@
+{
+  "acceptance_targets": [
+    "A and B numeric-equal, source-distinct",
+    "A and C have equal operand values and numeric observations, but distinct sources",
+    "A and A-copy equal under both observers despite fresh occurrence IDs",
+    "different-value differs under numeric observer",
+    "reopening preserves the numeric projection",
+    "source substitution, occurrence collapse, wrong slots and missing residual rejected even when numeric output agrees"
+  ],
+  "baseline_aeg": "1c7a1b2a20b8da2e34cd8921cb3314cf5df6523f",
+  "binding": {
+    "consumer": "times#1",
+    "input_slot": 0,
+    "output_slot": 0,
+    "producer": "plus#1",
+    "type": "rational",
+    "wire": "z"
+  },
+  "consumer": {
+    "input_wires": [
+      "z",
+      "t"
+    ],
+    "op": "mul",
+    "output_wire": "w",
+    "parameter_source": "common:t",
+    "parameter_value": "4",
+    "source": "P:mul"
+  },
+  "identity_rules": {
+    "event_id": "scope/local-event: plus#1 or times#1",
+    "expected_instance": "out-of-band receiver argument; packet labels cannot select authority",
+    "no_implicit_quotients": "no commutativity-based slot swap, source identification, copy, discard or constant replacement",
+    "occurrence_id": "scope/local-port: Q:x:in,Q:y:in,Q:z:out,P:z:in,P:t:in,P:w:out",
+    "scope": "fresh per instance; all six port occurrences distinct; all event IDs distinct",
+    "sources": "immutable registry records; reuse across fresh occurrences allowed only by declared instance"
+  },
+  "instances": [
+    {
+      "inputs": {
+        "x": "A:x",
+        "y": "A:y"
+      },
+      "key": "A",
+      "scope": "run-A"
+    },
+    {
+      "inputs": {
+        "x": "B:x",
+        "y": "B:y"
+      },
+      "key": "B",
+      "scope": "run-B"
+    },
+    {
+      "inputs": {
+        "x": "C:x",
+        "y": "C:y"
+      },
+      "key": "C",
+      "scope": "run-C"
+    },
+    {
+      "inputs": {
+        "x": "A:x",
+        "y": "A:y"
+      },
+      "key": "A-copy",
+      "scope": "run-A-copy"
+    },
+    {
+      "inputs": {
+        "x": "A:x",
+        "y": "B:y"
+      },
+      "key": "different-value",
+      "scope": "run-different"
+    }
+  ],
+  "limits": [
+    "finite observation reopening only",
+    "no general decorated DAG composition theorem",
+    "no AES extension or metric",
+    "no native Adva Seal certificate",
+    "no spectrum identification",
+    "same-author producer and receiver; no independent implementation review"
+  ],
+  "observers": {
+    "erasure": "numeric projection is intentionally lossy, cannot be reopened without a separately retained valid receipt",
+    "numeric": "(z,w) only, after receipt validation; consumes only z and fixed t",
+    "residual": "mandatory complete producer inputs and two-event trace, linked to distinct endpoint occurrences; replay before source observation",
+    "source": "numeric plus ordered source records and two event source/op/wire histories; alpha-normalize scope/occurrence names by their validated roles"
+  },
+  "producer": {
+    "input_wires": [
+      "x",
+      "y"
+    ],
+    "op": "add",
+    "output_wire": "z",
+    "source": "Q:add"
+  },
+  "schema": "oq096-equal-value-contract-v2",
+  "scope": "fixed two-gate rational dataflow; no native Adva execution",
+  "source_registry": {
+    "A:x": {
+      "origin": "input-A/x",
+      "type": "rational",
+      "value": "2"
+    },
+    "A:y": {
+      "origin": "input-A/y",
+      "type": "rational",
+      "value": "3"
+    },
+    "B:x": {
+      "origin": "input-B/x",
+      "type": "rational",
+      "value": "1"
+    },
+    "B:y": {
+      "origin": "input-B/y",
+      "type": "rational",
+      "value": "4"
+    },
+    "C:x": {
+      "origin": "input-C/x",
+      "type": "rational",
+      "value": "2"
+    },
+    "C:y": {
+      "origin": "input-C/y",
+      "type": "rational",
+      "value": "3"
+    },
+    "common:t": {
+      "origin": "fixed-consumer/t",
+      "type": "rational",
+      "value": "4"
+    }
+  },
+  "v1_files": {
+    "README.md": "ce0f33310e5e7f393f69a78dce6b340ff36329bc8b77085c9f5ff1788f3555d7",
+    "evidence-handles.json": "9c8726ff68603ff5b3d6ff0b178e879f24437a630aee7fd293691b853a5effee",
+    "evidence-v1.json": "6099c78f6eeef68dc35c2f0a808472840f6bb9cf7437816904b72c0857ecfba7",
+    "verify_handles.py": "5848aff8251460874e9eda02ba3c0081376fecd2831f206303a0a41bb833d342",
+    "verify_v1.py": "fac64f82cea293ef58de9d0f1929ab4d3164d380b4d63f37be7a15b6fcfe644f"
+  }
+}
