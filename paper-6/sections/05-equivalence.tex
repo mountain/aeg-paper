@@ -136,8 +136,22 @@ than illustrate it.
   at any of the three planes is a refutation.
 \end{enumerate}
 
-None of the three tests is currently stored as an executed fixture on the program
-side; they are stated here as acceptance tests for the programme and are registered in
-\S\ref{sec:boundaries}.  This is the honest status: the equivalence is proved on the
-sequential fragment, supported by the carrier identification and the carousel
-calibration, and conjectural in general.
+A first restricted sequential fixture is now stored at
+\path{research/program-side-fixtures/}.  For the free expression
+$((-1)\cdot(x\cdot(-1)))\cdot(-1)$, three named one-hole contexts with slot word
+$(1,2,1)$ are realized by three native Adva \texttt{neg} events; the slot data
+remain in checked call and graft records.  The expression and program each have
+one schedule and inversion count $3$.  This is a computationally verified example
+for the declared two-context signature, not an implementation of all Paper~I
+contexts.  At the same pinned Adva revision, the literal-constant/binary-multiplication
+encoding has six native events and fifteen schedules, all projecting to one
+arithmetic-event order.  This rejects that encoding as a literal schedule-preserving
+assignment; it refutes neither Theorem~\ref{thm:sequential-recovery} nor
+Conjecture~\ref{conj:general-equivalence}.
+
+The complete tree census, general schedule count, and program-side carrier check
+remain open (\texttt{OQ-100.7}).  The new fixture records source pins, fresh native
+reception, a separate combinatorial oracle, and refusals for wrong slots, illegal
+orders and identity substitutions.  It does not supply the general assignment:
+the equivalence is proved on the abstract sequential fragment and conjectural in
+general.

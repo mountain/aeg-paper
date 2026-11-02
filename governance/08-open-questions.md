@@ -4618,8 +4618,32 @@ carrier correspondence.
 **100.7 — Program-side fixtures (`OPEN`).**
 Store the three acceptance tests of `paper-6/sections/05-equivalence.tex` as
 executed fixtures on the process side: tree census, schedule count, carrier
-check. Until they exist, the equivalence is conjectural even where each side is
-separately calibrated.
+check. The general assignment remains conjectural; Theorem 5.2 retains its
+proved abstract sequential scope.
+
+**Executed partial result (2026-11-01; not closure).**
+`research/program-side-fixtures/` tests one free three-context spine at
+`mountain/adva@87a1a6933bca3fdb5c176cbf612729e278d172f7`. The two declared
+multiplication-by-minus-one contexts use native `neg`, while checked calls and
+grafts retain their slots `(1,2,1)`. Both the tree and the three-event program
+have one schedule, canonical chronological order and inversion count 3. All
+6 permutations are checked natively. A literal-constant/binary-`mul` encoding
+has 6 events, 15 schedules (all 720 permutations tested), and minimum inversion
+count 9. Its 15-to-1 projection to the arithmetic word is retained as a residual,
+not silently treated as a bijection. This rejects only that literal encoding.
+Nine native/research-layer controls and six edited saved-candidate controls
+reject wrong slots, illegal orders, missing events and substituted identities.
+Rust reception and the separate Python oracle replay frozen evidence.
+
+The 193-tree catalogue contains 60 single-spine and 133 branching shapes; this
+is a scope classification, not 193 native fixtures. The adapter rejects branching
+and is not yet run on the other sequential shapes. Expansion requires explicit
+marking, an event-granularity contract, a branching assignment and substitution
+compatibility. General Schedule count needs an event/order isomorphism or an
+explicit alternative schedule definition with its own justification. Carrier
+check still needs a program-derived three-plane carrier, chosen signed alignment,
+`J` and permutation actions, including transposition reversal. It is NOT RUN.
+See the research README for source pins, exact refusal layers and residuals.
 
 **100.8 — Presentation and objectification (`OPEN`).**
 Bring the process corpus's presentation and objectification layers into Paper VI's

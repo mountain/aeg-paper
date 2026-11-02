@@ -1,0 +1,7 @@
+{
+  "id": "v0", "op": "mul", "left": {
+    "id": "v1", "op": "mul", "left": {"constant": -1}, "right": {
+      "id": "v2", "op": "mul", "left": {"hole": "x"}, "right": {"constant": -1}
+    }
+  }, "right": {"constant": -1}
+}

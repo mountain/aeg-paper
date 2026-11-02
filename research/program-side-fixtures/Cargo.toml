@@ -1,0 +1,13 @@
+[package]
+name = "aeg-oq1007-native"
+version = "0.1.0"
+edition = "2024"
+license = "CC0-1.0"
+publish = false
+
+[dependencies]
+adva-ir = { path = "../../../adva/crates/adva-ir" }
+adva-lisp = { path = "../../../adva/crates/adva-lisp" }
+serde_json = "1"
+
+[workspace]

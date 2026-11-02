@@ -1,0 +1,128 @@
+{
+  "aeg-paper": {
+    "repository": "mountain/aeg-paper",
+    "revision": "663b812d314a857ff3f041684b64e614bfc90d21",
+    "files": [
+      {
+        "path": "paper-6/sections/02-native-processes.tex",
+        "git_blob": "b84faeb27045975a753185d54d0b290a1cac528e",
+        "sha256": "928b1d72ccd1cfb7c24ed30a63fa6b4f5c6ecae7af22399fdcf11f71534293d7",
+        "bytes": 9064
+      },
+      {
+        "path": "paper-6/sections/03-evaluation-orders.tex",
+        "git_blob": "d845576d2e47cb1ac7e8d93b3776b7f0a7bfd163",
+        "sha256": "7c1c57cbc36e6c7e7496224a37e1542513892a1921c354f92be76336de68786f",
+        "bytes": 7564
+      },
+      {
+        "path": "paper-6/sections/05-equivalence.tex",
+        "git_blob": "bc23d6af5a2915e9da4d443f0b2d0f1009438012",
+        "sha256": "dda882a7dfecc4dbb43ee68c72dbb60f37bc3846cd0bdad60721d3f91e92a51f",
+        "bytes": 7733
+      },
+      {
+        "path": "governance/00e-paper-VI-process-geometry-scope.md",
+        "git_blob": "8834892883df5cd57b82edc781384e0bef0430b1",
+        "sha256": "1f9d613ba57c2b38ec31ef81fa006428ca7514887f3d671f01dc28e13efb16ff",
+        "bytes": 9020
+      },
+      {
+        "path": "governance/05c-paper-VI-status-register.md",
+        "git_blob": "4d5562103d6d07a79e9e1815179c8111d23c9979",
+        "sha256": "3c34ff387ebd5100a63cc109c3e3e5293af307d25b37408634a50e249d41c4ed",
+        "bytes": 5830
+      },
+      {
+        "path": "research/iota-carousel/verify_canonical_choice.py",
+        "git_blob": "26b7747e0c7360b2b26518847e3ec47a76b7b275",
+        "sha256": "aeca1a9c7c4718b72ae05d235e5885b18441d6e4b7a7290675d57530a1031e18",
+        "bytes": 4406
+      },
+      {
+        "path": "research/iota-carousel/evidence-canonical-choice-v1.json",
+        "git_blob": "d2fa4f65fc9fe9f2846983d12b6f37eb0f4c1fe4",
+        "sha256": "df35a931cc9618f77b71c0bfc70977a035694f59f3376c3a59d9f3cabc7c4941",
+        "bytes": 32234
+      }
+    ]
+  },
+  "adva": {
+    "repository": "mountain/adva",
+    "revision": "87a1a6933bca3fdb5c176cbf612729e278d172f7",
+    "files": [
+      {
+        "path": "crates/adva-ir/src/diagram.rs",
+        "git_blob": "038a13c2cd24100e43e26fe50788af927249bbdf",
+        "sha256": "88cae59f72c43a5ac2ee2c6a1e6830268d15c85009f92000c26df5ff86da15e0",
+        "bytes": 5710
+      },
+      {
+        "path": "crates/adva-ir/src/graft.rs",
+        "git_blob": "4a203df29cccca76a115e5545a709fcda52007ce",
+        "sha256": "0ab1f513a5e41aa8ced29281c9b75d07c3c029187624ba6f8487b9a2fa783119",
+        "bytes": 3298
+      },
+      {
+        "path": "crates/adva-lisp/src/compile.rs",
+        "git_blob": "61b04ec39172992423b0e9a3681271e47f9ac014",
+        "sha256": "7863a170ce14c248779bdd5fbcf466a26605b3bd45227bb378357f9f51db1f36",
+        "bytes": 41710
+      },
+      {
+        "path": "crates/adva-lisp/src/operation.rs",
+        "git_blob": "1bdacdd98ed52e8e7518afd1438240bfb1d987bf",
+        "sha256": "db4aceec2fab806599dee5ad3511298b74da0e371b34569c27640465cc55f377",
+        "bytes": 19826
+      },
+      {
+        "path": "crates/adva-lisp/src/process.rs",
+        "git_blob": "89ede968407369b903772f2f1f8caefe96c75535",
+        "sha256": "ca5fc2e59d31fe9f6b77d1702aaf24620ec3a53de5c893bdbe86b124b7e25d9b",
+        "bytes": 46301
+      },
+      {
+        "path": "crates/adva-lisp/src/validate.rs",
+        "git_blob": "4178a576dd68a793c6cb601709f54c0a74ff7054",
+        "sha256": "32ef06a407d5adde13fea8df1869da12bdbb16be059f3866b2733c3caf0b2330",
+        "bytes": 23197
+      },
+      {
+        "path": "docs/SEMANTIC_SCOPE.md",
+        "git_blob": "1d255f47cc9c9c68206cb818ed74d387e537a5fc",
+        "sha256": "fc00ca1a7afcbb7d1b0328984afee2b7797366018824c2f4c59e8ca0dd54d2d4",
+        "bytes": 27596
+      },
+      {
+        "path": "docs/PROGRAM_PROCESS_CORE.md",
+        "git_blob": "faaa17bb513b5049ad4f5226bf67e1f17281d6ab",
+        "sha256": "edbc7da2c771e4cd9b17ce590a2eebdd195dca4c224eea8970785264e7252092",
+        "bytes": 14318
+      },
+      {
+        "path": "docs/TECHNICAL_REPORT_PROGRAM_PROCESS_CORE.md",
+        "git_blob": "d7ab72b2d9d5618d6c6589336008df253cb556b2",
+        "sha256": "06a236fde470b3cc808e955c898818ad1c5d628f98d3ab6df075199fdf61684d",
+        "bytes": 29903
+      },
+      {
+        "path": "crates/adva-lisp/tests/process.rs",
+        "git_blob": "6443eb1236eb5166375f0470ad24165ad6c764c9",
+        "sha256": "327ebba6ee9795f14c9cb89eedc3c5450633680b69b40ea10ca8f50400b7cae2",
+        "bytes": 23588
+      },
+      {
+        "path": "crates/adva-lisp/tests/graft_trace.rs",
+        "git_blob": "55b72af328d454978157f69246c2e0ffe00d1279",
+        "sha256": "0d24fdf00cc213eab31e22ca6ff151ced7e6cb5202deb89f15e82eb6ca6c2d57",
+        "bytes": 5275
+      },
+      {
+        "path": "crates/adva-lisp/tests/event_ideal_query_gate_native.rs",
+        "git_blob": "efabe7564f5f1633c5c80f36a4a5f97bb51b8758",
+        "sha256": "e23ba04f4929740c784049bd15934f69d9b85d8c14ebfe903fd5b723c1618847",
+        "bytes": 6745
+      }
+    ]
+  }
+}

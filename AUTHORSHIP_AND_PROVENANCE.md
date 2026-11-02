@@ -182,3 +182,25 @@ holder. Model cross-review is not independent human review.
   representation-theoretic reading of the seam (trivial label `j = 0`) recorded in
   OQ-099 is a structural proposal with falsifiers and asserts nothing about the
   manuscript. No independent human mathematical review is asserted.
+
+
+## Paper VI first native sequential fixture — 2026-11-01
+
+- **Human direction:** Mingli Yuan requested the first independently replayable
+  OQ-100.7 fixture, beginning inside Theorem 5.2, with explicit rejection cases
+  and no assumption of Conjecture 5.3.
+- **Model contribution:** Codex (OpenAI) inspected the pinned native API, defined
+  the two-context finite signature, implemented Rust compilation/reception and
+  exhaustive scheduling, a separate Python combinatorial oracle, mutation tests,
+  CI, source pins and the report. Submitted through Mingli's authorized GitHub
+  account proxy; this does not imply his authorship, review or guarantee.
+- **Evidence:** `research/program-side-fixtures/`, at the Adva revision in its
+  `sources.json`: 3-event chain, one schedule/inversion count 3; explicit-constant
+  6-event encoding, fifteen schedules/inversion count 9; nine internal refusal
+  controls and six saved-candidate refusals. Debug/release native replay and
+  normal/optimized Python evidence agree.
+- **Limits:** same author for producer and checkers, no independent human review;
+  the fixed signature only, no native kernel changes, no general assignment,
+  no full 193-tree native census, no carrier check. Theorem 5.2 remains proved
+  on its abstract sequential domain; PVI-12 is finite evidence; Conjecture 5.3
+  and OQ-100.7 remain open.

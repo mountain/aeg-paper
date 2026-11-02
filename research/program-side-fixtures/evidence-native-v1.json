@@ -1,0 +1,2661 @@
+{
+  "adva_revision": "87a1a6933bca3fdb5c176cbf612729e278d172f7",
+  "expanded": {
+    "arithmetic_event_projections": [
+      [
+        2,
+        3,
+        5
+      ]
+    ],
+    "artifact": {
+      "certificate": {
+        "boundary": {
+          "inputs": [
+            {
+              "name": "x",
+              "value_type": "real"
+            }
+          ],
+          "outputs": [
+            "real"
+          ]
+        },
+        "call_history": "checked",
+        "diagram_integrity": "checked",
+        "id": "compile:oq1007-expanded/root:v1",
+        "linear_use": "checked",
+        "module_links": "checked",
+        "scope": "PSC0 finite acyclic module lowering",
+        "types": "checked"
+      },
+      "graft_trace": {
+        "certificate": {
+          "argument_body_regions": "checked",
+          "boundary_maps": "checked",
+          "call_history_links": "checked",
+          "deterministic_frame_ids": "checked",
+          "diagram_integrity": "checked",
+          "frame_ids": [
+            "graft:oq1007-expanded/root:root"
+          ],
+          "id": "graft-trace:oq1007-expanded/root:v1",
+          "ordered_hole_bindings": "checked",
+          "parent_child_nesting": "checked",
+          "scope": "compiler-emitted PSC0 finite nested call frames; unchanged adva.ir v1 diagram"
+        },
+        "result": {
+          "frames": [
+            {
+              "arguments": [],
+              "body_region": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "boundary": {
+                "inputs": [
+                  {
+                    "name": "x",
+                    "value_type": "real"
+                  }
+                ],
+                "outputs": [
+                  "real"
+                ]
+              },
+              "call_history_index": null,
+              "callee": {
+                "function": "root",
+                "module": "oq1007-expanded"
+              },
+              "caller": {
+                "function": "root",
+                "module": "oq1007-expanded"
+              },
+              "children": [],
+              "entry_wires": [
+                {
+                  "lineage": [
+                    "occ:0"
+                  ],
+                  "output_index": 0,
+                  "producer": {
+                    "index": 0,
+                    "kind": "input"
+                  },
+                  "value_type": "real"
+                }
+              ],
+              "exit_wires": [
+                {
+                  "lineage": [
+                    "occ:0"
+                  ],
+                  "output_index": 0,
+                  "producer": {
+                    "kind": "node",
+                    "node": 5
+                  },
+                  "value_type": "real"
+                }
+              ],
+              "holes": [
+                {
+                  "argument_index": null,
+                  "argument_output_index": 0,
+                  "entry_wire": {
+                    "lineage": [
+                      "occ:0"
+                    ],
+                    "output_index": 0,
+                    "producer": {
+                      "index": 0,
+                      "kind": "input"
+                    },
+                    "value_type": "real"
+                  },
+                  "hole": {
+                    "name": "x",
+                    "value_type": "real"
+                  },
+                  "hole_index": 0
+                }
+              ],
+              "id": "graft:oq1007-expanded/root:root",
+              "kind": "root",
+              "parent": null,
+              "region_in_parent": {
+                "kind": "root"
+              },
+              "scope_path": []
+            }
+          ],
+          "root": "graft:oq1007-expanded/root:root"
+        }
+      },
+      "result": {
+        "function": {
+          "function": "root",
+          "module": "oq1007-expanded"
+        },
+        "history": {
+          "occurrence_paths": {
+            "occ:0": []
+          },
+          "prefix": [
+            {
+              "kind": "source",
+              "occurrence": "occ:0",
+              "source": "source:oq1007-expanded/root:0:x"
+            },
+            {
+              "kind": "operation",
+              "node": 0,
+              "operation": {
+                "name": "constant",
+                "namespace": "adva.builtin",
+                "parameters": {
+                  "value": {
+                    "denominator": 1,
+                    "numerator": -1
+                  }
+                },
+                "version": 2
+              }
+            },
+            {
+              "kind": "operation",
+              "node": 1,
+              "operation": {
+                "name": "constant",
+                "namespace": "adva.builtin",
+                "parameters": {
+                  "value": {
+                    "denominator": 1,
+                    "numerator": -1
+                  }
+                },
+                "version": 2
+              }
+            },
+            {
+              "kind": "operation",
+              "node": 2,
+              "operation": {
+                "name": "mul",
+                "namespace": "adva.builtin",
+                "version": 1
+              }
+            },
+            {
+              "kind": "operation",
+              "node": 3,
+              "operation": {
+                "name": "mul",
+                "namespace": "adva.builtin",
+                "version": 1
+              }
+            },
+            {
+              "kind": "operation",
+              "node": 4,
+              "operation": {
+                "name": "constant",
+                "namespace": "adva.builtin",
+                "parameters": {
+                  "value": {
+                    "denominator": 1,
+                    "numerator": -1
+                  }
+                },
+                "version": 2
+              }
+            },
+            {
+              "kind": "operation",
+              "node": 5,
+              "operation": {
+                "name": "mul",
+                "namespace": "adva.builtin",
+                "version": 1
+              }
+            }
+          ],
+          "rewrite_trace": []
+        },
+        "module": "oq1007-expanded",
+        "nodes": [
+          {
+            "id": 0,
+            "inputs": [],
+            "operation": {
+              "name": "constant",
+              "namespace": "adva.builtin",
+              "parameters": {
+                "value": {
+                  "denominator": 1,
+                  "numerator": -1
+                }
+              },
+              "version": 2
+            },
+            "output_types": [
+              "real"
+            ]
+          },
+          {
+            "id": 1,
+            "inputs": [],
+            "operation": {
+              "name": "constant",
+              "namespace": "adva.builtin",
+              "parameters": {
+                "value": {
+                  "denominator": 1,
+                  "numerator": -1
+                }
+              },
+              "version": 2
+            },
+            "output_types": [
+              "real"
+            ]
+          },
+          {
+            "id": 2,
+            "inputs": [
+              {
+                "lineage": [
+                  "occ:0"
+                ],
+                "output_index": 0,
+                "producer": {
+                  "index": 0,
+                  "kind": "input"
+                },
+                "value_type": "real"
+              },
+              {
+                "lineage": [],
+                "output_index": 0,
+                "producer": {
+                  "kind": "node",
+                  "node": 1
+                },
+                "value_type": "real"
+              }
+            ],
+            "operation": {
+              "name": "mul",
+              "namespace": "adva.builtin",
+              "version": 1
+            },
+            "output_types": [
+              "real"
+            ]
+          },
+          {
+            "id": 3,
+            "inputs": [
+              {
+                "lineage": [],
+                "output_index": 0,
+                "producer": {
+                  "kind": "node",
+                  "node": 0
+                },
+                "value_type": "real"
+              },
+              {
+                "lineage": [
+                  "occ:0"
+                ],
+                "output_index": 0,
+                "producer": {
+                  "kind": "node",
+                  "node": 2
+                },
+                "value_type": "real"
+              }
+            ],
+            "operation": {
+              "name": "mul",
+              "namespace": "adva.builtin",
+              "version": 1
+            },
+            "output_types": [
+              "real"
+            ]
+          },
+          {
+            "id": 4,
+            "inputs": [],
+            "operation": {
+              "name": "constant",
+              "namespace": "adva.builtin",
+              "parameters": {
+                "value": {
+                  "denominator": 1,
+                  "numerator": -1
+                }
+              },
+              "version": 2
+            },
+            "output_types": [
+              "real"
+            ]
+          },
+          {
+            "id": 5,
+            "inputs": [
+              {
+                "lineage": [
+                  "occ:0"
+                ],
+                "output_index": 0,
+                "producer": {
+                  "kind": "node",
+                  "node": 3
+                },
+                "value_type": "real"
+              },
+              {
+                "lineage": [],
+                "output_index": 0,
+                "producer": {
+                  "kind": "node",
+                  "node": 4
+                },
+                "value_type": "real"
+              }
+            ],
+            "operation": {
+              "name": "mul",
+              "namespace": "adva.builtin",
+              "version": 1
+            },
+            "output_types": [
+              "real"
+            ]
+          }
+        ],
+        "occurrences": [
+          {
+            "id": "occ:0",
+            "path": [],
+            "source": "source:oq1007-expanded/root:0:x"
+          }
+        ],
+        "outputs": [
+          {
+            "lineage": [
+              "occ:0"
+            ],
+            "output_index": 0,
+            "producer": {
+              "kind": "node",
+              "node": 5
+            },
+            "value_type": "real"
+          }
+        ],
+        "schema": "adva.ir",
+        "signature": {
+          "inputs": [
+            {
+              "name": "x",
+              "value_type": "real"
+            }
+          ],
+          "outputs": [
+            "real"
+          ]
+        },
+        "version": 1
+      }
+    },
+    "orders": {
+      "canonical_inversions": 9,
+      "canonical_schedule": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "canonical_steps": [
+        {
+          "certificate": {
+            "diagram_integrity": "checked",
+            "event": 0,
+            "event_enabled": "checked",
+            "frontier_replacement": "checked",
+            "id": "causal-step:oq1007-expanded/root:root:0:v1",
+            "scope": "one enabled event across two certified finite causal cuts"
+          },
+          "result": {
+            "after": {
+              "completed": [
+                0
+              ],
+              "frontier": [
+                {
+                  "consumer": {
+                    "input_index": 0,
+                    "kind": "node",
+                    "node": 2
+                  },
+                  "sources": [
+                    "source:oq1007-expanded/root:0:x"
+                  ],
+                  "wire": {
+                    "lineage": [
+                      "occ:0"
+                    ],
+                    "output_index": 0,
+                    "producer": {
+                      "index": 0,
+                      "kind": "input"
+                    },
+                    "value_type": "real"
+                  }
+                },
+                {
+                  "consumer": {
+                    "input_index": 0,
+                    "kind": "node",
+                    "node": 3
+                  },
+                  "sources": [],
+                  "wire": {
+                    "lineage": [],
+                    "output_index": 0,
+                    "producer": {
+                      "kind": "node",
+                      "node": 0
+                    },
+                    "value_type": "real"
+                  }
+                }
+              ]
+            },
+            "before": {
+              "completed": [],
+              "frontier": [
+                {
+                  "consumer": {
+                    "input_index": 0,
+                    "kind": "node",
+                    "node": 2
+                  },
+                  "sources": [
+                    "source:oq1007-expanded/root:0:x"
+                  ],
+                  "wire": {
+                    "lineage": [
+                      "occ:0"
+                    ],
+                    "output_index": 0,
+                    "producer": {
+                      "index": 0,
+                      "kind": "input"
+                    },
+                    "value_type": "real"
+                  }
+                }
+              ]
+            },
+            "consumed": [],
+            "event": 0,
+            "produced": [
+              {
+                "consumer": {
+                  "input_index": 0,
+                  "kind": "node",
+                  "node": 3
+                },
+                "sources": [],
+                "wire": {
+                  "lineage": [],
+                  "output_index": 0,
+                  "producer": {
+                    "kind": "node",
+                    "node": 0
+                  },
+                  "value_type": "real"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "certificate": {
+            "diagram_integrity": "checked",
+            "event": 1,
+            "event_enabled": "checked",
+            "frontier_replacement": "checked",
+            "id": "causal-step:oq1007-expanded/root:0:1:v1",
+            "scope": "one enabled event across two certified finite causal cuts"
+          },
+          "result": {
+            "after": {
+              "completed": [
+                0,
+                1
+              ],
+              "frontier": [
+                {
+                  "consumer": {
+                    "input_index": 0,
+                    "kind": "node",
+                    "node": 2
+                  },
+                  "sources": [
+                    "source:oq1007-expanded/root:0:x"
+                  ],
+                  "wire": {
+                    "lineage": [
+                      "occ:0"
+                    ],
+                    "output_index": 0,
+                    "producer": {
+                      "index": 0,
+                      "kind": "input"
+                    },
+                    "value_type": "real"
+                  }
+                },
+                {
+                  "consumer": {
+                    "input_index": 1,
+                    "kind": "node",
+                    "node": 2
+                  },
+                  "sources": [],
+                  "wire": {
+                    "lineage": [],
+                    "output_index": 0,
+                    "producer": {
+                      "kind": "node",
+                      "node": 1
+                    },
+                    "value_type": "real"
+                  }
+                },
+                {
+                  "consumer": {
+                    "input_index": 0,
+                    "kind": "node",
+                    "node": 3
+                  },
+                  "sources": [],
+                  "wire": {
+                    "lineage": [],
+                    "output_index": 0,
+                    "producer": {
+                      "kind": "node",
+                      "node": 0
+                    },
+                    "value_type": "real"
+                  }
+                }
+              ]
+            },
+            "before": {
+              "completed": [
+                0
+              ],
+              "frontier": [
+                {
+                  "consumer": {
+                    "input_index": 0,
+                    "kind": "node",
+                    "node": 2
+                  },
+                  "sources": [
+                    "source:oq1007-expanded/root:0:x"
+                  ],
+                  "wire": {
+                    "lineage": [
+                      "occ:0"
+                    ],
+                    "output_index": 0,
+                    "producer": {
+                      "index": 0,
+                      "kind": "input"
+                    },
+                    "value_type": "real"
+                  }
+                },
+                {
+                  "consumer": {
+                    "input_index": 0,
+                    "kind": "node",
+                    "node": 3
+                  },
+                  "sources": [],
+                  "wire": {
+                    "lineage": [],
+                    "output_index": 0,
+                    "producer": {
+                      "kind": "node",
+                      "node": 0
+                    },
+                    "value_type": "real"
+                  }
+                }
+              ]
+            },
+            "consumed": [],
+            "event": 1,
+            "produced": [
+              {
+                "consumer": {
+                  "input_index": 1,
+                  "kind": "node",
+                  "node": 2
+                },
+                "sources": [],
+                "wire": {
+                  "lineage": [],
+                  "output_index": 0,
+                  "producer": {
+                    "kind": "node",
+                    "node": 1
+                  },
+                  "value_type": "real"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "certificate": {
+            "diagram_integrity": "checked",
+            "event": 2,
+            "event_enabled": "checked",
+            "frontier_replacement": "checked",
+            "id": "causal-step:oq1007-expanded/root:0-1:2:v1",
+            "scope": "one enabled event across two certified finite causal cuts"
+          },
+          "result": {
+            "after": {
+              "completed": [
+                0,
+                1,
+                2
+              ],
+              "frontier": [
+                {
+                  "consumer": {
+                    "input_index": 0,
+                    "kind": "node",
+                    "node": 3
+                  },
+                  "sources": [],
+                  "wire": {
+                    "lineage": [],
+                    "output_index": 0,
+                    "producer": {
+                      "kind": "node",
+                      "node": 0
+                    },
+                    "value_type": "real"
+                  }
+                },
+                {
+                  "consumer": {
+                    "input_index": 1,
+                    "kind": "node",
+                    "node": 3
+                  },
+                  "sources": [
+                    "source:oq1007-expanded/root:0:x"
+                  ],
+                  "wire": {
+                    "lineage": [
+                      "occ:0"
+                    ],
+                    "output_index": 0,
+                    "producer": {
+                      "kind": "node",
+                      "node": 2
+                    },
+                    "value_type": "real"
+                  }
+                }
+              ]
+            },
+            "before": {
+              "completed": [
+                0,
+                1
+              ],
+              "frontier": [
+                {
+                  "consumer": {
+                    "input_index": 0,
+                    "kind": "node",
+                    "node": 2
+                  },
+                  "sources": [
+                    "source:oq1007-expanded/root:0:x"
+                  ],
+                  "wire": {
+                    "lineage": [
+                      "occ:0"
+                    ],
+                    "output_index": 0,
+                    "producer": {
+                      "index": 0,
+                      "kind": "input"
+                    },
+                    "value_type": "real"
+                  }
+                },
+                {
+                  "consumer": {
+                    "input_index": 1,
+                    "kind": "node",
+                    "node": 2
+                  },
+                  "sources": [],
+                  "wire": {
+                    "lineage": [],
+                    "output_index": 0,
+                    "producer": {
+                      "kind": "node",
+                      "node": 1
+                    },
+                    "value_type": "real"
+                  }
+                },
+                {
+                  "consumer": {
+                    "input_index": 0,
+                    "kind": "node",
+                    "node": 3
+                  },
+                  "sources": [],
+                  "wire": {
+                    "lineage": [],
+                    "output_index": 0,
+                    "producer": {
+                      "kind": "node",
+                      "node": 0
+                    },
+                    "value_type": "real"
+                  }
+                }
+              ]
+            },
+            "consumed": [
+              {
+                "consumer": {
+                  "input_index": 0,
+                  "kind": "node",
+                  "node": 2
+                },
+                "sources": [
+                  "source:oq1007-expanded/root:0:x"
+                ],
+                "wire": {
+                  "lineage": [
+                    "occ:0"
+                  ],
+                  "output_index": 0,
+                  "producer": {
+                    "index": 0,
+                    "kind": "input"
+                  },
+                  "value_type": "real"
+                }
+              },
+              {
+                "consumer": {
+                  "input_index": 1,
+                  "kind": "node",
+                  "node": 2
+                },
+                "sources": [],
+                "wire": {
+                  "lineage": [],
+                  "output_index": 0,
+                  "producer": {
+                    "kind": "node",
+                    "node": 1
+                  },
+                  "value_type": "real"
+                }
+              }
+            ],
+            "event": 2,
+            "produced": [
+              {
+                "consumer": {
+                  "input_index": 1,
+                  "kind": "node",
+                  "node": 3
+                },
+                "sources": [
+                  "source:oq1007-expanded/root:0:x"
+                ],
+                "wire": {
+                  "lineage": [
+                    "occ:0"
+                  ],
+                  "output_index": 0,
+                  "producer": {
+                    "kind": "node",
+                    "node": 2
+                  },
+                  "value_type": "real"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "certificate": {
+            "diagram_integrity": "checked",
+            "event": 3,
+            "event_enabled": "checked",
+            "frontier_replacement": "checked",
+            "id": "causal-step:oq1007-expanded/root:0-1-2:3:v1",
+            "scope": "one enabled event across two certified finite causal cuts"
+          },
+          "result": {
+            "after": {
+              "completed": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "frontier": [
+                {
+                  "consumer": {
+                    "input_index": 0,
+                    "kind": "node",
+                    "node": 5
+                  },
+                  "sources": [
+                    "source:oq1007-expanded/root:0:x"
+                  ],
+                  "wire": {
+                    "lineage": [
+                      "occ:0"
+                    ],
+                    "output_index": 0,
+                    "producer": {
+                      "kind": "node",
+                      "node": 3
+                    },
+                    "value_type": "real"
+                  }
+                }
+              ]
+            },
+            "before": {
+              "completed": [
+                0,
+                1,
+                2
+              ],
+              "frontier": [
+                {
+                  "consumer": {
+                    "input_index": 0,
+                    "kind": "node",
+                    "node": 3
+                  },
+                  "sources": [],
+                  "wire": {
+                    "lineage": [],
+                    "output_index": 0,
+                    "producer": {
+                      "kind": "node",
+                      "node": 0
+                    },
+                    "value_type": "real"
+                  }
+                },
+                {
+                  "consumer": {
+                    "input_index": 1,
+                    "kind": "node",
+                    "node": 3
+                  },
+                  "sources": [
+                    "source:oq1007-expanded/root:0:x"
+                  ],
+                  "wire": {
+                    "lineage": [
+                      "occ:0"
+                    ],
+                    "output_index": 0,
+                    "producer": {
+                      "kind": "node",
+                      "node": 2
+                    },
+                    "value_type": "real"
+                  }
+                }
+              ]
+            },
+            "consumed": [
+              {
+                "consumer": {
+                  "input_index": 0,
+                  "kind": "node",
+                  "node": 3
+                },
+                "sources": [],
+                "wire": {
+                  "lineage": [],
+                  "output_index": 0,
+                  "producer": {
+                    "kind": "node",
+                    "node": 0
+                  },
+                  "value_type": "real"
+                }
+              },
+              {
+                "consumer": {
+                  "input_index": 1,
+                  "kind": "node",
+                  "node": 3
+                },
+                "sources": [
+                  "source:oq1007-expanded/root:0:x"
+                ],
+                "wire": {
+                  "lineage": [
+                    "occ:0"
+                  ],
+                  "output_index": 0,
+                  "producer": {
+                    "kind": "node",
+                    "node": 2
+                  },
+                  "value_type": "real"
+                }
+              }
+            ],
+            "event": 3,
+            "produced": [
+              {
+                "consumer": {
+                  "input_index": 0,
+                  "kind": "node",
+                  "node": 5
+                },
+                "sources": [
+                  "source:oq1007-expanded/root:0:x"
+                ],
+                "wire": {
+                  "lineage": [
+                    "occ:0"
+                  ],
+                  "output_index": 0,
+                  "producer": {
+                    "kind": "node",
+                    "node": 3
+                  },
+                  "value_type": "real"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "certificate": {
+            "diagram_integrity": "checked",
+            "event": 4,
+            "event_enabled": "checked",
+            "frontier_replacement": "checked",
+            "id": "causal-step:oq1007-expanded/root:0-1-2-3:4:v1",
+            "scope": "one enabled event across two certified finite causal cuts"
+          },
+          "result": {
+            "after": {
+              "completed": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              "frontier": [
+                {
+                  "consumer": {
+                    "input_index": 0,
+                    "kind": "node",
+                    "node": 5
+                  },
+                  "sources": [
+                    "source:oq1007-expanded/root:0:x"
+                  ],
+                  "wire": {
+                    "lineage": [
+                      "occ:0"
+                    ],
+                    "output_index": 0,
+                    "producer": {
+                      "kind": "node",
+                      "node": 3
+                    },
+                    "value_type": "real"
+                  }
+                },
+                {
+                  "consumer": {
+                    "input_index": 1,
+                    "kind": "node",
+                    "node": 5
+                  },
+                  "sources": [],
+                  "wire": {
+                    "lineage": [],
+                    "output_index": 0,
+                    "producer": {
+                      "kind": "node",
+                      "node": 4
+                    },
+                    "value_type": "real"
+                  }
+                }
+              ]
+            },
+            "before": {
+              "completed": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "frontier": [
+                {
+                  "consumer": {
+                    "input_index": 0,
+                    "kind": "node",
+                    "node": 5
+                  },
+                  "sources": [
+                    "source:oq1007-expanded/root:0:x"
+                  ],
+                  "wire": {
+                    "lineage": [
+                      "occ:0"
+                    ],
+                    "output_index": 0,
+                    "producer": {
+                      "kind": "node",
+                      "node": 3
+                    },
+                    "value_type": "real"
+                  }
+                }
+              ]
+            },
+            "consumed": [],
+            "event": 4,
+            "produced": [
+              {
+                "consumer": {
+                  "input_index": 1,
+                  "kind": "node",
+                  "node": 5
+                },
+                "sources": [],
+                "wire": {
+                  "lineage": [],
+                  "output_index": 0,
+                  "producer": {
+                    "kind": "node",
+                    "node": 4
+                  },
+                  "value_type": "real"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "certificate": {
+            "diagram_integrity": "checked",
+            "event": 5,
+            "event_enabled": "checked",
+            "frontier_replacement": "checked",
+            "id": "causal-step:oq1007-expanded/root:0-1-2-3-4:5:v1",
+            "scope": "one enabled event across two certified finite causal cuts"
+          },
+          "result": {
+            "after": {
+              "completed": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "frontier": [
+                {
+                  "consumer": {
+                    "index": 0,
+                    "kind": "output"
+                  },
+                  "sources": [
+                    "source:oq1007-expanded/root:0:x"
+                  ],
+                  "wire": {
+                    "lineage": [
+                      "occ:0"
+                    ],
+                    "output_index": 0,
+                    "producer": {
+                      "kind": "node",
+                      "node": 5
+                    },
+                    "value_type": "real"
+                  }
+                }
+              ]
+            },
+            "before": {
+              "completed": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              "frontier": [
+                {
+                  "consumer": {
+                    "input_index": 0,
+                    "kind": "node",
+                    "node": 5
+                  },
+                  "sources": [
+                    "source:oq1007-expanded/root:0:x"
+                  ],
+                  "wire": {
+                    "lineage": [
+                      "occ:0"
+                    ],
+                    "output_index": 0,
+                    "producer": {
+                      "kind": "node",
+                      "node": 3
+                    },
+                    "value_type": "real"
+                  }
+                },
+                {
+                  "consumer": {
+                    "input_index": 1,
+                    "kind": "node",
+                    "node": 5
+                  },
+                  "sources": [],
+                  "wire": {
+                    "lineage": [],
+                    "output_index": 0,
+                    "producer": {
+                      "kind": "node",
+                      "node": 4
+                    },
+                    "value_type": "real"
+                  }
+                }
+              ]
+            },
+            "consumed": [
+              {
+                "consumer": {
+                  "input_index": 0,
+                  "kind": "node",
+                  "node": 5
+                },
+                "sources": [
+                  "source:oq1007-expanded/root:0:x"
+                ],
+                "wire": {
+                  "lineage": [
+                    "occ:0"
+                  ],
+                  "output_index": 0,
+                  "producer": {
+                    "kind": "node",
+                    "node": 3
+                  },
+                  "value_type": "real"
+                }
+              },
+              {
+                "consumer": {
+                  "input_index": 1,
+                  "kind": "node",
+                  "node": 5
+                },
+                "sources": [],
+                "wire": {
+                  "lineage": [],
+                  "output_index": 0,
+                  "producer": {
+                    "kind": "node",
+                    "node": 4
+                  },
+                  "value_type": "real"
+                }
+              }
+            ],
+            "event": 5,
+            "produced": [
+              {
+                "consumer": {
+                  "index": 0,
+                  "kind": "output"
+                },
+                "sources": [
+                  "source:oq1007-expanded/root:0:x"
+                ],
+                "wire": {
+                  "lineage": [
+                    "occ:0"
+                  ],
+                  "output_index": 0,
+                  "producer": {
+                    "kind": "node",
+                    "node": 5
+                  },
+                  "value_type": "real"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "corner_order": [
+        5,
+        3,
+        0,
+        2,
+        1,
+        4
+      ],
+      "dependency_edges": [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "event_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "linear_extensions": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        [
+          0,
+          1,
+          2,
+          4,
+          3,
+          5
+        ],
+        [
+          0,
+          1,
+          4,
+          2,
+          3,
+          5
+        ],
+        [
+          0,
+          4,
+          1,
+          2,
+          3,
+          5
+        ],
+        [
+          1,
+          0,
+          2,
+          3,
+          4,
+          5
+        ],
+        [
+          1,
+          0,
+          2,
+          4,
+          3,
+          5
+        ],
+        [
+          1,
+          0,
+          4,
+          2,
+          3,
+          5
+        ],
+        [
+          1,
+          2,
+          0,
+          3,
+          4,
+          5
+        ],
+        [
+          1,
+          2,
+          0,
+          4,
+          3,
+          5
+        ],
+        [
+          1,
+          2,
+          4,
+          0,
+          3,
+          5
+        ],
+        [
+          1,
+          4,
+          0,
+          2,
+          3,
+          5
+        ],
+        [
+          1,
+          4,
+          2,
+          0,
+          3,
+          5
+        ],
+        [
+          4,
+          0,
+          1,
+          2,
+          3,
+          5
+        ],
+        [
+          4,
+          1,
+          0,
+          2,
+          3,
+          5
+        ],
+        [
+          4,
+          1,
+          2,
+          0,
+          3,
+          5
+        ]
+      ],
+      "permutations_tested": 720,
+      "rejected_permutations": 705,
+      "schedule_count": 15,
+      "strict_order": [
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ]
+      ]
+    }
+  },
+  "native_advance_attempts": 1389,
+  "negative_controls": [
+    {
+      "layer": "research_signature_binding",
+      "name": "wrong_slot_same_event_graph",
+      "outcome": "rejected",
+      "reason": "slot_mismatch"
+    },
+    {
+      "layer": "native_causal_step",
+      "name": "wrong_execution_order",
+      "outcome": "rejected",
+      "reason": "diagram validation error: causal event 1 is not enabled; missing predecessors [0]"
+    },
+    {
+      "layer": "native_causal_step",
+      "name": "duplicate_event",
+      "outcome": "rejected",
+      "reason": "diagram validation error: causal event 0 is already completed"
+    },
+    {
+      "layer": "research_complete_schedule",
+      "name": "missing_event",
+      "outcome": "rejected",
+      "reason": "incomplete_schedule"
+    },
+    {
+      "layer": "native_causal_step",
+      "name": "unknown_event",
+      "outcome": "rejected",
+      "reason": "diagram validation error: unknown causal event 4294967295"
+    },
+    {
+      "layer": "native_diagram_import",
+      "name": "occurrence_substitution",
+      "outcome": "rejected",
+      "reason": "diagram validation error: wire metadata for Input(0) differs from its canonical producer"
+    },
+    {
+      "layer": "native_diagram_import",
+      "name": "source_substitution",
+      "outcome": "rejected",
+      "reason": "diagram validation error: Source history for occ:0 does not match its root occurrence"
+    },
+    {
+      "layer": "research_source_binding",
+      "name": "valid_foreign_program_same_node_numbers",
+      "outcome": "rejected",
+      "reason": "source_artifact_binding_mismatch"
+    },
+    {
+      "layer": "native_graft_revalidation",
+      "name": "graft_hole_substitution",
+      "outcome": "rejected",
+      "reason": "diagram validation error: graft frame graft:oq1007-spine/root:root-body has an invalid ordered hole binding"
+    }
+  ],
+  "schema": "aeg.oq1007.native-sequential.v1",
+  "spine": {
+    "artifact": {
+      "certificate": {
+        "boundary": {
+          "inputs": [
+            {
+              "name": "x",
+              "value_type": "real"
+            }
+          ],
+          "outputs": [
+            "real"
+          ]
+        },
+        "call_history": "checked",
+        "diagram_integrity": "checked",
+        "id": "compile:oq1007-spine/root:v1",
+        "linear_use": "checked",
+        "module_links": "checked",
+        "scope": "PSC0 finite acyclic module lowering",
+        "types": "checked"
+      },
+      "graft_trace": {
+        "certificate": {
+          "argument_body_regions": "checked",
+          "boundary_maps": "checked",
+          "call_history_links": "checked",
+          "deterministic_frame_ids": "checked",
+          "diagram_integrity": "checked",
+          "frame_ids": [
+            "graft:oq1007-spine/root:root",
+            "graft:oq1007-spine/root:root-body",
+            "graft:oq1007-spine/root:root-body/call-argument-0",
+            "graft:oq1007-spine/root:root-body/call-argument-0/call-argument-0"
+          ],
+          "id": "graft-trace:oq1007-spine/root:v1",
+          "ordered_hole_bindings": "checked",
+          "parent_child_nesting": "checked",
+          "scope": "compiler-emitted PSC0 finite nested call frames; unchanged adva.ir v1 diagram"
+        },
+        "result": {
+          "frames": [
+            {
+              "arguments": [],
+              "body_region": [
+                0,
+                1,
+                2
+              ],
+              "boundary": {
+                "inputs": [
+                  {
+                    "name": "x",
+                    "value_type": "real"
+                  }
+                ],
+                "outputs": [
+                  "real"
+                ]
+              },
+              "call_history_index": null,
+              "callee": {
+                "function": "root",
+                "module": "oq1007-spine"
+              },
+              "caller": {
+                "function": "root",
+                "module": "oq1007-spine"
+              },
+              "children": [
+                "graft:oq1007-spine/root:root-body"
+              ],
+              "entry_wires": [
+                {
+                  "lineage": [
+                    "occ:0"
+                  ],
+                  "output_index": 0,
+                  "producer": {
+                    "index": 0,
+                    "kind": "input"
+                  },
+                  "value_type": "real"
+                }
+              ],
+              "exit_wires": [
+                {
+                  "lineage": [
+                    "occ:0"
+                  ],
+                  "output_index": 0,
+                  "producer": {
+                    "kind": "node",
+                    "node": 2
+                  },
+                  "value_type": "real"
+                }
+              ],
+              "holes": [
+                {
+                  "argument_index": null,
+                  "argument_output_index": 0,
+                  "entry_wire": {
+                    "lineage": [
+                      "occ:0"
+                    ],
+                    "output_index": 0,
+                    "producer": {
+                      "index": 0,
+                      "kind": "input"
+                    },
+                    "value_type": "real"
+                  },
+                  "hole": {
+                    "name": "x",
+                    "value_type": "real"
+                  },
+                  "hole_index": 0
+                }
+              ],
+              "id": "graft:oq1007-spine/root:root",
+              "kind": "root",
+              "parent": null,
+              "region_in_parent": {
+                "kind": "root"
+              },
+              "scope_path": []
+            },
+            {
+              "arguments": [
+                {
+                  "argument_index": 0,
+                  "nodes": [
+                    0,
+                    1
+                  ],
+                  "outputs": [
+                    {
+                      "lineage": [
+                        "occ:0"
+                      ],
+                      "output_index": 0,
+                      "producer": {
+                        "kind": "node",
+                        "node": 1
+                      },
+                      "value_type": "real"
+                    }
+                  ]
+                }
+              ],
+              "body_region": [
+                2
+              ],
+              "boundary": {
+                "inputs": [
+                  {
+                    "name": "z",
+                    "value_type": "real"
+                  }
+                ],
+                "outputs": [
+                  "real"
+                ]
+              },
+              "call_history_index": 5,
+              "callee": {
+                "function": "mul-m1-s1",
+                "module": "oq1007-spine"
+              },
+              "caller": {
+                "function": "root",
+                "module": "oq1007-spine"
+              },
+              "children": [
+                "graft:oq1007-spine/root:root-body/call-argument-0"
+              ],
+              "entry_wires": [
+                {
+                  "lineage": [
+                    "occ:0"
+                  ],
+                  "output_index": 0,
+                  "producer": {
+                    "kind": "node",
+                    "node": 1
+                  },
+                  "value_type": "real"
+                }
+              ],
+              "exit_wires": [
+                {
+                  "lineage": [
+                    "occ:0"
+                  ],
+                  "output_index": 0,
+                  "producer": {
+                    "kind": "node",
+                    "node": 2
+                  },
+                  "value_type": "real"
+                }
+              ],
+              "holes": [
+                {
+                  "argument_index": 0,
+                  "argument_output_index": 0,
+                  "entry_wire": {
+                    "lineage": [
+                      "occ:0"
+                    ],
+                    "output_index": 0,
+                    "producer": {
+                      "kind": "node",
+                      "node": 1
+                    },
+                    "value_type": "real"
+                  },
+                  "hole": {
+                    "name": "z",
+                    "value_type": "real"
+                  },
+                  "hole_index": 0
+                }
+              ],
+              "id": "graft:oq1007-spine/root:root-body",
+              "kind": "call",
+              "parent": "graft:oq1007-spine/root:root",
+              "region_in_parent": {
+                "kind": "root_body"
+              },
+              "scope_path": [
+                {
+                  "kind": "root_body"
+                }
+              ]
+            },
+            {
+              "arguments": [
+                {
+                  "argument_index": 0,
+                  "nodes": [
+                    0
+                  ],
+                  "outputs": [
+                    {
+                      "lineage": [
+                        "occ:0"
+                      ],
+                      "output_index": 0,
+                      "producer": {
+                        "kind": "node",
+                        "node": 0
+                      },
+                      "value_type": "real"
+                    }
+                  ]
+                }
+              ],
+              "body_region": [
+                1
+              ],
+              "boundary": {
+                "inputs": [
+                  {
+                    "name": "z",
+                    "value_type": "real"
+                  }
+                ],
+                "outputs": [
+                  "real"
+                ]
+              },
+              "call_history_index": 3,
+              "callee": {
+                "function": "mul-m1-s2",
+                "module": "oq1007-spine"
+              },
+              "caller": {
+                "function": "root",
+                "module": "oq1007-spine"
+              },
+              "children": [
+                "graft:oq1007-spine/root:root-body/call-argument-0/call-argument-0"
+              ],
+              "entry_wires": [
+                {
+                  "lineage": [
+                    "occ:0"
+                  ],
+                  "output_index": 0,
+                  "producer": {
+                    "kind": "node",
+                    "node": 0
+                  },
+                  "value_type": "real"
+                }
+              ],
+              "exit_wires": [
+                {
+                  "lineage": [
+                    "occ:0"
+                  ],
+                  "output_index": 0,
+                  "producer": {
+                    "kind": "node",
+                    "node": 1
+                  },
+                  "value_type": "real"
+                }
+              ],
+              "holes": [
+                {
+                  "argument_index": 0,
+                  "argument_output_index": 0,
+                  "entry_wire": {
+                    "lineage": [
+                      "occ:0"
+                    ],
+                    "output_index": 0,
+                    "producer": {
+                      "kind": "node",
+                      "node": 0
+                    },
+                    "value_type": "real"
+                  },
+                  "hole": {
+                    "name": "z",
+                    "value_type": "real"
+                  },
+                  "hole_index": 0
+                }
+              ],
+              "id": "graft:oq1007-spine/root:root-body/call-argument-0",
+              "kind": "call",
+              "parent": "graft:oq1007-spine/root:root-body",
+              "region_in_parent": {
+                "index": 0,
+                "kind": "argument"
+              },
+              "scope_path": [
+                {
+                  "kind": "root_body"
+                },
+                {
+                  "index": 0,
+                  "kind": "call_argument"
+                }
+              ]
+            },
+            {
+              "arguments": [
+                {
+                  "argument_index": 0,
+                  "nodes": [],
+                  "outputs": [
+                    {
+                      "lineage": [
+                        "occ:0"
+                      ],
+                      "output_index": 0,
+                      "producer": {
+                        "index": 0,
+                        "kind": "input"
+                      },
+                      "value_type": "real"
+                    }
+                  ]
+                }
+              ],
+              "body_region": [
+                0
+              ],
+              "boundary": {
+                "inputs": [
+                  {
+                    "name": "z",
+                    "value_type": "real"
+                  }
+                ],
+                "outputs": [
+                  "real"
+                ]
+              },
+              "call_history_index": 1,
+              "callee": {
+                "function": "mul-m1-s1",
+                "module": "oq1007-spine"
+              },
+              "caller": {
+                "function": "root",
+                "module": "oq1007-spine"
+              },
+              "children": [],
+              "entry_wires": [
+                {
+                  "lineage": [
+                    "occ:0"
+                  ],
+                  "output_index": 0,
+                  "producer": {
+                    "index": 0,
+                    "kind": "input"
+                  },
+                  "value_type": "real"
+                }
+              ],
+              "exit_wires": [
+                {
+                  "lineage": [
+                    "occ:0"
+                  ],
+                  "output_index": 0,
+                  "producer": {
+                    "kind": "node",
+                    "node": 0
+                  },
+                  "value_type": "real"
+                }
+              ],
+              "holes": [
+                {
+                  "argument_index": 0,
+                  "argument_output_index": 0,
+                  "entry_wire": {
+                    "lineage": [
+                      "occ:0"
+                    ],
+                    "output_index": 0,
+                    "producer": {
+                      "index": 0,
+                      "kind": "input"
+                    },
+                    "value_type": "real"
+                  },
+                  "hole": {
+                    "name": "z",
+                    "value_type": "real"
+                  },
+                  "hole_index": 0
+                }
+              ],
+              "id": "graft:oq1007-spine/root:root-body/call-argument-0/call-argument-0",
+              "kind": "call",
+              "parent": "graft:oq1007-spine/root:root-body/call-argument-0",
+              "region_in_parent": {
+                "index": 0,
+                "kind": "argument"
+              },
+              "scope_path": [
+                {
+                  "kind": "root_body"
+                },
+                {
+                  "index": 0,
+                  "kind": "call_argument"
+                },
+                {
+                  "index": 0,
+                  "kind": "call_argument"
+                }
+              ]
+            }
+          ],
+          "root": "graft:oq1007-spine/root:root"
+        }
+      },
+      "result": {
+        "function": {
+          "function": "root",
+          "module": "oq1007-spine"
+        },
+        "history": {
+          "occurrence_paths": {
+            "occ:0": []
+          },
+          "prefix": [
+            {
+              "kind": "source",
+              "occurrence": "occ:0",
+              "source": "source:oq1007-spine/root:0:x"
+            },
+            {
+              "function": {
+                "function": "mul-m1-s1",
+                "module": "oq1007-spine"
+              },
+              "kind": "call"
+            },
+            {
+              "kind": "operation",
+              "node": 0,
+              "operation": {
+                "name": "neg",
+                "namespace": "adva.builtin",
+                "version": 1
+              }
+            },
+            {
+              "function": {
+                "function": "mul-m1-s2",
+                "module": "oq1007-spine"
+              },
+              "kind": "call"
+            },
+            {
+              "kind": "operation",
+              "node": 1,
+              "operation": {
+                "name": "neg",
+                "namespace": "adva.builtin",
+                "version": 1
+              }
+            },
+            {
+              "function": {
+                "function": "mul-m1-s1",
+                "module": "oq1007-spine"
+              },
+              "kind": "call"
+            },
+            {
+              "kind": "operation",
+              "node": 2,
+              "operation": {
+                "name": "neg",
+                "namespace": "adva.builtin",
+                "version": 1
+              }
+            }
+          ],
+          "rewrite_trace": []
+        },
+        "module": "oq1007-spine",
+        "nodes": [
+          {
+            "id": 0,
+            "inputs": [
+              {
+                "lineage": [
+                  "occ:0"
+                ],
+                "output_index": 0,
+                "producer": {
+                  "index": 0,
+                  "kind": "input"
+                },
+                "value_type": "real"
+              }
+            ],
+            "operation": {
+              "name": "neg",
+              "namespace": "adva.builtin",
+              "version": 1
+            },
+            "output_types": [
+              "real"
+            ]
+          },
+          {
+            "id": 1,
+            "inputs": [
+              {
+                "lineage": [
+                  "occ:0"
+                ],
+                "output_index": 0,
+                "producer": {
+                  "kind": "node",
+                  "node": 0
+                },
+                "value_type": "real"
+              }
+            ],
+            "operation": {
+              "name": "neg",
+              "namespace": "adva.builtin",
+              "version": 1
+            },
+            "output_types": [
+              "real"
+            ]
+          },
+          {
+            "id": 2,
+            "inputs": [
+              {
+                "lineage": [
+                  "occ:0"
+                ],
+                "output_index": 0,
+                "producer": {
+                  "kind": "node",
+                  "node": 1
+                },
+                "value_type": "real"
+              }
+            ],
+            "operation": {
+              "name": "neg",
+              "namespace": "adva.builtin",
+              "version": 1
+            },
+            "output_types": [
+              "real"
+            ]
+          }
+        ],
+        "occurrences": [
+          {
+            "id": "occ:0",
+            "path": [],
+            "source": "source:oq1007-spine/root:0:x"
+          }
+        ],
+        "outputs": [
+          {
+            "lineage": [
+              "occ:0"
+            ],
+            "output_index": 0,
+            "producer": {
+              "kind": "node",
+              "node": 2
+            },
+            "value_type": "real"
+          }
+        ],
+        "schema": "adva.ir",
+        "signature": {
+          "inputs": [
+            {
+              "name": "x",
+              "value_type": "real"
+            }
+          ],
+          "outputs": [
+            "real"
+          ]
+        },
+        "version": 1
+      }
+    },
+    "mapping": [
+      {
+        "callee": {
+          "function": "mul-m1-s1",
+          "module": "oq1007-spine"
+        },
+        "constant": -1,
+        "event": 0,
+        "frame_id": "graft:oq1007-spine/root:root-body/call-argument-0/call-argument-0",
+        "operation": "mul",
+        "slot": 1,
+        "tree_vertex": "v2"
+      },
+      {
+        "callee": {
+          "function": "mul-m1-s2",
+          "module": "oq1007-spine"
+        },
+        "constant": -1,
+        "event": 1,
+        "frame_id": "graft:oq1007-spine/root:root-body/call-argument-0",
+        "operation": "mul",
+        "slot": 2,
+        "tree_vertex": "v1"
+      },
+      {
+        "callee": {
+          "function": "mul-m1-s1",
+          "module": "oq1007-spine"
+        },
+        "constant": -1,
+        "event": 2,
+        "frame_id": "graft:oq1007-spine/root:root-body",
+        "operation": "mul",
+        "slot": 1,
+        "tree_vertex": "v0"
+      }
+    ],
+    "orders": {
+      "canonical_inversions": 3,
+      "canonical_schedule": [
+        0,
+        1,
+        2
+      ],
+      "canonical_steps": [
+        {
+          "certificate": {
+            "diagram_integrity": "checked",
+            "event": 0,
+            "event_enabled": "checked",
+            "frontier_replacement": "checked",
+            "id": "causal-step:oq1007-spine/root:root:0:v1",
+            "scope": "one enabled event across two certified finite causal cuts"
+          },
+          "result": {
+            "after": {
+              "completed": [
+                0
+              ],
+              "frontier": [
+                {
+                  "consumer": {
+                    "input_index": 0,
+                    "kind": "node",
+                    "node": 1
+                  },
+                  "sources": [
+                    "source:oq1007-spine/root:0:x"
+                  ],
+                  "wire": {
+                    "lineage": [
+                      "occ:0"
+                    ],
+                    "output_index": 0,
+                    "producer": {
+                      "kind": "node",
+                      "node": 0
+                    },
+                    "value_type": "real"
+                  }
+                }
+              ]
+            },
+            "before": {
+              "completed": [],
+              "frontier": [
+                {
+                  "consumer": {
+                    "input_index": 0,
+                    "kind": "node",
+                    "node": 0
+                  },
+                  "sources": [
+                    "source:oq1007-spine/root:0:x"
+                  ],
+                  "wire": {
+                    "lineage": [
+                      "occ:0"
+                    ],
+                    "output_index": 0,
+                    "producer": {
+                      "index": 0,
+                      "kind": "input"
+                    },
+                    "value_type": "real"
+                  }
+                }
+              ]
+            },
+            "consumed": [
+              {
+                "consumer": {
+                  "input_index": 0,
+                  "kind": "node",
+                  "node": 0
+                },
+                "sources": [
+                  "source:oq1007-spine/root:0:x"
+                ],
+                "wire": {
+                  "lineage": [
+                    "occ:0"
+                  ],
+                  "output_index": 0,
+                  "producer": {
+                    "index": 0,
+                    "kind": "input"
+                  },
+                  "value_type": "real"
+                }
+              }
+            ],
+            "event": 0,
+            "produced": [
+              {
+                "consumer": {
+                  "input_index": 0,
+                  "kind": "node",
+                  "node": 1
+                },
+                "sources": [
+                  "source:oq1007-spine/root:0:x"
+                ],
+                "wire": {
+                  "lineage": [
+                    "occ:0"
+                  ],
+                  "output_index": 0,
+                  "producer": {
+                    "kind": "node",
+                    "node": 0
+                  },
+                  "value_type": "real"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "certificate": {
+            "diagram_integrity": "checked",
+            "event": 1,
+            "event_enabled": "checked",
+            "frontier_replacement": "checked",
+            "id": "causal-step:oq1007-spine/root:0:1:v1",
+            "scope": "one enabled event across two certified finite causal cuts"
+          },
+          "result": {
+            "after": {
+              "completed": [
+                0,
+                1
+              ],
+              "frontier": [
+                {
+                  "consumer": {
+                    "input_index": 0,
+                    "kind": "node",
+                    "node": 2
+                  },
+                  "sources": [
+                    "source:oq1007-spine/root:0:x"
+                  ],
+                  "wire": {
+                    "lineage": [
+                      "occ:0"
+                    ],
+                    "output_index": 0,
+                    "producer": {
+                      "kind": "node",
+                      "node": 1
+                    },
+                    "value_type": "real"
+                  }
+                }
+              ]
+            },
+            "before": {
+              "completed": [
+                0
+              ],
+              "frontier": [
+                {
+                  "consumer": {
+                    "input_index": 0,
+                    "kind": "node",
+                    "node": 1
+                  },
+                  "sources": [
+                    "source:oq1007-spine/root:0:x"
+                  ],
+                  "wire": {
+                    "lineage": [
+                      "occ:0"
+                    ],
+                    "output_index": 0,
+                    "producer": {
+                      "kind": "node",
+                      "node": 0
+                    },
+                    "value_type": "real"
+                  }
+                }
+              ]
+            },
+            "consumed": [
+              {
+                "consumer": {
+                  "input_index": 0,
+                  "kind": "node",
+                  "node": 1
+                },
+                "sources": [
+                  "source:oq1007-spine/root:0:x"
+                ],
+                "wire": {
+                  "lineage": [
+                    "occ:0"
+                  ],
+                  "output_index": 0,
+                  "producer": {
+                    "kind": "node",
+                    "node": 0
+                  },
+                  "value_type": "real"
+                }
+              }
+            ],
+            "event": 1,
+            "produced": [
+              {
+                "consumer": {
+                  "input_index": 0,
+                  "kind": "node",
+                  "node": 2
+                },
+                "sources": [
+                  "source:oq1007-spine/root:0:x"
+                ],
+                "wire": {
+                  "lineage": [
+                    "occ:0"
+                  ],
+                  "output_index": 0,
+                  "producer": {
+                    "kind": "node",
+                    "node": 1
+                  },
+                  "value_type": "real"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "certificate": {
+            "diagram_integrity": "checked",
+            "event": 2,
+            "event_enabled": "checked",
+            "frontier_replacement": "checked",
+            "id": "causal-step:oq1007-spine/root:0-1:2:v1",
+            "scope": "one enabled event across two certified finite causal cuts"
+          },
+          "result": {
+            "after": {
+              "completed": [
+                0,
+                1,
+                2
+              ],
+              "frontier": [
+                {
+                  "consumer": {
+                    "index": 0,
+                    "kind": "output"
+                  },
+                  "sources": [
+                    "source:oq1007-spine/root:0:x"
+                  ],
+                  "wire": {
+                    "lineage": [
+                      "occ:0"
+                    ],
+                    "output_index": 0,
+                    "producer": {
+                      "kind": "node",
+                      "node": 2
+                    },
+                    "value_type": "real"
+                  }
+                }
+              ]
+            },
+            "before": {
+              "completed": [
+                0,
+                1
+              ],
+              "frontier": [
+                {
+                  "consumer": {
+                    "input_index": 0,
+                    "kind": "node",
+                    "node": 2
+                  },
+                  "sources": [
+                    "source:oq1007-spine/root:0:x"
+                  ],
+                  "wire": {
+                    "lineage": [
+                      "occ:0"
+                    ],
+                    "output_index": 0,
+                    "producer": {
+                      "kind": "node",
+                      "node": 1
+                    },
+                    "value_type": "real"
+                  }
+                }
+              ]
+            },
+            "consumed": [
+              {
+                "consumer": {
+                  "input_index": 0,
+                  "kind": "node",
+                  "node": 2
+                },
+                "sources": [
+                  "source:oq1007-spine/root:0:x"
+                ],
+                "wire": {
+                  "lineage": [
+                    "occ:0"
+                  ],
+                  "output_index": 0,
+                  "producer": {
+                    "kind": "node",
+                    "node": 1
+                  },
+                  "value_type": "real"
+                }
+              }
+            ],
+            "event": 2,
+            "produced": [
+              {
+                "consumer": {
+                  "index": 0,
+                  "kind": "output"
+                },
+                "sources": [
+                  "source:oq1007-spine/root:0:x"
+                ],
+                "wire": {
+                  "lineage": [
+                    "occ:0"
+                  ],
+                  "output_index": 0,
+                  "producer": {
+                    "kind": "node",
+                    "node": 2
+                  },
+                  "value_type": "real"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "corner_order": [
+        2,
+        1,
+        0
+      ],
+      "dependency_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "event_ids": [
+        0,
+        1,
+        2
+      ],
+      "linear_extensions": [
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "permutations_tested": 6,
+      "rejected_permutations": 5,
+      "schedule_count": 1,
+      "strict_order": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ]
+      ]
+    }
+  },
+  "status": {
+    "carrier_check": "not_run",
+    "conjecture_5_3": "open",
+    "full_193_native_census": "not_run",
+    "oq100_7": "open_partial_fixture",
+    "theorem_5_2": "proved_abstract_sequential_only",
+    "this_fixture": "computationally_verified_example"
+  },
+  "tree": {
+    "id": "v0",
+    "left": {
+      "id": "v1",
+      "left": {
+        "constant": -1
+      },
+      "op": "mul",
+      "right": {
+        "id": "v2",
+        "left": {
+          "hole": "x"
+        },
+        "op": "mul",
+        "right": {
+          "constant": -1
+        }
+      }
+    },
+    "op": "mul",
+    "right": {
+      "constant": -1
+    }
+  }
+}
