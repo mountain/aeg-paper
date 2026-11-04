@@ -3683,3 +3683,14 @@ Paper VI's claims are registered separately in
 finite calibrations that this register's vocabulary does not cover.  This register
 remains authoritative for Papers I--IV; the pointer does not register any Paper VI
 claim here.
+
+
+## OQ-096 V2 finite observer calibration (2026-11-02)
+
+Canonical research record: `research/pants-interface-disks/v2/README.md`.
+This adds finite evidence only; no manuscript theorem or V1 evidence changes.
+
+| ID | Status | Statement and boundary |
+|---|---|---|
+| OQ096-V2 | `COMPUTATIONALLY VERIFIED EXAMPLE` | Five source-bound two-gate receipts give two numeric classes and four alpha-normalized source classes. Equal-operand/different-source and fresh-occurrence/same-source controls pass; twenty packet mutations reject. Observation reopening uses retained validated residuals, not inversion of the numeric quotient. Same-author producer/receiver, no independent review. |
+| OQ096-V2-R | `OPEN PROBLEM` | General decorated DAG composition, interface state/spectrum correspondence, AES realization, annular compatibility and native Adva Seal remain open under OQ-096.1–096.5. |

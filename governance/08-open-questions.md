@@ -4005,9 +4005,10 @@ them yet).
 ## OQ-096 — Pants, interface disks and certified capping
 
 **Priority:** P2
-**State:** OPEN (2026-10-31); 096.1 has a completed V1 finite example, with
-general composition still open. Sub-items 096.2–096.4 remain open; 096.5
-records the subsequent handle/annular-interface direction.
+**State:** OPEN (updated 2026-11-02); 096.1 has a completed V1 finite example,
+with general composition still open. 096.2 now has a completed V2 finite
+observer example, but its general state/spectrum questions remain open.
+Sub-items 096.3–096.4 remain open; 096.5 records the handle/annular direction.
 **Origin:** Mingli Yuan asks to clarify pants, DAG substitution, the shared
 boundary's cap and its spectral value before assigning geometric meaning to
 Adva sealing. Codex (OpenAI) formalized the initial proposal and finite
@@ -4098,9 +4099,25 @@ proofs; it is not the planned equal-value residual experiment V2.
 **Affected theorem nodes:** the four handle/annular propositions above;
 the earlier note-only disposition is superseded for these integrated claims.
 **Owner:** author.
-**Next bounded target:** note 25 V2 (equal interface values with distinct
-production residuals). General composition is V3; the AES/Seal bridge is V4.
-Their results must not be inferred from V1 success.
+**V2 finite update (2026-11-02):** `research/pants-interface-disks/v2/` freezes
+an independent contract for five two-gate instances, keeping all V1 files
+unchanged. A=`2+3` and B=`1+4` have the same numeric observation `(5,20)` but
+distinct retained source histories. Equal-operand/different-source C remains
+separate; fresh-occurrence/same-source A-copy stays equivalent to A. A fifth
+instance yields `(6,24)`. The numeric partition has two classes and the source
+partition four; all 30 port occurrences and 10 event occurrences are distinct.
+Twenty packet mutations reject, including rehashed equal-value source
+substitution, identity collapse, wrong slots and missing residuals. Saved
+receipts and four altered evidence files are checked in fresh processes;
+normal/optimized replay agrees. This is a same-author COMPUTATIONALLY VERIFIED
+EXAMPLE, not independent implementation review. Reopening reads retained,
+source-bound residuals; it does not invert the numeric quotient. No DAG-shape
+change, spectrum bridge, AES extension or native Adva Seal is certified.
+
+**Next bounded target:** V3's three compatible blocks and two bracketings,
+with explicit source/occurrence transport, strict domains and feedback refusal.
+096.2's general state/spectrum obligations remain separate. The AES/Seal bridge
+is V4; none of these conclusions follows from V1/V2 success.
 
 ---
 

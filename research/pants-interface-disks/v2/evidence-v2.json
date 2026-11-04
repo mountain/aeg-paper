@@ -1,0 +1,1196 @@
+{
+  "baseline_aeg": "1c7a1b2a20b8da2e34cd8921cb3314cf5df6523f",
+  "candidates": [
+    {
+      "binding": {
+        "consumer": "run-A/times#1",
+        "input_occurrence": "run-A/P:z:in",
+        "input_slot": 0,
+        "output_occurrence": "run-A/Q:z:out",
+        "output_slot": 0,
+        "producer": "run-A/plus#1",
+        "type": "rational",
+        "wire": "z"
+      },
+      "consumer": {
+        "input_wires": [
+          "z",
+          "t"
+        ],
+        "op": "mul",
+        "output_wire": "w",
+        "parameter_source": "common:t",
+        "parameter_value": "4",
+        "source": "P:mul"
+      },
+      "instance": "A",
+      "numeric": {
+        "interface": "5",
+        "output": "20"
+      },
+      "residual": {
+        "events": [
+          {
+            "id": "run-A/plus#1",
+            "input_values": [
+              "2",
+              "3"
+            ],
+            "inputs": [
+              "x",
+              "y"
+            ],
+            "op": "add",
+            "output": "z",
+            "output_value": "5",
+            "source": "Q:add"
+          },
+          {
+            "id": "run-A/times#1",
+            "input_values": [
+              "5",
+              "4"
+            ],
+            "inputs": [
+              "z",
+              "t"
+            ],
+            "op": "mul",
+            "output": "w",
+            "output_value": "20",
+            "source": "P:mul"
+          }
+        ],
+        "inputs": [
+          {
+            "occurrence": "run-A/Q:x:in",
+            "record": {
+              "origin": "input-A/x",
+              "type": "rational",
+              "value": "2"
+            },
+            "source": "A:x",
+            "wire": "x"
+          },
+          {
+            "occurrence": "run-A/Q:y:in",
+            "record": {
+              "origin": "input-A/y",
+              "type": "rational",
+              "value": "3"
+            },
+            "source": "A:y",
+            "wire": "y"
+          }
+        ],
+        "occurrences": {
+          "P:t:in": "run-A/P:t:in",
+          "P:w:out": "run-A/P:w:out",
+          "P:z:in": "run-A/P:z:in",
+          "Q:x:in": "run-A/Q:x:in",
+          "Q:y:in": "run-A/Q:y:in",
+          "Q:z:out": "run-A/Q:z:out"
+        }
+      },
+      "residual_sha256": "349854a69d02c7b46de9dcc76c8f828a036bd5bca0fe14d102b10eecec032f74",
+      "schema": "oq096-receipt-v2",
+      "scope": "run-A"
+    },
+    {
+      "binding": {
+        "consumer": "run-B/times#1",
+        "input_occurrence": "run-B/P:z:in",
+        "input_slot": 0,
+        "output_occurrence": "run-B/Q:z:out",
+        "output_slot": 0,
+        "producer": "run-B/plus#1",
+        "type": "rational",
+        "wire": "z"
+      },
+      "consumer": {
+        "input_wires": [
+          "z",
+          "t"
+        ],
+        "op": "mul",
+        "output_wire": "w",
+        "parameter_source": "common:t",
+        "parameter_value": "4",
+        "source": "P:mul"
+      },
+      "instance": "B",
+      "numeric": {
+        "interface": "5",
+        "output": "20"
+      },
+      "residual": {
+        "events": [
+          {
+            "id": "run-B/plus#1",
+            "input_values": [
+              "1",
+              "4"
+            ],
+            "inputs": [
+              "x",
+              "y"
+            ],
+            "op": "add",
+            "output": "z",
+            "output_value": "5",
+            "source": "Q:add"
+          },
+          {
+            "id": "run-B/times#1",
+            "input_values": [
+              "5",
+              "4"
+            ],
+            "inputs": [
+              "z",
+              "t"
+            ],
+            "op": "mul",
+            "output": "w",
+            "output_value": "20",
+            "source": "P:mul"
+          }
+        ],
+        "inputs": [
+          {
+            "occurrence": "run-B/Q:x:in",
+            "record": {
+              "origin": "input-B/x",
+              "type": "rational",
+              "value": "1"
+            },
+            "source": "B:x",
+            "wire": "x"
+          },
+          {
+            "occurrence": "run-B/Q:y:in",
+            "record": {
+              "origin": "input-B/y",
+              "type": "rational",
+              "value": "4"
+            },
+            "source": "B:y",
+            "wire": "y"
+          }
+        ],
+        "occurrences": {
+          "P:t:in": "run-B/P:t:in",
+          "P:w:out": "run-B/P:w:out",
+          "P:z:in": "run-B/P:z:in",
+          "Q:x:in": "run-B/Q:x:in",
+          "Q:y:in": "run-B/Q:y:in",
+          "Q:z:out": "run-B/Q:z:out"
+        }
+      },
+      "residual_sha256": "2142358f3157627118e9cb2bf642edf36fcfc502fbc01e80248c5cf2885cc9e8",
+      "schema": "oq096-receipt-v2",
+      "scope": "run-B"
+    },
+    {
+      "binding": {
+        "consumer": "run-C/times#1",
+        "input_occurrence": "run-C/P:z:in",
+        "input_slot": 0,
+        "output_occurrence": "run-C/Q:z:out",
+        "output_slot": 0,
+        "producer": "run-C/plus#1",
+        "type": "rational",
+        "wire": "z"
+      },
+      "consumer": {
+        "input_wires": [
+          "z",
+          "t"
+        ],
+        "op": "mul",
+        "output_wire": "w",
+        "parameter_source": "common:t",
+        "parameter_value": "4",
+        "source": "P:mul"
+      },
+      "instance": "C",
+      "numeric": {
+        "interface": "5",
+        "output": "20"
+      },
+      "residual": {
+        "events": [
+          {
+            "id": "run-C/plus#1",
+            "input_values": [
+              "2",
+              "3"
+            ],
+            "inputs": [
+              "x",
+              "y"
+            ],
+            "op": "add",
+            "output": "z",
+            "output_value": "5",
+            "source": "Q:add"
+          },
+          {
+            "id": "run-C/times#1",
+            "input_values": [
+              "5",
+              "4"
+            ],
+            "inputs": [
+              "z",
+              "t"
+            ],
+            "op": "mul",
+            "output": "w",
+            "output_value": "20",
+            "source": "P:mul"
+          }
+        ],
+        "inputs": [
+          {
+            "occurrence": "run-C/Q:x:in",
+            "record": {
+              "origin": "input-C/x",
+              "type": "rational",
+              "value": "2"
+            },
+            "source": "C:x",
+            "wire": "x"
+          },
+          {
+            "occurrence": "run-C/Q:y:in",
+            "record": {
+              "origin": "input-C/y",
+              "type": "rational",
+              "value": "3"
+            },
+            "source": "C:y",
+            "wire": "y"
+          }
+        ],
+        "occurrences": {
+          "P:t:in": "run-C/P:t:in",
+          "P:w:out": "run-C/P:w:out",
+          "P:z:in": "run-C/P:z:in",
+          "Q:x:in": "run-C/Q:x:in",
+          "Q:y:in": "run-C/Q:y:in",
+          "Q:z:out": "run-C/Q:z:out"
+        }
+      },
+      "residual_sha256": "aa8a89a9d53f175bc0035a40d4e2ba53318e01d5924134e5191c0eaa4866a6c0",
+      "schema": "oq096-receipt-v2",
+      "scope": "run-C"
+    },
+    {
+      "binding": {
+        "consumer": "run-A-copy/times#1",
+        "input_occurrence": "run-A-copy/P:z:in",
+        "input_slot": 0,
+        "output_occurrence": "run-A-copy/Q:z:out",
+        "output_slot": 0,
+        "producer": "run-A-copy/plus#1",
+        "type": "rational",
+        "wire": "z"
+      },
+      "consumer": {
+        "input_wires": [
+          "z",
+          "t"
+        ],
+        "op": "mul",
+        "output_wire": "w",
+        "parameter_source": "common:t",
+        "parameter_value": "4",
+        "source": "P:mul"
+      },
+      "instance": "A-copy",
+      "numeric": {
+        "interface": "5",
+        "output": "20"
+      },
+      "residual": {
+        "events": [
+          {
+            "id": "run-A-copy/plus#1",
+            "input_values": [
+              "2",
+              "3"
+            ],
+            "inputs": [
+              "x",
+              "y"
+            ],
+            "op": "add",
+            "output": "z",
+            "output_value": "5",
+            "source": "Q:add"
+          },
+          {
+            "id": "run-A-copy/times#1",
+            "input_values": [
+              "5",
+              "4"
+            ],
+            "inputs": [
+              "z",
+              "t"
+            ],
+            "op": "mul",
+            "output": "w",
+            "output_value": "20",
+            "source": "P:mul"
+          }
+        ],
+        "inputs": [
+          {
+            "occurrence": "run-A-copy/Q:x:in",
+            "record": {
+              "origin": "input-A/x",
+              "type": "rational",
+              "value": "2"
+            },
+            "source": "A:x",
+            "wire": "x"
+          },
+          {
+            "occurrence": "run-A-copy/Q:y:in",
+            "record": {
+              "origin": "input-A/y",
+              "type": "rational",
+              "value": "3"
+            },
+            "source": "A:y",
+            "wire": "y"
+          }
+        ],
+        "occurrences": {
+          "P:t:in": "run-A-copy/P:t:in",
+          "P:w:out": "run-A-copy/P:w:out",
+          "P:z:in": "run-A-copy/P:z:in",
+          "Q:x:in": "run-A-copy/Q:x:in",
+          "Q:y:in": "run-A-copy/Q:y:in",
+          "Q:z:out": "run-A-copy/Q:z:out"
+        }
+      },
+      "residual_sha256": "ae753ead8a373ffd0ff67f1d1e6aa354d5266bec05a0bcf73cdec8f9fe86ab7f",
+      "schema": "oq096-receipt-v2",
+      "scope": "run-A-copy"
+    },
+    {
+      "binding": {
+        "consumer": "run-different/times#1",
+        "input_occurrence": "run-different/P:z:in",
+        "input_slot": 0,
+        "output_occurrence": "run-different/Q:z:out",
+        "output_slot": 0,
+        "producer": "run-different/plus#1",
+        "type": "rational",
+        "wire": "z"
+      },
+      "consumer": {
+        "input_wires": [
+          "z",
+          "t"
+        ],
+        "op": "mul",
+        "output_wire": "w",
+        "parameter_source": "common:t",
+        "parameter_value": "4",
+        "source": "P:mul"
+      },
+      "instance": "different-value",
+      "numeric": {
+        "interface": "6",
+        "output": "24"
+      },
+      "residual": {
+        "events": [
+          {
+            "id": "run-different/plus#1",
+            "input_values": [
+              "2",
+              "4"
+            ],
+            "inputs": [
+              "x",
+              "y"
+            ],
+            "op": "add",
+            "output": "z",
+            "output_value": "6",
+            "source": "Q:add"
+          },
+          {
+            "id": "run-different/times#1",
+            "input_values": [
+              "6",
+              "4"
+            ],
+            "inputs": [
+              "z",
+              "t"
+            ],
+            "op": "mul",
+            "output": "w",
+            "output_value": "24",
+            "source": "P:mul"
+          }
+        ],
+        "inputs": [
+          {
+            "occurrence": "run-different/Q:x:in",
+            "record": {
+              "origin": "input-A/x",
+              "type": "rational",
+              "value": "2"
+            },
+            "source": "A:x",
+            "wire": "x"
+          },
+          {
+            "occurrence": "run-different/Q:y:in",
+            "record": {
+              "origin": "input-B/y",
+              "type": "rational",
+              "value": "4"
+            },
+            "source": "B:y",
+            "wire": "y"
+          }
+        ],
+        "occurrences": {
+          "P:t:in": "run-different/P:t:in",
+          "P:w:out": "run-different/P:w:out",
+          "P:z:in": "run-different/P:z:in",
+          "Q:x:in": "run-different/Q:x:in",
+          "Q:y:in": "run-different/Q:y:in",
+          "Q:z:out": "run-different/Q:z:out"
+        }
+      },
+      "residual_sha256": "23b7d84632b538c99366eaf9b8e6ae0f2729c2e3d0de0ecba18d5f1d759cc6e9",
+      "schema": "oq096-receipt-v2",
+      "scope": "run-different"
+    }
+  ],
+  "candidates_sha256": "a7380fbcf597049b633d9bcd6bd7d98e1011b5298424a8ea8c2aab82acccce46",
+  "files_sha256": {
+    "contract.json": "4eff959a029b79bd5b9ca2f62ceddb6faf9b708c2955db5bb0700333b3fa0e2c",
+    "produce.py": "5af134893f19e668927ba022a1fc6409e2fbde7aca0cb81a11f9ce88a0c5fe33",
+    "receive.py": "aa255f7c197ad943c278be3dda1b3bd2ddc2821418362f5b30b4025d885ebfcf",
+    "test_reception.py": "ef4fdfda8d82fb02ae55bf20e940fb924016d76c1d4f23dd06426bf63063fa92",
+    "verify_v2.py": "db496cfbb4fae52a6645e2f0ecf7c008620d2185191e4d25388e140bb2c56e01"
+  },
+  "limits": [
+    "finite observation reopening only",
+    "no general decorated DAG composition theorem",
+    "no AES extension or metric",
+    "no native Adva Seal certificate",
+    "no spectrum identification",
+    "same-author producer and receiver; no independent implementation review"
+  ],
+  "results": {
+    "accepted": {
+      "A": {
+        "distinct_interface_occurrences": [
+          "run-A/Q:z:out",
+          "run-A/P:z:in"
+        ],
+        "numeric_observation": {
+          "interface": "5",
+          "output": "20"
+        },
+        "recovered_producer": {
+          "op": "add",
+          "ordered_inputs": [
+            {
+              "record": {
+                "origin": "input-A/x",
+                "type": "rational",
+                "value": "2"
+              },
+              "source": "A:x",
+              "wire": "x"
+            },
+            {
+              "record": {
+                "origin": "input-A/y",
+                "type": "rational",
+                "value": "3"
+              },
+              "source": "A:y",
+              "wire": "y"
+            }
+          ],
+          "value": "5"
+        },
+        "replayed_events": 2,
+        "source_observation": {
+          "consumer": {
+            "input_wires": [
+              "z",
+              "t"
+            ],
+            "op": "mul",
+            "output_wire": "w",
+            "parameter_source": "common:t",
+            "parameter_value": "4",
+            "source": "P:mul"
+          },
+          "events": [
+            {
+              "input_values": [
+                "2",
+                "3"
+              ],
+              "inputs": [
+                "x",
+                "y"
+              ],
+              "op": "add",
+              "output": "z",
+              "output_value": "5",
+              "source": "Q:add"
+            },
+            {
+              "input_values": [
+                "5",
+                "4"
+              ],
+              "inputs": [
+                "z",
+                "t"
+              ],
+              "op": "mul",
+              "output": "w",
+              "output_value": "20",
+              "source": "P:mul"
+            }
+          ],
+          "inputs": [
+            {
+              "record": {
+                "origin": "input-A/x",
+                "type": "rational",
+                "value": "2"
+              },
+              "source": "A:x",
+              "wire": "x"
+            },
+            {
+              "record": {
+                "origin": "input-A/y",
+                "type": "rational",
+                "value": "3"
+              },
+              "source": "A:y",
+              "wire": "y"
+            }
+          ],
+          "numeric": {
+            "interface": "5",
+            "output": "20"
+          },
+          "parameter_record": {
+            "origin": "fixed-consumer/t",
+            "type": "rational",
+            "value": "4"
+          }
+        }
+      },
+      "A-copy": {
+        "distinct_interface_occurrences": [
+          "run-A-copy/Q:z:out",
+          "run-A-copy/P:z:in"
+        ],
+        "numeric_observation": {
+          "interface": "5",
+          "output": "20"
+        },
+        "recovered_producer": {
+          "op": "add",
+          "ordered_inputs": [
+            {
+              "record": {
+                "origin": "input-A/x",
+                "type": "rational",
+                "value": "2"
+              },
+              "source": "A:x",
+              "wire": "x"
+            },
+            {
+              "record": {
+                "origin": "input-A/y",
+                "type": "rational",
+                "value": "3"
+              },
+              "source": "A:y",
+              "wire": "y"
+            }
+          ],
+          "value": "5"
+        },
+        "replayed_events": 2,
+        "source_observation": {
+          "consumer": {
+            "input_wires": [
+              "z",
+              "t"
+            ],
+            "op": "mul",
+            "output_wire": "w",
+            "parameter_source": "common:t",
+            "parameter_value": "4",
+            "source": "P:mul"
+          },
+          "events": [
+            {
+              "input_values": [
+                "2",
+                "3"
+              ],
+              "inputs": [
+                "x",
+                "y"
+              ],
+              "op": "add",
+              "output": "z",
+              "output_value": "5",
+              "source": "Q:add"
+            },
+            {
+              "input_values": [
+                "5",
+                "4"
+              ],
+              "inputs": [
+                "z",
+                "t"
+              ],
+              "op": "mul",
+              "output": "w",
+              "output_value": "20",
+              "source": "P:mul"
+            }
+          ],
+          "inputs": [
+            {
+              "record": {
+                "origin": "input-A/x",
+                "type": "rational",
+                "value": "2"
+              },
+              "source": "A:x",
+              "wire": "x"
+            },
+            {
+              "record": {
+                "origin": "input-A/y",
+                "type": "rational",
+                "value": "3"
+              },
+              "source": "A:y",
+              "wire": "y"
+            }
+          ],
+          "numeric": {
+            "interface": "5",
+            "output": "20"
+          },
+          "parameter_record": {
+            "origin": "fixed-consumer/t",
+            "type": "rational",
+            "value": "4"
+          }
+        }
+      },
+      "B": {
+        "distinct_interface_occurrences": [
+          "run-B/Q:z:out",
+          "run-B/P:z:in"
+        ],
+        "numeric_observation": {
+          "interface": "5",
+          "output": "20"
+        },
+        "recovered_producer": {
+          "op": "add",
+          "ordered_inputs": [
+            {
+              "record": {
+                "origin": "input-B/x",
+                "type": "rational",
+                "value": "1"
+              },
+              "source": "B:x",
+              "wire": "x"
+            },
+            {
+              "record": {
+                "origin": "input-B/y",
+                "type": "rational",
+                "value": "4"
+              },
+              "source": "B:y",
+              "wire": "y"
+            }
+          ],
+          "value": "5"
+        },
+        "replayed_events": 2,
+        "source_observation": {
+          "consumer": {
+            "input_wires": [
+              "z",
+              "t"
+            ],
+            "op": "mul",
+            "output_wire": "w",
+            "parameter_source": "common:t",
+            "parameter_value": "4",
+            "source": "P:mul"
+          },
+          "events": [
+            {
+              "input_values": [
+                "1",
+                "4"
+              ],
+              "inputs": [
+                "x",
+                "y"
+              ],
+              "op": "add",
+              "output": "z",
+              "output_value": "5",
+              "source": "Q:add"
+            },
+            {
+              "input_values": [
+                "5",
+                "4"
+              ],
+              "inputs": [
+                "z",
+                "t"
+              ],
+              "op": "mul",
+              "output": "w",
+              "output_value": "20",
+              "source": "P:mul"
+            }
+          ],
+          "inputs": [
+            {
+              "record": {
+                "origin": "input-B/x",
+                "type": "rational",
+                "value": "1"
+              },
+              "source": "B:x",
+              "wire": "x"
+            },
+            {
+              "record": {
+                "origin": "input-B/y",
+                "type": "rational",
+                "value": "4"
+              },
+              "source": "B:y",
+              "wire": "y"
+            }
+          ],
+          "numeric": {
+            "interface": "5",
+            "output": "20"
+          },
+          "parameter_record": {
+            "origin": "fixed-consumer/t",
+            "type": "rational",
+            "value": "4"
+          }
+        }
+      },
+      "C": {
+        "distinct_interface_occurrences": [
+          "run-C/Q:z:out",
+          "run-C/P:z:in"
+        ],
+        "numeric_observation": {
+          "interface": "5",
+          "output": "20"
+        },
+        "recovered_producer": {
+          "op": "add",
+          "ordered_inputs": [
+            {
+              "record": {
+                "origin": "input-C/x",
+                "type": "rational",
+                "value": "2"
+              },
+              "source": "C:x",
+              "wire": "x"
+            },
+            {
+              "record": {
+                "origin": "input-C/y",
+                "type": "rational",
+                "value": "3"
+              },
+              "source": "C:y",
+              "wire": "y"
+            }
+          ],
+          "value": "5"
+        },
+        "replayed_events": 2,
+        "source_observation": {
+          "consumer": {
+            "input_wires": [
+              "z",
+              "t"
+            ],
+            "op": "mul",
+            "output_wire": "w",
+            "parameter_source": "common:t",
+            "parameter_value": "4",
+            "source": "P:mul"
+          },
+          "events": [
+            {
+              "input_values": [
+                "2",
+                "3"
+              ],
+              "inputs": [
+                "x",
+                "y"
+              ],
+              "op": "add",
+              "output": "z",
+              "output_value": "5",
+              "source": "Q:add"
+            },
+            {
+              "input_values": [
+                "5",
+                "4"
+              ],
+              "inputs": [
+                "z",
+                "t"
+              ],
+              "op": "mul",
+              "output": "w",
+              "output_value": "20",
+              "source": "P:mul"
+            }
+          ],
+          "inputs": [
+            {
+              "record": {
+                "origin": "input-C/x",
+                "type": "rational",
+                "value": "2"
+              },
+              "source": "C:x",
+              "wire": "x"
+            },
+            {
+              "record": {
+                "origin": "input-C/y",
+                "type": "rational",
+                "value": "3"
+              },
+              "source": "C:y",
+              "wire": "y"
+            }
+          ],
+          "numeric": {
+            "interface": "5",
+            "output": "20"
+          },
+          "parameter_record": {
+            "origin": "fixed-consumer/t",
+            "type": "rational",
+            "value": "4"
+          }
+        }
+      },
+      "different-value": {
+        "distinct_interface_occurrences": [
+          "run-different/Q:z:out",
+          "run-different/P:z:in"
+        ],
+        "numeric_observation": {
+          "interface": "6",
+          "output": "24"
+        },
+        "recovered_producer": {
+          "op": "add",
+          "ordered_inputs": [
+            {
+              "record": {
+                "origin": "input-A/x",
+                "type": "rational",
+                "value": "2"
+              },
+              "source": "A:x",
+              "wire": "x"
+            },
+            {
+              "record": {
+                "origin": "input-B/y",
+                "type": "rational",
+                "value": "4"
+              },
+              "source": "B:y",
+              "wire": "y"
+            }
+          ],
+          "value": "6"
+        },
+        "replayed_events": 2,
+        "source_observation": {
+          "consumer": {
+            "input_wires": [
+              "z",
+              "t"
+            ],
+            "op": "mul",
+            "output_wire": "w",
+            "parameter_source": "common:t",
+            "parameter_value": "4",
+            "source": "P:mul"
+          },
+          "events": [
+            {
+              "input_values": [
+                "2",
+                "4"
+              ],
+              "inputs": [
+                "x",
+                "y"
+              ],
+              "op": "add",
+              "output": "z",
+              "output_value": "6",
+              "source": "Q:add"
+            },
+            {
+              "input_values": [
+                "6",
+                "4"
+              ],
+              "inputs": [
+                "z",
+                "t"
+              ],
+              "op": "mul",
+              "output": "w",
+              "output_value": "24",
+              "source": "P:mul"
+            }
+          ],
+          "inputs": [
+            {
+              "record": {
+                "origin": "input-A/x",
+                "type": "rational",
+                "value": "2"
+              },
+              "source": "A:x",
+              "wire": "x"
+            },
+            {
+              "record": {
+                "origin": "input-B/y",
+                "type": "rational",
+                "value": "4"
+              },
+              "source": "B:y",
+              "wire": "y"
+            }
+          ],
+          "numeric": {
+            "interface": "6",
+            "output": "24"
+          },
+          "parameter_record": {
+            "origin": "fixed-consumer/t",
+            "type": "rational",
+            "value": "4"
+          }
+        }
+      }
+    },
+    "erasure_control": {
+      "interpretation": "retained residuals are additional data, not recovered from the numeric quotient",
+      "numeric_only_succeeds": true,
+      "source_reopening": "rejected:packet:fields"
+    },
+    "negative_controls": [
+      {
+        "name": "same-value-source-substitution",
+        "numeric_claim_unchanged": true,
+        "reason": "source:binding",
+        "status": "rejected"
+      },
+      {
+        "name": "source-record-rewrite",
+        "numeric_claim_unchanged": true,
+        "reason": "source:record",
+        "status": "rejected"
+      },
+      {
+        "name": "unknown-source",
+        "numeric_claim_unchanged": true,
+        "reason": "source:unknown",
+        "status": "rejected"
+      },
+      {
+        "name": "gate-source-substitution",
+        "numeric_claim_unchanged": true,
+        "reason": "event:source",
+        "status": "rejected"
+      },
+      {
+        "name": "collapse-interface-identities",
+        "numeric_claim_unchanged": true,
+        "reason": "identity:collapsed",
+        "status": "rejected"
+      },
+      {
+        "name": "alias-interface-binding",
+        "numeric_claim_unchanged": true,
+        "reason": "binding:incidence",
+        "status": "rejected"
+      },
+      {
+        "name": "wrong-consumer-slot",
+        "numeric_claim_unchanged": true,
+        "reason": "binding:slot",
+        "status": "rejected"
+      },
+      {
+        "name": "wrong-producer-slot",
+        "numeric_claim_unchanged": true,
+        "reason": "binding:slot",
+        "status": "rejected"
+      },
+      {
+        "name": "boolean-slot",
+        "numeric_claim_unchanged": true,
+        "reason": "binding:slot-type",
+        "status": "rejected"
+      },
+      {
+        "name": "commutative-producer-slot-swap",
+        "numeric_claim_unchanged": true,
+        "reason": "event:shape-or-slot",
+        "status": "rejected"
+      },
+      {
+        "name": "missing-residual",
+        "numeric_claim_unchanged": true,
+        "reason": "residual:missing-or-fields",
+        "status": "rejected"
+      },
+      {
+        "name": "erase-producer-event",
+        "numeric_claim_unchanged": true,
+        "reason": "history:inventory",
+        "status": "rejected"
+      },
+      {
+        "name": "unrecorded-constant-replacement",
+        "numeric_claim_unchanged": true,
+        "reason": "event:shape-or-slot",
+        "status": "rejected"
+      },
+      {
+        "name": "forged-history-value",
+        "numeric_claim_unchanged": true,
+        "reason": "history:output-value",
+        "status": "rejected"
+      },
+      {
+        "name": "missing-input-source",
+        "numeric_claim_unchanged": true,
+        "reason": "input:fields",
+        "status": "rejected"
+      },
+      {
+        "name": "input-slot-swap",
+        "numeric_claim_unchanged": true,
+        "reason": "input:slot",
+        "status": "rejected"
+      },
+      {
+        "name": "stale-residual-digest",
+        "numeric_claim_unchanged": true,
+        "reason": "residual:digest",
+        "status": "rejected"
+      },
+      {
+        "name": "changed-consumer-parameter",
+        "numeric_claim_unchanged": true,
+        "reason": "consumer:context",
+        "status": "rejected"
+      },
+      {
+        "name": "forged-numeric-output",
+        "numeric_claim_unchanged": false,
+        "reason": "numeric:replay",
+        "status": "rejected"
+      },
+      {
+        "name": "whole-valid-foreign-receipt",
+        "numeric_claim_unchanged": true,
+        "reason": "instance:binding",
+        "status": "rejected"
+      }
+    ],
+    "numeric_equivalence_classes": [
+      [
+        "A",
+        "B",
+        "C",
+        "A-copy"
+      ],
+      [
+        "different-value"
+      ]
+    ],
+    "occurrence_inventory": {
+      "all_fresh": true,
+      "event_occurrences": 10,
+      "port_occurrences": 30
+    },
+    "source_equivalence_classes": [
+      [
+        "A",
+        "A-copy"
+      ],
+      [
+        "B"
+      ],
+      [
+        "C"
+      ],
+      [
+        "different-value"
+      ]
+    ],
+    "source_partition_refines_numeric": true
+  },
+  "schema": "oq096-equal-value-evidence-v2",
+  "status": "computationally-verified-example"
+}
