@@ -225,3 +225,17 @@ holder. Model cross-review is not independent human review.
   theorem, AES extension, spectral bridge or native Adva Seal certification.
   Submission through Mingli's authorized account does not imply his authorship
   of the code, technical review, correctness guarantee or approval to merge.
+
+### OQ-096 V2 follow-up review — 2026-11-05
+
+- **Human direction:** Mingli Yuan requested a fresh review of PR #26, including
+  rehashed source substitution, identity normalization, V1 preservation and
+  claim boundaries; merge still requires his explicit approval.
+- **Model contribution:** Codex (OpenAI), in a new review session, inspected the
+  frozen sources and remote Git identities, independently recalculated the
+  finite equivalence relations, added `v2/review_2026_11_05.py` without reusing
+  the producer or original mutation generator, and corrected the V1 direct-file
+  count from six to five. The original contract, receiver and evidence are unchanged.
+- **Boundary:** independently derived checks in a fresh model session, not
+  independent human authorship, external provenance authentication or a general
+  theorem. Details and reproducible commands: `research/pants-interface-disks/v2/review-2026-11-05.md`.
