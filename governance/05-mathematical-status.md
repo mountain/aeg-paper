@@ -3694,3 +3694,18 @@ This adds finite evidence only; no manuscript theorem or V1 evidence changes.
 |---|---|---|
 | OQ096-V2 | `COMPUTATIONALLY VERIFIED EXAMPLE` | Five source-bound two-gate receipts give two numeric classes and four alpha-normalized source classes. Equal-operand/different-source and fresh-occurrence/same-source controls pass; twenty packet mutations reject. Observation reopening uses retained validated residuals, not inversion of the numeric quotient. Same-author producer/receiver, no independent review. |
 | OQ096-V2-R | `OPEN PROBLEM` | General decorated DAG composition, interface state/spectrum correspondence, AES realization, annular compatibility and native Adva Seal remain open under OQ-096.1–096.5. |
+
+
+## OQ-096 V3 three-block composition (2026-11-05)
+
+Canonical definitions and proofs: `research/pants-interface-disks/v3/MATHEMATICS.md`.
+The computational report is `research/pants-interface-disks/v3/README.md`.
+No existing V1/V2 bytes or LaTeX sources are changed.
+
+| ID | Status | Statement and boundary |
+|---|---|---|
+| OQ096-V3-F1 | `proved with stated hypotheses` | Fixed Q-add/P-times-4/R-reciprocal chain, preallocated disjoint occurrences, immutable sources, typed ordered slots, complete graph/residual retention and strict nonzero guard: both bracketings give the same decorated record and partial numerical function, domain x+y!=0. Explicit finite-record and algebraic proof; no arbitrary DAG/decomposition or geometric functor claim. |
+| OQ096-V3-F2 | `proved with stated hypotheses` | Changing one registered equal-value source binding preserves (5,20,1/20) but violates the externally expected A request. Minimality counts changed bindings only. |
+| OQ096-V3-F3 | `proved with stated hypotheses` | A specified last-seam-only residual composition on three adjacent typed blocks has associative numerical functions but unequal residuals. It violates F1's retention hypothesis; it is not a counterexample within F1's lawful composition. |
+| OQ096-V3-C | `computationally verified example` | 41 requests / 82 constructions: 36 accepted and five strict-domain rejections in each bracketing. 980 source-pair checks: five accepted, 975 rejected (107 numerically unchanged); 32 saved negative packets and 18 extra-edge controls. JavaScript and separately written Python/Fraction oracle agree; same author, no independent human review. |
+| OQ096-V3-R | `open problem` | General decorated DAG composition/decomposition, overlapping/shared subgraphs, alpha-transport coherence, geometric thickening, state/spectrum bridges, AES extension and native Adva Seal remain open. F1–F3 are eligible for a narrow Paper I addition, not automatically integrated. |

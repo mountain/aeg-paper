@@ -239,3 +239,35 @@ holder. Model cross-review is not independent human review.
 - **Boundary:** independently derived checks in a fresh model session, not
   independent human authorship, external provenance authentication or a general
   theorem. Details and reproducible commands: `research/pants-interface-disks/v2/review-2026-11-05.md`.
+
+
+## OQ-096 V3 three-block composition — 2026-11-05
+
+- **Human origin/direction:** Mingli Yuan requested typed three-block composition
+  under the frozen V1/V2 contracts, comparison of both bracketings, strict
+  domains, source/occurrence/slot/history/residual transport, minimal
+  counterexamples, reproducible checking and an explicit Paper I eligibility
+  assessment without AES or native Adva Seal promotion.
+- **Model contribution:** Codex (OpenAI) read the pinned source contracts,
+  fixed V3's pre-execution contract/SPEC in
+  `79059293934caa0e0b1e674ac4c51e336f01a433`, defined the reciprocal third
+  block and partial-function domains, wrote F1–F3 proofs, the separate
+  JavaScript producer/receiver, a Python Fraction direct-normal-form oracle,
+  mutation/source-pair/feedback checks, frozen evidence, CI and documentation.
+- **Evidence:** `research/pants-interface-disks/v3/`; 41 requests and 82
+  bracketed constructions, 36 admissible and five domain-rejected requests,
+  980 source-pair checks, 32 saved negative packets and 18 extra edges.
+  First implementation head `5a121f60a0abef9d716d2ed87b1ed143591debbb`
+  passed V3 on Node 22/Python 3.11 and Node 24/Python 3.13, including
+  68 saved-packet fresh-process checks per language and V1/V2 replay.
+- **Execution provenance:** the session terminal was unavailable. The initial
+  pure JavaScript core executed in V8; actual fresh-process Node/Python,
+  optimized-mode comparison and prior-evidence replays executed in GitHub
+  Actions, not claimed as local terminal execution.
+- **Boundary:** separately written code routes by the same model author,
+  not independent human review. Declared local source identities are not
+  external-origin authentication. Finite chain propositions have explicit
+  hypotheses and proofs; general OQ-096.1 remains open. No LaTeX changes,
+  third-pants geometry, AES extension or native Adva Seal. All 15 prior V1/V2
+  files remain byte-identical. Submission through Mingli's authorized account
+  is not his code authorship, independent review or approval to merge.
