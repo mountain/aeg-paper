@@ -1,0 +1,43 @@
+name: OQ-096 V3 three-block composition
+
+on:
+  pull_request:
+    paths:
+      - "research/pants-interface-disks/**"
+      - "governance/08-open-questions.md"
+      - ".github/workflows/pants-interface-v3.yml"
+  push:
+    branches: ["research/oq096-v3-three-block-composition"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  three-blocks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - node: "22"
+            python: "3.11"
+          - node: "24"
+            python: "3.13"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Replay frozen V1 and V2 without changing their bytes
+        run: bash research/pants-interface-disks/v2/replay.sh
+      - name: Replay V3 and check saved evidence in fresh JavaScript and Python processes
+        run: bash research/pants-interface-disks/v3/replay.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: oq096-v3-node-${{ matrix.node }}-python-${{ matrix.python }}
+          path: research/pants-interface-disks/v3/evidence-v3.json
