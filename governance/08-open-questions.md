@@ -4005,9 +4005,11 @@ them yet).
 ## OQ-096 — Pants, interface disks and certified capping
 
 **Priority:** P2
-**State:** OPEN (updated 2026-11-02); 096.1 has a completed V1 finite example,
-with general composition still open. 096.2 now has a completed V2 finite
-observer example, but its general state/spectrum questions remain open.
+**State:** OPEN (updated 2026-11-05); 096.1 has completed V1 and V3 finite
+calibrations and a proved fixed-chain statement with explicit hypotheses;
+general decorated DAG composition and decomposition compatibility remain open.
+096.2 has a completed V2 finite observer example, but its general state/spectrum
+questions remain open.
 Sub-items 096.3–096.4 remain open; 096.5 records the handle/annular direction.
 **Origin:** Mingli Yuan asks to clarify pants, DAG substitution, the shared
 boundary's cap and its spectral value before assigning geometric meaning to
@@ -4114,10 +4116,34 @@ EXAMPLE, not independent implementation review. Reopening reads retained,
 source-bound residuals; it does not invert the numeric quotient. No DAG-shape
 change, spectrum bridge, AES extension or native Adva Seal is certified.
 
-**Next bounded target:** V3's three compatible blocks and two bracketings,
-with explicit source/occurrence transport, strict domains and feedback refusal.
-096.2's general state/spectrum obligations remain separate. The AES/Seal bridge
-is V4; none of these conclusions follows from V1/V2 success.
+**V3 finite update (2026-11-05):** `research/pants-interface-disks/v3/`
+freezes its contract before implementation (commit
+`79059293934caa0e0b1e674ac4c51e336f01a433`) and preserves all 15 prior V1/V2
+files. The three blocks are Q(x,y)=x+y, P(z)=4z, R(w)=1/w with strict w!=0.
+For 41 requests (five V2 assignments plus a 6x6 rational grid), both
+bracketings yield identical decorated records for 36 admissible requests
+and both reject the five zero-domain requests. 980 source-pair attempts
+accept five and reject 975, including 107 numerically unchanged rejections;
+32 saved negative packets reject. All 18 extra-edge candidates reject,
+including 12 directed cycles. Separate JavaScript and Python/Fraction routes
+agree; each receives 68 saved packets in fresh processes. Same model author,
+not independent human review.
+
+`v3/MATHEMATICS.md` gives explicit proofs of F1 (fixed three-block chain with
+preallocated disjoint occurrences, immutable sources, ordered typed slots,
+complete residual retention and strict domains), F2 (one equal-value source
+binding can violate the caller's request), and F3 (retaining only the newest
+seam produces nonassociative residuals despite associative numeric functions).
+These are finite-model propositions, not a general decorated-DAG theorem.
+A narrow Paper I proposition is mathematically eligible; no LaTeX statement
+is changed by this experiment. No new geometric thickening, AES extension,
+spectrum bridge or native Adva Seal is certified.
+
+**Next bounded target:** a four-block diamond with explicit copy and a fixed
+rule distinguishing reused sources from shared event occurrences; compare
+two declared decompositions and audit overlapping subgraphs before claiming
+general compatibility. 096.2's general state/spectrum obligations remain
+separate. The AES/Seal bridge remains a separate V4 obligation.
 
 ---
 

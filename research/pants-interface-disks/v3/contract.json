@@ -1,0 +1,252 @@
+{
+  "schema": "oq096-three-block-contract-v3",
+  "baseline": "a1b203e32fa7012a8749328f39a85dd524eb3842",
+  "frozen_files": {
+    "research/pants-interface-disks/README.md": "880f34f3a074ebd7709b8266ebdd87f68086a4cb",
+    "research/pants-interface-disks/evidence-handles.json": "44f53051e5b01838b68ea3430226b94941afe109",
+    "research/pants-interface-disks/evidence-v1.json": "c6eda244916e801ea880bf55a469ed8c2de54f66",
+    "research/pants-interface-disks/v2/README.md": "d09c0a0bb0f8f9b4024774611e942ac0f1283d82",
+    "research/pants-interface-disks/v2/contract.json": "4a990b694f84d9f2eb46d21c19215d0f089d579c",
+    "research/pants-interface-disks/v2/evidence-v2.json": "56c2baca4d6b5d49e3fb3314958d051b9376d6e1",
+    "research/pants-interface-disks/v2/produce.py": "08d610359fa9e7740579c93554a945bd3b25cd6d",
+    "research/pants-interface-disks/v2/receive.py": "95def7448790a61b14c8cfc89731e092fc6fcf0e",
+    "research/pants-interface-disks/v2/replay.sh": "308daeb78d9083faeb4e0713d313e3119e2ff266",
+    "research/pants-interface-disks/v2/review-2026-11-05.md": "370aea175f45155a641ec54a76c719abedfc594d",
+    "research/pants-interface-disks/v2/review_2026_11_05.py": "3f9015ad3a9410de5dab19744032a5bc9f791de7",
+    "research/pants-interface-disks/v2/test_reception.py": "fa086551624d29e2546d22006fd93ab368e3e673",
+    "research/pants-interface-disks/v2/verify_v2.py": "35530aacc0740dc05ec29c72ef1136d12c661491",
+    "research/pants-interface-disks/verify_handles.py": "d8924c7a9a59963c24edbe02c08c4e8c86e7e260",
+    "research/pants-interface-disks/verify_v1.py": "10e455e60d4857d4ce84411390f8a0650c6c971a"
+  },
+  "convention": "B compose A executes A then B; Q -> P -> R; parentheses are construction order, not execution order",
+  "source_registry": {
+    "A:x": {
+      "origin": "input-A/x",
+      "type": "rational",
+      "value": "2"
+    },
+    "A:y": {
+      "origin": "input-A/y",
+      "type": "rational",
+      "value": "3"
+    },
+    "B:x": {
+      "origin": "input-B/x",
+      "type": "rational",
+      "value": "1"
+    },
+    "B:y": {
+      "origin": "input-B/y",
+      "type": "rational",
+      "value": "4"
+    },
+    "C:x": {
+      "origin": "input-C/x",
+      "type": "rational",
+      "value": "2"
+    },
+    "C:y": {
+      "origin": "input-C/y",
+      "type": "rational",
+      "value": "3"
+    },
+    "common:t": {
+      "origin": "fixed-consumer/t",
+      "type": "rational",
+      "value": "4"
+    },
+    "common:u": {
+      "origin": "fixed-reciprocal/u",
+      "type": "rational",
+      "value": "1"
+    },
+    "grid:-2": {
+      "origin": "finite-grid/-2",
+      "type": "rational",
+      "value": "-2"
+    },
+    "grid:-1": {
+      "origin": "finite-grid/-1",
+      "type": "rational",
+      "value": "-1"
+    },
+    "grid:0": {
+      "origin": "finite-grid/0",
+      "type": "rational",
+      "value": "0"
+    },
+    "grid:1": {
+      "origin": "finite-grid/1",
+      "type": "rational",
+      "value": "1"
+    },
+    "grid:2": {
+      "origin": "finite-grid/2",
+      "type": "rational",
+      "value": "2"
+    },
+    "grid:1/2": {
+      "origin": "finite-grid/1/2",
+      "type": "rational",
+      "value": "1/2"
+    }
+  },
+  "blocks": [
+    {
+      "key": "Q",
+      "event": "plus#1",
+      "source": "Q:add",
+      "op": "add",
+      "inputs": [
+        "x",
+        "y"
+      ],
+      "output": "z",
+      "type": "rational"
+    },
+    {
+      "key": "P",
+      "event": "times#1",
+      "source": "P:mul",
+      "op": "mul",
+      "inputs": [
+        "z",
+        "t"
+      ],
+      "output": "w",
+      "type": "rational"
+    },
+    {
+      "key": "R",
+      "event": "reciprocal#1",
+      "source": "R:div",
+      "op": "div",
+      "inputs": [
+        "u",
+        "w"
+      ],
+      "output": "v",
+      "type": "rational"
+    }
+  ],
+  "bindings": [
+    {
+      "from": "Q:z:out",
+      "to": "P:z:in",
+      "output_slot": 0,
+      "input_slot": 0,
+      "type": "rational"
+    },
+    {
+      "from": "P:w:out",
+      "to": "R:w:in",
+      "output_slot": 0,
+      "input_slot": 1,
+      "type": "rational"
+    }
+  ],
+  "external_order": [
+    "Q:x:in",
+    "Q:y:in",
+    "P:t:in",
+    "R:u:in"
+  ],
+  "output_order": [
+    "R:v:out"
+  ],
+  "fixed_sources": {
+    "P:t:in": "common:t",
+    "R:u:in": "common:u"
+  },
+  "instances": [
+    {
+      "inputs": {
+        "x": "A:x",
+        "y": "A:y"
+      },
+      "key": "A",
+      "scope": "run-A"
+    },
+    {
+      "inputs": {
+        "x": "B:x",
+        "y": "B:y"
+      },
+      "key": "B",
+      "scope": "run-B"
+    },
+    {
+      "inputs": {
+        "x": "C:x",
+        "y": "C:y"
+      },
+      "key": "C",
+      "scope": "run-C"
+    },
+    {
+      "inputs": {
+        "x": "A:x",
+        "y": "A:y"
+      },
+      "key": "A-copy",
+      "scope": "run-A-copy"
+    },
+    {
+      "inputs": {
+        "x": "A:x",
+        "y": "B:y"
+      },
+      "key": "different-value",
+      "scope": "run-different"
+    }
+  ],
+  "grid": [
+    "-2",
+    "-1",
+    "0",
+    "1",
+    "2",
+    "1/2"
+  ],
+  "identity": "allocate scope/role at leaf instantiation, before composition; pairwise disjoint ports/events; immutable sources may be shared only by caller-bound requests; no implicit copy, discard, slot swap or alpha identification",
+  "residual": "complete gates, ports, internal bindings, external source records, nonzero obligations, replay trace and external boundary; recoverable lossless compression is allowed mathematically but not used by this wire format",
+  "domain": "Q,P total over rational; R(u,w)=u/w only w!=0, u=1,t=4, therefore x+y!=0; never projectively continue or cancel domain guards",
+  "composition": "disjoint union by stable role keys, add declared cross-operand bindings, recompute live boundary; retain all previous bindings and guards; no value-based identification; global DAG check after each join",
+  "comparison": "same request: exact canonical structural/trace equality; distinct fresh requests: role-validated alpha normalization only, preserve source keys, ordered slots and all graph incidences",
+  "refusal_conditions": [
+    "caller request mismatch",
+    "foreign same-value source",
+    "source record or gate source changed",
+    "unknown source",
+    "duplicate/collapsed occurrence",
+    "wrong scope/role",
+    "boolean or wrong slot",
+    "type mismatch",
+    "missing/duplicate/multiple-producer binding",
+    "unrecorded fanout or discard",
+    "directed feedback",
+    "missing production event",
+    "partial residual or last-seam-only residual",
+    "altered replay value",
+    "missing/nonmatching nonzero guard",
+    "division by zero",
+    "wrong external boundary",
+    "unbound input",
+    "undeclared instance",
+    "duplicate JSON keys",
+    "evidence reordering or forged summary"
+  ],
+  "predeclared_cases": [
+    "five V2 source assignments extended by R",
+    "36 ordered grid assignments",
+    "all 14x14 registered x/y source pairs in each of five frozen contexts",
+    "all 18 output-port x input-port single-extra-edge candidates, including cycles",
+    "last-seam-only composition counterexample"
+  ],
+  "status": "pre-execution finite contract; no general thickening/AES/Seal theorem",
+  "attribution": {
+    "direction": "Mingli Yuan",
+    "formalization_implementation": "Codex (OpenAI)",
+    "independent_human_review": false
+  }
+}
