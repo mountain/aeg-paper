@@ -1,0 +1,557 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs,microtype,xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!45!black,urlcolor=blue!55!black]{hyperref}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\F}{\mathbb F}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\PGL}{\operatorname{PGL}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\ii}{\mathrm i}
+\title{Conic Motions, Arithmetic Histories, and Three Finite Calculi}
+\author{Research note in the math-notes programme}
+\date{November 6, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+The eight-point circle over $\F_7$ is placed inside the projective arithmetic
+semantics of AEG. Its one-step rotation becomes a four-context arithmetic
+history with an eight-cycle on $\PP^1(\F_7)$. We prove the distinction between
+its projective relation and its ordinary evaluation domains, and explain why
+directly projectivizing norm-one multiplication loses a factor of two.
+Split, nonsplit, and unipotent motions give six-, eight-, and seven-cycles.
+Their differences have the same elementary solvability condition, but sharply
+different spectral and normalization properties in characteristic seven.
+All statements have proofs; an independent exact verification script checks
+the finite examples. The proposed Paper I interface is separated from the
+open problem of an elliptic arithmetic expression surface.
+\end{abstract}
+\tableofcontents
+
+\section{Scope, choices, and conventions}
+This note continues \href{48-finite-field-trigonometry.pdf}{companion note 48 on finite trigonometry}. Its immediate
+target is an explicit example in Paper I's existing projective semantics,
+not a change to the definition of a regular arithmetic expression space
+(AES). An elliptic projective motion, an affine conic of elliptic type, and
+a positive-curvature AES are different objects.
+
+All substantial results below are \emph{proved with stated hypotheses} in
+this note. The finite computations are supplementary checks, not proofs for
+arbitrary fields. Statements described as an interface or a next problem are
+proposals, not changes to the AEG manuscripts or their status registers.
+
+Matrices act on columns from the left, with affine coordinate $t=U/V$:
+\[
+ \begin{pmatrix}a&b\\c&d\end{pmatrix}[U:V]
+   =[aU+bV:cU+dV].
+\]
+For a chronological history $(g_1,\ldots,g_m)$, the operator is
+$g_m\circ\cdots\circ g_1$. Write
+$A_b(t)=t+b$, $M_a(t)=at$ for $a\ne0$, and $J(t)=1/t$.
+Here $J$ is positive reciprocal, not the negative inversion used in some
+Hecke conventions. Projectively these are everywhere defined on $\PP^1$;
+ordinary evaluation of $J$ requires a nonzero finite input.
+
+For an affine conic one must retain a chosen line $L_\infty$.
+For the present circle, the data $(C,L_\infty,P_0,\tau)$ retain the affine
+structure, a base point, and a selected one-step rotation. Two nonrational
+geometric intersection points of $C$ with $L_\infty$ give the nonsplit case;
+two rational points give the split case; tangency gives the parabolic case.
+The bare projective conic does not select a difference operator or a cyclic
+ordering of its rational points.
+
+\section{From circle multiplication to a projective torus}
+Let $K$ be a field of characteristic different from two in which $-1$ is not
+a square, and let $L=K[\ii]/(\ii^2+1)$, with conjugation $\bar\ii=-\ii$.
+The conic $C:X^2+Y^2=Z^2$ has parametrization
+\begin{equation}\label{eq:nu}
+ \nu([U:V])=[V^2-U^2:2UV:U^2+V^2].
+\end{equation}
+There are no rational points on $C\cap\{Z=0\}$. All rational points of $C$
+are therefore affine, and in the finite chart
+\[
+ w(t)=x(t)+\ii y(t)=\frac{1+\ii t}{1-\ii t},\qquad
+ t=\frac{y}{1+x}.
+\]
+The exceptional point is $\nu(\infty)=(-1,0)$. The homogeneous formula
+\eqref{eq:nu} is an isomorphism of the projective conic with $\PP^1$:
+away from $(-1,0)$ its inverse is $[U:V]=[Y:Z+X]$;
+near that point use $[U:V]=[Z-X:Y]$. These agree on their overlap by
+$Y^2=(Z-X)(Z+X)$.
+
+\begin{proposition}[The quotient and norm-one actions]\label{prop:torus}
+There is a group isomorphism
+\[
+ \rho:L^\times/K^\times\longrightarrow L^1,
+ \qquad [\beta]\longmapsto\beta/\bar\beta,
+ \qquad L^1=\{w:w\bar w=1\}.
+\]
+For $\beta=a+b\ii$, the corresponding action on $\PP^1(K)$ is
+\begin{equation}\label{eq:beta-action}
+ t\longmapsto\frac{at+b}{a-bt},\qquad
+ B_\beta=\begin{pmatrix}a&b\\-b&a\end{pmatrix}.
+\end{equation}
+The parametrization intertwines this action with multiplication by
+$\rho([\beta])$ on $C(K)=L^1$.
+\end{proposition}
+\begin{proof}
+The determinant of $B_\beta$ is $a^2+b^2\ne0$. Multiplication of these
+matrices is multiplication of the corresponding $\beta$'s; scalar matrices
+are exactly $b=0$. The kernel of $\beta\mapsto\beta/\bar\beta$ is
+$K^\times$. For any $w\in L^1$ with $w\ne-1$, choose $\beta=1+w$:
+$\bar\beta=(1+w)/w$, so $\beta/\bar\beta=w$.
+For $w=-1$, choose $\beta=\ii$. Thus the map is surjective as well.
+Finally direct substitution gives
+\[
+ \frac{1+\ii(at+b)/(a-bt)}{1-\ii(at+b)/(a-bt)}
+   =\frac{a+b\ii}{a-b\ii}\frac{1+\ii t}{1-\ii t}.
+\]
+The equality is homogeneous and hence also holds at exceptional chart points.
+\end{proof}
+
+\begin{remark}[A factor of two that must be retained]\label{rem:double}
+Direct multiplication by a norm-one element $w$ on the two-dimensional
+$K$-vector space $L$, followed by projectivization, acts on direction
+classes $[z]\mapsto[wz]$. Under $\rho$ this becomes
+$\rho([wz])=w^2\rho([z])$.
+Thus it corresponds to the \emph{square} of the circle rotation by $w$.
+Over $\F_7$, $\alpha=2+2\ii$ has order eight, but its direct multiplication
+matrix has projective order four because $\alpha^4=-1$ is scalar.
+This does not contradict Proposition~\ref{prop:torus}: to obtain rotation by
+$\alpha$, use a class $[\beta]$ with $\beta/\bar\beta=\alpha$.
+\end{remark}
+
+\section{An elliptic history and its ordinary domains}
+From now through Section~\ref{sec:covariance}, take $K=\F_7$ unless another
+coefficient field is explicitly specified. For $\beta=1+3\ii$,
+\[
+ \beta/\bar\beta=2+2\ii=\alpha,\qquad
+ R(t)=\frac{t+3}{1-3t},\qquad
+ R=\left[\begin{pmatrix}1&3\\4&1\end{pmatrix}\right].
+\]
+The determinant is $3\ne0$. The stereographic coordinates of $\alpha^k$ are
+\begin{equation}\label{eq:cycle}
+ (t_0,\ldots,t_7)=(0,3,1,5,\infty,2,6,4),\qquad R(t_k)=t_{k+1}.
+\end{equation}
+Indices in this formula are modulo eight.
+
+\begin{theorem}[A finite elliptic arithmetic-history witness]
+\label{thm:history-witness}
+Let $W=(A_2,J,M_2,A_2)$ be a chronological history over $\F_7$.
+Its projective operator is $R$, of order eight. For $m\ge0$, let $D_m$
+be the set of finite initial values at which the repeated word $W^m$ is
+ordinarily admissible. Then
+\[
+ D_m=\{t_j:j\in\{0,1,2,3,5,6,7\},\quad
+             j+r\not\equiv3\pmod8\ (0\le r<m)\},
+ \qquad |D_m|=\max(7-m,0).
+\]
+In particular $W^8$ and the empty word have the same projective operator,
+while their ordinary domains are respectively $\varnothing$ and $\F_7$.
+\end{theorem}
+\begin{proof}
+On its ordinary domain,
+\[
+ W(t)=2+\frac2{t+2}=\frac{2t+6}{t+2}
+      =\frac{t+3}{1-3t}.
+\]
+Its matrix is $\left(\begin{smallmatrix}2&6\\1&2\end{smallmatrix}\right)$,
+twice the displayed matrix for $R$. The only ordinary exclusion for one
+copy is $t=5=t_3$, where the reciprocal divides by zero. Equation
+\eqref{eq:cycle} follows by evaluating $R$ on the eight projective points;
+as it is one eight-cycle, $R$ has order eight. Each iteration fails exactly
+when its initial state is $t_3$. For the seven finite initial states, the
+first occurrence of this failure has index $r=0,1,\ldots,6$, each once;
+the remaining index $r=7$ belongs to the inadmissible initial state
+$t_4=\infty$. This proves the domain formula and count. The last assertion
+compares these domains with the projective identity $R^8=1$.
+\end{proof}
+
+Thus ordinary domains become empty after seven copies already. Eight copies
+are distinguished because that is the first positive projective identity
+relation. The witness concerns a particular marked arithmetic word, not just
+the simplified rational function representing its final operator.
+
+\section{Three motions on the same projective line}\label{sec:three}
+Consider $R$ above, $S(t)=3t$, and $U(t)=t+1$. The element $3$ generates
+$\F_7^\times$. Their orbit decompositions are
+\[
+\begin{array}{ccl}
+ R&:&(0,3,1,5,\infty,2,6,4),\\
+ S&:&(1,3,2,6,4,5),\quad(0),\quad(\infty),\\
+ U&:&(0,1,2,3,4,5,6),\quad(\infty).
+\end{array}
+\]
+For a representative $A$, the zero/nonzero square class of
+$(\operatorname{tr}A)^2-4\det A$ is unchanged by scalar multiplication.
+It is $6$ for $R$, $4$ for $S$, and $0$ for $U$.
+Thus these are respectively nonsplit semisimple, split semisimple, and
+nontrivial unipotent examples. These terms refer to projective operators;
+they do not assert a curvature sign for a two-dimensional AES.
+
+The subgroup in Proposition~\ref{prop:torus} has order
+$(49-1)/(7-1)=8$, and $R$ generates it. The scaling subgroup generated by
+$S$ has order six. The translation subgroup generated by $U$ has order
+seven. These give the three moving orbits on which we compare differences.
+For reference, $|\PGL_2(\F_7)|=(49-1)(49-7)/(7-1)=336$:
+choose a nonzero first column, a second column outside its span, and then
+divide by the six nonzero scalar representatives of each projective matrix.
+At each extra fixed point, the difference is zero, so the full point-function
+space has one constant kernel vector per orbit.
+
+\section{Cyclic difference, solvability, and products}
+Let $E$ be any field, let $n\ge2$, and put
+$V_n(E)=\{f:\mathbb Z/n\mathbb Z\to E\}$.
+Define
+\[
+ (Tf)(k)=f(k+1),\quad \Delta=T-I,\quad
+ \sigma(f)=\sum_{k=0}^{n-1}f(k).
+\]
+\begin{proposition}[Periodic antiderivatives]\label{prop:antiderivative}
+For every $E$ and $n$,
+\[
+ \ker\Delta=E\mathbf1,\qquad
+ \im\Delta=\ker\sigma.
+\]
+For $g\in\ker\sigma$, all solutions of $\Delta f=g$ are
+\begin{equation}\label{eq:primitive}
+ f(k)=c+\sum_{j=0}^{k-1}g(j)\qquad(0\le k<n),\quad c\in E.
+\end{equation}
+If $n$ is invertible in $E$, there is a unique solution with $\sigma(f)=0$.
+If $\operatorname{char}E$ divides $n$, adding a constant does not change
+$\sigma(f)$; zero sum cannot select a unique solution and may be impossible.
+\end{proposition}
+\begin{proof}
+The kernel consists of functions constant along the cycle. Summing a
+difference telescopes, so the image lies in $\ker\sigma$. Conversely
+\eqref{eq:primitive} satisfies the equation, including the closing edge
+precisely when $\sigma(g)=0$. Two solutions differ by a constant. Their sums
+differ by $nc$, giving the normalization claims.
+\end{proof}
+
+\begin{proposition}[Averaging and its obstruction]\label{prop:average}
+If $n$ is invertible in $E$, then
+\[
+ V_n(E)=E\mathbf1\oplus\ker\sigma,
+\]
+and $\Delta$ restricts to an automorphism of $\ker\sigma$.
+If $\operatorname{char}E$ divides $n$, this direct sum fails and there is
+no linear right inverse to $\Delta:V_n(E)\to\ker\sigma$ that
+commutes with $T$.
+\end{proposition}
+\begin{proof}
+For the first assertion subtract $n^{-1}\sigma(f)\mathbf1$ from $f$.
+The restriction has zero kernel and maps a finite-dimensional space to
+itself, hence is invertible. In the second case $\mathbf1\in\ker\sigma$.
+If a commuting right inverse $B$ existed, then
+$T(B\mathbf1)=B(T\mathbf1)=B\mathbf1$; thus $B\mathbf1$ would be constant
+and $\Delta B\mathbf1=0$, contradicting the right inverse property.
+\end{proof}
+
+\begin{proposition}[Product and summation-by-parts formulas]
+\label{prop:products}
+For pointwise products,
+\[
+ \Delta(fg)=(\Delta f)g+(Tf)\Delta g
+          =f\Delta g+g\Delta f+(\Delta f)(\Delta g),
+\]
+and
+\[
+ \sum_k (\Delta f)(k)g(k)
+    =\sum_k f(k)\bigl(g(k-1)-g(k)\bigr).
+\]
+Every $E$-linear derivation of the point-function algebra $V_n(E)$ is zero.
+\end{proposition}
+\begin{proof}
+Expand the products and reindex the finite sums. For the last assertion,
+the point indicators $e_k$ are a basis of orthogonal idempotents. A derivation
+$D$ obeys $D(e_k)=2e_kD(e_k)$. At a point outside the support of $e_k$ this
+forces $D(e_k)=0$; at its support it gives $D(e_k)=2D(e_k)$, again forcing
+zero in every characteristic. Thus $D$ vanishes on the entire basis.
+\end{proof}
+Consequently an ordinary formal derivative on polynomials or rational
+functions is a different object from $\Delta$ on point functions. For example,
+$t^7-t$ vanishes on $\F_7$, but its formal derivative is $-1$.
+
+\section{The two semisimple calculi}\label{sec:semisimple}
+\begin{theorem}[Fourier diagonalization]\label{thm:fourier}
+Suppose $n$ is invertible in $E$ and $E$ contains an element $\zeta$ of order
+$n$. Then $\chi_j(k)=\zeta^{jk}$, $0\le j<n$, form a basis of $V_n(E)$,
+\[
+ \Delta\chi_j=(\zeta^j-1)\chi_j,\qquad
+ \widehat f(j)=\sum_k f(k)\zeta^{-jk},\qquad
+ f(k)=n^{-1}\sum_j\widehat f(j)\zeta^{jk}.
+\]
+On the zero-sum subspace, the unique zero-sum antiderivative has Fourier
+coefficients $\widehat g(j)/(\zeta^j-1)$ for $j\ne0$, and zero for $j=0$.
+\end{theorem}
+\begin{proof}
+For $j\ne l$, geometric summation gives
+$\sum_k\zeta^{(j-l)k}=0$, whereas it is $n$ for $j=l$.
+These equalities prove inversion and linear independence. Applying $T$ to
+each character proves the eigenvalue formula; only $j=0$ has eigenvalue zero.
+Dividing the remaining Fourier coefficients proves the final assertion.
+\end{proof}
+
+For the split six-cycle take $E=\F_7$, $\zeta=3$. For the nonsplit eight-cycle
+take $E=\F_{49}$, $\zeta=\alpha$. In both cases the rank of every positive
+power of $\Delta$ is $n-1$. This rank assertion also holds for $\F_7$-valued
+functions on the eight-cycle, since extending scalars preserves matrix rank.
+Diagonalization of that eight-cycle requires the larger field, however.
+
+\begin{proposition}[Descent of the elliptic Fourier coefficients]
+\label{prop:frobenius}
+For the eight-cycle, a function $f:\mathbb Z/8\to\F_{49}$ is $\F_7$-valued
+if and only if
+\[
+ \widehat f(-j)=\widehat f(j)^7\qquad(j\in\mathbb Z/8).
+\]
+For such a $g$ with zero sum, the Fourier antiderivative in
+Theorem~\ref{thm:fourier} is also $\F_7$-valued.
+\end{proposition}
+\begin{proof}
+Since $\alpha^7=\alpha^{-1}$, taking seventh powers of the Fourier formula
+gives the stated relation when $f^7=f$. Conversely that relation and Fourier
+inversion give $f(k)^7=f(k)$, so every value belongs to $\F_7$.
+Seventh powers send $\alpha^j-1$ to $\alpha^{-j}-1$, so dividing nonzero
+modes preserves the relation; the zero coefficient is fixed as well.
+\end{proof}
+Thus a zero-sum $\F_7$-valued function has a unique zero-sum primitive over
+$\F_7$ in both semisimple examples, although their diagonalizing fields differ.
+
+\section{The unipotent calculus in characteristic seven}
+Identify the seven-cycle with $k\in\F_7$.
+\begin{theorem}[A divided-power basis for the seven-cycle]
+\label{thm:unipotent}
+On $V_7(\F_7)$,
+\[
+ \Delta^7=0,\qquad \operatorname{rank}\Delta^r=7-r
+       \quad(0\le r\le7).
+\]
+More explicitly, the polynomial point functions
+\[
+ b_r(k)=\binom{k}{r}
+       =\frac{k(k-1)\cdots(k-r+1)}{r!},\quad0\le r\le6,
+\]
+with $b_0=1$, form a basis and satisfy
+$\Delta b_0=0$, $\Delta b_r=b_{r-1}$ for $1\le r\le6$.
+Consequently $\Delta$ is one nilpotent Jordan block, even after scalar
+extension to an algebraic closure of $\F_7$.
+\end{theorem}
+\begin{proof}
+The polynomials $b_r$ have distinct degrees $r<7$ and nonzero leading
+coefficients. Evaluation on the seven elements of $\F_7$ is injective for
+polynomials of degree at most six, so these functions form a basis.
+Pascal's polynomial identity gives $b_r(k+1)-b_r(k)=b_{r-1}(k)$, including
+the closing edge $6\mapsto0$ because it is an identity in $\F_7[k]$.
+This proves the Jordan chain and the rank assertions. Alternatively,
+$\Delta^7=(T-I)^7=T^7-I=0$; its first power is nonzero, so a diagonal form
+is impossible over any extension field.
+\end{proof}
+
+In this basis $\im\Delta=\langle b_0,\ldots,b_5\rangle$.
+If $g=\sum_{r=0}^5c_rb_r$, a primitive is
+$\sum_{r=0}^5c_rb_{r+1}$, plus a constant. This is a concrete alternative to
+Fourier division. For instance $g=1=b_0$ has the primitive $b_1(k)=k$;
+both are zero-sum as functions on $\F_7$, and adding any constant preserves
+zero sum. Conversely $g=b_5$ has only primitives $b_6+c$.
+Since $b_6$ has values $(0,0,0,0,0,0,1)$, no such primitive has zero sum.
+Both examples satisfy $\sigma(g)=0$.
+
+Over $\C$, a seven-cycle \emph{does} have a Fourier eigenbasis with seventh
+roots of unity. The distinction here comes from the characteristic of the
+coefficient field, not from the finite orbit alone.
+
+\begin{center}
+\begin{tabular}{@{}llll@{}}
+\toprule
+motion & moving orbit & characteristic-seven structure & normalization\\
+\midrule
+nonsplit $R$ & $8$ & Fourier over $\F_{49}$ & unique zero-sum primitive\\
+split $S$ & $6$ & Fourier over $\F_7$ & unique zero-sum primitive\\
+unipotent $U$ & $7$ & one nilpotent block & choose a base point\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{Covariance and the choice of one step}\label{sec:covariance}
+On functions on $X=\PP^1(\F_7)$ let $T_gf(x)=f(gx)$,
+$\Delta_g=T_g-I$, and $\mathcal U_hf(x)=f(h^{-1}x)$.
+With this forward-shift convention, $T_aT_b=T_{ba}$.
+\begin{proposition}[Transport of a difference]\label{prop:covariance}
+For every $g,h\in\PGL_2(\F_7)$,
+\[
+ \mathcal U_h\Delta_g\mathcal U_h^{-1}=\Delta_{hgh^{-1}}.
+\]
+The stabilizer of $\Delta_R$ under this conjugation is $\langle R\rangle$,
+of order eight. Its normalizer as a cyclic subgroup is dihedral of order
+sixteen; the reflection $H(t)=-t$ sends $R$ to $R^{-1}$.
+Thus $L_R=T_R+T_{R^{-1}}-2I$ is invariant under this normalizer, whereas
+$\Delta_R$ is not.
+\end{proposition}
+\begin{proof}
+Substitute $h^{-1}x$ into $T_g\mathcal U_h^{-1}f$. Equality of the difference
+operators is equality of the corresponding permutations, since point
+indicators distinguish them. Every permutation commuting with an eight-cycle
+is a power of it, which proves the centralizer assertion. Over $\F_{49}$,
+the nonsplit torus has exactly two common fixed points; any element
+normalizing it must preserve this unordered pair. Fixing both points gives
+the diagonal torus in that eigenbasis. Its $\F_7$-rational part is the
+eight-element group in Proposition~\ref{prop:torus}: a rational linear map
+preserving both eigenlines commutes with their generating matrix and is of
+the form $aI+b\left(\begin{smallmatrix}0&1\\-1&0\end{smallmatrix}\right)$.
+The map $H$ exchanges the pair and conjugates the torus by inversion.
+This gives precisely two cosets and proves the normalizer assertion.
+The last statements follow by exchanging $R$ and $R^{-1}$.
+\end{proof}
+
+Even retaining the torus but forgetting its generator is insufficient to
+select $L_R$: $R^3$ is also a generator, and $L_{R^3}\ne L_R$.
+For example their off-diagonal supports at a point are respectively its
+neighbors at steps $\pm1$ and $\pm3$ on the eight-cycle. More generally
+\[
+ \Delta_{R^a}=(I+T_R+\cdots+T_R^{a-1})\Delta_R\quad(a\ge1),
+\]
+so a different step changes the operator explicitly.
+
+\begin{proposition}[Full projective invariance is much more restrictive]
+\label{prop:commutant}
+Over any coefficient field $E$, every linear operator on $E^X$ commuting
+with the full $\PGL_2(\F_7)$-action is of the form
+\[
+ f\longmapsto a f+b\,\sigma(f)\mathbf1\qquad(a,b\in E).
+\]
+In particular a directed one-step difference is not intrinsic to the bare
+projective conic.
+\end{proposition}
+\begin{proof}
+The group is two-transitive on $X$: it is transitive on ordered pairs of
+distinct lines in $\F_7^2$ by changing a basis. A commuting operator's matrix
+entries must therefore be constant on the diagonal and constant off it.
+This is exactly the displayed form. An eight-cycle permutation matrix
+minus $I$ does not have constant off-diagonal entries.
+\end{proof}
+
+\section{A real elliptic flow and a compactness obstruction}
+The following assertions are over $\R$ and are independent of reduction
+modulo seven. For homogeneous parameters $[s_1:s_0]\in\PP^1(\R)$ put
+\[
+ R_s=\left[\begin{pmatrix}s_0&s_1\\-s_1&s_0\end{pmatrix}\right].
+\]
+All these matrices are invertible. Multiplication gives
+\begin{equation}\label{eq:real-law}
+ [s_1:s_0]\star[r_1:r_0]
+  =[s_1r_0+s_0r_1:s_0r_0-s_1r_1].
+\end{equation}
+For finite parameters this is $(s+r)/(1-sr)$, with its homogeneous meaning
+when $sr=1$. For $s\ne0$ the projective map is the four-context history
+\begin{equation}\label{eq:real-word}
+ R_s=A_{-1/s}\circ M_{-(1+s^2)/s^2}\circ J\circ A_{-1/s}.
+\end{equation}
+The only ordinary input exclusion of this word is $t=1/s$.
+Formula~\eqref{eq:real-word} also holds over any field of characteristic
+different from two with $s\ne0$ and $1+s^2\ne0$.
+
+\begin{proposition}[Global projective elliptic flow]\label{prop:real-flow}
+The matrices
+\[
+ G_h=\begin{pmatrix}\cos h&\sin h\\-\sin h&\cos h\end{pmatrix}
+\]
+induce a smooth flow on $\PP^1(\R)$ of period $\pi$. In its finite chart,
+\[
+ \Phi_h(t)=\frac{t\cos h+\sin h}{\cos h-t\sin h},\qquad
+ \frac{dt}{dh}=1+t^2.
+\]
+Its induced motion on the conic under $\nu$ rotates through angle $2h$.
+The affine-coordinate blow-up is a chart crossing, not a failure of the
+projective flow. It remains a pole for ordinary arithmetic in that chart.
+\end{proposition}
+\begin{proof}
+Matrix multiplication gives $G_hG_k=G_{h+k}$. The first positive scalar
+matrix occurs at $h=\pi$, proving the projective period. Differentiating at
+$h=0$ gives $1+t^2$. In the other chart $u=1/t$, its vector field is
+$-(1+u^2)\partial_u$, which is smooth at $u=0$. In the conic coordinate
+$w(t)=(1+\ii t)/(1-\ii t)$ the multiplier is $e^{2\ii h}$ by
+Proposition~\ref{prop:torus}, proving the double angle.
+\end{proof}
+
+These are elliptic motions within the projective group already generated by
+Paper I's histories. They do not supply a two-dimensional regular AES.
+\begin{proposition}[Compactness obstruction for the existing AES equation]
+\label{prop:compact}
+Let $(M,g)$ be a nonempty compact smooth Riemannian manifold without boundary,
+and let $a:M\to\R$ be smooth. There are no real constants $\mu\ne0$, $\lambda$
+for which
+\[
+ |\nabla a|_g^2=\mu^2+\lambda^2a^2
+\]
+holds everywhere.
+\end{proposition}
+\begin{proof}
+At a maximum of $a$, compactness and absence of boundary give $da=0$.
+The left side is zero there and the right side is at least $\mu^2>0$.
+\end{proof}
+An extension to a compact positive-curvature surface must therefore specify
+what changes: domain, assignment object, equation, or regularity category.
+The one-dimensional projective flow proves none of those choices by itself.
+
+\section{Paper I interface, verification, and next problems}
+This note is maintained in the AEG research notes. The geometric foundation
+belongs to Paper 0 under the September 22, 2026
+\href{../../governance/00b-paper-0-geometric-foundation-amendment.md}{geometric-foundation amendment}.
+Paper I's \href{../../paper-1/sections/03-projective-affine.tex}{projective and affine section} contains the
+arbitrary-field generation theorem and states the affine limitation of its
+flow theory. Source provenance and migration details are recorded in the
+companion resource directory's README.
+
+Theorem~\ref{thm:history-witness} is a self-contained candidate example after
+the projective-evaluation/domain warning in Paper I. It adds an explicit
+nonsplit finite cyclic history, rather than strengthening the generation
+theorem. Remark~\ref{rem:double} is the necessary coordinate/representation
+warning. The finite difference theory belongs in these research notes until
+an explicit analytic scope change is made. The real elliptic flow is a proved
+research interface, not a claim that Paper I's affine flow has already been
+extended as an AES theory. No AEG manuscript or governance status is changed
+by this note.
+
+The exact script in the companion \texttt{conic-dynamics} resource directory enumerates all $336$ projective matrices
+over $\F_7$ independently of the circle parametrization. It checks the
+four-context history and every ordinary input domain; the quotient/norm-one
+intertwiner; the three orbit decompositions; difference ranks and Jordan
+chains; the Fourier formulas on basis vectors, including Frobenius descent;
+and covariance against every projective matrix on every point indicator.
+It also checks normalizer and centralizer sizes and the corrected distinction
+between nonsquare directions and isotropic directions. A successful finite
+check does not replace the general-field proofs above.
+
+Three next questions remain open as research tasks:
+\begin{enumerate}
+\item Extend the proved three-cycle comparison to general odd $q=p^r$.
+The torus orders are $q-1$ and $q+1$, but an individual nontrivial translation
+has order $p$, not $q$. Thus for $r>1$ its affine orbits are $p$-cycles, and
+there is no single translation step visiting every affine point.
+\item Compare histories producing the same projective torus element while
+retaining their ordinary domains and marked context words. Determine what
+additional process information a proposed invariant actually retains.
+\item Formulate an elliptic AES category that states its assignment, domain,
+critical set, and relation to the existing affine model. Prove any process or
+curvature comparison separately from the projective one-dimensional results.
+\end{enumerate}
+Gauss sums, local-field trees, and group-algebra expansions are deferred until
+one of these precise questions needs them. In particular, a finite projective
+group is not by itself the acting group of a Bruhat--Tits tree; that step
+requires a specified non-Archimedean local field and a reduction comparison.
+\end{document}

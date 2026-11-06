@@ -991,3 +991,48 @@ Baseline: `968c5c29557e8f7d70fe8baea2733726b852507d`.
   `governance/00e-paper-VI-process-geometry-scope.md` and its claims are
   registered in `governance/05c-paper-VI-status-register.md`. No material of
   Papers 0--V was deleted, moved, or promoted by this intake.
+
+## Finite-field analysis notes intake (2026-11-06)
+
+**State:** CANONICAL research notes; no manuscript integration or authority change.
+Source: `mountain/math-notes` at `7ece14321b145fd7fa93e83342d432d355944b63`.
+Destination baseline: AEG `1d8633ac6e9e5fedfcba58e8a25065cf4cd32090`, checkout
+`/home/ubuntu/AEG/aeg-paper`. The older `/home/ubuntu/aeg-paper` is untouched.
+
+| Source | Destination |
+| --- | --- |
+| `finite-trig/finite-trig.tex` and PDF | `notes/analysis-and-calculus/48-finite-field-trigonometry.tex` and rebuilt PDF |
+| `conic-dynamics/conic-dynamics.tex` and PDF | `notes/analysis-and-calculus/49-conic-histories-and-finite-calculi.tex` and rebuilt PDF |
+| Both READMEs, verifiers, build scripts, and `finite-trig/figures/` | `notes/analysis-and-calculus/finite-field-calculi/`, retaining topic subdirectories |
+| Source CC0 license | `notes/analysis-and-calculus/finite-field-calculi/SOURCE-LICENSE-CC0.txt` |
+
+- Updated `notes/README.md`, both articles' mutual references, figure paths,
+  portable Paper 0/I references, and the resource build scripts; added a joint
+  build entry point and a provenance/status README. Original author attribution,
+  citations, labels, proofs, and mathematical hypotheses are retained. The two
+  verifiers and twelve figure sources are byte-identical to the source revision.
+- Mathematical treatment: relocated the complete notes without strengthening
+  claims. Results retain their stated hypotheses; finite checks supplement
+  their proofs. The history/domain example's inclusion in Paper I remains a
+  structural proposal. The resource README records this status separately from
+  the open elliptic-AES programme; no main-paper status register is changed.
+- Explicit limits retained: ordinary arithmetic is distinct from projective
+  evaluation; norm-one projectivization doubles the angle; orbit lengths and
+  coefficient characteristic control primitive normalization; a nonsplit
+  motion does not define a compact regular AES. The compactness obstruction's
+  nonempty/compact/smooth/boundaryless and real nonzero-mu hypotheses remain.
+- The two original math-notes directories and its root README now point to AEG.
+  Full source history is recoverable at the pinned commit; there is one active
+  maintenance home. Octagons stays in math-notes. No paper or archive is changed.
+- Validation: both original verifiers pass (note 49: 41 check groups); all twelve
+  figures and both numbered PDFs rebuild (29 and 9 pages). Final LaTeX logs
+  contain no undefined references/citations, duplicate labels, missing assets,
+  or overfull boxes. Static checks preserve label/citation/bibliography lists
+  and resolve every internal reference and figure. Root `build.sh` builds paper
+  manuscripts only; validation used the standalone notes' build entry points.
+- Open tasks: general odd-q comparison (translations have order p), histories
+  and ordinary domains within one operator class, and a precise elliptic AES
+  category. Recommended next task: review the four-context elliptic history
+  and its identity-versus-domain example for Paper I, before broader theory.
+- Publication order: commit and push the AEG destination before publishing the
+  math-notes migration pointers, so their remote targets are available.

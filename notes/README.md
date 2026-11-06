@@ -34,3 +34,16 @@ its register of contents and its known staleness are recorded in
 These files remain historical or exploratory research material unless a governance
 record explicitly assigns a stronger status. Filename order does not promote a note
 to theorem authority.
+
+## Finite-field differences and harmonic analysis
+
+- [48 — Finite trigonometry over F7](analysis-and-calculus/48-finite-field-trigonometry.tex):
+  conics, angle groups, ripple pencils, and finite-field Fourier analysis.
+- [49 — Conic motions, arithmetic histories, and three finite calculi](analysis-and-calculus/49-conic-histories-and-finite-calculi.tex):
+  an explicit elliptic history, ordinary/projective domains, and the Fourier/Jordan
+  comparison of nonsplit, split, and unipotent motions.
+- [Resources, build instructions, provenance, and mathematical status](analysis-and-calculus/finite-field-calculi/README.md).
+
+These two notes were migrated from `mountain/math-notes` at `7ece143` on
+2026-11-06. AEG is their maintenance home; incorporation into Paper I and an
+elliptic AES definition remain research tasks.
