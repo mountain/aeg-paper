@@ -1,0 +1,111 @@
+% ---------------------------------------------------------------------
+% Appendix A
+% ---------------------------------------------------------------------
+
+\begin{cnread}
+本附录把正文用到的矩阵计算全部写开：投影算子的乘积恒等式、交叉比和乐、
+$\mathbb F_7$ 上的逐边传递元与总传递元，以及对 $\mathbb F_7$ 上全部横截闭环
+的穷举核对。所有条目对应复核脚本的 V1--V2 组。
+\end{cnread}
+
+\subsection{The rank-one projectors}
+
+With $v_a=\binom{-a}{1}$ and $\varphi_b=(-b\;\;1)$, the projector of
+Theorem~\ref{thm:projector} is
+\begin{equation}\label{eq:projector-again}
+  \Pi_{a,b}=\frac{v_a\otimes\varphi_b}{1+ab}
+  =\frac{1}{1+ab}\begin{pmatrix}ab&-a\\-b&1\end{pmatrix},
+  \qquad \Pi_{a,b}^{2}=\Pi_{a,b}.
+\end{equation}
+Two products are elementary and are used repeatedly:
+\begin{equation}\label{eq:projector-products}
+  \Pi_{a,b}\Pi_{a',b}=\Pi_{a,b}
+  \quad(a'\ \text{transverse}),
+  \qquad
+  \Pi_{a,b}\Pi_{a,b'}=\Pi_{a,b'},
+\end{equation}
+i.e. two projectors sharing a kernel covector compose to the first, and two
+sharing an image vector compose to the second.  The pairing
+$\varphi_b(v_{a'})=1+a'b$ cancels in the first product; it is exactly this
+pairing that survives, as a scalar, when neither the kernel nor the image is
+shared, and it is the edge factor \eqref{eq:torsion-components} of the
+transport.
+
+\subsection{The four-step holonomy}
+
+Let $\square$ have vertices $(a_1,b_1),(a_2,b_1),(a_2,b_2),(a_1,b_2)$ traversed
+in that order.  A direct product gives the identity
+\begin{equation}\label{eq:app-projector-product}
+  \Pi_{a_1,b_1}\,\Pi_{a_1,b_2}\,\Pi_{a_2,b_2}\,\Pi_{a_2,b_1}
+  =\Lambda(\square)^{-1}\,\Pi_{a_1,b_1},
+  \qquad
+  \Lambda(\square)=\frac{(1+a_2b_1)(1+a_1b_2)}{(1+a_1b_1)(1+a_2b_2)} .
+\end{equation}
+Check~V1.1 verifies \eqref{eq:app-projector-product} symbolically for arbitrary
+$a_1,b_1,a_2,b_2$ over a field of characteristic zero, and Check~V1.2 verifies
+the equivalent form $1-\frac{(a_2-a_1)(b_2-b_1)}{(1+a_1b_1)(1+a_2b_2)}$.
+Check~V1.3 verifies that $\Lambda=1$ identically when $a_2=a_1$ or when
+$b_2=b_1$.
+
+\subsection{Edge transports over the seven-element field}
+
+Take $K=\F_7$, all frame coordinates $\Phi_k=1$, and the loop
+$(0,0)\to(1,0)\to(1,1)\to(0,1)\to(0,0)$.  Definition~\ref{def:torsion-transport}
+gives the following four edge transports, written as
+$\bigl(\Lambda_k,\Delta\hat\xi_k\bigr)\in\F_7^{\times}\times\F_7$ with
+$2^{-1}=4$:
+
+\begin{center}\small
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{@{}ccccc@{}}
+\toprule
+edge & from $\to$ to & $\Lambda_k$ & $\Delta\hat\xi_k$ &
+$\mathcal T(e_k)=\begin{pmatrix}\Lambda_k&\Delta\hat\xi_k\\0&1\end{pmatrix}$ \\
+\midrule
+$e_1$ & $(0,0)\to(1,0)$ & $1$ & $-1\equiv6$ & $\begin{pmatrix}1&6\\0&1\end{pmatrix}$ \\
+$e_2$ & $(1,0)\to(1,1)$ & $1$ & $0$ & $\begin{pmatrix}1&0\\0&1\end{pmatrix}$ \\
+$e_3$ & $(1,1)\to(0,1)$ & $2^{-1}\equiv4$ & $2^{-1}\equiv4$
+& $\begin{pmatrix}4&4\\0&1\end{pmatrix}$ \\
+$e_4$ & $(0,1)\to(0,0)$ & $1$ & $0$ & $\begin{pmatrix}1&0\\0&1\end{pmatrix}$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The chronological product is
+\begin{equation}\label{eq:app-total}
+  \mathcal T(\square)=\mathcal T(e_4)\mathcal T(e_3)\mathcal T(e_2)\mathcal T(e_1)
+  =\begin{pmatrix}4&4\\0&1\end{pmatrix}\begin{pmatrix}1&6\\0&1\end{pmatrix}
+  =\begin{pmatrix}4&0\\0&1\end{pmatrix},
+\end{equation}
+since $4\cdot6+4=28\equiv0\pmod7$.  Checks~V2.4 and V2.5 verify the four edge
+entries and \eqref{eq:app-total}.
+
+\begin{remark}[The additive component can cancel on a single loop]
+\label{rem:additive-cancels}
+On this particular loop the additive component of the total transport vanishes
+identically, so the invariant is purely multiplicative.  This is not a defect of
+the construction: the additive component is a sum of increments weighted by
+different denominators, and nothing forces it to survive.  It does show that a
+single loop is not enough to exhibit both components at once; the loop of
+Appendix~A.4 can be shifted to make $\Delta\hat\xi$ nonzero, and the Borel
+reduction of Theorem~\ref{thm:torsion}(a) is where the additive component is the
+whole story.
+\end{remark}
+
+\subsection{Exhaustive check over the seven-element field}
+
+For every ordered pair of transverse bivaluations
+$(a,b),(c,d)\in\F_7^2$ with all of $1+ab$, $1+cd$, $1+cb$, $1+ad$ nonzero, the
+identity \eqref{eq:app-projector-product} was verified entry by entry in pure
+modular arithmetic.  There are $1447$ such loops, and the identity holds for
+each (Check~V2.3).  The count $43$ of transverse pairs in the affine chart
+(the remaining $13$ of the $56$ bivaluations of $\PP^1\times\PP^1\setminus\Delta$
+lie on the line at infinity) is Check~V8.4.
+
+\begin{warning}[What the finite check does not prove]
+The exhaustive $\F_7$ check confirms the identity in characteristic $7$ and
+confirms that the witness $\Lambda=4$ is a genuine nonidentity holonomy.  It does
+not prove the identity in characteristic zero --- that is Check~V1.1 --- and it
+says nothing about the analytic statements of
+Sections~\ref{sec:radiation}--\ref{sec:bohr}, which are over $\R$.
+\end{warning}

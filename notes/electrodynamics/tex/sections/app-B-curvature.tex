@@ -1,0 +1,106 @@
+% ---------------------------------------------------------------------
+% Appendix B
+% ---------------------------------------------------------------------
+
+\begin{cnread}
+本附录把「曲率形式」与「和乐密度」之间的因子 $2$ 老老实实算一遍。
+结论是：交叉比和乐 $\Lambda(\square)$ 的一阶展开密度是
+$-(1+ab)^{-2}\,\mathrm da\wedge\mathrm db$，而 Paper~IV 备注 4.12 给出的
+约化联络 $\omega_H$ 的曲率是 $+2(1+ab)^{-2}\,\mathrm da\wedge\mathrm db$。
+两者都对，但\textbf{规范化不同}：传递元是那条联络"焊接项取一半"后的和乐。
+任何把辐射功率等同到曲率积分的说法，必须先把这个因子定下来。
+\end{cnread}
+
+\subsection{The curvature of the reductive connection}
+
+Let $f=(1+ab)^{-1}$ and consider the non-closed part of the connection
+\eqref{eq:connection},
+\begin{equation}\label{eq:omega2}
+  \omega_2=f\bigl(a\,\mathrm db-b\,\mathrm da\bigr).
+\end{equation}
+Because $\mathrm d(a\,\mathrm db-b\,\mathrm da)=2\,\mathrm da\wedge\mathrm db$,
+\begin{equation}\label{eq:domega}
+  \mathrm d\omega_2
+  =\mathrm df\wedge\bigl(a\,\mathrm db-b\,\mathrm da\bigr)+2f\,\mathrm da\wedge\mathrm db .
+\end{equation}
+Now $\mathrm df=-(1+ab)^{-2}(b\,\mathrm da+a\,\mathrm db)$, so
+\begin{align}
+  \mathrm df\wedge\bigl(a\,\mathrm db-b\,\mathrm da\bigr)
+  &=-(1+ab)^{-2}\bigl[(b\,\mathrm da+a\,\mathrm db)\wedge(a\,\mathrm db-b\,\mathrm da)\bigr]
+  \notag\\
+  &=-(1+ab)^{-2}\cdot 2ab\,\mathrm da\wedge\mathrm db ,
+  \label{eq:df-term}
+\end{align}
+since $(b\,\mathrm da+a\,\mathrm db)\wedge(a\,\mathrm db-b\,\mathrm da)
+=ab\,\mathrm da\wedge\mathrm db+ab\,\mathrm da\wedge\mathrm db$.  Combining
+\eqref{eq:domega} and \eqref{eq:df-term},
+\begin{equation}\label{eq:curvature}
+  \mathrm d\omega_H=\mathrm d\omega_2
+  =2\,\mathrm da\wedge\mathrm db\Bigl(\frac1{1+ab}-\frac{ab}{(1+ab)^{2}}\Bigr)
+  =\frac{2\,\mathrm da\wedge\mathrm db}{(1+ab)^{2}} .
+\end{equation}
+Check~V4.1 verifies the coefficient
+$\partial_a(fa)+\partial_b(fb)=2(1+ab)^{-2}$ symbolically.
+
+\subsection{The density of the transport}
+
+Independently, the first-order expansion of the cross-ratio holonomy around a
+coordinate rectangle of side lengths $\varepsilon$ and $\eta$ based at $(a_0,b_0)$
+is, by \eqref{eq:cross-ratio},
+\begin{equation}\label{eq:log-lambda}
+  \log\Lambda(\square)
+  =-\frac{\varepsilon\eta}{(1+a_0b_0)^{2}}+O(3)
+  =-\iint_{\square}\frac{\mathrm da\wedge\mathrm db}{(1+ab)^{2}}+O(3),
+\end{equation}
+which is Check~V3.1.  Comparing \eqref{eq:curvature} with \eqref{eq:log-lambda},
+the transport density is minus one half of the connection's curvature density.
+
+\subsection{Reconciliation}
+
+Three statements are exact and should be kept apart.
+
+\begin{enumerate}[label=(\roman*)]
+  \item The cross-ratio formula \eqref{eq:cross-ratio} is exact and is the
+  holonomy of the idempotent transport of Definition~\ref{def:torsion-transport}
+  (Checks~V1.1--V2.5).
+  \item The connection \eqref{eq:connection} has curvature
+  $2(1+ab)^{-2}\mathrm da\wedge\mathrm db$ (Check~V4.1).
+  \item The first-order log-holonomy density is
+  $-(1+ab)^{-2}\mathrm da\wedge\mathrm db$ (Check~V3.1).
+\end{enumerate}
+
+The holonomy of a connection with curvature $\Omega$ around a small positively
+oriented loop is $\exp\bigl(-\int_\Sigma\Omega\bigr)$ in the abelian
+approximation.  Statement (ii) would therefore give
+$\log\Lambda=-\int_\Sigma 2(1+ab)^{-2}\mathrm da\wedge\mathrm db$, which differs
+from (iii) by the factor $2$.  The resolution is that the idempotent transport is
+the holonomy of the connection whose reductive second term is
+$\tfrac12 f(a\,\mathrm db-b\,\mathrm da)$, i.e. of
+$\omega_H^{(1/2)}:=\Phi^{-1}\mathrm d\Phi+\tfrac12 f(a\,\mathrm db-b\,\mathrm da)$.
+Its curvature is $\tfrac12\cdot2(1+ab)^{-2}\mathrm da\wedge\mathrm db$, whose
+negative integral is exactly \eqref{eq:log-lambda}.
+
+\begin{remark}[Which normalisation is \lq\lq right\rq\rq]
+Neither is more correct.  The factor is the difference between a connection
+normalised so that its transverse term is the full $(1+ab)^{-1}(a\,\mathrm
+db-b\,\mathrm da)$ and one normalised so that the transport's multiplicative
+component is the raw cross-ratio.  What matters is that a physical
+identification of $\Lambda(\square)-1$ with a radiated power must state which
+convention it uses; otherwise the same history gives two answers differing by a
+factor two.
+
+The two exact statements are now in Paper~IV itself: Remark~4.12 carries the
+curvature identity $\mathrm d\omega_H=2(1+ab)^{-2}\mathrm da\wedge\mathrm db$
+together with the correct Borel reduction of the solder component
+(equation~\eqref{eq:solder-borel} above), and Proposition~4.17 identifies the
+connection whose holonomy reproduces $\Lambda(\square)$ to first order.  The
+choice between the two normalisations is left open there, as it is here.
+\end{remark}
+
+\begin{remark}[Sign]
+\label{rem:sign}
+The two densities also differ in sign, because the loop is traversed in the
+orientation that makes $\mathrm da\wedge\mathrm db$ positive while the
+log-holonomy is negative.  Both statements are checked, and the signs are
+consistent with the holonomy formula's minus sign.
+\end{remark}

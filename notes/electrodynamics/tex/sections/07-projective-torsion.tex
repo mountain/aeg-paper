@@ -1,0 +1,225 @@
+% ---------------------------------------------------------------------
+% Section 7
+% ---------------------------------------------------------------------
+
+\begin{cnread}
+上一节的 $\Lambda(\square)$ 是个「闭回路可观测量」，但它只是和乐，还不是一个
+\emph{联络}。\AEG{} 手稿里的原始提法是：要一个规范等变的比较量，限制到
+Borel 扇区 $B_\infty$ 时\textbf{退化回} Paper~0 的仿射平移挠率，而在闭回路上
+又\textbf{不能被望远镜抵消}。本节把这两个要求在同一个对象里同时满足：把每条
+历史边的算子步提升为半直积群 $\mathrm{Aff}(1,K)=K^\times\ltimes K$ 中的
+\textbf{射影挠率传递元} $\mathcal T(e)=(\Lambda(e),\Delta\hat\xi(e))$。两个分量
+一个管乘性曲率、一个管加性挠率，限制到 $b\equiv0$ 时前者归 $1$、后者一字不差
+地退回 $\hat\xi_n$。本节同时指出附带的规范化因子 $2$ 问题（附录 B）。
+\end{cnread}
+
+\subsection{The problem, as \AEG{} states it}
+
+Paper~IV, Section~13, lists as its first open problem:
+
+\begin{quote}\small
+\textbf{Projective torsion.}  Construct a gauge-equivariant comparison on
+$G\to G/H$ that reduces to affine translation torsion in the Borel sector and
+has a nontrivial closed-loop observable not forced to telescope \cite{AEG4}.
+\end{quote}
+
+Paper~IV, Proposition~4.9, explains why the naive attempt fails: if the edge
+label of a lifted step is defined as the ratio $r_t=h_th_{t-1}^{-1}$ of vertex
+frame lifts, then along every closed lifted path
+$r_tr_{t-1}\cdots r_{s+1}=h_th_s^{-1}$ telescopes pairwise, so every closed path
+has trivial product.  A nontrivial holonomy therefore requires the edge datum to
+couple the base motion to the previous frame, not just to record the frames.
+
+\subsection{The incidence-coupled transport}
+
+The needed coupling is supplied by the projectors of
+Theorem~\ref{thm:projector} without any additional structure: the natural pairing
+between a new image point and the preceding kernel covector is
+$\varphi_{b_{k-1}}(v_{a_k})=1+a_kb_{k-1}$.
+
+\begin{definition}[Projective torsion transport,
+{\cite[Def.~4.10]{AEG4}}]
+\label{def:torsion-transport}
+Let $K$ be a field, let $e_k:g_{k-1}\to g_k$ be a lifted step between regular
+bivaluations with frame coordinates
+\begin{equation}\label{eq:frame-lift}
+  g_k=\begin{pmatrix}1&-a_k\\-b_k&1\end{pmatrix}
+      \begin{pmatrix}\Phi_k&0\\0&1\end{pmatrix},
+  \qquad \Phi_k\in K^{\times}\cong H,
+\end{equation}
+and suppose the step is transverse, $1+a_kb_{k-1}\ne0$.  The projective torsion
+transport of $e_k$ is the element of the affine semidirect product
+$\Aff(1,K)=K^{\times}\ltimes K$ given by
+\begin{equation}\label{eq:torsion-transport}
+  \mathcal T(e_k):=\begin{pmatrix}\Lambda_k&\Delta\hat\xi_k\\[2pt]0&1\end{pmatrix}
+  \in\Aff(1,K),
+\end{equation}
+with multiplicative and additive components
+\begin{equation}\label{eq:torsion-components}
+  \Lambda_k=\frac{\Phi_k}{\Phi_{k-1}}\cdot\frac{1+a_kb_{k-1}}{1+a_{k-1}b_{k-1}}
+  \in K^{\times},
+  \qquad
+  \Delta\hat\xi_k=-\Phi_{k-1}^{-1}\,\frac{a_k-a_{k-1}}{1+a_{k-1}b_{k-1}}\in K .
+\end{equation}
+The transport of a history $\gamma=(s_1,\dots,s_n)$ is the chronological
+product $\mathcal T(\gamma)=\mathcal T(e_n)\cdots\mathcal T(e_1)$.
+\end{definition}
+
+Two remarks on the definition.  The first component generalises the base factor
+\eqref{eq:lambda-edge} of Section~6 by multiplying it with the scale ratio of the
+step; the second projects the image displacement onto the previous kernel
+covector and normalises by the frame scale.  Both are forced once one asks that
+the pair $(\Lambda,\Delta\hat\xi)$ be multiplicative along a history and
+$\Aff(1,K)$-valued.
+
+\subsection{The Borel reduction}
+
+\begin{theorem}[Two checks, {\cite[Thm.~4.11]{AEG4}}]
+\label{thm:torsion}
+Let $\mathcal T$ be as in Definition~\ref{def:torsion-transport}.
+\begin{enumerate}[label=(\alph*)]
+  \item \emph{(Exact Borel reduction.)}  On the affine sector
+  $B_\infty$, where $b_k\equiv0$ and $a_k=-\xi_k$ for every prefix
+  $g_k(z)=\Phi_kz+\xi_k$, the base correction is identically $1$ and
+  \begin{equation}\label{eq:borel-reduction}
+    \Lambda_k\big|_{B_\infty}=\frac{\Phi_k}{\Phi_{k-1}}=s_k,
+    \qquad
+    \Delta\hat\xi_k\big|_{B_\infty}=\Phi_{k-1}^{-1}(\xi_k-\xi_{k-1}).
+  \end{equation}
+  Multiplying the matrices chronologically gives upper-left entry $\Phi_n$ and
+  upper-right entry $\Phi_n\sum_k\Phi_k^{-1}(\xi_k-\xi_{k-1})=\xi_n$, which is
+  the affine cocycle law of Paper~0, Proposition~7.1.  In particular, for two
+  scale-compatible histories the translation component of
+  $\mathcal T(\delta)^{-1}\mathcal T(\gamma)$ is exactly the relative affine
+  defect $\Phi^{-1}(\xi_\gamma-\xi_\delta)$ of Paper~0, Section~7.4.
+  \item \emph{(Non-telescoping holonomy off the sector.)}  On the four-step loop
+  $\square$ of Theorem~\ref{thm:cross-ratio} with closed frame lift
+  $\Phi_4=\Phi_0$, the multiplicative component of $\mathcal T$ reproduces
+  $\Lambda(\square)$ of \eqref{eq:cross-ratio}.  Hence the transport has a
+  closed-loop observable that is gauge-invariant and is not forced to telescope.
+  \item \emph{(Modulated additive torsion.)}  Off $B_\infty$ the additive
+  component carries the dynamic pole in its denominator, so the accumulated
+  translation is a projective torsion modulated by the moving ripple pole rather
+  than the affine one.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(a) Put $b_k=0$ and $a_k=-\xi_k$ in \eqref{eq:torsion-components}: the factor
+$(1+a_k\cdot0)/(1+a_{k-1}\cdot0)$ is $1$, leaving
+$\Lambda_k=\Phi_k/\Phi_{k-1}$ and
+$\Delta\hat\xi_k=-\Phi_{k-1}^{-1}(-\xi_k+\xi_{k-1})
+=\Phi_{k-1}^{-1}(\xi_k-\xi_{k-1})$.  The matrix product of the
+$\Aff(1,K)$-elements is
+$\begin{pmatrix}\Phi_n&\Phi_n\sum\Phi_k^{-1}(\xi_k-\xi_{k-1})\\0&1\end{pmatrix}$,
+and the sum telescopes to $\xi_n$ because $\xi_0=0$ (Paper~0,
+Proposition~7.1).  (b) is Theorem~\ref{thm:cross-ratio}, whose gauge invariance
+was proved there.  (c) is the presence of $1+a_{k-1}b_{k-1}$ in the denominator
+of $\Delta\hat\xi_k$, which is not a function of the charges alone once
+$b\ne0$.
+\end{proof}
+
+\begin{remark}[Why the two demands can be met at once]
+\label{rem:two-demands}
+The Borel reduction of part (a) and the non-telescoping holonomy of part (b) look
+like competing requirements, because a quantity that is multiplicative and
+vanishes on $b\equiv0$ might be expected to vanish identically.  They coexist
+because they live in different components of $\Aff(1,K)$: the reduction uses the
+additive component (the translation $\Delta\hat\xi$, which becomes the affine
+cocycle), while the obstruction uses the multiplicative component (the cross
+ratio).  On the Borel sector the multiplicative component degenerates to the
+step's own scale ratio, which telescopes as it must; off it, the same component
+carries the extra base factor and does not.
+\end{remark}
+
+\subsection{The curvature of the transport}
+
+For $K=\R$ or $\CC$ one can pass to the infinitesimal picture.  Paper~IV,
+Remark~4.12, records the reductive connection whose solder component and
+connection one-form are
+\begin{equation}\label{eq:connection}
+  \omega_H=\Phi^{-1}\mathrm d\Phi+\frac{a\,\mathrm db-b\,\mathrm da}{1+ab},
+  \qquad
+  \theta_+=\frac{\Phi^{-1}\mathrm da}{1+ab},
+\end{equation}
+and it records two facts about them that were stated loosely in an earlier
+version of that remark and are now exact.  First, its curvature is
+$2(1+ab)^{-2}\mathrm da\wedge\mathrm db$, twice the para-K\"ahler form; the
+first-order transport density of the cross-ratio holonomy is that form with a
+minus sign, so the transport is the holonomy of the connection whose transverse
+part is halved (Paper~IV, Proposition~4.17).  Second, on the Borel sector the
+solder component evaluates to
+\begin{equation}\label{eq:solder-borel}
+  \theta_+\big|_{b=0}=\Phi^{-1}\mathrm da=-e^{-M}\mathrm d\xi ,
+\end{equation}
+because the image coordinate satisfies $a=-\xi$ there; this is \emph{minus} the
+left Maurer--Cartan translation form $e^{-M}\mathrm d\xi$ of Paper~0,
+Proposition~7.4, Equation~(60).  The minus sign is the sign of $a=-\xi$, not a
+different convention for the connection.
+
+The comparison of the two densities is Lemma~\ref{lem:factor-two}.
+
+\begin{lemma}[Two densities, one factor]
+\label{lem:factor-two}
+The curvature of the connection \eqref{eq:connection} is
+$\mathrm d\omega_H=2(1+ab)^{-2}\mathrm da\wedge\mathrm db$, whereas the
+first-order log-holonomy density of Corollary~\ref{cor:larmor} is
+$-(1+ab)^{-2}\mathrm da\wedge\mathrm db$.  The two differ by the factor $-2$ and
+by the choice of orientation.
+\end{lemma}
+
+\begin{proof}
+Since the $\Phi$-term of $\omega_H$ is closed, only
+$\omega_2=(1+ab)^{-1}(a\,\mathrm db-b\,\mathrm da)$ contributes.  With
+$f=(1+ab)^{-1}$ one has $\mathrm d\omega_2=\bigl(\partial_a(fa)+\partial_b(fb)
+\bigr)\mathrm da\wedge\mathrm db$, and
+$\partial_a(fa)+\partial_b(fb)=-2ab(1+ab)^{-2}+2(1+ab)^{-1}=2(1+ab)^{-2}$.  The
+transport density is Corollary~\ref{cor:larmor}.  Check~V4.1 verifies the
+coefficient symbolically.
+\end{proof}
+
+\begin{remark}[Status of the factor]
+\label{rem:factor-two}
+Lemma~\ref{lem:factor-two} is a normalisation observation, not a contradiction:
+the cross-ratio formula \eqref{eq:cross-ratio} is exact and verified, and the
+curvature statement of the manuscript is exact as a statement about
+\eqref{eq:connection}.  The two normalisations differ by $2$ because the
+transport of Definition~\ref{def:torsion-transport} is the holonomy of
+$\tfrac12$ of the connection's solder--connection split, i.e. of a connection
+whose second term carries a factor $\tfrac12$.  Any statement that identifies
+the radiated power with a curvature integral must therefore fix this
+normalisation first.  Appendix~\ref{app:curvature} records the computation.
+
+A second observation, unrelated to the factor: three cross-references inside
+Paper~IV, Subsection~4.10--4.13 (\texttt{ex:f7-counts},
+\texttt{prop:telescoping}, \texttt{eq:chart-projector}) resolved to
+\texttt{??} in the build of 20 October 2026, because those labels did not exist.
+They have since been repaired in the manuscript source --- the example of
+Subsection~3.6 is now labelled, and the other two references point to
+Proposition~4.9 and to the projector display \eqref{eq:projector} --- and the
+rebuilt Paper~IV reports no undefined reference.
+Appendix~\ref{app:register} records the repair together with a second, smaller
+one in Paper~0.
+\end{remark}
+
+\subsection{The finite witness, restated}
+
+Example~\ref{ex:f7} applies verbatim to the transport: on
+$K=\F_7$ with the loop $\square$ taking
+$(0,0)\to(1,0)\to(1,1)\to(0,1)\to(0,0)$ and $\Phi_k\equiv1$, one gets
+$\Lambda(\square)=4=2^{-1}\in\F_7^{\times}$, a nonidentity element of
+$H$.  With $\Phi_k\equiv1$ the additive components are
+$\Delta\hat\xi_k=-(a_k-a_{k-1})/(1+a_{k-1}b_{k-1})$, so the transport is a purely
+finite, exactly computable object.  Appendix~\ref{app:matrices} lists the four
+edge transports of this loop explicitly.
+
+\subsection{Where this leaves the open problem}
+
+Theorem~\ref{thm:torsion} supplies both demands of the problem statement: the
+transport reduces exactly to affine torsion on $B_\infty$, and off $B_\infty$ it
+has a closed-loop observable that is gauge-invariant and provably not forced to
+telescope, with a finite witness.  What the theorem does not supply is a
+physical calibration of the transport's \emph{units}: no statement is made about
+which physical quantity $\Lambda(\square)-1$ measures, beyond the dictionary of
+Hypothesis~\ref{hyp:radiation}.  That is the open end recorded in
+Section~\ref{sec:summary}.

@@ -1,0 +1,247 @@
+{
+  "W1_constant_boundary_is_trivial_rep": {
+    "claim": "a|_dD = const  <=>  the boundary datum lies in the trivial rep (j = 0)",
+    "constant_is_rotation_fixed": true,
+    "nonzero_mode_is_not_fixed": true,
+    "reading": "a function on the circle decomposes into Fourier modes; the constant functions are exactly the rotation-invariant (m = 0, hence j = 0) part. So AEG's hypothesis 'a|_dD = c is constant' is the hypothesis 'the seam label is trivial'.",
+    "status": "standard consequence (Fourier decomposition on the circle)"
+  },
+  "W2_seam_label_table": {
+    "V4_measured_variation_at_fixed_sigma": "25/13",
+    "reading": "the seam label j decides *both* which helicity combinations exist and whether the weight depends on theta at all: j = 0 gives a theta-independent weight (flat distribution), transverse j = 1 gives ±(1±cos)/2. V4 measured that the physical weight varies by a factor 25/13 across one fibre, so the physical seam cannot be the scalar (j = 0) one.",
+    "status": "computationally verified example",
+    "table": {
+      "j0": {
+        "nonzero": 4,
+        "rows": [
+          {
+            "A": "1/2",
+            "h": "↑↑->↑↑"
+          },
+          {
+            "A": "0",
+            "h": "↑↑->↑↓"
+          },
+          {
+            "A": "0",
+            "h": "↑↑->↓↑"
+          },
+          {
+            "A": "-1/2",
+            "h": "↑↑->↓↓"
+          },
+          {
+            "A": "0",
+            "h": "↑↓->↑↑"
+          },
+          {
+            "A": "0",
+            "h": "↑↓->↑↓"
+          },
+          {
+            "A": "0",
+            "h": "↑↓->↓↑"
+          },
+          {
+            "A": "0",
+            "h": "↑↓->↓↓"
+          },
+          {
+            "A": "0",
+            "h": "↓↑->↑↑"
+          },
+          {
+            "A": "0",
+            "h": "↓↑->↑↓"
+          },
+          {
+            "A": "0",
+            "h": "↓↑->↓↑"
+          },
+          {
+            "A": "0",
+            "h": "↓↑->↓↓"
+          },
+          {
+            "A": "-1/2",
+            "h": "↓↓->↑↑"
+          },
+          {
+            "A": "0",
+            "h": "↓↓->↑↓"
+          },
+          {
+            "A": "0",
+            "h": "↓↓->↓↑"
+          },
+          {
+            "A": "1/2",
+            "h": "↓↓->↓↓"
+          }
+        ],
+        "theta_dependent": false
+      },
+      "j1_all": {
+        "nonzero": 16,
+        "rows": [
+          {
+            "A": "c/2",
+            "h": "↑↑->↑↑"
+          },
+          {
+            "A": "s/2",
+            "h": "↑↑->↑↓"
+          },
+          {
+            "A": "-s/2",
+            "h": "↑↑->↓↑"
+          },
+          {
+            "A": "c/2",
+            "h": "↑↑->↓↓"
+          },
+          {
+            "A": "-s/2",
+            "h": "↑↓->↑↑"
+          },
+          {
+            "A": "c/2 + 1/2",
+            "h": "↑↓->↑↓"
+          },
+          {
+            "A": "1/2 - c/2",
+            "h": "↑↓->↓↑"
+          },
+          {
+            "A": "-s/2",
+            "h": "↑↓->↓↓"
+          },
+          {
+            "A": "s/2",
+            "h": "↓↑->↑↑"
+          },
+          {
+            "A": "1/2 - c/2",
+            "h": "↓↑->↑↓"
+          },
+          {
+            "A": "c/2 + 1/2",
+            "h": "↓↑->↓↑"
+          },
+          {
+            "A": "s/2",
+            "h": "↓↑->↓↓"
+          },
+          {
+            "A": "c/2",
+            "h": "↓↓->↑↑"
+          },
+          {
+            "A": "s/2",
+            "h": "↓↓->↑↓"
+          },
+          {
+            "A": "-s/2",
+            "h": "↓↓->↓↑"
+          },
+          {
+            "A": "c/2",
+            "h": "↓↓->↓↓"
+          }
+        ],
+        "theta_dependent": true
+      },
+      "j1_t": {
+        "nonzero": 4,
+        "rows": [
+          {
+            "A": "0",
+            "h": "↑↑->↑↑"
+          },
+          {
+            "A": "0",
+            "h": "↑↑->↑↓"
+          },
+          {
+            "A": "0",
+            "h": "↑↑->↓↑"
+          },
+          {
+            "A": "0",
+            "h": "↑↑->↓↓"
+          },
+          {
+            "A": "0",
+            "h": "↑↓->↑↑"
+          },
+          {
+            "A": "c/2 + 1/2",
+            "h": "↑↓->↑↓"
+          },
+          {
+            "A": "1/2 - c/2",
+            "h": "↑↓->↓↑"
+          },
+          {
+            "A": "0",
+            "h": "↑↓->↓↓"
+          },
+          {
+            "A": "0",
+            "h": "↓↑->↑↑"
+          },
+          {
+            "A": "1/2 - c/2",
+            "h": "↓↑->↑↓"
+          },
+          {
+            "A": "c/2 + 1/2",
+            "h": "↓↑->↓↑"
+          },
+          {
+            "A": "0",
+            "h": "↓↑->↓↓"
+          },
+          {
+            "A": "0",
+            "h": "↓↓->↑↑"
+          },
+          {
+            "A": "0",
+            "h": "↓↓->↑↓"
+          },
+          {
+            "A": "0",
+            "h": "↓↓->↓↑"
+          },
+          {
+            "A": "0",
+            "h": "↓↓->↓↓"
+          }
+        ],
+        "theta_dependent": true
+      }
+    }
+  },
+  "W3_a3_versus_v4": {
+    "aeg_side": "A3: on {a != 0}, u = log|a|/|lambda| has |du| = 1, so the level sets are equidistants; a constant boundary value forces u = k -+ d_g(., dD), which is not smooth inside. There is no internal (transverse) degree of freedom.",
+    "conclusion": "A3's 'no regular constant-boundary cap' and V4's 'no weight from the interface value' are the same deficiency: the interface has only one number, so there is nowhere for the angular data to live.",
+    "physics_side": "V4: the weight is a function on the fibre; a colimit gluing collapses the fibre to a point. V5: the weight needs a rep space and a rotation.",
+    "rep_weight_in_theta": "(c + 1)**2/4",
+    "scalar_weight_in_theta": "1",
+    "status": "structural proposal",
+    "the_bridge": "a scalar transported along the seam carries no theta: moving along the seam changes nothing transverse, so any weight built from it is constant in theta. The weight that physics needs IS theta-dependent, so it cannot come from the scalar sector."
+  },
+  "W4_x4_tension_resolved_by_W1": {
+    "previous_tension": "V6 §X4: capping a seam contributes dim V_e (a number) while Thm 10.12 says a constant-boundary cap is impossible.",
+    "resolution_by_W1": "W1 identifies 'constant boundary' with 'trivial label j = 0'. So both statements are about the *same* case: at j = 0 the algebraic contraction is the number 1 = dim V_e, while the analytic realisation is obstructed (A3). They are two layers of one label, not two claims about different labels.",
+    "status": "structural proposal",
+    "what_would_upgrade_it": "exhibit an AEG interface whose label is j != 0 and show that the capping obstruction does not apply to it (a j != 0 seam cannot be capped by the vacuum at all, only paired)"
+  },
+  "limitations": [
+    "W2's j=1 rows reuse the conventions of ../pants-v5-labels/ without re-deriving them",
+    "W3 and W4 are structural proposals, not theorems; W4's upgrade needs a j != 0 AEG interface",
+    "nothing here touches the AEG repository; the translation is not yet a statement in the paper"
+  ],
+  "schema": "aeg-qed-seam-bridge-v1"
+}

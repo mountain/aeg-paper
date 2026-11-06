@@ -1,0 +1,259 @@
+% ---------------------------------------------------------------------
+% Appendix D
+% ---------------------------------------------------------------------
+
+\sloppy
+\begin{cnread}
+本附录是\textbf{可复核性}的部分。第一小节说明复核脚本怎么跑；第二小节把
+全部 29 项检查逐条列出；第三小节记录整理过程中对原始讨论所做的事实性更正
+（含一处代数系数、一处归一化因子、两处引用编号）；第四小节记录
+\AEG{} 手稿当前编译中发现的三个未解析引用与「开放问题已解却仍列在清单里」
+的情况。最后一小节说明哪些断言\textbf{没有}被复核。
+\end{cnread}
+
+\subsection{The verification script}
+
+All checks below are produced by one script, kept beside this document as
+\texttt{verify-notes.py}, together with its recorded output
+\texttt{verification-report.txt}.  It requires only \texttt{sympy} and
+\texttt{numpy} and is run with
+
+\begin{quote}\small
+\texttt{python3 verify-notes.py} \quad (or with any interpreter that has
+\texttt{sympy} installed)
+\end{quote}
+
+The script prints one \texttt{[PASS]}/\texttt{[FAIL]} line per check and exits
+non-zero if any check fails.  On the last run, all $29$ checks passed.
+
+\subsection{Register of verified identities}
+
+\begin{center}\small
+\renewcommand{\arraystretch}{1.18}
+\begin{tabular}{@{}p{0.075\linewidth}p{0.565\linewidth}p{0.285\linewidth}@{}}
+\toprule
+check & identity verified & where used \\
+\midrule
+V1.1 & $\Pi_{a_1,b_1}\Pi_{a_1,b_2}\Pi_{a_2,b_2}\Pi_{a_2,b_1}
+=\Lambda(\square)^{-1}\Pi_{a_1,b_1}$, symbolically in characteristic $0$
+& Thm.~\ref{thm:cross-ratio}, App.~A.2 \\
+V1.2 & $\Lambda=1-\frac{(a_2-a_1)(b_2-b_1)}{(1+a_1b_1)(1+a_2b_2)}$
+& \eqref{eq:cross-ratio} \\
+V1.3 & $\Lambda=1$ identically if $a_2=a_1$ or $b_2=b_1$
+& \eqref{eq:cross-ratio-nontrivial} \\
+V1.4 & $\prod_k\frac{1+a_kb_0}{1+a_{k-1}b_0}=1$ on a closed image loop
+& Thm.~\ref{thm:no-radiation} \\
+V1.5a & $\Pi_{a,b}\Pi_{a',b}=\Pi_{a,b}$ & App.~A.1 \\
+V1.5b & $\Pi_{a,b}\Pi_{a,b'}=\Pi_{a,b'}$ & App.~A.1 \\
+V2.1 & $\Lambda(\square)=4$ over $\F_7$ & Example~\ref{ex:f7} \\
+V2.2 & $4\ne1$ in $\F_7^{\times}\cong H$ & Example~\ref{ex:f7} \\
+V2.3 & the projector identity over all $1447$ transverse $\F_7$ loops
+& App.~A.4 \\
+V2.4 & the four edge transports $(1,6),(1,0),(4,4),(1,0)$
+& App.~A.3 \\
+V2.5 & $\mathcal T(\square)=\mathrm{diag}(4,1)$ in $\Aff(1,\F_7)$
+& \eqref{eq:app-total} \\
+V3.1 & $\log\Lambda(\square)=-\frac{\varepsilon\eta}{(1+a_0b_0)^{2}}+O(3)$
+& Cor.~\ref{cor:larmor}, App.~B.2 \\
+V4.1 & $\mathrm d\omega_2=2(1+ab)^{-2}\mathrm da\wedge\mathrm db$
+& \eqref{eq:curvature} \\
+V4.2 & curvature density $/$ transport density $=2$ & Lemma~\ref{lem:factor-two} \\
+V4.3 & $\theta_+\big|_{b=0}=\Phi^{-1}\mathrm da=-e^{-M}\mathrm d\xi$
+& Thm.~\ref{thm:torsion}(a) \\
+V5.1 & $\alpha=-\mathrm d(aM-a+A)+M\,\mathrm da$
+& Lemma~\ref{lem:legendre-linear} \\
+V5.2 & the variant $-\mathrm d(A+aM-a)+(1+M)\mathrm da$ is \emph{not} $\alpha$
+& Remark~\ref{rem:legendre-correction} \\
+V5.3 & $e^{-M}\alpha=\mathrm d(e^{-M}a)-e^{-M}\mathrm dA$
+& Lemma~\ref{lem:legendre-exponential} \\
+V6.1 & Reeb drift $=p(1-e^{-q})$ by the charge route and by the area route
+& Lemma~\ref{lem:kernel-word} \\
+V6.2 & the same value is the additive charge of $h(p,q)$ (Paper~0, Thm.~8.6)
+& Lemma~\ref{lem:kernel-word} \\
+V6.3 & $\int_0^q\!\!\int_0^p e^{-M}\mathrm dA\,\mathrm dM=p(1-e^{-q})$
+& Lemma~\ref{lem:kernel-word} \\
+V7.1 & $\int_{r_-}^{r_+}p_r\mathrm dr=\pi\bigl(mk/\sqrt{-2mE}-l\bigr)$ at three
+parameter points & Lemma~\ref{lem:half-action} \\
+V7.2 & $m\alpha/\sqrt{-2mE_n}=\hbar n$ & \eqref{eq:spectrum-app} \\
+V7.3 & $E_1=-m\alpha^{2}/(2\hbar^{2})$ & \eqref{eq:spectrum-app} \\
+V7.4 & $\int_a^b\frac{\sqrt{(b-x)(x-a)}}{x}\mathrm dx
+=\frac{\pi(a+b)}{2}-\pi\sqrt{ab}$ & \eqref{eq:elementary} \\
+V8.1 & $|\PGL_2(\F_7)|=336$ & Example~\ref{ex:f7} \\
+V8.2 & $|\Biv_{\F_7}|=56$ & Example~\ref{ex:f7} \\
+V8.3 & $|H|=6$, all fibers of size $6$ & Example~\ref{ex:f7} \\
+V8.4 & $43$ of the $56$ bivaluations lie in the finite affine chart
+& App.~A.4 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Corrections made to the working notes}
+
+The five source documents were exploratory and contained several slips that a
+formal document cannot carry.  They are corrected above and recorded here.
+
+\begin{enumerate}[label=(\alph*)]
+  \item \textbf{Legendre coefficient.}  The note \texttt{勒让德形式.md} writes
+  $\alpha=\mathrm da-\mathrm dA-(d(aM)-M\,\mathrm da)$ and then displays
+  $-\mathrm d(A+aM-a)+(1+M)\mathrm da$.  The expansion gives
+  $-\mathrm d(A+aM-a)+M\,\mathrm da$; the coefficient is $M$, not $1+M$.
+  Corrected in Lemma~\ref{lem:legendre-linear} and
+  Remark~\ref{rem:legendre-correction}; verified negatively by Check~V5.2.
+  Nothing downstream depends on the slip, because every subsequent identity in
+  that note uses the exponential form, which is correct.
+  \item \textbf{Shell normalisation.}  The note
+  \texttt{电动力学讨论-01.md} writes the shell contribution as
+  $\mathrm dV=-\frac{\kappa}{4\pi}\mathrm d(e^{-M})=+\frac{e^{2}}{4\pi
+  r'^{2}}\mathrm dr'$.  With $e^{-M}=\ell_0/r'$ the differentiated form carries a
+  factor $\ell_0$, and consistency with the stated
+  $V=\frac{\kappa}{4\pi\ell_0}e^{-M}$ requires
+  $\mathrm dV=\frac{\kappa}{4\pi\ell_0}\mathrm d(e^{-M})$.  Corrected in
+  \eqref{eq:pairing-energy}--\eqref{eq:V-ee}.
+  \item \textbf{Citation numbers.}  Three citations in the notes were checked
+  against the compiled manuscripts and corrected: the statement quoted as
+  ``Theorem~3.5'' of Paper~0 is Proposition~3.5 (a Laplace eigenfunction
+  statement); the ``self-intersecting figure-eight charge path of Section~8.7''
+  is not in Section~8.7 (which is \emph{Tearing}); the relevant material is the
+  four-step staircase of Subsection~8.5 and the singular-two-chain remark of
+  Appendix~D.2.  Citations that were correct and are retained:
+  Paper~0, Theorems~8.6, 8.9, 9.2; Propositions~9.1, 9.6, 9.8; Appendix~D.1--D.2;
+  equation~(47) of Paper~0 for the Bruhat decomposition; Paper~IV,
+  Theorem~3.2, Corollary~4.4, Propositions~4.6 and 4.9, Example~3.8.
+  \item \textbf{Numbering of the projective-torsion construction.}  The notes
+  refer to ``Open Problem~14.1''.  In the compiled Paper~IV the open problems
+  are in Section~13, where the projective-torsion problem was its first entry
+  before it was replaced by the resolution recorded in
+  Appendix~\ref{app:register}.4(b); the construction itself is
+  Definition~4.10, Theorem~4.11, Remark~4.12 and Example~4.13.  Both are used
+  with their current numbers.
+\end{enumerate}
+
+\subsection{Repairs made to the \AEG{} manuscripts}
+
+Four defects were found while checking this note against the built manuscripts:
+three by auditing the citations of Section~\ref{sec:intro}, and one in review of
+Section~\ref{sec:torsion}.  The first three are not mathematical errors; the
+fourth is a genuine sign-and-factor error in a remark.  All four have been
+repaired in the manuscript sources, in three separate commits, and are recorded
+here so that the repairs themselves remain auditable.
+
+\begin{enumerate}[label=(\alph*)]
+  \item \textbf{Three unresolved cross-references in Paper~IV.}  The build of
+  20 October 2026 reported
+  \texttt{Reference `prop:telescoping', `eq:chart-projector' and
+  `ex:f7-counts' undefined}.  Repaired by labelling the example of
+  Subsection~3.6 as \texttt{ex:f7-counts}, and by retargeting the other two
+  references to \texttt{prop:exact-transport-telescope} (Proposition~4.9) and
+  \texttt{eq:local-projector} (equation~(6), the projector display of
+  Subsection~3.1).  A label \texttt{rem:reductive-connection} was added to
+  Remark~4.12 so that it can be referred to at all.
+  \item \textbf{An open problem already resolved in the main text.}
+  Paper~IV, Section~13, listed the projective-torsion problem as open, while
+  Subsection~4.10--4.11 states and proves exactly that construction.  Repaired
+  by replacing the first entry of the open-problem list with a paragraph that
+  records the resolution, cites Theorem~4.11 and Example~4.13, and keeps open
+  only the normalisation question of Lemma~\ref{lem:factor-two}.  The
+  governance record \texttt{governance/paper-IV-closure-report.md} carries a
+  dated amendment to the same effect.
+  \item \textbf{Four unresolved cross-references in Paper~0.}  Found in the same
+  pass: the Legendre-duality subsection of Paper~0, Section~9, referred to
+  \texttt{prop:reeb-quotient}, \texttt{eq:contact-form},
+  \texttt{thm:charge-descent} and \texttt{prop:surface-never-closes}, none of
+  which exists.  Repaired by retargeting to
+  \texttt{prop:p0-contact-quotient}, \texttt{eq:arithmetic-contact-form},
+  \texttt{thm:p0-descent} and \texttt{prop:p0-surface-does-not-close}.  Note
+  that this is the subsection that absorbed the Legendre material of
+  Section~\ref{sec:legendre}: the same paste-in that carried the mathematics
+  carried provisional label names.
+  \item \textbf{Sign, factor, and a stale equation number in Paper~IV,
+  Remark~4.12.}  Found in review of the present note.  The remark defined
+  $\theta_+=\Phi^{-1}(1+ab)^{-1}\mathrm da$ and then evaluated it on the Borel
+  sector as $-\Phi^{-1}\mathrm da$; with $a=-\xi$ the evaluation is
+  $\theta_+|_{b=0}=\Phi^{-1}\mathrm da=-e^{-M}\mathrm d\xi$, i.e. \emph{minus}
+  the left Maurer--Cartan form, and the minus sign belongs to the step, not to
+  the definition.  The same sentence identified the first-order expansion of
+  $\Lambda(\square)$ with $(1+ab)^{-2}\mathrm da\wedge\mathrm db$ without a
+  factor, although the curvature of the connection displayed there is
+  $2(1+ab)^{-2}\mathrm da\wedge\mathrm db$ and the transport density is
+  $-(1+ab)^{-2}\mathrm da\wedge\mathrm db$ (the transport-density proposition
+  of Paper~IV, Subsection~4.8, and Lemma~\ref{lem:factor-two} above).  The citation ``Paper~0, Equation~(58)'' was also
+  stale: the left Maurer--Cartan translation form is Equation~(60) in the
+  current build, and (58) is an unrelated formula.  Repaired by rewriting the
+  remark: it now carries the curvature computation
+  $\mathrm d\omega_H=2(1+ab)^{-2}\mathrm da\wedge\mathrm db$ with its two-line
+  derivation, the correct Borel evaluation
+  (equation~\eqref{eq:solder-borel} above) with the reason for the sign, and a
+  forward reference to Subsection~4.8 for the density comparison.  Nothing is left in the remark
+  as an unproved claim, and the factor is no longer described as an
+  identification.
+\end{enumerate}
+
+After the repairs, the builds of 20 October 2026 report no undefined reference
+in either Paper~0 or Paper~IV.  Nothing else was changed by them, and no
+statement of either paper was added, weakened, or renumbered by these repairs;
+the new subsections recorded in Appendix~\ref{app:register}.6 are a separate
+change.
+
+\subsection{Manuscript inserts prepared from this note}
+
+The mathematical content of Sections~\ref{sec:radiation}
+and~\ref{sec:torsion} is projective: it concerns bivaluations, idempotents, and
+the transport of Paper~IV, Definition~4.10.  Paper~0's scope statement excludes
+``projective bivaluations, quotient towers, condensation'', so that content
+cannot be moved into Paper~0 as it stands; the geometric fragment that Paper~0
+does own --- poles and pencils --- is separated out.
+
+Two self-contained inserts were therefore prepared, kept beside this document
+under \texttt{inserts/}:
+
+\begin{center}\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{@{}p{0.345\linewidth}p{0.115\linewidth}p{0.48\linewidth}@{}}
+\toprule
+file & target & contents \\
+\midrule
+\texttt{paper-0-pole-covariance.tex} & Paper~0, new
+Subsection~4.4 & Lemma (covariance of the pole), Proposition (rigidity along a
+history), Remarks on the Bruhat reading and on a prospective interface \\
+\texttt{paper-4-transport-density.tex} & Paper~IV, new
+Subsection~4.8 & Lemma (edge criterion), Corollary (necessary condition),
+Propositions (log-holonomy density; normalisation against the reductive
+connection), Example (the $\F_7$ witness edge by edge), boundary remark \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Both were first verified \emph{in place} --- wired into scratch copies of the
+host papers and built --- and then integrated, in a commit of their own, by
+adding the two files under the respective \texttt{sections/} directories and one
+\texttt{\textbackslash input} line each.  The numbers the verification predicted
+are the numbers now in force: Paper~0 carries the material as
+Subsection~4.4 with Lemma~4.6, Proposition~4.7 and Remarks~4.8--4.9, and
+Paper~IV as Subsection~4.8 with Lemma~4.14, Corollary~4.15,
+Propositions~4.16--4.17, Example~4.19 and Remark~4.20.  The builds report Paper~0
+at 92 pages and Paper~IV at 59 pages, neither with an undefined reference.
+
+The integration and the repairs of Appendix~D.4 are deliberately two separate
+commits: the first adds no statement of either paper, the second adds several.
+Neither paper asserts any physical identification; the dictionary of
+Section~\ref{sec:intro} belongs to this note and is not part of the
+manuscripts.
+
+\subsection{What is not verified}
+
+For completeness, the following are \emph{not} checked by the script and rest on
+the literature or on nothing:
+
+\begin{enumerate}[label=(\roman*)]
+  \item the identification of the $1-\mathbf v_1\!\cdot\!\mathbf v_2/c^{2}$
+  coefficient with the Darwin term (Warning~\ref{warn:darwin}); this is
+  cross-checked only against the standard references \cite{Darwin1920,Jackson1999};
+  \item the claim that the Coulomb spectrum is exactly reproduced by
+  Bohr--Sommerfeld quantization (Warning~\ref{warn:semiclassical});
+  \item the geometric-quantization reading of the Reeb coordinate as a phase
+  (Remark~\ref{rem:prequantum}), which rests on the Boothby--Wang theory
+  \cite{BoothbyWang1958,Geiges2008} but is not instantiated here;
+  \item every statement depending on one of the five hypotheses of
+  Section~1.4;
+  \item every statement marked heuristic in Section~10.3.
+\end{enumerate}

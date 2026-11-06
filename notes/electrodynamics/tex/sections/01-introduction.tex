@@ -1,0 +1,325 @@
+% ---------------------------------------------------------------------
+% Section 1
+% ---------------------------------------------------------------------
+
+\begin{cnread}
+本节给出全篇的问题、舞台与记号，并把后面要用到的 \AEG{} 结论一次列清
+（引用一律用 Paper~0 / Paper~IV 的\textbf{编译编号}，不引用对话里的口头编号）。
+五个「物理字典假设」在这里集中声明，后面每一节用到哪一条都会指明。若只想
+看结论，可直接跳第十节的对照表。
+\end{cnread}
+
+\subsection{The question}
+
+\AEG{} studies an arithmetic expression through the ordered histories that
+evaluate it.  Paper~0 builds three carriers for one history word: the basic
+hyperbolic arithmetic expression space $\E_0=(\HH^2,g_{\mu,\lambda},a)$, in
+which addition translates and multiplication scales
+(\cite{AEG0}, Proposition~3.6 and the table in Subsection~3.4); the
+accumulative commutative space $\ACS=\R^2_{(A,M)}$, which records the total
+additive charge $A$ and multiplicative charge $M$ and forgets their order
+(Definition~8.1); and the three-dimensional contact model
+$\Cont=\R^3_{(u,v,a)}$ with
+\[
+  \alpha = \mathrm da-\mu\,\mathrm du-\lambda a\,\mathrm dv,
+  \qquad
+  \mathrm d\alpha=-\lambda\,\mathrm da\wedge \mathrm dv,
+\]
+whose horizontal fields $D_u=\pt_u+\mu\pt_a$ and $D_v=\pt_v+\lambda a\pt_a$
+satisfy $[D_u,D_v]=\mu\lambda\,\pt_a$ (Proposition~9.1, Theorem~9.2).  The order
+defect of two histories with equal total charges is an exact weighted area in
+$\ACS$ (Theorem~8.9); in $\Cont$ the same defect has the constant density
+$\mu\lambda$ (Theorem~9.2 and Proposition~9.6); and after passing to the
+Reeb quotient $Q(u,v,a)=(-ae^{-\lambda v},e^{-\lambda v})$ of
+Proposition~9.8, the defect acquires a second, conjugate reading as a drift
+along the Reeb fiber (Theorem~9.9).
+
+This note asks what that machinery says when the two ends of a history are
+given a physical reading.  Fix an ideal boundary point $q\in\pt_\infty\HH^2$ and
+an ordinary point $p\in\HH^2$.  In \AEG{} terms nothing is new: the histories joining a starting point deep in
+the ultraviolet to $p$ inside $B_\infty$ form the fiber of the operator
+evaluation map over one affine operator (Proposition~\ref{prop:operator-fiber}).  In physical terms the same object has a standard
+name.  The ideal point is an asymptotic state, the ordinary point is a
+finite-scale dressed state, the multiplicative steps are scale evolution, and
+the additive steps are vertex insertions.  The question is then simply whether
+the \AEG{} invariants attached to that family --- the fan-out in $\ACS$, the
+Reeb drift, the cross-ratio holonomy, the radial action --- reproduce the
+electromagnetic phenomena that the corresponding Feynman histories describe.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[x=1cm,y=1cm,>=Latex,every node/.style={font=\small}]
+  \node[draw,rounded corners,fill=blue!4,inner sep=4pt,align=center,
+        text width=3.6cm] (C) at (0,3.1)
+    {$\Cont=\R^3_{(u,v,a)}$\\[1pt]
+     \scriptsize$\alpha=\mathrm da-\mu\,\mathrm du-\lambda a\,\mathrm dv$};
+  \node[draw,rounded corners,fill=blue!4,inner sep=4pt,align=center] (A) at (-3.5,0.6)
+    {$\ACS=\R^2_{(A,M)}$\\[1pt]\scriptsize charges only};
+  \node[draw,rounded corners,fill=blue!4,inner sep=4pt,align=center] (H) at (3.5,0.6)
+    {$\E_0=\HH^2_{(x,y)}$\\[1pt]\scriptsize assignment $a=-x/y$};
+  \draw[->,thick,black!65] (C.south west) -- node[left=1pt,font=\scriptsize]
+        {$\pi$} (A.north east);
+  \draw[->,thick,black!65] (C.south east) -- node[right=1pt,font=\scriptsize]
+        {$Q$} (H.north west);
+  \draw[{Latex[length=1.5mm]}-{Latex[length=1.5mm]},dashed,black!45]
+        (A.east) -- node[below=2pt,font=\scriptsize]
+        {Legendre dual (Thm.~\ref{thm:dual-tearing})} (H.west);
+  \node[font=\scriptsize,align=center,text width=13.2cm] at (0,-1.15)
+    {$\pi(u,v,a)=(A,M)$ forgets the assignment $a$ and keeps the charges;\quad
+     $Q(u,v,a)=(-ae^{-\lambda v},e^{-\lambda v})$ forgets the Reeb coordinate $u$
+     and keeps the state.\\[2pt]
+     The order defect is a tearing along $\pt_a$ and a drift along $\pt_u$.};
+\end{tikzpicture}
+\caption[The two projections of the contact model]%
+{The two projections of the contact model, and their Legendre conjugacy.  The
+charge projection $\pi$ forgets the assignment, so the order defect appears on
+its fiber $\pt_a$ as a value tearing; the Reeb quotient $Q$ forgets the additive
+charge, so the same defect appears on its fiber $\pt_u$ as a Reeb drift.
+Section~\ref{sec:legendre} is the statement that these are two readings of one
+contact curvature.}
+\label{fig:two-projections}
+\end{figure}
+
+\subsection{The \AEG{} statements used, by compiled number}
+
+All citations below are to the compiled numbering of the \AEG{} manuscripts
+\cite{AEG0,AEG4}.  The working dialogue from which this note is drawn cited
+several of them loosely; where the loose citation named a different statement
+than the one actually used, the corrected reference is given here and the fact
+is recorded in Appendix~\ref{app:register}.
+
+{\small
+\renewcommand{\arraystretch}{1.22}
+\begin{longtable}{@{}p{0.215\linewidth}p{0.735\linewidth}@{}}
+\toprule
+reference & statement used here \\
+\midrule
+\endfirsthead
+\toprule
+reference & statement used here \\
+\midrule
+\endhead
+\midrule
+\multicolumn{2}{r}{\emph{continued}}\\
+\endfoot
+\bottomrule
+\endlastfoot
+Paper~0, Prop.~3.6 & the grid motions act on the assignment by
+$a\circ\mathsf X_s=a+s$, $a\circ\mathsf Y_k=ka$. \\
+Paper~0, Subsec.~3.4 & the five-row table of motions, including the reflection
+$(x,y)\mapsto(-x,y)$ with $a\mapsto-a$. \\
+Paper~0, Thm.~3.9 & continuous arithmetic motion:
+$\frac{\mathrm d}{\mathrm ds}(a\circ\gamma)=\mu\cos\theta+\lambda(a\circ\gamma)\sin\theta$. \\
+Paper~0, Thm.~4.2, Subsec.~4.3 & ripple pencils and ripple histories; the
+common tangency point may move with the prefix. \\
+Paper~0, Prop.~5.4, Subsec.~5.5 & fixed points of $z\mapsto a+b/z$ solve
+$z^2-az-b=0$; general M\"obius fixed points are eigenlines. \\
+Paper~0, Props.~7.1, 7.4 & affine cocycle and the left/right Maurer--Cartan
+translation forms. \\
+Paper~0, Def.~8.1, Prop.~8.2 & the \ACS{} and its weighted evaluation
+$\hat\xi=\int_C e^{-M}\mathrm dA$. \\
+Paper~0, Thm.~8.6 & only the multiplicative charge descends; the kernel word
+$h(p,q)=\cM_q\cA_p\cM_{-q}\cA_{-e^{-q}p}$ has charges
+$\bigl(p(1-e^{-q}),0\bigr)$. \\
+Paper~0, Thm.~8.9 & weighted torsion--Stokes:
+$\tau(\gamma,\delta)=\iint_{\Sigma}e^{M_*-M}\mathrm dA\wedge\mathrm dM$. \\
+Paper~0, Props.~9.1, 9.6, 9.8, Thm.~9.2 & the contact form, its curvature
+$\mu\lambda$, the Reeb quotient, and $d\alpha=-\mu\lambda Q^*\mathrm d\vol$. \\
+Paper~0, Thm.~9.9 & dual tearing and Reeb drift: $\Delta a$ at fixed charges
+versus $\Delta A=-\mu\lambda\,\mathrm{Area}_g(\Omega)$ at fixed state. \\
+Paper~0, App.~D.1--D.2, D.4 & the oriented rectangle with pulled-back form
+$pq\,\mathrm ds\wedge\mathrm dt$; the closed loop
+$\ell=(\cA_p,\cM_q,\cA_{-p},\cM_{-q})$ with $\tau=p(1-e^{-q})$; Darboux
+coordinates and $R=-(1/\mu)\pt_u$. \\
+Paper~IV, Def.~3.1, Thms.~3.2, 3.3, 3.5 & regular bivaluations
+$\Biv_K^{\mathrm{reg}}=\PP^1\!\times\!\PP^1\setminus\Delta$; the
+bivaluation--projector bijection $\Pi_{a,b}=\frac1{1+ab}v_a\otimes\varphi_b$;
+$G/H\cong\Biv_K^{\mathrm{reg}}$; the frame torsor. \\
+Paper~IV, Prop.~3.7, Ex.~3.8 & finite-field counts
+$|\PGL_2(\F_q)|=q(q^2-1)$, $|\Biv|=q(q+1)$, $|H|=q-1$; for $q=7$:
+$336$, $56$, $6$. \\
+Paper~IV, Prop.~4.9 & edge labels given only by ratios of frame lifts telescope
+along every closed path. \\
+Paper~IV, Def.~4.10, Thm.~4.11, Rem.~4.12, Ex.~4.13 & the incidence-coupled
+transport $\mathcal T(\tilde e)\in\Aff(1,K)$, its Borel reduction, the
+cross-ratio holonomy, the infinitesimal reductive connection, and the
+$\F_7$ witness $\Lambda=4$. \\
+Paper~IV, Prop.~10.1, Thm.~10.3 & Horner histories
+$\xi=\sum_i d_i k^{n-i}$ and their histogram counts. \\
+\end{longtable}}
+
+\subsection{Notation and sign conventions}
+
+The note keeps the \AEG{} conventions unchanged; a reader coming from the
+manuscripts needs only the following table.
+
+{\small
+\renewcommand{\arraystretch}{1.2}%
+\begin{longtable}{@{}ll@{}}
+\toprule
+symbol & meaning \\
+\midrule
+\endfirsthead
+\toprule
+symbol & meaning \\
+\midrule
+\endhead
+\midrule
+\multicolumn{2}{r}{\emph{continued}}\\
+\endfoot
+\bottomrule
+\endlastfoot
+$\E_0=(\HH^2,g_{\mu,\lambda},a)$ & basic hyperbolic arithmetic expression space;
+$a(x,y)=-x/y$ \\
+$u,v$ & arithmetic direction coordinates; $A=\mu u$, $M=\lambda v$ natural
+charge coordinates \\
+$a$ & assignment (the ``current arithmetic value''); on $\HH^2$, $a=-x/y$ \\
+$\ACS=\R^2_{(A,M)}$ & accumulative commutative space; oriented by
+$\mathrm dA\wedge\mathrm dM$ \\
+$\Cont=\R^3_{(u,v,a)}$ & contact model; $\alpha=\mathrm da-\mathrm dA-a\,
+\mathrm dM$ in charge coordinates \\
+$\pi,\;Q$ & charge projection $\pi(u,v,a)=(A,M)$; Reeb quotient
+$Q(u,v,a)=(-ae^{-\lambda v},e^{-\lambda v})$ \\
+$q,\;p$ & ideal boundary point (asymptote) and ordinary point (finite scale) \\
+$\cA_p,\;\cM_q$ & the additive and multiplicative motions, i.e. translation by
+$p$ and dilation by $e^{q}$ \\
+$h(p,q)$ & the kernel word of Thm.~8.6 \\
+$\Pi_{a,b}$ & rank-one idempotent of the bivaluation $(a,b)$ \\
+$q^+,q^-$ & image and kernel directions of a bivaluation (Paper~IV) \\
+$B_\infty$ & $\Stab_{\PGL_2}(\infty)$, the affine Borel sector \\
+$J$ & the inverting element $z\mapsto -1/z$ \\
+$\Lambda(\square)$ & multiplicative cross-ratio holonomy of a four-step
+bivaluation loop \\
+$\mathcal T(e)$ & projective torsion transport of an edge \\
+$\ell_0$ & short-distance reference length (ultraviolet cutoff) \\
+$\mu,\;\lambda$ & arithmetic step constants; $\mu\lambda$ is the contact
+curvature scalar \\
+$\kappa$ & interaction curvature coefficient, $\kappa=q_1q_2$ by
+Hypothesis~\ref{hyp:pairing} \\
+\end{longtable}}
+
+Two conventions matter and are used without further comment.  A history is
+written chronologically from left to right, as in Paper~0: the word
+$(\cM_q,\cA_p)$ first scales by $e^{q}$ and then translates by $p$.  Charges
+are additive as a function on the history group: the total charge of a word is
+the sum of its additive and multiplicative increments
+(Convention~8.3 of Paper~0).  Composite maps act on the assignment by
+composition in the reverse reading, so $(M_k\circ A_h)(a)=e^{q}(a+p)$ while
+$(A_h\circ M_k)(a)=e^{q}a+p$; their difference is the elementary order defect
+$p(e^{q}-1)$ of Appendix~D.3 of Paper~0.
+
+\subsection{The five dictionary hypotheses}
+
+Everything below is proved either from the \AEG{} statements of
+Subsection~1.2 or from elementary computation, except at five points.  Each of
+those is declared once here, is used in the sections named, and is not silently
+converted into a theorem.
+
+\begin{hypothesis}[Charge--motion dictionary]
+\label{hyp:charge}
+A charged particle at rest is an ideal-point-to-point history whose additive
+steps carry the signed charge: the electron is generated by
+$\cA_{-e}$, and the positron by $\cA_{+e}$, which by the reflection of
+Paper~0, Subsection~3.4 satisfies $\mathcal R\circ\cA_{-e}\circ\mathcal R^{-1}
+=\cA_{+e}$ with $\mathcal R(x,y)=(-x,y)$ scaling $a\mapsto-a$.  A virtual
+photon exchange is one additive step of one history absorbed by another.
+\end{hypothesis}
+
+\begin{hypothesis}[Depth--distance dictionary]
+\label{hyp:depth}
+The multiplicative depth $e^{-M}$ of a history is the Coulomb kernel up to the
+ultraviolet reference length,
+\[
+  e^{-M_*}=\frac{\ell_0}{r}
+  \qquad\Longleftrightarrow\qquad
+  M_*=\log\frac{r}{\ell_0},
+\]
+so that a scale interval $[0,M_*]$ represents a spatial separation $r$ and the
+ultraviolet end $M=0$ represents the coincident limit.
+\end{hypothesis}
+
+\begin{hypothesis}[Curvature--energy dictionary]
+\label{hyp:pairing}
+The two-body interaction energy is the bilinear pairing of the two charges
+against the contact curvature.  Concretely, writing the additive generator
+strength $\mu\propto q_1$ and the multiplicative coupling $\lambda\propto q_2$,
+the curvature scalar of Paper~0, Theorem~9.2 becomes
+$\omega(D_u,D_v)=\mu\lambda\propto q_1q_2$, and the potential is the integral of
+that density over the scale interval selected by Hypothesis~\ref{hyp:depth},
+normalised by the three-dimensional solid angle $4\pi$.
+\end{hypothesis}
+
+\begin{hypothesis}[Velocity--tilt dictionary]
+\label{hyp:velocity}
+A charge moving with speed $v_{\mathrm{vel}}$ is a history whose depth coordinate
+advances at rate $\beta=\mathrm dM/\mathrm d\tau=v_{\mathrm{vel}}/c$, i.e. the
+direction angle of \eqref{eq:theta-flow} is the rapidity
+$\theta=\operatorname{artanh}(v_{\mathrm{vel}}/c)$ of the motion, with $c$ the
+critical rate at which the tilt saturates.
+\end{hypothesis}
+
+\begin{hypothesis}[Holonomy--radiation dictionary]
+\label{hyp:radiation}
+A nonvanishing projective holonomy of a closed history loop, in the sense of the
+multiplicative component of Paper~IV, Theorem~4.11, is the carrier of
+electromagnetic radiation: uniform motion has trivial holonomy and radiates
+nothing, and an acceleration that moves the kernel coordinate produces a
+holonomy whose magnitude measures radiated power.
+\end{hypothesis}
+
+\begin{statusbox}
+\textbf{On the status of the hypotheses.}  None of the five is a theorem of
+\AEG{}, and none is claimed to be.  Each is a dictionary: it names a physical
+quantity by an \AEG{} object.  Hypotheses~\ref{hyp:charge} and
+\ref{hyp:depth} fix what the ends and the scale variable of a history mean;
+Hypothesis~\ref{hyp:pairing} fixes what an invariant of two histories means;
+Hypothesis~\ref{hyp:velocity} fixes what motion means;
+Hypothesis~\ref{hyp:radiation} fixes what a holonomy means.  The mathematical
+content of every section stands without them; the physical conclusions are
+conditional on them, and are stated in that form.  Section~\ref{sec:summary}
+collects which conclusion rests on which hypothesis.
+
+One further identification is made later and is not counted among the five
+because it is a substitution rather than a dictionary: in
+Section~\ref{sec:bohr} the assignment slot of the contact form is filled by the
+scale-corrected radial momentum $r\,p_r$ (Lemma~\ref{lem:action-slot}).  It is
+flagged there.
+\end{statusbox}
+
+\subsection{Roadmap}
+
+{\small
+\renewcommand{\arraystretch}{1.22}%
+\begin{longtable}{@{}p{0.30\linewidth}p{0.16\linewidth}p{0.46\linewidth}@{}}
+\toprule
+source note & section & what it contributes \\
+\midrule
+\endfirsthead
+\toprule
+source note & section & what it contributes \\
+\midrule
+\endhead
+\midrule
+\multicolumn{3}{r}{\emph{continued}}\\
+\endfoot
+\bottomrule
+\endlastfoot
+\texttt{费曼图.md} & \S\ref{sec:feynman} & the $p_0\to p$ family as an operator
+fiber; \ACS{} fan-out and bare-charge divergence; Reeb-fiber heights \\
+\texttt{勒让德形式.md} & \S\ref{sec:legendre} & the exponential Legendre
+identity and the dual tearing theorem \\
+\texttt{电动力学讨论-01.md} & \S\ref{sec:coulomb} & Coulomb's sign rule from the
+sign of $q_1q_2$; the dipole loop; the three geometric readings \\
+\texttt{电动力学讨论-02.md} & \S\ref{sec:ampere}, \S\ref{sec:scattering} &
+direction angle and the Amp\`ere coefficient; uniform motion in ripple
+geometry; M\o ller versus Bhabha sectors \\
+\texttt{电动力学讨论-02.md},
+\texttt{电动力学讨论-03.md} & \S\ref{sec:radiation},
+\S\ref{sec:torsion} & moving poles, cross-ratio holonomy, the torsion transport
+and its Borel reduction \\
+\texttt{电动力学讨论-03.md} & \S\ref{sec:bohr} & elliptic fixed points, Reeb
+holonomy as action, Bohr--Sommerfeld quantization \\
+--- & \S\ref{sec:summary} & dictionary table, status ledger, open ends \\
+--- & App.~\ref{app:matrices}--\ref{app:register} & exact computations and the
+register of verified identities \\
+\end{longtable}}

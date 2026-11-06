@@ -1,0 +1,256 @@
+% =====================================================================
+% INSERT FOR PAPER IV  (Arithmetic Expression Geometry IV)
+%
+% Source file:  paper-4/sections/04b-transport-density.tex
+% Integrated 2026-10-20 as the last subsection of Section 4, immediately after
+%   Subsection 4.7 ("Non-exact projective transport and cross-ratio holonomy")
+%   and its Example 4.13, via
+%   \input{sections/04b-transport-density}  at the end of
+%   paper-4/sections/04-condensation-and-continuation.tex.
+%
+% Labels required from the host paper (all present):
+%   def:projective-edge-transport, thm:projective-torsion-solution,
+%   rem:reductive-connection, eq:projective-torsion-components,
+%   eq:cross-ratio-holonomy, eq:local-projector,
+%   ex:f7-cross-ratio-holonomy, ex:f7-counts.
+% New labels introduced here (checked unique in the host paper):
+%   subsec:transport-density, lem:edge-factor-triviality,
+%   cor:nontrivial-edge, prop:transport-density, prop:transport-normalisation,
+%   ex:f7-edge-transports, rem:transport-density-boundary.
+%
+% Claim status:
+%   Lemma 4.14, Corollary 4.15, Propositions 4.16-4.17 : proved
+%   Example 4.19                                      : computationally verified
+%                                                       (exact arithmetic in F_7)
+%   (Section 4 of the current build ends at Example 4.13, so the numbering
+%   below starts at 4.14; the subsection is 4.8.)
+%
+% No physical interpretation is attached to any statement below; in
+% particular the transport is not identified with any quantity outside the
+% projective framework.
+% =====================================================================
+
+\subsection{The transport density and its normalisation}
+\label{subsec:transport-density}
+
+Theorem~\ref{thm:projective-torsion-solution} establishes two properties of the
+incidence-coupled transport of
+Definition~\ref{def:projective-edge-transport}: its exact reduction to affine
+torsion on the Borel sector, and the existence of a closed-loop observable that
+is not forced to telescope.  The present subsection records three further
+elementary facts about that transport, all of them consequences of the
+definitions and of the finite computations already available.
+
+First, only certain edges can contribute to the multiplicative component.
+Second, on an infinitesimal loop that component has a definite two-form density,
+which we compare with the curvature of the reductive connection of
+Remark~\ref{rem:reductive-connection}.  Third, the witness loop of
+Example~\ref{ex:f7-cross-ratio-holonomy} is computed edge by edge, which
+separates the two components of the transport on a single explicit example.
+
+Throughout, $e_k:q_{k-1}\to q_k$ is a transverse lifted step between regular
+bivaluations, $\Phi_k\in K^{\times}\cong H$ are its frame coordinates, and
+\begin{equation}\label{eq:transport-base-factor}
+  \lambda_{\mathrm{base}}(e_k)
+  :=\frac{1+a_kb_{k-1}}{1+a_{k-1}b_{k-1}}
+  =\frac{\varphi_{b_{k-1}}(v_{a_k})}{\varphi_{b_{k-1}}(v_{a_{k-1}})}
+\end{equation}
+is the base factor of~\eqref{eq:projective-torsion-components}.  Transversality
+gives $1+a_{k-1}b_{k-1}\ne0$, so $\lambda_{\mathrm{base}}(e_k)$ is defined and
+nonzero.
+
+\begin{lemma}[When an edge has trivial base factor]
+\label{lem:edge-factor-triviality}
+For every transverse lifted step $e_k$,
+\[
+  \lambda_{\mathrm{base}}(e_k)=1
+  \quad\Longleftrightarrow\quad
+  a_k=a_{k-1}\ \text{or}\ b_{k-1}=0 .
+\]
+\end{lemma}
+
+\begin{proof}
+Both fractions in \eqref{eq:transport-base-factor} share the denominator
+$1+a_{k-1}b_{k-1}\ne0$.  Their numerators agree exactly when
+$a_kb_{k-1}=a_{k-1}b_{k-1}$, that is $b_{k-1}(a_k-a_{k-1})=0$.
+\end{proof}
+
+\begin{corollary}[A necessary condition for a non-unit holonomy]
+\label{cor:nontrivial-edge}
+Let $\tilde\gamma=(\tilde e_1,\dots,\tilde e_m)$ be a closed lifted path with
+$\Phi_m=\Phi_0$.  Then
+\[
+  \Lambda(\tilde\gamma)=\prod_{k=1}^{m}\lambda_{\mathrm{base}}(e_k),
+\]
+and $\Lambda(\tilde\gamma)\ne1$ implies that at least one edge satisfies
+$b_{k-1}\ne0$ and $a_k\ne a_{k-1}$.  In particular, a closed loop traversed
+entirely at kernel coordinate $b=0$, or entirely at constant image coordinate
+$a_k\equiv a_{k-1}$, has unit multiplicative holonomy.
+\end{corollary}
+
+\begin{proof}
+The product formula is the telescoping of the factors $\Phi_k/\Phi_{k-1}$ in
+\eqref{eq:projective-torsion-components} around the closed loop.  If every edge
+has $b_{k-1}=0$ or $a_k=a_{k-1}$, Lemma~\ref{lem:edge-factor-triviality} makes
+every factor $1$, so the product is $1$; this proves the contrapositive of the
+stated necessary condition.  The two special cases are the ones in which the
+condition fails on every edge.
+\end{proof}
+
+The converse of the necessary condition in
+Corollary~\ref{cor:nontrivial-edge} is false in general: factors with
+$b_{k-1}\ne0$ can multiply to $1$ around a longer loop.  What
+Theorem~\ref{thm:projective-torsion-solution}(3) establishes is that on the
+four-step loop with both coordinates moved the product is exactly the
+cross-ratio \eqref{eq:cross-ratio-holonomy}, which is then non-unit.
+
+\paragraph{The infinitesimal density.}
+Let $\square$ be the four-step loop of
+Theorem~\ref{thm:projective-torsion-solution}(3) with
+$a_2=a_1+\varepsilon$ and $b_2=b_1+\eta$.
+
+\begin{proposition}[Log-holonomy density]
+\label{prop:transport-density}
+For the loop $\square$,
+\begin{equation}\label{eq:log-holonomy}
+  \log\Lambda(\square)
+  =-\frac{\varepsilon\eta}{(1+a_1b_1)(1+a_2b_2)}+O(\varepsilon^2\eta^2)
+  =-\iint_{\square}\frac{\mathrm da\wedge\mathrm db}{(1+ab)^{2}}+O(3),
+\end{equation}
+where the second expression is the integral of the two-form
+$(1+ab)^{-2}\mathrm da\wedge\mathrm db$ over the coordinate rectangle bounded by
+$\square$.  Consequently the two-form
+\begin{equation}\label{eq:transport-density-form}
+  \Omega_{\mathrm{tr}}:=-\frac{\mathrm da\wedge\mathrm db}{(1+ab)^{2}}
+\end{equation}
+is the density of the multiplicative component: to first order in the size of
+the loop, $\log\Lambda(\square)$ is its integral.
+\end{proposition}
+
+\begin{proof}
+By \eqref{eq:cross-ratio-holonomy},
+$\Lambda(\square)=1-\frac{(a_2-a_1)(b_2-b_1)}{(1+a_1b_1)(1+a_2b_2)}
+=1-\frac{\varepsilon\eta}{(1+a_1b_1)(1+a_2b_2)}$.  Taking logarithms gives the
+first expression.  For the second, note that
+$(1+ab)^{-2}=1+O(1)$ near $(a_1,b_1)$ so the integral of the two-form over the
+rectangle differs from $\varepsilon\eta/((1+a_1b_1)(1+a_2b_2))$ by a term of
+order $3$ in the side lengths, which is absorbed in $O(3)$.
+\end{proof}
+
+\paragraph{Comparison with the reductive connection.}
+Remark~\ref{rem:reductive-connection} exhibits the connection
+\[
+  \omega_H=\Phi^{-1}\mathrm d\Phi+(1+ab)^{-1}\bigl(a\,\mathrm db-b\,\mathrm da\bigr),
+  \qquad
+  \theta_+=\Phi^{-1}(1+ab)^{-1}\mathrm da ,
+\]
+on the principal $H$-bundle $G\to G/H$.  Its curvature is twice the density
+\eqref{eq:transport-density-form}.
+
+\begin{proposition}[The transport is the holonomy of the halved transverse part]
+\label{prop:transport-normalisation}
+Let $f=(1+ab)^{-1}$.  Then
+\begin{equation}\label{eq:connection-curvature}
+  \mathrm d\bigl(f(a\,\mathrm db-b\,\mathrm da)\bigr)
+  =\frac{2\,\mathrm da\wedge\mathrm db}{(1+ab)^{2}}=-2\,\Omega_{\mathrm{tr}} .
+\end{equation}
+Consequently $\Omega_{\mathrm{tr}}$ is the curvature of the connection
+\begin{equation}\label{eq:halved-connection}
+  \omega^{(1/2)}=\Phi^{-1}\mathrm d\Phi+\tfrac12\,(1+ab)^{-1}
+  \bigl(a\,\mathrm db-b\,\mathrm da\bigr),
+\end{equation}
+i.e. of the connection whose transverse part is half that of $\omega_H$ and
+whose frame part is unchanged.  In particular the transport of
+Definition~\ref{def:projective-edge-transport} agrees, to first order in the
+size of the loop, with the holonomy of $\omega^{(1/2)}$, not with the holonomy
+of $\omega_H$.
+\end{proposition}
+
+\begin{proof}
+Since $\mathrm d(a\,\mathrm db-b\,\mathrm da)=2\,\mathrm da\wedge\mathrm db$ and
+$\mathrm df=-(1+ab)^{-2}(b\,\mathrm da+a\,\mathrm db)$, one has
+\[
+  \mathrm d\bigl(f(a\,\mathrm db-b\,\mathrm da)\bigr)
+  =-(1+ab)^{-2}\bigl[(b\,\mathrm da+a\,\mathrm db)\wedge(a\,\mathrm db-b\,\mathrm da)\bigr]
+   +2f\,\mathrm da\wedge\mathrm db .
+\]
+The wedge product in brackets is $2ab\,\mathrm da\wedge\mathrm db$, so the two
+terms sum to
+$2\bigl((1+ab)-ab\bigr)(1+ab)^{-2}\mathrm da\wedge\mathrm db
+=2(1+ab)^{-2}\mathrm da\wedge\mathrm db$.  This is \eqref{eq:connection-curvature}.
+Halving the transverse part halves the curvature, and the frame part
+$\Phi^{-1}\mathrm d\Phi$ is closed, so the curvature of
+\eqref{eq:halved-connection} is $(1+ab)^{-2}\mathrm da\wedge\mathrm db
+=-\Omega_{\mathrm{tr}}$.  A connection with curvature $\Omega$ has holonomy
+$\exp(-\int_\Sigma\Omega)$ around a small positively oriented loop, which
+reproduces \eqref{eq:log-holonomy}.
+\end{proof}
+
+\begin{remark}[Status of the factor two]
+\label{rem:transport-density-boundary}
+Propositions~\ref{prop:transport-density}
+and~\ref{prop:transport-normalisation} are normalisation observations, not
+corrections: the cross-ratio \eqref{eq:cross-ratio-holonomy} and the connection
+form of Remark~\ref{rem:reductive-connection} are both exact as stated, and they
+differ by the factor $2$ in \eqref{eq:connection-curvature}.  The reading is
+that the idempotent transport is attached to the halved transverse part
+\eqref{eq:halved-connection}; the sentence of
+Remark~\ref{rem:reductive-connection} identifying the first-order expansion of
+$\Lambda(\square)$ with the para-K\"ahler form
+$(1+ab)^{-2}\mathrm da\wedge\mathrm db$ is accordingly precise for the density
+$\Omega_{\mathrm{tr}}$, while the curvature of $\omega_H$ itself is twice that
+form.  No invariant of the present framework distinguishes the two
+normalisations, and none is claimed to.
+\end{remark}
+
+\paragraph{The witness, edge by edge.}
+The loop of Example~\ref{ex:f7-cross-ratio-holonomy} is short enough for its
+transport to be written down completely.
+
+\begin{example}[Transport of the witness loop over $\F_7$]
+\label{ex:f7-edge-transports}
+Let $K=\F_7$, $q=7$, and let all frame coordinates be $\Phi_k=1$.  For the loop
+with vertices $(a_1,b_1)=(0,0)$, $(a_2,b_1)=(1,0)$, $(a_2,b_2)=(1,1)$,
+$(a_1,b_2)=(0,1)$, the transports of
+Definition~\ref{def:projective-edge-transport} are, with $2^{-1}=4$ in
+$\F_7^{\times}$,
+\[
+  \mathcal T(e_1)=\begin{pmatrix}1&6\\0&1\end{pmatrix},
+  \qquad
+  \mathcal T(e_2)=\begin{pmatrix}1&0\\0&1\end{pmatrix},
+  \qquad
+  \mathcal T(e_3)=\begin{pmatrix}4&4\\0&1\end{pmatrix},
+  \qquad
+  \mathcal T(e_4)=\begin{pmatrix}1&0\\0&1\end{pmatrix},
+\]
+so that the only nontrivial step is $e_3$, the step at which the kernel
+coordinate moves, and $\lambda_{\mathrm{base}}(e_3)=2^{-1}\equiv4$ in
+agreement with Lemma~\ref{lem:edge-factor-triviality} and
+\eqref{eq:cross-ratio-holonomy}.
+Multiplying chronologically, $\mathcal T(\square)=\mathcal T(e_4)\mathcal T(e_3)
+\mathcal T(e_2)\mathcal T(e_1)=\begin{pmatrix}4&0\\0&1\end{pmatrix}$, since
+$4\cdot6+4=28\equiv0\pmod 7$.  Thus on this loop the additive component cancels
+identically and the non-unit part of the transport is purely multiplicative.
+\end{example}
+
+\begin{remark}[What one loop does and does not exhibit]
+\label{rem:single-loop-components}
+The cancellation in Example~\ref{ex:f7-edge-transports} is a property of that
+loop and not of the construction: the additive component is a sum of increments
+weighted by different denominators, so nothing forces it to survive.  A loop
+witnessing both components simultaneously is obtained by changing one vertex of
+$\square$ while keeping the frame lifts closed; we do not compute such a loop
+here.  What the example does show is that the two components of
+$\mathcal T$ are independent data, and that the finite-field calibration is
+strong enough to exhibit them separately.
+\end{remark}
+
+These three observations --- the edge criterion of
+Corollary~\ref{cor:nontrivial-edge}, the density
+\eqref{eq:transport-density-form} together with its normalisation, and the
+explicit transport of the witness loop --- are all that the present paper
+asserts about the infinitesimal behaviour of the projective torsion.  In
+particular no identification of $\Lambda(\square)-1$ with a quantity outside the
+projective framework is made, and the normalisation of
+Remark~\ref{rem:transport-density-boundary} is left to any later application
+that fixes it.

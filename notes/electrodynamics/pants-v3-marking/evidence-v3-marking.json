@@ -1,0 +1,294 @@
+{
+  "decoration": {
+    "distinct_invariant_tuples": 1,
+    "invariant_tuple_(chi,b,genus,beta1)": [
+      -2,
+      4,
+      0,
+      0
+    ],
+    "legal_decorations": 12,
+    "note": "不变量只有一组 ⇒ 侧表面与装饰无关。这次不是'检查器不看所以不变'：chi = sum(2-ports) 的推导里方向根本没出现，枚举只是一次核对。",
+    "sample": [
+      {
+        "annih_dirs": [
+          "in",
+          "in",
+          "out"
+        ],
+        "create_dirs": [
+          "in",
+          "in",
+          "out"
+        ],
+        "decoration": {
+          "('annih', 0)": "in",
+          "('annih', 1)": "in",
+          "('annih', 2)": "out",
+          "('create', 0)": "in",
+          "('create', 1)": "in",
+          "('create', 2)": "out"
+        },
+        "invariants": [
+          -2,
+          4,
+          0,
+          0
+        ]
+      },
+      {
+        "annih_dirs": [
+          "in",
+          "in",
+          "out"
+        ],
+        "create_dirs": [
+          "in",
+          "out",
+          "in"
+        ],
+        "decoration": {
+          "('annih', 0)": "in",
+          "('annih', 1)": "in",
+          "('annih', 2)": "out",
+          "('create', 0)": "in",
+          "('create', 1)": "out",
+          "('create', 2)": "in"
+        },
+        "invariants": [
+          -2,
+          4,
+          0,
+          0
+        ]
+      },
+      {
+        "annih_dirs": [
+          "in",
+          "in",
+          "out"
+        ],
+        "create_dirs": [
+          "in",
+          "out",
+          "out"
+        ],
+        "decoration": {
+          "('annih', 0)": "in",
+          "('annih', 1)": "in",
+          "('annih', 2)": "out",
+          "('create', 0)": "in",
+          "('create', 1)": "out",
+          "('create', 2)": "out"
+        },
+        "invariants": [
+          -2,
+          4,
+          0,
+          0
+        ]
+      }
+    ]
+  },
+  "limitations": [
+    "组合的侧表面（按粘合公式算），不是三维胞腔；'没有意外接触'这一条假设而不验证",
+    "与 V1 的立方体实现只在同一实例上做过一致性对照（chi=-2, b=4, beta1=0）",
+    "标记层只做了计数与展示，没有构造模空间、没有把振幅写上去",
+    "不含任何权重、测度或传播子"
+  ],
+  "marking": {
+    "counts": {
+      "b=4": {
+        "(2b-5)!!": 3,
+        "first_three": [
+          "((L1,L2),L3,L4)",
+          "((L1,L3),L2,L4)",
+          "((L1,L4),L2,L3)"
+        ],
+        "invariant_tuple_(chi,b,genus,beta1)": [
+          -2,
+          4,
+          0,
+          0
+        ],
+        "invariants_constant": true,
+        "unrooted_trees": 3
+      },
+      "b=6": {
+        "(2b-5)!!": 105,
+        "first_three": [
+          "((((L1,L2),L3),L4),L5,L6)",
+          "((((L1,L2),L3),L5),L4,L6)",
+          "((((L1,L2),L3),L6),L4,L5)"
+        ],
+        "invariant_tuple_(chi,b,genus,beta1)": [
+          -4,
+          6,
+          0,
+          0
+        ],
+        "invariants_constant": true,
+        "unrooted_trees": 105
+      }
+    },
+    "four_point_channels": {
+      "leaf_pairings": [
+        [
+          [
+            "L1",
+            "L2"
+          ],
+          [
+            "L3",
+            "L4"
+          ]
+        ],
+        [
+          [
+            "L1",
+            "L3"
+          ],
+          [
+            "L2",
+            "L4"
+          ]
+        ],
+        [
+          [
+            "L1",
+            "L4"
+          ],
+          [
+            "L2",
+            "L3"
+          ]
+        ]
+      ],
+      "reading": "三个无根三价树 = 4 孔球的三条裤子分解 = s / t / u 三条道",
+      "trees": [
+        "((L1,L2),L3,L4)",
+        "((L1,L3),L2,L4)",
+        "((L1,L4),L2,L3)"
+      ]
+    }
+  },
+  "negative_controls": [
+    {
+      "name": "two-port-gate-is-not-a-pant",
+      "reason": "side:not-a-pants-decomposition:x",
+      "result": "rejected"
+    },
+    {
+      "chi_side_surface": -1,
+      "local_shapes": {
+        "cylinder": 1,
+        "pant": 1
+      },
+      "name": "two-port-gate-as-cylinder",
+      "note": "AEG Prop 10.2(1)：两端口给柱面。它仍是可定向曲面，只是不是 pants 分解",
+      "result": "accepted-without-pants-condition"
+    },
+    {
+      "name": "four-port-gate-not-a-pant",
+      "reason": "side:not-a-pants-decomposition:x",
+      "result": "rejected"
+    },
+    {
+      "chi_side_surface": -3,
+      "local_shapes": {
+        "pant": 1,
+        "sphere-4-holes": 1
+      },
+      "name": "four-port-gate-is-a-four-holed-sphere",
+      "note": "四端口给四孔球；每多一个端口，chi 再掉 1 ⇒ 三端口不是装饰性的限制",
+      "result": "accepted-without-pants-condition"
+    },
+    {
+      "name": "wire-out-to-out",
+      "reason": "flow:wire-must-enter-an-input",
+      "result": "rejected"
+    },
+    {
+      "name": "port-used-twice",
+      "reason": "graph:port-used-2-times",
+      "result": "rejected"
+    },
+    {
+      "name": "port-accounting",
+      "reason": "graph:port-used-0-times",
+      "result": "rejected"
+    }
+  ],
+  "schema": "oq096-pants-interface-v3-marking-report",
+  "status": "topology-derived-marking-enumerated",
+  "topology": {
+    "annihilation_tree": {
+      "E_internal": 1,
+      "V": 2,
+      "aeg_formula_check": {
+        "chi == 2-2*beta1-b": true,
+        "genus == beta1": true
+      },
+      "all_pants": true,
+      "b_external": 4,
+      "beta1": 0,
+      "chi_side_surface": -2,
+      "genus": 0,
+      "local_shapes": {
+        "pant": 2
+      },
+      "total_ports": 6
+    },
+    "box_NLO": {
+      "E_internal": 4,
+      "V": 4,
+      "aeg_formula_check": {
+        "chi == 2-2*beta1-b": true,
+        "genus == beta1": true
+      },
+      "all_pants": true,
+      "b_external": 4,
+      "beta1": 1,
+      "chi_side_surface": -4,
+      "genus": 1,
+      "local_shapes": {
+        "pant": 4
+      },
+      "total_ports": 12
+    },
+    "bubble_NLO": {
+      "E_internal": 4,
+      "V": 4,
+      "aeg_formula_check": {
+        "chi == 2-2*beta1-b": true,
+        "genus == beta1": true
+      },
+      "all_pants": true,
+      "b_external": 4,
+      "beta1": 1,
+      "chi_side_surface": -4,
+      "genus": 1,
+      "local_shapes": {
+        "pant": 4
+      },
+      "total_ports": 12
+    },
+    "crossed_box_NLO": {
+      "E_internal": 4,
+      "V": 4,
+      "aeg_formula_check": {
+        "chi == 2-2*beta1-b": true,
+        "genus == beta1": true
+      },
+      "all_pants": true,
+      "b_external": 4,
+      "beta1": 1,
+      "chi_side_surface": -4,
+      "genus": 1,
+      "local_shapes": {
+        "pant": 4
+      },
+      "total_ports": 12
+    }
+  }
+}

@@ -1,0 +1,31 @@
+[PASS] V1.1 projector product closes on Pi_{a1,b1}: Pi11 Pi12 Pi22 Pi21 = Lambda^{-1} Pi11 identically
+[PASS] V1.2 cross-ratio alternative form: Lambda = 1 - (a2-a1)(b2-b1)/((1+a1 b1)(1+a2 b2))
+[PASS] V1.3 holonomy trivial iff one coordinate frozen: Lambda = 1 when a2=a1 or b2=b1
+[PASS] V1.5a Pi_{a,b} Pi_{a',b} = Pi_{a,b}: projectors sharing a kernel covector compose to the first
+[PASS] V1.5b Pi_{a,b} Pi_{a,b'} = Pi_{a,b'}: projectors sharing an image vector compose to the second
+[PASS] V1.4 fixed-kernel flatness (telecoping): prod_k (1+a_k b0)/(1+a_{k-1} b0) = 1 over a closed image loop
+[PASS] V2.1 F_7 holonomy equals 4: Lambda(square) = 4 mod 7
+[PASS] V2.2 F_7 witness is non-unit: 4 != 1 in F_7^*, H = F_7^*
+[PASS] V2.3 projector identity holds over F_7 on all transverse loops: 1447 transverse loops with all four of 1+ab, 1+cd, 1+bc, 1+ad nonzero
+[PASS] V2.4 edge transports of the square: (Lambda,dxi) per edge = [(1, 6), (1, 0), (4, 4), (1, 0)]
+[PASS] V2.5 total transport of the square is diag(4,1): T(loop) = [[4,0],[0,1]] in Aff(1,F_7)
+[PASS] V3.1 ln Lambda = -(1+ab)^-2 da db + O(3): ln Lambda = -eps*eta/(a0**2*b0**2 + 2*a0*b0 + 1)
+[PASS] V4.1 d(omega_2) = 2 (1+ab)^-2 da ^ db: coefficient = 2/(A*B + 1)**2
+[PASS] V4.2 factor two between connection curvature and transport density: curvature/transport-density = 2 (Appendix B)
+[PASS] V4.3 solder form reduces to left Maurer-Cartan at b=0: theta_+|_{b=0} = Phi^{-1} da = -e^{-M} dxi (Paper 0, Eq. (58))
+[PASS] V5.1 alpha = -d(A + aM - a) + M da: the Legendre-dual form: S~ = aM - a + A, momentum M, coordinate a
+[PASS] V5.2 the (1+M)da variant of the notes is wrong: coefficient is M da, not (1+M) da
+[PASS] V5.3 e^{-M} alpha = d(e^{-M}a) - e^{-M}dA: identical term by term; d(e^{-M}a) = e^{-M}da - a e^{-M}dM
+[PASS] V6.1 Reeb drift = p(1-e^{-q}) by both routes: bare-charge route p - p*exp(-q); area route p - p*exp(-q)
+[PASS] V6.2 matches Paper 0 Theorem 8.6 charge of h(p,q): c(h(p,q)) = (p(1-e^{-q}), 0)
+[PASS] V6.3 weighted ACS area reproduces p(1-e^{-q}): int_0^q int_0^p e^{-M} dA dM = p - p*exp(-q)
+[PASS] V7.1 half radial action = pi(mk/sqrt(-2mE) - l): numeric 1.57079632679 vs closed 1.57079632679; numeric 5.74417322273 vs closed 5.74417322273; numeric 1.85665065184 vs closed 1.85665065184
+[PASS] V7.4 elementary integral: int_a^b sqrt((b-x)(x-a))/x dx = pi(a+b)/2 - pi*sqrt(ab): three numeric points match the closed form
+[PASS] V7.2 E_n = -m k^2/(2 hbar^2 n^2) satisfies m k/sqrt(-2mE) = hbar n: m k/sqrt(-2 m E_n) = hbar*n
+[PASS] V7.3 ground state is E_1 = -m k^2/(2 hbar^2): Bohr value recovered
+[PASS] V8.1 |PGL_2(F_7)| = 336: q(q^2-1)
+[PASS] V8.2 |Biv| = 56: ordered pairs of distinct points of P^1(F_7)
+[PASS] V8.3 |H| = 6 and fibers uniform: every H-fiber over a bivaluation has q-1 = 6 elements
+[PASS] V8.4 affine chart has 43 of the 56 bivaluations: 43 finite pairs with 1+ab != 0; the other 13 sit on the line at infinity
+
+ALL CHECKS PASSED

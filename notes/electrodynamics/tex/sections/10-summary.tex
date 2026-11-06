@@ -1,0 +1,215 @@
+% ---------------------------------------------------------------------
+% Section 10
+% ---------------------------------------------------------------------
+
+\begin{cnread}
+本节把全篇收拢成三张表：\textbf{对照表}（物理概念 $\leftrightarrow$
+\AEG{} 对象 $\leftrightarrow$ 出处）、\textbf{状态账}（每条结论依赖哪几条
+字典假设）、以及\textbf{开放端}（哪些地方本稿只是对应、不是推导）。
+一句话总结：\AEG{} 提供了「荷、标度、切触曲率、交叉比和乐、Reeb 漂移、
+径向作用量」这套确切的数学；物理电动力学要靠四条（严格说五条）字典假设才
+接得上，接上之后库仑、安培、辐射、束缚态四件事的\textbf{符号与结构}都能
+读出来，但\textbf{数值标定}（尤其是辐射功率与 $\hbar$ 的单位）仍是空的。
+\end{cnread}
+
+\subsection{The dictionary}
+
+{\small
+\renewcommand{\arraystretch}{1.22}%
+\begin{longtable}{@{}p{0.235\linewidth}p{0.335\linewidth}p{0.365\linewidth}@{}}
+\toprule
+physical notion & \AEG{} object & reference and status \\
+\midrule
+\endfirsthead
+\toprule
+physical notion & \AEG{} object & reference and status \\
+\midrule
+\endhead
+\midrule
+\multicolumn{3}{r}{\emph{continued}}\\
+\endfoot
+\bottomrule
+\endlastfoot
+asymptotic (bare) state & ideal point $q\in\pt_\infty\HH^2$
+& Paper~0, \S\S 3--4; dictionary \\
+dressed state at scale $r$ & ordinary point $p$ with $y_p=e^{-M_*}$
+& Prop.~\ref{prop:operator-fiber}; dictionary \\
+scale evolution & multiplicative motion $\cM_m$, $M=\lambda v$
+& Prop.~3.6, Thm.~8.6 \\
+virtual quantum emission & additive motion $\cA_t$ at depth $M_i$
+& Eq.~\eqref{eq:comb-cocycle}; Hyp.~\ref{hyp:charge} \\
+charge of a particle & sign of the additive step; positron $=\mathcal R$
+conjugate
+& Lemma~\ref{lem:reflection}; Hyp.~\ref{hyp:charge} \\
+sum over diagrams & the fiber $\rho^{-1}(g_{p_0\to p})$
+& Prop.~\ref{prop:operator-fiber}; exact \\
+bare coupling divergence & abscissa $A_\gamma$ of the \ACS{}
+& Cor.~\ref{cor:bare-divergence}; exact \\
+renormalisation cancellation & vanishing weighted area
+$\tau(\gamma,\delta)$
+& Thm.~8.9; exact \\
+path-integral phase & Reeb height $u_\gamma=A_\gamma/\mu$
+& Prop.~\ref{prop:reeb-heights}, Rem.~\ref{rem:prequantum}; exact object,
+dictionary reading \\
+electrostatic potential & $a_1(r)=q_1e^{-M_*}$
+& Eq.~\eqref{eq:field-at-2}; Hyps.~\ref{hyp:charge}, \ref{hyp:depth} \\
+Coulomb sign rule & sign of $\kappa=\mu\lambda\propto q_1q_2$
+& Eq.~\eqref{eq:kappa}; Hyps.~\ref{hyp:charge}--\ref{hyp:pairing} \\
+binding energy of a dipole & $\tau(\ell,\varnothing)=e(1-e^{-M_*})$
+& Prop.~\ref{prop:dipole-loop}; Hyp.~\ref{hyp:pairing} \\
+motion (velocity) & direction angle $\theta$, tilt $\mathrm dM/\mathrm d\tau$
+& Thm.~3.9; Hyp.~\ref{hyp:velocity} \\
+Amp\`ere force & one-form pairing $\alpha_1(\dot\gamma_2)$
+& Prop.~\ref{prop:ampere}; Hyps.~\ref{hyp:velocity}, \ref{hyp:pairing} \\
+frame compression by a boost & hyperbolic element $D_{e^\eta}\in H$ on the
+pencil
+& Thm.~4.2, Paper~IV Thm.~3.5; exact object \\
+Lorentz signature & indefinite Killing form of $\mathfrak{sl}_2$
+& Lemma~\ref{lem:killing}; exact \\
+no radiation of uniform motion & $\Lambda=1$ for constant kernel coordinate
+& Thm.~\ref{thm:no-radiation}; exact, read via Hyp.~\ref{hyp:radiation} \\
+radiation of acceleration & $\Lambda(\square)\ne1$ for moved kernel coordinate
+& Thm.~\ref{thm:cross-ratio}; exact, read via Hyp.~\ref{hyp:radiation} \\
+sector of annihilation & Bruhat cell $B_\infty JB_\infty$
+& Thm.~\ref{thm:bruhat}; exact object, dictionary reading \\
+bound state & elliptic element; closed orbit inside $\HH^2$
+& Prop.~5.4, \S 5.5; exact object \\
+action of a bound orbit & Reeb drift $-\oint a\,\mathrm dM$
+& Thm.~\ref{thm:dual-tearing}; Lemma~\ref{lem:action-slot} \\
+quantization & monodromy on the compactified Reeb circle
+& Def.~\ref{def:monodromy}; semiclassical \\
+\end{longtable}}
+
+\subsection{Status ledger}
+
+{\small
+\renewcommand{\arraystretch}{1.22}%
+\begin{longtable}{@{}p{0.44\linewidth}p{0.24\linewidth}p{0.26\linewidth}@{}}
+\toprule
+conclusion & hypotheses needed & confidence \\
+\midrule
+\endfirsthead
+\toprule
+conclusion & hypotheses needed & confidence \\
+\midrule
+\endhead
+\midrule
+\multicolumn{3}{r}{\emph{continued}}\\
+\endfoot
+\bottomrule
+\endlastfoot
+the $p_0\to p$ family is one operator fiber & none & theorem \\
+the same family fans out in $\ACS$ with a weighted constraint & none & theorem \\
+the two projections are Legendre-conjugate, with $\Delta a$ versus $\Delta A$
+& none & theorem (Paper~0, Thm.~9.9) \\
+the kernel word realizes $p(1-e^{-q})$ three ways & none & theorem + check \\
+$\kappa$ changes sign exactly when one charge does & Hyp.~\ref{hyp:pairing}
+& sign structure is exact; magnitude is dictionary \\
+like charges repel, unlike attract & Hyps.~\ref{hyp:charge}--\ref{hyp:pairing}
+& conditional; sign rule robust \\
+the neutral pair has binding defect $e(1-e^{-M_*})$
+& Hyp.~\ref{hyp:pairing} & conditional \\
+$F=\frac{q_1q_2}{4\pi r^2}\bigl(1-\mathbf v_1\!\cdot\!\mathbf v_2/c^2\bigr)$
+& Hyps.~\ref{hyp:charge}--\ref{hyp:velocity} & conditional; equals the Darwin
+coefficient \\
+parallel currents attract the two electrons & same & conditional \\
+uniform motion is non-radiative & Hyp.~\ref{hyp:radiation} & algebraic part: theorem \\
+acceleration produces a non-telescoping holonomy & Hyp.~\ref{hyp:radiation}
+& algebraic part: theorem; with an $\F_7$ witness \\
+radiated power $\propto\Lambda-1$ & Hyp.~\ref{hyp:radiation}
+& \emph{open}: no calibration \\
+M\o ller inside $B_\infty$, Bhabha across $B_\infty JB_\infty$
+& Hyps.~\ref{hyp:charge}, \ref{hyp:pairing} & correspondence only \\
+Bohr--Sommerfeld spectrum $E_n=-m\alpha_e^{2}/(2\hbar^{2}n^{2})$
+& all five + Lemma~\ref{lem:action-slot} & semiclassical, exact for Coulomb \\
+\end{longtable}}
+
+\subsection{What is exact and what is not}
+
+Three groups should be kept apart.
+
+\paragraph{Exact \AEG{} mathematics used here.}
+The operator fiber of Proposition~\ref{prop:operator-fiber}; the fan-out and the
+weighted constraint of Proposition~\ref{prop:acs-fanout}; the Legendre
+conjugacy of Theorem~\ref{thm:dual-tearing} (Paper~0, Theorem~9.9); the three
+evaluations of the kernel word; the reflection conjugation of
+Lemma~\ref{lem:reflection}; the orientation reversal of
+Lemma~\ref{lem:orientation} (Paper~0, Appendix~D.1); the closed dipole loop
+(Paper~0, Appendix~D.2); the no-radiation and cross-ratio theorems of
+Section~\ref{sec:radiation} with the $\F_7$ witness; the Borel reduction and
+non-telescoping holonomy of Theorem~\ref{thm:torsion} (Paper~IV,
+Theorem~4.11); the Bruhat decomposition and factorization
+(Paper~0, Theorem~6.2); the Kepler conjugation classification
+(Paper~0, Proposition~5.4, Subsection~5.5); and the radial action
+computation of Appendix~\ref{app:action}.
+
+\paragraph{Declared dictionaries.}
+Hypotheses~\ref{hyp:charge}--\ref{hyp:velocity}.  Each names a physical
+quantity by an \AEG{} object.  They are not proved, not provable inside \AEG{},
+and not claimed.
+
+\paragraph{Heuristics used for orientation only.}
+(i) The ``opening spring'' and ``annihilating composition'' pictures of
+Section~\ref{subsec:three-readings}; (ii) the relative-shear reading of the
+$v\to c$ limit in Remark~\ref{rem:v-to-c}; (iii) the wavefront-caustic reading of
+the holonomy in Warning~\ref{warn:radiation}; (iv) the residue-pairing remark of
+Remark~\ref{rem:residue}; (v) the spin remark of Remark~\ref{rem:spin}.  These
+are explanatory devices.  They are marked in place, and no conclusion rests on
+them.
+
+\subsection{Open ends}
+
+\begin{problem}[A three-dimensional carrier]
+Every force law quoted here carries the factor $4\pi$ imported from the solid
+angle of three-space.  The \AEG{} carriers used are one-dimensional in the
+multiplicative direction and two-dimensional in the contact model.  What is
+required is an \AEG{} model whose multiplicative direction is genuinely
+three-dimensional, so that the $1/r$ kernel and the $4\pi$ normalisation are
+computed rather than inserted.
+\end{problem}
+
+\begin{problem}[Units of the radiation observable]
+Theorem~\ref{thm:cross-ratio} produces a number $\Lambda(\square)-1$ from a
+history, and Hypothesis~\ref{hyp:radiation} calls it radiation.  No statement
+converts it into a power.  A calibration would need either (a) a variational
+principle on histories whose second variation reproduces the Larmor rate, or
+(b) an identification of $\log\Lambda$ with a phase whose derivative is an energy
+flux.  Neither is available.  The factor-two normalisation of
+Lemma~\ref{lem:factor-two} must be settled first.
+\end{problem}
+
+\begin{problem}[A measure on the operator fiber]
+Proposition~\ref{prop:operator-fiber} identifies the sum over diagrams with a
+fiber of an evaluation map, and Remark~\ref{rem:prequantum} identifies a
+candidate phase.  A genuine path integral needs a measure on the fiber that is
+invariant under the frame changes of Paper~IV, Theorem~3.5.  Whether the Reeb
+length $e^{-M}\mathrm dA$ of Paper~0, Proposition~8.2, is the right
+quasi-invariant measure is open.
+\end{problem}
+
+\begin{problem}[Spin]
+Remark~\ref{rem:spin}: the double cover $\SL_2(\C)\to\PSL_2(\C)$ and its
+two-dimensional representation are not part of the \AEG{} structure used here.
+A spin-dependent force or a spin-statistics statement would require extending
+the frame torsor of Paper~IV to the metaplectic cover.
+\end{problem}
+
+\begin{problem}[Beyond the Darwin order]
+Warning~\ref{warn:darwin}: the coefficient of
+Proposition~\ref{prop:ampere} is the $O(v^{2}/c^{2})$ term.  Whether the contact
+picture can produce the full velocity dependence --- and, if so, whether the
+indefinite structure of Lemma~\ref{lem:killing} is the mechanism --- is open.
+\end{problem}
+
+\subsection{Closing remark}
+
+The five working notes that this document consolidates were an exploration, and
+the exploration found something worth stating precisely: the same order defect
+that \AEG{} proves to be a weighted area appears, under two conjugate projections,
+as a tearing of the value and as a drift of the phase; the same projective
+holonomy that \AEG{} proves to be non-telescoping distinguishes uniform from
+accelerated motion; and the same Reeb drift that \AEG{} proves to be a hyperbolic
+area is the quantity that Bohr--Sommerfeld quantizes.  Those three
+identifications are exact.  What connects them to electrodynamics is a
+dictionary, and the dictionary is stated above in five lines so that it can be
+argued with.

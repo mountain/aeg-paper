@@ -1,0 +1,138 @@
+% =====================================================================
+% INSERT FOR PAPER 0  (Arithmetic Expression Geometry 0)
+%
+% Source file:  paper-0/sections/04b-pole-covariance.tex
+% Integrated 2026-10-20 as Subsection 4.4 of Section 4 ("Ripple Geometry: The
+%   Projective Dual"), immediately after Subsection 4.3 ("Ripple histories of
+%   right-expanded expressions") and before the status subsection, via
+%   \input{sections/04b-pole-covariance}  at the end of
+%   paper-0/sections/04-ripple-geometry.tex.
+%
+% Labels required from the host paper (all present):
+%   eq:p0-mobius-map, def:p0-ripple-pencil, thm:p0-ripple-pencil-formula,
+%   prop:p0-path-ripple-duality, eq:p0-projective-factorization,
+%   eq:p0-bruhat, sec:p0-projective-unification.
+% New labels introduced here (checked unique in the host paper):
+%   subsec:p0-pole-covariance, lem:p0-pole-covariance,
+%   prop:p0-pole-rigidity, rem:p0-pole-bruhat, rem:p0-pole-forward.
+%
+% Scope note.  Paper 0's scope file permits "the dual reading (poles,
+% horocycle pullback, ripple pencils), reciprocals, infinity, fixed points,
+% and the matrix synthesis", and excludes "projective bivaluations, quotient
+% towers, condensation".  Everything below is therefore phrased in poles and
+% in the Bruhat decomposition only; the quantitative comparison of two
+% pencils tangent at different poles is left to Paper IV by a prospective
+% reference.
+%
+% Claim status: Lemma and Proposition proved; the two Remarks record
+% consequences and a prospective interface, not new theorems.
+%
+% Numbers when inserted in the current build of Paper 0 (Section 4 ends at
+% statement 4.5): Lemma 4.6, Proposition 4.7, Remarks 4.8 and 4.9, and the
+% subsection is 4.4, shifting the status subsection to 4.5.
+% =====================================================================
+
+\subsection{The pole of a prefix: covariance and rigidity}
+\label{subsec:p0-pole-covariance}
+
+Section~\ref{sec:p0-ripples} introduced the pole $p_F=F^{-1}(\infty)$ of a
+single projective operator, and the ripple history of a word
+$F_1,\dots,F_n$ carries the pole sequence $p_k=G_k^{-1}(\infty)$ of the prefixes
+$G_k=F_k\circ\cdots\circ F_1$.  It was observed there that
+\emph{the common tangency point of the pencil may move with $k$}.  The two
+elementary statements below make that observation exact: they record how a
+pole transforms under composition, and they identify the histories along which
+it does not move.  Neither statement is new mathematics; they are recorded
+because the mobility of the tangency point is otherwise left as a picture.
+
+Throughout, a M\"obius map is as in \eqref{eq:p0-mobius-map}, and
+$B_\infty=\Stab_{\PGL_2(K)}(\infty)$ is the affine Borel sector of
+Section~\ref{sec:p0-projective-unification}.
+
+\begin{lemma}[Covariance of the pole]
+\label{lem:p0-pole-covariance}
+Let $P,Q$ be nondegenerate M\"obius maps and put $p_P:=P^{-1}(\infty)$.  Then
+\begin{equation}\label{eq:p0-pole-covariance}
+  p_{P\circ Q}=Q^{-1}\bigl(p_P\bigr).
+\end{equation}
+Consequently
+\begin{equation}\label{eq:p0-pole-constancy-criterion}
+  p_{P\circ Q}=p_Q
+  \quad\Longleftrightarrow\quad
+  p_P=\infty
+  \quad\Longleftrightarrow\quad
+  P\in B_\infty .
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+$(P\circ Q)^{-1}=Q^{-1}\circ P^{-1}$, so
+$p_{P\circ Q}=(Q^{-1}\circ P^{-1})(\infty)=Q^{-1}\bigl(p_P\bigr)$, which is
+\eqref{eq:p0-pole-covariance}.  For the criterion: since $Q^{-1}$ is injective
+on the projective line, $Q^{-1}(p_P)=Q^{-1}(\infty)$ holds exactly when
+$p_P=\infty$, and $P^{-1}(\infty)=\infty$ holds exactly when
+$P(\infty)=\infty$, that is $C_P=0$, that is $P\in B_\infty$.
+\end{proof}
+
+Lemma~\ref{lem:p0-pole-covariance} says that the pole moves by the action of the
+\emph{next} operator on the projective line: the new pole is the old one moved by
+$Q^{-1}$.  It also says that a step leaves the pole unchanged exactly when the
+step is affine.  Applied to a history, the two statements give the rigidity
+criterion.
+
+\begin{proposition}[Rigidity of the pole along a history]
+\label{prop:p0-pole-rigidity}
+Let $F_1,\dots,F_n$ be nondegenerate M\"obius sections in chronological order,
+$G_k=F_k\circ\cdots\circ F_1$, and $p_k=G_k^{-1}(\infty)$.  The following are
+equivalent:
+\begin{enumerate}
+  \item $p_k=p_{k-1}$ for $k=1,\dots,n$;
+  \item $F_k\in B_\infty$ for $k=1,\dots,n$, i.e. every lower-left entry
+  vanishes;
+  \item $p_k=\infty$ for $k=1,\dots,n$.
+\end{enumerate}
+Equivalently, the pole sequence is not constantly $\infty$ exactly when the
+history leaves the affine sector, and then the first index at which $C_k\ne0$ is
+also the first index at which the tangency point is finite.
+\end{proposition}
+
+\begin{proof}
+Apply Lemma~\ref{lem:p0-pole-covariance} with $P=F_k$ and $Q=G_{k-1}$: the step
+$G_{k-1}\to G_k$ leaves the pole unchanged exactly when $F_k\in B_\infty$.  This
+gives (1)$\Leftrightarrow$(2).  Since $G_0=\id$ and $p_0=G_0^{-1}(\infty)
+=\infty$, the equivalence (2)$\Leftrightarrow$(3) follows by induction: if
+every $F_k$ is affine then every prefix is affine, so $C_k=0$ and
+$p_k=\infty$; conversely if some $C_k\ne0$ then $p_k=-D_k/C_k\ne\infty$ by the definition of the pole in
+Section~\ref{sec:p0-ripples}.
+\end{proof}
+
+\begin{remark}[The pole is read off one factor of the factorization]
+\label{rem:p0-pole-bruhat}
+When $C_k\ne0$, the factorization \eqref{eq:p0-projective-factorization} of
+$G_k$ reads
+\[
+  G_k
+  =T_{A_k/C_k}\circ D_{\Delta_k/C_k^{2}}\circ J\circ T_{D_k/C_k},
+\]
+and the pole is
+$p_k=G_k^{-1}(\infty)=-D_k/C_k$, i.e. the negative of the translation parameter
+of the innermost factor.  Thus of the four factors, the one that determines the
+tangency point of the pencil is the rightmost, while the value orbit
+$G_k(z_0)$ depends on the whole word.  This is the precise sense in which the
+pole and the point are independent data of one prefix, and it is the reading of
+the cell decomposition \eqref{eq:p0-bruhat} in terms of tangency: the pole is
+$\infty$ exactly in the affine cell, and it is finite exactly in the projective
+cell.
+\end{remark}
+
+\begin{remark}[Prospective interface]
+\label{rem:p0-pole-forward}
+When a history leaves $B_\infty$, consecutive pencils $\mathcal R_k$ and
+$\mathcal R_{k+1}$ are based at different points of $\partial_\infty\mathbb H^2$
+and therefore have no common tangency point; the families cannot be nested, and
+the pair carries a nonzero relative datum.  Quantifying that datum is not part
+of this paper, whose scope fixes it to the poles and pencils themselves.  A
+stabilizer-valued transport on the projective quotient that measures it is
+constructed in Paper~IV; this remark is a prospective interface only and is not
+used anywhere in the present paper.
+\end{remark}

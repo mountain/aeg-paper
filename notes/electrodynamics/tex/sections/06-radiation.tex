@@ -1,0 +1,293 @@
+% ---------------------------------------------------------------------
+% Section 6
+% ---------------------------------------------------------------------
+
+\begin{cnread}
+本节处理「加速电荷为什么会辐射」。\AEG{} 的答案出奇地干净：匀速运动停留在
+固定核坐标 $b$ 的稳定子轨道上，绕任何闭回路的乘性和乐**望远镜抵消为 $1$**
+（这就是「无辐射定理」）；一旦发生加速，核坐标（涟漪极点）跳动
+$b_1\to b_2\ne b_1$，四步闭环上的交叉比和乐
+$\Lambda(\square)=\dfrac{(1+a_2b_1)(1+a_1b_2)}{(1+a_1b_1)(1+a_2b_2)}$ 就不再等于
+$1$——而且它既不依赖标架截面，也无法被望远镜抵消。本节还给出 $\mathbb F_7$
+上的精确见证 $\Lambda=4$，并说明这正是 Paper~IV 定义 4.10 / 定理 4.11 所
+记录的对象。
+\end{cnread}
+
+\subsection{Ripple pencils with a moving tangency point}
+
+Paper~0, Subsection~4.3, records the geometric state that becomes available once
+the second slot is read projectively:
+
+\begin{quote}\small
+``Thus a general right-expansion history should not be pictured as one fixed
+family of concentric circles.  \emph{Each prefix has its own ripple pencil, and
+the common tangency point of that pencil may move with $k$.}  The appropriate
+geometric state is $(G_k,G_k(z_0),p_k,\mathcal R_k)$: the operator, the selected
+point, the pole, and the pulled-back wavefront family.''
+\end{quote}
+
+The four-tuple is the whole content of the radiation phenomenon in this
+framework: the operator carries the cumulative transformation, the selected
+point carries the current value, the pole carries where the wavefronts are
+tangent, and the pencil carries the wavefronts themselves.  A history in which
+$p_k$ is constant emits nothing new; a history in which $p_k$ jumps emits a
+mismatch between two pencils.
+
+\subsection{Bivaluations and the comoving frame}
+
+Fix $P_k=\begin{pmatrix}A_k&B_k\\C_k&D_k\end{pmatrix}\in\PGL_2(\R)$ with
+$\Delta_k=A_kD_k-B_kC_k>0$, acting on the reference pair
+$(q_0^+,q_0^-)=(0,\infty)$.  The image and kernel directions are
+\begin{equation}\label{eq:bivaluation}
+  q_k^+=P_k(0)=\frac{B_k}{D_k}=-a_k,
+  \qquad
+  q_k^-=P_k(\infty)=\frac{A_k}{C_k}=\frac1{b_k},
+\end{equation}
+and the pole of the contravariant pullback is
+$p_k=P_k^{-1}(\infty)=-D_k/C_k$ (Paper~0, Theorem~4.2 and Section~5.1).  The
+pair $(a_k,b_k)$ is a regular bivaluation in the sense of Paper~IV,
+Definition~3.1, provided $1+a_kb_k\ne0$.
+
+\begin{theorem}[Bivaluation--projector correspondence, {\cite[Thm.~3.2]{AEG4}}]
+\label{thm:projector}
+There is a natural bijection between regular bivaluations and rank-one
+idempotents of $K^{2}$.  In the affine chart with
+$v_a=\binom{-a}{1}$ and $\varphi_b=(-b\;\;1)$,
+\begin{equation}\label{eq:projector}
+  \Pi_{a,b}=\frac{v_a\otimes\varphi_b}{\varphi_b(v_a)}
+  =\frac{1}{1+ab}\begin{pmatrix}ab&-a\\-b&1\end{pmatrix},
+  \qquad
+  \varphi_b(v_a)=1+ab .
+\end{equation}
+\end{theorem}
+
+The projector $\Pi_k=\Pi_{a_k,b_k}$ is the intrinsic object behind the
+``comoving frame'' of the physical reading: it splits the value space into the
+image line $L_k^+$ (the longitudinal near field) and the kernel line $L_k^-$ (the
+transverse wavefront direction), and it is the unique such splitting determined
+by the history's prefix.  Everything in this section is a statement about
+products of these projectors.
+
+\subsection{Uniform motion: no radiation}
+
+\begin{theorem}[Fixed-kernel flatness]
+\label{thm:no-radiation}
+Let a history have constant kernel coordinate $b_k\equiv b_0$ for all prefixes,
+and let the image coordinate return to its initial value,
+$a_m=a_0$.  Then the multiplicative holonomy
+\begin{equation}\label{eq:lambda-edge}
+  \lambda(e_k):=\frac{1+a_kb_{k-1}}{1+a_{k-1}b_{k-1}}
+\end{equation}
+satisfies $\prod_{k=1}^{m}\lambda(e_k)=1$.  In particular no closed history with
+constant kernel coordinate carries a non-unit multiplicative holonomy.
+\end{theorem}
+
+\begin{proof}
+With $b_{k-1}=b_0$ the product is
+\[
+  \prod_{k=1}^{m}\frac{1+a_kb_0}{1+a_{k-1}b_0}
+  =\frac{1+a_1b_0}{1+a_0b_0}\cdot\frac{1+a_2b_0}{1+a_1b_0}\cdots
+   \frac{1+a_0b_0}{1+a_{m-1}b_0}=1,
+\]
+each numerator cancelling the next denominator, the last against the first
+because $a_m=a_0$.
+\end{proof}
+
+The theorem is the algebraic content of the second reading of
+Section~5.4: uniform motion keeps the ripple pencil's tangency point fixed, and
+a fixed tangency point gives no holonomy.  By
+Hypothesis~\ref{hyp:radiation} this is the no-radiation statement.
+
+\subsection{Accelerated motion: the pole jumps}
+
+Now let the history include the inverting element $J(z)=-1/z$, i.e. a second-slot
+division.  Then the prefix leaves the affine Borel sector and enters the other
+Bruhat cell, and the kernel coordinate becomes nonzero.  A physical acceleration
+is a change of the kernel coordinate between one step and the next.
+
+\begin{theorem}[Cross-ratio holonomy]
+\label{thm:cross-ratio}
+Consider the closed four-step base loop
+\[
+  \square:\quad (a_1,b_1)\to(a_2,b_1)\to(a_2,b_2)\to(a_1,b_2)\to(a_1,b_1),
+\]
+in which the image coordinate moves with the kernel held fixed, then the kernel
+moves with the image held fixed, and then both return.  Assume every vertex and
+every step is transverse, i.e. all of $1+a_ib_j$ and the two cross terms
+$1+a_2b_1$, $1+a_1b_2$ are nonzero.  Then the multiplicative holonomy of the
+loop is
+\begin{equation}\label{eq:cross-ratio}
+  \Lambda(\square)
+  =\frac{(1+a_2b_1)(1+a_1b_2)}{(1+a_1b_1)(1+a_2b_2)}
+  =1-\frac{(a_2-a_1)(b_2-b_1)}{(1+a_1b_1)(1+a_2b_2)} .
+\end{equation}
+It is invariant under changes of the frame lifts $\Phi_k$, and
+\begin{equation}\label{eq:cross-ratio-nontrivial}
+  \Lambda(\square)\ne1
+  \quad\Longleftrightarrow\quad
+  a_2\ne a_1\ \text{and}\ b_2\ne b_1 .
+\end{equation}
+Moreover, as an identity between projectors,
+\begin{equation}\label{eq:projector-product}
+  \Pi_{a_1,b_1}\Pi_{a_1,b_2}\Pi_{a_2,b_2}\Pi_{a_2,b_1}
+  =\Lambda(\square)^{-1}\,\Pi_{a_1,b_1},
+\end{equation}
+so $\Lambda(\square)$ is a gauge-invariant observable of the four idempotents
+alone.
+\end{theorem}
+
+\begin{proof}
+Along $e_1:(a_1,b_1)\to(a_2,b_1)$ and $e_3:(a_2,b_2)\to(a_1,b_2)$ the factor
+\eqref{eq:lambda-edge} equals $(1+a_2b_1)/(1+a_1b_1)$ and
+$(1+a_1b_2)/(1+a_2b_2)$ respectively, because the kernel coordinate is the
+\emph{previous} one in each case.  Along $e_2$ and $e_4$ the image coordinate is
+constant, so $(1+a_kb_{k-1})/(1+a_{k-1}b_{k-1})=1$.  The product is
+\eqref{eq:cross-ratio}.  Gauge invariance: a change $\Phi_k\mapsto c_k\Phi_k$
+multiplies each $\lambda(e_k)$ by $c_k/c_{k-1}$, whose product over a closed loop
+is $1$.  For \eqref{eq:cross-ratio-nontrivial}, subtract numerator from
+denominator of \eqref{eq:cross-ratio}: the difference is
+$(a_2-a_1)(b_2-b_1)$, which is nonzero exactly when both coordinates move.
+Identity \eqref{eq:projector-product} is a direct product of the rank-one
+matrices \eqref{eq:projector}; it is proved symbolically in
+Appendix~\ref{app:matrices} and checked exhaustively over $\F_7$ there.
+\end{proof}
+
+\begin{corollary}[Larmor criterion, algebraised]
+\label{cor:larmor}
+A closed history radiates, in the sense of Hypothesis~\ref{hyp:radiation},
+precisely when both the image coordinate and the kernel coordinate move.  In the
+infinitesimal limit the log-holonomy is
+\begin{equation}\label{eq:larmor}
+  \log\Lambda(\square)
+  =-\frac{(a_2-a_1)(b_2-b_1)}{(1+a_1b_1)(1+a_2b_2)}+O(3)
+  =-\iint_{\square}\frac{\mathrm da\wedge\mathrm db}{(1+ab)^{2}}+O(3),
+\end{equation}
+so that displacement alone and velocity change alone are both non-radiative,
+while their product is radiative.
+\end{corollary}
+
+\begin{proof}
+The first equality is the logarithm of \eqref{eq:cross-ratio} expanded with
+$(a_2-a_1)(b_2-b_1)$ small.  The second is the same expansion written as an
+integral over the coordinate rectangle; Check~V3.1 verifies it symbolically.
+The vanishing statement is \eqref{eq:cross-ratio-nontrivial}.
+\end{proof}
+
+\begin{remark}[The structure of the answer]
+\label{rem:larmor-structure}
+The criterion has the shape of the classical radiation statement --- a charge at
+rest radiates nothing, a uniformly moving charge radiates nothing, and an
+accelerated one does --- but the two ``nothing'' cases are proved by different
+mechanisms: the rest case has $da=0$ and the uniform case has $db=0$.  The
+criterion is therefore not ``velocity change causes radiation'' but
+``\emph{simultaneous} displacement and change of the wavefront tangency point
+causes radiation'', which in the affine sector reduces to the classical
+statement.
+\end{remark}
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[x=1.05cm,y=1.05cm,>=Latex,every node/.style={font=\scriptsize}]
+  \fill[blue!3] (-2.7,-0.7) rectangle (7.5,3.9);
+  \draw[->,black!45] (-1.0,0)--(5.4,0) node[right] {$a$};
+  \draw[->,black!45] (0,-0.4)--(0,3.5) node[above] {$b$};
+  \coordinate (v1) at (0.6,0.55);
+  \coordinate (v2) at (3.6,0.55);
+  \coordinate (v3) at (3.6,2.75);
+  \coordinate (v4) at (0.6,2.75);
+  \draw[very thick,black!70] (v1)--(v2);
+  \draw[very thick,blue!60!black] (v2)--(v3);
+  \draw[very thick,black!70] (v3)--(v4);
+  \draw[very thick,blue!60!black] (v4)--(v1);
+  \foreach \p/\lab/\pos in {v1/{(a_1,b_1)}/below left,
+                            v2/{(a_2,b_1)}/below right,
+                            v3/{(a_2,b_2)}/above right,
+                            v4/{(a_1,b_2)}/above left}
+    {\fill (\p) circle (3pt) node[\pos] {$\lab$};}
+  \node[black!70,below] at (2.1,0.55) {image moves, $b$ fixed};
+  \node[black!70,above] at (2.1,2.75) {image returns, $b$ fixed};
+  \node[blue!60!black,align=left,anchor=west,text width=2.5cm] at (4.05,1.65)
+    {kernel moves at fixed $a$: this step alone has $\lambda=1$};
+  \node[blue!60!black,align=right,anchor=east] at (-0.4,1.65)
+    {kernel returns:\\ $\lambda=1$};
+  \node[align=center] at (2.2,-1.35)
+    {$\Lambda(\square)=\dfrac{(1+a_2b_1)(1+a_1b_2)}{(1+a_1b_1)(1+a_2b_2)}\neq1$
+     \ iff both $a$ and $b$ move};
+\end{tikzpicture}
+\caption[The four-step bivaluation square]%
+{The four-step bivaluation square.  Each individual step has a corrected base
+factor, but only the two image-moving steps contribute; the product is the
+cross-ratio \eqref{eq:cross-ratio}.  A loop in which the kernel coordinate never
+moves collapses to $\Lambda=1$ by Theorem~\ref{thm:no-radiation}.}
+\label{fig:square}
+\end{figure}
+
+\subsection{An exact finite witness}
+
+\begin{example}[$\F_7$ calibration]
+\label{ex:f7}
+Let $K=\F_7$, so that $|G|=336$, $|\Biv|=56$ and $|H|=6$ by Paper~IV,
+Proposition~3.7 and Example~3.8.  Take the loop
+\[
+  (a_1,b_1)=(0,0),\quad (a_2,b_1)=(1,0),\quad (a_2,b_2)=(1,1),\quad (a_1,b_2)=(0,1).
+\]
+All four vertices are transverse, since $1+a_ib_j\in\{1,2\}\subset\F_7^\times$.
+Then
+\[
+  \Lambda(\square)\equiv\frac{(1+0)(1+0)}{(1+0)(1+1)}\equiv 2^{-1}\equiv 4 \pmod 7,
+\]
+so $\Lambda(\square)=4\ne1$ in $H\cong\F_7^{\times}$.
+\end{example}
+
+This is the exact finite witness that the obstruction is not an artefact of the
+real or complex topology: the holonomy is computed in a finite group of order
+$336$, and it is a nonidentity element of the fiber $H$.  Appendix~\ref{app:matrices}
+records the same example together with the exhaustive check of
+\eqref{eq:projector-product} over all transverse loops in $\F_7$.
+
+\subsection{The physical dictionary, stated as a dictionary}
+
+\begin{warning}[What Hypothesis~\ref{hyp:radiation} adds]
+\label{warn:radiation}
+Theorem~\ref{thm:no-radiation} and Theorem~\ref{thm:cross-ratio} are theorems
+about idempotents.  They say: a closed history whose kernel coordinate is
+constant has a flat multiplicative transport, and a closed history that moves
+both coordinates has a holonomy with an exact cross-ratio value.  They do not by
+themselves say that anything is emitted.  The identification of
+$\Lambda(\square)\ne1$ with radiation is Hypothesis~\ref{hyp:radiation}, and the
+identification of its magnitude with radiated power is a further, unproved
+refinement.
+
+Three dictionary readings are available, and each should be judged on its own:
+\begin{enumerate}[label=(\alph*)]
+  \item \emph{Wavefront dislocation.}  The two pencils $\mathcal R_k$ and
+  $\mathcal R_{k+1}$ are tangent at different ideal points, so at their interface
+  the wavefronts cannot nest smoothly; the mismatch is a caustic, i.e. a kink in
+  the propagating wavefront.  The magnitude of the mismatch is
+  $|p_{k+1}-p_k|$ together with the holonomy $\Lambda$.
+  \item \emph{Field falloff.}  In electrodynamics the field of an accelerated
+  source has a term falling off as $1/r$ and proportional to the transverse
+  acceleration, while the fields of static and uniformly moving sources fall off
+  faster.  The correspondence asserted by Hypothesis~\ref{hyp:radiation} is that
+  the non-telescoping holonomy is the \AEG{} carrier of that $1/r$ term.  No
+  fall-off exponent is derived here.
+  \item \emph{Phase residue.}  By Remark~\ref{rem:prequantum} the loop's
+  non-closure along the Reeb fiber measures a phase; a phase that does not return
+  to itself is the same kind of statement as a radiated quantum's escape.
+\end{enumerate}
+\end{warning}
+
+\subsection{Relation to the \AEG{} manuscripts}
+
+The construction proved in this section is not new to the \AEG{} series: it is
+Paper~IV, Definition~4.10 and Theorem~4.11, with the $\F_7$ witness of
+Example~4.13.  It was developed in the dialogue summarised here and recorded in
+the manuscript under the heading of the projective-torsion problem.  The present
+section's contribution is therefore not the theorem but the reading: the
+non-telescoping holonomy of Paper~IV, Theorem~4.11 is the \AEG{} object
+that the physical narrative calls ``radiation'', and
+Corollary~\ref{cor:larmor} states the Larmor criterion in its terms.
+
+Section~\ref{sec:torsion} completes the picture by packaging the same data into a
+transport that also reproduces the affine torsion of Paper~0 on the Borel
+sector.

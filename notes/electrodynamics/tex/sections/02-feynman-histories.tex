@@ -1,0 +1,359 @@
+% ---------------------------------------------------------------------
+% Section 2
+% ---------------------------------------------------------------------
+
+\begin{cnread}
+本节把「从理想点 $q$ 到普通点 $p$ 的一族穿线路径」严格写下来，并回答一个
+具体问题：既然这些路径的起点终点都一样，它们在费曼图、\ACS{}、切触空间三个
+视角下分别是什么？结论是：它们恰好是算子求值映射的一条纤维
+$\rho^{-1}(g_{p_0\to p})$；在 \ACS{} 里摊成一条水平线段（裸荷随 $M\to\infty$
+指数发散），在切触空间里则落在同一根 Reeb 纤维的\textbf{不同高度}上。
+本节只用 Paper~0 的第 7--9 章，不需要任何物理字典。
+\end{cnread}
+
+\subsection{Two kinds of ideal point}
+
+Let $\E_0=(\HH^2,g_{\mu,\lambda},a)$ be the basic model with
+$a(x,y)=-x/y$.  In horocyclic coordinates $u=x$ and $y=e^{\lambda v}$ one has
+$a=-ue^{-\lambda v}$, and the two affine motions of Paper~0,
+Proposition~3.6, read
+\begin{equation}\label{eq:grid-motions}
+  \mathsf X_s(x,y)=(x-sy,\,y),
+  \qquad
+  \mathsf Y_k(x,y)=\Bigl(x,\frac yk\Bigr),
+  \qquad
+  a\circ\mathsf X_s=a+s,\quad a\circ\mathsf Y_k=ka .
+\end{equation}
+The ideal boundary $\pt_\infty\HH^2=\R\cup\{\infty\}$ carries two kinds of point,
+and the distinction is used constantly below.
+
+\begin{enumerate}[label=(\roman*)]
+  \item The point at infinity, $q=i\infty$, i.e. $y\to+\infty$ or
+  $M=\lambda v\to-\infty$.  This is the common base point of the
+  Borel subgroup $B_\infty=\Stab_{\PGL_2}(\infty)$: every affine motion fixes
+  it, so it is the natural origin of an affine history, and in the physical
+  reading it is the ultraviolet, asymptotically free end.
+  \item A finite ideal point $q=x_\infty\in\R$, i.e. $y\to0^{+}$ or
+  $M\to+\infty$.  This is the infrared end, reached by unbounded positive
+  scaling $\mathsf Y_{e^{M}}$ with $M\to+\infty$.
+\end{enumerate}
+
+\begin{remark}[Ultraviolet versus infrared end]
+Whether one marches from $q=i\infty$ inward to $p$, or reads the same word
+backwards from $p$ towards a finite ideal point, is a choice of direction, not a
+choice of geometry: the two readings are the two ends of one word.  Paper~0
+keeps both ends in view because the multiplicative charge is the only charge
+that descends to the motion group (Theorem~8.6), so only $M$ can be compared
+across histories without an order convention.
+\end{remark}
+
+\subsection{The family of histories is one operator fiber}
+
+\begin{remark}[The ideal point is a direction, not a starting point]
+\label{rem:q-is-a-direction}
+$B_\infty$ fixes $q=i\infty$, so no affine motion carries $q$ to an interior
+point of $\HH^2$: a history cannot literally start at the ideal point.  What the
+phrase ``a history from $q$ to $p$'' means in this note, and what it means in
+Paper~0's grid, is a history that starts at an ordinary point $p_0$ deep in the
+ultraviolet region --- large $y_0$, near $q$ --- and ends at $p$.  The
+formulation below therefore fixes $p_0$ explicitly.  Its distance from $q$ enters
+only through the total multiplicative charge, and every invariant used in this
+note is a function of the charges, not of how deep the start was placed.
+\end{remark}
+
+Fix an ordinary starting point $p_0=(x_0,y_0)\in\HH^2$ and an ordinary terminal
+point $p=(x_p,y_p)\in\HH^2$.  A \emph{comb history} from $p_0$ to $p$ is a finite
+chronological word
+\begin{equation}\label{eq:comb-history}
+  \gamma=(\cM_{m_1},\cA_{t_1},\cM_{m_2},\cA_{t_2},\dots,\cM_{m_n},\cA_{t_n}),
+  \qquad m_i,t_i\in\R ,
+\end{equation}
+read from left to right, whose composite motion carries $p_0$ to $p$.  Here
+$\cM_{m}$ denotes scaling by $e^{m}$ and $\cA_t$ translation by $t$; the word is
+the left-expanded comb of Paper~0, Subsection~2.1.  In the comb notation of this
+section we set the multiplicative step constant to $\lambda=1$, so that the
+log-scale parameter $v$ and the multiplicative charge $M=\lambda v$ coincide;
+the general case is recovered by the substitution $M=\lambda v$, and every
+formula below is homogeneous in the charges.
+
+\begin{proposition}[The $p_0\to p$ family is one operator fiber]
+\label{prop:operator-fiber}
+Let $g_{p_0\to p}\in B_\infty$ be the affine motion carrying $p_0$ to $p$.  Then
+$\gamma$ in \eqref{eq:comb-history} carries $p_0$ to $p$ if and only if its
+composite is $g_{p_0\to p}$.  Consequently the histories joining $p_0$ to $p$
+are exactly one fiber of the evaluation map
+$\rho:\Hist\to\Aff^{+}(1,\R)$ of Paper~0, Section~7.
+\end{proposition}
+
+\begin{proof}
+$B_\infty$ acts simply transitively on $\HH^2$: it acts transitively because
+$\mathsf Y_k$ and $\mathsf X_s$ of \eqref{eq:grid-motions} already carry any
+point to any other, and freely because a nonidentity affine map has at most one
+fixed point in $\HH^2$ (Paper~0, Proposition~5.4 with $b=0$; the pure
+translation has none).  Hence exactly one affine motion carries $p_0$ to $p$,
+and a word realizes that motion exactly when it equals $g_{p_0\to p}$ in the
+group.
+\end{proof}
+
+Writing $g_{p_0\to p}(z)=e^{M_*}z+\xi_*$, the two invariants of the fiber are the
+total multiplicative charge $M_*=\lambda\sum_i m_i$ and the total target
+translation $\xi_*$.  In terms of the assignment,
+\begin{equation}\label{eq:fiber-invariants}
+  e^{M_*} = \frac{y_p}{y_0},
+  \qquad
+  a(p)=e^{M_*}a(p_0)+\xi_* = -\frac{x_p}{y_p}.
+\end{equation}
+
+\subsection{Comb diagrams and charge accounting}
+
+The affine cocycle of Paper~0, Proposition~7.1, expresses the terminal
+translation of a comb in two equivalent ways,
+\begin{equation}\label{eq:comb-cocycle}
+  \xi_\gamma=\sum_{i=1}^{n}t_i\,e^{\,M_{i+1:n}}
+  = e^{M_*}\sum_{i=1}^{n}t_i\,e^{-M_i},
+  \qquad M_{i:n}=\sum_{j=i}^{n}\lambda m_j .
+\end{equation}
+Read as a diagram, \eqref{eq:comb-cocycle} is a time-ordered Feynman diagram
+with a single fermion line.
+
+\begin{enumerate}[label=(\alph*)]
+  \item The vertical segments $\cM_{m_i}$ are free propagation between
+  vertices: they advance the scale by $e^{m_i}$ and cost no additive charge.
+  \item The horizontal segments $\cA_{t_i}$ are vertex insertions at the scale
+  shell $M_i$: each emits or absorbs one quantum and adds $t_i$ to the running
+  value.
+  \item The second form of \eqref{eq:comb-cocycle} says that a bare vertex
+  inserted at depth $M_i$ contributes $t_ie^{-M_i}$ to the source-normalized
+  charge and is then transported to the target frame by $e^{M_*}$.
+\end{enumerate}
+
+\begin{proposition}[The distributive law is the renormalisation resummation]
+\label{prop:distributive-resummation}
+Fix two vertices at distinct depths.  Then for every $M_1<M_*$ and $t_1$,
+\[
+  (\cM_{M_*-M_1},\cA_{t_1})\quad\text{and}\quad
+  (\cA_{t_1e^{M_*-M_1}},\cM_{M_*-M_1})
+\]
+are histories with the same terminal operator but different total charges.  The
+difference of their additive charges is the elementary order defect
+$t_1\,(e^{M_*-M_1}-1)$.
+\end{proposition}
+
+\begin{proof}
+Both words evaluate to the affine map $z\mapsto e^{M_*}z+e^{M_*-M_1}t_1$, which
+is the content of the pointwise identity $k(z+p)=kz+kp$ of Paper~0,
+Subsection~2.3.  Their additive charges are $t_1$ and $t_1e^{M_*-M_1}$, whose
+difference is as displayed; the multiplicative charges agree.
+\end{proof}
+
+The proposition is the algebraic form of the statement that a large bare vertex
+inserted deep in the ultraviolet can be transported to the infrared as a small
+effective vertex.  In field-theoretic language the two words are the same
+renormalized amplitude with the counterterm absorbed, and the charge difference
+is the order defect that the \ACS{} will record as an area.
+
+\subsection{The image in the accumulative commutative space}
+
+Commutativizing forgets the order of the steps and keeps the two total charges
+(Paper~0, Definition~8.1 and Proposition~8.5).  For the $p_0\to p$ family this has
+an immediate consequence.
+
+\begin{proposition}[The family fans out into a horizontal segment]
+\label{prop:acs-fanout}
+Let $\{\gamma\}$ be the histories of Proposition~\ref{prop:operator-fiber}.
+Their \ACS{} charge chains $C_\gamma$ all terminate on the horizontal line
+$M=M_*$, where $M_*$ is fixed by \eqref{eq:fiber-invariants}, and they satisfy
+the single scalar constraint
+\begin{equation}\label{eq:fanout-constraint}
+  \hat\xi(p):=\int_{C_\gamma}e^{-M}\mathrm dA
+  =\xi_*\,e^{-M_*}+a(q)
+\end{equation}
+of Paper~0, Proposition~8.2.  Along that line the total additive charge
+$A_\gamma$ is not determined by $p$: a history that inserts its vertices early
+needs $A_\gamma\to$ small, and one that inserts them late needs
+$A_\gamma\asymp e^{M_*}\hat\xi(p)$.
+\end{proposition}
+
+\begin{proof}
+The multiplicative charge is determined by the endpoint by
+Theorem~8.6(3).  Proposition~8.2 identifies the weighted integral with the
+source-normalized terminal translation, which is fixed by \eqref{eq:fiber-invariants}
+because both ends are.  The two extremes are the two words of
+Proposition~\ref{prop:distributive-resummation}: inserting at $M=0$ costs
+$A=t_1$ and inserting at $M=M_*$ costs $A=t_1e^{M_*}$.
+\end{proof}
+
+\begin{corollary}[Two readings of the same divergence]
+\label{cor:bare-divergence}
+The quantity $A_\gamma$ --- the total additive charge, which the \ACS{} keeps as
+its abscissa --- is not a function of the physical endpoint, and it grows like
+$e^{M_*}$ for histories whose insertions are pushed to the infrared end.  The
+weighted quantity $\hat\xi(p)$ is a function of the endpoint and stays finite.
+\end{corollary}
+
+\begin{warning}[What this does and does not explain]
+\label{warn:divergence}
+Corollary~\ref{cor:bare-divergence} says that the unweighted sum of insertions
+over a scale range diverges like $e^{M}$ while its $e^{-M}$-weighted version does
+not.  That is exactly the algebraic shape of the statement that a bare quantity
+regularized at a short distance diverges while a renormalized quantity does not,
+and the exponential weight is the usual scale factor.  It is \emph{not} a proof
+of renormalizability of any field theory, and no loop integral is computed here.
+The correspondence is between one exact \AEG{} identity and one structural
+feature of the perturbative expansion.
+\end{warning}
+
+When two histories of the family also share their additive charge, they close up
+in $\ACS$, and the weighted torsion--Stokes theorem of Paper~0, Theorem~8.9,
+applies: the relative defect is
+$\tau(\gamma,\delta)=\iint_{\Sigma_{\gamma\delta}}e^{M_*-M}\mathrm dA\wedge
+\mathrm dM$.  For two such histories to \emph{also} reach the same $p$, that
+torsion must vanish.  In the physical reading this is the statement that
+cancellations between early and late insertions --- the finite remainders of
+renormalization and the Ward-type identities --- are exactly the vanishing of a
+signed weighted area.  The elementary case is the kernel word of
+Theorem~8.6: the two histories $\gamma_1=(\cM_q,\cA_p)$ and
+$\gamma_2=(\cA_{e^{-q}p},\cM_q)$ reach the same state and differ in additive
+charge by $p(1-e^{-q})$, which is exactly the weighted area they enclose
+(Lemma~\ref{lem:kernel-word}).
+
+\subsection{The image in the contact model: Reeb heights}
+
+Lift each history horizontally to $\Cont$: a curve $\tilde\gamma$ with
+$\alpha(\dot{\tilde\gamma})=0$.  By Paper~0, Theorem~3.9 and the coordinate
+form of the horizontal fields, this is the ordinary differential equation
+$\mathrm da=\mu\,\mathrm du+\lambda a\,\mathrm dv$, and by
+Proposition~9.8(2) its image under $Q$ is the arithmetic motion itself.
+
+\begin{proposition}[Same state, different Reeb height]
+\label{prop:reeb-heights}
+Let $\tilde\gamma_1,\tilde\gamma_2$ be horizontal lifts of two histories of the
+$p_0\to p$ family, starting at the same point of $\Cont$.  Then
+$Q\circ\tilde\gamma_1$ and $Q\circ\tilde\gamma_2$ end at the same $p\in\HH^2$,
+while
+\[
+  u(\tilde\gamma_1)-u(\tilde\gamma_2)=\frac{1}{\mu}\bigl(A_{\gamma_1}-A_{\gamma_2}\bigr).
+\]
+By Theorem~9.9 this height difference equals
+$-\iint_{\Omega_{12}}\mathrm da\wedge\mathrm dM=-\mu\lambda\,\mathrm{Area}_g(\Omega_{12})$,
+the hyperbolic area enclosed by the two projected paths in $\HH^2$.
+\end{proposition}
+
+\begin{proof}
+Horizontal lifts of paths with the same endpoints in $\HH^2$ end on the same
+fiber of $Q$ because $Q$ is the projection; the height difference is the
+statement of Theorem~9.9(2), and the additive charge is $A=\mu u$ by the natural
+charge coordinates of Appendix~D.4.
+\end{proof}
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[x=1cm,y=1cm,>=Latex,every node/.style={font=\scriptsize}]
+  % ---- panel (a)
+  \begin{scope}[shift={(0,0)}]
+    \fill[blue!2] (-0.4,-0.4) rectangle (4.0,3.0);
+    \draw[black!35] (-0.4,0)--(4.0,0);
+    \fill (0.5,2.45) circle (1.7pt) node[above right] {$p_0$ (ultraviolet)};
+    \fill (3.3,0.9) circle (1.7pt) node[below right] {$p$};
+    \draw[very thick,red!65!black]   (0.5,2.45) to[out=-40,in=170] (3.3,0.9);
+    \draw[very thick,blue!65!black]  (0.5,2.45) to[out=-85,in=215] (3.3,0.9);
+    \draw[very thick,green!45!black] (0.5,2.45) to[out=-62,in=250] (3.3,0.9);
+    \node[font=\small] at (1.8,-0.95) {(a) $\HH^2$};
+  \end{scope}
+  % ---- panel (b)
+  \begin{scope}[shift={(5.3,0)}]
+    \fill[blue!2] (-0.5,-0.4) rectangle (3.6,3.0);
+    \draw[->,black!45] (-0.4,0.15)--(3.5,0.15) node[right] {$A$};
+    \draw[->,black!45] (0,-0.3)--(0,2.85) node[above] {$M$};
+    \draw[black!55,dashed] (0,2.2)--(3.3,2.2) node[right] {$M_*$};
+    \draw[very thick,red!65!black]   (0,0.15)--(0.5,0.15)--(0.5,2.2);
+    \draw[very thick,blue!65!black]  (0,0.15)--(1.4,0.15)--(1.4,2.2);
+    \draw[very thick,green!45!black] (0,0.15)--(2.5,0.15)--(2.5,2.2);
+    \fill (0.5,2.2) circle (1.6pt);
+    \fill (1.4,2.2) circle (1.6pt);
+    \fill (2.5,2.2) circle (1.6pt);
+    \node[font=\small] at (1.55,-0.95) {(b) $\ACS$};
+  \end{scope}
+  % ---- panel (c)
+  \begin{scope}[shift={(9.9,0)}]
+    \fill[blue!2] (-0.7,-0.4) rectangle (2.6,3.0);
+    \draw[black!55] (0.8,0.0)--(0.8,2.5) node[above,font=\tiny] {$Q^{-1}(p)$};
+    \draw[->,black!45] (2.0,0.0)--(2.0,2.7) node[right,font=\tiny] {$u$};
+    \fill[red!65!black]   (0.8,1.2) circle (1.8pt);
+    \fill[blue!65!black]  (0.8,1.6) circle (1.8pt);
+    \fill[green!45!black] (0.8,2.1) circle (1.8pt);
+    \draw[{Latex[length=1.4mm]}-{Latex[length=1.4mm]},black!55]
+      (0.28,1.2)--(0.28,2.1) node[midway,left,font=\tiny] {$\Delta A$};
+    \node[font=\small] at (0.95,-0.95) {(c) Reeb fiber};
+  \end{scope}
+\end{tikzpicture}
+\caption[Three images of one family of histories]%
+{Three images of one family of histories.  (a) In $\HH^2$ the histories have the
+same two endpoints and therefore the same composite operator.  (b) In $\ACS$ they
+share the multiplicative charge $M_*$ and differ in additive charge $A_\gamma$,
+subject to the weighted constraint \eqref{eq:fanout-constraint}.  (c) In $\Cont$
+they terminate on one Reeb fiber over $p$ at distinct heights
+$u_\gamma=A_\gamma/\mu$; the height spread equals the hyperbolic area enclosed by
+the projected paths (Theorem~\ref{thm:dual-tearing}).}
+\label{fig:fanout}
+\end{figure}
+
+\begin{remark}[Action and phase]
+\label{rem:prequantum}
+The Reeb coordinate $u$ is the coordinate along which the contact form evaluates
+to $1$: $\alpha(R)=1$ with $R=-\tfrac1\mu\pt_u$ (Appendix~D.4 of Paper~0).  In
+the geometric quantization of a contact manifold, the Reeb direction is the
+circle fiber of the prequantum bundle and its coordinate is the phase of the
+wave function \cite{Geiges2008,BoothbyWang1958}.  Proposition~\ref{prop:reeb-heights}
+therefore says that histories reaching the same state with different Reeb
+heights differ by a phase.  Summing over the fiber with weights
+$e^{\,\mathrm i\,A_\gamma}$ is then the natural candidate for a path integral in
+this picture.  Nothing in this note depends on that candidate, which is recorded
+as a target rather than as a result.
+\end{remark}
+
+\subsection{Radix shells}
+
+If the scaling steps are quantized on a $k$-ary grid and each shell either emits
+or does not, the word becomes a Horner expansion and the terminal translation is
+\begin{equation}\label{eq:horner}
+  \xi=\sum_{i=1}^{n}d_i\,k^{\,n-i},
+  \qquad d_i\in\{0,1,\dots,k-1\},
+\end{equation}
+with the counting statements of Paper~IV, Proposition~10.1 and Theorem~10.3.  In
+the physical reading $d_i\ne0$ at shell $i$ records a virtual process at the
+Wilsonian momentum shell $k^{n-i}$, and the terminal value is built up shell by
+shell from the ultraviolet end.  Once signed and continuous increments are
+allowed, the number of histories sharing one terminal operator is infinite,
+which is the content of Proposition~\ref{prop:operator-fiber}.
+
+\subsection{Panorama}
+
+\begin{center}\small
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{@{}p{0.19\linewidth}p{0.24\linewidth}p{0.24\linewidth}p{0.23\linewidth}@{}}
+\toprule
+carrier & \AEG{} object & Feynman reading & invariant that survives \\
+\midrule
+$\E_0$ & broken-line family from $q=\infty$ to $p$; one fiber
+$\rho^{-1}(g_{p_0\to p})$
+& time- and scale-ordered comb diagrams from the asymptotic state to the dressed
+state
+& endpoint assignment $a(p)$ and total scale $e^{M_*}$ fixed; the order of
+insertions is retained \\
+$\ACS$ & all chains end on $M=M_*$; abscissa $A_\gamma=\sum t_i$ free subject to
+\eqref{eq:fanout-constraint}
+& bare versus renormalized charge; ultraviolet sensitivity of the unweighted sum
+& $\hat\xi(p)=\int_{C}e^{-M}\mathrm dA$; and
+$\tau(\gamma,\delta)=0$ when both charge and endpoint agree \\
+$\Cont$ & Legendrian lift family; endpoints on distinct heights of
+$Q^{-1}(p)$
+& different histories for one physical state, carrying different phases
+& Reeb drift $A_{\gamma_1}-A_{\gamma_2}
+=-\mu\lambda\,\mathrm{Area}_g(\Omega_{12})$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Section~\ref{sec:legendre} isolates the last row as a theorem about pairs of
+histories and then re-reads the first row as its conjugate.

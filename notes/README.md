@@ -21,6 +21,15 @@ The subject directories are:
 4. `knots-and-loops/`
 5. `projective-condensation/`
 6. `thermodynamics-and-renormalization/`
+7. `electrodynamics/`
+
+`electrodynamics/` is an archived working directory rather than a numbered note:
+it holds a rendered manuscript on a contact-geometric reading of classical
+electrodynamics, the two subsections that were inserted into Papers 0 and IV, the
+five Chinese source notes of that working dialogue, and a strand of Paper I
+capping and interface-disk calculations.  Its `NN-` filename convention does not apply here;
+its register of contents and its known staleness are recorded in
+`electrodynamics/SNAPSHOT.md`.
 
 These files remain historical or exploratory research material unless a governance
 record explicitly assigns a stronger status. Filename order does not promote a note

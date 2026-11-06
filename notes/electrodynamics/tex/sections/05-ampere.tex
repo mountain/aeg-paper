@@ -1,0 +1,208 @@
+% ---------------------------------------------------------------------
+% Section 5
+% ---------------------------------------------------------------------
+
+\begin{cnread}
+静止电荷只有标量势，运动电荷才出现矢势与磁场。本节把「运动」写成 \AEG{}
+里的\textbf{方向角} $\theta$：静止时 $\theta=0$（纯加法步，对应只有时间分量
+的流），运动时标度与平移同时演化（对应倾斜的世界线）。于是上一节那条
+「切触联络 1-形式在轨迹上的配对」$\alpha_1(\dot\gamma_2)$ 立刻给出
+$\dfrac{q_1q_2}{4\pi r}\Bigl(1-\dfrac{\mathbf v_1\!\cdot\!\mathbf v_2}{c^2}\Bigr)$：
+第二项就是安培力，并且解释了为什么平行电流相吸、为什么 $v\to c$ 时
+磁吸引精确抵消静电斥力。本节的符号来源是 Paper~0 定理 3.9；把 $\theta$
+认作快度、把 $v$ 认作 $c\tanh\eta$，是本节的第五条字典假设。
+\end{cnread}
+
+\subsection{Direction angle and inclined histories}
+
+Paper~0, Theorem~3.9, together with equations (21) and (22) of that paper ---
+the angular generator $\Omega_\theta=\mu\cos\theta\,E+\lambda\sin\theta\,H$ and
+the flow $\mathrm dz/\mathrm ds=\mu\cos\theta+\lambda z\sin\theta$ --- states
+that for a horizontal curve whose tangent is
+$\cos\theta\,D_u+\sin\theta\,D_v$ one has
+\begin{equation}\label{eq:theta-flow}
+  \frac{\mathrm du}{\mathrm ds}=\cos\theta,
+  \qquad
+  \frac{\mathrm dv}{\mathrm ds}=\sin\theta,
+  \qquad
+  \frac{\mathrm da}{\mathrm ds}
+  =\mu\cos\theta+\lambda a\sin\theta .
+\end{equation}
+Two readings are distinguished by $\theta$.
+
+\begin{enumerate}[label=(\roman*)]
+  \item \emph{At rest}, $\theta=0$: only the additive direction is active,
+  $\mathrm dv=0$.  The history is a purely horizontal segment in $\ACS$, the
+  assignment evolves by translation, and the current has only the ``time''
+  component.  This is the configuration of Section~\ref{sec:coulomb}.
+  \item \emph{In motion}, $\theta\ne0$: the same history simultaneously advances
+  its scale and its value, $\mathrm dv\ne0$, and in $\ACS$ it is an inclined
+  segment whose slope $\mathrm dM/\mathrm d\tau$ measures the motion.  The
+  stationary points of the assignment therefore also drift: a moving charge
+  changes the scale at which its field is read.
+\end{enumerate}
+
+\subsection{The indefinite signature of the frame algebra}
+
+The velocity dictionary is Hypothesis~\ref{hyp:velocity}.  The coefficient
+$1-\mathbf v_1\!\cdot\!\mathbf v_2/c^{2}$ that appears below is
+not put in by hand: it is what a one-form pairing produces when the vector it is
+paired with has an indefinite (Lorentzian) inner product.  Paper~0,
+Remark~9.7, is careful to say that the curvature two-form $\omega$ is intrinsic
+while its scalar value depends on the chosen horizontal metric; the choice
+between a Euclidean and a Lorentzian horizontal metric is therefore exactly the
+choice between electrostatics and electrodynamics.
+
+\begin{lemma}[The frame algebra is indefinite]
+\label{lem:killing}
+In the Lie algebra $\mathfrak{sl}_2(\R)$ with
+$X=\begin{pmatrix}m&a_+\\ a_-&-m\end{pmatrix}$ one has
+$\det X=-(m^{2}+a_+a_-)$.  Consequently the quadratic form
+$(m,a_+,a_-)\mapsto\det X$ has signature $(2,1)$: the direction of the scale
+rate $m$ enters with the opposite sign to the mixed translation entries.
+\end{lemma}
+
+\begin{proof}
+$\det X=-m^{2}-a_+a_-$ is a direct computation.  The form $-m^{2}-a_+a_-$ is
+negative definite on the line $a_\pm=0$ and of split sign on the plane
+$m=0$, whence signature $(1,2)$ up to an overall sign, i.e. $(2,1)$ after
+overall negation.
+\end{proof}
+
+\begin{remark}
+Lemma~\ref{lem:killing} is the algebraic shadow of the statement that the time
+direction and the space directions of a moving source cannot be treated on the
+same footing.  It is recorded here because it explains why the coefficient in
+\eqref{eq:amperes-coefficient} is a difference rather than a sum.  No
+identification of $m$ with a physical time direction is made; that identification
+is Hypothesis~\ref{hyp:velocity}.
+\end{remark}
+
+\subsection{The contact pairing for two moving charges}
+
+Let charge 1, with charge $q_1$ and velocity $\mathbf v_1$, excite the gauge
+potential read as the contact one-form
+\begin{equation}\label{eq:gauge-potential}
+  \alpha_1=\phi_1\,\mathrm dt-\mathbf A_1\!\cdot\!\mathrm d\mathbf x
+  =\frac{q_1}{4\pi r}\Bigl(\mathrm dt-\mathbf v_1\!\cdot\!\mathrm d\mathbf x\Bigr).
+\end{equation}
+In \AEG{} terms, $\mathrm dt$ is the pure additive frame direction and
+$\mathbf v_1\!\cdot\!\mathrm d\mathbf x$ is the synchronous drift of the scale
+coordinate caused by the motion, i.e. the $\beta_1$ multiple of the
+multiplicative direction of Hypothesis~\ref{hyp:velocity}.  Let charge 2 follow
+its own inclined history with tangent $\dot\gamma_2=(1,\mathbf v_2)$.
+
+\begin{proposition}[Amp\`ere coefficient from a one-form pairing]
+\label{prop:ampere}
+Under Hypotheses~\ref{hyp:charge}--\ref{hyp:velocity}, the interaction
+Lagrangian density of the two charges is the evaluation of the contact form on
+the second history's tangent,
+\begin{equation}\label{eq:amperes-lagrangian}
+  L_{\mathrm{int}}=q_2\,\alpha_1(\dot\gamma_2)
+  =\frac{q_1q_2}{4\pi r}\Bigl(1-\frac{\mathbf v_1\!\cdot\!\mathbf v_2}{c^{2}}\Bigr),
+\end{equation}
+so that the effective potential and force are
+\begin{equation}\label{eq:amperes-coefficient}
+  V_{\mathrm{eff}}(r)=\frac{q_1q_2}{4\pi r}
+   \Bigl(1-\frac{\mathbf v_1\!\cdot\!\mathbf v_2}{c^{2}}\Bigr),
+  \qquad
+  F(r)=-\frac{\partial V_{\mathrm{eff}}}{\partial r}
+  =\frac{q_1q_2}{4\pi r^{2}}
+   \Bigl(1-\frac{\mathbf v_1\!\cdot\!\mathbf v_2}{c^{2}}\Bigr).
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Insert $\dot\gamma_2=(1,\mathbf v_2)$ into \eqref{eq:gauge-potential} to get
+$\alpha_1(\dot\gamma_2)=\frac{q_1}{4\pi r}\bigl(1-\mathbf v_1\!\cdot\!\mathbf
+v_2\bigr)$ (with $c$ restored in the second term), and multiply by the second
+charge.  This is the interaction Lagrangian density; for a static pair it
+coincides with the potential energy of \eqref{eq:pairing-energy} at
+$\mathbf v_1=\mathbf v_2=0$, so no sign change is needed in passing to
+$V_{\mathrm{eff}}$.  Differentiating in $r$ gives
+\eqref{eq:amperes-coefficient}.
+\end{proof}
+
+The coefficient splits into the static Coulomb part of
+Section~\ref{sec:coulomb} and a purely motional part:
+\begin{equation}\label{eq:ampere-split}
+  F(r)=\underbrace{\frac{q_1q_2}{4\pi r^{2}}}_{\text{static}}
+       \;-\;\underbrace{\frac{q_1q_2\,(\mathbf v_1\!\cdot\!\mathbf v_2)}{4\pi c^{2}r^{2}}}_{\text{motional}} .
+\end{equation}
+
+\begin{corollary}[Parallel currents attract the electrons]
+\label{cor:parallel-currents}
+For two electrons, $q_1q_2=+e^{2}$, moving in parallel so that
+$\mathbf v_1\!\cdot\!\mathbf v_2=v^{2}>0$, the motional term is negative and
+reduces the repulsion.  As $v\to c$ it cancels the static term exactly and the
+total force tends to zero.
+\end{corollary}
+
+\begin{proof}
+Immediate from \eqref{eq:ampere-split}: the bracket becomes
+$1-v^{2}/c^{2}\to0$.
+\end{proof}
+
+The sign structure of \eqref{eq:ampere-split} is the familiar one: like charges
+repel electrostatically and attract magnetically when their currents are
+parallel, and \eqref{eq:amperes-coefficient} is the sum.  What the \AEG{} reading
+adds is not the algebra --- which is the standard tree-level Breit--Darwin
+coefficient --- but the fact that the coefficient arises as a single pairing of
+one contact one-form with one inclined tangent, rather than as a sum of two
+separately postulated field contributions.
+
+\begin{warning}[Range of validity]
+\label{warn:darwin}
+Equation~\eqref{eq:amperes-coefficient} is the quasi-static coefficient of order
+$v^{2}/c^{2}$; in electrodynamics it is the Darwin term of the two-body
+Lagrangian \cite{Darwin1920,Jackson1999}.  It is not the exact force between two
+uniformly moving charges: the complete expression has further velocity-dependent
+terms of order $v^{4}/c^{4}$, retardation corrections, and spin--orbit
+contributions.  Nothing in this section supplies those terms, and no
+all-orders statement is claimed.  In the reading of
+Hypothesis~\ref{hyp:velocity} the truncation corresponds to the linearised
+contact flow \eqref{eq:theta-flow}, which is exact for constant $\theta$ but
+does not by itself generate the full Lorentz-covariant field.
+\end{warning}
+
+\subsection{Uniform motion in ripple geometry: compression without radiation}
+
+Paper~0, Section~4, reads the same word contravariantly as a family of pulled-back
+horocycles.  For a prefix $P_k$, the ripple pencil is the family
+$\mathcal R(P_k)=\{P_k^{-1}(\mathcal H_t)\}$ of circles tangent at the pole
+$p_k=P_k^{-1}(\infty)$ (Theorem~4.2).  The two cases now read as follows.
+
+\begin{enumerate}[label=(\roman*)]
+  \item \emph{Charge at rest.}  The pole is fixed, and the wavefronts of
+  successive times are concentric or commonly tangent circles.  The resulting
+  field has the $1/r^{2}$ shape of a static configuration.
+  \item \emph{Charge in uniform motion.}  A Lorentz boost is a hyperbolic
+  M\"obius transformation, and the celestial sphere's Lorentz group is
+  $\PSL_2(\CC)$, whose two-dimensional section is $\PSL_2(\R)$ --- the \AEG{}
+  M\"obius group itself.  Uniform motion therefore acts on the ripple pencil by
+  a hyperbolic element $D_{e^{\eta}}\in H$, compressing the wavefronts ahead and
+  stretching them behind, while leaving the pencil's common tangency point fixed:
+  the two bivaluation data $(q^+,q^-)$ are unchanged, so the history stays inside
+  a single stabilizer orbit (Paper~IV, Theorem~3.5 and
+  Corollary~4.4, together with Proposition~4.6 for the normalizer).
+\end{enumerate}
+
+The second case is the geometric form of the statement that a uniformly moving
+charge carries its near field with it and does not shed radiation: the pencil is
+compressed, not disrupted.  Section~\ref{sec:radiation} proves the corresponding
+algebraic statement --- that a closed history with constant kernel coordinate has
+holonomy exactly $1$ --- and shows that the statement fails as soon as the kernel
+coordinate moves.
+
+\begin{remark}[The $v\to c$ limit in the $\E_0$ picture]
+\label{rem:v-to-c}
+Corollary~\ref{cor:parallel-currents} can be read in $\E_0$ as follows.  As the
+common tilt of two histories approaches the critical rate, their tangent
+directions approach a common asymptotic slope, i.e. the two curves approach a
+common ideal point.  In the picture of Paper~0, Theorem~3.9, the relative rate of
+shear between them decreases like $1-\beta^{2}$, so the relative transverse
+disruption of the two pencil families vanishes.  This is a heuristic reading of
+the coefficient, not a derivation of it: the derivation is
+Proposition~\ref{prop:ampere}, and the heuristic is included because it is what
+makes the coefficient visible inside $\E_0$.
+\end{remark}

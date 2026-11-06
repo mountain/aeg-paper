@@ -1,0 +1,96 @@
+% ---------------------------------------------------------------------
+% Front matter: abstract (English) and reader's guide (Chinese)
+% ---------------------------------------------------------------------
+
+\begin{abstract}
+\noindent
+The \AEG{} manuscripts read an arithmetic expression through the ordered
+histories that evaluate it: an arithmetic expression space carries an
+assignment function and a metric, the four operations act as motions, and the
+order defect of two histories with equal total charges is an exact weighted
+area in the accumulative commutative space (\ACS).  This note asks a single
+question of that machinery: what happens if the ideal point $q$ of an
+arithmetic history is read as an asymptotic state, the ordinary point $p$ as a
+finite-scale dressed state, and the additive and multiplicative charge steps as
+the emission and absorption of a gauge quantum?  The answer is developed
+section by section, and each step is labelled as a proved \AEG{} statement, a
+declared dictionary hypothesis, or a computation carried out here.
+
+Five results are obtained inside \AEG{} and need no dictionary at all.  First,
+the family of $B_\infty$-histories joining an ultraviolet starting point to one
+ordinary point is exactly one fiber $\rho^{-1}(g_{p_0\to p})$ of the operator
+evaluation map;
+under the charge projection it fans out into a horizontal segment of the
+\ACS{} at fixed multiplicative charge, while under the Reeb quotient it
+terminates at distinct heights of one Reeb fiber, the height being the consumed
+additive charge.  Second, the rescaled contact form factorizes as
+$e^{-M}\alpha=\mathrm d(e^{-M}a)-e^{-M}\mathrm dA$, so the charge projection and
+the Reeb quotient are Legendre-conjugate readings of one contact curvature: the
+order defect appears as a tearing $\Delta a$ of the assignment fiber in the
+first and as a Reeb drift $\Delta A=-\mu\lambda\,\mathrm{Area}_g(\Omega)$ in the
+second.  Third, for a pair of bivaluations, uniform motion (constant kernel
+coordinate $b$) telescopes to holonomy $1$ around every closed loop, whereas an
+acceleration that moves $b$ produces the four-step cross-ratio holonomy
+$\Lambda(\square)=(1+a_2b_1)(1+a_1b_2)\big/\bigl((1+a_1b_1)(1+a_2b_2)\bigr)\neq1$,
+with an exact finite-field witness $\Lambda=4$ over $\mathbb F_7$.  Fourth, the
+incidence-coupled transport $\mathcal T(e)\in\Aff(1,K)$ reduces on the Borel
+sector to the affine cocycle of Paper~0 and retains a non-telescoping
+multiplicative component off it.  Fifth, the Coulomb radial action is the Reeb
+holonomy of a closed horizontal loop, and the monodromy condition on the
+quantized Reeb circle returns the Bohr spectrum
+$E_n=-m\alpha_e^2/(2\hbar^2n^2)$.
+
+Five further steps require a declared dictionary, and are stated as hypotheses
+rather than theorems: the identification of the charged additive step
+$\mathsf X_{-e}$ with a physical charge $-e$ and of the reflection
+$a\mapsto-a$ with charge conjugation; the identification of the depth exponent
+$e^{-M}$ with the Coulomb kernel $\ell_0/r$; the identification of the contact
+pairing $\omega(D_u,D_v)=\mu\lambda$ with a bilinear interaction energy
+$\kappa=q_1q_2$; the identification of a velocity with the tilt of a history; and the
+identification of a nonvanishing projective holonomy with radiated power.  Under
+those five hypotheses the note recovers the Coulomb
+sign rule (like charges repel, unlike attract), the Amp\`ere coefficient
+$(1-\mathbf v_1\!\cdot\!\mathbf v_2/c^2)$ of two uniformly moving charges, a
+no-radiation statement for uniform motion with a radiative obstruction for
+accelerated motion, the $B_\infty$ versus $B_\infty J B_\infty$
+separation of M\o ller and Bhabha scattering, and the hydrogenic spectrum.  No
+statement of quantum electrodynamics is proved here, and none is claimed.
+\end{abstract}
+
+\noindent\textbf{Keywords:}
+arithmetic expression geometry; contact structure; Legendre duality;
+torsion--Stokes formula; accumulative commutative space; projective holonomy;
+bivaluation; idempotent transport; Coulomb law; Amp\`ere force; Bohr--Sommerfeld
+quantization
+
+\bigskip
+
+% ---------------------------------------------------------------------
+\begin{cnread}[title={\textbf{中文导读（全篇）}}]
+本稿把 \texttt{electrodynamics/} 下五份讨论（\texttt{费曼图.md}、
+\texttt{勒让德形式.md}、\texttt{电动力学讨论-01/02/03.md}）整理成一篇正式的
+英文文稿，保留原有的物理叙事与论证次序，只做三件事：去掉对话性文字、
+统一记号（与 \AEG{} 手稿的符号一致）、并把每一条断言分清来源——是
+Paper~0/Paper~IV 已证的定理、是显式声明的「物理字典假设」、还是本稿重新
+算过并给出可复核数值的结论。
+
+全篇的主线是一条：\textbf{从理想点 $q$ 到普通点 $p$ 的穿线簇}。
+第二、三节把它翻译成算子历史纤维，并在 \ACS{} 与切触空间两个投影下读出
+「裸荷发散」与「Reeb 纤维作用量残差」；第四节由此得到库仑定律的符号规律；
+第五、六节引入方向角 $\theta$（匀速）与极点跳动（加速），得到安培系数
+$1-\mathbf v_1\!\cdot\!\mathbf v_2/c^2$ 与「匀速不辐射、加速才辐射」的
+代数判据；第七节把该判据写成完整的射影挠率传递联络 $\mathcal T(e)$，
+并在 $\mathbb F_7$ 上给出精确见证 $\Lambda=4$；第八、九节给出
+M\o ller/Bhabha 的 Bruhat 扇区对应与玻尔–索末菲能谱 $E_n$。
+
+需要读者留意的是\textbf{分界线}：第一到第五节里真正属于 \AEG{} 内部、
+不依赖任何物理解释的数学（算子纤维、勒让德对偶、双重撕裂、交叉比和乐、
+Borel 退化、$\mathbb F_7$ 见证、径向作用量）都是可证的；而「荷步 = 电荷」
+「$e^{-M}=\ell_0/r$」「$\mu\lambda$ 配对 = 相互作用能」「速度 = 世界线倾角」
+「和乐不为 $1$ = 有辐射」这五条是\textbf{字典假设}，第十节与各节末尾逐条列出。它们支撑的
+物理结论（库仑、安培、辐射、束缚态）因此都是\textbf{条件性}的：
+在字典成立时成立，而不是从 \AEG{} 无条件推出。全文所有可算的恒等式都在
+附录~\ref{app:register} 里列了复核脚本，29 项全部通过。
+\end{cnread}
+
+\newpage

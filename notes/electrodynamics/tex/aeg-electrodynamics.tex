@@ -1,0 +1,244 @@
+% =====================================================================
+% Arithmetic Expression Geometry of Electromagnetism
+% A formal manuscript assembled from the working notes in
+% public/electrodynamics/*.md, with the AEG results of ~/AEG/aeg-paper
+% cited by their compiled numbers.
+%
+% Build:  latexmk -xelatex aeg-electrodynamics.tex    (or ./build.sh)
+% =====================================================================
+\documentclass[11pt]{article}
+
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[UTF8,fontset=mac,scheme=plain]{ctex}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,decorations.pathreplacing,decorations.markings}
+\usepackage{url}
+\usepackage[
+  colorlinks=true,
+  linkcolor=blue!45!black,
+  citecolor=green!35!black,
+  urlcolor=blue!55!black,
+  pdfencoding=auto
+]{hyperref}
+
+% ---------------------------------------------------------------- theorems
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{convention}[theorem]{Convention}
+\newtheorem{hypothesis}[theorem]{Hypothesis}
+\newtheorem{problem}[theorem]{Open Problem}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{warning}[theorem]{Warning}
+
+% ---------------------------------------------------------------- macros
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\CC}{\ensuremath{\mathbb{C}}}
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}}
+\newcommand{\K}{\ensuremath{\mathbb{K}}}
+\newcommand{\F}{\ensuremath{\mathbb{F}}}
+\newcommand{\PP}{\ensuremath{\mathbb{P}}}
+\newcommand{\HH}{\ensuremath{\mathbb{H}}}
+\newcommand{\Aff}{\ensuremath{\operatorname{Aff}}}
+\newcommand{\PGL}{\ensuremath{\operatorname{PGL}}}
+\newcommand{\PSL}{\ensuremath{\operatorname{PSL}}}
+\newcommand{\SL}{\ensuremath{\operatorname{SL}}}
+\newcommand{\Stab}{\ensuremath{\operatorname{Stab}}}
+\newcommand{\Biv}{\ensuremath{\operatorname{Biv}}}
+\newcommand{\Hist}{\ensuremath{\operatorname{Hist}}}
+\newcommand{\ACS}{\ensuremath{\mathcal{A}}}
+\newcommand{\Cont}{\ensuremath{\mathcal{C}}}
+\newcommand{\E}{\ensuremath{\mathfrak{E}}}
+\newcommand{\id}{\ensuremath{\operatorname{id}}}
+\newcommand{\dd}{\,\mathrm{d}}
+\newcommand{\C}{\ensuremath{\mathbb{C}}}
+\newcommand{\vol}{\ensuremath{\mathrm{vol}}}
+\newcommand{\Tr}{\ensuremath{\operatorname{tr}}}
+\newcommand{\rank}{\ensuremath{\operatorname{rank}}}
+\newcommand{\AEG}{AEG}
+\newcommand{\cA}{\ensuremath{\mathsf A}}
+\newcommand{\cM}{\ensuremath{\mathsf M}}
+\newcommand{\cJ}{\ensuremath{J}}
+\newcommand{\Hol}{\mathcal{H}\mathrm{ol}}
+\newcommand{\Vol}{\ensuremath{\mathrm{vol}}}
+\newcommand{\pt}{\ensuremath{\partial}}
+
+% ------------------------------------------------------- Chinese guides
+% Every section opens with a short Chinese reading guide.  These are
+% editorial aids, not part of the mathematical text.
+\newtcolorbox{cnread}[1][]{
+  enhanced, breakable, colback=blue!3!white, colframe=blue!28!black,
+  boxrule=0.4pt, left=6pt, right=6pt, top=4pt, bottom=4pt,
+  fontupper=\small, before skip=8pt, after skip=10pt, #1}
+
+\newtcolorbox{statusbox}[1][]{
+  enhanced, breakable, colback=black!3!white, colframe=black!45,
+  boxrule=0.4pt, left=6pt, right=6pt, top=4pt, bottom=4pt,
+  fontupper=\small, before skip=8pt, after skip=10pt, #1}
+
+\title{\textbf{Arithmetic Expression Geometry of Electromagnetism}\\[0.35em]
+\large Ideal-Point Feynman Histories, Legendre Duality, Contact Tearing,
+and Projective Radiation}
+
+\author{
+Mingli Yuan\\
+\small Swarma Research\\
+\small Beijing 100083, China\\[0.8em]
+\small Formalization, proofs, and drafting: DeepSeek Harness agent
+(model \texttt{deepseek-v4-flash-vision-exp})
+}
+
+\date{October 20, 2026\\[0.25em]
+\small Formalized research note.  Mathematical and physical status is stated
+claim by claim; the note is not a paper of the AEG series.}
+
+\raggedbottom
+\begin{document}
+\maketitle
+
+\begin{quote}\small
+\textbf{Provenance and draft notice.}
+This note consolidates five working documents of a research dialogue:
+\texttt{electrodynamics/\{费曼图, 勒让德形式, 电动力学讨论-01,
+电动力学讨论-02, 电动力学讨论-03\}.md}.  The dialogue's content, order of
+argument, and physical narrative are kept; what changed is the form: chat
+front matter is removed, notation is unified with the \AEG{} manuscripts, and
+every claim is either (i) traced to a proved statement of Paper~0 or Paper~IV,
+(ii) declared as a dictionary hypothesis, or (iii) computed in place with a
+reproducible check.  The human author directs the programme and retains
+responsibility; the agent performed the formalization, the verifications, and
+the drafting.  A formalization is not independent review.
+\end{quote}
+
+\input{sections/00-front}
+
+\setcounter{tocdepth}{2}
+\tableofcontents
+\newpage
+
+\section{Introduction, Notation, and the Standing Dictionary}
+\label{sec:intro}
+\input{sections/01-introduction}
+
+\section{Ideal-Point Feynman Histories}
+\label{sec:feynman}
+\input{sections/02-feynman-histories}
+
+\section{The Legendre Form: Charge Projection versus Reeb Quotient}
+\label{sec:legendre}
+\input{sections/03-legendre}
+
+\section{Electrostatics: Coulomb's Law from Contact Curvature}
+\label{sec:coulomb}
+\input{sections/04-coulomb}
+
+\section{Moving Charges: Direction Angle and the Amp\`ere Force}
+\label{sec:ampere}
+\input{sections/05-ampere}
+
+\section{Accelerated Charges: Moving Poles and Projective Radiation}
+\label{sec:radiation}
+\input{sections/06-radiation}
+
+\section{The Projective Torsion Transport}
+\label{sec:torsion}
+\input{sections/07-projective-torsion}
+
+\section{Dynamical Scattering: M\o ller and Bhabha Sectors}
+\label{sec:scattering}
+\input{sections/08-scattering}
+
+\section{Bound States: Closed Loops and Bohr--Sommerfeld Quantization}
+\label{sec:bohr}
+\input{sections/09-bound-states}
+
+\section{Dictionary, Status Ledger, and Open Ends}
+\label{sec:summary}
+\input{sections/10-summary}
+
+\appendix
+
+\section{Exact Matrix Computations}
+\label{app:matrices}
+\input{sections/app-A-matrices}
+
+\section{Curvature Normalization of the Projective Connection}
+\label{app:curvature}
+\input{sections/app-B-curvature}
+
+\section{The Coulomb Radial Action}
+\label{app:action}
+\input{sections/app-C-action}
+
+\section{Register of Verified Identities}
+\label{app:register}
+\input{sections/app-D-register}
+
+\begin{thebibliography}{99}\small
+
+\bibitem{AEG0}
+DeepSeek Harness Agent and Mingli Yuan,
+\emph{Arithmetic Expression Geometry 0: Arithmetic Expression Spaces ---
+Expansion, Motion, Ripple Duals, Commutativization, and Tearing},
+manuscript, 2026.  Cited as \emph{Paper~0} with its compiled section, theorem,
+and equation numbers.
+
+\bibitem{AEG4}
+DeepSeek Harness Agent and Mingli Yuan,
+\emph{Arithmetic Expression Geometry IV: Projective Condensation and
+Computational Complexity}, manuscript, 2026.  Cited as \emph{Paper~IV}.
+
+\bibitem{Jackson1999}
+J.~D. Jackson, \emph{Classical Electrodynamics}, 3rd ed.,
+Wiley, New York, 1999.
+
+\bibitem{Landau1975}
+L.~D. Landau and E.~M. Lifshitz, \emph{The Classical Theory of Fields},
+4th ed., Course of Theoretical Physics vol.~2, Pergamon, Oxford, 1975.
+
+\bibitem{Zee2010}
+A.~Zee, \emph{Quantum Field Theory in a Nutshell}, 2nd ed.,
+Princeton University Press, 2010.
+
+\bibitem{Darwin1920}
+C.~G. Darwin, ``The dynamical motions of charged particles'',
+\emph{Philosophical Magazine} \textbf{39} (1920), 537--551.
+
+\bibitem{Sakurai1967}
+J.~J. Sakurai, \emph{Advanced Quantum Mechanics},
+Addison--Wesley, Reading MA, 1967.
+
+\bibitem{Khinchin1964}
+A.~Ya. Khinchin, \emph{Continued Fractions},
+University of Chicago Press, 1964.
+
+\bibitem{Beardon1983}
+A.~F. Beardon, \emph{The Geometry of Discrete Groups},
+Springer, New York, 1983.
+
+\bibitem{Geiges2008}
+H.~Geiges, \emph{An Introduction to Contact Topology},
+Cambridge University Press, 2008.
+
+\bibitem{BoothbyWang1958}
+W.~M. Boothby and H.~C. Wang, ``On contact manifolds'',
+\emph{Annals of Mathematics} \textbf{68} (1958), 721--734.
+
+\end{thebibliography}
+
+\end{document}

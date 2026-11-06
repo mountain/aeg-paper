@@ -1,0 +1,298 @@
+% ---------------------------------------------------------------------
+% Section 4
+% ---------------------------------------------------------------------
+
+\begin{cnread}
+本节是全文的第一次「校准」：把第 3 节的双重撕裂定理用到两个静止电荷上，
+看能不能不借助任何外加的闵氏度规，直接从 \AEG{} 的几何量里读出库仑定律的
+\textbf{符号规律}（同号相斥、异号相吸）。做法是：把两个电荷写成两次加法步
+$q_1,q_2$，相互作用能取为切触曲率的双线性配对 $\omega(D_u,D_v)=\mu\lambda$，
+于是 $\kappa=q_1q_2$ 的符号就是势能的符号；而正电子的 $+e$ 由 Paper~0
+第 3.4 小节的反射算子给出，它恰好翻转了 2-链的定向（附录 D.1）。
+本节 4.6 小节逐条列出哪些是已证事实、哪些是字典假设。
+\end{cnread}
+
+\subsection{Stage and dictionary}
+
+Work on $\E_0$ and its contact model with the natural charge coordinates
+$(A,M)$ of \eqref{eq:arith-contact}.  Two charges at rest are two ideal-point
+histories whose multiplicative charges are equal, because both sit at the same
+spatial separation from the observation point in the
+Hypothesis~\ref{hyp:depth} sense,
+\begin{equation}\label{eq:depth-distance}
+  e^{-M_*}=\frac{\ell_0}{r}
+  \qquad\Longleftrightarrow\qquad
+  M_*=\log\frac{r}{\ell_0},
+\end{equation}
+so that $M=0$ is the ultraviolet reference (coincident limit) and $M_*\to\infty$
+is infinite separation.  Charge 1 injects its additive step at the ultraviolet
+end; the field it creates at the location of charge 2 is the assignment reached
+after the scale step $M_*$,
+\begin{equation}\label{eq:field-at-2}
+  a_1(p)=q_1\,e^{-M_*}=\frac{q_1\ell_0}{r},
+\end{equation}
+which under \eqref{eq:depth-distance} is the Coulomb kernel up to the reference
+length.
+
+The two signs of charge are the two signs of the additive generator.
+
+\begin{lemma}[Reflection conjugates the electron step into the positron step]
+\label{lem:reflection}
+Let $\mathcal R(x,y)=(-x,y)$ be the reflection of Paper~0, Subsection~3.4, which
+acts on the assignment by $a\mapsto-a$, and let $\mathsf X_s$ be the
+translation \eqref{eq:grid-motions}.  Then
+\[
+  \mathcal R\circ\mathsf X_{-e}\circ\mathcal R^{-1}=\mathsf X_{+e},
+  \qquad\text{equivalently}\qquad
+  a\circ\mathcal R\circ\mathsf X_{-e}\circ\mathcal R^{-1}=a+e .
+\]
+\end{lemma}
+
+\begin{proof}
+$\mathcal R^{-1}=\mathcal R$, and for a point $(x,y)$,
+$\mathcal R(x,y)=(-x,y)$, then
+$\mathsf X_{-e}(-x,y)=(-x+ey,y)$, then $\mathcal R(-x+ey,y)=(x-ey,y)
+=\mathsf X_{+e}(x,y)$.
+\end{proof}
+
+\begin{warning}[The reflection is not one of the four operations]
+\label{warn:reflection}
+Paper~0, Subsection~3.4 is explicit that the reflection is not itself one of the
+four arithmetic operations: it appears because the assignment of the model is
+signed, and it is the elementary instance of the second-slot subtraction $c-z$.
+Multiplication by a negative constant is the reflection composed with a positive
+scaling.  Lemma~\ref{lem:reflection} must be read with that restriction: what is
+conjugated is the additive motion, and the conjugation uses a map that is
+outside the positive affine group.
+\end{warning}
+
+\subsection{The exchange and the interaction energy}
+
+Consider the two histories of the exchange: charge 1 emits at the ultraviolet
+end and the field is transported to charge 2, and the conjugate history in which
+charge 2 emits and the field is transported back.  They are the histories
+$\gamma_1$ and $\gamma_2$ of Lemma~\ref{lem:kernel-word}, with additive steps
+$q_1,q_2$ in place of $p$ and multiplicative charge $M_*$ in place of $q$.
+
+The interaction energy is then obtained in either of two equivalent ways.
+
+\begin{enumerate}[label=(\alph*)]
+  \item \emph{Pairing of field and copoint.}  The displacement of the assignment
+  produced by charge 1 at the location of charge 2 is
+  $\Delta a_1(r)=q_1\ell_0/r$; contracting it with the dual functional carried by
+  charge 2 gives, after the $4\pi$ solid-angle normalisation,
+  \begin{equation}\label{eq:pairing-energy}
+    V(r)=\frac{1}{4\pi\ell_0}\,q_2\,\Delta a_1(r)
+       =\frac{q_1q_2}{4\pi r} .
+  \end{equation}
+  \item \emph{Contact curvature density.}  Do not pair externally.  Instead let
+  the additive generator strength be $\mu\propto q_1$ and the multiplicative
+  coupling be $\lambda\propto q_2$.  Then the curvature scalar of Paper~0,
+  Theorem~9.2 is
+  \begin{equation}\label{eq:kappa}
+    \omega(D_u,D_v)=\mu\lambda\;\propto\;q_1q_2=:\kappa ,
+  \end{equation}
+  and integrating the density over the scale interval $[0,M_*]$ selected by
+  \eqref{eq:depth-distance} gives the same
+  $V(r)=\kappa\,e^{-M_*}/(4\pi\ell_0)=\kappa/(4\pi r)$.
+\end{enumerate}
+
+Reading (b) is the one that carries the sign for free: by Theorem~9.2 the
+curvature scalar of the horizontal distribution is literally $\mu\lambda$, and by
+Remark~9.5 of Paper~0 it is an intrinsic invariant of the distribution even
+though its numerical value depends on the choice of horizontal metric.  The sign
+of $\kappa$ is therefore the sign of the product of the two charge steps, and
+that is the whole of the sign rule.
+
+\begin{statusbox}
+\textbf{Where Hypothesis~\ref{hyp:pairing} enters.}  Theorem~9.2 supplies
+$\omega(D_u,D_v)=\mu\lambda$ as an exact statement about the contact
+distribution.  It does not by itself say that $\lambda$ is proportional to a
+second charge, nor that the integral of the density over a scale interval is an
+energy.  Both are the content of Hypothesis~\ref{hyp:pairing}, and the force law
+below is conditional on it.  What is \emph{not} hypothetical is the sign
+structure: once $\kappa=q_1q_2$, the two cases differ by the sign of a product
+of two real numbers, and no further choice is available.
+\end{statusbox}
+
+\subsection{Like charges: the two-electron case}
+
+Take $q_1=q_2=-e$.  Then
+\begin{equation}\label{eq:kappa-ee}
+  \kappa_{ee}=q_1q_2=(-e)(-e)=+e^{2}>0,
+\end{equation}
+which is the same sign as for two positive charges.  Geometrically this is
+Lemma~\ref{lem:reflection} applied twice: the two reflections of the second
+slot compose to the identity, $\mathcal R^2=\id$, so the 2-chain keeps its
+orientation.  Paper~0, Appendix~D.1 makes the same statement at the level of the
+oriented rectangle: the pulled-back orientation form is $pq\,\mathrm ds\wedge
+\mathrm dt$, so a double sign change leaves it $+pq\,\mathrm ds\wedge\mathrm dt$.
+
+Integrating the curvature density over the scale interval as in
+\eqref{eq:pairing-energy},
+\begin{equation}\label{eq:V-ee}
+  V_{ee}(r)=\frac{\kappa_{ee}}{4\pi\ell_0}e^{-M_*}=+\frac{e^{2}}{4\pi r}>0 .
+\end{equation}
+The generalized force conjugate to the separation $r$ is
+\begin{equation}\label{eq:F-ee}
+  F_{ee}(r)=-\frac{\mathrm dV_{ee}}{\mathrm dr}
+  =-\frac{\mathrm d}{\mathrm dr}\Bigl(+\frac{e^{2}}{4\pi r}\Bigr)
+  =+\frac{e^{2}}{4\pi r^{2}}>0,
+\end{equation}
+i.e. directed along increasing $r$: the charges are pushed apart.
+
+\begin{remark}[Why a positive potential means repulsion here]
+\label{rem:relaxation}
+The sign convention is the one fixed in Section~1.3: $V$ is the energy of the
+configuration as a function of the separation, so $F=-\mathrm dV/\mathrm dr$ is
+the force conjugate to $r$.  In the $\E_0$ reading of
+Subsection~\ref{subsec:three-readings} below, $V_{ee}>0$ is exactly the
+statement that the configuration relaxes towards $r\to\infty$, i.e. towards
+$e^{-M}\to0$ on the ideal boundary.
+\end{remark}
+
+\subsection{Opposite charges: the electron--positron case}
+
+Take $q_1=-e$ and $q_2=+e$.  By Lemma~\ref{lem:reflection} the second charge is
+the first one conjugated by the reflection, so exactly one side of the 2-chain
+carries a sign change.
+
+\begin{lemma}[Orientation reversal for exactly one negative side]
+\label{lem:orientation}
+For the oriented singular rectangle $R_{p,q}(s,t)=(sp,tq)$ with
+$0\le s,t\le1$ of Paper~0, Appendix~D.1, the pulled-back orientation form is
+$pq\,\mathrm ds\wedge\mathrm dt$.  Hence the orientation of the rectangle
+reverses exactly when one of $p,q$ changes sign, and the weighted integral
+$\int_{R_{p,q}}e^{q-M}\mathrm dA\wedge\mathrm dM=p(e^{q}-1)$ is unchanged.
+\end{lemma}
+
+\begin{proof}
+$R_{p,q}^*(\mathrm dA\wedge\mathrm dM)=pq\,\mathrm ds\wedge\mathrm dt$; the
+weight is positive, so the sign of the integral is the sign of $pq$.  The value
+$p(e^q-1)$ follows by direct integration as in Appendix~D.1.
+\end{proof}
+
+Consequently the curvature pairing changes sign,
+\begin{equation}\label{eq:kappa-ep}
+  \kappa_{e^+e^-}=q_1q_2=(-e)(+e)=-e^{2}<0,
+\end{equation}
+and with it the potential and the force:
+\begin{equation}\label{eq:V-ep}
+  V_{e^+e^-}(r)=-\frac{e^{2}}{4\pi r}<0,
+  \qquad
+  F_{e^+e^-}(r)=-\frac{e^{2}}{4\pi r^{2}}<0 .
+\end{equation}
+The force is along decreasing $r$: the charges are pulled together.
+
+Two further \AEG{} identities describe the same case.
+
+\begin{proposition}[The neutral pair is the closed charge loop]
+\label{prop:dipole-loop}
+For equal and opposite additive steps the total additive charge vanishes,
+$A_{\mathrm{tot}}=(-e)+(+e)=0$, and the pair is realized by the closed
+chronological loop
+$\ell=(\cA_{+e},\cM_{M_*},\cA_{-e},\cM_{-M_*})$ of Paper~0, Appendix~D.2.  Its
+weights satisfy
+\[
+  \tau(\ell,\varnothing)=e\bigl(1-e^{-M_*}\bigr)=e\Bigl(1-\frac{\ell_0}{r}\Bigr),
+\]
+which vanishes as $r\to\ell_0$ and grows towards $e$ as $r\to\infty$.
+\end{proposition}
+
+\begin{proof}
+The charge computation is Theorem~8.6(2) with $(p,q)\mapsto(e,M_*)$; the
+evaluation defect is the lemma of Section~3.5.  The limits are immediate from
+\eqref{eq:depth-distance}.
+\end{proof}
+
+\begin{remark}[What the closed loop adds]
+\label{rem:dipole}
+The loop of Proposition~\ref{prop:dipole-loop} is the identity that Paper~0
+records to separate ``zero total charge'' from ``operator neutrality''.  Read
+through Hypothesis~\ref{hyp:pairing} it acquires a second reading: the dipole
+has zero asymptotic charge, but because the $+e$ and $-e$ steps occur at
+different depths it encloses a signed rectangle in $\ACS$, and the weighted area
+of that rectangle is the defect $\tau=e(1-e^{-M_*})$.  Since
+$e(1-\ell_0/r)$ increases with $r$, the configuration lowers its defect by
+decreasing $r$: this is the geometric source of the attraction, stated entirely
+inside \AEG{} up to the identification of $\tau$ with an energy.
+\end{remark}
+
+\subsection{Three geometric readings of the sign rule}
+\label{subsec:three-readings}
+
+\paragraph{(1) In $\E_0$: opening versus closing.}
+Two electrons push the assignment in the same direction, $\mathsf X_{-e}$ each.
+To keep the terminal state fixed they need compensating rescaling, and the
+compensation grows with the scale span $M_*$; the pair behaves like an opening
+spring whose relaxation is towards larger $r$.  Electron and positron push in
+opposite directions, and at $M_*=0$ the two motions cancel identically,
+$\mathsf X_{+e}\circ\mathsf M_0\circ\mathsf X_{-e}=\id$, so the configuration is
+already neutral in the coincident limit; any nonzero separation inserts a scale
+step $M_*$ between the two steps and produces the defect
+$e(1-e^{-M_*})$ that the pair then reduces by approaching.
+
+\paragraph{(2) In $\ACS$: divergent stacking versus a closed rectangle.}
+Two like charges give $A_{\mathrm{tot}}=-2e\ne0$: no closed loop, hence no
+cancellation, and the additive charge accumulates without bound as
+$M_*\to\infty$ (Corollary~\ref{cor:bare-divergence}).  Opposite charges give
+$A_{\mathrm{tot}}=0$ and the closed rectangle of
+Proposition~\ref{prop:dipole-loop}, whose weighted area is the binding defect.
+
+\paragraph{(3) In $\Cont$: the sign of the curvature and the handedness of the
+contact volume.}
+The curvature two-form is $\omega=\mu\lambda\,\mathrm du\wedge\mathrm dv$ with
+$\mu\lambda\propto q_1q_2$; the contact volume form is
+$\alpha\wedge\mathrm d\alpha=\mu\lambda\,\mathrm du\wedge\mathrm da\wedge
+\mathrm dv$ (Paper~0, Propositions~9.1 and 9.6).  Changing the sign of exactly
+one charge therefore reverses the orientation of the contact volume while
+leaving the horizontal distribution unchanged in rank and integrability.  In the
+reading of Theorem~\ref{thm:dual-tearing}(2) this is a reversal of the Reeb
+drift: for like charges the Reeb height of the pair grows with decreasing $r$,
+for unlike charges it decreases.
+
+\subsection{Status of this section}
+
+{\small
+\renewcommand{\arraystretch}{1.22}%
+\begin{longtable}{@{}p{0.55\linewidth}p{0.39\linewidth}@{}}
+\toprule
+statement & status \\
+\midrule
+\endfirsthead
+\toprule
+statement & status \\
+\midrule
+\endhead
+\midrule
+\multicolumn{2}{r}{\emph{continued}}\\
+\endfoot
+\bottomrule
+\endlastfoot
+$\mathcal R\circ\mathsf X_{-e}\circ\mathcal R^{-1}=\mathsf X_{+e}$
+& proved (Lemma~\ref{lem:reflection}); Paper~0, Subsec.~3.4 \\
+orientation of the rectangle reverses when exactly one side is negative
+& proved (Lemma~\ref{lem:orientation}); Paper~0, App.~D.1 \\
+$(-p)(-q)=+pq$ versus $(-p)(+q)=-pq$ for the curvature pairing
+& proved once $\kappa=\mu\lambda\propto q_1q_2$; Paper~0, Props.~9.1, 9.6 \\
+the neutral pair is a closed loop with defect $e(1-e^{-M_*})$
+& proved; Paper~0, Thm.~8.6, App.~D.2 \\
+\midrule
+the additive step $\cA_{-e}$ is a physical charge $-e$, and
+$\mathcal R$ is charge conjugation
+& Hypothesis~\ref{hyp:charge} \\
+$e^{-M_*}=\ell_0/r$ is the Coulomb kernel
+& Hypothesis~\ref{hyp:depth} \\
+$V=\kappa e^{-M_*}/(4\pi\ell_0)$ is an interaction energy, i.e.
+$\mu\lambda$ pairing is energy
+& Hypothesis~\ref{hyp:pairing} \\
+$\tau=e(1-e^{-M_*})$ is a binding energy
+& Hypothesis~\ref{hyp:pairing}, via Remark~\ref{rem:dipole} \\
+\end{longtable}}
+
+The three-dimensional normalisation by $4\pi$ is not derived here.  It is the
+solid angle of the unit sphere, inserted because the \AEG{} model is one
+dimensional in the multiplicative direction while the physical field lives in
+three space dimensions; the same insertion is used in every section that quotes
+a force.  A genuinely three-dimensional carrier is beyond the scope of the
+present note and is recorded as an open end in Section~\ref{sec:summary}.

@@ -1,0 +1,271 @@
+% ---------------------------------------------------------------------
+% Section 3
+% ---------------------------------------------------------------------
+
+\begin{cnread}
+本节回答一个自然的问题：切触空间里那两个投影 $\pi$（忘掉赋值 $a$）与
+$Q$（忘掉 Reeb 荷 $u$）之间的「勒让德对偶」，究竟与力学里联系
+Lagrange 量和 Hamilton 量的\textbf{勒让德变换}是不是同一件事？答案是：
+在标准切触流形上，它就是同一个操作的两个 Legendre 叶层。
+由此得到本文的第一个真正的新命题：\textbf{双重撕裂定理}——固定荷看
+「赋值撕裂 $\Delta a$」（Paper~0 定理 8.9），固定状态看「Reeb 纤维漂移
+$\Delta A$」（Paper~0 定理 9.9），两者是同一个切触曲率的两个共轭读法。
+本节末尾用核字 $h(p,q)$ 做两条路径的现场验算，结果一字不差是
+$p(1-e^{-q})$。
+\end{cnread}
+
+\subsection{Why the mechanical Legendre transform is a contact statement}
+
+In analytical mechanics with one degree of freedom, let $q$ be the coordinate,
+$p$ the momentum, and $S$ the action, so that $(q,p,S)$ are coordinates on the
+first jet bundle $J^1(\R)\cong\R^3$.  The canonical contact form is
+\begin{equation}\label{eq:mech-contact}
+  \alpha_{\mathrm{mech}}=\mathrm dS-p\,\mathrm dq=0 .
+\end{equation}
+Using $\mathrm d(pq)=p\,\mathrm dq+q\,\mathrm dp$ and putting
+$\tilde S:=pq-S$, the same form reads
+\begin{equation}\label{eq:mech-contact-dual}
+  \alpha_{\mathrm{mech}}=-\mathrm d\tilde S+q\,\mathrm dp=0 .
+\end{equation}
+Equations \eqref{eq:mech-contact} and \eqref{eq:mech-contact-dual} are the same
+one-form written through two different choices of potential, and the two
+choices are related by the Legendre transformation.  Geometrically the content
+is that one contact three-manifold carries two Legendrian fibrations: the
+``coordinate'' projection $(q,p,S)\mapsto(q,S)$ in which $p\,\mathrm dq$ is read
+as the accumulated quantity, and the ``momentum'' projection in which
+$q\,\mathrm dp$ is.  Nothing about the contact structure changes; what changes is
+which variable is declared to be a function of the others.
+
+\begin{remark}[What the Legendre transformation does not do]
+The passage from \eqref{eq:mech-contact} to \eqref{eq:mech-contact-dual} uses
+only the product rule.  It is therefore available wherever the product exists;
+the analytic content of the classical Legendre transformation (convexity,
+invertibility of $p=\partial S/\partial q$) is not used and is not needed here.
+\end{remark}
+
+\subsection{The arithmetic contact form and its two potentials}
+
+In the natural charge coordinates $A=\mu u$ and $M=\lambda v$ of Paper~0,
+Appendix~D.4, the arithmetic contact form is
+\begin{equation}\label{eq:arith-contact}
+  \alpha=\mathrm da-\mathrm dA-a\,\mathrm dM,
+\end{equation}
+and the global affine change of coordinates
+\begin{equation}\label{eq:darboux}
+  x_{\mathrm D}=M,
+  \qquad
+  y_{\mathrm D}=a,
+  \qquad
+  z_{\mathrm D}=a-A
+\end{equation}
+puts it in standard Darboux form $\alpha=\mathrm dz_{\mathrm D}-y_{\mathrm D}
+\,\mathrm dx_{\mathrm D}$ (Appendix~D.4).  Comparing \eqref{eq:darboux} with
+\eqref{eq:mech-contact} identifies the correspondence
+\begin{equation}\label{eq:legendre-dictionary}
+  S\;\longleftrightarrow\; a-A,
+  \qquad
+  p\;\longleftrightarrow\;a,
+  \qquad
+  q\;\longleftrightarrow\;M .
+\end{equation}
+The current assignment $a$ plays the role of the momentum, and the logarithmic
+scale $M$ plays the role of the coordinate.
+
+\begin{lemma}[Legendre-dual form of $\alpha$]
+\label{lem:legendre-linear}
+With $\tilde S:=aM-a+A$ one has the identity
+\begin{equation}\label{eq:legendre-linear}
+  \alpha=-\mathrm d\tilde S+M\,\mathrm da
+  \qquad\text{on }\Cont .
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Expanding $-\mathrm d(aM-a+A)+M\,\mathrm da$ gives
+$-(a\,\mathrm dM+M\,\mathrm da-\mathrm da+\mathrm dA)+M\,\mathrm da
+=\mathrm da-\mathrm dA-a\,\mathrm dM$.
+\end{proof}
+
+\begin{remark}[A correction to the working note]
+\label{rem:legendre-correction}
+The working note from which this section is drawn displayed the same step with
+the coefficient $1+M$ on $\mathrm da$, that is
+$\alpha=-\mathrm d(A+aM-a)+(1+M)\mathrm da$.  Expanding shows that this has an
+extra $\mathrm da$ and is not $\alpha$.  The correct dual potential is
+$A+aM-a$ with momentum coefficient $M$, as in \eqref{eq:legendre-linear}.  The
+error does not propagate: every later identity in the note uses the
+exponential form \eqref{eq:legendre-exponential} below, which is correct as
+written.  Check~V5.1--V5.2 of Appendix~\ref{app:register} records both.
+\end{remark}
+
+The linear Legendre transformation \eqref{eq:legendre-linear} is not the most
+intrinsic one available here, because the multiplicative motion of \AEG{} is the
+exponential $e^{M}$ rather than the addition of $M$.  Rescaling the contact
+form by the nowhere-vanishing factor $e^{-M}$ --- which leaves the horizontal
+distribution $\ker\alpha$ untouched --- gives a second, multiplicative dual.
+
+\begin{lemma}[Exponential Legendre identity]
+\label{lem:legendre-exponential}
+On $\Cont$,
+\begin{equation}\label{eq:legendre-exponential}
+  e^{-M}\alpha=\mathrm d\bigl(e^{-M}a\bigr)-e^{-M}\mathrm dA .
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+$e^{-M}\alpha=e^{-M}(\mathrm da-a\,\mathrm dM)-e^{-M}\mathrm dA$ and
+$\mathrm d(e^{-M}a)=e^{-M}\mathrm da-a e^{-M}\mathrm dM$.
+\end{proof}
+
+\begin{remark}[Three names for one quantity]
+\label{rem:hat-a}
+The quantity $\hat a:=e^{-M}a$ occurring in \eqref{eq:legendre-exponential} has
+three readings.  It is the source-normalized assignment of Paper~0,
+Proposition~8.2; it is minus the horizontal coordinate of the basic hyperbolic
+model, because under the Reeb quotient
+$Q(u,v,a)=(-ae^{-\lambda v},e^{-\lambda v})$ one has $\hat a=-x$; and it is, by
+Lemma~\ref{lem:legendre-exponential}, the potential whose differential measures
+the additive charge in the target frame.  Paper~0, Theorem~9.9 is exactly the
+statement that these three readings agree.
+\end{remark}
+
+\subsection{The dual tearing theorem}
+
+The two readings of Lemmas~\ref{lem:legendre-linear}
+and~\ref{lem:legendre-exponential} become two comparison experiments.  The
+statement below is Paper~0, Theorem~9.9; it is reproduced here in the notation
+of this note because every later section uses it.
+
+\begin{theorem}[Dual tearing and Reeb drift]
+\label{thm:dual-tearing}
+Let $\tilde\gamma_1,\tilde\gamma_2$ be piecewise smooth horizontal lifts in
+$\Cont$ with a common initial state.
+\begin{enumerate}[label=(\arabic*)]
+  \item \emph{(Fixed charges: value tearing.)}  Suppose the projected charge
+  chains $C_i=\pi\circ\tilde\gamma_i$ share their terminal point $(A_*,M_*)$.
+  Then the terminal assignments differ by
+  \begin{equation}\label{eq:value-tearing}
+    a(\tilde\gamma_1(1))-a(\tilde\gamma_2(1))
+    =e^{M_*}\oint_{C_1-C_2}e^{-M}\mathrm dA
+    =\iint_{\Sigma_{12}}e^{M_*-M}\mathrm dA\wedge\mathrm dM
+    =\tau(\gamma_1,\gamma_2),
+  \end{equation}
+  for any oriented two-chain $\Sigma_{12}$ in $\ACS$ with
+  $\pt\Sigma_{12}=C_1-C_2$.  This is the weighted torsion--Stokes formula of
+  Paper~0, Theorem~8.9.
+  \item \emph{(Fixed state: Reeb drift.)}  Suppose instead that the projected
+  paths $\tilde\gamma_i=Q\circ\tilde\gamma_i$ terminate at the same point
+  $p\in\HH^2$, equivalently at the same pair $(M_*,a_*)$.  Then the terminals
+  lie on the same Reeb fiber and
+  \begin{equation}\label{eq:reeb-drift}
+    \Delta A:=A(\tilde\gamma_1(1))-A(\tilde\gamma_2(1))
+    =-\oint_{\tilde\gamma_1-\tilde\gamma_2}a\,\mathrm dM
+    =-\iint_{\Omega_{12}}\mathrm da\wedge\mathrm dM
+    =-\mu\lambda\,\mathrm{Area}_{g_{\mu,\lambda}}(\Omega_{12}),
+  \end{equation}
+  for any oriented two-chain $\Omega_{12}\subset\HH^2$ with
+  $\pt\Omega_{12}=\tilde\gamma_1-\tilde\gamma_2$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(1) Integrate \eqref{eq:legendre-exponential} along each horizontal lift; the
+initial terms cancel on subtraction, and $e^{M_*}$ multiplying the result gives
+the first equality.  The second is Stokes' theorem in $\ACS$ with the target
+weight $e^{M_*-M}$, as in Paper~0, Theorem~8.9.
+
+(2) Integrate \eqref{eq:arith-contact} along each lift to get
+$A(\tilde\gamma_i(1))-A_0=(a(\tilde\gamma_i(1))-a_0)-\int_{\tilde\gamma_i}
+a\,\mathrm dM$.  Under common terminal state the boundary terms cancel on
+subtraction, giving the line-integral form.  Stokes' theorem in $\HH^2$ and
+$d\alpha=-\mu\lambda\,Q^*\mathrm d\vol_{g_{\mu,\lambda}}$ of Paper~0,
+Proposition~9.8(5) give the area form.
+\end{proof}
+
+\begin{remark}[Why the two projections must be conjugate]
+\label{rem:conjugacy}
+$\pi$ forgets the assignment fiber $\pt_a$ and $Q$ forgets the Reeb fiber
+$\pt_u$.  These are different directions of one three-manifold, so a comparison
+that closes in one projection necessarily fails to close in the other: a
+charge-compatible pair stays open on $\HH^2$, and a state-compatible pair closes
+on $\HH^2$ and opens along the Reeb fiber.  That complementarity --- not an
+analogy --- is the content of the word ``duality'' here.
+\end{remark}
+
+\subsection{A worked pair: the kernel word}
+
+The smallest nontrivial instance is the element of $\ker\nu$ exhibited in
+Paper~0, Theorem~8.6,
+\begin{equation}\label{eq:kernel-word}
+  h(p,q)=\cM_q\,\cA_p\,\cM_{-q}\,\cA_{-e^{-q}p},
+\end{equation}
+whose two halves are the prefixes $\gamma_1=(\cM_q,\cA_p)$ and
+$\gamma_2=(\cA_{e^{-q}p},\cM_q)$.  Both carry $(M,a)=(0,0)$ to the same terminal
+state with $M_*=q$ and $a_*=p$.
+
+\begin{lemma}[Reeb drift of the kernel word]
+\label{lem:kernel-word}
+For $\gamma_1,\gamma_2$ as above,
+\[
+  \Delta A=A(\gamma_1)-A(\gamma_2)=p-e^{-q}p=p(1-e^{-q}),
+\]
+and the two sides of \eqref{eq:reeb-drift} both evaluate to $p(1-e^{-q})$.  The
+weighted torsion of \eqref{eq:value-tearing} for the same pair vanishes, as it
+must, since the terminal assignments agree.
+\end{lemma}
+
+\begin{proof}
+The bare additive charges are $A(\gamma_1)=p$ and $A(\gamma_2)=e^{-q}p$.  On the
+state side, $\gamma_1$ is the lower broken line $(0,0)\to(q,0)\to(q,p)$ with
+$a\equiv0$ along its horizontal leg, so $\int_{\gamma_1}a\,\mathrm dM=0$, while
+$\gamma_2$ follows $a(M)=pe^{M-q}$ and
+$\int_{\gamma_2}a\,\mathrm dM=\int_0^q pe^{M-q}\mathrm dM=p(1-e^{-q})$.
+Hence $-\bigl(\int_{\gamma_1}-\int_{\gamma_2}\bigr)a\,\mathrm dM=p(1-e^{-q})$,
+in agreement with the charge difference.  The weighted area route gives
+$\int_0^q\!\!\int_0^p e^{-M}\mathrm dA\,\mathrm dM=p(1-e^{-q})$ as well.  The
+verification is Check~V6.1--V6.3.
+\end{proof}
+
+This is the identity that Paper~0, Appendix~D.2 records as the archetype of
+``zero total charge is weaker than operator neutrality'': the loop
+$\ell=(\cA_p,\cM_q,\cA_{-p},\cM_{-q})$ has total charge $(0,0)$ yet
+$\tau(\ell,\varnothing)=p(1-e^{-q})$.  In Section~\ref{sec:coulomb} this lemma is
+read as the binding energy of a charge dipole, and in
+Section~\ref{sec:radiation} it is read as the phase carried by a virtual pair.
+
+\subsection{The duality table}
+
+\begin{center}\small
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}p{0.22\linewidth}p{0.36\linewidth}p{0.36\linewidth}@{}}
+\toprule
+ & \textbf{reading A: charge projection $\pi$} & \textbf{reading B: Reeb quotient
+ $Q$} \\
+\midrule
+map & $\Cont\to\ACS_{(A,M)}$, forgets $a$
+& $\Cont\to\E_0$, forgets $u=A/\mu$ \\
+form used & $e^{-M}\alpha=\mathrm d(e^{-M}a)-e^{-M}\mathrm dA$
+& $\alpha=-\mathrm dA+(\mathrm da-a\,\mathrm dM)$ \\
+closure hypothesis & same terminal charges $(A_*,M_*)$
+& same terminal state $p=(M_*,a_*)$ \\
+vertical defect & value tearing $\Delta a$
+& Reeb drift $\Delta A=\mu\Delta u$ \\
+value & $\Delta a=\iint_\Sigma e^{M_*-M}\mathrm dA\wedge\mathrm dM$
+& $\Delta A=-\iint_\Omega\mathrm da\wedge\mathrm dM
+=-\mu\lambda\,\mathrm{Area}_g(\Omega)$ \\
+\AEG{} source & Theorem~8.9, Prop.~8.2
+& Theorem~8.6, Prop.~9.8, Theorem~9.9 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{The open thread: from the affine sector to the projective group}
+
+Both readings above live in the affine sector: the horizontal lifts are lifts
+inside $B_\infty$, and the Riccati structure of the assignment along a flow is
+hidden.  If one allows the second-slot division $c/z$, i.e. the inverting
+element $J(z)=-1/z$, then the same one-form acquires a quadratic term and the
+assignment obeys a Riccati rather than a linear equation.  Section~\ref{sec:radiation}
+carries out exactly that step, and shows that the additional datum which then
+appears --- the kernel coordinate $b$ of the bivaluation --- is what makes a
+closed history carry a non-telescoping holonomy.

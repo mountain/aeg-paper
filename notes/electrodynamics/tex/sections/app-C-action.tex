@@ -1,0 +1,110 @@
+% ---------------------------------------------------------------------
+% Appendix C
+% ---------------------------------------------------------------------
+
+\begin{cnread}
+本附录给出第 9 节用到的库仑径向作用量的完整初等推导，并对三个参数点做
+数值核对（V7.1）。结果是半作用量
+$\int_{r_-}^{r_+}p_r\,\mathrm dr=\pi\bigl(m\alpha_e/\sqrt{-2mE}-l\bigr)$，
+整体作用量是它的两倍。由此立刻得到玻尔能谱。
+\end{cnread}
+
+\subsection{The radial momentum and the turning points}
+
+For a Coulomb pair with potential $V=-k/r$ and conserved angular momentum $l$,
+\begin{equation}\label{eq:pr}
+  p_r^{2}=2m\Bigl(E+\frac kr\Bigr)-\frac{l^{2}}{r^{2}}
+  =\frac{2mE\,r^{2}+2mk\,r-l^{2}}{r^{2}} .
+\end{equation}
+For $E<0$ put $A=2m|E|>0$, so that $2mE=-A$.  The turning points are the positive
+roots of $Ar^{2}-2mk\,r+l^{2}=0$:
+\begin{equation}\label{eq:turning}
+  r_{\pm}=\frac{mk\pm\sqrt{m^{2}k^{2}-Al^{2}}}{A},
+  \qquad
+  r_++r_-=\frac{2mk}{A},
+  \qquad
+  r_+r_-=\frac{l^{2}}{A} .
+\end{equation}
+Between them $p_r=\sqrt A\,\sqrt{(r_+-r)(r-r_-)}/r$.
+
+\subsection{The half-action}
+
+\begin{lemma}[Half radial action]
+\label{lem:half-action}
+With $A=2m|E|$ and the turning points \eqref{eq:turning},
+\begin{equation}\label{eq:half-action}
+  \int_{r_-}^{r_+}p_r\,\mathrm dr
+  =\pi\Bigl(\frac{mk}{\sqrt{A}}-l\Bigr)
+  =\pi\Bigl(\frac{mk}{\sqrt{-2mE}}-l\Bigr).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Substituting $p_r=\sqrt A\sqrt{(r_+-r)(r-r_-)}/r$ reduces the claim to the
+elementary integral
+\begin{equation}\label{eq:elementary}
+  \int_{a}^{b}\frac{\sqrt{(b-x)(x-a)}}{x}\,\mathrm dx
+  =\frac{\pi(a+b)}{2}-\pi\sqrt{ab},
+\end{equation}
+which is Check~V7.4 at three parameter points.  Applying it with $a=r_-$,
+$b=r_+$ and using \eqref{eq:turning},
+\[
+  \int_{r_-}^{r_+}p_r\,\mathrm dr
+  =\sqrt A\,\pi\Bigl(\frac{r_++r_-}{2}-\sqrt{r_+r_-}\Bigr)
+  =\sqrt A\,\pi\Bigl(\frac{mk}{A}-\frac{l}{\sqrt A}\Bigr)
+  =\pi\Bigl(\frac{mk}{\sqrt A}-l\Bigr).
+\]
+The second form uses $A=-2mE$.
+\end{proof}
+
+\begin{remark}[On \eqref{eq:elementary}]
+The integral is a standard contour integral; it can also be obtained by the
+Kepler substitution $x=\bar r(1-e\cos\psi)$ with $\bar r=(a+b)/2$ and
+$e=(b-a)/(b+a)$.  The version stated is the one verified numerically.
+\end{remark}
+
+\subsection{Numerical verification}
+
+Check~V7.1 evaluates the left side of \eqref{eq:half-action} by symbolic
+quadrature and compares with the closed form at three parameter points
+$(m,k,l,E)$:
+
+\begin{center}\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{@{}ccccc@{}}
+\toprule
+$m$ & $k$ & $l$ & $E$ & $\int_{r_-}^{r_+}p_r\,\mathrm dr$ \\
+\midrule
+$1$ & $1$ & $1/2$ & $-1/2$ & $1.57079632679\ldots=\pi/2$ \\
+$2$ & $3$ & $1$ & $-9/8$ & $5.74417322273\ldots$ \\
+$1/2$ & $3$ & $1$ & $-8/9$ & $1.85665065184\ldots$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+In each case the quadrature agrees with
+$\pi\bigl(mk/\sqrt{-2mE}-l\bigr)$ to better than $10^{-12}$.
+
+\subsection{The spectrum}
+
+With $\alpha_e=e^{2}/(4\pi)$ and $k=\alpha_e$, the full action is twice
+\eqref{eq:half-action}, and Quantization~\eqref{eq:bohr-sommerfeld} gives
+\begin{equation}\label{eq:quantization}
+  2\pi\Bigl(\frac{m\alpha_e}{\sqrt{-2mE}}-l\Bigr)=2\pi n_r\hbar
+  \quad\Longleftrightarrow\quad
+  \frac{m\alpha_e}{\sqrt{-2mE}}=l+n_r\hbar=\hbar n ,
+\end{equation}
+where $n:=n_r+l/\hbar$.  Then
+\begin{equation}\label{eq:spectrum-app}
+  E_n=-\frac{m\alpha_e^{2}}{2\hbar^{2}n^{2}} .
+\end{equation}
+Check~V7.2 substitutes \eqref{eq:spectrum-app} into the middle expression of
+\eqref{eq:quantization} and finds $\hbar n$ identically; Check~V7.3 recovers
+$E_1=-m\alpha_e^{2}/(2\hbar^{2})$.
+
+\begin{warning}[Semiclassical status]
+As stated in Warning~\ref{warn:semiclassical}, \eqref{eq:spectrum-app} is a
+Bohr--Sommerfeld result.  Its agreement with the exact hydrogen spectrum is a
+property of the Coulomb potential; no operator-theoretic statement is made, and
+the multiplicities $n^{2}$ of the levels are not derived.
+\end{warning}

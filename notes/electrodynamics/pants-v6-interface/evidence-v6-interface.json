@@ -1,0 +1,75 @@
+{
+  "X1_degeneration": {
+    "X1_labelled_seam_changes_the_reading": {
+      "photon_seam": {
+        "d=2j": 2,
+        "dim": 3,
+        "j": "1"
+      },
+      "reading": "j=0 时接口读数是'一个数'；j=1 时读数变成'一个数 + 离散标签 + 一个 3x3 转动'。所以扩展加入的连续数据只有转动，标签是**离散**的。"
+    },
+    "X1_trivial_seam_identity_transport": {
+      "reduces_to_value_layer": true,
+      "weight": "T"
+    },
+    "X1_trivial_seam_phase_transport": {
+      "modulus_with_T=1": "1",
+      "reading": "一维态空间 + 相位转动时，权重 = e^{i phi} T：**一个相位乘一个数**。这正是 11 天前那份电动力学稿 Remark 2.9 的说法（同终点不同 Reeb 高度 ⇒ 差一个相位；以 e^{iA} 为权求和作为路径积分的候选）。于是 AEG 的缝圆 holonomy（Prop 10.7 的一个标量）与那个相位是同一个东西，扩展只是把相位换成矩阵。",
+      "weight": "T*exp(I*phi)"
+    }
+  },
+  "X2_pole_residue": {
+    "X2_F": "c/2 + 1/2",
+    "X2_amplitude_shape": "A(sigma,theta) = (1/sigma) * F(theta)，F 来自态空间缩并",
+    "X2_residue_equals_state_space_contraction": true,
+    "X2_residue_is_finite_and_sigma_free": true,
+    "X2_residue_sigma_times_A": "c/2 + 1/2",
+    "caveat": "这不是'解决了极点'。留数有限是微扰论里把极点因子提出去的结果；AEG 若要在 sigma=0 处**直接用字符读数**，K4 依然成立。",
+    "reading": "V4 的 K4：把 1/sigma 放进**值层**（局部化）会让 sigma=0 处的谱塌成零环。但物理在极点处用的不是'接口的值'，而是**留数**；留数 = 态空间上的缩并，它在 sigma=0 处完全有限，且不依赖 sigma。⇒ K4 的障碍没有被绕开，而是被**分层**：值层负责 1/sigma（并在极点上失效），态空间层负责留数（在极点上良好）。两条读法不是竞争关系，而是分别管不同的东西。"
+  },
+  "X3_pairing": {
+    "X3_all_three_modes_nonzero_amplitudes": 16,
+    "X3_negative_count": 1,
+    "X3_nondegenerate": true,
+    "X3_pairing_signature_photon": [
+      1,
+      1,
+      -1
+    ],
+    "X3_positive_count": 2,
+    "X3_positive_part_only_nonzero_amplitudes": 4,
+    "reading": "AEG 已经有'缝两侧定向相反'（V1/V2 的 seam:opposite-orientations）。加上态空间后，那个'相反'正好是配对 V ⊗ V* -> C 所需要的东西 —— 所以扩展不是新加一条要求，而是给已有的一条要求**赋予内容**。但光子给的配对不是正定的：号差 (2,1)，行列式 -1。取正定部分（两个横模）才得到 4/16；三个模全要则 16/16 全非零。⇒ '横模优先' = 取配对的正定部分，这是**规范输入**，不是从配对推出来的。",
+    "signature_note": "正定内积（[1, 1, 1]）无法承载光子的不定号配对；所以扩展必须允许**非正定**的配对，并显式声明取哪一部分。"
+  },
+  "X4_compatibility": {
+    "must_be_rewritten": [
+      "缝圆 holonomy（Prop 10.7）：标量 ∮β 应升级为态空间上的算子；一维情形退化为一个 U(1) 相位（X1 已核）",
+      "接口谱（Prop 10.9）：j=0 时字符读数 χ_c 原样；j!=0 时'值'要换成'标量值 + 离散标签 + 转动'三元组",
+      "接口记录（Def 10.11）：I_e = (D_e,C_e;σ_e,r_e,β_e) 需增加 (V_e,U_e,配对) 三个字段"
+    ],
+    "real_tension": {
+      "capping": "常值边界封盖阻碍（Thm 10.12 / Cor 10.13）说：正则圆盘不能有常值边界。而态空间的读法给出：封盖一条缝应贡献 dim V_e = 3（取迹），是个非零常数。两者一个说'不可能'、一个说'等于一个数'。**这个张力我没有解决**：也许'常值边界'与'取迹'不是同一件事，也许封盖在态空间层要做的是投影而不是求迹。列为开放问题。",
+      "falsifier": "若把解析数据全部去掉、只留拓扑 + 代数接口，封盖仍然不可能，则这个读法错，Thm 10.12 确实管拓扑层。",
+      "proposed_resolution_my_reading": "张力可能是假的，而且理由与 X2 是同一个分层。把'封盖'读成态空间上的收缩：收缩一条缝 = 用真空 <0| 去缩它的边界态，而这要求标签平凡（j=0）。于是：（代数层）j=0 的缝**可以**被封盖，贡献 dim V_e；（解析层）把它实现成**正则 AES 圆盘**（带度规 a 与 |da|^2 = mu^2 + lambda^2 a^2）则被 Thm 10.12 挡住。也就是说 Thm 10.12 大概是关于**解析厚化**（Remark 10.8，AEG 自己写着'a declared structure not yet constructed in general'）的阻碍，而不是关于拓扑/代数接口的阻碍。若这个读法成立，Cor 10.13 应读作'**解析**封盖不可能'。",
+      "what_would_settle_it": "在态空间层写出封盖的显式构造，并把它与 Thm 10.12 的解析数据对照，看阻碍到底出现在哪一步。"
+    },
+    "unchanged_by_the_extension": [
+      "孔–盘互补（Thm 10.4）：标签与转动不进入同调，[C_e] != 0 与 i_*[C_e] = 0 原样成立",
+      "局部 pants 与亏格（Prop 10.2）：只依赖端口数与图，V3 已把这些量算成纯组合量",
+      "pants 沿接口圆盘拼接（Prop 10.3）：曲面结论不变；变的是接口上放什么"
+    ]
+  },
+  "conclusion": {
+    "the_extension": "接口记录由 (D_e, C_e; σ_e, r_e, β_e) 扩为 (D_e, C_e; σ_e, r_e, β_e; V_e, ⟨·,·⟩_e, U_e)：缝上一个有限维表示空间、一个（可不定号的）非退化配对、一个沿缝的平行移动。",
+    "what_it_buys": "(1) 退化良：一维 + 恒等时精确退回 AEG 的标量读数；(2) 极点分层：1/σ 归值层（在 σ=0 失效），留数归态空间层（有限）；(3) 已有条款获得内容：'缝两侧定向相反' = 配对 V⊗V*→C；(4) 角度依赖有出处：V5 已算出它 = CG·d^1·CG。",
+    "what_stays_open": "封盖与 dim V_e 的张力（X4）没有解决；C 奇偶仍不在标签层里；横模优先仍是规范输入。"
+  },
+  "limitations": [
+    "只实现 j=0 与 j=1 的转动；更高自旋未写",
+    "留数那条是微扰论的分层，不是对 AEG 值层的修补",
+    "没有把扩展做成 AEG 仓库里的补丁；没有跑 AEG 的定理检查器",
+    "封盖张力只提出，未解决"
+  ],
+  "schema": "oq096-pants-interface-v6-extension-report",
+  "status": "interface-record-extended"
+}

@@ -1,0 +1,191 @@
+% ---------------------------------------------------------------------
+% Section 9
+% ---------------------------------------------------------------------
+
+\begin{cnread}
+电动力学的另一面是束缚态：正负电荷若既有吸引、又有切向运动，就既不湮灭
+也不逃逸，而是形成周期轨道。在 \AEG{} 里这正是\textbf{椭圆型}不动点：连续
+分数迭代 $z_{k+1}=E-e^2/z_k$ 的判别式 $E^2-4e^2<0$ 时，两个不动点落在
+上半平面内部的共轭复点上，算子变成旋转。把这条闭合轨道水平提升到切触空间，
+它绕一圈不闭合，而是沿着 Reeb 纤维漂移 $\Delta A=-\oint a\,dM$。把这个漂移
+取成基本作用量的整数倍（Boothby--Wang 预量化），就得到玻尔--索末菲条件，
+代入库仑势直接给出 $E_n=-\dfrac{m\alpha_e^2}{2\hbar^2 n^2}$。本节末尾说明
+这一推导的\textbf{半经典}身份。
+\end{cnread}
+
+\subsection{Hyperbolic, parabolic, and elliptic histories}
+
+A projective motion $F\in\PSL_2(\R)$ is classified by its fixed-point set, and by
+Paper~0, Subsection~5.5, the finite fixed points solve
+\begin{equation}\label{eq:mobius-fixed}
+  Cz^{2}+(D-A)z-B=0 .
+\end{equation}
+
+\begin{enumerate}[label=(\roman*)]
+  \item \emph{Hyperbolic}: two distinct real fixed points.  The motion is a
+  translation along the geodesic joining them; in the flow \eqref{eq:theta-flow}
+  the scale coordinate advances monotonically.  A pair of charges in radial
+  infall or escape follows this type.
+  \item \emph{Parabolic}: one double fixed point, necessarily on the boundary.
+  The corresponding motion is the horocyclic translation $\mathsf X_s$ of
+  \eqref{eq:grid-motions}.
+  \item \emph{Elliptic}: two complex conjugate fixed points in
+  $\CC\setminus\R$, i.e. inside $\HH^2$ when read in the upper half-plane model.
+  The motion is conjugate to a rotation, and its orbit is a closed curve around
+  the interior fixed point.  A bound two-body motion follows this type.
+\end{enumerate}
+
+The Coulomb problem supplies the elliptic case through the continued-fraction map
+of Paper~0, Subsection~5.4.  There, the stationary right-reciprocal update is
+$F(z)=a+b/z$ with matrix $M_F=\begin{pmatrix}a&b\\1&0\end{pmatrix}$ and fixed
+points $z^{2}-az-b=0$.  Writing the bound-state iteration as
+\begin{equation}\label{eq:coulomb-iteration}
+  z_{k+1}=E-\frac{e^{2}}{z_k},
+  \qquad
+  M_F=\begin{pmatrix}E&-e^{2}\\1&0\end{pmatrix},
+\end{equation}
+the fixed-point equation becomes $z^{2}-Ez+e^{2}=0$, whose discriminant is
+$\Delta=E^{2}-4e^{2}$.  For $E<2e$ the discriminant is negative, the two fixed
+points are complex conjugates, and the motion is elliptic.
+
+\begin{remark}[Status of the continued fraction]
+\label{rem:cf-status}
+Equation~\eqref{eq:coulomb-iteration} is the algebraic statement of Paper~0,
+Subsection~5.4 with $(a,b)=(E,-e^{2})$.  Its identification with the spectral
+problem of a Coulomb Hamiltonian is a dictionary statement, not a theorem: what
+\AEG{} supplies is the conjugacy classification of the iteration, and what the
+dictionary supplies is the assertion that the physical bound states sit at the
+parameter values where that classification becomes elliptic.
+\end{remark}
+
+\subsection{The Reeb holonomy of a closed orbit is the action}
+
+Let $\gamma_{\mathrm{orb}}$ be a closed orbit of a bound motion in
+$\HH^2_{(M,a)}$, and let $\tilde\gamma_{\mathrm{orb}}$ be its horizontal lift to
+$\Cont$.  By Theorem~\ref{thm:dual-tearing}(2) the lift does not close in
+$\Cont$: it ends at a Reeb height differing from its starting height by
+\begin{equation}\label{eq:orbit-holonomy}
+  \Delta A(\gamma_{\mathrm{orb}})
+  =-\oint_{\gamma_{\mathrm{orb}}}a\,\mathrm dM
+  =-\iint_{\Omega_{\mathrm{orb}}}\mathrm da\wedge\mathrm dM ,
+\end{equation}
+where $\Omega_{\mathrm{orb}}$ is the region enclosed by the orbit in the
+$(M,a)$-plane.
+
+\begin{lemma}[The action slot]
+\label{lem:action-slot}
+Assume Hypothesis~\ref{hyp:depth} and let the assignment slot of the contact
+form be filled by the scale-corrected radial momentum, $a:=r\,p_r$.  Then
+\begin{equation}\label{eq:action-form}
+  -\oint a\,\mathrm dM=-\oint p_r\,\mathrm dr ,
+\end{equation}
+so that the Reeb drift \eqref{eq:orbit-holonomy} is minus the classical
+mechanical action of the orbit.
+\end{lemma}
+
+\begin{proof}
+$M=\log(r/\ell_0)$ gives $\mathrm dM=\mathrm dr/r$, hence
+$a\,\mathrm dM=r p_r\,\mathrm dr/r=p_r\,\mathrm dr$; the sign is the orientation
+of the loop.
+\end{proof}
+
+\begin{warning}[What the substitution assumes]
+\label{warn:action-slot}
+Lemma~\ref{lem:action-slot} is the point at which the note departs from purely
+\AEG{} statements: the assignment of the contact form is a number attached to a
+history, and calling it $r p_r$ --- with $r$ the physical separation --- is a
+dictionary step additional to Hypotheses~\ref{hyp:charge}--\ref{hyp:pairing}.  It
+is however the least avoidable one, because without it the Reeb drift is a
+dimensionless area and cannot be compared with $\hbar$.
+\end{warning}
+
+\subsection{Monodromy and the Bohr--Sommerfeld condition}
+
+Suppose the Reeb fiber is compactified.  By the Boothby--Wang theorem
+\cite{BoothbyWang1958,Geiges2008}, if the contact form's Reeb field is a
+circle action with period $2\pi\hbar$, then $\Cont$ is the total space of a
+principal $S^{1}$-bundle --- the prequantum bundle of the underlying symplectic
+manifold $\HH^2$ --- and the horizontal lift of a closed orbit closes in the
+fiber exactly when its drift is an integer multiple of the period.
+
+\begin{definition}[Monodromy condition]
+\label{def:monodromy}
+The quantized contact model is the quotient $\Cont/(2\pi\hbar\,\mathbb Z\cdot R)$
+of the Reeb flow.  A closed orbit $\gamma_{\mathrm{orb}}$ defines a monodromy
+element $\exp(\mathrm i\,\Delta A(\gamma_{\mathrm{orb}})/\hbar)\in S^{1}$, and it
+defines a single-valued state exactly when
+\begin{equation}\label{eq:bohr-sommerfeld}
+  \oint_{\gamma_{\mathrm{orb}}}(-a\,\mathrm dM)
+  =\oint p_r\,\mathrm dr
+  =2\pi n\hbar ,
+  \qquad n\in\mathbb Z .
+\end{equation}
+\end{definition}
+
+\begin{theorem}[Coulomb spectrum]
+\label{thm:spectrum}
+Under Hypothesis~\ref{hyp:charge}--\ref{hyp:pairing}, Lemma~\ref{lem:action-slot},
+and Definition~\ref{def:monodromy}, the bound orbits of a Coulomb pair in the
+radial coordinate satisfy
+\begin{equation}\label{eq:radial-action}
+  \oint p_r\,\mathrm dr
+  =2\pi\Bigl(\frac{m\alpha_e}{\sqrt{-2mE}}-l\Bigr)=2\pi n_r\hbar ,
+\end{equation}
+with $\alpha_e=e^{2}/(4\pi)$ and $l$ the angular momentum.  Writing
+$n=n_r+l/\hbar$, the energies are
+\begin{equation}\label{eq:spectrum}
+  E_n=-\frac{m\alpha_e^{2}}{2\hbar^{2}n^{2}},
+  \qquad n=1,2,3,\dots
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+The second equality in \eqref{eq:radial-action} is the standard Coulomb radial
+action; Appendix~\ref{app:action} evaluates the half-action
+$\int_{r_-}^{r_+}p_r\,\mathrm dr=\pi\bigl(m\alpha_e/\sqrt{-2mE}-l\bigr)$ both
+in closed form and by numerical quadrature at three parameter points
+(Checks~V7.1).  Dividing by $2\pi\hbar$ and putting $n_r=n-l/\hbar$ gives
+$m\alpha_e/\sqrt{-2mE}=\hbar n$, hence $-2mE=m^{2}\alpha_e^{2}/(\hbar^{2}n^{2})$
+and \eqref{eq:spectrum}.  Check~V7.2 verifies the quantization condition and
+Check~V7.3 the ground-state value.
+\end{proof}
+
+\begin{remark}[The residue picture]
+\label{rem:residue}
+The integral \eqref{eq:radial-action} is a contour integral between the two
+turning points, i.e. between the two real roots of the quadratic that Paper~0,
+Proposition~5.4 attaches to the iteration.  Its closed form is the residue
+difference between the two ends of the contour.  In the bivaluation language of
+Section~\ref{sec:radiation} the two ends are the two punctures
+$(q^+,q^-)=(0,\infty)$ of the reference pair, so the same integral is a residue
+pairing at the two ends of the frame.  This is a suggestive identification, not a
+proof; it is recorded because it is the natural continuation of the present
+picture.
+\end{remark}
+
+\subsection{How semiclassical is this?}
+
+\begin{warning}[Range of the derivation]
+\label{warn:semiclassical}
+Theorem~\ref{thm:spectrum} is a Bohr--Sommerfeld (EBK) computation, not a
+solution of the Schr\"odinger equation.  Three limitations should be stated.
+\begin{enumerate}[label=(\alph*)]
+  \item The condition \eqref{eq:bohr-sommerfeld} quantizes a single action
+  integral; a genuine quantization would need the full polarization and the
+  half-form (metaplectic) correction of geometric quantization.  For the Coulomb
+  problem those corrections are known to conspire so that the leading
+  Bohr--Sommerfeld spectrum is exact, but that is a property of this particular
+  potential, not a consequence of the present construction.
+  \item The Langer-type correction $l\mapsto l+\tfrac12$ changes the spectrum
+  beyond leading order; no statement about it is made here.
+  \item Nothing above defines a Hilbert space, an inner product, or an operator
+  algebra.  The Reeb circle of Definition~\ref{def:monodromy} is a compactification
+  hypothesis, and the multiplicities of the resulting levels are not counted.
+\end{enumerate}
+What the section does establish is narrower and exact: the quantity that
+Bohr--Sommerfeld quantizes is, in this picture, the Reeb drift of a closed
+horizontal loop --- an object that exists in \AEG{} independently of any physical
+reading --- and the Coulomb input enters only through
+Lemma~\ref{lem:action-slot} and the classical integral of
+Theorem~\ref{thm:spectrum}.
+\end{warning}

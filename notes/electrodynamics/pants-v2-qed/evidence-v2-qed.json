@@ -1,0 +1,282 @@
+{
+  "L1_topology": {
+    "QED_decor_accepted": true,
+    "V1_decor_accepted": true,
+    "baseline_file": "/Users/mingli/work/public/electrodynamics/pants-v2-qed/../pants-v2-qed-baseline-v1.json",
+    "cubes": 56,
+    "diff_vs_saved_V1_baseline": [],
+    "fields": [
+      "volume",
+      "halves",
+      "surfaces",
+      "hole_disk_complement",
+      "oriented_chain_identities",
+      "circle_edges"
+    ],
+    "geometry_fields_identical": true,
+    "matches_saved_V1_baseline": true,
+    "side_homology": {
+      "augmented_rank": 111,
+      "boundary_matrix_rank": 110,
+      "coefficient_field": "F_2",
+      "cycle_bounds_in_side_surface": false,
+      "face_boundary_positive_controls": 110,
+      "side_first_betti_number": 3
+    },
+    "surfaces": {
+      "disk": {
+        "boundary_components": 1,
+        "chi": 1
+      },
+      "left_pants": {
+        "boundary_components": 3,
+        "chi": -1
+      },
+      "right_pants": {
+        "boundary_components": 3,
+        "chi": -1
+      },
+      "side": {
+        "boundary_components": 4,
+        "chi": -2
+      }
+    },
+    "volume_chi": 1
+  },
+  "L2_decoration": {
+    "a_correct_QED_record_vs_V1_frozen_literal": {
+      "reason": "program:frozen-slot-source-contract",
+      "result": "rejected"
+    },
+    "b_absurd_decoration_through_geometry": {
+      "note": "四个外线端口全算作一个 pants 的输入、缝由同一 pants 生出又吃掉，几何检查毫发无伤",
+      "result": "accepted",
+      "side_chi": -2
+    },
+    "c1_four_momentum_interface": {
+      "detail": "ValueError(\"Invalid literal for Fraction: '[2,2]'\")",
+      "exception": "ValueError",
+      "note": "求值器把每个端口读成 Fraction：四动量取值的接口在摄入阶段就失败",
+      "result": "crash"
+    },
+    "c2_binary_evaluator": {
+      "detail": "KeyError('output')",
+      "exception": "KeyError",
+      "note": "冻结字面量这一关过了，但循环里 environment[event['output']] 假定每个事件恰有一个 output；1->2 事件在 V1 的求值语义里没有表达",
+      "result": "crash"
+    },
+    "d_port_direction_never_read": {
+      "conclusion": "装饰（谁进谁出）只存在于 program 记录，而 program 被冻结字面量比较",
+      "grep_in_geometry_layer": [
+        "ports:inventory / ports:identity-orientation（只比圆盘身份与定向）",
+        "left:boundary-decomposition / right:boundary-decomposition（只用 x,y 与 t,w）",
+        "无任何 'in'/'out'/'input'/'output' 字段被读取"
+      ]
+    }
+  },
+  "L3_semantics": {
+    "annihilation_to_seam": {
+      "e-=2,e+=-1": {
+        "preimage_count": 2,
+        "q": [
+          "3",
+          "1"
+        ],
+        "s_on_shell": "8",
+        "seam_on_shell": false,
+        "splits_(mu-,mu+)": [
+          [
+            -1,
+            2
+          ],
+          [
+            2,
+            -1
+          ]
+        ]
+      },
+      "e-=2,e+=3": {
+        "preimage_count": 6,
+        "q": [
+          "5",
+          "5"
+        ],
+        "s_on_shell": "0",
+        "seam_on_shell": true,
+        "splits_(mu-,mu+)": [
+          [
+            0,
+            5
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            5,
+            0
+          ]
+        ]
+      }
+    },
+    "conservation_left": {
+      "charge_residual": 0,
+      "momentum_residual": [
+        "0",
+        "0"
+      ]
+    },
+    "determinism": {
+      "annihilation_2_to_1": "deterministic: 输入 (p1,p2) 唯一决定 q",
+      "creation_1_to_2_preimages": 6,
+      "is_a_function": false,
+      "verdict": "1->2 不是确定偏函数：给定 q 有 6 组在壳拆分 ⇒ 只能是关系 + 权重"
+    },
+    "negative_controls": [
+      {
+        "name": "flip-mu-minus-to-input",
+        "reason": "right:momentum-not-conserved",
+        "result": "rejected"
+      },
+      {
+        "name": "seam-as-output-of-right-pant",
+        "reason": "right:energy-residual-negative",
+        "result": "rejected"
+      },
+      {
+        "name": "two-port-right-pant-becomes-cylinder",
+        "reason": "right:not-three-ports",
+        "result": "rejected"
+      },
+      {
+        "name": "aliased-port-on-right-pant",
+        "reason": "right:aliased-port",
+        "result": "rejected"
+      },
+      {
+        "name": "five-port-left-pant",
+        "reason": "left:not-three-ports",
+        "result": "rejected"
+      }
+    ],
+    "pant_shape": "pass: 两个 pants 各 3 端口，2->1 与 1->2",
+    "port_baptism": {
+      "t": "mu-",
+      "w": "mu+",
+      "x": "e-",
+      "y": "e+"
+    },
+    "positive_control": "两个 pants 的动量与电荷残差全为零",
+    "weight_on_preimage_set": {
+      "cases": {
+        "e-=2,e+=-1": {
+          "max_over_min": "1",
+          "rows": [
+            {
+              "cos_theta": "-1/3",
+              "mu+_k": 2,
+              "mu-_k": -1,
+              "weight_1+cos^2": "10/9",
+              "z": "1/3"
+            },
+            {
+              "cos_theta": "1/3",
+              "mu+_k": -1,
+              "mu-_k": 2,
+              "weight_1+cos^2": "10/9",
+              "z": "2/3"
+            }
+          ],
+          "seam_q": [
+            "3",
+            "1"
+          ],
+          "seam_s": "8",
+          "sum_if_no_weight (flat)": "2",
+          "sum_of_physical_weights": "20/9"
+        },
+        "e-=2,e+=3": {
+          "max_over_min": "25/13",
+          "rows": [
+            {
+              "cos_theta": "-1",
+              "mu+_k": 5,
+              "mu-_k": 0,
+              "weight_1+cos^2": "2",
+              "z": "0"
+            },
+            {
+              "cos_theta": "-3/5",
+              "mu+_k": 4,
+              "mu-_k": 1,
+              "weight_1+cos^2": "34/25",
+              "z": "1/5"
+            },
+            {
+              "cos_theta": "-1/5",
+              "mu+_k": 3,
+              "mu-_k": 2,
+              "weight_1+cos^2": "26/25",
+              "z": "2/5"
+            },
+            {
+              "cos_theta": "1/5",
+              "mu+_k": 2,
+              "mu-_k": 3,
+              "weight_1+cos^2": "26/25",
+              "z": "3/5"
+            },
+            {
+              "cos_theta": "3/5",
+              "mu+_k": 1,
+              "mu-_k": 4,
+              "weight_1+cos^2": "34/25",
+              "z": "4/5"
+            },
+            {
+              "cos_theta": "1",
+              "mu+_k": 0,
+              "mu-_k": 5,
+              "weight_1+cos^2": "2",
+              "z": "1"
+            }
+          ],
+          "seam_q": [
+            "5",
+            "5"
+          ],
+          "seam_s": "0",
+          "sum_if_no_weight (flat)": "6",
+          "sum_of_physical_weights": "44/5"
+        }
+      },
+      "note": "若 Pant 的拼接只按相等粘、不带核，等价于在前像集合上取常权 ⇒ 预言平的 cosθ 分布；而 QED 给 (1+cos^2θ)。缺的那个东西的定义域，正好就是这个前像集合。"
+    }
+  },
+  "limitations": [
+    "L1 的几何是 V1 的固定夹具（两盒一管），不是通用构造：它只证明这一个有限对象",
+    "L3 的动量模型是一维格点、质量为零；三维角度只用 z=(1+cosθ)/2 的对应关系表述",
+    "L3 只检查荷/动量守恒与确定性，不含任何传播子权重或振幅",
+    "没有 Adva 原生执行、没有 Seal、没有修改 AEG 仓库"
+  ],
+  "provenance": {
+    "aeg_baseline_read_only": "b77ca915902670863cd718e1df3f308defa59ad2",
+    "geometry_layer": "verbatim from ~/AEG/aeg-paper/research/pants-interface-disks/verify_v1.py",
+    "v1_sha256": "fac64f82cea293ef58de9d0f1929ab4d3164d380b4d63f37be7a15b6fcfe644f",
+    "verifier_sha256": "26935272fdac2faf696ef94cd73e72c5c90ad8fd01a0b76001863b52a4eb16aa"
+  },
+  "schema": "oq096-pants-interface-v2-qed-report",
+  "status": "three-layers-reported"
+}

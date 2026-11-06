@@ -1,0 +1,10 @@
+{
+  "committed_claims": 95,
+  "live_claims": 102,
+  "added": 7,
+  "removed": 0,
+  "changed": 4,
+  "touched_sources": [
+    "paper-0/sections/03-aes-and-motion.tex"
+  ]
+}
