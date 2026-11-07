@@ -17,8 +17,8 @@
     "certificates.json": "c28f502519533428486ba0b12e5d47a160be62512bfa93c9b7d93cce811c7d5c",
     "Chapter02.lean": "b7b3a8cc35fa6c1e2e646fae3577c39a4113c6957ffd0c983b45fd6f07a007ab",
     "Chapter02Domains.lean": "d3c0f718936f128da2e15daf61ec0111cdd956ee7fb23ab6a451e677d7358c4c",
-    "inventory.py": "c3a0d90de0c7cce9e7e5b3f783c81e2437d09a96edb7e534a44cbde810bc0288",
-    "inventory.json": "86e51aeb4e295ac6e2c58341c61ae46b483633e5fd2783df3072a3ff98f5e42c",
+    "inventory.py": "cae4e8d4692476d2cd6ed75fb1a02ee81beaec22d0a996744be76264eca44a32",
+    "inventory.json": "d1ffea2cfda95dbd206d298107f627bd6d7839d06b9db069f4b1e46706bb550f",
     "run.py": "b0396c9bb279cbe90f2db6a5012ea48b2ceb20429991ec602754ab2d0e7a9fc0",
     "domain_author.py": "a6968582b2a181d9195a900238c29f599d8e5e3475c8c2ebaac9df2d0c23a03c",
     "domain-checker.adva": "de995c4d26f940fb0e35dd78ef2a271b144e0dc4c58c6395f444e6bbe7fbb231",
@@ -103,11 +103,21 @@
     "pgl-map.json": "caca86d7be7a04fcf8df2ea47812f86148e551b40ec3820aa20e1fd6ffb06760",
     "pgl_run.py": "641be5543a226b58f1f91723f04e6a5832e9939b673127b9518146bce93a3343",
     "contract-pgl.json": "b7687826a0bf34e7bb23d5c3637d298ab918839276175a4ffe5b7d5e345135c1",
-    "test_pgl.py": "df5a3139e286feccdc54408a77eb35aa38152541bbad99635dfcde9177a2512b",
+    "test_pgl.py": "7eeb50b53a12067ffaa54a52b35ca12d63d89d3b3327ec27776b72f150ded312",
     "negative/PGLMissingNondegenerate.lean": "d8538b8f68f478b2bf4f9481ce963ef2ee44fa006a92dc40a5cdd937ce05c872",
     "negative/PGLOnePointInsufficient.lean": "ed01e83a3638f7df4850a1a85a6b9feb32db9317d9b673ffbd96e6705828cd3f",
     "negative/PGLWrongLiteralEquality.lean": "17768a5999873c33aa3d5a61680b8af6315954c735023a95c7d5086ed05b648d",
-    "negative/PGLWrongProductOrder.lean": "774f094bfb8cec71ff50091489c11505880d1b5d387a229945be0f00e039c7e7"
+    "negative/PGLWrongProductOrder.lean": "774f094bfb8cec71ff50091489c11505880d1b5d387a229945be0f00e039c7e7",
+    "ProjectiveGeneration.lean": "8cfa1a28d0147951535ad39cd18f527c5964371970d744ced3e4485af717ee50",
+    "AffineStabilizer.lean": "d4f0353bbf6c9260aaa6a16ade74618b2b8e1d4d1903f06f0ffee61adf891fd5",
+    "affine-generation-map.json": "94840586c871309c1ce9fa1b1d7d3b6a0459e8a002f8ec7f09c60ddd492c9e6d",
+    "affine_generation_run.py": "02eff57aa62d5adcd29e281b8b3b4360da5770e055181c23366b32c880634a13",
+    "contract-affine-generation.json": "a695a3c8c78b62511f8b8a0310fef8a33ed3b5aab3b504cb1e9f59fd74c2d17d",
+    "test_affine_generation.py": "af9bea781124be62c8756026c1e0ddccc8a68c597c5db1cbd9280836cf7ab32a",
+    "negative/AffineMissingInversionGenerator.lean": "4a1dbfafca0f1ac7a6a4b822e062d18b1c043911ce66e93ff6d5273b1e3a9aa0",
+    "negative/AffineMissingSlope.lean": "2a61b12be73a62d7ca4056c482d620f40b52b511d601bd1af91a6ce076d40794",
+    "negative/AffineMissingStabilizerGuard.lean": "0114637b8eaafba05754267e6eca99ce079e45d961354902c443e3869fe270d7",
+    "negative/AffineWrongComposition.lean": "a77caf92046c373b7b9b46abe2df911dfffc0b301263456ea28f82554774c571"
   },
-  "continuation": "contract-pgl.json plus unchanged contract-projective.json, contract-apollonius.json, contract-chapter04.json, contract-analysis-v1.1.json and contract-chapter03.json: all six profiles required; preserve all earlier receipts and archives"
+  "continuation": "contract-affine-generation.json plus unchanged contract-pgl.json, contract-projective.json, contract-apollonius.json, contract-chapter04.json, contract-analysis-v1.1.json and contract-chapter03.json: all seven profiles required; preserve all prior receipts and archives"
 }

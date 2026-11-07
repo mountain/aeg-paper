@@ -1028,3 +1028,70 @@ unresolved references/citations, duplicate labels or missing assets. Existing
 overfull boxes (2/8, maximum 11.13/105.15 pt) and bookmark/underfull warnings
 remain; manuscript text and tracked PDFs are unchanged. The next algebraic
 step is the affine-group interface and quotient-level elementary generation.
+
+## 22. Affine stabilizer and actual quotient-level generation (2026-11-07)
+
+`formal/ProjectiveGeneration.lean` and `AffineStabilizer.lean` add 39 exactly
+audited statements, mapped by `formal/affine-generation-map.json` to the
+unchanged Section 6 affine-stabilizer equation and elementary-generation
+theorem. They discharge the affine-group and quotient-generation prerequisites
+left in section 21. The combined distinct count is 504, including supporting
+lemmas; no complete-chapter or complete arithmetic-language status is inferred.
+
+| Component | Status | Hypotheses and boundary |
+| --- | --- | --- |
+| actual elementary PGL classes | `PROVED WITH STATED HYPOTHESES` | Translations, unit dilations and inversion are actual scalar-quotient group elements, with finite/infinite actions derived from the existing nondegenerate matrices. Dilation coefficients are units, not arbitrary potentially zero scalars. |
+| quotient-level two-/four-factor formulas | `PROVED WITH STATED HYPOTHESES` | Every quotient has a nondegenerate matrix representative. Its `C=0` case has the affine two-factor equality, and `C!=0` the four-factor equality, as actual quotient-group equalities. All scale parameters are proved nonzero. The chronological convention applies the right factor first, even through projective poles. |
+| elementary subgroup generation | `PROVED WITH STATED HYPOTHESES` | Any subgroup containing every translation, every unit dilation and inversion is top. The subgroup closure of those classes is consequently the whole PGL group. The source's primary group-generation assertion is certified; the equivalent arithmetic grammar/evaluation dictionary is not silently supplied. |
+| actual infinity stabilizer and standard affine group | `PROVED WITH STATED HYPOTHESES` | The subgroup fixing infinity is multiplicatively equivalent to Mathlib's `K ≃ᵃ[K] K`. The proof constructs an injective group homomorphism and proves every stabilizer class has an affine preimage, using the representative's actual `C=0` condition. |
+| unique normalized affine parameters | `PROVED WITH STATED HYPOTHESES` | Nonzero slope `a` and arbitrary offset `b` give `x ↦ ax+b`, with inverse `(y-b)/a`. Every affine equivalence and stabilizer class has its normal form, and equality of normalized classes determines both parameters. The matrix normal form uses `A/D,B/D` with nonzero `A,D` derived from determinant and `C=0`. |
+| affine multiplication and active guards | `PROVED WITH STATED HYPOTHESES` | Parameter multiplication is `(a,b)(c,d)=(ac,ad+b)`. Zero slope is impossible for an affine equivalence; inversion moves infinity, proving the affine stabilizer proper; an explicit rational example shows the composition order matters. No claim of noncommutativity over every field is made. |
+
+These are algebraic statements over arbitrary fields, including finite fields
+and positive characteristic. The operator quotient does not identify marked
+arithmetic histories or ordinary domains. A separate explicit grammar/history
+evaluation dictionary is still needed for the full equivalent language clause
+of the source theorem. Topological/smooth, intrinsic hyperbolic and previously
+registered Chapter 3 geometric obligations retain their stated scope.
+
+The environment counts remain 32 component-mapped, one fragment-certified and
+69 not yet formalized among the same 102 environments and 22 manuscript
+sources, with four separately mapped equations. An expanded component map
+does not automatically certify every clause of an environment. Manuscript
+text and hypotheses are unchanged; no research material is moved or removed.
+
+Exact new global axiom sets disclose only their actual subsets of `propext`,
+`Classical.choice` and `Quot.sound`, with no target AEG axiom or admitted proof.
+The fixed Mathlib source/cache lock already contains standard `AffineEquiv`;
+the same 7,600 source and 3,175 compiled-module fingerprints are used. All old
+proof, goal, program, runtime-receiver and contract bytes and execution archives
+remain exact. Current navigation and its historical receipt test have explicit
+successor pins.
+
+`formal/contract-affine-generation.json` declares a separate 300-second profile
+with unchanged analytic numerical bounds. Thirteen commands rebuild 120 source
+import audits, check 39 new audits and require four specific negative rejections
+for slope, stabilizer, affine order and inversion-generator conditions. All six
+predecessor profiles remain independently required under their unchanged
+contracts, without cross-profile budget refill. CI runs the new profile in its
+own bounded step and retains a separate artifact.
+
+`formal/evidence/affine-generation-execution.json` and its complete archive
+receive all seven profiles as `Passed`: native 176.50 seconds, Chapter 3
+analysis 138.54, original Chapter 4 52.36, Apollonius 69.78, projective 77.13,
+PGL 53.43 and affine/generation 86.55 seconds, each inside its independently
+fixed 300-second deadline. The new profile checks 120 unchanged import audits,
+39 new audits and all four specific negative rejections in 13 child commands;
+import rechecks are not counted as new. All 69 predecessor native report bytes
+are preserved.
+
+The archive binds 110 formal sources plus their lock, 22 manuscript sources,
+workflow, seven reports, native traces/replay receipts, Lean audits, negative
+diagnostics and both build logs in 813 members. All 51 regressions pass against
+the completed source/report/archive bindings; its preparatory log retains
+50 passes and the then-absent receipt test. Both builds pass at 103/61 pages,
+without unresolved references/citations, duplicate labels or missing assets.
+Existing overfull boxes (2/8, maximum 11.13/105.15 pt) and bookmark/underfull
+warnings remain; manuscript text and tracked PDFs are unchanged. The next
+algebraic interface is the explicit arithmetic grammar/history evaluation
+dictionary with ordinary-domain guards, keeping intrinsic geometry separate.

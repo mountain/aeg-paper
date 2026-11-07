@@ -34,6 +34,7 @@
   "apollonius_map_sha256": "f33fce34bcf959281dd6072be26c2f67675d9834a407f077c98266904aa2b7b1",
   "projective_map_sha256": "1f59087b28f3756ca7de3fa6f7a055e0392387a5e323f661725a7023df16a7ad",
   "pgl_map_sha256": "caca86d7be7a04fcf8df2ea47812f86148e551b40ec3820aa20e1fd6ffb06760",
+  "affine_generation_map_sha256": "94840586c871309c1ce9fa1b1d7d3b6a0459e8a002f8ec7f09c60ddd492c9e6d",
   "equation_components": [
     {
       "source": "paper-0/sections/04-ripple-geometry.tex",
@@ -109,6 +110,30 @@
       "line": 159,
       "formal_status": "component-map-supplied",
       "lean_components": [
+        "AEGPaper0.AffineStabilizer.affineClass_finite",
+        "AEGPaper0.AffineStabilizer.affineClass_infinity",
+        "AEGPaper0.AffineStabilizer.affineClass_injective",
+        "AEGPaper0.AffineStabilizer.affineClass_mul",
+        "AEGPaper0.AffineStabilizer.affineClass_one",
+        "AEGPaper0.AffineStabilizer.affineMatrix_determinant",
+        "AEGPaper0.AffineStabilizer.affineStabilizerEquiv_finite",
+        "AEGPaper0.AffineStabilizer.affine_composition_order_matters",
+        "AEGPaper0.AffineStabilizer.affine_formula",
+        "AEGPaper0.AffineStabilizer.affine_map_exists",
+        "AEGPaper0.AffineStabilizer.affine_matrix_class_normal_form",
+        "AEGPaper0.AffineStabilizer.affine_parameter_composition",
+        "AEGPaper0.AffineStabilizer.affine_parameters_unique",
+        "AEGPaper0.AffineStabilizer.infinity_iff_lower_left_zero",
+        "AEGPaper0.AffineStabilizer.inversion_not_in_affine_stabilizer",
+        "AEGPaper0.AffineStabilizer.normalizedAffine_apply",
+        "AEGPaper0.AffineStabilizer.normalizedAffine_inverse_apply",
+        "AEGPaper0.AffineStabilizer.normalizedAffine_offset",
+        "AEGPaper0.AffineStabilizer.normalizedAffine_slope",
+        "AEGPaper0.AffineStabilizer.normalized_class_unique",
+        "AEGPaper0.AffineStabilizer.slope_nonzero",
+        "AEGPaper0.AffineStabilizer.toStabilizer_injective",
+        "AEGPaper0.AffineStabilizer.toStabilizer_surjective",
+        "AEGPaper0.AffineStabilizer.zero_slope_impossible",
         "AEGPaper0.Chapter04ProjectiveBridge.affine_action_factorization",
         "AEGPaper0.Chapter04ProjectiveBridge.affine_diagonal_nonzero",
         "AEGPaper0.Chapter04ProjectiveBridge.affine_matrix_factorization",
@@ -118,7 +143,8 @@
         "AEGPaper0.Chapter04ProjectiveBridge.concrete_step_constancy"
       ],
       "coverage": [
-        "The actual infinity stabilizer criterion is C=0, and its action has the explicit affine translation/dilation factorization. The abstract Aff/PGL group isomorphism is not identified here."
+        "The actual infinity stabilizer criterion is C=0, and its action has the explicit affine translation/dilation factorization. The abstract Aff/PGL group isomorphism is not identified here.",
+        "The actual infinity stabilizer is multiplicatively equivalent to standard Mathlib AffineEquiv K K K. Unique nonzero-slope normal form, finite evaluation, inverse formula, parameter composition and properness witnesses are explicit."
       ]
     },
     {
@@ -1148,7 +1174,22 @@
         "AEGPaper0.ProjectiveGeneralLinear.three_points_determine_quotient",
         "AEGPaper0.ProjectiveGeneralLinear.toGL_coefficients",
         "AEGPaper0.ProjectiveGeneralLinear.toMatrix_coefficients",
-        "AEGPaper0.ProjectiveGeneralLinear.toMatrix_determinant"
+        "AEGPaper0.ProjectiveGeneralLinear.toMatrix_determinant",
+        "AEGPaper0.ProjectiveGeneration.dilationClass_finite",
+        "AEGPaper0.ProjectiveGeneration.dilationClass_infinity",
+        "AEGPaper0.ProjectiveGeneration.elementary_generators_generate",
+        "AEGPaper0.ProjectiveGeneration.inversionClass_finite",
+        "AEGPaper0.ProjectiveGeneration.inversionClass_infinity",
+        "AEGPaper0.ProjectiveGeneration.inversionClass_zero",
+        "AEGPaper0.ProjectiveGeneration.ofMatrix_action",
+        "AEGPaper0.ProjectiveGeneration.ofMatrix_equal_iff_scalar",
+        "AEGPaper0.ProjectiveGeneration.ofMatrix_product",
+        "AEGPaper0.ProjectiveGeneration.ofMatrix_surjective",
+        "AEGPaper0.ProjectiveGeneration.quotient_affine_factorization",
+        "AEGPaper0.ProjectiveGeneration.quotient_nonaffine_factorization",
+        "AEGPaper0.ProjectiveGeneration.subgroup_containing_elementary_is_top",
+        "AEGPaper0.ProjectiveGeneration.translationClass_finite",
+        "AEGPaper0.ProjectiveGeneration.translationClass_infinity"
       ]
     },
     {

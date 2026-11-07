@@ -54,7 +54,7 @@ statement correspondence and the reviewed equality kernel remain trusted.
 | §2 distributive operator identity | Unchanged symbolic Adva/Lean identity; new general-field proof of the corrected marked/scalar clauses | The previous counterexample and its old source snapshot remain historical evidence |
 | §3 coordinate foundation and real analysis | 61 coordinate statements plus 66 Mathlib statements: actual differential/Jacobian, smooth real coordinate-AES model, Laplace eigenfunction, positive smooth root, rectification, signed-frame bracket and affine ODE solution/uniqueness | Gaussian curvature/completeness, length/trace theory, punctured E1, full arbitrary-manifold/boundary-chart and intrinsic bundle-operator equivalences |
 | §4 ripple, pole and Apollonius components | 57 ripple/pole statements plus 39 norm statements, now connected to actual homogeneous matrix actions | External PGL group API, intrinsic horocycles/tangency and chart independence; source wording limitations remain explicit |
-| §6 concrete projective synthesis and PGL quotient | 70 action/bridge statements plus 41 scalar-faithfulness/standard-GL quotient statements, including faithful descent and the action-image group isomorphism | Abstract affine-group interface, packaged quotient-level generation, topology and intrinsic geometry |
+| §6 projective synthesis, affine stabilizer and quotient generation | 70 action/bridge, 41 PGL/scalar and 39 affine/generation statements; standard affine-group stabilizer isomorphism and full PGL subgroup generation | Arithmetic grammar-to-group dictionary, topology and intrinsic geometric identifications |
 | §5 reciprocal expansions | Inventoried | Formal domains, convergence and fixed-point attraction hypotheses |
 | §7 chronological affine cocycle | Auxiliary pointwise polynomial identity checked by Adva and Lean; shared finite-history scalar expansion in `AppendixC.lean` | Definition/uniqueness of affine coordinates, inverse and normalized-coordinate laws |
 | §§8–12 ACS, contact, nonlinearity, punctures, compactification | Inventoried | Algebraic/differential/topological dependencies and explicit side conditions |
@@ -943,13 +943,93 @@ references/citations, duplicate labels or missing assets. Existing overfull
 boxes (2/8, maximum 11.13/105.15 pt) and bookmark/underfull warnings remain;
 manuscript text and tracked PDFs are unchanged.
 
+## Affine stabilizer and quotient-level elementary generation
+
+`ProjectiveGeneration.lean` and `AffineStabilizer.lean` add 39 audited statements
+over every field. The map `affine-generation-map.json` pins their correspondence
+to the unchanged affine-stabilizer equation and elementary-generation theorem
+in Section 6. The dependency library and all preceding proof, goal, program,
+receiver and contract bytes remain unchanged.
+
+The actual PGL quotient has explicit translation, unit-dilation and inversion
+classes. Every quotient element has a nondegenerate matrix representative;
+its affine case has a two-factor quotient equality, while its non-affine case
+has the four-factor quotient equality from the manuscript. These equalities
+hold at the group level, including infinity and intermediate poles. A subgroup
+containing all translations, all unit dilations and inversion is proved to be
+the whole PGL group; equivalently the subgroup closure of those generators is
+top. All dilation parameters are units, including those derived from the
+matrix determinant and denominators.
+
+The actual subgroup fixing infinity is multiplicatively equivalent to
+Mathlib's `K ≃ᵃ[K] K`, the standard group of affine equivalences of the field
+line. Its elements have unique normalized form `x ↦ a*x+b` with `a!=0`.
+The normalized inverse is `(y-b)/a`, and composition has parameters
+`(a,b)*(c,d)=(a*c,a*d+b)`, matching the convention that the right factor acts
+first. The coefficient `C=0` criterion on each representative gives a normalized
+affine map with parameters `A/D,B/D`, and proves surjectivity onto the actual
+stabilizer. Equality of normalized PGL classes determines both parameters.
+
+The guards are active: zero slope cannot give an affine equivalence, inversion
+is not in the infinity stabilizer, and a rational translation/dilation example
+has noncommuting classes. Four negative modules reject for missing nonzero
+slope, missing stabilizer condition, reversed affine offset law and omission
+of inversion from the generator family. The final negative uses the generation
+theorem's hypotheses, not an unrelated elaboration error.
+
+The equation and theorem receive additional components without inventing or
+promoting manuscript environments. The counts remain 32 component-mapped,
+one fragment-certified and 69 not yet formalized among 102 environments in 22
+manuscript sources, with four separate equation anchors. There are 504 distinct
+audited statements overall, including supporting lemmas; the 120 rebuilt import
+audits are not counted as new. Exact axiom sets disclose only their actual
+subsets of `propext`, `Classical.choice` and `Quot.sound`, with no target axiom
+or admitted proof.
+
+This supplies the affine-group interface and the primary quotient-group
+generation assertion. An explicit dictionary from the arithmetic grammar and
+its domain-sensitive histories into those generators remains a separate
+interface. Group equality still does not identify marked histories or make
+ordinary intermediate divisions admissible. Intrinsic geometric, topological
+and smooth identifications retain their separate obligations.
+
+`contract-affine-generation.json` fixes a separate 300-second profile with the
+unchanged analytic numerical limits. Thirteen commands rebuild 120 unchanged
+source-import audits, check 39 new audits and require four specific rejections.
+All six predecessor profiles remain independently required under their original
+contracts. After the usual pinned preparation, run:
+
+```sh
+python paper-0/formal/affine_generation_run.py \
+  --mathlib-root /absolute/path/to/pinned/mathlib \
+  --lean /absolute/path/to/lean/bin/lean \
+  --output /absolute/path/to/new-affine-generation-evidence-directory
+```
+
+CI invokes this in a separate bounded step and uploads a separate artifact.
+Historical receipts retain their exact execution snapshots; current navigation
+and its historical receipt regression have explicit successor pins.
+
+The completed `evidence/affine-generation-execution.json` and
+`affine-generation-run-01.tar.gz` bind 110 formal sources plus their lock,
+22 manuscript sources, the workflow, seven profile reports, native traces/replay
+receipts, exact Lean audits, negative diagnostics and both build logs. All seven
+profiles pass in 176.50/138.54/52.36/69.78/77.13/53.43/86.55 seconds respectively,
+each inside its independently fixed 300-second deadline. All 69 native reports
+are byte-identical to the preceding success. All 51 regressions pass against
+the completed archive; its preparatory log preserves 50 passes and the
+then-pending receipt test. Both builds pass at 103/61 pages with no unresolved
+references/citations, duplicate labels or missing assets. Existing overfull
+boxes (2/8, maximum 11.13/105.15 pt) and bookmark/underfull warnings remain;
+manuscript text and tracked PDFs are unchanged.
+
 ## Continuation order
 
 The §2 continuations and §3 coordinate/real-analysis bridge are received above.
 The deferred geometric steps and their prerequisites are now in
 `chapter03-obligations.json`. Advance easier remaining Chapter 4 work first:
-the affine-group identification and packaged quotient-level generation,
-keeping intrinsic geometry and chart independence
+the arithmetic grammar/history-to-projective-evaluation dictionary and its
+ordinary-domain guards, keeping intrinsic geometry and chart independence
 separate. The
 general-manifold/bundle identifications retain their explicit hypotheses.
 Reuse old Lean material

@@ -1,0 +1,1066 @@
+{
+  "schema": "aeg.paper0.affine-generation.map.v1",
+  "source": "paper-0/sections/06-projective-unification.tex",
+  "source_sha256": "6c4a433337a564595d1073ca8cbca39b90a18d0c9144e5bdbdbaf753c9a90aec",
+  "imports": [
+    {
+      "file": "ProjectiveLine.lean",
+      "module": "AEGPaper0.ProjectiveLine",
+      "lean_audit_names": [
+        "homogeneous_nonzero",
+        "project_homogeneous",
+        "project_scale",
+        "representative_scale",
+        "mapVec_scale",
+        "determinant_multiply",
+        "determinant_adjugate",
+        "mapVec_multiply",
+        "adjugate_left",
+        "adjugate_right",
+        "mapVec_nonzero",
+        "project_map_normalize",
+        "action_identity",
+        "action_multiply",
+        "action_adjugate_left",
+        "action_adjugate_right",
+        "actionEquiv_apply",
+        "actionEquiv_inverse",
+        "finite_action",
+        "infinity_action",
+        "fixes_infinity_iff",
+        "pole_formula",
+        "finite_pole_unique",
+        "action_scale",
+        "project_eq_iff_cross",
+        "projection_eq_iff_scalar",
+        "finite_fixed_point_iff",
+        "chart_representative",
+        "quotient_eq_iff_nonzero_scalar",
+        "quotient_action_representative",
+        "zero_scalar_changes_action"
+      ],
+      "expected_axioms": {
+        "homogeneous_nonzero": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "project_homogeneous": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "project_scale": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "representative_scale": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "mapVec_scale": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "determinant_multiply": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "determinant_adjugate": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "mapVec_multiply": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "adjugate_left": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "adjugate_right": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "mapVec_nonzero": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "project_map_normalize": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "action_identity": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "action_multiply": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "action_adjugate_left": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "action_adjugate_right": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "actionEquiv_apply": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "actionEquiv_inverse": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "finite_action": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "infinity_action": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "fixes_infinity_iff": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "pole_formula": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "finite_pole_unique": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "action_scale": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "project_eq_iff_cross": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "projection_eq_iff_scalar": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "finite_fixed_point_iff": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "chart_representative": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "quotient_eq_iff_nonzero_scalar": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "quotient_action_representative": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "zero_scalar_changes_action": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      }
+    },
+    {
+      "file": "Chapter04Poles.lean",
+      "module": "AEGPaper0.Chapter04Poles",
+      "lean_audit_names": [
+        "composition_apply",
+        "pole_covariance",
+        "pole_is_unique_preimage",
+        "pole_eq_infinity_iff",
+        "pole_constancy_criterion",
+        "pole_moves_iff",
+        "prefix_initial_pole",
+        "prefix_successor_apply",
+        "prefix_pole_covariance",
+        "prefix_step_pole_iff",
+        "history_step_rigidity",
+        "affine_prefix_fixes_infinity",
+        "history_prefix_rigidity",
+        "first_nonaffine_step_moves_pole",
+        "postcompose_affine_keeps_current_pole",
+        "terminal_pole_does_not_detect_every_step",
+        "pole_column_nonzero",
+        "pole_column_annihilates_denominator",
+        "finite_pole_denominator_zero",
+        "finite_pole_numerator_nonzero",
+        "affine_infinity_criterion"
+      ],
+      "expected_axioms": {
+        "composition_apply": [
+          "Quot.sound"
+        ],
+        "pole_covariance": [
+          "Quot.sound"
+        ],
+        "pole_is_unique_preimage": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "pole_eq_infinity_iff": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "pole_constancy_criterion": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "pole_moves_iff": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "prefix_initial_pole": [
+          "Quot.sound"
+        ],
+        "prefix_successor_apply": [
+          "Quot.sound"
+        ],
+        "prefix_pole_covariance": [
+          "Quot.sound"
+        ],
+        "prefix_step_pole_iff": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "history_step_rigidity": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "affine_prefix_fixes_infinity": [
+          "Quot.sound"
+        ],
+        "history_prefix_rigidity": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "first_nonaffine_step_moves_pole": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "postcompose_affine_keeps_current_pole": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "terminal_pole_does_not_detect_every_step": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "pole_column_nonzero": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "pole_column_annihilates_denominator": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "finite_pole_denominator_zero": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "finite_pole_numerator_nonzero": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "affine_infinity_criterion": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      }
+    },
+    {
+      "file": "Chapter04ProjectiveBridge.lean",
+      "module": "AEGPaper0.Chapter04ProjectiveBridge",
+      "lean_audit_names": [
+        "equiv_product",
+        "concrete_pole_covariance",
+        "concrete_stabilizer_criterion",
+        "concrete_pole_at_infinity_iff",
+        "concrete_finite_pole",
+        "concrete_step_constancy",
+        "affine_postcompose_keeps_pole",
+        "prefix_nondegenerate",
+        "prefix_equiv",
+        "concrete_history_step_rigidity",
+        "concrete_history_prefix_rigidity",
+        "first_exit_has_finite_pole",
+        "translation_determinant",
+        "dilation_determinant",
+        "inversion_determinant",
+        "translation_finite",
+        "dilation_finite",
+        "inversion_infinity",
+        "inversion_zero",
+        "inversion_finite",
+        "affine_diagonal_nonzero",
+        "affine_matrix_factorization",
+        "nonaffine_scale_nonzero",
+        "nonaffine_matrix_factorization",
+        "affine_action_factorization",
+        "nonaffine_action_factorization",
+        "singular_composition_counterexample"
+      ],
+      "expected_axioms": {
+        "equiv_product": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "concrete_pole_covariance": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "concrete_stabilizer_criterion": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "concrete_pole_at_infinity_iff": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "concrete_finite_pole": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "concrete_step_constancy": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "affine_postcompose_keeps_pole": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "prefix_nondegenerate": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "prefix_equiv": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "concrete_history_step_rigidity": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "concrete_history_prefix_rigidity": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "first_exit_has_finite_pole": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "translation_determinant": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "dilation_determinant": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "inversion_determinant": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "translation_finite": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "dilation_finite": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "inversion_infinity": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "inversion_zero": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "inversion_finite": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "affine_diagonal_nonzero": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "affine_matrix_factorization": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "nonaffine_scale_nonzero": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "nonaffine_matrix_factorization": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "affine_action_factorization": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "nonaffine_action_factorization": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "singular_composition_counterexample": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      }
+    },
+    {
+      "file": "ProjectiveFaithfulness.lean",
+      "module": "AEGPaper0.ProjectiveFaithfulness",
+      "lean_audit_names": [
+        "matrix_ext",
+        "multiply_assoc",
+        "multiply_one_left",
+        "multiply_one_right",
+        "scale_one",
+        "scale_scale",
+        "scale_multiply_left",
+        "scale_multiply_right",
+        "determinant_scale",
+        "matrix_adjugate_left",
+        "matrix_adjugate_right",
+        "three_fixed_points_force_scalar",
+        "identity_action_iff_scalar",
+        "equal_actions_iff_nonzero_scalar",
+        "three_images_determine_scalar_class",
+        "equivalence_equality_iff_scalar",
+        "literal_matrix_equality_is_stronger",
+        "one_point_agreement_is_insufficient"
+      ],
+      "expected_axioms": {
+        "matrix_ext": [],
+        "multiply_assoc": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "multiply_one_left": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "multiply_one_right": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "scale_one": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "scale_scale": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "scale_multiply_left": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "scale_multiply_right": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "determinant_scale": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "matrix_adjugate_left": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "matrix_adjugate_right": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "three_fixed_points_force_scalar": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "identity_action_iff_scalar": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "equal_actions_iff_nonzero_scalar": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "three_images_determine_scalar_class": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "equivalence_equality_iff_scalar": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "literal_matrix_equality_is_stronger": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "one_point_agreement_is_insufficient": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      }
+    },
+    {
+      "file": "ProjectiveGeneralLinear.lean",
+      "module": "AEGPaper0.ProjectiveGeneralLinear",
+      "lean_audit_names": [
+        "coefficients_toMatrix",
+        "toMatrix_coefficients",
+        "coefficients_determinant",
+        "toMatrix_determinant",
+        "coefficients_product",
+        "coefficients_one",
+        "gl_nondegenerate",
+        "toGL_coefficients",
+        "coefficients_injective",
+        "actionHom_apply",
+        "actionHom_kernel_scalar",
+        "actionHom_equal_iff_scalar",
+        "scalarSubgroup_eq_kernel",
+        "quotientAction_representative",
+        "quotient_equality_iff_action",
+        "quotient_equality_iff_nonzero_scalar",
+        "quotient_action_injective",
+        "quotient_action_mul",
+        "quotient_action_one",
+        "quotient_action_inverse",
+        "scalarMatrix_standard",
+        "scalarSubgroup_matrix_membership",
+        "three_points_determine_quotient"
+      ],
+      "expected_axioms": {
+        "coefficients_toMatrix": [
+          "Quot.sound",
+          "propext"
+        ],
+        "toMatrix_coefficients": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "coefficients_determinant": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "toMatrix_determinant": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "coefficients_product": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "coefficients_one": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "gl_nondegenerate": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "toGL_coefficients": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "coefficients_injective": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "actionHom_apply": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "actionHom_kernel_scalar": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "actionHom_equal_iff_scalar": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "scalarSubgroup_eq_kernel": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "quotientAction_representative": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "quotient_equality_iff_action": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "quotient_equality_iff_nonzero_scalar": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "quotient_action_injective": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "quotient_action_mul": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "quotient_action_one": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "quotient_action_inverse": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "scalarMatrix_standard": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "scalarSubgroup_matrix_membership": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "three_points_determine_quotient": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      }
+    }
+  ],
+  "modules": [
+    {
+      "file": "ProjectiveGeneration.lean",
+      "module": "AEGPaper0.ProjectiveGeneration",
+      "lean_audit_names": [
+        "ofMatrix_action",
+        "ofMatrix_surjective",
+        "ofMatrix_equal_iff_scalar",
+        "ofMatrix_product",
+        "translationClass_finite",
+        "translationClass_infinity",
+        "dilationClass_finite",
+        "dilationClass_infinity",
+        "inversionClass_infinity",
+        "inversionClass_zero",
+        "inversionClass_finite",
+        "quotient_affine_factorization",
+        "quotient_nonaffine_factorization",
+        "subgroup_containing_elementary_is_top",
+        "elementary_generators_generate"
+      ],
+      "expected_axioms": {
+        "ofMatrix_action": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "ofMatrix_surjective": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "ofMatrix_equal_iff_scalar": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "ofMatrix_product": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "translationClass_finite": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "translationClass_infinity": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "dilationClass_finite": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "dilationClass_infinity": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "inversionClass_infinity": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "inversionClass_zero": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "inversionClass_finite": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "quotient_affine_factorization": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "quotient_nonaffine_factorization": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "subgroup_containing_elementary_is_top": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "elementary_generators_generate": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      }
+    },
+    {
+      "file": "AffineStabilizer.lean",
+      "module": "AEGPaper0.AffineStabilizer",
+      "lean_audit_names": [
+        "affine_formula",
+        "slope_nonzero",
+        "normalizedAffine_apply",
+        "normalizedAffine_inverse_apply",
+        "affine_map_exists",
+        "zero_slope_impossible",
+        "normalizedAffine_slope",
+        "normalizedAffine_offset",
+        "affine_parameters_unique",
+        "affineMatrix_determinant",
+        "affineClass_infinity",
+        "affineClass_finite",
+        "affineClass_injective",
+        "affineClass_one",
+        "affineClass_mul",
+        "toStabilizer_injective",
+        "infinity_iff_lower_left_zero",
+        "affine_matrix_class_normal_form",
+        "toStabilizer_surjective",
+        "affineStabilizerEquiv_finite",
+        "normalized_class_unique",
+        "affine_parameter_composition",
+        "inversion_not_in_affine_stabilizer",
+        "affine_composition_order_matters"
+      ],
+      "expected_axioms": {
+        "affine_formula": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "slope_nonzero": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "normalizedAffine_apply": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "normalizedAffine_inverse_apply": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "affine_map_exists": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "zero_slope_impossible": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "normalizedAffine_slope": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "normalizedAffine_offset": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "affine_parameters_unique": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "affineMatrix_determinant": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "affineClass_infinity": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "affineClass_finite": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "affineClass_injective": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "affineClass_one": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "affineClass_mul": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "toStabilizer_injective": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "infinity_iff_lower_left_zero": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "affine_matrix_class_normal_form": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "toStabilizer_surjective": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "affineStabilizerEquiv_finite": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "normalized_class_unique": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "affine_parameter_composition": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "inversion_not_in_affine_stabilizer": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "affine_composition_order_matters": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      }
+    }
+  ],
+  "mapping": [
+    {
+      "source_labels": [
+        "thm:p0-pgl2-generation"
+      ],
+      "formal": [
+        "AEGPaper0.ProjectiveGeneration.ofMatrix_action",
+        "AEGPaper0.ProjectiveGeneration.ofMatrix_surjective",
+        "AEGPaper0.ProjectiveGeneration.ofMatrix_equal_iff_scalar",
+        "AEGPaper0.ProjectiveGeneration.ofMatrix_product",
+        "AEGPaper0.ProjectiveGeneration.translationClass_finite",
+        "AEGPaper0.ProjectiveGeneration.translationClass_infinity",
+        "AEGPaper0.ProjectiveGeneration.dilationClass_finite",
+        "AEGPaper0.ProjectiveGeneration.dilationClass_infinity",
+        "AEGPaper0.ProjectiveGeneration.inversionClass_infinity",
+        "AEGPaper0.ProjectiveGeneration.inversionClass_zero",
+        "AEGPaper0.ProjectiveGeneration.inversionClass_finite",
+        "AEGPaper0.ProjectiveGeneration.quotient_affine_factorization",
+        "AEGPaper0.ProjectiveGeneration.quotient_nonaffine_factorization",
+        "AEGPaper0.ProjectiveGeneration.subgroup_containing_elementary_is_top",
+        "AEGPaper0.ProjectiveGeneration.elementary_generators_generate"
+      ],
+      "coverage": "Actual PGL quotient classes of translations, unit dilations and inversion; two/four-factor quotient equalities for every matrix representative and elementary subgroup closure equal to the full PGL group. The equivalent arithmetic grammar-to-group evaluation dictionary is a separate interface."
+    },
+    {
+      "anchor_kind": "equation",
+      "source_labels": [
+        "eq:p0-affine-stabilizer"
+      ],
+      "formal": [
+        "AEGPaper0.AffineStabilizer.affine_formula",
+        "AEGPaper0.AffineStabilizer.slope_nonzero",
+        "AEGPaper0.AffineStabilizer.normalizedAffine_apply",
+        "AEGPaper0.AffineStabilizer.normalizedAffine_inverse_apply",
+        "AEGPaper0.AffineStabilizer.affine_map_exists",
+        "AEGPaper0.AffineStabilizer.zero_slope_impossible",
+        "AEGPaper0.AffineStabilizer.normalizedAffine_slope",
+        "AEGPaper0.AffineStabilizer.normalizedAffine_offset",
+        "AEGPaper0.AffineStabilizer.affine_parameters_unique",
+        "AEGPaper0.AffineStabilizer.affineMatrix_determinant",
+        "AEGPaper0.AffineStabilizer.affineClass_infinity",
+        "AEGPaper0.AffineStabilizer.affineClass_finite",
+        "AEGPaper0.AffineStabilizer.affineClass_injective",
+        "AEGPaper0.AffineStabilizer.affineClass_one",
+        "AEGPaper0.AffineStabilizer.affineClass_mul",
+        "AEGPaper0.AffineStabilizer.toStabilizer_injective",
+        "AEGPaper0.AffineStabilizer.infinity_iff_lower_left_zero",
+        "AEGPaper0.AffineStabilizer.affine_matrix_class_normal_form",
+        "AEGPaper0.AffineStabilizer.toStabilizer_surjective",
+        "AEGPaper0.AffineStabilizer.affineStabilizerEquiv_finite",
+        "AEGPaper0.AffineStabilizer.normalized_class_unique",
+        "AEGPaper0.AffineStabilizer.affine_parameter_composition",
+        "AEGPaper0.AffineStabilizer.inversion_not_in_affine_stabilizer",
+        "AEGPaper0.AffineStabilizer.affine_composition_order_matters"
+      ],
+      "coverage": "The actual infinity stabilizer is multiplicatively equivalent to standard Mathlib AffineEquiv K K K. Unique nonzero-slope normal form, finite evaluation, inverse formula, parameter composition and properness witnesses are explicit."
+    }
+  ],
+  "excluded": [
+    "Arithmetic grammar/history evaluation dictionary into the generated quotient group",
+    "Identification of equal group elements with equal marked histories or ordinary domains",
+    "Topology/smoothness and intrinsic hyperbolic identifications"
+  ],
+  "interpretation": "39 new exact audited statements establish the affine stabilizer/standard affine-group isomorphism and actual PGL quotient-level elementary generation over every field. Rebuild 120 unchanged source-import audits without counting them as new. No whole-chapter or arithmetic-history completeness claim."
+}

@@ -1,0 +1,63 @@
+{
+  "schema": "aeg.paper0.formal.contract.affine-generation.v1",
+  "date": "2026-11-07",
+  "source_commit": "61519bf1c3fb65e89eca29e666c73fb08550b12c",
+  "question": "Identify the PGL infinity stabilizer with the standard one-dimensional affine group and prove actual quotient-level elementary factorizations and subgroup generation.",
+  "bounds": {
+    "wall_seconds": 300,
+    "child_commands": 32,
+    "child_wall_seconds": 120,
+    "child_cpu_seconds": 60,
+    "child_address_space_bytes": 1073741824,
+    "lean_child_address_space_bytes": 8589934592,
+    "child_file_bytes": 33554432,
+    "artifact_bytes": 536870912
+  },
+  "expected_work": {
+    "child_commands": 13,
+    "import_lean_statements": 120,
+    "new_lean_statements": 39,
+    "import_modules": 5,
+    "positive_modules": 2,
+    "negative_controls": 4
+  },
+  "negative_controls": [
+    {
+      "name": "nonzero-slope",
+      "file": "negative/AffineMissingSlope.lean",
+      "expected_fragments": [
+        "affine_map_exists a b",
+        "a \u2260 0 \u2192 \u2203 e, \u2200 (x : K)"
+      ]
+    },
+    {
+      "name": "stabilizer-guard",
+      "file": "negative/AffineMissingStabilizerGuard.lean",
+      "expected_fragments": [
+        "(infinity_iff_lower_left_zero m hm).mpr",
+        "m.c = 0 \u2192 ofMatrix m hm \u2208 infinityStabilizer"
+      ]
+    },
+    {
+      "name": "affine-order",
+      "file": "negative/AffineWrongComposition.lean",
+      "expected_fragments": [
+        "affine_parameter_composition e f",
+        "slope e * offset f + offset e",
+        "slope f * offset e + offset f"
+      ]
+    },
+    {
+      "name": "inversion-generator",
+      "file": "negative/AffineMissingInversionGenerator.lean",
+      "expected_fragments": [
+        "subgroup_containing_elementary_is_top H hT hD",
+        "inversionClass \u2208 H \u2192 H = \u22a4"
+      ]
+    }
+  ],
+  "resource_basis": "Declared before receiving execution after clean engineering compilation and all four specific guard controls. Reuse the analytic numerical bounds unchanged: 300-second deadline, 60-second child CPU, 120-second child wall and 8 GiB Lean virtual address space. Standard AffineEquiv and GL/quotient modules are already in the unchanged library lock. All six preceding profiles remain independently required; no profile refills another.",
+  "success": "Rebuild and exactly audit 120 unchanged source-import statements and all 39 new statements, with clean diagnostics and no target axioms/admitted proofs. All four negatives reject with their specific type mismatches. Source/inventory/library pins agree and all six predecessor profiles pass independently.",
+  "exit": "One fresh bounded invocation after engineering checks; retain a Failed record and stop on mismatch/exhaustion. A correction requires a separately declared successor, never automatic bound growth.",
+  "authorship": "Codex (OpenAI), CC0; no independent human review claimed."
+}

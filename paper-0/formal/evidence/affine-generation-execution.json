@@ -1,0 +1,347 @@
+{
+  "schema": "aeg.paper0.affine-generation.execution.v1",
+  "date": "2026-11-07",
+  "status": "Passed",
+  "authorship": "Codex (OpenAI), CC0; no independent human mathematical review claimed.",
+  "source_lock_sha256": "c7cd0ffc1c77051185a13133cbccebccf4f2c6c72661834e0c712bcc0481df11",
+  "affine_generation_map_sha256": "94840586c871309c1ce9fa1b1d7d3b6a0459e8a002f8ec7f09c60ddd492c9e6d",
+  "chapter03_obligations_sha256": "973e643c66e264c4475b512d916e4eef7a87dfe94d112f910e98359e81ad2800",
+  "mathlib_lock_sha256": "de2e937993bd22e41702f21889ac382f3cb36364cbe0b5e5d3fbc1e32bd0394d",
+  "mathlib_commit": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
+  "mathlib_source_files": 7600,
+  "mathlib_compiled_modules": 3175,
+  "profiles": {
+    "native": {
+      "directory": "native-01",
+      "contract": "contract-chapter03.json",
+      "contract_sha256": "606081b7c80d6f57bd1b05a688217d93c411663a98f23eb2eed931a17a66312f",
+      "report_sha256": "071effebfeaba1e27140dca051ad9dcfbf5522a85d64f79b70c037526ef630fb",
+      "wall_seconds": 176.49959292199856,
+      "child_commands": 148
+    },
+    "analytic": {
+      "directory": "analysis-01",
+      "contract": "contract-analysis-v1.1.json",
+      "contract_sha256": "dc43df95783ca070cc0fad0717cc5986182d3fca814a9a6358f7b436376a7ab3",
+      "report_sha256": "6b4efc459e50496a815d2ca5d89808468f7f2f400ac6b80c8cda68cac90c6f70",
+      "wall_seconds": 138.53902444100095,
+      "child_commands": 16
+    },
+    "chapter04": {
+      "directory": "chapter04-01",
+      "contract": "contract-chapter04.json",
+      "contract_sha256": "52b58178702f5afecc366ed2edab8b1da4c553c3cab3703c2e1fa6fe34d4a905",
+      "report_sha256": "5a7af5389181a52e96f1016526fe7111f7f635d30396a86736dcef000578f9ac",
+      "wall_seconds": 52.36296627000047,
+      "child_commands": 8
+    },
+    "apollonius": {
+      "directory": "apollonius-01",
+      "contract": "contract-apollonius.json",
+      "contract_sha256": "082e865282360a9616cc7f27558e668f630ac1a0dccb7564f020b318f689b506",
+      "report_sha256": "ae50b5fd81f81d6f89f665e3f243c5b9788a063ddfc67614ff8764c22420f889",
+      "wall_seconds": 69.77944784500141,
+      "child_commands": 8
+    },
+    "projective": {
+      "directory": "projective-01",
+      "contract": "contract-projective.json",
+      "contract_sha256": "3c0eb86b50b4bf972e8b2798cda2b6653a76556a19addbc408861e31b3ad1cca",
+      "report_sha256": "5803f581e9f61f52400242e1dd6f6d66459f7aa028a263d55852c57b49fd34db",
+      "wall_seconds": 77.1336506330008,
+      "child_commands": 11
+    },
+    "pgl": {
+      "directory": "pgl-01",
+      "contract": "contract-pgl.json",
+      "contract_sha256": "b7687826a0bf34e7bb23d5c3637d298ab918839276175a4ffe5b7d5e345135c1",
+      "report_sha256": "35691c8b95c6638ffc4af54fd4ba78e1227f102311f13558d0d1f371119e7bbe",
+      "wall_seconds": 53.42929567399915,
+      "child_commands": 9
+    },
+    "affine_generation": {
+      "directory": "affine-generation-01",
+      "contract": "contract-affine-generation.json",
+      "contract_sha256": "a695a3c8c78b62511f8b8a0310fef8a33ed3b5aab3b504cb1e9f59fd74c2d17d",
+      "report_sha256": "bda0bb35b94def3c33e3fa4c31a6befbb1eb2a3113387554a4fe497353bfbe91",
+      "wall_seconds": 86.54848967600265,
+      "child_commands": 13
+    }
+  },
+  "previous_lean_statements": 465,
+  "new_lean_statements": 39,
+  "total_lean_statements": 504,
+  "affine_generation_axioms": {
+    "AEGPaper0.ProjectiveGeneration": {
+      "ofMatrix_action": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "ofMatrix_surjective": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "ofMatrix_equal_iff_scalar": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "ofMatrix_product": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "translationClass_finite": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "translationClass_infinity": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "dilationClass_finite": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "dilationClass_infinity": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "inversionClass_infinity": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "inversionClass_zero": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "inversionClass_finite": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "quotient_affine_factorization": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "quotient_nonaffine_factorization": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "subgroup_containing_elementary_is_top": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "elementary_generators_generate": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "AEGPaper0.AffineStabilizer": {
+      "affine_formula": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "slope_nonzero": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "normalizedAffine_apply": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "normalizedAffine_inverse_apply": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "affine_map_exists": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "zero_slope_impossible": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "normalizedAffine_slope": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "normalizedAffine_offset": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "affine_parameters_unique": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "affineMatrix_determinant": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "affineClass_infinity": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "affineClass_finite": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "affineClass_injective": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "affineClass_one": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "affineClass_mul": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "toStabilizer_injective": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "infinity_iff_lower_left_zero": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "affine_matrix_class_normal_form": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "toStabilizer_surjective": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "affineStabilizerEquiv_finite": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "normalized_class_unique": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "affine_parameter_composition": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "inversion_not_in_affine_stabilizer": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "affine_composition_order_matters": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  },
+  "source_import_audits": 120,
+  "negative_controls": {
+    "nonzero-slope": "Rejected with the expected specific type mismatch",
+    "stabilizer-guard": "Rejected with the expected specific type mismatch",
+    "affine-order": "Rejected with the expected specific type mismatch",
+    "inversion-generator": "Rejected with the expected specific type mismatch"
+  },
+  "native_runs": 69,
+  "reference_transitions": 51137,
+  "preceding_native_reports_unchanged": 69,
+  "original_proof_library_goal_contract_and_runtime_receiver_bytes_unchanged": true,
+  "old_formal_sources_with_explicit_navigation_successors": [
+    "inventory.py",
+    "inventory.json",
+    "test_pgl.py"
+  ],
+  "formal_source_files": 110,
+  "manuscript_source_files": 22,
+  "archive": {
+    "path": "affine-generation-run-01.tar.gz",
+    "sha256": "8a37aa5a27054ca38774741e00d2cc6a34003a810a0cd66cb52e5e6257aa5960",
+    "bytes": 10309818,
+    "members": 813,
+    "uncompressed_bytes": 38344183
+  },
+  "manuscript_builds": {
+    "0": {
+      "status": "Passed",
+      "pages": 103,
+      "pdf_bytes": 909781,
+      "pdf_sha256": "281d60964a07733e94a85d8bfbe6dab9c29d8e45e9fc466c74f1b86cfcc7b0c9",
+      "final_log_sha256": "d9dc151e9dd64abd0728a03848419a26c842af6fb83dad555d46720bb43501f1",
+      "unresolved_references_citations_duplicate_labels_missing_assets": false,
+      "overfull_boxes": 2,
+      "max_overfull_pt": 11.13274,
+      "note": "Validation PDF retained externally; tracked manuscript PDF restored without changing its bytes."
+    },
+    "1": {
+      "status": "Passed",
+      "pages": 61,
+      "pdf_bytes": 756641,
+      "pdf_sha256": "d3b87e381451e58b827b6022eaa549aefb561d9458d29230529fedb8e4cc4bee",
+      "final_log_sha256": "79ef18f1e6847054c1042bb4ac2c28be8c8ef5e9f2ade1fc8823ebaec83e086c",
+      "unresolved_references_citations_duplicate_labels_missing_assets": false,
+      "overfull_boxes": 8,
+      "max_overfull_pt": 105.1512,
+      "note": "Validation PDF retained externally; tracked manuscript PDF restored without changing its bytes."
+    }
+  },
+  "pre_receipt_checks": {
+    "passed": 50,
+    "pending_receipt_test": 1,
+    "note": "The archive-binding test cannot pass before the completed execution receipt exists. Its missing-receipt error is retained verbatim in engineering/unit-before-receipt.log."
+  },
+  "unit_tests_after_archive": 51,
+  "live_inventory": {
+    "source_files": 22,
+    "theorem_like_environments": 102,
+    "component_mapped": 32,
+    "fragment_certified": 1,
+    "not_yet_formalized": 69,
+    "separately_mapped_equations": 4
+  },
+  "source_audit": [],
+  "scope": "39 new exact audited statements establish the affine stabilizer/standard affine-group isomorphism and actual PGL quotient-level elementary generation over every field. Rebuild 120 unchanged source-import audits without counting them as new. No whole-chapter or arithmetic-history completeness claim.",
+  "remaining": [
+    "Arithmetic grammar/history evaluation dictionary into the generated quotient group",
+    "Identification of equal group elements with equal marked histories or ordinary domains",
+    "Topology/smoothness and intrinsic hyperbolic identifications"
+  ],
+  "deferred_chapter03": "chapter03-obligations.json",
+  "trust_boundary": "Pinned compiler/standard library and source/cache-fingerprinted Mathlib are trusted builds. The actual PGL infinity-stabilizer/standard AffineEquiv group isomorphism, unique affine normal forms, quotient-level elementary factorizations and full subgroup generation are certified. Arithmetic grammar/history evaluation dictionaries and intrinsic geometry remain outside this certificate. All seven profiles pass separately under independently declared bounds."
+}
