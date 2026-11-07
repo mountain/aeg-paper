@@ -55,6 +55,33 @@ $1$ & split-complex numbers & $a^{2}-b^{2}$ & hyperbolic \\
 \end{tabular}
 \end{center}
 
+\begin{remark}[The three names are field-dependent]
+\label{rem:trichotomy-field}
+The names in the table record the sign of the norm over $\R$, where $-1$ is not a
+square.  Over a general field $F$ the table is read by the class of
+$\Delta=b^{2}-4ac$ in $F$: a nonzero square (\emph{split}), zero
+(\emph{degenerate}), or a nonsquare (\emph{non-split}).  Two logically independent
+conditions govern what survives.
+
+\begin{enumerate}
+\item The trichotomy itself survives if and only if non-squares exist, i.e.\ $F$ is
+  not quadratically closed.  It fails over $\C$, where every nonzero element has a
+  square root ($\C^{*}/\C^{*2}=1$), and over finite fields of characteristic two,
+  where $x\mapsto x^{2}$ is an automorphism.
+\item The \emph{elliptic} member stays genuinely anisotropic if and only if $-1$ is a
+  nonsquare.  Over $\F_{5}$ the first condition holds and the second fails:
+  $-1=2^{2}$, and $X^{2}+Y^{2}=0$ has the nonzero solution $(1,2)$, so the
+  ``elliptic'' conic is already split.  For finite fields of odd order, $-1$ is a
+  square if and only if $q\equiv1\pmod 4$.
+\end{enumerate}
+
+Only over $\R$, and over $\F_{q}$ with $q\equiv3\pmod4$ such as $\F_{7}$, do the two
+conditions hold together; this is why the three names are safe in the real model and
+why the central sign of Definition~\ref{def:chirality} is visible there.  Over $\C$
+both fail: the trichotomy collapses to two cases and the two lifts $\pm J$ are no
+longer distinguishable.
+\end{remark}
+
 \begin{remark}[What Proposition~\ref{prop:quadratic-structure} does not do]
 \label{rem:not-enough}
 It does not select $\kappa=-1$.  Rank-one recovery of a characteristic from its own

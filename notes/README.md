@@ -47,3 +47,12 @@ to theorem authority.
 These two notes were migrated from `mountain/math-notes` at `7ece143` on
 2026-11-06. AEG is their maintenance home; incorporation into Paper I and an
 elliptic AES definition remain research tasks.
+
+## Complex and arbitrary-field extensions
+
+- [50 — Paper II: complex and arbitrary-field extensions](analysis-and-calculus/50-complex-and-arbitrary-field-extension.md):
+  a three-layer reading of Paper II (algebraic skeleton over any field, C1
+  holomorphic complexification, C2 Hermitian complexification, the real layer),
+  the arbitrary-field trichotomy, the bivaluation dictionary, and a roadmap.
+  Design note; it changes no paper source and no mathematical-status register.
+  Companion witness: `analysis-and-calculus/50-complex-arbitrary-field-witness.py`.
