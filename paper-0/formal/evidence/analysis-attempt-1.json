@@ -1,0 +1,20 @@
+{
+  "schema": "aeg.paper0.analysis.attempt.v1",
+  "date": "2026-11-07",
+  "status": "Failed",
+  "whole_run_admitted": false,
+  "analytic_proofs_reached": false,
+  "analytic_wall_seconds": 14.270219968999982,
+  "native_profile_status": "Passed",
+  "native_profile_wall_seconds": 196.50538240200012,
+  "source_lock_sha256": "eb8fe2aeda32172dfe630b987fdc84eb61c3833326c214917f242298fd6de388",
+  "archive": {
+    "path": "analysis-attempt-1.tar.gz",
+    "sha256": "0fa4a045d34f7b85cab06e9e8887e0dd12245388c24d96fd6baea8813ff800e2",
+    "bytes": 4564796,
+    "members": 599,
+    "uncompressed_bytes": 20095531
+  },
+  "reason": "Lake environment-path query was classified as a native 1 GiB process; Lake is itself a Lean process and emitted INTERNAL PANIC: out of memory. Proof compilation was not reached.",
+  "repair_scope": "Classify Lake under the already declared 8 GiB Lean limit; preserve all proof/library/budget bytes. The separately completed native profile remains historical evidence and is not relabelled as a completed combined analytic verification."
+}

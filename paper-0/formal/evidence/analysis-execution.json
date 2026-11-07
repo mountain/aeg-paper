@@ -1,0 +1,435 @@
+{
+  "schema": "aeg.paper0.chapter03.analysis.execution.v1.1",
+  "date": "2026-11-07",
+  "status": "Passed",
+  "authorship": "Codex (OpenAI), CC0; no independent human mathematical review claimed.",
+  "contract": "contract-analysis-v1.1.json",
+  "contract_sha256": "dc43df95783ca070cc0fad0717cc5986182d3fca814a9a6358f7b436376a7ab3",
+  "native_contract": "contract-chapter03.json",
+  "native_contract_sha256": "606081b7c80d6f57bd1b05a688217d93c411663a98f23eb2eed931a17a66312f",
+  "source_lock_sha256": "ad9b038aeb69ba6dc8fe6e09b9e7df33e305707bbd4edd5cb5f393989027817d",
+  "analysis_map_sha256": "e848652266fc7a0b29c82ac18e252889d8b48c51b6ad3c54e3063384c0a5a9ef",
+  "mathlib_lock_sha256": "de2e937993bd22e41702f21889ac382f3cb36364cbe0b5e5d3fbc1e32bd0394d",
+  "mathlib_commit": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
+  "mathlib_source_files": 7600,
+  "mathlib_compiled_modules": 3175,
+  "analytic_report_sha256": "47e3a9d6bfe44e71fe6c41b009facf0854a8e3ebc31c05a409dcc1f56ef73804",
+  "native_report_sha256": "d6b4d08ae8e8e1a0011c807aef8bfe484295541323abeebf96806cc92123e424",
+  "archive": {
+    "path": "analysis-run-02.tar.gz",
+    "sha256": "a476eb356859fad92f3855830660b1382572d99fdd6cbadb48b57b3393a6e31e",
+    "bytes": 6562007,
+    "members": 638,
+    "uncompressed_bytes": 26337809
+  },
+  "previous_lean_statements": 192,
+  "new_lean_statements": 66,
+  "total_lean_statements": 258,
+  "analytic_import_audits": 192,
+  "analytic_new_axioms": {
+    "AEGPaper0.Chapter03Analysis": {
+      "upper_isOpen": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "upper_height_ne_zero": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "assignment_derivative_apply": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "assignment_hasFDerivAt": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "assignment_fderiv_apply": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "assignment_smooth": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "left_derivative_apply": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "left_translate_hasFDerivAt": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "left_translate_smooth": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "left_translate_preserves_upper": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "invariant_metric_fderiv": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "metric_tensor_apply": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "metric_tensor_smooth": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "gradient_actual_dual": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "gradient_actual_unique": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "gradient_smooth": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "model_frame_u_smooth": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "model_frame_v_smooth": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "model_frame_actual_derivatives": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "basic_AES_eikonal": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "AEGPaper0.Chapter03Flow": {
+      "solution_initial": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "solution_zero_coefficient": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "solution_nonzero_coefficient": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "solution_hasDerivAt": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "solution_derivative": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "solution_composition": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "solution_unique": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "angular_solution": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "additive_axis": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "multiplicative_axis": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "AEGPaper0.Chapter03Calculus": {
+      "upper_surface_isManifold": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "surface_dimension": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "assignment_hasDerivAt_x": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "assignment_partialX": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "assignment_hasDerivAt_y": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "assignment_partialY": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "assignment_partialXX": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "assignment_partialY_hasDerivAt": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "assignment_partialYY": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "metric_determinant": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "volume_density_is_sqrt_determinant": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "density_inverse_xx": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "density_inverse_yy": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "laplace_coordinate_reduction": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "assignment_laplace_eigenfunction": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "AEGPaper0.Chapter03Rectification": {
+      "q_positive": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "q_square": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "q_smooth": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "canonical_coefficient_frame_exists": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "rectifying_smooth": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "rectifying_hasFDerivAt": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "rectifying_fderiv_apply": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "coefficient_eikonal": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "rectified_gradient_actual_dual": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "rectified_gradient_norm_sq": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "rectified_gradient_magnitude": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "unit_rectifying_hasFDerivAt": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "unit_rectifying_actual_dual": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "unit_gradient_when_lambda_zero": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "AEGPaper0.Chapter03Dynamics": {
+      "frame_u_hasFDerivAt": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "frame_v_hasFDerivAt": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "frame_bracket": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "frame_bracket_on_assignment": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "assignment_curve_hasDerivAt": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "directional_unit_speed": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "coordinate_curve_solution": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  },
+  "native_runs": 69,
+  "native_child_commands": 148,
+  "reference_transitions": 51137,
+  "analytic_child_commands": 16,
+  "negative_controls": {
+    "height": "Rejected with the expected specific type mismatch",
+    "laplacian-sign": "Rejected with the expected specific type mismatch",
+    "initial-value": "Rejected with the expected specific type mismatch",
+    "intensity": "Rejected with the expected specific type mismatch"
+  },
+  "wall_seconds_per_profile": {
+    "native": 255.01561838499993,
+    "analytic": 186.44474107199994
+  },
+  "independent_profile_deadlines_seconds": {
+    "native": 300,
+    "analytic": 300
+  },
+  "retained_failure": {
+    "record": "analysis-attempt-1.json",
+    "archive_sha256": "0fa4a045d34f7b85cab06e9e8887e0dd12245388c24d96fd6baea8813ff800e2",
+    "whole_run_admitted": false,
+    "additional_profile_seconds": {
+      "native": 196.50538240200012,
+      "analytic": 14.270219968999982
+    },
+    "native_reports_unchanged": 69,
+    "proof_and_library_bytes_unchanged": true,
+    "numerical_receiving_bounds_unchanged": true
+  },
+  "unit_tests_before_successor": 30,
+  "unit_tests_after_archive": 31,
+  "manuscript_builds": {
+    "0": {
+      "status": "Passed",
+      "pages": 103,
+      "pdf_bytes": 909781,
+      "pdf_sha256": "9e44f56e9bbe40bb9c6dffa24705b9f4d9044cdbc04f28778067c36554ca8530",
+      "final_log_sha256": "540babc98f63c73eda5f9888de5352ab443eba8a1641fcc3ad072986eba30caf",
+      "unresolved_references_citations_duplicate_labels_missing_assets": false,
+      "overfull_boxes": 2,
+      "note": "Validation PDF retained externally; tracked manuscript PDF preserved."
+    },
+    "1": {
+      "status": "Passed",
+      "pages": 61,
+      "pdf_bytes": 756641,
+      "pdf_sha256": "c8b283c63c594ec58203208c16d179541486d712be6d161a12e1e2d5829256f5",
+      "final_log_sha256": "1a9bab17f13a80d407cf1b2cd214fc8df46a9c8f06edada7fdefad160054666a",
+      "unresolved_references_citations_duplicate_labels_missing_assets": false,
+      "overfull_boxes": 8,
+      "note": "Validation PDF retained externally; tracked manuscript PDF preserved."
+    }
+  },
+  "live_inventory": {
+    "source_files": 22,
+    "theorem_like_environments": 102,
+    "component_mapped": 23,
+    "fragment_certified": 1,
+    "not_yet_formalized": 78,
+    "source_drift": 0
+  },
+  "coverage": "Actual real Frechet/second-partial derivatives, smooth open two-dimensional carrier and smooth coordinate-AES model, metric-gradient/Jacobian identification, coordinate Laplace--Beltrami eigenfunction, positive smooth square root, arsinh and zero-lambda unit rectification, real affine ODE existence/uniqueness and the signed frame/curve chain rule. Standard Mathlib is source/cache-pinned; all 66 new theorem axiom sets are audited. The preceding 192 statements and native profile remain independently checked. Curvature/completeness, hyperbolic length/trace classifications, punctured E1 and full arbitrary-manifold Riemannian/bundle equivalences are outside this continuation.",
+  "trust_boundary": "Actual real analytic derivatives and smooth open coordinate AES are certified. The pinned compiler/standard library and fingerprinted cached Mathlib are trusted builds. General Riemannian bundle/operator equivalences, Gaussian curvature/completeness, hyperbolic length/trace and E1 remain outside this certificate."
+}

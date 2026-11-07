@@ -52,7 +52,7 @@ statement correspondence and the reviewed equality kernel remain trusted.
 | §2 four-operation sections | All eight ordinary values/domains and nonzero affine inverse laws in Lean; separate bounded rational Adva evaluator | These universal field theorems are Lean-checked; finite Adva executions do not promote a new field-proof kernel |
 | §2 evaluability continuation | General finite-tree domain/value, closed-input independence, exact rational evaluation, cancelled reciprocal and projective round trip, prefix domains/condition pullbacks, and subtraction expansion in Lean | External Richardson theorem, real exponential/ACS example, topology and cardinality background retain their separate dependencies |
 | §2 distributive operator identity | Unchanged symbolic Adva/Lean identity; new general-field proof of the corrected marked/scalar clauses | The previous counterexample and its old source snapshot remain historical evidence |
-| §3 coordinate foundation | 61 audited Lean statements: canonical-frame linear algebra, positive coordinate metric, candidate gradient/covector duality, guarded motions, finite point paths and ordinary-tree bridge | Full smooth regular-AES definition, analytic differential/Jacobian identification, smooth root/frame construction, curvature, completeness, Laplace and continuous-flow/length theory |
+| §3 coordinate foundation and real analysis | 61 coordinate statements plus 66 Mathlib statements: actual differential/Jacobian, smooth real coordinate-AES model, Laplace eigenfunction, positive smooth root, rectification, signed-frame bracket and affine ODE solution/uniqueness | Gaussian curvature/completeness, length/trace theory, punctured E1, full arbitrary-manifold/boundary-chart and intrinsic bundle-operator equivalences |
 | §§4–6 ripple, reciprocal and projective theory | Inventoried, including the nested pole-covariance subsection | Formal domains, nonzero hypotheses, projective and geometric theories |
 | §7 chronological affine cocycle | Auxiliary pointwise polynomial identity checked by Adva and Lean; shared finite-history scalar expansion in `AppendixC.lean` | Definition/uniqueness of affine coordinates, inverse and normalized-coordinate laws |
 | §§8–12 ACS, contact, nonlinearity, punctures, compactification | Inventoried | Algebraic/differential/topological dependencies and explicit side conditions |
@@ -488,14 +488,125 @@ for review. Verification never calls them to rewrite expected results or locks.
 An intentional change requires reviewing the new statements, proof rules,
 manuscript mapping and negative controls before publishing successor pins.
 
+## Chapter 3 real-analysis successor (2026-11-07)
+
+The five `Chapter03Analysis`, `Chapter03Flow`, `Chapter03Calculus`,
+`Chapter03Rectification` and `Chapter03Dynamics` modules add 66 audited
+statements using Mathlib `v4.24.0` at
+`f897ebcf72cd16f89ab4577d0c826cd14afaafc7`, with the existing Lean 4.24.0.
+`analysis-map.json` binds every theorem and its exact global axiom set to the
+unchanged current third chapter. `mathlib.lock.json` separately binds the
+dependency manifest/revisions, 7,600 library source files and 3,175 observed
+compiled-library objects. These are explicit trusted library/compiler builds
+with integrity fingerprints, not an authenticated build-provenance theorem.
+The original coordinate proofs and native machine/programs remain unchanged.
+
+The earlier candidate assignment covector and affine tangent map are now
+proved equal to actual real Fréchet derivatives. The smooth tensor is a
+continuous bilinear form with verified positivity, and its unique gradient
+pairs with the genuine differential. The basic model is constructed as a
+`CoordinateRegularAES` on the open upper half-plane. Its carrier also has a
+Mathlib smooth two-dimensional manifold structure. This is an explicit global
+coordinate interpretation of the model, not a general equivalence of all
+manifolds, boundary charts or Riemannian bundle/distance instances.
+
+First and second partial derivatives are actual `deriv` operations. The
+constructed metric determinant gives the positive density `sqrt(det g)` when
+the intensities are positive. The declared divergence-of-gradient coordinate
+Laplace--Beltrami operator reduces to the displayed diagonal second-derivative
+formula and satisfies `Delta a = 2 lambda^2 a`. Its sign is checked by a
+deliberately wrong-sign control. A separate intrinsic bundle Laplacian is not
+identified by definition or assumed to have this eigenfunction.
+
+The real positive eikonal square root now exists and is smooth. Actual
+`arsinh` derivatives give the rectified metric gradient and magnitude
+`|lambda|`; the `lambda=0` unit rectifier `a/mu` is proved separately for a
+supplied smooth coordinate AES. The signed model fields have actual Fréchet
+derivatives, bracket and assignment action `mu*lambda`. The curve chain rule
+gives the angular propagation equation and unit speed. The constant-angle
+scalar ODE has a global explicit solution, both zero/nonzero coefficient
+branches, its initial value, semigroup law and uniqueness via an integrating
+factor. A coordinate curve with the required tangent and nonzero height
+follows that solution. General varying-angle existence, general-interval
+uniqueness and arbitrary-manifold flow infrastructure are not claimed.
+
+The Gaussian curvature and metric completeness of the model, hyperbolic
+translation length/projective trace classification, and punctured E1 remain
+open formal obligations. In particular, the ambient/subspace Euclidean metric
+is not substituted for the Riemannian length metric in a completeness claim.
+Navigation has 23 component-mapped environments, one fragment certificate and
+78 not yet formalized, still 102 theorem-like environments in 22 source files.
+These navigation labels do not assert whole-environment completion.
+
+The new analytic receiving profile is separate from the unchanged native
+profile. It rebuilds and exactly audits the 192 preceding source statements
+as imports, then audits all 66 new theorems and four deliberate negative
+modules: missing height, wrong Laplace sign, missing ODE initial value and
+missing nonzero additive intensity. Both profiles must pass. The analytic
+profile has its own 300-second deadline, 60-second child CPU/120-second child
+wall limits and 8 GiB Lean virtual-address limit, declared before invocation
+after measuring the library import costs. The native profile keeps its
+original deadline and 1/4 GiB child split. Neither run refills the other's
+budget or receives replacement proof/library bytes after a failure.
+
+After the usual pinned machine preparation, reproduce both profiles with:
+
+```sh
+python paper-0/formal/prepare_analysis.py \
+  --mathlib-root /absolute/path/to/new-or-pinned/mathlib \
+  --lean-bin /absolute/path/to/lean/bin
+python paper-0/formal/chapter03_run.py \
+  --machine-root /absolute/path/to/pinned/adva-machine \
+  --binary /absolute/path/to/pinned/adva-machine/target/debug/adva \
+  --lean /absolute/path/to/lean/bin/lean \
+  --output /absolute/path/to/new-native-evidence-directory
+python paper-0/formal/analysis_run.py \
+  --mathlib-root /absolute/path/to/pinned/mathlib \
+  --lean /absolute/path/to/lean/bin/lean \
+  --output /absolute/path/to/new-analysis-evidence-directory
+```
+
+Library fetching/cache preparation is separate engineering work. Verification
+checks every declared source/cache fingerprint before receiving the proofs;
+it never rewrites goals, expected audits, dependencies or locks. CI has
+separate native and `real-analysis` jobs. Historical archives retain their
+own inventories and test/generator snapshots, with separately pinned
+successor navigation. The previous pushed coordinate checkpoint's remote
+formal CI passed before this successor was implemented.
+
+The first analytic invocation is retained as `Failed` in
+`evidence/analysis-attempt-1.json` and its full source/native/analytic archive.
+It stopped before proof compilation: the Lake environment query was assigned
+the 1 GiB native limit even though Lake is a Lean process, and reported
+`INTERNAL PANIC: out of memory`. Its 14.27 seconds and the independently
+completed native run's 196.51 seconds remain recorded. They are not relabelled
+as a successful combined analytic run. `contract-analysis-v1.1.json` declares
+a fresh bounded successor after assigning Lake the already declared 8 GiB
+Lean limit. Proof, library, goal and numerical budget bytes are unchanged;
+the regression checks that exact receiving correction. Both profiles are
+rerun against a separately captured successor source snapshot.
+
+The completed successor is `Passed` in `evidence/analysis-execution.json`:
+the native profile has 69 runs, 148 child commands and 51,137 independently
+received instruction transitions; the analytic profile has 16 child commands,
+192 rebuilt import audits and all 66 new audits. There are 258 distinct
+audited statements overall, including supporting lemmas. All four analytic
+negative controls reject for their expected diagnostics. The native and
+analytic profiles took 255.02 and 186.44 seconds respectively, each within its
+own unchanged 300-second deadline. All 31 regressions pass after the archive
+binding check; 30 passed before the successor. All 69 native reports are
+byte-identical across attempts. The failed invocation and its additional
+costs remain separately recorded. Both manuscript builds pass at 103/61 pages
+without undefined references, missing citations/assets or duplicate labels;
+existing layout/bookmark warnings remain and tracked PDFs are preserved.
+
 ## Continuation order
 
-The §2 syntax/domain correspondence, marked-data repair and evaluability
-continuations are received above. The §3 coordinate foundation now provides
-the pointwise metric-dual and finite-path bridge. The next geometric step is
-to identify the candidate covector and tangent maps with analytic
-differentials and construct the smooth regular-AES interpretation, then
-address curvature/completeness and continuous flows. Reuse old Lean material
+The §2 continuations and §3 coordinate/real-analysis bridge are received above.
+The next geometric step is curvature and completeness of the Riemannian
+length metric, then the hyperbolic length/trace and punctured-model claims.
+The remaining general-manifold/bundle identifications should keep their
+explicit hypotheses. Reuse old Lean material
 only after a legacy-to-current statement map. Each theorem still needs its
 formal prerequisites and evidence; topology, smooth geometry, convergence and
 proof-library translation are not supplied by this algebraic foundation.

@@ -51,8 +51,10 @@ class Chapter03BoundaryTests(unittest.TestCase):
                       "thm:basic-hyperbolic-aes", "prop:p0-grid-assignment-action", "ex:p0-four-step-path"):
             row = next(c for c in live["claims"] if label in c["labels"])
             self.assertEqual(row["formal_status"], "component-map-supplied")
-        for label in ("def:regular-aes", "prop:laplace-eigenfunction", "thm:continuous-affine-flow",
-                      "prop:p0-projective-trichotomy", "ex:p0-e1-model"):
+        # The real-analysis successor now maps the smooth coordinate model,
+        # Laplace and flow components separately. Length/trace and E1 remain
+        # outside both continuations.
+        for label in ("prop:p0-projective-trichotomy", "ex:p0-e1-model"):
             row = next(c for c in live["claims"] if label in c["labels"])
             self.assertEqual(row["formal_status"], "not-yet-formalized")
 
@@ -111,7 +113,10 @@ class Chapter03ReceiptTests(unittest.TestCase):
         lock = json.loads(lock_raw)
         for name, digest in lock["formal_sources"].items():
             self.assertEqual(hashlib.sha256(files["sources/" + name]).hexdigest(), digest)
-            self.assertEqual(files["sources/" + name], (HERE / name).read_bytes())
+            # Keep original execution sources exact; live navigation and this
+            # navigation/receipt regression have separately pinned successors.
+            if name not in {"inventory.json", "inventory.py", "test_chapter03.py"}:
+                self.assertEqual(files["sources/" + name], (HERE / name).read_bytes())
         index = json.loads(files["sources/inventory.json"])
         for source, digest in index["sources"].items():
             self.assertEqual(hashlib.sha256(files["manuscript/" + source]).hexdigest(), digest)

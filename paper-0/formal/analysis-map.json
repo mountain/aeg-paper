@@ -1,0 +1,1438 @@
+{
+  "schema": "aeg.paper0.chapter03.analysis-map.v1",
+  "source": "paper-0/sections/03-aes-and-motion.tex",
+  "source_sha256": "e4441533bb6fe12e2728ca3d0492592a73fe7fa18e4695358a9151a9d853a33d",
+  "modules": [
+    {
+      "file": "Chapter03Analysis.lean",
+      "module": "AEGPaper0.Chapter03Analysis",
+      "lean_audit_names": [
+        "upper_isOpen",
+        "upper_height_ne_zero",
+        "assignment_derivative_apply",
+        "assignment_hasFDerivAt",
+        "assignment_fderiv_apply",
+        "assignment_smooth",
+        "left_derivative_apply",
+        "left_translate_hasFDerivAt",
+        "left_translate_smooth",
+        "left_translate_preserves_upper",
+        "invariant_metric_fderiv",
+        "metric_tensor_apply",
+        "metric_tensor_smooth",
+        "gradient_actual_dual",
+        "gradient_actual_unique",
+        "gradient_smooth",
+        "model_frame_u_smooth",
+        "model_frame_v_smooth",
+        "model_frame_actual_derivatives",
+        "basic_AES_eikonal"
+      ],
+      "expected_axioms": {
+        "upper_isOpen": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "upper_height_ne_zero": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "assignment_derivative_apply": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "assignment_hasFDerivAt": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "assignment_fderiv_apply": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "assignment_smooth": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "left_derivative_apply": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "left_translate_hasFDerivAt": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "left_translate_smooth": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "left_translate_preserves_upper": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "invariant_metric_fderiv": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "metric_tensor_apply": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "metric_tensor_smooth": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "gradient_actual_dual": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "gradient_actual_unique": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "gradient_smooth": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "model_frame_u_smooth": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "model_frame_v_smooth": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "model_frame_actual_derivatives": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "basic_AES_eikonal": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      }
+    },
+    {
+      "file": "Chapter03Flow.lean",
+      "module": "AEGPaper0.Chapter03Flow",
+      "lean_audit_names": [
+        "solution_initial",
+        "solution_zero_coefficient",
+        "solution_nonzero_coefficient",
+        "solution_hasDerivAt",
+        "solution_derivative",
+        "solution_composition",
+        "solution_unique",
+        "angular_solution",
+        "additive_axis",
+        "multiplicative_axis"
+      ],
+      "expected_axioms": {
+        "solution_initial": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "solution_zero_coefficient": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "solution_nonzero_coefficient": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "solution_hasDerivAt": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "solution_derivative": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "solution_composition": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "solution_unique": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "angular_solution": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "additive_axis": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "multiplicative_axis": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      }
+    },
+    {
+      "file": "Chapter03Calculus.lean",
+      "module": "AEGPaper0.Chapter03Calculus",
+      "lean_audit_names": [
+        "upper_surface_isManifold",
+        "surface_dimension",
+        "assignment_hasDerivAt_x",
+        "assignment_partialX",
+        "assignment_hasDerivAt_y",
+        "assignment_partialY",
+        "assignment_partialXX",
+        "assignment_partialY_hasDerivAt",
+        "assignment_partialYY",
+        "metric_determinant",
+        "volume_density_is_sqrt_determinant",
+        "density_inverse_xx",
+        "density_inverse_yy",
+        "laplace_coordinate_reduction",
+        "assignment_laplace_eigenfunction"
+      ],
+      "expected_axioms": {
+        "upper_surface_isManifold": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "surface_dimension": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "assignment_hasDerivAt_x": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "assignment_partialX": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "assignment_hasDerivAt_y": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "assignment_partialY": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "assignment_partialXX": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "assignment_partialY_hasDerivAt": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "assignment_partialYY": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "metric_determinant": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "volume_density_is_sqrt_determinant": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "density_inverse_xx": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "density_inverse_yy": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "laplace_coordinate_reduction": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "assignment_laplace_eigenfunction": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      }
+    },
+    {
+      "file": "Chapter03Rectification.lean",
+      "module": "AEGPaper0.Chapter03Rectification",
+      "lean_audit_names": [
+        "q_positive",
+        "q_square",
+        "q_smooth",
+        "canonical_coefficient_frame_exists",
+        "rectifying_smooth",
+        "rectifying_hasFDerivAt",
+        "rectifying_fderiv_apply",
+        "coefficient_eikonal",
+        "rectified_gradient_actual_dual",
+        "rectified_gradient_norm_sq",
+        "rectified_gradient_magnitude",
+        "unit_rectifying_hasFDerivAt",
+        "unit_rectifying_actual_dual",
+        "unit_gradient_when_lambda_zero"
+      ],
+      "expected_axioms": {
+        "q_positive": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "q_square": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "q_smooth": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "canonical_coefficient_frame_exists": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "rectifying_smooth": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "rectifying_hasFDerivAt": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "rectifying_fderiv_apply": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "coefficient_eikonal": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "rectified_gradient_actual_dual": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "rectified_gradient_norm_sq": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "rectified_gradient_magnitude": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "unit_rectifying_hasFDerivAt": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "unit_rectifying_actual_dual": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "unit_gradient_when_lambda_zero": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      }
+    },
+    {
+      "file": "Chapter03Dynamics.lean",
+      "module": "AEGPaper0.Chapter03Dynamics",
+      "lean_audit_names": [
+        "frame_u_hasFDerivAt",
+        "frame_v_hasFDerivAt",
+        "frame_bracket",
+        "frame_bracket_on_assignment",
+        "assignment_curve_hasDerivAt",
+        "directional_unit_speed",
+        "coordinate_curve_solution"
+      ],
+      "expected_axioms": {
+        "frame_u_hasFDerivAt": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "frame_v_hasFDerivAt": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "frame_bracket": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "frame_bracket_on_assignment": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "assignment_curve_hasDerivAt": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "directional_unit_speed": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "coordinate_curve_solution": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      }
+    }
+  ],
+  "core_imports": [
+    {
+      "file": "Chapter02.lean",
+      "module": "AEGPaper0",
+      "lean_audit_names": [
+        "addition_opposition",
+        "multiplication_opposition",
+        "distributive_operator",
+        "right_distributivity",
+        "affine_composition",
+        "comb_opposition",
+        "comb_order_unique",
+        "zero_pair_counterexample"
+      ],
+      "expected_axioms": {
+        "addition_opposition": [],
+        "multiplication_opposition": [],
+        "distributive_operator": [],
+        "right_distributivity": [],
+        "affine_composition": [],
+        "comb_opposition": [],
+        "comb_order_unique": [
+          "propext"
+        ],
+        "zero_pair_counterexample": []
+      }
+    },
+    {
+      "file": "Chapter02Domains.lean",
+      "module": "AEGPaper0.Chapter02",
+      "lean_audit_names": [
+        "first_div_domain",
+        "second_div_domain",
+        "zero_numerator_keeps_domain",
+        "eval_functional",
+        "partial_fold_nil",
+        "partial_fold_snoc",
+        "partial_fold_append",
+        "commutative_fold_agreement",
+        "zero_denominator_refused",
+        "undefined_first_prefix_persists",
+        "undefined_second_prefix_persists",
+        "grow_left_eval",
+        "left_tree_correspondence",
+        "left_tree_snoc",
+        "right_tree_snoc",
+        "mirror_involution",
+        "mirror_fold",
+        "mirror_left_tree",
+        "mirror_eval",
+        "right_tree_correspondence",
+        "partial_fold_functional",
+        "shuffle_nil_right",
+        "shuffle_nil_left",
+        "shuffle_with_right_empty",
+        "shuffle_with_left_empty",
+        "grow_left_trace",
+        "grow_right_trace",
+        "trace_fold_from",
+        "comb_trace_characterization",
+        "comb_legal_order_unique",
+        "inverse_nonzero",
+        "zero_add",
+        "one_mul",
+        "zero_mul",
+        "add_left_cancel",
+        "neg_one_mul",
+        "neg_one_nonzero",
+        "affine_left_inverse",
+        "affine_right_inverse",
+        "first_add_affine",
+        "first_sub_affine",
+        "first_mul_affine",
+        "first_div_affine",
+        "second_add_affine",
+        "second_sub_affine",
+        "second_mul_affine",
+        "second_div_value",
+        "addition_sections_agree",
+        "multiplication_sections_agree",
+        "reciprocal_scale_identity",
+        "guarded_reciprocal_scale",
+        "mul_left_cancel",
+        "constant_pair_coincidence",
+        "nonzero_constant_pair_coincidence",
+        "marked_words_distinct",
+        "reciprocal_infinity",
+        "ordinary_reciprocal_projective_match",
+        "reciprocal_not_infinity_stabilizing",
+        "reciprocal_raw_infinity",
+        "reciprocal_raw_zero",
+        "reciprocal_raw_preserves_nonzero",
+        "zero_reciprocal_raw_invalid",
+        "zero_scale_not_injective"
+      ],
+      "expected_axioms": {
+        "first_div_domain": [],
+        "second_div_domain": [],
+        "zero_numerator_keeps_domain": [],
+        "eval_functional": [],
+        "partial_fold_nil": [],
+        "partial_fold_snoc": [],
+        "partial_fold_append": [
+          "propext"
+        ],
+        "commutative_fold_agreement": [],
+        "zero_denominator_refused": [],
+        "undefined_first_prefix_persists": [],
+        "undefined_second_prefix_persists": [],
+        "grow_left_eval": [],
+        "left_tree_correspondence": [
+          "Quot.sound",
+          "propext"
+        ],
+        "left_tree_snoc": [
+          "Quot.sound",
+          "propext"
+        ],
+        "right_tree_snoc": [
+          "Quot.sound",
+          "propext"
+        ],
+        "mirror_involution": [
+          "propext"
+        ],
+        "mirror_fold": [],
+        "mirror_left_tree": [],
+        "mirror_eval": [
+          "Quot.sound",
+          "propext"
+        ],
+        "right_tree_correspondence": [
+          "Quot.sound",
+          "propext"
+        ],
+        "partial_fold_functional": [],
+        "shuffle_nil_right": [],
+        "shuffle_nil_left": [],
+        "shuffle_with_right_empty": [],
+        "shuffle_with_left_empty": [],
+        "grow_left_trace": [],
+        "grow_right_trace": [],
+        "trace_fold_from": [
+          "Quot.sound",
+          "propext"
+        ],
+        "comb_trace_characterization": [
+          "Quot.sound",
+          "propext"
+        ],
+        "comb_legal_order_unique": [
+          "Quot.sound",
+          "propext"
+        ],
+        "inverse_nonzero": [],
+        "zero_add": [],
+        "one_mul": [],
+        "zero_mul": [],
+        "add_left_cancel": [],
+        "neg_one_mul": [],
+        "neg_one_nonzero": [],
+        "affine_left_inverse": [],
+        "affine_right_inverse": [],
+        "first_add_affine": [
+          "propext"
+        ],
+        "first_sub_affine": [
+          "propext"
+        ],
+        "first_mul_affine": [
+          "propext"
+        ],
+        "first_div_affine": [
+          "propext"
+        ],
+        "second_add_affine": [
+          "propext"
+        ],
+        "second_sub_affine": [
+          "propext"
+        ],
+        "second_mul_affine": [
+          "propext"
+        ],
+        "second_div_value": [],
+        "addition_sections_agree": [
+          "propext"
+        ],
+        "multiplication_sections_agree": [
+          "propext"
+        ],
+        "reciprocal_scale_identity": [],
+        "guarded_reciprocal_scale": [],
+        "mul_left_cancel": [],
+        "constant_pair_coincidence": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "nonzero_constant_pair_coincidence": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "marked_words_distinct": [],
+        "reciprocal_infinity": [],
+        "ordinary_reciprocal_projective_match": [],
+        "reciprocal_not_infinity_stabilizing": [],
+        "reciprocal_raw_infinity": [
+          "propext"
+        ],
+        "reciprocal_raw_zero": [
+          "propext"
+        ],
+        "reciprocal_raw_preserves_nonzero": [],
+        "zero_reciprocal_raw_invalid": [
+          "propext"
+        ],
+        "zero_scale_not_injective": []
+      }
+    },
+    {
+      "file": "AppendixC.lean",
+      "module": "AEGPaper0.AppendixC",
+      "lean_audit_names": [
+        "evaluate_nil",
+        "evaluate_append",
+        "evaluate_snoc",
+        "scale_append",
+        "scale_snoc",
+        "contribution_at",
+        "expanded_evaluation",
+        "perturbation_step",
+        "additive_perturbation",
+        "events_length",
+        "events_correspondence",
+        "tree_correspondence",
+        "add_left_comm",
+        "restore_difference",
+        "difference_of_translation",
+        "difference_self",
+        "exact_difference",
+        "prefix_difference",
+        "difference_nonzero",
+        "perturbation_ratio",
+        "guarded_ratio",
+        "prefix_ratio",
+        "diagonal_ratio_undefined",
+        "scale_nonzero"
+      ],
+      "expected_axioms": {
+        "evaluate_nil": [],
+        "evaluate_append": [],
+        "evaluate_snoc": [],
+        "scale_append": [
+          "propext"
+        ],
+        "scale_snoc": [
+          "propext"
+        ],
+        "contribution_at": [
+          "Quot.sound",
+          "propext"
+        ],
+        "expanded_evaluation": [],
+        "perturbation_step": [],
+        "additive_perturbation": [],
+        "events_length": [
+          "propext"
+        ],
+        "events_correspondence": [],
+        "tree_correspondence": [
+          "Quot.sound",
+          "propext"
+        ],
+        "add_left_comm": [],
+        "restore_difference": [],
+        "difference_of_translation": [],
+        "difference_self": [],
+        "exact_difference": [],
+        "prefix_difference": [],
+        "difference_nonzero": [],
+        "perturbation_ratio": [],
+        "guarded_ratio": [],
+        "prefix_ratio": [],
+        "diagonal_ratio_undefined": [],
+        "scale_nonzero": []
+      }
+    },
+    {
+      "file": "Chapter02Evaluability.lean",
+      "module": "AEGPaper0.Chapter02Evaluability",
+      "lean_audit_names": [
+        "tree_eval_functional",
+        "value_spec",
+        "value_unique",
+        "left_comb_domain",
+        "right_comb_domain",
+        "prefix_domain",
+        "undefined_prefix_persists",
+        "condition_append",
+        "closed_input_independent",
+        "closed_domain_independent",
+        "op_compute_correct",
+        "compute_correct",
+        "compute_none_iff",
+        "computed_value",
+        "identity_domain",
+        "zero_denominator_empty",
+        "undefined_child_propagates",
+        "cancelled_reciprocal_one_hole",
+        "reciprocal_tree_eval",
+        "inverse_inverse",
+        "cancelled_reciprocal_eval",
+        "cancelled_reciprocal_domain",
+        "cancelled_identity_partial_maps_differ",
+        "reciprocal_graph_functional",
+        "reciprocal_projective_involution",
+        "reciprocal_projective_identity",
+        "subtraction_expansion",
+        "rational_evaluation_correct",
+        "rational_failure_exact",
+        "rational_evaluation_total",
+        "rational_cancelled_nonzero",
+        "rational_cancelled_zero",
+        "rational_branching_guard",
+        "rational_undefined_before_zero",
+        "rational_zero_numerator_guard",
+        "rational_unbounded_integer"
+      ],
+      "expected_axioms": {
+        "tree_eval_functional": [],
+        "value_spec": [
+          "Classical.choice"
+        ],
+        "value_unique": [
+          "Classical.choice"
+        ],
+        "left_comb_domain": [
+          "Quot.sound",
+          "propext"
+        ],
+        "right_comb_domain": [
+          "Quot.sound",
+          "propext"
+        ],
+        "prefix_domain": [
+          "Quot.sound",
+          "propext"
+        ],
+        "undefined_prefix_persists": [
+          "Quot.sound",
+          "propext"
+        ],
+        "condition_append": [
+          "propext"
+        ],
+        "closed_input_independent": [
+          "Quot.sound",
+          "propext"
+        ],
+        "closed_domain_independent": [
+          "Quot.sound",
+          "propext"
+        ],
+        "op_compute_correct": [
+          "propext"
+        ],
+        "compute_correct": [
+          "propext"
+        ],
+        "compute_none_iff": [
+          "propext"
+        ],
+        "computed_value": [
+          "Classical.choice",
+          "propext"
+        ],
+        "identity_domain": [],
+        "zero_denominator_empty": [],
+        "undefined_child_propagates": [],
+        "cancelled_reciprocal_one_hole": [],
+        "reciprocal_tree_eval": [],
+        "inverse_inverse": [],
+        "cancelled_reciprocal_eval": [
+          "Quot.sound",
+          "propext"
+        ],
+        "cancelled_reciprocal_domain": [
+          "Quot.sound",
+          "propext"
+        ],
+        "cancelled_identity_partial_maps_differ": [
+          "Quot.sound",
+          "propext"
+        ],
+        "reciprocal_graph_functional": [],
+        "reciprocal_projective_involution": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "reciprocal_projective_identity": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "subtraction_expansion": [],
+        "rational_evaluation_correct": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "rational_failure_exact": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "rational_evaluation_total": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "rational_cancelled_nonzero": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "rational_cancelled_zero": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "rational_branching_guard": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "rational_undefined_before_zero": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "rational_zero_numerator_guard": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "rational_unbounded_integer": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      }
+    },
+    {
+      "file": "Chapter03Coordinates.lean",
+      "module": "AEGPaper0.Chapter03Coordinates",
+      "lean_audit_names": [
+        "rational_field_bridge",
+        "frame_rotation",
+        "canonical_frame_orthonormal",
+        "canonical_frame_directional",
+        "canonical_frame_unique",
+        "frame_eikonal_converse",
+        "metric_add_left",
+        "metric_scale_left",
+        "covector_linear",
+        "metric_symmetric",
+        "model_frame_orthonormal",
+        "model_frame_determinant",
+        "model_frame_assignment",
+        "gradient_metric_dual",
+        "gradient_metric_unique",
+        "model_eikonal_coordinate",
+        "model_gradient_nonzero",
+        "invariant_metric_coordinates",
+        "left_invariant_frame",
+        "scaled_standard_metric",
+        "assignment_contour",
+        "translation_assignment",
+        "scaling_assignment",
+        "reflection_assignment",
+        "translation_composition",
+        "translation_inverse",
+        "scaling_composition",
+        "scaling_inverse",
+        "zero_scaling_leaves_chart",
+        "scaling_translation_conjugation",
+        "translation_iterate",
+        "baumslag_solitar_coordinates",
+        "affine_lift_assignment",
+        "affine_lift_chart",
+        "affine_composition_value",
+        "affine_composition_lift",
+        "finite_path_assignment",
+        "prefix_path_assignment",
+        "affine_value_unique",
+        "affine_value_bridge",
+        "affine_list_bridge",
+        "point_path_tree_bridge",
+        "compose_associative",
+        "compose_identity",
+        "prefix_operator_value",
+        "prefix_operator_snoc",
+        "prefix_multiplier_nonzero",
+        "dilation_translation_conjugation",
+        "finite_order_defect",
+        "inverse_positive",
+        "quotient_positive",
+        "upper_translation_assignment",
+        "upper_scaling_assignment",
+        "model_frame_positive_orientation",
+        "eikonal_rhs_positive",
+        "root_nonzero",
+        "metric_positive_definite",
+        "rational_four_step_point",
+        "rational_four_step_prefixes",
+        "rational_model_eikonal",
+        "rational_orientation_counterexample"
+      ],
+      "expected_axioms": {
+        "rational_field_bridge": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "frame_rotation": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "canonical_frame_orthonormal": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "canonical_frame_directional": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "canonical_frame_unique": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "frame_eikonal_converse": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "metric_add_left": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "metric_scale_left": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "covector_linear": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "metric_symmetric": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "model_frame_orthonormal": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "model_frame_determinant": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "model_frame_assignment": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "gradient_metric_dual": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "gradient_metric_unique": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "model_eikonal_coordinate": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "model_gradient_nonzero": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "invariant_metric_coordinates": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "left_invariant_frame": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "scaled_standard_metric": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "assignment_contour": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "translation_assignment": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "scaling_assignment": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "reflection_assignment": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "translation_composition": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "translation_inverse": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "scaling_composition": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "scaling_inverse": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "zero_scaling_leaves_chart": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "scaling_translation_conjugation": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "translation_iterate": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "baumslag_solitar_coordinates": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "affine_lift_assignment": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "affine_lift_chart": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "affine_composition_value": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "affine_composition_lift": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "finite_path_assignment": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "prefix_path_assignment": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "affine_value_unique": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "affine_value_bridge": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "affine_list_bridge": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "point_path_tree_bridge": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "compose_associative": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "compose_identity": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "prefix_operator_value": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "prefix_operator_snoc": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "prefix_multiplier_nonzero": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "dilation_translation_conjugation": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "finite_order_defect": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "inverse_positive": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "quotient_positive": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "upper_translation_assignment": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "upper_scaling_assignment": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "model_frame_positive_orientation": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "eikonal_rhs_positive": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "root_nonzero": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "metric_positive_definite": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "rational_four_step_point": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "rational_four_step_prefixes": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "rational_model_eikonal": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "rational_orientation_counterexample": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      }
+    }
+  ],
+  "mapping": [
+    {
+      "source_labels": [
+        "def:regular-aes",
+        "thm:basic-hyperbolic-aes"
+      ],
+      "formal": [
+        "AEGPaper0.Chapter03Analysis.upper_isOpen",
+        "AEGPaper0.Chapter03Analysis.upper_height_ne_zero",
+        "AEGPaper0.Chapter03Analysis.assignment_smooth",
+        "AEGPaper0.Chapter03Analysis.metric_tensor_smooth",
+        "AEGPaper0.Chapter03Analysis.gradient_smooth",
+        "AEGPaper0.Chapter03Analysis.model_frame_u_smooth",
+        "AEGPaper0.Chapter03Analysis.model_frame_v_smooth",
+        "AEGPaper0.Chapter03Analysis.basic_AES_eikonal"
+      ],
+      "coverage": "Actual open real coordinate domain, C-infinity assignment/tensor/gradient/frame and a fully constructed CoordinateRegularAES. The tensor is a continuous bilinear form with verified positivity; the gradient pairs with the genuine Frechet differential. This is the basic one-chart interpretation, not an equivalence/classification of arbitrary manifolds or a boundary-chart construction."
+    },
+    {
+      "source_labels": [
+        "thm:basic-hyperbolic-aes",
+        "eq:basic-hyperbolic-assignment"
+      ],
+      "formal": [
+        "AEGPaper0.Chapter03Analysis.assignment_derivative_apply",
+        "AEGPaper0.Chapter03Analysis.assignment_hasFDerivAt",
+        "AEGPaper0.Chapter03Analysis.assignment_fderiv_apply",
+        "AEGPaper0.Chapter03Analysis.gradient_actual_dual",
+        "AEGPaper0.Chapter03Analysis.gradient_actual_unique",
+        "AEGPaper0.Chapter03Analysis.model_frame_actual_derivatives"
+      ],
+      "coverage": "The candidate coordinate covector is proved equal to the actual Frechet derivative, and its metric-dual gradient is unique. Signed frame directional identities now use actual derivatives; no derivative formula is an assumed target axiom."
+    },
+    {
+      "source_labels": [
+        "prop:invariant-affine-metric"
+      ],
+      "formal": [
+        "AEGPaper0.Chapter03Analysis.left_derivative_apply",
+        "AEGPaper0.Chapter03Analysis.left_translate_hasFDerivAt",
+        "AEGPaper0.Chapter03Analysis.left_translate_smooth",
+        "AEGPaper0.Chapter03Analysis.left_translate_preserves_upper",
+        "AEGPaper0.Chapter03Analysis.invariant_metric_fderiv",
+        "AEGPaper0.Chapter03Analysis.metric_tensor_apply"
+      ],
+      "coverage": "Actual derivative of affine left translation agrees with the earlier tangent formula. It is smooth, preserves positive height and pulls the metric back to itself. The continuous-bilinear tensor agrees with the displayed coordinate metric."
+    },
+    {
+      "source_labels": [
+        "thm:continuous-affine-flow",
+        "eq:directional-affine-solution"
+      ],
+      "formal": [
+        "AEGPaper0.Chapter03Flow.solution_initial",
+        "AEGPaper0.Chapter03Flow.solution_zero_coefficient",
+        "AEGPaper0.Chapter03Flow.solution_nonzero_coefficient",
+        "AEGPaper0.Chapter03Flow.solution_hasDerivAt",
+        "AEGPaper0.Chapter03Flow.solution_derivative",
+        "AEGPaper0.Chapter03Flow.solution_composition",
+        "AEGPaper0.Chapter03Flow.solution_unique",
+        "AEGPaper0.Chapter03Flow.angular_solution",
+        "AEGPaper0.Chapter03Flow.additive_axis",
+        "AEGPaper0.Chapter03Flow.multiplicative_axis"
+      ],
+      "coverage": "Real global constant-coefficient scalar affine ODE solution, both zero/nonzero coefficient branches, initial condition, actual derivative, flow composition and uniqueness via an integrating factor. Constant-angle coefficients are substituted explicitly. Global real solutions are proved; local varying-angle existence and arbitrary-manifold ODE infrastructure are not claimed."
+    },
+    {
+      "source_labels": [
+        "def:regular-aes"
+      ],
+      "formal": [
+        "AEGPaper0.Chapter03Calculus.upper_surface_isManifold",
+        "AEGPaper0.Chapter03Calculus.surface_dimension"
+      ],
+      "coverage": "The positive-height domain has a genuine Mathlib smooth manifold structure and its real coordinate model has dimension two. This does not install a new Riemannian metric/distance bundle instance."
+    },
+    {
+      "source_labels": [
+        "prop:laplace-eigenfunction",
+        "eq:hyperbolic-assignment-laplacian",
+        "eq:laplacian-sign-convention"
+      ],
+      "formal": [
+        "AEGPaper0.Chapter03Calculus.assignment_hasDerivAt_x",
+        "AEGPaper0.Chapter03Calculus.assignment_partialX",
+        "AEGPaper0.Chapter03Calculus.assignment_hasDerivAt_y",
+        "AEGPaper0.Chapter03Calculus.assignment_partialY",
+        "AEGPaper0.Chapter03Calculus.assignment_partialXX",
+        "AEGPaper0.Chapter03Calculus.assignment_partialY_hasDerivAt",
+        "AEGPaper0.Chapter03Calculus.assignment_partialYY",
+        "AEGPaper0.Chapter03Calculus.metric_determinant",
+        "AEGPaper0.Chapter03Calculus.volume_density_is_sqrt_determinant",
+        "AEGPaper0.Chapter03Calculus.density_inverse_xx",
+        "AEGPaper0.Chapter03Calculus.density_inverse_yy",
+        "AEGPaper0.Chapter03Calculus.laplace_coordinate_reduction",
+        "AEGPaper0.Chapter03Calculus.assignment_laplace_eigenfunction"
+      ],
+      "coverage": "Actual first/second real partial derivatives; determinant of the constructed metric; positive volume density equals sqrt(det g); divergence-of-gradient coordinate Laplace--Beltrami reduction and Delta a=2 lambda^2 a. The coordinate operator is defined using actual derivatives and the verified metric volume. Identification with a separate intrinsic Mathlib bundle-Laplacian operator is not asserted."
+    },
+    {
+      "source_labels": [
+        "prop:canonical-arithmetic-frame"
+      ],
+      "formal": [
+        "AEGPaper0.Chapter03Rectification.q_positive",
+        "AEGPaper0.Chapter03Rectification.q_square",
+        "AEGPaper0.Chapter03Rectification.q_smooth",
+        "AEGPaper0.Chapter03Rectification.canonical_coefficient_frame_exists"
+      ],
+      "coverage": "Real positive square root exists, has the required square, is nonzero and smooth on the chart; the canonical coefficient-frame existence theorem now has that actual root. The general arbitrary-surface frame equivalence remains component coverage."
+    },
+    {
+      "source_labels": [
+        "eq:rectifying-assignment",
+        "eq:rectified-eikonal"
+      ],
+      "formal": [
+        "AEGPaper0.Chapter03Rectification.rectifying_smooth",
+        "AEGPaper0.Chapter03Rectification.rectifying_hasFDerivAt",
+        "AEGPaper0.Chapter03Rectification.rectifying_fderiv_apply",
+        "AEGPaper0.Chapter03Rectification.coefficient_eikonal",
+        "AEGPaper0.Chapter03Rectification.rectified_gradient_actual_dual",
+        "AEGPaper0.Chapter03Rectification.rectified_gradient_norm_sq",
+        "AEGPaper0.Chapter03Rectification.rectified_gradient_magnitude",
+        "AEGPaper0.Chapter03Rectification.unit_rectifying_hasFDerivAt",
+        "AEGPaper0.Chapter03Rectification.unit_rectifying_actual_dual",
+        "AEGPaper0.Chapter03Rectification.unit_gradient_when_lambda_zero"
+      ],
+      "coverage": "Actual arsinh Frechet derivative, smooth rectification, metric-dual rectified gradient and magnitude |lambda| in the nondegenerate basic model. The lambda=0 fallback a/mu and its unit metric-gradient square are separately proved for any supplied CoordinateRegularAES with zero lambda."
+    },
+    {
+      "source_labels": [
+        "eq:arithmetic-frame-bracket-on-a"
+      ],
+      "formal": [
+        "AEGPaper0.Chapter03Dynamics.frame_u_hasFDerivAt",
+        "AEGPaper0.Chapter03Dynamics.frame_v_hasFDerivAt",
+        "AEGPaper0.Chapter03Dynamics.frame_bracket",
+        "AEGPaper0.Chapter03Dynamics.frame_bracket_on_assignment"
+      ],
+      "coverage": "Actual Frechet derivatives of both signed model vector fields, their coordinate Lie bracket and its action on assignment equal mu*lambda. No coordinate-commutativity assumption."
+    },
+    {
+      "source_labels": [
+        "thm:continuous-affine-flow",
+        "eq:intrinsic-continuous-affine-flow"
+      ],
+      "formal": [
+        "AEGPaper0.Chapter03Dynamics.assignment_curve_hasDerivAt",
+        "AEGPaper0.Chapter03Dynamics.directional_unit_speed",
+        "AEGPaper0.Chapter03Dynamics.coordinate_curve_solution"
+      ],
+      "coverage": "Actual curve chain rule, unit speed from the angular model frame and the constant-angle solution along a globally defined coordinate curve with nonzero height. The arbitrary-manifold and general-interval formulations are not silently identified with this specialization."
+    }
+  ],
+  "interpretation": "Actual real Frechet/second-partial derivatives, smooth open two-dimensional carrier and smooth coordinate-AES model, metric-gradient/Jacobian identification, coordinate Laplace--Beltrami eigenfunction, positive smooth square root, arsinh and zero-lambda unit rectification, real affine ODE existence/uniqueness and the signed frame/curve chain rule. Standard Mathlib is source/cache-pinned; all 66 new theorem axiom sets are audited. The preceding 192 statements and native profile remain independently checked. Curvature/completeness, hyperbolic length/trace classifications, punctured E1 and full arbitrary-manifold Riemannian/bundle equivalences are outside this continuation.",
+  "excluded": [
+    "Gaussian curvature and metric completeness",
+    "hyperbolic translation length and projective trace trichotomy",
+    "punctured E1 model",
+    "general arbitrary-manifold or boundary-chart regular-AES equivalence",
+    "intrinsic bundle Laplacian identification",
+    "varying-angle ODE existence or general interval uniqueness",
+    "native universal analytic proof or checker soundness"
+  ]
+}

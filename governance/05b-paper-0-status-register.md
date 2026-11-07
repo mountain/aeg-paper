@@ -604,3 +604,109 @@ archive contains the captured 42 formal sources, 22 manuscript files, full
 native reports/replay receipts, Lean diagnostics and both manuscript build
 logs. Counts include supporting lemmas and finite controls, not 192 completed
 manuscript propositions.
+
+## 17. Chapter 3 real derivatives, smooth model and analytic laws (2026-11-07)
+
+This successor discharges the candidate-differential/Jacobian obligations of
+section 16 for the basic real global coordinate model and advances its
+analytic laws. It does not mark the third chapter complete. The 66 new
+statements are in `Chapter03Analysis.lean`, `Chapter03Flow.lean`,
+`Chapter03Calculus.lean`, `Chapter03Rectification.lean` and
+`Chapter03Dynamics.lean`; `formal/analysis-map.json` maps every statement to
+the unchanged manuscript with exact disclosed global axiom sets.
+
+| Component | Status | Hypotheses and boundary |
+| --- | --- | --- |
+| assignment differential, affine Jacobian and actual metric gradient | `PROVED WITH STATED HYPOTHESES` | Real Fréchet derivatives under the original nonzero-height guard; unique metric-dual gradient and actual signed frame derivatives. The former candidate formulas are independently derived from analytic differentiation. |
+| smooth basic coordinate AES | `PROVED WITH STATED HYPOTHESES` | Open positive-height real domain, smooth assignment/continuous-bilinear tensor/gradient, positive definite metric and actual gradient/eikonal identity. The domain has a Mathlib smooth manifold structure of real dimension two. This constructs the model in one global chart; no arbitrary-manifold or boundary-chart equivalence and no new Riemannian distance/bundle instance is inferred. |
+| Laplace eigenfunction | `PROVED WITH STATED HYPOTHESES` | Actual first/second partials, determinant and positive `sqrt(det g)` density, divergence-of-gradient coordinate operator and `Delta a=2 lambda^2 a`. Nonzero parameters/height and differentiability premises are explicit. Identification with an independent intrinsic bundle-Laplacian operator remains outside the certificate. |
+| real square root and rectification | `PROVED WITH STATED HYPOTHESES` | The eikonal root is positive, nonzero and smooth for `mu!=0`. Actual `arsinh` differentiation gives the metric-dual rectified gradient with magnitude `|lambda|` on the nondegenerate basic model. The separate `lambda=0` unit rectifier `a/mu` is proved for a supplied `CoordinateRegularAES`. |
+| signed-frame Lie bracket and curve propagation | `PROVED WITH STATED HYPOTHESES` | Actual derivatives give the bracket and assignment action `mu*lambda`; actual curve chain rule yields the angular equation, with the displayed angular tangent having unit metric norm. This is the real coordinate specialization. |
+| constant-angle affine flow | `PROVED WITH STATED HYPOTHESES` | Global scalar ODE solution, zero/nonzero linear-coefficient branches, initial value, derivative, composition and uniqueness via an integrating factor. Globally defined coordinate curves with the required tangents follow it. General varying-angle existence/general-interval uniqueness and arbitrary-manifold flows are not silently imported. |
+
+All geometric norms here use the constructed tensor. The positive real
+intensities of the manuscript imply the explicit nonzero hypotheses in the
+model construction and the positivity needed to identify its volume density.
+The `lambda=0` fallback is separate from the hyperbolic metric formula, whose
+`lambda` denominator must remain nonzero. Negative intensity/scale parameters
+are not used to identify a positive-height model with the wrong component.
+
+Mathlib `v4.24.0`, commit `f897ebcf72cd16f89ab4577d0c826cd14afaafc7`, is
+pinned to the existing Lean 4.24.0. `formal/mathlib.lock.json` records its
+manifest and dependency revisions, 7,600 source-file fingerprints and 3,175
+compiled-library fingerprints. The compiler/standard library and cached
+external mathematical library are declared trusted builds with integrity
+checks; no authenticated compiler/cache provenance theorem is claimed. The
+new proof audits admit only their exact disclosed `propext`,
+`Classical.choice` and `Quot.sound` sets, with no target AEG axiom or admitted
+proof. The model constructor proves its structure fields; it does not assume
+the target differential or eigenfunction.
+
+`contract-analysis.json` declares a separate analytic-only receiving profile
+before execution: a 300-second shared deadline, 60-second child CPU,
+120-second child wall time and 8 GiB Lean virtual-address limit. Engineering
+measurements observed about 2.3 GiB resident memory, 18 seconds CPU and one
+cold-import wall observation near 50 seconds. The preceding native/coordinate
+profile keeps its unchanged 300-second deadline, bounds and 1/4 GiB child
+split; both profiles must pass independently. Source fetching/cache preparation
+is separate work and cannot serve as a verification fallback or fuel refill.
+
+The analytic profile rebuilds the five unchanged core source modules and
+exactly audits their 192 statements before checking the 66 new statements.
+Four negative modules must reject for the specific missing-height,
+wrong-Laplace-sign, missing-initial-value and missing-nonzero-intensity type
+mismatches after positive compilation. Source/inventory/library fingerprints
+are checked; no expected result is generated or rewritten by reception.
+The original coordinate proofs, native programs/goals/cases and runtime
+receivers remain unchanged. The historical navigation/test snapshots retain
+their own archived digest bindings; current navigation has separate pins.
+
+Navigation now has 23 component-mapped environments, one fragment-certified
+environment and 78 not yet formalized, with the same 22 files and 102
+theorem-like environments. The regular-AES definition, Laplace and flow
+environments receive explicit component maps; none is promoted automatically
+to a whole-environment formal proof. No manuscript claim, hypothesis or
+mathematical status is strengthened, and no material is moved or deleted.
+
+Gaussian curvature and completeness, hyperbolic translation length and trace
+trichotomy, and punctured E1 remain formal obligations. Completeness must use
+the Riemannian length metric, not the ambient/subspace Euclidean metric.
+General manifold/boundary-chart and intrinsic bundle-operator equivalences
+also retain their separate scope. These are the next geometric tasks.
+
+The first analytic invocation is retained as `Failed` in
+`formal/evidence/analysis-attempt-1.json` and its complete archive. It stopped
+before any new proof module: the Lake environment-path query incorrectly used
+the native 1 GiB address-space limit and emitted `INTERNAL PANIC: out of memory`.
+Lake is itself a Lean process. The same query passed its engineering check
+under the already declared 8 GiB Lean limit. The failed analytic invocation's
+14.27 seconds and the independently completed native invocation's 196.51
+seconds remain additional recorded work; neither is promoted to a completed
+combined analytic verification. `contract-analysis-v1.1.json` declares a fresh
+bounded successor with that receiving classification corrected. All proof,
+library, goal and numerical receiving limits are unchanged. The regression
+checks the exact source correction and retained failure. Both profiles are
+rerun against the successor source snapshot.
+
+The completed combined receipt is `formal/evidence/analysis-execution.json`:
+`Passed`. The native profile records 69 runs, 148 child commands and 51,137
+independently received instruction transitions. The analytic profile records
+16 child commands, the 192 unchanged source-import audits and all 66 new
+analytic audits, for 258 distinct audited statements overall. Four analytic
+negative controls reject for exactly their expected diagnostics. The profiles
+took 255.02/186.44 seconds, each under its own 300-second deadline. All 31
+regression tests pass, including the source/library/audit/native-trace/archive
+bindings and exact failure-preserving receiving correction. All 69 native
+reports are byte-identical across attempts; the first attempt's additional
+costs remain recorded separately.
+
+The complete successor archive retains 59 formal source files, 22 manuscript
+files, both profile reports, all native traces/replay receipts, Lean audits,
+negative diagnostics and both build logs. Library source and compiled-cache
+fingerprints are retained instead of copying the external library into the
+paper repository. Required builds produce 103/61-page PDFs with no undefined
+references, missing citations/assets or duplicate labels. Existing overfull
+boxes remain (Paper 0: two, maximum 11.13 pt; Paper I: eight, maximum 105.15 pt),
+with the existing bookmark/underfull warnings. TeX source and tracked PDFs are
+unchanged. CI now has separate native and `real-analysis` jobs; repository
+required-check settings are unchanged.

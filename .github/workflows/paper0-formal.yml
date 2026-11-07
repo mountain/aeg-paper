@@ -61,3 +61,43 @@ jobs:
           name: aeg-paper0-formal-evidence
           path: ${{ runner.temp }}/aeg-paper0-formal-evidence
           if-no-files-found: warn
+
+  real-analysis:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install verification dependency
+        run: python -m pip install blake3==1.0.9
+      - name: Receive the pinned Lean release
+        run: |
+          curl --fail --location --output "$RUNNER_TEMP/lean.tar.zst" https://github.com/leanprover/lean4/releases/download/v4.24.0/lean-4.24.0-linux.tar.zst
+          python - <<'PY'
+          import hashlib, os
+          from pathlib import Path
+          path = Path(os.environ['RUNNER_TEMP']) / 'lean.tar.zst'
+          expected = 'b14f5e5159219dd1a1956c3b806813319f5e94ccd5bdfd56f54520609a5bb5ec'
+          if hashlib.sha256(path.read_bytes()).hexdigest() != expected:
+              raise SystemExit('Lean release digest mismatch')
+          PY
+          tar --zstd -xf "$RUNNER_TEMP/lean.tar.zst" -C "$RUNNER_TEMP"
+      - name: Prepare and fingerprint pinned Mathlib
+        run: |
+          python paper-0/formal/prepare_analysis.py \
+            --mathlib-root "$RUNNER_TEMP/aeg-mathlib" \
+            --lean-bin "$RUNNER_TEMP/lean-4.24.0-linux/bin"
+      - name: Check actual real derivatives, model, Laplace, flow and rectification
+        run: |
+          python paper-0/formal/analysis_run.py \
+            --mathlib-root "$RUNNER_TEMP/aeg-mathlib" \
+            --lean "$RUNNER_TEMP/lean-4.24.0-linux/bin/lean" \
+            --output "$RUNNER_TEMP/aeg-paper0-analysis-evidence"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: aeg-paper0-analysis-evidence
+          path: ${{ runner.temp }}/aeg-paper0-analysis-evidence
+          if-no-files-found: warn

@@ -29,6 +29,7 @@
   "appendix_map_sha256": "4f5f83b74ffc76d54ef7cf507c43118a977f072777856a57da79aa73ca399db6",
   "evaluability_map_sha256": "31ce42679dc6bbae0e2840e57496a2c39573c3f7294e24a1eb7e7d2055ef5c35",
   "chapter03_map_sha256": "d45a1c784739f287898201965f5940f87219ca21a0bf5972f4b6aeb9b54a0d5f",
+  "analysis_map_sha256": "e848652266fc7a0b29c82ac18e252889d8b48c51b6ad3c54e3063384c0a5a9ef",
   "claims": [
     {
       "source": "paper-0/sections/02-expansion.tex",
@@ -274,9 +275,20 @@
         "def:regular-aes",
         "eq:regular-aes-eikonal"
       ],
-      "formal_status": "not-yet-formalized",
+      "formal_status": "component-map-supplied",
       "certificates": [],
-      "lean_components": []
+      "lean_components": [
+        "AEGPaper0.Chapter03Analysis.assignment_smooth",
+        "AEGPaper0.Chapter03Analysis.basic_AES_eikonal",
+        "AEGPaper0.Chapter03Analysis.gradient_smooth",
+        "AEGPaper0.Chapter03Analysis.metric_tensor_smooth",
+        "AEGPaper0.Chapter03Analysis.model_frame_u_smooth",
+        "AEGPaper0.Chapter03Analysis.model_frame_v_smooth",
+        "AEGPaper0.Chapter03Analysis.upper_height_ne_zero",
+        "AEGPaper0.Chapter03Analysis.upper_isOpen",
+        "AEGPaper0.Chapter03Calculus.surface_dimension",
+        "AEGPaper0.Chapter03Calculus.upper_surface_isManifold"
+      ]
     },
     {
       "source": "paper-0/sections/03-aes-and-motion.tex",
@@ -291,6 +303,10 @@
       "formal_status": "component-map-supplied",
       "certificates": [],
       "lean_components": [
+        "AEGPaper0.Chapter03Rectification.canonical_coefficient_frame_exists",
+        "AEGPaper0.Chapter03Rectification.q_positive",
+        "AEGPaper0.Chapter03Rectification.q_smooth",
+        "AEGPaper0.Chapter03Rectification.q_square",
         "canonical_frame_directional",
         "canonical_frame_orthonormal",
         "canonical_frame_unique",
@@ -313,6 +329,12 @@
       "formal_status": "component-map-supplied",
       "certificates": [],
       "lean_components": [
+        "AEGPaper0.Chapter03Analysis.invariant_metric_fderiv",
+        "AEGPaper0.Chapter03Analysis.left_derivative_apply",
+        "AEGPaper0.Chapter03Analysis.left_translate_hasFDerivAt",
+        "AEGPaper0.Chapter03Analysis.left_translate_preserves_upper",
+        "AEGPaper0.Chapter03Analysis.left_translate_smooth",
+        "AEGPaper0.Chapter03Analysis.metric_tensor_apply",
         "invariant_metric_coordinates",
         "left_invariant_frame",
         "metric_add_left",
@@ -333,6 +355,20 @@
       "formal_status": "component-map-supplied",
       "certificates": [],
       "lean_components": [
+        "AEGPaper0.Chapter03Analysis.assignment_derivative_apply",
+        "AEGPaper0.Chapter03Analysis.assignment_fderiv_apply",
+        "AEGPaper0.Chapter03Analysis.assignment_hasFDerivAt",
+        "AEGPaper0.Chapter03Analysis.assignment_smooth",
+        "AEGPaper0.Chapter03Analysis.basic_AES_eikonal",
+        "AEGPaper0.Chapter03Analysis.gradient_actual_dual",
+        "AEGPaper0.Chapter03Analysis.gradient_actual_unique",
+        "AEGPaper0.Chapter03Analysis.gradient_smooth",
+        "AEGPaper0.Chapter03Analysis.metric_tensor_smooth",
+        "AEGPaper0.Chapter03Analysis.model_frame_actual_derivatives",
+        "AEGPaper0.Chapter03Analysis.model_frame_u_smooth",
+        "AEGPaper0.Chapter03Analysis.model_frame_v_smooth",
+        "AEGPaper0.Chapter03Analysis.upper_height_ne_zero",
+        "AEGPaper0.Chapter03Analysis.upper_isOpen",
         "assignment_contour",
         "covector_linear",
         "gradient_metric_dual",
@@ -355,9 +391,23 @@
         "prop:laplace-eigenfunction",
         "eq:hyperbolic-assignment-laplacian"
       ],
-      "formal_status": "not-yet-formalized",
+      "formal_status": "component-map-supplied",
       "certificates": [],
-      "lean_components": []
+      "lean_components": [
+        "AEGPaper0.Chapter03Calculus.assignment_hasDerivAt_x",
+        "AEGPaper0.Chapter03Calculus.assignment_hasDerivAt_y",
+        "AEGPaper0.Chapter03Calculus.assignment_laplace_eigenfunction",
+        "AEGPaper0.Chapter03Calculus.assignment_partialX",
+        "AEGPaper0.Chapter03Calculus.assignment_partialXX",
+        "AEGPaper0.Chapter03Calculus.assignment_partialY",
+        "AEGPaper0.Chapter03Calculus.assignment_partialYY",
+        "AEGPaper0.Chapter03Calculus.assignment_partialY_hasDerivAt",
+        "AEGPaper0.Chapter03Calculus.density_inverse_xx",
+        "AEGPaper0.Chapter03Calculus.density_inverse_yy",
+        "AEGPaper0.Chapter03Calculus.laplace_coordinate_reduction",
+        "AEGPaper0.Chapter03Calculus.metric_determinant",
+        "AEGPaper0.Chapter03Calculus.volume_density_is_sqrt_determinant"
+      ]
     },
     {
       "source": "paper-0/sections/03-aes-and-motion.tex",
@@ -515,9 +565,23 @@
         "thm:continuous-affine-flow",
         "eq:intrinsic-continuous-affine-flow"
       ],
-      "formal_status": "not-yet-formalized",
+      "formal_status": "component-map-supplied",
       "certificates": [],
-      "lean_components": []
+      "lean_components": [
+        "AEGPaper0.Chapter03Dynamics.assignment_curve_hasDerivAt",
+        "AEGPaper0.Chapter03Dynamics.coordinate_curve_solution",
+        "AEGPaper0.Chapter03Dynamics.directional_unit_speed",
+        "AEGPaper0.Chapter03Flow.additive_axis",
+        "AEGPaper0.Chapter03Flow.angular_solution",
+        "AEGPaper0.Chapter03Flow.multiplicative_axis",
+        "AEGPaper0.Chapter03Flow.solution_composition",
+        "AEGPaper0.Chapter03Flow.solution_derivative",
+        "AEGPaper0.Chapter03Flow.solution_hasDerivAt",
+        "AEGPaper0.Chapter03Flow.solution_initial",
+        "AEGPaper0.Chapter03Flow.solution_nonzero_coefficient",
+        "AEGPaper0.Chapter03Flow.solution_unique",
+        "AEGPaper0.Chapter03Flow.solution_zero_coefficient"
+      ]
     },
     {
       "source": "paper-0/sections/03-aes-and-motion.tex",

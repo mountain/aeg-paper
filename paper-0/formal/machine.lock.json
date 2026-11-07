@@ -17,8 +17,8 @@
     "certificates.json": "c28f502519533428486ba0b12e5d47a160be62512bfa93c9b7d93cce811c7d5c",
     "Chapter02.lean": "b7b3a8cc35fa6c1e2e646fae3577c39a4113c6957ffd0c983b45fd6f07a007ab",
     "Chapter02Domains.lean": "d3c0f718936f128da2e15daf61ec0111cdd956ee7fb23ab6a451e677d7358c4c",
-    "inventory.py": "4e2ae50bf5caab694f9ea66e90429605fb3ac68d9da8e7e8e7af32b776dabf13",
-    "inventory.json": "be88a6d9898b49567daec08d0994c63200ed5ac19d2442040852213a195dc301",
+    "inventory.py": "9b366555f865034f53534c18b5d3ff0a748c92f31be0119ab3059be11fb27354",
+    "inventory.json": "749176876391749b3c3bf1bcb6af9c4da78eb3333c3ff10aee32a50ce2c7b8ff",
     "run.py": "b0396c9bb279cbe90f2db6a5012ea48b2ceb20429991ec602754ab2d0e7a9fc0",
     "domain_author.py": "a6968582b2a181d9195a900238c29f599d8e5e3475c8c2ebaac9df2d0c23a03c",
     "domain-checker.adva": "de995c4d26f940fb0e35dd78ef2a271b144e0dc4c58c6395f444e6bbe7fbb231",
@@ -49,7 +49,24 @@
     "contract-chapter03.json": "606081b7c80d6f57bd1b05a688217d93c411663a98f23eb2eed931a17a66312f",
     "negative/Chapter03MissingHeight.lean": "b8531de0030894e39e75e0f4a4db01c47fd0967c821848d3b56b8bd331ee73dc",
     "negative/Chapter03MissingOrientation.lean": "05be43654f3ac8e8b64d141c6cfde2fb137a61d21d8860870f4afbac0f2c4033",
-    "test_chapter03.py": "7f8690d25c29269458bc1c6f3cda9d2c923a50b4059a298695aefafe35c05f88"
+    "test_chapter03.py": "522e318c9e5d3f108402c45f2d7fcd674f8e8c0b208d4bd792037450e6bcf33c",
+    "Chapter03Analysis.lean": "fea88d9e9c006a5612e8c31dbd3d24dc41a7a01c613d0cdf21d869e0a5f693a4",
+    "Chapter03Flow.lean": "aa3f5de5497ea88c68ba2067d62a19a6ce5a809e9513bdd5dfceac5aceaa087e",
+    "Chapter03Calculus.lean": "378687750bde7bc64d4c0dda89b25d1590a747b593239ba08e36d4ca91f6dc49",
+    "Chapter03Rectification.lean": "491661354ce2bbd3b4ef46962289ed237e5da5d98ccc8e7cdd5eef2fc1151622",
+    "Chapter03Dynamics.lean": "7ece94f4d919a6a935e1e959054a19496f3e2e677f6305a2aa5e014c30411875",
+    "analysis-map.json": "e848652266fc7a0b29c82ac18e252889d8b48c51b6ad3c54e3063384c0a5a9ef",
+    "mathlib.lock.json": "de2e937993bd22e41702f21889ac382f3cb36364cbe0b5e5d3fbc1e32bd0394d",
+    "contract-analysis.json": "97bed109d3701b8e8d33c7bfdc8085e7ec6a5c6c2a7be5761a44d0f485fd4d90",
+    "analysis_dependencies.py": "394106616c951257b9160e40ac7132505ccc7d1039098207ce860bcc27133496",
+    "prepare_analysis.py": "e0f94c0d9b2412f671f20eba8ac1385de77e6b4f884ef7269a5fa152d0568da2",
+    "analysis_run.py": "910355289ae2e42e5316203be33d279ee9dbbb64a0cc8dd960c3129b14cfb851",
+    "test_analysis.py": "7fef725941d149ba32c0957ad26a3cfef4ae9f1c5aa136351d9270747a371af4",
+    "negative/AnalysisMissingHeight.lean": "6c53137d69cd1e3cfeaf8c7b8a3a227274edfb2cdaebad4ccc734e67666af584",
+    "negative/AnalysisWrongLaplacianSign.lean": "51b07ceb214776cda4985a1296455806f7fb0727b50e4663d23c171e6db63dff",
+    "negative/AnalysisMissingInitial.lean": "c2cd3196738c2157ef94aa2df66bbe9725141df8f3904d08f40b1bf333ed02e6",
+    "negative/AnalysisMissingIntensity.lean": "66791aceea39425b4ab2f22d734ebdf1498e8c547c712ba4c4c2770bac285024",
+    "contract-analysis-v1.1.json": "dc43df95783ca070cc0fad0717cc5986182d3fca814a9a6358f7b436376a7ab3"
   },
-  "continuation": "contract-chapter03.json; retain all earlier execution snapshots; coordinate component coverage is not whole-chapter or analytic geometry certification"
+  "continuation": "contract-analysis-v1.1.json plus the unchanged contract-chapter03.json: both profiles required; preserve the failed Lake classification and all earlier snapshots"
 }

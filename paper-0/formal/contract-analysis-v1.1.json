@@ -1,0 +1,71 @@
+{
+  "schema": "aeg.paper0.formal.contract.analysis.v1.1",
+  "date": "2026-11-07",
+  "source_commit": "e37a4f169c7e251ce9a5066a08f8a5f236124fdd",
+  "question": "Close the real derivative/smooth-coordinate bridge and advance Chapter 3 Laplace, affine flow and rectification proofs using a pinned Mathlib library.",
+  "preceding_profile": "chapter03_run.py retains its original contract and must pass separately.",
+  "bounds": {
+    "wall_seconds": 300,
+    "child_commands": 32,
+    "child_wall_seconds": 120,
+    "child_cpu_seconds": 60,
+    "child_address_space_bytes": 1073741824,
+    "lean_child_address_space_bytes": 8589934592,
+    "child_file_bytes": 33554432,
+    "artifact_bytes": 536870912
+  },
+  "expected_work": {
+    "child_commands": 16,
+    "core_lean_statements": 192,
+    "new_lean_statements": 66,
+    "positive_modules": 5,
+    "negative_controls": 4
+  },
+  "negative_controls": [
+    {
+      "name": "height",
+      "file": "negative/AnalysisMissingHeight.lean",
+      "expected_fragments": [
+        "assignment_hasFDerivAt p",
+        "p.2 \u2260 0 \u2192 HasFDerivAt"
+      ]
+    },
+    {
+      "name": "laplacian-sign",
+      "file": "negative/AnalysisWrongLaplacianSign.lean",
+      "expected_fragments": [
+        "assignment_laplace_eigenfunction mu lambda hm hl p hy",
+        "-(2 * lambda ^ 2"
+      ]
+    },
+    {
+      "name": "initial-value",
+      "file": "negative/AnalysisMissingInitial.lean",
+      "expected_fragments": [
+        "f 0 = initial \u2192 f = solution b c initial"
+      ]
+    },
+    {
+      "name": "intensity",
+      "file": "negative/AnalysisMissingIntensity.lean",
+      "expected_fragments": [
+        "coefficient_eikonal mu lambda a",
+        "mu \u2260 0 \u2192 coefficient"
+      ]
+    }
+  ],
+  "resource_basis": "A new analytic-only receiving profile, declared before execution. Engineering imports/proofs observed about 2.3 GiB resident memory, 18 seconds CPU and a cold-import observation near 50 seconds wall time. Allow 8 GiB virtual address space, 60 seconds CPU and 120 seconds wall per analytic child. The preceding native/coordinate 300-second profile and its 1/4 GiB child limits remain unchanged. Preparation/cache download is outside both proof runs; neither profile refills the other.",
+  "success": "All five unchanged core source imports rebuild with exact audited names/axioms; all 66 new real-analysis statements match exact audits without diagnostics/sorryAx; all four negative modules reject for their specific missing-hypothesis/sign diagnostics; source/inventory/library source and compiled-cache fingerprints agree. The preceding complete native/coordinate profile must also pass.",
+  "preservation": "Original proof and runtime-receiver sources and historical archives retain their bytes. Navigation and its predecessor navigation/receipt regression receive explicit successor pins. No historical evidence is rebound and no complete Chapter 3 status is inferred.",
+  "exit": "One fresh bounded invocation after engineering checks; retain any Failed invocation and stop on mismatch/exhaustion. Further attempts require a separately declared correction, never automatic bound growth.",
+  "authorship": "Codex (OpenAI), CC0; no independent human review asserted.",
+  "predecessor": "contract-analysis.json; retain evidence/analysis-attempt-1.json and its full archive",
+  "receiving_revision": {
+    "reason": "Lake is a Lean process, so the environment-path query must use the already declared Lean virtual-address limit rather than the native limit.",
+    "bounds_unchanged": true,
+    "proof_and_library_bytes_unchanged": true,
+    "retained_failure_archive_sha256": "0fa4a045d34f7b85cab06e9e8887e0dd12245388c24d96fd6baea8813ff800e2",
+    "engineering_check": "The same Lake environment-path command passed under the existing 8 GiB Lean limit.",
+    "fresh_invocation": "One separately declared bounded analytic successor; native regression is also rerun against the successor source snapshot."
+  }
+}
