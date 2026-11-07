@@ -294,7 +294,7 @@ The basic model has constant Gaussian curvature $K=-\lambda^{2}$
 (Theorem~\ref{thm:basic-hyperbolic-aes}), and the contact carrier of
 \S\ref{sec:p0-contact} has $[D_u,D_v]=\mu\lambda T$
 (Proposition~\ref{prop:p0-curvature-form}); the same parameter $\lambda$
-flattens both.  The three constant-curvature geometries are distinguished in
+drives both curvatures to zero.  The three constant-curvature geometries are distinguished in
 the Cayley--Klein picture by the type of the conic at infinity --- real,
 degenerate, or imaginary --- and all three are within reach of the present
 carrier.  Table~\ref{tab:p0-three-models} records where each of them is
@@ -312,7 +312,7 @@ model & realized as & completion or limit & analysis in the series \\
 hyperbolic & basic model $\mathfrak E_0(\mu,\lambda)$, $K<0$ &
 ideal boundary &
 Paper~II \cite{Yuan2026AEGFunctionTheory}, \S6--\S7 \\
-parabolic & flat limit $\lambda\to0$ &
+parabolic & degeneration $\lambda\to0$ &
 integrable $D$ &
 Paper~II, \S4 \\
 elliptic & compactification $\PP^{1}(\CC)$ &
@@ -331,18 +331,29 @@ the absolute.  They are \emph{not} the three meanings of completion in
 filling, metric completion.  The two trichotomies are independent, and neither
 implies the other.
 
-(ii) Only the parabolic entry is a limit inside the family: $\lambda\to0$
-flattens $K=-\lambda^{2}$ and makes the horizontal distribution integrable
-(the metric itself degenerates, so the flat model is the rescaled limit, not a
-member of the family).  The
+(ii) Only the parabolic entry is reached by a degeneration inside the family:
+$\lambda\to0$ makes $K=-\lambda^{2}\to0$ and the bracket $\mu\lambda T$ vanish,
+so the horizontal distribution becomes integrable.  This is not the flat model:
+$g_{\mu,\lambda}$ degenerates as $\lambda\to0$, its lengths in the $y$-direction
+blowing up, and no rescaling of it produces the Euclidean plane.  The flat entry
+is a separate real form, reached by degenerating the absolute rather than by a
+parameter value.  The
 elliptic entry is reached by a change of real form, not by a parameter value,
 and the compactification supplies the conformal class of the round sphere
 rather than a distinguished constant-curvature metric.
 
-(iii) The trichotomy is a real phenomenon.  Over $\CC$ a conic has no type to
-read, and the three cases collapse; the scalar trichotomy of Paper~V
-\cite{Yuan2026AEGTriadic}, \S3, records the same collapse.  The table does not
-assert which entry carries ``the'' function theory of an arbitrary arithmetic
-expression space.  Of the three, only the hyperbolic entry is developed in the
-series.
+(iii) The trichotomy is a real phenomenon, but only its \emph{quadratic type}
+collapses over $\CC$: a conic over $\CC$ has no type to read, since every nonzero
+complex number is a square and all nondegenerate conics are projectively
+equivalent.  This does not extend to the exchange lift, and Paper~V
+\cite{Yuan2026AEGTriadic}, \S3, keeps the two apart: the field-dependent
+quadratic types do not determine whether the two lifts remain distinguishable.
+In every characteristic different from two, including over $\CC$, the matrices
+$J$ and $-J$ are distinct and satisfy $J^{2}=-I\neq I$, while their projective
+classes agree; complexification splits $X^{2}+1$ but does not identify the two
+matrices, and only characteristic two identifies them, since $-1=1$ there.  So
+the collapse of the table's three rows over $\CC$ is a statement about the
+absolute, not about the lift.  The table does not assert which entry carries
+``the'' function theory of an arbitrary arithmetic expression space.  Of the
+three, only the hyperbolic entry is developed in the series.
 \end{remark}
