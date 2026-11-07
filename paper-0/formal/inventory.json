@@ -28,6 +28,7 @@
   "definition_map_sha256": "562d455635bbdc0145b1833e3e4cbe0c73538255f0070d9911effc87b0b58889",
   "appendix_map_sha256": "4f5f83b74ffc76d54ef7cf507c43118a977f072777856a57da79aa73ca399db6",
   "evaluability_map_sha256": "31ce42679dc6bbae0e2840e57496a2c39573c3f7294e24a1eb7e7d2055ef5c35",
+  "chapter03_map_sha256": "d45a1c784739f287898201965f5940f87219ca21a0bf5972f4b6aeb9b54a0d5f",
   "claims": [
     {
       "source": "paper-0/sections/02-expansion.tex",
@@ -287,9 +288,18 @@
         "eq:arithmetic-frame-derivatives",
         "eq:explicit-arithmetic-frame"
       ],
-      "formal_status": "not-yet-formalized",
+      "formal_status": "component-map-supplied",
       "certificates": [],
-      "lean_components": []
+      "lean_components": [
+        "canonical_frame_directional",
+        "canonical_frame_orthonormal",
+        "canonical_frame_unique",
+        "eikonal_rhs_positive",
+        "frame_eikonal_converse",
+        "frame_rotation",
+        "rational_orientation_counterexample",
+        "root_nonzero"
+      ]
     },
     {
       "source": "paper-0/sections/03-aes-and-motion.tex",
@@ -300,9 +310,17 @@
         "prop:invariant-affine-metric",
         "eq:hyperbolic-aes-metric"
       ],
-      "formal_status": "not-yet-formalized",
+      "formal_status": "component-map-supplied",
       "certificates": [],
-      "lean_components": []
+      "lean_components": [
+        "invariant_metric_coordinates",
+        "left_invariant_frame",
+        "metric_add_left",
+        "metric_positive_definite",
+        "metric_scale_left",
+        "metric_symmetric",
+        "scaled_standard_metric"
+      ]
     },
     {
       "source": "paper-0/sections/03-aes-and-motion.tex",
@@ -312,9 +330,21 @@
       "labels": [
         "thm:basic-hyperbolic-aes"
       ],
-      "formal_status": "not-yet-formalized",
+      "formal_status": "component-map-supplied",
       "certificates": [],
-      "lean_components": []
+      "lean_components": [
+        "assignment_contour",
+        "covector_linear",
+        "gradient_metric_dual",
+        "gradient_metric_unique",
+        "model_eikonal_coordinate",
+        "model_frame_assignment",
+        "model_frame_determinant",
+        "model_frame_orthonormal",
+        "model_frame_positive_orientation",
+        "model_gradient_nonzero",
+        "rational_model_eikonal"
+      ]
     },
     {
       "source": "paper-0/sections/03-aes-and-motion.tex",
@@ -337,9 +367,23 @@
       "labels": [
         "prop:p0-grid-assignment-action"
       ],
-      "formal_status": "not-yet-formalized",
+      "formal_status": "component-map-supplied",
       "certificates": [],
-      "lean_components": []
+      "lean_components": [
+        "affine_lift_assignment",
+        "affine_lift_chart",
+        "inverse_positive",
+        "quotient_positive",
+        "reflection_assignment",
+        "scaling_assignment",
+        "scaling_composition",
+        "scaling_inverse",
+        "translation_assignment",
+        "translation_composition",
+        "translation_inverse",
+        "upper_scaling_assignment",
+        "upper_translation_assignment"
+      ]
     },
     {
       "source": "paper-0/sections/03-aes-and-motion.tex",
@@ -349,9 +393,11 @@
       "labels": [
         "warn:p0-partial-motions"
       ],
-      "formal_status": "not-yet-formalized",
+      "formal_status": "component-map-supplied",
       "certificates": [],
-      "lean_components": []
+      "lean_components": [
+        "zero_scaling_leaves_chart"
+      ]
     },
     {
       "source": "paper-0/sections/03-aes-and-motion.tex",
@@ -361,9 +407,12 @@
       "labels": [
         "ex:p0-four-step-path"
       ],
-      "formal_status": "not-yet-formalized",
+      "formal_status": "component-map-supplied",
       "certificates": [],
-      "lean_components": []
+      "lean_components": [
+        "rational_four_step_point",
+        "rational_four_step_prefixes"
+      ]
     },
     {
       "source": "paper-0/sections/03-aes-and-motion.tex",
@@ -439,9 +488,11 @@
       "labels": [
         "prop:p0-affine-two-layers"
       ],
-      "formal_status": "not-yet-formalized",
+      "formal_status": "component-map-supplied",
       "certificates": [],
-      "lean_components": []
+      "lean_components": [
+        "dilation_translation_conjugation"
+      ]
     },
     {
       "source": "paper-0/sections/03-aes-and-motion.tex",
@@ -488,9 +539,21 @@
       "labels": [
         "ex:p0-e0-model"
       ],
-      "formal_status": "not-yet-formalized",
+      "formal_status": "component-map-supplied",
       "certificates": [],
-      "lean_components": []
+      "lean_components": [
+        "assignment_contour",
+        "covector_linear",
+        "gradient_metric_dual",
+        "gradient_metric_unique",
+        "model_eikonal_coordinate",
+        "model_frame_assignment",
+        "model_frame_determinant",
+        "model_frame_orthonormal",
+        "model_frame_positive_orientation",
+        "model_gradient_nonzero",
+        "rational_model_eikonal"
+      ]
     },
     {
       "source": "paper-0/sections/03-aes-and-motion.tex",

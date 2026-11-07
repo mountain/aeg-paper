@@ -505,3 +505,102 @@ regression tests pass, including the archive/source/trace bindings and
 fail-closed checks for changes in either reviewed Chapter 2 source. These
 counts include auxiliary lemmas and finite controls, not 131 newly covered
 manuscript propositions.
+
+## 16. Chapter 3 coordinate foundation (2026-11-07)
+
+This is a component formalization of the current third chapter, not a
+whole-chapter or smooth-Riemannian completion. The unchanged manuscript is
+bound by `formal/chapter03-map.json` to the 61 audited statements of
+`formal/Chapter03Coordinates.lean`. Existing manuscript statuses in section 2
+are unchanged. The new algebraic components have the following status:
+
+| Component | Status | Formal boundary |
+| --- | --- | --- |
+| canonical-frame coordinate construction, uniqueness and converse | `PROVED WITH STATED HYPOTHESES` | Oriented orthonormal coefficient plane, supplied `q!=0` and eikonal square; positivity proves any root nonzero. Existence/smoothness of a positive real root and gradient-adapted frame are not supplied. |
+| basic model coordinate metric | `PROVED WITH STATED HYPOTHESES` | Symmetric bilinear positive definite form, signed orthonormal frame, orientation, affine coordinate invariance and scaling to standard metric. Field/order and nonzero-parameter/height hypotheses remain explicit. |
+| candidate assignment covector and gradient | `PROVED WITH STATED HYPOTHESES` | Covector linearity, explicit metric-dual candidate, its uniqueness, nonzero value and coordinate eikonal identity. Identifying the displayed rational covector with an analytic differential remains open. |
+| elementary coordinate motions | `PROVED WITH STATED HYPOTHESES` | Translation/scaling/reflection assignment actions, inverses and conjugation. Certified positive heights are preserved by positive scaling; zero scaling leaves the chart. No global action on an arbitrary punctured model is inferred. |
+| finite affine point paths and prefixes | `PROVED WITH STATED HYPOTHESES` | Arbitrary nonzero-affine word lifts, prefix assignment values, unique affine coefficients, prefix recursion and actual ordinary expression-tree evaluation bridge. General nonzero multipliers use the punctured coordinate chart; upper-half-plane realizations need positive multipliers. |
+| four-step path example | `COMPUTATIONALLY VERIFIED EXAMPLE` | Kernel reduction checks every displayed point/value prefix over exact rationals; universal path/tree results are checked separately. |
+| two-layer conjugation and order defect | `PROVED WITH STATED HYPOTHESES` | Exact coordinate conjugation and polynomial order defect only. Full conjugacy/torsor classification, real exponentials, length and asymptotics retain their separate obligations. |
+
+The algebraic interface uses Lean's standard `Lean.Grind.Field` and optional
+linear-order/ordered-ring laws, with an explicit checked conversion to the
+existing `FieldData` and equality with the preceding rational interpretation.
+No AES conclusion is a field of the assumed structure. `grind` produces
+kernel-checked proofs, with exact disclosed `propext`, `Classical.choice` and
+`Quot.sound` dependencies. There is no target axiom or admitted proof.
+
+The metric-dual proof closes a pointwise algebraic gap: the candidate gradient
+is proved to pair with every vector as the candidate covector does, and any
+other such gradient is proved equal to it. It does not assume the desired
+eikonal norm as a model axiom. The analytic differential/Jacobian
+identification, smooth metric/manifold construction and smooth-frame bridge
+remain separate. Gaussian curvature/completeness, the Laplace eigenfunction,
+ODE solutions, chain rule/rectification, hyperbolic translation length and
+projective trace classification, and the punctured model are not promoted.
+
+Historical `archive/revision-2/aristotle/RequestProject/AES.lean` is not imported.
+Its older sign/frame conventions and `from_AES` identity corollaries are not a
+proof of the present geometric definition. The current proof uses the signed
+frame `(-mu*y,0),(0,-lambda*y)` and records its exact source correspondence.
+The positive-height carrier is an algebraic chart, not a declared smooth
+Riemannian surface. These distinctions preserve the manuscript's analytic
+obligations instead of replacing them by assumed coordinate identities.
+
+The tree bridge explicitly encodes each affine section as a multiplication
+event followed by an addition event, including identity padding when needed.
+It proves the value interpretation of that encoded tree, not literal equality
+with an original four-operation tree or equality of their marked histories.
+The four-step affine point example and the native four-operation scalar case
+retain their respective finite words; equal values do not identify them.
+
+Two negative Lean modules omit, respectively, nonzero chart height and frame
+orientation. Reception requires their specific type mismatches after positive
+compilation. A concrete rational reversed-orientation counterexample is also
+checked. Three additional native runs check only the scalar four-step path
+and the two conjugation orders, with fixed independent goals, a rational
+oracle, native replay and the generic instruction receiver; no native
+geometry or general checker soundness theorem is claimed.
+
+`contract-chapter03.json` declares the complete successor before execution,
+retaining the preceding 131 Lean statements and 66 native runs. All receiving
+bounds are unchanged: 72 native calls, 160 child commands, a shared 300-second
+deadline and the existing instruction, fuel and per-child limits. The expected
+combined work is 69 native runs and 148 child commands, with 61 new Lean
+audits. The original proofs, programs, goals, cases, runtime receivers,
+contracts and success/failure archives remain unchanged. The predecessor's
+navigation/receipt regression is updated only for separately pinned successor
+navigation; the original test/generator/inventory snapshots retain their own
+archived digest checks, and the successor tests bind the full current path.
+
+Navigation still tracks 22 source files and 102 theorem-like environments:
+20 have component maps, one has a fragment certificate and 81 are not yet
+formalized. Eight Chapter 3 environments gain component maps with precise
+coverage exclusions. The smooth regular-AES definition, Laplace theorem,
+continuous-flow theorem, length/trichotomy results, structural two-coordinate
+remark and punctured example remain unformalized. One conjugation component
+does not promote the whole two-layer proposition. No manuscript claim or
+hypothesis is changed, and no material is moved or deleted.
+
+Both required manuscript builds pass at 103/61 pages. There are no undefined
+references, missing citations, duplicate labels or missing assets. Existing
+overfull boxes remain (Paper 0: two, maximum 11.13 pt; Paper I: eight, maximum
+105.15 pt), with the existing bookmark/underfull warnings. TeX source and
+tracked PDFs are unchanged; validation PDFs and full logs are retained.
+CI invokes `chapter03_run.py` on the existing triggers; required-check settings
+are unchanged. The next geometric task is the analytic differential and
+Jacobian bridge needed to construct the smooth regular-AES model.
+
+The completed receipt is `formal/evidence/chapter03-execution.json`: `Passed`,
+with 69 native runs, 148 child commands, 51,137 independently received
+instruction transitions and all 192 Lean audits (131 preceding, 61 new).
+The new missing-height/orientation controls reject for exactly their expected
+type mismatches; the earlier negative controls remain included. The complete
+run took 177.71 seconds under the unchanged shared deadline. All 26 regression
+tests pass, including exact current source/map/audit/native-trace bindings and
+preservation of earlier success/failure archives. The separate execution
+archive contains the captured 42 formal sources, 22 manuscript files, full
+native reports/replay receipts, Lean diagnostics and both manuscript build
+logs. Counts include supporting lemmas and finite controls, not 192 completed
+manuscript propositions.

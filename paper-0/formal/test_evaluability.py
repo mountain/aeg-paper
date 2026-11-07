@@ -48,7 +48,10 @@ class EvaluabilityBoundaryTests(unittest.TestCase):
             claim = next(c for c in live["claims"] if label in c["labels"])
             self.assertEqual(claim["formal_status"], "component-map-supplied")
         for claim in live["claims"]:
-            if claim["source"] == "paper-0/sections/03-aes-and-motion.tex":
+            # These claims remain outside both the Chapter 2 and the new
+            # Chapter 3 coordinate continuation. Mapped coordinate components
+            # elsewhere in Chapter 3 do not imply whole-chapter completion.
+            if set(claim["labels"]) & {"rem:p0-length-two-coordinates", "ex:p0-e1-model"}:
                 self.assertEqual(claim["formal_status"], "not-yet-formalized")
 
     def test_source_drift_in_either_reviewed_chapter_file_fails_closed(self):
@@ -112,7 +115,11 @@ class EvaluabilityReceiptTests(unittest.TestCase):
         lock = json.loads(files["sources/machine.lock.json"])
         for name, digest in lock["formal_sources"].items():
             self.assertEqual(hashlib.sha256(files["sources/" + name]).hexdigest(), digest)
-            self.assertEqual(files["sources/" + name], (HERE / name).read_bytes())
+            # The next coordinate continuation extends live navigation and
+            # this navigation/receipt regression. Frozen proofs and receivers
+            # still match; every old file retains its archived digest above.
+            if name not in {"inventory.json", "inventory.py", "test_evaluability.py"}:
+                self.assertEqual(files["sources/" + name], (HERE / name).read_bytes())
         index = json.loads(files["sources/inventory.json"])
         for source, digest in index["sources"].items():
             self.assertEqual(hashlib.sha256(files["manuscript/" + source]).hexdigest(), digest)

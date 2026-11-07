@@ -1,0 +1,38 @@
+{
+  "schema": "aeg.paper0.formal.contract.chapter03.v1",
+  "date": "2026-11-07",
+  "source_commit": "ff23fbca9dca57a3f4157d2ec50713e2823c7612",
+  "predecessor": "contract-evaluability.json; all successful/failed archives retained",
+  "machine_commit": "51ee98981ebbc62f8614ed20920c11dc76ea298d",
+  "question": "Advance current Chapter 3 with coordinate frame/metric/gradient algebra, guarded positive-height motions and finite paths connected to existing tree evaluation, with exact coverage boundaries.",
+  "bounds": {
+    "proof_steps": 64,
+    "term_nodes": 63,
+    "proof_stack": 32,
+    "comb_steps": 16,
+    "fuel_per_call": 200000,
+    "native_calls": 72,
+    "child_commands": 160,
+    "reference_steps": 4000000,
+    "wall_seconds": 300,
+    "child_wall_seconds": 30,
+    "child_cpu_seconds": 25,
+    "child_address_space_bytes": 1073741824,
+    "child_file_bytes": 33554432,
+    "artifact_bytes": 536870912,
+    "lean_child_address_space_bytes": 4294967296
+  },
+  "bound_change": "None: the same 72-native-call, 160-child-command and 300-second shared bounds receive the preceding 66 native runs and the three new scalar cases.",
+  "expected_work": {
+    "native_calls": 69,
+    "child_commands": 148,
+    "previous_lean_statements": 131,
+    "chapter03_lean_theorems": 61,
+    "new_native_scalar_cases": 3,
+    "new_lean_negative_controls": 2
+  },
+  "success": "Preceding 131 Lean statements and all native controls pass. All 61 new theorem names and exact axiom sets match the reviewed map without diagnostics or sorryAx. The positive module compiles before two expected missing-height/orientation type mismatches. Three scalar native cases match their fixed goals, independent rational oracle and both replay routes. Every source/map/inventory lock agrees.",
+  "preservation": "Previous proofs, programs, goals, cases, contracts, runtime receivers and evidence archives are unchanged. Live inventory gains the Chapter 3 component map. The predecessor navigation/receipt test is updated for successor navigation; archived original tests/inventories/generators retain their digest bindings and new tests bind the full current path. No whole-chapter or smooth-geometry status is promoted.",
+  "exit": "One fresh bounded combined run after engineering checks. Stop on any mismatch/exhausted limit and preserve Failed evidence. A further attempt requires an explicitly versioned correction; no automatic bound growth or relabelling.",
+  "authorship": "Codex (OpenAI), CC0; no independent human mathematical review asserted."
+}

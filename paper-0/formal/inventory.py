@@ -40,7 +40,8 @@ def generate():
     mapping = json.loads((HERE / "definition-map.json").read_text())
     appendix = json.loads((HERE / "appendix-map.json").read_text())
     evaluability = json.loads((HERE / "evaluability-map.json").read_text())
-    mappings = [mapping, appendix, evaluability]
+    chapter03 = json.loads((HERE / "chapter03-map.json").read_text())
+    mappings = [mapping, appendix, evaluability, chapter03]
     for reviewed in mappings:
         if digest(ROOT / reviewed["source"]) != reviewed["source_sha256"]:
             raise ValueError("reviewed formal correspondence has source drift: " + reviewed["source"])
@@ -68,6 +69,7 @@ def generate():
             "definition_map_sha256": digest(HERE / "definition-map.json"),
             "appendix_map_sha256": digest(HERE / "appendix-map.json"),
             "evaluability_map_sha256": digest(HERE / "evaluability-map.json"),
+            "chapter03_map_sha256": digest(HERE / "chapter03-map.json"),
             "claims": claims}
 
 

@@ -1,0 +1,543 @@
+{
+  "schema": "aeg.paper0.chapter03.coordinate-map.v1",
+  "source": "paper-0/sections/03-aes-and-motion.tex",
+  "source_sha256": "e4441533bb6fe12e2728ca3d0492592a73fe7fa18e4695358a9151a9d853a33d",
+  "module": "AEGPaper0.Chapter03Coordinates",
+  "lean_audit_names": [
+    "rational_field_bridge",
+    "frame_rotation",
+    "canonical_frame_orthonormal",
+    "canonical_frame_directional",
+    "canonical_frame_unique",
+    "frame_eikonal_converse",
+    "metric_add_left",
+    "metric_scale_left",
+    "covector_linear",
+    "metric_symmetric",
+    "model_frame_orthonormal",
+    "model_frame_determinant",
+    "model_frame_assignment",
+    "gradient_metric_dual",
+    "gradient_metric_unique",
+    "model_eikonal_coordinate",
+    "model_gradient_nonzero",
+    "invariant_metric_coordinates",
+    "left_invariant_frame",
+    "scaled_standard_metric",
+    "assignment_contour",
+    "translation_assignment",
+    "scaling_assignment",
+    "reflection_assignment",
+    "translation_composition",
+    "translation_inverse",
+    "scaling_composition",
+    "scaling_inverse",
+    "zero_scaling_leaves_chart",
+    "scaling_translation_conjugation",
+    "translation_iterate",
+    "baumslag_solitar_coordinates",
+    "affine_lift_assignment",
+    "affine_lift_chart",
+    "affine_composition_value",
+    "affine_composition_lift",
+    "finite_path_assignment",
+    "prefix_path_assignment",
+    "affine_value_unique",
+    "affine_value_bridge",
+    "affine_list_bridge",
+    "point_path_tree_bridge",
+    "compose_associative",
+    "compose_identity",
+    "prefix_operator_value",
+    "prefix_operator_snoc",
+    "prefix_multiplier_nonzero",
+    "dilation_translation_conjugation",
+    "finite_order_defect",
+    "inverse_positive",
+    "quotient_positive",
+    "upper_translation_assignment",
+    "upper_scaling_assignment",
+    "model_frame_positive_orientation",
+    "eikonal_rhs_positive",
+    "root_nonzero",
+    "metric_positive_definite",
+    "rational_four_step_point",
+    "rational_four_step_prefixes",
+    "rational_model_eikonal",
+    "rational_orientation_counterexample"
+  ],
+  "expected_axioms": {
+    "rational_field_bridge": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "frame_rotation": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "canonical_frame_orthonormal": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "canonical_frame_directional": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "canonical_frame_unique": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "frame_eikonal_converse": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "metric_add_left": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "metric_scale_left": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "covector_linear": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "metric_symmetric": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "model_frame_orthonormal": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "model_frame_determinant": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "model_frame_assignment": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "gradient_metric_dual": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "gradient_metric_unique": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "model_eikonal_coordinate": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "model_gradient_nonzero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "invariant_metric_coordinates": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "left_invariant_frame": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "scaled_standard_metric": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "assignment_contour": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "translation_assignment": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "scaling_assignment": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "reflection_assignment": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "translation_composition": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "translation_inverse": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "scaling_composition": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "scaling_inverse": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "zero_scaling_leaves_chart": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "scaling_translation_conjugation": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "translation_iterate": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "baumslag_solitar_coordinates": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "affine_lift_assignment": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "affine_lift_chart": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "affine_composition_value": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "affine_composition_lift": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "finite_path_assignment": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "prefix_path_assignment": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "affine_value_unique": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "affine_value_bridge": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "affine_list_bridge": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "point_path_tree_bridge": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "compose_associative": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "compose_identity": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "prefix_operator_value": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "prefix_operator_snoc": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "prefix_multiplier_nonzero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dilation_translation_conjugation": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "finite_order_defect": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "inverse_positive": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "quotient_positive": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "upper_translation_assignment": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "upper_scaling_assignment": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "model_frame_positive_orientation": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "eikonal_rhs_positive": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "root_nonzero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "metric_positive_definite": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "rational_four_step_point": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "rational_four_step_prefixes": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "rational_model_eikonal": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "rational_orientation_counterexample": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  "interpretation": "Pointwise coordinate algebra over Lean.Grind.Field with optional standard linear-order/ordered-ring laws. fieldData and rational_field_bridge connect the existing ordinary semantics without changing its laws. No AES conclusion is an assumed structure field. grind builds kernel-checked proof terms. The positive-height carrier is an algebraic chart, not a smooth Riemannian manifold.",
+  "mapping": [
+    {
+      "source_labels": [
+        "prop:canonical-arithmetic-frame",
+        "eq:explicit-arithmetic-frame",
+        "eq:arithmetic-frame-derivatives"
+      ],
+      "formal": [
+        "frame_rotation",
+        "canonical_frame_orthonormal",
+        "canonical_frame_directional",
+        "canonical_frame_unique",
+        "frame_eikonal_converse",
+        "eikonal_rhs_positive",
+        "root_nonzero",
+        "rational_orientation_counterexample"
+      ],
+      "coverage": "Pointwise oriented orthonormal coordinate-frame construction, uniqueness and converse under an explicit nonzero q with q^2=mu^2+lambda^2*a^2. Standard ordered-field laws prove the radicand positive when mu!=0 and any supplied root nonzero. No existence/smoothness of the real positive square root, gradient-adapted chart or global smooth frame is proved. The rational reversed-orientation frame witnesses the need for orientation."
+    },
+    {
+      "source_labels": [
+        "prop:invariant-affine-metric",
+        "eq:hyperbolic-aes-metric",
+        "eq:scaled-standard-hyperbolic-metric"
+      ],
+      "formal": [
+        "metric_add_left",
+        "metric_scale_left",
+        "metric_symmetric",
+        "invariant_metric_coordinates",
+        "left_invariant_frame",
+        "scaled_standard_metric",
+        "metric_positive_definite"
+      ],
+      "coverage": "Displayed coordinate form is symmetric, bilinear and positive definite over a standard ordered field with mu,lambda,y nonzero. Coordinate pullback is invariant under the displayed left translation and tangent map. The anisotropic-to-standard scaling identity is proved. Analytic derivative identification of the tangent map, Riemannian manifold construction, completeness and curvature remain open."
+    },
+    {
+      "source_labels": [
+        "thm:basic-hyperbolic-aes",
+        "eq:basic-hyperbolic-assignment",
+        "ex:p0-e0-model"
+      ],
+      "formal": [
+        "covector_linear",
+        "model_frame_orthonormal",
+        "model_frame_determinant",
+        "model_frame_assignment",
+        "gradient_metric_dual",
+        "gradient_metric_unique",
+        "model_eikonal_coordinate",
+        "model_gradient_nonzero",
+        "assignment_contour",
+        "model_frame_positive_orientation",
+        "rational_model_eikonal"
+      ],
+      "coverage": "Coordinate component only: signed model frame, positive orientation, candidate assignment covector, unique metric-dual candidate gradient and its eikonal norm identity, nonzero candidate gradient and assignment contours. Covector coefficients are explicitly defined rational formulas, not already-certified analytic partial derivatives. The theorem/example as a whole remains unfinished; topology, smoothness, derivative bridge, completeness and Gaussian curvature are excluded."
+    },
+    {
+      "source_labels": [
+        "prop:p0-grid-assignment-action",
+        "eq:p0-grid-moves"
+      ],
+      "formal": [
+        "translation_assignment",
+        "scaling_assignment",
+        "reflection_assignment",
+        "translation_composition",
+        "translation_inverse",
+        "scaling_composition",
+        "scaling_inverse",
+        "affine_lift_assignment",
+        "affine_lift_chart",
+        "inverse_positive",
+        "quotient_positive",
+        "upper_translation_assignment",
+        "upper_scaling_assignment"
+      ],
+      "coverage": "Assignment-compatible coordinate motions and inverses with explicit nonzero denominators/multipliers. Under additional standard ordered-field laws, positive scaling preserves the certified positive-height chart. Reflection gives the signed assignment action. No claim that these are metric isometries or that arbitrary punctured models admit them globally."
+    },
+    {
+      "source_labels": [
+        "warn:p0-partial-motions"
+      ],
+      "formal": [
+        "zero_scaling_leaves_chart"
+      ],
+      "coverage": "One boundary component only: scaling by zero leaves the nonzero/positive-height coordinate chart. Arbitrary model assignment ranges, punctures and local smooth realization remain outside this certificate."
+    },
+    {
+      "source_labels": [
+        "eq:p0-bs-relation"
+      ],
+      "formal": [
+        "scaling_translation_conjugation",
+        "translation_iterate",
+        "baumslag_solitar_coordinates"
+      ],
+      "coverage": "Exact coordinate conjugation and arbitrary natural iterate. In a general field the natural scalar m must be nonzero; the real integer m>=2 case is obtained after an ordered-real interpretation. No complexity or analytic infinitesimal conclusion."
+    },
+    {
+      "source_labels": [
+        "subsec:p0-point-paths",
+        "eq:p0-affine-prefix-recursion"
+      ],
+      "formal": [
+        "rational_field_bridge",
+        "affine_composition_value",
+        "affine_composition_lift",
+        "finite_path_assignment",
+        "prefix_path_assignment",
+        "affine_value_unique",
+        "affine_value_bridge",
+        "affine_list_bridge",
+        "point_path_tree_bridge",
+        "compose_associative",
+        "compose_identity",
+        "prefix_operator_value",
+        "prefix_operator_snoc",
+        "prefix_multiplier_nonzero"
+      ],
+      "coverage": "Arbitrary finite nonzero-affine coordinate lifts, all prefix assignment values, unique affine coefficients and chronological prefix recursion. Point paths connect to the existing ordinary TreeEval via the unchanged Appendix C event/tree correspondence, with an exact Rat/FieldData interface. Positive multipliers are needed for an upper-half-plane realization; general nonzero lifts here use the punctured field chart."
+    },
+    {
+      "source_labels": [
+        "ex:p0-four-step-path"
+      ],
+      "formal": [
+        "rational_four_step_point",
+        "rational_four_step_prefixes"
+      ],
+      "coverage": "Kernel-checked exact rational point path (-8,8)->(-8,2)->(-6,2)->(-6,1)->(-3,1), including all five assignment values 1,4,3,6,3."
+    },
+    {
+      "source_labels": [
+        "prop:p0-affine-two-layers"
+      ],
+      "formal": [
+        "dilation_translation_conjugation"
+      ],
+      "coverage": "Only the displayed dilation/translation conjugation identity is certified, including its coordinate realization. The full conjugacy classification, torsor interpretation and absence of continuous invariants remain unformalized."
+    },
+    {
+      "source_labels": [
+        "eq:infinitesimal-order-defect"
+      ],
+      "formal": [
+        "finite_order_defect"
+      ],
+      "coverage": "Only the exact polynomial defect for an arbitrary scale k and shift s is proved. Substituting the real exponential and the two-variable big-O estimate are not certified."
+    }
+  ],
+  "excluded": [
+    "full regular-AES smooth manifold definition",
+    "analytic differential and Jacobian identification",
+    "smooth positive-square-root and global frame bridge",
+    "Gaussian curvature and metric completeness",
+    "Laplace eigenfunction",
+    "ODE solution, chain rule and arcsinh rectification",
+    "hyperbolic translation length and projective trace trichotomy",
+    "full affine conjugacy classification and torsor interpretation",
+    "punctured E1 model",
+    "exponential asymptotics",
+    "native universal geometry proof or checker soundness"
+  ],
+  "legacy_review": "archive/revision-2/aristotle/RequestProject/AES.lean is historical and is not imported. Its older directional/sign conventions and from_AES identity corollaries do not certify the current model. No legacy statement is promoted without a current source correspondence.",
+  "native_role": "Three bounded scalar value-word checks only; all coordinate metric/frame/gradient and arbitrary-length proofs are Lean-checked."
+}

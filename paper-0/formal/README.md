@@ -52,7 +52,8 @@ statement correspondence and the reviewed equality kernel remain trusted.
 | §2 four-operation sections | All eight ordinary values/domains and nonzero affine inverse laws in Lean; separate bounded rational Adva evaluator | These universal field theorems are Lean-checked; finite Adva executions do not promote a new field-proof kernel |
 | §2 evaluability continuation | General finite-tree domain/value, closed-input independence, exact rational evaluation, cancelled reciprocal and projective round trip, prefix domains/condition pullbacks, and subtraction expansion in Lean | External Richardson theorem, real exponential/ACS example, topology and cardinality background retain their separate dependencies |
 | §2 distributive operator identity | Unchanged symbolic Adva/Lean identity; new general-field proof of the corrected marked/scalar clauses | The previous counterexample and its old source snapshot remain historical evidence |
-| §§3–6 AES, ripple, reciprocal and projective theory | Inventoried, including the nested pole-covariance subsection | Formal domains, nonzero hypotheses, projective and geometric theories |
+| §3 coordinate foundation | 61 audited Lean statements: canonical-frame linear algebra, positive coordinate metric, candidate gradient/covector duality, guarded motions, finite point paths and ordinary-tree bridge | Full smooth regular-AES definition, analytic differential/Jacobian identification, smooth root/frame construction, curvature, completeness, Laplace and continuous-flow/length theory |
+| §§4–6 ripple, reciprocal and projective theory | Inventoried, including the nested pole-covariance subsection | Formal domains, nonzero hypotheses, projective and geometric theories |
 | §7 chronological affine cocycle | Auxiliary pointwise polynomial identity checked by Adva and Lean; shared finite-history scalar expansion in `AppendixC.lean` | Definition/uniqueness of affine coordinates, inverse and normalized-coordinate laws |
 | §§8–12 ACS, contact, nonlinearity, punctures, compactification | Inventoried | Algebraic/differential/topological dependencies and explicit side conditions |
 | Appendix C alternating expressions | 24 Lean theorems: independent suffix-sum expansion, arbitrary finite/prefix perturbation, actual tree/word correspondence and guarded ratio; one native symbolic induction-step certificate | ACS/exponentials/RG, identity-padding syntax transformations, and a native Adva induction kernel are outside this continuation |
@@ -297,7 +298,7 @@ From the AEG repository root:
 
 ```sh
 python -m unittest discover -s paper-0/formal -p 'test_*.py'
-python paper-0/formal/evaluability_run.py \
+python paper-0/formal/chapter03_run.py \
   --machine-root /absolute/path/to/pinned/adva-machine \
   --binary /absolute/path/to/pinned/adva-machine/target/debug/adva \
   --lean /absolute/path/to/lean \
@@ -377,13 +378,13 @@ python paper-0/formal/evaluability_run.py \
   --output /absolute/path/to/new-evidence-directory
 ```
 
-The live inventory also receives the seven existing Chapter 3 additions found
-by the November 1 drift diagnosis. They remain `not-yet-formalized`; updating
-navigation does not review or prove them. Archived inventories and generators
-remain bound to their original snapshots. The current workflow runs this new
-successor and restores push triggering; repository required-check rules are
-not modified. The earlier reproduction command remains useful for the
-Appendix C subset but does not verify the new module.
+At that checkpoint, the live inventory also received the seven Chapter 3
+additions found by the November 1 drift diagnosis, as `not-yet-formalized`.
+Updating navigation did not review or prove them. Archived inventories and
+generators remain bound to their original snapshots. That workflow invoked
+the evaluability successor and restored push triggering; repository
+required-check rules were unchanged. The Chapter 3 successor below now adds
+separate component coverage, including one conjugation identity in that group.
 
 The completed combined run is `Passed`: 66 native executions, 139 child
 commands, 50,205 independently received instruction transitions, and 131 Lean
@@ -395,6 +396,92 @@ Paper I builds produce 103- and 61-page PDFs with no undefined references,
 missing citations, duplicate labels or missing assets. Existing layout and
 bookmark warnings remain; no TeX source or tracked PDF is changed.
 
+## Chapter 3 coordinate foundation (2026-11-07)
+
+`Chapter03Coordinates.lean` advances the current third chapter with 61 audited
+statements, separately mapped in `chapter03-map.json`. Its field laws are
+Lean's standard `Lean.Grind.Field` parameters, with standard linear-order and
+ordered-ring laws added where positivity matters. A checked `fieldData`
+conversion and exact rational-field bridge connect this interface to the
+unchanged Chapter 2 semantics. `grind` produces kernel-checked proof terms;
+each theorem's exact global axioms are disclosed. No target AES conclusion is
+installed as an axiom or a structure field.
+
+The canonical-frame construction, orientation, directional coefficients,
+uniqueness and converse eikonal equation are checked in an orthonormal
+coordinate plane under an explicit nonzero `q` with the required square.
+Ordered-field reasoning proves that the radicand is positive for nonzero
+additive intensity and that any supplied root is nonzero. Existence and
+smoothness of the positive real square root and gradient-adapted frame still
+need an analytic interpretation.
+
+For the basic model, the displayed coordinate metric is symmetric, bilinear,
+positive definite and invariant under the displayed affine left translation
+and tangent map. The signed frame is orthonormal and positively oriented for
+positive intensities/height. Its coordinate assignment action and the scaling
+to the standard metric are proved. The displayed rational formula for the
+assignment covector is linear; its metric-dual candidate gradient exists
+explicitly, is unique, is nonzero, and satisfies the coordinate eikonal
+identity. These are genuine metric/covector algebra, rather than a declaration
+that the norm has its desired value. Identifying the candidate covector and
+tangent map with analytic differentials remains open. Neither a smooth
+Riemannian manifold nor its Gaussian curvature/completeness follows from these
+algebraic proofs.
+
+Guarded translation, scaling, inverse and reflection formulas are checked.
+The ordered-field positive-height carrier is preserved by positive scaling.
+Zero scaling leaves the chart. Arbitrary finite nonzero-affine paths and all
+prefixes carry the expected arithmetic values; they are connected to actual
+ordinary expression-tree evaluation through the unchanged Appendix C bridge.
+That bridge encodes each affine section as multiplication followed by addition,
+including identity events when a coefficient is one or zero. It certifies the
+interpreted values of that explicit tree; it does not identify its marked
+history or literal syntax with an original four-operation word.
+Unique affine coefficients and chronological prefix recursions are proved.
+Natural translation iterates and both conjugation orders are checked, with an
+explicit nonzero natural scalar in a general field. The four-step example has
+exact point coordinates and all five intermediate assignment values checked
+by kernel reduction. Only the algebraic conjugation component of the new
+two-layer proposition is covered, not its full conjugacy classification.
+
+Two negative modules must reject after positive compilation: omitting the
+nonzero chart height and omitting frame orientation. A concrete rational
+orientation counterexample is also checked. Three new bounded native runs
+check the four-step scalar path and the two conjugation orders; they do not
+check native geometry. The native machine, programs and previous cases are
+unchanged, and the current `chapter03_run.py` retains the preceding 131 Lean
+statements and complete native regression. `contract-chapter03.json` declares
+69 native runs and 148 child commands under the unchanged 72/160/300-second
+caps and all preceding per-child/fuel/instruction limits.
+
+Current navigation has 20 component-mapped environments, one fragment-certified
+environment and 81 not yet formalized, still 22 source files and 102
+theorem-like environments overall. Eight Chapter 3 environments now have
+explicit component maps; none is silently marked wholly formalized. Full
+regular-AES smooth structure, analytic derivatives, curvature/completeness,
+the Laplace eigenfunction, continuous ODE/rectification, hyperbolic length and
+trace trichotomy, and the punctured model remain outside this continuation.
+Historical Lean sources are not imported: their old sign/frame conventions
+and identity-only model corollaries do not certify the current manuscript.
+The original execution archives retain their own inventories, generator and
+test snapshots. Successor navigation updates are separately pinned.
+
+The canonical reproduction command at the top now invokes `chapter03_run.py`;
+the earlier `evaluability_run.py` command still checks only its predecessor
+scope. CI invokes the Chapter 3 successor on the existing push/PR/manual
+triggers; required-check settings are unchanged.
+
+The completed successor is `Passed`: 69 native runs, 148 child commands,
+51,137 independently received instruction transitions and all 192 Lean audits
+(131 preceding, 61 new). Both new missing-height/orientation controls reject
+for their expected diagnostics, alongside the two earlier negative modules.
+The run took 177.71 seconds under the unchanged 300-second shared deadline.
+All 26 regressions pass, including the new source/trace/archive binding test;
+25 passed before execution. The separately retained receipt is
+`evidence/chapter03-execution.json`. Paper 0 and Paper I builds pass at 103/61
+pages with no reference/citation/asset or duplicate-label failures. Existing
+layout/bookmark warnings remain; no TeX source or tracked PDF is changed.
+
 Authoring commands (`author.py`, `fixtures.py`, `appendix_fixtures.py`,
 `inventory.py`) update artifacts
 for review. Verification never calls them to rewrite expected results or locks.
@@ -403,13 +490,15 @@ manuscript mapping and negative controls before publishing successor pins.
 
 ## Continuation order
 
-The requested §2 syntax/domain correspondence and marked-data repair are
-implemented in the versioned continuation below. The next chapter can
-introduce the regular-AES definitions and hypotheses for §3, maintaining
-explicit imports for later geometry. Reuse the old Lean material only after a
-legacy-to-current statement map. Add each theorem's formal prerequisites and
-evidence as it is received; do not assume general topology, differential
-geometry, convergence or proof-library translation from this algebraic pilot.
+The §2 syntax/domain correspondence, marked-data repair and evaluability
+continuations are received above. The §3 coordinate foundation now provides
+the pointwise metric-dual and finite-path bridge. The next geometric step is
+to identify the candidate covector and tangent maps with analytic
+differentials and construct the smooth regular-AES interpretation, then
+address curvature/completeness and continuous flows. Reuse old Lean material
+only after a legacy-to-current statement map. Each theorem still needs its
+formal prerequisites and evidence; topology, smooth geometry, convergence and
+proof-library translation are not supplied by this algebraic foundation.
 
 Original implementation and documentation by Codex (OpenAI), contributed under
 CC0. Source ownership or an account proxy is not independent human review or

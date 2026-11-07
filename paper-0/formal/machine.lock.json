@@ -17,8 +17,8 @@
     "certificates.json": "c28f502519533428486ba0b12e5d47a160be62512bfa93c9b7d93cce811c7d5c",
     "Chapter02.lean": "b7b3a8cc35fa6c1e2e646fae3577c39a4113c6957ffd0c983b45fd6f07a007ab",
     "Chapter02Domains.lean": "d3c0f718936f128da2e15daf61ec0111cdd956ee7fb23ab6a451e677d7358c4c",
-    "inventory.py": "af1ac8eb6db59f83fbca51e812b2754bf1284555739b6aa3763a133284fd32ab",
-    "inventory.json": "14ea70c5ff27a42c2f613f00f3677a10bf301141205dfd100dd19472dbd1a693",
+    "inventory.py": "4e2ae50bf5caab694f9ea66e90429605fb3ac68d9da8e7e8e7af32b776dabf13",
+    "inventory.json": "be88a6d9898b49567daec08d0994c63200ed5ac19d2442040852213a195dc301",
     "run.py": "b0396c9bb279cbe90f2db6a5012ea48b2ceb20429991ec602754ab2d0e7a9fc0",
     "domain_author.py": "a6968582b2a181d9195a900238c29f599d8e5e3475c8c2ebaac9df2d0c23a03c",
     "domain-checker.adva": "de995c4d26f940fb0e35dd78ef2a271b144e0dc4c58c6395f444e6bbe7fbb231",
@@ -41,7 +41,15 @@
     "evaluability_run.py": "70691b5d67b1a6adbb013edef24187b9a5cb19369ead252c9569121fbb577342",
     "contract-evaluability.json": "fd28fe696a508de81b6c0fbc1fac1a058a6f3d49c3f11b0267da379cad9b34f1",
     "negative/CancelledReciprocalTotal.lean": "640ae87b9e11c9b3dc7a8186adf9d822cfdff0729a45e360484f1e01404fd4a2",
-    "test_evaluability.py": "599707d4a631881b413ba578f22f934616545c2ee4aab810e3d61b964bac48b0"
+    "test_evaluability.py": "4e704d72007f4db2565f2d04c6c59b08827b2309adc7bffbe8d2d0001703e51f",
+    "Chapter03Coordinates.lean": "d0c04e0cfeca624635126b6c6117d34acb4d3ccc75b7099e844d246812d7786a",
+    "chapter03-map.json": "d45a1c784739f287898201965f5940f87219ca21a0bf5972f4b6aeb9b54a0d5f",
+    "chapter03-cases.json": "c9a236751a68ba9857c5553de05b2a2d862ce8b059ce161bf71e77801010b987",
+    "chapter03_run.py": "0d2a6f66d9859778e927d982b8651639f066f847de8c4832d4ed5997c723395c",
+    "contract-chapter03.json": "606081b7c80d6f57bd1b05a688217d93c411663a98f23eb2eed931a17a66312f",
+    "negative/Chapter03MissingHeight.lean": "b8531de0030894e39e75e0f4a4db01c47fd0967c821848d3b56b8bd331ee73dc",
+    "negative/Chapter03MissingOrientation.lean": "05be43654f3ac8e8b64d141c6cfde2fb137a61d21d8860870f4afbac0f2c4033",
+    "test_chapter03.py": "7f8690d25c29269458bc1c6f3cda9d2c923a50b4059a298695aefafe35c05f88"
   },
-  "continuation": "contract-evaluability.json; retain all earlier execution snapshots; Chapter 3 navigation does not extend proof coverage"
+  "continuation": "contract-chapter03.json; retain all earlier execution snapshots; coordinate component coverage is not whole-chapter or analytic geometry certification"
 }

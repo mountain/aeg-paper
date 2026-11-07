@@ -1,0 +1,375 @@
+{
+  "schema": "aeg.paper0.chapter03.coordinate.execution.v1",
+  "date": "2026-11-07",
+  "status": "Passed",
+  "authorship": "Codex (OpenAI), CC0; no independent human mathematical review claimed.",
+  "contract": "contract-chapter03.json",
+  "contract_sha256": "606081b7c80d6f57bd1b05a688217d93c411663a98f23eb2eed931a17a66312f",
+  "machine_commit": "51ee98981ebbc62f8614ed20920c11dc76ea298d",
+  "machine_profile": "e9a700a7ca68f73587b18be1230f908e358a7d30f0a3f7d62397493b378b5797",
+  "source_lock_sha256": "60a67d773adec84b5bbcb89fb31b2637cb285a0cc1cb0df6e222a30bf9ec5904",
+  "chapter03_map_sha256": "d45a1c784739f287898201965f5940f87219ca21a0bf5972f4b6aeb9b54a0d5f",
+  "report_sha256": "43d0bdad70e4e85993f50a31eb93b6f4508927704c1bcba26a53630c21b4c388",
+  "archive": {
+    "path": "chapter03-run-01.tar.gz",
+    "sha256": "b23f0b9460f60b495329da295229d41d157677911f5942d9543bc7005f1d273f",
+    "bytes": 4032849,
+    "members": 578,
+    "uncompressed_bytes": 18631708
+  },
+  "native_runs": 69,
+  "child_commands": 148,
+  "reference_transitions": 51137,
+  "previous_lean_statements": 131,
+  "new_lean_statements": 61,
+  "total_lean_statements": 192,
+  "chapter03_axioms": {
+    "rational_field_bridge": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "frame_rotation": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "canonical_frame_orthonormal": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "canonical_frame_directional": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "canonical_frame_unique": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "frame_eikonal_converse": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "metric_add_left": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "metric_scale_left": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "covector_linear": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "metric_symmetric": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "model_frame_orthonormal": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "model_frame_determinant": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "model_frame_assignment": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "gradient_metric_dual": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "gradient_metric_unique": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "model_eikonal_coordinate": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "model_gradient_nonzero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "invariant_metric_coordinates": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "left_invariant_frame": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "scaled_standard_metric": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "assignment_contour": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "translation_assignment": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "scaling_assignment": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "reflection_assignment": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "translation_composition": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "translation_inverse": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "scaling_composition": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "scaling_inverse": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "zero_scaling_leaves_chart": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "scaling_translation_conjugation": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "translation_iterate": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "baumslag_solitar_coordinates": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "affine_lift_assignment": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "affine_lift_chart": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "affine_composition_value": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "affine_composition_lift": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "finite_path_assignment": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "prefix_path_assignment": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "affine_value_unique": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "affine_value_bridge": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "affine_list_bridge": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "point_path_tree_bridge": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "compose_associative": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "compose_identity": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "prefix_operator_value": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "prefix_operator_snoc": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "prefix_multiplier_nonzero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dilation_translation_conjugation": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "finite_order_defect": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "inverse_positive": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "quotient_positive": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "upper_translation_assignment": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "upper_scaling_assignment": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "model_frame_positive_orientation": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "eikonal_rhs_positive": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "root_nonzero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "metric_positive_definite": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "rational_four_step_point": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "rational_four_step_prefixes": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "rational_model_eikonal": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "rational_orientation_counterexample": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  "new_native_scalar_cases": 3,
+  "chapter03_negative_controls": {
+    "height": "Rejected with the expected missing-hypothesis type mismatch",
+    "orientation": "Rejected with the expected missing-hypothesis type mismatch"
+  },
+  "wall_seconds": 177.71045794300153,
+  "receiving_bounds_changed": false,
+  "unit_tests_before_invocation": 25,
+  "unit_tests_after_archive": 26,
+  "manuscript_builds": {
+    "0": {
+      "status": "Passed",
+      "pages": 103,
+      "pdf_bytes": 909781,
+      "pdf_sha256": "de4230700efc55579c2a33132ba22ae2e03341d5e398eeb8d6ceeac08d3112ea",
+      "final_log_sha256": "83d6ad97aa0804d0cd1bbccfcaede0e804f7b0827af5559f630e51d4cf177e88",
+      "unresolved_references_citations_duplicate_labels_missing_assets": false,
+      "overfull_boxes": 2,
+      "note": "Validation PDF retained externally; tracked manuscript PDF preserved."
+    },
+    "1": {
+      "status": "Passed",
+      "pages": 61,
+      "pdf_bytes": 756641,
+      "pdf_sha256": "f289aca93746536374a546c862451c41cda9791ca81fd365a880b524bf8d5c91",
+      "final_log_sha256": "7ac2903692ce553060694c904a36aea8aa90d6c2b7220d422c052bc6e8883e3f",
+      "unresolved_references_citations_duplicate_labels_missing_assets": false,
+      "overfull_boxes": 8,
+      "note": "Validation PDF retained externally; tracked manuscript PDF preserved."
+    }
+  },
+  "live_inventory": {
+    "source_files": 22,
+    "theorem_like_environments": 102,
+    "component_mapped": 20,
+    "fragment_certified": 1,
+    "not_yet_formalized": 81,
+    "new_chapter03_component_mapped_environments": 8,
+    "source_drift": 0
+  },
+  "coverage": "Chapter 3 pointwise coordinate field/order algebra, canonical frame linear algebra, symmetric bilinear positive coordinate metric, candidate gradient/covector metric-dual uniqueness and eikonal identity, positive-height arithmetic motions, finite paths and bridge to existing ordinary tree evaluation, prefix operators and conjugation. Native additions check scalar value words only. No smooth manifold, analytic derivative identification, curvature, completeness, Laplace/ODE/rectification or length theorem is formally certified.",
+  "trust_boundary": "The field/order parameters are standard algebra/order laws, with a checked bridge to existing FieldData. The covector and tangent-map formulas have NOT been identified with analytic derivatives. No smooth Riemannian AES, Gaussian curvature/completeness, Laplace/ODE/length theorem or native universal geometry result is certified. All exact global axiom sets are disclosed. The tree bridge preserves values of an explicitly encoded multiply/add tree, not literal syntax or marked-history identity."
+}

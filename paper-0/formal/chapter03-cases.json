@@ -1,0 +1,23 @@
+[
+  {
+    "name": "chapter03-four-step-value-path",
+    "initial": [1, 1],
+    "word": [[2, 1, [4, 1]], [1, 1, [1, 1]], [2, 1, [2, 1]], [1, 1, [3, 1]]],
+    "status": "Returned",
+    "expected": [3, 1]
+  },
+  {
+    "name": "chapter03-conjugation-divides-shift",
+    "initial": [2, 1],
+    "word": [[2, 1, [3, 1]], [0, 1, [6, 1]], [3, 1, [3, 1]]],
+    "status": "Returned",
+    "expected": [4, 1]
+  },
+  {
+    "name": "chapter03-reverse-conjugation-multiplies-shift",
+    "initial": [2, 1],
+    "word": [[3, 1, [3, 1]], [0, 1, [6, 1]], [2, 1, [3, 1]]],
+    "status": "Returned",
+    "expected": [20, 1]
+  }
+]
