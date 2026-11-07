@@ -949,6 +949,9 @@ Paper II 的实理论、Paper III 的复奇点、pcrg 的双赋值；可以把�
 短期：选项 D。把本笔记作为设计文档；补两个计算笔记：
 (a) 复化基本模型的完整计算与 Riemann--Hilbert 边界理论；
 (b) 双赋值字典的逐条验证（含有限域）。
+**进展**：(a) 已写成 [51 — 复化基本模型与 Riemann–Hilbert 边界](51-complexified-model-and-rh.md)，
+包含 C1 模型、RH 边界与 C2 Hermitian 伴随模型；WP1/WP4 已落地，WP5 推进。
+(b) 仍待写。
 中期：选项 B（新论文），因为"任意域"与"复化"都不是 Paper II 的标题所能容纳的，
 而且它们与 Paper III 的复奇点有实质接口。若作者更看重连续性，选 C。
 
@@ -956,11 +959,11 @@ Paper II 的实理论、Paper III 的复奇点、pcrg 的双赋值；可以把�
 
 | 包 | 内容 | 状态目标 |
 |---|---|---|
-| WP1 | 全纯 AES 定义、正则轨迹、复化基本模型、$q$-正规化的极除子 | `PROVED` |
+| WP1 | 全纯 AES 定义、正则轨迹、复化基本模型、$q$-正规化的极除子 | `PROVED`（note 51） |
 | WP2 | 代数 AES 定义、定理 3.2、框架存在性/唯一性 | `PROVED WITH STATED HYPOTHESES` |
 | WP3 | 任意域三分、长度类型表、双赋值字典 | `STANDARD` + `PROPOSAL` |
-| WP4 | C1 边界：Cauchy/Poisson、Riemann--Hilbert、DtN=Hilbert | `STANDARD CONSEQUENCE`（需写类） |
-| WP5 | C2：no-go、Hermitian eikonal、例、L²/谱问题 | `PROVED`（no-go）+ `OPEN` |
+| WP4 | C1 边界：Cauchy/Poisson、Riemann--Hilbert、DtN=Hilbert | `STANDARD CONSEQUENCE`（note 51，需写类） |
+| WP5 | C2：no-go、Hermitian eikonal、例、L²/谱问题 | `PROVED`（no-go + C2 基本模型，note 51）+ `OPEN`（谱/边界） |
 | WP6 | 局部域/树：Bruhat--Tits、Poisson、Hecke/Taibleson | `STRUCTURAL PROPOSAL`（外部标准结果待导入） |
 | WP7 | 复奇点接口：零除子、临界值、Picard--Lefschetz | `OPEN` |
 | WP8 | 有限域验证套件（witness C）与有限 Fourier/特征标 | `COMPUTATIONALLY VERIFIED` |
@@ -1009,8 +1012,9 @@ Paper II 的真正内容是三层，而不是一个关于 $\mathbb R$ 的定理�
 
 1. 把定理 3.2 写成正式论文的"代数 Paper II"，并在 Paper II 的证明旁边加一条
    纯代数证明路线（不改变原定理的状态）。
-2. 把复化基本模型与 Riemann--Hilbert 边界理论写成计算笔记，确认
-   $|D|=HD$、$H^{1/2}$ 能量、$C_0\cap L^1$ 类。
+2. ~~把复化基本模型与 Riemann--Hilbert 边界理论写成计算笔记~~ **已完成**：
+   [note 51](51-complexified-model-and-rh.md) 确认了 $|D|=HD$、$H^{1/2}$ 能量、
+   $C_0\cap L^1$ 类，并给出 C2 的完备基本模型。
 3. 把双赋值字典写成逐条验证的笔记（含有限域），决定它是否足以支撑
    "任意域 AES"的正式定义。
 

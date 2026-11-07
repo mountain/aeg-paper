@@ -56,3 +56,10 @@ elliptic AES definition remain research tasks.
   the arbitrary-field trichotomy, the bivaluation dictionary, and a roadmap.
   Design note; it changes no paper source and no mathematical-status register.
   Companion witness: `analysis-and-calculus/50-complex-arbitrary-field-witness.py`.
+- [51 — The complexified basic model and Riemann–Hilbert boundary](analysis-and-calculus/51-complexified-model-and-rh.md):
+  the C1 complexified hyperbolic model (PGL_2(C)-invariant metric, curvature
+  $-\lambda^2$, real slice), the Riemann–Hilbert/Schwarz boundary theory
+  (Poisson as a Cauchy jump, DtN as the Hilbert transform, the $C_0\cap L^1$
+  theorem), and the C2 Hermitian companion (complete model with $a(z)=z$,
+  positive curvature, total curvature $2\pi$, discrete zero locus).
+  Companion witness: `analysis-and-calculus/51-complexified-model-and-rh-witness.py`.
