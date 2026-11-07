@@ -35,6 +35,7 @@
   "projective_map_sha256": "1f59087b28f3756ca7de3fa6f7a055e0392387a5e323f661725a7023df16a7ad",
   "pgl_map_sha256": "caca86d7be7a04fcf8df2ea47812f86148e551b40ec3820aa20e1fd6ffb06760",
   "affine_generation_map_sha256": "94840586c871309c1ce9fa1b1d7d3b6a0459e8a002f8ec7f09c60ddd492c9e6d",
+  "arithmetic_map_sha256": "48568e0d7f13ea7fb52c0244413429a1e56df90baefc2c10b19fd85a71c491a7",
   "equation_components": [
     {
       "source": "paper-0/sections/04-ripple-geometry.tex",
@@ -98,10 +99,27 @@
         "AEGPaper0.Chapter04ProjectiveBridge.concrete_history_step_rigidity",
         "AEGPaper0.Chapter04ProjectiveBridge.first_exit_has_finite_pole",
         "AEGPaper0.Chapter04ProjectiveBridge.prefix_equiv",
-        "AEGPaper0.Chapter04ProjectiveBridge.prefix_nondegenerate"
+        "AEGPaper0.Chapter04ProjectiveBridge.prefix_nondegenerate",
+        "AEGPaper0.ProjectiveArithmetic.left_tree_projective_match",
+        "AEGPaper0.ProjectiveArithmetic.ordinary_domain_iff_safe",
+        "AEGPaper0.ProjectiveArithmetic.ordinary_iff_safe",
+        "AEGPaper0.ProjectiveArithmetic.regularWord_append",
+        "AEGPaper0.ProjectiveArithmetic.regularWord_cons",
+        "AEGPaper0.ProjectiveArithmetic.right_tree_projective_match",
+        "AEGPaper0.ProjectiveArithmetic.safe_iff_run_finite",
+        "AEGPaper0.ProjectiveArithmetic.safe_initial_finite",
+        "AEGPaper0.ProjectiveArithmetic.sectionClass_finite_iff",
+        "AEGPaper0.ProjectiveArithmetic.section_finite_iff",
+        "AEGPaper0.ProjectiveArithmetic.section_nondegenerate_iff",
+        "AEGPaper0.ProjectiveArithmetic.wordClass_append",
+        "AEGPaper0.ProjectiveArithmetic.wordClass_cons",
+        "AEGPaper0.ProjectiveArithmetic.wordClass_nil",
+        "AEGPaper0.ProjectiveArithmetic.wordMatrix_append",
+        "AEGPaper0.ProjectiveArithmetic.word_nondegenerate"
       ],
       "coverage": [
-        "The chronological matrix prefix acts as the previously certified chronological prefix of bijections, for arbitrary finite nondegenerate histories."
+        "The chronological matrix prefix acts as the previously certified chronological prefix of bijections, for arbitrary finite nondegenerate histories.",
+        "All eight pure-slot matrices interpret existing Chapter 2 partial semantics. Nondegeneracy, chronological products, tree correspondence and ordinary evaluation iff every projective state stays finite are certified."
       ]
     },
     {
@@ -140,11 +158,21 @@
         "AEGPaper0.Chapter04ProjectiveBridge.affine_postcompose_keeps_pole",
         "AEGPaper0.Chapter04ProjectiveBridge.concrete_pole_at_infinity_iff",
         "AEGPaper0.Chapter04ProjectiveBridge.concrete_stabilizer_criterion",
-        "AEGPaper0.Chapter04ProjectiveBridge.concrete_step_constancy"
+        "AEGPaper0.Chapter04ProjectiveBridge.concrete_step_constancy",
+        "AEGPaper0.ProjectiveArithmetic.affine_word_realizes",
+        "AEGPaper0.ProjectiveArithmetic.first_section_fixes_infinity",
+        "AEGPaper0.ProjectiveArithmetic.first_section_has_finite_value",
+        "AEGPaper0.ProjectiveArithmetic.first_word_image_is_stabilizer",
+        "AEGPaper0.ProjectiveArithmetic.first_word_in_stabilizer",
+        "AEGPaper0.ProjectiveArithmetic.first_word_ordinary_total",
+        "AEGPaper0.ProjectiveArithmetic.first_word_safe",
+        "AEGPaper0.ProjectiveArithmetic.sectionClass_add",
+        "AEGPaper0.ProjectiveArithmetic.sectionClass_mul"
       ],
       "coverage": [
         "The actual infinity stabilizer criterion is C=0, and its action has the explicit affine translation/dilation factorization. The abstract Aff/PGL group isomorphism is not identified here.",
-        "The actual infinity stabilizer is multiplicatively equivalent to standard Mathlib AffineEquiv K K K. Unique nonzero-slope normal form, finite evaluation, inverse formula, parameter composition and properness witnesses are explicit."
+        "The actual infinity stabilizer is multiplicatively equivalent to standard Mathlib AffineEquiv K K K. Unique nonzero-slope normal form, finite evaluation, inverse formula, parameter composition and properness witnesses are explicit.",
+        "Pure first-slot nondegenerate arithmetic words have image exactly the affine stabilizer; every ordinary input is admissible. Affine normal forms have explicit two-step arithmetic realizations."
       ]
     },
     {
@@ -1152,6 +1180,16 @@
         "AEGPaper0.Chapter04ProjectiveBridge.singular_composition_counterexample",
         "AEGPaper0.Chapter04ProjectiveBridge.translation_determinant",
         "AEGPaper0.Chapter04ProjectiveBridge.translation_finite",
+        "AEGPaper0.ProjectiveArithmetic.group_equality_does_not_determine_domain",
+        "AEGPaper0.ProjectiveArithmetic.reciprocal_word_class_identity",
+        "AEGPaper0.ProjectiveArithmetic.reciprocal_word_no_ordinary_zero",
+        "AEGPaper0.ProjectiveArithmetic.reciprocal_word_regular",
+        "AEGPaper0.ProjectiveArithmetic.reciprocal_word_syntax_distinct",
+        "AEGPaper0.ProjectiveArithmetic.reciprocal_word_zero_unsafe",
+        "AEGPaper0.ProjectiveArithmetic.second_division_is_inversion",
+        "AEGPaper0.ProjectiveArithmetic.second_word_image_is_top",
+        "AEGPaper0.ProjectiveArithmetic.second_word_surjective",
+        "AEGPaper0.ProjectiveArithmetic.zero_multiplication_ordinary",
         "AEGPaper0.ProjectiveGeneralLinear.actionHom_apply",
         "AEGPaper0.ProjectiveGeneralLinear.actionHom_equal_iff_scalar",
         "AEGPaper0.ProjectiveGeneralLinear.actionHom_kernel_scalar",

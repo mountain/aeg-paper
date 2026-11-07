@@ -1,0 +1,32 @@
+{
+  "schema": "aeg.paper0.arithmetic.native-successor.contract.v1",
+  "date": "2026-11-07",
+  "declared_after_failed_attempt": "5713d23e09830c18c68f9b5cd4d4e2a448b1776022fd8e91230fa1a87ddbb4ff",
+  "before_execution": true,
+  "profile": "chapter03_run.py",
+  "unchanged_contract": "contract-chapter03.json",
+  "unchanged_contract_sha256": "606081b7c80d6f57bd1b05a688217d93c411663a98f23eb2eed931a17a66312f",
+  "source_lock_sha256": "a4846564e004d11a78a345ad8f0c8e9f838bc6636f38c809d357bf0aa4b7d9c1",
+  "bounds": {
+    "proof_steps": 64,
+    "term_nodes": 63,
+    "proof_stack": 32,
+    "comb_steps": 16,
+    "fuel_per_call": 200000,
+    "native_calls": 72,
+    "child_commands": 160,
+    "reference_steps": 4000000,
+    "wall_seconds": 300,
+    "child_wall_seconds": 30,
+    "child_cpu_seconds": 25,
+    "child_address_space_bytes": 1073741824,
+    "child_file_bytes": 33554432,
+    "artifact_bytes": 536870912,
+    "lean_child_address_space_bytes": 4294967296
+  },
+  "scheduling_correction": "One fresh invocation after all arithmetic/analytic/projective profiles and manuscript builds finish; no concurrent heavy build or proof task in this workspace.",
+  "output_directory": "native-02",
+  "success": "All original 148 child commands, 69 native rows, 51,137 reference transitions and exact original audits/negative controls pass inside the original independent 300-second deadline. Native report bytes must match the preceding successful archive.",
+  "exit": "Retain the complete result; no automatic retry, deadline refill or numerical bound increase.",
+  "declared_at_utc": "2026-11-07T15:06:11.078199+00:00"
+}

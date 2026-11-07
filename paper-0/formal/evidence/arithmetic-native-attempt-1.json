@@ -1,0 +1,23 @@
+{
+  "schema": "aeg.paper0.arithmetic.native-attempt.v1",
+  "date": "2026-11-07",
+  "status": "Failed",
+  "profile": "chapter03_run.py",
+  "contract": "contract-chapter03.json",
+  "contract_sha256": "606081b7c80d6f57bd1b05a688217d93c411663a98f23eb2eed931a17a66312f",
+  "source_lock_sha256": "a4846564e004d11a78a345ad8f0c8e9f838bc6636f38c809d357bf0aa4b7d9c1",
+  "wall_seconds": 300.03628657900117,
+  "error": "shared deadline exhausted",
+  "completed_native_rows": 69,
+  "completed_child_commands": 146,
+  "failure_location": "Chapter03Coordinates compilation with about seven seconds left in the shared 300-second profile deadline",
+  "scheduling": "Ran concurrently with the new arithmetic Lean profile and the two manuscript builds. Resource contention is a scheduling inference; no mathematical mismatch was reported.",
+  "report_sha256": "4cb2df501c3e63139bb08de2fe0be595e1942472c1edd7e2b3f2255eadb43294",
+  "archive": {
+    "path": "arithmetic-native-attempt-1.tar.gz",
+    "sha256": "5713d23e09830c18c68f9b5cd4d4e2a448b1776022fd8e91230fa1a87ddbb4ff",
+    "members": 625,
+    "bytes": 3881091
+  },
+  "disposition": "Preserve as Failed; do not refill or enlarge this run. Any successor is a separate prospective declaration with the same source and numeric bounds."
+}

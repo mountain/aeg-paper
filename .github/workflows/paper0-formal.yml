@@ -171,6 +171,12 @@ jobs:
             --mathlib-root "$RUNNER_TEMP/aeg-mathlib" \
             --lean "$RUNNER_TEMP/lean-4.24.0-linux/bin/lean" \
             --output "$RUNNER_TEMP/aeg-paper0-affine-generation-evidence"
+      - name: Check arithmetic grammar, pure-slot images and ordinary domains
+        run: |
+          python paper-0/formal/arithmetic_run.py \
+            --mathlib-root "$RUNNER_TEMP/aeg-mathlib" \
+            --lean "$RUNNER_TEMP/lean-4.24.0-linux/bin/lean" \
+            --output "$RUNNER_TEMP/aeg-paper0-arithmetic-evidence"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -188,4 +194,10 @@ jobs:
         with:
           name: aeg-paper0-affine-generation-evidence
           path: ${{ runner.temp }}/aeg-paper0-affine-generation-evidence
+          if-no-files-found: warn
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: aeg-paper0-arithmetic-evidence
+          path: ${{ runner.temp }}/aeg-paper0-arithmetic-evidence
           if-no-files-found: warn

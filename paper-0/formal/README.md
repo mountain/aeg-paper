@@ -53,8 +53,8 @@ statement correspondence and the reviewed equality kernel remain trusted.
 | §2 evaluability continuation | General finite-tree domain/value, closed-input independence, exact rational evaluation, cancelled reciprocal and projective round trip, prefix domains/condition pullbacks, and subtraction expansion in Lean | External Richardson theorem, real exponential/ACS example, topology and cardinality background retain their separate dependencies |
 | §2 distributive operator identity | Unchanged symbolic Adva/Lean identity; new general-field proof of the corrected marked/scalar clauses | The previous counterexample and its old source snapshot remain historical evidence |
 | §3 coordinate foundation and real analysis | 61 coordinate statements plus 66 Mathlib statements: actual differential/Jacobian, smooth real coordinate-AES model, Laplace eigenfunction, positive smooth root, rectification, signed-frame bracket and affine ODE solution/uniqueness | Gaussian curvature/completeness, length/trace theory, punctured E1, full arbitrary-manifold/boundary-chart and intrinsic bundle-operator equivalences |
-| §4 ripple, pole and Apollonius components | 57 ripple/pole statements plus 39 norm statements, now connected to actual homogeneous matrix actions | External PGL group API, intrinsic horocycles/tangency and chart independence; source wording limitations remain explicit |
-| §6 projective synthesis, affine stabilizer and quotient generation | 70 action/bridge, 41 PGL/scalar and 39 affine/generation statements; standard affine-group stabilizer isomorphism and full PGL subgroup generation | Arithmetic grammar-to-group dictionary, topology and intrinsic geometric identifications |
+| §4 ripple, pole and Apollonius components | 57 ripple/pole statements plus 39 norm statements, now connected to actual homogeneous matrix actions | Intrinsic horocycles/tangency and chart independence; source wording limitations remain explicit |
+| §6 projective synthesis, affine stabilizer and quotient generation | 70 action/bridge, 41 PGL/scalar, 39 affine/generation and 35 arithmetic-dictionary statements; pure first-slot image is exactly the affine stabilizer and pure second-slot image is all PGL | Topology, chart-independent and intrinsic geometric identifications; degenerate sections remain outside PGL |
 | §5 reciprocal expansions | Inventoried | Formal domains, convergence and fixed-point attraction hypotheses |
 | §7 chronological affine cocycle | Auxiliary pointwise polynomial identity checked by Adva and Lean; shared finite-history scalar expansion in `AppendixC.lean` | Definition/uniqueness of affine coordinates, inverse and normalized-coordinate laws |
 | §§8–12 ACS, contact, nonlinearity, punctures, compactification | Inventoried | Algebraic/differential/topological dependencies and explicit side conditions |
@@ -986,10 +986,10 @@ audits are not counted as new. Exact axiom sets disclose only their actual
 subsets of `propext`, `Classical.choice` and `Quot.sound`, with no target axiom
 or admitted proof.
 
-This supplies the affine-group interface and the primary quotient-group
-generation assertion. An explicit dictionary from the arithmetic grammar and
-its domain-sensitive histories into those generators remains a separate
-interface. Group equality still does not identify marked histories or make
+That checkpoint supplies the affine-group interface and the primary
+quotient-group generation assertion. The following continuation supplies the
+previously separate pure-slot arithmetic dictionary and domain guards.
+Group equality still does not identify marked histories or make
 ordinary intermediate divisions admissible. Intrinsic geometric, topological
 and smooth identifications retain their separate obligations.
 
@@ -1023,14 +1023,100 @@ references/citations, duplicate labels or missing assets. Existing overfull
 boxes (2/8, maximum 11.13/105.15 pt) and bookmark/underfull warnings remain;
 manuscript text and tracked PDFs are unchanged.
 
+## Arithmetic grammar, pure-slot images and ordinary domains
+
+`ProjectiveArithmetic.lean` adds 35 audited statements over every field. It
+interprets the existing Chapter 2 `Op`, `Slot`, `List (Op × K)`, comb trees and
+partial evaluation in Mathlib's field structure. No alternative arithmetic
+grammar or history quotient is introduced. The eight elementary sections have
+the exact manuscript matrices. Their determinant is nonzero exactly when the
+constant is nonzero for multiplication/division; addition and subtraction
+require no such guard. Ordinary zero multiplication is explicitly legal, but
+does not define an invertible projective operator.
+
+The chronological word class satisfies
+`eval(before ++ after) = eval(after) * eval(before)`. It uses an actual PGL
+element from the product matrix, whose nondegeneracy is proved from every
+step. Pure first-slot words have image exactly the infinity stabilizer and
+are ordinarily defined at every field input. Pure second-slot words have
+image the entire PGL group: the constructive witnesses use at most four
+sections, with all required scale/numerator constants proved nonzero.
+The non-affine witness applies, in chronological order, addition by `D/C`,
+second-slot division with numerator `-1`, multiplication by `det(M)/C²`,
+and addition by `A/C`. No mixing of operand slots is required.
+
+The ordinary/projective agreement is an equivalence with an explicit safety
+condition: **every** projective intermediate state, including the endpoint,
+must be finite. This condition is also equivalent to existence of an ordinary
+partial evaluation, for nondegenerate words. Both left and right comb trees
+inherit the theorem through their existing partial-fold correspondence.
+Two successive reciprocal sections have identity group class and distinct
+syntax from the empty word; their ordinary domain still excludes zero.
+Thus equality in PGL supplies neither equality of syntax nor equality of
+ordinary domains. The four specific negatives omit regularity, omit the prefix
+guard despite a finite endpoint, reverse product order, or assert the
+first-slot image without its stabilizer guard.
+
+`arithmetic-map.json` pins Section 6 and its Chapter 2 source dependency. Its
+components augment the existing generation theorem and prefix/affine equations;
+there are still 32 component-mapped environments, one fragment-certified and
+69 not yet formalized among 102 environments, with four separate equations.
+The primary generation assertion and its arithmetic-word image interface now
+both have proofs. This does not certify every geometric clause of the comb
+unification theorem or a whole chapter. There are 539 distinct audited
+statements overall; the 230 unchanged dependency audits are not counted as new.
+Exact new axiom sets use only their actual subsets of `propext`,
+`Classical.choice` and `Quot.sound`, without target axioms or admitted proofs.
+
+`contract-arithmetic.json` declares a separate 300-second profile with unchanged
+analytic numerical bounds, 16 child commands, nine source imports, one new
+module and four specific rejection controls. Seven predecessor profiles remain
+independently required. The unchanged Mathlib lock already contains every
+needed module. CI runs the new profile separately and uploads its own artifact:
+
+```sh
+python paper-0/formal/arithmetic_run.py \
+  --mathlib-root /absolute/path/to/pinned/mathlib \
+  --lean /absolute/path/to/lean/bin/lean \
+  --output /absolute/path/to/new-arithmetic-evidence-directory
+```
+
+The first native predecessor reception in this continuation exhausted its
+shared 300-second deadline at 300.04 seconds, during coordinate compilation
+after all 69 native rows and 146 child commands. It ran concurrently with
+Lean checks and manuscript builds; resource contention is a scheduling
+inference, without a reported mathematical mismatch. The complete failure
+is retained as `evidence/arithmetic-native-attempt-1.json` and its archive.
+`arithmetic-native-successor-contract.json` prospectively declares one serial
+successor, after all other profiles/builds finish, with identical sources and
+every original numerical bound. The failed invocation is never relabeled or
+given additional time.
+
+The completed `evidence/arithmetic-execution.json` and `arithmetic-run-01.tar.gz`
+bind 119 formal sources plus their lock, 22 manuscript sources, workflow,
+eight successful profile reports, native traces/replay receipts, exact Lean
+audits, negative diagnostics and both build logs in 867 members. The serial
+native successor passes in 179.97 seconds. Analysis, original Chapter 4,
+Apollonius, projective, PGL, affine/generation and arithmetic pass separately
+in 163.26/51.60/72.06/76.60/51.31/86.99/178.29 seconds, each inside its own
+unchanged 300-second deadline. All 69 successful native reports are identical
+to the preceding checkpoint. The failed native archive and prospective
+successor declaration are explicitly bound by the receipt.
+
+All 55 regressions pass against the completed archive. The original preparatory
+log retains 54 passes and the then-absent execution-receipt test. Both builds
+pass at 103/61 pages without unresolved references/citations, duplicate labels
+or missing assets. Existing overfull boxes (2/8, maximum 11.13/105.15 pt) and
+bookmark/underfull warnings remain. Manuscript text and tracked PDFs are
+unchanged.
+
 ## Continuation order
 
 The §2 continuations and §3 coordinate/real-analysis bridge are received above.
 The deferred geometric steps and their prerequisites are now in
 `chapter03-obligations.json`. Advance easier remaining Chapter 4 work first:
-the arithmetic grammar/history-to-projective-evaluation dictionary and its
-ordinary-domain guards, keeping intrinsic geometry and chart independence
-separate. The
+the algebraic finite-pole stabilizer conjugation and Bruhat-cell interfaces,
+keeping intrinsic geometry and chart independence separate. The
 general-manifold/bundle identifications retain their explicit hypotheses.
 Reuse old Lean material
 only after a legacy-to-current statement map. Each theorem still needs its

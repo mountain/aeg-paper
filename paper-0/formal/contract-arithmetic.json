@@ -1,0 +1,63 @@
+{
+  "schema": "aeg.paper0.formal.contract.arithmetic.v1",
+  "date": "2026-11-07",
+  "source_commit": "da5732a98a7bccce2c93f4acb6793f74248fd65f",
+  "question": "Connect the existing pure-slot arithmetic grammar/trees and ordinary domains to the actual PGL quotient, with exact affine/full-group images and chronological order.",
+  "bounds": {
+    "wall_seconds": 300,
+    "child_commands": 32,
+    "child_wall_seconds": 120,
+    "child_cpu_seconds": 60,
+    "child_address_space_bytes": 1073741824,
+    "lean_child_address_space_bytes": 8589934592,
+    "child_file_bytes": 33554432,
+    "artifact_bytes": 536870912
+  },
+  "expected_work": {
+    "child_commands": 16,
+    "import_lean_statements": 230,
+    "new_lean_statements": 35,
+    "import_modules": 9,
+    "positive_modules": 1,
+    "negative_controls": 4
+  },
+  "negative_controls": [
+    {
+      "name": "regularity",
+      "file": "negative/ArithmeticMissingRegularity.lean",
+      "expected_fragments": [
+        "word_nondegenerate slot word",
+        "regularWord word \u2192 determinant (wordMatrix slot word) \u2260 0"
+      ]
+    },
+    {
+      "name": "prefix-guard",
+      "file": "negative/ArithmeticMissingPrefixGuard.lean",
+      "expected_fragments": [
+        "(ordinary_domain_iff_safe slot word h x).mpr",
+        "safe slot word (some x) \u2192 \u2203 y"
+      ]
+    },
+    {
+      "name": "chronology",
+      "file": "negative/ArithmeticWrongChronology.lean",
+      "expected_fragments": [
+        "wordClass_append slot before after h",
+        "wordClass slot after \u22ef * wordClass slot before \u22ef",
+        "wordClass slot before \u22ef * wordClass slot after \u22ef"
+      ]
+    },
+    {
+      "name": "affine-guard",
+      "file": "negative/ArithmeticMissingAffineGuard.lean",
+      "expected_fragments": [
+        "(first_word_image_is_stabilizer q).mpr",
+        "q \u2208 AffineStabilizer.infinityStabilizer \u2192 \u2203 word"
+      ]
+    }
+  ],
+  "resource_basis": "Declared before bounded execution after clean engineering compilation and four specific guard/order rejections. Numerical bounds exactly equal the preceding analytic contracts: 300-second profile, 120-second child wall, 60-second child CPU, 8 GiB Lean address space. All nine source imports already use the unchanged library lock. Seven predecessor profiles remain independently required, without shared deadline refill.",
+  "success": "Exactly audit 230 unchanged source-import statements and all 35 new statements with clean diagnostics, no target axioms or admitted proofs. Require all four specific rejections and exact source/inventory/library pins. Seven predecessor profiles pass independently.",
+  "exit": "One fresh bounded invocation after engineering checks; retain a Failed record and stop on mismatch/exhaustion. A correction requires a separately declared successor, never automatic bound growth.",
+  "authorship": "Codex (OpenAI), CC0; no independent human review claimed."
+}

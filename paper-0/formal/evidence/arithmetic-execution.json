@@ -1,0 +1,394 @@
+{
+  "schema": "aeg.paper0.arithmetic.execution.v1",
+  "date": "2026-11-07",
+  "status": "Passed",
+  "authorship": "Codex (OpenAI), CC0; no independent human mathematical review claimed.",
+  "source_lock_sha256": "a4846564e004d11a78a345ad8f0c8e9f838bc6636f38c809d357bf0aa4b7d9c1",
+  "arithmetic_map_sha256": "48568e0d7f13ea7fb52c0244413429a1e56df90baefc2c10b19fd85a71c491a7",
+  "chapter03_obligations_sha256": "973e643c66e264c4475b512d916e4eef7a87dfe94d112f910e98359e81ad2800",
+  "mathlib_lock_sha256": "de2e937993bd22e41702f21889ac382f3cb36364cbe0b5e5d3fbc1e32bd0394d",
+  "mathlib_commit": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
+  "mathlib_source_files": 7600,
+  "mathlib_compiled_modules": 3175,
+  "retained_failed_native_attempt": {
+    "schema": "aeg.paper0.arithmetic.native-attempt.v1",
+    "date": "2026-11-07",
+    "status": "Failed",
+    "profile": "chapter03_run.py",
+    "contract": "contract-chapter03.json",
+    "contract_sha256": "606081b7c80d6f57bd1b05a688217d93c411663a98f23eb2eed931a17a66312f",
+    "source_lock_sha256": "a4846564e004d11a78a345ad8f0c8e9f838bc6636f38c809d357bf0aa4b7d9c1",
+    "wall_seconds": 300.03628657900117,
+    "error": "shared deadline exhausted",
+    "completed_native_rows": 69,
+    "completed_child_commands": 146,
+    "failure_location": "Chapter03Coordinates compilation with about seven seconds left in the shared 300-second profile deadline",
+    "scheduling": "Ran concurrently with the new arithmetic Lean profile and the two manuscript builds. Resource contention is a scheduling inference; no mathematical mismatch was reported.",
+    "report_sha256": "4cb2df501c3e63139bb08de2fe0be595e1942472c1edd7e2b3f2255eadb43294",
+    "archive": {
+      "path": "arithmetic-native-attempt-1.tar.gz",
+      "sha256": "5713d23e09830c18c68f9b5cd4d4e2a448b1776022fd8e91230fa1a87ddbb4ff",
+      "members": 625,
+      "bytes": 3881091
+    },
+    "disposition": "Preserve as Failed; do not refill or enlarge this run. Any successor is a separate prospective declaration with the same source and numeric bounds."
+  },
+  "prospective_serial_successor": {
+    "schema": "aeg.paper0.arithmetic.native-successor.contract.v1",
+    "date": "2026-11-07",
+    "declared_after_failed_attempt": "5713d23e09830c18c68f9b5cd4d4e2a448b1776022fd8e91230fa1a87ddbb4ff",
+    "before_execution": true,
+    "profile": "chapter03_run.py",
+    "unchanged_contract": "contract-chapter03.json",
+    "unchanged_contract_sha256": "606081b7c80d6f57bd1b05a688217d93c411663a98f23eb2eed931a17a66312f",
+    "source_lock_sha256": "a4846564e004d11a78a345ad8f0c8e9f838bc6636f38c809d357bf0aa4b7d9c1",
+    "bounds": {
+      "proof_steps": 64,
+      "term_nodes": 63,
+      "proof_stack": 32,
+      "comb_steps": 16,
+      "fuel_per_call": 200000,
+      "native_calls": 72,
+      "child_commands": 160,
+      "reference_steps": 4000000,
+      "wall_seconds": 300,
+      "child_wall_seconds": 30,
+      "child_cpu_seconds": 25,
+      "child_address_space_bytes": 1073741824,
+      "child_file_bytes": 33554432,
+      "artifact_bytes": 536870912,
+      "lean_child_address_space_bytes": 4294967296
+    },
+    "scheduling_correction": "One fresh invocation after all arithmetic/analytic/projective profiles and manuscript builds finish; no concurrent heavy build or proof task in this workspace.",
+    "output_directory": "native-02",
+    "success": "All original 148 child commands, 69 native rows, 51,137 reference transitions and exact original audits/negative controls pass inside the original independent 300-second deadline. Native report bytes must match the preceding successful archive.",
+    "exit": "Retain the complete result; no automatic retry, deadline refill or numerical bound increase.",
+    "declared_at_utc": "2026-11-07T15:06:11.078199+00:00"
+  },
+  "profiles": {
+    "native": {
+      "directory": "native-02",
+      "contract": "contract-chapter03.json",
+      "contract_sha256": "606081b7c80d6f57bd1b05a688217d93c411663a98f23eb2eed931a17a66312f",
+      "report_sha256": "7f57d9267ffebebc30edac668121b7378fa8649da802f3f26358be2330769567",
+      "wall_seconds": 179.9663800470007,
+      "child_commands": 148
+    },
+    "analytic": {
+      "directory": "analysis-01",
+      "contract": "contract-analysis-v1.1.json",
+      "contract_sha256": "dc43df95783ca070cc0fad0717cc5986182d3fca814a9a6358f7b436376a7ab3",
+      "report_sha256": "f822f5be0d7356c827a622f691c8255a442b0f0e25f4988c3ccb823595664592",
+      "wall_seconds": 163.26149251000606,
+      "child_commands": 16
+    },
+    "chapter04": {
+      "directory": "chapter04-01",
+      "contract": "contract-chapter04.json",
+      "contract_sha256": "52b58178702f5afecc366ed2edab8b1da4c553c3cab3703c2e1fa6fe34d4a905",
+      "report_sha256": "3c1c7494e32274c69b9c98eb541ae0e816480b4b2aec7d8e15d5f64623725c20",
+      "wall_seconds": 51.60395686099946,
+      "child_commands": 8
+    },
+    "apollonius": {
+      "directory": "apollonius-01",
+      "contract": "contract-apollonius.json",
+      "contract_sha256": "082e865282360a9616cc7f27558e668f630ac1a0dccb7564f020b318f689b506",
+      "report_sha256": "f8c817b8d90b9479ad018756c700aaf9327fd43a24087306fab02fd12582df24",
+      "wall_seconds": 72.05538541499845,
+      "child_commands": 8
+    },
+    "projective": {
+      "directory": "projective-01",
+      "contract": "contract-projective.json",
+      "contract_sha256": "3c0eb86b50b4bf972e8b2798cda2b6653a76556a19addbc408861e31b3ad1cca",
+      "report_sha256": "ab1d6fcf3494babdfb070c24b71cec4c7af9019b57deaf837d9e62fd8d9c86a0",
+      "wall_seconds": 76.59986493500037,
+      "child_commands": 11
+    },
+    "pgl": {
+      "directory": "pgl-01",
+      "contract": "contract-pgl.json",
+      "contract_sha256": "b7687826a0bf34e7bb23d5c3637d298ab918839276175a4ffe5b7d5e345135c1",
+      "report_sha256": "6f099aee60d24ce08b0177f606c322ea4534fce2bbbb4fdb84bc4ba5c42e503d",
+      "wall_seconds": 51.311703371000476,
+      "child_commands": 9
+    },
+    "affine_generation": {
+      "directory": "affine-generation-01",
+      "contract": "contract-affine-generation.json",
+      "contract_sha256": "a695a3c8c78b62511f8b8a0310fef8a33ed3b5aab3b504cb1e9f59fd74c2d17d",
+      "report_sha256": "70af5aa12cae0eee37f3c4acd192246196a76abcf464401a0106fad492544e24",
+      "wall_seconds": 86.98837588199967,
+      "child_commands": 13
+    },
+    "arithmetic": {
+      "directory": "arithmetic-01",
+      "contract": "contract-arithmetic.json",
+      "contract_sha256": "5d3247be8d5cb4e07023f97cedd8019e7820be94141c24f6cce20e57c4d0a761",
+      "report_sha256": "da148385f15d10503d94ffd12c97869b6f87fdb134a355f869b9d64603262ce1",
+      "wall_seconds": 178.2910950390069,
+      "child_commands": 16
+    }
+  },
+  "previous_lean_statements": 504,
+  "new_lean_statements": 35,
+  "total_lean_statements": 539,
+  "arithmetic_axioms": {
+    "AEGPaper0.ProjectiveArithmetic": {
+      "section_nondegenerate_iff": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "section_finite_iff": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "sectionClass_finite_iff": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "regularWord_cons": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "word_nondegenerate": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "wordClass_nil": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "wordClass_cons": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "regularWord_append": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "wordMatrix_append": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "wordClass_append": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "safe_iff_run_finite": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "safe_initial_finite": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "ordinary_iff_safe": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "left_tree_projective_match": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "right_tree_projective_match": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "ordinary_domain_iff_safe": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "first_section_fixes_infinity": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "first_section_has_finite_value": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "first_word_safe": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "first_word_ordinary_total": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "first_word_in_stabilizer": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "sectionClass_add": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "sectionClass_mul": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "second_division_is_inversion": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "affine_word_realizes": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "first_word_image_is_stabilizer": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "second_word_surjective": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "second_word_image_is_top": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "reciprocal_word_regular": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "reciprocal_word_class_identity": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "reciprocal_word_zero_unsafe": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "reciprocal_word_no_ordinary_zero": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "group_equality_does_not_determine_domain": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "reciprocal_word_syntax_distinct": [
+        "propext"
+      ],
+      "zero_multiplication_ordinary": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  },
+  "source_import_audits": 230,
+  "negative_controls": {
+    "regularity": "Rejected with the expected specific type mismatch",
+    "prefix-guard": "Rejected with the expected specific type mismatch",
+    "chronology": "Rejected with the expected specific type mismatch",
+    "affine-guard": "Rejected with the expected specific type mismatch"
+  },
+  "native_runs": 69,
+  "reference_transitions": 51137,
+  "preceding_native_reports_unchanged": 69,
+  "original_proof_library_goal_contract_and_runtime_receiver_bytes_unchanged": true,
+  "old_formal_sources_with_explicit_navigation_successors": [
+    "inventory.py",
+    "inventory.json",
+    "test_affine_generation.py"
+  ],
+  "formal_source_files": 119,
+  "manuscript_source_files": 22,
+  "archive": {
+    "path": "arithmetic-run-01.tar.gz",
+    "sha256": "7def97e598c832e40906be45656b7b2997bd990256f8979c508f522b2d98155f",
+    "bytes": 12163509,
+    "members": 867,
+    "uncompressed_bytes": 44235758
+  },
+  "manuscript_builds": {
+    "0": {
+      "status": "Passed",
+      "pages": 103,
+      "pdf_bytes": 909781,
+      "pdf_sha256": "154c077f8bbe9a4c78062df8e677047c6bdc120fbaa8e1cc35b5c2e4ca9520dc",
+      "final_log_sha256": "eb43341e0406cf0fe7fa6dd7db48f193a01f5f07d6abf95c653a870d85e50b87",
+      "unresolved_references_citations_duplicate_labels_missing_assets": false,
+      "overfull_boxes": 2,
+      "max_overfull_pt": 11.13274,
+      "note": "Validation PDF retained externally; tracked manuscript PDF restored without changing its bytes."
+    },
+    "1": {
+      "status": "Passed",
+      "pages": 61,
+      "pdf_bytes": 756641,
+      "pdf_sha256": "c73b77250e55b5368a26ee2f41bb511e521735fd745fefc89d2cdb3ae07532e6",
+      "final_log_sha256": "2ed4da94662cf14504c384f75f58b4f42d953d8ac4bd1ffc58e6277dd1fbcabe",
+      "unresolved_references_citations_duplicate_labels_missing_assets": false,
+      "overfull_boxes": 8,
+      "max_overfull_pt": 105.1512,
+      "note": "Validation PDF retained externally; tracked manuscript PDF restored without changing its bytes."
+    }
+  },
+  "pre_receipt_checks": {
+    "passed": 54,
+    "pending_receipt_test": 1,
+    "note": "The archive-binding test cannot pass before the completed execution receipt exists. Its missing-receipt error is retained verbatim in engineering/unit-before-receipt.log."
+  },
+  "unit_tests_after_archive": 55,
+  "live_inventory": {
+    "source_files": 22,
+    "theorem_like_environments": 102,
+    "component_mapped": 32,
+    "fragment_certified": 1,
+    "not_yet_formalized": 69,
+    "separately_mapped_equations": 4
+  },
+  "source_audit": [
+    {
+      "source_labels": [
+        "thm:p0-comb-projective-unification"
+      ],
+      "scope": "The first/second-slot image clauses now have arithmetic-word proofs, attached to the generation theorem and affine equation above. No whole-environment geometric certification is inferred."
+    }
+  ],
+  "scope": "35 new exactly audited statements connect existing Chapter 2 pure-slot words/trees and partial evaluation with the actual projective quotient. First-slot image is exactly the affine stabilizer; second-slot image is all PGL with at most four steps. Ordinary evaluation is exactly finite projective prefixes for nondegenerate words. Rebuild 230 unchanged import audits without counting them as new; no complete-chapter or intrinsic-geometry claim.",
+  "remaining": [
+    "Identification of equal group elements with equal syntax, histories or ordinary domains",
+    "Degenerate arithmetic sections as elements of PGL: zero multiplication and zero-numerator division are not invertible",
+    "Mixed-slot history classification and intrinsic dependency-poset theory (Paper I)",
+    "Topology/smoothness, chart-independent and intrinsic hyperbolic identifications"
+  ],
+  "deferred_chapter03": "chapter03-obligations.json",
+  "trust_boundary": "Pinned compiler/standard library and source/cache-fingerprinted Mathlib are trusted builds. Existing Chapter 2 pure-slot syntax and partial semantics now have an explicit PGL quotient dictionary. Exact affine and full-group images, constructive four-step witnesses, chronological products and prefix-finiteness domain equivalence are certified. Syntax and ordinary domains are never quotiented by group equality. Degenerate operators and intrinsic geometry remain outside the group certificate. All eight profiles pass separately under independently declared bounds."
+}

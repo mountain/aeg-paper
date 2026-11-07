@@ -1095,3 +1095,79 @@ Existing overfull boxes (2/8, maximum 11.13/105.15 pt) and bookmark/underfull
 warnings remain; manuscript text and tracked PDFs are unchanged. The next
 algebraic interface is the explicit arithmetic grammar/history evaluation
 dictionary with ordinary-domain guards, keeping intrinsic geometry separate.
+
+## 23. Arithmetic-word/projective dictionary and exact ordinary domains (2026-11-07)
+
+`formal/ProjectiveArithmetic.lean` adds 35 exactly audited statements over every
+field, bringing the distinct count to 539 including supporting lemmas. The
+map `formal/arithmetic-map.json` pins the unchanged Section 6 source and its
+Chapter 2 syntax/semantics dependency. This supplies the explicit arithmetic
+word interface left in section 22; no whole-chapter status is inferred.
+
+| Component | Status | Hypotheses and boundary |
+| --- | --- | --- |
+| eight elementary arithmetic matrices | `PROVED WITH STATED HYPOTHESES` | Existing Chapter 2 `Op`, `Slot` and `FieldData` are interpreted in an arbitrary Mathlib field. Matrix nondegeneracy is equivalent to a nonzero constant for multiplication/division; addition/subtraction have no additional restriction. Ordinary zero multiplication is valid but is not a PGL element. |
+| chronological word evaluation | `PROVED WITH STATED HYPOTHESES` | Pure-slot `List (Op × K)` words have nondegenerate product matrices and actual quotient classes when every section is nondegenerate. Chronological concatenation evaluates as `eval(after) * eval(before)`, so the right group factor acts first. No quotient of syntax or marked histories is defined. |
+| ordinary evaluation and prefix safety | `PROVED WITH STATED HYPOTHESES` | For every nondegenerate word, ordinary partial-fold evaluation is equivalent to agreement with its projective endpoint together with finiteness of every intermediate projective state. Existence of an ordinary value is exactly this safety condition. Existing left/right comb-tree correspondences supply the same statement for the original trees. Endpoint finiteness alone is insufficient. |
+| pure first-slot image | `PROVED WITH STATED HYPOTHESES` | The image is exactly the actual infinity stabilizer. Every affine class has a two-step multiplication/addition realization, and every nondegenerate first-slot word is ordinarily defined at every field input. This does not assert invertibility for degenerate ordinary sections. |
+| pure second-slot image | `PROVED WITH STATED HYPOTHESES` | Every actual PGL class has a nondegenerate pure second-slot arithmetic word of length at most four. The non-affine witness applies addition, division with numerator `-1`, nonzero multiplication and addition in that chronological order. All side conditions follow from the determinant/`C!=0` hypotheses. This supplies the source generation theorem's arithmetic-language image clause. |
+| syntax/domain distinctions | `PROVED` | Two reciprocal sections have identity quotient class but remain syntactically distinct from the empty word and are undefined ordinarily at zero. Their projective intermediate infinity cannot be erased by cancellation. Equality of group elements therefore does not determine ordinary domains. |
+
+The source theorem's pure-slot image clauses now have explicit word proofs.
+The map adds components to already mapped prefix/affine equations and the
+generation theorem: the inventory remains 32 component-mapped environments,
+one fragment-certified and 69 not yet formalized among 102 environments in
+22 manuscript sources, with four separate equation anchors. Component coverage
+does not certify all geometric readings or every clause of comb unification.
+No manuscript text, hypotheses or research material is moved or removed.
+
+Exact global axiom sets disclose only actual subsets of `propext`,
+`Classical.choice` and `Quot.sound`; no target axiom or admitted proof is used.
+The same 7,600 Mathlib source and 3,175 compiled-module fingerprints suffice.
+Preceding proof, goal, library, receiver and contract bytes and execution
+archives remain exact. Current navigation and its historical receipt test
+have explicit successor pins.
+
+`formal/contract-arithmetic.json` declares a separate 300-second profile under
+the unchanged analytic numerical limits. Sixteen commands rebuild 230 unchanged
+source-import audits, receive 35 new audits and require four specific type
+rejections: omitted regularity, omitted prefix safety despite a finite endpoint,
+reversed chronological multiplication, and omitted affine-image membership.
+All seven predecessor profiles remain independently required under their own
+unchanged contracts. CI supplies a separate bounded step and artifact.
+
+The first native predecessor invocation exhausted its shared 300-second
+deadline at 300.04 seconds, during coordinate compilation after all 69 native
+rows and 146 child commands. It ran alongside Lean checks and manuscript
+builds; resource contention is a scheduling inference, and no mathematical
+mismatch was reported. Its complete report, sources and artifacts are
+preserved as `formal/evidence/arithmetic-native-attempt-1.json` and archive.
+`arithmetic-native-successor-contract.json` prospectively declares one serial
+successor after all other profiles/builds, with the same source pins and every
+original numerical bound. No failed result is relabeled or deadline refilled.
+
+`formal/evidence/arithmetic-execution.json` receives the serial native successor
+as `Passed` in 179.97 seconds, with all original 148 commands, 69 rows and
+51,137 independent reference transitions. All 69 native report bytes match
+the preceding successful checkpoint. The seven other profiles pass separately:
+analysis 163.26 seconds, original Chapter 4 51.60, Apollonius 72.06,
+projective 76.60, PGL 51.31, affine/generation 86.99 and arithmetic 178.29.
+Each invocation stays inside its independently declared 300-second deadline;
+the earlier 300.04-second native failure remains a distinct failed attempt.
+
+The successful archive binds 119 formal sources plus their lock, 22 manuscript
+sources, workflow, eight reports, native traces/replay receipts, exact audits,
+negative diagnostics and build logs in 867 members. Its receipt also binds
+the separately preserved failed archive and prospective successor declaration.
+All 55 regressions pass against the completed evidence, following 54 preparatory
+passes and the then-pending receipt test retained in the original log. Both
+builds pass at 103/61 pages without unresolved references/citations, duplicate
+labels or missing assets. Existing overfull boxes (2/8, maximum 11.13/105.15 pt)
+and bookmark/underfull warnings remain; manuscript text and tracked PDFs are
+unchanged.
+
+Finite-pole stabilizer conjugation and Bruhat-cell interfaces remain possible
+algebraic continuations. Topological/smooth, chart-independent and intrinsic
+hyperbolic identifications, as well as the registered Chapter 3 geometric
+obligations, retain their separate status. General mixed-slot history theory
+and intrinsic dependency-poset classification belong to Paper I.
