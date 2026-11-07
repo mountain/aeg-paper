@@ -1,0 +1,187 @@
+{
+  "schema": "aeg.paper0.chapter02.evaluability.execution.v1",
+  "date": "2026-11-07",
+  "status": "Passed",
+  "authorship": "Codex (OpenAI), CC0; no independent human mathematical review claimed.",
+  "contract": "contract-evaluability.json",
+  "contract_sha256": "fd28fe696a508de81b6c0fbc1fac1a058a6f3d49c3f11b0267da379cad9b34f1",
+  "machine_commit": "51ee98981ebbc62f8614ed20920c11dc76ea298d",
+  "machine_profile": "e9a700a7ca68f73587b18be1230f908e358a7d30f0a3f7d62397493b378b5797",
+  "source_lock_sha256": "2ef028fc0d2c6b55e1ffd2065246d63d7019793ae1976a25aafbb503e56424ed",
+  "evaluability_map_sha256": "31ce42679dc6bbae0e2840e57496a2c39573c3f7294e24a1eb7e7d2055ef5c35",
+  "report_sha256": "a5248234ca3b461b852f584c72cfba1639f7777ad9b5f0c8e3afefa6784178a9",
+  "archive": {
+    "path": "evaluability-run-01.tar.gz",
+    "sha256": "cc53eabd5244a2337354a903cb6c8575e1aa7b330c585a5d2f3640aff573f189",
+    "bytes": 3375637,
+    "members": 542,
+    "uncompressed_bytes": 16431633
+  },
+  "native_runs": 66,
+  "child_commands": 139,
+  "reference_transitions": 50205,
+  "previous_lean_statements": 95,
+  "new_lean_statements": 36,
+  "total_lean_statements": 131,
+  "evaluability_axioms": {
+    "tree_eval_functional": [],
+    "value_spec": [
+      "Classical.choice"
+    ],
+    "value_unique": [
+      "Classical.choice"
+    ],
+    "left_comb_domain": [
+      "Quot.sound",
+      "propext"
+    ],
+    "right_comb_domain": [
+      "Quot.sound",
+      "propext"
+    ],
+    "prefix_domain": [
+      "Quot.sound",
+      "propext"
+    ],
+    "undefined_prefix_persists": [
+      "Quot.sound",
+      "propext"
+    ],
+    "condition_append": [
+      "propext"
+    ],
+    "closed_input_independent": [
+      "Quot.sound",
+      "propext"
+    ],
+    "closed_domain_independent": [
+      "Quot.sound",
+      "propext"
+    ],
+    "op_compute_correct": [
+      "propext"
+    ],
+    "compute_correct": [
+      "propext"
+    ],
+    "compute_none_iff": [
+      "propext"
+    ],
+    "computed_value": [
+      "Classical.choice",
+      "propext"
+    ],
+    "identity_domain": [],
+    "zero_denominator_empty": [],
+    "undefined_child_propagates": [],
+    "cancelled_reciprocal_one_hole": [],
+    "reciprocal_tree_eval": [],
+    "inverse_inverse": [],
+    "cancelled_reciprocal_eval": [
+      "Quot.sound",
+      "propext"
+    ],
+    "cancelled_reciprocal_domain": [
+      "Quot.sound",
+      "propext"
+    ],
+    "cancelled_identity_partial_maps_differ": [
+      "Quot.sound",
+      "propext"
+    ],
+    "reciprocal_graph_functional": [],
+    "reciprocal_projective_involution": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "reciprocal_projective_identity": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "subtraction_expansion": [],
+    "rational_evaluation_correct": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "rational_failure_exact": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "rational_evaluation_total": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "rational_cancelled_nonzero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "rational_cancelled_zero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "rational_branching_guard": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "rational_undefined_before_zero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "rational_zero_numerator_guard": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "rational_unbounded_integer": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  "new_native_cases": 3,
+  "cancelled_total_control": "Rejected by Lean with the expected missing-nonzero-hypothesis type mismatch",
+  "wall_seconds": 200.8863456580002,
+  "unit_tests_before_invocation": 21,
+  "unit_tests_after_archive": 22,
+  "manuscript_builds": {
+    "0": {
+      "status": "Passed",
+      "pages": 103,
+      "pdf_bytes": 909781,
+      "pdf_sha256": "3efebb593aa4ac847205fb4837fb870f07af0ac559341d21d14c04060839c7d5",
+      "final_log_sha256": "15849ee8d995bc83eca7262414fa978ca0dcff2d659afa4d66ce07b34e8b1dea",
+      "unresolved_references_citations_duplicate_labels_missing_assets": false,
+      "overfull_boxes": 2,
+      "note": "Validation PDF retained externally; tracked manuscript PDF preserved."
+    },
+    "1": {
+      "status": "Passed",
+      "pages": 61,
+      "pdf_bytes": 756641,
+      "pdf_sha256": "4a53cea99623b5e5dc5ef7d6813ca77b40c1b0b8133cb73e0a61c792e8643007",
+      "final_log_sha256": "88109c0f3151db88855cfcaaf63cd6d4f4be05c50e6c125e7960c71059c9e39f",
+      "unresolved_references_citations_duplicate_labels_missing_assets": false,
+      "overfull_boxes": 8,
+      "note": "Validation PDF retained externally; tracked manuscript PDF preserved."
+    }
+  },
+  "live_inventory": {
+    "source_files": 22,
+    "theorem_like_environments": 102,
+    "component_mapped": 12,
+    "fragment_certified": 1,
+    "not_yet_formalized": 89,
+    "source_drift": 0
+  },
+  "coverage": "Chapter 2 arbitrary finite-tree evaluability and functional semantics, closed-input independence, exact effective evaluation under a supplied equality decision, concrete rational field interpretation and failure/completion dichotomy, cancelled reciprocal domains and projective round trip, prefix-domain and condition-pullback composition, and subtraction expansion. Previous 95 Lean statements and all native controls are retained. ACS integration, Richardson's external theorem, full PGL quotient and native checker soundness are outside this continuation.",
+  "trust_boundary": "Rat field laws use pinned Lean standard-library theorems. Exact axiom inventories are disclosed. Native programs remain bounded rational comb checks; no universal native tree evaluator, general checker soundness theorem, ACS integration or real-language decision procedure is claimed."
+}

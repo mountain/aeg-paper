@@ -1,0 +1,258 @@
+{
+  "schema": "aeg.paper0.chapter02.evaluability-map.v1",
+  "source": "paper-0/sections/02a-evaluation-and-effectivity.tex",
+  "source_sha256": "bfa42a11c291cb2a42e7ad6000ef89caad10c786eff30ffd049126bb1696dc8d",
+  "additional_sources": {
+    "paper-0/sections/02-expansion.tex": "ddc42b0e8f388beccaf413da98a8b2b898ecd64f9a45f5c6e8193252a603a7d2"
+  },
+  "module": "AEGPaper0.Chapter02Evaluability",
+  "lean_audit_names": [
+    "tree_eval_functional",
+    "value_spec",
+    "value_unique",
+    "left_comb_domain",
+    "right_comb_domain",
+    "prefix_domain",
+    "undefined_prefix_persists",
+    "condition_append",
+    "closed_input_independent",
+    "closed_domain_independent",
+    "op_compute_correct",
+    "compute_correct",
+    "compute_none_iff",
+    "computed_value",
+    "identity_domain",
+    "zero_denominator_empty",
+    "undefined_child_propagates",
+    "cancelled_reciprocal_one_hole",
+    "reciprocal_tree_eval",
+    "inverse_inverse",
+    "cancelled_reciprocal_eval",
+    "cancelled_reciprocal_domain",
+    "cancelled_identity_partial_maps_differ",
+    "reciprocal_graph_functional",
+    "reciprocal_projective_involution",
+    "reciprocal_projective_identity",
+    "subtraction_expansion",
+    "rational_evaluation_correct",
+    "rational_failure_exact",
+    "rational_evaluation_total",
+    "rational_cancelled_nonzero",
+    "rational_cancelled_zero",
+    "rational_branching_guard",
+    "rational_undefined_before_zero",
+    "rational_zero_numerator_guard",
+    "rational_unbounded_integer"
+  ],
+  "expected_axioms": {
+    "tree_eval_functional": [],
+    "value_spec": [
+      "Classical.choice"
+    ],
+    "value_unique": [
+      "Classical.choice"
+    ],
+    "left_comb_domain": [
+      "Quot.sound",
+      "propext"
+    ],
+    "right_comb_domain": [
+      "Quot.sound",
+      "propext"
+    ],
+    "prefix_domain": [
+      "Quot.sound",
+      "propext"
+    ],
+    "undefined_prefix_persists": [
+      "Quot.sound",
+      "propext"
+    ],
+    "condition_append": [
+      "propext"
+    ],
+    "closed_input_independent": [
+      "Quot.sound",
+      "propext"
+    ],
+    "closed_domain_independent": [
+      "Quot.sound",
+      "propext"
+    ],
+    "op_compute_correct": [
+      "propext"
+    ],
+    "compute_correct": [
+      "propext"
+    ],
+    "compute_none_iff": [
+      "propext"
+    ],
+    "computed_value": [
+      "Classical.choice",
+      "propext"
+    ],
+    "identity_domain": [],
+    "zero_denominator_empty": [],
+    "undefined_child_propagates": [],
+    "cancelled_reciprocal_one_hole": [],
+    "reciprocal_tree_eval": [],
+    "inverse_inverse": [],
+    "cancelled_reciprocal_eval": [
+      "Quot.sound",
+      "propext"
+    ],
+    "cancelled_reciprocal_domain": [
+      "Quot.sound",
+      "propext"
+    ],
+    "cancelled_identity_partial_maps_differ": [
+      "Quot.sound",
+      "propext"
+    ],
+    "reciprocal_graph_functional": [],
+    "reciprocal_projective_involution": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "reciprocal_projective_identity": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "subtraction_expansion": [],
+    "rational_evaluation_correct": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "rational_failure_exact": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "rational_evaluation_total": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "rational_cancelled_nonzero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "rational_cancelled_zero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "rational_branching_guard": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "rational_undefined_before_zero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "rational_zero_numerator_guard": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "rational_unbounded_integer": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  "interpretation": "Uses the existing Tree/TreeEval/Eval/PartialFold semantics. The evaluator handles every finite tree; one-hole and closed trees are subcases, and holes counts the cancelled example. Domain is existence of an ordinary evaluation; value is a dependent semantic map. Its noncomputable choice does not enter compute. Structural recursion needs a supplied DecidableEq; rationalField instantiates every FieldData law using Lean 4.24.0 standard Rat lemmas. No arbitrary-field zero decision is assumed.",
+  "mapping": [
+    {
+      "source_labels": [
+        "def:p0-evaluable-expression"
+      ],
+      "formal": [
+        "tree_eval_functional",
+        "value_spec",
+        "value_unique",
+        "left_comb_domain",
+        "right_comb_domain",
+        "prefix_domain",
+        "undefined_prefix_persists",
+        "closed_input_independent",
+        "closed_domain_independent",
+        "op_compute_correct",
+        "compute_correct",
+        "compute_none_iff",
+        "computed_value",
+        "identity_domain",
+        "zero_denominator_empty",
+        "undefined_child_propagates"
+      ],
+      "coverage": "Functional ordinary tree semantics, domain/value, closed-input independence, both comb domains, arbitrary prefix exclusion and undefined-child propagation; sound and complete structurally recursive Option evaluator under supplied equality decision."
+    },
+    {
+      "source_labels": [
+        "ex:p0-cancelled-reciprocal-domain"
+      ],
+      "formal": [
+        "cancelled_reciprocal_one_hole",
+        "reciprocal_tree_eval",
+        "inverse_inverse",
+        "cancelled_reciprocal_eval",
+        "cancelled_reciprocal_domain",
+        "cancelled_identity_partial_maps_differ",
+        "reciprocal_graph_functional",
+        "reciprocal_projective_involution",
+        "reciprocal_projective_identity"
+      ],
+      "coverage": "The displayed tree has one hole. Double reciprocal is defined exactly at nonzero inputs and returns that input; its partial graph differs from the identity at zero. The existing projective reciprocal graph is functional and its two-step composition is identity, including intermediate infinity. No complete PGL quotient is constructed."
+    },
+    {
+      "source_labels": [
+        "subsec:p0-evaluation-effectivity"
+      ],
+      "formal": [
+        "rational_evaluation_correct",
+        "rational_failure_exact",
+        "rational_evaluation_total",
+        "rational_cancelled_nonzero",
+        "rational_cancelled_zero",
+        "rational_branching_guard",
+        "rational_undefined_before_zero",
+        "rational_zero_numerator_guard",
+        "rational_unbounded_integer"
+      ],
+      "coverage": "All finite trees at exact Rat inputs terminate by structural recursion with either the unique ordinary rational value or no ordinary evaluation. Closed trees are input independent. Boundary reductions include branching division, zero numerator, undefined child before multiplication by zero, cancelled zero and nonzero inputs, and integers beyond signed 64-bit. Raw fraction input validation, bounded resource profiles and arbitrary real decision problems remain separate."
+    },
+    {
+      "source": "paper-0/sections/02-expansion.tex",
+      "source_labels": [
+        "rem:p0-expansion-boundary"
+      ],
+      "formal": [
+        "subtraction_expansion"
+      ],
+      "coverage": "The previously unformalized slot-(2) subtraction expansion follows from the explicitly parameterized field laws, including zero k; invertibility still requires k!=0."
+    },
+    {
+      "source": "paper-0/sections/02-expansion.tex",
+      "source_labels": [],
+      "locator": "Subsection Point propagation and condition propagation, final inverse-image paragraph",
+      "formal": [
+        "condition_append"
+      ],
+      "coverage": "Pullback of a condition through chronological concatenation equals nested pullback in contravariant order; no inverse function or invertibility assumption."
+    }
+  ],
+  "excluded": [
+    "Richardson external undecidability theorem",
+    "real exponential and ACS integration in the charge example",
+    "finite-alphabet cardinality and inherited rational topology background",
+    "full PGL quotient",
+    "general Adva checker soundness or universal native tree-evaluation proof"
+  ]
+}

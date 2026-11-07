@@ -50,6 +50,7 @@ statement correspondence and the reviewed equality kernel remain trusted.
 | §1 Introduction | Source inventory | Interpretive prose has no automatic proof status |
 | §2 comb grammars | Planar trees, left/right chronological append, tree/partial-fold correspondence, mirror involution, and independent child-interleaving schedules in Lean | Native universal grammar-proof certificates and a theorem about the implementation remain open |
 | §2 four-operation sections | All eight ordinary values/domains and nonzero affine inverse laws in Lean; separate bounded rational Adva evaluator | These universal field theorems are Lean-checked; finite Adva executions do not promote a new field-proof kernel |
+| §2 evaluability continuation | General finite-tree domain/value, closed-input independence, exact rational evaluation, cancelled reciprocal and projective round trip, prefix domains/condition pullbacks, and subtraction expansion in Lean | External Richardson theorem, real exponential/ACS example, topology and cardinality background retain their separate dependencies |
 | §2 distributive operator identity | Unchanged symbolic Adva/Lean identity; new general-field proof of the corrected marked/scalar clauses | The previous counterexample and its old source snapshot remain historical evidence |
 | §§3–6 AES, ripple, reciprocal and projective theory | Inventoried, including the nested pole-covariance subsection | Formal domains, nonzero hypotheses, projective and geometric theories |
 | §7 chronological affine cocycle | Auxiliary pointwise polynomial identity checked by Adva and Lean; shared finite-history scalar expansion in `AppendixC.lean` | Definition/uniqueness of affine coordinates, inverse and normalized-coordinate laws |
@@ -60,7 +61,7 @@ statement correspondence and the reviewed equality kernel remain trusted.
 
 `inventory.json` follows active `\input` directives from the canonical manuscript
 and recorded 20 files and 91 theorem-like environments at the first checkpoint.
-The current live inventory has 22 source files and 95 theorem-like environments,
+The current live inventory has 22 source files and 102 theorem-like environments,
 with a separate source-bound map for Appendix C.
 The Appendix F addition refreshes navigation and its live source-lock digest.
 The Appendix C archive still binds its original inventory and manuscript
@@ -296,7 +297,7 @@ From the AEG repository root:
 
 ```sh
 python -m unittest discover -s paper-0/formal -p 'test_*.py'
-python paper-0/formal/appendix_run.py \
+python paper-0/formal/evaluability_run.py \
   --machine-root /absolute/path/to/pinned/adva-machine \
   --binary /absolute/path/to/pinned/adva-machine/target/debug/adva \
   --lean /absolute/path/to/lean \
@@ -312,9 +313,87 @@ source/profile mismatch fails the run; no automatic fallback or fuel refill is
 provided. The supplied executable is a declared trusted build: its recorded
 digest is integrity evidence, not an authenticated compiler-provenance proof.
 
-The CI workflow now invokes this Appendix C successor, including the old
-regression. Calling `run.py` directly uses the older Chapter 2 profile and
-does not check the new induction module.
+At that checkpoint, CI invoked the Appendix C successor, including the old
+regression. The Chapter 2 evaluability successor below now extends that run.
+Calling `run.py` directly uses the older Chapter 2 profile and does not check
+either the induction module or the evaluability module.
+
+## Chapter 2 evaluability successor (2026-11-07)
+
+`Chapter02Evaluability.lean` supplies 36 additional audited statements. Its
+separate `evaluability-map.json` binds both the unchanged expansion source and
+the added evaluability subsection. The domain is existence of an ordinary
+`TreeEval`; evaluation is functional, and the dependent semantic value map is
+defined only at inputs in that domain. Closed trees are independent of the
+unused input. Both comb domains agree with their chronological partial folds;
+arbitrary undefined prefixes and undefined child subtrees stay undefined.
+Condition pullback through concatenation equals nested pullback in reverse
+composition order, without an inverse-function assumption.
+
+For `1/(1/z)`, Lean proves that the actual tree has one hole, has domain exactly
+`z != 0`, and returns `z` there. Its partial graph differs from the identity
+graph. The existing projective reciprocal graph is functional and two
+reciprocals compose to identity, including the zero/infinity round trip. This
+does not construct the full `PGL_2` quotient or admit ordinary division by zero.
+The previously missing slot-(2) subtraction expansion is also checked over
+the existing explicit field-law parameters.
+
+The new `compute` function uses structural recursion on finite trees and a
+supplied `DecidableEq`, with exact soundness and completeness against ordinary
+evaluation. `none` means precisely that no ordinary evaluation exists.
+`rationalField` instantiates every existing field law using the pinned Lean
+standard `Rat` library; `evaluateRational` therefore gives a terminating exact
+procedure on arbitrary finite rational trees. This includes closed trees and
+branching trees, beyond the bounded native comb profile. Valid `Rat` constants
+already have nonzero representation denominators; raw fraction validation is
+a separate input obligation, covered in the old native cases. Kernel-checked
+boundary examples include an intermediate zero denominator, an undefined
+subtree multiplied by zero, zero numerators, cancelled reciprocals and an
+integer result beyond signed 64-bit range. No real-language decision procedure
+or running-time/space guarantee follows. The semantic value function uses
+classical choice; the executable `compute` does not call it. Exact disclosed
+axiom sets are recorded for every theorem, including standard Rat dependencies.
+
+`negative/CancelledReciprocalTotal.lean` must be rejected for the specific
+missing-nonzero-hypothesis type mismatch after the positive module compiles.
+Three new native comb cases check double reciprocals at positive, negative and
+zero rational inputs, with the unchanged rational program, independent
+`Fraction` oracle, native replay and generic instruction receiver.
+
+`contract-evaluability.json` declares the combined successor before execution.
+Only native call capacity increases, from 64 to 72, to receive the expected 66
+executions; all fuel, instruction, per-child, command and shared wall-time
+bounds remain unchanged. The preceding 95 Lean statements and all old native
+controls are included. The completed receipt is
+`evidence/evaluability-execution.json`, with a separately retained source and
+trace archive; historical proof/program/goal/contract/archive bytes are not
+rewritten. The reproduction command is now:
+
+```sh
+python paper-0/formal/evaluability_run.py \
+  --machine-root /absolute/path/to/pinned/adva-machine \
+  --binary /absolute/path/to/pinned/adva-machine/target/debug/adva \
+  --lean /absolute/path/to/lean \
+  --output /absolute/path/to/new-evidence-directory
+```
+
+The live inventory also receives the seven existing Chapter 3 additions found
+by the November 1 drift diagnosis. They remain `not-yet-formalized`; updating
+navigation does not review or prove them. Archived inventories and generators
+remain bound to their original snapshots. The current workflow runs this new
+successor and restores push triggering; repository required-check rules are
+not modified. The earlier reproduction command remains useful for the
+Appendix C subset but does not verify the new module.
+
+The completed combined run is `Passed`: 66 native executions, 139 child
+commands, 50,205 independently received instruction transitions, and 131 Lean
+statements including the 36 new audits. Both missing-hypothesis controls reject
+for their expected diagnostics. The run took 200.89 seconds within the existing
+300-second shared deadline. Twenty-one engineering regressions passed before
+execution; all 22 pass after adding the completed archive check. Paper 0 and
+Paper I builds produce 103- and 61-page PDFs with no undefined references,
+missing citations, duplicate labels or missing assets. Existing layout and
+bookmark warnings remain; no TeX source or tracked PDF is changed.
 
 Authoring commands (`author.py`, `fixtures.py`, `appendix_fixtures.py`,
 `inventory.py`) update artifacts

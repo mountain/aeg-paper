@@ -42,10 +42,10 @@ EXCLUDED`.
 | affine/projective break (`cor:p0-affine-projective-break`) | `PROVED WITH STATED HYPOTHESES` (clarified 2026-10-20) | Affine self-maps allow zero multipliers; affine group membership requires a nonzero multiplier. Only nonzero-numerator reciprocal maps have the invertible projective continuation. All ordinary divisions keep their actual denominator guards. |
 | distributive expansion identity (`prop:p0-distributive-operator-identity`) | `PROVED` (corrected 2026-10-20) | The operator identity is unchanged. Full operation-labelled words differ for all parameters; their scalar projections coincide exactly at `(0,0)` or `(1,1)`. OQ-090 is resolved by the amended source and separate Lean statements. See section 10. |
 | distributive charge transport (`ex:p0-distributive-charge-transport`) | `PROVED` | worked example; uses `prop:acs-evaluation` |
-| expansion boundary for subtraction and division (`rem:p0-expansion-boundary`) | `PROVED WITH STATED HYPOTHESES` (clarified 2026-10-20) | `kc/z` keeps the original `z!=0` domain even when `kc=0`; only `kc!=0` gives a non-affine invertible projective map. Zero multiplier/subtraction cases remain affine self-maps, with group claims restricted to nonzero multipliers. |
-| evaluability at an input (`def:p0-evaluable-expression`) | `PROVED` | Definitional: an input belongs to the ordinary recursive domain, including every intermediate denominator guard. Restores the early evaluable-expression terminology without restricting the carrier to rationals. |
-| cancelled reciprocal and inherited domain (`ex:p0-cancelled-reciprocal-domain`) | `PROVED WITH STATED HYPOTHESES` | Over a field, `1/(1/z)` has domain `K minus {0}` and returns `z` there. The identity has the larger domain `K`; two projective reciprocals instead compose on `P^1(K)`. The ordinary exclusion is not asserted to be an AES singularity. Elementary calculation is included in the example. |
-| effective rational evaluation (`subsec:p0-evaluation-effectivity`) | `PROVED WITH STATED HYPOTHESES` | Finite four-operation trees, standard integer-fraction data and unbounded exact integer arithmetic; structural recursion returns a rational value or detects division by zero. No claim about all quantified rational arithmetic or bounded implementations. |
+| expansion boundary for subtraction and division (`rem:p0-expansion-boundary`) | `PROVED WITH STATED HYPOTHESES` (clarified 2026-10-20) | `kc/z` keeps the original `z!=0` domain even when `kc=0`; only `kc!=0` gives a non-affine invertible projective map. Zero multiplier/subtraction cases remain affine self-maps, with group claims restricted to nonzero multipliers. The subtraction expansion also has a Lean proof in the 2026-11-07 continuation. |
+| evaluability at an input (`def:p0-evaluable-expression`) | `PROVED` | Definitional: an input belongs to the ordinary recursive domain, including every intermediate denominator guard. The 2026-11-07 Lean continuation connects this to functional tree semantics, a dependent value map, both comb folds, closed-input independence and exact effective evaluation under a supplied equality decision. |
+| cancelled reciprocal and inherited domain (`ex:p0-cancelled-reciprocal-domain`) | `PROVED WITH STATED HYPOTHESES` | Over a field, `1/(1/z)` has domain `K minus {0}` and returns `z` there. The identity has the larger domain `K`; two projective reciprocals instead compose on `P^1(K)`. The ordinary exclusion is not asserted to be an AES singularity. These finite algebraic/domain statements, including the projective round trip in the existing point graph, have Lean proofs in the 2026-11-07 continuation. |
+| effective rational evaluation (`subsec:p0-evaluation-effectivity`) | `PROVED WITH STATED HYPOTHESES` | Finite four-operation trees, valid exact rational data and unbounded integer arithmetic. The 2026-11-07 Lean continuation instantiates all field laws with standard `Rat` and proves structural evaluation sound, complete and terminating with a value or no ordinary evaluation. No claim about all quantified rational arithmetic, arbitrary real constants or bounded implementations. |
 | Richardson qualification (`subsec:p0-evaluation-effectivity`) | `PROVED WITH STATED HYPOTHESES` | External result cited to Richardson (1968), introduction and §2: the specified rich function language, existence of negative values, and identity with zero after allowing absolute value. No arbitrary-field or closed-constant-language undecidability conclusion is imported. |
 | connection to Adva's finite construction viewpoint | `STRUCTURAL PROPOSAL` | Methodological interpretation supported by the pinned Adva report; the author's retrospective motivation and its source history are recorded separately in `discussions/evaluable-expressions-and-effective-presentations.md`. Not a new equivalence theorem or a claim of complete semantic decidability. |
 
@@ -414,3 +414,94 @@ bytes. The validation-only Paper I PDF is retained outside the repository;
 its previously tracked artifact is preserved. The next task is to specify a
 small guarded expression signature and separate denotation, observation and
 through-compatibility judgments before attempting a general calculus.
+
+## 15. Chapter 2 evaluability continuation (2026-11-07)
+
+`paper-0/formal/Chapter02Evaluability.lean` supplies 36 audited statements for
+the finite arithmetic content added in subsection
+`subsec:p0-evaluation-effectivity`, with a separate source-bound
+`evaluability-map.json`. The unchanged expansion source is additionally pinned
+for prefix domains, condition pullbacks and the subtraction expansion. Old
+proofs, native programs, statements, cases, contracts and all earlier execution
+archives retain their bytes; this continuation does not rewrite history.
+
+The semantic domain is existence of ordinary `TreeEval`. Tree evaluation is
+functional and gives a dependent value map on that domain. Both combs agree
+with the existing chronological partial folds; closed expressions have
+input-independent evaluation. An arbitrary undefined prefix, or an undefined
+child of any operation, cannot be made admissible by a later operation.
+Inverse image of a condition through a concatenation equals the appropriately
+nested inverse image; no inverse function is assumed. The previously missing
+slot-(2) subtraction expansion is proved from the existing field-law
+parameters, including zero scaling as an affine self-map.
+
+The tree for `1/(1/z)` has exactly one hole and domain precisely `z!=0`, and
+returns `z` there. Its partial graph differs from the identity at zero. The
+existing projective reciprocal graph is functional, total in the sense of a
+specified round trip, and two reciprocals return every point, including the
+zero/infinity cases. This proves the example's finite algebraic and domain
+clauses without constructing a full projective quotient or making ordinary
+division by zero admissible.
+
+The structurally recursive `compute` is sound and complete for arbitrary
+finite trees when equality on the coefficient carrier is supplied as
+decidable. `none` is equivalent to absence of an ordinary evaluation.
+`rationalField` explicitly instantiates every `FieldData` law using the pinned
+Lean standard `Rat` library, and the rational specialization terminates with
+the correct value or arithmetic undefinedness. Valid rational constants have
+nonzero representation denominators; parsing raw fractions is a separate
+obligation. Kernel reductions cover branching expressions, an intermediate
+zero denominator, zero numerators, undefinedness before multiplication by
+zero, cancelled reciprocals and arithmetic beyond signed 64-bit range.
+The semantic value's classical choice is separate from the executable
+evaluator. Every theorem's exact global axiom set is disclosed, including
+dependencies of standard rational lemmas; no new target axiom is introduced.
+
+The missing-nonzero-input negative Lean module must reject for its expected
+type mismatch after the positive module compiles. Three new bounded native
+double-reciprocal cases retain the unchanged machine profile and rational
+program, with positive/negative inputs and the excluded zero checked against
+the independent `Fraction` oracle and both trace replay routes.
+`contract-evaluability.json` declares the combined run before execution:
+the 95 earlier Lean statements remain included, the native call capacity
+increases from 64 to 72 for 66 expected executions, and all other limits are
+unchanged. This capacity increase is declared new work, not a retry or a
+conversion of bounded refusals into semantic results.
+
+Live navigation is refreshed to 22 source files and 102 theorem-like
+environments. The seven pre-existing Chapter 3 additions remain
+`not-yet-formalized`; no claim-status decision is inferred from their inclusion.
+The cancelled-reciprocal definition/example now have component maps. The
+current totals are 12 component-mapped environments, one fragment-certified
+environment and 89 not yet formalized, with no assertion that every mapped
+environment is wholly covered. Archived inventories and their old generators
+remain checked against their own snapshots. CI now invokes the successor and
+restores push triggering; repository required-check settings are unchanged.
+
+The real exponential/ACS charge example, the cited Richardson obstruction,
+topology/cardinality background, complete `PGL_2` quotient, and general native
+checker soundness are outside these new certificates. Their existing
+mathematical or external-source status is neither strengthened nor weakened.
+No manuscript statement or hypothesis is altered, and no material is moved.
+The next geometric formalization task remains the definitions and explicit
+prerequisites of Chapter 3.
+
+Both required builds pass: Paper 0 has 103 pages and Paper I has 61 pages.
+Final logs contain no undefined references, missing citations, duplicate
+labels or missing assets. Existing overfull boxes remain (Paper 0: two,
+maximum 11.13 pt; Paper I: eight, maximum 105.15 pt), along with existing
+hyperref bookmark and Paper I underfull-box warnings. No TeX source was
+changed; validation PDFs are retained externally and the tracked PDFs are
+preserved.
+
+The completed combined receipt is `formal/evidence/evaluability-execution.json`:
+`Passed`, with 66 native runs, 139 child commands, 50,205 independently
+received instruction transitions and all 131 Lean statement audits (95 old,
+36 new). Both missing-hypothesis controls reject for the expected reasons.
+The invocation took 200.89 seconds under the unchanged 300-second deadline.
+Its separate archive retains complete source/manuscript snapshots, native
+traces and replay receipts, Lean diagnostics and both build logs. All 22
+regression tests pass, including the archive/source/trace bindings and
+fail-closed checks for changes in either reviewed Chapter 2 source. These
+counts include auxiliary lemmas and finite controls, not 131 newly covered
+manuscript propositions.

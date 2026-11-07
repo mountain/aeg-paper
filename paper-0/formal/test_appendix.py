@@ -47,8 +47,10 @@ class AppendixTests(unittest.TestCase):
             self.assertEqual(hashlib.sha256(files["sources/" + name]).hexdigest(), digest)
             # The archive binds the inventory at execution time. Editorial
             # additions update live navigation without extending those proofs.
-            # Proof sources still agree byte-for-byte with the frozen run.
-            if name != "inventory.json":
+            # Proof/receiving sources still agree byte-for-byte. The Chapter 2
+            # successor extends navigation with a new separately pinned map;
+            # the old generator is preserved and hashed inside this archive.
+            if name not in {"inventory.json", "inventory.py"}:
                 self.assertEqual(files["sources/" + name], (HERE / name).read_bytes())
         index = json.loads(files["sources/inventory.json"])
         for name, digest in index["sources"].items():

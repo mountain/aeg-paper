@@ -1,0 +1,38 @@
+{
+  "schema": "aeg.paper0.formal.contract.evaluability.v1",
+  "date": "2026-11-07",
+  "source_commit": "402e0e72a455859cd273cae688d0bbd1b30ea1e5",
+  "predecessor": "contract-appendix-c-v1.1.json; all successful and failed archives retained",
+  "machine_commit": "51ee98981ebbc62f8614ed20920c11dc76ea298d",
+  "question": "Complete the finite arithmetic formal correspondence for the added Chapter 2 evaluability subsection, prefix domains/condition pullbacks, cancelled reciprocal and rational evaluation, with exact audits and the previous complete regression.",
+  "bounds": {
+    "proof_steps": 64,
+    "term_nodes": 63,
+    "proof_stack": 32,
+    "comb_steps": 16,
+    "fuel_per_call": 200000,
+    "native_calls": 72,
+    "child_commands": 160,
+    "reference_steps": 4000000,
+    "wall_seconds": 300,
+    "child_wall_seconds": 30,
+    "child_cpu_seconds": 25,
+    "child_address_space_bytes": 1073741824,
+    "child_file_bytes": 33554432,
+    "artifact_bytes": 536870912,
+    "lean_child_address_space_bytes": 4294967296
+  },
+  "bound_change": "Only native call capacity increases from 64 to 72 to include three additional executions; expected calls increase from 63 to 66. Fuel, per-child limits, total 300-second deadline, instruction receiving budget and 160-command cap are unchanged.",
+  "expected_work": {
+    "native_calls": 66,
+    "child_commands": 139,
+    "previous_lean_statements": 95,
+    "evaluability_lean_theorems": 36,
+    "new_native_cases": 3,
+    "new_lean_negative_controls": 1
+  },
+  "success": "Previous native checks and 95 Lean statements pass. All 36 new theorem names and exact axiom sets match the reviewed map, with no diagnostics or sorryAx. Dropping the cancelled reciprocal nonzero hypothesis produces the specific expected type mismatch. Three new native cases agree with the independent rational oracle and both trace replay routes. Live inventory and all source locks agree.",
+  "preservation": "Old proof/checker/certificate/case/contract/receiving bytes and archives are unchanged. Inventory generation gains a separately pinned successor map; archived inventories and their old generator remain checked against their own snapshots. Current navigation includes the seven existing unformalized Chapter 3 additions without assigning proof truth.",
+  "exit": "One fresh bounded combined run after engineering checks. Stop on mismatch or exhausted limit; preserve any failure as Failed. A further attempt requires a separately declared correction, never automatic bound enlargement.",
+  "authorship": "Codex (OpenAI), CC0; no independent human review asserted."
+}

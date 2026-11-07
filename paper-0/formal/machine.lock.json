@@ -17,8 +17,8 @@
     "certificates.json": "c28f502519533428486ba0b12e5d47a160be62512bfa93c9b7d93cce811c7d5c",
     "Chapter02.lean": "b7b3a8cc35fa6c1e2e646fae3577c39a4113c6957ffd0c983b45fd6f07a007ab",
     "Chapter02Domains.lean": "d3c0f718936f128da2e15daf61ec0111cdd956ee7fb23ab6a451e677d7358c4c",
-    "inventory.py": "57f38fa7d4bbb4b5b977317246954b343de1c01e67c70f1e99e9419b6d1ed3c3",
-    "inventory.json": "90dd9dcc968c3f7009fe7c496b98f2c4e20812cedb78f53cc8edca71ba094c8b",
+    "inventory.py": "af1ac8eb6db59f83fbca51e812b2754bf1284555739b6aa3763a133284fd32ab",
+    "inventory.json": "14ea70c5ff27a42c2f613f00f3677a10bf301141205dfd100dd19472dbd1a693",
     "run.py": "b0396c9bb279cbe90f2db6a5012ea48b2ceb20429991ec602754ab2d0e7a9fc0",
     "domain_author.py": "a6968582b2a181d9195a900238c29f599d8e5e3475c8c2ebaac9df2d0c23a03c",
     "domain-checker.adva": "de995c4d26f940fb0e35dd78ef2a271b144e0dc4c58c6395f444e6bbe7fbb231",
@@ -34,7 +34,14 @@
     "appendix-certificate.json": "0688b3989608129633fa568b298cc825cc22b198184a112b2d14f34c0cc50c64",
     "contract-appendix-c.json": "bcb2d262df33b7c18afc8aa207f870342aa6ec664e7ae1fa32f02378d72c3fed",
     "negative/MissingRatioGuard.lean": "c46cee4ec1b9e1f9cfc8b334084235f874ec81bf676bb495ee81b6f432f85916",
-    "contract-appendix-c-v1.1.json": "813ba16935b9372f0f55c6c692fd1034d7619c38e324daaaf7cbf800bd504109"
+    "contract-appendix-c-v1.1.json": "813ba16935b9372f0f55c6c692fd1034d7619c38e324daaaf7cbf800bd504109",
+    "Chapter02Evaluability.lean": "fb236c53ecdd73ac098160e09633cc2acdca6e5557bd64ae495ac896f6f1ca8e",
+    "evaluability-map.json": "31ce42679dc6bbae0e2840e57496a2c39573c3f7294e24a1eb7e7d2055ef5c35",
+    "evaluability-cases.json": "61c5b8161d8acffd724bf75cee6e648413568181320288b86e76e381eac6c1ed",
+    "evaluability_run.py": "70691b5d67b1a6adbb013edef24187b9a5cb19369ead252c9569121fbb577342",
+    "contract-evaluability.json": "fd28fe696a508de81b6c0fbc1fac1a058a6f3d49c3f11b0267da379cad9b34f1",
+    "negative/CancelledReciprocalTotal.lean": "640ae87b9e11c9b3dc7a8186adf9d822cfdff0729a45e360484f1e01404fd4a2",
+    "test_evaluability.py": "599707d4a631881b413ba578f22f934616545c2ee4aab810e3d61b964bac48b0"
   },
-  "continuation": "contract-appendix-c-v1.1.json; retain failed Appendix C attempt and all earlier snapshots"
+  "continuation": "contract-evaluability.json; retain all earlier execution snapshots; Chapter 3 navigation does not extend proof coverage"
 }

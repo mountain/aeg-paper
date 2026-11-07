@@ -8,14 +8,10 @@ on:
       - 'paper-0/appendices/**'
       - 'paper-0/aeg-paper-0.tex'
       - '.github/workflows/paper0-formal.yml'
-  # NOT on the push trigger, therefore not in the required-check ruleset.
-  # Reason (2026-11-01): the job compares a freshly generated inventory of the
-  # formal sources against paper-0/formal/inventory.json, and those hashes are
-  # already stale on main (live b3c07d73... vs committed 9c7ace71...) for reasons
-  # that predate the ruleset work: none of the commits of 2026-11-01 touch
-  # paper-0/formal.  Requiring a permanently red check would deadlock every
-  # branch.  When the inventory is repaired, add `push: branches: ["**"]` back and
-  # add symbolic-derivations to the ruleset.
+  push:
+    branches: ['**']
+  # The Chapter 2 successor refreshes live navigation without promoting the
+  # seven Chapter 3 additions or rebinding historical execution evidence.
   workflow_dispatch:
 
 permissions:
@@ -54,7 +50,7 @@ jobs:
         run: python -m unittest discover -s paper-0/formal -p 'test_*.py' -v
       - name: Check symbolic proofs, finite inductions and complete native traces
         run: |
-          python paper-0/formal/appendix_run.py \
+          python paper-0/formal/evaluability_run.py \
             --machine-root "$RUNNER_TEMP/aeg-machine" \
             --binary "$RUNNER_TEMP/aeg-machine/target/debug/adva" \
             --lean "$RUNNER_TEMP/lean-4.24.0-linux/bin/lean" \
