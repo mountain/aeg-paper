@@ -183,6 +183,12 @@ jobs:
             --mathlib-root "$RUNNER_TEMP/aeg-mathlib" \
             --lean "$RUNNER_TEMP/lean-4.24.0-linux/bin/lean" \
             --output "$RUNNER_TEMP/aeg-paper0-bruhat-evidence"
+      - name: Check fixed points, invariant eigenlines and conjugation
+        run: |
+          python paper-0/formal/fixed_points_run.py \
+            --mathlib-root "$RUNNER_TEMP/aeg-mathlib" \
+            --lean "$RUNNER_TEMP/lean-4.24.0-linux/bin/lean" \
+            --output "$RUNNER_TEMP/aeg-paper0-fixed-points-evidence"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -212,4 +218,10 @@ jobs:
         with:
           name: aeg-paper0-bruhat-evidence
           path: ${{ runner.temp }}/aeg-paper0-bruhat-evidence
+          if-no-files-found: warn
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: aeg-paper0-fixed-points-evidence
+          path: ${{ runner.temp }}/aeg-paper0-fixed-points-evidence
           if-no-files-found: warn

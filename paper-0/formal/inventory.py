@@ -49,7 +49,8 @@ def generate():
     affine_generation = json.loads((HERE / "affine-generation-map.json").read_text())
     arithmetic = json.loads((HERE / "arithmetic-map.json").read_text())
     bruhat = json.loads((HERE / "bruhat-map.json").read_text())
-    mappings = [mapping, appendix, evaluability, chapter03, analysis, chapter04, apollonius, projective, pgl, affine_generation, arithmetic, bruhat]
+    fixed_points = json.loads((HERE / "fixed-points-map.json").read_text())
+    mappings = [mapping, appendix, evaluability, chapter03, analysis, chapter04, apollonius, projective, pgl, affine_generation, arithmetic, bruhat, fixed_points]
     for reviewed in mappings:
         if digest(ROOT / reviewed["source"]) != reviewed["source_sha256"]:
             raise ValueError("reviewed formal correspondence has source drift: " + reviewed["source"])
@@ -107,6 +108,7 @@ def generate():
             "affine_generation_map_sha256": digest(HERE / "affine-generation-map.json"),
             "arithmetic_map_sha256": digest(HERE / "arithmetic-map.json"),
             "bruhat_map_sha256": digest(HERE / "bruhat-map.json"),
+            "fixed_points_map_sha256": digest(HERE / "fixed-points-map.json"),
             "equation_components": list(equations.values()),
             "claims": claims}
 

@@ -17,8 +17,8 @@
     "certificates.json": "c28f502519533428486ba0b12e5d47a160be62512bfa93c9b7d93cce811c7d5c",
     "Chapter02.lean": "b7b3a8cc35fa6c1e2e646fae3577c39a4113c6957ffd0c983b45fd6f07a007ab",
     "Chapter02Domains.lean": "d3c0f718936f128da2e15daf61ec0111cdd956ee7fb23ab6a451e677d7358c4c",
-    "inventory.py": "66d7f87ca1113c16a8ef71a1f6dd0743d08a2f6621b86911594041a72e19a95c",
-    "inventory.json": "e4563b88433cbd2c9547c13bc1e6a37520681c19452e4910f35caffe48369798",
+    "inventory.py": "43bfe8ada3e289b28fbd4fb1ea92ed77bd78ff77089bc044faa6acf7be0e24f7",
+    "inventory.json": "87c33e28b23be5b5e7fa455b30f73f2be8d56320eb678b8121229d143eaa4fb2",
     "run.py": "b0396c9bb279cbe90f2db6a5012ea48b2ceb20429991ec602754ab2d0e7a9fc0",
     "domain_author.py": "a6968582b2a181d9195a900238c29f599d8e5e3475c8c2ebaac9df2d0c23a03c",
     "domain-checker.adva": "de995c4d26f940fb0e35dd78ef2a271b144e0dc4c58c6395f444e6bbe7fbb231",
@@ -131,11 +131,20 @@
     "bruhat-map.json": "09771d5b418537c95a011eafe6be875ca9d8fa1641af55caecd6c6d2ee41ac6b",
     "bruhat_run.py": "e7bdc8dc06685878762415494767cd22ce9987c9200f579a5769ac0b19e6ef86",
     "contract-bruhat.json": "a26c4e025a143e79cb54036edc49c7e23225c20e6768dcaece4dc791071ae1fa",
-    "test_bruhat.py": "828c8b925bfccd87a3113aadc67f5c9a103409c114f97dd4f73fb3b4f24587e7",
+    "test_bruhat.py": "6387a0320d1891f8f9f8728b538e289716a1d67a291f0d6eb812868fb59076e5",
     "negative/BruhatMissingFinitePointGuard.lean": "d1020b0083b0fff0a506d568b5499a30c1fd5df82efdc29e53fc9270fafe5e67",
     "negative/BruhatMissingGaugeDomain.lean": "aa9ec4ef1570243e7e1c1682bbff97fe83a3429fab82fde0472940e1fbe79ab3",
     "negative/BruhatMissingNonaffineGuard.lean": "a19340f511f112d47d6502656fbf7308b8214cf3b5d60fd212a26485b0d2de1a",
-    "negative/BruhatWrongConjugation.lean": "14617154836839afb2ebcafb05ce99116e7b3d8c2623a6bd2556d4a87c48e3ee"
+    "negative/BruhatWrongConjugation.lean": "14617154836839afb2ebcafb05ce99116e7b3d8c2623a6bd2556d4a87c48e3ee",
+    "ProjectiveFixedPoints.lean": "0e6af0b835f4ff83125a998d752daf4fe1db4e6d2fca39c045373fc919a5b92e",
+    "fixed-points-map.json": "8cd20864fcb76284dafe630d0d6dddfddb8920d0ed8103402ddfed78e0bced06",
+    "fixed_points_run.py": "c2d5785f12504515db47ce971fc14042edf2c806251decfb89e740632b18f205",
+    "contract-fixed-points.json": "05a7d963c28ba59f66a36781537662112d8ca2be7423f5f811a30ee0456a6060",
+    "test_fixed_points.py": "adf4dec491670a32e64b3a710008e8d72e36e24e5e3c8040fe34ba90e5913fe5",
+    "negative/FixedMissingNondegeneracy.lean": "69f7cd2d39b418569d344c3dde19d47d85351371b5a3491109e32b2ae9876ca7",
+    "negative/FixedMissingNonzeroVector.lean": "daf84b8a60e489a1f88566f531d341da003bb363a1f47a20a2a3dad9d6ac89dc",
+    "negative/FixedUnscaledEigenvalue.lean": "95bacabf3915fccdee6c7b89735e858d23e7307d4c3f40f10fda2c53b4fbc6e1",
+    "negative/FixedWrongConjugation.lean": "b5a7aaa79f717c5565cfc925ecf3145d0c6372b4f9a9016ac6d1046ac1ad86a8"
   },
   "continuation": "contract-affine-generation.json plus unchanged contract-pgl.json, contract-projective.json, contract-apollonius.json, contract-chapter04.json, contract-analysis-v1.1.json and contract-chapter03.json: all seven profiles required; preserve all prior receipts and archives"
 }

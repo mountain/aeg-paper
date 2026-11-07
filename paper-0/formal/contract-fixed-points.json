@@ -1,0 +1,64 @@
+{
+  "schema": "aeg.paper0.formal.contract.fixed-points.v1",
+  "date": "2026-11-07",
+  "source_commit": "4dc6fa862d266a8769cd0d1bfd13b5ece13bc90e",
+  "question": "Prove fixed-point/eigenline equivalence using actual linear invariant spans and homogeneous line quotients, and transport fixed loci under actual PGL conjugation while keeping representative eigenvalues and analytic attraction distinct.",
+  "bounds": {
+    "wall_seconds": 300,
+    "child_commands": 32,
+    "child_wall_seconds": 120,
+    "child_cpu_seconds": 60,
+    "child_address_space_bytes": 1073741824,
+    "lean_child_address_space_bytes": 8589934592,
+    "child_file_bytes": 33554432,
+    "artifact_bytes": 536870912
+  },
+  "expected_work": {
+    "child_commands": 15,
+    "import_lean_statements": 194,
+    "new_lean_statements": 33,
+    "import_modules": 8,
+    "positive_modules": 1,
+    "negative_controls": 4
+  },
+  "negative_controls": [
+    {
+      "name": "nondegeneracy",
+      "file": "negative/FixedMissingNondegeneracy.lean",
+      "expected_fragments": [
+        "matrix_fixed_iff_invariantSpan m",
+        "determinant m \u2260 0 \u2192"
+      ]
+    },
+    {
+      "name": "nonzero-vector",
+      "file": "negative/FixedMissingNonzeroVector.lean",
+      "expected_fragments": [
+        "matrix_fixed_iff_invariantSpan m hm v",
+        "v \u2260 (0, 0) \u2192"
+      ]
+    },
+    {
+      "name": "scaled-eigenvalue",
+      "file": "negative/FixedUnscaledEigenvalue.lean",
+      "expected_fragments": [
+        "matrix_rescaling_rescales_eigenvalue s t m v he",
+        "scaleVec (s * t) v",
+        "scaleVec t v"
+      ]
+    },
+    {
+      "name": "conjugation-order",
+      "file": "negative/FixedWrongConjugation.lean",
+      "expected_fragments": [
+        "fixedPointConjugacy_apply g h p",
+        "(quotientAction g) \u2191p",
+        "(quotientAction g\u207b\u00b9) \u2191p"
+      ]
+    }
+  ],
+  "resource_basis": "Declared before bounded reception after clean engineering compilation and four specific guard/order controls. Every analytic numerical bound remains unchanged: independent 300-second profile, 120-second child wall, 60-second child CPU and 8 GiB Lean address space. LinearMap/Submodule infrastructure is already in the existing Mathlib source/cache lock. All nine predecessor profiles remain independently required; native checks and builds are scheduled serially without concurrent heavy proof work.",
+  "success": "Exactly audit 194 unchanged source imports and all 33 new statements with clean diagnostics, no target axiom or admitted proof, and all four specific rejection controls. Source/inventory/library pins match. Nine predecessor profiles pass independently under unchanged contracts.",
+  "exit": "One fresh bounded invocation after engineering checks; retain a Failed record and stop on mismatch/exhaustion. A correction requires a separately declared successor, never automatic bound growth.",
+  "authorship": "Codex (OpenAI), CC0; no independent human review claimed."
+}

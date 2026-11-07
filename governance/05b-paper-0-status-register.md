@@ -1249,3 +1249,67 @@ Algebraic fixed-point/eigenline and conjugation interfaces remain possible
 continuations. Chart independence, topological/smooth and intrinsic geometric
 identifications, as well as the previously registered Chapter 3 obligations,
 retain their separate status.
+
+## 25. Fixed points, invariant eigenlines and fixed-locus conjugation (2026-11-07)
+
+`formal/ProjectiveFixedPoints.lean` adds 33 exactly audited statements,
+bringing the distinct count to 607 including supporting lemmas. Its source-bound
+`fixed-points-map.json` augments the existing matrix-readings theorem in the
+unchanged Section 6. No whole-environment or whole-chapter promotion is inferred.
+
+| Component | Status | Hypotheses and boundary |
+| --- | --- | --- |
+| actual linear map and invariant span | `PROVED WITH STATED HYPOTHESES` | The coordinate matrix defines a Mathlib linear map on `K × K`. Its invariant span is characterized by a scalar eigenvector equation. For a nonzero vector and nondegenerate matrix the eigenvalue is nonzero and unique. No zero vector is admitted as a projective line. |
+| fixed points and eigenlines | `PROVED WITH STATED HYPOTHESES` | A projective point is fixed exactly when its nonzero homogeneous representative spans an invariant line. The actual PGL quotient acts on the existing nonzero homogeneous-vector quotient, and an explicit equivalence identifies fixed lines with actual finite/infinity-chart fixed points. The interface uses actual `LinearMap` and `Submodule.span`, not an assumed eigenspace theorem. |
+| finite and infinite fixed-point formulas | `PROVED WITH STATED HYPOTHESES` | Finite fixed points satisfy `Cx²+(D-A)x-B=0`, with eigenvalue `Cx+D` proved nonzero under the determinant hypothesis. Infinity is fixed exactly when `C=0`. These equivalences do not assert existence of roots in an arbitrary field. |
+| representative scaling | `PROVED WITH STATED HYPOTHESES` | Rescaling a vector by a nonzero scalar preserves its eigenvalue. Rescaling the matrix by a nonzero scalar preserves the eigenline and multiplies the representative eigenvalue by that scalar. A rational `I`/`2I` example has the same projective class and different representative eigenvalues. |
+| conjugation of fixed loci | `PROVED WITH STATED HYPOTHESES` | The fixed set of `g h g⁻¹` is the image under `g` of the fixed set of `h`; an explicit equivalence of fixed-point subtypes and the corresponding eigenline transport are proved. The direction of conjugation is explicit. |
+| active fixed-point examples | `PROVED WITH STATED HYPOTHESES` | Identity fixes every point. Nonzero translation fixes precisely infinity. A unit dilation unequal to one fixes precisely zero and infinity. Over the rationals, inversion `-1/z` has no projective fixed point. Analytic attraction and universal root existence are not inferred. |
+
+The statements are over arbitrary fields except the two explicitly rational
+boundary examples. The current Mathlib `LinearMap`/span infrastructure already
+belongs to the fixed 7,600-source/3,175-compiled-module lock. No dependency
+version or cache fingerprint changes. Nondegeneracy, nonzero-vector and
+nonzero-rescaling conditions remain explicit; ordinary division domains and
+marked histories are not identified by a projective equality.
+
+The inventory retains 102 environments in 22 sources: 32 component-mapped,
+one fragment-certified and 69 not yet formalized, with five separate equation
+anchors. The new correspondence is component coverage of the existing
+matrix-readings theorem. Exact axiom sets disclose only actual subsets of
+`propext`, `Classical.choice` and `Quot.sound`, without target axioms or admitted
+proofs. No manuscript text, hypothesis or research material is rewritten,
+moved or removed. Current navigation and its previous receipt regression have
+explicit successors; preceding proof, receiver, goal, contract, library and
+historical execution bytes remain exact.
+
+`formal/contract-fixed-points.json` declares a separate 300-second profile
+under unchanged numerical bounds: 194 unchanged source-import audits, 33 new
+audits, and four specific negatives for omitted nondegeneracy, omitted
+nonzero-vector condition, unscaled eigenvalue after matrix rescaling, and
+reversed conjugation transport. Fifteen commands are required. All nine
+predecessor profiles remain independently required; native reception and
+manuscript builds are scheduled serially without concurrent heavy proof work.
+
+General fixed-point cardinality/classification and affine-iteration formulas
+remain algebraic continuations. Analytic attraction, repulsion, stability,
+convergence, intrinsic geometry, chart independence and the previously
+registered Chapter 3 obligations retain their separate status.
+
+`formal/evidence/fixed-points-execution.json` receives all ten profiles as
+`Passed`: native 188.71 seconds, analysis 127.16, original Chapter 4 53.81,
+Apollonius 74.06, projective 84.61, PGL 56.14, affine/generation 93.92,
+arithmetic 114.72, Bruhat 123.38 and fixed points 133.01 seconds. Each invocation
+stays inside its own unchanged 300-second deadline and binds exactly the same
+captured source lock. The native profile completes 148 commands, 69 rows and
+51,137 independent reference transitions; all 69 report bytes match the
+preceding successful checkpoint.
+
+The 960-member archive binds 137 formal sources plus their lock, 22 manuscript
+sources, workflow, ten reports, native traces/replay receipts, exact Lean audits,
+negative diagnostics and both build logs. All 63 regressions pass, including
+per-profile current-source-lock equality, following 62 preparatory passes and
+the then-pending receipt test retained verbatim. Both builds pass at 103/61 pages
+without unresolved references/citations, duplicate labels or missing assets.
+Existing overfull boxes (2/8, maximum 11.13/105.15 pt) and bookmark/underfull
+warnings remain; manuscript text and tracked PDFs are unchanged.

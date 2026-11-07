@@ -1,0 +1,346 @@
+{
+  "schema": "aeg.paper0.fixed-points.execution.v1",
+  "date": "2026-11-07",
+  "status": "Passed",
+  "authorship": "Codex (OpenAI), CC0; no independent human mathematical review claimed.",
+  "source_lock_sha256": "8aaf66f10cdcc4118febda8c9093159835a3a8fb6ab9c3c35a1dfc37b0321779",
+  "fixed_points_map_sha256": "8cd20864fcb76284dafe630d0d6dddfddb8920d0ed8103402ddfed78e0bced06",
+  "chapter03_obligations_sha256": "973e643c66e264c4475b512d916e4eef7a87dfe94d112f910e98359e81ad2800",
+  "mathlib_lock_sha256": "de2e937993bd22e41702f21889ac382f3cb36364cbe0b5e5d3fbc1e32bd0394d",
+  "mathlib_commit": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
+  "mathlib_source_files": 7600,
+  "mathlib_compiled_modules": 3175,
+  "profiles": {
+    "native": {
+      "directory": "native-01",
+      "contract": "contract-chapter03.json",
+      "contract_sha256": "606081b7c80d6f57bd1b05a688217d93c411663a98f23eb2eed931a17a66312f",
+      "report_sha256": "43d5d6d7826981daf3d8960b2b2ab77650ff04098db8c77f7743b023f1694345",
+      "wall_seconds": 188.70594879099372,
+      "child_commands": 148
+    },
+    "analytic": {
+      "directory": "analysis-01",
+      "contract": "contract-analysis-v1.1.json",
+      "contract_sha256": "dc43df95783ca070cc0fad0717cc5986182d3fca814a9a6358f7b436376a7ab3",
+      "report_sha256": "04e291112f1c4c9998013c23e304e2d8c8f95b62eebe185cb0154e66c37f1b66",
+      "wall_seconds": 127.16209040800459,
+      "child_commands": 16
+    },
+    "chapter04": {
+      "directory": "chapter04-01",
+      "contract": "contract-chapter04.json",
+      "contract_sha256": "52b58178702f5afecc366ed2edab8b1da4c553c3cab3703c2e1fa6fe34d4a905",
+      "report_sha256": "c2877dffb771bdaf32c4566c2b8cc6767b97db20f41f83ee42d7f3d9b5c98b8d",
+      "wall_seconds": 53.80856669100467,
+      "child_commands": 8
+    },
+    "apollonius": {
+      "directory": "apollonius-01",
+      "contract": "contract-apollonius.json",
+      "contract_sha256": "082e865282360a9616cc7f27558e668f630ac1a0dccb7564f020b318f689b506",
+      "report_sha256": "3fd4e082c7d340862c22fbfb20efe65a0f329dc178aca474f5f2678f7edcb00a",
+      "wall_seconds": 74.06096035099472,
+      "child_commands": 8
+    },
+    "projective": {
+      "directory": "projective-01",
+      "contract": "contract-projective.json",
+      "contract_sha256": "3c0eb86b50b4bf972e8b2798cda2b6653a76556a19addbc408861e31b3ad1cca",
+      "report_sha256": "9d8e846f16ec23385555a1caf605d0304a00130f87ced6ef69fa04d7d5b17a7c",
+      "wall_seconds": 84.60905234600068,
+      "child_commands": 11
+    },
+    "pgl": {
+      "directory": "pgl-01",
+      "contract": "contract-pgl.json",
+      "contract_sha256": "b7687826a0bf34e7bb23d5c3637d298ab918839276175a4ffe5b7d5e345135c1",
+      "report_sha256": "1f35b89a8b3cda3d001fedf6ef0287960d0e82b096713dc83b7f705be2a210c7",
+      "wall_seconds": 56.14384489499935,
+      "child_commands": 9
+    },
+    "affine_generation": {
+      "directory": "affine-generation-01",
+      "contract": "contract-affine-generation.json",
+      "contract_sha256": "a695a3c8c78b62511f8b8a0310fef8a33ed3b5aab3b504cb1e9f59fd74c2d17d",
+      "report_sha256": "752597f75f65278f5c075744c0ebc41b66cb772203cde4926ad62a0590719570",
+      "wall_seconds": 93.9245862539974,
+      "child_commands": 13
+    },
+    "arithmetic": {
+      "directory": "arithmetic-01",
+      "contract": "contract-arithmetic.json",
+      "contract_sha256": "5d3247be8d5cb4e07023f97cedd8019e7820be94141c24f6cce20e57c4d0a761",
+      "report_sha256": "d4d0a466ddcf573e0ba76a63065baaedfffe2894486ad8aff2fd4c47a112bd0f",
+      "wall_seconds": 114.71517974099697,
+      "child_commands": 16
+    },
+    "bruhat": {
+      "directory": "bruhat-01",
+      "contract": "contract-bruhat.json",
+      "contract_sha256": "a26c4e025a143e79cb54036edc49c7e23225c20e6768dcaece4dc791071ae1fa",
+      "report_sha256": "8ce134f6d55d967fd53e0e0aa977ac576e361e09a0e060cd66912b6e720df59a",
+      "wall_seconds": 123.38109530600195,
+      "child_commands": 14
+    },
+    "fixed_points": {
+      "directory": "fixed-points-01",
+      "contract": "contract-fixed-points.json",
+      "contract_sha256": "05a7d963c28ba59f66a36781537662112d8ca2be7423f5f811a30ee0456a6060",
+      "report_sha256": "2c20a293938c849de1632d4a1a8a3989d953490eb9ad0748b05d964918cb378a",
+      "wall_seconds": 133.00904943599744,
+      "child_commands": 15
+    }
+  },
+  "previous_lean_statements": 574,
+  "new_lean_statements": 33,
+  "total_lean_statements": 607,
+  "fixed_points_axioms": {
+    "AEGPaper0.ProjectiveFixedPoints": {
+      "linearMap_apply": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "scaleVec_eq_smul": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "invariantSpan_iff_eigenvector": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "eigenvalue_nonzero": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "eigenvalue_unique": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "matrix_fixed_iff_eigenvector": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "matrix_fixed_iff_invariantSpan": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "point_fixed_iff_homogeneous_eigenvector": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "quotient_fixed_iff_eigenline": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "homogeneous_quotient_fixed_iff": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "finite_fixed_eigenvector": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "finite_fixed_eigenvalue_nonzero": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "quotient_finite_fixed_iff": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "quotient_infinity_fixed_iff": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "mapVec_scaleMatrix": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "vector_rescaling_preserves_eigenvector": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "matrix_rescaling_rescales_eigenvalue": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "matrix_rescaling_preserves_eigenline": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "fixedPointConjugacy_apply": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "fixedSet_conjugate": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "exists_fixed_conjugate_iff": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "conjugation_transports_eigenline": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "invariantSpan_depends_only_on_line": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "homogeneous_quotient_fixed_iff_invariantSpan": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "lineAction_representative": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "lineAction_chart": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "lineAction_vector": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "eigenlineFixedEquiv_apply": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "fixedSet_one": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "translation_fixed_iff": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "dilation_fixed_iff": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "inversion_no_rational_fixed_point": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "representative_eigenvalues_are_not_intrinsic": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  },
+  "source_import_audits": 194,
+  "negative_controls": {
+    "nondegeneracy": "Rejected with the expected specific type mismatch",
+    "nonzero-vector": "Rejected with the expected specific type mismatch",
+    "scaled-eigenvalue": "Rejected with the expected specific type mismatch",
+    "conjugation-order": "Rejected with the expected specific type mismatch"
+  },
+  "native_runs": 69,
+  "reference_transitions": 51137,
+  "preceding_native_reports_unchanged": 69,
+  "original_proof_library_goal_contract_and_runtime_receiver_bytes_unchanged": true,
+  "old_formal_sources_with_explicit_navigation_successors": [
+    "inventory.py",
+    "inventory.json",
+    "test_bruhat.py"
+  ],
+  "formal_source_files": 137,
+  "manuscript_source_files": 22,
+  "archive": {
+    "path": "fixed-points-run-01.tar.gz",
+    "sha256": "5f27342c9ba59cb4c4eaa13b751cee87dfad626ebffe2fb4448472e75aa39cb7",
+    "bytes": 15032736,
+    "members": 960,
+    "uncompressed_bytes": 53400614
+  },
+  "manuscript_builds": {
+    "0": {
+      "status": "Passed",
+      "pages": 103,
+      "pdf_bytes": 909781,
+      "pdf_sha256": "1fe5443c1cedc6aff6795f315f4e098a703135b234d8d2a1f7a933eaa951d7f3",
+      "final_log_sha256": "3646c1ad0f82955bd5949431bd148c8663d26f406556abf10396819d6a4e59a3",
+      "unresolved_references_citations_duplicate_labels_missing_assets": false,
+      "overfull_boxes": 2,
+      "max_overfull_pt": 11.13274,
+      "note": "Validation PDF retained externally; tracked manuscript PDF restored without changing its bytes."
+    },
+    "1": {
+      "status": "Passed",
+      "pages": 61,
+      "pdf_bytes": 756641,
+      "pdf_sha256": "eb9734600cd154890e84834d671b15230fbdf0b31d7386cbcb511ec5e33f4f9c",
+      "final_log_sha256": "568f4867e280a3bb33b7ba3f1d5f3ccf161bc2dcf448e58ff597bda51dcdf7d7",
+      "unresolved_references_citations_duplicate_labels_missing_assets": false,
+      "overfull_boxes": 8,
+      "max_overfull_pt": 105.1512,
+      "note": "Validation PDF retained externally; tracked manuscript PDF restored without changing its bytes."
+    }
+  },
+  "pre_receipt_checks": {
+    "passed": 62,
+    "pending_receipt_test": 1,
+    "note": "The archive-binding test cannot pass before the completed execution receipt exists. Its missing-receipt error is retained verbatim in engineering/unit-before-receipt.log."
+  },
+  "unit_tests_after_archive": 63,
+  "live_inventory": {
+    "source_files": 22,
+    "theorem_like_environments": 102,
+    "component_mapped": 32,
+    "fragment_certified": 1,
+    "not_yet_formalized": 69,
+    "separately_mapped_equations": 5
+  },
+  "source_audit": [
+    {
+      "scope": "Eigenvalues belong to matrix representatives and rescale when the matrix does. Eigenlines/fixed points descend to the projective quotient. Invariant spans use actual Mathlib LinearMap/Submodule definitions; no prepackaged eigenspace theorem or library extension is assumed."
+    }
+  ],
+  "scope": "33 new exact audited statements connect actual linear-map invariant spans and homogeneous eigenlines to actual PGL fixed points, with explicit fixed-locus conjugation equivalences, scalar-representative guards and boundary examples. Rebuild 194 unchanged import audits without counting them as new. No universal root existence, analytic attraction or complete-chapter claim.",
+  "remaining": [
+    "Identification of representative eigenvalues across projective scalar classes",
+    "Universal fixed-point existence over arbitrary fields",
+    "General three-point rigidity or full fixed-point cardinality classification",
+    "Analytic attraction, repulsion, stability, convergence or infinite-expression evaluation",
+    "Intrinsic geometric/chart-independent identifications or whole-chapter certification"
+  ],
+  "deferred_chapter03": "chapter03-obligations.json",
+  "predecessor_execution_receipt_sha256": "07da54b0137984b76e65b3f12f2c1cb2269dd2e12cc88f8b88db93f1b0ee4b76",
+  "trust_boundary": "Pinned compiler/standard library and source/cache-fingerprinted Mathlib are trusted builds. Actual LinearMap invariant spans, homogeneous nonzero-vector quotient fixed lines and actual PGL fixed points are linked by proved equivalences, with scalar-representative guards and fixed-locus conjugation transport. Universal root existence, intrinsic geometry and analytic attraction/convergence are excluded. All ten profiles pass separately under independently declared unchanged bounds and exactly the same captured source lock; native and build tasks are scheduled serially."
+}

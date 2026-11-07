@@ -54,7 +54,7 @@ statement correspondence and the reviewed equality kernel remain trusted.
 | §2 distributive operator identity | Unchanged symbolic Adva/Lean identity; new general-field proof of the corrected marked/scalar clauses | The previous counterexample and its old source snapshot remain historical evidence |
 | §3 coordinate foundation and real analysis | 61 coordinate statements plus 66 Mathlib statements: actual differential/Jacobian, smooth real coordinate-AES model, Laplace eigenfunction, positive smooth root, rectification, signed-frame bracket and affine ODE solution/uniqueness | Gaussian curvature/completeness, length/trace theory, punctured E1, full arbitrary-manifold/boundary-chart and intrinsic bundle-operator equivalences |
 | §4 ripple, pole and Apollonius components | 57 ripple/pole statements plus 39 norm statements, now connected to actual homogeneous matrix actions | Intrinsic horocycles/tangency and chart independence; source wording limitations remain explicit |
-| §6 projective synthesis, affine stabilizer and quotient generation | 70 action/bridge, 41 PGL/scalar, 39 affine/generation, 35 arithmetic-dictionary and 35 conjugacy/Bruhat statements; pure-slot images, finite-point stabilizers, pole cosets and disjoint Bruhat cells | Topology, chart-independent and intrinsic geometric identifications; degenerate sections remain outside PGL |
+| §6 projective synthesis, affine stabilizer and quotient generation | 70 action/bridge, 41 PGL/scalar, 39 affine/generation, 35 arithmetic-dictionary, 35 conjugacy/Bruhat and 33 fixed-point/eigenline statements; actual fixed lines and fixed loci, representative scalings and conjugation | General fixed-point classification, topology, chart-independent and intrinsic geometry; analytic attraction remains separate |
 | §5 reciprocal expansions | Inventoried | Formal domains, convergence and fixed-point attraction hypotheses |
 | §7 chronological affine cocycle | Auxiliary pointwise polynomial identity checked by Adva and Lean; shared finite-history scalar expansion in `AppendixC.lean` | Definition/uniqueness of affine coordinates, inverse and normalized-coordinate laws |
 | §§8–12 ACS, contact, nonlinearity, punctures, compactification | Inventoried | Algebraic/differential/topological dependencies and explicit side conditions |
@@ -1196,12 +1196,86 @@ at 103/61 pages without unresolved references/citations, duplicate labels or
 missing assets. Existing overfull boxes (2/8, maximum 11.13/105.15 pt) and
 bookmark/underfull warnings remain; manuscript text and tracked PDFs are exact.
 
+## Fixed points, actual invariant eigenlines and conjugation
+
+`ProjectiveFixedPoints.lean` adds 33 audited statements over every field.
+The coordinate matrix defines an actual Mathlib `LinearMap` on `K × K`;
+its invariant span of a nonzero vector is an eigenline precisely when the
+matrix maps that vector to a scalar multiple. For a nondegenerate matrix,
+the eigenvalue is nonzero and unique for that vector. A projective point
+is fixed exactly when its nonzero homogeneous representative spans such an
+invariant line. The finite case has equation `Cx²+(D-A)x-B=0` and eigenvalue
+`Cx+D`, which is proved nonzero from the equation and determinant hypothesis.
+Infinity is fixed exactly when `C=0`.
+
+The actual PGL quotient acts on the existing quotient of nonzero homogeneous
+vectors. This is a group homomorphism, with representative evaluation proved
+to be the established matrix action. An explicit equivalence identifies its
+fixed lines with the actual PGL fixed points in the finite/infinity chart.
+Nonzero vector rescaling preserves the eigenvalue; nonzero matrix rescaling
+preserves the line and rescales the eigenvalue. A rational `I`/`2I` example
+exhibits identical projective classes with different representative eigenvalues.
+The interface uses actual `LinearMap` and `Submodule.span`; it makes no claim
+to a separately packaged external eigenspace API or a dimension theorem.
+
+Conjugation `g*h*g⁻¹` has fixed set equal to the image of the fixed set of `h`
+under `g`, with an explicit equivalence of the corresponding fixed-point
+subtypes. The induced action transports eigenlines. Identity fixes every
+point; nonzero translation fixes only infinity; a unit dilation unequal to
+one fixes precisely zero and infinity. Rational inversion `z ↦ -1/z` has no
+rational projective fixed point. These examples keep field-dependent existence
+separate from the correspondence. Analytic attraction, repulsion, stability,
+iteration convergence and infinite-expression evaluation remain separate.
+
+`fixed-points-map.json` adds components to the existing matrix-readings theorem,
+without certifying every clause of that environment. There are 607 distinct
+audited statements overall; the 194 unchanged import audits are not new.
+The inventory remains 32 component-mapped environments, one fragment-certified
+and 69 not yet formalized among 102 environments in 22 sources, with five
+separately mapped equation anchors. Exact global axiom sets use only their
+actual subsets of `propext`, `Classical.choice` and `Quot.sound`, without target
+axioms or admitted proofs. The same Mathlib source/cache lock suffices.
+
+`contract-fixed-points.json` declares a separate 300-second profile with
+unchanged numerical limits: eight source imports, 33 new audited statements,
+four specific guard/order rejections and 15 child commands. The nine predecessor
+profiles remain independently required, with native reception and manuscript
+builds scheduled serially. Historical archives retain their exact bytes;
+current navigation and its preceding receipt regression have successor pins.
+
+```sh
+python paper-0/formal/fixed_points_run.py \
+  --mathlib-root /absolute/path/to/pinned/mathlib \
+  --lean /absolute/path/to/lean/bin/lean \
+  --output /absolute/path/to/new-fixed-point-evidence-directory
+```
+
+CI runs the new profile separately and uploads its own artifact.
+
+`evidence/fixed-points-execution.json` and `fixed-points-run-01.tar.gz` receive
+all ten profiles as `Passed`: native 188.71 seconds, analysis 127.16, original
+Chapter 4 53.81, Apollonius 74.06, projective 84.61, PGL 56.14,
+affine/generation 93.92, arithmetic 114.72, Bruhat 123.38 and fixed points
+133.01 seconds, each inside its own unchanged 300-second deadline. All ten
+reports bind the same captured source lock. All 69 native report bytes match
+the preceding checkpoint; the native profile completes 148 commands and
+51,137 independent reference transitions.
+
+The 960-member archive binds 137 formal sources plus their lock, 22 manuscript
+sources, workflow, all ten reports, native traces/replay receipts, exact Lean
+audits, negative diagnostics and both build logs. All 63 regressions pass
+against the completed receipt, following 62 preparatory passes and the
+then-pending receipt test retained in its original log. Both builds pass at
+103/61 pages without unresolved references/citations, duplicate labels or
+missing assets. Existing overfull boxes (2/8, maximum 11.13/105.15 pt) and
+bookmark/underfull warnings remain; manuscript text and tracked PDFs are exact.
+
 ## Continuation order
 
 The §2 continuations and §3 coordinate/real-analysis bridge are received above.
 The deferred geometric steps and their prerequisites are now in
 `chapter03-obligations.json`. Advance easier remaining Chapter 4 work first:
-the algebraic fixed-point/eigenline and conjugation interfaces,
+the algebraic fixed-point cardinality and affine-iteration interfaces,
 keeping intrinsic geometry and chart independence separate. The
 general-manifold/bundle identifications retain their explicit hypotheses.
 Reuse old Lean material
