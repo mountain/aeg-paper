@@ -57,29 +57,42 @@ $1$ & split-complex numbers & $a^{2}-b^{2}$ & hyperbolic \\
 
 \begin{remark}[The three names are field-dependent]
 \label{rem:trichotomy-field}
-The names in the table record the sign of the norm over $\R$, where $-1$ is not a
-square.  Over a general field $F$ the table is read by the class of
-$\Delta=b^{2}-4ac$ in $F$: a nonzero square (\emph{split}), zero
-(\emph{degenerate}), or a nonsquare (\emph{non-split}).  Two logically independent
-conditions govern what survives.
+The names in the table record the real quadratic-algebra types.  Over a field $F$
+of characteristic different from two, a quadratic polynomial
+$aX^{2}+bX+c$ with $a\neq0$ is instead classified by
+$\Delta=b^{2}-4ac$: a nonzero square (\emph{split}), zero
+(\emph{degenerate}), or a nonsquare (\emph{non-split}).  Completing the square turns
+$aX^{2}+bX+c=0$ into $(2aX+b)^{2}=\Delta$, explaining the classification and its characteristic
+restriction.  Two related conditions must be distinguished.
 
 \begin{enumerate}
-\item The trichotomy itself survives if and only if non-squares exist, i.e.\ $F$ is
-  not quadratically closed.  It fails over $\C$, where every nonzero element has a
-  square root ($\C^{*}/\C^{*2}=1$), and over finite fields of characteristic two,
-  where $x\mapsto x^{2}$ is an automorphism.
-\item The \emph{elliptic} member stays genuinely anisotropic if and only if $-1$ is a
-  nonsquare.  Over $\F_{5}$ the first condition holds and the second fails:
+\item All three types occur among quadratic polynomials if and only if $F$ has a
+  nonsquare, equivalently $F^{*}/F^{*2}\neq1$.  Over $\C$ only the split and
+  degenerate types occur.  Over a general $F$ these are coarse types, not necessarily
+  three isomorphism classes; the family $j^{2}=\kappa$ with $\kappa=-1,0,1$ need not
+  represent every type.
+\item The member $F[j]/(j^{2}+1)$ has anisotropic norm $X^{2}+Y^{2}$ if and only if
+  $-1$ is a nonsquare: a nonzero isotropic pair has $Y\neq0$ and
+  $(X/Y)^{2}=-1$, and the converse is immediate.  This condition implies the first,
+  but not conversely.  Over $\F_{5}$ the first holds and the second fails:
   $-1=2^{2}$, and $X^{2}+Y^{2}=0$ has the nonzero solution $(1,2)$, so the
   ``elliptic'' conic is already split.  For finite fields of odd order, $-1$ is a
   square if and only if $q\equiv1\pmod 4$.
 \end{enumerate}
 
-Only over $\R$, and over $\F_{q}$ with $q\equiv3\pmod4$ such as $\F_{7}$, do the two
-conditions hold together; this is why the three names are safe in the real model and
-why the central sign of Definition~\ref{def:chirality} is visible there.  Over $\C$
-both fail: the trichotomy collapses to two cases and the two lifts $\pm J$ are no
-longer distinguishable.
+Both conditions hold, for example, over $\R$, $\Q$, every ordered field, and
+$\F_q$ with $q\equiv3\pmod4$; this is not an exhaustive list.  In characteristic
+two the square-class discriminant test above does not apply.  Even over $\F_2$,
+$X^{2}+X+1$ is irreducible although its discriminant is the square $1$.
+
+These field-dependent quadratic types do not determine whether the central sign of
+Definition~\ref{def:chirality} survives.  In every characteristic different from two,
+including over $\C$, the matrices $J$ and $-J=J^{-1}$ are distinct and satisfy
+$J^{2}=-I\neq I$.  Their projective classes agree over every field.  Conjugacy is a
+third, different equivalence: $\pm J$ are conjugate in $\GL(2,\R)$ but not in
+$SL(2,\R)$, whereas they are conjugate even in $SL(2,\C)$; the calculation is in
+Appendix~\ref{app:scalar-clifford}.  Thus complexification splits $X^{2}+1$ but does
+not identify the two matrices; characteristic two does, since $-1=1$.
 \end{remark}
 
 \begin{remark}[What Proposition~\ref{prop:quadratic-structure} does not do]
@@ -271,7 +284,8 @@ ripple generator $SAS$.
 \begin{proof}
 For the first identity, $S M_\lambda S(z)=-1/(\lambda\cdot(-1/z))=z/\lambda
 =M_{\lambda^{-1}}(z)$.  For the second,
-$SAS(z)=-1/((-1/z)+1)=z/(1-z)$, which is parabolic with the single fixed point $1/2$.
+$SAS(z)=-1/((-1/z)+1)=z/(1-z)$, which is parabolic with the single fixed point $0$
+on the projective line (solving $z/(1-z)=z$ gives $z^{2}=0$).
 \end{proof}
 
 \begin{remark}[Baumslag--Solitar background]

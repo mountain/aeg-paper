@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Witness checks for note 50: complex and arbitrary-field extensions of Paper II.
 
-The script has four independent parts.
+The script has five independent parts.
 
 A. The complexified basic hyperbolic model over C:
    g = (1/y^2)(dx^2/mu^2 + dy^2/lambda^2) as a *complex bilinear* form,
@@ -21,6 +21,10 @@ C. The finite-field trichotomy for PGL_2(F_q), q = 3, 5, 7, 11, 13:
 D. Boundary-kernel and complex-length identities:
    P_y(X-t) = (1/(2 pi i)) (1/(t-w) - 1/(t-wbar)), and
    tau/2 = cosh(l/2) with l = log(kappa).
+
+E. Paper V's field-dependent quadratic types and exchange lifts:
+   exact rational/complex witnesses, characteristic-two counterexamples, and
+   literal equality versus projective equality versus GL/SL conjugacy.
 
 Run:  python3 50-complex-arbitrary-field-witness.py
 """
@@ -201,6 +205,8 @@ for q in (3, 5, 7, 11, 13):
     if not ok:
         FAIL.append(f"C q={q}")
     split_eikonal = sqclass(-1, q) == 1
+    check(f"C q={q:2d}: -1 is square iff q = 1 mod 4",
+          int(split_eikonal) - int(q % 4 == 1))
     print(f"         -1 square in F_q: {sqclass(-1, q):+d} "
           f"(q mod 4 = {q % 4}); eikonal a^2+1 splits: {split_eikonal}")
 
@@ -220,6 +226,85 @@ D3 = all(abs(2 * math.acosh((math.exp(l / 2) + math.exp(-l / 2)) / 2) - l) < 1e-
 print(("  PASS  " if D3 else "  FAIL  ") + "D3  ell = 2 arccosh(tau/2) (numeric)")
 if not D3:
     FAIL.append("D3")
+
+print("E. Paper V: quadratic types and distinct exchange lifts")
+
+
+def check_matrix(name, expr):
+    # Check every entry; a trace or sum of entries could conceal cancellation.
+    check(name, int(any(sp.simplify(entry) != 0 for entry in expr)))
+
+
+z = sp.symbols("z")
+poly_q = sp.Poly(z**2 + 1, z, domain=sp.QQ)
+check("E1  X^2+1 is irreducible over Q (not just over R)",
+      int(not poly_q.is_irreducible))
+check("E2  X^2+1 splits over C", (z - sp.I) * (z + sp.I) - (z**2 + 1))
+poly_f2 = sp.Poly(z**2 + z + 1, z, modulus=2)
+check("E3  characteristic two: irreducible quadratic with square discriminant",
+      int(not (poly_f2.is_irreducible and int(poly_f2.discriminant()) % 2 == 1)))
+
+Jlift = sp.Matrix([[0, -1], [1, 0]])
+eye2 = sp.eye(2)
+check_matrix("E4  J^2 = -I over Q, R and C", Jlift**2 + eye2)
+check_matrix("E5  J^(-1) = -J", Jlift.inv() + Jlift)
+check("E6  J != -J and -I != I, even over C",
+      int(not (Jlift != -Jlift and -eye2 != eye2)))
+# The two nonzero output vectors differ but have zero wedge product.
+t0, s0 = sp.symbols("t0 s0")
+point = sp.Matrix([t0, s0])
+check("E7  J and -J induce the same projective map",
+      sp.Matrix.hstack(Jlift * point, -Jlift * point).det())
+
+H = sp.diag(1, -1)
+check_matrix("E8  real GL conjugacy: H J H^(-1) = -J",
+             H * Jlift * H.inv() + Jlift)
+u, v, r, s = sp.symbols("u v r s", real=True)
+Pgeneral = sp.Matrix([[u, v], [r, s]])
+solutions = sp.linsolve(list(Pgeneral * Jlift + Jlift * Pgeneral), (u, v, r, s))
+check("E9  every conjugator has P = [[u,v],[v,-u]]",
+      int(solutions != sp.FiniteSet((-s, r, r, s))))
+Panti = sp.Matrix([[u, v], [v, -u]])
+check("E10 real conjugator determinant = -(u^2+v^2)",
+      Panti.det() + u**2 + v**2)
+# Nonpositivity excludes determinant 1; invertibility makes it strictly negative.
+check("E11 no real SL conjugator", int(Panti.det().is_nonpositive is not True))
+Cconj = sp.I * H
+check("E12 complex conjugator iH has determinant one", Cconj.det() - 1)
+check_matrix("E13 complex SL conjugacy: (iH) J (iH)^(-1) = -J",
+             Cconj * Jlift * Cconj.inv() + Jlift)
+
+for q in (3, 5, 7, 11, 13):
+    isotropic = any((a0*a0 + b0*b0) % q == 0
+                    for a0 in range(q) for b0 in range(q) if (a0, b0) != (0, 0))
+    check(f"E q={q:2d}: anisotropy iff -1 is a nonsquare",
+          int(not isotropic) - int(sqclass(-1, q) == -1))
+    check(f"E q={q:2d}: the lifts remain literally distinct",
+          int(Jlift.applyfunc(lambda x: x % q) == (-Jlift).applyfunc(lambda x: x % q)))
+    pairs = [(a0, b0) for a0 in range(q) for b0 in range(q)
+             if (-a0*a0 - b0*b0) % q == 1]
+    check(f"E q={q:2d}: SL conjugator exists even in the anisotropic cases",
+          int(not pairs))
+    if pairs:
+        a0, b0 = pairs[0]
+        Pq = sp.Matrix([[a0, b0], [b0, -a0]])
+        check_matrix(f"E q={q:2d}: conjugator identity",
+                     (Pq * Jlift + Jlift * Pq).applyfunc(lambda x: x % q))
+
+P7 = sp.Matrix([[3, 2], [2, -3]])
+check("E14 printed F_7 conjugator has determinant one", (P7.det() - 1) % 7)
+check_matrix("E15 printed F_7 conjugator anticommutes with J", P7 * Jlift + Jlift * P7)
+check_matrix("E16 characteristic two: J = -J", (2 * Jlift).applyfunc(lambda x: x % 2))
+check_matrix("E17 characteristic two: J^2 = I", (Jlift**2 - eye2).applyfunc(lambda x: x % 2))
+
+# The parabolic conjugate fixes zero, not 1/2; infinity maps to -1.
+SAS = sp.cancel(-1 / (-1 / z + 1))
+check("E18  S A S(z) = z/(1-z)", SAS - z / (1 - z))
+check("E19  fixed-point equation is z^2/(1-z) = 0",
+      sp.cancel((SAS - z) * (1 - z)) - z**2)
+check("E20  S A S fixes 0 and does not fix 1/2",
+      int(not (SAS.subs(z, 0) == 0 and SAS.subs(z, sp.Rational(1, 2)) != sp.Rational(1, 2))))
+check("E21  infinity is not fixed", sp.limit(SAS, z, sp.oo) + 1)
 
 print()
 if FAIL:
