@@ -80,6 +80,7 @@ EXCLUDED`.
 | ripple pencil definition (`def:p0-ripple-pencil`) | `PROVED` | definition |
 | line-to-circle transition (`thm:p0-ripple-pencil-formula`) | `PROVED` | existing Paper 0 result |
 | covariant--contravariant duality (`prop:p0-path-ripple-duality`) | `PROVED` | definitional |
+| the forward pole remark (`rem:p0-pole-forward`) | `PARTIALLY PROVED` (wording limitation recorded 2026-11-07) | The preceding lemma's per-step criterion is correct. A first exit from the affine sector does not force all later adjacent poles to differ: `J` followed by a translation has the same pole 0 and the same pencil. Read the different-pole premise only for a newly postcomposed non-affine step; the prospective quantitative transport is not certified here. Manuscript wording amendment remains separate. |
 | finite and infinite geometric expansions (`prop:p0-finite-geometric-expansion`) | `PROVED WITH STATED HYPOTHESES` | infinite values only under stated convergence hypotheses |
 | arithmetic fixed points (`prop:p0-reciprocal-fixed-points`) | `PROVED` | algebraic fixed point is not asserted attracting |
 | one matrix, four readings (`thm:p0-four-matrix-readings`) | `PROVED` | |
@@ -734,3 +735,82 @@ bindings. Clean-checkout preparation matches all 7,600 source and 3,175
 compiled-module fingerprints without changing the library lock. Both
 manuscript builds again pass at 103/61 pages, with the same layout warnings;
 tracked PDFs and TeX sources remain unchanged.
+
+## 18. Deferred Chapter 3 obligations and easier Chapter 4 continuation (2026-11-07)
+
+The user requested that difficult remaining Chapter 3 formal prerequisites be
+recorded while easier Chapter 4 results advance first. The source-bound work
+register is `formal/chapter03-obligations.json`. It records six known groups:
+curvature, completeness for the correct Riemannian length metric, hyperbolic
+length/trace, punctured E1, intrinsic/boundary/bundle interfaces and general
+flows beyond constant coefficients. Each has source labels, a concrete missing
+prerequisite and a resumption condition. Deferral does not change the existing
+manuscript mathematical statuses or mean that those theorems are unprovable.
+
+`formal/Chapter04Ripples.lean` and `formal/Chapter04Poles.lean` introduce 57
+audited statements mapped in `formal/chapter04-map.json` to the unchanged
+Chapter 4 and its nested pole-covariance source. There are 315 distinct audited
+statements in the combined development; supporting lemmas are included in that
+count. No complete-Chapter-4 status is assigned.
+
+| Component | Status | Hypotheses and boundary |
+| --- | --- | --- |
+| complex Möbius imaginary part and upper-plane preservation | `PROVED WITH STATED HYPOTHESES` | Actual complex division with real coefficients. Positive determinant and positive input height imply a nonzero denominator and positive image height; ordinary partial arithmetic is not silently totalized. |
+| horizontal-line / completed-square circle pullbacks | `PROVED WITH STATED HYPOTHESES` | Positive determinant, positive level and positive input height; the circle case additionally requires a nonzero lower-left entry. Positive radius, unique real-axis contact and circle height bounds are explicit. These are coordinate equations; intrinsic horocycle and differential tangency identifications remain separate. |
+| nested circles and the inversion example | `PROVED WITH STATED HYPOTHESES` | Nesting is inclusion of the enclosed tangent disks as the level decreases. Distinct circle boundaries are disjoint level sets, not subsets of each other. The map `J=-1/z`, determinant, radius and circle equation are actual complex-coordinate results. |
+| point/pullback duality | `PROVED` | Exact inverse-image membership and contravariant composition for arbitrary maps, with chronological order stated. |
+| pole covariance and history rigidity | `PROVED WITH STATED HYPOTHESES` | Bijections of a pointed carrier; poles are actual inverse images of its infinity point. Per-step constancy, all-prefix rigidity and first exit follow without target axioms. A terminal pole alone does not detect all factors. The PGL representation and its matrix-to-bijection/affine-stabilizer identification are not yet supplied. |
+| homogeneous real matrix pole column | `PROVED WITH STATED HYPOTHESES` | Nonzero determinant implies a nonzero `(-D,C)` column and, for `C!=0`, a finite denominator root with nonvanishing numerator. This is exact matrix algebra, not a completed projective-line quotient construction. |
+| forward-remark limitation | `PARTIALLY PROVED` as printed | Actual posttranslation preserves determinant, finite pole and the entire complex ripple pencil. `J` then `T_s` disproves the reading that every later step changes poles after the first non-affine step. The correct individual-step criterion is retained; the prospective quantitative transport discussion is not certified. |
+
+The previous Chapter 3 result is a real global-coordinate AES certificate; the
+complex coordinate used here is the continuation chart specified by
+`rem:p0-ripple-normalization`. No unproved isometry between all chart/metric
+presentations is used. General PGL/ideal-boundary identification, absolute-value
+Apollonius circles/perpendicular bisectors, intrinsic chart independence and
+puncture-persistent ripple structures remain outside this continuation.
+
+The existing Mathlib source/cache lock is unchanged: 7,600 source files and
+3,175 compiled modules. The 57 new exact global axiom sets use only their
+disclosed subsets of `propext`, `Classical.choice` and `Quot.sound`; there are no
+target AEG axioms or admitted proofs. The original proofs, programs, goals,
+contracts and runtime receivers retain their bytes. Current navigation and its
+historical receipt regression have separately pinned successors; historical
+archives and inventories remain bound to their original execution snapshots.
+
+Live navigation now has 30 component-mapped environments, one fragment-certified
+and 71 not yet formalized, within the same 22 manuscript sources and 102
+theorem-like environments. A component map attached to the forward remark
+records the scope limitation, not a proof of its unrestricted wording. The
+corresponding status row in section 3 records that limitation explicitly.
+No source text is silently rewritten and no research material is moved or lost.
+
+`formal/contract-chapter04.json` declares eight child commands, two positive
+modules, all 57 exact audits and four rejecting controls for determinant,
+circle guards, affine-step hypothesis and composition order. Its numerical
+bounds equal the existing analytic profile, including its separate 300-second
+deadline and 8 GiB Lean virtual-address limit. The unchanged native and Chapter
+3 analytic contracts remain separately required; fetching or another profile
+cannot refill a proof run's budget. CI invokes the new profile separately after
+Chapter 3 real analysis and uploads its evidence separately.
+
+`formal/evidence/chapter04-execution.json` and its complete archive receive
+all three profiles as `Passed`: native 174.33 seconds, analytic 136.43 seconds
+and Chapter 4 58.91 seconds, each inside its own unchanged 300-second deadline.
+The 69 native reports remain byte-identical to the preceding success. There
+are 148 native child commands and 51,137 independently received instruction
+transitions, 16 analytic child commands (192 core plus 66 analytic audits),
+and eight Chapter 4 commands (57 exact audits and four expected specific
+rejections). Import rechecks are not counted as new statements. All 35
+regressions pass against the completed source/report/archive bindings; the
+pre-receipt log retains its 34 passes and the then-absent receipt test rather
+than relabelling that preparatory check as a completed verification.
+
+The archive retains 70 formal source files plus the source lock, 22 manuscript
+files, workflow, three reports, all native traces/replay receipts, Lean audits,
+negative diagnostics and both build logs. Both builds pass at 103/61 pages
+with no unresolved references/citations, duplicate labels or missing assets.
+The existing overfull boxes (2/8, maximum 11.13/105.15 pt) and bookmark/underfull
+warnings remain; tracked PDFs and TeX sources are unchanged. The next easier
+step is the zero-pole Apollonius equations; full PGL and intrinsic geometric
+identifications retain their separate prerequisites.

@@ -53,7 +53,8 @@ statement correspondence and the reviewed equality kernel remain trusted.
 | §2 evaluability continuation | General finite-tree domain/value, closed-input independence, exact rational evaluation, cancelled reciprocal and projective round trip, prefix domains/condition pullbacks, and subtraction expansion in Lean | External Richardson theorem, real exponential/ACS example, topology and cardinality background retain their separate dependencies |
 | §2 distributive operator identity | Unchanged symbolic Adva/Lean identity; new general-field proof of the corrected marked/scalar clauses | The previous counterexample and its old source snapshot remain historical evidence |
 | §3 coordinate foundation and real analysis | 61 coordinate statements plus 66 Mathlib statements: actual differential/Jacobian, smooth real coordinate-AES model, Laplace eigenfunction, positive smooth root, rectification, signed-frame bracket and affine ODE solution/uniqueness | Gaussian curvature/completeness, length/trace theory, punctured E1, full arbitrary-manifold/boundary-chart and intrinsic bundle-operator equivalences |
-| §§4–6 ripple, reciprocal and projective theory | Inventoried, including the nested pole-covariance subsection | Formal domains, nonzero hypotheses, projective and geometric theories |
+| §4 ripple and pole components | 57 Mathlib statements: actual complex imaginary-part and circle/line formulas, enclosed-disk nesting, inversion, preimage duality, pointed-bijection pole covariance and finite-history rigidity | Full PGL action identification, intrinsic horocycles/tangency, Apollonius classification and chart independence; the forward remark has a recorded wording limitation |
+| §§5–6 reciprocal and projective synthesis | Inventoried | Formal domains, nonzero hypotheses and projective action identification |
 | §7 chronological affine cocycle | Auxiliary pointwise polynomial identity checked by Adva and Lean; shared finite-history scalar expansion in `AppendixC.lean` | Definition/uniqueness of affine coordinates, inverse and normalized-coordinate laws |
 | §§8–12 ACS, contact, nonlinearity, punctures, compactification | Inventoried | Algebraic/differential/topological dependencies and explicit side conditions |
 | Appendix C alternating expressions | 24 Lean theorems: independent suffix-sum expansion, arbitrary finite/prefix perturbation, actual tree/word correspondence and guarded ratio; one native symbolic induction-step certificate | ACS/exponentials/RG, identity-padding syntax transformations, and a native Adva induction kernel are outside this continuation |
@@ -621,13 +622,93 @@ produce 103/61 pages, with the same existing layout warnings and preserved
 tracked PDFs. The external library's 7,600 source and 3,175 compiled-module
 fingerprints all match in a fresh checkout without changing the library lock.
 
+## Chapter 4: ripple coordinates and pole laws
+
+At the user's request, the remaining Chapter 3 geometric work is deferred in
+`chapter03-obligations.json`: curvature, completeness for the Riemannian length
+distance, length/trace, punctured E1, intrinsic interfaces and general flows.
+Each entry records its source labels, missing formal prerequisites and a
+condition for resuming. This changes work order; it does not turn an
+unformalized manuscript proof into a new mathematical open problem.
+
+`Chapter04Ripples.lean` supplies 36 statements in the manuscript's complex
+continuation chart. The map is actual complex division, with its imaginary
+part derived explicitly. Positive determinant and height give a nonzero
+denominator and positive image height. Pullbacks of positive output levels
+give the affine horizontal-line case and the non-affine completed-square
+circle equation. Radius positivity, the unique real-axis contact, height
+bounds and nesting of the **enclosed disks** are proved. Distinct positive
+level sets are disjoint, not subsets of one another. The exact inversion
+example, contravariant preimages and the persistence of a whole pencil under
+posttranslation are included.
+
+`Chapter04Poles.lean` supplies 21 statements. Pole covariance and the stepwise,
+all-prefix and first-exit rigidity laws are proved for actual bijections of a
+pointed carrier, under the convention `compose P Q = P after Q`. Additional
+real matrix lemmas verify the nonzero pole column, its vanishing denominator
+and nonvanishing numerator. The PGL/projective-line representation and the
+matrix-to-bijection/affine-stabilizer identifications remain explicit separate
+obligations; this is not a formal certificate of those full manuscript
+environments. No matrix coefficients or expected pole laws are added as axioms.
+
+There is a source wording limitation in `rem:p0-pole-forward`: a first exit
+from the affine sector does not make every later step non-affine. The actual
+maps `J` followed by `T_s` have the same finite pole zero and the same ripple
+pencil. The correct per-step criterion is the one in the preceding lemma.
+`chapter04-map.json` and the authoritative status register retain this finding;
+the prospective transport discussion is not certified by the component map.
+Manuscript source text is preserved for a separate wording amendment.
+
+The new source-bound map attaches components to seven environments. Live
+navigation has 30 component-mapped environments, one fragment-certified and
+71 not yet formalized, across the unchanged 22 manuscript files and 102
+theorem-like environments. These counts do not certify whole environments.
+The compiler/standard library and fingerprinted Mathlib remain trusted builds;
+the existing library lock is unchanged. All 57 exact theorem audits disclose
+only their actual subsets of `propext`, `Classical.choice` and `Quot.sound`.
+
+`contract-chapter04.json` declares a separate 300-second profile with the same
+numerical bounds as the existing analytic profile. It has two positive modules,
+57 audits, eight child commands and four specific rejecting controls: missing
+positive determinant, missing circle guards, missing affine-step hypothesis
+and reversed composition order. Both preceding profiles remain required under
+their unchanged contracts, with historical archives retained. After the usual
+pinned library preparation, invoke the new profile with:
+
+```sh
+python paper-0/formal/chapter04_run.py \
+  --mathlib-root /absolute/path/to/pinned/mathlib \
+  --lean /absolute/path/to/lean/bin/lean \
+  --output /absolute/path/to/new-chapter04-evidence-directory
+```
+
+CI invokes Chapter 4 after the separate Chapter 3 analytic profile and uploads
+its evidence separately. It does not reuse or refill either profile's deadline.
+
+The completed `evidence/chapter04-execution.json` and
+`chapter04-run-01.tar.gz` retain the 70 pinned formal source files plus the
+lock, 22 manuscript files, all three profile reports, native traces/replay
+receipts, exact Lean audits, negative diagnostics, workflow and both build
+logs. The native, analytic and Chapter 4 profiles pass in 174.33, 136.43 and
+58.91 seconds respectively, each within its own unchanged 300-second limit.
+All 69 native reports are byte-identical to the preceding success. There are
+315 distinct audited statements overall; the analytic import rechecks are not
+counted twice. All 35 regressions pass against the completed archive, following
+34 successful pre-receipt checks and the then-pending archive-binding test.
+Both builds pass at 103/61 pages without unresolved references/citations,
+duplicate labels or missing assets. Existing overfull boxes remain (2/8,
+maximum 11.13/105.15 pt), along with existing bookmark/underfull warnings;
+tracked PDFs and TeX sources are unchanged.
+
 ## Continuation order
 
 The §2 continuations and §3 coordinate/real-analysis bridge are received above.
-The next geometric step is curvature and completeness of the Riemannian
-length metric, then the hyperbolic length/trace and punctured-model claims.
-The remaining general-manifold/bundle identifications should keep their
-explicit hypotheses. Reuse old Lean material
+The deferred geometric steps and their prerequisites are now in
+`chapter03-obligations.json`. Advance easier remaining Chapter 4 work first:
+the zero-pole Apollonius equations, then the projective-line/PGL bridge, keeping
+the intrinsic horocycle and chart-independence obligations separate. The
+general-manifold/bundle identifications retain their explicit hypotheses.
+Reuse old Lean material
 only after a legacy-to-current statement map. Each theorem still needs its
 formal prerequisites and evidence; topology, smooth geometry, convergence and
 proof-library translation are not supplied by this algebraic foundation.

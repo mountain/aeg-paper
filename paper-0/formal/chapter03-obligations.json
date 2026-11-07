@@ -1,0 +1,58 @@
+{
+  "schema": "aeg.paper0.chapter03.deferred-obligations.v1",
+  "date": "2026-11-07",
+  "decision": "At the user's request, record the remaining formal prerequisites and advance easier Chapter 4 components first. This is a work-order decision, not a change to manuscript mathematical statuses or a declaration that the results are false or unprovable.",
+  "completed_checkpoint": "792beea1d7f0b99c77751420f75c8a1db201149e",
+  "existing_audited_statements": 258,
+  "obligations": [
+    {
+      "id": "curvature",
+      "source_labels": ["thm:basic-hyperbolic-aes"],
+      "status": "deferred-formal-prerequisites",
+      "remaining": "Identify the constructed coordinate tensor with the chosen Riemannian/connection framework and derive Gaussian curvature K=-lambda^2.",
+      "difficulty": "Smoothness, positivity and the gradient law do not construct or identify the Levi-Civita connection and curvature operator.",
+      "resume_when": "A source-pinned connection/curvature API and the tensor-to-bundle bridge are available; retain nonzero intensities and the positive-height domain."
+    },
+    {
+      "id": "completeness",
+      "source_labels": ["thm:basic-hyperbolic-aes"],
+      "status": "deferred-formal-prerequisites",
+      "remaining": "Construct the Riemannian length distance of the metric and prove completeness, including the scaling to the standard upper-half-plane model.",
+      "difficulty": "The carrier's ambient/subspace Euclidean metric is not the metric induced by the hyperbolic tensor. Completeness of one cannot certify the other.",
+      "resume_when": "Lengths, induced distance and the scaled isometry have explicit formal definitions and proofs."
+    },
+    {
+      "id": "length-and-trace",
+      "source_labels": ["prop:p0-dilation-length", "prop:p0-length-multiplicative-charge", "prop:p0-length-losses", "prop:p0-relative-defect-length-zero", "prop:p0-projective-trichotomy", "prop:p0-affine-two-layers"],
+      "status": "deferred-formal-prerequisites",
+      "remaining": "Separate elementary conjugacy algebra from actual hyperbolic translation length, trace trichotomy, and length infima.",
+      "difficulty": "The length conclusions require the correct distance, normalized determinant conventions, conjugacy invariance and the elliptic/parabolic boundary cases.",
+      "resume_when": "The metric bridge and real projective action are certified. Elementary conjugacy identities can be advanced separately without claiming lengths."
+    },
+    {
+      "id": "punctured-E1",
+      "source_labels": ["ex:p0-e1-model"],
+      "status": "deferred-formal-prerequisites",
+      "remaining": "Formalize the once-punctured disc model under its cited hypotheses, with assignment regularity away from the puncture and the actual metric extension statement.",
+      "difficulty": "This uses a separate coordinate construction and singular/extension analysis; it is not a corollary of the smooth global E0 chart.",
+      "resume_when": "The source-to-current model correspondence and its puncture regularity obligations are explicitly mapped; do not infer smooth assignment extension."
+    },
+    {
+      "id": "intrinsic-interfaces",
+      "source_labels": ["def:regular-aes", "prop:laplace-eigenfunction"],
+      "status": "deferred-formal-prerequisites",
+      "remaining": "General-manifold/boundary-chart and intrinsic tangent-bundle/gradient/Laplacian equivalences with the received global coordinate formulation.",
+      "difficulty": "The current certificate constructs a smooth coordinate AES and derives the coordinate divergence-of-gradient operator. It does not identify every independent intrinsic bundle operator.",
+      "resume_when": "The exact bundle, regularity and chart-transition hypotheses are formalized rather than assumed."
+    },
+    {
+      "id": "general-flows",
+      "source_labels": ["thm:continuous-affine-flow"],
+      "status": "deferred-formal-prerequisites",
+      "remaining": "Varying-angle and general-interval ODE existence/uniqueness and arbitrary-manifold curve formulations beyond the received global constant-angle scalar flow.",
+      "difficulty": "The existing integrating-factor proof handles constant coefficients and globally defined real curves; extending its domain or coefficients needs separate hypotheses.",
+      "resume_when": "Coefficient regularity, interval domains and the intended manifold-flow interface are fixed and supplied with their own proofs."
+    }
+  ],
+  "non_claims": ["Chapter 3 is complete", "Deferred formalization is a new mathematical gap or counterexample", "Coordinate formulas alone certify intrinsic geometry"]
+}

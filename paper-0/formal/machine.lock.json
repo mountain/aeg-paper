@@ -17,8 +17,8 @@
     "certificates.json": "c28f502519533428486ba0b12e5d47a160be62512bfa93c9b7d93cce811c7d5c",
     "Chapter02.lean": "b7b3a8cc35fa6c1e2e646fae3577c39a4113c6957ffd0c983b45fd6f07a007ab",
     "Chapter02Domains.lean": "d3c0f718936f128da2e15daf61ec0111cdd956ee7fb23ab6a451e677d7358c4c",
-    "inventory.py": "9b366555f865034f53534c18b5d3ff0a748c92f31be0119ab3059be11fb27354",
-    "inventory.json": "749176876391749b3c3bf1bcb6af9c4da78eb3333c3ff10aee32a50ce2c7b8ff",
+    "inventory.py": "4dce5cd13888d48c6020a9d64a3247011384aa8468c9988df181bcdc15a77a6c",
+    "inventory.json": "bc11294e8f073df3811f4d441a86984302412ffb9b772cdba402ed099a7ef1c5",
     "run.py": "b0396c9bb279cbe90f2db6a5012ea48b2ceb20429991ec602754ab2d0e7a9fc0",
     "domain_author.py": "a6968582b2a181d9195a900238c29f599d8e5e3475c8c2ebaac9df2d0c23a03c",
     "domain-checker.adva": "de995c4d26f940fb0e35dd78ef2a271b144e0dc4c58c6395f444e6bbe7fbb231",
@@ -61,12 +61,23 @@
     "analysis_dependencies.py": "394106616c951257b9160e40ac7132505ccc7d1039098207ce860bcc27133496",
     "prepare_analysis.py": "4cc6dd06782b6f1005efb436890d3933e78cdd094cc667e0cb3469a072013f60",
     "analysis_run.py": "910355289ae2e42e5316203be33d279ee9dbbb64a0cc8dd960c3129b14cfb851",
-    "test_analysis.py": "fc2eb003a38d8dfb3a7fa6c521ff4868778e972ba8e805e989e2deb9ace6810b",
+    "test_analysis.py": "fe98145191ce8ff41eea89472d447e1bee29d37a4237e4014a2fb2539d88aba2",
     "negative/AnalysisMissingHeight.lean": "6c53137d69cd1e3cfeaf8c7b8a3a227274edfb2cdaebad4ccc734e67666af584",
     "negative/AnalysisWrongLaplacianSign.lean": "51b07ceb214776cda4985a1296455806f7fb0727b50e4663d23c171e6db63dff",
     "negative/AnalysisMissingInitial.lean": "c2cd3196738c2157ef94aa2df66bbe9725141df8f3904d08f40b1bf333ed02e6",
     "negative/AnalysisMissingIntensity.lean": "66791aceea39425b4ab2f22d734ebdf1498e8c547c712ba4c4c2770bac285024",
-    "contract-analysis-v1.1.json": "dc43df95783ca070cc0fad0717cc5986182d3fca814a9a6358f7b436376a7ab3"
+    "contract-analysis-v1.1.json": "dc43df95783ca070cc0fad0717cc5986182d3fca814a9a6358f7b436376a7ab3",
+    "Chapter04Ripples.lean": "bfff33523658249213466cce8c256f3add945a4f6ec9ca0aab23b41d4c603ee2",
+    "Chapter04Poles.lean": "cdf47d7e0080af680d341834aaaa024abc1375f287f52d1610c433b754c1418a",
+    "chapter03-obligations.json": "973e643c66e264c4475b512d916e4eef7a87dfe94d112f910e98359e81ad2800",
+    "chapter04-map.json": "cc04448b1fd26ec9df30feba9847c646ea0f36248525e9576f5618d57a0b0af3",
+    "contract-chapter04.json": "52b58178702f5afecc366ed2edab8b1da4c553c3cab3703c2e1fa6fe34d4a905",
+    "chapter04_run.py": "22b28818968e8c534c42926c43808dac0ba8c5c682f3e94832269696281217aa",
+    "test_chapter04.py": "9b14a3f2e72e565356b3473fff19087d895cf11096fa14f546d298e86a3e0272",
+    "negative/Chapter04MissingAffineStep.lean": "baa6c79225104f39ec188044fd16a8e242d7f3d055fc6c3b06b81e0b2c5c9fb4",
+    "negative/Chapter04MissingCircleGuard.lean": "11b4b487567bba51ce918cffaf7ba666761f98119d5d6add4aa3a083dabae7aa",
+    "negative/Chapter04MissingDeterminant.lean": "3d41fbd61155d1ee6f9b4177195776064380fee7518b7a60d6f304d49b7987f1",
+    "negative/Chapter04WrongCompositionOrder.lean": "2ebbb3715a6b24f4c9ed23a2840585a30237e097142e945f403dc7660281bea9"
   },
-  "continuation": "contract-analysis-v1.1.json plus the unchanged contract-chapter03.json: both profiles required; preserve the failed Lake classification and all earlier snapshots"
+  "continuation": "contract-chapter04.json plus unchanged contract-chapter03.json and contract-analysis-v1.1.json: all three profiles required; preserve every preceding receipt and archive"
 }

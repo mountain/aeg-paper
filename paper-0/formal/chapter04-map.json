@@ -1,0 +1,474 @@
+{
+  "schema": "aeg.paper0.chapter04.map.v1",
+  "source": "paper-0/sections/04-ripple-geometry.tex",
+  "source_sha256": "aac21e63fdf22f4e0cc5032441e050d015afbcc1fc545cf04ba008123712e49f",
+  "additional_sources": {
+    "paper-0/sections/04b-pole-covariance.tex": "d1fe37de0ab2a7c83c0a46edc3eaaccd370a5b646b58caef579c794260c71901"
+  },
+  "modules": [
+    {
+      "file": "Chapter04Ripples.lean",
+      "module": "AEGPaper0.Chapter04Ripples",
+      "lean_audit_names": [
+        "denominator_normSq",
+        "denominator_ne_zero",
+        "denominatorSq_positive",
+        "mobius_imaginary",
+        "mobius_preserves_upper",
+        "ripple_membership",
+        "ripple_level",
+        "ripple_equation",
+        "affine_diagonal_nonzero",
+        "affine_ripple_line",
+        "radius_positive",
+        "completed_square",
+        "ripple_circle",
+        "circle_boundary_contact",
+        "circle_height_bounds",
+        "radius_antitone",
+        "tangentDisk_equation",
+        "tangentDisk_height_nonnegative",
+        "tangentDisk_nested",
+        "ripple_disks_nested",
+        "distinct_ripples_disjoint",
+        "ripple_parameter_positive",
+        "ripple_empty_nonpositive",
+        "ripple_unique_positive_level",
+        "output_translation_determinant",
+        "output_translation_map",
+        "output_translation_pole",
+        "output_translation_ripple",
+        "inversion_determinant",
+        "inversion_map",
+        "inversion_radius",
+        "inversion_pole",
+        "inversion_followed_by_translation_has_same_finite_pole",
+        "inversion_ripple",
+        "pullback_point_duality",
+        "chronological_pullback"
+      ],
+      "expected_axioms": {
+        "denominator_normSq": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "denominator_ne_zero": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "denominatorSq_positive": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "mobius_imaginary": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "mobius_preserves_upper": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "ripple_membership": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "ripple_level": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "ripple_equation": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "affine_diagonal_nonzero": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "affine_ripple_line": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "radius_positive": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "completed_square": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "ripple_circle": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "circle_boundary_contact": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "circle_height_bounds": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "radius_antitone": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "tangentDisk_equation": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "tangentDisk_height_nonnegative": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "tangentDisk_nested": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "ripple_disks_nested": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "distinct_ripples_disjoint": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "ripple_parameter_positive": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "ripple_empty_nonpositive": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "ripple_unique_positive_level": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "output_translation_determinant": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "output_translation_map": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "output_translation_pole": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "output_translation_ripple": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "inversion_determinant": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "inversion_map": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "inversion_radius": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "inversion_pole": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "inversion_followed_by_translation_has_same_finite_pole": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "inversion_ripple": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "pullback_point_duality": [],
+        "chronological_pullback": []
+      }
+    },
+    {
+      "file": "Chapter04Poles.lean",
+      "module": "AEGPaper0.Chapter04Poles",
+      "lean_audit_names": [
+        "composition_apply",
+        "pole_covariance",
+        "pole_is_unique_preimage",
+        "pole_eq_infinity_iff",
+        "pole_constancy_criterion",
+        "pole_moves_iff",
+        "prefix_initial_pole",
+        "prefix_successor_apply",
+        "prefix_pole_covariance",
+        "prefix_step_pole_iff",
+        "history_step_rigidity",
+        "affine_prefix_fixes_infinity",
+        "history_prefix_rigidity",
+        "first_nonaffine_step_moves_pole",
+        "postcompose_affine_keeps_current_pole",
+        "terminal_pole_does_not_detect_every_step",
+        "pole_column_nonzero",
+        "pole_column_annihilates_denominator",
+        "finite_pole_denominator_zero",
+        "finite_pole_numerator_nonzero",
+        "affine_infinity_criterion"
+      ],
+      "expected_axioms": {
+        "composition_apply": [
+          "Quot.sound"
+        ],
+        "pole_covariance": [
+          "Quot.sound"
+        ],
+        "pole_is_unique_preimage": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "pole_eq_infinity_iff": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "pole_constancy_criterion": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "pole_moves_iff": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "prefix_initial_pole": [
+          "Quot.sound"
+        ],
+        "prefix_successor_apply": [
+          "Quot.sound"
+        ],
+        "prefix_pole_covariance": [
+          "Quot.sound"
+        ],
+        "prefix_step_pole_iff": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "history_step_rigidity": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "affine_prefix_fixes_infinity": [
+          "Quot.sound"
+        ],
+        "history_prefix_rigidity": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "first_nonaffine_step_moves_pole": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "postcompose_affine_keeps_current_pole": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "terminal_pole_does_not_detect_every_step": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "pole_column_nonzero": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "pole_column_annihilates_denominator": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "finite_pole_denominator_zero": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "finite_pole_numerator_nonzero": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "affine_infinity_criterion": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      }
+    }
+  ],
+  "mapping": [
+    {
+      "source_labels": [
+        "def:p0-ripple-pencil",
+        "thm:p0-ripple-pencil-formula"
+      ],
+      "formal": [
+        "AEGPaper0.Chapter04Ripples.denominator_normSq",
+        "AEGPaper0.Chapter04Ripples.denominator_ne_zero",
+        "AEGPaper0.Chapter04Ripples.denominatorSq_positive",
+        "AEGPaper0.Chapter04Ripples.mobius_imaginary",
+        "AEGPaper0.Chapter04Ripples.mobius_preserves_upper",
+        "AEGPaper0.Chapter04Ripples.ripple_membership",
+        "AEGPaper0.Chapter04Ripples.ripple_level",
+        "AEGPaper0.Chapter04Ripples.ripple_equation",
+        "AEGPaper0.Chapter04Ripples.affine_diagonal_nonzero",
+        "AEGPaper0.Chapter04Ripples.affine_ripple_line",
+        "AEGPaper0.Chapter04Ripples.radius_positive",
+        "AEGPaper0.Chapter04Ripples.completed_square",
+        "AEGPaper0.Chapter04Ripples.ripple_circle",
+        "AEGPaper0.Chapter04Ripples.circle_boundary_contact",
+        "AEGPaper0.Chapter04Ripples.circle_height_bounds",
+        "AEGPaper0.Chapter04Ripples.radius_antitone",
+        "AEGPaper0.Chapter04Ripples.tangentDisk_equation",
+        "AEGPaper0.Chapter04Ripples.tangentDisk_height_nonnegative",
+        "AEGPaper0.Chapter04Ripples.tangentDisk_nested",
+        "AEGPaper0.Chapter04Ripples.ripple_disks_nested",
+        "AEGPaper0.Chapter04Ripples.distinct_ripples_disjoint",
+        "AEGPaper0.Chapter04Ripples.ripple_parameter_positive",
+        "AEGPaper0.Chapter04Ripples.ripple_empty_nonpositive",
+        "AEGPaper0.Chapter04Ripples.ripple_unique_positive_level"
+      ],
+      "coverage": "Actual complex imaginary-part identity, guarded denominator, upper-plane preservation, horizontal line/circle equations, radius/contact/height bounds, positive-level uniqueness and nesting of enclosed disks. Euclidean coordinate components; no intrinsic horocycle or differential tangency identification."
+    },
+    {
+      "source_labels": [
+        "ex:p0-inversion-ripples"
+      ],
+      "formal": [
+        "AEGPaper0.Chapter04Ripples.inversion_determinant",
+        "AEGPaper0.Chapter04Ripples.inversion_map",
+        "AEGPaper0.Chapter04Ripples.inversion_radius",
+        "AEGPaper0.Chapter04Ripples.inversion_pole",
+        "AEGPaper0.Chapter04Ripples.inversion_followed_by_translation_has_same_finite_pole",
+        "AEGPaper0.Chapter04Ripples.inversion_ripple"
+      ],
+      "coverage": "Actual -1/z map, determinant, pole/radius and circle formula; affine postcomposition preserves the same finite pole. Ideal boundary action still requires the projective-line bridge."
+    },
+    {
+      "source_labels": [
+        "prop:p0-path-ripple-duality"
+      ],
+      "formal": [
+        "AEGPaper0.Chapter04Ripples.pullback_point_duality",
+        "AEGPaper0.Chapter04Ripples.chronological_pullback"
+      ],
+      "coverage": "Exact set preimage equivalence and contravariant composition, for arbitrary maps."
+    },
+    {
+      "source": "paper-0/sections/04b-pole-covariance.tex",
+      "source_labels": [
+        "lem:p0-pole-covariance"
+      ],
+      "formal": [
+        "AEGPaper0.Chapter04Poles.composition_apply",
+        "AEGPaper0.Chapter04Poles.pole_covariance",
+        "AEGPaper0.Chapter04Poles.pole_is_unique_preimage",
+        "AEGPaper0.Chapter04Poles.pole_eq_infinity_iff",
+        "AEGPaper0.Chapter04Poles.pole_constancy_criterion",
+        "AEGPaper0.Chapter04Poles.pole_moves_iff",
+        "AEGPaper0.Chapter04Poles.pole_column_nonzero",
+        "AEGPaper0.Chapter04Poles.pole_column_annihilates_denominator",
+        "AEGPaper0.Chapter04Poles.finite_pole_denominator_zero",
+        "AEGPaper0.Chapter04Poles.finite_pole_numerator_nonzero",
+        "AEGPaper0.Chapter04Poles.affine_infinity_criterion"
+      ],
+      "coverage": "Pole covariance and constancy criterion for actual bijections of a pointed carrier; real homogeneous pole-column and nondegenerate matrix algebra. Full PGL action identification is separate."
+    },
+    {
+      "source": "paper-0/sections/04b-pole-covariance.tex",
+      "source_labels": [
+        "prop:p0-pole-rigidity"
+      ],
+      "formal": [
+        "AEGPaper0.Chapter04Poles.prefix_initial_pole",
+        "AEGPaper0.Chapter04Poles.prefix_successor_apply",
+        "AEGPaper0.Chapter04Poles.prefix_pole_covariance",
+        "AEGPaper0.Chapter04Poles.prefix_step_pole_iff",
+        "AEGPaper0.Chapter04Poles.history_step_rigidity",
+        "AEGPaper0.Chapter04Poles.affine_prefix_fixes_infinity",
+        "AEGPaper0.Chapter04Poles.history_prefix_rigidity",
+        "AEGPaper0.Chapter04Poles.first_nonaffine_step_moves_pole",
+        "AEGPaper0.Chapter04Poles.postcompose_affine_keeps_current_pole",
+        "AEGPaper0.Chapter04Poles.terminal_pole_does_not_detect_every_step"
+      ],
+      "coverage": "Chronological finite-prefix step and all-prefix rigidity, first exit, persistence after an affine step and a terminal-only counterexample for bijections. Matrix-affine-sector identification is separate."
+    },
+    {
+      "source": "paper-0/sections/04b-pole-covariance.tex",
+      "source_labels": [
+        "rem:p0-pole-forward"
+      ],
+      "formal": [
+        "AEGPaper0.Chapter04Ripples.output_translation_determinant",
+        "AEGPaper0.Chapter04Ripples.output_translation_map",
+        "AEGPaper0.Chapter04Ripples.output_translation_pole",
+        "AEGPaper0.Chapter04Ripples.output_translation_ripple"
+      ],
+      "coverage": "Scope audit: posttranslation preserves determinant, actual complex map, pole and the entire ripple pencil. This limits the forward remark to individual non-affine steps, not every step after a first exit."
+    }
+  ],
+  "excluded": [
+    "Full PGL/projective-line action and matrix-to-bijection identification",
+    "Intrinsic horocycle/ideal-boundary and differential tangency identification",
+    "Absolute-value Apollonius circles and perpendicular-bisector classification",
+    "Chart-independent ripple geometry or new word invariants",
+    "Quantitative projective quotient transport and puncture persistence"
+  ],
+  "interpretation": "Component correspondence to the unchanged Chapter 4 in its declared complex continuation chart. 57 audited real/complex/set/bijection statements; no whole-chapter certification or relaxation of ordinary partial arithmetic. Circle nesting means inclusion of their enclosed disks, not inclusion of distinct circle boundaries.",
+  "source_audit": [
+    {
+      "source_label": "rem:p0-pole-forward",
+      "issue": "A first exit from the affine sector does not force every later adjacent pole to differ. The correct per-step criterion is that the newly postcomposed factor fails to fix infinity. J followed by T_s has finite pole 0 at both prefixes, and the entire ripple pencil is unchanged.",
+      "status": "Recorded wording limitation; prospective transport conclusions are not certified or repaired here."
+    }
+  ]
+}

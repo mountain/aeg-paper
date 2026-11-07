@@ -146,7 +146,11 @@ class AnalysisReceiptTests(unittest.TestCase):
         lock = json.loads(files["sources/machine.lock.json"])
         for name, digest in lock["formal_sources"].items():
             self.assertEqual(hashlib.sha256(files["sources/" + name]).hexdigest(), digest)
-            self.assertEqual(files["sources/" + name], (HERE / name).read_bytes())
+            # Keep this completed Chapter 3 snapshot historical. Current
+            # navigation and this receipt test have separately pinned Chapter 4
+            # successors; all proof/library/contract/receiver bytes stay exact.
+            if name not in {"inventory.py", "inventory.json", "test_analysis.py"}:
+                self.assertEqual(files["sources/" + name], (HERE / name).read_bytes())
         for name, digest in json.loads(files["sources/inventory.json"])["sources"].items():
             self.assertEqual(hashlib.sha256(files["manuscript/" + name]).hexdigest(), digest)
         for row in legacy["rows"]:

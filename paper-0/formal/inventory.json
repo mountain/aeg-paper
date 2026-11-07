@@ -30,6 +30,7 @@
   "evaluability_map_sha256": "31ce42679dc6bbae0e2840e57496a2c39573c3f7294e24a1eb7e7d2055ef5c35",
   "chapter03_map_sha256": "d45a1c784739f287898201965f5940f87219ca21a0bf5972f4b6aeb9b54a0d5f",
   "analysis_map_sha256": "e848652266fc7a0b29c82ac18e252889d8b48c51b6ad3c54e3063384c0a5a9ef",
+  "chapter04_map_sha256": "cc04448b1fd26ec9df30feba9847c646ea0f36248525e9576f5618d57a0b0af3",
   "claims": [
     {
       "source": "paper-0/sections/02-expansion.tex",
@@ -639,9 +640,34 @@
       "labels": [
         "def:p0-ripple-pencil"
       ],
-      "formal_status": "not-yet-formalized",
+      "formal_status": "component-map-supplied",
       "certificates": [],
-      "lean_components": []
+      "lean_components": [
+        "AEGPaper0.Chapter04Ripples.affine_diagonal_nonzero",
+        "AEGPaper0.Chapter04Ripples.affine_ripple_line",
+        "AEGPaper0.Chapter04Ripples.circle_boundary_contact",
+        "AEGPaper0.Chapter04Ripples.circle_height_bounds",
+        "AEGPaper0.Chapter04Ripples.completed_square",
+        "AEGPaper0.Chapter04Ripples.denominatorSq_positive",
+        "AEGPaper0.Chapter04Ripples.denominator_ne_zero",
+        "AEGPaper0.Chapter04Ripples.denominator_normSq",
+        "AEGPaper0.Chapter04Ripples.distinct_ripples_disjoint",
+        "AEGPaper0.Chapter04Ripples.mobius_imaginary",
+        "AEGPaper0.Chapter04Ripples.mobius_preserves_upper",
+        "AEGPaper0.Chapter04Ripples.radius_antitone",
+        "AEGPaper0.Chapter04Ripples.radius_positive",
+        "AEGPaper0.Chapter04Ripples.ripple_circle",
+        "AEGPaper0.Chapter04Ripples.ripple_disks_nested",
+        "AEGPaper0.Chapter04Ripples.ripple_empty_nonpositive",
+        "AEGPaper0.Chapter04Ripples.ripple_equation",
+        "AEGPaper0.Chapter04Ripples.ripple_level",
+        "AEGPaper0.Chapter04Ripples.ripple_membership",
+        "AEGPaper0.Chapter04Ripples.ripple_parameter_positive",
+        "AEGPaper0.Chapter04Ripples.ripple_unique_positive_level",
+        "AEGPaper0.Chapter04Ripples.tangentDisk_equation",
+        "AEGPaper0.Chapter04Ripples.tangentDisk_height_nonnegative",
+        "AEGPaper0.Chapter04Ripples.tangentDisk_nested"
+      ]
     },
     {
       "source": "paper-0/sections/04-ripple-geometry.tex",
@@ -652,9 +678,34 @@
         "thm:p0-ripple-pencil-formula",
         "eq:p0-ripple-circle"
       ],
-      "formal_status": "not-yet-formalized",
+      "formal_status": "component-map-supplied",
       "certificates": [],
-      "lean_components": []
+      "lean_components": [
+        "AEGPaper0.Chapter04Ripples.affine_diagonal_nonzero",
+        "AEGPaper0.Chapter04Ripples.affine_ripple_line",
+        "AEGPaper0.Chapter04Ripples.circle_boundary_contact",
+        "AEGPaper0.Chapter04Ripples.circle_height_bounds",
+        "AEGPaper0.Chapter04Ripples.completed_square",
+        "AEGPaper0.Chapter04Ripples.denominatorSq_positive",
+        "AEGPaper0.Chapter04Ripples.denominator_ne_zero",
+        "AEGPaper0.Chapter04Ripples.denominator_normSq",
+        "AEGPaper0.Chapter04Ripples.distinct_ripples_disjoint",
+        "AEGPaper0.Chapter04Ripples.mobius_imaginary",
+        "AEGPaper0.Chapter04Ripples.mobius_preserves_upper",
+        "AEGPaper0.Chapter04Ripples.radius_antitone",
+        "AEGPaper0.Chapter04Ripples.radius_positive",
+        "AEGPaper0.Chapter04Ripples.ripple_circle",
+        "AEGPaper0.Chapter04Ripples.ripple_disks_nested",
+        "AEGPaper0.Chapter04Ripples.ripple_empty_nonpositive",
+        "AEGPaper0.Chapter04Ripples.ripple_equation",
+        "AEGPaper0.Chapter04Ripples.ripple_level",
+        "AEGPaper0.Chapter04Ripples.ripple_membership",
+        "AEGPaper0.Chapter04Ripples.ripple_parameter_positive",
+        "AEGPaper0.Chapter04Ripples.ripple_unique_positive_level",
+        "AEGPaper0.Chapter04Ripples.tangentDisk_equation",
+        "AEGPaper0.Chapter04Ripples.tangentDisk_height_nonnegative",
+        "AEGPaper0.Chapter04Ripples.tangentDisk_nested"
+      ]
     },
     {
       "source": "paper-0/sections/04-ripple-geometry.tex",
@@ -665,9 +716,16 @@
         "ex:p0-inversion-ripples",
         "eq:p0-inversion-circles"
       ],
-      "formal_status": "not-yet-formalized",
+      "formal_status": "component-map-supplied",
       "certificates": [],
-      "lean_components": []
+      "lean_components": [
+        "AEGPaper0.Chapter04Ripples.inversion_determinant",
+        "AEGPaper0.Chapter04Ripples.inversion_followed_by_translation_has_same_finite_pole",
+        "AEGPaper0.Chapter04Ripples.inversion_map",
+        "AEGPaper0.Chapter04Ripples.inversion_pole",
+        "AEGPaper0.Chapter04Ripples.inversion_radius",
+        "AEGPaper0.Chapter04Ripples.inversion_ripple"
+      ]
     },
     {
       "source": "paper-0/sections/04-ripple-geometry.tex",
@@ -689,9 +747,12 @@
       "labels": [
         "prop:p0-path-ripple-duality"
       ],
-      "formal_status": "not-yet-formalized",
+      "formal_status": "component-map-supplied",
       "certificates": [],
-      "lean_components": []
+      "lean_components": [
+        "AEGPaper0.Chapter04Ripples.chronological_pullback",
+        "AEGPaper0.Chapter04Ripples.pullback_point_duality"
+      ]
     },
     {
       "source": "paper-0/sections/04b-pole-covariance.tex",
@@ -703,9 +764,21 @@
         "eq:p0-pole-covariance",
         "eq:p0-pole-constancy-criterion"
       ],
-      "formal_status": "not-yet-formalized",
+      "formal_status": "component-map-supplied",
       "certificates": [],
-      "lean_components": []
+      "lean_components": [
+        "AEGPaper0.Chapter04Poles.affine_infinity_criterion",
+        "AEGPaper0.Chapter04Poles.composition_apply",
+        "AEGPaper0.Chapter04Poles.finite_pole_denominator_zero",
+        "AEGPaper0.Chapter04Poles.finite_pole_numerator_nonzero",
+        "AEGPaper0.Chapter04Poles.pole_column_annihilates_denominator",
+        "AEGPaper0.Chapter04Poles.pole_column_nonzero",
+        "AEGPaper0.Chapter04Poles.pole_constancy_criterion",
+        "AEGPaper0.Chapter04Poles.pole_covariance",
+        "AEGPaper0.Chapter04Poles.pole_eq_infinity_iff",
+        "AEGPaper0.Chapter04Poles.pole_is_unique_preimage",
+        "AEGPaper0.Chapter04Poles.pole_moves_iff"
+      ]
     },
     {
       "source": "paper-0/sections/04b-pole-covariance.tex",
@@ -715,9 +788,20 @@
       "labels": [
         "prop:p0-pole-rigidity"
       ],
-      "formal_status": "not-yet-formalized",
+      "formal_status": "component-map-supplied",
       "certificates": [],
-      "lean_components": []
+      "lean_components": [
+        "AEGPaper0.Chapter04Poles.affine_prefix_fixes_infinity",
+        "AEGPaper0.Chapter04Poles.first_nonaffine_step_moves_pole",
+        "AEGPaper0.Chapter04Poles.history_prefix_rigidity",
+        "AEGPaper0.Chapter04Poles.history_step_rigidity",
+        "AEGPaper0.Chapter04Poles.postcompose_affine_keeps_current_pole",
+        "AEGPaper0.Chapter04Poles.prefix_initial_pole",
+        "AEGPaper0.Chapter04Poles.prefix_pole_covariance",
+        "AEGPaper0.Chapter04Poles.prefix_step_pole_iff",
+        "AEGPaper0.Chapter04Poles.prefix_successor_apply",
+        "AEGPaper0.Chapter04Poles.terminal_pole_does_not_detect_every_step"
+      ]
     },
     {
       "source": "paper-0/sections/04b-pole-covariance.tex",
@@ -739,9 +823,14 @@
       "labels": [
         "rem:p0-pole-forward"
       ],
-      "formal_status": "not-yet-formalized",
+      "formal_status": "component-map-supplied",
       "certificates": [],
-      "lean_components": []
+      "lean_components": [
+        "AEGPaper0.Chapter04Ripples.output_translation_determinant",
+        "AEGPaper0.Chapter04Ripples.output_translation_map",
+        "AEGPaper0.Chapter04Ripples.output_translation_pole",
+        "AEGPaper0.Chapter04Ripples.output_translation_ripple"
+      ]
     },
     {
       "source": "paper-0/sections/05-reciprocals-fixed-points.tex",

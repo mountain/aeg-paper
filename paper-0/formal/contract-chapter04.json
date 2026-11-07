@@ -1,0 +1,61 @@
+{
+  "schema": "aeg.paper0.formal.contract.chapter04.v1",
+  "date": "2026-11-07",
+  "source_commit": "792beea1d7f0b99c77751420f75c8a1db201149e",
+  "question": "Advance the easier Chapter 4 real/complex ripple formulas and pointed-bijection pole laws while recording the deferred Chapter 3 formal prerequisites.",
+  "bounds": {
+    "wall_seconds": 300,
+    "child_commands": 32,
+    "child_wall_seconds": 120,
+    "child_cpu_seconds": 60,
+    "child_address_space_bytes": 1073741824,
+    "lean_child_address_space_bytes": 8589934592,
+    "child_file_bytes": 33554432,
+    "artifact_bytes": 536870912
+  },
+  "expected_work": {
+    "child_commands": 8,
+    "new_lean_statements": 57,
+    "positive_modules": 2,
+    "negative_controls": 4
+  },
+  "negative_controls": [
+    {
+      "name": "positive-determinant",
+      "file": "negative/Chapter04MissingDeterminant.lean",
+      "expected_fragments": [
+        "mobius_preserves_upper m z",
+        "0 < determinant m \u2192 z \u2208 upper"
+      ]
+    },
+    {
+      "name": "circle-guards",
+      "file": "negative/Chapter04MissingCircleGuard.lean",
+      "expected_fragments": [
+        "completed_square m t x y",
+        "t \u2260 0 \u2192 m.c \u2260 0 \u2192"
+      ]
+    },
+    {
+      "name": "affine-step",
+      "file": "negative/Chapter04MissingAffineStep.lean",
+      "expected_fragments": [
+        "postcompose_affine_keeps_current_pole infinity P Q",
+        "fixesInfinity infinity P \u2192"
+      ]
+    },
+    {
+      "name": "composition-order",
+      "file": "negative/Chapter04WrongCompositionOrder.lean",
+      "expected_fragments": [
+        "pole_covariance infinity P Q",
+        "(Equiv.symm Q) (pole infinity P)",
+        "(Equiv.symm P) (pole infinity Q)"
+      ]
+    }
+  ],
+  "resource_basis": "Declared before the bounded invocation. Reuse the existing analytic profile limits unchanged: 300 seconds shared wall time, 60 seconds child CPU, 120 seconds child wall and 8 GiB Lean virtual address space. Engineering compiled both standalone modules using only the already pinned Mathlib.Tactic and Data.Complex.Basic cache; no library fetch/version/fingerprint change. Original native and analytic profiles remain separate and required.",
+  "success": "The two standalone modules exactly match all 57 audited names/global axiom sets, with clean diagnostics and no target axioms/admitted proofs. All four negative modules reject for their specified hypotheses/order mismatches. Source/manuscript/library pins match. The complete preceding native and Chapter 3 analytic profiles pass separately.",
+  "exit": "One fresh bounded invocation after engineering checks; retain a Failed record and stop on mismatch/exhaustion. A correction requires a separately declared successor, never automatic bound growth.",
+  "authorship": "Codex (OpenAI), CC0; no independent human review claimed."
+}

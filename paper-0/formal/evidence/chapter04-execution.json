@@ -1,0 +1,391 @@
+{
+  "schema": "aeg.paper0.chapter04.execution.v1",
+  "date": "2026-11-07",
+  "status": "Passed",
+  "authorship": "Codex (OpenAI), CC0; no independent human mathematical review claimed.",
+  "source_lock_sha256": "59213848c2255d16ea73c6ac0897f18aa0fc1162e7356cb024afb08ed463dd20",
+  "chapter04_map_sha256": "cc04448b1fd26ec9df30feba9847c646ea0f36248525e9576f5618d57a0b0af3",
+  "chapter03_obligations_sha256": "973e643c66e264c4475b512d916e4eef7a87dfe94d112f910e98359e81ad2800",
+  "mathlib_lock_sha256": "de2e937993bd22e41702f21889ac382f3cb36364cbe0b5e5d3fbc1e32bd0394d",
+  "mathlib_commit": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
+  "mathlib_source_files": 7600,
+  "mathlib_compiled_modules": 3175,
+  "profiles": {
+    "native": {
+      "directory": "native-01",
+      "contract": "contract-chapter03.json",
+      "contract_sha256": "606081b7c80d6f57bd1b05a688217d93c411663a98f23eb2eed931a17a66312f",
+      "report_sha256": "60da00311af5ae9ce5a259a331c1b6cbfd0a2208311cc1e79eb3514097060342",
+      "wall_seconds": 174.33281769600035,
+      "child_commands": 148
+    },
+    "analytic": {
+      "directory": "analysis-01",
+      "contract": "contract-analysis-v1.1.json",
+      "contract_sha256": "dc43df95783ca070cc0fad0717cc5986182d3fca814a9a6358f7b436376a7ab3",
+      "report_sha256": "62b81cdfae558fee7fe23506fce0427f279f0bdb9f333c4dac26a43d12e10152",
+      "wall_seconds": 136.4317256209997,
+      "child_commands": 16
+    },
+    "chapter04": {
+      "directory": "chapter04-01",
+      "contract": "contract-chapter04.json",
+      "contract_sha256": "52b58178702f5afecc366ed2edab8b1da4c553c3cab3703c2e1fa6fe34d4a905",
+      "report_sha256": "69b41bf73932f9b22538bf36763a987a20787fd32ff3f131740239881705d301",
+      "wall_seconds": 58.90788868300115,
+      "child_commands": 8
+    }
+  },
+  "previous_lean_statements": 258,
+  "new_lean_statements": 57,
+  "total_lean_statements": 315,
+  "chapter04_axioms": {
+    "AEGPaper0.Chapter04Ripples": {
+      "denominator_normSq": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "denominator_ne_zero": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "denominatorSq_positive": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "mobius_imaginary": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "mobius_preserves_upper": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "ripple_membership": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "ripple_level": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "ripple_equation": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "affine_diagonal_nonzero": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "affine_ripple_line": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "radius_positive": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "completed_square": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "ripple_circle": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "circle_boundary_contact": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "circle_height_bounds": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "radius_antitone": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "tangentDisk_equation": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "tangentDisk_height_nonnegative": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "tangentDisk_nested": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "ripple_disks_nested": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "distinct_ripples_disjoint": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "ripple_parameter_positive": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "ripple_empty_nonpositive": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "ripple_unique_positive_level": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "output_translation_determinant": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "output_translation_map": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "output_translation_pole": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "output_translation_ripple": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "inversion_determinant": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "inversion_map": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "inversion_radius": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "inversion_pole": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "inversion_followed_by_translation_has_same_finite_pole": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "inversion_ripple": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "pullback_point_duality": [],
+      "chronological_pullback": []
+    },
+    "AEGPaper0.Chapter04Poles": {
+      "composition_apply": [
+        "Quot.sound"
+      ],
+      "pole_covariance": [
+        "Quot.sound"
+      ],
+      "pole_is_unique_preimage": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "pole_eq_infinity_iff": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "pole_constancy_criterion": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "pole_moves_iff": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "prefix_initial_pole": [
+        "Quot.sound"
+      ],
+      "prefix_successor_apply": [
+        "Quot.sound"
+      ],
+      "prefix_pole_covariance": [
+        "Quot.sound"
+      ],
+      "prefix_step_pole_iff": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "history_step_rigidity": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "affine_prefix_fixes_infinity": [
+        "Quot.sound"
+      ],
+      "history_prefix_rigidity": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "first_nonaffine_step_moves_pole": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "postcompose_affine_keeps_current_pole": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "terminal_pole_does_not_detect_every_step": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "pole_column_nonzero": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "pole_column_annihilates_denominator": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "finite_pole_denominator_zero": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "finite_pole_numerator_nonzero": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "affine_infinity_criterion": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  },
+  "negative_controls": {
+    "positive-determinant": "Rejected with the expected specific type mismatch",
+    "circle-guards": "Rejected with the expected specific type mismatch",
+    "affine-step": "Rejected with the expected specific type mismatch",
+    "composition-order": "Rejected with the expected specific type mismatch"
+  },
+  "native_runs": 69,
+  "reference_transitions": 51137,
+  "preceding_native_reports_unchanged": 69,
+  "original_proof_library_goal_contract_and_runtime_receiver_bytes_unchanged": true,
+  "old_formal_sources_with_explicit_navigation_successors": [
+    "inventory.py",
+    "inventory.json",
+    "test_analysis.py"
+  ],
+  "formal_source_files": 70,
+  "manuscript_source_files": 22,
+  "archive": {
+    "path": "chapter04-run-01.tar.gz",
+    "sha256": "d252b677e3cfc0bd89f8ff21a50ca9b06e89edf32ccc6706fccd95ae34e1d71a",
+    "bytes": 6981971,
+    "members": 670,
+    "uncompressed_bytes": 27757204
+  },
+  "manuscript_builds": {
+    "0": {
+      "status": "Passed",
+      "pages": 103,
+      "pdf_bytes": 909781,
+      "pdf_sha256": "06763a710b067aaa832d8025bfd170268e74478f3779617383cb46d47cee37f6",
+      "final_log_sha256": "6bdf8bff7ea378ff464d01714c0d6144983a75f2496e10a3d85967745d39b8ba",
+      "unresolved_references_citations_duplicate_labels_missing_assets": false,
+      "overfull_boxes": 2,
+      "max_overfull_pt": 11.13274,
+      "note": "Validation PDF retained externally; tracked manuscript PDF restored without changing its bytes."
+    },
+    "1": {
+      "status": "Passed",
+      "pages": 61,
+      "pdf_bytes": 756641,
+      "pdf_sha256": "9d0d5cc76d081e0d7cb1169d4a7d0547ba696e6976160c9e4773b2039b9fb836",
+      "final_log_sha256": "54ee5fedf67492fd5524aeb566fa6a9ac8366298fdaa11f725f279a04c1c384c",
+      "unresolved_references_citations_duplicate_labels_missing_assets": false,
+      "overfull_boxes": 8,
+      "max_overfull_pt": 105.1512,
+      "note": "Validation PDF retained externally; tracked manuscript PDF restored without changing its bytes."
+    }
+  },
+  "pre_receipt_checks": {
+    "passed": 34,
+    "pending_receipt_test": 1,
+    "note": "The archive-binding test cannot pass before the completed execution receipt exists. Its missing-receipt error is retained verbatim in engineering/unit-before-receipt.log."
+  },
+  "unit_tests_after_archive": 35,
+  "live_inventory": {
+    "source_files": 22,
+    "theorem_like_environments": 102,
+    "component_mapped": 30,
+    "fragment_certified": 1,
+    "not_yet_formalized": 71
+  },
+  "source_audit": [
+    {
+      "source_label": "rem:p0-pole-forward",
+      "issue": "A first exit from the affine sector does not force every later adjacent pole to differ. The correct per-step criterion is that the newly postcomposed factor fails to fix infinity. J followed by T_s has finite pole 0 at both prefixes, and the entire ripple pencil is unchanged.",
+      "status": "Recorded wording limitation; prospective transport conclusions are not certified or repaired here."
+    }
+  ],
+  "scope": "Component correspondence to the unchanged Chapter 4 in its declared complex continuation chart. 57 audited real/complex/set/bijection statements; no whole-chapter certification or relaxation of ordinary partial arithmetic. Circle nesting means inclusion of their enclosed disks, not inclusion of distinct circle boundaries.",
+  "remaining": [
+    "Full PGL/projective-line action and matrix-to-bijection identification",
+    "Intrinsic horocycle/ideal-boundary and differential tangency identification",
+    "Absolute-value Apollonius circles and perpendicular-bisector classification",
+    "Chart-independent ripple geometry or new word invariants",
+    "Quantitative projective quotient transport and puncture persistence"
+  ],
+  "deferred_chapter03": "chapter03-obligations.json",
+  "trust_boundary": "Pinned compiler/standard library and source/cache-fingerprinted Mathlib are trusted builds. Actual complex-coordinate ripple formulas and pointed-bijection pole laws are certified; full PGL/ideal-boundary and intrinsic horocycle identification are not. All three profiles pass separately under independently declared bounds."
+}
