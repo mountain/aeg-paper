@@ -129,10 +129,12 @@ class AnalysisReceiptTests(unittest.TestCase):
             self.assertTrue(all(m.isfile() and not Path(m.name).is_absolute() and
                                 ".." not in Path(m.name).parts for m in members))
             files = {m.name: stream.extractfile(m).read() for m in members}
-        analytic = json.loads(files["analysis-02/result.json"])
-        legacy = json.loads(files["native-02/result.json"])
-        for key, result, name in (("analytic_report_sha256", analytic, "analysis-02"),
-                                  ("native_report_sha256", legacy, "native-02")):
+        analytic_dir = record["profile_directories"]["analytic"]
+        native_dir = record["profile_directories"]["native"]
+        analytic = json.loads(files[analytic_dir + "/result.json"])
+        legacy = json.loads(files[native_dir + "/result.json"])
+        for key, result, name in (("analytic_report_sha256", analytic, analytic_dir),
+                                  ("native_report_sha256", legacy, native_dir)):
             self.assertEqual(result["status"], "Passed")
             self.assertEqual(hashlib.sha256(files[name + "/result.json"]).hexdigest(), record[key])
         self.assertEqual(analytic["new_lean_statements"], 66)
@@ -148,7 +150,7 @@ class AnalysisReceiptTests(unittest.TestCase):
         for name, digest in json.loads(files["sources/inventory.json"])["sources"].items():
             self.assertEqual(hashlib.sha256(files["manuscript/" + name]).hexdigest(), digest)
         for row in legacy["rows"]:
-            self.assertEqual(hashlib.sha256(files["native-02/" + row["name"] + ".run.adva"]).hexdigest(), row["report_sha256"])
+            self.assertEqual(hashlib.sha256(files[native_dir + "/" + row["name"] + ".run.adva"]).hexdigest(), row["report_sha256"])
         for module in read("analysis-map.json")["modules"]:
             self.assertEqual(analytic["axioms"][module["module"]], module["expected_axioms"])
         self.assertEqual(set(analytic["negative_controls"]), {"height", "laplacian-sign", "initial-value", "intensity"})

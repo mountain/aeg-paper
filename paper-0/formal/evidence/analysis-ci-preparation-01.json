@@ -1,0 +1,19 @@
+{
+  "schema": "aeg.paper0.chapter03.analysis.ci-preparation.v1",
+  "status": "Failed",
+  "commit": "43879114a4876b2c295a014b53d1d77fc060fae4",
+  "workflow_run_id": 42339843104,
+  "job_id": 128304865043,
+  "url": "https://github.com/mountain/aeg-paper/actions/runs/42339843104",
+  "failure_stage": "External library preparation, before the analytic receiving invocation",
+  "diagnostic": "No such remote 'origin'; official Mathlib cache tool could not resolve its repository",
+  "analytic_proofs_reached": false,
+  "whole_analytic_run_admitted": false,
+  "symbolic_job_status": "Passed",
+  "log": {
+    "path": "analysis-ci-preparation-01.txt",
+    "sha256": "29a4813f5bcb650ad5bec7690e874d1a72f66b020cf41074e9e6ad8e20b168a4"
+  },
+  "correction": "Create the pinned repository origin before fetching the exact detached commit. Proofs, library pins, verification contracts and numerical receiving limits remain unchanged. Repeat clean dependency preparation and both bounded profiles against a fresh source snapshot.",
+  "preceding_successful_local_receipt": "analysis-execution-02.json"
+}

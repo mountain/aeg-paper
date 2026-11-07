@@ -586,7 +586,7 @@ Lean limit. Proof, library, goal and numerical budget bytes are unchanged;
 the regression checks that exact receiving correction. Both profiles are
 rerun against a separately captured successor source snapshot.
 
-The completed successor is `Passed` in `evidence/analysis-execution.json`:
+The completed first successor is `Passed` in `evidence/analysis-execution-02.json`:
 the native profile has 69 runs, 148 child commands and 51,137 independently
 received instruction transitions; the analytic profile has 16 child commands,
 192 rebuilt import audits and all 66 new audits. There are 258 distinct
@@ -599,6 +599,27 @@ byte-identical across attempts. The failed invocation and its additional
 costs remain separately recorded. Both manuscript builds pass at 103/61 pages
 without undefined references, missing citations/assets or duplicate labels;
 existing layout/bookmark warnings remain and tracked PDFs are preserved.
+
+The first remote analytic job at commit `4387911` failed during external
+library preparation, before invoking the analytic receiver: the fresh Git
+checkout lacked `origin`, which the official Mathlib cache tool requires.
+`evidence/analysis-ci-preparation-01.json` and its complete job log retain
+that failure. The independent remote symbolic/native job passed. Preparation
+now registers the pinned repository as `origin` before fetching the exact
+detached commit. The preceding local success and its original archive remain
+in `evidence/analysis-execution-02.json`. A new source snapshot binds the
+preparation correction and receipt-navigation changes; no proof, library pin,
+goal, verification contract or numerical bound is changed.
+
+The current `evidence/analysis-execution.json` and `analysis-run-03.tar.gz`
+retain the clean preparation log, full new source snapshot and both fresh
+bounded invocations. The native profile passes in 232.16 seconds with the
+same 69 reports; the analytic profile passes in 143.57 seconds with all 192
+import audits, 66 new audits and four expected negative-control rejections.
+All 31 regressions pass against this archive. Both manuscript builds again
+produce 103/61 pages, with the same existing layout warnings and preserved
+tracked PDFs. The external library's 7,600 source and 3,175 compiled-module
+fingerprints all match in a fresh checkout without changing the library lock.
 
 ## Continuation order
 

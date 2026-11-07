@@ -688,7 +688,7 @@ library, goal and numerical receiving limits are unchanged. The regression
 checks the exact source correction and retained failure. Both profiles are
 rerun against the successor source snapshot.
 
-The completed combined receipt is `formal/evidence/analysis-execution.json`:
+The first completed combined receipt is `formal/evidence/analysis-execution-02.json`:
 `Passed`. The native profile records 69 runs, 148 child commands and 51,137
 independently received instruction transitions. The analytic profile records
 16 child commands, the 192 unchanged source-import audits and all 66 new
@@ -710,3 +710,27 @@ boxes remain (Paper 0: two, maximum 11.13 pt; Paper I: eight, maximum 105.15 pt)
 with the existing bookmark/underfull warnings. TeX source and tracked PDFs are
 unchanged. CI now has separate native and `real-analysis` jobs; repository
 required-check settings are unchanged.
+
+The first remote analytic job at `4387911` failed before proof reception:
+the preparation script created a fresh Git checkout without `origin`, and
+the official Mathlib cache tool requires that remote to identify its cache
+repository. `formal/evidence/analysis-ci-preparation-01.json` and the complete
+job log preserve the failure; the separate symbolic/native job passed. The
+preparation correction registers the same pinned repository as `origin`
+before fetching its exact detached revision. Proofs, library pins, goals,
+verification contracts and numerical bounds remain unchanged. The preceding
+local successful receipt and its archive remain under
+`formal/evidence/analysis-execution-02.json`; the current receipt binds a
+fresh source snapshot including the preparation correction.
+
+The current `formal/evidence/analysis-execution.json` and
+`analysis-run-03.tar.gz` receive both fresh bounded invocations: the native
+profile passes in 232.16 seconds, and the analytic profile in 143.57 seconds,
+each within its unchanged 300-second deadline. All 69 native reports are
+byte-identical to the preceding success; the analytic profile again audits
+192 imported and 66 new statements, with all four negative controls rejecting
+as required. All 31 regressions pass against the new full source/archive
+bindings. Clean-checkout preparation matches all 7,600 source and 3,175
+compiled-module fingerprints without changing the library lock. Both
+manuscript builds again pass at 103/61 pages, with the same layout warnings;
+tracked PDFs and TeX sources remain unchanged.

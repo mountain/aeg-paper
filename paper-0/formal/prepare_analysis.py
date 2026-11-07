@@ -21,7 +21,9 @@ def main():
             raise ValueError("Mathlib destination must be new or the pinned checkout")
         root.mkdir(parents=True, exist_ok=True)
         subprocess.run(["git", "init", str(root)], check=True)
-        subprocess.run(["git", "-C", str(root), "fetch", "--depth=1", lock["repository"], lock["commit"]], check=True)
+        # The official cache tool resolves the GitHub repository from origin.
+        subprocess.run(["git", "-C", str(root), "remote", "add", "origin", lock["repository"]], check=True)
+        subprocess.run(["git", "-C", str(root), "fetch", "--depth=1", "origin", lock["commit"]], check=True)
         subprocess.run(["git", "-C", str(root), "checkout", "--detach", "FETCH_HEAD"], check=True)
     if head(root) != lock["commit"]:
         raise ValueError("existing Mathlib destination has a different revision")

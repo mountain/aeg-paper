@@ -1,5 +1,5 @@
 {
-  "schema": "aeg.paper0.chapter03.analysis.execution.v1.1",
+  "schema": "aeg.paper0.chapter03.analysis.execution.v1.2",
   "date": "2026-11-07",
   "status": "Passed",
   "authorship": "Codex (OpenAI), CC0; no independent human mathematical review claimed.",
@@ -7,20 +7,20 @@
   "contract_sha256": "dc43df95783ca070cc0fad0717cc5986182d3fca814a9a6358f7b436376a7ab3",
   "native_contract": "contract-chapter03.json",
   "native_contract_sha256": "606081b7c80d6f57bd1b05a688217d93c411663a98f23eb2eed931a17a66312f",
-  "source_lock_sha256": "ad9b038aeb69ba6dc8fe6e09b9e7df33e305707bbd4edd5cb5f393989027817d",
+  "source_lock_sha256": "5e31bd4734f882418167d3c6fe85aa47c2ba39c11ad7d711acde0625da64c303",
   "analysis_map_sha256": "e848652266fc7a0b29c82ac18e252889d8b48c51b6ad3c54e3063384c0a5a9ef",
   "mathlib_lock_sha256": "de2e937993bd22e41702f21889ac382f3cb36364cbe0b5e5d3fbc1e32bd0394d",
   "mathlib_commit": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
   "mathlib_source_files": 7600,
   "mathlib_compiled_modules": 3175,
-  "analytic_report_sha256": "47e3a9d6bfe44e71fe6c41b009facf0854a8e3ebc31c05a409dcc1f56ef73804",
-  "native_report_sha256": "d6b4d08ae8e8e1a0011c807aef8bfe484295541323abeebf96806cc92123e424",
+  "analytic_report_sha256": "9811edafd990fa921520cc294ef99245f46fac318c03c54fb44278337afa76a3",
+  "native_report_sha256": "eedd8f57a2950a73f7e87e769fab7dc05b2087a3eddfa5f603ead26d644e0573",
   "archive": {
-    "path": "analysis-run-02.tar.gz",
-    "sha256": "a476eb356859fad92f3855830660b1382572d99fdd6cbadb48b57b3393a6e31e",
-    "bytes": 6562007,
-    "members": 638,
-    "uncompressed_bytes": 26337809
+    "path": "analysis-run-03.tar.gz",
+    "sha256": "d0afc477a83309e053f507a0196cb708a9743b56c78eca0af550724347313bea",
+    "bytes": 6536589,
+    "members": 639,
+    "uncompressed_bytes": 26341876
   },
   "previous_lean_statements": 192,
   "new_lean_statements": 66,
@@ -379,8 +379,8 @@
     "intensity": "Rejected with the expected specific type mismatch"
   },
   "wall_seconds_per_profile": {
-    "native": 255.01561838499993,
-    "analytic": 186.44474107199994
+    "native": 232.1617776850003,
+    "analytic": 143.5736619879999
   },
   "independent_profile_deadlines_seconds": {
     "native": 300,
@@ -398,15 +398,15 @@
     "proof_and_library_bytes_unchanged": true,
     "numerical_receiving_bounds_unchanged": true
   },
-  "unit_tests_before_successor": 30,
+  "unit_tests_before_successor": 31,
   "unit_tests_after_archive": 31,
   "manuscript_builds": {
     "0": {
       "status": "Passed",
       "pages": 103,
       "pdf_bytes": 909781,
-      "pdf_sha256": "9e44f56e9bbe40bb9c6dffa24705b9f4d9044cdbc04f28778067c36554ca8530",
-      "final_log_sha256": "540babc98f63c73eda5f9888de5352ab443eba8a1641fcc3ad072986eba30caf",
+      "pdf_sha256": "4c7b83567a190688e969abca972aac734a8af6fedb67fd041264110b4a5956f7",
+      "final_log_sha256": "f610151afcf3ff2349231eef428a072dc5264c1c22fac5c5decfb96ff5dd9244",
       "unresolved_references_citations_duplicate_labels_missing_assets": false,
       "overfull_boxes": 2,
       "note": "Validation PDF retained externally; tracked manuscript PDF preserved."
@@ -415,8 +415,8 @@
       "status": "Passed",
       "pages": 61,
       "pdf_bytes": 756641,
-      "pdf_sha256": "c8b283c63c594ec58203208c16d179541486d712be6d161a12e1e2d5829256f5",
-      "final_log_sha256": "1a9bab17f13a80d407cf1b2cd214fc8df46a9c8f06edada7fdefad160054666a",
+      "pdf_sha256": "5a89fd4f86989cf9a0e2e895944116b247efec1a202ec38d22b03c9bc9b7813c",
+      "final_log_sha256": "bd9b296340d7ace9cc155331e43336147249e9d0ec62ba8d7a7ceba130af9a9e",
       "unresolved_references_citations_duplicate_labels_missing_assets": false,
       "overfull_boxes": 8,
       "note": "Validation PDF retained externally; tracked manuscript PDF preserved."
@@ -431,5 +431,22 @@
     "source_drift": 0
   },
   "coverage": "Actual real Frechet/second-partial derivatives, smooth open two-dimensional carrier and smooth coordinate-AES model, metric-gradient/Jacobian identification, coordinate Laplace--Beltrami eigenfunction, positive smooth square root, arsinh and zero-lambda unit rectification, real affine ODE existence/uniqueness and the signed frame/curve chain rule. Standard Mathlib is source/cache-pinned; all 66 new theorem axiom sets are audited. The preceding 192 statements and native profile remain independently checked. Curvature/completeness, hyperbolic length/trace classifications, punctured E1 and full arbitrary-manifold Riemannian/bundle equivalences are outside this continuation.",
-  "trust_boundary": "Actual real analytic derivatives and smooth open coordinate AES are certified. The pinned compiler/standard library and fingerprinted cached Mathlib are trusted builds. General Riemannian bundle/operator equivalences, Gaussian curvature/completeness, hyperbolic length/trace and E1 remain outside this certificate."
+  "trust_boundary": "Actual real analytic derivatives and smooth open coordinate AES are certified. The pinned compiler/standard library and fingerprinted cached Mathlib are trusted builds. General Riemannian bundle/operator equivalences, Gaussian curvature/completeness, hyperbolic length/trace and E1 remain outside this certificate.",
+  "profile_directories": {
+    "analytic": "analysis-03",
+    "native": "native-03"
+  },
+  "preceding_successful_local_receipt": "analysis-execution-02.json",
+  "preserved_remote_preparation_failure": "analysis-ci-preparation-01.json",
+  "preparation_correction": {
+    "clean_checkout_fingerprints": "Passed without any changed library pins",
+    "clean_preparation_log": "engineering/preparation-clean-03.log",
+    "formal_sources_unchanged": 57,
+    "formal_sources_changed": [
+      "prepare_analysis.py",
+      "test_analysis.py"
+    ],
+    "proof_library_contract_and_numerical_bound_bytes_unchanged": true,
+    "native_reports_unchanged": 69
+  }
 }
