@@ -887,3 +887,78 @@ duplicate labels or missing assets. Existing overfull boxes (2/8, maximum
 11.13/105.15 pt) and bookmark/underfull warnings remain; manuscript text and
 tracked PDFs are unchanged. The next prerequisite is a concrete projective-line
 action and its bridge to the already proved pointed-bijection pole laws.
+
+## 20. Homogeneous projective action and concrete matrix pole bridge (2026-11-07)
+
+The prerequisite left by sections 18--19 is discharged in a concrete algebraic
+model. `formal/ProjectiveLine.lean`, `Chapter04ProjectiveBridge.lean` and
+`Chapter04ComplexProjective.lean` add 70 exactly audited statements, bringing
+the combined distinct count to 424 including supporting lemmas. Their map,
+`formal/projective-map.json`, pins the current Section 6, the ripple source
+and its nested pole subsection. No complete-chapter or external PGL API
+certificate is inferred from these component maps.
+
+| Component | Status | Hypotheses and boundary |
+| --- | --- | --- |
+| projective-line homogeneous quotient and chart | `PROVED WITH STATED HYPOTHESES` | Over any field, nonzero pairs modulo collinearity are equivalent to the explicit finite/infinity chart. Quotient equality is exactly multiplication by a nonzero scalar. This is an algebraic quotient, with no topology or smooth structure asserted. |
+| actual nondegenerate matrix bijections | `PROVED WITH STATED HYPOTHESES` | Nonzero determinant preserves nonzero vectors; the adjugate yields both inverse laws after projection. The constructed `Equiv.Perm` supplies bijectivity instead of assuming the target action law. Quotient representatives transform by the actual linear matrix product. |
+| finite/infinite point action and fixed points | `PROVED WITH STATED HYPOTHESES` | The finite denominator-zero branch maps to infinity; the image of infinity has its separate formula. The pole is uniquely `-D/C` for nonzero `C`, infinity exactly for `C=0`, and finite fixed points satisfy the displayed quadratic. Nonzero scalar multiples have equal actions. |
+| concrete covariance and chronological prefix rigidity | `PROVED WITH STATED HYPOTHESES` | Matrix multiplication has the chronological action order. The existing abstract bijection lemmas give matrix-pole covariance, per-step constancy, all-prefix rigidity and first exit, with the affine hypothesis identified as the actual lower-left coefficient `C=0`. Every section matrix remains nondegenerate. |
+| elementary matrix/action factorizations | `PROVED WITH STATED HYPOTHESES` | Translations, nonzero dilations and inversion act at finite points and infinity as specified. Affine and non-affine cases have their two-/four-factor forms up to explicit nonzero matrix scalars, and as equal total projective actions. Operational generation is certified; the external PGL quotient-group isomorphism and its faithfulness are separate obligations. |
+| real/complex continuation chart and ripple bridge | `PROVED WITH STATED HYPOTHESES` | The real-to-complex point embedding commutes with the matrix action. A nonzero denominator identifies the finite complex action with the existing actual Möbius formula; positive determinant preserves the upper chart. Ripple membership is its actual output-condition pullback. Ordinary arithmetic domains remain distinct from projective continuation. |
+
+The first two modules require only a field; no positivity, characteristic-zero
+or real-order assumption is hidden in their algebraic statements. The last
+module specializes real coefficients to the previously fixed complex chart.
+Nonzero determinant, nonzero scalar and chronological-order hypotheses are
+active: zero scaling changes the action, and a concrete singular-matrix
+example breaks the unguarded composition law. Equality of projective actions
+does not identify arithmetic histories, their markings or ordinary domains.
+
+Two existing Section 6 environments now receive component maps, for 32 mapped
+environments, one fragment-certified and 69 not yet formalized among the same
+102 environments. Four equation anchors have separate maps across the same
+22 manuscript sources. Source text and mathematical hypotheses are preserved;
+no research material is moved. The previously recorded forward-pole wording
+limitation is not erased by constructing the concrete bridge.
+
+Exact new global axiom sets disclose only their actual subsets of `propext`,
+`Classical.choice` and `Quot.sound`, with no target AEG axiom or admitted proof.
+The same Mathlib/Lean source and cached-library fingerprints are reused without
+change. Preceding proof, program, goal, runtime-receiver and receiving-contract
+bytes retain their exact bindings. Navigation and its historical receipt test
+have separately pinned successors; old execution archives remain preserved.
+
+`formal/contract-projective.json` declares a separate 300-second receiving
+profile with the unchanged numerical analytic bounds, including 8 GiB Lean
+virtual address space. Eleven commands rebuild 57 unchanged import audits,
+check 70 new audits and reject four controls for missing determinant/scalar/
+affine guards or reversed pole order. All four predecessor profiles remain
+independently required, with no budget refill across profiles. The new profile
+has its own CI job and artifact. External PGL/Projectivization group API
+identification, scalar-quotient faithfulness, abstract affine-group isomorphism,
+and topological/intrinsic geometric interfaces remain separate obligations.
+
+`formal/evidence/projective-execution.json` and its full archive receive all
+five profiles as `Passed`: native 172.45 seconds, Chapter 3 analysis 128.75,
+original Chapter 4 51.85, Apollonius 69.21 and projective 80.76 seconds. Each
+is inside its own unchanged 300-second deadline. Predecessor counts remain
+exact: 69 native runs, 148 child commands and 51,137 independently received
+instruction transitions; 192 core/66 analytic audits in 16 commands; 57 original
+Chapter 4 audits and four rejections in eight commands; 36 import/39 Apollonius
+audits and four rejections in eight commands. The new profile has 57 import
+audits, 70 new audits and four specific rejections in eleven commands. Import
+rechecks are not counted as new statements. All 69 native reports are
+byte-identical to the preceding success.
+
+The archive binds 90 formal sources plus their lock, 22 manuscript sources,
+workflow, five reports, native traces/replay receipts, Lean audits, negative
+diagnostics and both build logs. All 43 regressions pass against the completed
+bindings; the preparatory log retains its 42 passes and then-absent receipt
+test rather than relabelling that stage as complete. Both builds pass at
+103/61 pages with no unresolved references/citations, duplicate labels or
+missing assets. Existing overfull boxes (2/8, maximum 11.13/105.15 pt) and
+bookmark/underfull warnings remain; manuscript text and tracked PDFs are
+unchanged. The next algebraic step is scalar-quotient faithfulness and the
+external PGL/affine-group interfaces; the known Chapter 3 geometric obligations
+remain in their separate work register.

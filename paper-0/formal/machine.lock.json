@@ -17,8 +17,8 @@
     "certificates.json": "c28f502519533428486ba0b12e5d47a160be62512bfa93c9b7d93cce811c7d5c",
     "Chapter02.lean": "b7b3a8cc35fa6c1e2e646fae3577c39a4113c6957ffd0c983b45fd6f07a007ab",
     "Chapter02Domains.lean": "d3c0f718936f128da2e15daf61ec0111cdd956ee7fb23ab6a451e677d7358c4c",
-    "inventory.py": "4b5545bdd9c25c4903b9db6079d8ed0cd2e813639e0050b4cbf5045b3d0c1313",
-    "inventory.json": "fa3a886490e19fb33fc0ec77d2e25c2794bbdb65236738884fae4d017a24566c",
+    "inventory.py": "37d016d99d8960f05df86c19ef7b283cf53fcea78545db682f578068c567a167",
+    "inventory.json": "09378a1411630757db925b3f32efca43ddfb12ff8eebddd004e711274fc308e7",
     "run.py": "b0396c9bb279cbe90f2db6a5012ea48b2ceb20429991ec602754ab2d0e7a9fc0",
     "domain_author.py": "a6968582b2a181d9195a900238c29f599d8e5e3475c8c2ebaac9df2d0c23a03c",
     "domain-checker.adva": "de995c4d26f940fb0e35dd78ef2a271b144e0dc4c58c6395f444e6bbe7fbb231",
@@ -82,11 +82,22 @@
     "apollonius-map.json": "f33fce34bcf959281dd6072be26c2f67675d9834a407f077c98266904aa2b7b1",
     "apollonius_run.py": "f9060f9193d188d2c6dedd5454ae7e3892eef9b9fb2f753301d8279502a7bf1f",
     "contract-apollonius.json": "082e865282360a9616cc7f27558e668f630ac1a0dccb7564f020b318f689b506",
-    "test_apollonius.py": "91a3153541d5f7c4a19b374bd52630b847587f358e740b01cd580fae74212ff7",
+    "test_apollonius.py": "de12ecc3363f1d626b154c75956e3c6f42018209f21f561f20b8da692a25af38",
     "negative/ApolloniusMissingDistinctFoci.lean": "ade8b1cdbde4b787808ca352f22bd75daf0b8c8b79b38c6d027a2f246efe39e3",
     "negative/ApolloniusMissingNonnegative.lean": "3372c26e383bbb44930e98c718cd545b840a6b5e73dabe972e87bafd6e2ed450",
     "negative/ApolloniusMissingNonunit.lean": "9e6e91662bb3822b2542a86ec24607b92183c4429572729137e3d500a33a7150",
-    "negative/ApolloniusMissingPoleGuard.lean": "771ea06db0daeba6276d3addb7b099d79c8d4d3c06ea184ad750eded39fa8472"
+    "negative/ApolloniusMissingPoleGuard.lean": "771ea06db0daeba6276d3addb7b099d79c8d4d3c06ea184ad750eded39fa8472",
+    "ProjectiveLine.lean": "5d01bdcc0717e39a2964ee205dceb94e05ffa9c49504a022c4468f3dd770d92e",
+    "Chapter04ProjectiveBridge.lean": "37e819697f6c832e7f9f4b014e38dfc938ed6ea6ba2f8c666276a6e0366408ee",
+    "Chapter04ComplexProjective.lean": "09d7f1dc4fe2cb336443a79c6a5a40109145c767e86e4c4177a6ad39d1b70fe1",
+    "projective-map.json": "1f59087b28f3756ca7de3fa6f7a055e0392387a5e323f661725a7023df16a7ad",
+    "projective_run.py": "8e8b43c9d0d9d599381ee1495a1fd4f3c2f32cc8a2ee9a94151dbd577ec2e079",
+    "contract-projective.json": "3c0eb86b50b4bf972e8b2798cda2b6653a76556a19addbc408861e31b3ad1cca",
+    "test_projective.py": "0cec124fe3700f50ad489495dc59c3790b8902cae1f139ade40b198dba54f735",
+    "negative/ProjectiveMissingAffineStep.lean": "37235f524e540072395637cebcdd5c417f61b929477b5b107849cd6cd4fa54e6",
+    "negative/ProjectiveMissingDeterminant.lean": "579f22a9fc4d6f87854e3545488c3a31fefc8e474bcc52e5684a821025338cac",
+    "negative/ProjectiveMissingScalarGuard.lean": "e02a6b13635dc1d2a89eae784f787baf9807acf19e0c57761707bbea2e239777",
+    "negative/ProjectiveWrongPoleOrder.lean": "735ddc75771fdb8fd04098d667e7e6e9d997675bf908037e584f9b1223d90634"
   },
-  "continuation": "contract-apollonius.json plus unchanged contract-chapter04.json, contract-analysis-v1.1.json and contract-chapter03.json: all four profiles required; preserve all historical receipts and archives"
+  "continuation": "contract-projective.json plus unchanged contract-apollonius.json, contract-chapter04.json, contract-analysis-v1.1.json and contract-chapter03.json: all five profiles required; preserve every preceding receipt and archive"
 }

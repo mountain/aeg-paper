@@ -1,0 +1,489 @@
+{
+  "schema": "aeg.paper0.projective.execution.v1",
+  "date": "2026-11-07",
+  "status": "Passed",
+  "authorship": "Codex (OpenAI), CC0; no independent human mathematical review claimed.",
+  "source_lock_sha256": "182a32ad92772dba5afd957f8338a0b0a994c00b767e100fa93b0c4f49c3adab",
+  "projective_map_sha256": "1f59087b28f3756ca7de3fa6f7a055e0392387a5e323f661725a7023df16a7ad",
+  "chapter03_obligations_sha256": "973e643c66e264c4475b512d916e4eef7a87dfe94d112f910e98359e81ad2800",
+  "mathlib_lock_sha256": "de2e937993bd22e41702f21889ac382f3cb36364cbe0b5e5d3fbc1e32bd0394d",
+  "mathlib_commit": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
+  "mathlib_source_files": 7600,
+  "mathlib_compiled_modules": 3175,
+  "profiles": {
+    "native": {
+      "directory": "native-01",
+      "contract": "contract-chapter03.json",
+      "contract_sha256": "606081b7c80d6f57bd1b05a688217d93c411663a98f23eb2eed931a17a66312f",
+      "report_sha256": "05e7265f5e728a36f96cf1bca813fdb727173beb0893ce0884074cd53dd04fc0",
+      "wall_seconds": 172.44745253400106,
+      "child_commands": 148
+    },
+    "analytic": {
+      "directory": "analysis-01",
+      "contract": "contract-analysis-v1.1.json",
+      "contract_sha256": "dc43df95783ca070cc0fad0717cc5986182d3fca814a9a6358f7b436376a7ab3",
+      "report_sha256": "6fa9cd8ee8d9f3f96178ef0a7eee4412e38966a03f0a685fb94730f1ae7b5f52",
+      "wall_seconds": 128.7509436599994,
+      "child_commands": 16
+    },
+    "chapter04": {
+      "directory": "chapter04-01",
+      "contract": "contract-chapter04.json",
+      "contract_sha256": "52b58178702f5afecc366ed2edab8b1da4c553c3cab3703c2e1fa6fe34d4a905",
+      "report_sha256": "6b2b5e1c578f0c6e1e8b7b2d0fcefe7eb8dd8833a11ccaf1ac567aefe28d641e",
+      "wall_seconds": 51.85490057199968,
+      "child_commands": 8
+    },
+    "apollonius": {
+      "directory": "apollonius-01",
+      "contract": "contract-apollonius.json",
+      "contract_sha256": "082e865282360a9616cc7f27558e668f630ac1a0dccb7564f020b318f689b506",
+      "report_sha256": "92eaa042f0cf601283212bd4c370c78d87cd6744e364eaad2d8e781df4dc0d62",
+      "wall_seconds": 69.20825774300101,
+      "child_commands": 8
+    },
+    "projective": {
+      "directory": "projective-01",
+      "contract": "contract-projective.json",
+      "contract_sha256": "3c0eb86b50b4bf972e8b2798cda2b6653a76556a19addbc408861e31b3ad1cca",
+      "report_sha256": "7cd5b783202d07d0977ee72011d8e448c9589b8267c94c8fc146ce02fcbf363a",
+      "wall_seconds": 80.7648917990009,
+      "child_commands": 11
+    }
+  },
+  "previous_lean_statements": 354,
+  "new_lean_statements": 70,
+  "total_lean_statements": 424,
+  "projective_axioms": {
+    "AEGPaper0.ProjectiveLine": {
+      "homogeneous_nonzero": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "project_homogeneous": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "project_scale": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "representative_scale": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "mapVec_scale": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "determinant_multiply": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "determinant_adjugate": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "mapVec_multiply": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "adjugate_left": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "adjugate_right": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "mapVec_nonzero": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "project_map_normalize": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "action_identity": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "action_multiply": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "action_adjugate_left": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "action_adjugate_right": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "actionEquiv_apply": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "actionEquiv_inverse": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "finite_action": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "infinity_action": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "fixes_infinity_iff": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "pole_formula": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "finite_pole_unique": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "action_scale": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "project_eq_iff_cross": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "projection_eq_iff_scalar": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "finite_fixed_point_iff": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "chart_representative": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "quotient_eq_iff_nonzero_scalar": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "quotient_action_representative": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "zero_scalar_changes_action": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "AEGPaper0.Chapter04ProjectiveBridge": {
+      "equiv_product": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "concrete_pole_covariance": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "concrete_stabilizer_criterion": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "concrete_pole_at_infinity_iff": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "concrete_finite_pole": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "concrete_step_constancy": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "affine_postcompose_keeps_pole": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "prefix_nondegenerate": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "prefix_equiv": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "concrete_history_step_rigidity": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "concrete_history_prefix_rigidity": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "first_exit_has_finite_pole": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "translation_determinant": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "dilation_determinant": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "inversion_determinant": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "translation_finite": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "dilation_finite": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "inversion_infinity": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "inversion_zero": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "inversion_finite": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "affine_diagonal_nonzero": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "affine_matrix_factorization": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "nonaffine_scale_nonzero": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "nonaffine_matrix_factorization": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "affine_action_factorization": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "nonaffine_action_factorization": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "singular_composition_counterexample": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "AEGPaper0.Chapter04ComplexProjective": {
+      "real_determinant": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "complex_determinant": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "real_nondegenerate": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "complex_nondegenerate": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "complex_finite_chart": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "complex_pole_input_goes_to_infinity": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "real_pole_formula": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "complex_pole_formula": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "complex_stabilizer": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "upper_chart_action": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "real_complex_chart_compatibility": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "complex_ripple_chart_membership": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  },
+  "source_import_audits": 57,
+  "negative_controls": {
+    "nonzero-determinant": "Rejected with the expected specific type mismatch",
+    "nonzero-scalar": "Rejected with the expected specific type mismatch",
+    "pole-order": "Rejected with the expected specific type mismatch",
+    "affine-step": "Rejected with the expected specific type mismatch"
+  },
+  "native_runs": 69,
+  "reference_transitions": 51137,
+  "preceding_native_reports_unchanged": 69,
+  "original_proof_library_goal_contract_and_runtime_receiver_bytes_unchanged": true,
+  "old_formal_sources_with_explicit_navigation_successors": [
+    "inventory.py",
+    "inventory.json",
+    "test_apollonius.py"
+  ],
+  "formal_source_files": 90,
+  "manuscript_source_files": 22,
+  "archive": {
+    "path": "projective-run-01.tar.gz",
+    "sha256": "81920fb4eca224e30851edb8ea3652d9e1ebddad35f48ecb70c1583789c99197",
+    "bytes": 8530873,
+    "members": 737,
+    "uncompressed_bytes": 32671830
+  },
+  "manuscript_builds": {
+    "0": {
+      "status": "Passed",
+      "pages": 103,
+      "pdf_bytes": 909781,
+      "pdf_sha256": "baafa3fcede99612db88af6e9be0bc32c221e259db1d090fc977360e5f322b70",
+      "final_log_sha256": "9d6390ced4ce27096a89d5759f55b6c57314778e50ca5d28cf0825a4a2a446a1",
+      "unresolved_references_citations_duplicate_labels_missing_assets": false,
+      "overfull_boxes": 2,
+      "max_overfull_pt": 11.13274,
+      "note": "Validation PDF retained externally; tracked manuscript PDF restored without changing its bytes."
+    },
+    "1": {
+      "status": "Passed",
+      "pages": 61,
+      "pdf_bytes": 756641,
+      "pdf_sha256": "87868ca145d592922f82725354f8ec1abcea5c4ea774bbb3259f1864d115f208",
+      "final_log_sha256": "471833f9bcfaf14cc69e9af91e08319cc85faf94911634837ec8738ea68f1775",
+      "unresolved_references_citations_duplicate_labels_missing_assets": false,
+      "overfull_boxes": 8,
+      "max_overfull_pt": 105.1512,
+      "note": "Validation PDF retained externally; tracked manuscript PDF restored without changing its bytes."
+    }
+  },
+  "pre_receipt_checks": {
+    "passed": 42,
+    "pending_receipt_test": 1,
+    "note": "The archive-binding test cannot pass before the completed execution receipt exists. Its missing-receipt error is retained verbatim in engineering/unit-before-receipt.log."
+  },
+  "unit_tests_after_archive": 43,
+  "live_inventory": {
+    "source_files": 22,
+    "theorem_like_environments": 102,
+    "component_mapped": 32,
+    "fragment_certified": 1,
+    "not_yet_formalized": 69,
+    "separately_mapped_equations": 4
+  },
+  "source_audit": [],
+  "scope": "70 new audited statements constructing a field-generic projective-line homogeneous quotient/chart, nondegenerate matrix bijections, concrete pole/prefix laws, elementary factorization, and a real/complex chart bridge. Rebuild 57 unchanged import audits without counting them as new. Component mapping does not mark a full chapter or every external PGL interface complete.",
+  "remaining": [
+    "Isomorphism with an external PGL/Projectivization group API and faithfulness of its scalar quotient",
+    "Topological/smooth projective completion and intrinsic hyperbolic geometry",
+    "Equality or classification of arithmetic histories from equality of their actions",
+    "Projective continuation as a replacement for ordinary partial arithmetic"
+  ],
+  "deferred_chapter03": "chapter03-obligations.json",
+  "trust_boundary": "Pinned compiler/standard library and source/cache-fingerprinted Mathlib are trusted builds. The homogeneous nonzero-vector quotient/chart, concrete nondegenerate matrix bijections, pole/prefix laws, factorizations and real/complex chart bridge are certified. An external PGL group API isomorphism, scalar-quotient faithfulness and intrinsic geometry remain outside this certificate. All five profiles pass separately under independently declared bounds."
+}

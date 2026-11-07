@@ -1,0 +1,63 @@
+{
+  "schema": "aeg.paper0.formal.contract.projective.v1",
+  "date": "2026-11-07",
+  "source_commit": "af809e7a747b91183c2ae3c20f5b849e7d9c4bc3",
+  "question": "Construct the actual homogeneous projective-line action and discharge the concrete matrix-to-bijection pole and chronological-history bridge, with elementary factorizations and real/complex chart compatibility.",
+  "bounds": {
+    "wall_seconds": 300,
+    "child_commands": 32,
+    "child_wall_seconds": 120,
+    "child_cpu_seconds": 60,
+    "child_address_space_bytes": 1073741824,
+    "lean_child_address_space_bytes": 8589934592,
+    "child_file_bytes": 33554432,
+    "artifact_bytes": 536870912
+  },
+  "expected_work": {
+    "child_commands": 11,
+    "import_lean_statements": 57,
+    "new_lean_statements": 70,
+    "import_modules": 2,
+    "positive_modules": 3,
+    "negative_controls": 4
+  },
+  "negative_controls": [
+    {
+      "name": "nonzero-determinant",
+      "file": "negative/ProjectiveMissingDeterminant.lean",
+      "expected_fragments": [
+        "action_adjugate_left m x",
+        "determinant m \u2260 0 \u2192"
+      ]
+    },
+    {
+      "name": "nonzero-scalar",
+      "file": "negative/ProjectiveMissingScalarGuard.lean",
+      "expected_fragments": [
+        "action_scale s m x",
+        "s \u2260 0 \u2192"
+      ]
+    },
+    {
+      "name": "pole-order",
+      "file": "negative/ProjectiveWrongPoleOrder.lean",
+      "expected_fragments": [
+        "concrete_pole_covariance m n hm hn hmn",
+        "(Equiv.symm (actionEquiv n hn)) (matrixPole m hm)",
+        "(Equiv.symm (actionEquiv m hm)) (matrixPole n hn)"
+      ]
+    },
+    {
+      "name": "affine-step",
+      "file": "negative/ProjectiveMissingAffineStep.lean",
+      "expected_fragments": [
+        "affine_postcompose_keeps_pole m n hm hn hmn",
+        "m.c = 0 \u2192"
+      ]
+    }
+  ],
+  "resource_basis": "Declared before receiving execution. Reuse the existing analytic numerical limits unchanged: 300-second shared wall, 60-second child CPU, 120-second child wall, 8 GiB Lean virtual address space. All three modules and four negative controls passed engineering compilation using the already pinned Mathlib tactic/complex cache; no dependency lock change. All four preceding profiles remain separately required; no profile refills another.",
+  "success": "Rebuild the unchanged 57-statement pole/ripple imports, then exactly audit all 70 new statements with clean diagnostics and no target axioms/admitted proofs. All four negative controls reject for their specified missing-determinant/scalar/affine or wrong-order diagnostics. All source/inventory/library fingerprints and the four independent preceding profiles agree.",
+  "exit": "One fresh bounded invocation after engineering checks; retain a Failed record and stop on mismatch/exhaustion. A correction requires a separately declared successor, never automatic bound growth.",
+  "authorship": "Codex (OpenAI), CC0; no independent human review claimed."
+}

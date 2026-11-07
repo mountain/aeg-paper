@@ -36,8 +36,10 @@ class ApolloniusBoundaryTests(unittest.TestCase):
         live = inventory.generate()
         self.assertEqual(live, read("inventory.json"))
         self.assertEqual(len(live["claims"]), 102)
-        self.assertEqual(sum(c["formal_status"] == "component-map-supplied" for c in live["claims"]), 30)
-        equation, = live["equation_components"]
+        # The projective successor maps two existing Section 6 environments;
+        # the Apollonius equation itself still invents no environment.
+        self.assertEqual(sum(c["formal_status"] == "component-map-supplied" for c in live["claims"]), 32)
+        equation = next(e for e in live["equation_components"] if e["label"] == "eq:p0-apollonius-pencil")
         self.assertEqual(equation["label"], "eq:p0-apollonius-pencil")
         self.assertEqual(set(equation["lean_components"]), attached)
         self.assertIn("\\begin{equation}", (ROOT / equation["source"]).read_text().splitlines()[equation["line"] - 1])
@@ -118,10 +120,12 @@ class ApolloniusReceiptTests(unittest.TestCase):
         raw = files["sources/machine.lock.json"]
         self.assertEqual(hashlib.sha256(raw).hexdigest(), record["source_lock_sha256"])
         lock = json.loads(raw)
-        self.assertEqual(lock, read("machine.lock.json"))
         for name, digest in lock["formal_sources"].items():
             self.assertEqual(hashlib.sha256(files["sources/" + name]).hexdigest(), digest)
-            self.assertEqual(files["sources/" + name], (HERE / name).read_bytes())
+            # Preserve the completed Apollonius execution snapshot. Current
+            # navigation and this receipt test have separately pinned successors.
+            if name not in {"inventory.py", "inventory.json", "test_apollonius.py"}:
+                self.assertEqual(files["sources/" + name], (HERE / name).read_bytes())
         for name, digest in read("inventory.json")["sources"].items():
             self.assertEqual(hashlib.sha256(files["manuscript/" + name]).hexdigest(), digest)
         self.assertEqual(record["total_lean_statements"], 354)

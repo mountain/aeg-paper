@@ -32,6 +32,7 @@
   "analysis_map_sha256": "e848652266fc7a0b29c82ac18e252889d8b48c51b6ad3c54e3063384c0a5a9ef",
   "chapter04_map_sha256": "cc04448b1fd26ec9df30feba9847c646ea0f36248525e9576f5618d57a0b0af3",
   "apollonius_map_sha256": "f33fce34bcf959281dd6072be26c2f67675d9834a407f077c98266904aa2b7b1",
+  "projective_map_sha256": "1f59087b28f3756ca7de3fa6f7a055e0392387a5e323f661725a7023df16a7ad",
   "equation_components": [
     {
       "source": "paper-0/sections/04-ripple-geometry.tex",
@@ -83,6 +84,56 @@
         "Actual complex norm factorization and guarded modulus-to-distance equivalence. Nonzero A,C, distinct finite foci from nonzero determinant, and explicit denominator/pole exclusion.",
         "Nonnegative-weight squaring equivalence; the nonunit locus is an actual Euclidean complex metric sphere with derived center and radius; the unit locus is the vertical metric bisector for distinct real foci.",
         "Degenerate zero/negative parameters, equal-focus and totalized-pole counterexamples, actual positive-radius formula and upper-plane witnesses, and the final guarded Mobius circle/line classification."
+      ]
+    },
+    {
+      "source": "paper-0/sections/06-projective-unification.tex",
+      "label": "eq:p0-prefix-matrices",
+      "line": 72,
+      "formal_status": "component-map-supplied",
+      "lean_components": [
+        "AEGPaper0.Chapter04ProjectiveBridge.concrete_history_prefix_rigidity",
+        "AEGPaper0.Chapter04ProjectiveBridge.concrete_history_step_rigidity",
+        "AEGPaper0.Chapter04ProjectiveBridge.first_exit_has_finite_pole",
+        "AEGPaper0.Chapter04ProjectiveBridge.prefix_equiv",
+        "AEGPaper0.Chapter04ProjectiveBridge.prefix_nondegenerate"
+      ],
+      "coverage": [
+        "The chronological matrix prefix acts as the previously certified chronological prefix of bijections, for arbitrary finite nondegenerate histories."
+      ]
+    },
+    {
+      "source": "paper-0/sections/06-projective-unification.tex",
+      "label": "eq:p0-affine-stabilizer",
+      "line": 159,
+      "formal_status": "component-map-supplied",
+      "lean_components": [
+        "AEGPaper0.Chapter04ProjectiveBridge.affine_action_factorization",
+        "AEGPaper0.Chapter04ProjectiveBridge.affine_diagonal_nonzero",
+        "AEGPaper0.Chapter04ProjectiveBridge.affine_matrix_factorization",
+        "AEGPaper0.Chapter04ProjectiveBridge.affine_postcompose_keeps_pole",
+        "AEGPaper0.Chapter04ProjectiveBridge.concrete_pole_at_infinity_iff",
+        "AEGPaper0.Chapter04ProjectiveBridge.concrete_stabilizer_criterion",
+        "AEGPaper0.Chapter04ProjectiveBridge.concrete_step_constancy"
+      ],
+      "coverage": [
+        "The actual infinity stabilizer criterion is C=0, and its action has the explicit affine translation/dilation factorization. The abstract Aff/PGL group isomorphism is not identified here."
+      ]
+    },
+    {
+      "source": "paper-0/sections/06-projective-unification.tex",
+      "label": "eq:p0-projective-factorization",
+      "line": 211,
+      "formal_status": "component-map-supplied",
+      "lean_components": [
+        "AEGPaper0.Chapter04ProjectiveBridge.affine_action_factorization",
+        "AEGPaper0.Chapter04ProjectiveBridge.affine_matrix_factorization",
+        "AEGPaper0.Chapter04ProjectiveBridge.nonaffine_action_factorization",
+        "AEGPaper0.Chapter04ProjectiveBridge.nonaffine_matrix_factorization",
+        "AEGPaper0.Chapter04ProjectiveBridge.nonaffine_scale_nonzero"
+      ],
+      "coverage": [
+        "The four-factor projective formula holds as matrices up to the explicit nonzero scalar 1/C and as total actions, including infinity and intermediate poles."
       ]
     }
   ],
@@ -832,7 +883,19 @@
         "AEGPaper0.Chapter04Poles.pole_covariance",
         "AEGPaper0.Chapter04Poles.pole_eq_infinity_iff",
         "AEGPaper0.Chapter04Poles.pole_is_unique_preimage",
-        "AEGPaper0.Chapter04Poles.pole_moves_iff"
+        "AEGPaper0.Chapter04Poles.pole_moves_iff",
+        "AEGPaper0.Chapter04ProjectiveBridge.affine_postcompose_keeps_pole",
+        "AEGPaper0.Chapter04ProjectiveBridge.concrete_finite_pole",
+        "AEGPaper0.Chapter04ProjectiveBridge.concrete_history_prefix_rigidity",
+        "AEGPaper0.Chapter04ProjectiveBridge.concrete_history_step_rigidity",
+        "AEGPaper0.Chapter04ProjectiveBridge.concrete_pole_at_infinity_iff",
+        "AEGPaper0.Chapter04ProjectiveBridge.concrete_pole_covariance",
+        "AEGPaper0.Chapter04ProjectiveBridge.concrete_stabilizer_criterion",
+        "AEGPaper0.Chapter04ProjectiveBridge.concrete_step_constancy",
+        "AEGPaper0.Chapter04ProjectiveBridge.equiv_product",
+        "AEGPaper0.Chapter04ProjectiveBridge.first_exit_has_finite_pole",
+        "AEGPaper0.Chapter04ProjectiveBridge.prefix_equiv",
+        "AEGPaper0.Chapter04ProjectiveBridge.prefix_nondegenerate"
       ]
     },
     {
@@ -855,7 +918,19 @@
         "AEGPaper0.Chapter04Poles.prefix_pole_covariance",
         "AEGPaper0.Chapter04Poles.prefix_step_pole_iff",
         "AEGPaper0.Chapter04Poles.prefix_successor_apply",
-        "AEGPaper0.Chapter04Poles.terminal_pole_does_not_detect_every_step"
+        "AEGPaper0.Chapter04Poles.terminal_pole_does_not_detect_every_step",
+        "AEGPaper0.Chapter04ProjectiveBridge.affine_postcompose_keeps_pole",
+        "AEGPaper0.Chapter04ProjectiveBridge.concrete_finite_pole",
+        "AEGPaper0.Chapter04ProjectiveBridge.concrete_history_prefix_rigidity",
+        "AEGPaper0.Chapter04ProjectiveBridge.concrete_history_step_rigidity",
+        "AEGPaper0.Chapter04ProjectiveBridge.concrete_pole_at_infinity_iff",
+        "AEGPaper0.Chapter04ProjectiveBridge.concrete_pole_covariance",
+        "AEGPaper0.Chapter04ProjectiveBridge.concrete_stabilizer_criterion",
+        "AEGPaper0.Chapter04ProjectiveBridge.concrete_step_constancy",
+        "AEGPaper0.Chapter04ProjectiveBridge.equiv_product",
+        "AEGPaper0.Chapter04ProjectiveBridge.first_exit_has_finite_pole",
+        "AEGPaper0.Chapter04ProjectiveBridge.prefix_equiv",
+        "AEGPaper0.Chapter04ProjectiveBridge.prefix_nondegenerate"
       ]
     },
     {
@@ -958,9 +1033,53 @@
       "labels": [
         "thm:p0-four-matrix-readings"
       ],
-      "formal_status": "not-yet-formalized",
+      "formal_status": "component-map-supplied",
       "certificates": [],
-      "lean_components": []
+      "lean_components": [
+        "AEGPaper0.Chapter04ComplexProjective.complex_determinant",
+        "AEGPaper0.Chapter04ComplexProjective.complex_finite_chart",
+        "AEGPaper0.Chapter04ComplexProjective.complex_nondegenerate",
+        "AEGPaper0.Chapter04ComplexProjective.complex_pole_formula",
+        "AEGPaper0.Chapter04ComplexProjective.complex_pole_input_goes_to_infinity",
+        "AEGPaper0.Chapter04ComplexProjective.complex_ripple_chart_membership",
+        "AEGPaper0.Chapter04ComplexProjective.complex_stabilizer",
+        "AEGPaper0.Chapter04ComplexProjective.real_complex_chart_compatibility",
+        "AEGPaper0.Chapter04ComplexProjective.real_determinant",
+        "AEGPaper0.Chapter04ComplexProjective.real_nondegenerate",
+        "AEGPaper0.Chapter04ComplexProjective.real_pole_formula",
+        "AEGPaper0.Chapter04ComplexProjective.upper_chart_action",
+        "AEGPaper0.ProjectiveLine.actionEquiv_apply",
+        "AEGPaper0.ProjectiveLine.actionEquiv_inverse",
+        "AEGPaper0.ProjectiveLine.action_adjugate_left",
+        "AEGPaper0.ProjectiveLine.action_adjugate_right",
+        "AEGPaper0.ProjectiveLine.action_identity",
+        "AEGPaper0.ProjectiveLine.action_multiply",
+        "AEGPaper0.ProjectiveLine.action_scale",
+        "AEGPaper0.ProjectiveLine.adjugate_left",
+        "AEGPaper0.ProjectiveLine.adjugate_right",
+        "AEGPaper0.ProjectiveLine.chart_representative",
+        "AEGPaper0.ProjectiveLine.determinant_adjugate",
+        "AEGPaper0.ProjectiveLine.determinant_multiply",
+        "AEGPaper0.ProjectiveLine.finite_action",
+        "AEGPaper0.ProjectiveLine.finite_fixed_point_iff",
+        "AEGPaper0.ProjectiveLine.finite_pole_unique",
+        "AEGPaper0.ProjectiveLine.fixes_infinity_iff",
+        "AEGPaper0.ProjectiveLine.homogeneous_nonzero",
+        "AEGPaper0.ProjectiveLine.infinity_action",
+        "AEGPaper0.ProjectiveLine.mapVec_multiply",
+        "AEGPaper0.ProjectiveLine.mapVec_nonzero",
+        "AEGPaper0.ProjectiveLine.mapVec_scale",
+        "AEGPaper0.ProjectiveLine.pole_formula",
+        "AEGPaper0.ProjectiveLine.project_eq_iff_cross",
+        "AEGPaper0.ProjectiveLine.project_homogeneous",
+        "AEGPaper0.ProjectiveLine.project_map_normalize",
+        "AEGPaper0.ProjectiveLine.project_scale",
+        "AEGPaper0.ProjectiveLine.projection_eq_iff_scalar",
+        "AEGPaper0.ProjectiveLine.quotient_action_representative",
+        "AEGPaper0.ProjectiveLine.quotient_eq_iff_nonzero_scalar",
+        "AEGPaper0.ProjectiveLine.representative_scale",
+        "AEGPaper0.ProjectiveLine.zero_scalar_changes_action"
+      ]
     },
     {
       "source": "paper-0/sections/06-projective-unification.tex",
@@ -970,9 +1089,25 @@
       "labels": [
         "thm:p0-pgl2-generation"
       ],
-      "formal_status": "not-yet-formalized",
+      "formal_status": "component-map-supplied",
       "certificates": [],
-      "lean_components": []
+      "lean_components": [
+        "AEGPaper0.Chapter04ProjectiveBridge.affine_action_factorization",
+        "AEGPaper0.Chapter04ProjectiveBridge.affine_diagonal_nonzero",
+        "AEGPaper0.Chapter04ProjectiveBridge.affine_matrix_factorization",
+        "AEGPaper0.Chapter04ProjectiveBridge.dilation_determinant",
+        "AEGPaper0.Chapter04ProjectiveBridge.dilation_finite",
+        "AEGPaper0.Chapter04ProjectiveBridge.inversion_determinant",
+        "AEGPaper0.Chapter04ProjectiveBridge.inversion_finite",
+        "AEGPaper0.Chapter04ProjectiveBridge.inversion_infinity",
+        "AEGPaper0.Chapter04ProjectiveBridge.inversion_zero",
+        "AEGPaper0.Chapter04ProjectiveBridge.nonaffine_action_factorization",
+        "AEGPaper0.Chapter04ProjectiveBridge.nonaffine_matrix_factorization",
+        "AEGPaper0.Chapter04ProjectiveBridge.nonaffine_scale_nonzero",
+        "AEGPaper0.Chapter04ProjectiveBridge.singular_composition_counterexample",
+        "AEGPaper0.Chapter04ProjectiveBridge.translation_determinant",
+        "AEGPaper0.Chapter04ProjectiveBridge.translation_finite"
+      ]
     },
     {
       "source": "paper-0/sections/06-projective-unification.tex",

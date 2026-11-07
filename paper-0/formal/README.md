@@ -53,8 +53,9 @@ statement correspondence and the reviewed equality kernel remain trusted.
 | §2 evaluability continuation | General finite-tree domain/value, closed-input independence, exact rational evaluation, cancelled reciprocal and projective round trip, prefix domains/condition pullbacks, and subtraction expansion in Lean | External Richardson theorem, real exponential/ACS example, topology and cardinality background retain their separate dependencies |
 | §2 distributive operator identity | Unchanged symbolic Adva/Lean identity; new general-field proof of the corrected marked/scalar clauses | The previous counterexample and its old source snapshot remain historical evidence |
 | §3 coordinate foundation and real analysis | 61 coordinate statements plus 66 Mathlib statements: actual differential/Jacobian, smooth real coordinate-AES model, Laplace eigenfunction, positive smooth root, rectification, signed-frame bracket and affine ODE solution/uniqueness | Gaussian curvature/completeness, length/trace theory, punctured E1, full arbitrary-manifold/boundary-chart and intrinsic bundle-operator equivalences |
-| §4 ripple, pole and Apollonius components | 57 ripple/pole statements plus 39 complex-norm statements: guarded modulus-to-distance equivalence, actual Euclidean circles and bisectors, and degenerate parameter cases | Full PGL action identification, intrinsic horocycles/tangency and chart independence; source wording limitations remain explicit |
-| §§5–6 reciprocal and projective synthesis | Inventoried | Formal domains, nonzero hypotheses and projective action identification |
+| §4 ripple, pole and Apollonius components | 57 ripple/pole statements plus 39 norm statements, now connected to actual homogeneous matrix actions | External PGL group API, intrinsic horocycles/tangency and chart independence; source wording limitations remain explicit |
+| §6 concrete projective synthesis | 70 new statements: homogeneous quotient/chart, nondegenerate matrix bijections, actual prefix/pole laws, finite fixed points, elementary factorizations and real/complex chart bridge | External PGL/Projectivization group isomorphism, faithfulness of its scalar quotient, topology and intrinsic geometric identifications |
+| §5 reciprocal expansions | Inventoried | Formal domains, convergence and fixed-point attraction hypotheses |
 | §7 chronological affine cocycle | Auxiliary pointwise polynomial identity checked by Adva and Lean; shared finite-history scalar expansion in `AppendixC.lean` | Definition/uniqueness of affine coordinates, inverse and normalized-coordinate laws |
 | §§8–12 ACS, contact, nonlinearity, punctures, compactification | Inventoried | Algebraic/differential/topological dependencies and explicit side conditions |
 | Appendix C alternating expressions | 24 Lean theorems: independent suffix-sum expansion, arbitrary finite/prefix perturbation, actual tree/word correspondence and guarded ratio; one native symbolic induction-step certificate | ACS/exponentials/RG, identity-padding syntax transformations, and a native Adva induction kernel are outside this continuation |
@@ -775,13 +776,103 @@ with no unresolved references/citations, duplicate labels or missing assets.
 Existing overfull boxes (2/8, maximum 11.13/105.15 pt) and bookmark/underfull
 warnings remain; manuscript text and tracked PDFs are unchanged.
 
+## Concrete homogeneous projective action and pole bridge
+
+`ProjectiveLine.lean`, `Chapter04ProjectiveBridge.lean` and
+`Chapter04ComplexProjective.lean` provide 70 new audited statements. The first
+two modules work over an arbitrary field, without characteristic or ordering
+assumptions. The last connects real coefficients to their actual complex
+continuation chart. The existing Mathlib source/cache lock remains unchanged.
+
+The chart uses `none` for infinity and `some x` for `[x:1]`. It is proved
+equivalent to the quotient of nonzero homogeneous pairs by collinearity;
+quotient equality is equivalent to multiplication by a nonzero scalar. Matrix
+multiplication acts on those pairs. Nonzero determinant preserves nonzero
+vectors; the adjugate gives two-sided inverse laws after projection and hence
+an actual `Equiv.Perm`. The action transported to the quotient is proved to
+send each representative to its matrix product. This discharges the earlier
+matrix-to-bijection prerequisite rather than assuming it.
+
+Concrete formulas cover finite points, denominator roots sent to infinity,
+the image of infinity, the unique pole `-D/C`, the infinity stabilizer `C=0`
+and the finite fixed-point polynomial. Nonzero scalar multiples have the same
+action. Matrix products have the chronological action order, including
+intermediate poles. The existing abstract pole covariance and finite-prefix
+rigidity laws are instantiated by these constructed bijections, with their
+affine condition identified with the actual lower-left entry.
+The Lean sequence is zero-indexed: `F 0` is the manuscript's first section,
+and `prefixMatrix F 0` is the identity before any section is applied.
+
+Translations, nonzero dilations and inversion have their explicit point and
+infinity actions. For `C=0` the matrix has its affine two-factor form, and for
+`C!=0` it has the manuscript's four-factor form up to the nonzero scalar `1/C`.
+Their **total actions**, including infinity, satisfy the same factorizations;
+all required scale parameters are proved nonzero. This is operational
+generation of the concrete projective action. An isomorphism to an external
+PGL quotient-group API and faithfulness of that quotient remain separate;
+the component map does not assert those extra interfaces.
+
+The real-to-complex point-chart embedding commutes with the matrix action.
+Where its denominator is nonzero, the finite action is exactly the previously
+checked complex `(Az+B)/(Cz+D)`. For positive determinant it preserves the upper
+half-plane chart; membership in the existing ripple pencil is the actual
+pullback along that action. Sending a pole to infinity is projective
+continuation and does not legalize ordinary arithmetic division by zero.
+Distinct arithmetic histories are not identified merely because their actions
+or values agree.
+
+`projective-map.json` pins the current Section 6 and the existing ripple/pole
+sources. Two existing Section 6 environments receive component maps, for 32
+component-mapped environments, one fragment-certified and 69 not yet formalized
+among the same 102 environments. There are four separately mapped equation
+anchors across the same 22 manuscript sources. The combined distinct audit
+count is 424; 57 rebuilt import audits are not counted as new statements.
+Exact global axiom sets disclose only their actual subsets of `propext`,
+`Classical.choice` and `Quot.sound`, without target axioms or admitted proofs.
+
+`contract-projective.json` fixes an independent profile with the same numerical
+limits as the preceding analytic profiles: 300 seconds shared wall time and
+8 GiB Lean virtual address space. Eleven commands rebuild 57 unchanged import
+audits, receive 70 new audits and check four specific rejections for missing
+determinant/scalar/affine guards and reversed pole order. Positive examples
+also prove that zero scaling changes the action and singular matrices can
+break composition. All four predecessor profiles remain required under their
+unchanged contracts. Invoke the additional profile after pinned preparation:
+
+```sh
+python paper-0/formal/projective_run.py \
+  --mathlib-root /absolute/path/to/pinned/mathlib \
+  --lean /absolute/path/to/lean/bin/lean \
+  --output /absolute/path/to/new-projective-evidence-directory
+```
+
+CI gives this profile its own job and evidence artifact. Historical receipts,
+their inventories and source locks remain preserved; current navigation and
+its historical receipt regression have explicit successor pins. No old proof,
+goal, runtime receiver, library fingerprint or receiving contract is changed.
+
+The completed `evidence/projective-execution.json` and
+`projective-run-01.tar.gz` retain 90 formal source files plus the lock, 22
+manuscript sources, workflow, five complete profile reports, native traces and
+replay receipts, exact Lean audits, negative diagnostics and both build logs.
+The profiles pass in 172.45/128.75/51.85/69.21/80.76 seconds, each within its
+own unchanged 300-second deadline. All 69 native reports are byte-identical
+to the preceding success. All 43 regressions pass against the completed
+source/report/archive bindings, following 42 preparatory passes and the
+then-pending receipt test retained in its original log. Both builds pass at
+103/61 pages without unresolved references/citations, duplicate labels or
+missing assets. Existing overfull boxes (2/8, maximum 11.13/105.15 pt) and
+bookmark/underfull warnings remain; manuscript text and tracked PDFs are
+unchanged.
+
 ## Continuation order
 
 The §2 continuations and §3 coordinate/real-analysis bridge are received above.
 The deferred geometric steps and their prerequisites are now in
 `chapter03-obligations.json`. Advance easier remaining Chapter 4 work first:
-the projective-line/PGL bridge and elementary coefficient action laws, keeping
-the intrinsic horocycle and chart-independence obligations separate. The
+the external PGL group interface, its scalar-quotient faithfulness and affine
+group identification, keeping intrinsic geometry and chart independence
+separate. The
 general-manifold/bundle identifications retain their explicit hypotheses.
 Reuse old Lean material
 only after a legacy-to-current statement map. Each theorem still needs its
