@@ -54,7 +54,7 @@ statement correspondence and the reviewed equality kernel remain trusted.
 | §2 distributive operator identity | Unchanged symbolic Adva/Lean identity; new general-field proof of the corrected marked/scalar clauses | The previous counterexample and its old source snapshot remain historical evidence |
 | §3 coordinate foundation and real analysis | 61 coordinate statements plus 66 Mathlib statements: actual differential/Jacobian, smooth real coordinate-AES model, Laplace eigenfunction, positive smooth root, rectification, signed-frame bracket and affine ODE solution/uniqueness | Gaussian curvature/completeness, length/trace theory, punctured E1, full arbitrary-manifold/boundary-chart and intrinsic bundle-operator equivalences |
 | §4 ripple, pole and Apollonius components | 57 ripple/pole statements plus 39 norm statements, now connected to actual homogeneous matrix actions | Intrinsic horocycles/tangency and chart independence; source wording limitations remain explicit |
-| §6 projective synthesis, affine stabilizer and quotient generation | 70 action/bridge, 41 PGL/scalar, 39 affine/generation and 35 arithmetic-dictionary statements; pure first-slot image is exactly the affine stabilizer and pure second-slot image is all PGL | Topology, chart-independent and intrinsic geometric identifications; degenerate sections remain outside PGL |
+| §6 projective synthesis, affine stabilizer and quotient generation | 70 action/bridge, 41 PGL/scalar, 39 affine/generation, 35 arithmetic-dictionary and 35 conjugacy/Bruhat statements; pure-slot images, finite-point stabilizers, pole cosets and disjoint Bruhat cells | Topology, chart-independent and intrinsic geometric identifications; degenerate sections remain outside PGL |
 | §5 reciprocal expansions | Inventoried | Formal domains, convergence and fixed-point attraction hypotheses |
 | §7 chronological affine cocycle | Auxiliary pointwise polynomial identity checked by Adva and Lean; shared finite-history scalar expansion in `AppendixC.lean` | Definition/uniqueness of affine coordinates, inverse and normalized-coordinate laws |
 | §§8–12 ACS, contact, nonlinearity, punctures, compactification | Inventoried | Algebraic/differential/topological dependencies and explicit side conditions |
@@ -1110,12 +1110,98 @@ or missing assets. Existing overfull boxes (2/8, maximum 11.13/105.15 pt) and
 bookmark/underfull warnings remain. Manuscript text and tracked PDFs are
 unchanged.
 
+## Finite-point stabilizers, fixed-pole cosets and Bruhat decomposition
+
+`ProjectiveBruhat.lean` adds 35 exactly audited statements over every field.
+The actual stabilizer of any projective point is a subgroup, and conjugation
+by `g` gives a multiplicative equivalence to the stabilizer of `g(p)`.
+The gauge `W_q = J*T(-q)` sends finite `q` to infinity, sends infinity to zero,
+and has finite formula `-1/(z-q)` under the explicit condition `z!=q`.
+The inverse sends infinity back to `q` and zero back to infinity. These are
+projective statements, not permission for ordinary division at `q`.
+
+Conjugation by `W_q` sends the subgroup fixing `q` to the infinity stabilizer.
+The corresponding standard affine-group equivalence sends `e` to
+`W_q⁻¹ * affineClass(e) * W_q`. This order is explicitly proved. In contrast,
+the operators whose **pole equals** `q` form the right coset `B∞ * W_q`, not
+the subgroup fixing `q`. The fixed-pole fiber is not a subgroup and is disjoint
+from that point stabilizer. This distinction gives a precise algebraic reading
+of the manuscript's finite-pole gauge prose without altering its text.
+
+The quotient pole is the unique preimage of infinity and has the contravariant
+product law. It agrees with the existing matrix pole, including `-D/C` when
+`C!=0`. The actual double coset `B∞ J B∞` is defined by witnesses in the
+actual infinity subgroup. It is exactly the complement of `B∞`; the two cells
+are disjoint and cover the entire PGL group. On any nondegenerate representative,
+the second cell is exactly `C!=0`, equivalently a finite pole, and it is the
+union of the finite-pole gauge cosets. Inversion lies in the second cell and
+identity in the first. No uniqueness of the two unrestricted affine factors,
+topological cell structure, manifold dimension or intrinsic geometry is claimed.
+
+`bruhat-map.json` adds the source-bound `eq:p0-bruhat` equation anchor, alongside
+additional affine/pole components. The live inventory has five equation anchors
+and still 32 component-mapped environments, one fragment-certified and 69 not
+yet formalized among 102 environments in 22 source files. Historical navigation
+tests keep their exact four-anchor archived inventories, while checking that
+their original anchors remain in the expanded live inventory. Current
+navigation and these four receipt/navigation tests have separately pinned
+successors; old proofs, goals, receivers, contracts and library bytes are exact.
+
+There are 574 distinct audited statements overall. The 159 unchanged import
+audits are not new statements. Exact global axiom sets use only their actual
+subsets of `propext`, `Classical.choice` and `Quot.sound`, without target axioms
+or admitted proofs. The existing Mathlib source/cache fingerprints suffice.
+`contract-bruhat.json` gives this continuation a separate 300-second profile
+under unchanged numerical limits: seven source imports, 35 new statements,
+four specific negative rejections and 14 child commands. The eight predecessor
+profiles remain independently required. Native checks and manuscript builds
+are scheduled serially without concurrent heavy proof work.
+
+```sh
+python paper-0/formal/bruhat_run.py \
+  --mathlib-root /absolute/path/to/pinned/mathlib \
+  --lean /absolute/path/to/lean/bin/lean \
+  --output /absolute/path/to/new-bruhat-evidence-directory
+```
+
+CI runs the new profile in its own bounded step and uploads its own artifact.
+
+The original successful Bruhat reception described `H*g` as a left coset in
+two metadata files. Standard terminology is **right coset**, even though `H`
+acts on its left. The formula and every Lean proof, receiver, native kernel,
+negative control and resource bound are identical. After the nine original
+profiles completed, `evidence/bruhat-terminology-successor-contract.json`
+prospectively declared one reception with the corrected map/contract wording
+and added regression checks for per-profile source snapshots. The original
+complete source tree and successful reception remain exact; the final receipt
+binds each profile to the source snapshot it actually checked. Current source
+pins separately bind the corrected metadata and stronger receipt regression.
+
+`evidence/bruhat-execution.json` and `bruhat-run-01.tar.gz` receive all nine
+required profiles as `Passed`: native 180.86 seconds, analysis 118.19, original
+Chapter 4 50.87, Apollonius 70.42, projective 76.40, PGL 51.79,
+affine/generation 85.77, arithmetic 103.63 and final Bruhat 110.13 seconds.
+The original successful Bruhat reception (110.45 seconds) is also preserved.
+Every invocation uses its own unchanged 300-second deadline. All 69 native
+report bytes match the preceding checkpoint; the native profile completes
+148 commands and 51,137 independent reference transitions.
+
+The 1,078-member archive binds both complete 128-source snapshots and their
+locks, 22 manuscript sources, workflow, all reports, native traces/replay
+receipts, exact Lean audits, negative diagnostics and both build logs. Every
+profile is verified against its actual source snapshot. All 59 regressions
+pass against the completed receipt, following the original 58 preparatory
+passes and then-pending receipt check retained verbatim. Both builds pass
+at 103/61 pages without unresolved references/citations, duplicate labels or
+missing assets. Existing overfull boxes (2/8, maximum 11.13/105.15 pt) and
+bookmark/underfull warnings remain; manuscript text and tracked PDFs are exact.
+
 ## Continuation order
 
 The §2 continuations and §3 coordinate/real-analysis bridge are received above.
 The deferred geometric steps and their prerequisites are now in
 `chapter03-obligations.json`. Advance easier remaining Chapter 4 work first:
-the algebraic finite-pole stabilizer conjugation and Bruhat-cell interfaces,
+the algebraic fixed-point/eigenline and conjugation interfaces,
 keeping intrinsic geometry and chart independence separate. The
 general-manifold/bundle identifications retain their explicit hypotheses.
 Reuse old Lean material

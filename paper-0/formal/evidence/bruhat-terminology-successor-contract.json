@@ -1,0 +1,38 @@
+{
+  "schema": "aeg.paper0.bruhat.terminology-successor.v1",
+  "declared_at_utc": "2026-11-07T16:20:10.988170+00:00",
+  "before_execution": true,
+  "original_profile_status": "Passed",
+  "original_profile_directory": "bruhat-01",
+  "original_report_sha256": "3d747167ecfb8187723eaa5c0809a93161bfa950633bd8e3223554eea714bdfb",
+  "original_source_lock_sha256": "50f859babeda745fdf9cab3c8b467f2619dacf2fb34aeb985fe01fd6d282e415",
+  "current_source_lock_sha256": "84c977ddb57880518f9fd65158db8fa6674ecdcff243c0e8a0ce88ed5d98a8a7",
+  "formal_sources_changed": [
+    "bruhat-map.json",
+    "contract-bruhat.json",
+    "inventory.json",
+    "test_bruhat.py"
+  ],
+  "correction": "H*g is a right coset (the orbit of left multiplication by H). Correct the previous left-coset wording; the formula, proof, imports, exact audit names/axioms, numeric bounds, controls and all Lean proof/receiver/native-kernel bytes are unchanged. The regression adds per-profile source-snapshot checks. Original execution snapshot and successful reception are retained exactly.",
+  "bounds": {
+    "wall_seconds": 300,
+    "child_commands": 32,
+    "child_wall_seconds": 120,
+    "child_cpu_seconds": 60,
+    "child_address_space_bytes": 1073741824,
+    "lean_child_address_space_bytes": 8589934592,
+    "child_file_bytes": 33554432,
+    "artifact_bytes": 536870912
+  },
+  "expected_work": {
+    "child_commands": 14,
+    "import_lean_statements": 159,
+    "new_lean_statements": 35,
+    "import_modules": 7,
+    "positive_modules": 1,
+    "negative_controls": 4
+  },
+  "output_directory": "bruhat-02",
+  "scheduling": "One fresh independent serial reception after all nine original profiles complete. No earlier result is relabeled and no deadline is refilled.",
+  "exit": "Retain exact result; no automatic retry or resource growth."
+}

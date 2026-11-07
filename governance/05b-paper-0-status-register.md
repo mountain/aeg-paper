@@ -1171,3 +1171,81 @@ algebraic continuations. Topological/smooth, chart-independent and intrinsic
 hyperbolic identifications, as well as the registered Chapter 3 geometric
 obligations, retain their separate status. General mixed-slot history theory
 and intrinsic dependency-poset classification belong to Paper I.
+
+## 24. Finite-point stabilizers, pole fibers and Bruhat cells (2026-11-07)
+
+`formal/ProjectiveBruhat.lean` adds 35 exactly audited statements over every
+field, bringing the distinct count to 574 including supporting lemmas.
+`formal/bruhat-map.json` pins their correspondence to the unchanged Section 6
+affine/gauge prose, matrix-pole reading and Bruhat equation. No whole-chapter
+or intrinsic geometric status is inferred.
+
+| Component | Status | Hypotheses and boundary |
+| --- | --- | --- |
+| actual point-stabilizer conjugacy | `PROVED WITH STATED HYPOTHESES` | For any projective point `p` and actual PGL element `g`, conjugation `h ↦ g h g⁻¹` is a multiplicative equivalence between the subgroup fixing `p` and the subgroup fixing `g(p)`. The infinity instance is the existing affine stabilizer. |
+| finite-pole projective gauge | `PROVED WITH STATED HYPOTHESES` | `W_q=J*T(-q)` sends `q` to infinity and infinity to zero. Its finite formula is `-1/(z-q)` under `z!=q`; inverse boundary values are explicit. The exceptional ordinary denominator remains excluded. |
+| finite-point/standard affine group interface | `PROVED WITH STATED HYPOTHESES` | Conjugation by `W_q` sends the subgroup fixing `q` onto the actual infinity stabilizer. The standard affine-group isomorphism in the other direction is `e ↦ W_q⁻¹ affineClass(e) W_q`, with the order proved explicitly. |
+| quotient pole and fixed-pole fiber | `PROVED WITH STATED HYPOTHESES` | The quotient pole is the unique infinity preimage, obeys the contravariant product law, and agrees with the old matrix pole and `-D/C` formula under nondegeneracy and `C!=0`. Operators with pole exactly `q` form the right coset `B∞ W_q`; they are not a subgroup and are disjoint from the subgroup fixing `q`. |
+| actual rank-one Bruhat decomposition | `PROVED WITH STATED HYPOTHESES` | The double coset consists of actual products `b J c` with `b,c ∈ B∞`. It is exactly the complement of `B∞`; both cells cover PGL and are disjoint. Matrix representatives belong to the second cell exactly when `C!=0`, equivalently their pole is finite. The second cell is also the union of finite-pole gauge cosets. Inversion/identity provide active cell witnesses. |
+
+The source's finite-pole gauge prose is interpreted as conjugacy of point
+stabilizers after a coordinate change. It must not be read as saying that
+all operators with pole `q` constitute that subgroup: those operators instead
+form the proved right coset. No manuscript wording, hypothesis or research
+material is silently rewritten, moved or removed. The results do not provide
+topological cell structures, manifold dimensions, unique unrestricted affine
+double-coset factors, or intrinsic horocycle/hyperbolic identifications.
+
+The live inventory now includes the separately mapped `eq:p0-bruhat`, for five
+equation anchors; its 102 theorem-like environments remain 32 component-mapped,
+one fragment-certified and 69 not yet formalized in 22 sources. Four historical
+navigation/receipt tests retain their exact archived four-equation inventories
+and source hashes, and require their original equation anchors to remain
+present in live navigation. The new receipt separately binds all six current
+navigation/test successor sources. All preceding proof, goal, receiver,
+contract and library bytes and historical execution archives remain exact.
+
+Exact axiom sets disclose only actual subsets of `propext`, `Classical.choice`
+and `Quot.sound`, with no target axiom or admitted proof. The same 7,600 source
+and 3,175 compiled Mathlib fingerprints are used. `contract-bruhat.json`
+declares a separate 300-second profile with unchanged numerical limits and
+14 child commands: 159 unchanged dependency audits, 35 new audits, and four
+specific negatives for omitted fixed-point membership, omitted `C!=0`, omitted
+gauge-domain exclusion and reversed conjugation order. Eight predecessor
+profiles remain independently required; native checks and manuscript builds
+are scheduled serially without concurrent heavy proof work.
+
+The original successful Bruhat reception used the term `left coset` for `H*g`
+in map/contract descriptions. This is a nomenclature error: `H*g` is a right
+coset, arising as an orbit of left multiplication. After the nine original
+profiles passed, `bruhat-terminology-successor-contract.json` prospectively
+declared one independent reception with the corrected wording. All formulas,
+Lean proofs, receivers, native kernels, controls and numerical bounds are
+identical. The original source tree and successful reception remain exact.
+The archive retains both complete source snapshots; the final receipt and
+strengthened regression bind every profile to its actual snapshot, as well
+as the corrected current metadata. No earlier result is relabeled.
+
+`formal/evidence/bruhat-execution.json` receives all nine required profiles as
+`Passed`: native 180.86 seconds, analysis 118.19, original Chapter 4 50.87,
+Apollonius 70.42, projective 76.40, PGL 51.79, affine/generation 85.77,
+arithmetic 103.63 and final Bruhat 110.13 seconds. The original successful
+Bruhat reception at 110.45 seconds is preserved separately in the same archive.
+Each invocation stays inside its own unchanged 300-second deadline. The native
+profile completes all 148 commands, 69 rows and 51,137 independent reference
+transitions, with all 69 report bytes identical to the preceding checkpoint.
+
+The 1,078-member archive binds both complete 128-source snapshots plus their
+locks, 22 manuscript sources, workflow, reports, traces/replay receipts, exact
+Lean audits, negative diagnostics and both build logs. All 59 regressions pass,
+including source-snapshot bindings for each profile and the exact metadata-only
+correction set. The original preparatory log retains 58 passes and its
+then-pending receipt check. Both builds pass at 103/61 pages without unresolved
+references/citations, duplicate labels or missing assets. Existing overfull
+boxes (2/8, maximum 11.13/105.15 pt) and bookmark/underfull warnings remain;
+manuscript text and tracked PDFs are unchanged.
+
+Algebraic fixed-point/eigenline and conjugation interfaces remain possible
+continuations. Chart independence, topological/smooth and intrinsic geometric
+identifications, as well as the previously registered Chapter 3 obligations,
+retain their separate status.

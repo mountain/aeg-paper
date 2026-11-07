@@ -36,6 +36,7 @@
   "pgl_map_sha256": "caca86d7be7a04fcf8df2ea47812f86148e551b40ec3820aa20e1fd6ffb06760",
   "affine_generation_map_sha256": "94840586c871309c1ce9fa1b1d7d3b6a0459e8a002f8ec7f09c60ddd492c9e6d",
   "arithmetic_map_sha256": "48568e0d7f13ea7fb52c0244413429a1e56df90baefc2c10b19fd85a71c491a7",
+  "bruhat_map_sha256": "09771d5b418537c95a011eafe6be875ca9d8fa1641af55caecd6c6d2ee41ac6b",
   "equation_components": [
     {
       "source": "paper-0/sections/04-ripple-geometry.tex",
@@ -167,12 +168,30 @@
         "AEGPaper0.ProjectiveArithmetic.first_word_ordinary_total",
         "AEGPaper0.ProjectiveArithmetic.first_word_safe",
         "AEGPaper0.ProjectiveArithmetic.sectionClass_add",
-        "AEGPaper0.ProjectiveArithmetic.sectionClass_mul"
+        "AEGPaper0.ProjectiveArithmetic.sectionClass_mul",
+        "AEGPaper0.ProjectiveBruhat.action_inverse_cancel",
+        "AEGPaper0.ProjectiveBruhat.conjugation_stabilizer_iff",
+        "AEGPaper0.ProjectiveBruhat.finiteAffineEquiv_class",
+        "AEGPaper0.ProjectiveBruhat.finiteAffineEquiv_fixes_point",
+        "AEGPaper0.ProjectiveBruhat.finite_pole_fiber",
+        "AEGPaper0.ProjectiveBruhat.finite_pole_fiber_not_subgroup",
+        "AEGPaper0.ProjectiveBruhat.finite_stabilizer_excludes_own_pole",
+        "AEGPaper0.ProjectiveBruhat.finite_stabilizer_iff",
+        "AEGPaper0.ProjectiveBruhat.pointStabilizer_none",
+        "AEGPaper0.ProjectiveBruhat.poleGauge_at_infinity",
+        "AEGPaper0.ProjectiveBruhat.poleGauge_at_pole",
+        "AEGPaper0.ProjectiveBruhat.poleGauge_finite",
+        "AEGPaper0.ProjectiveBruhat.poleGauge_inverse_infinity",
+        "AEGPaper0.ProjectiveBruhat.poleGauge_inverse_zero",
+        "AEGPaper0.ProjectiveBruhat.poleGauge_not_point_stabilizer",
+        "AEGPaper0.ProjectiveBruhat.poleGauge_pole",
+        "AEGPaper0.ProjectiveBruhat.stabilizerConjugacy_apply"
       ],
       "coverage": [
         "The actual infinity stabilizer criterion is C=0, and its action has the explicit affine translation/dilation factorization. The abstract Aff/PGL group isomorphism is not identified here.",
         "The actual infinity stabilizer is multiplicatively equivalent to standard Mathlib AffineEquiv K K K. Unique nonzero-slope normal form, finite evaluation, inverse formula, parameter composition and properness witnesses are explicit.",
-        "Pure first-slot nondegenerate arithmetic words have image exactly the affine stabilizer; every ordinary input is admissible. Affine normal forms have explicit two-step arithmetic realizations."
+        "Pure first-slot nondegenerate arithmetic words have image exactly the affine stabilizer; every ordinary input is admissible. Affine normal forms have explicit two-step arithmetic realizations.",
+        "Actual point stabilizers are conjugate. The gauge J*T(-q) sends q to infinity, and conjugates the finite-point stabilizer to B infinity. Standard affine equivalences give the inverse-conjugated subgroup. Fixed-pole fibers instead are right cosets B infinity * gauge(q), are not subgroups, and exclude the stabilizer of q."
       ]
     },
     {
@@ -189,6 +208,30 @@
       ],
       "coverage": [
         "The four-factor projective formula holds as matrices up to the explicit nonzero scalar 1/C and as total actions, including infinity and intermediate poles."
+      ]
+    },
+    {
+      "source": "paper-0/sections/06-projective-unification.tex",
+      "label": "eq:p0-bruhat",
+      "line": 223,
+      "formal_status": "component-map-supplied",
+      "lean_components": [
+        "AEGPaper0.ProjectiveBruhat.bigCell_excludes_stabilizer",
+        "AEGPaper0.ProjectiveBruhat.bigCell_iff_affine_gauge",
+        "AEGPaper0.ProjectiveBruhat.bigCell_iff_finite_pole",
+        "AEGPaper0.ProjectiveBruhat.bigCell_iff_not_stabilizer",
+        "AEGPaper0.ProjectiveBruhat.bigCell_matrix_iff",
+        "AEGPaper0.ProjectiveBruhat.bruhat_cover",
+        "AEGPaper0.ProjectiveBruhat.bruhat_disjoint",
+        "AEGPaper0.ProjectiveBruhat.bruhat_factorization",
+        "AEGPaper0.ProjectiveBruhat.dilation_in_stabilizer",
+        "AEGPaper0.ProjectiveBruhat.identity_not_in_bigCell",
+        "AEGPaper0.ProjectiveBruhat.inversion_in_bigCell",
+        "AEGPaper0.ProjectiveBruhat.nonaffine_in_bigCell",
+        "AEGPaper0.ProjectiveBruhat.translation_in_stabilizer"
+      ],
+      "coverage": [
+        "The actual group is the disjoint union of B infinity and the double coset B infinity * J * B infinity. The second cell is exactly the complement, C nonzero on representatives, equivalently a finite pole, and the union of finite-pole affine gauge cosets."
       ]
     }
   ],
@@ -1103,6 +1146,11 @@
         "AEGPaper0.Chapter04ComplexProjective.real_nondegenerate",
         "AEGPaper0.Chapter04ComplexProjective.real_pole_formula",
         "AEGPaper0.Chapter04ComplexProjective.upper_chart_action",
+        "AEGPaper0.ProjectiveBruhat.quotientPole_finite_formula",
+        "AEGPaper0.ProjectiveBruhat.quotientPole_infinity_iff",
+        "AEGPaper0.ProjectiveBruhat.quotientPole_ofMatrix",
+        "AEGPaper0.ProjectiveBruhat.quotientPole_product",
+        "AEGPaper0.ProjectiveBruhat.quotientPole_unique_preimage",
         "AEGPaper0.ProjectiveFaithfulness.determinant_scale",
         "AEGPaper0.ProjectiveFaithfulness.equal_actions_iff_nonzero_scalar",
         "AEGPaper0.ProjectiveFaithfulness.equivalence_equality_iff_scalar",

@@ -1,0 +1,397 @@
+{
+  "schema": "aeg.paper0.bruhat.execution.v1",
+  "date": "2026-11-07",
+  "status": "Passed",
+  "authorship": "Codex (OpenAI), CC0; no independent human mathematical review claimed.",
+  "source_lock_sha256": "84c977ddb57880518f9fd65158db8fa6674ecdcff243c0e8a0ce88ed5d98a8a7",
+  "bruhat_map_sha256": "09771d5b418537c95a011eafe6be875ca9d8fa1641af55caecd6c6d2ee41ac6b",
+  "chapter03_obligations_sha256": "973e643c66e264c4475b512d916e4eef7a87dfe94d112f910e98359e81ad2800",
+  "mathlib_lock_sha256": "de2e937993bd22e41702f21889ac382f3cb36364cbe0b5e5d3fbc1e32bd0394d",
+  "mathlib_commit": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
+  "mathlib_source_files": 7600,
+  "mathlib_compiled_modules": 3175,
+  "terminology_successor": {
+    "schema": "aeg.paper0.bruhat.terminology-successor.v1",
+    "declared_at_utc": "2026-11-07T16:20:10.988170+00:00",
+    "before_execution": true,
+    "original_profile_status": "Passed",
+    "original_profile_directory": "bruhat-01",
+    "original_report_sha256": "3d747167ecfb8187723eaa5c0809a93161bfa950633bd8e3223554eea714bdfb",
+    "original_source_lock_sha256": "50f859babeda745fdf9cab3c8b467f2619dacf2fb34aeb985fe01fd6d282e415",
+    "current_source_lock_sha256": "84c977ddb57880518f9fd65158db8fa6674ecdcff243c0e8a0ce88ed5d98a8a7",
+    "formal_sources_changed": [
+      "bruhat-map.json",
+      "contract-bruhat.json",
+      "inventory.json",
+      "test_bruhat.py"
+    ],
+    "correction": "H*g is a right coset (the orbit of left multiplication by H). Correct the previous left-coset wording; the formula, proof, imports, exact audit names/axioms, numeric bounds, controls and all Lean proof/receiver/native-kernel bytes are unchanged. The regression adds per-profile source-snapshot checks. Original execution snapshot and successful reception are retained exactly.",
+    "bounds": {
+      "wall_seconds": 300,
+      "child_commands": 32,
+      "child_wall_seconds": 120,
+      "child_cpu_seconds": 60,
+      "child_address_space_bytes": 1073741824,
+      "lean_child_address_space_bytes": 8589934592,
+      "child_file_bytes": 33554432,
+      "artifact_bytes": 536870912
+    },
+    "expected_work": {
+      "child_commands": 14,
+      "import_lean_statements": 159,
+      "new_lean_statements": 35,
+      "import_modules": 7,
+      "positive_modules": 1,
+      "negative_controls": 4
+    },
+    "output_directory": "bruhat-02",
+    "scheduling": "One fresh independent serial reception after all nine original profiles complete. No earlier result is relabeled and no deadline is refilled.",
+    "exit": "Retain exact result; no automatic retry or resource growth."
+  },
+  "profiles": {
+    "native": {
+      "directory": "native-01",
+      "contract": "contract-chapter03.json",
+      "contract_sha256": "606081b7c80d6f57bd1b05a688217d93c411663a98f23eb2eed931a17a66312f",
+      "source_snapshot": "execution-snapshot-v1",
+      "report_sha256": "f640aeaa4717fd76264b3e2cd1e29cadf8c052a39f7fadcaa7a091495e42b95c",
+      "wall_seconds": 180.85847166600433,
+      "child_commands": 148
+    },
+    "analytic": {
+      "directory": "analysis-01",
+      "contract": "contract-analysis-v1.1.json",
+      "contract_sha256": "dc43df95783ca070cc0fad0717cc5986182d3fca814a9a6358f7b436376a7ab3",
+      "source_snapshot": "execution-snapshot-v1",
+      "report_sha256": "bb4aeed982c3aa2676b48f4aca18d8545978647b752acfe031d93c6904f205b0",
+      "wall_seconds": 118.19455773699883,
+      "child_commands": 16
+    },
+    "chapter04": {
+      "directory": "chapter04-01",
+      "contract": "contract-chapter04.json",
+      "contract_sha256": "52b58178702f5afecc366ed2edab8b1da4c553c3cab3703c2e1fa6fe34d4a905",
+      "source_snapshot": "execution-snapshot-v1",
+      "report_sha256": "9d8ab48891abc39cb2795f56385ba7cad027cf7218ffb1a95b1a711784d2be96",
+      "wall_seconds": 50.86797450599988,
+      "child_commands": 8
+    },
+    "apollonius": {
+      "directory": "apollonius-01",
+      "contract": "contract-apollonius.json",
+      "contract_sha256": "082e865282360a9616cc7f27558e668f630ac1a0dccb7564f020b318f689b506",
+      "source_snapshot": "execution-snapshot-v1",
+      "report_sha256": "89654df255b6548676a447a671e7514879a92111b717ff8d65c249f19c352324",
+      "wall_seconds": 70.42039898200164,
+      "child_commands": 8
+    },
+    "projective": {
+      "directory": "projective-01",
+      "contract": "contract-projective.json",
+      "contract_sha256": "3c0eb86b50b4bf972e8b2798cda2b6653a76556a19addbc408861e31b3ad1cca",
+      "source_snapshot": "execution-snapshot-v1",
+      "report_sha256": "952a891f53f18c99777bec75971fdadfc527b047f50c1db77a12ce7b7587d0b2",
+      "wall_seconds": 76.39804491199902,
+      "child_commands": 11
+    },
+    "pgl": {
+      "directory": "pgl-01",
+      "contract": "contract-pgl.json",
+      "contract_sha256": "b7687826a0bf34e7bb23d5c3637d298ab918839276175a4ffe5b7d5e345135c1",
+      "source_snapshot": "execution-snapshot-v1",
+      "report_sha256": "8e20a2f4b70cea22265b5bc327236e24b4e0c5fe84cf3aa36d4ddb93ab7548ec",
+      "wall_seconds": 51.791966206001234,
+      "child_commands": 9
+    },
+    "affine_generation": {
+      "directory": "affine-generation-01",
+      "contract": "contract-affine-generation.json",
+      "contract_sha256": "a695a3c8c78b62511f8b8a0310fef8a33ed3b5aab3b504cb1e9f59fd74c2d17d",
+      "source_snapshot": "execution-snapshot-v1",
+      "report_sha256": "7bc5a62576095f5495ee2f7fc28f1d481e68a5b09f375e26994ba9d585b05c08",
+      "wall_seconds": 85.7673762129998,
+      "child_commands": 13
+    },
+    "arithmetic": {
+      "directory": "arithmetic-01",
+      "contract": "contract-arithmetic.json",
+      "contract_sha256": "5d3247be8d5cb4e07023f97cedd8019e7820be94141c24f6cce20e57c4d0a761",
+      "source_snapshot": "execution-snapshot-v1",
+      "report_sha256": "a188755e78780bade3c59a41f9be1285097047ec44633eae799f52eb3eede2fe",
+      "wall_seconds": 103.63140380800178,
+      "child_commands": 16
+    },
+    "bruhat": {
+      "directory": "bruhat-02",
+      "contract": "contract-bruhat.json",
+      "contract_sha256": "a26c4e025a143e79cb54036edc49c7e23225c20e6768dcaece4dc791071ae1fa",
+      "source_snapshot": "sources",
+      "report_sha256": "964c423548d49955dc5d13c6540a851fb0f6003d727ca0cc5037f8ecfa838348",
+      "wall_seconds": 110.12707053099439,
+      "child_commands": 14
+    }
+  },
+  "previous_lean_statements": 539,
+  "new_lean_statements": 35,
+  "total_lean_statements": 574,
+  "bruhat_axioms": {
+    "AEGPaper0.ProjectiveBruhat": {
+      "action_inverse_cancel": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "pointStabilizer_none": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "conjugation_stabilizer_iff": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "stabilizerConjugacy_apply": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "poleGauge_at_pole": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "poleGauge_at_infinity": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "poleGauge_finite": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "poleGauge_inverse_infinity": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "poleGauge_inverse_zero": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "finite_stabilizer_iff": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "finiteAffineEquiv_class": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "finiteAffineEquiv_fixes_point": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "quotientPole_unique_preimage": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "quotientPole_infinity_iff": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "quotientPole_product": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "quotientPole_ofMatrix": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "quotientPole_finite_formula": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "poleGauge_pole": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "finite_pole_fiber": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "finite_stabilizer_excludes_own_pole": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "poleGauge_not_point_stabilizer": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "translation_in_stabilizer": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "dilation_in_stabilizer": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "bigCell_excludes_stabilizer": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "nonaffine_in_bigCell": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "bigCell_iff_not_stabilizer": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "bigCell_matrix_iff": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "bruhat_cover": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "bruhat_disjoint": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "bruhat_factorization": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "bigCell_iff_finite_pole": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "inversion_in_bigCell": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "identity_not_in_bigCell": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "bigCell_iff_affine_gauge": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "finite_pole_fiber_not_subgroup": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  },
+  "source_import_audits": 159,
+  "negative_controls": {
+    "point-guard": "Rejected with the expected specific type mismatch",
+    "nonaffine-guard": "Rejected with the expected specific type mismatch",
+    "gauge-domain": "Rejected with the expected specific type mismatch",
+    "conjugation-order": "Rejected with the expected specific type mismatch"
+  },
+  "native_runs": 69,
+  "reference_transitions": 51137,
+  "preceding_native_reports_unchanged": 69,
+  "original_proof_library_goal_contract_and_runtime_receiver_bytes_unchanged": true,
+  "old_formal_sources_with_explicit_navigation_successors": [
+    "inventory.py",
+    "inventory.json",
+    "test_projective.py",
+    "test_pgl.py",
+    "test_affine_generation.py",
+    "test_arithmetic.py"
+  ],
+  "formal_source_files": 128,
+  "manuscript_source_files": 22,
+  "archive": {
+    "path": "bruhat-run-01.tar.gz",
+    "sha256": "b6de427aff93de26022ee01efc4da0cb11fa9e60d8db9f24383dcd7b120a6a26",
+    "bytes": 15490664,
+    "members": 1078,
+    "uncompressed_bytes": 55029952
+  },
+  "manuscript_builds": {
+    "0": {
+      "status": "Passed",
+      "pages": 103,
+      "pdf_bytes": 909781,
+      "pdf_sha256": "c717888b15da17da0c017155df70562e0251b3ff05abca96e00688125b449e14",
+      "final_log_sha256": "92ec999e3b674fb8017d864144b4dbb45a4f3790f31a497b5ec3d54ba00eee2f",
+      "unresolved_references_citations_duplicate_labels_missing_assets": false,
+      "overfull_boxes": 2,
+      "max_overfull_pt": 11.13274,
+      "note": "Validation PDF retained externally; tracked manuscript PDF restored without changing its bytes."
+    },
+    "1": {
+      "status": "Passed",
+      "pages": 61,
+      "pdf_bytes": 756641,
+      "pdf_sha256": "eb4d365cdf6fa1be444120240119afe3d97b1d1b4aba6c57bf15f3708d9530db",
+      "final_log_sha256": "597f4052ad402c3741e094edba7ff8db72c6d471379832ef32092ad26dc17569",
+      "unresolved_references_citations_duplicate_labels_missing_assets": false,
+      "overfull_boxes": 8,
+      "max_overfull_pt": 105.1512,
+      "note": "Validation PDF retained externally; tracked manuscript PDF restored without changing its bytes."
+    }
+  },
+  "pre_receipt_checks": {
+    "passed": 58,
+    "pending_receipt_test": 1,
+    "note": "The archive-binding test cannot pass before the completed execution receipt exists. Its missing-receipt error is retained verbatim in engineering/unit-before-receipt.log."
+  },
+  "unit_tests_after_archive": 59,
+  "live_inventory": {
+    "source_files": 22,
+    "theorem_like_environments": 102,
+    "component_mapped": 32,
+    "fragment_certified": 1,
+    "not_yet_formalized": 69,
+    "separately_mapped_equations": 5
+  },
+  "source_audit": [
+    {
+      "scope": "The finite-pole gauge prose is interpreted as a conjugacy of point stabilizers. It must not identify the subgroup fixing q with operators having pole exactly q: the latter form a right coset and are disjoint from that stabilizer. No manuscript text is changed."
+    }
+  ],
+  "scope": "35 new exact audited statements over every field certify actual PGL point-stabilizer conjugacy, finite gauge and pole/coset interfaces, and disjoint rank-one Bruhat decomposition. Rebuild 159 unchanged import audits without counting them as new. No topological or complete-chapter certification.",
+  "remaining": [
+    "Identification of point stabilizers with fixed-pole fibers",
+    "Topology, manifold structure or dimensions of Bruhat cells",
+    "Intrinsic horocycles, tangency, chart independence and hyperbolic identifications",
+    "Marked-history or ordinary-domain identifications from group equalities"
+  ],
+  "deferred_chapter03": "chapter03-obligations.json",
+  "predecessor_execution_receipt_sha256": "c439d9d363060a10fd931823cd534cd66475f585fadae77db4fbda239df5d502",
+  "trust_boundary": "Pinned compiler/standard library and source/cache-fingerprinted Mathlib are trusted builds. Actual PGL point-stabilizer conjugacy, finite gauge/standard affine-group equivalence, fixed-pole left-coset distinction and disjoint rank-one Bruhat decomposition are certified over every field. Topological cell structures, dimensions, chart-independent intrinsic geometry and syntax/domain identifications are excluded. All nine required profiles pass separately under independently declared unchanged bounds; native and build tasks are scheduled serially. Eight predecessor profiles bind their exact original execution snapshot, while the final Bruhat reception binds the corrected terminology/current regression snapshot. The first successful Bruhat reception and both complete source snapshots are preserved. All Lean proof, native kernel, receiver and negative-control bytes are unchanged across the terminology correction."
+}

@@ -42,7 +42,7 @@ class PGLBoundaryTests(unittest.TestCase):
         self.assertEqual(live, read("inventory.json"))
         self.assertEqual(len(live["claims"]), 102)
         self.assertEqual(sum(c["formal_status"] == "component-map-supplied" for c in live["claims"]), 32)
-        self.assertEqual(len(live["equation_components"]), 4)
+        self.assertTrue({"eq:p0-apollonius-pencil", "eq:p0-prefix-matrices", "eq:p0-affine-stabilizer", "eq:p0-projective-factorization"} <= {e["label"] for e in live["equation_components"]})
         original = inventory.digest
         with patch.object(inventory, "digest", side_effect=lambda p:
                           "changed" if p == ROOT / mapping["source"] else original(p)):
@@ -120,6 +120,7 @@ class PGLReceiptTests(unittest.TestCase):
                 for row in result["rows"]:
                     self.assertEqual(hashlib.sha256(files[profile["directory"] + "/" + row["name"] + ".run.adva"]).hexdigest(),
                                      row["report_sha256"])
+        self.assertEqual(len(json.loads(files["sources/inventory.json"])["equation_components"]), 4)
         raw = files["sources/machine.lock.json"]
         self.assertEqual(hashlib.sha256(raw).hexdigest(), record["source_lock_sha256"])
         lock = json.loads(raw)
@@ -127,7 +128,7 @@ class PGLReceiptTests(unittest.TestCase):
             self.assertEqual(hashlib.sha256(files["sources/" + name]).hexdigest(), digest)
             # The affine/generation continuation separately pins current
             # navigation and this receipt test; the PGL snapshot stays exact.
-            if name not in {"inventory.py", "inventory.json", "test_pgl.py"}:
+            if name not in {"inventory.py", "inventory.json", "test_pgl.py", "test_projective.py"}:
                 self.assertEqual(files["sources/" + name], (HERE / name).read_bytes())
         for name, digest in read("inventory.json")["sources"].items():
             self.assertEqual(hashlib.sha256(files["manuscript/" + name]).hexdigest(), digest)

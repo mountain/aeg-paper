@@ -1,0 +1,63 @@
+{
+  "schema": "aeg.paper0.formal.contract.bruhat.v1",
+  "date": "2026-11-07",
+  "source_commit": "24c31470b02a9b87d7475e5946df27c5d7b34123",
+  "question": "Prove actual finite-point stabilizer conjugacy, distinguish fixed-pole fibers as affine right cosets, and establish the disjoint rank-one Bruhat decomposition in the PGL quotient.",
+  "bounds": {
+    "wall_seconds": 300,
+    "child_commands": 32,
+    "child_wall_seconds": 120,
+    "child_cpu_seconds": 60,
+    "child_address_space_bytes": 1073741824,
+    "lean_child_address_space_bytes": 8589934592,
+    "child_file_bytes": 33554432,
+    "artifact_bytes": 536870912
+  },
+  "expected_work": {
+    "child_commands": 14,
+    "import_lean_statements": 159,
+    "new_lean_statements": 35,
+    "import_modules": 7,
+    "positive_modules": 1,
+    "negative_controls": 4
+  },
+  "negative_controls": [
+    {
+      "name": "point-guard",
+      "file": "negative/BruhatMissingFinitePointGuard.lean",
+      "expected_fragments": [
+        "(finite_stabilizer_iff q g).mp",
+        "g \u2208 pointStabilizer (some q) \u2192"
+      ]
+    },
+    {
+      "name": "nonaffine-guard",
+      "file": "negative/BruhatMissingNonaffineGuard.lean",
+      "expected_fragments": [
+        "nonaffine_in_bigCell m hm",
+        "m.c \u2260 0 \u2192 ofMatrix m hm \u2208 bigCell"
+      ]
+    },
+    {
+      "name": "gauge-domain",
+      "file": "negative/BruhatMissingGaugeDomain.lean",
+      "expected_fragments": [
+        "poleGauge_finite q z",
+        "z \u2260 q \u2192"
+      ]
+    },
+    {
+      "name": "conjugation-order",
+      "file": "negative/BruhatWrongConjugation.lean",
+      "expected_fragments": [
+        "finiteAffineEquiv_class q e",
+        "(poleGauge q)\u207b\u00b9 * affineClass e * poleGauge q",
+        "poleGauge q * affineClass e * (poleGauge q)\u207b\u00b9"
+      ]
+    }
+  ],
+  "resource_basis": "Declared before bounded reception after clean engineering compilation and four specific negative rejections. Reuse every analytic numerical bound unchanged: separate 300-second profile, 120-second child wall, 60-second child CPU, 8 GiB Lean address space. All seven imports use the unchanged library lock. Eight predecessor profiles are independently required. Run native reception and manuscript builds serially, without concurrent heavy proof work; do not refill deadlines.",
+  "success": "Exactly audit 159 unchanged source-import statements and all 35 new statements, with clean diagnostics and no target axiom or admitted proof. All four controls reject for their specific guard/order mismatches. Source/inventory/library pins match and all eight predecessor profiles pass independently.",
+  "exit": "One fresh bounded invocation after engineering checks; retain a Failed record and stop on mismatch/exhaustion. A correction requires a separately declared successor, never automatic bound growth.",
+  "authorship": "Codex (OpenAI), CC0; no independent human review claimed."
+}

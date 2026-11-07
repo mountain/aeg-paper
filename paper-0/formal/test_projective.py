@@ -45,7 +45,7 @@ class ProjectiveBoundaryTests(unittest.TestCase):
         self.assertEqual(live, read("inventory.json"))
         self.assertEqual(len(live["claims"]), 102)
         self.assertEqual(sum(c["formal_status"] == "component-map-supplied" for c in live["claims"]), 32)
-        self.assertEqual(len(live["equation_components"]), 4)
+        self.assertTrue({"eq:p0-apollonius-pencil", "eq:p0-prefix-matrices", "eq:p0-affine-stabilizer", "eq:p0-projective-factorization"} <= {e["label"] for e in live["equation_components"]})
         for label in ("thm:p0-four-matrix-readings", "thm:p0-pgl2-generation"):
             self.assertEqual(next(c for c in live["claims"] if label in c["labels"])["formal_status"],
                              "component-map-supplied")
@@ -129,6 +129,7 @@ class ProjectiveReceiptTests(unittest.TestCase):
                 for row in result["rows"]:
                     self.assertEqual(hashlib.sha256(files[profile["directory"] + "/" + row["name"] + ".run.adva"]).hexdigest(),
                                      row["report_sha256"])
+        self.assertEqual(len(json.loads(files["sources/inventory.json"])["equation_components"]), 4)
         raw = files["sources/machine.lock.json"]
         self.assertEqual(hashlib.sha256(raw).hexdigest(), record["source_lock_sha256"])
         lock = json.loads(raw)
