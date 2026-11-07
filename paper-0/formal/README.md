@@ -60,7 +60,7 @@ statement correspondence and the reviewed equality kernel remain trusted.
 
 `inventory.json` follows active `\input` directives from the canonical manuscript
 and recorded 20 files and 91 theorem-like environments at the first checkpoint.
-The current live inventory has 22 source files and 95 theorem-like environments,
+At the Appendix F checkpoint the live inventory had 22 source files and 95 theorem-like environments,
 with a separate source-bound map for Appendix C.
 The Appendix F addition refreshes navigation and its live source-lock digest.
 The Appendix C archive still binds its original inventory and manuscript
@@ -335,3 +335,15 @@ geometry, convergence or proof-library translation from this algebraic pilot.
 Original implementation and documentation by Codex (OpenAI), contributed under
 CC0. Source ownership or an account proxy is not independent human review or
 endorsement. Correctness claims are limited to the retained executed checks.
+
+
+## Flat-limit and quadratic-rank source repair (2026-11-07)
+
+The live inventory is refreshed to the current manuscript, including
+`prop:p0-flat-limit` and `prop:p0-complex-conic-rank`, both explicitly marked
+`not-yet-formalized`. This also reconciles navigation drift already present
+on the base revision. Only the live inventory hash in `machine.lock.json`
+changes; archived manuscript snapshots, proof sources, certificates,
+contracts, and execution receipts remain unchanged. New symbolic checks in
+`../scripts/verify-model-limits.py` do not certify the general convergence
+or classification arguments.

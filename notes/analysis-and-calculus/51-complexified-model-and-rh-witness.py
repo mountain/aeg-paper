@@ -8,26 +8,34 @@ A. C1 complexified basic model:
    g = -(4/lambda^2) dw dwbar/(w-wbar)^2,
    a = -(i mu/lambda)(w+wbar)/(w-wbar).
    Checks the eikonal, the frame, the Laplacian, q^2, the PGL_2(C)
-   invariance, the constant curvature -lambda^2, and the real slice.
+   pullback identity on a common domain, the constant curvature -lambda^2, and the real slice.
 
 B. C2 Hermitian basic model:
    M = C, a(z)=z, g = |dz|^2/(mu^2+lam^2|z|^2).
-   Checks the Hermitian eikonal, the curvature, completeness, total
+   Checks the Hermitian eikonal, the curvature, radial length divergence, total
    curvature, and the holomorphic-implies-harmonic mechanism.
 
 C. Riemann--Hilbert:
    Poisson kernel = Cauchy jump; DtN = Hilbert transform; the index of a
-   monomial jump; the Dirichlet problem as the G=-1 jump problem.
+   monomial jump (integer exponent). No analytic RH solvability is tested.
+
+E. Domain counterexamples, infinity chart, square-root cover and winding witness,
+   zero divisor and null gradient, assignment noninvariance, Fourier energy.
+   Global proofs and analytic boundary behavior remain outside script coverage.
 
 Run:  python3 51-complexified-model-and-rh-witness.py
 """
 
 import sympy as sp
 
+COUNT = 0
+
 FAIL = []
 
 
 def check(name, expr):
+    global COUNT
+    COUNT += 1
     ok = sp.simplify(expr) == 0
     print(("  PASS  " if ok else "  FAIL  ") + name)
     if not ok:
@@ -47,7 +55,7 @@ check("A1  (grad a)^2 = mu^2 + lambda^2 a^2",
       grad2 - (mu**2 + lam**2 * a**2))
 
 # Laplacian with sqrt(det g) branch; det G = -gcoef^2/4
-sqdet = sp.sqrt(-gcoef**2 / 4)
+sqdet = sp.I * gcoef / 2  # explicit holomorphic square root, not principal sqrt
 def lap(f):
     return sp.simplify(
         (sp.diff(sqdet * Ginv[0, 1] * sp.diff(f, wb), w)
@@ -79,7 +87,7 @@ ratio = sp.simplify(
     (sp.diff(wp, w) * sp.diff(wbp, wb) / (wp - wbp) ** 2)
     / (1 / (w - wb) ** 2)
 )
-check("A7  diagonal PGL_2(C) action preserves g", ratio - 1)
+check("A7  Mobius pullback identity on common affine domain", ratio - 1)
 
 # A8 constant curvature -lambda^2 (conformal formula on the complexification)
 rho = sp.Rational(1, 2) * sp.log(gcoef)
@@ -110,9 +118,8 @@ check("B2  K = 2 lambda^2 mu^2/(mu^2+lambda^2 r^2)",
 length = sp.simplify(sp.integrate(sp.exp(rho2), (r, 0, R)))
 check("B3  length 0->R = asinh(lambda R/mu)/lambda",
       length - sp.asinh(lam2 * R / mu2) / lam2)
-print("  PASS  B4  length -> oo as R -> oo (completeness)" if sp.limit(length, R, sp.oo) == sp.oo else "  FAIL  B4")
-if sp.limit(length, R, sp.oo) != sp.oo:
-    FAIL.append("B4")
+check("B4  radial length diverges (not alone a completeness proof)",
+      sp.Integer(0 if sp.limit(length, R, sp.oo) == sp.oo else 1))
 check("B5  metric factor at 0 = 1/mu^2",
       sp.exp(2 * rho2).subs(r, 0) - 1 / mu2**2)
 total = sp.simplify(sp.integrate(K2 * sp.exp(2 * rho2) * 2 * sp.pi * r, (r, 0, sp.oo)))
@@ -138,13 +145,53 @@ k = sp.symbols("k", real=True)
 check("C2  H D has symbol |k|",
       sp.simplify((-sp.I * sp.sign(k)) * (sp.I * k) - sp.Abs(k)))
 
-theta, kk = sp.symbols("theta k", real=True)
+theta = sp.symbols("theta", real=True)
+kk = sp.symbols("k", integer=True)
 G = sp.exp(sp.I * kk * theta)
-index = sp.simplify(sp.integrate(sp.diff(sp.log(G), theta), (theta, 0, 2 * sp.pi)) / (2 * sp.pi * sp.I))
+index = sp.simplify(sp.integrate(sp.diff(G, theta) / G, (theta, 0, 2 * sp.pi)) / (2 * sp.pi * sp.I))
 check("C3  index of G=e^{i k theta} is k", index - kk)
+
+print("E. Domain, cover, and normalization witnesses")
+# These exact examples support, but do not replace, the topological proofs.
+check("E1  translation sends (1,2) outside M: first coordinate is zero",
+      (w - 1).subs(w, 1))
+check("E2  pole example denominator vanishes at w=1",
+      (w - 1).subs(w, 1))
+u, v, ss = sp.symbols("u v s", nonzero=True)
+infinity_coef = sp.cancel(gcoef.subs({w: 1/u, wb: v}) * (-1/u**2))
+check("E3  metric extends in the one-infinity chart",
+      infinity_coef - 4/(lam**2 * (1-u*v)**2))
+check("E4  infinity-chart determinant is nonzero at u=0",
+      (-infinity_coef**2/4).subs(u, 0) + 4/lam**4)
+q_cover = 2*sp.I*mu*ss/(w-wb)
+check("E5  square root on s^2=w*wbar cover",
+      (q_cover**2-q2).subs(ss**2, w*wb))
+check("E6  deck transformation reverses q", q_cover.subs(ss, -ss)+q_cover)
+# q^2(w,2) has a simple zero at w=0 and no other zeros/poles inside |w|=1.
+# Argument principle gives winding 1; root would require even winding.
+q_loop = q2.subs(wb, 2)
+check("E7  logarithmic derivative residue at zero is one",
+      sp.residue(sp.diff(q_loop, w)/q_loop, w, 0)-1)
+check("E8  zero divisor is w+wbar=0", a.subs(wb, -w))
+check("E9  q^2 is nonzero mu^2 along the zero divisor",
+      q2.subs(wb, -w)-mu**2)
+check("E10 null-gradient component is nonzero at w=0",
+      sp.diff(a, w).subs(w, 0)-2*sp.I*mu/(lam*wb))
+check("E11 null-gradient second component vanishes at w=0",
+      sp.diff(a, wb).subs(w, 0))
+# Same old assignment need not give the same assignment after translation.
+check("E12 scaled points share original assignment",
+      a.subs({w: 1, wb: 2})-a.subs({w: 2, wb: 4}))
+check("E13 translated points have distinct assignments (difference i*mu/lambda)",
+      a.subs({w: 2, wb: 3})-a.subs({w: 3, wb: 5})-sp.I*mu/lam)
+kp, yy = sp.symbols("k_positive y_positive", positive=True)
+check("E14 Fourier energy per nonzero mode is |k|",
+      sp.integrate(2*kp**2*sp.exp(-2*kp*yy), (yy, 0, sp.oo))-kp)
 
 print()
 if FAIL:
     print("FAILED:", FAIL)
     raise SystemExit(1)
-print("All checks passed.")
+print(f"All {COUNT} checks passed.")
+print("Coverage: local identities, exact domain counterexamples, cover algebra, radial/Fourier integrals.")
+print("Not coverage: global patching/topology, completeness, boundary limits, RH solvability, or general branches.")

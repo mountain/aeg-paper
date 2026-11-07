@@ -200,3 +200,24 @@ These checks supplement the manuscript proofs. They are not a rerun of the
 original 39-check research archive, whose bytes were unavailable during this
 integration. See `governance/h2-integration-2026-10-09.md` for source coverage,
 mathematical status, and the remaining original-artifact recovery task.
+
+
+## Flat limit and quadratic rank repair (2026-11-07)
+
+Section 3 now proves a smooth pointed Euclidean limit after the coordinate
+change `y = exp(lambda v)`, including assignment and canonical-frame convergence.
+Section 12.6 distinguishes this limit from fixed-chart divergence and from a
+chosen round metric on a genus-zero compactification. Its complexification
+claim now preserves quadratic rank: only the two nondegenerate real signatures
+become equivalent over the complex numbers.
+
+Run the additional symbolic regression checks with SymPy installed:
+
+```bash
+python paper-0/scripts/verify-model-limits.py
+python -O paper-0/scripts/verify-model-limits.py
+```
+
+These finite checks supplement the in-paper general proofs; they do not expand
+the Adva/Lean certificates. The live formal inventory and its source-lock
+digest are refreshed without changing archived proofs or execution receipts.
