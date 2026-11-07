@@ -2,22 +2,22 @@
   "schema": "aeg.paper0.formal.inventory.v3",
   "scope": "Theorem-like environments in recursively included TeX files; prose/equation coverage and dependencies require review. No proof truth is assigned by this inventory.",
   "sources": {
-    "paper-0/aeg-paper-0.tex": "9c7ace714160fd91f1815aa1b954e9f2f0c2a3c70561786dc6d83c2c28c67fae",
-    "paper-0/sections/01-introduction.tex": "41f18935ae5bb962ec4a8fc94d6d0d1fc32834495346893c3e756becdac2d7ed",
+    "paper-0/aeg-paper-0.tex": "b3c07d732a70aa20e099be79323af7dcdcba7fada3314eeeb686aee17229c04f",
+    "paper-0/sections/01-introduction.tex": "64c64dd55e456663294ae42e1521d20a4fdbfbb723853a4c1d51533aa9db94d8",
     "paper-0/sections/02-expansion.tex": "ddc42b0e8f388beccaf413da98a8b2b898ecd64f9a45f5c6e8193252a603a7d2",
     "paper-0/sections/02a-evaluation-and-effectivity.tex": "bfa42a11c291cb2a42e7ad6000ef89caad10c786eff30ffd049126bb1696dc8d",
-    "paper-0/sections/03-aes-and-motion.tex": "07a8b112a05b45c8410459b69b89bb8f951fa954e871b2ea0cc137d67525ba0e",
-    "paper-0/sections/04-ripple-geometry.tex": "582281668116a0d01d4874a3eb73d508edbfb8704a2ada9e7ad275c2159ce565",
+    "paper-0/sections/03-aes-and-motion.tex": "a243e8a5837c9e92ca361a4878b7f40f7a1fea6e1ffff7b368c26b0fabd26a65",
+    "paper-0/sections/04-ripple-geometry.tex": "aac21e63fdf22f4e0cc5032441e050d015afbcc1fc545cf04ba008123712e49f",
     "paper-0/sections/04b-pole-covariance.tex": "d1fe37de0ab2a7c83c0a46edc3eaaccd370a5b646b58caef579c794260c71901",
     "paper-0/sections/05-reciprocals-fixed-points.tex": "8f6ce278b622da5f383f90d7a59fc858df404e04042a6691d74fc0fcd6845ddc",
     "paper-0/sections/06-projective-unification.tex": "6c4a433337a564595d1073ca8cbca39b90a18d0c9144e5bdbdbaf753c9a90aec",
     "paper-0/sections/07-affine-cocycles.tex": "9bbd4d5deab123c5e57cb671de4801c7b75df3d40ce9ec5cc15aea1a9993f5f2",
-    "paper-0/sections/08-acs-tearing.tex": "cf3aaa13689f5b11e52e37500dd22b9f220625f74b2dd4230ce8a07cc64817c9",
-    "paper-0/sections/09-contact-of-tearing.tex": "355e3a155b8a4d64a59301d92dea8d2c690589ba7ab5cca2a6b08ad773c7945a",
-    "paper-0/sections/10-beyond-linear.tex": "d9127836c640e915440acbaca0e58bb46f3f29d94dc1ecef3299cf7db61ac455",
-    "paper-0/sections/11-holed-aes.tex": "4dabc6028f4ccab1035a4aebedc3b324e78502f512e1a62c5d1aecb73d68fcee",
-    "paper-0/sections/12-compactification.tex": "50f0ee1fc8bc83dfacd74d170554ec899098c0737349556c250c2360731473d3",
-    "paper-0/sections/12-interface.tex": "7f54af219cdd0435cd8666c2cc8fe64132bf247454f8fd97a32684e15bf83975",
+    "paper-0/sections/08-acs-tearing.tex": "419c27144468a83396edada397db9b50b3c81d54e2d13534d5d46798e1a1e737",
+    "paper-0/sections/09-contact-of-tearing.tex": "a9103df8b4b564ff57edfda4f68dd077cb22723dd299ecf3f422386c3034d922",
+    "paper-0/sections/10-beyond-linear.tex": "44b15f24131fa629e0eb7963f3d6f849c8fd9f3160756423931c834582ed2dfd",
+    "paper-0/sections/11-holed-aes.tex": "1df6fea1a3852e2f5c7eed9a7c5cc31b7b3c723043d2de456131adcc5e238163",
+    "paper-0/sections/12-compactification.tex": "6d4e27955bf147d62a0310153f7ee8311c1923622b21708a4a61294eb64d9fcf",
+    "paper-0/sections/12-interface.tex": "66080e29fd52f9875ff1d9445d275b257e0a05c80f9c3f15c003a9c23d660284",
     "paper-0/appendices/app-A-calculations.tex": "ad912be73204804e877d6ab21d2303b8999030d47e8bf2556ae0770371af5643",
     "paper-0/appendices/app-B-hyperbolic-calculations.tex": "f95d8dc41a07265246537fde1b77b293906417466f9087b2b4b7f0137fbdbccc",
     "paper-0/appendices/app-C-affine-cocycles.tex": "564821c82eee4364f3ad243db16e863deda5c190f57979988cbf1aff7ad1351a",
@@ -289,7 +289,19 @@
     },
     {
       "source": "paper-0/sections/03-aes-and-motion.tex",
-      "line": 323,
+      "line": 315,
+      "environment": "proposition",
+      "title": "Smooth pointed flat limit",
+      "labels": [
+        "prop:p0-flat-limit"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/03-aes-and-motion.tex",
+      "line": 366,
       "environment": "proposition",
       "title": "Laplace eigenfunction",
       "labels": [
@@ -302,7 +314,7 @@
     },
     {
       "source": "paper-0/sections/03-aes-and-motion.tex",
-      "line": 356,
+      "line": 399,
       "environment": "proposition",
       "title": "Arithmetic action on the assignment",
       "labels": [
@@ -314,7 +326,7 @@
     },
     {
       "source": "paper-0/sections/03-aes-and-motion.tex",
-      "line": 388,
+      "line": 431,
       "environment": "warning",
       "title": "The motions are partial",
       "labels": [
@@ -326,7 +338,7 @@
     },
     {
       "source": "paper-0/sections/03-aes-and-motion.tex",
-      "line": 491,
+      "line": 534,
       "environment": "example",
       "title": "A four-step path",
       "labels": [
@@ -338,7 +350,97 @@
     },
     {
       "source": "paper-0/sections/03-aes-and-motion.tex",
-      "line": 656,
+      "line": 628,
+      "environment": "proposition",
+      "title": "Translation length of a positive dilation",
+      "labels": [
+        "prop:p0-dilation-length",
+        "eq:p0-dilation-length"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/03-aes-and-motion.tex",
+      "line": 648,
+      "environment": "proposition",
+      "title": "The length of an affine motion is its multiplicative charge, up\nto sign",
+      "labels": [
+        "prop:p0-length-multiplicative-charge",
+        "eq:p0-affine-length",
+        "eq:p0-history-length"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/03-aes-and-motion.tex",
+      "line": 682,
+      "environment": "proposition",
+      "title": "The length is not a homomorphism, and it is not injective on\nhistories",
+      "labels": [
+        "prop:p0-length-losses",
+        "eq:p0-length-not-additive"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/03-aes-and-motion.tex",
+      "line": 720,
+      "environment": "proposition",
+      "title": "The scale-compatible relative defect changes no length",
+      "labels": [
+        "prop:p0-relative-defect-length-zero",
+        "eq:p0-relative-defect-length-zero"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/03-aes-and-motion.tex",
+      "line": 743,
+      "environment": "proposition",
+      "title": "Trace classification and length of a projective motion",
+      "labels": [
+        "prop:p0-projective-trichotomy",
+        "eq:p0-projective-length"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/03-aes-and-motion.tex",
+      "line": 788,
+      "environment": "proposition",
+      "title": "The two layers of the affine conjugacy classification",
+      "labels": [
+        "prop:p0-affine-two-layers"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/03-aes-and-motion.tex",
+      "line": 815,
+      "environment": "remark",
+      "title": "Status: structural proposal --- the two coordinates of one history",
+      "labels": [
+        "rem:p0-length-two-coordinates"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/03-aes-and-motion.tex",
+      "line": 959,
       "environment": "theorem",
       "title": "Continuous affine flow",
       "labels": [
@@ -351,7 +453,7 @@
     },
     {
       "source": "paper-0/sections/03-aes-and-motion.tex",
-      "line": 737,
+      "line": 1040,
       "environment": "convention",
       "title": "Model labels",
       "labels": [
@@ -363,7 +465,7 @@
     },
     {
       "source": "paper-0/sections/03-aes-and-motion.tex",
-      "line": 753,
+      "line": 1056,
       "environment": "example",
       "title": "The basic model, $k=0$",
       "labels": [
@@ -375,7 +477,7 @@
     },
     {
       "source": "paper-0/sections/03-aes-and-motion.tex",
-      "line": 763,
+      "line": 1066,
       "environment": "example",
       "title": "A one-puncture model, $k=1$",
       "labels": [
@@ -1226,6 +1328,30 @@
       "title": "A nonzero level-set residue in the four-puncture model",
       "labels": [
         "prop:p0-k4-motion-residue"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/12-compactification.tex",
+      "line": 323,
+      "environment": "proposition",
+      "title": "Complexification preserves the rank of the absolute",
+      "labels": [
+        "prop:p0-complex-conic-rank"
+      ],
+      "formal_status": "not-yet-formalized",
+      "certificates": [],
+      "lean_components": []
+    },
+    {
+      "source": "paper-0/sections/12-compactification.tex",
+      "line": 346,
+      "environment": "remark",
+      "title": "What the table is not",
+      "labels": [
+        "rem:p0-three-models"
       ],
       "formal_status": "not-yet-formalized",
       "certificates": [],

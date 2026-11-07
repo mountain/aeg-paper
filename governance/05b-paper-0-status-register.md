@@ -414,3 +414,24 @@ bytes. The validation-only Paper I PDF is retained outside the repository;
 its previously tracked artifact is preserved. The next task is to specify a
 small guarded expression signature and separate denotation, observation and
 through-compatibility judgments before attempting a general calculus.
+
+
+## 15. Flat limit and complex quadratic rank (2026-11-07)
+
+This repair resolves the conflict between Section 3's horocyclic coordinates
+and the former Section 12.6 claim that no rescaling could produce the
+Euclidean plane. It also retracts the claim that all three absolute types
+collapse after complexification. No material is relocated.
+
+| Node | Status | Note |
+|---|---|---|
+| smooth pointed flat limit (`prop:p0-flat-limit`) | `PROVED WITH STATED HYPOTHESES` | Fixed `mu>0`, `lambda` decreases to zero through positive values, pullbacks by `(u,v) -> (u,exp(lambda v))`. Metric, assignment, and canonical frame converge in `C^infinity` on compact sets. The limit is the complete Euclidean regular AES. No global uniform convergence or flatness at positive lambda is claimed. |
+| complex quadratic rank (`prop:p0-complex-conic-rank`) | `PROVED` | Rank is invariant under scalar extension from R to C, invertible congruence, and nonzero scaling. Complex symmetric forms are classified by rank; only the nonsingular real/imaginary distinction disappears. |
+| spherical comparison (`rem:p0-three-models`) | `PROVED WITH STATED HYPOTHESES` | Genus-zero conformal compactification permits a chosen round representative, not a canonical metric or closed regular AES. The latter is ruled out by an extremum of any smooth real assignment when `mu != 0`. Euclidean absolute data require more than a bare degenerate conic. |
+| no Euclidean limit; collapse of all three absolute types | `UNSUPPORTED AND EXCLUDED` | Former Section 12.6 assertions are false. Replaced by the explicit limit and rank proofs above, with fixed-chart singularity distinguished from pointed convergence. |
+
+`paper-0/scripts/verify-model-limits.py` checks the displayed algebra,
+finite derivative identities, rank representatives, and negative controls.
+Its symbolic and finite checks supplement, but do not replace, the manuscript
+proofs of compact-set convergence and the general rank classification. These
+new results are not certified by the earlier Adva/Lean formal suite.

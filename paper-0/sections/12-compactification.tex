@@ -293,67 +293,89 @@ non-equivalences, are recorded in Appendix~\ref{app:p0-circle-surgery}.
 The basic model has constant Gaussian curvature $K=-\lambda^{2}$
 (Theorem~\ref{thm:basic-hyperbolic-aes}), and the contact carrier of
 \S\ref{sec:p0-contact} has $[D_u,D_v]=\mu\lambda T$
-(Proposition~\ref{prop:p0-curvature-form}); the same parameter $\lambda$
-drives both curvatures to zero.  The three constant-curvature geometries are distinguished in
-the Cayley--Klein picture by the type of the conic at infinity --- real,
-degenerate, or imaginary --- and all three are within reach of the present
-carrier.  Table~\ref{tab:p0-three-models} records where each of them is
-realized in the series.  The table is bookkeeping; it proves nothing.
+(Proposition~\ref{prop:p0-curvature-form}).  These are different curvature
+notions, although both vanish as $\lambda\to0$ with $\mu$ fixed.
+Table~\ref{tab:p0-three-models} separates a metric limit from a conformal
+compactification; it is not a classification of regular AESs.
 
 \begin{table}[htbp]
 \centering
 \small
-\caption{The three constant-curvature models and where each is realized in the series.}
+\caption{Constant-curvature comparison: proved models, limits, and added choices.}
 \label{tab:p0-three-models}
-\begin{tabular}{@{}p{1.55cm}p{4.35cm}p{3.35cm}p{3.45cm}@{}}
+\begin{tabular}{@{}p{1.65cm}p{4.25cm}p{3.35cm}p{3.45cm}@{}}
 \toprule
-model & realized as & completion or limit & analysis in the series \\
+\raggedright model & \raggedright realization or comparison & \raggedright completion or limit & \raggedright analysis in the series \tabularnewline
 \midrule
-hyperbolic & basic model $\mathfrak E_0(\mu,\lambda)$, $K<0$ &
-ideal boundary &
-Paper~II \cite{Yuan2026AEGFunctionTheory}, \S6--\S7 \\
-parabolic & degeneration $\lambda\to0$ &
-integrable $D$ &
-Paper~II, \S4 \\
-elliptic & compactification $\PP^{1}(\CC)$ &
-one point per end &
-not developed \\
+\raggedright hyperbolic & \raggedright basic model $\mathfrak E_0(\mu,\lambda)$, $K<0$ & \raggedright
+ideal boundary & \raggedright
+Paper~II \cite{Yuan2026AEGFunctionTheory}, \S6--\S7 \tabularnewline
+\raggedright parabolic (flat) & \raggedright complete flat regular AES, $\lambda=0$ & \raggedright
+smooth pointed limit, Proposition~\ref{prop:p0-flat-limit} & \raggedright
+degenerate horizontal calculus, Paper~II, \S4 \tabularnewline
+\raggedright elliptic (spherical) & \raggedright round representative on a genus-zero conformal compactification & \raggedright
+round metric is an added choice & \raggedright
+not a closed regular AES; analysis not developed \tabularnewline
 \bottomrule
 \end{tabular}
 \end{table}
 
+\begin{proposition}[Complexification preserves the rank of the absolute]
+\label{prop:p0-complex-conic-rank}
+For a nonzero real symmetric $3\times3$ matrix $Q$, the projective quadratic
+form $z^TQz$ has the same rank over $\mathbb R$ and $\mathbb C$.
+Over $\mathbb C$, projective changes of coordinates and nonzero scalar
+multiplication preserve this rank, and any two such forms of the same rank
+are equivalent.  In particular, the nonsingular real and imaginary conic
+absolutes become equivalent over $\mathbb C$, but a degenerate absolute
+does not become nonsingular.
+\end{proposition}
+
+\begin{proof}
+Rank is the largest size of a nonzero minor.  A real minor is zero over
+$\mathbb R$ exactly when it is zero over $\mathbb C$.  Under a projective
+coordinate change, a representing matrix changes to $cP^TQP$, with $P$
+invertible and $c\ne0$, so rank is unchanged.  Over $\mathbb C$, symmetric
+Gaussian elimination puts the form into diagonal form; every nonzero diagonal
+entry has a square root, so it can be normalized to $1$.  Thus the normal
+form is $\operatorname{diag}(I_r,0)$, with $r=\operatorname{rank}Q$.
+For example $X^2+Y^2-Z^2$ and $X^2+Y^2+Z^2$ are identified by
+$Z\mapsto iZ$, while neither is equivalent to a rank-deficient form.
+\end{proof}
+
 \begin{remark}[What the table is not]\label{rem:p0-three-models}
 Three qualifications are independent of the table.
 
-(i) The three entries are the Cayley--Klein models, distinguished by the type of
-the absolute.  They are \emph{not} the three meanings of completion in
-\S\ref{subsec:p0-end-data} --- topological point filling, conformal point
-filling, metric completion.  The two trichotomies are independent, and neither
-implies the other.
+(i) The Cayley--Klein distinction between a nonsingular real absolute, a
+degenerate absolute, and a nonsingular imaginary absolute is not the three
+meanings of completion in \S\ref{subsec:p0-end-data}: topological point
+filling, conformal point filling, and metric completion.  In the Euclidean
+case the absolute data also retain the line at infinity and its circular
+points; a degenerate quadratic form alone need not encode all that data.
+Only a genus-zero compact Riemann surface is conformally $\PP^1(\CC)$.
+Choosing a conformal identification supplies a round representative, not a
+canonical round metric.  Nor does it extend a regular AES to that compact
+surface: a smooth real assignment attains an extremum there, contradicting
+$|\nabla a|^2=\mu^2+\lambda^2a^2>0$ for $\mu\ne0$.
 
-(ii) Only the parabolic entry is reached by a degeneration inside the family:
-$\lambda\to0$ makes $K=-\lambda^{2}\to0$ and the bracket $\mu\lambda T$ vanish,
-so the horizontal distribution becomes integrable.  This is not the flat model:
-$g_{\mu,\lambda}$ degenerates as $\lambda\to0$, its lengths in the $y$-direction
-blowing up, and no rescaling of it produces the Euclidean plane.  The flat entry
-is a separate real form, reached by degenerating the absolute rather than by a
-parameter value.  The
-elliptic entry is reached by a change of real form, not by a parameter value,
-and the compactification supplies the conformal class of the round sphere
-rather than a distinguished constant-curvature metric.
+(ii) Proposition~\ref{prop:p0-flat-limit} gives a genuine flat regular-AES
+limit.  At the same parameter value the contact form becomes
+$\alpha_0=da-\mu\,du=d(a-\mu u)$, so its kernel is integrable.  These are
+compatible but distinct assertions about the two carriers.  Divergence of
+$g_{\mu,\lambda}$ in the fixed upper-half-plane chart does not exclude the
+pointed limit after the coordinate change $y=e^{\lambda v}$.  The spherical
+comparison requires a separate choice of positive-curvature metric; no real
+parameter value of $K=-\lambda^2$ produces positive curvature.
 
-(iii) The trichotomy is a real phenomenon, but only its \emph{quadratic type}
-collapses over $\CC$: a conic over $\CC$ has no type to read, since every nonzero
-complex number is a square and all nondegenerate conics are projectively
-equivalent.  This does not extend to the exchange lift, and Paper~V
-\cite{Yuan2026AEGTriadic}, \S3, keeps the two apart: the field-dependent
-quadratic types do not determine whether the two lifts remain distinguishable.
-In every characteristic different from two, including over $\CC$, the matrices
-$J$ and $-J$ are distinct and satisfy $J^{2}=-I\neq I$, while their projective
-classes agree; complexification splits $X^{2}+1$ but does not identify the two
-matrices, and only characteristic two identifies them, since $-1=1$ there.  So
-the collapse of the table's three rows over $\CC$ is a statement about the
-absolute, not about the lift.  The table does not assert which entry carries
-``the'' function theory of an arbitrary arithmetic expression space.  Of the
-three, only the hyperbolic entry is developed in the series.
+(iii) Only the distinction between the two \emph{nondegenerate} real
+quadratic types disappears over $\CC$.  The degenerate row remains distinct
+by Proposition~\ref{prop:p0-complex-conic-rank}; there is no collapse of all
+three rows.  This quadratic-form statement also does not identify exchange
+lifts.  As in Paper~V \cite{Yuan2026AEGTriadic}, \S3, in every characteristic
+different from two, including over $\CC$, the matrices $J$ and $-J$ are
+distinct and satisfy $J^2=-I\ne I$, while their projective classes agree.
+Complexification splits $X^2+1$ but does not identify those two matrices;
+only characteristic two makes $-1=1$.  The table asserts no function theory
+for an arbitrary AES; the developed boundary theory in the series is for the
+hyperbolic basic model.
 \end{remark}

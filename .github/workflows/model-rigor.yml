@@ -1,0 +1,43 @@
+name: Model-limit and complexification witnesses
+
+on:
+  pull_request:
+    paths:
+      - "paper-0/sections/03-aes-and-motion.tex"
+      - "paper-0/sections/12-compactification.tex"
+      - "paper-0/scripts/verify-model-limits.py"
+      - "notes/analysis-and-calculus/51-complexified-model-and-rh*"
+      - ".github/workflows/model-rigor.yml"
+  push:
+    paths:
+      - "paper-0/sections/03-aes-and-motion.tex"
+      - "paper-0/sections/12-compactification.tex"
+      - "paper-0/scripts/verify-model-limits.py"
+      - "notes/analysis-and-calculus/51-complexified-model-and-rh*"
+      - ".github/workflows/model-rigor.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  symbolic-regressions:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install symbolic dependency
+        run: python -m pip install sympy==1.14.0
+      - name: Replay normally and with optimization
+        shell: bash
+        run: |
+          set -euo pipefail
+          python paper-0/scripts/verify-model-limits.py | tee /tmp/model-limits.txt
+          python -O paper-0/scripts/verify-model-limits.py | tee /tmp/model-limits-O.txt
+          cmp /tmp/model-limits.txt /tmp/model-limits-O.txt
+          python notes/analysis-and-calculus/51-complexified-model-and-rh-witness.py | tee /tmp/complex-model.txt
+          python -O notes/analysis-and-calculus/51-complexified-model-and-rh-witness.py | tee /tmp/complex-model-O.txt
+          cmp /tmp/complex-model.txt /tmp/complex-model-O.txt

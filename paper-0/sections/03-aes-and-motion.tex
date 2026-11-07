@@ -312,6 +312,49 @@ orthogonal geodesics.  The assignment contour of value $c$ is
 In particular, the zero locus in this model is the vertical geodesic
 $\{x=0,\ y>0\}$.
 
+\begin{proposition}[Smooth pointed flat limit]\label{prop:p0-flat-limit}
+Fix $\mu>0$.  For $\lambda>0$, the global diffeomorphism
+\[
+ \Phi_\lambda:\mathbb R^2\longrightarrow\mathbb H^2,
+ \qquad \Phi_\lambda(u,v)=(u,e^{\lambda v})
+\]
+pulls back the basic model to
+\[
+ \widehat g_\lambda=e^{-2\lambda v}\frac{du^2}{\mu^2}+dv^2,
+ \qquad \widehat a_\lambda=-u e^{-\lambda v},
+ \qquad
+ \widehat X_u=-\mu e^{\lambda v}\partial_u,\quad
+ \widehat X_v=-\partial_v.
+\]
+These data converge in $C^\infty$ on every compact subset of $\mathbb R^2$
+as $\lambda\downarrow0$ to
+\[
+ g_0=\frac{du^2}{\mu^2}+dv^2,\qquad a_0=-u,\qquad
+ X_{u,0}=-\mu\partial_u,\quad X_{v,0}=-\partial_v.
+\]
+The limiting tuple $(\mathbb R^2,g_0,a_0;\mu,0)$ is a complete flat regular
+AES.  With basepoints $(0,0)$ and $(0,1)$ this is, in particular, a smooth
+pointed limit of the basic hyperbolic models.
+\end{proposition}
+
+\begin{proof}
+The inverse of $\Phi_\lambda$ is $(x,y)\mapsto(x,\lambda^{-1}\log y)$.
+Substitution gives the metric and assignment in
+\eqref{eq:horocyclic-affine-coordinates}; the chain rule gives the two fields.
+Every derivative of the displayed coefficients converges uniformly on compact
+sets: $v$ and $u$ are bounded there, and derivatives of $e^{c\lambda v}$
+are $(c\lambda)^j e^{c\lambda v}$.  At $\lambda=0$ the change of coordinate
+$s=u/\mu$ identifies $g_0$ with $ds^2+dv^2$, which is complete, and
+$|\nabla a_0|_{g_0}^2=\mu^2$ proves the regular-AES identity.
+The basepoint identity is $\Phi_\lambda(0,0)=(0,1)$.
+\end{proof}
+
+The limit uses $\lambda$-dependent identifications.  In fixed $(x,y)$
+coordinates the coefficient of $dy^2$ diverges, but that chart observation
+is not an obstruction to the smooth pointed limit.  No positive-$\lambda$
+member is itself flat, and no uniform convergence on the whole noncompact
+plane is asserted.
+
 \paragraph{The Laplace eigenfunction.}
 We use the divergence-of-gradient sign convention
 \begin{equation}\label{eq:laplacian-sign-convention}
