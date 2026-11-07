@@ -1,0 +1,525 @@
+{
+  "schema": "aeg.paper0.pgl.map.v1",
+  "source": "paper-0/sections/06-projective-unification.tex",
+  "source_sha256": "6c4a433337a564595d1073ca8cbca39b90a18d0c9144e5bdbdbaf753c9a90aec",
+  "imports": [
+    {
+      "file": "ProjectiveLine.lean",
+      "module": "AEGPaper0.ProjectiveLine",
+      "lean_audit_names": [
+        "homogeneous_nonzero",
+        "project_homogeneous",
+        "project_scale",
+        "representative_scale",
+        "mapVec_scale",
+        "determinant_multiply",
+        "determinant_adjugate",
+        "mapVec_multiply",
+        "adjugate_left",
+        "adjugate_right",
+        "mapVec_nonzero",
+        "project_map_normalize",
+        "action_identity",
+        "action_multiply",
+        "action_adjugate_left",
+        "action_adjugate_right",
+        "actionEquiv_apply",
+        "actionEquiv_inverse",
+        "finite_action",
+        "infinity_action",
+        "fixes_infinity_iff",
+        "pole_formula",
+        "finite_pole_unique",
+        "action_scale",
+        "project_eq_iff_cross",
+        "projection_eq_iff_scalar",
+        "finite_fixed_point_iff",
+        "chart_representative",
+        "quotient_eq_iff_nonzero_scalar",
+        "quotient_action_representative",
+        "zero_scalar_changes_action"
+      ],
+      "expected_axioms": {
+        "homogeneous_nonzero": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "project_homogeneous": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "project_scale": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "representative_scale": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "mapVec_scale": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "determinant_multiply": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "determinant_adjugate": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "mapVec_multiply": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "adjugate_left": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "adjugate_right": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "mapVec_nonzero": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "project_map_normalize": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "action_identity": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "action_multiply": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "action_adjugate_left": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "action_adjugate_right": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "actionEquiv_apply": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "actionEquiv_inverse": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "finite_action": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "infinity_action": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "fixes_infinity_iff": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "pole_formula": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "finite_pole_unique": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "action_scale": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "project_eq_iff_cross": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "projection_eq_iff_scalar": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "finite_fixed_point_iff": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "chart_representative": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "quotient_eq_iff_nonzero_scalar": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "quotient_action_representative": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "zero_scalar_changes_action": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      }
+    }
+  ],
+  "modules": [
+    {
+      "file": "ProjectiveFaithfulness.lean",
+      "module": "AEGPaper0.ProjectiveFaithfulness",
+      "lean_audit_names": [
+        "matrix_ext",
+        "multiply_assoc",
+        "multiply_one_left",
+        "multiply_one_right",
+        "scale_one",
+        "scale_scale",
+        "scale_multiply_left",
+        "scale_multiply_right",
+        "determinant_scale",
+        "matrix_adjugate_left",
+        "matrix_adjugate_right",
+        "three_fixed_points_force_scalar",
+        "identity_action_iff_scalar",
+        "equal_actions_iff_nonzero_scalar",
+        "three_images_determine_scalar_class",
+        "equivalence_equality_iff_scalar",
+        "literal_matrix_equality_is_stronger",
+        "one_point_agreement_is_insufficient"
+      ],
+      "expected_axioms": {
+        "matrix_ext": [],
+        "multiply_assoc": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "multiply_one_left": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "multiply_one_right": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "scale_one": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "scale_scale": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "scale_multiply_left": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "scale_multiply_right": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "determinant_scale": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "matrix_adjugate_left": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "matrix_adjugate_right": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "three_fixed_points_force_scalar": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "identity_action_iff_scalar": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "equal_actions_iff_nonzero_scalar": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "three_images_determine_scalar_class": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "equivalence_equality_iff_scalar": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "literal_matrix_equality_is_stronger": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "one_point_agreement_is_insufficient": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      }
+    },
+    {
+      "file": "ProjectiveGeneralLinear.lean",
+      "module": "AEGPaper0.ProjectiveGeneralLinear",
+      "lean_audit_names": [
+        "coefficients_toMatrix",
+        "toMatrix_coefficients",
+        "coefficients_determinant",
+        "toMatrix_determinant",
+        "coefficients_product",
+        "coefficients_one",
+        "gl_nondegenerate",
+        "toGL_coefficients",
+        "coefficients_injective",
+        "actionHom_apply",
+        "actionHom_kernel_scalar",
+        "actionHom_equal_iff_scalar",
+        "scalarSubgroup_eq_kernel",
+        "quotientAction_representative",
+        "quotient_equality_iff_action",
+        "quotient_equality_iff_nonzero_scalar",
+        "quotient_action_injective",
+        "quotient_action_mul",
+        "quotient_action_one",
+        "quotient_action_inverse",
+        "scalarMatrix_standard",
+        "scalarSubgroup_matrix_membership",
+        "three_points_determine_quotient"
+      ],
+      "expected_axioms": {
+        "coefficients_toMatrix": [
+          "Quot.sound",
+          "propext"
+        ],
+        "toMatrix_coefficients": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "coefficients_determinant": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "toMatrix_determinant": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "coefficients_product": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "coefficients_one": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "gl_nondegenerate": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "toGL_coefficients": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "coefficients_injective": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "actionHom_apply": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "actionHom_kernel_scalar": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "actionHom_equal_iff_scalar": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "scalarSubgroup_eq_kernel": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "quotientAction_representative": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "quotient_equality_iff_action": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "quotient_equality_iff_nonzero_scalar": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "quotient_action_injective": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "quotient_action_mul": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "quotient_action_one": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "quotient_action_inverse": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "scalarMatrix_standard": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "scalarSubgroup_matrix_membership": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "three_points_determine_quotient": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      }
+    }
+  ],
+  "mapping": [
+    {
+      "source_labels": [
+        "thm:p0-four-matrix-readings"
+      ],
+      "formal": [
+        "AEGPaper0.ProjectiveFaithfulness.matrix_ext",
+        "AEGPaper0.ProjectiveFaithfulness.multiply_assoc",
+        "AEGPaper0.ProjectiveFaithfulness.multiply_one_left",
+        "AEGPaper0.ProjectiveFaithfulness.multiply_one_right",
+        "AEGPaper0.ProjectiveFaithfulness.scale_one",
+        "AEGPaper0.ProjectiveFaithfulness.scale_scale",
+        "AEGPaper0.ProjectiveFaithfulness.scale_multiply_left",
+        "AEGPaper0.ProjectiveFaithfulness.scale_multiply_right",
+        "AEGPaper0.ProjectiveFaithfulness.determinant_scale",
+        "AEGPaper0.ProjectiveFaithfulness.matrix_adjugate_left",
+        "AEGPaper0.ProjectiveFaithfulness.matrix_adjugate_right",
+        "AEGPaper0.ProjectiveFaithfulness.three_fixed_points_force_scalar",
+        "AEGPaper0.ProjectiveFaithfulness.identity_action_iff_scalar",
+        "AEGPaper0.ProjectiveFaithfulness.equal_actions_iff_nonzero_scalar",
+        "AEGPaper0.ProjectiveFaithfulness.three_images_determine_scalar_class",
+        "AEGPaper0.ProjectiveFaithfulness.equivalence_equality_iff_scalar",
+        "AEGPaper0.ProjectiveFaithfulness.literal_matrix_equality_is_stronger",
+        "AEGPaper0.ProjectiveFaithfulness.one_point_agreement_is_insufficient"
+      ],
+      "coverage": "Faithfulness modulo nonzero matrix scalars, from the three projective points infinity/zero/one over any field. Equality of all actions determines a scalar class, not a literal matrix or an arithmetic history. Matrix algebra and explicit distinction witnesses are supporting components."
+    },
+    {
+      "source_labels": [
+        "thm:p0-pgl2-generation"
+      ],
+      "formal": [
+        "AEGPaper0.ProjectiveGeneralLinear.coefficients_toMatrix",
+        "AEGPaper0.ProjectiveGeneralLinear.toMatrix_coefficients",
+        "AEGPaper0.ProjectiveGeneralLinear.coefficients_determinant",
+        "AEGPaper0.ProjectiveGeneralLinear.toMatrix_determinant",
+        "AEGPaper0.ProjectiveGeneralLinear.coefficients_product",
+        "AEGPaper0.ProjectiveGeneralLinear.coefficients_one",
+        "AEGPaper0.ProjectiveGeneralLinear.gl_nondegenerate",
+        "AEGPaper0.ProjectiveGeneralLinear.toGL_coefficients",
+        "AEGPaper0.ProjectiveGeneralLinear.coefficients_injective",
+        "AEGPaper0.ProjectiveGeneralLinear.actionHom_apply",
+        "AEGPaper0.ProjectiveGeneralLinear.actionHom_kernel_scalar",
+        "AEGPaper0.ProjectiveGeneralLinear.actionHom_equal_iff_scalar",
+        "AEGPaper0.ProjectiveGeneralLinear.scalarSubgroup_eq_kernel",
+        "AEGPaper0.ProjectiveGeneralLinear.quotientAction_representative",
+        "AEGPaper0.ProjectiveGeneralLinear.quotient_equality_iff_action",
+        "AEGPaper0.ProjectiveGeneralLinear.quotient_equality_iff_nonzero_scalar",
+        "AEGPaper0.ProjectiveGeneralLinear.quotient_action_injective",
+        "AEGPaper0.ProjectiveGeneralLinear.quotient_action_mul",
+        "AEGPaper0.ProjectiveGeneralLinear.quotient_action_one",
+        "AEGPaper0.ProjectiveGeneralLinear.quotient_action_inverse",
+        "AEGPaper0.ProjectiveGeneralLinear.scalarMatrix_standard",
+        "AEGPaper0.ProjectiveGeneralLinear.scalarSubgroup_matrix_membership",
+        "AEGPaper0.ProjectiveGeneralLinear.three_points_determine_quotient"
+      ],
+      "coverage": "The PGL carrier and faithful-action prerequisites use standard Mathlib GL(Fin 2,K), an explicit nonzero scalar subgroup, its normal quotient group, faithful descent and a multiplicative equivalence with the action image. The previous elementary generator action formulas are preserved; a separately packaged quotient-level generation theorem is not asserted by this module."
+    }
+  ],
+  "excluded": [
+    "Abstract affine-group isomorphism and an independently packaged quotient-level generator theorem",
+    "Identification of scalar classes with arithmetic histories or their ordinary domains",
+    "Topological/smooth projective or intrinsic hyperbolic identifications"
+  ],
+  "interpretation": "41 new exact audited statements establish scalar faithfulness and a genuine PGL_2(K)=GL_2(K)/(nonzero scalar matrices) interface using Mathlib standard GL and quotient-group APIs. Rebuild the unchanged 31-statement projective-line import without counting it as new. Current chapter remains component-mapped."
+}

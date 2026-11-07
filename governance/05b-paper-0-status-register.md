@@ -962,3 +962,69 @@ bookmark/underfull warnings remain; manuscript text and tracked PDFs are
 unchanged. The next algebraic step is scalar-quotient faithfulness and the
 external PGL/affine-group interfaces; the known Chapter 3 geometric obligations
 remain in their separate work register.
+
+## 21. Scalar faithfulness and the standard GL quotient (2026-11-07)
+
+`formal/ProjectiveFaithfulness.lean` and `ProjectiveGeneralLinear.lean` add 41
+audited statements, mapped to current Section 6 by `formal/pgl-map.json`.
+They discharge the scalar-faithfulness and standard-GL quotient interface
+prerequisites left by section 20. There are 465 distinct audited statements
+overall, including supporting lemmas. Existing environment/equation maps remain
+component correspondence; no complete-chapter status is inferred.
+
+| Component | Status | Hypotheses and boundary |
+| --- | --- | --- |
+| identity action implies a scalar matrix | `PROVED WITH STATED HYPOTHESES` | A nondegenerate matrix fixing infinity, zero and one is a nonzero scalar multiple of identity. The field is arbitrary; finite fields and positive characteristic are included. |
+| equal actions iff nonzero scalar multiples | `PROVED WITH STATED HYPOTHESES` | Two nondegenerate coefficient matrices have equal actions on every projective point exactly when they differ by a nonzero scalar. Their three point images already determine that class. Literal matrix equality and arithmetic-history equality are not concluded. |
+| standard Mathlib GL coefficient interface | `PROVED WITH STATED HYPOTHESES` | Explicit entry conversion is a bijection between nonzero-determinant coefficient matrices and `Matrix.GeneralLinearGroup (Fin 2) K`, preserving determinants and products. The standard GL action is an actual group homomorphism to projective permutations. |
+| scalar subgroup and normality | `PROVED WITH STATED HYPOTHESES` | The action kernel equals the explicitly defined subgroup of nonzero scalar matrices. Membership is also expressed as `g.val=s • 1`, with `s!=0`. Normality follows from the proved kernel identification, not a target axiom. |
+| actual PGL quotient and faithful descent | `PROVED WITH STATED HYPOTHESES` | `PGL2 K` is standard GL modulo that normal scalar subgroup, using Mathlib's group quotient. The descended homomorphism is injective. Quotient equality is equivalent to equality of projective actions and to a nonzero scalar relation. |
+| group image and action laws | `PROVED WITH STATED HYPOTHESES` | The quotient is multiplicatively equivalent to the matrix-action image subgroup by the first isomorphism theorem. Identity, multiplication, inverse and the chronological evaluation order are proved. No assertion identifies the image with every permutation of the point carrier. |
+| active equality distinctions | `PROVED` | An explicit rational example has `2I!=I` but identical projective action. A field-generic translation agrees with identity at infinity but differs at zero. These show why literal equality and one-point observations cannot replace the scalar/three-point criteria. |
+
+The quotient concerns matrices/operators, not marked arithmetic words or their
+ordinary domains. No history relation is introduced. The earlier elementary
+action factorizations retain their exact proofs; a separately packaged
+quotient-level generator theorem and the affine-group isomorphism remain
+obligations. Topological/smooth and intrinsic hyperbolic identifications also
+retain their separate scope, as do the recorded Chapter 3 geometric tasks.
+
+The same 7,600 source and 3,175 compiled-library Mathlib fingerprints already
+include the standard GL and quotient-group modules. The dependency lock,
+preceding proof/goals/runtime-receiver/contract bytes and historical execution
+archives are preserved. Current navigation and its historical receipt test
+have separately pinned successors. New exact global axiom audits disclose only
+their actual subsets of `propext`, `Classical.choice` and `Quot.sound`, without
+target AEG axioms or admitted proofs.
+
+The environment counts remain 32 component-mapped, one fragment-certified and
+69 not yet formalized, among 102 environments in the same 22 manuscript files.
+Four equations retain their separate component maps. No source text is silently
+rewritten and no research material is moved or removed.
+
+`formal/contract-pgl.json` declares nine child commands, 31 unchanged import
+audits, 41 new audits and four specific rejection controls for nondegeneracy,
+literal equality, one-point observation and product order. Numerical analytic
+bounds remain unchanged, including a separate 300-second deadline and 8 GiB
+Lean virtual-address limit. All five preceding profiles remain required with
+their own original contracts; another profile cannot refill a deadline. CI
+gives the new profile a separate bounded step and artifact.
+
+`formal/evidence/pgl-execution.json` and its complete archive receive all six
+profiles as `Passed`: native 172.94 seconds, Chapter 3 analysis 130.74, original
+Chapter 4 52.73, Apollonius 71.48, projective 77.72 and PGL 53.65 seconds, each
+inside its own unchanged 300-second deadline. Predecessor execution counts and
+all 69 native report bytes are preserved. The new profile receives the 31
+unchanged projective-line import audits, 41 new audits and all four expected
+specific rejections in nine child commands. Import rechecks are not counted
+as new statements.
+
+The archive binds 100 formal sources plus their lock, 22 manuscript sources,
+workflow, six reports, native traces/replay receipts, Lean audits, negative
+diagnostics and both build logs. All 47 regressions pass against the completed
+source/report/archive bindings; the original preparatory log retains 46 passes
+and its then-absent receipt test. Both builds pass at 103/61 pages with no
+unresolved references/citations, duplicate labels or missing assets. Existing
+overfull boxes (2/8, maximum 11.13/105.15 pt) and bookmark/underfull warnings
+remain; manuscript text and tracked PDFs are unchanged. The next algebraic
+step is the affine-group interface and quotient-level elementary generation.

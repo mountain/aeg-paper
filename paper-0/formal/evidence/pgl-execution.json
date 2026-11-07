@@ -1,0 +1,344 @@
+{
+  "schema": "aeg.paper0.pgl.execution.v1",
+  "date": "2026-11-07",
+  "status": "Passed",
+  "authorship": "Codex (OpenAI), CC0; no independent human mathematical review claimed.",
+  "source_lock_sha256": "2a0ba3043770ec9fed5112085f7273217ccdbdcb74419b3d0b9dbf428d3ac243",
+  "pgl_map_sha256": "caca86d7be7a04fcf8df2ea47812f86148e551b40ec3820aa20e1fd6ffb06760",
+  "chapter03_obligations_sha256": "973e643c66e264c4475b512d916e4eef7a87dfe94d112f910e98359e81ad2800",
+  "mathlib_lock_sha256": "de2e937993bd22e41702f21889ac382f3cb36364cbe0b5e5d3fbc1e32bd0394d",
+  "mathlib_commit": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
+  "mathlib_source_files": 7600,
+  "mathlib_compiled_modules": 3175,
+  "profiles": {
+    "native": {
+      "directory": "native-01",
+      "contract": "contract-chapter03.json",
+      "contract_sha256": "606081b7c80d6f57bd1b05a688217d93c411663a98f23eb2eed931a17a66312f",
+      "report_sha256": "8ea66dd6dda351ac16e3c0dd4e3b0beb57663178c6968a0ed0c532ecfee4139e",
+      "wall_seconds": 172.93969033900066,
+      "child_commands": 148
+    },
+    "analytic": {
+      "directory": "analysis-01",
+      "contract": "contract-analysis-v1.1.json",
+      "contract_sha256": "dc43df95783ca070cc0fad0717cc5986182d3fca814a9a6358f7b436376a7ab3",
+      "report_sha256": "da96b98c0236980f6b979cae3487095f1f16c65779d5cb07cdc9642290cbe5d5",
+      "wall_seconds": 130.74340112000027,
+      "child_commands": 16
+    },
+    "chapter04": {
+      "directory": "chapter04-01",
+      "contract": "contract-chapter04.json",
+      "contract_sha256": "52b58178702f5afecc366ed2edab8b1da4c553c3cab3703c2e1fa6fe34d4a905",
+      "report_sha256": "5566a226a8a3fba6408c4563814ad10a0cb622d3a514cc12e063381ca825398f",
+      "wall_seconds": 52.7345875459996,
+      "child_commands": 8
+    },
+    "apollonius": {
+      "directory": "apollonius-01",
+      "contract": "contract-apollonius.json",
+      "contract_sha256": "082e865282360a9616cc7f27558e668f630ac1a0dccb7564f020b318f689b506",
+      "report_sha256": "b0f7e35c88eb3b83820b82b5d2703c3c9ce3dbcb7edcf6ac03026cb0bd2f9f2d",
+      "wall_seconds": 71.48456782100038,
+      "child_commands": 8
+    },
+    "projective": {
+      "directory": "projective-01",
+      "contract": "contract-projective.json",
+      "contract_sha256": "3c0eb86b50b4bf972e8b2798cda2b6653a76556a19addbc408861e31b3ad1cca",
+      "report_sha256": "c41d35815fa6599571e52501ee1eae1491f18cb05f951055b13c6a4e0cfa80e2",
+      "wall_seconds": 77.71831872300208,
+      "child_commands": 11
+    },
+    "pgl": {
+      "directory": "pgl-01",
+      "contract": "contract-pgl.json",
+      "contract_sha256": "b7687826a0bf34e7bb23d5c3637d298ab918839276175a4ffe5b7d5e345135c1",
+      "report_sha256": "9f822d4c1c3eff119b9f547a7f3a552e61650dcf0724b2031982c9046bae59be",
+      "wall_seconds": 53.65237724599865,
+      "child_commands": 9
+    }
+  },
+  "previous_lean_statements": 424,
+  "new_lean_statements": 41,
+  "total_lean_statements": 465,
+  "pgl_axioms": {
+    "AEGPaper0.ProjectiveFaithfulness": {
+      "matrix_ext": [],
+      "multiply_assoc": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "multiply_one_left": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "multiply_one_right": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "scale_one": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "scale_scale": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "scale_multiply_left": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "scale_multiply_right": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "determinant_scale": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "matrix_adjugate_left": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "matrix_adjugate_right": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "three_fixed_points_force_scalar": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "identity_action_iff_scalar": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "equal_actions_iff_nonzero_scalar": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "three_images_determine_scalar_class": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "equivalence_equality_iff_scalar": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "literal_matrix_equality_is_stronger": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "one_point_agreement_is_insufficient": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "AEGPaper0.ProjectiveGeneralLinear": {
+      "coefficients_toMatrix": [
+        "Quot.sound",
+        "propext"
+      ],
+      "toMatrix_coefficients": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "coefficients_determinant": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "toMatrix_determinant": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "coefficients_product": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "coefficients_one": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "gl_nondegenerate": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "toGL_coefficients": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "coefficients_injective": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "actionHom_apply": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "actionHom_kernel_scalar": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "actionHom_equal_iff_scalar": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "scalarSubgroup_eq_kernel": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "quotientAction_representative": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "quotient_equality_iff_action": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "quotient_equality_iff_nonzero_scalar": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "quotient_action_injective": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "quotient_action_mul": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "quotient_action_one": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "quotient_action_inverse": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "scalarMatrix_standard": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "scalarSubgroup_matrix_membership": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "three_points_determine_quotient": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  },
+  "source_import_audits": 31,
+  "negative_controls": {
+    "nondegenerate": "Rejected with the expected specific type mismatch",
+    "literal-equality": "Rejected with the expected specific type mismatch",
+    "one-point": "Rejected with the expected specific type mismatch",
+    "product-order": "Rejected with the expected specific type mismatch"
+  },
+  "native_runs": 69,
+  "reference_transitions": 51137,
+  "preceding_native_reports_unchanged": 69,
+  "original_proof_library_goal_contract_and_runtime_receiver_bytes_unchanged": true,
+  "old_formal_sources_with_explicit_navigation_successors": [
+    "inventory.py",
+    "inventory.json",
+    "test_projective.py"
+  ],
+  "formal_source_files": 100,
+  "manuscript_source_files": 22,
+  "archive": {
+    "path": "pgl-run-01.tar.gz",
+    "sha256": "8a2051370d2c8b0c78a51c980d4e1f147b7421b4385d2c5e9d7ca18622e6dacc",
+    "bytes": 9144096,
+    "members": 769,
+    "uncompressed_bytes": 34620470
+  },
+  "manuscript_builds": {
+    "0": {
+      "status": "Passed",
+      "pages": 103,
+      "pdf_bytes": 909781,
+      "pdf_sha256": "fffe68406418698dd176b9d44be1972f29d3dd3a55a76074f041d352ce97801a",
+      "final_log_sha256": "0173c3975a91444daaf899917d6721314d2d91ae3e6dea4c495864bc0c86e9bd",
+      "unresolved_references_citations_duplicate_labels_missing_assets": false,
+      "overfull_boxes": 2,
+      "max_overfull_pt": 11.13274,
+      "note": "Validation PDF retained externally; tracked manuscript PDF restored without changing its bytes."
+    },
+    "1": {
+      "status": "Passed",
+      "pages": 61,
+      "pdf_bytes": 756641,
+      "pdf_sha256": "4d90ca95539774315346e33eedb391d99e84226c678b3c9c4cc8015b448ef3dd",
+      "final_log_sha256": "8e2b229cbfa0a1beb445bd3647aa0ce5e57079d5ce8fb1c23b2a97e2262c93d1",
+      "unresolved_references_citations_duplicate_labels_missing_assets": false,
+      "overfull_boxes": 8,
+      "max_overfull_pt": 105.1512,
+      "note": "Validation PDF retained externally; tracked manuscript PDF restored without changing its bytes."
+    }
+  },
+  "pre_receipt_checks": {
+    "passed": 46,
+    "pending_receipt_test": 1,
+    "note": "The archive-binding test cannot pass before the completed execution receipt exists. Its missing-receipt error is retained verbatim in engineering/unit-before-receipt.log."
+  },
+  "unit_tests_after_archive": 47,
+  "live_inventory": {
+    "source_files": 22,
+    "theorem_like_environments": 102,
+    "component_mapped": 32,
+    "fragment_certified": 1,
+    "not_yet_formalized": 69,
+    "separately_mapped_equations": 4
+  },
+  "source_audit": [],
+  "scope": "41 new exact audited statements establish scalar faithfulness and a genuine PGL_2(K)=GL_2(K)/(nonzero scalar matrices) interface using Mathlib standard GL and quotient-group APIs. Rebuild the unchanged 31-statement projective-line import without counting it as new. Current chapter remains component-mapped.",
+  "remaining": [
+    "Abstract affine-group isomorphism and an independently packaged quotient-level generator theorem",
+    "Identification of scalar classes with arithmetic histories or their ordinary domains",
+    "Topological/smooth projective or intrinsic hyperbolic identifications"
+  ],
+  "deferred_chapter03": "chapter03-obligations.json",
+  "trust_boundary": "Pinned compiler/standard library and source/cache-fingerprinted Mathlib are trusted builds. Scalar faithfulness, the standard Mathlib GL coefficient interface, explicit normal scalar subgroup quotient, faithful descent and action-image group isomorphism are certified. Affine-group and packaged quotient-level generator interfaces, history equality and intrinsic geometry remain outside this certificate. All six profiles pass separately under independently declared bounds."
+}

@@ -17,8 +17,8 @@
     "certificates.json": "c28f502519533428486ba0b12e5d47a160be62512bfa93c9b7d93cce811c7d5c",
     "Chapter02.lean": "b7b3a8cc35fa6c1e2e646fae3577c39a4113c6957ffd0c983b45fd6f07a007ab",
     "Chapter02Domains.lean": "d3c0f718936f128da2e15daf61ec0111cdd956ee7fb23ab6a451e677d7358c4c",
-    "inventory.py": "37d016d99d8960f05df86c19ef7b283cf53fcea78545db682f578068c567a167",
-    "inventory.json": "09378a1411630757db925b3f32efca43ddfb12ff8eebddd004e711274fc308e7",
+    "inventory.py": "c3a0d90de0c7cce9e7e5b3f783c81e2437d09a96edb7e534a44cbde810bc0288",
+    "inventory.json": "86e51aeb4e295ac6e2c58341c61ae46b483633e5fd2783df3072a3ff98f5e42c",
     "run.py": "b0396c9bb279cbe90f2db6a5012ea48b2ceb20429991ec602754ab2d0e7a9fc0",
     "domain_author.py": "a6968582b2a181d9195a900238c29f599d8e5e3475c8c2ebaac9df2d0c23a03c",
     "domain-checker.adva": "de995c4d26f940fb0e35dd78ef2a271b144e0dc4c58c6395f444e6bbe7fbb231",
@@ -93,11 +93,21 @@
     "projective-map.json": "1f59087b28f3756ca7de3fa6f7a055e0392387a5e323f661725a7023df16a7ad",
     "projective_run.py": "8e8b43c9d0d9d599381ee1495a1fd4f3c2f32cc8a2ee9a94151dbd577ec2e079",
     "contract-projective.json": "3c0eb86b50b4bf972e8b2798cda2b6653a76556a19addbc408861e31b3ad1cca",
-    "test_projective.py": "0cec124fe3700f50ad489495dc59c3790b8902cae1f139ade40b198dba54f735",
+    "test_projective.py": "c0c961188b265a0d7392a62ee6ae7e853535c677a2224d142d3f7c313c1c115a",
     "negative/ProjectiveMissingAffineStep.lean": "37235f524e540072395637cebcdd5c417f61b929477b5b107849cd6cd4fa54e6",
     "negative/ProjectiveMissingDeterminant.lean": "579f22a9fc4d6f87854e3545488c3a31fefc8e474bcc52e5684a821025338cac",
     "negative/ProjectiveMissingScalarGuard.lean": "e02a6b13635dc1d2a89eae784f787baf9807acf19e0c57761707bbea2e239777",
-    "negative/ProjectiveWrongPoleOrder.lean": "735ddc75771fdb8fd04098d667e7e6e9d997675bf908037e584f9b1223d90634"
+    "negative/ProjectiveWrongPoleOrder.lean": "735ddc75771fdb8fd04098d667e7e6e9d997675bf908037e584f9b1223d90634",
+    "ProjectiveFaithfulness.lean": "998925ee55502f28ab989273b01a6b1771baf6247691c404d5ddcbbce0356c76",
+    "ProjectiveGeneralLinear.lean": "957f3cafbdc43a028c75fa996853886bf8d85701823b5906dc0147c97a30c47f",
+    "pgl-map.json": "caca86d7be7a04fcf8df2ea47812f86148e551b40ec3820aa20e1fd6ffb06760",
+    "pgl_run.py": "641be5543a226b58f1f91723f04e6a5832e9939b673127b9518146bce93a3343",
+    "contract-pgl.json": "b7687826a0bf34e7bb23d5c3637d298ab918839276175a4ffe5b7d5e345135c1",
+    "test_pgl.py": "df5a3139e286feccdc54408a77eb35aa38152541bbad99635dfcde9177a2512b",
+    "negative/PGLMissingNondegenerate.lean": "d8538b8f68f478b2bf4f9481ce963ef2ee44fa006a92dc40a5cdd937ce05c872",
+    "negative/PGLOnePointInsufficient.lean": "ed01e83a3638f7df4850a1a85a6b9feb32db9317d9b673ffbd96e6705828cd3f",
+    "negative/PGLWrongLiteralEquality.lean": "17768a5999873c33aa3d5a61680b8af6315954c735023a95c7d5086ed05b648d",
+    "negative/PGLWrongProductOrder.lean": "774f094bfb8cec71ff50091489c11505880d1b5d387a229945be0f00e039c7e7"
   },
-  "continuation": "contract-projective.json plus unchanged contract-apollonius.json, contract-chapter04.json, contract-analysis-v1.1.json and contract-chapter03.json: all five profiles required; preserve every preceding receipt and archive"
+  "continuation": "contract-pgl.json plus unchanged contract-projective.json, contract-apollonius.json, contract-chapter04.json, contract-analysis-v1.1.json and contract-chapter03.json: all six profiles required; preserve all earlier receipts and archives"
 }

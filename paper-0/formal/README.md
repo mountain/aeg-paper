@@ -54,7 +54,7 @@ statement correspondence and the reviewed equality kernel remain trusted.
 | §2 distributive operator identity | Unchanged symbolic Adva/Lean identity; new general-field proof of the corrected marked/scalar clauses | The previous counterexample and its old source snapshot remain historical evidence |
 | §3 coordinate foundation and real analysis | 61 coordinate statements plus 66 Mathlib statements: actual differential/Jacobian, smooth real coordinate-AES model, Laplace eigenfunction, positive smooth root, rectification, signed-frame bracket and affine ODE solution/uniqueness | Gaussian curvature/completeness, length/trace theory, punctured E1, full arbitrary-manifold/boundary-chart and intrinsic bundle-operator equivalences |
 | §4 ripple, pole and Apollonius components | 57 ripple/pole statements plus 39 norm statements, now connected to actual homogeneous matrix actions | External PGL group API, intrinsic horocycles/tangency and chart independence; source wording limitations remain explicit |
-| §6 concrete projective synthesis | 70 new statements: homogeneous quotient/chart, nondegenerate matrix bijections, actual prefix/pole laws, finite fixed points, elementary factorizations and real/complex chart bridge | External PGL/Projectivization group isomorphism, faithfulness of its scalar quotient, topology and intrinsic geometric identifications |
+| §6 concrete projective synthesis and PGL quotient | 70 action/bridge statements plus 41 scalar-faithfulness/standard-GL quotient statements, including faithful descent and the action-image group isomorphism | Abstract affine-group interface, packaged quotient-level generation, topology and intrinsic geometry |
 | §5 reciprocal expansions | Inventoried | Formal domains, convergence and fixed-point attraction hypotheses |
 | §7 chronological affine cocycle | Auxiliary pointwise polynomial identity checked by Adva and Lean; shared finite-history scalar expansion in `AppendixC.lean` | Definition/uniqueness of affine coordinates, inverse and normalized-coordinate laws |
 | §§8–12 ACS, contact, nonlinearity, punctures, compactification | Inventoried | Algebraic/differential/topological dependencies and explicit side conditions |
@@ -865,13 +865,91 @@ missing assets. Existing overfull boxes (2/8, maximum 11.13/105.15 pt) and
 bookmark/underfull warnings remain; manuscript text and tracked PDFs are
 unchanged.
 
+## Scalar faithfulness and the standard GL quotient
+
+`ProjectiveFaithfulness.lean` and `ProjectiveGeneralLinear.lean` add 41 audited
+statements. For every field, equality of the projective point actions of two
+nondegenerate coefficient matrices holds exactly when they differ by a nonzero
+scalar. The proof first shows that a matrix fixing infinity, zero and one is
+scalar, then applies this to the adjugate comparison. Three point images
+determine a scalar class even over finite fields; no infinitude or
+characteristic-zero assumption is used in that general argument.
+
+The concrete coefficient matrices are proved equivalent to Mathlib's standard
+`Matrix.GeneralLinearGroup (Fin 2) K`. Entry conversion preserves determinants
+and products. The resulting map from standard GL to projective permutations
+is an actual group homomorphism. Its kernel is proved to be precisely the
+nonzero scalar matrices, both in coefficient notation and as matrices `s • 1`.
+The explicit scalar subgroup is normal, and `PGL2 K` is its quotient of
+standard GL, using Mathlib's quotient-group API.
+
+The descended action is injective. Two quotient classes are equal exactly
+when their projective actions agree, equivalently when their matrices differ
+by a nonzero scalar. The quotient is multiplicatively equivalent to the
+matrix-action image subgroup via the first isomorphism theorem. Multiplication,
+identity and inverse action laws preserve the existing chronological convention.
+This closes the earlier scalar-faithfulness and standard GL quotient interface
+obligations; it does not assert that the image is every permutation of the
+point carrier.
+
+Equality of actions is still weaker than literal matrix equality. An explicit
+rational example uses `2*I` and `I`; another field-generic example shows that
+agreement only at infinity is insufficient. No arithmetic-history quotient,
+equality of markings, or extension of ordinary arithmetic domains is inferred.
+The affine-group isomorphism and a separately packaged quotient-level generator
+theorem remain to be supplied; the previous operational factorizations retain
+their original proofs and scope.
+
+`pgl-map.json` pins the current Section 6 correspondence. The environment counts
+stay at 32 component-mapped, one fragment-certified and 69 not yet formalized,
+among the same 102 environments and 22 manuscript sources, with four separate
+equation anchors. There are 465 distinct audited statements including supporting
+lemmas; the 31 source-import audits are not new statements. Exact new global
+axiom sets use only their disclosed subsets of `propext`, `Classical.choice`
+and `Quot.sound`, with no target axiom or admitted proof. Standard GL and group
+quotient modules were already in the unchanged Mathlib source/cache lock.
+
+`contract-pgl.json` declares a separate 300-second profile with unchanged
+analytic numerical limits. Nine commands rebuild the unchanged 31-statement
+projective-line import, audit 41 new statements and reject four controls:
+missing nondegeneracy, confusing a scalar class with literal equality, assuming
+one point determines a class, and reversing product order. All five predecessor
+profiles remain separately required under unchanged contracts. After preparing
+the pinned library, run:
+
+```sh
+python paper-0/formal/pgl_run.py \
+  --mathlib-root /absolute/path/to/pinned/mathlib \
+  --lean /absolute/path/to/lean/bin/lean \
+  --output /absolute/path/to/new-pgl-evidence-directory
+```
+
+CI runs this as a separate bounded step after the original projective profile
+and uploads a separate artifact. Historical source locks, navigation and
+execution archives keep their original bindings. Only current navigation and
+its historical receipt regression have new successor pins; preceding proof,
+goal, program, runtime-receiver and contract bytes are preserved.
+
+The completed `evidence/pgl-execution.json` and `pgl-run-01.tar.gz` bind 100
+formal source files plus the lock, 22 manuscript sources, workflow, six profile
+reports, native traces/replay receipts, exact Lean audits, negative diagnostics
+and both build logs. All six profiles pass in
+172.94/130.74/52.73/71.48/77.72/53.65 seconds respectively, each within its own
+unchanged 300-second deadline. The 69 native reports are byte-identical to the
+preceding success. All 47 regressions pass against the completed archive,
+following 46 preparatory passes and the then-pending receipt test retained in
+its original log. Both builds pass at 103/61 pages without unresolved
+references/citations, duplicate labels or missing assets. Existing overfull
+boxes (2/8, maximum 11.13/105.15 pt) and bookmark/underfull warnings remain;
+manuscript text and tracked PDFs are unchanged.
+
 ## Continuation order
 
 The §2 continuations and §3 coordinate/real-analysis bridge are received above.
 The deferred geometric steps and their prerequisites are now in
 `chapter03-obligations.json`. Advance easier remaining Chapter 4 work first:
-the external PGL group interface, its scalar-quotient faithfulness and affine
-group identification, keeping intrinsic geometry and chart independence
+the affine-group identification and packaged quotient-level generation,
+keeping intrinsic geometry and chart independence
 separate. The
 general-manifold/bundle identifications retain their explicit hypotheses.
 Reuse old Lean material

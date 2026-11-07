@@ -45,7 +45,8 @@ def generate():
     chapter04 = json.loads((HERE / "chapter04-map.json").read_text())
     apollonius = json.loads((HERE / "apollonius-map.json").read_text())
     projective = json.loads((HERE / "projective-map.json").read_text())
-    mappings = [mapping, appendix, evaluability, chapter03, analysis, chapter04, apollonius, projective]
+    pgl = json.loads((HERE / "pgl-map.json").read_text())
+    mappings = [mapping, appendix, evaluability, chapter03, analysis, chapter04, apollonius, projective, pgl]
     for reviewed in mappings:
         if digest(ROOT / reviewed["source"]) != reviewed["source_sha256"]:
             raise ValueError("reviewed formal correspondence has source drift: " + reviewed["source"])
@@ -99,6 +100,7 @@ def generate():
             "chapter04_map_sha256": digest(HERE / "chapter04-map.json"),
             "apollonius_map_sha256": digest(HERE / "apollonius-map.json"),
             "projective_map_sha256": digest(HERE / "projective-map.json"),
+            "pgl_map_sha256": digest(HERE / "pgl-map.json"),
             "equation_components": list(equations.values()),
             "claims": claims}
 

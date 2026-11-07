@@ -1,0 +1,65 @@
+{
+  "schema": "aeg.paper0.formal.contract.pgl.v1",
+  "date": "2026-11-07",
+  "source_commit": "1aef3d5ffd11be7bc23978b4c9c75b85b37e9ec6",
+  "question": "Prove scalar faithfulness and construct the actual normal scalar quotient of standard Mathlib GL(2,K), with faithful projective action and image-group equivalence.",
+  "bounds": {
+    "wall_seconds": 300,
+    "child_commands": 32,
+    "child_wall_seconds": 120,
+    "child_cpu_seconds": 60,
+    "child_address_space_bytes": 1073741824,
+    "lean_child_address_space_bytes": 8589934592,
+    "child_file_bytes": 33554432,
+    "artifact_bytes": 536870912
+  },
+  "expected_work": {
+    "child_commands": 9,
+    "import_lean_statements": 31,
+    "new_lean_statements": 41,
+    "import_modules": 1,
+    "positive_modules": 2,
+    "negative_controls": 4
+  },
+  "negative_controls": [
+    {
+      "name": "nondegenerate",
+      "file": "negative/PGLMissingNondegenerate.lean",
+      "expected_fragments": [
+        "equal_actions_iff_nonzero_scalar m n",
+        "determinant m \u2260 0 \u2192 determinant n \u2260 0 \u2192"
+      ]
+    },
+    {
+      "name": "literal-equality",
+      "file": "negative/PGLWrongLiteralEquality.lean",
+      "expected_fragments": [
+        "(equal_actions_iff_nonzero_scalar m n hm hn).mp he",
+        "\u2203 s, s \u2260 0 \u2227 m = scaleMatrix s n",
+        "m = n"
+      ]
+    },
+    {
+      "name": "one-point",
+      "file": "negative/PGLOnePointInsufficient.lean",
+      "expected_fragments": [
+        "three_points_determine_quotient g h hinf",
+        "(actionHom g) (some 0) = (actionHom h) (some 0) \u2192",
+        "(actionHom g) (some 1) = (actionHom h) (some 1) \u2192"
+      ]
+    },
+    {
+      "name": "product-order",
+      "file": "negative/PGLWrongProductOrder.lean",
+      "expected_fragments": [
+        "quotient_action_mul g h x",
+        "(AEGPaper0.ProjectiveGeneralLinear.quotientAction g) ((AEGPaper0.ProjectiveGeneralLinear.quotientAction h) x)",
+        "(AEGPaper0.ProjectiveGeneralLinear.quotientAction h) ((AEGPaper0.ProjectiveGeneralLinear.quotientAction g) x)"
+      ]
+    }
+  ],
+  "resource_basis": "Declared before receiving execution. The two new modules and all four negative controls passed engineering compilation with the already pinned Mathlib standard GL and quotient-group cache. Reuse the analytic numerical bounds unchanged: 300-second deadline, 60-second child CPU, 120-second child wall and 8 GiB Lean address space. The unchanged five preceding profiles remain required; no profile refills another.",
+  "success": "Rebuild and exactly audit the 31-statement projective-line import and all 41 new statements with clean diagnostics. Each of the four negative controls rejects for its specified type mismatch. Source/inventory/library fingerprints match and all five preceding profiles independently pass. No target axiom or admitted proof.",
+  "exit": "One fresh bounded invocation after engineering checks; retain a Failed record and stop on mismatch/exhaustion. A correction requires a separately declared successor, never automatic bound growth.",
+  "authorship": "Codex (OpenAI), CC0; no independent human review claimed."
+}
