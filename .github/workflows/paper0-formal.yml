@@ -101,6 +101,12 @@ jobs:
             --mathlib-root "$RUNNER_TEMP/aeg-mathlib" \
             --lean "$RUNNER_TEMP/lean-4.24.0-linux/bin/lean" \
             --output "$RUNNER_TEMP/aeg-paper0-ripple-evidence"
+      - name: Check Apollonius modulus, circles and bisectors
+        run: |
+          python paper-0/formal/apollonius_run.py \
+            --mathlib-root "$RUNNER_TEMP/aeg-mathlib" \
+            --lean "$RUNNER_TEMP/lean-4.24.0-linux/bin/lean" \
+            --output "$RUNNER_TEMP/aeg-paper0-apollonius-evidence"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -112,4 +118,10 @@ jobs:
         with:
           name: aeg-paper0-ripple-evidence
           path: ${{ runner.temp }}/aeg-paper0-ripple-evidence
+          if-no-files-found: warn
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: aeg-paper0-apollonius-evidence
+          path: ${{ runner.temp }}/aeg-paper0-apollonius-evidence
           if-no-files-found: warn

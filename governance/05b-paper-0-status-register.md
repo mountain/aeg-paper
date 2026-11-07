@@ -80,6 +80,7 @@ EXCLUDED`.
 | ripple pencil definition (`def:p0-ripple-pencil`) | `PROVED` | definition |
 | line-to-circle transition (`thm:p0-ripple-pencil-formula`) | `PROVED` | existing Paper 0 result |
 | covariant--contravariant duality (`prop:p0-path-ripple-duality`) | `PROVED` | definitional |
+| zero-pole Apollonius equation and circle/bisector cases (`eq:p0-apollonius-pencil` and surrounding prose) | `PROVED WITH STATED HYPOTHESES` | Added 2026-11-07: actual complex norm level, with nonzero `A,C`, nonzero determinant and the pole excluded. Proper circles require positive level and nonunit distance weight; the unit-weight case is the vertical metric bisector of distinct real foci. The zero level is a single real zero in the full complex domain and empty in the upper half-plane; negative levels are empty. These qualifications bound the source's circle wording explicitly. |
 | the forward pole remark (`rem:p0-pole-forward`) | `PARTIALLY PROVED` (wording limitation recorded 2026-11-07) | The preceding lemma's per-step criterion is correct. A first exit from the affine sector does not force all later adjacent poles to differ: `J` followed by a translation has the same pole 0 and the same pencil. Read the different-pole premise only for a newly postcomposed non-affine step; the prospective quantitative transport is not certified here. Manuscript wording amendment remains separate. |
 | finite and infinite geometric expansions (`prop:p0-finite-geometric-expansion`) | `PROVED WITH STATED HYPOTHESES` | infinite values only under stated convergence hypotheses |
 | arithmetic fixed points (`prop:p0-reciprocal-fixed-points`) | `PROVED` | algebraic fixed point is not asserted attracting |
@@ -814,3 +815,75 @@ The existing overfull boxes (2/8, maximum 11.13/105.15 pt) and bookmark/underful
 warnings remain; tracked PDFs and TeX sources are unchanged. The next easier
 step is the zero-pole Apollonius equations; full PGL and intrinsic geometric
 identifications retain their separate prerequisites.
+
+## 19. Apollonius norm levels, Euclidean circles and bisectors (2026-11-07)
+
+`formal/Chapter04Apollonius.lean` advances the numbered equation
+`eq:p0-apollonius-pencil` and its surrounding zero-pole prose with 39 new
+audited statements. `formal/apollonius-map.json` pins their correspondence to
+the unchanged Chapter 4 source. Its import is the unchanged 36-statement ripple
+module, rebuilt and audited separately; import audits are not counted as new.
+The combined development has 354 distinct audited statements, including
+supporting lemmas. Chapter 4 is not marked complete.
+
+| Component | Status | Hypotheses and boundary |
+| --- | --- | --- |
+| actual complex modulus factorization | `PROVED WITH STATED HYPOTHESES` | Nonzero `A,C` give numerator/denominator factors at real zero `q=-B/A` and pole `p=-D/C`. For input different from the pole, the norm level equals the weighted-distance equation with `k=r*abs(C/A)`. This uses actual complex norms, not a substituted polynomial observable. |
+| entire guarded complex locus | `PROVED WITH STATED HYPOTHESES` | Nonzero determinant implies distinct foci and excludes the pole from the weighted locus. It identifies the full guarded norm-level set with that locus. The manuscript's positive determinant implies the nonzero assumption; positive height automatically excludes the real pole. |
+| nonunit-weight circle | `PROVED WITH STATED HYPOTHESES` | Nonnegative `k` permits reversible squaring, and `k!=1` allows completing the square. The locus equals an actual Euclidean complex `Metric.sphere`, with derived center `(q-k^2*p)/(1-k^2)` and radius `abs(k)*abs(q-p)/abs(1-k^2)`. Positive `k` and distinct foci give positive radius and an upper-half-plane witness. |
+| unit-weight bisector | `PROVED WITH STATED HYPOTHESES` | For distinct real foci, actual distance equality is exactly the vertical line `re z=(q+p)/2`. No full PGL representation or intrinsic hyperbolic-distance identification is used. |
+| degenerate/negative parameters | `PROVED WITH STATED HYPOTHESES` | Zero level is the real zero singleton, empty in the upper half-plane. Negative levels are empty; negative weighted loci need distinct foci for this conclusion. Unit weight with equal foci gives the whole plane. Proper-circle wording requires positive level. |
+| active guard witnesses | `PROVED WITH STATED HYPOTHESES` | Total complex division assigns zero at the pole, whereas the distinct-focus weighted locus excludes it. Negative unit weight is empty while unit weight is nonempty, although their squares agree. These are positive counterexamples to dropping the pole/sign/distinctness conditions. |
+
+Circle and bisector identities refer to the full guarded complex plane. Their
+upper-half-plane readings are intersections with the positive-height domain,
+not an assertion that an entire Euclidean circle lies in the upper half-plane.
+They use the continuation chart specified in the existing normalization remark.
+The source's zero-level wording limitation is recorded explicitly rather than
+silently certifying a nondegenerate circle there. No manuscript text, hypothesis
+or ordinary arithmetic-domain rule is rewritten, and no material is moved.
+
+Because the anchor is an equation and prose, live inventory now records one
+separate `equation_components` entry with all 39 statements. The environment
+counts remain 30 component-mapped, one fragment-certified and 71 not yet
+formalized, among the same 102 environments and 22 manuscript sources. No
+new theorem environment or whole-environment formal status is invented.
+
+All exact new global axiom sets disclose only their actual subsets of
+`propext`, `Classical.choice` and `Quot.sound`, without target AEG axioms or
+admitted proofs. The same 7,600 source and 3,175 compiled-module Mathlib
+fingerprints are reused unchanged, including the already pinned complex norm
+module. Compiler/standard-library and cached-library trusted-build boundaries
+are unchanged. Preceding proof, goal, program, runtime-receiver and contract
+bytes remain exact; only navigation and its historical receipt test have
+separately pinned successors. Historical execution archives are preserved.
+
+`formal/contract-apollonius.json` declares an independent 300-second profile
+with unchanged numerical Chapter 4 bounds: eight child commands, 36 import
+audits, 39 new audits and four specific rejecting controls for missing pole,
+nonnegative-weight, nonunit-weight and distinct-focus guards. All three
+predecessor profiles remain independently required under their original
+contracts. CI runs the additional profile separately and retains its own
+artifact; profiles cannot refill one another's deadlines.
+
+`formal/evidence/apollonius-execution.json` and its full archive retain all
+four completed `Passed` profiles: native 174.35 seconds, Chapter 3 analysis
+131.33 seconds, original Chapter 4 52.99 seconds and Apollonius 73.61 seconds,
+each inside its own unchanged 300-second deadline. The original profiles
+retain their exact counts (69 native runs, 148 commands, 51,137 independently
+received instruction transitions; 192 core/66 analytic audits in 16 commands;
+57 original Chapter 4 audits and four rejections in eight commands). The new
+profile has 36 exact source-import audits, 39 new audits and four expected
+specific rejections in eight commands. Import rechecks are not counted twice.
+All 69 native reports are byte-identical to the preceding success.
+
+The completed archive binds 79 formal sources plus their lock, 22 manuscript
+sources, workflow, all four reports, native traces/replay receipts, Lean audits,
+negative diagnostics and both build logs. All 39 regression tests pass against
+the completed source/report/archive bindings, following 38 preparatory passes
+and the then-absent receipt test, whose original diagnostic remains archived.
+Both builds pass at 103/61 pages with no unresolved references/citations,
+duplicate labels or missing assets. Existing overfull boxes (2/8, maximum
+11.13/105.15 pt) and bookmark/underfull warnings remain; manuscript text and
+tracked PDFs are unchanged. The next prerequisite is a concrete projective-line
+action and its bridge to the already proved pointed-bijection pole laws.

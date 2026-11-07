@@ -53,7 +53,7 @@ statement correspondence and the reviewed equality kernel remain trusted.
 | §2 evaluability continuation | General finite-tree domain/value, closed-input independence, exact rational evaluation, cancelled reciprocal and projective round trip, prefix domains/condition pullbacks, and subtraction expansion in Lean | External Richardson theorem, real exponential/ACS example, topology and cardinality background retain their separate dependencies |
 | §2 distributive operator identity | Unchanged symbolic Adva/Lean identity; new general-field proof of the corrected marked/scalar clauses | The previous counterexample and its old source snapshot remain historical evidence |
 | §3 coordinate foundation and real analysis | 61 coordinate statements plus 66 Mathlib statements: actual differential/Jacobian, smooth real coordinate-AES model, Laplace eigenfunction, positive smooth root, rectification, signed-frame bracket and affine ODE solution/uniqueness | Gaussian curvature/completeness, length/trace theory, punctured E1, full arbitrary-manifold/boundary-chart and intrinsic bundle-operator equivalences |
-| §4 ripple and pole components | 57 Mathlib statements: actual complex imaginary-part and circle/line formulas, enclosed-disk nesting, inversion, preimage duality, pointed-bijection pole covariance and finite-history rigidity | Full PGL action identification, intrinsic horocycles/tangency, Apollonius classification and chart independence; the forward remark has a recorded wording limitation |
+| §4 ripple, pole and Apollonius components | 57 ripple/pole statements plus 39 complex-norm statements: guarded modulus-to-distance equivalence, actual Euclidean circles and bisectors, and degenerate parameter cases | Full PGL action identification, intrinsic horocycles/tangency and chart independence; source wording limitations remain explicit |
 | §§5–6 reciprocal and projective synthesis | Inventoried | Formal domains, nonzero hypotheses and projective action identification |
 | §7 chronological affine cocycle | Auxiliary pointwise polynomial identity checked by Adva and Lean; shared finite-history scalar expansion in `AppendixC.lean` | Definition/uniqueness of affine coordinates, inverse and normalized-coordinate laws |
 | §§8–12 ACS, contact, nonlinearity, punctures, compactification | Inventoried | Algebraic/differential/topological dependencies and explicit side conditions |
@@ -700,12 +700,87 @@ duplicate labels or missing assets. Existing overfull boxes remain (2/8,
 maximum 11.13/105.15 pt), along with existing bookmark/underfull warnings;
 tracked PDFs and TeX sources are unchanged.
 
+## Apollonius modulus, metric circles and bisectors
+
+`Chapter04Apollonius.lean` supplies 39 new audited statements corresponding to
+`eq:p0-apollonius-pencil` and the surrounding zero-pole classification prose.
+It imports the unchanged ripple coefficients and actual complex map. The
+existing Mathlib lock already contains the complex-norm objects used here;
+no source, cached-library fingerprint or dependency revision is changed.
+
+For nonzero `A,C`, the numerator and denominator factor at the real zero
+`q=-B/A` and pole `p=-D/C`. Excluding the pole proves the actual norm-level
+equivalence with weight `k=r*|C/A|`. Nonzero determinant gives distinct foci,
+which exclude the pole from the weighted locus and identify the entire guarded
+complex level set. Positivity of the manuscript's determinant implies the
+nonzero hypothesis. A positive-height input automatically avoids the real
+pole; a full complex-plane statement must retain the denominator guard.
+
+Nonnegative `k` permits the reversible squared-distance equation. For `k!=1`,
+completing the square gives the real center `(q-k^2*p)/(1-k^2)` and radius
+`|k|*|q-p|/|1-k^2|`. The locus is proved equal to an actual `Metric.sphere` of
+the standard complex Euclidean distance. Positive `k` and distinct foci give
+a positive radius and an upper-half-plane witness. For `k=1`, the actual
+equidistance locus is exactly the vertical line `re z=(q+p)/2`. Final theorems
+specialize these results to the guarded Möbius level sets.
+
+Zero and negative levels remain separate. The zero level is the single real
+zero in the full complex domain and empty after restriction to the upper
+half-plane; negative levels are empty. The source's proper-circle wording
+therefore requires positive `r`. Explicit positive proofs also show why the
+pole, sign and distinct-focus guards matter: total complex division assigns
+zero at the pole, negative unit weight is not the bisector, and equal foci at
+unit weight give the whole plane. These are recorded in `apollonius-map.json`
+and the status register; manuscript source text is preserved.
+
+The map is attached to a numbered equation and prose, not a theorem-like
+environment. `inventory.json` now has a separate `equation_components` entry
+with all 39 statements. The 102 environment counts stay at 30 component-mapped,
+one fragment-certified and 71 not yet formalized; none is promoted by this
+equation map. The development has 354 distinct audited statements overall.
+All new exact axiom sets disclose only their actual subsets of `propext`,
+`Classical.choice` and `Quot.sound`. Compiler/standard-library and fingerprinted
+Mathlib builds retain their declared trust boundary.
+
+`contract-apollonius.json` fixes a separate profile with the unchanged numerical
+bounds of the preceding Chapter 4 profile. It has eight child commands: version
+and library-path checks, a source rebuild with 36 exact ripple import audits,
+39 new audits and four rejecting controls for the pole, nonnegative weight,
+nonunit weight and distinct foci. The 36 import audits are not new statements.
+All three predecessor profiles remain independently required under their
+unchanged contracts. Run the additional profile after pinned preparation with:
+
+```sh
+python paper-0/formal/apollonius_run.py \
+  --mathlib-root /absolute/path/to/pinned/mathlib \
+  --lean /absolute/path/to/lean/bin/lean \
+  --output /absolute/path/to/new-apollonius-evidence-directory
+```
+
+CI runs this as its own bounded step after the original real-analysis and
+ripple profiles, with a separate artifact. Historical receipts keep their own
+source locks and navigation snapshots; current navigation and its receipt test
+have separately pinned successors.
+
+The completed `evidence/apollonius-execution.json` and
+`apollonius-run-01.tar.gz` retain 79 pinned formal sources plus the lock,
+22 manuscript sources, the workflow, all four reports, native traces/replay
+receipts, exact Lean audits, negative diagnostics and both build logs. All
+four profiles pass in 174.35/131.33/52.99/73.61 seconds respectively, each within
+its own unchanged 300-second deadline. The 69 native reports remain
+byte-identical to the preceding success. All 39 regressions pass against the
+completed archive; the preparatory log retains its 38 passes and then-pending
+receipt test without relabelling that check. Both builds pass at 103/61 pages
+with no unresolved references/citations, duplicate labels or missing assets.
+Existing overfull boxes (2/8, maximum 11.13/105.15 pt) and bookmark/underfull
+warnings remain; manuscript text and tracked PDFs are unchanged.
+
 ## Continuation order
 
 The §2 continuations and §3 coordinate/real-analysis bridge are received above.
 The deferred geometric steps and their prerequisites are now in
 `chapter03-obligations.json`. Advance easier remaining Chapter 4 work first:
-the zero-pole Apollonius equations, then the projective-line/PGL bridge, keeping
+the projective-line/PGL bridge and elementary coefficient action laws, keeping
 the intrinsic horocycle and chart-independence obligations separate. The
 general-manifold/bundle identifications retain their explicit hypotheses.
 Reuse old Lean material

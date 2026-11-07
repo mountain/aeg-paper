@@ -1,0 +1,328 @@
+{
+  "schema": "aeg.paper0.apollonius.execution.v1",
+  "date": "2026-11-07",
+  "status": "Passed",
+  "authorship": "Codex (OpenAI), CC0; no independent human mathematical review claimed.",
+  "source_lock_sha256": "2d6347ccd6e9fc433c968eadb37bd689004a9e0458ff52663aa30dbff3c9bdfe",
+  "apollonius_map_sha256": "f33fce34bcf959281dd6072be26c2f67675d9834a407f077c98266904aa2b7b1",
+  "chapter03_obligations_sha256": "973e643c66e264c4475b512d916e4eef7a87dfe94d112f910e98359e81ad2800",
+  "mathlib_lock_sha256": "de2e937993bd22e41702f21889ac382f3cb36364cbe0b5e5d3fbc1e32bd0394d",
+  "mathlib_commit": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
+  "mathlib_source_files": 7600,
+  "mathlib_compiled_modules": 3175,
+  "profiles": {
+    "native": {
+      "directory": "native-01",
+      "contract": "contract-chapter03.json",
+      "contract_sha256": "606081b7c80d6f57bd1b05a688217d93c411663a98f23eb2eed931a17a66312f",
+      "report_sha256": "aa6663b9511676604e897921d67401a51d667af7fe3789580d219d83e0b64026",
+      "wall_seconds": 174.34878883199963,
+      "child_commands": 148
+    },
+    "analytic": {
+      "directory": "analysis-01",
+      "contract": "contract-analysis-v1.1.json",
+      "contract_sha256": "dc43df95783ca070cc0fad0717cc5986182d3fca814a9a6358f7b436376a7ab3",
+      "report_sha256": "66d6767ccd87c699782e95436ec411530b4a713d60e19c18b2a97e06358605b9",
+      "wall_seconds": 131.3262242769997,
+      "child_commands": 16
+    },
+    "chapter04": {
+      "directory": "chapter04-01",
+      "contract": "contract-chapter04.json",
+      "contract_sha256": "52b58178702f5afecc366ed2edab8b1da4c553c3cab3703c2e1fa6fe34d4a905",
+      "report_sha256": "3bd0c15ef01599654394d60ab062e355ad976783f987f21e59f0f2530798423a",
+      "wall_seconds": 52.98625864599853,
+      "child_commands": 8
+    },
+    "apollonius": {
+      "directory": "apollonius-01",
+      "contract": "contract-apollonius.json",
+      "contract_sha256": "082e865282360a9616cc7f27558e668f630ac1a0dccb7564f020b318f689b506",
+      "report_sha256": "7a8a77e10dc8f179ea67e3666db2515a6d4dccfd86a01a6bae983b82e526c596",
+      "wall_seconds": 73.60569016199952,
+      "child_commands": 8
+    }
+  },
+  "previous_lean_statements": 315,
+  "new_lean_statements": 39,
+  "total_lean_statements": 354,
+  "apollonius_axioms": {
+    "AEGPaper0.Chapter04Apollonius": {
+      "norm_shift_square": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "numerator_factor": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "denominator_factor": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "zero_pole_distinct": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "denominator_nonzero_iff": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "norm_mobius_factor": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "norm_level_apollonius": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "positive_weight": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "nonnegative_weight": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "pole_not_in_weighted_locus": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "levelSet_is_weighted_locus": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "weighted_squared_equation": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "nonunit_square_denominator": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "completed_square": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "weighted_circle_equation": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "radiusSq_nonnegative": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "radiusSq_positive": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "circleRadius_square": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "circleRadius_positive": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "weighted_locus_is_metric_circle": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "unit_weight_equidistance": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "unit_weight_bisector": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "unit_locus_is_bisector_line": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "zero_weight_singleton": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "negative_weight_empty": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "equal_foci_unit_locus": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "negative_level_empty": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "zero_level_singleton": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "upper_zero_level_empty": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "mobius_level_is_metric_circle": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "mobius_circle_radius_positive": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "mobius_unit_level_is_bisector": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "circleRadius_formula": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "circle_upper_witness": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "unit_upper_witness": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "totalized_pole_value": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "unguarded_zero_level_at_pole_fails": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "negative_unit_weight_is_not_bisector": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "positive_level_upper_nonempty": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  },
+  "ripple_import_audits": 36,
+  "negative_controls": {
+    "pole-guard": "Rejected with the expected specific type mismatch",
+    "nonnegative-weight": "Rejected with the expected specific type mismatch",
+    "nonunit-weight": "Rejected with the expected specific type mismatch",
+    "distinct-foci": "Rejected with the expected specific type mismatch"
+  },
+  "native_runs": 69,
+  "reference_transitions": 51137,
+  "preceding_native_reports_unchanged": 69,
+  "original_proof_library_goal_contract_and_runtime_receiver_bytes_unchanged": true,
+  "old_formal_sources_with_explicit_navigation_successors": [
+    "inventory.py",
+    "inventory.json",
+    "test_chapter04.py"
+  ],
+  "formal_source_files": 79,
+  "manuscript_source_files": 22,
+  "archive": {
+    "path": "apollonius-run-01.tar.gz",
+    "sha256": "bf21b2c93c5e59aeaad686476c827fab22d5a0093cf99f2f98c074dd03950f60",
+    "bytes": 7589709,
+    "members": 698,
+    "uncompressed_bytes": 29660532
+  },
+  "manuscript_builds": {
+    "0": {
+      "status": "Passed",
+      "pages": 103,
+      "pdf_bytes": 909781,
+      "pdf_sha256": "fdf6114f39cf582cbbe657a7dc3e63c37e66b539c0bf43c39cb555f27fda19fb",
+      "final_log_sha256": "6263cebe6f503820d86609b88dccb012e6487d572ca1177f8105520a70bae0c7",
+      "unresolved_references_citations_duplicate_labels_missing_assets": false,
+      "overfull_boxes": 2,
+      "max_overfull_pt": 11.13274,
+      "note": "Validation PDF retained externally; tracked manuscript PDF restored without changing its bytes."
+    },
+    "1": {
+      "status": "Passed",
+      "pages": 61,
+      "pdf_bytes": 756641,
+      "pdf_sha256": "82f5ddc4d5dce1b6af127b07bd5b8e72f26323c6e01891f0fb1f57e908cf7fae",
+      "final_log_sha256": "a016ededb656c2db8431d69ba869a035051026568eda5145657e4f2869571854",
+      "unresolved_references_citations_duplicate_labels_missing_assets": false,
+      "overfull_boxes": 8,
+      "max_overfull_pt": 105.1512,
+      "note": "Validation PDF retained externally; tracked manuscript PDF restored without changing its bytes."
+    }
+  },
+  "pre_receipt_checks": {
+    "passed": 38,
+    "pending_receipt_test": 1,
+    "note": "The archive-binding test cannot pass before the completed execution receipt exists. Its missing-receipt error is retained verbatim in engineering/unit-before-receipt.log."
+  },
+  "unit_tests_after_archive": 39,
+  "live_inventory": {
+    "source_files": 22,
+    "theorem_like_environments": 102,
+    "component_mapped": 30,
+    "fragment_certified": 1,
+    "not_yet_formalized": 71,
+    "separately_mapped_equations": 1
+  },
+  "source_audit": [
+    {
+      "source_label": "eq:p0-apollonius-pencil",
+      "issue": "The proper-circle wording requires positive output radius r. At r=0 the full guarded complex locus is the single real zero, and its upper-half-plane restriction is empty; negative output levels are empty. Clearing a denominator requires excluding the finite pole. The surrounding positive-determinant convention implies distinct foci, but A,C nonzero alone do not.",
+      "status": "Explicit formal guards and edge cases supplied; manuscript prose remains unchanged."
+    }
+  ],
+  "scope": "39 new exact audited statements for the unchanged equation eq:p0-apollonius-pencil and its immediately surrounding zero-pole classification prose. Actual complex norms, Euclidean metric spheres and the vertical equidistance line are identified; positive parameters give proper circles or a line. The original 36-statement ripple module is rebuilt and audited as an import, not counted as new. No new theorem-like manuscript environment is invented.",
+  "remaining": [
+    "Full PGL/projective-line action and matrix-to-bijection identification",
+    "Intrinsic hyperbolic horocycle and chart-independence identification",
+    "Projective boundary completion and the value at infinity",
+    "Quantitative transport and puncture persistence"
+  ],
+  "deferred_chapter03": "chapter03-obligations.json",
+  "trust_boundary": "Pinned compiler/standard library and source/cache-fingerprinted Mathlib are trusted builds. Actual complex modulus, standard Euclidean metric circles and bisectors are certified under their guards; full PGL/ideal-boundary and intrinsic hyperbolic identification remain outside this certificate. All four profiles pass separately under independently declared bounds."
+}

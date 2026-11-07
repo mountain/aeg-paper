@@ -135,10 +135,13 @@ class Chapter04ReceiptTests(unittest.TestCase):
         lock_raw = files["sources/machine.lock.json"]
         self.assertEqual(hashlib.sha256(lock_raw).hexdigest(), record["source_lock_sha256"])
         lock = json.loads(lock_raw)
-        self.assertEqual(lock, read("machine.lock.json"))
         for name, digest in lock["formal_sources"].items():
             self.assertEqual(hashlib.sha256(files["sources/" + name]).hexdigest(), digest)
-            self.assertEqual(files["sources/" + name], (HERE / name).read_bytes())
+            # This completed receipt binds its own source lock and navigation.
+            # Their live Apollonius successors are pinned in the new receipt;
+            # all preceding proof/library/contract/receiver bytes stay exact.
+            if name not in {"inventory.py", "inventory.json", "test_chapter04.py"}:
+                self.assertEqual(files["sources/" + name], (HERE / name).read_bytes())
         for name, digest in read("inventory.json")["sources"].items():
             self.assertEqual(hashlib.sha256(files["manuscript/" + name]).hexdigest(), digest)
         self.assertEqual(record["total_lean_statements"], 315)

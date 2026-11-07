@@ -1,0 +1,62 @@
+{
+  "schema": "aeg.paper0.formal.contract.apollonius.v1",
+  "date": "2026-11-07",
+  "source_commit": "a83b8e78c593e3c688edd50cb815a43483065168",
+  "question": "Certify the actual complex modulus Apollonius equation, its metric-circle/bisector cases, and explicit pole/sign/zero/distinct-focus guards in the unchanged Chapter 4.",
+  "bounds": {
+    "wall_seconds": 300,
+    "child_commands": 32,
+    "child_wall_seconds": 120,
+    "child_cpu_seconds": 60,
+    "child_address_space_bytes": 1073741824,
+    "lean_child_address_space_bytes": 8589934592,
+    "child_file_bytes": 33554432,
+    "artifact_bytes": 536870912
+  },
+  "expected_work": {
+    "child_commands": 8,
+    "import_lean_statements": 36,
+    "new_lean_statements": 39,
+    "import_modules": 1,
+    "positive_modules": 1,
+    "negative_controls": 4
+  },
+  "negative_controls": [
+    {
+      "name": "pole-guard",
+      "file": "negative/ApolloniusMissingPoleGuard.lean",
+      "expected_fragments": [
+        "norm_level_apollonius m r z ha hc",
+        "z \u2260 \u2191(poleX m) \u2192"
+      ]
+    },
+    {
+      "name": "nonnegative-weight",
+      "file": "negative/ApolloniusMissingNonnegative.lean",
+      "expected_fragments": [
+        "weighted_squared_equation q p k z",
+        "0 \u2264 k \u2192"
+      ]
+    },
+    {
+      "name": "nonunit-weight",
+      "file": "negative/ApolloniusMissingNonunit.lean",
+      "expected_fragments": [
+        "weighted_locus_is_metric_circle q p k hk",
+        "k \u2260 1 \u2192"
+      ]
+    },
+    {
+      "name": "distinct-foci",
+      "file": "negative/ApolloniusMissingDistinctFoci.lean",
+      "expected_fragments": [
+        "unit_weight_bisector q p z",
+        "q \u2260 p \u2192"
+      ]
+    }
+  ],
+  "resource_basis": "Declared before execution. Reuse the independently bounded Chapter 4 profile numerical limits unchanged: 300-second shared deadline, 60-second child CPU, 120-second child wall and 8 GiB Lean address-space limit. Engineering compilation and all four guard checks use only the already source/cache-pinned Mathlib complex norm and tactic modules. No library lock, old proof, goal or receiving contract is changed. The complete three preceding profiles remain separately required.",
+  "success": "Rebuild and exactly audit the unchanged 36-statement ripple import, then all 39 new actual norm/metric statements, with no warnings, target axioms or admitted proofs. All four missing-guard controls reject for their specific type mismatches. Source/manuscript/library fingerprints match. All three predecessor profiles pass independently.",
+  "exit": "One fresh bounded invocation after engineering checks; retain a Failed record and stop on mismatch/exhaustion. A correction requires a separately declared successor, never automatic bound growth.",
+  "authorship": "Codex (OpenAI), CC0; no independent human review claimed."
+}

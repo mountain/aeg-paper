@@ -43,7 +43,8 @@ def generate():
     chapter03 = json.loads((HERE / "chapter03-map.json").read_text())
     analysis = json.loads((HERE / "analysis-map.json").read_text())
     chapter04 = json.loads((HERE / "chapter04-map.json").read_text())
-    mappings = [mapping, appendix, evaluability, chapter03, analysis, chapter04]
+    apollonius = json.loads((HERE / "apollonius-map.json").read_text())
+    mappings = [mapping, appendix, evaluability, chapter03, analysis, chapter04, apollonius]
     for reviewed in mappings:
         if digest(ROOT / reviewed["source"]) != reviewed["source_sha256"]:
             raise ValueError("reviewed formal correspondence has source drift: " + reviewed["source"])
@@ -65,6 +66,27 @@ def generate():
                            "environment": match[1], "title": match[2], "labels": labels,
                            "formal_status": "component-map-supplied" if lean else "fragment-certificate-supplied" if attached else "not-yet-formalized",
                            "certificates": attached, "lean_components": lean})
+    # Some certified components belong to a numbered equation and surrounding
+    # prose, not a theorem-like environment. Keep their navigation separate so
+    # the environment counts are not inflated by an invented theorem.
+    equations = {}
+    for reviewed in mappings:
+        for row in reviewed["mapping"]:
+            if row.get("anchor_kind") != "equation":
+                continue
+            source = row.get("source", reviewed["source"])
+            text = re.sub(r"(?<!\\)%[^\n]*", "", (ROOT / source).read_text())
+            for label in row["source_labels"]:
+                match = re.search(r"\\begin\{equation\}(?:(?!\\end\{equation\}).)*?\\label\{" +
+                                  re.escape(label) + r"\}", text, re.S)
+                if match is None:
+                    raise ValueError("reviewed equation anchor missing: " + label)
+                key = (source, label)
+                target = equations.setdefault(key, {"source": source, "label": label,
+                    "line": text[:match.start()].count("\n") + 1,
+                    "formal_status": "component-map-supplied", "lean_components": [], "coverage": []})
+                target["lean_components"] = sorted(set(target["lean_components"]) | set(row["formal"]))
+                target["coverage"].append(row["coverage"])
     return {"schema": "aeg.paper0.formal.inventory.v3",
             "scope": "Theorem-like environments in recursively included TeX files; prose/equation coverage and dependencies require review. No proof truth is assigned by this inventory.",
             "sources": {str(path.relative_to(ROOT)): digest(path) for path in sources()},
@@ -74,6 +96,8 @@ def generate():
             "chapter03_map_sha256": digest(HERE / "chapter03-map.json"),
             "analysis_map_sha256": digest(HERE / "analysis-map.json"),
             "chapter04_map_sha256": digest(HERE / "chapter04-map.json"),
+            "apollonius_map_sha256": digest(HERE / "apollonius-map.json"),
+            "equation_components": list(equations.values()),
             "claims": claims}
 
 

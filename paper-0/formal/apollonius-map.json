@@ -1,0 +1,549 @@
+{
+  "schema": "aeg.paper0.apollonius.map.v1",
+  "source": "paper-0/sections/04-ripple-geometry.tex",
+  "source_sha256": "aac21e63fdf22f4e0cc5032441e050d015afbcc1fc545cf04ba008123712e49f",
+  "imports": [
+    {
+      "file": "Chapter04Ripples.lean",
+      "module": "AEGPaper0.Chapter04Ripples",
+      "lean_audit_names": [
+        "denominator_normSq",
+        "denominator_ne_zero",
+        "denominatorSq_positive",
+        "mobius_imaginary",
+        "mobius_preserves_upper",
+        "ripple_membership",
+        "ripple_level",
+        "ripple_equation",
+        "affine_diagonal_nonzero",
+        "affine_ripple_line",
+        "radius_positive",
+        "completed_square",
+        "ripple_circle",
+        "circle_boundary_contact",
+        "circle_height_bounds",
+        "radius_antitone",
+        "tangentDisk_equation",
+        "tangentDisk_height_nonnegative",
+        "tangentDisk_nested",
+        "ripple_disks_nested",
+        "distinct_ripples_disjoint",
+        "ripple_parameter_positive",
+        "ripple_empty_nonpositive",
+        "ripple_unique_positive_level",
+        "output_translation_determinant",
+        "output_translation_map",
+        "output_translation_pole",
+        "output_translation_ripple",
+        "inversion_determinant",
+        "inversion_map",
+        "inversion_radius",
+        "inversion_pole",
+        "inversion_followed_by_translation_has_same_finite_pole",
+        "inversion_ripple",
+        "pullback_point_duality",
+        "chronological_pullback"
+      ],
+      "expected_axioms": {
+        "denominator_normSq": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "denominator_ne_zero": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "denominatorSq_positive": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "mobius_imaginary": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "mobius_preserves_upper": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "ripple_membership": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "ripple_level": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "ripple_equation": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "affine_diagonal_nonzero": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "affine_ripple_line": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "radius_positive": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "completed_square": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "ripple_circle": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "circle_boundary_contact": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "circle_height_bounds": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "radius_antitone": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "tangentDisk_equation": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "tangentDisk_height_nonnegative": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "tangentDisk_nested": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "ripple_disks_nested": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "distinct_ripples_disjoint": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "ripple_parameter_positive": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "ripple_empty_nonpositive": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "ripple_unique_positive_level": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "output_translation_determinant": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "output_translation_map": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "output_translation_pole": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "output_translation_ripple": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "inversion_determinant": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "inversion_map": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "inversion_radius": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "inversion_pole": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "inversion_followed_by_translation_has_same_finite_pole": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "inversion_ripple": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "pullback_point_duality": [],
+        "chronological_pullback": []
+      }
+    }
+  ],
+  "modules": [
+    {
+      "file": "Chapter04Apollonius.lean",
+      "module": "AEGPaper0.Chapter04Apollonius",
+      "lean_audit_names": [
+        "norm_shift_square",
+        "numerator_factor",
+        "denominator_factor",
+        "zero_pole_distinct",
+        "denominator_nonzero_iff",
+        "norm_mobius_factor",
+        "norm_level_apollonius",
+        "positive_weight",
+        "nonnegative_weight",
+        "pole_not_in_weighted_locus",
+        "levelSet_is_weighted_locus",
+        "weighted_squared_equation",
+        "nonunit_square_denominator",
+        "completed_square",
+        "weighted_circle_equation",
+        "radiusSq_nonnegative",
+        "radiusSq_positive",
+        "circleRadius_square",
+        "circleRadius_positive",
+        "weighted_locus_is_metric_circle",
+        "unit_weight_equidistance",
+        "unit_weight_bisector",
+        "unit_locus_is_bisector_line",
+        "zero_weight_singleton",
+        "negative_weight_empty",
+        "equal_foci_unit_locus",
+        "negative_level_empty",
+        "zero_level_singleton",
+        "upper_zero_level_empty",
+        "mobius_level_is_metric_circle",
+        "mobius_circle_radius_positive",
+        "mobius_unit_level_is_bisector",
+        "circleRadius_formula",
+        "circle_upper_witness",
+        "unit_upper_witness",
+        "totalized_pole_value",
+        "unguarded_zero_level_at_pole_fails",
+        "negative_unit_weight_is_not_bisector",
+        "positive_level_upper_nonempty"
+      ],
+      "expected_axioms": {
+        "norm_shift_square": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "numerator_factor": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "denominator_factor": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "zero_pole_distinct": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "denominator_nonzero_iff": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "norm_mobius_factor": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "norm_level_apollonius": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "positive_weight": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "nonnegative_weight": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "pole_not_in_weighted_locus": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "levelSet_is_weighted_locus": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "weighted_squared_equation": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "nonunit_square_denominator": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "completed_square": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "weighted_circle_equation": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "radiusSq_nonnegative": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "radiusSq_positive": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "circleRadius_square": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "circleRadius_positive": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "weighted_locus_is_metric_circle": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "unit_weight_equidistance": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "unit_weight_bisector": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "unit_locus_is_bisector_line": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "zero_weight_singleton": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "negative_weight_empty": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "equal_foci_unit_locus": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "negative_level_empty": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "zero_level_singleton": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "upper_zero_level_empty": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "mobius_level_is_metric_circle": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "mobius_circle_radius_positive": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "mobius_unit_level_is_bisector": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "circleRadius_formula": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "circle_upper_witness": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "unit_upper_witness": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "totalized_pole_value": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "unguarded_zero_level_at_pole_fails": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "negative_unit_weight_is_not_bisector": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "positive_level_upper_nonempty": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      }
+    }
+  ],
+  "mapping": [
+    {
+      "anchor_kind": "equation",
+      "source_labels": [
+        "eq:p0-apollonius-pencil"
+      ],
+      "formal": [
+        "AEGPaper0.Chapter04Apollonius.norm_shift_square",
+        "AEGPaper0.Chapter04Apollonius.numerator_factor",
+        "AEGPaper0.Chapter04Apollonius.denominator_factor",
+        "AEGPaper0.Chapter04Apollonius.zero_pole_distinct",
+        "AEGPaper0.Chapter04Apollonius.denominator_nonzero_iff",
+        "AEGPaper0.Chapter04Apollonius.norm_mobius_factor",
+        "AEGPaper0.Chapter04Apollonius.norm_level_apollonius",
+        "AEGPaper0.Chapter04Apollonius.positive_weight",
+        "AEGPaper0.Chapter04Apollonius.nonnegative_weight",
+        "AEGPaper0.Chapter04Apollonius.pole_not_in_weighted_locus",
+        "AEGPaper0.Chapter04Apollonius.levelSet_is_weighted_locus"
+      ],
+      "coverage": "Actual complex norm factorization and guarded modulus-to-distance equivalence. Nonzero A,C, distinct finite foci from nonzero determinant, and explicit denominator/pole exclusion."
+    },
+    {
+      "anchor_kind": "equation",
+      "source_labels": [
+        "eq:p0-apollonius-pencil"
+      ],
+      "formal": [
+        "AEGPaper0.Chapter04Apollonius.weighted_squared_equation",
+        "AEGPaper0.Chapter04Apollonius.nonunit_square_denominator",
+        "AEGPaper0.Chapter04Apollonius.completed_square",
+        "AEGPaper0.Chapter04Apollonius.weighted_circle_equation",
+        "AEGPaper0.Chapter04Apollonius.radiusSq_nonnegative",
+        "AEGPaper0.Chapter04Apollonius.radiusSq_positive",
+        "AEGPaper0.Chapter04Apollonius.circleRadius_square",
+        "AEGPaper0.Chapter04Apollonius.circleRadius_positive",
+        "AEGPaper0.Chapter04Apollonius.weighted_locus_is_metric_circle",
+        "AEGPaper0.Chapter04Apollonius.unit_weight_equidistance",
+        "AEGPaper0.Chapter04Apollonius.unit_weight_bisector",
+        "AEGPaper0.Chapter04Apollonius.unit_locus_is_bisector_line"
+      ],
+      "coverage": "Nonnegative-weight squaring equivalence; the nonunit locus is an actual Euclidean complex metric sphere with derived center and radius; the unit locus is the vertical metric bisector for distinct real foci."
+    },
+    {
+      "anchor_kind": "equation",
+      "source_labels": [
+        "eq:p0-apollonius-pencil"
+      ],
+      "formal": [
+        "AEGPaper0.Chapter04Apollonius.zero_weight_singleton",
+        "AEGPaper0.Chapter04Apollonius.negative_weight_empty",
+        "AEGPaper0.Chapter04Apollonius.equal_foci_unit_locus",
+        "AEGPaper0.Chapter04Apollonius.negative_level_empty",
+        "AEGPaper0.Chapter04Apollonius.zero_level_singleton",
+        "AEGPaper0.Chapter04Apollonius.upper_zero_level_empty",
+        "AEGPaper0.Chapter04Apollonius.mobius_level_is_metric_circle",
+        "AEGPaper0.Chapter04Apollonius.mobius_circle_radius_positive",
+        "AEGPaper0.Chapter04Apollonius.mobius_unit_level_is_bisector",
+        "AEGPaper0.Chapter04Apollonius.circleRadius_formula",
+        "AEGPaper0.Chapter04Apollonius.circle_upper_witness",
+        "AEGPaper0.Chapter04Apollonius.unit_upper_witness",
+        "AEGPaper0.Chapter04Apollonius.totalized_pole_value",
+        "AEGPaper0.Chapter04Apollonius.unguarded_zero_level_at_pole_fails",
+        "AEGPaper0.Chapter04Apollonius.negative_unit_weight_is_not_bisector",
+        "AEGPaper0.Chapter04Apollonius.positive_level_upper_nonempty"
+      ],
+      "coverage": "Degenerate zero/negative parameters, equal-focus and totalized-pole counterexamples, actual positive-radius formula and upper-plane witnesses, and the final guarded Mobius circle/line classification."
+    }
+  ],
+  "excluded": [
+    "Full PGL/projective-line action and matrix-to-bijection identification",
+    "Intrinsic hyperbolic horocycle and chart-independence identification",
+    "Projective boundary completion and the value at infinity",
+    "Quantitative transport and puncture persistence"
+  ],
+  "interpretation": "39 new exact audited statements for the unchanged equation eq:p0-apollonius-pencil and its immediately surrounding zero-pole classification prose. Actual complex norms, Euclidean metric spheres and the vertical equidistance line are identified; positive parameters give proper circles or a line. The original 36-statement ripple module is rebuilt and audited as an import, not counted as new. No new theorem-like manuscript environment is invented.",
+  "source_audit": [
+    {
+      "source_label": "eq:p0-apollonius-pencil",
+      "issue": "The proper-circle wording requires positive output radius r. At r=0 the full guarded complex locus is the single real zero, and its upper-half-plane restriction is empty; negative output levels are empty. Clearing a denominator requires excluding the finite pole. The surrounding positive-determinant convention implies distinct foci, but A,C nonzero alone do not.",
+      "status": "Explicit formal guards and edge cases supplied; manuscript prose remains unchanged."
+    }
+  ]
+}
