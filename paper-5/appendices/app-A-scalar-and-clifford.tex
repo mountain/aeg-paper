@@ -72,6 +72,23 @@ Projectively, $[-\id]=[\id]$, hence $[J]^{2}=[I]$ while $J^{2}=-I$ on the lift.
 On the chart $z=t/s$, the action $(t,s)\mapsto(-s,t)$ gives
 $z\mapsto(-s)/t=-1/z$.
 
+\subsubsection{Equality, projectivization, and conjugacy}
+Over any field of characteristic different from two, $J\neq-J$ and $-I\neq I$,
+although $[J]=[-J]$.  Put $H=\operatorname{diag}(1,-1)$.  Then
+$HJH^{-1}=-J$ and $\det H=-1$, so the two lifts are already conjugate in
+$\GL(2,\R)$.  More generally, solving $PJ=-JP$ gives
+\[
+  P=\begin{pmatrix}u&v\\ v&-u\end{pmatrix},\qquad
+  \det P=-(u^{2}+v^{2}).
+\]
+Over $\R$ every invertible such $P$ has negative determinant.  Hence $J$ and $-J$
+are not conjugate by an orientation-preserving real change of basis, in particular
+not in $SL(2,\R)$.  Over $\C$, however, $iH$ has determinant one and still
+conjugates $J$ to $-J$.  This identifies conjugacy classes, not matrices on the fixed
+carrier.  Nor does anisotropy alone obstruct $SL$-conjugacy: over $\F_7$ the choice
+$(u,v)=(3,2)$ gives $\det P=1$ despite $-1$ being a nonsquare.  In characteristic
+two the literal equalities $J=-J$ and $J^{2}=I$ hold instead.
+
 \subsubsection{The generator matrix}
 Multiplication by $j$ in the basis $(1,j)$ is
 \[
