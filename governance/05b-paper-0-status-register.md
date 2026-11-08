@@ -1,10 +1,24 @@
 # Paper 0 Mathematical Status Register
 
 **Status:** Authoritative register for Paper 0 only
-**Version:** 1.1
-**Date:** 2026-09-22; amended 2026-09-29
+**Version:** 1.2
+**Date:** 2026-09-22; amended 2026-09-29, 2026-11-08
 **Applies to:** `paper-0/aeg-paper-0.tex` and its `sections/` and `appendices/`
 **Companion:** `05-mathematical-status.md` (which applies to Papers I--IV)
+
+**Amendment (2026-11-08).** Section 2 gains the normal-form subsection of §3
+(`subsec:p0-normal-form`): the leaf-curvature identity, the normal form of a
+regular AES, its realization, and the softness corollary, all with in-paper
+proofs. Section 4 gains the weighted-charge remark of §9
+(`rem:p0-weighted-charges`), which records the coordinate form of the invariance
+discussion already present in `rem:p0-curvature-invariance` and the factored
+finite defects; it adds no new invariance claim. The normal form is stated under a structural hypothesis so that
+`thm:complete-regular-aes-splitting` of Paper I keeps the canonical statement of
+the product decomposition; no Paper I statement is changed or duplicated.
+Machine cross-checking of the leaf-curvature identity (SymPy, basic model) is
+recorded in
+`governance/discussions/smooth-and-differential-topology-layer.md`; it is not
+independent human review.
 
 **Amendment (2026-09-29).** An independently verified counterexample shows that
 `thm:p0-punctures-are-critical` is **false as printed**: its proof's first step
@@ -72,6 +86,12 @@ EXCLUDED`.
 | trace classification and length of a projective motion (`prop:p0-projective-trichotomy`) | `STANDARD CONSEQUENCE REQUIRING AN IN-PAPER PROOF` | added 2026-10-24; in-paper proof supplied (eigenvalues `lambda, lambda^-1`, so the sign of `tau^2-4` decides hyperbolic / parabolic / elliptic; conjugation to `diag(e^{l/2},e^{-l/2})` gives `ell = 2 arccosh(|tau|/2)`; checked against `prop:p0-length-multiplicative-charge` on the affine slice). Narrows section 3.6's boundary item (1) from "any projective motion" to "a general field `K`" |
 | two layers of the affine conjugacy classification (`prop:p0-affine-two-layers`) | `PROVED` | added 2026-10-24; `D_Phi T_c D_Phi^{-1} = T_(Phi c)` computed directly, so the translation layer's class carries no continuous invariant and is a torsor under the dilations, while a dilation's class is determined by its multiplier. Recorded as the reason the length-zero verdict is a layer switch rather than a defect |
 | two coordinates of one history (`rem:p0-length-two-coordinates`) | `STRUCTURAL PROPOSAL` | added 2026-10-24; reads `(log Phi_n, xi_n)` of `prop:affine-cocycle-formulas` as the descending and non-descending sides. Adds no theorem; identifies no geometric coordinate with the additive side; makes no Fenchel--Nielsen claim |
+| normal-form distance coordinate `t(a)` and `|\nabla t|=1` (`eq:p0-normal-form-t`, `eq:p0-normal-form-unit-gradient`) | `PROVED` | added 2026-11-08; `t` is `r/\lambda` up to the sign of `mu` when `lambda != 0` (the paper states only the agreement of the gradient magnitudes, `|\nabla r| = |\lambda|`), and `t = a/\|\mu\|` when `lambda = 0`. Standard unit-gradient reparametrization; the same `t` as the rectified assignment of §12 |
+| curvature of the arithmetic level sets (`prop:p0-leaf-curvature`) | `PROVED` | added 2026-11-08; in-paper proof supplied (divergence rule plus the eikonal identity). Sign convention `k_g := -div(grad t)` is declared in `eq:p0-normal-form-curvature-definition`; verified symbolically on the basic model (leaf curvature `-lambda^2 a/q`, constant on leaves) |
+| normal form of a regular AES (`prop:p0-normal-form`) | `PROVED WITH STATED HYPOTHESES` | added 2026-11-08; hypothesis is stated structurally (each point lies on a maximal orbit of `grad t` meeting `Z(a)` once), not as completeness, so that `thm:complete-regular-aes-splitting` of Paper I stays the canonical statement of the product decomposition (`rem:p0-normal-form-hypotheses`). Conclusions: orbits are normal geodesics, `|t|` is the distance to `Z(a)`, level sets are parallel, Fermi form `dt^2 + J^2 ds^2` with `J_t = -k_g J`, `J_tt = -K J`, and `a = (\|\mu\|/\|\lambda\|) sinh(\|\lambda\| t)` |
+| when the normal-form hypothesis holds (`rem:p0-normal-form-hypotheses`) | `PROVED WITH STATED HYPOTHESES` | added 2026-11-08; complete flow suffices (unit speed, `dt/dsigma = 1`); holds on `E_0` and on any regular AES over a complete boundaryless surface by Hopf--Rinow. Counterexample to sufficiency of the eikonal alone: the open Euclidean annulus with `a = mu(r-r_0)` (bounded coordinate range) |
+| realization of the normal form (`prop:p0-normal-form-realization`) | `PROVED` | added 2026-11-08; every normal-coordinate datum `(gamma, t, g)` with `|\nabla t| = 1` gives a regular AES with `a = A(t)` and `Z(a) = gamma`. No completeness needed |
+| softness of the regular category (`cor:p0-normal-form-softness`) | `PROVED` | added 2026-11-08; `J` in `g = dt^2 + J^2 ds^2` is an arbitrary positive smooth function, so the regular axioms constrain the assignment only and leave the transverse geometry free. Consequently no classification of regular AES by the topology or smooth structure of the surface alone exists. Negative result; it does not classify anything |
 
 ## 3. Dual reading and projective unification (Paper 0 §§4--6)
 
@@ -107,6 +127,7 @@ EXCLUDED`.
 | finite/infinitesimal synthesis (`prop:torsion-curvature-synthesis`) | `PROVED` | moved from Paper I §9 |
 | the curvature form of the horizontal distribution (`prop:p0-curvature-form`) | `PROVED` | added 2026-09-22 (evening): the bracket defect defines a canonical 2-form on the distribution, determined by `(D, pi)` and independent of the normalization of `alpha`; its value on the `h`-orthonormal frame is `mu*lambda`, with the rescaling law `rho^{-2}` under `h -> rho^2 h` |
 | the curvature scalar's invariance group (`rem:p0-curvature-invariance`) | `PROVED` (explanatory remark) | resolves OI-6: `mu*lambda` is not a contact invariant, but it is an invariant of the declared frame and horizontal metric, and on the AES side of the data it is the chart-free expression `da([X_u,X_v])` |
+| weighted charges and the defect functionals (`rem:p0-weighted-charges`) | `PROVED` (explanatory remark) | added 2026-11-08; the unit choice `U = mu u`, `V = lambda v` gives `alpha = da - dU - a dV` and `D_u = mu D_U`, `D_v = lambda D_V`, so `mu*lambda` is the product of the two normalizations and `d(alpha) = -da ^ dV` is the invariant form; the finite defects become `T_open = Delta U (exp(Delta V) - 1)` and `T_closed = exp(-Delta V) T_open`; the ACS coordinates `(A,M)` are the same weighted-charge plane. Coordinate form of `rem:p0-curvature-invariance`; no new invariance claim |
 
 ## 5. Beyond linear language (Paper 0 §10)
 

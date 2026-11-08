@@ -22,6 +22,7 @@ The subject directories are:
 5. `projective-condensation/`
 6. `thermodynamics-and-renormalization/`
 7. `electrodynamics/`
+8. `aes/`
 
 `electrodynamics/` is an archived working directory rather than a numbered note:
 it holds a rendered manuscript on a contact-geometric reading of classical
@@ -63,3 +64,15 @@ elliptic AES definition remain research tasks.
   theorem), and the C2 Hermitian companion (complete model with $a(z)=z$,
   positive curvature, total curvature $2\pi$, discrete zero locus).
   Companion witness: `analysis-and-calculus/51-complexified-model-and-rh-witness.py`.
+
+## The elliptic AES programme
+
+- [AES notes: the elliptic AES programme](aes/README.md): design notes for a
+  genuine elliptic AES (positive curvature, compactification, analysis), using
+  the Cayley–Klein real-form family as skeleton.
+- [01 — Trichotomy audit and the Cayley–Klein skeleton](aes/01-trichotomy-audit-and-cayley-klein-skeleton.md):
+  the five same-named trichotomies, the trace-versus-curvature distinction, and
+  why the trace trichotomy collapses for positive curvature.
+- [02 — The arithmetic side of the elliptic AES](aes/02-arithmetic-side-of-the-elliptic-aes.md):
+  the three-layer syntax/value/realization split, the bounded spherical
+  assignment, the critical/turning locus, and the range domain.

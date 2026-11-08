@@ -3709,3 +3709,69 @@ No existing V1/V2 bytes or LaTeX sources are changed.
 | OQ096-V3-F3 | `proved with stated hypotheses` | A specified last-seam-only residual composition on three adjacent typed blocks has associative numerical functions but unequal residuals. It violates F1's retention hypothesis; it is not a counterexample within F1's lawful composition. |
 | OQ096-V3-C | `computationally verified example` | 41 requests / 82 constructions: 36 accepted and five strict-domain rejections in each bracketing. 980 source-pair checks: five accepted, 975 rejected (107 numerically unchanged); 32 saved negative packets and 18 extra-edge controls. JavaScript and separately written Python/Fraction oracle agree; same author, no independent human review. |
 | OQ096-V3-R | `open problem` | General decorated DAG composition/decomposition, overlapping/shared subgraphs, alpha-transport coherence, geometric thickening, state/spectrum bridges, AES extension and native Adva Seal remain open. F1–F3 are eligible for a narrow Paper I addition, not automatically integrated. |
+
+## Status change S-0010
+
+- **Claim ID:** new nodes P3-L11 and P3-L12.
+- **Previous status:** none; both are new statements added on 2026-11-08.
+- **New status:** P3-L11 is `PROVED`; P3-L12 is `PROVED WITH STATED HYPOTHESES`.
+- **Exact statements.**
+  - P3-L11 (`rem:intensity-plane-not-a-base`, `rem:intensity-plane-factorization`, Paper III section 9.1).
+    (i) Promoting the intensity pair $(\mu,\lambda)$ from structure constants to base
+    coordinates does not produce a new zero tube: in the fixed-assignment reading
+    the zero set is $\{A=0\}$ in every fiber, and in the fixed-metric reading
+    Paper~0's normal form gives $a=\frac{|\mu|}{|\lambda|}\sinh(|\lambda|t)$
+    ($a=|\mu|t$ for $\lambda=0$), whose level sets and zero set are independent of
+    $(\mu,\lambda)$.  (ii) The axioms are invariant under
+    $(g,a;\mu,\lambda)\mapsto(s^2g,a;\mu/s,\lambda/s)$; after $\mu$ fixes the length
+    unit the intensities contribute one dimensionless ratio
+    $\rho=\lambda/\mu$, and on the basic model
+    $g_{\mu,\lambda}=\mu^{-2}g_{1,\rho}$ with $K=-\lambda^2=-\mu^2\rho^2$.
+- **Exact statement (continued), P3-L12** (`prop:intensity-collapse`, Paper III
+  section 9.5).  Let $M$ be a compact oriented surface with boundary, $h$ a
+  Riemannian metric, $A\in C^\infty(M,\R)$ with $\dd A\ne0$ everywhere and
+  $0\in A(M)$, $\Sigma=A^{-1}(0)$, and
+  $g_\lambda=\frac{|\dd A|_h^2}{\mu^2+\lambda^2A^2}\,h$.
+  Then $(M,g_\lambda,A;\mu,\lambda)$ is a regular AES; the induced metric
+  $g_\infty=\mu^{-2}|\dd A|_h^2h|_\Sigma$ is independent of $\lambda$ and
+  $\Sigma\hookrightarrow(M,g_\lambda)$ is isometric; the
+  Gromov--Hausdorff distance to $(\Sigma,g_\infty)$ is
+  $O(\lambda^{-1}\log\lambda)$; $\operatorname{area}(M,g_\lambda)=\pi L_{g_\infty}(\Sigma)\lambda^{-1}+O(\lambda^{-2}\log\lambda)$;
+  and the limit carries the constant assignment $0$, so it is not a regular AES.
+- **Hypotheses:** for P3-L12, compactness with boundary (or, equivalently for the
+  statement, a submersion with bounded range), $\dd A\ne0$ everywhere, and
+  $0\in A(M)$.  The fiberwise form for an ambient family replaces $\dd A$ by the
+  vertical derivative $D^VA$ and restricts to the regular part
+  $M\setminus\Sigma_{\mathrm{crit}}$.  P3-L11 has no hypotheses beyond the
+  regular-AES axioms; its second reading uses the completeness hypothesis of
+  Paper~0's normal form.
+- **Proof location:** `paper-3/sections/04-parameter-discriminants.tex`,
+  `rem:intensity-plane-not-a-base`, `rem:intensity-plane-factorization`,
+  `prop:intensity-collapse`, with `rem:intensity-collapse-hypotheses` and
+  `warn:intensity-collapse-two-readings` recording the hypotheses and the
+  non-interchangeability of the two $\lambda$-collapses.
+- **Verification performed:** canonical `./build.sh 3` release build is clean
+  (85 pages, 855321 bytes, SHA-256 `626a0fdd07145591dd12f7806e2d5efeb8fd3400afc091b614dc177f05a7b85c`; 0 errors, 0 undefined references,
+  0 duplicate labels, 0 overfull boxes).  The factorization
+  $g_{\mu,\lambda}=\mu^{-2}g_{1,\rho}$, the curvature identity
+  $K=-\mu^2\rho^2=-\lambda^2$, the joint-scaling invariance of the eikonal, the
+  bracket identities $[D_U,D_V]=\partial_a$ and $[D_u,D_v]=\mu\lambda\partial_a$,
+  and the collapse distance identity were checked with SymPy in
+  `governance/discussions/aeg-intensity-plane-and-tube-collapse.md`, Appendix A.
+  This is machine cross-checking by the drafting agent, not independent human
+  review.
+- **Direct corollary (Paper 0).** The same unit choice gives
+  `rem:p0-weighted-charges` in Paper 0 section 9: $\alpha=\dd a-\dd U-a\dd V$,
+  $D_u=\mu D_U$, $D_v=\lambda D_V$, and
+  $T_{\mathrm{open}}=\Delta U(e^{\Delta V}-1)$.  That remark is registered in
+  `05b-paper-0-status-register.md` section 4.
+- **Claims deliberately not promoted:** a canonical compactification of the
+  intensity plane; an intrinsic (diffeomorphism-invariant) formulation of the
+  collapse; any Gromov--Hausdorff statement for the second $\lambda$-family
+  (`warn:intensity-collapse-two-readings`); any $\lambda$-discriminant, monodromy,
+  or invariant, the zero incidence being a product in $\lambda$; and any
+  identification of Teichmüller space with the moduli space of holed AES spaces.
+- **Downstream nodes affected:** none.  No existing node cites P3-L11 or P3-L12.
+- **Papers affected:** Paper III (new material); Paper 0 (receives the
+  weighted-charge remark and is cited for the normal form).
+- **Reviewer:** drafting agent, 2026-11-08; no independent human review asserted.

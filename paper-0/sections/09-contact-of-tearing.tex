@@ -485,6 +485,52 @@ in another frame, which is the sense in which the theorem of
 Section~\ref{sec:p0-contact} concerns a specified connection.
 \end{remark}
 
+\begin{remark}[Weighted charges, and why the defects are functions of them]
+\label{rem:p0-weighted-charges}
+The unit choice behind the two invariance statements of
+Remark~\ref{rem:p0-curvature-invariance} can be made explicit.  Put
+$U:=\mu u$ and $V:=\lambda v$; this is the rescaling
+$(u,v,a)\mapsto(u/\mu,v/\lambda,a)$ of that remark with $c=\mu^{-1}$,
+$d=\lambda^{-1}$, $\kappa=1$, so it realizes the intensities $(1,1)$ at the cost of
+changing the charge coordinates while the assignment is left alone.  In these
+coordinates
+\begin{equation}
+ \alpha=\dd a-\mu\,\dd u-\lambda a\,\dd v=\dd a-\dd U-a\,\dd V,
+ \label{eq:p0-weighted-contact-form}
+\end{equation}
+while the horizontal fields of \eqref{eq:horizontal-arithmetic-fields} scale with
+the intensities:
+\begin{equation}
+ D_u=\mu D_U,
+ \qquad
+ D_v=\lambda D_V,
+ \qquad
+ [D_U,D_V]=\partial_a,
+ \qquad
+ [D_u,D_v]=\mu\lambda\,\partial_a ,
+ \label{eq:p0-weighted-fields}
+\end{equation}
+with $D_U=\partial_U+\partial_a$ and $D_V=\partial_V+a\partial_a$.  Thus the number
+$\mu\lambda$ is the product of the two normalizations, in agreement with
+Proposition~\ref{prop:p0-curvature-form}(4), and
+the invariant object is the two-form $\dd\alpha=-\dd a\wedge\dd V$.
+
+The same coordinates explain the shape of the finite defects above.  With
+$\Delta U=\mu h$ and $\Delta V=\lambda k$,
+\begin{equation}
+ T_{\mathrm{open}}=\Delta U\,(e^{\Delta V}-1),
+ \qquad
+ T_{\mathrm{closed}}=e^{-\Delta V}\,T_{\mathrm{open}} ,
+ \label{eq:p0-weighted-defects}
+\end{equation}
+so both are functions of the weighted charge increments alone.  This is also why
+the charge coordinates $(A,M)$ of the accumulative commutative space of
+Section~\ref{sec:p0-acs-tearing} may be identified with $(U,V)$, and why the area
+integral of Theorem~\ref{thm:torsion-stokes} is written there as an integral of
+$e^{M_*-M}\dd A\wedge\dd M$: the commutative plane is already the weighted charge
+plane, and the tearing is a function on it.
+\end{remark}
+
 \subsection{The contact model as a quotient of the basic model}
 \label{subsec:p0-contact-quotient}
 

@@ -4,7 +4,8 @@ which the four arithmetic operations act as \emph{motions}: each elementary
 operation moves the current arithmetic value, and the effect of that motion on
 points is part of the structure.  We give the axioms, the canonical frame they
 determine, the basic hyperbolic model, the four elementary motions, the point
-paths they generate, and the continuous form of the same motion.
+paths they generate, the continuous form of the same motion, and the normal form
+that the axioms force.
 
 \subsection{Arithmetic motions}
 
@@ -1090,3 +1091,269 @@ Section~\ref{sec:p0-holed} returns to it.  Its puncture is not a hole in the
 metric; it is a point at which the regular structure stops being defined, and
 it is where the arithmetic motions of the punctured part can no longer be
 extended.
+
+\subsection{The normal form of a regular arithmetic expression space}
+\label{subsec:p0-normal-form}
+
+The eikonal identity \eqref{eq:regular-aes-eikonal} is one scalar equation, but
+it determines the foliation by level sets of the assignment completely: the
+level sets are parallel, the integral curves of the rectified gradient are
+geodesics, and the assignment is a function of the distance to its own zero
+locus alone.  Two consequences are recorded in this subsection.  First, in the
+regular category the assignment carries no information beyond the choice of its
+zero locus.  Second, the axioms impose no condition on the transverse geometry,
+so the regular category is soft and admits no classification.  Both statements
+sharpen the role of the basic model of
+Subsection~\ref{subsec:p0-basic-model}: it is singled out by additional
+structure, never by the regular axioms alone.
+
+Write
+\begin{equation}\label{eq:p0-normal-form-zero-locus}
+ Z(a)=a^{-1}(0)=\{p\in M:a(p)=0\}
+\end{equation}
+for the zero locus, and define
+\begin{equation}\label{eq:p0-normal-form-t}
+ t(a)=\int_0^a\frac{ds}{\sqrt{\mu^2+\lambda^2s^2}},
+ \qquad\text{equivalently}\qquad
+ \frac{dt}{da}=\frac1{\sqrt{\mu^2+\lambda^2a^2}} .
+\end{equation}
+Since $\mu\ne0$, the integrand is smooth and positive, so $t$ is a strictly
+increasing $C^\infty$ diffeomorphism $\mathbb R\to\mathbb R$ with $t(0)=0$.  The
+chain rule and \eqref{eq:regular-aes-eikonal} give the unit-gradient identity
+\begin{equation}\label{eq:p0-normal-form-unit-gradient}
+ |\nabla t|_g=1 .
+\end{equation}
+When $\lambda\ne0$, \eqref{eq:p0-normal-form-unit-gradient} is the unit-gradient
+form of the rectified identity \eqref{eq:rectified-eikonal}, which states
+$|\nabla r|=|\lambda|$; when $\lambda=0$, $t=a/|\mu|$.  Thus $t$ measures the
+distance to a level set of $a$, and the next two results make this precise.
+
+We measure the geodesic curvature $k_g$ of a level set with respect to the unit
+normal $\nabla t$, that is,
+\begin{equation}\label{eq:p0-normal-form-curvature-definition}
+ k_g:=-\operatorname{div}_g(\nabla t).
+\end{equation}
+
+\begin{proposition}[Curvature of the arithmetic level sets]
+\label{prop:p0-leaf-curvature}
+Let $\mathfrak E=(M,g,a;\mu,\lambda)$ be a regular AES and let $c$ be a value of
+$a$.  At every point of the level set $\{a=c\}$,
+\begin{equation}\label{eq:p0-leaf-curvature}
+ k_g=\frac{\lambda^2c-\Delta_ga}{\sqrt{\mu^2+\lambda^2c^2}},
+\end{equation}
+with $\Delta_g$ as in \eqref{eq:laplacian-sign-convention}.  Consequently
+$Z(a)$ is a geodesic if and only if $\Delta_ga$ vanishes on $Z(a)$, and $k_g$ is
+constant on every level set if and only if $\Delta_ga$ is a function of $a$
+alone.
+\end{proposition}
+
+\begin{proof}
+On $\{a=c\}$ one has $\nabla t=\nabla a/\sqrt{\mu^2+\lambda^2a^2}$, so the
+divergence rule $\operatorname{div}(fX)=f\operatorname{div}X+X(f)$ gives
+\[
+ \operatorname{div}_g(\nabla t)
+ =\frac{\Delta_ga}{\sqrt{\mu^2+\lambda^2a^2}}
+  -\frac{\langle\nabla(\mu^2+\lambda^2a^2),\nabla a\rangle}
+         {2\,(\mu^2+\lambda^2a^2)^{3/2}} .
+\]
+The eikonal identity turns the second term into
+\[
+ \frac{\lambda^2a\,|\nabla a|^2}{(\mu^2+\lambda^2a^2)^{3/2}}
+ =\frac{\lambda^2a}{\sqrt{\mu^2+\lambda^2a^2}} .
+\]
+Hence $\operatorname{div}_g(\nabla t)=(\Delta_ga-\lambda^2a)/
+\sqrt{\mu^2+\lambda^2a^2}$, which is \eqref{eq:p0-leaf-curvature} after the
+sign convention \eqref{eq:p0-normal-form-curvature-definition}.  The two
+consequences are immediate: $k_g$ vanishes identically on $Z(a)$ exactly when
+$\Delta_ga$ does, and $k_g$ is constant on $\{a=c\}$ exactly when $\Delta_ga$
+is.
+\end{proof}
+
+The next statement is the geometric content of the unit-gradient identity: the
+assignment is a reparametrized distance, and a regular AES is the normal
+exponential of its own zero locus.
+
+\begin{proposition}[Normal form of a regular AES]\label{prop:p0-normal-form}
+Let $\mathfrak E=(M,g,a;\mu,\lambda)$ be a regular AES with $M$ connected, and
+suppose that every point of $M$ lies on a maximal orbit of $\nabla t$ which meets
+$Z(a)$ in exactly one point.  Then:
+\begin{enumerate}
+\item every orbit of $\nabla t$ is a geodesic normal to the level sets of $a$,
+and its segment between two level sets realizes the distance between them;
+\item $\pm t$ is the signed distance to the zero locus, that is,
+$|t(p)|=\operatorname{dist}_g(p,Z(a))$ for every $p\in M$;
+\item the level sets are parallel, with
+\begin{equation}\label{eq:p0-parallel-levels}
+ \operatorname{dist}_g(\{a=c\},\{a=c'\})=|t(c)-t(c')|
+\end{equation}
+for all values $c,c'$;
+\item in the \emph{Fermi coordinates} $(t,s)$, where $s$ is arclength on $Z(a)$
+transported along the orbits,
+\begin{equation}\label{eq:p0-fermi-form}
+ g=dt^2+J(t,s)^2\,ds^2,
+ \qquad a=A(t),
+\end{equation}
+with $J>0$, $J(0,s)=1$, $\partial_tJ=-k_gJ$ and $\partial_t^2J=-KJ$, where $A$ is
+the inverse of $t$ and $K$ is the Gaussian curvature;
+\item $A$ solves $A'=\sqrt{\mu^2+\lambda^2A^2}$ with $A(0)=0$; hence
+\begin{equation}\label{eq:p0-normal-form-assignment}
+ a=\frac{|\mu|}{|\lambda|}\sinh(|\lambda|t)\quad(\lambda\ne0),
+ \qquad a=|\mu|\,t\quad(\lambda=0),
+\end{equation}
+which in the normalization $\mu,\lambda>0$ of the basic model reads
+$a=(\mu/\lambda)\sinh(\lambda t)$;
+\item $Z(a)$ is a nonempty closed embedded curve, connected, and therefore
+diffeomorphic to $\mathbb R$ or to $S^1$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(1) Since $|\nabla t|=1$, for every vector field $Y$,
+\[
+ \langle\nabla_{\nabla t}\nabla t,Y\rangle
+ =\operatorname{Hess}t(\nabla t,Y)
+ =\tfrac12\,Y|\nabla t|^2=0,
+\]
+so $\nabla_{\nabla t}\nabla t=0$ and the orbits are geodesics.  They are normal
+to the level sets because $\nabla t$ is.  That a segment between two level sets
+realizes their distance is part (3).
+
+(2) By hypothesis, for each $p$ there is $q\in Z(a)$ on the orbit of $p$ with
+$p=\Phi_{t(p)}(q)$, where $\Phi$ is the flow of $\nabla t$.  Along that segment
+$t$ changes by $t(p)$ at unit rate, so the segment has length $|t(p)|$.  Hence
+$\operatorname{dist}(p,Z(a))\le|t(p)|$.  Conversely $|\nabla t|=1$ makes $t$ a
+$1$-Lipschitz function, so for every $q\in Z(a)$,
+\[
+ |t(p)|=|t(p)-t(q)|\le\operatorname{dist}(p,q),
+\]
+which is the reverse inequality.
+
+(3) The $1$-Lipschitz property gives
+$|t(c)-t(c')|=|t(p)-t(p')|\le\operatorname{dist}(p,p')$ for arbitrary
+$p\in\{a=c\}$ and $p'\in\{a=c'\}$, while the orbit segment joining the two level
+sets has length $|t(c)-t(c')|$.
+
+(4) In these coordinates $\partial_t=\nabla t$, because $t$ is arclength along
+the orbits and the orbits are normal to the level sets.  Hence
+$g(\partial_t,\partial_t)=1$ and $g(\partial_t,\partial_s)=0$, so
+$g=dt^2+J(t,s)^2ds^2$ with $J$ positive; $J(0,s)=1$ because $s$ is arclength on
+$Z(a)$.  Since $s$ is transported along the orbits, $\partial_s$ is a Jacobi
+field along each geodesic orbit, so $\partial_t^2J=-KJ$.  Moreover
+$k_g=-\operatorname{div}_g(\partial_t)=-J^{-1}\partial_tJ$, which is
+$\partial_tJ=-k_gJ$.  The assignment is a function of $t$ alone because its level
+sets are the coordinate surfaces $\{t=\text{const}\}$; write $a=A(t)$.
+
+(5) Differentiating $t(A(t))=t$ and using \eqref{eq:p0-normal-form-t},
+\[
+ A'(t)=\frac1{t'(A(t))}=\sqrt{\mu^2+\lambda^2A(t)^2},
+\]
+and $A(0)=0$ because $t(0)=0$.  Direct substitution verifies the stated
+solutions.
+
+(6) $Z(a)=a^{-1}(0)$ is closed and, since $\nabla a$ does not vanish, a smooth
+embedded curve.  The orbit map
+\[
+ Z(a)\times\mathbb R\longrightarrow M,
+ \qquad (q,\sigma)\longmapsto\Phi_\sigma(q)
+\]
+is a bijection by hypothesis and a local diffeomorphism: its differential sends
+$\partial_\sigma$ to the unit normal $\nabla t$ and $T_qZ(a)$ to the tangent
+space of the level set $\{t=\sigma\}$, two complementary subspaces.  If $Z(a)$
+had two components, the images of their orbit sets would be two disjoint
+nonempty open subsets covering $M$, contrary to the connectedness of $M$.  A
+connected closed embedded one-manifold is diffeomorphic to $\mathbb R$ or to
+$S^1$.
+\end{proof}
+
+\begin{remark}[When the hypothesis holds]\label{rem:p0-normal-form-hypotheses}
+The hypothesis of Proposition~\ref{prop:p0-normal-form} holds whenever the flow
+of $\nabla t$ is complete: an orbit is then defined for all time and
+$dt/d\sigma=|\nabla t|^2=1$ along it, so it meets $t^{-1}(0)=Z(a)$ exactly once.
+This is the case for the basic model, where $M=\mathbb H^2$ is complete and
+$|\nabla t|=1$ (Theorem~\ref{thm:basic-hyperbolic-aes}), and more generally for
+every regular AES on a complete manifold without boundary, by Hopf--Rinow.  The
+hypothesis fails without completeness: on the open annulus $\{r_1<r<r_2\}$ with
+the Euclidean metric and $a=\mu(r-r_0)$, $r_1<r_0<r_2$, the eikonal identity
+holds and conclusions (2)--(6) remain valid with $\mathbb R$ replaced by the
+bounded interval of attained values of $t$, but an orbit reaches the boundary in
+finite time.  On a complete connected boundaryless $M$ the globalization of the
+normal form is the complete splitting theorem of Paper~I
+\cite{Yuan2026AEGFoundations}; that theorem remains the canonical statement of
+the product decomposition, and it is not used here.
+\end{remark}
+
+\begin{proposition}[Every normal-coordinate datum is an AES]
+\label{prop:p0-normal-form-realization}
+Conversely, let $(M,g)$ be a connected oriented surface, let $\gamma\subset M$ be
+a connected closed embedded curve, and suppose that a signed normal coordinate
+$t:M\to(\alpha,\beta)$ of $\gamma$ is defined, with $t^{-1}(0)=\gamma$ and
+$|\nabla t|_g=1$.  Let $A$ be the inverse of the function $t(a)$ of
+\eqref{eq:p0-normal-form-t}.  Then for every $\mu\ne0$ and $\lambda$ the
+function
+\begin{equation}\label{eq:p0-normal-form-realization}
+ a:=A\circ t
+\end{equation}
+satisfies the eikonal identity, so that $(M,g,a;\mu,\lambda)$ is a regular AES
+with $Z(a)=\gamma$.
+\end{proposition}
+
+\begin{proof}
+$A$ is smooth and strictly increasing with $A(0)=0$, so $a=A\circ t$ is smooth
+with $Z(a)=t^{-1}(0)=\gamma$.  By part~(5) of
+Proposition~\ref{prop:p0-normal-form}, $A'(t)=\sqrt{\mu^2+\lambda^2A(t)^2}$, and
+the chain rule with $|\nabla t|_g=1$ gives
+\[
+ |\nabla a|_g^2=A'(t)^2\,|\nabla t|_g^2
+ =\mu^2+\lambda^2A(t)^2=\mu^2+\lambda^2a^2 . \qedhere
+\]
+\end{proof}
+
+\begin{corollary}[Softness of the regular category]
+\label{cor:p0-normal-form-softness}
+Let $U\subseteq\mathbb R^2$ be a connected open set with coordinates $(t,s)$ such
+that $U\cap\{t=0\}$ is a single open interval and $0$ lies in the interior of the
+projection of $U$ to the $t$-axis.  Then for every smooth positive
+$J:U\to(0,\infty)$ and every $\mu\ne0$, $\lambda$, the metric
+$g=dt^2+J(t,s)^2ds^2$ and the function $a=A(t)$ make
+$(U,g,a;\mu,\lambda)$ a regular AES with zero locus $U\cap\{t=0\}$.  In
+particular $\mathbb R^2$ carries an infinite-dimensional family of regular AES
+structures, parametrized by the arbitrary positive smooth $J$.  Consequently the
+regular axioms put no condition on the transverse geometry: $J$ is free.  No
+classification of regular AES by the topology or the smooth structure of the
+underlying surface alone is possible, and every statement that singles out one
+model must impose additional structure on $J$.
+\end{corollary}
+
+\begin{proof}
+On $(U,g)$ the field $\nabla t=\partial_t$ has unit length and the interval
+$U\cap\{t=0\}$ is a normal coordinate curve, so
+Proposition~\ref{prop:p0-normal-form-realization} applies with
+$\gamma=U\cap\{t=0\}$.  The function $J$ enters no further condition and ranges
+over an open subset of the smooth positive functions.
+\end{proof}
+
+\paragraph{What this subsection does not do.}
+It does not make the assignment a Morse function.  Since
+$|\nabla a|_g^2\ge\mu^2>0$, the assignment has no critical point on a regular
+AES, every level set is a smooth curve, and the foliation therefore admits no
+handle attachment, no birth or death of level curves, and no cobordism
+invariant; the regular category is transverse-free in this precise sense.  Nor
+does the subsection apply to the punctured models.  In the disc model of
+Example~\ref{ex:p0-e1-model} the zero locus degenerates from a curve to a point:
+the identity $\lambda a_{\mathbb D}=\mu\sinh(\lambda s)$ recorded there says
+that the assignment is exactly the distance reparametrization
+\eqref{eq:p0-normal-form-assignment} of the hyperbolic distance $s$ to the
+centre, so $t=s$; but $s$ is a distance to a point, so it is not differentiable
+at that point, and Proposition~\ref{prop:p0-normal-form} has no curve to be
+normal to.  The metric side remains regular while the assignment side leaves the
+smooth category; this is the puncture phenomenon of
+Section~\ref{sec:p0-holed}, and a classification of such germs is not attempted
+here.  Finally, the normal form
+concerns the pair $(g,a)$ only.  It says nothing about the horizontal
+distribution of Section~\ref{sec:p0-contact}, and the bracket
+$[X_u,X_v]=\mu\lambda\,\partial_a$ is untouched by it.  In the normal coordinates
+the canonical frame is the orthonormal normal frame rotated by the angle
+$\theta$ with $\cos\theta=\mu/q$ and $\sin\theta=\lambda a/q$; on $Z(a)$ the two
+frames agree up to sign, with $X_u$ normal to the zero curve and $X_v$ tangent
+to it, and off $Z(a)$ neither field is normal to the level sets.  That is the coordinate
+form of the rectification asymmetry stated after \eqref{eq:rectified-eikonal}.

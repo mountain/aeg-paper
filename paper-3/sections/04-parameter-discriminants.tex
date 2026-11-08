@@ -79,6 +79,66 @@ For an ambient regular AEG family, equation~\eqref{eq:aeg-eikonal} makes
 $D^VA=\dd A_b$ nonzero everywhere, so the first two conclusions are automatic at
 zero.  Properness is not.
 
+\begin{remark}[The intensity plane is not a base for the zero incidence]
+\label{rem:intensity-plane-not-a-base}
+Definition~\ref{def:ambient-aeg-family} fixes $(\mu,\lambda)$ outside the base.
+Promoting the two intensities to base coordinates does not by itself produce a
+larger family of tubes, in either of the two readings available here.
+\begin{enumerate}
+\item \emph{Fixed assignment.}  Let $A$ be a fixed submersion on a fixed surface
+and, for each $(\mu,\lambda)$, let the fiber metric be the conformal realization
+\eqref{eq:conformal-realization-metric} of
+Theorem~\ref{thm:conformal-realization}.  Then $A$ does not depend on
+$(\mu,\lambda)$, and the zero incidence is $Z(A)\times\{(\mu,\lambda)\}$.
+\item \emph{Fixed metric.}  Let $(M,g)$ be fixed and suppose that each
+$(\mu,\lambda)$ carries an assignment satisfying \eqref{eq:aeg-eikonal}.  By the
+normal form of Paper~0 \cite{Yuan2026AEGPaperZero}, on a connected complete
+boundaryless $M$ that assignment is
+\[
+ a=\frac{|\mu|}{|\lambda|}\sinh(|\lambda|t)\quad(\lambda\ne0),
+ \qquad a=|\mu|\,t\quad(\lambda=0),
+\]
+where $t$ is the distance to $Z(a)$.  The level sets of $a$, and hence $Z(a)$, are
+the same for every $(\mu,\lambda)$; only the arithmetic label attached to each
+level changes.
+\end{enumerate}
+In both readings the tube over the intensity plane is a product, and the parameter
+moves the metric or the labels rather than the carrier.  A construction intended to
+produce new tubes from a base parameter must therefore vary something other than
+$(\mu,\lambda)$.  What the intensity axis does move is the subject of
+Subsection~\ref{subsec:intensity-collapse}.
+\end{remark}
+
+\begin{remark}[A length unit and a dimensionless ratio]
+\label{rem:intensity-plane-factorization}
+The axioms are invariant under the joint rescaling
+\begin{equation}
+ (g,a;\mu,\lambda)\longmapsto(s^2g,a;\mu/s,\lambda/s),
+ \qquad s>0,
+ \label{eq:intensity-scaling}
+\end{equation}
+because both sides of \eqref{eq:aeg-eikonal} are multiplied by $s^{-2}$; the
+normalized arithmetic frame is unchanged, and so are $Z(a)$ and the level
+foliation.  The ratio
+\begin{equation}
+ \rho:=\frac{\lambda}{\mu}
+ \label{eq:intensity-ratio}
+\end{equation}
+is invariant, while $\mu$ alone sets the length unit.  On the basic hyperbolic
+model the rescaling is visible in coordinates as
+\begin{equation}
+ g_{\mu,\lambda}=\mu^{-2}g_{1,\rho},
+ \qquad
+ K=-\lambda^2=-\mu^2\rho^2 ,
+ \label{eq:intensity-factorization}
+\end{equation}
+so that after $\mu$ fixes the unit the intensities contribute one dimensionless
+parameter $\rho$, and $\rho^2$ is the curvature measured in units of $\mu$.  The
+rescaling is a symmetry of the axioms and not an equivalence of arithmetic
+expression spaces: it multiplies every length by $s$, and lengths are observable.
+It must therefore not be used to quotient a moduli problem without saying so.
+\end{remark}
+
 \subsection{The discriminant is not a single equation}
 
 For finite-dimensional polynomial root families, the algebraic discriminant
@@ -203,6 +263,143 @@ $\pi:\partial\calZ\to B$ to remain a proper submersion.  Without this condition 
 zero component can be created by tangency to the boundary even though the interior
 field remains regular.  Such a parameter lies in $\calD_\partial$, not in
 $\calD_{\mathrm{crit}}$.
+
+\subsection{A parameter axis with no discriminant}
+\label{subsec:intensity-collapse}
+
+The structural discriminant of Definition~\ref{def:structural-discriminant}
+records every way a parameterized zero problem can lose stability.  The family
+below shows that a parameter axis may avoid that discriminant completely and still
+degenerate: no zero moves, no component is created or destroyed, and the metric
+itself collapses onto the carrier.  Write
+\begin{equation}
+ g_\lambda=\frac{|\dd A|_h^2}{\mu^2+\lambda^2A^2}\,h
+ \label{eq:intensity-collapse-metric}
+\end{equation}
+for the conformal realization of Theorem~\ref{thm:conformal-realization} with
+background metric $h$, submersion $A$, and parameter $\lambda>0$.
+
+\begin{proposition}[Collapse onto the carrier]
+\label{prop:intensity-collapse}
+Let $M$ be a compact oriented surface with boundary, $h$ a Riemannian metric on
+$M$, and $A\in C^\infty(M,\R)$ with $\dd A\ne0$ everywhere and $0\in A(M)$; put
+$\Sigma=A^{-1}(0)$.  For $\lambda>0$ let $g_\lambda$ be given by
+\eqref{eq:intensity-collapse-metric}.  Then:
+\begin{enumerate}
+\item $(M,g_\lambda,A;\mu,\lambda)$ is a regular AES for every $\lambda>0$;
+\item the induced metric on $\Sigma$ is
+  $g_\infty:=\mu^{-2}|\dd A|_h^2\,h|_\Sigma$, independent of $\lambda$, and the
+  inclusion $\Sigma\hookrightarrow(M,g_\lambda)$ is isometric for every $\lambda$;
+\item for every $p\in M$,
+  \begin{equation}
+   \operatorname{dist}_{g_\lambda}(p,\Sigma)
+    \le\frac1\lambda\operatorname{arcsinh}
+      \frac{\lambda|A(p)|}{\mu},
+   \label{eq:intensity-collapse-distance}
+  \end{equation}
+  so $(M,g_\lambda)$ converges to $(\Sigma,g_\infty)$ in the
+  Gromov--Hausdorff sense at rate $O(\lambda^{-1}\log\lambda)$;
+\item $\operatorname{area}(M,g_\lambda)
+  =\pi L_{g_\infty}(\Sigma)\,\lambda^{-1}
+   +O(\lambda^{-2}\log\lambda)$, where $L_{g_\infty}$ is length in
+  $g_\infty$;
+\item the limit carries the constant assignment $0$ and satisfies
+  $|\nabla A|_{g_\infty}=0$ at every point, so it is not a regular AES.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(1) is Theorem~\ref{thm:conformal-realization} applied to the submersion $A$ and
+the background $h$: the prefactor in \eqref{eq:intensity-collapse-metric} is
+positive and smooth, so $g_\lambda$ is a Riemannian metric and the eikonal identity
+holds.
+
+(2) On $\Sigma$ one has $A=0$, hence
+$g_\lambda|_\Sigma=\mu^{-2}|\dd A|_h^2\,h|_\Sigma=g_\infty$ by
+\eqref{eq:intensity-collapse-metric}.  The induced metric of $\Sigma$ in
+$(M,g_\lambda)$ is therefore $\lambda$-independent, so the inclusion is isometric.
+
+(3) Follow the $h$-normal path from $p$ to $\Sigma$; it exists because $\dd A$ does
+not vanish.  Along that path $\dd s_h=\dd A/|\dd A|_h$ in absolute value, so its
+$g_\lambda$-length is
+\[
+ \int_0^{|A(p)|}
+ \frac{|\dd A|_h}{\sqrt{\mu^2+\lambda^2A^2}}\,\frac{\dd A}{|\dd A|_h}
+ =\frac1\lambda\operatorname{arcsinh}\frac{\lambda|A(p)|}{\mu},
+\]
+which is \eqref{eq:intensity-collapse-distance}.  Since $A$ is bounded on the
+compact $M$, every point of $M$ lies within
+$\varepsilon(\lambda)=O(\lambda^{-1}\log\lambda)$ of the isometrically embedded
+$\Sigma$.  A correspondence that sends each point of $M$ to a nearest point of
+$\Sigma$ and fixes $\Sigma$ therefore has distortion at most $2\varepsilon$, which
+gives the stated Gromov--Hausdorff rate.
+
+(4) The coarea formula with respect to $h$ gives
+\[
+ \operatorname{area}(M,g_\lambda)
+ =\int_{\R}\frac{I(c)}{\mu^2+\lambda^2c^2}\,\dd c,
+ \qquad
+ I(c)=\int_{A=c}|\dd A|_h\,\dd\mathcal H^1 ,
+\]
+with $I$ smooth and compactly supported in the image of $A$.  The value $I(0)$ is
+$\mu\,L_{g_\infty}(\Sigma)$, because the arclength element of $g_\infty$ is
+$\mu^{-1}|\dd A|_h\,\dd\mathcal H^1$.  Splitting off $I(0)$ gives
+$\pi I(0)/(\mu\lambda)$ up to an $O(\lambda^{-2})$ correction coming from the
+finite range of $A$, while the remainder is bounded by
+$O\!\left(\lambda^{-2}\log\lambda\right)$ since $|I(c)-I(0)|=O(|c|)$ and
+$\int|c|\,\dd c/(\mu^2+\lambda^2c^2)=O(\lambda^{-2}\log\lambda)$ over a bounded
+interval.  This is the stated asymptotic.
+
+(5) $A$ is constant on $\Sigma$, so its intrinsic gradient there vanishes at every
+point, whereas the right-hand side of \eqref{eq:aeg-eikonal} is at least
+$\mu^2>0$.  The limit violates the eikonal identity and is not a regular AES.
+\end{proof}
+
+\begin{remark}[Both hypotheses are active]
+\label{rem:intensity-collapse-hypotheses}
+The condition $\dd A\ne0$ cannot be dropped: at a critical point of $A$ the
+prefactor in \eqref{eq:intensity-collapse-metric} vanishes and $g_\lambda$ is not a
+metric.  On a compact surface without boundary a smooth $A$ always has a critical
+point, so the compact case must carry a boundary; this is the obstruction that also
+excludes a closed regular AES in Paper~0.  For an ambient family the statement is
+applied fiberwise, with $\dd A$ replaced by the vertical derivative $D^VA$ and $h$
+by the vertical metric, and with the conclusion restricted to the regular part
+$M\setminus\Sigma_{\mathrm{crit}}$, where
+$\Sigma_{\mathrm{crit}}=\{D^VA=0\}$ is exactly the stratum that
+Proposition~\ref{prop:polynomial-carrier-thread} declares singular.  There the
+limit is $\Sigma\setminus\Sigma_{\mathrm{crit}}$.
+\end{remark}
+
+\begin{warning}[A second collapse that is not this one]
+\label{warn:intensity-collapse-two-readings}
+The family \eqref{eq:intensity-collapse-metric} keeps $A$ and the conformal
+background $h$ fixed and lets the metric move.  A different family keeps the
+assignment of the basic model fixed in its $(x,y)$ chart and lets the metric move.
+The two are distinguished by which datum is held fixed, not by whether the
+conformal class moves.  For that second family $g_{\mu,\lambda}=\mu^{-2}g_{1,\rho}$ degenerates as
+$\rho\to\infty$ to the rank-one tensor $\mu^{-2}\dd x^2/y^2$: the surviving
+direction is the additive orbit $\partial_x$, the collapsing direction is the
+multiplicative orbit $\partial_y$, and the zero geodesic $\{x=0\}$ is transverse to
+the surviving direction, so it is squeezed out.  No Gromov--Hausdorff limit is
+asserted for this second family, because the surviving length scale $1/y$ is
+unbounded.
+
+The distinction is not a technicality, and it survives a change of chart.  In the
+horocyclic coordinates of Paper~0 the pullback of the basic model is
+$\widehat g_\lambda=e^{-2\lambda v}\dd u^2/\mu^2+\dd v^2$, which appears to collapse
+the $\partial_u$ direction instead.  The change of coordinates depends on
+$\lambda$, so the two computations concern different families of metrics at
+different points.  A degeneration must always be stated together with the
+identification that is held fixed.
+\end{warning}
+
+Consequently the intensity axis meets no interior locus of the structural
+discriminant: the zero incidence is a product with base $\R_{>0}$, every slice
+carries the same carrier, and the total space of the incidence is
+$\Sigma\times\R_{>0}$.  The only locus it can meet is the boundary one,
+$\calD_\partial$, and only when $\Sigma$ fails to be transverse to $\partial M$.
+What the five loci cannot see is precisely the metric-only degeneration of
+Proposition~\ref{prop:intensity-collapse}.
 
 \begin{problem}[Stratified AEG discriminant]
 \label{prob:aeg-discriminant}
