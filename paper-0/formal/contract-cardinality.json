@@ -1,0 +1,63 @@
+{
+  "schema": "aeg.paper0.formal.contract.cardinality.v1",
+  "date": "2026-11-08",
+  "source_commit": "f93e76b0bf7e973aaf1bf98b9d963a5a73140749",
+  "question": "Classify nonidentity PGL fixed-point cardinalities over arbitrary fields and prove centered/geometric/translation affine iteration formulas, group powers and characteristic-sensitive periods without claiming analytic convergence.",
+  "bounds": {
+    "wall_seconds": 300,
+    "child_commands": 32,
+    "child_wall_seconds": 120,
+    "child_cpu_seconds": 60,
+    "child_address_space_bytes": 1073741824,
+    "lean_child_address_space_bytes": 8589934592,
+    "child_file_bytes": 33554432,
+    "artifact_bytes": 536870912
+  },
+  "expected_work": {
+    "child_commands": 17,
+    "import_lean_statements": 227,
+    "new_lean_statements": 37,
+    "import_modules": 9,
+    "positive_modules": 2,
+    "negative_controls": 4
+  },
+  "negative_controls": [
+    {
+      "name": "nonidentity",
+      "file": "negative/CardinalityMissingNonidentity.lean",
+      "expected_fragments": [
+        "nonidentity_fixed_cardinality g",
+        "g \u2260 1 \u2192 (fixedSet g).Finite"
+      ]
+    },
+    {
+      "name": "center-guard",
+      "file": "negative/IterationMissingCenterGuard.lean",
+      "expected_fragments": [
+        "centered_iterate a b z",
+        "a \u2260 1 \u2192"
+      ]
+    },
+    {
+      "name": "period-guard",
+      "file": "negative/IterationMissingPeriodGuard.lean",
+      "expected_fragments": [
+        "translation_period_when_cast_zero b z n",
+        "\u2191n = 0 \u2192"
+      ]
+    },
+    {
+      "name": "iteration-index",
+      "file": "negative/IterationWrongIndex.lean",
+      "expected_fragments": [
+        "centered_iterate a b z h1 n",
+        "a ^ n *",
+        "a ^ (n + 1) *"
+      ]
+    }
+  ],
+  "resource_basis": "Declared before bounded reception after clean engineering compilation and all four specific controls. All preceding analytic numerical bounds remain exact: independent 300-second profile, 120-second child wall, 60-second child CPU, 8 GiB Lean address space. Set cardinality and function-iteration infrastructure is already in the unchanged Mathlib source/cache lock. Ten predecessor profiles remain independently required; run native reception/builds serially without concurrent heavy proof work.",
+  "success": "Exactly audit 227 unchanged source-import statements and 37 new statements with clean diagnostics, no target axiom/admitted proof, and all four specific rejections. Source/inventory/library pins match. Ten predecessor profiles pass independently under their unchanged contracts.",
+  "exit": "One fresh bounded invocation after engineering checks; retain a Failed record and stop on mismatch/exhaustion. A correction requires a separately declared successor, never automatic bound growth.",
+  "authorship": "Codex (OpenAI), CC0; no independent human review claimed."
+}

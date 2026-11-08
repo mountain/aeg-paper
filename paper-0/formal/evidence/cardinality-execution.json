@@ -1,0 +1,378 @@
+{
+  "schema": "aeg.paper0.cardinality.execution.v1",
+  "date": "2026-11-08",
+  "status": "Passed",
+  "authorship": "Codex (OpenAI), CC0; no independent human mathematical review claimed.",
+  "source_lock_sha256": "977348c7399e3540b7bb0b8386cbfd27e9924f084a4353127ba7ab5656ba02e4",
+  "cardinality_map_sha256": "26133081d85f0539fd43245a0aea49bf18b2df694d1c28be3be77fd0b430f35c",
+  "chapter03_obligations_sha256": "973e643c66e264c4475b512d916e4eef7a87dfe94d112f910e98359e81ad2800",
+  "mathlib_lock_sha256": "de2e937993bd22e41702f21889ac382f3cb36364cbe0b5e5d3fbc1e32bd0394d",
+  "mathlib_commit": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
+  "mathlib_source_files": 7600,
+  "mathlib_compiled_modules": 3175,
+  "profiles": {
+    "native": {
+      "directory": "native-01",
+      "contract": "contract-chapter03.json",
+      "contract_sha256": "606081b7c80d6f57bd1b05a688217d93c411663a98f23eb2eed931a17a66312f",
+      "report_sha256": "adb8731e24393d61fb64fb95dea2764f7e1cc60d0ae4094ee0ff6f390eb63d5f",
+      "wall_seconds": 215.37370242600082,
+      "child_commands": 148
+    },
+    "analytic": {
+      "directory": "analysis-01",
+      "contract": "contract-analysis-v1.1.json",
+      "contract_sha256": "dc43df95783ca070cc0fad0717cc5986182d3fca814a9a6358f7b436376a7ab3",
+      "report_sha256": "4ffe1bbcd91daa2082e9c42471be524ef9f0239844ecb287178023fea9145936",
+      "wall_seconds": 142.31971853600044,
+      "child_commands": 16
+    },
+    "chapter04": {
+      "directory": "chapter04-01",
+      "contract": "contract-chapter04.json",
+      "contract_sha256": "52b58178702f5afecc366ed2edab8b1da4c553c3cab3703c2e1fa6fe34d4a905",
+      "report_sha256": "9eca864e2daceade1aba7b84ffb48ddc612794f25348cf27d9d727bb1b47573c",
+      "wall_seconds": 65.34052673500082,
+      "child_commands": 8
+    },
+    "apollonius": {
+      "directory": "apollonius-01",
+      "contract": "contract-apollonius.json",
+      "contract_sha256": "082e865282360a9616cc7f27558e668f630ac1a0dccb7564f020b318f689b506",
+      "report_sha256": "4412df36535b53011ab4f8f02f22bca865148d7841ad03b24cde72d62e198178",
+      "wall_seconds": 86.32577798500097,
+      "child_commands": 8
+    },
+    "projective": {
+      "directory": "projective-01",
+      "contract": "contract-projective.json",
+      "contract_sha256": "3c0eb86b50b4bf972e8b2798cda2b6653a76556a19addbc408861e31b3ad1cca",
+      "report_sha256": "6e08a63a54228b9aa803b2d08dff09e665e599544ad0f9a374047f6d2c0d7192",
+      "wall_seconds": 90.02624859900061,
+      "child_commands": 11
+    },
+    "pgl": {
+      "directory": "pgl-01",
+      "contract": "contract-pgl.json",
+      "contract_sha256": "b7687826a0bf34e7bb23d5c3637d298ab918839276175a4ffe5b7d5e345135c1",
+      "report_sha256": "b7241102c844d3c744b0f258f84c59bb57e7a0d50f61a830b487709cfd435341",
+      "wall_seconds": 59.66335574199911,
+      "child_commands": 9
+    },
+    "affine_generation": {
+      "directory": "affine-generation-01",
+      "contract": "contract-affine-generation.json",
+      "contract_sha256": "a695a3c8c78b62511f8b8a0310fef8a33ed3b5aab3b504cb1e9f59fd74c2d17d",
+      "report_sha256": "b4d3b7bd170ab7b47ffe979be22039d3c7ff8f1f4d7534f29ed43562fcf3aa80",
+      "wall_seconds": 96.4086941939986,
+      "child_commands": 13
+    },
+    "arithmetic": {
+      "directory": "arithmetic-01",
+      "contract": "contract-arithmetic.json",
+      "contract_sha256": "5d3247be8d5cb4e07023f97cedd8019e7820be94141c24f6cce20e57c4d0a761",
+      "report_sha256": "be79af1fc2aec66eddbeafe89429009f5ca251ab8530e595f5b928d228f10988",
+      "wall_seconds": 110.45448372200008,
+      "child_commands": 16
+    },
+    "bruhat": {
+      "directory": "bruhat-01",
+      "contract": "contract-bruhat.json",
+      "contract_sha256": "a26c4e025a143e79cb54036edc49c7e23225c20e6768dcaece4dc791071ae1fa",
+      "report_sha256": "9c1329f85e4481a883ce5a118a614403a39a29812d7b84c83addd65b6eebe866",
+      "wall_seconds": 117.9732686389998,
+      "child_commands": 14
+    },
+    "fixed_points": {
+      "directory": "fixed-points-01",
+      "contract": "contract-fixed-points.json",
+      "contract_sha256": "05a7d963c28ba59f66a36781537662112d8ca2be7423f5f811a30ee0456a6060",
+      "report_sha256": "444f981100dc48366226a0c5e6bb28a266c32e4c1ea7c0ea142ceb571bd9a03d",
+      "wall_seconds": 139.5987565840005,
+      "child_commands": 15
+    },
+    "cardinality": {
+      "directory": "cardinality-01",
+      "contract": "contract-cardinality.json",
+      "contract_sha256": "169ace87594bf91da0e606df7b36b57ff1e76e1cee168e6594acd9d4db89502c",
+      "report_sha256": "d0c41d9461321368e0930798918f17806391e61968c3002a91858bbc4244e32c",
+      "wall_seconds": 191.13147906500126,
+      "child_commands": 17
+    }
+  },
+  "previous_lean_statements": 607,
+  "new_lean_statements": 37,
+  "total_lean_statements": 644,
+  "cardinality_axioms": {
+    "AEGPaper0.AffineIteration": {
+      "iterate_zero": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "iterate_succ": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "iterate_add": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "fixed_center_relation": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "centered_update": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "centered_iterate": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "finite_geometric_iterate": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "translation_iterate": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "zero_slope_iterate": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "fixed_center_unique": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "translation_fixed_iff_offset_zero": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "affine_iterate_agrees_with_power": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "normalized_power_centered": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "normalized_power_translation": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "affineClass_power": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "projective_power_finite": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "projective_power_infinity": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "translation_period_when_cast_zero": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "translation_group_period": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "affine_fixed_set_slope_ne_one": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "affine_fixed_set_translation": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "affine_fixed_set_identity": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "AEGPaper0.ProjectiveCardinality": {
+      "conjugate_identity_iff": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "affine_nonidentity_fixed_subset": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "nonidentity_fixed_subset_pair": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "nonidentity_fixed_finite": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "nonidentity_fixed_ncard_le_two": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "nonidentity_fixed_cardinality_cases": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "nonidentity_fixed_set_cases": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "three_distinct_fixed_force_identity": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "fixed_ncard_conjugate": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "rational_zero_fixed_example": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "rational_one_fixed_example": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "rational_two_fixed_example": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "nonidentity_fixed_cardinality": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "identity_has_three_distinct_fixed": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "rational_all_cardinalities_realized": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  },
+  "source_import_audits": 227,
+  "negative_controls": {
+    "nonidentity": "Rejected with the expected specific type mismatch",
+    "center-guard": "Rejected with the expected specific type mismatch",
+    "period-guard": "Rejected with the expected specific type mismatch",
+    "iteration-index": "Rejected with the expected specific type mismatch"
+  },
+  "native_runs": 69,
+  "reference_transitions": 51137,
+  "preceding_native_reports_unchanged": 69,
+  "original_proof_library_goal_contract_and_runtime_receiver_bytes_unchanged": true,
+  "old_formal_sources_with_explicit_navigation_successors": [
+    "inventory.py",
+    "inventory.json",
+    "test_apollonius.py",
+    "test_projective.py",
+    "test_pgl.py",
+    "test_affine_generation.py",
+    "test_arithmetic.py",
+    "test_bruhat.py",
+    "test_fixed_points.py"
+  ],
+  "formal_source_files": 147,
+  "manuscript_source_files": 22,
+  "archive": {
+    "path": "cardinality-run-01.tar.gz",
+    "sha256": "362d3138ec7dee152cd5cbd0a5b8a0fd7f019634efa545d61d069856ede0eca5",
+    "bytes": 16844166,
+    "members": 1016,
+    "uncompressed_bytes": 59153460
+  },
+  "manuscript_builds": {
+    "0": {
+      "status": "Passed",
+      "pages": 103,
+      "pdf_bytes": 909781,
+      "pdf_sha256": "b7bd351dc8e8c509a9a1cfb1a0061c70c8cdda99845f4def721391916cc03d3b",
+      "final_log_sha256": "164e7a7d492de9601e7f9b6a79b92a4b8bd333e0a42574b3bd35fb35d7ca0979",
+      "unresolved_references_citations_duplicate_labels_missing_assets": false,
+      "overfull_boxes": 2,
+      "max_overfull_pt": 11.13274,
+      "note": "Validation PDF retained externally; tracked manuscript PDF restored without changing its bytes."
+    },
+    "1": {
+      "status": "Passed",
+      "pages": 61,
+      "pdf_bytes": 756641,
+      "pdf_sha256": "c838bf99e108245461f9aa04dcd02315fe1ee834fefb4d05745216986cf8db69",
+      "final_log_sha256": "9f0ff7de4b8fcbc0aac86d6b6de4f2adecf3d752e257d45595474243491a5c49",
+      "unresolved_references_citations_duplicate_labels_missing_assets": false,
+      "overfull_boxes": 8,
+      "max_overfull_pt": 105.1512,
+      "note": "Validation PDF retained externally; tracked manuscript PDF restored without changing its bytes."
+    }
+  },
+  "pre_receipt_checks": {
+    "passed": 66,
+    "pending_receipt_test": 1,
+    "note": "The archive-binding test cannot pass before the completed execution receipt exists. Its missing-receipt error is retained verbatim in engineering/unit-before-receipt.log."
+  },
+  "unit_tests_after_archive": 67,
+  "live_inventory": {
+    "source_files": 22,
+    "theorem_like_environments": 102,
+    "component_mapped": 33,
+    "fragment_certified": 1,
+    "not_yet_formalized": 68,
+    "separately_mapped_equations": 6
+  },
+  "source_audit": [],
+  "scope": "37 new exact audited statements classify nonidentity PGL fixed loci over every field and prove finite affine iteration formulas, fixed-point alternatives and standard affine/PGL power bridges with active characteristic/branch guards. Rebuild 227 unchanged import audits without counting them as new. The source affine-iteration proposition receives algebraic component coverage only; analytic convergence is excluded.",
+  "remaining": [
+    "Real/complex attraction, repulsion, convergence or infinite-expression evaluation",
+    "Occurrence of all zero/one/two cases in every individual field",
+    "Characteristic-zero assumptions for arbitrary-field translations",
+    "Analytic discriminant/elliptic-parabolic-hyperbolic classification or intrinsic geometry",
+    "Whole-proposition certification of the source affine-iteration proposition including convergence"
+  ],
+  "deferred_chapter03": "chapter03-obligations.json",
+  "predecessor_execution_receipt_sha256": "87a2a281ebb21fa9a2a759567e5ed769f51c76b201d08765b147f5c0aaaf9a88",
+  "trust_boundary": "Pinned compiler/standard library and source/cache-fingerprinted Mathlib are trusted builds. Nonidentity PGL fixed loci are proved finite with zero/one/two classification, three-point rigidity and rational occurrence witnesses. Actual finite function iteration, centered/translation/geometric formulas, affine/PGL powers and characteristic-sensitive periods are certified. Analytic convergence, attraction and whole-proposition completeness are excluded. All eleven profiles pass separately under independently declared unchanged bounds and the same captured source lock; native and build tasks are scheduled serially."
+}

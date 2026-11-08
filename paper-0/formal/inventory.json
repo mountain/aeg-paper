@@ -38,6 +38,7 @@
   "arithmetic_map_sha256": "48568e0d7f13ea7fb52c0244413429a1e56df90baefc2c10b19fd85a71c491a7",
   "bruhat_map_sha256": "09771d5b418537c95a011eafe6be875ca9d8fa1641af55caecd6c6d2ee41ac6b",
   "fixed_points_map_sha256": "8cd20864fcb76284dafe630d0d6dddfddb8920d0ed8103402ddfed78e0bced06",
+  "cardinality_map_sha256": "26133081d85f0539fd43245a0aea49bf18b2df694d1c28be3be77fd0b430f35c",
   "equation_components": [
     {
       "source": "paper-0/sections/04-ripple-geometry.tex",
@@ -233,6 +234,39 @@
       ],
       "coverage": [
         "The actual group is the disjoint union of B infinity and the double coset B infinity * J * B infinity. The second cell is exactly the complement, C nonzero on representatives, equivalently a finite pole, and the union of finite-pole affine gauge cosets."
+      ]
+    },
+    {
+      "source": "paper-0/sections/05-reciprocals-fixed-points.tex",
+      "label": "eq:p0-affine-centered-form",
+      "line": 137,
+      "formal_status": "component-map-supplied",
+      "lean_components": [
+        "AEGPaper0.AffineIteration.affineClass_power",
+        "AEGPaper0.AffineIteration.affine_fixed_set_identity",
+        "AEGPaper0.AffineIteration.affine_fixed_set_slope_ne_one",
+        "AEGPaper0.AffineIteration.affine_fixed_set_translation",
+        "AEGPaper0.AffineIteration.affine_iterate_agrees_with_power",
+        "AEGPaper0.AffineIteration.centered_iterate",
+        "AEGPaper0.AffineIteration.centered_update",
+        "AEGPaper0.AffineIteration.finite_geometric_iterate",
+        "AEGPaper0.AffineIteration.fixed_center_relation",
+        "AEGPaper0.AffineIteration.fixed_center_unique",
+        "AEGPaper0.AffineIteration.iterate_add",
+        "AEGPaper0.AffineIteration.iterate_succ",
+        "AEGPaper0.AffineIteration.iterate_zero",
+        "AEGPaper0.AffineIteration.normalized_power_centered",
+        "AEGPaper0.AffineIteration.normalized_power_translation",
+        "AEGPaper0.AffineIteration.projective_power_finite",
+        "AEGPaper0.AffineIteration.projective_power_infinity",
+        "AEGPaper0.AffineIteration.translation_fixed_iff_offset_zero",
+        "AEGPaper0.AffineIteration.translation_group_period",
+        "AEGPaper0.AffineIteration.translation_iterate",
+        "AEGPaper0.AffineIteration.translation_period_when_cast_zero",
+        "AEGPaper0.AffineIteration.zero_slope_iterate"
+      ],
+      "coverage": [
+        "Finite affine iteration: arbitrary slope geometric-sum formula, centered formula for a!=1, translation formula with natural-number casts, zero-slope ordinary updates, and agreement with actual affine/PGL powers when slope is nonzero. Fixed-point alternatives and cast-zero translation periods are explicit. This covers the algebraic components of the enclosing affine-iteration proposition; its real/complex convergence clause remains outside this certificate."
       ]
     }
   ],
@@ -1095,9 +1129,32 @@
         "prop:p0-affine-iteration",
         "eq:p0-affine-centered-form"
       ],
-      "formal_status": "not-yet-formalized",
+      "formal_status": "component-map-supplied",
       "certificates": [],
-      "lean_components": []
+      "lean_components": [
+        "AEGPaper0.AffineIteration.affineClass_power",
+        "AEGPaper0.AffineIteration.affine_fixed_set_identity",
+        "AEGPaper0.AffineIteration.affine_fixed_set_slope_ne_one",
+        "AEGPaper0.AffineIteration.affine_fixed_set_translation",
+        "AEGPaper0.AffineIteration.affine_iterate_agrees_with_power",
+        "AEGPaper0.AffineIteration.centered_iterate",
+        "AEGPaper0.AffineIteration.centered_update",
+        "AEGPaper0.AffineIteration.finite_geometric_iterate",
+        "AEGPaper0.AffineIteration.fixed_center_relation",
+        "AEGPaper0.AffineIteration.fixed_center_unique",
+        "AEGPaper0.AffineIteration.iterate_add",
+        "AEGPaper0.AffineIteration.iterate_succ",
+        "AEGPaper0.AffineIteration.iterate_zero",
+        "AEGPaper0.AffineIteration.normalized_power_centered",
+        "AEGPaper0.AffineIteration.normalized_power_translation",
+        "AEGPaper0.AffineIteration.projective_power_finite",
+        "AEGPaper0.AffineIteration.projective_power_infinity",
+        "AEGPaper0.AffineIteration.translation_fixed_iff_offset_zero",
+        "AEGPaper0.AffineIteration.translation_group_period",
+        "AEGPaper0.AffineIteration.translation_iterate",
+        "AEGPaper0.AffineIteration.translation_period_when_cast_zero",
+        "AEGPaper0.AffineIteration.zero_slope_iterate"
+      ]
     },
     {
       "source": "paper-0/sections/05-reciprocals-fixed-points.tex",
@@ -1152,6 +1209,21 @@
         "AEGPaper0.ProjectiveBruhat.quotientPole_ofMatrix",
         "AEGPaper0.ProjectiveBruhat.quotientPole_product",
         "AEGPaper0.ProjectiveBruhat.quotientPole_unique_preimage",
+        "AEGPaper0.ProjectiveCardinality.affine_nonidentity_fixed_subset",
+        "AEGPaper0.ProjectiveCardinality.conjugate_identity_iff",
+        "AEGPaper0.ProjectiveCardinality.fixed_ncard_conjugate",
+        "AEGPaper0.ProjectiveCardinality.identity_has_three_distinct_fixed",
+        "AEGPaper0.ProjectiveCardinality.nonidentity_fixed_cardinality",
+        "AEGPaper0.ProjectiveCardinality.nonidentity_fixed_cardinality_cases",
+        "AEGPaper0.ProjectiveCardinality.nonidentity_fixed_finite",
+        "AEGPaper0.ProjectiveCardinality.nonidentity_fixed_ncard_le_two",
+        "AEGPaper0.ProjectiveCardinality.nonidentity_fixed_set_cases",
+        "AEGPaper0.ProjectiveCardinality.nonidentity_fixed_subset_pair",
+        "AEGPaper0.ProjectiveCardinality.rational_all_cardinalities_realized",
+        "AEGPaper0.ProjectiveCardinality.rational_one_fixed_example",
+        "AEGPaper0.ProjectiveCardinality.rational_two_fixed_example",
+        "AEGPaper0.ProjectiveCardinality.rational_zero_fixed_example",
+        "AEGPaper0.ProjectiveCardinality.three_distinct_fixed_force_identity",
         "AEGPaper0.ProjectiveFaithfulness.determinant_scale",
         "AEGPaper0.ProjectiveFaithfulness.equal_actions_iff_nonzero_scalar",
         "AEGPaper0.ProjectiveFaithfulness.equivalence_equality_iff_scalar",

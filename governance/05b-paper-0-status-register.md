@@ -1313,3 +1313,73 @@ the then-pending receipt test retained verbatim. Both builds pass at 103/61 page
 without unresolved references/citations, duplicate labels or missing assets.
 Existing overfull boxes (2/8, maximum 11.13/105.15 pt) and bookmark/underfull
 warnings remain; manuscript text and tracked PDFs are unchanged.
+
+## 26. Fixed-point cardinalities and finite affine iteration (2026-11-08)
+
+`formal/AffineIteration.lean` and `ProjectiveCardinality.lean` add 37 audited
+statements, bringing the distinct count to 644 including supporting lemmas.
+`cardinality-map.json` binds the unchanged Section 6 fixed-point reading and
+Section 5 affine-centered equation. The latter covers the enclosing affine
+iteration proposition's algebraic components; its convergence clause retains
+its separate obligation.
+
+| Component | Status | Hypotheses and boundary |
+| --- | --- | --- |
+| finite fixed-locus bound | `PROVED WITH STATED HYPOTHESES` | Over any field a nonidentity PGL element has a finite fixed locus of size at most two. Finiteness is explicit; a natural-number count is not used to hide an infinite locus. The proof transports a fixed point into the actual affine stabilizer. |
+| zero/one/two classification and rigidity | `PROVED WITH STATED HYPOTHESES` | The nonidentity fixed set is empty, a singleton or a pair of distinct points. Three distinct fixed points force identity; conjugation preserves the count. Rational nonidentity examples realize all three cases, without asserting occurrence in each field. Identity fixes the whole line and has three distinct fixed points over every field. |
+| general finite affine iteration | `PROVED` | Actual function iteration of `a*z+b` equals `a^n*z+b*sum(k<n,a^k)` for all field scalars, including zero slope. Iteration addition/successor laws agree with the actual function API. No infinite-sum or convergence interpretation is inferred. |
+| centered and translation branches | `PROVED WITH STATED HYPOTHESES` | Under `a!=1`, `q=b/(1-a)` satisfies `(1-a)q=b`, gives `T^n(z)=q+a^n(z-q)`, and is the unique finite fixed point. Under `a=1`, `T^n(z)=z+(n:K)b`. Zero slope gives a constant ordinary update after the first step. |
+| affine-group/PGL powers and fixed sets | `PROVED WITH STATED HYPOTHESES` | Nonzero slope connects ordinary finite iteration with actual affine-group/PGL powers, including the infinity action. Under `a!=1` the fixed set is infinity and the finite center. Nonzero translation fixes only infinity; zero translation is identity. |
+| characteristic-sensitive periods | `PROVED WITH STATED HYPOTHESES` | If `(n:K)=0`, a translation's nth iterate and actual affine-group power are identity. No characteristic-zero growth, distinct-orbit or minimal-period claim is made. |
+
+All statements are field-generic except the explicitly rational occurrence
+examples. The existing 7,600-source/3,175-compiled-module Mathlib lock contains
+the required set-cardinality and function-iteration infrastructure. Nonidentity,
+nonzero slope for group interfaces, `a!=1` for centering and cast-zero period
+conditions stay explicit. No discriminant-based analytic or elliptic/parabolic/
+hyperbolic classification is claimed.
+
+The nonidentity guard applies to the group element whose fixed points are
+counted, including any proposed iterate. A nonidentity update can have an
+identity power; the original update's nonidentity cannot replace that guard.
+
+The centered equation adds one formula anchor and algebraic components to its
+enclosing proposition. The inventory has 33 component-mapped environments,
+one fragment-certified and 68 not yet formalized among 102 in 22 sources,
+with six equation anchors. Older navigation regressions allow additional
+component coverage while retaining original archived inventories and hashes.
+Current navigation and seven historical navigation/receipt tests have explicit
+successors. All old proof, receiver, goal, contract, library and execution bytes
+remain exact. No manuscript wording, hypothesis or research material is
+rewritten, moved or removed.
+
+Exact axiom sets disclose only actual subsets of `propext`, `Classical.choice`
+and `Quot.sound`, without target axioms or admitted proofs.
+`contract-cardinality.json` declares an independent 300-second profile under
+unchanged numerical limits: 227 unchanged import audits, 37 new audits and
+four specific negatives in 17 commands. Controls omit nonidentity, centering's
+`a!=1`, the cast-zero period guard, or use the wrong iteration exponent.
+Ten predecessor profiles remain independently required; native reception and
+manuscript builds run serially without concurrent heavy proof work.
+
+Real/complex affine convergence, reciprocal-iteration attraction and ordinary
+continued-fraction domains remain separate continuations, with the previously
+registered geometric and Chapter 3 obligations.
+
+`formal/evidence/cardinality-execution.json` receives all eleven profiles as
+`Passed`: native 215.37 seconds, analysis 142.32, original Chapter 4 65.34,
+Apollonius 86.33, projective 90.03, PGL 59.66, affine/generation 96.41,
+arithmetic 110.45, Bruhat 117.97, fixed points 139.60 and cardinality/iteration
+191.13 seconds. Each invocation stays inside its own unchanged 300-second
+deadline and binds the same captured source lock. The native profile completes
+148 commands, 69 rows and 51,137 independent reference transitions, with all
+69 report bytes identical to the preceding successful checkpoint.
+
+The 1,016-member archive binds 147 formal sources plus their lock, 22 manuscript
+sources, workflow, eleven reports, native traces/replay receipts, exact audits,
+negative diagnostics and both build logs. All 67 regressions pass, following
+66 preparatory passes and the then-pending receipt check retained in its
+original log. Both builds pass at 103/61 pages without unresolved references/
+citations, duplicate labels or missing assets. Existing overfull boxes (2/8,
+maximum 11.13/105.15 pt) and bookmark/underfull warnings remain; manuscript text
+and tracked PDFs are unchanged.

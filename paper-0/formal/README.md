@@ -54,8 +54,8 @@ statement correspondence and the reviewed equality kernel remain trusted.
 | §2 distributive operator identity | Unchanged symbolic Adva/Lean identity; new general-field proof of the corrected marked/scalar clauses | The previous counterexample and its old source snapshot remain historical evidence |
 | §3 coordinate foundation and real analysis | 61 coordinate statements plus 66 Mathlib statements: actual differential/Jacobian, smooth real coordinate-AES model, Laplace eigenfunction, positive smooth root, rectification, signed-frame bracket and affine ODE solution/uniqueness | Gaussian curvature/completeness, length/trace theory, punctured E1, full arbitrary-manifold/boundary-chart and intrinsic bundle-operator equivalences |
 | §4 ripple, pole and Apollonius components | 57 ripple/pole statements plus 39 norm statements, now connected to actual homogeneous matrix actions | Intrinsic horocycles/tangency and chart independence; source wording limitations remain explicit |
-| §6 projective synthesis, affine stabilizer and quotient generation | 70 action/bridge, 41 PGL/scalar, 39 affine/generation, 35 arithmetic-dictionary, 35 conjugacy/Bruhat and 33 fixed-point/eigenline statements; actual fixed lines and fixed loci, representative scalings and conjugation | General fixed-point classification, topology, chart-independent and intrinsic geometry; analytic attraction remains separate |
-| §5 reciprocal expansions | Inventoried | Formal domains, convergence and fixed-point attraction hypotheses |
+| §6 projective synthesis, affine stabilizer and quotient generation | 70 action/bridge, 41 PGL/scalar, 39 affine/generation, 35 arithmetic-dictionary, 35 conjugacy/Bruhat, 33 fixed-point/eigenline and 37 cardinality/iteration statements; finite fixed-locus classification and affine powers | Discriminant/analytic classification, topology, chart-independent and intrinsic geometry; attraction remains separate |
+| §5 reciprocal expansions and affine iteration | Finite geometric-sum, centered and translation iteration formulas; zero-slope ordinary updates and actual affine/PGL powers | Real/complex convergence, fixed-point attraction and infinite-expression hypotheses |
 | §7 chronological affine cocycle | Auxiliary pointwise polynomial identity checked by Adva and Lean; shared finite-history scalar expansion in `AppendixC.lean` | Definition/uniqueness of affine coordinates, inverse and normalized-coordinate laws |
 | §§8–12 ACS, contact, nonlinearity, punctures, compactification | Inventoried | Algebraic/differential/topological dependencies and explicit side conditions |
 | Appendix C alternating expressions | 24 Lean theorems: independent suffix-sum expansion, arbitrary finite/prefix perturbation, actual tree/word correspondence and guarded ratio; one native symbolic induction-step certificate | ACS/exponentials/RG, identity-padding syntax transformations, and a native Adva induction kernel are outside this continuation |
@@ -1270,12 +1270,84 @@ then-pending receipt test retained in its original log. Both builds pass at
 missing assets. Existing overfull boxes (2/8, maximum 11.13/105.15 pt) and
 bookmark/underfull warnings remain; manuscript text and tracked PDFs are exact.
 
+## Fixed-point cardinalities and finite affine iteration
+
+`AffineIteration.lean` and `ProjectiveCardinality.lean` add 37 audited
+statements. Over every field, a nonidentity PGL element has a **finite** fixed
+locus with at most two points: exactly empty, a singleton, or a pair of distinct
+points. Three distinct fixed points force identity. Conjugation preserves the
+count. The proof transports an existing fixed point to infinity and uses the
+actual affine stabilizer, without assuming that a quadratic splits. Rational
+nonidentity examples realize zero, one and two fixed points; all three cases
+need not occur in every individual field. Identity fixes the entire line and
+has three distinct fixed points over every field.
+
+For the actual function `T(z)=a*z+b`, finite iteration is
+`T^[n](z)=a^n*z+b*sum(k<n,a^k)` for every slope, including zero. When `a!=1`,
+`q=b/(1-a)` satisfies `(1-a)*q=b` and gives `T^[n](z)=q+a^n*(z-q)`;
+this branch has a unique finite fixed point. When `a=1`, the formula is
+`z+(n:K)*b`. Nonzero offset gives only infinity fixed projectively; zero
+offset gives identity. For nonzero `a!=1`, the fixed set is infinity and `q`.
+Nonzero slope connects ordinary iteration to powers of the actual standard
+affine group and PGL. Zero slope remains an ordinary constant update after the
+first step. Nat casts preserve positive characteristic: when `(n:K)=0`, the
+translation's iterate and affine-group power are identity. No growth or
+minimal-period conclusion is inferred. The fixed-point bound requires the
+particular power being counted to be nonidentity; nonidentity of the original
+update alone does not supply that condition.
+
+`cardinality-map.json` pins Section 6 and the Section 5 centered equation.
+The latter gives algebraic component coverage to the enclosing affine-iteration
+proposition; its real/complex convergence clause remains outside this proof.
+The inventory has 33 component-mapped environments, one fragment-certified and
+68 not yet formalized among 102 in 22 sources, with six equation anchors.
+Historical navigation tests allow additional coverage while retaining their
+exact archived inventories and source hashes. Current navigation and seven
+historical navigation/receipt tests have explicit successor pins; old proof,
+receiver, goal, contract, library and execution bytes remain exact.
+
+There are 644 distinct audited statements including supporting lemmas. The
+227 unchanged import audits are not new. Exact axiom sets use only their actual
+subsets of `propext`, `Classical.choice` and `Quot.sound`, without target axioms
+or admitted proofs. The existing Mathlib source/cache lock suffices.
+`contract-cardinality.json` declares an independent 300-second profile under
+unchanged numerical limits: nine imports, two new modules, four specific
+negative rejections and 17 commands. Ten predecessor profiles remain required
+independently. Native checks and manuscript builds run serially.
+
+```sh
+python paper-0/formal/cardinality_run.py \
+  --mathlib-root /absolute/path/to/pinned/mathlib \
+  --lean /absolute/path/to/lean/bin/lean \
+  --output /absolute/path/to/new-cardinality-evidence-directory
+```
+
+CI checks the continuation separately and uploads its artifact.
+
+`evidence/cardinality-execution.json` and `cardinality-run-01.tar.gz` receive
+all eleven profiles as `Passed`: native 215.37 seconds, analysis 142.32,
+original Chapter 4 65.34, Apollonius 86.33, projective 90.03, PGL 59.66,
+affine/generation 96.41, arithmetic 110.45, Bruhat 117.97, fixed points 139.60
+and cardinality/iteration 191.13 seconds. Every invocation uses its own unchanged
+300-second deadline and the same captured source lock. All 69 native report
+bytes match the preceding checkpoint, with 148 commands and 51,137 independent
+reference transitions.
+
+The 1,016-member archive binds 147 formal sources plus their lock, 22 manuscript
+sources, workflow, eleven reports, native traces/replay receipts, exact audits,
+negative diagnostics and build logs. All 67 regressions pass against the
+completed receipt, following 66 preparatory passes and the then-pending receipt
+check retained verbatim. Both builds pass at 103/61 pages, without unresolved
+references/citations, duplicate labels or missing assets. Existing overfull
+boxes (2/8, maximum 11.13/105.15 pt) and bookmark/underfull warnings remain;
+manuscript text and tracked PDFs are exact.
+
 ## Continuation order
 
 The §2 continuations and §3 coordinate/real-analysis bridge are received above.
 The deferred geometric steps and their prerequisites are now in
 `chapter03-obligations.json`. Advance easier remaining Chapter 4 work first:
-the algebraic fixed-point cardinality and affine-iteration interfaces,
+the real/complex affine-convergence and reciprocal-iteration interfaces,
 keeping intrinsic geometry and chart independence separate. The
 general-manifold/bundle identifications retain their explicit hypotheses.
 Reuse old Lean material
