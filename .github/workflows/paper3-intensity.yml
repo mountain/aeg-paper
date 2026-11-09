@@ -1,0 +1,46 @@
+name: Paper III intensity and boundary witnesses
+
+on:
+  pull_request:
+    paths:
+      - "paper-3/**"
+      - ".github/workflows/paper3-intensity.yml"
+  push:
+    paths:
+      - "paper-3/**"
+      - ".github/workflows/paper3-intensity.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  intensity-witnesses:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install build and symbolic dependencies
+        run: |
+          python -m pip install sympy==1.14.0
+          sudo apt-get update
+          sudo apt-get install -y lmodern texlive-latex-base texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended
+      - name: Replay normally and with optimization
+        shell: bash
+        run: |
+          set -euo pipefail
+          python paper-3/scripts/verify-intensity-collapse.py | tee /tmp/intensity.json
+          python -O paper-3/scripts/verify-intensity-collapse.py | tee /tmp/intensity-O.json
+          cmp /tmp/intensity.json /tmp/intensity-O.json
+      - name: Build Paper III and reject unresolved references
+        shell: bash
+        run: |
+          set -euo pipefail
+          bash build.sh 3
+          test -s paper-3/aeg-paper-3.pdf
+          if grep -E '(Undefined control sequence|LaTeX Warning: Reference .* undefined|LaTeX Warning: Citation .* undefined|There were undefined references|multiply defined)' paper-3/aeg-paper-3.log; then
+            exit 1
+          fi

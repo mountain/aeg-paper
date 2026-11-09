@@ -1,5 +1,15 @@
 # 强度平面 $(\mu,\lambda)$、管的塌缩极限与"更大的空间"
 
+
+> **修订警示（2026-11-09）：本记录中的 P2 固定度规推论与 P4 零载子
+> GH 极限已被反例推翻，以下旧论证保留作历史记录，不再是当前结论。**
+> 固定度规不足以固定零线，须固定同一个有符号正规坐标；零圈的诱导张量
+> 不变不排除环境捷径。紧致连通光滑曲面上的该共形族实际上收缩到一点。
+> 距离一般只有下界，流线留在域内时才取等号；面积主项取决于零值的左右
+> coarea 密度，单侧边界例的系数减半。非恒定赋值不随度量一起下降为极限点
+> 上的函数。现行证明见 Paper III §9.1、§9.5，权威状态见 S-0011，
+> 审计记录见 `../paper-III-intensity-revision-2026-11-09.md`。
+
 **File:** <code>governance/discussions/aeg-intensity-plane-and-tube-collapse.md</code>  
 **Status:** Working research note（研究讨论，非权威）  
 **Version:** 1.1  

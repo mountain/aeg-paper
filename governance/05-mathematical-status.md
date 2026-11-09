@@ -3710,7 +3710,13 @@ No existing V1/V2 bytes or LaTeX sources are changed.
 | OQ096-V3-C | `computationally verified example` | 41 requests / 82 constructions: 36 accepted and five strict-domain rejections in each bracketing. 980 source-pair checks: five accepted, 975 rejected (107 numerically unchanged); 32 saved negative packets and 18 extra-edge controls. JavaScript and separately written Python/Fraction oracle agree; same author, no independent human review. |
 | OQ096-V3-R | `open problem` | General decorated DAG composition/decomposition, overlapping/shared subgraphs, alpha-transport coherence, geometric thickening, state/spectrum bridges, AES extension and native Adva Seal remain open. F1–F3 are eligible for a narrow Paper I addition, not automatically integrated. |
 
-## Status change S-0010
+## Status change S-0010 (historical; superseded in part by S-0011)
+
+**Correction notice (2026-11-09):** The original P3-L11 fixed-metric inference
+and P3-L12 carrier-limit claim below are not current theorems. Their failed
+conclusions are retained here as historical evidence; S-0011 records the exact
+replacement statements, counterexamples, and current statuses. The Paper 0
+weighted-charge entry is not changed by this Paper III correction.
 
 - **Claim ID:** new nodes P3-L11 and P3-L12.
 - **Previous status:** none; both are new statements added on 2026-11-08.
@@ -3775,3 +3781,56 @@ No existing V1/V2 bytes or LaTeX sources are changed.
 - **Papers affected:** Paper III (new material); Paper 0 (receives the
   weighted-charge remark and is cited for the normal form).
 - **Reviewer:** drafting agent, 2026-11-08; no independent human review asserted.
+
+## Status change S-0011
+
+- **Claim ID:** P3-L11 and P3-L12, replacing the affected statements in S-0010.
+- **Previous status:** P3-L11 `PROVED`; P3-L12 `PROVED WITH STATED HYPOTHESES`.
+- **New status:** the unrestricted fixed-metric/common-carrier inference and
+  GH convergence to the intrinsic zero carrier, unrestricted distance upper
+  bound, ambient isometry, and universal two-sided area coefficient are
+  `UNSUPPORTED AND EXCLUDED` (disproved by explicit examples). The corrected P3-L11 fixed-data statement
+  and the corrected P3-L12 below are `PROVED WITH STATED HYPOTHESES`.
+- **Exact statement, P3-L11:** fixed assignment gives product zero incidence;
+  fixed metric together with one fixed rectified assignment t, |grad t|=1,
+  gives common level sets for a=(|mu|/|lambda|)sinh(|lambda|t). Fixed metric
+  alone does not. The moving-zero Euclidean example is retained in
+  `eq:intensity-moving-zero`. Joint rescaling still preserves the eikonal
+  equation, zero set, frame directions and lambda/mu; the frame itself scales
+  by s^{-1}, not by 1. Basic-model factorization is unchanged.
+- **Exact statement, P3-L12:** for compact connected oriented smooth M with
+  boundary, smooth h, mu>0, dA nowhere zero and nonempty Sigma=A^{-1}(0),
+  the conformal realization is regular and the induced tensor is fixed on
+  smooth portions of Sigma. The universal distance estimate is a LOWER bound;
+  equality holds for normalized gradient trajectories reaching zero inside M.
+  If all such trajectories remain in M, the GH approximation by Sigma uses
+  the lambda-dependent AMBIENT RESTRICTED distance. Independently of this flow
+  condition, diam(M,g_lambda) tends to zero, hence the GH limit is a point.
+  No general rate or convergence of the fixed nonconstant assignments is claimed.
+  With one-sided coarea densities I(c)=I_+ + O(c) and
+  I(c)=I_- + O(|c|), area equals
+  pi(I_++I_-)/(2 mu lambda)+O(lambda^{-2} log lambda).
+- **Hypotheses:** connectedness and compactness are used in the diameter proof;
+  bounded assignment range is not an equivalent substitute. Gradient access
+  and one-sided density regularity are separate conditions. A regular differential
+  does not make boundary zeros a global curve. The old coefficient is recovered
+  only when both side densities equal mu times the intrinsic zero-curve length.
+  Restriction to an ambient family's noncompact regular locus does not inherit
+  the compact collapse theorem automatically.
+- **Proof location:** `paper-3/sections/04-parameter-discriminants.tex`,
+  `rem:intensity-plane-not-a-base`, `prop:intensity-collapse`,
+  `ex:intensity-cylinder-shortcut`, `ex:intensity-boundary-controls`, and
+  `rem:intensity-collapse-hypotheses`. The diameter proof uses finite interior
+  nets, transverse paths and dominated convergence, not intrinsic zero lengths.
+- **Verification performed:** 21 explicit symbolic/geometric checks in
+  `paper-3/scripts/verify-intensity-collapse.py`, with identical normal and
+  optimized-Python output. Canonical Paper III build and final-source review
+  are recorded in `paper-III-intensity-revision-2026-11-09.md`.
+- **Downstream nodes affected:** S-0010's P3-L11/P3-L12 descriptions and the
+  intensity discussion note. No other theorem depends on these nodes in the
+  audited source. The dependency graph now records their corrected arrows.
+- **Papers affected:** Paper III only. No Paper 0 claim is promoted or modified.
+- **Reviewer:** drafting AI plus a separate AI mathematical review; this is not
+  independent human review and does not assert author acceptance or publication
+  authorization.
+- **Date:** 2026-11-09.

@@ -488,3 +488,18 @@ fixing marked local symplectic monodromy and quotienting Hurwitz moves are group
 as P3-L10 and remain open.  A Hodge- or Siegel-metric energy comparison likewise
 remains open.  Unrestricted history-natural selection of (P_0),
 (P_1), or either LL sheet also remains open.
+
+## D3-28 — Fixed zero lengths do not determine ambient metric limits
+
+**Date:** 2026-11-09. **Status:** reviewable correction; S-0011 is the current
+claim record and no release authorization is implied.
+
+The intensity discussion is corrected in place. Fixed metric alone does not
+fix the rectified assignment or its zero carrier. For the fixed-assignment
+conformal family, retain the induced tensor, the conditional gradient-distance
+equality, and a one-sided coarea formula. Replace the incorrect intrinsic-carrier
+GH limit with the proved qualitative point limit on compact connected surfaces.
+Retain the cylinder shortcut, disk flow-access obstruction, and one-sided area
+counterexample in the main paper. Preserve the old discussion and S-0010 as
+explicitly superseded evidence. Do not infer a limit assignment, a global rate,
+or a compact collapse theorem on a punctured regular locus.
