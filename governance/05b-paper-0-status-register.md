@@ -1446,3 +1446,79 @@ Both builds pass at 103/61 pages without unresolved references/citations,
 duplicate labels or missing assets. Existing overfull boxes (2/8, maximum
 11.13/105.15 pt) and bookmark/underfull warnings remain. Manuscript text and
 tracked PDFs are unchanged.
+
+## 28. Intrinsic horocycles, compactified ideal boundary and differential contact (2026-11-09)
+
+This continuation advances the standard-model geometric obligations left open
+in §27. `formal/Chapter04Horocycles.lean` adds 27 audits,
+`formal/Chapter04IdealBoundary.lean` 19, `formal/Chapter04Tangency.lean` 14 and
+`formal/Chapter04HorocycleBoundary.lean` 16: 76 new statements, 748 distinct
+statements in total, including 200 in direct Chapter 4 modules. The 115
+unchanged source-import audits remain separately counted. The source-bound
+`formal/geometry-map.json` supplies components for the existing ripple
+pencil definition, line-to-circle theorem and inversion example. This does
+not certify every sentence of those environments or the whole chapter.
+
+| Component | Status | Hypotheses and boundary |
+| --- | --- | --- |
+| distance-defined Busemann functions | `PROVED` | In Mathlib's actual Poincare metric on the upper half-plane, the vertical maps `s -> a+i*exp(s)` are isometries of the real line. Horizontal separation at equal height tends to zero. The distance differences `dist(z,a+i*exp(s))-s` tend to `-log(z.im)`, independently of a. Finite-base functions are transported through a proved translation/inversion isometry and are limits along constructed unit-speed geodesics. |
+| intrinsic horospheres and ripple identification | `PROVED WITH STATED HYPOTHESES` | The Busemann functions are 1-Lipschitz. Their level sets are closed and nonempty. In dimension two these are the standard intrinsic horocycles. Positive level parameter t gives horizontal lines at infinity and finite-base circles of radius `1/(2*t)`. Every positive-determinant ripple is exactly the appropriate horosphere: the finite-base parameter is `t*C^2/Delta`, the affine parameter is `t*D^2/Delta`. Nonzero C and positivity are retained in their respective branches. |
+| topological ideal boundary | `PROVED` | Inside `OnePoint Complex`, the closure of the upper half-plane is the closed upper half-plane plus infinity. Its frontier is exactly the compact closed embedded `OnePoint Real`. The embedding is continuous and injective; canonical finite/infinite geodesics converge to their matching ideal points. This proves an explicit compactification boundary model, not a classification of all ray-equivalence classes. |
+| matrix-pole labels | `PROVED WITH STATED HYPOTHESES` | The existing nondegenerate real matrix pole corresponds set-theoretically to a point of `OnePoint Real`: it is `-D/C` when C is nonzero and infinity exactly when C is zero. The equivalence uses the underlying option representation; it does not transport an unrelated option topology or assert a bundled continuous PGL boundary action. |
+| unique ideal contact of intrinsic horocycles | `PROVED WITH STATED HYPOTHESES` | For t positive, the closure in `OnePoint Complex` of a finite-base horosphere meets the actual ideal frontier at exactly its base. Compact Euclidean circles exclude infinity; an explicit upper-circle approach proves existence of contact. The infinity-based horosphere likewise meets the frontier only at infinity, by a horizontal escape path and a closed horizontal-level condition. These are equalities of actual closures/intersections, not just substitutions in a circle equation. |
+| differential tangency | `PROVED WITH STATED HYPOTHESES` | For the circle residual `(x-q)^2+(y-r)^2-r^2`, the actual Frechet derivative at `(q,0)` is `-2*r*dy`. Nonzero r makes it nonzero and its kernel is exactly the horizontal line. An actual regular circle parametrization has velocity `(r,0)` there and stays above the boundary when r is positive. Curves in the circle satisfy the same tangent constraint. Guarded ripple radii are positive. Inversion transports the infinity levels into finite-base circles with this tangent kernel. No singular hyperbolic metric is extended to the boundary. |
+
+The full quotient of geodesic rays by bounded-distance equivalence, a bundled
+homeomorphic PGL action on the boundary, an ambient complex-manifold atlas at
+infinity and arbitrary changes of boundary chart remain separate interfaces.
+The old exact lambda^-2 tensor pullback does not by itself identify the E0
+Riemannian length distance with the imported Poincare distance; that global
+identification, curvature and completeness are not claimed here. The prior
+normalization-scale and unrestricted forward-pole wording issues remain as
+registered. Ordinary arithmetic singularities keep their ordinary domains.
+
+The unchanged Mathlib lock still binds 7,600 sources and 3,175 compiled
+modules. `formal/geometry-library.lock.json` separately pins 14 additional
+modules built from those same sources, including the actual upper-half-plane
+metric, one-point compactification and curve-product derivatives. Preparation
+rebuilds these in a fresh overlay with relative source paths and checks exact
+compiled hashes; a second independent preparation reproduced every hash.
+Every old overlay entry must resolve to its checked base-library module.
+The old library lock, old cache, proofs, goals, contracts, runtime receivers
+and all historical archives remain exact.
+
+The live inventory still has 35 component-mapped environments, one
+fragment-certified and 66 not yet formalized among 102 in 22 manuscript
+sources, with six equation anchors. Existing mapped environments gain stronger
+components. Only the live inventory/generator and the preceding normalization
+navigation/receipt test receive successor edits. No manuscript statement,
+hypothesis, research material or tracked PDF is rewritten, moved or removed.
+
+`formal/contract-geometry.json` prospectively retains all existing numerical
+limits, including the independent 300-second profile deadline. Four imports,
+four positive modules, four specific negatives and two tool/path commands make
+14 commands. Controls use the wrong Busemann sign or ideal endpoint, or omit
+the nonzero-radius or positive-level guard. All twelve predecessor profiles
+remain independently required, with heavy reception and manuscript builds
+scheduled serially. The cumulative archive retains the existing 128 MiB
+uncompressed packaging cap. Exact axiom sets use only `propext`,
+`Classical.choice` and `Quot.sound`, without target axioms or admitted proofs.
+
+`formal/evidence/geometry-execution.json` receives all thirteen profiles as
+`Passed` under independent unchanged limits: native 212.91, analytic 136.37, chapter04 61.76, apollonius 87.71, projective 91.12, pgl 57.19, affine/generation 102.60, arithmetic 126.88, bruhat 135.76, fixed/points 140.36, cardinality 150.20, normalization 235.56, geometry 179.40 seconds.
+The new geometry profile completes 14 commands, 115 unchanged import audits,
+76 new audits and four specific rejections in 179.40 seconds. All profiles
+bind the same captured source lock. The 69 native report bytes match the
+preceding checkpoint, with 148 commands and 51,137 independent reference
+transitions.
+
+The 1,180-member archive binds 172 formal sources plus their lock, 22 manuscript
+sources, workflow, 14 source-built geometry modules with their original license,
+preparation logs, thirteen reports, exact audits, specific negative diagnostics,
+native replay evidence and both build logs. Its raw size is 81,584,357 bytes,
+within the unchanged 128 MiB cumulative packaging cap. All 75 regressions pass
+against the complete receipt, following 74 preparatory passes and the then-pending
+receipt check retained verbatim. Both builds pass at 103/61 pages without
+unresolved references/citations, duplicate labels or missing assets. Existing
+overfull boxes (2/8, maximum 11.13/105.15 pt) and bookmark/underfull warnings
+remain. Manuscript text and tracked PDFs are unchanged.

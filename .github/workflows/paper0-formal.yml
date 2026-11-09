@@ -201,6 +201,25 @@ jobs:
             --mathlib-root "$RUNNER_TEMP/aeg-mathlib" \
             --lean "$RUNNER_TEMP/lean-4.24.0-linux/bin/lean" \
             --output "$RUNNER_TEMP/aeg-paper0-normalization-evidence"
+      - name: Prepare source-built Poincare metric and compactified boundary supplement
+        run: |
+          python paper-0/formal/prepare_geometry.py \
+            --mathlib-root "$RUNNER_TEMP/aeg-mathlib" \
+            --lean "$RUNNER_TEMP/lean-4.24.0-linux/bin/lean" \
+            --output "$RUNNER_TEMP/aeg-geometry-library"
+      - name: Check intrinsic horospheres, ideal frontier and differential tangency
+        run: |
+          python paper-0/formal/geometry_run.py \
+            --mathlib-root "$RUNNER_TEMP/aeg-mathlib" \
+            --geometry-root "$RUNNER_TEMP/aeg-geometry-library" \
+            --lean "$RUNNER_TEMP/lean-4.24.0-linux/bin/lean" \
+            --output "$RUNNER_TEMP/aeg-paper0-geometry-evidence"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: aeg-paper0-geometry-evidence
+          path: ${{ runner.temp }}/aeg-paper0-geometry-evidence
+          if-no-files-found: warn
       - uses: actions/upload-artifact@v4
         if: always()
         with:

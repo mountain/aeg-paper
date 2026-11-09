@@ -1,0 +1,594 @@
+{
+  "schema": "aeg.paper0.geometry.execution.v1",
+  "date": "2026-11-09",
+  "status": "Passed",
+  "authorship": "Codex (OpenAI), CC0; no independent human mathematical review claimed.",
+  "source_lock_sha256": "ae98a07ca5ecd774044768d6455c1c3035e852597bff71b157a499df329ed670",
+  "geometry_map_sha256": "d92ead81fb0b50661179fcf4424fb5b6918b58f8c27f275bf5c7cb82117bc9c0",
+  "geometry_library_lock_sha256": "bf3fa99a8596230d45078d1422e5ee55beb5313e5788aff5adf8186bc034045f",
+  "additional_geometry_modules": 14,
+  "chapter03_obligations_sha256": "973e643c66e264c4475b512d916e4eef7a87dfe94d112f910e98359e81ad2800",
+  "mathlib_lock_sha256": "de2e937993bd22e41702f21889ac382f3cb36364cbe0b5e5d3fbc1e32bd0394d",
+  "mathlib_commit": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
+  "mathlib_source_files": 7600,
+  "mathlib_compiled_modules": 3175,
+  "profiles": {
+    "native": {
+      "directory": "native-01",
+      "contract": "contract-chapter03.json",
+      "contract_sha256": "606081b7c80d6f57bd1b05a688217d93c411663a98f23eb2eed931a17a66312f",
+      "report_sha256": "1b9d6446b38a3c4fad47f68a8ab6e6544df183aaae5ce956d8ee8e7c918b7a73",
+      "wall_seconds": 212.9083683869976,
+      "child_commands": 148
+    },
+    "analytic": {
+      "directory": "analysis-01",
+      "contract": "contract-analysis-v1.1.json",
+      "contract_sha256": "dc43df95783ca070cc0fad0717cc5986182d3fca814a9a6358f7b436376a7ab3",
+      "report_sha256": "515c2cddcf1f5c9c137a0a215d70eb2f9c5353916af1464c9f90f11f8853815c",
+      "wall_seconds": 136.37117802399735,
+      "child_commands": 16
+    },
+    "chapter04": {
+      "directory": "chapter04-01",
+      "contract": "contract-chapter04.json",
+      "contract_sha256": "52b58178702f5afecc366ed2edab8b1da4c553c3cab3703c2e1fa6fe34d4a905",
+      "report_sha256": "fa916009cbb1a8b5941a4fa966e59c2758f4146633bb964668a775597d1ee211",
+      "wall_seconds": 61.75688976299716,
+      "child_commands": 8
+    },
+    "apollonius": {
+      "directory": "apollonius-01",
+      "contract": "contract-apollonius.json",
+      "contract_sha256": "082e865282360a9616cc7f27558e668f630ac1a0dccb7564f020b318f689b506",
+      "report_sha256": "600f57696b8f24c13e91445578e7abe2810c4c3e0e39136f6cb3d9a721638c59",
+      "wall_seconds": 87.70692992599652,
+      "child_commands": 8
+    },
+    "projective": {
+      "directory": "projective-01",
+      "contract": "contract-projective.json",
+      "contract_sha256": "3c0eb86b50b4bf972e8b2798cda2b6653a76556a19addbc408861e31b3ad1cca",
+      "report_sha256": "c860364f5db142c76c6aab3e87643ecc324011db0ed3196480d3da76ce788ac0",
+      "wall_seconds": 91.12285101100133,
+      "child_commands": 11
+    },
+    "pgl": {
+      "directory": "pgl-01",
+      "contract": "contract-pgl.json",
+      "contract_sha256": "b7687826a0bf34e7bb23d5c3637d298ab918839276175a4ffe5b7d5e345135c1",
+      "report_sha256": "6bdd594159cb779cf6a8a58d4875160bb6645cc0df2a90c74b34ad03cd475fd2",
+      "wall_seconds": 57.190908022996155,
+      "child_commands": 9
+    },
+    "affine_generation": {
+      "directory": "affine-generation-01",
+      "contract": "contract-affine-generation.json",
+      "contract_sha256": "a695a3c8c78b62511f8b8a0310fef8a33ed3b5aab3b504cb1e9f59fd74c2d17d",
+      "report_sha256": "ed4d1fdb1b809c41777bb8058f7171ef11ab80da9554d52933487eef92384261",
+      "wall_seconds": 102.59549440900446,
+      "child_commands": 13
+    },
+    "arithmetic": {
+      "directory": "arithmetic-01",
+      "contract": "contract-arithmetic.json",
+      "contract_sha256": "5d3247be8d5cb4e07023f97cedd8019e7820be94141c24f6cce20e57c4d0a761",
+      "report_sha256": "b297ac9d959e4903666df93cfb4c5919274a0f9629c8703dc64431d6b7d03ed2",
+      "wall_seconds": 126.87915420300124,
+      "child_commands": 16
+    },
+    "bruhat": {
+      "directory": "bruhat-01",
+      "contract": "contract-bruhat.json",
+      "contract_sha256": "a26c4e025a143e79cb54036edc49c7e23225c20e6768dcaece4dc791071ae1fa",
+      "report_sha256": "af9a235527bf4261212d56a54e3a8751735dfcf4f5c46b6434501672939f155d",
+      "wall_seconds": 135.75513270800002,
+      "child_commands": 14
+    },
+    "fixed_points": {
+      "directory": "fixed-points-01",
+      "contract": "contract-fixed-points.json",
+      "contract_sha256": "05a7d963c28ba59f66a36781537662112d8ca2be7423f5f811a30ee0456a6060",
+      "report_sha256": "79ab31f65a8a564e4311677220fa8349eb42ba57e25d1acbeaa4997d86ba7fd5",
+      "wall_seconds": 140.35540583200054,
+      "child_commands": 15
+    },
+    "cardinality": {
+      "directory": "cardinality-01",
+      "contract": "contract-cardinality.json",
+      "contract_sha256": "169ace87594bf91da0e606df7b36b57ff1e76e1cee168e6594acd9d4db89502c",
+      "report_sha256": "08f45e26d5711e590c6c856b4e80d410a1c272b1911bc3c3eae3455e52b63a01",
+      "wall_seconds": 150.20121493400075,
+      "child_commands": 17
+    },
+    "normalization": {
+      "directory": "normalization-01",
+      "contract": "contract-normalization.json",
+      "contract_sha256": "56186e8401cc6a12af369fd43bd07af1607f67ab785abf443de38a745e5cd68e",
+      "report_sha256": "78666073974687d67697cbd0b06d7472a6ff8240d3fac9be659756b6b85876ed",
+      "wall_seconds": 235.56027860699396,
+      "child_commands": 23
+    },
+    "geometry": {
+      "directory": "geometry-01",
+      "contract": "contract-geometry.json",
+      "contract_sha256": "966eed7fac30dfaa24cd53fac4f8c11e46dbcd05a1eea782303c060692f95e14",
+      "report_sha256": "4064a3aab968225a2bd7b61f8ce63496798c80bd6d7f89c9a2cc0ece65bcbd00",
+      "wall_seconds": 179.39908388899494,
+      "child_commands": 14
+    }
+  },
+  "previous_lean_statements": 672,
+  "new_lean_statements": 76,
+  "total_lean_statements": 748,
+  "geometry_axioms": {
+    "AEGPaper0.Chapter04Horocycles": {
+      "vertical_isometry": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "horizontal_gap_bound": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "horizontal_gap_tends_zero": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "vertical_distance_eventually": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "infinity_busemann_limit": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "infinity_busemann_reference_independent": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "infinity_busemann_lipschitz": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "flip_complex": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "flip_isometry": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "flip_involutive": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "gauge_isometry": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "ungauge_gauge": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "gauge_ungauge": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "gauge_imaginary": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "based_ray_isometry": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "finite_busemann_limit": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "based_ray_vertical": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "finite_busemann_lipschitz": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "infinity_horosphere_closed": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "finite_horosphere_closed": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "infinity_horosphere_nonempty": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "finite_horosphere_nonempty": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "infinity_horosphere_level": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "finite_horosphere_level": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "finite_horosphere_circle": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "affine_ripple_is_horosphere": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "nonaffine_ripple_is_horosphere": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "AEGPaper0.Chapter04IdealBoundary": {
+      "boundary_pole_finite": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "boundary_pole_infinity": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "embed_continuous": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "embed_injective": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "boundary_compact": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "boundary_closed": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "embed_finite": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "embed_infinity": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "upper_image_open": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "upper_image_finite": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "closed_upper_finite": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "closed_upper_closed": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "finite_ray_tendsto": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "infinity_ray_tendsto": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "boundary_in_closure": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "closed_upper_decomposition": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "closure_upper_image": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "upper_boundary_disjoint": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "frontier_upper_image": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "AEGPaper0.Chapter04Tangency": {
+      "circle_hasFDerivAt": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "boundary_derivative_apply": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "boundary_derivative_nonzero": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "boundary_tangent_kernel": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "boundary_tangent_horizontal_span": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "circle_param_lies_on_circle": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "circle_param_hasDerivAt": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "circle_param_contact": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "circle_param_contact_derivative": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "circle_param_regular_contact": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "circle_param_above_boundary": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "ripple_circle_residual": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "ripple_boundary_differential": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "actual_curve_tangent": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "AEGPaper0.Chapter04HorocycleBoundary": {
+      "circle_set_sphere": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "circle_image_closed": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "circle_boundary_unique": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "horosphere_image_subset_circle": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "horosphere_closure_boundary_subset": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "circle_approach_tendsto": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "circle_approach_positive": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "horosphere_contact_mem_closure": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "finite_horosphere_ideal_contact": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "horizontal_closed_finite": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "horizontal_closed": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "infinity_horosphere_closure_boundary_subset": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "infinity_horosphere_contact_mem_closure": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "infinity_horosphere_ideal_contact": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "inversion_transports_infinity_level": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "inversion_circle_tangent_kernel": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  },
+  "source_import_audits": 115,
+  "negative_controls": {
+    "busemann-sign": "Rejected with the expected specific type mismatch",
+    "boundary-endpoint": "Rejected with the expected specific type mismatch",
+    "radius-guard": "Rejected with the expected specific type mismatch",
+    "positive-level": "Rejected with the expected specific type mismatch"
+  },
+  "native_runs": 69,
+  "reference_transitions": 51137,
+  "preceding_native_reports_unchanged": 69,
+  "original_proof_library_goal_contract_and_runtime_receiver_bytes_unchanged": true,
+  "old_formal_sources_with_explicit_navigation_successors": [
+    "inventory.py",
+    "inventory.json",
+    "test_normalization.py"
+  ],
+  "formal_source_files": 172,
+  "manuscript_source_files": 22,
+  "archive": {
+    "path": "geometry-run-01.tar.gz",
+    "sha256": "a9307895db67928ebb281cc4b193d0d8c34d81f20776be151112416061a7f622",
+    "bytes": 23893762,
+    "members": 1180,
+    "uncompressed_bytes": 81584357
+  },
+  "manuscript_builds": {
+    "0": {
+      "status": "Passed",
+      "pages": 103,
+      "pdf_bytes": 909781,
+      "pdf_sha256": "f10b9dd92a725e67ac18563644fe55914b44373fce8c7fcf6836c0ef2add3866",
+      "final_log_sha256": "39d0ab2614003814d466ebdfa6069545808d7286a094fb06e7983508a9508f18",
+      "unresolved_references_citations_duplicate_labels_missing_assets": false,
+      "overfull_boxes": 2,
+      "max_overfull_pt": 11.13274,
+      "note": "Validation PDF retained externally; tracked manuscript PDF restored without changing its bytes."
+    },
+    "1": {
+      "status": "Passed",
+      "pages": 61,
+      "pdf_bytes": 756641,
+      "pdf_sha256": "a3cb8f4b7ea21ded7fd6482b3ccc80dc6665e306f5115db855cbb468dcecb911",
+      "final_log_sha256": "553b2e4446d83d62cd096ad99dd5222939bbce722a9683cc2f13182e118d5352",
+      "unresolved_references_citations_duplicate_labels_missing_assets": false,
+      "overfull_boxes": 8,
+      "max_overfull_pt": 105.1512,
+      "note": "Validation PDF retained externally; tracked manuscript PDF restored without changing its bytes."
+    }
+  },
+  "pre_receipt_checks": {
+    "passed": 74,
+    "pending_receipt_test": 1,
+    "note": "The archive-binding test cannot pass before the completed execution receipt exists. Its missing-receipt error is retained verbatim in engineering/unit-before-receipt.log."
+  },
+  "unit_tests_after_archive": 75,
+  "live_inventory": {
+    "source_files": 22,
+    "theorem_like_environments": 102,
+    "component_mapped": 35,
+    "fragment_certified": 1,
+    "not_yet_formalized": 66,
+    "separately_mapped_equations": 6
+  },
+  "source_audit": [
+    {
+      "status": "proved with stated hypotheses",
+      "scope": "Standard Poincare metric horospheres and the explicit OnePoint compactification frontier, with actual differential tangency in the continuation chart. Earlier coordinates-only exclusions are advanced here without rewriting those historical maps or their archives."
+    }
+  ],
+  "scope": "76 new exact audits connect distance-defined Busemann horospheres, the compactified ideal frontier, unique ideal contact and actual derivative kernels. Rebuild 115 unchanged source-import audits separately. Positive levels/determinants and nonzero radii are active; no entire proposition/chapter or arbitrary manifold identification is promoted.",
+  "remaining": [
+    "Identification of every geodesic-ray bounded-distance class or the full Gromov/visual boundary with this compactification.",
+    "A bundled homeomorphic PGL boundary action, an ambient complex-manifold atlas at infinity, and arbitrary changes of boundary charts.",
+    "A proof that the original E0 Riemannian tensor induces the imported Poincare length distance; the prior exact lambda^-2 tensor pullback remains separate. Curvature/completeness is not inferred.",
+    "The original normalization-scale and unrestricted consecutive-prefix wording issues remain partial as previously registered.",
+    "Extension of the singular hyperbolic metric to boundary points, ordinary arithmetic division by zero, and whole-chapter certification."
+  ],
+  "deferred_chapter03": "chapter03-obligations.json",
+  "predecessor_execution_receipt_sha256": "dcddef693b4bf1df9a031eb19df7575905b4edf3293f261a81c032a3884d95ef",
+  "trust_boundary": "Pinned compiler/standard library, unchanged Mathlib source/cache lock and fourteen additional hash-checked source-built modules are trusted. Actual Poincare-distance Busemann limits, a compactified OnePoint frontier, unique finite/infinite ideal contact and actual derivative kernels are certified. The full geodesic-ray quotient, a bundled PGL boundary action/ambient atlas and the E0 Riemannian length-distance identification remain outside this receipt. All thirteen profiles pass separately under unchanged numerical limits and the same captured source lock. Native and build work is serial."
+}

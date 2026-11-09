@@ -1,0 +1,63 @@
+{
+  "schema": "aeg.paper0.formal.contract.geometry.v1",
+  "date": "2026-11-09",
+  "source_commit": "06acedf2d46370291586a3948a3fb52429e3db86",
+  "question": "Advance intrinsic Poincare horospheres from distance limits, the ideal boundary as an actual compactified frontier, unique ideal contact and genuine differential tangency.",
+  "bounds": {
+    "wall_seconds": 300,
+    "child_commands": 32,
+    "child_wall_seconds": 120,
+    "child_cpu_seconds": 60,
+    "child_address_space_bytes": 1073741824,
+    "lean_child_address_space_bytes": 8589934592,
+    "child_file_bytes": 33554432,
+    "artifact_bytes": 536870912
+  },
+  "expected_work": {
+    "child_commands": 14,
+    "import_lean_statements": 115,
+    "new_lean_statements": 76,
+    "import_modules": 4,
+    "positive_modules": 4,
+    "negative_controls": 4
+  },
+  "negative_controls": [
+    {
+      "name": "busemann-sign",
+      "file": "negative/GeometryWrongBusemannSign.lean",
+      "expected_fragments": [
+        "infinity_busemann_limit z",
+        "infinityBusemann z"
+      ]
+    },
+    {
+      "name": "boundary-endpoint",
+      "file": "negative/GeometryWrongBoundaryLimit.lean",
+      "expected_fragments": [
+        "infinity_ray_tendsto",
+        "embed OnePoint.infty",
+        "embed \u21910"
+      ]
+    },
+    {
+      "name": "radius-guard",
+      "file": "negative/GeometryMissingRadiusGuard.lean",
+      "expected_fragments": [
+        "boundary_tangent_kernel q r",
+        "r \u2260 0 \u2192"
+      ]
+    },
+    {
+      "name": "positive-level",
+      "file": "negative/GeometryMissingPositiveLevel.lean",
+      "expected_fragments": [
+        "nonaffine_ripple_is_horosphere m t hd",
+        "0 < t \u2192"
+      ]
+    }
+  ],
+  "resource_basis": "Prospectively declared after clean engineering checks, four specific controls and reproducible source-built preparation of 14 supplementary Mathlib modules. The old Mathlib source/cache lock and all preceding numerical profile bounds are exact. This independent profile has the same 300-second/32-command/120-second-child-wall limits. Twelve predecessor profiles remain required independently; all heavy reception and builds run serially. Cumulative archive packaging retains the existing 128 MiB cap.",
+  "success": "Exactly audit 115 unchanged imports and 76 new statements with clean diagnostics, exact axioms and four specific rejections. The supplemental source/library overlay and all current pins agree. Twelve preceding profiles pass independently.",
+  "exit": "One fresh bounded invocation after preflight. Retain Failed evidence and stop on mismatch/exhaustion; any correction requires an explicitly declared successor, never automatic bound growth.",
+  "authorship": "Codex (OpenAI), CC0; no independent human review claimed."
+}

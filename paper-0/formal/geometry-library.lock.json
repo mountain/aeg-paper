@@ -1,0 +1,111 @@
+{
+  "schema": "aeg.paper0.geometry-library.v1",
+  "mathlib_lock_sha256": "de2e937993bd22e41702f21889ac382f3cb36364cbe0b5e5d3fbc1e32bd0394d",
+  "mathlib_commit": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
+  "roots": [
+    "Mathlib.Analysis.Complex.UpperHalfPlane.Metric",
+    "Mathlib.Topology.Compactification.OnePoint.Basic",
+    "Mathlib.Analysis.Calculus.Deriv.Prod"
+  ],
+  "modules": [
+    {
+      "module": "Mathlib.Analysis.Complex.UpperHalfPlane.Basic",
+      "source": "Mathlib/Analysis/Complex/UpperHalfPlane/Basic.lean",
+      "source_sha256": "b9ab4a768f2ab8fdbb6a7de9fdf53ce2e520f3b3e3595f942a06e177dfcd130c",
+      "olean": "Mathlib/Analysis/Complex/UpperHalfPlane/Basic.olean",
+      "olean_sha256": "0cfd98a8b22389040f7bdb002cc3c03ee21e2ad28b5c04571989237e7e6795b8"
+    },
+    {
+      "module": "Mathlib.Analysis.Complex.UpperHalfPlane.MoebiusAction",
+      "source": "Mathlib/Analysis/Complex/UpperHalfPlane/MoebiusAction.lean",
+      "source_sha256": "db3597e238724ca26685d56e247d4de5da13cd10322d0e5619d8b461daa86872",
+      "olean": "Mathlib/Analysis/Complex/UpperHalfPlane/MoebiusAction.olean",
+      "olean_sha256": "c65dcbf7a1d7306638f92c1f81dac7ddaa0dbe054f4416c0e0a10600a7440118"
+    },
+    {
+      "module": "Mathlib.Topology.ContinuousMap.Ordered",
+      "source": "Mathlib/Topology/ContinuousMap/Ordered.lean",
+      "source_sha256": "b2f4d3075e606624fd15cdf2779c8b2e870d6b3ddbeb1e8b3cee03a57b8a2107",
+      "olean": "Mathlib/Topology/ContinuousMap/Ordered.olean",
+      "olean_sha256": "420ffa0d53934d59cd6a73327b4a9cb3e42039acff7e2c06fff1c7063b767821"
+    },
+    {
+      "module": "Mathlib.Topology.Homotopy.Basic",
+      "source": "Mathlib/Topology/Homotopy/Basic.lean",
+      "source_sha256": "3aa36ecd1f8c99df7623f8ccf189269a232863301a9d5e45f55bfdbdd8919416",
+      "olean": "Mathlib/Topology/Homotopy/Basic.olean",
+      "olean_sha256": "5a12ef9d2a75fd6feb9df8d01bf5a606601ded1559530152349fa4f200138575"
+    },
+    {
+      "module": "Mathlib.Topology.Homotopy.Path",
+      "source": "Mathlib/Topology/Homotopy/Path.lean",
+      "source_sha256": "bc8dc53c912b4f115cd8bdf4ad498b9608eab3f6a5bd6a2edb82babadc9bdff0",
+      "olean": "Mathlib/Topology/Homotopy/Path.olean",
+      "olean_sha256": "e92319f70fa20d3d74cdaea18c186863f93793c54b88ec9052fe4b42b9736776"
+    },
+    {
+      "module": "Mathlib.Topology.Homotopy.Equiv",
+      "source": "Mathlib/Topology/Homotopy/Equiv.lean",
+      "source_sha256": "2208f5cec471a304f2d06ede699a65dd5b39de722913cb0e6eb5d54ae74037b1",
+      "olean": "Mathlib/Topology/Homotopy/Equiv.olean",
+      "olean_sha256": "104ea3fc23d3e0f87851986136a784c51098929e27845887015ea4b804295890"
+    },
+    {
+      "module": "Mathlib.Topology.Homotopy.Contractible",
+      "source": "Mathlib/Topology/Homotopy/Contractible.lean",
+      "source_sha256": "eeb7b66ef04c351e048cfbd9f7299183a5deb81a8356d592eb79f422ab0bb8eb",
+      "olean": "Mathlib/Topology/Homotopy/Contractible.olean",
+      "olean_sha256": "5ad3a5bbd60e3fdb8e9c3f69d2a0f99f626bfa7fd79b2417b874f3460ab8f8e9"
+    },
+    {
+      "module": "Mathlib.Analysis.Convex.Contractible",
+      "source": "Mathlib/Analysis/Convex/Contractible.lean",
+      "source_sha256": "35f8291400b6a1c99a743c5b59efad241280645a4b12028fe5fd23921cb8f566",
+      "olean": "Mathlib/Analysis/Convex/Contractible.olean",
+      "olean_sha256": "0fc28b9ac4107370df067024305624a2fa08c35614887f3fe6fbc89edb0e99b9"
+    },
+    {
+      "module": "Mathlib.Analysis.Complex.Convex",
+      "source": "Mathlib/Analysis/Complex/Convex.lean",
+      "source_sha256": "7cf27eef17fe02c9f40c35e0998d1a2805070e95998be127f9903e5916f86750",
+      "olean": "Mathlib/Analysis/Complex/Convex.olean",
+      "olean_sha256": "c478c1c3e51f6d21f6ba3a139d31a1cc301cf6bab8b2f4de78ad79e6b504bc46"
+    },
+    {
+      "module": "Mathlib.Analysis.Complex.UpperHalfPlane.Topology",
+      "source": "Mathlib/Analysis/Complex/UpperHalfPlane/Topology.lean",
+      "source_sha256": "eff5ec7e2e92a2cb25d59aab6763e234c7b1dc3ddfa3b6960c366e5c5455b5c5",
+      "olean": "Mathlib/Analysis/Complex/UpperHalfPlane/Topology.olean",
+      "olean_sha256": "e7c3b1f3491bdc00a5ff525c52511adfc8f722f0828950a730b0c722f19d23a6"
+    },
+    {
+      "module": "Mathlib.Geometry.Euclidean.Inversion.Basic",
+      "source": "Mathlib/Geometry/Euclidean/Inversion/Basic.lean",
+      "source_sha256": "bda779117df06018c68df39462218399a896169f3ad0943c1945818e7953ce4d",
+      "olean": "Mathlib/Geometry/Euclidean/Inversion/Basic.olean",
+      "olean_sha256": "5c881cc1dc29d0e34076b50a5d5828c8c2a758429a011b54b753ec2b963ae801"
+    },
+    {
+      "module": "Mathlib.Analysis.Complex.UpperHalfPlane.Metric",
+      "source": "Mathlib/Analysis/Complex/UpperHalfPlane/Metric.lean",
+      "source_sha256": "8e8ee64d84c0e7364d9a7cbddc4fb73bd80865aa3461eab6e37d728dafb48ff6",
+      "olean": "Mathlib/Analysis/Complex/UpperHalfPlane/Metric.olean",
+      "olean_sha256": "de33a1220223f0c94ec216c3ce141b71e74b433aa969549dfc5481ba42949ea1"
+    },
+    {
+      "module": "Mathlib.Topology.Compactification.OnePoint.Basic",
+      "source": "Mathlib/Topology/Compactification/OnePoint/Basic.lean",
+      "source_sha256": "1f50dee1f10f475e32e839562d5aef012708fa88bae4133d9192e2bb42622e51",
+      "olean": "Mathlib/Topology/Compactification/OnePoint/Basic.olean",
+      "olean_sha256": "fb6a001b1240e8b417571b968211e34115d441c7faf69193752923fa38d39372"
+    },
+    {
+      "module": "Mathlib.Analysis.Calculus.Deriv.Prod",
+      "source": "Mathlib/Analysis/Calculus/Deriv/Prod.lean",
+      "source_sha256": "d8b390117a83ee1feb2f83a1f55f2dedb487a2513ca93fe83ce6d533c0f7e68d",
+      "olean": "Mathlib/Analysis/Calculus/Deriv/Prod.olean",
+      "olean_sha256": "06e922c609762ed5545c2ea2bc5e20f24744887636de59ad22ffc44a91381ecc"
+    }
+  ],
+  "interpretation": "Fourteen additional source-built modules from the unchanged pinned Mathlib checkout. The old source/cache lock remains exact. The library overlay reuses only old pinned Mathlib oleans via symlinks; additional modules are built in the declared order with relative source paths and checked against these exact hashes. No new mathematical axiom or library revision."
+}

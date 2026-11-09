@@ -53,7 +53,7 @@ statement correspondence and the reviewed equality kernel remain trusted.
 | §2 evaluability continuation | General finite-tree domain/value, closed-input independence, exact rational evaluation, cancelled reciprocal and projective round trip, prefix domains/condition pullbacks, and subtraction expansion in Lean | External Richardson theorem, real exponential/ACS example, topology and cardinality background retain their separate dependencies |
 | §2 distributive operator identity | Unchanged symbolic Adva/Lean identity; new general-field proof of the corrected marked/scalar clauses | The previous counterexample and its old source snapshot remain historical evidence |
 | §3 coordinate foundation and real analysis | 61 coordinate statements plus 66 Mathlib statements: actual differential/Jacobian, smooth real coordinate-AES model, Laplace eigenfunction, positive smooth root, rectification, signed-frame bracket and affine ODE solution/uniqueness | Gaussian curvature/completeness, length/trace theory, punctured E1, full arbitrary-manifold/boundary-chart and intrinsic bundle-operator equivalences |
-| §4 ripple, pole and Apollonius components | 57 ripple/pole statements plus 39 norm statements, now connected to actual homogeneous matrix actions | Intrinsic horocycles/tangency and chart independence; source wording limitations remain explicit |
+| §4 ripple, pole and Apollonius components | 200 direct statements: coordinates and normalization, Poincare-distance horocycles, a compactified ideal frontier, unique ideal contact and actual derivative tangency, with matrix-pole bridges | Full geodesic-ray quotient, global E0 length-distance and arbitrary boundary-chart identifications; source wording limitations remain explicit |
 | §6 projective synthesis, affine stabilizer and quotient generation | 70 action/bridge, 41 PGL/scalar, 39 affine/generation, 35 arithmetic-dictionary, 35 conjugacy/Bruhat, 33 fixed-point/eigenline and 37 cardinality/iteration statements; finite fixed-locus classification and affine powers | Discriminant/analytic classification, topology, chart-independent and intrinsic geometry; attraction remains separate |
 | §5 reciprocal expansions and affine iteration | Finite geometric-sum, centered and translation iteration formulas; zero-slope ordinary updates and actual affine/PGL powers | Real/complex convergence, fixed-point attraction and infinite-expression hypotheses |
 | §7 chronological affine cocycle | Auxiliary pointwise polynomial identity checked by Adva and Lean; shared finite-history scalar expansion in `AppendixC.lean` | Definition/uniqueness of affine coordinates, inverse and normalized-coordinate laws |
@@ -1403,18 +1403,98 @@ labels or missing assets. Existing overfull boxes (2/8, maximum 11.13/105.15 pt)
 and bookmark/underfull warnings remain; manuscript text and tracked PDFs are
 unchanged.
 
+## Intrinsic horocycles, ideal frontier and differential contact (2026-11-09)
+
+`Chapter04Horocycles.lean` adds 27 audits in Mathlib's actual Poincare metric.
+Unit-speed vertical geodesics, vanishing horizontal separation and actual
+distance-difference limits prove the infinity Busemann function `-log y`,
+independently of horizontal reference. A proved translation/inversion isometry
+supplies finite-base rays and their Busemann functions. The functions are
+1-Lipschitz and their level sets are closed and nonempty. These intrinsic
+horospheres (horocycles in dimension two) have the existing horizontal/circle
+formulas. Positive-determinant ripples match them exactly under the positive
+parameter changes `t*C^2/Delta` or `t*D^2/Delta`.
+
+`Chapter04IdealBoundary.lean` adds 19 audits. In `OnePoint Complex`, the upper
+plane's actual frontier is the compact closed embedded `OnePoint Real`.
+Canonical geodesics converge to their finite/infinite ideal labels, which also
+match the established nondegenerate matrix poles. The label equivalence is
+set-theoretic; the topology comes from OnePoint, not from an option default.
+
+`Chapter04Tangency.lean` adds 14 audits of actual Frechet and curve derivatives.
+At `(q,0)` the circle residual has derivative `-2*r*dy`; for nonzero r the
+kernel is precisely the horizontal tangent line. A regular parametrization
+supplies a nonzero horizontal velocity and stays above the boundary for
+positive radius. Guarded ripple circles inherit the differential statement.
+
+`Chapter04HorocycleBoundary.lean` adds 16 audits connecting the constructions.
+The closure of each positive-parameter intrinsic horosphere meets the ideal
+frontier at exactly its base, for both finite bases and infinity. The proofs
+use compact circles, explicit upper-circle approaches and a horizontal escape
+path. Inversion transports infinity levels into finite-base circles with the
+proved tangent kernel. No hyperbolic boundary metric is asserted.
+
+There are 76 new audits, 748 distinct audits in total and 200 in direct Chapter
+4 modules. The 115 unchanged import audits are counted separately. The existing
+35 component-mapped environments gain components; the 102-environment,
+22-source inventory and six equation anchors keep their counts.
+`geometry-map.json` pins the unchanged manuscript and states the precise scope.
+The full geodesic-ray quotient, bundled continuous PGL boundary action, ambient
+complex atlas at infinity and global E0 length-distance identification remain
+separate. The earlier source-wording issues retain their recorded status.
+
+`geometry-library.lock.json` pins 14 source-built modules from the unchanged
+Mathlib revision and 7,600-source/3,175-cache-module lock. A fresh independent
+preparation reproduced all additional compiled hashes. The checked overlay
+resolves old modules to their exact pinned base files. Preparation is separate
+from the new bounded profile: four imports, four positive modules, four
+specific negatives and two tool/path commands give 14 commands under the
+unchanged independent 300-second and other numerical limits. All twelve
+preceding profiles remain independently required. The cumulative packaging
+cap remains 128 MiB; old proofs, contracts, library locks and archives are exact.
+
+```sh
+python paper-0/formal/prepare_geometry.py \
+  --mathlib-root /absolute/path/to/pinned/mathlib \
+  --lean /absolute/path/to/lean/bin/lean \
+  --output /absolute/path/to/fresh-geometry-library
+python paper-0/formal/geometry_run.py \
+  --mathlib-root /absolute/path/to/pinned/mathlib \
+  --geometry-root /absolute/path/to/fresh-geometry-library \
+  --lean /absolute/path/to/lean/bin/lean \
+  --output /absolute/path/to/new-geometry-evidence-directory
+```
+
+`evidence/geometry-execution.json` and `geometry-run-01.tar.gz` receive all
+thirteen profiles as `Passed` under independent unchanged limits. The new
+geometry profile takes 179.40 seconds for 14 commands, 115 unchanged import
+audits, 76 new audits and four specific rejections. All 69 native reports remain
+byte-identical to the preceding checkpoint, with 51,137 independent reference
+transitions.
+
+The 1,180-member archive binds 172 formal sources plus their lock, 22 manuscript
+sources, workflow, 14 source-built geometry modules and their original license,
+preparation logs, thirteen reports, exact audits, negative controls, native
+replay evidence and both build logs. All 75 regressions pass against the complete
+receipt; the original 74 passes and then-pending receipt check remain in their
+log. Both builds pass at 103/61 pages without unresolved references/citations,
+duplicate labels or missing assets. Existing overfull boxes (2/8, maximum
+11.13/105.15 pt) and bookmark/underfull warnings remain; manuscript text and
+tracked PDFs are unchanged.
+
 ## Continuation order
 
 The §2 continuations and §3 coordinate/real-analysis bridge are received above.
 The deferred geometric steps and their prerequisites are now in
-`chapter03-obligations.json`. Advance easier remaining Chapter 4 work first:
-the real/complex affine-convergence and reciprocal-iteration interfaces,
-keeping intrinsic geometry and chart independence separate. The
-general-manifold/bundle identifications retain their explicit hypotheses.
-Reuse old Lean material
-only after a legacy-to-current statement map. Each theorem still needs its
-formal prerequisites and evidence; topology, smooth geometry, convergence and
-proof-library translation are not supplied by this algebraic foundation.
+`chapter03-obligations.json`. The standard Poincare horosphere/frontier/contact
+bridge is now received above. Next connect a continuous action on the
+one-point boundary to the actual PGL quotient. Keep the full geodesic-ray
+quotient and global E0 length-distance identification separate. Real/complex
+affine convergence and reciprocal iteration remain another continuation.
+The general-manifold/bundle identifications retain their explicit hypotheses.
+Reuse old Lean material only after a legacy-to-current statement map. Further
+topological, smooth, convergence and translation claims still need their own
+formal prerequisites and executed evidence.
 
 Original implementation and documentation by Codex (OpenAI), contributed under
 CC0. Source ownership or an account proxy is not independent human review or

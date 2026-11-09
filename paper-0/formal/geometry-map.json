@@ -1,0 +1,1326 @@
+{
+  "schema": "aeg.paper0.geometry.map.v1",
+  "source": "paper-0/sections/04-ripple-geometry.tex",
+  "source_sha256": "aac21e63fdf22f4e0cc5032441e050d015afbcc1fc545cf04ba008123712e49f",
+  "imports": [
+    {
+      "file": "Chapter04Ripples.lean",
+      "module": "AEGPaper0.Chapter04Ripples",
+      "lean_audit_names": [
+        "denominator_normSq",
+        "denominator_ne_zero",
+        "denominatorSq_positive",
+        "mobius_imaginary",
+        "mobius_preserves_upper",
+        "ripple_membership",
+        "ripple_level",
+        "ripple_equation",
+        "affine_diagonal_nonzero",
+        "affine_ripple_line",
+        "radius_positive",
+        "completed_square",
+        "ripple_circle",
+        "circle_boundary_contact",
+        "circle_height_bounds",
+        "radius_antitone",
+        "tangentDisk_equation",
+        "tangentDisk_height_nonnegative",
+        "tangentDisk_nested",
+        "ripple_disks_nested",
+        "distinct_ripples_disjoint",
+        "ripple_parameter_positive",
+        "ripple_empty_nonpositive",
+        "ripple_unique_positive_level",
+        "output_translation_determinant",
+        "output_translation_map",
+        "output_translation_pole",
+        "output_translation_ripple",
+        "inversion_determinant",
+        "inversion_map",
+        "inversion_radius",
+        "inversion_pole",
+        "inversion_followed_by_translation_has_same_finite_pole",
+        "inversion_ripple",
+        "pullback_point_duality",
+        "chronological_pullback"
+      ],
+      "expected_axioms": {
+        "denominator_normSq": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "denominator_ne_zero": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "denominatorSq_positive": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "mobius_imaginary": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "mobius_preserves_upper": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "ripple_membership": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "ripple_level": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "ripple_equation": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "affine_diagonal_nonzero": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "affine_ripple_line": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "radius_positive": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "completed_square": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "ripple_circle": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "circle_boundary_contact": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "circle_height_bounds": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "radius_antitone": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "tangentDisk_equation": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "tangentDisk_height_nonnegative": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "tangentDisk_nested": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "ripple_disks_nested": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "distinct_ripples_disjoint": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "ripple_parameter_positive": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "ripple_empty_nonpositive": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "ripple_unique_positive_level": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "output_translation_determinant": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "output_translation_map": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "output_translation_pole": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "output_translation_ripple": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "inversion_determinant": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "inversion_map": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "inversion_radius": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "inversion_pole": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "inversion_followed_by_translation_has_same_finite_pole": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "inversion_ripple": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "pullback_point_duality": [],
+        "chronological_pullback": []
+      }
+    },
+    {
+      "file": "ProjectiveLine.lean",
+      "module": "AEGPaper0.ProjectiveLine",
+      "lean_audit_names": [
+        "homogeneous_nonzero",
+        "project_homogeneous",
+        "project_scale",
+        "representative_scale",
+        "mapVec_scale",
+        "determinant_multiply",
+        "determinant_adjugate",
+        "mapVec_multiply",
+        "adjugate_left",
+        "adjugate_right",
+        "mapVec_nonzero",
+        "project_map_normalize",
+        "action_identity",
+        "action_multiply",
+        "action_adjugate_left",
+        "action_adjugate_right",
+        "actionEquiv_apply",
+        "actionEquiv_inverse",
+        "finite_action",
+        "infinity_action",
+        "fixes_infinity_iff",
+        "pole_formula",
+        "finite_pole_unique",
+        "action_scale",
+        "project_eq_iff_cross",
+        "projection_eq_iff_scalar",
+        "finite_fixed_point_iff",
+        "chart_representative",
+        "quotient_eq_iff_nonzero_scalar",
+        "quotient_action_representative",
+        "zero_scalar_changes_action"
+      ],
+      "expected_axioms": {
+        "homogeneous_nonzero": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "project_homogeneous": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "project_scale": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "representative_scale": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "mapVec_scale": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "determinant_multiply": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "determinant_adjugate": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "mapVec_multiply": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "adjugate_left": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "adjugate_right": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "mapVec_nonzero": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "project_map_normalize": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "action_identity": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "action_multiply": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "action_adjugate_left": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "action_adjugate_right": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "actionEquiv_apply": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "actionEquiv_inverse": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "finite_action": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "infinity_action": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "fixes_infinity_iff": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "pole_formula": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "finite_pole_unique": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "action_scale": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "project_eq_iff_cross": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "projection_eq_iff_scalar": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "finite_fixed_point_iff": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "chart_representative": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "quotient_eq_iff_nonzero_scalar": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "quotient_action_representative": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "zero_scalar_changes_action": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      }
+    },
+    {
+      "file": "Chapter04Poles.lean",
+      "module": "AEGPaper0.Chapter04Poles",
+      "lean_audit_names": [
+        "composition_apply",
+        "pole_covariance",
+        "pole_is_unique_preimage",
+        "pole_eq_infinity_iff",
+        "pole_constancy_criterion",
+        "pole_moves_iff",
+        "prefix_initial_pole",
+        "prefix_successor_apply",
+        "prefix_pole_covariance",
+        "prefix_step_pole_iff",
+        "history_step_rigidity",
+        "affine_prefix_fixes_infinity",
+        "history_prefix_rigidity",
+        "first_nonaffine_step_moves_pole",
+        "postcompose_affine_keeps_current_pole",
+        "terminal_pole_does_not_detect_every_step",
+        "pole_column_nonzero",
+        "pole_column_annihilates_denominator",
+        "finite_pole_denominator_zero",
+        "finite_pole_numerator_nonzero",
+        "affine_infinity_criterion"
+      ],
+      "expected_axioms": {
+        "composition_apply": [
+          "Quot.sound"
+        ],
+        "pole_covariance": [
+          "Quot.sound"
+        ],
+        "pole_is_unique_preimage": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "pole_eq_infinity_iff": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "pole_constancy_criterion": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "pole_moves_iff": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "prefix_initial_pole": [
+          "Quot.sound"
+        ],
+        "prefix_successor_apply": [
+          "Quot.sound"
+        ],
+        "prefix_pole_covariance": [
+          "Quot.sound"
+        ],
+        "prefix_step_pole_iff": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "history_step_rigidity": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "affine_prefix_fixes_infinity": [
+          "Quot.sound"
+        ],
+        "history_prefix_rigidity": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "first_nonaffine_step_moves_pole": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "postcompose_affine_keeps_current_pole": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "terminal_pole_does_not_detect_every_step": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "pole_column_nonzero": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "pole_column_annihilates_denominator": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "finite_pole_denominator_zero": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "finite_pole_numerator_nonzero": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "affine_infinity_criterion": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      }
+    },
+    {
+      "file": "Chapter04ProjectiveBridge.lean",
+      "module": "AEGPaper0.Chapter04ProjectiveBridge",
+      "lean_audit_names": [
+        "equiv_product",
+        "concrete_pole_covariance",
+        "concrete_stabilizer_criterion",
+        "concrete_pole_at_infinity_iff",
+        "concrete_finite_pole",
+        "concrete_step_constancy",
+        "affine_postcompose_keeps_pole",
+        "prefix_nondegenerate",
+        "prefix_equiv",
+        "concrete_history_step_rigidity",
+        "concrete_history_prefix_rigidity",
+        "first_exit_has_finite_pole",
+        "translation_determinant",
+        "dilation_determinant",
+        "inversion_determinant",
+        "translation_finite",
+        "dilation_finite",
+        "inversion_infinity",
+        "inversion_zero",
+        "inversion_finite",
+        "affine_diagonal_nonzero",
+        "affine_matrix_factorization",
+        "nonaffine_scale_nonzero",
+        "nonaffine_matrix_factorization",
+        "affine_action_factorization",
+        "nonaffine_action_factorization",
+        "singular_composition_counterexample"
+      ],
+      "expected_axioms": {
+        "equiv_product": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "concrete_pole_covariance": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "concrete_stabilizer_criterion": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "concrete_pole_at_infinity_iff": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "concrete_finite_pole": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "concrete_step_constancy": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "affine_postcompose_keeps_pole": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "prefix_nondegenerate": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "prefix_equiv": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "concrete_history_step_rigidity": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "concrete_history_prefix_rigidity": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "first_exit_has_finite_pole": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "translation_determinant": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "dilation_determinant": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "inversion_determinant": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "translation_finite": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "dilation_finite": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "inversion_infinity": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "inversion_zero": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "inversion_finite": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "affine_diagonal_nonzero": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "affine_matrix_factorization": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "nonaffine_scale_nonzero": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "nonaffine_matrix_factorization": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "affine_action_factorization": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "nonaffine_action_factorization": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "singular_composition_counterexample": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      }
+    }
+  ],
+  "modules": [
+    {
+      "file": "Chapter04Horocycles.lean",
+      "module": "AEGPaper0.Chapter04Horocycles",
+      "lean_audit_names": [
+        "vertical_isometry",
+        "horizontal_gap_bound",
+        "horizontal_gap_tends_zero",
+        "vertical_distance_eventually",
+        "infinity_busemann_limit",
+        "infinity_busemann_reference_independent",
+        "infinity_busemann_lipschitz",
+        "flip_complex",
+        "flip_isometry",
+        "flip_involutive",
+        "gauge_isometry",
+        "ungauge_gauge",
+        "gauge_ungauge",
+        "gauge_imaginary",
+        "based_ray_isometry",
+        "finite_busemann_limit",
+        "based_ray_vertical",
+        "finite_busemann_lipschitz",
+        "infinity_horosphere_closed",
+        "finite_horosphere_closed",
+        "infinity_horosphere_nonempty",
+        "finite_horosphere_nonempty",
+        "infinity_horosphere_level",
+        "finite_horosphere_level",
+        "finite_horosphere_circle",
+        "affine_ripple_is_horosphere",
+        "nonaffine_ripple_is_horosphere"
+      ],
+      "expected_axioms": {
+        "vertical_isometry": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "horizontal_gap_bound": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "horizontal_gap_tends_zero": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "vertical_distance_eventually": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "infinity_busemann_limit": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "infinity_busemann_reference_independent": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "infinity_busemann_lipschitz": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "flip_complex": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "flip_isometry": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "flip_involutive": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "gauge_isometry": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "ungauge_gauge": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "gauge_ungauge": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "gauge_imaginary": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "based_ray_isometry": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "finite_busemann_limit": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "based_ray_vertical": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "finite_busemann_lipschitz": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "infinity_horosphere_closed": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "finite_horosphere_closed": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "infinity_horosphere_nonempty": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "finite_horosphere_nonempty": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "infinity_horosphere_level": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "finite_horosphere_level": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "finite_horosphere_circle": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "affine_ripple_is_horosphere": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "nonaffine_ripple_is_horosphere": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      }
+    },
+    {
+      "file": "Chapter04IdealBoundary.lean",
+      "module": "AEGPaper0.Chapter04IdealBoundary",
+      "lean_audit_names": [
+        "boundary_pole_finite",
+        "boundary_pole_infinity",
+        "embed_continuous",
+        "embed_injective",
+        "boundary_compact",
+        "boundary_closed",
+        "embed_finite",
+        "embed_infinity",
+        "upper_image_open",
+        "upper_image_finite",
+        "closed_upper_finite",
+        "closed_upper_closed",
+        "finite_ray_tendsto",
+        "infinity_ray_tendsto",
+        "boundary_in_closure",
+        "closed_upper_decomposition",
+        "closure_upper_image",
+        "upper_boundary_disjoint",
+        "frontier_upper_image"
+      ],
+      "expected_axioms": {
+        "boundary_pole_finite": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "boundary_pole_infinity": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "embed_continuous": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "embed_injective": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "boundary_compact": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "boundary_closed": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "embed_finite": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "embed_infinity": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "upper_image_open": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "upper_image_finite": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "closed_upper_finite": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "closed_upper_closed": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "finite_ray_tendsto": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "infinity_ray_tendsto": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "boundary_in_closure": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "closed_upper_decomposition": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "closure_upper_image": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "upper_boundary_disjoint": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "frontier_upper_image": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      }
+    },
+    {
+      "file": "Chapter04Tangency.lean",
+      "module": "AEGPaper0.Chapter04Tangency",
+      "lean_audit_names": [
+        "circle_hasFDerivAt",
+        "boundary_derivative_apply",
+        "boundary_derivative_nonzero",
+        "boundary_tangent_kernel",
+        "boundary_tangent_horizontal_span",
+        "circle_param_lies_on_circle",
+        "circle_param_hasDerivAt",
+        "circle_param_contact",
+        "circle_param_contact_derivative",
+        "circle_param_regular_contact",
+        "circle_param_above_boundary",
+        "ripple_circle_residual",
+        "ripple_boundary_differential",
+        "actual_curve_tangent"
+      ],
+      "expected_axioms": {
+        "circle_hasFDerivAt": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "boundary_derivative_apply": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "boundary_derivative_nonzero": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "boundary_tangent_kernel": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "boundary_tangent_horizontal_span": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "circle_param_lies_on_circle": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "circle_param_hasDerivAt": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "circle_param_contact": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "circle_param_contact_derivative": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "circle_param_regular_contact": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "circle_param_above_boundary": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "ripple_circle_residual": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "ripple_boundary_differential": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "actual_curve_tangent": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      }
+    },
+    {
+      "file": "Chapter04HorocycleBoundary.lean",
+      "module": "AEGPaper0.Chapter04HorocycleBoundary",
+      "lean_audit_names": [
+        "circle_set_sphere",
+        "circle_image_closed",
+        "circle_boundary_unique",
+        "horosphere_image_subset_circle",
+        "horosphere_closure_boundary_subset",
+        "circle_approach_tendsto",
+        "circle_approach_positive",
+        "horosphere_contact_mem_closure",
+        "finite_horosphere_ideal_contact",
+        "horizontal_closed_finite",
+        "horizontal_closed",
+        "infinity_horosphere_closure_boundary_subset",
+        "infinity_horosphere_contact_mem_closure",
+        "infinity_horosphere_ideal_contact",
+        "inversion_transports_infinity_level",
+        "inversion_circle_tangent_kernel"
+      ],
+      "expected_axioms": {
+        "circle_set_sphere": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "circle_image_closed": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "circle_boundary_unique": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "horosphere_image_subset_circle": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "horosphere_closure_boundary_subset": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "circle_approach_tendsto": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "circle_approach_positive": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "horosphere_contact_mem_closure": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "finite_horosphere_ideal_contact": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "horizontal_closed_finite": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "horizontal_closed": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "infinity_horosphere_closure_boundary_subset": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "infinity_horosphere_contact_mem_closure": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "infinity_horosphere_ideal_contact": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "inversion_transports_infinity_level": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "inversion_circle_tangent_kernel": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      }
+    }
+  ],
+  "mapping": [
+    {
+      "source_labels": [
+        "def:p0-ripple-pencil",
+        "thm:p0-ripple-pencil-formula"
+      ],
+      "formal": [
+        "AEGPaper0.Chapter04Horocycles.vertical_isometry",
+        "AEGPaper0.Chapter04Horocycles.horizontal_gap_bound",
+        "AEGPaper0.Chapter04Horocycles.horizontal_gap_tends_zero",
+        "AEGPaper0.Chapter04Horocycles.vertical_distance_eventually",
+        "AEGPaper0.Chapter04Horocycles.infinity_busemann_limit",
+        "AEGPaper0.Chapter04Horocycles.infinity_busemann_reference_independent",
+        "AEGPaper0.Chapter04Horocycles.infinity_busemann_lipschitz",
+        "AEGPaper0.Chapter04Horocycles.flip_complex",
+        "AEGPaper0.Chapter04Horocycles.flip_isometry",
+        "AEGPaper0.Chapter04Horocycles.flip_involutive",
+        "AEGPaper0.Chapter04Horocycles.gauge_isometry",
+        "AEGPaper0.Chapter04Horocycles.ungauge_gauge",
+        "AEGPaper0.Chapter04Horocycles.gauge_ungauge",
+        "AEGPaper0.Chapter04Horocycles.gauge_imaginary",
+        "AEGPaper0.Chapter04Horocycles.based_ray_isometry",
+        "AEGPaper0.Chapter04Horocycles.finite_busemann_limit",
+        "AEGPaper0.Chapter04Horocycles.based_ray_vertical",
+        "AEGPaper0.Chapter04Horocycles.finite_busemann_lipschitz",
+        "AEGPaper0.Chapter04Horocycles.infinity_horosphere_closed",
+        "AEGPaper0.Chapter04Horocycles.finite_horosphere_closed",
+        "AEGPaper0.Chapter04Horocycles.infinity_horosphere_nonempty",
+        "AEGPaper0.Chapter04Horocycles.finite_horosphere_nonempty",
+        "AEGPaper0.Chapter04Horocycles.infinity_horosphere_level",
+        "AEGPaper0.Chapter04Horocycles.finite_horosphere_level",
+        "AEGPaper0.Chapter04Horocycles.finite_horosphere_circle",
+        "AEGPaper0.Chapter04Horocycles.affine_ripple_is_horosphere",
+        "AEGPaper0.Chapter04Horocycles.nonaffine_ripple_is_horosphere"
+      ],
+      "coverage": "Actual Poincare distance and unit-speed geodesic rays give Busemann limits -log y and their finite-base isometric transports. Horizontal-reference independence, 1-Lipschitz continuity, closed nonempty level sets and exact positive ripple/horosphere formulas are certified."
+    },
+    {
+      "source_labels": [
+        "def:p0-ripple-pencil",
+        "ex:p0-inversion-ripples"
+      ],
+      "formal": [
+        "AEGPaper0.Chapter04IdealBoundary.boundary_pole_finite",
+        "AEGPaper0.Chapter04IdealBoundary.boundary_pole_infinity",
+        "AEGPaper0.Chapter04IdealBoundary.embed_continuous",
+        "AEGPaper0.Chapter04IdealBoundary.embed_injective",
+        "AEGPaper0.Chapter04IdealBoundary.boundary_compact",
+        "AEGPaper0.Chapter04IdealBoundary.boundary_closed",
+        "AEGPaper0.Chapter04IdealBoundary.embed_finite",
+        "AEGPaper0.Chapter04IdealBoundary.embed_infinity",
+        "AEGPaper0.Chapter04IdealBoundary.upper_image_open",
+        "AEGPaper0.Chapter04IdealBoundary.upper_image_finite",
+        "AEGPaper0.Chapter04IdealBoundary.closed_upper_finite",
+        "AEGPaper0.Chapter04IdealBoundary.closed_upper_closed",
+        "AEGPaper0.Chapter04IdealBoundary.finite_ray_tendsto",
+        "AEGPaper0.Chapter04IdealBoundary.infinity_ray_tendsto",
+        "AEGPaper0.Chapter04IdealBoundary.boundary_in_closure",
+        "AEGPaper0.Chapter04IdealBoundary.closed_upper_decomposition",
+        "AEGPaper0.Chapter04IdealBoundary.closure_upper_image",
+        "AEGPaper0.Chapter04IdealBoundary.upper_boundary_disjoint",
+        "AEGPaper0.Chapter04IdealBoundary.frontier_upper_image"
+      ],
+      "coverage": "The frontier of the upper half-plane in OnePoint Complex is exactly the compact closed embedded OnePoint Real boundary. Geodesic endpoints converge to their finite/infinite labels. The existing matrix-pole formulas match these labels set-theoretically; no discrete Option topology is transported."
+    },
+    {
+      "source_labels": [
+        "thm:p0-ripple-pencil-formula"
+      ],
+      "formal": [
+        "AEGPaper0.Chapter04Tangency.circle_hasFDerivAt",
+        "AEGPaper0.Chapter04Tangency.boundary_derivative_apply",
+        "AEGPaper0.Chapter04Tangency.boundary_derivative_nonzero",
+        "AEGPaper0.Chapter04Tangency.boundary_tangent_kernel",
+        "AEGPaper0.Chapter04Tangency.boundary_tangent_horizontal_span",
+        "AEGPaper0.Chapter04Tangency.circle_param_lies_on_circle",
+        "AEGPaper0.Chapter04Tangency.circle_param_hasDerivAt",
+        "AEGPaper0.Chapter04Tangency.circle_param_contact",
+        "AEGPaper0.Chapter04Tangency.circle_param_contact_derivative",
+        "AEGPaper0.Chapter04Tangency.circle_param_regular_contact",
+        "AEGPaper0.Chapter04Tangency.circle_param_above_boundary",
+        "AEGPaper0.Chapter04Tangency.ripple_circle_residual",
+        "AEGPaper0.Chapter04Tangency.ripple_boundary_differential",
+        "AEGPaper0.Chapter04Tangency.actual_curve_tangent"
+      ],
+      "coverage": "Actual Frechet/curve derivatives of the implicit circle: the boundary derivative is nonzero for nonzero radius and its kernel is precisely the horizontal tangent line. An explicit regular circle parametrization supplies that tangent and stays above the boundary for positive radius. Guarded ripple circles inherit it."
+    },
+    {
+      "source_labels": [
+        "thm:p0-ripple-pencil-formula",
+        "ex:p0-inversion-ripples"
+      ],
+      "formal": [
+        "AEGPaper0.Chapter04HorocycleBoundary.circle_set_sphere",
+        "AEGPaper0.Chapter04HorocycleBoundary.circle_image_closed",
+        "AEGPaper0.Chapter04HorocycleBoundary.circle_boundary_unique",
+        "AEGPaper0.Chapter04HorocycleBoundary.horosphere_image_subset_circle",
+        "AEGPaper0.Chapter04HorocycleBoundary.horosphere_closure_boundary_subset",
+        "AEGPaper0.Chapter04HorocycleBoundary.circle_approach_tendsto",
+        "AEGPaper0.Chapter04HorocycleBoundary.circle_approach_positive",
+        "AEGPaper0.Chapter04HorocycleBoundary.horosphere_contact_mem_closure",
+        "AEGPaper0.Chapter04HorocycleBoundary.finite_horosphere_ideal_contact",
+        "AEGPaper0.Chapter04HorocycleBoundary.horizontal_closed_finite",
+        "AEGPaper0.Chapter04HorocycleBoundary.horizontal_closed",
+        "AEGPaper0.Chapter04HorocycleBoundary.infinity_horosphere_closure_boundary_subset",
+        "AEGPaper0.Chapter04HorocycleBoundary.infinity_horosphere_contact_mem_closure",
+        "AEGPaper0.Chapter04HorocycleBoundary.infinity_horosphere_ideal_contact",
+        "AEGPaper0.Chapter04HorocycleBoundary.inversion_transports_infinity_level",
+        "AEGPaper0.Chapter04HorocycleBoundary.inversion_circle_tangent_kernel"
+      ],
+      "coverage": "In the actual ambient compactification, the closure of each intrinsic positive-level finite horosphere meets the ideal frontier at precisely its base. The infinity horosphere likewise meets it only at infinity. Inversion transports infinity levels into finite-base circles; their actual tangent kernel is horizontal."
+    }
+  ],
+  "source_audit": [
+    {
+      "status": "proved with stated hypotheses",
+      "scope": "Standard Poincare metric horospheres and the explicit OnePoint compactification frontier, with actual differential tangency in the continuation chart. Earlier coordinates-only exclusions are advanced here without rewriting those historical maps or their archives."
+    }
+  ],
+  "excluded": [
+    "Identification of every geodesic-ray bounded-distance class or the full Gromov/visual boundary with this compactification.",
+    "A bundled homeomorphic PGL boundary action, an ambient complex-manifold atlas at infinity, and arbitrary changes of boundary charts.",
+    "A proof that the original E0 Riemannian tensor induces the imported Poincare length distance; the prior exact lambda^-2 tensor pullback remains separate. Curvature/completeness is not inferred.",
+    "The original normalization-scale and unrestricted consecutive-prefix wording issues remain partial as previously registered.",
+    "Extension of the singular hyperbolic metric to boundary points, ordinary arithmetic division by zero, and whole-chapter certification."
+  ],
+  "interpretation": "76 new exact audits connect distance-defined Busemann horospheres, the compactified ideal frontier, unique ideal contact and actual derivative kernels. Rebuild 115 unchanged source-import audits separately. Positive levels/determinants and nonzero radii are active; no entire proposition/chapter or arbitrary manifold identification is promoted."
+}
