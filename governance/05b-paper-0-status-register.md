@@ -1383,3 +1383,66 @@ original log. Both builds pass at 103/61 pages without unresolved references/
 citations, duplicate labels or missing assets. Existing overfull boxes (2/8,
 maximum 11.13/105.15 pt) and bookmark/underfull warnings remain; manuscript text
 and tracked PDFs are unchanged.
+
+## 27. Chapter 4 chart normalization and direct Bruhat pole reading (2026-11-09)
+
+`formal/Chapter04Normalization.lean` adds 18 audited statements and
+`formal/Chapter04PoleReading.lean` adds 10. These continue the existing proofs;
+the 442 source-import audits are not counted as new. There are now 672 distinct
+audited statements, including 124 in the direct Chapter 4 coordinate/pole
+modules. `formal/normalization-map.json` binds the unchanged Chapter 4 sources
+and supplies components for `rem:p0-ripple-normalization` and
+`rem:p0-pole-bruhat`. Component coverage does not certify every sentence of
+either remark.
+
+| Component | Status | Hypotheses and boundary |
+| --- | --- | --- |
+| real normalization chart | `PROVED WITH STATED HYPOTHESES` | The map `(x,y) -> ((lambda/mu)x,y)` is smooth and preserves the upper half-plane. Nonzero mu and lambda supply its inverse and bijectivity. Equal nonzero intensities give identity. Its continuous linear derivative and actual Frechet derivative agree with the displayed linear map. |
+| metric tensor pullback | `PROVED WITH STATED HYPOTHESES` | The actual Chapter 3 metric tensor equals lambda^-2 times the pullback of the standard upper-plane tensor, using the actual derivative. Both intensities and height are nonzero. Equivalently, the pulled-back standard tensor is lambda^2 times the original tensor. No curvature, completeness or manifold isometry is certified. |
+| horizontal levels and transported ripple equations | `PROVED WITH STATED HYPOTHESES` | The complex continuation chart has real coordinate `(lambda/mu)x` and imaginary coordinate y. Horizontal level membership, the existing guarded ripple circle equation in these coordinates and the unique Euclidean boundary contact at `(mu/lambda)(-D/C)` are proved. Positive determinant, level and height and nonzero C remain in the ripple theorem. No intrinsic horocycle or differential tangency identification is inferred. |
+| rightmost translation and pole | `PROVED WITH STATED HYPOTHESES` | Over every field the actual PGL word `T_a D_u J T_t`, with unit u, has pole `-t`; the rightmost parameter is uniquely recovered from the pole. The established nondegenerate matrix factorization supplies `t=D/C` when C is nonzero. The affine cell is exactly the infinity-pole case and the other Bruhat cell exactly the finite-pole case. |
+| pole versus point image | `PROVED WITH STATED HYPOTHESES` | Affine postcomposition preserves the pole. If an operator sends infinity to a finite z, postcomposition by any nonzero translation changes that image while preserving the pole. A pole does not determine the operator or all point images. No probabilistic independence or history equality is asserted. |
+| normalization remark as printed | `PARTIALLY PROVED` | The remark's curvature -1 wording does not explicitly retain the lambda^-2 metric scale. Section 3's displayed scaled metric does retain it. The formal identity certifies that exact scaled formula; it does not certify the unscaled curvature wording. The discrepancy is recorded in the source audit without changing the manuscript. |
+
+The inventory now has 35 component-mapped environments, one fragment-certified
+and 66 not yet formalized among 102 in 22 manuscript sources; six separately
+mapped equation anchors remain. Only the live inventory/generator and the
+preceding cardinality navigation/receipt test receive successor edits. Old
+proofs, goals, contracts, runtime receivers, library locks and execution
+archives remain byte-for-byte unchanged. Historical navigation still checks
+its own archived inventory and source hashes; the current receipt binds all
+current pinned sources.
+
+Exact axiom sets use only `propext`, `Classical.choice` and `Quot.sound`, with
+no target axioms or admitted proofs. `formal/contract-normalization.json`
+prospectively declares 23 commands: 15 imports, two positive modules, four
+specific negative controls and two tool/path commands. It retains all preceding
+numerical profile bounds, including the independent 300-second deadline.
+Controls omit a metric-scale nonzero hypothesis, drop lambda^-2 from the tensor
+identity, reverse the pole sign, or omit chart-inverse nonzero hypotheses.
+Eleven predecessor profiles remain independently required. The new cumulative
+receipt declares a 128 MiB uncompressed packaging cap; old archive caps and all
+scientific resource limits remain unchanged.
+
+Intrinsic horocycles, ideal-boundary topology, differential tangency,
+curvature/completeness, the already recorded forward-pole wording issue and
+the deferred Chapter 3 obligations remain open formal continuations. No
+research material, claim or manuscript hypothesis is moved or removed.
+
+`formal/evidence/normalization-execution.json` receives all twelve profiles as
+`Passed` under their independent unchanged limits: native 208.37, analytic 148.46, chapter04 59.37, apollonius 83.60, projective 86.13, pgl 57.26, affine/generation 95.31, arithmetic 112.76, bruhat 131.71, fixed/points 124.12, cardinality 166.66, normalization 254.30 seconds.
+The new profile completes 23 commands, 442 unchanged import audits, 28 new
+audits and four specific rejections in 254.30 seconds. All profiles bind the
+same captured source lock. All 69 native report bytes match the preceding
+checkpoint, with 148 commands and 51,137 independent reference transitions.
+
+The 1,096-member archive binds 157 formal sources plus their lock, 22 manuscript
+sources, workflow, preflight diagnostics, twelve reports, native traces/replay
+receipts, exact audits, negative diagnostics and build logs. Its uncompressed
+size is 69,494,163 bytes, within the prospectively declared cumulative packaging
+cap. All 71 regressions pass against the complete receipt, following 70
+preparatory passes and the then-pending receipt check retained verbatim.
+Both builds pass at 103/61 pages without unresolved references/citations,
+duplicate labels or missing assets. Existing overfull boxes (2/8, maximum
+11.13/105.15 pt) and bookmark/underfull warnings remain. Manuscript text and
+tracked PDFs are unchanged.

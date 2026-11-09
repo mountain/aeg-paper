@@ -39,6 +39,7 @@
   "bruhat_map_sha256": "09771d5b418537c95a011eafe6be875ca9d8fa1641af55caecd6c6d2ee41ac6b",
   "fixed_points_map_sha256": "8cd20864fcb76284dafe630d0d6dddfddb8920d0ed8103402ddfed78e0bced06",
   "cardinality_map_sha256": "26133081d85f0539fd43245a0aea49bf18b2df694d1c28be3be77fd0b430f35c",
+  "normalization_map_sha256": "b131095bfc1a6137228c25fae6343bddb8cda8ef394a42762d3ad957aef2cfa7",
   "equation_components": [
     {
       "source": "paper-0/sections/04-ripple-geometry.tex",
@@ -974,9 +975,28 @@
       "labels": [
         "rem:p0-ripple-normalization"
       ],
-      "formal_status": "not-yet-formalized",
+      "formal_status": "component-map-supplied",
       "certificates": [],
-      "lean_components": []
+      "lean_components": [
+        "AEGPaper0.Chapter04Normalization.chart_derivative_apply",
+        "AEGPaper0.Chapter04Normalization.chart_horizontal_leaf",
+        "AEGPaper0.Chapter04Normalization.chart_real_imag",
+        "AEGPaper0.Chapter04Normalization.chart_upper",
+        "AEGPaper0.Chapter04Normalization.equal_intensities_identity",
+        "AEGPaper0.Chapter04Normalization.metric_pullback",
+        "AEGPaper0.Chapter04Normalization.normalize_bijective",
+        "AEGPaper0.Chapter04Normalization.normalize_fderiv",
+        "AEGPaper0.Chapter04Normalization.normalize_hasFDerivAt",
+        "AEGPaper0.Chapter04Normalization.normalize_height",
+        "AEGPaper0.Chapter04Normalization.normalize_inverse",
+        "AEGPaper0.Chapter04Normalization.normalize_preserves_upper",
+        "AEGPaper0.Chapter04Normalization.normalize_smooth",
+        "AEGPaper0.Chapter04Normalization.normalized_metric_scale",
+        "AEGPaper0.Chapter04Normalization.original_boundary_contact",
+        "AEGPaper0.Chapter04Normalization.ripple_in_original_coordinates",
+        "AEGPaper0.Chapter04Normalization.standard_metric_is_unit_model",
+        "AEGPaper0.Chapter04Normalization.tensor_pullback"
+      ]
     },
     {
       "source": "paper-0/sections/04-ripple-geometry.tex",
@@ -1074,9 +1094,20 @@
       "labels": [
         "rem:p0-pole-bruhat"
       ],
-      "formal_status": "not-yet-formalized",
+      "formal_status": "component-map-supplied",
       "certificates": [],
-      "lean_components": []
+      "lean_components": [
+        "AEGPaper0.Chapter04PoleReading.affine_cell_pole_reading",
+        "AEGPaper0.Chapter04PoleReading.bruhat_word_in_bigCell",
+        "AEGPaper0.Chapter04PoleReading.bruhat_word_poles_equal_iff",
+        "AEGPaper0.Chapter04PoleReading.matrix_bruhat_word",
+        "AEGPaper0.Chapter04PoleReading.matrix_pole_from_rightmost_translation",
+        "AEGPaper0.Chapter04PoleReading.pole_invariant_under_affine_output",
+        "AEGPaper0.Chapter04PoleReading.projective_cell_pole_reading",
+        "AEGPaper0.Chapter04PoleReading.rightmost_translation_reads_pole",
+        "AEGPaper0.Chapter04PoleReading.rightmost_translation_unique",
+        "AEGPaper0.Chapter04PoleReading.same_pole_distinct_output"
+      ]
     },
     {
       "source": "paper-0/sections/04b-pole-covariance.tex",

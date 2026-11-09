@@ -195,6 +195,18 @@ jobs:
             --mathlib-root "$RUNNER_TEMP/aeg-mathlib" \
             --lean "$RUNNER_TEMP/lean-4.24.0-linux/bin/lean" \
             --output "$RUNNER_TEMP/aeg-paper0-cardinality-evidence"
+      - name: Check actual chart normalization, scaled metric and Bruhat pole reading
+        run: |
+          python paper-0/formal/normalization_run.py \
+            --mathlib-root "$RUNNER_TEMP/aeg-mathlib" \
+            --lean "$RUNNER_TEMP/lean-4.24.0-linux/bin/lean" \
+            --output "$RUNNER_TEMP/aeg-paper0-normalization-evidence"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: aeg-paper0-normalization-evidence
+          path: ${{ runner.temp }}/aeg-paper0-normalization-evidence
+          if-no-files-found: warn
       - uses: actions/upload-artifact@v4
         if: always()
         with:

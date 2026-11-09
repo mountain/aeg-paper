@@ -1,0 +1,63 @@
+{
+  "schema": "aeg.paper0.formal.contract.normalization.v1",
+  "date": "2026-11-09",
+  "source_commit": "69c02961969b8581f2bb3ed5eb729389ed453398",
+  "question": "Connect the Chapter 4 continuation chart to actual derivatives and the scaled standard metric, and prove direct quotient-level Bruhat pole reading without promoting intrinsic geometry.",
+  "bounds": {
+    "wall_seconds": 300,
+    "child_commands": 32,
+    "child_wall_seconds": 120,
+    "child_cpu_seconds": 60,
+    "child_address_space_bytes": 1073741824,
+    "lean_child_address_space_bytes": 8589934592,
+    "child_file_bytes": 33554432,
+    "artifact_bytes": 536870912
+  },
+  "expected_work": {
+    "child_commands": 23,
+    "import_lean_statements": 442,
+    "new_lean_statements": 28,
+    "import_modules": 15,
+    "positive_modules": 2,
+    "negative_controls": 4
+  },
+  "negative_controls": [
+    {
+      "name": "scale-guard",
+      "file": "negative/NormalizationMissingScaleGuard.lean",
+      "expected_fragments": [
+        "metric_pullback mu lambda p v w hm",
+        "lambda \u2260 0 \u2192"
+      ]
+    },
+    {
+      "name": "metric-factor",
+      "file": "negative/NormalizationWrongMetricFactor.lean",
+      "expected_fragments": [
+        "tensor_pullback mu lambda p v w hm hl hy",
+        "lambda ^ 2"
+      ]
+    },
+    {
+      "name": "pole-sign",
+      "file": "negative/PoleReadingWrongSign.lean",
+      "expected_fragments": [
+        "rightmost_translation_reads_pole a u t",
+        "some (-t)",
+        "some t"
+      ]
+    },
+    {
+      "name": "inverse-guard",
+      "file": "negative/NormalizationMissingInverseGuard.lean",
+      "expected_fragments": [
+        "normalize_inverse mu lambda",
+        "mu \u2260 0 \u2192"
+      ]
+    }
+  ],
+  "resource_basis": "Declared after clean engineering compilations and four specific control rejections, before bounded reception. All numerical profile bounds remain unchanged. Eleven predecessor profiles remain independently required. Native proofs and manuscript builds are serial. The cumulative twelve-profile receipt has a prospectively declared 128 MiB uncompressed packaging cap in its new test; older archive caps and all scientific runtime/artifact limits are unchanged.",
+  "success": "Exactly audit unchanged imports and 28 new statements with clean diagnostics, exact axiom sets and all four specific rejections. All pins match. Eleven predecessor profiles independently pass.",
+  "exit": "One fresh bounded invocation; retain Failed evidence and stop on mismatch or exhaustion. Any correction requires a separately declared successor; never automatic budget growth.",
+  "authorship": "Codex (OpenAI), CC0; no independent human review claimed."
+}

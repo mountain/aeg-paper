@@ -1,0 +1,341 @@
+{
+  "schema": "aeg.paper0.normalization.execution.v1",
+  "date": "2026-11-09",
+  "status": "Passed",
+  "authorship": "Codex (OpenAI), CC0; no independent human mathematical review claimed.",
+  "source_lock_sha256": "7b227f2623a1e3f15152ce99665587eb525b298b155f8de9ad4c94dc482d3c93",
+  "normalization_map_sha256": "b131095bfc1a6137228c25fae6343bddb8cda8ef394a42762d3ad957aef2cfa7",
+  "chapter03_obligations_sha256": "973e643c66e264c4475b512d916e4eef7a87dfe94d112f910e98359e81ad2800",
+  "mathlib_lock_sha256": "de2e937993bd22e41702f21889ac382f3cb36364cbe0b5e5d3fbc1e32bd0394d",
+  "mathlib_commit": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
+  "mathlib_source_files": 7600,
+  "mathlib_compiled_modules": 3175,
+  "profiles": {
+    "native": {
+      "directory": "native-01",
+      "contract": "contract-chapter03.json",
+      "contract_sha256": "606081b7c80d6f57bd1b05a688217d93c411663a98f23eb2eed931a17a66312f",
+      "report_sha256": "2d6b33cbdfb3ca0819b31bd07b21981e2407b9fd934fecf4391ab22a761be560",
+      "wall_seconds": 208.36562366699945,
+      "child_commands": 148
+    },
+    "analytic": {
+      "directory": "analysis-01",
+      "contract": "contract-analysis-v1.1.json",
+      "contract_sha256": "dc43df95783ca070cc0fad0717cc5986182d3fca814a9a6358f7b436376a7ab3",
+      "report_sha256": "75ee35097616539fd9eb27ff5c8c5f8b95c4a6030dfe6ca0ed1bd77daeafc5c0",
+      "wall_seconds": 148.46344744299859,
+      "child_commands": 16
+    },
+    "chapter04": {
+      "directory": "chapter04-01",
+      "contract": "contract-chapter04.json",
+      "contract_sha256": "52b58178702f5afecc366ed2edab8b1da4c553c3cab3703c2e1fa6fe34d4a905",
+      "report_sha256": "b1028e95c14fb168b5905e2248ce1e735a942aa85d8f61b012a4b89a9efb12c9",
+      "wall_seconds": 59.37026819700077,
+      "child_commands": 8
+    },
+    "apollonius": {
+      "directory": "apollonius-01",
+      "contract": "contract-apollonius.json",
+      "contract_sha256": "082e865282360a9616cc7f27558e668f630ac1a0dccb7564f020b318f689b506",
+      "report_sha256": "29562feadc0511017e7311b50f15dcb3269dce8392d09a6e1bf1ef9c0d26d8e0",
+      "wall_seconds": 83.59551535299943,
+      "child_commands": 8
+    },
+    "projective": {
+      "directory": "projective-01",
+      "contract": "contract-projective.json",
+      "contract_sha256": "3c0eb86b50b4bf972e8b2798cda2b6653a76556a19addbc408861e31b3ad1cca",
+      "report_sha256": "5aef113403a80ba66ae908477e01a7d6220ed1e3aa2f192af030f5b6d15b7064",
+      "wall_seconds": 86.12735803999931,
+      "child_commands": 11
+    },
+    "pgl": {
+      "directory": "pgl-01",
+      "contract": "contract-pgl.json",
+      "contract_sha256": "b7687826a0bf34e7bb23d5c3637d298ab918839276175a4ffe5b7d5e345135c1",
+      "report_sha256": "4b1ce7b070f84beca14bf27af4690cf43a0be4e6742ebbab4b19784486ab77e1",
+      "wall_seconds": 57.2560471630004,
+      "child_commands": 9
+    },
+    "affine_generation": {
+      "directory": "affine-generation-01",
+      "contract": "contract-affine-generation.json",
+      "contract_sha256": "a695a3c8c78b62511f8b8a0310fef8a33ed3b5aab3b504cb1e9f59fd74c2d17d",
+      "report_sha256": "b00753b8f2fd31513e21546d4b293038b6b5a03acaa5a1926d761a417be4b883",
+      "wall_seconds": 95.3149563349998,
+      "child_commands": 13
+    },
+    "arithmetic": {
+      "directory": "arithmetic-01",
+      "contract": "contract-arithmetic.json",
+      "contract_sha256": "5d3247be8d5cb4e07023f97cedd8019e7820be94141c24f6cce20e57c4d0a761",
+      "report_sha256": "785e7e6af31f6f05f4015eb85f3662f7275eeca628de3cf240d7f69a65e825d5",
+      "wall_seconds": 112.76254402999984,
+      "child_commands": 16
+    },
+    "bruhat": {
+      "directory": "bruhat-01",
+      "contract": "contract-bruhat.json",
+      "contract_sha256": "a26c4e025a143e79cb54036edc49c7e23225c20e6768dcaece4dc791071ae1fa",
+      "report_sha256": "d07781341ee7737a1540f0e323e59b4fa4ab5e91ac0906bb917bf8232a2701d8",
+      "wall_seconds": 131.71166201599954,
+      "child_commands": 14
+    },
+    "fixed_points": {
+      "directory": "fixed-points-01",
+      "contract": "contract-fixed-points.json",
+      "contract_sha256": "05a7d963c28ba59f66a36781537662112d8ca2be7423f5f811a30ee0456a6060",
+      "report_sha256": "eddf8d271299079c34e2d1cd235787bf90d18e637bf73109a42c250c97704997",
+      "wall_seconds": 124.12184168500062,
+      "child_commands": 15
+    },
+    "cardinality": {
+      "directory": "cardinality-01",
+      "contract": "contract-cardinality.json",
+      "contract_sha256": "169ace87594bf91da0e606df7b36b57ff1e76e1cee168e6594acd9d4db89502c",
+      "report_sha256": "61e641a9d68f03277366460f9e562bfc12736d85c0334c4c243b915b2ecd0f2a",
+      "wall_seconds": 166.66252444300153,
+      "child_commands": 17
+    },
+    "normalization": {
+      "directory": "normalization-01",
+      "contract": "contract-normalization.json",
+      "contract_sha256": "56186e8401cc6a12af369fd43bd07af1607f67ab785abf443de38a745e5cd68e",
+      "report_sha256": "70b072cc8ecd99068484f174cdda8910ccbaeb9db59855cf4c63adf6502de42c",
+      "wall_seconds": 254.29799651800022,
+      "child_commands": 23
+    }
+  },
+  "previous_lean_statements": 644,
+  "new_lean_statements": 28,
+  "total_lean_statements": 672,
+  "normalization_axioms": {
+    "AEGPaper0.Chapter04Normalization": {
+      "normalize_height": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "normalize_preserves_upper": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "normalize_inverse": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "normalize_bijective": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "normalize_smooth": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "chart_derivative_apply": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "normalize_hasFDerivAt": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "normalize_fderiv": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "standard_metric_is_unit_model": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "metric_pullback": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "tensor_pullback": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "normalized_metric_scale": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "equal_intensities_identity": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "chart_real_imag": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "chart_upper": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "chart_horizontal_leaf": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "ripple_in_original_coordinates": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "original_boundary_contact": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "AEGPaper0.Chapter04PoleReading": {
+      "rightmost_translation_reads_pole": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "bruhat_word_in_bigCell": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "bruhat_word_poles_equal_iff": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "pole_invariant_under_affine_output": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "rightmost_translation_unique": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "matrix_bruhat_word": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "matrix_pole_from_rightmost_translation": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "affine_cell_pole_reading": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "projective_cell_pole_reading": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "same_pole_distinct_output": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  },
+  "source_import_audits": 442,
+  "negative_controls": {
+    "scale-guard": "Rejected with the expected specific type mismatch",
+    "metric-factor": "Rejected with the expected specific type mismatch",
+    "pole-sign": "Rejected with the expected specific type mismatch",
+    "inverse-guard": "Rejected with the expected specific type mismatch"
+  },
+  "native_runs": 69,
+  "reference_transitions": 51137,
+  "preceding_native_reports_unchanged": 69,
+  "original_proof_library_goal_contract_and_runtime_receiver_bytes_unchanged": true,
+  "old_formal_sources_with_explicit_navigation_successors": [
+    "inventory.py",
+    "inventory.json",
+    "test_cardinality.py"
+  ],
+  "formal_source_files": 157,
+  "manuscript_source_files": 22,
+  "archive": {
+    "path": "normalization-run-01.tar.gz",
+    "sha256": "cf0e37ab8954a4bf40034c730015184765ce6d01c3a7bc52ba41d7f4b3023409",
+    "bytes": 20086480,
+    "members": 1096,
+    "uncompressed_bytes": 69494163
+  },
+  "manuscript_builds": {
+    "0": {
+      "status": "Passed",
+      "pages": 103,
+      "pdf_bytes": 909781,
+      "pdf_sha256": "017d9a1e50a5157e1f761031c890682bb4a541e482823f56fb9973c13dc7c61a",
+      "final_log_sha256": "78610e13936c6bce2d51378db623f6f6447367d80938961edd0ee8c265e50881",
+      "unresolved_references_citations_duplicate_labels_missing_assets": false,
+      "overfull_boxes": 2,
+      "max_overfull_pt": 11.13274,
+      "note": "Validation PDF retained externally; tracked manuscript PDF restored without changing its bytes."
+    },
+    "1": {
+      "status": "Passed",
+      "pages": 61,
+      "pdf_bytes": 756641,
+      "pdf_sha256": "dba324c9b817248f6265622f31311df59a0223a8db62312862350a1ade0d6d75",
+      "final_log_sha256": "8044ee100efbd7a3a1fadf431680fa65afe81fd92f084cee304bf3a69a6d7766",
+      "unresolved_references_citations_duplicate_labels_missing_assets": false,
+      "overfull_boxes": 8,
+      "max_overfull_pt": 105.1512,
+      "note": "Validation PDF retained externally; tracked manuscript PDF restored without changing its bytes."
+    }
+  },
+  "pre_receipt_checks": {
+    "passed": 70,
+    "pending_receipt_test": 1,
+    "note": "The archive-binding test cannot pass before the completed execution receipt exists. Its missing-receipt error is retained verbatim in engineering/unit-before-receipt.log."
+  },
+  "unit_tests_after_archive": 71,
+  "live_inventory": {
+    "source_files": 22,
+    "theorem_like_environments": 102,
+    "component_mapped": 35,
+    "fragment_certified": 1,
+    "not_yet_formalized": 66,
+    "separately_mapped_equations": 6
+  },
+  "source_audit": [
+    {
+      "label": "rem:p0-ripple-normalization",
+      "status": "partially proved as printed",
+      "issue": "The remark calls the metric in the Z-chart standard curvature -1 without explicitly rescaling by lambda^2; Section 3 eq:scaled-standard-hyperbolic-metric retains lambda^-2. We prove the exact scaled tensor identity and do not certify the unscaled curvature wording. Source text is unchanged."
+    }
+  ],
+  "scope": "28 new exact audits connect Chapter 4 normalization to actual real derivatives and metric tensors, and read the rightmost translation pole directly in PGL. Rebuild unchanged imports without counting them as new; both remarks receive component coverage only.",
+  "remaining": [
+    "Intrinsic horocycles, ideal-boundary topology and differential tangency; only existing Euclidean circle/boundary equations are transported.",
+    "Curvature and completeness, or a global manifold isometry to Mathlib hyperbolic space.",
+    "The standard metric factor is lambda^-2; an unscaled curvature -1 identification of the original metric is not certified.",
+    "The known unrestricted consecutive-prefix claim in rem:p0-pole-forward remains partial as printed.",
+    "Ordinary division by zero, analytic convergence, quotient transport from Paper IV or whole-chapter completeness."
+  ],
+  "deferred_chapter03": "chapter03-obligations.json",
+  "predecessor_execution_receipt_sha256": "87b28c0043c5441a5d50fd5dfb802d3285664281bd84b8340b8d2127bcd7f519",
+  "trust_boundary": "Pinned compiler/standard library and source/cache-fingerprinted Mathlib are trusted builds. Actual derivatives and metric tensors retain the lambda^-2 scale. PGL pole reading is independent of affine output postcomposition; point images can change. Intrinsic horocycles, ideal boundary, differential tangency, curvature/completeness and the unscaled wording in the source remark are not certified. All twelve profiles pass separately under unchanged numerical limits and the same captured source lock. Native and build work is serial."
+}

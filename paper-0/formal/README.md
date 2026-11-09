@@ -1342,6 +1342,67 @@ references/citations, duplicate labels or missing assets. Existing overfull
 boxes (2/8, maximum 11.13/105.15 pt) and bookmark/underfull warnings remain;
 manuscript text and tracked PDFs are exact.
 
+## Chapter 4 normalization and direct pole reading (2026-11-09)
+
+`Chapter04Normalization.lean` adds 18 audits connecting the actual Chapter 3
+metric tensor to the chart `Z=(lambda/mu)x+i*y`. The chart is smooth, has its
+proved inverse for nonzero intensities, and its actual Frechet derivative is
+the linear normalization map. The exact pullback identity retains
+`g=lambda^-2 * Z^*g_standard`. Horizontal levels, the guarded ripple equation
+in original coordinates and its Euclidean boundary contact are transported.
+No curvature, completeness, intrinsic horocycle or differential tangency
+identification is inferred. The source remark's unscaled curvature -1 wording
+is explicitly recorded as partial in `normalization-map.json`; Section 3's
+scaled formula is the certified identity.
+
+`Chapter04PoleReading.lean` adds 10 audits in the actual PGL quotient:
+`T_a D_u J T_t` has pole `-t`, the parameter is unique, the matrix factorization
+supplies `t=D/C`, and the affine/projective cells agree with infinite/finite
+poles. Affine postcomposition preserves the pole while a nonzero translation
+can change a finite point image. A pole does not identify an operator or a
+marked history.
+
+There are 672 distinct audits, including 124 in direct Chapter 4 modules.
+The two previously unmapped remarks now have direct component maps. The
+inventory has 35 component-mapped environments, one fragment-certified and
+66 not yet formalized among 102 in 22 sources, with six equation anchors.
+All 442 unchanged import audits are counted separately. Exact axiom sets use
+only actual subsets of `propext`, `Classical.choice` and `Quot.sound`.
+The existing Mathlib lock suffices.
+
+`contract-normalization.json` prospectively retains the existing independent
+300-second and other numerical profile limits: 15 imports, two positive
+modules, four specific negatives and 23 commands. All eleven preceding
+profiles remain independently required. The new cumulative archive test
+prospectively declares a 128 MiB uncompressed packaging cap; older archive
+caps and scientific runtime/artifact limits remain unchanged. Only current
+navigation and its latest historical receipt test change; old proof, goal,
+contract, runtime receiver, library and archive bytes remain exact.
+
+```sh
+python paper-0/formal/normalization_run.py \
+  --mathlib-root /absolute/path/to/pinned/mathlib \
+  --lean /absolute/path/to/lean/bin/lean \
+  --output /absolute/path/to/new-normalization-evidence-directory
+```
+
+`evidence/normalization-execution.json` and `normalization-run-01.tar.gz`
+receive all twelve profiles as `Passed` under independent unchanged limits.
+The new profile takes 254.30 seconds for 23 commands, 442 unchanged import
+audits, 28 new audits and four specific rejections. All 69 native reports
+remain byte-identical to the preceding checkpoint, with 51,137 independent
+reference transitions.
+
+The 1,096-member archive binds 157 formal sources plus their lock, 22 manuscript
+sources, workflow, preflight diagnostics, twelve reports, exact audits,
+negative controls, native replay evidence and both build logs. All 71
+regressions pass against the complete receipt; the earlier 70 passes and
+then-pending receipt check remain in their original log. Both manuscript
+builds pass at 103/61 pages, without unresolved references/citations, duplicate
+labels or missing assets. Existing overfull boxes (2/8, maximum 11.13/105.15 pt)
+and bookmark/underfull warnings remain; manuscript text and tracked PDFs are
+unchanged.
+
 ## Continuation order
 
 The §2 continuations and §3 coordinate/real-analysis bridge are received above.

@@ -51,7 +51,8 @@ def generate():
     bruhat = json.loads((HERE / "bruhat-map.json").read_text())
     fixed_points = json.loads((HERE / "fixed-points-map.json").read_text())
     cardinality = json.loads((HERE / "cardinality-map.json").read_text())
-    mappings = [mapping, appendix, evaluability, chapter03, analysis, chapter04, apollonius, projective, pgl, affine_generation, arithmetic, bruhat, fixed_points, cardinality]
+    normalization = json.loads((HERE / "normalization-map.json").read_text())
+    mappings = [mapping, appendix, evaluability, chapter03, analysis, chapter04, apollonius, projective, pgl, affine_generation, arithmetic, bruhat, fixed_points, cardinality, normalization]
     for reviewed in mappings:
         if digest(ROOT / reviewed["source"]) != reviewed["source_sha256"]:
             raise ValueError("reviewed formal correspondence has source drift: " + reviewed["source"])
@@ -111,6 +112,7 @@ def generate():
             "bruhat_map_sha256": digest(HERE / "bruhat-map.json"),
             "fixed_points_map_sha256": digest(HERE / "fixed-points-map.json"),
             "cardinality_map_sha256": digest(HERE / "cardinality-map.json"),
+            "normalization_map_sha256": digest(HERE / "normalization-map.json"),
             "equation_components": list(equations.values()),
             "claims": claims}
 
