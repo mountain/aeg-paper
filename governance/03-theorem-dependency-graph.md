@@ -3589,3 +3589,23 @@ No arrow runs from pants topology, FN coordinates, circle incidence or the
 finite scalar example to faithful multi-input AES motion realization. The
 complete-metric obstruction is imported from Paper I's existing splitting
 theorem, not reproved or strengthened as a new classification.
+
+## Paper III intensity correction (2026-11-09)
+
+The historical S-0010 arrows are replaced by S-0011:
+
+```text
+fixed A + conformal realization -> fixed zero incidence (P3-L11)
+fixed g + fixed rectified t -> common level foliation (P3-L11)
+fixed g alone -/-> fixed zero carrier (moving-line counterexample)
+compact connected M + dA nonzero -> diam(g_lambda) -> 0 (P3-L12)
+admissible gradient access -> exact distance to zero (P3-L12)
+one-sided Lipschitz coarea densities -> sided area coefficient (P3-L12)
+fixed induced zero tensor -/-> ambient distance isometry (cylinder counterexample)
+```
+
+P3-L12 imports conformal realization from `thm:conformal-realization`; its
+compact collapse proof is in the proposition itself. It does not import a GH
+carrier-limit theorem from Paper 0. No arrow yields a limiting assignment from
+metric convergence alone. The unchanged unit-scaling identity is separate from
+both fixed-carrier and compact-collapse statements.

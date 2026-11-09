@@ -79,34 +79,39 @@ For an ambient regular AEG family, equation~\eqref{eq:aeg-eikonal} makes
 $D^VA=\dd A_b$ nonzero everywhere, so the first two conclusions are automatic at
 zero.  Properness is not.
 
-\begin{remark}[The intensity plane is not a base for the zero incidence]
+\begin{remark}[Fixed intensities versus a fixed zero carrier]
 \label{rem:intensity-plane-not-a-base}
 Definition~\ref{def:ambient-aeg-family} fixes $(\mu,\lambda)$ outside the base.
-Promoting the two intensities to base coordinates does not by itself produce a
-larger family of tubes, in either of the two readings available here.
+If these intensities are instead parameters, a fixed carrier requires an
+additional choice of data; it does not follow from the eikonal identity alone.
 \begin{enumerate}
-\item \emph{Fixed assignment.}  Let $A$ be a fixed submersion on a fixed surface
-and, for each $(\mu,\lambda)$, let the fiber metric be the conformal realization
-\eqref{eq:conformal-realization-metric} of
-Theorem~\ref{thm:conformal-realization}.  Then $A$ does not depend on
-$(\mu,\lambda)$, and the zero incidence is $Z(A)\times\{(\mu,\lambda)\}$.
-\item \emph{Fixed metric.}  Let $(M,g)$ be fixed and suppose that each
-$(\mu,\lambda)$ carries an assignment satisfying \eqref{eq:aeg-eikonal}.  By the
-normal form of Paper~0 \cite{Yuan2026AEGPaperZero}, on a connected complete
-boundaryless $M$ that assignment is
+\item \emph{Fixed assignment.}  Fix a submersion $A$ and a background metric $h$.
+The conformal realization \eqref{eq:conformal-realization-metric} changes the
+metric with $(\mu,\lambda)$, while its zero incidence is exactly
+$Z(A)\times B$ over the chosen intensity parameter domain $B$.
+\item \emph{Fixed metric and fixed rectified assignment.}  Fix $(M,g)$ and one
+smooth function $t$ with $|\nabla t|_g=1$.  Then
 \[
- a=\frac{|\mu|}{|\lambda|}\sinh(|\lambda|t)\quad(\lambda\ne0),
- \qquad a=|\mu|\,t\quad(\lambda=0),
+ a_{\mu,\lambda}=\frac{|\mu|}{|\lambda|}\sinh(|\lambda|t)
+ \quad(\lambda\ne0),\qquad a_{\mu,0}=|\mu|t
 \]
-where $t$ is the distance to $Z(a)$.  The level sets of $a$, and hence $Z(a)$, are
-the same for every $(\mu,\lambda)$; only the arithmetic label attached to each
-level changes.
+satisfies the eikonal identity, and all these assignments have the same level
+foliation and zero set $\{t=0\}$.  In the complete normal form of Paper~0
+\cite{Yuan2026AEGPaperZero}, $t$ is a \emph{signed} normal coordinate determined
+by the assignment.  Fixing the metric alone does not fix that coordinate.
 \end{enumerate}
-In both readings the tube over the intensity plane is a product, and the parameter
-moves the metric or the labels rather than the carrier.  A construction intended to
-produce new tubes from a base parameter must therefore vary something other than
-$(\mu,\lambda)$.  What the intensity axis does move is the subject of
-Subsection~\ref{subsec:intensity-collapse}.
+For example, on the complete Euclidean plane, for any smooth real function
+$b(\mu,\lambda)$ and $\mu,\lambda>0$,
+\begin{equation}
+ a_{\mu,\lambda}(x,y)
+ =\frac{\mu}{\lambda}\sinh\bigl(\lambda(x-b(\mu,\lambda))\bigr)
+ \label{eq:intensity-moving-zero}
+\end{equation}
+has $|\nabla a_{\mu,\lambda}|^2=\mu^2+\lambda^2a_{\mu,\lambda}^2$, but its zero
+line is $x=b(\mu,\lambda)$.  The total incidence in this example is abstractly
+a product, but it is not the same embedded carrier in every fiber.  Thus the two
+fixed-data constructions above give products; they do not constitute a no-go
+theorem for all intensity-indexed assignments on a fixed metric.
 \end{remark}
 
 \begin{remark}[A length unit and a dimensionless ratio]
@@ -118,8 +123,8 @@ The axioms are invariant under the joint rescaling
  \label{eq:intensity-scaling}
 \end{equation}
 because both sides of \eqref{eq:aeg-eikonal} are multiplied by $s^{-2}$; the
-normalized arithmetic frame is unchanged, and so are $Z(a)$ and the level
-foliation.  The ratio
+arithmetic frame is multiplied by $s^{-1}$, so its directions are unchanged,
+as are $Z(a)$ and the level foliation.  The ratio
 \begin{equation}
  \rho:=\frac{\lambda}{\mu}
  \label{eq:intensity-ratio}
@@ -264,110 +269,191 @@ zero component can be created by tangency to the boundary even though the interi
 field remains regular.  Such a parameter lies in $\calD_\partial$, not in
 $\calD_{\mathrm{crit}}$.
 
-\subsection{A parameter axis with no discriminant}
+\subsection{A parameter axis with fixed zero incidence}
 \label{subsec:intensity-collapse}
 
-The structural discriminant of Definition~\ref{def:structural-discriminant}
-records every way a parameterized zero problem can lose stability.  The family
-below shows that a parameter axis may avoid that discriminant completely and still
-degenerate: no zero moves, no component is created or destroyed, and the metric
-itself collapses onto the carrier.  Write
+A fixed zero incidence does not imply a fixed metric-space carrier in the limit.
+For a fixed background metric $h$, submersion $A$, and $\mu>0$, put
 \begin{equation}
- g_\lambda=\frac{|\dd A|_h^2}{\mu^2+\lambda^2A^2}\,h
+ g_\lambda=\frac{|\dd A|_h^2}{\mu^2+\lambda^2A^2}\,h,
+ \qquad \lambda>0.
  \label{eq:intensity-collapse-metric}
 \end{equation}
-for the conformal realization of Theorem~\ref{thm:conformal-realization} with
-background metric $h$, submersion $A$, and parameter $\lambda>0$.
+The conformal realization preserves lengths of curves contained in $A=0$, but
+ambient paths can leave that set and become shorter.  The distinction controls
+the following corrected statement.
 
-\begin{proposition}[Collapse onto the carrier]
+\begin{proposition}[Fixed zero tensor, ambient collapse, and area concentration]
 \label{prop:intensity-collapse}
-Let $M$ be a compact oriented surface with boundary, $h$ a Riemannian metric on
-$M$, and $A\in C^\infty(M,\R)$ with $\dd A\ne0$ everywhere and $0\in A(M)$; put
-$\Sigma=A^{-1}(0)$.  For $\lambda>0$ let $g_\lambda$ be given by
-\eqref{eq:intensity-collapse-metric}.  Then:
+Let $M$ be a compact connected oriented smooth surface with boundary, $h$ a
+smooth Riemannian metric, and $A\in C^\infty(M,\R)$ with $\dd A\ne0$
+everywhere and $0\in A(M)$.  Write $\Sigma=A^{-1}(0)$ and let $d_\lambda$ be
+the intrinsic path distance of $g_\lambda$ on $M$.  Then:
 \begin{enumerate}
-\item $(M,g_\lambda,A;\mu,\lambda)$ is a regular AES for every $\lambda>0$;
-\item the induced metric on $\Sigma$ is
-  $g_\infty:=\mu^{-2}|\dd A|_h^2\,h|_\Sigma$, independent of $\lambda$, and the
-  inclusion $\Sigma\hookrightarrow(M,g_\lambda)$ is isometric for every $\lambda$;
-\item for every $p\in M$,
-  \begin{equation}
-   \operatorname{dist}_{g_\lambda}(p,\Sigma)
-    \le\frac1\lambda\operatorname{arcsinh}
-      \frac{\lambda|A(p)|}{\mu},
-   \label{eq:intensity-collapse-distance}
-  \end{equation}
-  so $(M,g_\lambda)$ converges to $(\Sigma,g_\infty)$ in the
-  Gromov--Hausdorff sense at rate $O(\lambda^{-1}\log\lambda)$;
-\item $\operatorname{area}(M,g_\lambda)
-  =\pi L_{g_\infty}(\Sigma)\,\lambda^{-1}
-   +O(\lambda^{-2}\log\lambda)$, where $L_{g_\infty}$ is length in
-  $g_\infty$;
-\item the limit carries the constant assignment $0$ and satisfies
-  $|\nabla A|_{g_\infty}=0$ at every point, so it is not a regular AES.
+\item $(M,g_\lambda,A;\mu,\lambda)$ is a regular AES.  On every smooth
+zero-curve portion the pullback tensor is
+\[
+ g_\Sigma=\mu^{-2}|\dd A|_h^2h|_{T\Sigma},
+\]
+independent of $\lambda$.  This is a statement about curve lengths, not an
+isometry between the intrinsic distance on $\Sigma$ and $d_\lambda|_{\Sigma}$.
+\item For every $p\in M$,
+\begin{equation}
+ \operatorname{dist}_{d_\lambda}(p,\Sigma)
+ \ \ge\ \frac1\lambda\operatorname{arcsinh}
+                  \frac{\lambda|A(p)|}{\mu}.
+ \label{eq:intensity-collapse-distance}
+\end{equation}
+Equality holds if the trajectory of $X=\nabla_h A/|\dd A|_h^2$ from $p$ to
+level zero remains in $M$.  If every point has this property, then
+\[
+ d_{\mathrm{GH}}\bigl((M,d_\lambda),(\Sigma,d_\lambda|_\Sigma)\bigr)
+ \le \lambda^{-1}\operatorname{arcsinh}
+                    (\lambda\|A\|_\infty/\mu).
+\]
+Here the metric on $\Sigma$ is the \emph{ambient restricted distance}, which
+also varies with $\lambda$.
+\item $\operatorname{diam}(M,d_\lambda)\to0$, so $(M,d_\lambda)$ converges
+in the Gromov--Hausdorff sense to a single point.  No uniform rate is asserted
+under these hypotheses alone.
+\item Define the coarea density, extended by zero outside $A(M)$, by
+\[
+ I(c)=\int_{A=c}|\dd A|_h\,\dd\mathcal H_h^1
+ \quad\hbox{for almost every }c.
+\]
+If, for some $\delta>0$ and constants $I_+,I_-$,
+$I(c)=I_++O(c)$ for $0<c<\delta$ and
+$I(c)=I_-+O(|c|)$ for $-\delta<c<0$, then
+\begin{equation}
+ \operatorname{area}(M,g_\lambda)
+ =\frac{\pi(I_++I_-)}{2\mu\lambda}
+       +O(\lambda^{-2}\log\lambda).
+ \label{eq:intensity-area-sided}
+\end{equation}
+In particular, if $\Sigma$ is a smooth zero curve and
+$I_+=I_-=\mu L_{g_\Sigma}(\Sigma)$, the leading term is
+$\pi L_{g_\Sigma}(\Sigma)/\lambda$.  If only one side is present with that
+density, its coefficient is half as large.
 \end{enumerate}
 \end{proposition}
 
 \begin{proof}
-(1) is Theorem~\ref{thm:conformal-realization} applied to the submersion $A$ and
-the background $h$: the prefactor in \eqref{eq:intensity-collapse-metric} is
-positive and smooth, so $g_\lambda$ is a Riemannian metric and the eikonal identity
-holds.
+(1) The prefactor in \eqref{eq:intensity-collapse-metric} is positive and smooth;
+Theorem~\ref{thm:conformal-realization} gives the eikonal identity.  Restriction
+to $A=0$ gives the displayed pullback tensor.  It fixes intrinsic curve lengths
+but places no lower bound on the lengths of competing paths in $M$.
 
-(2) On $\Sigma$ one has $A=0$, hence
-$g_\lambda|_\Sigma=\mu^{-2}|\dd A|_h^2\,h|_\Sigma=g_\infty$ by
-\eqref{eq:intensity-collapse-metric}.  The induced metric of $\Sigma$ in
-$(M,g_\lambda)$ is therefore $\lambda$-independent, so the inclusion is isometric.
-
-(3) Follow the $h$-normal path from $p$ to $\Sigma$; it exists because $\dd A$ does
-not vanish.  Along that path $\dd s_h=\dd A/|\dd A|_h$ in absolute value, so its
-$g_\lambda$-length is
+(2) Set $F_\lambda(u)=\lambda^{-1}\operatorname{arcsinh}(\lambda u/\mu)$.
+Directly from the eikonal identity,
+$|\dd(F_\lambda\circ A)|_{g_\lambda}=1$.  Integrating along any path from $p$
+to $\Sigma$ gives \eqref{eq:intensity-collapse-distance}.  Along an admissible
+trajectory of $X$ one has $A=c$ as parameter and
 \[
- \int_0^{|A(p)|}
- \frac{|\dd A|_h}{\sqrt{\mu^2+\lambda^2A^2}}\,\frac{\dd A}{|\dd A|_h}
- =\frac1\lambda\operatorname{arcsinh}\frac{\lambda|A(p)|}{\mu},
+ \dd s_{g_\lambda}=\frac{|\dd c|}{\sqrt{\mu^2+\lambda^2c^2}}.
 \]
-which is \eqref{eq:intensity-collapse-distance}.  Since $A$ is bounded on the
-compact $M$, every point of $M$ lies within
-$\varepsilon(\lambda)=O(\lambda^{-1}\log\lambda)$ of the isometrically embedded
-$\Sigma$.  A correspondence that sends each point of $M$ to a nearest point of
-$\Sigma$ and fixes $\Sigma$ therefore has distortion at most $2\varepsilon$, which
-gives the stated Gromov--Hausdorff rate.
+Its length attains the lower bound.  If all these trajectories stay in $M$,
+$\Sigma$ is within the stated Hausdorff distance in the common metric space
+$(M,d_\lambda)$.  This bounds the Gromov--Hausdorff distance to the metric
+\emph{subset} $(\Sigma,d_\lambda|_\Sigma)$, not to its intrinsic curve metric.
 
-(4) The coarea formula with respect to $h$ gives
+(3) Put $g_0=\mu^{-2}|\dd A|_h^2h$ and write $d_0$ for its path distance.
+Then $g_\lambda\le g_0$.  For any $\varepsilon>0$, choose a finite
+$\varepsilon$-net for $(M,d_0)$ with centers in
+$\operatorname{int}(M)\setminus\Sigma$, a dense subset.  The interior of a
+connected smooth manifold with boundary is connected.  Join the centers to a
+fixed center by finitely many smooth interior paths transverse to the
+smooth interior zero set.  Each such path meets $\Sigma$ at only finitely many
+points.  Along it, the $g_\lambda$ speed tends to zero almost everywhere and
+is bounded by its integrable $g_0$ speed.  Dominated convergence makes each of
+these finitely many path lengths tend to zero.  Every point of $M$ is within
+$\varepsilon$ in $d_\lambda$ of a center, whence
+$\operatorname{diam}(M,d_\lambda)\le2\varepsilon+o(1)$.
+Letting $\varepsilon\downarrow0$ proves the claim.  The GH distance to a
+single point is half the diameter.
+
+(4) Coarea gives exactly
 \[
  \operatorname{area}(M,g_\lambda)
- =\int_{\R}\frac{I(c)}{\mu^2+\lambda^2c^2}\,\dd c,
- \qquad
- I(c)=\int_{A=c}|\dd A|_h\,\dd\mathcal H^1 ,
+ =\int_{\R}\frac{I(c)}{\mu^2+\lambda^2c^2}\,\dd c.
 \]
-with $I$ smooth and compactly supported in the image of $A$.  The value $I(0)$ is
-$\mu\,L_{g_\infty}(\Sigma)$, because the arclength element of $g_\infty$ is
-$\mu^{-1}|\dd A|_h\,\dd\mathcal H^1$.  Splitting off $I(0)$ gives
-$\pi I(0)/(\mu\lambda)$ up to an $O(\lambda^{-2})$ correction coming from the
-finite range of $A$, while the remainder is bounded by
-$O\!\left(\lambda^{-2}\log\lambda\right)$ since $|I(c)-I(0)|=O(|c|)$ and
-$\int|c|\,\dd c/(\mu^2+\lambda^2c^2)=O(\lambda^{-2}\log\lambda)$ over a bounded
-interval.  This is the stated asymptotic.
-
-(5) $A$ is constant on $\Sigma$, so its intrinsic gradient there vanishes at every
-point, whereas the right-hand side of \eqref{eq:aeg-eikonal} is at least
-$\mu^2>0$.  The limit violates the eikonal identity and is not a regular AES.
+The density is integrable, since
+$\int I(c)\,\dd c=\int_M|\dd A|_h^2\,\dd\operatorname{vol}_h<\infty$.
+The part with $|c|\ge\delta$ is $O(\lambda^{-2})$.  On either side of zero,
+\[
+ \int_0^\delta\frac{\dd c}{\mu^2+\lambda^2c^2}
+   =\frac{\pi}{2\mu\lambda}+O(\lambda^{-2}),
+ \qquad
+ \int_0^\delta\frac{c\,\dd c}{\mu^2+\lambda^2c^2}
+   =O(\lambda^{-2}\log\lambda).
+\]
+Insert the two one-sided estimates.  On a smooth zero curve,
+$I(0)=\mu L_{g_\Sigma}(\Sigma)$; equality with the side limits is an
+additional assertion, not a consequence of $\dd A\ne0$ at a boundary point.
 \end{proof}
 
-\begin{remark}[Both hypotheses are active]
+\begin{example}[A cylinder whose zero circle also collapses in ambient distance]
+\label{ex:intensity-cylinder-shortcut}
+Let $M=[-1,1]\times(\R/2\pi\Z)$, $h=\dd t^2+\dd\theta^2$, and $A=t$.
+Then $g_\lambda=(\dd t^2+\dd\theta^2)/(\mu^2+\lambda^2t^2)$ and the
+intrinsic length of the zero circle is $2\pi/\mu$.  Nevertheless any two points
+can be joined by going radially to $t=1$, along that circle, and radially back;
+therefore
+\[
+ \operatorname{diam}(M,d_\lambda)
+ \le\frac{4}{\lambda}\operatorname{arcsinh}(\lambda/\mu)
+       +\frac{\pi}{\sqrt{\mu^2+\lambda^2}}.
+\]
+For antipodal points on the zero circle the same path has length at most
+$2\lambda^{-1}\operatorname{arcsinh}(\lambda/\mu)
++\pi/\sqrt{\mu^2+\lambda^2}\to0$, whereas their intrinsic zero-circle
+distance is $\pi/\mu$.  Thus even global gradient access does not yield an
+ambient isometric copy of the zero circle or a GH limit equal to that circle.
+\end{example}
+
+\begin{example}[Boundary access and one-sided area]
+\label{ex:intensity-boundary-controls}
+Two separate boundary effects must be retained.
+First take the closed Euclidean unit disk, $A(x,y)=x+1/2$, and
+$p=(0,19/20)$.  The horizontal gradient segment toward $x=-1/2$ leaves the disk,
+since $(-1/2)^2+(19/20)^2>1$.  The lower bound
+\eqref{eq:intensity-collapse-distance} is strict: a shortest path exists in
+this compact smooth Riemannian domain, and equality in the integrated
+unit-gradient inequality would force it to be that horizontal monotone segment.
+The zero curve meets the boundary transversely, so boundary transversality alone
+does not supply gradient access.
+
+Second take $M=[0,1]\times(\R/2\pi\Z)$, $h=\dd t^2+\dd\theta^2$,
+$A=t$, and $\mu=1$.  The zero circle has intrinsic length $2\pi$, but
+\[
+ \operatorname{area}(M,g_\lambda)
+ =\frac{2\pi}{\lambda}\arctan\lambda
+ =\frac{\pi^2}{\lambda}+O(\lambda^{-2}),
+\]
+not $2\pi^2/\lambda$.  Here $I_+=2\pi$ and $I_-=0$; the missing side of
+the zero level changes the leading coefficient.
+\end{example}
+
+\begin{remark}[Boundary, compactness, and the assignment in the limit]
 \label{rem:intensity-collapse-hypotheses}
-The condition $\dd A\ne0$ cannot be dropped: at a critical point of $A$ the
-prefactor in \eqref{eq:intensity-collapse-metric} vanishes and $g_\lambda$ is not a
-metric.  On a compact surface without boundary a smooth $A$ always has a critical
-point, so the compact case must carry a boundary; this is the obstruction that also
-excludes a closed regular AES in Paper~0.  For an ambient family the statement is
-applied fiberwise, with $\dd A$ replaced by the vertical derivative $D^VA$ and $h$
-by the vertical metric, and with the conclusion restricted to the regular part
-$M\setminus\Sigma_{\mathrm{crit}}$, where
-$\Sigma_{\mathrm{crit}}=\{D^VA=0\}$ is exactly the stratum that
-Proposition~\ref{prop:polynomial-carrier-thread} declares singular.  There the
-limit is $\Sigma\setminus\Sigma_{\mathrm{crit}}$.
+The condition $\dd A\ne0$ ensures a metric, but does not itself ensure that
+$\Sigma$ is a smooth one-manifold at the boundary.  For example, $A=x+1$ on
+the closed unit disk has a single boundary zero.  Two-sided smooth coarea data
+near zero are available if zero is an interior value and
+$A|_{\partial M}$ is transverse to zero (including an interior zero curve
+disjoint from the boundary).  Indeed a vector field $V$ with $\dd A(V)=1$
+can then be chosen tangent to $\partial M$ near zero; its flow identifies the
+nearby fibers smoothly, so $I$ is smooth there.  A zero boundary component with
+a one-sided collar instead contributes only its available side.  These are separate from gradient
+access.  Bounded range of a submersion is not a substitute for compactness.
+
+For an ambient family, the conformal realization and the pullback-tensor identity
+apply on the regular part with $\dd A$ replaced by $D^VA$.  Removing the critical
+set generally destroys compactness, so it does not automatically preserve the
+collapse or area conclusions.  A single-point metric limit is not a regular
+two-dimensional AES.  Moreover the fixed nonconstant assignments $A$ do not
+descend uniformly to an assignment on that point: their oscillation is fixed
+and positive, so $\inf_{c\in\R}\|A-c\|_\infty=\operatorname{osc}(A)/2>0$.  The identity $A|_\Sigma=0$ is a restriction to the zero
+set, not convergence of the functions on all of $M$.
 \end{remark}
 
 \begin{warning}[A second collapse that is not this one]
@@ -393,13 +479,13 @@ different points.  A degeneration must always be stated together with the
 identification that is held fixed.
 \end{warning}
 
-Consequently the intensity axis meets no interior locus of the structural
-discriminant: the zero incidence is a product with base $\R_{>0}$, every slice
-carries the same carrier, and the total space of the incidence is
-$\Sigma\times\R_{>0}$.  The only locus it can meet is the boundary one,
-$\calD_\partial$, and only when $\Sigma$ fails to be transverse to $\partial M$.
-What the five loci cannot see is precisely the metric-only degeneration of
-Proposition~\ref{prop:intensity-collapse}.
+For the fixed-assignment construction the zero incidence is
+$\Sigma\times\R_{>0}$.  When $\Sigma$ is neat and the boundary restriction is
+regular, this axis has no event in the structural discriminant.  The
+single-point degeneration of Proposition~\ref{prop:intensity-collapse} is
+metric information not detected by that fixed zero incidence.  If boundary
+regularity fails, that defect must still be recorded; the product description
+does not remove it.
 
 \begin{problem}[Stratified AEG discriminant]
 \label{prob:aeg-discriminant}

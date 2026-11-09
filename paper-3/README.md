@@ -140,6 +140,28 @@ particular:
 - braid-level data are not automatically knot invariants;
 - visual tube constructions do not establish isotopy or Markov invariance.
 
+
+## Intensity correction (2026-11-09)
+
+Sections 9.1 and 9.5 distinguish fixed assignment from fixed metric and intrinsic
+zero-curve length from ambient distance. On a compact connected surface the
+fixed-assignment conformal family collapses to a point, not to its zero curve
+with the intrinsic metric. Exact distance requires gradient paths staying in the
+domain; area uses explicit one-sided coarea densities. The cylinder shortcut,
+disk boundary obstruction and half-area cylinder remain as regression examples.
+
+The corrected claims and historical exclusions are registered in S-0011 of
+`../governance/05-mathematical-status.md`. Run the explicit checks with:
+
+```bash
+python3 paper-3/scripts/verify-intensity-collapse.py
+python3 -O paper-3/scripts/verify-intensity-collapse.py
+```
+
+These are finite witnesses, not a computational proof of the general compactness
+argument. See `../governance/paper-III-intensity-revision-2026-11-09.md` for the
+revision audit and validation limits.
+
 ## Building
 
 Build this manuscript from the repository root with:
