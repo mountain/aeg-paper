@@ -1,25 +1,30 @@
-# AES notes: the elliptic AES programme
+# AES notes: geometry, continuity and metric realization
 
 **Status:** design and research notes, created 2026-11-07. These are not paper
 claims, not governance records, and not a change to any mathematical-status
-register. They record a working discussion whose goal is a genuine elliptic AES
-(positive curvature, compactification, analysis).
+register. Notes 01–02 record the elliptic AES programme (positive curvature,
+compactification, analysis). Notes 03–04, added 2026-11-10, record rational
+neighborhood data, continuity in an explicit basic model, and the separate open
+question of geometric metric realization.
 
 ## Why a separate `aes/` folder
 
 The notes under `analysis-and-calculus/` and `foundations-and-geometry/` develop
 the existing AES theory, whose geometric core is the basic hyperbolic model of
-Paper 0. This folder isolates the **elliptic AES programme**: the choice of the
+Paper 0. The folder began with the **elliptic AES programme**: the choice of the
 Cayley–Klein real-form family as skeleton, the audit of the same-named
 trichotomies, and the arithmetic/expression-side questions that this choice
-opens.
+opens. It also holds the requested AES structural-data notes: local neighborhood
+bases and relation transport, alongside metric-realization questions.
 
 ## Contents
 
 - [01 – Trichotomy audit and the Cayley–Klein skeleton](01-trichotomy-audit-and-cayley-klein-skeleton.md)
 - [02 – The arithmetic side of the elliptic AES](02-arithmetic-side-of-the-elliptic-aes.md)
+- [03 – Quadrilateral neighborhoods and Scott continuity](03-quadrilateral-neighborhoods-and-scott-continuity.md)
+- [04 – Structural data, metric unification and the catenoid example](04-structural-data-metric-unification-and-catenoid.md)
 
-## One-paragraph summary
+## Elliptic AES programme summary (notes 01–02)
 
 Five different trichotomies in the repository share the names elliptic /
 parabolic / hyperbolic. Within the paper series, only the projective trace
@@ -43,6 +48,20 @@ spherical model. For $c>0$ the assignment is bounded, the two poles form a
 critical (turning) locus, the arithmetic motions are partial, and the expression
 side acquires a new "range domain".
 
+## Continuity and metric realization (notes 03–04)
+
+Note 03 gives proofs in a specified positive-affine basic model: rational
+quadrilateral bases, transported reference values, closure relations, a marked
+continuous family, and Scott-continuous box observations. Exact shared-parameter
+relations remain distinct from their interval envelopes. This is not a complete
+theory of arbitrary expression histories, singular tube gluing or binary
+structural composition.
+
+Note 04 preserves the metric-unification question and its catenoid example from
+the linked discussion Page. The rational root brackets are certified; displayed
+areas are numerical approximations. A general AES metric realization and a
+geometric interpretation of structural mass remain open.
+
 ## Relation to the papers
 
 - Paper 0, §3.6, Proposition 3.13 (`prop:p0-projective-trichotomy`): trace
@@ -61,7 +80,7 @@ side acquires a new "range domain".
   the $c$-family formulas and the real-form proposals. Discussion-level, not a
   paper claim.
 
-## Open questions
+## Elliptic programme open questions
 
 1. Define a **compact/critical AES** that admits the $c>0$ model without forcing
    it into the regular/singular dichotomy of Papers 0 and I.
@@ -80,3 +99,8 @@ side acquires a new "range domain".
 Written 2026-11-07 from a three-part working discussion. Paths and line numbers
 refer to the repository state at commit `f1fe625` (2026-11-07). No paper source
 was modified.
+
+The 2026-11-10 additions were directed by Mingli Yuan and formalized/drafted
+with ChatGPT / Codex (OpenAI). Their per-note provenance, proofs, sources and
+claim boundaries are recorded in notes 03–04. The source Page is preserved;
+no manuscript or mathematical-status register was changed.
