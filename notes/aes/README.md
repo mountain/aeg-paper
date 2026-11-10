@@ -7,6 +7,8 @@ compactification, analysis). Notes 03–04, added 2026-11-10, record rational
 neighborhood data, continuity in an explicit basic model, and the separate open
 question of geometric metric realization. Note 05 records neighborhood mass,
 Haar transport, conditional probability, information and their area connections.
+Note 06 studies typed probability transport, the obstruction to stochastic
+inverses, and the relation memory required for an observation to preserve closure.
 
 ## Why a separate `aes/` folder
 
@@ -25,6 +27,7 @@ bases and relation transport, alongside metric-realization questions.
 - [03 – Quadrilateral neighborhoods and Scott continuity](03-quadrilateral-neighborhoods-and-scott-continuity.md)
 - [04 – Structural data, metric unification and the catenoid example](04-structural-data-metric-unification-and-catenoid.md)
 - [05 – Measure, probability, information and area](05-measure-probability-information-and-area.md)
+- [06 – Typed probability transport and relation memory](06-typed-probability-transport-and-relation-memory.md)
 
 ## Elliptic AES programme summary (notes 01–02)
 
@@ -74,6 +77,17 @@ with certified logarithm bounds. A fixed-leaf construction connects these data
 to continuous valuations on Scott opens. General metric realization and
 probabilistic semantics for arbitrary histories remain open.
 
+## Probability transport and relation memory (note 06)
+
+Note 06 gives a finite rational transport contract and a quantitative continuity
+bound. It proves the stochastic-inverse restriction, recalls strong lumpability
+with a proof, and gives a finite algorithm for the coarsest compatible observation
+refinement. Exact examples distinguish shared relation memory from independent
+resampling, geometric closure from branch-mass closure, and Bayes reversal from
+an inverse. A standard-library verification script replays the witnesses.
+The interpretation of popularity / similarity, model interfaces and general
+Scott-continuous history semantics remain open.
+
 ## Relation to the papers
 
 - Paper 0, §3.6, Proposition 3.13 (`prop:p0-projective-trichotomy`): trace
@@ -120,3 +134,7 @@ no manuscript or mathematical-status register was changed.
 Note 05 records the separate measurement/probability thread of the same
 2026-11-10 discussion. Its additional assumptions, derivations and user-reported
 model motivation are distinguished in its provenance section.
+
+Note 06 develops the subsequent popularity / similarity discussion into finite
+theorems and rational witnesses. It retains the distinction between historical
+model reports, standard probability results, and proposed AES interpretations.
