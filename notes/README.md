@@ -77,6 +77,17 @@ elliptic AES definition remain research tasks.
   contradiction as `InvalidWitness`. Structural proposal with an explicit
   open-problem list; no claim status is promoted.
 
+## Punctured AES flows and reduction
+
+- [53 — Flows on punctured AES, three completions, and reduction to ODE](analysis-and-calculus/53-punctured-aes-flows-and-reduction.md):
+  separates the punctured AES geometry from the extra flow data; records the
+  three completions (topological/conformal, metric, arithmetic), the absence of
+  canonical puncture holonomy, the optional `Mon_extra`, the Hamiltonian/
+  Lagrangian joint reading as an added contact/Legendre structure, and a
+  reduction datum `(π,τ,σ,U_reg)` for returning to an ODE. Root existence is
+  routed through lift tube replay + Newton and then reduction; exact-zero stays
+  in the value layer. Structural proposal with an explicit open-problem list.
+
 ## The elliptic AES programme
 
 - [AES notes: the elliptic AES programme](aes/README.md): design notes for a
