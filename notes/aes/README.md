@@ -11,6 +11,8 @@ Note 06 studies typed probability transport, the obstruction to stochastic
 inverses, and the relation memory required for an observation to preserve closure.
 Note 07 adds compact-set Scott transport, quantitative memory-error bounds,
 and a certified audit of a fixed model's gate boundaries.
+Note 08 compares channel-marked and value-only boundary limits, certifies
+which jumps survive observation, and states the resulting gluing conditions.
 
 ## Why a separate `aes/` folder
 
@@ -31,6 +33,7 @@ bases and relation transport, alongside metric-realization questions.
 - [05 – Measure, probability, information and area](05-measure-probability-information-and-area.md)
 - [06 – Typed probability transport and relation memory](06-typed-probability-transport-and-relation-memory.md)
 - [07 – Memory error, gate boundaries and Scott transport](07-memory-error-gate-boundaries-and-scott-transport.md)
+- [08 – Channel observation and boundary gluing](08-channel-observation-and-boundary-gluing.md)
 
 ## Elliptic AES programme summary (notes 01–02)
 
@@ -101,6 +104,16 @@ An exact rational certificate bounds adjacent-cell gate jumps in one frozen
 32-channel PAL export. Channel jumps are distinguished from output-law
 discontinuity or predictive failure; full history semantics remain open.
 
+## Observation and boundary gluing (note 08)
+
+Note 08 gives the output-collision criterion for a gate jump to disappear after
+forgetting channel identity. A frozen PAL export has no complete cancellation
+for its 56 adjacent gate pairs; one rational interface window has certified
+positive W1 separation, with a matching primal/dual witness at its center.
+Single-valued gluing fails there under both observations. Keeping two boundary
+ports, or a compact relation retaining the two laws, gives explicit alternative
+semantics; the latter has a Scott-continuous uncertainty-set transport.
+
 ## Relation to the papers
 
 - Paper 0, §3.6, Proposition 3.13 (`prop:p0-projective-trichotomy`): trace
@@ -154,3 +167,6 @@ model reports, standard probability results, and proposed AES interpretations.
 
 Note 07, added 2026-11-11, records the subsequent source audit and quantitative
 continuity work, with pinned provenance and a replayable gate certificate.
+
+Note 08, added 2026-11-11, records the requested comparison of marked and
+value-only limits, exact cancellation criteria, and a pinned boundary certificate.
