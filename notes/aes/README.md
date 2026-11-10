@@ -9,6 +9,8 @@ question of geometric metric realization. Note 05 records neighborhood mass,
 Haar transport, conditional probability, information and their area connections.
 Note 06 studies typed probability transport, the obstruction to stochastic
 inverses, and the relation memory required for an observation to preserve closure.
+Note 07 adds compact-set Scott transport, quantitative memory-error bounds,
+and a certified audit of a fixed model's gate boundaries.
 
 ## Why a separate `aes/` folder
 
@@ -28,6 +30,7 @@ bases and relation transport, alongside metric-realization questions.
 - [04 – Structural data, metric unification and the catenoid example](04-structural-data-metric-unification-and-catenoid.md)
 - [05 – Measure, probability, information and area](05-measure-probability-information-and-area.md)
 - [06 – Typed probability transport and relation memory](06-typed-probability-transport-and-relation-memory.md)
+- [07 – Memory error, gate boundaries and Scott transport](07-memory-error-gate-boundaries-and-scott-transport.md)
 
 ## Elliptic AES programme summary (notes 01–02)
 
@@ -88,6 +91,16 @@ an inverse. A standard-library verification script replays the witnesses.
 The interpretation of popularity / similarity, model interfaces and general
 Scott-continuous history semantics remain open.
 
+## Memory error and continuous probability transport (note 07)
+
+Note 07 checks the interfaces of historical Sector-Prob analysis and two
+dirac-belt variants. It proves a Scott-continuous compact uncertainty-set lift
+for continuous finite-branch kernels, bounds approximate observation errors,
+and quantifies the tension between contraction and an approximate inverse.
+An exact rational certificate bounds adjacent-cell gate jumps in one frozen
+32-channel PAL export. Channel jumps are distinguished from output-law
+discontinuity or predictive failure; full history semantics remain open.
+
 ## Relation to the papers
 
 - Paper 0, §3.6, Proposition 3.13 (`prop:p0-projective-trichotomy`): trace
@@ -138,3 +151,6 @@ model motivation are distinguished in its provenance section.
 Note 06 develops the subsequent popularity / similarity discussion into finite
 theorems and rational witnesses. It retains the distinction between historical
 model reports, standard probability results, and proposed AES interpretations.
+
+Note 07, added 2026-11-11, records the subsequent source audit and quantitative
+continuity work, with pinned provenance and a replayable gate certificate.
