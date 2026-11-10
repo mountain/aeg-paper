@@ -65,6 +65,16 @@ elliptic AES definition remain research tasks.
   positive curvature, total curvature $2\pi$, discrete zero locus).
   Companion witness: `analysis-and-calculus/51-complexified-model-and-rh-witness.py`.
 
+## Order topology and interval vocabulary
+
+- [52 — Scott/Lawson topologies and the compatibility boundary with Adva interval vocabulary](analysis-and-calculus/52-scott-lawson-adva-interval-boundary.md):
+  separates the value-lattice Scott/lower/Lawson vocabulary from the interval
+  domain's reverse-inclusion information order; records where constant
+  generators `T_s, D_k, ¬` agree with endpoint interval operations, where
+  term-level `+,-,*,/` lose sharpness/dependency, and why `ExactZero` is not a
+  Scott open set. Structural proposal with an explicit open-problem list; no
+  claim status is promoted.
+
 ## The elliptic AES programme
 
 - [AES notes: the elliptic AES programme](aes/README.md): design notes for a
