@@ -9,9 +9,11 @@
 **地位约定**：domain theory 与区间算术的经典事实标 `CLASSICAL`；把 AEG 的
 `T_s, D_k, ¬` 对到 Adva 区间操作标 `REFORMULATION`（仅在常值生成元层面）或
 `STRUCTURAL PROPOSAL`；任何“区间 domain 的 Scott 拓扑 = 值格 Scott/Lawson”
-或“term-level interval +,* 连续”的断言标 `OPEN PROBLEM`。本笔记不改变
-`09`–`20` 的任何 claim status，也不把 Adva 的 `ZeroUndetermined` 升级成
-`ExactZero`。
+或“term-level interval +,* 的一般表达式同态性”的断言标 `OPEN PROBLEM`。
+AES note 03 对具体四坐标区间域 `D` 证明了区间 `+,-,*,/`（分母排除零）的
+Scott 连续性；本笔记引用该结论，但不把它升级为一般表达式空间或值格拓扑的
+定理。本笔记不改变 `09`–`20` 的任何 claim status，也不把 Adva 的
+`ZeroUndetermined` 升级成 `ExactZero`。
 
 ---
 
@@ -182,33 +184,90 @@ Adva 明确拒绝把这两个 trace 改成 `[0,0]`/`[1,1]`：那些更窄的区�
 ## 5. 区间 domain 的拓扑仍是开放问题
 
 `I(L)` 带反向包含序，是否是连续 domain、紧致元是什么、Scott 拓扑如何描述，
-这些是 standard interval domain 的问题，但在本笔记中**尚未逐条核对**。即便它们
-成立，也不等于：
+这些是 standard interval domain 的问题。AES note 03 对具体的四坐标区间域 `D`
+已经证明连续 dcpo、定向并 = 交、有理基与 Scott 开集基；但这不等于：
 
 ```text
-I(L) 的 Scott 拓扑 = L 的 Scott 拓扑
+D 的 Scott 拓扑 = L 的 Scott/Lawson 拓扑
 ```
 
-更不自动给出：
+也不等于：
 
 ```text
-term-level interval +,* 对 I(L) 的 Scott 连续
+term-level interval +,* 是完整关系像/对表达式重写同态
 ```
 
-因此下面这些都必须标 `OPEN PROBLEM`：
+note 03 证明的是 `D` 上的 Scott 连续性；dependency 仍导致不精确。下面逐项区分
+“note 03 已答”和“仍开放”：
 
-1. `I(L)` 的反向包含序是否定向完备；定向并是否就是区间交；
-2. `I(L)` 的紧致元是否对应“有理端点/有限精度”的区间；
-3. `T_s, D_k` 是否是 `I(L)` 上的 Scott 同胚；
+1. `I(L)` 的反向包含序是否定向完备；定向并是否就是区间交；  
+   **note 03 的具体 `D` 已答。**
+2. `I(L)` 的紧致元是否对应“有理端点/有限精度”的区间；  
+   **note 03 说明盒一般不是紧致元，只有严格包含关系给 way-below。**
+3. `T_s, D_k` 是否是 `I(L)` 上的 Scott 同胚；  
+   **note 03 对固定正参数 `X_s, Y_k` 已证。**
 4. `¬` 在零域排除的子空间上是否是 Scott/lower 同胚；
-5. 项级 `+,-,*,/` 是否 Scott 连续；若不连续，最大连续子代数是什么；
+5. 项级 `+,-,*,/` 是否 Scott 连续；若不连续，最大连续子代数是什么；  
+   **note 03 对具体 `D` 证明连续；但它不是同态/完整关系像。**
 6. Adva 的 `ExactZero/ZeroUndetermined/StrictPositive/UnknownDomain` 与
    Scott/Lawson 开集、闭集、闭包的关系是什么。
 
-第 5 条尤其重要：`x-x` 和 `x/x` 已经说明，**sharpness 的丢失不是拓扑细节，
-而是 dependency 的结构性结果**。
+第 5 条尤其重要：`x-x` 和 `x/x` 说明，**sharpness 的丢失不是拓扑细节，
+而是 dependency 的结构性结果**；它不否定 Scott 连续性，但否定“完整关系像/同态”。
 
 ---
+
+### 5.1 AES note 03 对区间 domain 的补充（2026-11-10）
+
+AES note 03（`notes/aes/03-quadrilateral-neighborhoods-and-scott-continuity.md`）
+给出了一个具体的区间信息域 `D`，直接推进了本节的一部分问题；引用时按其
+`PROVED WITH STATED HYPOTHESES` 地位，不把它升级为一般表达式空间的定理。
+
+它的模型是四个坐标的区间域：
+
+```text
+D = I(R) × I(R_{>0}) × I(R) × I(R_{>0})
+  = (ξ, y, θ, λ) 的有限区间观测
+```
+
+按逐坐标反包含排序。note 03 证明：
+
+- `D` 是连续 dcpo，定向上确界逐坐标为区间交；
+- 有理端点的非退化外盒构成可数近似基；
+- 有限盒 `B` 严格包围 `C` 时 `B ≪ C`；
+- 但一个盒一般不满足 `B ≪ B`，不能把“有理有限表示”直接称为紧致元；
+- 有理开盒 `U` 给出 Scott 开集
+  \[
+  \mathcal O_U=\{K\in D:K\subset U\},
+  \]
+  这些 `O_U` 构成 Scott 拓扑的基；
+- 极大元（单点盒）上的相对 Scott 拓扑恢复状态空间的通常拓扑。
+
+对运算：
+
+- `X_s`、`Y_k`（固定 `s∈R`, `k>0`）在区间盒上是 Scott 同胚；
+- 区间加法、减法、乘法，以及**分母排除零**的除法，由端点证明得到
+  Scott 连续；
+- dependency（`x-x`、`x/x`）导致的是**不精确/非完整关系像**，不是不连续；
+- `Y_k` 当 `k↓0` 时把 `y` 送往无穷，不能在当前 `E_0` 内连续补上；
+  零乘数、负乘数、跨零除法必须另设载体和域条件。
+
+它仍然明确保留的边界：
+
+- 包络不是完整关系像；例如乘法的 `y'k=y`、`θ'=kθ` 等联合条件必须在
+  另存的 relation 中保持，不能由逐坐标 interval 包络恢复；
+- 不把 `D` 的 Scott 拓扑与值格 `L` 的 Scott/Lawson 拓扑直接等同；
+- 不把区间 `+,-,*,/` 的连续性升级为对任意表达式重写或历史商的同态；
+- 不处理一般 tube、奇异层、带孔拼接的局部图。
+
+**对 §5 开放问题的修正**：
+
+- **Q1 对 note 03 的具体 `D` 已答**：连续 dcpo、定向并 = 交、有理基、
+  严格包含 = way-below；一般端点/零域限制仍另说。
+- **Q3 对 note 03 的具体 `D` 已答**：项级 `+,-,*,/` 是 Scott 连续的；
+  但“连续”不等于“同态/完整关系像”，dependency 仍导致 sharpness 丢失。
+- **Q2 只对固定 `X_s, Y_k` 的正参数片段成立**；`¬`/跨零除法仍在零域外。
+- **Q4/Q6（与值格 Lawson 的关系、exact-zero）仍开放。**
 
 ## 6. exact-zero 判断不能由拓扑开集替代
 
@@ -399,8 +458,9 @@ ZeroUndetermined
 1. “Adva interval = Scott 开集” —— 错。区间是双侧对象；闭区间在 Lawson 中
    是闭的，不是开集。
 2. “interval 含 0 ⇒ 存在零点” —— 错。Adva 明确把它标为 `ZeroUndetermined`。
-3. “term-level interval +,* 是 Scott 连续/同态” —— 未证明，且 `x-x`/`x/x`
-   显示 dependency 导致 sharpness 丢失。
+3. “term-level interval +,* 是 Scott 连续/同态” —— **连续**在 note 03 的
+   具体 `D` 上已证；但它**不是同态/完整关系像**，`x-x`/`x/x` 的 dependency
+   导致 sharpness 丢失，不导致不连续。
 4. “乘法 = 对偶侧” —— 错。`D_k` 是 Scott 自同构；对偶侧是 `¬`。
 5. “AEG 的 Scott/Lawson 已经解释了 Adva 区间算术” —— 目前只有常值生成元
    层面的 `REFORMULATION`；整体解释是 `STRUCTURAL PROPOSAL`/`OPEN PROBLEM`。
@@ -415,7 +475,8 @@ ZeroUndetermined
 
 - **Q1**：`I(L)` 的反向包含序的 dcpo/连续 domain 结构；定向并 = 交？
 - **Q2**：是否存在 `R: I(L) →` 双侧约束对象的函子，逐字保持 `T_s, D_k, ¬`？
-- **Q3**：项级 `+,-,*,/` 的 Scott 连续性；最大连续子代数是什么？
+- **Q3**：项级 `+,-,*,/` 的 Scott 连续性；note 03 对具体 `D` 已证连续，
+  但最大同态子代数/完整关系像仍开放。
 - **Q4**：`ExactZero/ZeroUndetermined/StrictPositive/UnknownDomain` 与
   Scott/Lawson 开集、闭集、闭包的精确关系。
 - **Q5**：AEG 恒等式（C11 的 `Δy=0`、`A_hor+∫y²=0`）需要 exact-zero
@@ -437,6 +498,8 @@ ZeroUndetermined
   （`T_s, D_k, ¬`、Scott/lower/Lawson、backward adjoint）。
 - `notes/analysis-and-calculus/10-scott-lawson-on-paper-1-main-body.md` §1–§3
   （生成元对应、`Aff^+`/`PGL₂` 的 status）。
+- `notes/aes/03-quadrilateral-neighborhoods-and-scott-continuity.md`
+  （区间域 `D`、Scott 拓扑基、区间运算的 Scott 连续性、relation boundary）。
 - `adva/experiments/interval_enclosure/README.md`（区间、外向舍入、exact zero、
   `UnknownDomain`、dependency）。
 - `adva/docs/research/simplex-contraction-pascal-calabi-reduction.md` §4
