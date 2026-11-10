@@ -13,6 +13,8 @@ Note 07 adds compact-set Scott transport, quantitative memory-error bounds,
 and a certified audit of a fixed model's gate boundaries.
 Note 08 compares channel-marked and value-only boundary limits, certifies
 which jumps survive observation, and states the resulting gluing conditions.
+Note 09 transports oriented boundary ports, tests shared memory under arithmetic
+composition, and separates terminal observations from joint observation traces.
 
 ## Why a separate `aes/` folder
 
@@ -34,6 +36,7 @@ bases and relation transport, alongside metric-realization questions.
 - [06 – Typed probability transport and relation memory](06-typed-probability-transport-and-relation-memory.md)
 - [07 – Memory error, gate boundaries and Scott transport](07-memory-error-gate-boundaries-and-scott-transport.md)
 - [08 – Channel observation and boundary gluing](08-channel-observation-and-boundary-gluing.md)
+- [09 – Boundary ports, composition and future observation](09-boundary-ports-composition-and-future-observation.md)
 
 ## Elliptic AES programme summary (notes 01–02)
 
@@ -114,6 +117,15 @@ Single-valued gluing fails there under both observations. Keeping two boundary
 ports, or a compact relation retaining the two laws, gives explicit alternative
 semantics; the latter has a Scott-continuous uncertainty-set transport.
 
+## Boundary transport and composition (note 09)
+
+Note 09 supplies rational port transport compatible with the basic A/M relations,
+a closed-word counterexample to independent branch reselection, and finite
+linear tests for future terminal and joint-trace equivalence. A pinned PAL audit
+finds 32 distinct transported faces from one source face. A finite-horizon
+common-refinement construction retains coherent trajectories; neither this
+construction nor Scott continuity alone establishes arbitrary-history gluing.
+
 ## Relation to the papers
 
 - Paper 0, §3.6, Proposition 3.13 (`prop:p0-projective-trichotomy`): trace
@@ -170,3 +182,6 @@ continuity work, with pinned provenance and a replayable gate certificate.
 
 Note 08, added 2026-11-11, records the requested comparison of marked and
 value-only limits, exact cancellation criteria, and a pinned boundary certificate.
+
+Note 09, added 2026-11-11, continues with composition-compatible port data,
+shared-parameter closure and explicit tests for future observable differences.

@@ -1,0 +1,455 @@
+{
+  "rational_witnesses": {
+    "status": "PASS",
+    "arithmetic": "exact rational",
+    "point_and_oriented_face_cases": 144,
+    "AM_shared_and_reset_cases": 192,
+    "closed_word_shared_law": {
+      "0": "1"
+    },
+    "closed_word_independent_reset_law": {
+      "-1": "1/4",
+      "0": "1/2",
+      "1": "1/4"
+    },
+    "binary_product_shared_law": {
+      "1": "1"
+    },
+    "binary_product_independent_law": {
+      "1/2": "1/4",
+      "1": "1/2",
+      "2": "1/4"
+    },
+    "future_tests": {
+      "states": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "transition_P": [
+        [
+          "1",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0",
+          "0"
+        ]
+      ],
+      "terminal_dimensions": [
+        2,
+        3
+      ],
+      "trace_dimensions": [
+        2,
+        3,
+        4
+      ],
+      "terminal_basis": [
+        {
+          "word": "D0 1",
+          "vector": [
+            "1",
+            "1",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "word": "D1 1",
+          "vector": [
+            "0",
+            "0",
+            "1",
+            "1"
+          ]
+        },
+        {
+          "word": "P D0 1",
+          "vector": [
+            "1",
+            "0",
+            "0",
+            "1"
+          ]
+        }
+      ],
+      "trace_basis": [
+        {
+          "word": "D0 1",
+          "vector": [
+            "1",
+            "1",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "word": "D1 1",
+          "vector": [
+            "0",
+            "0",
+            "1",
+            "1"
+          ]
+        },
+        {
+          "word": "P D0 1",
+          "vector": [
+            "1",
+            "0",
+            "0",
+            "1"
+          ]
+        },
+        {
+          "word": "D0 P D0 1",
+          "vector": [
+            "1",
+            "0",
+            "0",
+            "0"
+          ]
+        }
+      ],
+      "current_invisible_next_terminal_TV": "1/2",
+      "all_terminal_marginals_equal_but_two_observation_trace_TV": "1",
+      "trace_00_probability_mu_nu": [
+        "1/2",
+        "0"
+      ],
+      "safe_control_dimensions": [
+        2
+      ],
+      "independent_trace_enumeration_steps": 8
+    },
+    "finite_horizon_refinement": {
+      "1": {
+        "faces": 1,
+        "interval_cells_in_0_2": 2
+      },
+      "2": {
+        "faces": 2,
+        "interval_cells_in_0_2": 3
+      },
+      "4": {
+        "faces": 4,
+        "interval_cells_in_0_2": 5
+      },
+      "8": {
+        "faces": 8,
+        "interval_cells_in_0_2": 9
+      }
+    },
+    "refuted_shortcuts": [
+      "fixed-chart sign equals transported side",
+      "Scott-continuous relation maps preserve arithmetic word relations",
+      "independent choices preserve a shared-parameter closed word",
+      "current output equality ensures future output equality",
+      "all terminal marginals determine the observation trace law",
+      "a finite horizon arrangement automatically works at every horizon"
+    ]
+  },
+  "frozen_face_transport": {
+    "status": "PASS",
+    "source_repository": "mountain/dirac-belt",
+    "source_commit": "7eb633bde849e66feeb4b22c765780abee72936a",
+    "source_path": "pal/relations.json",
+    "source_blob": "8eecca0e74e4ff32466a912776047a54f5207f60",
+    "source_face": "a[0]+a[1]=0",
+    "transport_formula": "h_j=h_source o F_j^{-1}",
+    "nonzero_multipliers": 32,
+    "distinct_oriented_faces": 32,
+    "distinct_unoriented_faces": 32,
+    "images_equal_to_source_face": 0,
+    "face_equations": [
+      {
+        "channel": 0,
+        "coefficients_a0_a1_constant": [
+          "77558719149310003371835392",
+          "76712821938416652428247040",
+          "80347534059829980906459"
+        ]
+      },
+      {
+        "channel": 1,
+        "coefficients_a0_a1_constant": [
+          "9756173541942816257741795885056",
+          "9755013924343897630493397483520",
+          "18905194744998692002138355479"
+        ]
+      },
+      {
+        "channel": 2,
+        "coefficients_a0_a1_constant": [
+          "4810744807209593069530775552",
+          "4804053562085661173530755072",
+          "9809352420333113258418545"
+        ]
+      },
+      {
+        "channel": 3,
+        "coefficients_a0_a1_constant": [
+          "9623833146432385430841196544",
+          "9602525229342495196076572672",
+          "12894925878627095378374161"
+        ]
+      },
+      {
+        "channel": 4,
+        "coefficients_a0_a1_constant": [
+          "1130507840678014644920516608",
+          "1140521292528153923858464768",
+          "3583521938217814900764687"
+        ]
+      },
+      {
+        "channel": 5,
+        "coefficients_a0_a1_constant": [
+          "2516280644407650743880777728",
+          "2490385877534385361909710848",
+          "-948591668318550646777515"
+        ]
+      },
+      {
+        "channel": 6,
+        "coefficients_a0_a1_constant": [
+          "36062460669573825059356672",
+          "36279134828426924769935360",
+          "204638757067890069933119"
+        ]
+      },
+      {
+        "channel": 7,
+        "coefficients_a0_a1_constant": [
+          "9634915387646175881310765056",
+          "9556026420098803123915587584",
+          "12169857092893135220698281"
+        ]
+      },
+      {
+        "channel": 8,
+        "coefficients_a0_a1_constant": [
+          "104473668836440562436801560576",
+          "104517568840709034196766556160",
+          "312278349076447186252631941"
+        ]
+      },
+      {
+        "channel": 9,
+        "coefficients_a0_a1_constant": [
+          "2371300098814710073891225600",
+          "2355544072924411101525835776",
+          "16056421508740227292586743"
+        ]
+      },
+      {
+        "channel": 10,
+        "coefficients_a0_a1_constant": [
+          "149877287093897661513728",
+          "146765831176140678496256",
+          "201247526557893310551"
+        ]
+      },
+      {
+        "channel": 11,
+        "coefficients_a0_a1_constant": [
+          "149871978339143642651618705408",
+          "149581686151960068317325033472",
+          "614065303666119395818769541"
+        ]
+      },
+      {
+        "channel": 12,
+        "coefficients_a0_a1_constant": [
+          "38489169700319819548590080",
+          "37751601714575268326146048",
+          "54766375333201862805389"
+        ]
+      },
+      {
+        "channel": 13,
+        "coefficients_a0_a1_constant": [
+          "203317727225313418685710336",
+          "200749199698186339201581056",
+          "595905211745460904684443"
+        ]
+      },
+      {
+        "channel": 14,
+        "coefficients_a0_a1_constant": [
+          "589106746494311636993572864",
+          "591060156387546577714020352",
+          "688324615745026109428417"
+        ]
+      },
+      {
+        "channel": 15,
+        "coefficients_a0_a1_constant": [
+          "100776196629010912638356422656",
+          "100532921927397522904541298688",
+          "280078254477132450911595145"
+        ]
+      },
+      {
+        "channel": 16,
+        "coefficients_a0_a1_constant": [
+          "3167160617288755511820288",
+          "3136175995967634575196160",
+          "8498110511200418601829"
+        ]
+      },
+      {
+        "channel": 17,
+        "coefficients_a0_a1_constant": [
+          "595097188569898637210943488",
+          "591760348387494031867772928",
+          "2349292893742587757260705"
+        ]
+      },
+      {
+        "channel": 18,
+        "coefficients_a0_a1_constant": [
+          "37941486720780374865570955264",
+          "37693238242009134899063160832",
+          "167245316572116340685918083"
+        ]
+      },
+      {
+        "channel": 19,
+        "coefficients_a0_a1_constant": [
+          "128580219607855326501535744",
+          "133889518252593986890891264",
+          "-333146116205057421041613"
+        ]
+      },
+      {
+        "channel": 20,
+        "coefficients_a0_a1_constant": [
+          "148112902896712264573779968",
+          "146879662250795853148061696",
+          "432699475396780749259287"
+        ]
+      },
+      {
+        "channel": 21,
+        "coefficients_a0_a1_constant": [
+          "1206534020459629168946187337728",
+          "1207722575613550176957882171392",
+          "4829209448734389665519035785"
+        ]
+      },
+      {
+        "channel": 22,
+        "coefficients_a0_a1_constant": [
+          "1216263437497982348787974144",
+          "1194027250270343929608011776",
+          "4460573410799528095583845"
+        ]
+      },
+      {
+        "channel": 23,
+        "coefficients_a0_a1_constant": [
+          "147493930325654284741378048",
+          "147756335836563555416539136",
+          "610008976359938020993587"
+        ]
+      },
+      {
+        "channel": 24,
+        "coefficients_a0_a1_constant": [
+          "19384771100079116682208657539072",
+          "19390467962893770910593244463104",
+          "52815863539610003827139573073"
+        ]
+      },
+      {
+        "channel": 25,
+        "coefficients_a0_a1_constant": [
+          "2472515722763726997445148672",
+          "2482220115557812337341628416",
+          "-477209724214157260779861"
+        ]
+      },
+      {
+        "channel": 26,
+        "coefficients_a0_a1_constant": [
+          "317078968199974935125295104",
+          "319367496778147631525265408",
+          "-56101522316929853423137"
+        ]
+      },
+      {
+        "channel": 27,
+        "coefficients_a0_a1_constant": [
+          "287078104606603119133982720",
+          "288940553028349845751988224",
+          "1210059677869989028331081"
+        ]
+      },
+      {
+        "channel": 28,
+        "coefficients_a0_a1_constant": [
+          "9734258271153854917365985181696",
+          "9739766815437905270038740336640",
+          "27652429420309834752688139105"
+        ]
+      },
+      {
+        "channel": 29,
+        "coefficients_a0_a1_constant": [
+          "310582311510265919885541376",
+          "304886405426769702409994240",
+          "669347687187867126839269"
+        ]
+      },
+      {
+        "channel": 30,
+        "coefficients_a0_a1_constant": [
+          "154044257601072975807774720",
+          "154995374031356449502789632",
+          "725395602976615661857031"
+        ]
+      },
+      {
+        "channel": 31,
+        "coefficients_a0_a1_constant": [
+          "569047651676386184134656",
+          "570823718247033777160192",
+          "2314441414434943573509"
+        ]
+      }
+    ],
+    "semantics": "exact rational PAL coefficients as in note 08; no runtime rounding",
+    "scope": "algebraic transport of one source face; no claim about an intended multistep model interface"
+  }
+}
