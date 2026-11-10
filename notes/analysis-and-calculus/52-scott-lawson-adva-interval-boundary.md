@@ -1,6 +1,6 @@
 # Scott/Lawson 拓扑与 Adva 区间词汇的相容性边界
 
-## 从值格上的加/乘分离，到区间 domain 上的 exact-zero 判断
+## 从值格上的加/乘分离，到区间 exact-zero 与 Newton 存在性判断
 
 ### Research Note v0.1
 
@@ -245,7 +245,128 @@ R = N/D,  N,D ∈ Z,  0 < D ≤ B
 
 ---
 
-## 7. 对 C11 的直接后果
+## 7. Newton 方法：存在性证明，不是 exact-zero
+
+这一节把实践中的 Newton 证书问题写进同一套词汇。C11 的实现已经暴露出一个
+真实矛盾，不能只靠“contracted = true”掩盖。
+
+### 7.1 区间 Newton 证明了什么
+
+设 `F: R² → R²` 是 `C¹`，`X` 是二维 box，`c = mid(X)`，`F(c)` 和
+`J(X)` 都有区间包络，且 `det J(X)` 不含 0。定义
+
+```text
+N = c - J(X)^{-1} F(c).
+```
+
+若 `N ⊂ int(X)`，则标准区间 Newton/Krawczyk 定理给出：
+
+- `F` 在 `X` 内至少有一个零点；
+- 在通常的非奇异/唯一性条件下，零点在 `N` 内唯一。
+
+它证明的是：
+
+```text
+RootExists in X
+```
+
+不是：
+
+```text
+ExactZero of a residual expression
+```
+
+也不是“这个零点就是 C11 目标轨道、最小周期、横截性”等附加命题。后者需要
+额外的 box/target/period 检查。
+
+### 7.2 它不能替代什么
+
+1. **`delta_y` 含 0 不是存在性证明。**  
+   `delta_y = [+/- 1.9e-5]` 是 `ZeroUndetermined`；它没有给出零点，也没有给出
+   “存在唯一周期轨道”。
+
+2. **`contracted = true` 只在 `F(c)`/`J(X)` 的包络 sound 时有效。**  
+   如果 `image`/`jacobian` 来自未 replay 的 tube，或者 tube 的 f64 上界
+   under-bound，那么 `N ⊂ int(X)` 只是一个代数事实，不是 `F` 的零点证明。
+
+3. **f64 seed 没有误差界。**  
+   `vdp_reference` 只能选 `X` 的 center；它不能进入 proof object。seed 半径
+   从 `1e-6` 到 `1e-3` 改变的是搜索，不是定理强度。
+
+4. **Newton 失败不证明“没有根”。**  
+   `N` 不内含、`det` 含 0、交集为空，都只能给 `RootUnknown`，不能给
+   `NoRoot`。只有 `0 ∉ F(X)` 这类直接排除才能给 `RootExcluded`。
+
+### 7.3 必须分开的两种状态
+
+```text
+ZeroStatus  = ExactZero | ZeroUndetermined | StrictPositive | StrictNegative | UnknownDomain
+RootStatus  = RootExists | RootExcluded | RootUnknown
+```
+
+C11 当前应是：
+
+```text
+delta_y              : ZeroUndetermined
+horizontal_residual  : ZeroUndetermined
+RootStatus           : RootUnknown（tube replay 缺失）
+```
+
+若出现 §7.4 的 `contracted=true` 但最终 `delta_y` 不含 0，则该次运行是
+`InvalidWitness`。
+
+`RootExists` 不能由 `ZeroStatus` 推出；`ZeroStatus` 也不能由 `RootExists` 推出。
+一个根存在时，`F(root)=0` 是定义；但我们没有精确的 root 点，只有 box。box 上的
+`delta_y` 仍然可以是 `ZeroUndetermined`。
+
+### 7.4 实践中已经出现的矛盾
+
+在一次运行中，`NewtonWitness` 报告：
+
+```text
+contracted = true
+```
+
+但最终 box 上：
+
+```text
+x(T)     = -5.2e-7
+y(T)-y0  =  5.1e-7
+```
+
+两者都不含 0。若 `F`/`J` 的包络 sound，且 `N ⊂ int(X)`，则 root 必须存在，
+`F(root)=0`，于是 `F(X)` 必须含 0；这与最终 `delta_y` 不含 0 矛盾。
+
+因此正确结论不是“通过”，而是：
+
+```text
+InvalidWitness / FAIL
+```
+
+可能来源：
+
+- `image` 或 `jacobian` 不是 `F(c)`/`J(X)` 的 sound 包络；
+- tube 的 affine/中心重定心不 sound；
+- 最终 state 与 Newton 的 seed box 不是同一个 box/time；
+- `eval_at_time` 的区间取点有误。
+
+这正是“理论必须解决实践问题”的例子：不能把 `contracted` 当布尔通过条件，
+必须把 `F(c)`/`J(X)` 的来源也纳入 proof object。
+
+### 7.5 对 contract 的要求
+
+若 `CERTIFIED` 要覆盖 C11，则必须同时给出：
+
+1. **可 replay 的 tube**：从 seed、h、order 重跑到 `image`/`jacobian`；
+2. **Newton inclusion**：`N ⊂ int(X)` 由 replay 数据重算；
+3. **RootStatus = RootExists**，且 root box 与 C11 target 相交；
+4. **ZeroStatus 不被混淆**：`ExactZero` 只在 `[0,0]` 或 exact-zero bridge 下使用；
+5. **失败状态显式**：`RootUnknown`、`InvalidWitness`、`ZeroUndetermined` 不得被
+   写成 `CERTIFIED`。
+
+只有 1–5 全部满足，Newton 才是 C11 的存在性证明；否则它只是代数 witness。
+
+## 8. 对 C11 的直接后果
 
 当前证书的输出：
 
@@ -273,7 +394,7 @@ ZeroUndetermined
 
 ---
 
-## 8. 必须禁止的说法
+## 9. 必须禁止的说法
 
 1. “Adva interval = Scott 开集” —— 错。区间是双侧对象；闭区间在 Lawson 中
    是闭的，不是开集。
@@ -284,10 +405,13 @@ ZeroUndetermined
 5. “AEG 的 Scott/Lawson 已经解释了 Adva 区间算术” —— 目前只有常值生成元
    层面的 `REFORMULATION`；整体解释是 `STRUCTURAL PROPOSAL`/`OPEN PROBLEM`。
 6. “`ZeroUndetermined` 可以当 `ExactZero` 用” —— 错。
+7. “`contracted=true` ⇒ `CERTIFIED`” —— 错；必须同时 replay `F(c)`/`J(X)` 的
+   tube 来源，并处理 `RootUnknown`/`InvalidWitness`。
+8. “Newton 失败 ⇒ 不存在根” —— 错；只能给 `RootUnknown`，除非 `0∉F(X)`。
 
 ---
 
-## 9. 开放问题清单
+## 10. 开放问题清单
 
 - **Q1**：`I(L)` 的反向包含序的 dcpo/连续 domain 结构；定向并 = 交？
 - **Q2**：是否存在 `R: I(L) →` 双侧约束对象的函子，逐字保持 `T_s, D_k, ¬`？
@@ -298,12 +422,16 @@ ZeroUndetermined
   bridge 还是只需 `ZeroUndetermined`？如果只需要后者，contract 应如何写？
 - **Q6**：`I(L)` 的 Scott 拓扑与 AEG 的 Lawson 拓扑之间是否存在
   reading functor；如果有，它是否是满/忠实？
+- **Q7**：区间 Newton 的 `F(c)`/`J(X)` 需要什么强度的 tube replay，才能从
+  `NewtonWitness` 升级为 `RootExists`？
+- **Q8**：证书 schema 如何同时携带 `ZeroStatus` 与 `RootStatus`，并拒绝
+  `contracted=true` 但 residual 不含 0 的 `InvalidWitness`？
 
 在 Q1–Q6 有结论前，任何“AEG 拓扑 = Adva 区间词汇”的断言都不成立。
 
 ---
 
-## 10. 参考
+## 11. 参考
 
 - `notes/analysis-and-calculus/09-order-topology-scott-lawson.md` §9–§11
   （`T_s, D_k, ¬`、Scott/lower/Lawson、backward adjoint）。

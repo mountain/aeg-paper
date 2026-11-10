@@ -72,8 +72,10 @@ elliptic AES definition remain research tasks.
   domain's reverse-inclusion information order; records where constant
   generators `T_s, D_k, ¬` agree with endpoint interval operations, where
   term-level `+,-,*,/` lose sharpness/dependency, and why `ExactZero` is not a
-  Scott open set. Structural proposal with an explicit open-problem list; no
-  claim status is promoted.
+  Scott open set. It also separates interval-Newton `RootExists` from
+  `ExactZero`, and records the observed `contracted=true` but `delta_y ∌ 0`
+  contradiction as `InvalidWitness`. Structural proposal with an explicit
+  open-problem list; no claim status is promoted.
 
 ## The elliptic AES programme
 
