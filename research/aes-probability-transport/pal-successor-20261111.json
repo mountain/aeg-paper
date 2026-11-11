@@ -1,0 +1,253 @@
+{
+  "status": "PASS",
+  "interface_id": "pal-fixed-scale-branch-centres-v1",
+  "contract_sha256": "429050feb3af2ccfdb889cae0a099c33913f14dedf26222524569185c49ab84e",
+  "source_commit": "7eb633bde849e66feeb4b22c765780abee72936a",
+  "horizon": 3,
+  "boundary_seed": {
+    "levels": [
+      {
+        "paths": 32,
+        "terminal_outputs_certified_distinct": 32,
+        "first_coordinate_gap_lower": "0.00000599459035248320",
+        "total_mass_enclosure": [
+          "0.9999999999999999",
+          "1.0000000000000001"
+        ],
+        "dynamic_vs_cached_start_gate_TV": [
+          "0.0000000000000000",
+          "0.0000000000000001"
+        ],
+        "ordered_path_state_sha256": "eaf9d9c175db5422be918297af21ea9385e7fdfb529acc215fc140e9b507aebb",
+        "two_port_terminal_TV_enclosure": [
+          "0.9632340078247685",
+          "0.9632340078247686"
+        ],
+        "two_port_joint_trace_TV_enclosure": [
+          "0.9632340078247685",
+          "0.9632340078247686"
+        ],
+        "terminal_W1_lower_bound_from_mean": "0.0103660559961528",
+        "left_dynamic_vs_cached_start_gate_TV": [
+          "0.0000000000000000",
+          "0.0000000000000001"
+        ],
+        "depth": 1,
+        "parent_gate_row_counts": {
+          "12": 1
+        }
+      },
+      {
+        "paths": 1024,
+        "terminal_outputs_certified_distinct": 1024,
+        "first_coordinate_gap_lower": "0.00000001364922964946",
+        "total_mass_enclosure": [
+          "0.9999999999999999",
+          "1.0000000000000001"
+        ],
+        "dynamic_vs_cached_start_gate_TV": [
+          "0.0930048849876338",
+          "0.0930048849876339"
+        ],
+        "ordered_path_state_sha256": "31dcee9b62977738295fbd04ac1c2845660b8197145a280bcd059ff75ec1a4ed",
+        "two_port_terminal_TV_enclosure": [
+          "0.9632340078247685",
+          "0.9632340078247686"
+        ],
+        "two_port_joint_trace_TV_enclosure": [
+          "0.9632340078247685",
+          "0.9632340078247686"
+        ],
+        "terminal_W1_lower_bound_from_mean": "0.0098880763524343",
+        "left_dynamic_vs_cached_start_gate_TV": [
+          "0.9364545837308585",
+          "0.9364545837308586"
+        ],
+        "depth": 2,
+        "parent_gate_row_counts": {
+          "8": 29,
+          "12": 3
+        }
+      },
+      {
+        "paths": 32768,
+        "terminal_outputs_certified_distinct": 32768,
+        "first_coordinate_gap_lower": "0.00000000000004203715",
+        "total_mass_enclosure": [
+          "0.9999999999999999",
+          "1.0000000000000001"
+        ],
+        "dynamic_vs_cached_start_gate_TV": [
+          "0.1640207952316876",
+          "0.1640207952316877"
+        ],
+        "ordered_path_state_sha256": "07d761d15eb24e48b21bf2c0b62776e105443d83ca676e81bd3c878294fbd74b",
+        "two_port_terminal_TV_enclosure": [
+          "0.9632340078247685",
+          "0.9632340078247686"
+        ],
+        "two_port_joint_trace_TV_enclosure": [
+          "0.9632340078247685",
+          "0.9632340078247686"
+        ],
+        "terminal_W1_lower_bound_from_mean": "0.0096087332758160",
+        "left_dynamic_vs_cached_start_gate_TV": [
+          "0.9464857031678168",
+          "0.9464857031678169"
+        ],
+        "depth": 3,
+        "parent_gate_row_counts": {
+          "8": 948,
+          "12": 76
+        }
+      }
+    ],
+    "controlled_inverse_roundtrips": 64,
+    "exact_transported_face_checks": 1057,
+    "all_gate_inputs_have_norm_below_half": true,
+    "maximum_gate_coordinate_norm_squared_upper": "13574833949657712751483821359204510401950839117740365801/98079714615416886934934209737619787751599303819750539264",
+    "boundary_subwindows": {
+      "center": [
+        "1/4",
+        "-1/4",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "later_gates_constant_half_width": "1/524288",
+      "gate_window_power": 19,
+      "also_all_terminal_outputs_distinct_half_width": "1/2199023255552",
+      "injective_window_power": 41,
+      "initial_interface": "x[0]+x[1]=0",
+      "minimum_later_center_gate_margin": "16114158989545107690819/1237940039285380274899124224",
+      "scope": "all branch prefixes through the selected horizon; half-windows separated by the initial interface"
+    }
+  },
+  "concept_seed_metadata": {
+    "selection": "minimum exported coordinate squared norm; ties by row index",
+    "zero_based_row": 3981,
+    "exported_rows": 16471,
+    "coordinates": [
+      "594907496377133/4611686018427387904",
+      "-64995949822211/36028797018963968",
+      "1702865062304313/288230376151711744",
+      "-8596182738348651/2305843009213693952",
+      "-242978207095893/144115188075855872",
+      "7784525999105431/9223372036854775808",
+      "56997556884001/9007199254740992",
+      "-4800765145182911/2305843009213693952"
+    ],
+    "parsed_alpha": "2942832140508977/18014398509481984",
+    "observation_scale_enclosure": [
+      "1.1774604991778858",
+      "1.1774604991778859"
+    ],
+    "coordinate_norm_squared": "8507632974164682422520348855410261/85070591730234615865843651857942052864"
+  },
+  "concept_seed": {
+    "levels": [
+      {
+        "paths": 32,
+        "terminal_outputs_certified_distinct": 32,
+        "first_coordinate_gap_lower": "0.00000325184255642202",
+        "total_mass_enclosure": [
+          "0.9999999999999999",
+          "1.0000000000000001"
+        ],
+        "dynamic_vs_cached_start_gate_TV": [
+          "0.0000000000000000",
+          "0.0000000000000001"
+        ],
+        "ordered_path_state_sha256": "9b1ba7b5cc540d5fcd347d42ca4b3de966b75340ccac2772bbce9ffde53efbab",
+        "depth": 1,
+        "parent_gate_row_counts": {
+          "8": 1
+        }
+      },
+      {
+        "paths": 1024,
+        "terminal_outputs_certified_distinct": 1024,
+        "first_coordinate_gap_lower": "0.00000000052494322892",
+        "total_mass_enclosure": [
+          "0.9999999999999999",
+          "1.0000000000000001"
+        ],
+        "dynamic_vs_cached_start_gate_TV": [
+          "0.0261526396995795",
+          "0.0261526396995796"
+        ],
+        "ordered_path_state_sha256": "305528a1b3e644c99e8a38554a1711fa1e676978a46e2cfcca4928b4f3e34bc4",
+        "depth": 2,
+        "parent_gate_row_counts": {
+          "0": 13,
+          "4": 15,
+          "8": 3,
+          "12": 1
+        }
+      },
+      {
+        "paths": 32768,
+        "terminal_outputs_certified_distinct": 32768,
+        "first_coordinate_gap_lower": "0.00000000001324470033",
+        "total_mass_enclosure": [
+          "0.9999999999999999",
+          "1.0000000000000001"
+        ],
+        "dynamic_vs_cached_start_gate_TV": [
+          "0.9561461741382453",
+          "0.9561461741382454"
+        ],
+        "ordered_path_state_sha256": "33f8093e485d37697d6612e4c33c8d542de3d95aa0a733377c88122f975140a9",
+        "depth": 3,
+        "parent_gate_row_counts": {
+          "0": 607,
+          "4": 271,
+          "8": 120,
+          "12": 13,
+          "28": 13
+        }
+      }
+    ],
+    "controlled_inverse_roundtrips": 64,
+    "exact_transported_face_checks": 1057,
+    "all_gate_inputs_have_norm_below_half": true,
+    "maximum_gate_coordinate_norm_squared_upper": "1339570298223129699823443941339925884031502638172225804745803388056201514829716791575522449675043398925868601/2404907604760405225358828131112281116032698930082119547604265954848982041717359046106827774346003151904701415424"
+  },
+  "negative_controls": {
+    "rejected": [
+      "zero observation scale",
+      "invalid radius",
+      "reuse stale starting gate",
+      "out-of-range channel",
+      "unresolved scale sign"
+    ],
+    "same_value_different_scale": {
+      "scales": [
+        "1",
+        "1/4"
+      ],
+      "gate_rows": [
+        12,
+        13
+      ],
+      "value_output_TV_enclosure": [
+        "0.5026119911769428",
+        "0.5026119911769429"
+      ]
+    }
+  },
+  "gate_conventions": {
+    "exact_rational_scale": "3",
+    "angular_and_radial_tie_checks": 18
+  },
+  "scope": "specified successor completion of real frozen parameters; exhaustive finite trees; not trained rollout semantics or predictive accuracy",
+  "native_crosscheck": {
+    "native_transport_calls": 384,
+    "numeric_gate_crosschecks": 384,
+    "maximum_absolute_value_error": 8.326672684688674e-17,
+    "status": "numerical cross-check only; exact certificate is separate"
+  }
+}

@@ -15,6 +15,8 @@ Note 08 compares channel-marked and value-only boundary limits, certifies
 which jumps survive observation, and states the resulting gluing conditions.
 Note 09 transports oriented boundary ports, tests shared memory under arithmetic
 composition, and separates terminal observations from joint observation traces.
+Note 10 fixes an explicit PAL successor completion and certifies exhaustive
+three-step transport using actual frozen branch and gate parameters.
 
 ## Why a separate `aes/` folder
 
@@ -37,6 +39,7 @@ bases and relation transport, alongside metric-realization questions.
 - [07 – Memory error, gate boundaries and Scott transport](07-memory-error-gate-boundaries-and-scott-transport.md)
 - [08 – Channel observation and boundary gluing](08-channel-observation-and-boundary-gluing.md)
 - [09 – Boundary ports, composition and future observation](09-boundary-ports-composition-and-future-observation.md)
+- [10 – Fixed PAL successor and multistep transport](10-fixed-pal-successor-and-multistep-transport.md)
 
 ## Elliptic AES programme summary (notes 01–02)
 
@@ -126,6 +129,16 @@ finds 32 distinct transported faces from one source face. A finite-horizon
 common-refinement construction retains coherent trajectories; neither this
 construction nor Scott continuity alone establishes arbitrary-history gluing.
 
+## Fixed successor and multistep transport (note 10)
+
+Note 10 closes the missing off-index successor contract by explicitly retaining
+observation scale, recomputing the gate, and transporting branch centres. This is
+a research completion, not a reconstruction of an existing trained rollout.
+Two complete depth-three trees certify distinct terminal values, persistent
+boundary jumps and substantial effects from gate recomputation. A same-value,
+different-scale witness prevents a scale-blind successor quotient. Rational
+subwindows support finite-word continuity; global gluing remains open.
+
 ## Relation to the papers
 
 - Paper 0, §3.6, Proposition 3.13 (`prop:p0-projective-trichotomy`): trace
@@ -185,3 +198,6 @@ value-only limits, exact cancellation criteria, and a pinned boundary certificat
 
 Note 09, added 2026-11-11, continues with composition-compatible port data,
 shared-parameter closure and explicit tests for future observable differences.
+
+Note 10, added 2026-11-11, records the source-complete successor audit, the
+explicit modelling choices and replayable multistep certificates for frozen PAL.
