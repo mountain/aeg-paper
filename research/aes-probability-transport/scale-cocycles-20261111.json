@@ -1,0 +1,472 @@
+{
+  "status": "PASS",
+  "source_commit": "7eb633bde849e66feeb4b22c765780abee72936a",
+  "source_blobs": {
+    "relations.json": "8eecca0e74e4ff32466a912776047a54f5207f60",
+    "gating_logits.npy": "71e4d35e28be599d521f4c1d1ea431e3f05561e8"
+  },
+  "arithmetic": "exact rational geometry and scale squared; mathematical softmax with rational enclosures",
+  "scale_rules": [
+    "fixed",
+    "differential",
+    "squared_multiplier",
+    "potential",
+    "reset",
+    "relax"
+  ],
+  "horizon": 3,
+  "closure": {
+    "operator_word_cases": 50,
+    "points_per_word": 3,
+    "nonzero_translation_commutators": 16,
+    "rules": {
+      "fixed": {
+        "tested": 150,
+        "scale_returned": 150,
+        "by_kind": {
+          "identity": [
+            3,
+            3
+          ],
+          "inverse": [
+            96,
+            96
+          ],
+          "AM": [
+            27,
+            27
+          ],
+          "PAL_metabelian": [
+            24,
+            24
+          ]
+        }
+      },
+      "differential": {
+        "tested": 150,
+        "scale_returned": 150,
+        "by_kind": {
+          "identity": [
+            3,
+            3
+          ],
+          "inverse": [
+            96,
+            96
+          ],
+          "AM": [
+            27,
+            27
+          ],
+          "PAL_metabelian": [
+            24,
+            24
+          ]
+        }
+      },
+      "squared_multiplier": {
+        "tested": 150,
+        "scale_returned": 150,
+        "by_kind": {
+          "identity": [
+            3,
+            3
+          ],
+          "inverse": [
+            96,
+            96
+          ],
+          "AM": [
+            27,
+            27
+          ],
+          "PAL_metabelian": [
+            24,
+            24
+          ]
+        }
+      },
+      "potential": {
+        "tested": 150,
+        "scale_returned": 150,
+        "by_kind": {
+          "identity": [
+            3,
+            3
+          ],
+          "inverse": [
+            96,
+            96
+          ],
+          "AM": [
+            27,
+            27
+          ],
+          "PAL_metabelian": [
+            24,
+            24
+          ]
+        }
+      },
+      "reset": {
+        "tested": 150,
+        "scale_returned": 50,
+        "by_kind": {
+          "identity": [
+            3,
+            1
+          ],
+          "inverse": [
+            96,
+            32
+          ],
+          "AM": [
+            27,
+            9
+          ],
+          "PAL_metabelian": [
+            24,
+            8
+          ]
+        }
+      },
+      "relax": {
+        "tested": 150,
+        "scale_returned": 1,
+        "by_kind": {
+          "identity": [
+            3,
+            1
+          ],
+          "inverse": [
+            96,
+            0
+          ],
+          "AM": [
+            27,
+            0
+          ],
+          "PAL_metabelian": [
+            24,
+            0
+          ]
+        }
+      }
+    },
+    "reset_graph_closed_cases": 150,
+    "composite_tests_per_rule": 96,
+    "composite_equalities": {
+      "fixed": 96,
+      "differential": 96,
+      "squared_multiplier": 96,
+      "potential": 96,
+      "reset": 96,
+      "relax": 0
+    },
+    "relaxation_counterexample": {
+      "word": "translation +1, translation -1",
+      "initial_value": "0",
+      "initial_scale": "1",
+      "final_scale": "5/4"
+    },
+    "actual_poles_tested": 32,
+    "actual_pole_scale_returns": {
+      "fixed": 32,
+      "differential": 0,
+      "squared_multiplier": 0,
+      "potential": 32
+    },
+    "actual_pole_witness": {
+      "channel": 0,
+      "pole": [
+        "-1852391/16777216",
+        "2812615/67108864",
+        "-4197965/33554432",
+        "4454065/268435456",
+        "-4694443/67108864",
+        "4411269/67108864",
+        "-12726611/134217728",
+        "3693347/33554432"
+      ],
+      "differential_scale_squared": "1145948728478016017/1152921504606846976"
+    }
+  },
+  "note10_boundary_center": {
+    "prefix_gate_agreements": 1057,
+    "claim": "all four rules have identical conditional rows through this horizon at the note-10 center; initial two ports handled separately"
+  },
+  "radial_stress": {
+    "root": [
+      "3069/5120",
+      "-1023/1280",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "initial_scale": "1",
+    "gate_radius": "4",
+    "root_norm": "1023/1024",
+    "potential_coordinate_norm_upper_all_times": "2095105/2097152",
+    "levels": [
+      {
+        "depth": 1,
+        "paths_and_distinct_outputs": 32,
+        "parent_gate_row_counts": {
+          "fixed": {
+            "8": 1
+          },
+          "differential": {
+            "8": 1
+          },
+          "squared_multiplier": {
+            "8": 1
+          },
+          "potential": {
+            "8": 1
+          }
+        },
+        "prefixes_with_rule_disagreement": 0,
+        "first_coordinate_gap_lower": "0.00005349343965131961",
+        "mass_enclosures": {
+          "fixed": [
+            "0.9999999999999999",
+            "1.0000000000000001"
+          ],
+          "differential": [
+            "0.9999999999999999",
+            "1.0000000000000001"
+          ],
+          "squared_multiplier": [
+            "0.9999999999999999",
+            "1.0000000000000001"
+          ],
+          "potential": [
+            "0.9999999999999999",
+            "1.0000000000000001"
+          ]
+        },
+        "pairwise_comparisons": {
+          "fixed__differential": {
+            "terminal_and_word_TV": [
+              "0.0000000000000000",
+              "0.0000000000000001"
+            ],
+            "W1_lower_bound_from_mean": "0.0000000000000000"
+          },
+          "fixed__squared_multiplier": {
+            "terminal_and_word_TV": [
+              "0.0000000000000000",
+              "0.0000000000000001"
+            ],
+            "W1_lower_bound_from_mean": "0.0000000000000000"
+          },
+          "fixed__potential": {
+            "terminal_and_word_TV": [
+              "0.0000000000000000",
+              "0.0000000000000001"
+            ],
+            "W1_lower_bound_from_mean": "0.0000000000000000"
+          },
+          "differential__squared_multiplier": {
+            "terminal_and_word_TV": [
+              "0.0000000000000000",
+              "0.0000000000000001"
+            ],
+            "W1_lower_bound_from_mean": "0.0000000000000000"
+          },
+          "differential__potential": {
+            "terminal_and_word_TV": [
+              "0.0000000000000000",
+              "0.0000000000000001"
+            ],
+            "W1_lower_bound_from_mean": "0.0000000000000000"
+          },
+          "squared_multiplier__potential": {
+            "terminal_and_word_TV": [
+              "0.0000000000000000",
+              "0.0000000000000001"
+            ],
+            "W1_lower_bound_from_mean": "0.0000000000000000"
+          }
+        },
+        "prefix_gate_scale_sha256": "c7a58ee8375208c5f77be35f8e53ad8641d6cc031ad3efb428494387af1fd45b"
+      },
+      {
+        "depth": 2,
+        "paths_and_distinct_outputs": 1024,
+        "parent_gate_row_counts": {
+          "fixed": {
+            "8": 30,
+            "9": 2
+          },
+          "differential": {
+            "8": 28,
+            "9": 4
+          },
+          "squared_multiplier": {
+            "8": 3,
+            "9": 29
+          },
+          "potential": {
+            "8": 32
+          }
+        },
+        "prefixes_with_rule_disagreement": 31,
+        "first_coordinate_gap_lower": "0.00000005383560311488",
+        "mass_enclosures": {
+          "fixed": [
+            "0.9999999999999999",
+            "1.0000000000000001"
+          ],
+          "differential": [
+            "0.9999999999999999",
+            "1.0000000000000001"
+          ],
+          "squared_multiplier": [
+            "0.9999999999999999",
+            "1.0000000000000001"
+          ],
+          "potential": [
+            "0.9999999999999999",
+            "1.0000000000000001"
+          ]
+        },
+        "pairwise_comparisons": {
+          "fixed__differential": {
+            "terminal_and_word_TV": [
+              "0.0051017660687281",
+              "0.0051017660687282"
+            ],
+            "W1_lower_bound_from_mean": "0.0000974720931835"
+          },
+          "fixed__squared_multiplier": {
+            "terminal_and_word_TV": [
+              "0.0279826672976910",
+              "0.0279826672976911"
+            ],
+            "W1_lower_bound_from_mean": "0.0010319810435305"
+          },
+          "fixed__potential": {
+            "terminal_and_word_TV": [
+              "0.0017912919919559",
+              "0.0017912919919560"
+            ],
+            "W1_lower_bound_from_mean": "0.0000816213465751"
+          },
+          "differential__squared_multiplier": {
+            "terminal_and_word_TV": [
+              "0.0228809012289629",
+              "0.0228809012289630"
+            ],
+            "W1_lower_bound_from_mean": "0.0009345251861440"
+          },
+          "differential__potential": {
+            "terminal_and_word_TV": [
+              "0.0042987387960871",
+              "0.0042987387960872"
+            ],
+            "W1_lower_bound_from_mean": "0.0001790823999008"
+          },
+          "squared_multiplier__potential": {
+            "terminal_and_word_TV": [
+              "0.0261913753057351",
+              "0.0261913753057352"
+            ],
+            "W1_lower_bound_from_mean": "0.0011136005218095"
+          }
+        },
+        "prefix_gate_scale_sha256": "e86eb12f5ff35e3857d5ac2e1eb28c2376d985f359f75e5d62ff98e099df6d23"
+      },
+      {
+        "depth": 3,
+        "paths_and_distinct_outputs": 32768,
+        "parent_gate_row_counts": {
+          "fixed": {
+            "8": 1000,
+            "9": 24
+          },
+          "differential": {
+            "8": 830,
+            "9": 194
+          },
+          "squared_multiplier": {
+            "8": 31,
+            "9": 993
+          },
+          "potential": {
+            "8": 1024
+          }
+        },
+        "prefixes_with_rule_disagreement": 1017,
+        "first_coordinate_gap_lower": "0.00000000002382726692",
+        "mass_enclosures": {
+          "fixed": [
+            "0.9999999999999999",
+            "1.0000000000000001"
+          ],
+          "differential": [
+            "0.9999999999999999",
+            "1.0000000000000001"
+          ],
+          "squared_multiplier": [
+            "0.9999999999999999",
+            "1.0000000000000001"
+          ],
+          "potential": [
+            "0.9999999999999999",
+            "1.0000000000000001"
+          ]
+        },
+        "pairwise_comparisons": {
+          "fixed__differential": {
+            "terminal_and_word_TV": [
+              "0.0104401908325896",
+              "0.0104401908325897"
+            ],
+            "W1_lower_bound_from_mean": "0.0003113734959242"
+          },
+          "fixed__squared_multiplier": {
+            "terminal_and_word_TV": [
+              "0.0556473458306911",
+              "0.0556473458306912"
+            ],
+            "W1_lower_bound_from_mean": "0.0030550828353796"
+          },
+          "fixed__potential": {
+            "terminal_and_word_TV": [
+              "0.0035476619547754",
+              "0.0035476619547755"
+            ],
+            "W1_lower_bound_from_mean": "0.0001844933505607"
+          },
+          "differential__squared_multiplier": {
+            "terminal_and_word_TV": [
+              "0.0460162558876753",
+              "0.0460162558876754"
+            ],
+            "W1_lower_bound_from_mean": "0.0027437535731611"
+          },
+          "differential__potential": {
+            "terminal_and_word_TV": [
+              "0.0086415300517618",
+              "0.0086415300517619"
+            ],
+            "W1_lower_bound_from_mean": "0.0004958410036572"
+          },
+          "squared_multiplier__potential": {
+            "terminal_and_word_TV": [
+              "0.0521247351799251",
+              "0.0521247351799252"
+            ],
+            "W1_lower_bound_from_mean": "0.0032395715070219"
+          }
+        },
+        "prefix_gate_scale_sha256": "63fe1a2a2c6931c869569c6291ccbcad8a990e54dee0fc8703e200298cf3b812"
+      }
+    ],
+    "scope": "designed rational radial stress input; actual frozen branch and gate parameters; not an empirical sample of concept paths"
+  }
+}

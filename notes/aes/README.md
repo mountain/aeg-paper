@@ -17,6 +17,8 @@ Note 09 transports oriented boundary ports, tests shared memory under arithmetic
 composition, and separates terminal observations from joint observation traces.
 Note 10 fixes an explicit PAL successor completion and certifies exhaustive
 three-step transport using actual frozen branch and gate parameters.
+Note 11 compares scale-update rules, identifies the cocycle condition for
+relation preservation, and tests their distinct multistep probability laws.
 
 ## Why a separate `aes/` folder
 
@@ -40,6 +42,7 @@ bases and relation transport, alongside metric-realization questions.
 - [08 – Channel observation and boundary gluing](08-channel-observation-and-boundary-gluing.md)
 - [09 – Boundary ports, composition and future observation](09-boundary-ports-composition-and-future-observation.md)
 - [10 – Fixed PAL successor and multistep transport](10-fixed-pal-successor-and-multistep-transport.md)
+- [11 – Scale cocycles and closure relations](11-scale-cocycles-and-closure-relations.md)
 
 ## Elliptic AES programme summary (notes 01–02)
 
@@ -139,6 +142,16 @@ boundary jumps and substantial effects from gate recomputation. A same-value,
 different-scale witness prevents a scale-blind successor quotient. Rational
 subwindows support finite-word continuity; global gluing remains open.
 
+## Scale rules and closure relations (note 11)
+
+Note 11 distinguishes operator identities from loops closing only at a point.
+Fixed, multiplier and endpoint-potential scales preserve operator relations;
+resetting requires an invariant graph, while relaxation can destroy closure.
+A continuous multiplicative lift of the full similarity-affine group has a
+multiplier-character times endpoint-potential form. Frozen PAL tests show that
+relation-preserving choices can still change radial gates and three-step output
+laws. The fixed-scale baseline remains unchanged.
+
 ## Relation to the papers
 
 - Paper 0, §3.6, Proposition 3.13 (`prop:p0-projective-trichotomy`): trace
@@ -201,3 +214,6 @@ shared-parameter closure and explicit tests for future observable differences.
 
 Note 10, added 2026-11-11, records the source-complete successor audit, the
 explicit modelling choices and replayable multistep certificates for frozen PAL.
+
+Note 11, added 2026-11-11, records the scale-rule comparison, the distinction
+between operator and point closure, and a rational radial stress certificate.
