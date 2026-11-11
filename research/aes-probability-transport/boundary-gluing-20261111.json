@@ -1,0 +1,113 @@
+{
+  "rational_witnesses": {
+    "status": "PASS",
+    "marked_full_partial_surviving_TV": [
+      "1/2",
+      "0",
+      "1/4",
+      "1/2"
+    ],
+    "refuted_shortcuts": [
+      "forgetting channel identity always removes a gate jump",
+      "one collision point glues the entire interface",
+      "TV between approaching states is the TV between their weak limits"
+    ]
+  },
+  "window_certificate": {
+    "source_repository": "mountain/dirac-belt",
+    "source_commit": "7eb633bde849e66feeb4b22c765780abee72936a",
+    "source_blobs": {
+      "relations.json": "8eecca0e74e4ff32466a912776047a54f5207f60",
+      "gating_logits.npy": "71e4d35e28be599d521f4c1d1ea431e3f05561e8",
+      "concepts.tsv.gz": "207fc57a3007469f4e086242b00b4cd0f99fd857"
+    },
+    "semantics": "mathematical PAL pole transport on parsed binary64 coefficients; exact binary32-logit softmax; excludes runtime rounding",
+    "transport_formula": "q_j + m_j*(a-q_j); stored rounded b is not used",
+    "input_section": "alpha=0, hence a=x; continuous-input extension",
+    "window": {
+      "low": [
+        "15/64",
+        "-17/64",
+        "-1/64",
+        "-1/64",
+        "-1/64",
+        "-1/64",
+        "-1/64",
+        "-1/64"
+      ],
+      "high": [
+        "17/64",
+        "-15/64",
+        "1/64",
+        "1/64",
+        "1/64",
+        "1/64",
+        "1/64",
+        "1/64"
+      ],
+      "radius_squared_upper": "73/512",
+      "boundary": "a[0]+a[1]=0",
+      "center": [
+        "1/4",
+        "-1/4",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    "gate_cells": {
+      "negative_side": [
+        2,
+        0
+      ],
+      "positive_side": [
+        3,
+        0
+      ],
+      "valid_for_frozen_depth_normalizer": "R>2",
+      "export_max_absolute_coordinate": "1595549/500000",
+      "exported_concepts": 16471
+    },
+    "branch_pairs_checked": 496,
+    "global_collision_certificate": {
+      "distinct_pair_collision_points": 496,
+      "adjacent_gate_pairs_checked": 56,
+      "minimum_certified_nonzero_weight_differences": 32,
+      "consequence": "none of the 56 adjacent gate jumps can cancel completely at any assignment value",
+      "limitation": "exact frozen coefficients; no uniform distance lower bound claimed outside the selected window"
+    },
+    "collision_pairs_in_window": [],
+    "minimum_pair_distance_over_box_enclosure": [
+      "0.0010972715761000",
+      "0.0010972715761001"
+    ],
+    "minimum_pair": [
+      10,
+      12
+    ],
+    "marked_and_value_limit_TV_enclosure": [
+      "0.9632340078247685",
+      "0.9632340078247686"
+    ],
+    "uniform_value_limit_W1_bounds": [
+      "0.0108116065910591",
+      "0.0128350592873186"
+    ],
+    "center_value_limit_W1_enclosure": [
+      "0.0118066089612306",
+      "0.0118066089612307"
+    ],
+    "optimal_transport_witness": {
+      "single_surplus_channel": 25,
+      "deficit_channels": 31,
+      "dual_function": "distance to the output of the surplus channel",
+      "status": "matching primal and dual costs, with rational enclosures"
+    },
+    "W1_units": "Euclidean distance of the exported eight-dimensional assignment coordinates",
+    "conclusion": "no gate jump is cancelled on this entire interface window; both marked and value-only gluing fail",
+    "scope": "qualitative cancellation test for 56 adjacent gate pairs of one pinned atlas; quantitative W1 bounds only on the selected section/window; not training performance"
+  }
+}

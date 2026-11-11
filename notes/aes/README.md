@@ -7,6 +7,18 @@ compactification, analysis). Notes 03–04, added 2026-11-10, record rational
 neighborhood data, continuity in an explicit basic model, and the separate open
 question of geometric metric realization. Note 05 records neighborhood mass,
 Haar transport, conditional probability, information and their area connections.
+Note 06 studies typed probability transport, the obstruction to stochastic
+inverses, and the relation memory required for an observation to preserve closure.
+Note 07 adds compact-set Scott transport, quantitative memory-error bounds,
+and a certified audit of a fixed model's gate boundaries.
+Note 08 compares channel-marked and value-only boundary limits, certifies
+which jumps survive observation, and states the resulting gluing conditions.
+Note 09 transports oriented boundary ports, tests shared memory under arithmetic
+composition, and separates terminal observations from joint observation traces.
+Note 10 fixes an explicit PAL successor completion and certifies exhaustive
+three-step transport using actual frozen branch and gate parameters.
+Note 11 compares scale-update rules, identifies the cocycle condition for
+relation preservation, and tests their distinct multistep probability laws.
 
 ## Why a separate `aes/` folder
 
@@ -25,6 +37,12 @@ bases and relation transport, alongside metric-realization questions.
 - [03 – Quadrilateral neighborhoods and Scott continuity](03-quadrilateral-neighborhoods-and-scott-continuity.md)
 - [04 – Structural data, metric unification and the catenoid example](04-structural-data-metric-unification-and-catenoid.md)
 - [05 – Measure, probability, information and area](05-measure-probability-information-and-area.md)
+- [06 – Typed probability transport and relation memory](06-typed-probability-transport-and-relation-memory.md)
+- [07 – Memory error, gate boundaries and Scott transport](07-memory-error-gate-boundaries-and-scott-transport.md)
+- [08 – Channel observation and boundary gluing](08-channel-observation-and-boundary-gluing.md)
+- [09 – Boundary ports, composition and future observation](09-boundary-ports-composition-and-future-observation.md)
+- [10 – Fixed PAL successor and multistep transport](10-fixed-pal-successor-and-multistep-transport.md)
+- [11 – Scale cocycles and closure relations](11-scale-cocycles-and-closure-relations.md)
 
 ## Elliptic AES programme summary (notes 01–02)
 
@@ -74,6 +92,66 @@ with certified logarithm bounds. A fixed-leaf construction connects these data
 to continuous valuations on Scott opens. General metric realization and
 probabilistic semantics for arbitrary histories remain open.
 
+## Probability transport and relation memory (note 06)
+
+Note 06 gives a finite rational transport contract and a quantitative continuity
+bound. It proves the stochastic-inverse restriction, recalls strong lumpability
+with a proof, and gives a finite algorithm for the coarsest compatible observation
+refinement. Exact examples distinguish shared relation memory from independent
+resampling, geometric closure from branch-mass closure, and Bayes reversal from
+an inverse. A standard-library verification script replays the witnesses.
+The interpretation of popularity / similarity, model interfaces and general
+Scott-continuous history semantics remain open.
+
+## Memory error and continuous probability transport (note 07)
+
+Note 07 checks the interfaces of historical Sector-Prob analysis and two
+dirac-belt variants. It proves a Scott-continuous compact uncertainty-set lift
+for continuous finite-branch kernels, bounds approximate observation errors,
+and quantifies the tension between contraction and an approximate inverse.
+An exact rational certificate bounds adjacent-cell gate jumps in one frozen
+32-channel PAL export. Channel jumps are distinguished from output-law
+discontinuity or predictive failure; full history semantics remain open.
+
+## Observation and boundary gluing (note 08)
+
+Note 08 gives the output-collision criterion for a gate jump to disappear after
+forgetting channel identity. A frozen PAL export has no complete cancellation
+for its 56 adjacent gate pairs; one rational interface window has certified
+positive W1 separation, with a matching primal/dual witness at its center.
+Single-valued gluing fails there under both observations. Keeping two boundary
+ports, or a compact relation retaining the two laws, gives explicit alternative
+semantics; the latter has a Scott-continuous uncertainty-set transport.
+
+## Boundary transport and composition (note 09)
+
+Note 09 supplies rational port transport compatible with the basic A/M relations,
+a closed-word counterexample to independent branch reselection, and finite
+linear tests for future terminal and joint-trace equivalence. A pinned PAL audit
+finds 32 distinct transported faces from one source face. A finite-horizon
+common-refinement construction retains coherent trajectories; neither this
+construction nor Scott continuity alone establishes arbitrary-history gluing.
+
+## Fixed successor and multistep transport (note 10)
+
+Note 10 closes the missing off-index successor contract by explicitly retaining
+observation scale, recomputing the gate, and transporting branch centres. This is
+a research completion, not a reconstruction of an existing trained rollout.
+Two complete depth-three trees certify distinct terminal values, persistent
+boundary jumps and substantial effects from gate recomputation. A same-value,
+different-scale witness prevents a scale-blind successor quotient. Rational
+subwindows support finite-word continuity; global gluing remains open.
+
+## Scale rules and closure relations (note 11)
+
+Note 11 distinguishes operator identities from loops closing only at a point.
+Fixed, multiplier and endpoint-potential scales preserve operator relations;
+resetting requires an invariant graph, while relaxation can destroy closure.
+A continuous multiplicative lift of the full similarity-affine group has a
+multiplier-character times endpoint-potential form. Frozen PAL tests show that
+relation-preserving choices can still change radial gates and three-step output
+laws. The fixed-scale baseline remains unchanged.
+
 ## Relation to the papers
 
 - Paper 0, §3.6, Proposition 3.13 (`prop:p0-projective-trichotomy`): trace
@@ -120,3 +198,22 @@ no manuscript or mathematical-status register was changed.
 Note 05 records the separate measurement/probability thread of the same
 2026-11-10 discussion. Its additional assumptions, derivations and user-reported
 model motivation are distinguished in its provenance section.
+
+Note 06 develops the subsequent popularity / similarity discussion into finite
+theorems and rational witnesses. It retains the distinction between historical
+model reports, standard probability results, and proposed AES interpretations.
+
+Note 07, added 2026-11-11, records the subsequent source audit and quantitative
+continuity work, with pinned provenance and a replayable gate certificate.
+
+Note 08, added 2026-11-11, records the requested comparison of marked and
+value-only limits, exact cancellation criteria, and a pinned boundary certificate.
+
+Note 09, added 2026-11-11, continues with composition-compatible port data,
+shared-parameter closure and explicit tests for future observable differences.
+
+Note 10, added 2026-11-11, records the source-complete successor audit, the
+explicit modelling choices and replayable multistep certificates for frozen PAL.
+
+Note 11, added 2026-11-11, records the scale-rule comparison, the distinction
+between operator and point closure, and a rational radial stress certificate.

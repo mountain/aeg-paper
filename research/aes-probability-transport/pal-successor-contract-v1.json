@@ -1,0 +1,47 @@
+{
+  "interface_id": "pal-fixed-scale-branch-centres-v1",
+  "status": "research completion of an absent off-index successor; not an existing trained rollout",
+  "source_repository": "mountain/dirac-belt",
+  "source_commit": "7eb633bde849e66feeb4b22c765780abee72936a",
+  "source_blobs": {
+    "pal/relations.json": "8eecca0e74e4ff32466a912776047a54f5207f60",
+    "pal/gating_logits.npy": "71e4d35e28be599d521f4c1d1ea431e3f05561e8",
+    "pal/concepts.tsv.gz": "207fc57a3007469f4e086242b00b4cd0f99fd857",
+    "pal/algebra.py": "ba01b61e1be836418c157ca14c482b2c4774b84c",
+    "code/pole_section_exact.py": "2bb9ea95501665ba5587064db1a331fd629f1ba1",
+    "pal/export.py": "df648e65558b7d545044049c4632792ba05f8c91"
+  },
+  "state": {
+    "root_coordinates": "eight exact rational parsed coordinates x0",
+    "observation_scale": "one shared c>0, exact rational or named by certified rational bounds for exp(alpha)",
+    "composite": "exact rational complex scalar M and translation B; current value a=c*M*x0+B; current gate coordinate x=M*x0+B/c",
+    "history": "ordered channel IDs and the gate row used at each step",
+    "optional_port": "one-sided straight input curve x0+epsilon*v, epsilon tends to zero from above; transport the same v by M",
+    "boundary_record": "h_target=h_source composed with inverse composite; distinct from the current gate boundary"
+  },
+  "successor": {
+    "value_update": "a'=q_j+m_j*(a-q_j)",
+    "scale_update": "c'=c",
+    "coordinate_update": "x'=a'/c",
+    "gate_update": "recompute sector and depth from current x before every step",
+    "gate_radius": "4",
+    "gate_radius_status": "explicit rational interface parameter; not recovered training max_rho; selected certificates are independent of its exact value for every R>2",
+    "sectors": 8,
+    "depths": 4,
+    "angular_ties": "half-open sectors in (-pi,pi]; negative real axis goes to sector 7; zero first pair goes to sector 4",
+    "radial_ties": "boundary goes to the deeper bin; clamp final depth to 3",
+    "selection": "fresh conditional channel from the recomputed mathematical softmax row",
+    "emission": "deterministic branch centre; no Gaussian noise and no nearest-concept projection",
+    "probability_record": "symbolic product of conditional softmax factors, certified by rational intervals",
+    "unresolved_enclosure": "NeedsRefinement; never treat an interval containing zero as an exact zero"
+  },
+  "inverse": "controlled inverse of the last marked channel; not a learned stochastic inverse",
+  "arithmetic": "PAL binary64 parsing converted to exact rational coefficients; stored rounded b is ignored; mathematical softmax; excludes runtime rounding",
+  "source_semantics_boundary": "affine_mixture_dist is a pairwise mixture energy; it does not itself specify a Markov rollout or a rule for assigning alpha to an off-concept output",
+  "claim_limits": [
+    "no claim that the selected scale update is uniquely forced by training",
+    "no reconstruction of the original training checkpoint",
+    "no predictive-performance or held-out path evaluation",
+    "no finite-state Markov quotient inferred from the number of channels"
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "finite_witnesses": {
+    "status": "PASS",
+    "arithmetic": "exact rational",
+    "approximation": {
+      "epsilon": "1/10",
+      "fiber_diameter": "1/5",
+      "tau": "1/2",
+      "point_prior_steps_checked": 48,
+      "max_errors_first_3": [
+        "1/10",
+        "13/100",
+        "131/1000"
+      ]
+    },
+    "near_inverse_checks": 9,
+    "soft_W1_pairs_checked": 289,
+    "negative_claims_refuted": [
+      "same value forces same gate",
+      "hard-gate compact images preserve shrinking intersections",
+      "moving Dirac masses are TV-continuous",
+      "coarse-kernel error is zero without lumpability"
+    ]
+  },
+  "export_audit": {
+    "source_repository": "mountain/dirac-belt",
+    "source_commit": "7eb633bde849e66feeb4b22c765780abee72936a",
+    "source_path": "pal/gating_logits.npy",
+    "source_git_blob_sha": "71e4d35e28be599d521f4c1d1ea431e3f05561e8",
+    "shape": [
+      32,
+      32
+    ],
+    "n_sectors": 8,
+    "n_depths": 4,
+    "channels": 32,
+    "scope": "frozen exported channel gates; not endpoint-law or accuracy audit",
+    "target": "mathematical softmax of exact binary32 logits; excludes runtime rounding",
+    "certificate_method": "binary32 exact rationals; Taylor degree 24; outward dyadic 96-bit bounds",
+    "sector_wrap_included": true,
+    "adjacent_cell_TV": {
+      "sector": {
+        "pairs": 32,
+        "positive_lower_bounds": 32,
+        "maximizer_source": [
+          2,
+          0
+        ],
+        "maximizer_target": [
+          3,
+          0
+        ],
+        "unique_maximizer_certified": true,
+        "maximum_TV_enclosure": [
+          "0.9632340078247685",
+          "0.9632340078247686"
+        ]
+      },
+      "depth": {
+        "pairs": 24,
+        "positive_lower_bounds": 24,
+        "maximizer_source": [
+          3,
+          1
+        ],
+        "maximizer_target": [
+          3,
+          2
+        ],
+        "unique_maximizer_certified": true,
+        "maximum_TV_enclosure": [
+          "0.9631621769719242",
+          "0.9631621769719243"
+        ]
+      }
+    }
+  }
+}
