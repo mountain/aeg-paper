@@ -227,6 +227,53 @@ The first cell consists of operators whose pole is infinity.  The second
 consists of operators with a finite pole in the chosen affine chart.  Thus the
 transition from a point-path grid to a curved ripple pencil is the elementary
 geometric face of crossing from the affine cell to the projective cell.
+Figure~\ref{fig:p0-affine-vs-projective-cell} displays the two cells side by
+side.
+
+\begin{figure}[t]
+\centering
+% Ported from the archived grid pair images/sources/01-grid-example-1.tex and
+% images/sources/18-grid-example-2.tex (the rectilinear grid and its image under
+% w = -1/z), redrawn in the shared style and reduced to the two curve families
+% that the Bruhat decomposition actually separates.
+\begin{tikzpicture}[x=0.58cm,y=0.58cm,every node/.style={font=\small}]
+  \begin{scope}[shift={(-4.65,0)}]
+    \path[aeg panel] (-3,0) rectangle (3,4);
+    \foreach \c in {1,2,3} {\draw[aeg add] (-3,\c)--(3,\c);}
+    \foreach \a in {-2,-1,1,2} {\draw[aeg mul] (\a,0)--(\a,4);}
+    \aegaxes{-3.2}{3.25}{4.35}{x}{y}
+    \node[aeg note,anchor=north] at (0,-0.85) {(a) affine cell};
+  \end{scope}
+
+  \begin{scope}[shift={(4.65,0)}]
+    \path[aeg panel] (-3,0) rectangle (3,4);
+    \begin{scope}
+      \clip (-3,0) rectangle (3,4);
+      \foreach \r in {0.55,1.15,2.1} {\draw[aeg add] (0,\r) circle[radius=\r];}
+      \foreach \c in {-2.1,-1.15,1.15,2.1} {%
+        \pgfmathsetmacro{\rr}{abs(\c)}%
+        \draw[aeg mul] (\c,0) circle[radius=\rr];%
+      }
+    \end{scope}
+    \aegaxes{-3.2}{3.25}{4.35}{x}{y}
+    \fill[red!65!black] (0,0) circle (1.6pt)
+      node[below right,font=\scriptsize,fill=blue!2,inner sep=1pt] {$0$};
+    \node[aeg note,anchor=north] at (0,-0.85) {(b) projective cell};
+  \end{scope}
+
+  \draw[aeg axis] (-1.35,2.4)--(1.35,2.4)
+    node[midway,above,font=\small] {$w=-1/z$};
+\end{tikzpicture}
+\caption{Crossing from the affine cell to the projective cell.  (a)~The
+rectilinear grid of Section~\ref{sec:p0-aes}: horizontal horocycles based at
+the ideal point $\infty$ and vertical geodesics.  (b)~Its image under
+$w=-1/z$: the same two families, now based at the finite pole $0$, so the
+horocycles become circles tangent to $0$ and the geodesics circles through
+$0$.  Cell~(a) is $B_\infty$ in \eqref{eq:p0-bruhat}; cell~(b) is the part of
+$B_\infty JB_\infty$ visible in the chart with that pole.  The two charts are
+compared as pictures of one projective structure, not as isometric surfaces.}
+\label{fig:p0-affine-vs-projective-cell}
+\end{figure}
 
 \subsection{Left and right representations in one projective line}
 

@@ -1,0 +1,39 @@
+% Shared drawing conventions for the figures of Paper 0.
+% The palette and line weights match the figures already inlined in
+% sections/03-aes-and-motion.tex, 04-ripple-geometry.tex,
+% 06-projective-unification.tex, 08-acs-tearing.tex, and
+% 09-contact-of-tearing.tex, so that a figure added later looks like a
+% member of the same family rather than a pasted-in asset.
+%
+% Conventions:
+%   * colours are always tints mixed with black, never saturated, so that
+%     the printed page does not turn into a foreground;
+%   * every family of curves that carries meaning is additionally named in
+%     the panel, because colour alone is lost in greyscale;
+%   * figures are authored at final size with x=...,y=..., never scaled with
+%     \resizebox, so the label sizes stay those of the surrounding text.
+
+\tikzset{
+  aeg axis/.style={-{Latex[length=2mm]},thick,black!70},
+  aeg add/.style={thin,blue!45},
+  aeg mul/.style={thin,green!55!black},
+  aeg guide/.style={thin,black!25},
+  aeg val/.style={font=\scriptsize,red!65!black},
+  aeg note/.style={font=\scriptsize,black!65},
+  aeg path/.style={very thick,black},
+  aeg hist one/.style={-{Latex[length=2mm]},very thick,red!65!black},
+  aeg hist two/.style={-{Latex[length=2mm]},very thick,blue!65!black},
+  aeg fill/.style={fill=violet!11,draw=none},
+  aeg panel/.style={fill=blue!2},
+  aeg disc/.style={fill=red!5},
+  aeg rim/.style={thick,black!70},
+}
+
+% Draw the coordinate frame of a panel.  #1,#2,#3 are the extent of the
+% horizontal axis and the height of the vertical axis; #4,#5 are the axis
+% names.  Kept deliberately small: the three panels that use it differ in
+% their grids, not in their frames.
+\newcommand{\aegaxes}[5]{%
+  \draw[aeg axis] (#1,0)--(#2,0) node[right] {$#4$};
+  \draw[aeg axis] (0,-0.15)--(0,#3) node[above] {$#5$};
+}

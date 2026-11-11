@@ -109,7 +109,8 @@ one has $p_J=0$ and
 \end{equation}
 Thus inversion turns the horizontal horocycles based at infinity into a nested
 family of circles tangent at zero.  The map exchanges the two ideal points
-$0$ and $\infty$.
+$0$ and $\infty$.  Figure~\ref{fig:p0-halfplane-disc-dictionary} places this
+picture next to the upper half-plane it came from.
 \end{example}
 
 \begin{figure}[t]
@@ -138,6 +139,51 @@ $0$ and $\infty$.
 at the projective pole $0$; the affine horizontal-line pencil is recovered
 when the pole is moved to infinity.}
 \label{fig:p0-inversion-ripple-pencil}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+% Ported from the archived pair images/sources/11-horocyclebased.tex and
+% images/sources/12-proofbymapping.tex, redrawn with the disc as a light region
+% instead of a saturated fill and with the two families separated by colour and
+% by panel captions.
+\begin{tikzpicture}[x=0.78cm,y=0.78cm,every node/.style={font=\small}]
+  \begin{scope}[shift={(-2.55,0)}]
+    \path[aeg panel] (-2,0) rectangle (2,2.6);
+    \foreach \c in {0.8,1.6,2.4} {\draw[aeg add] (-2,\c)--(2,\c);}
+    \foreach \a in {-1.5,-0.75,0.75,1.5} {\draw[aeg mul] (\a,0)--(\a,2.6);}
+    \aegaxes{-2.2}{2.25}{2.95}{x}{y}
+  \end{scope}
+
+  \begin{scope}[shift={(3.35,1.3)}]
+    \fill[aeg panel] (0,0) circle[radius=1.3];
+    \begin{scope}
+      \clip (0,0) circle[radius=1.3];
+      \foreach \r in {0.33,0.65,0.98}
+        {\draw[thick,blue!60!black] (1.3-\r,0) circle[radius=\r];}
+      \foreach \d in {0.40,0.80,1.30}
+        {\draw[thick,green!45!black] (1.3,\d) circle[radius=\d];}
+    \end{scope}
+    \draw[aeg rim] (0,0) circle[radius=1.3];
+    \fill[red!65!black] (1.3,0) circle (1.6pt)
+      node[below right,font=\scriptsize] {$\Omega$};
+  \end{scope}
+
+  \draw[aeg axis] (-0.15,1.3)--(1.95,1.3)
+    node[midway,above,font=\small] {$\cong$};
+
+  \node[aeg note,anchor=north] at (-2.55,-0.45) {(a) upper half-plane};
+  \node[aeg note,anchor=north] at (3.35,-0.45) {(b) Poincar\'e disc};
+\end{tikzpicture}
+\caption{The two models side by side.  (a)~In the upper half-plane the
+horocycles based at the ideal point $\infty$ are the horizontal lines, and the
+orthogonal geodesics are the vertical lines.  (b)~In the Poincar\'e disc, under
+the standard identification $z\mapsto(z-i)/(z+i)$, the same two families are
+based at $\Omega=1$: the horocycles are circles tangent to the boundary at
+$\Omega$ and the geodesics are circles through $\Omega$ orthogonal to them.
+The panels record the dictionary between the two readings; they do not assert
+any statement beyond the standard identification of the models.}
+\label{fig:p0-halfplane-disc-dictionary}
 \end{figure}
 
 \begin{remark}[Which upper half-plane, and with which metric]

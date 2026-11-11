@@ -7,6 +7,7 @@ history are performed from left to right.  The ACS is oriented by
 \(du\wedge da\wedge dv\).
 
 \subsection{The oriented ACS rectangle}
+\label{app:p0-acs-rectangle}
 
 Let
 \[
@@ -46,6 +47,81 @@ still gives
     \int_{R_{p,q}}e^{q-M}\,dA\wedge dM=p(e^q-1).
 \]
 Thus no separate ``unsigned area'' convention is needed.
+
+\subsection{Staircases of order \(n\) and the values \(1,6,21\)}
+\label{app:p0-staircase-counts}
+
+Setting \(p=n\) and \(q=n\lambda\) in
+Subsection~\ref{app:p0-acs-rectangle} gives the pair
+\[
+    \gamma=(\mathsf M_{2^n},\mathsf A_n),
+    \qquad
+    \delta=(\mathsf A_n,\mathsf M_{2^n}),
+\]
+with common charge \((n,n\lambda)\).  Its filling is the rectangle
+\([0,n]\times[0,n\lambda]\), so the weight integral of the preceding
+subsection reads
+\begin{equation}
+    \tau(\gamma,\delta)
+      =\int_0^n\!\!\int_0^{n\lambda} e^{\,n\lambda-M}\,dM\,dA
+      =n\left(e^{n\lambda}-1\right).
+    \label{eq:app-staircase-defect}
+\end{equation}
+With \(\mu=1\) and \(\lambda=\ln2\), so that one multiplicative step is
+multiplication by \(2\), this becomes
+\[
+    \tau(\gamma,\delta)=n\left(2^{n}-1\right),
+    \qquad
+    n=1,2,3\ \longmapsto\ 1,\ 6,\ 21 .
+\]
+Figure~\ref{fig:app-staircase-rectangles} draws the three fillings.
+
+\begin{remark}[These integers are weighted areas, not cell counts]
+\label{rem:app-staircase-not-cells}
+The unweighted area of \([0,n]\times[0,n\lambda]\) is \(n^{2}\lambda\), and
+the number of cells of side \((1,\lambda)\) inside it is \(n^{2}\).  Neither
+equals \(n(2^{n}-1)\).  The integers \(1,6,21\) appear only because the weight
+\(e^{M_{*}-M}\) is evaluated at \(e^{\lambda}=2\); they are values of the
+weighted area and carry no separate combinatorial meaning.
+\end{remark}
+
+\begin{figure}[htbp]
+\centering
+% Reconstruction of the archived figure images/sources/17-area-formula.tex,
+% reduced from twenty-five columns to the three orders that produce 1, 6, 21.
+\begin{tikzpicture}[x=1.75cm,y=1.75cm,every node/.style={font=\small}]
+  \pgfmathsetmacro{\lamA}{0.70}
+  \pgfmathsetmacro{\lamB}{1.40}
+  \pgfmathsetmacro{\lamC}{2.10}
+
+  \draw[line width=0.6pt,black!55] (0,0) rectangle (1,\lamA);
+  \draw[line width=0.6pt,black!55] (0,0) rectangle (2,\lamB);
+  \draw[line width=0.6pt,black!55] (0,0) rectangle (3,\lamC);
+
+  \aegaxes{-0.2}{3.3}{2.45}{A}{M}
+
+  \draw[aeg hist one] (0,0)--(0,\lamC);
+  \draw[aeg hist one] (0,\lamC)--(3,\lamC);
+  \draw[aeg hist two] (0,0)--(3,0);
+  \draw[aeg hist two] (3,0)--(3,\lamC);
+
+  \foreach \x/\y in {1/\lamA, 2/\lamB, 3/\lamC}
+    {\fill (\x,\y) circle (1.6pt);}
+
+  \node[aeg note] at (0.5,0.33) {$n=1:\ 1$};
+  \node[aeg note] at (1.5,1.02) {$n=2:\ 6$};
+  \node[aeg note] at (2.5,1.72) {$n=3:\ 21$};
+
+  \node[aeg note,anchor=south east] at (2.95,\lamC) {$(n,n\lambda)$};
+\end{tikzpicture}
+\caption{The three rectangles of order \(n=1,2,3\).  The filling of the pair
+\((\mathsf M_{2^n},\mathsf A_n)\), \((\mathsf A_n,\mathsf M_{2^n})\) is
+\([0,n]\times[0,n\lambda]\), drawn here for a generic \(\lambda\).  The red and
+blue paths are the two histories for \(n=3\).  The number attached to each
+rectangle is the weighted area \eqref{eq:app-staircase-defect}, not the
+unweighted area \(n^{2}\lambda\).}
+\label{fig:app-staircase-rectangles}
+\end{figure}
 
 \subsection{A closed charge path with nonzero evaluation defect}
 

@@ -553,6 +553,65 @@ Consequently
 For positive \(p,q,r,s\), both terms are positive weighted strips in an ACS
 filling.  Formula \eqref{eq:four-step-staircase-torsion} also shows how a later
 scale changes the weight of an earlier commutation defect.
+Figure~\ref{fig:p0-same-charge-different-histories} draws the two staircases of
+this paragraph.
+
+\begin{figure}[t]
+\centering
+% Ported from the archived grid figure images/sources/06-example-canonical-form.tex
+% (four encodings of one endpoint relation), redrawn in ACS coordinates so that
+% the enclosed blocks are the cells of the charge lattice.
+\begin{tikzpicture}[
+  x=1.55cm,y=1.25cm,
+  every node/.style={font=\small}
+]
+  \path[aeg fill] (0,0)--(2,0)--(2,2)--(0,2)--cycle;
+  \path[aeg fill] (2,2)--(4,2)--(4,4)--(2,4)--cycle;
+
+  \foreach \i in {0,1,2,3,4} {%
+    \draw[aeg guide] (\i,0)--(\i,4);
+    \draw[aeg guide] (0,\i)--(4,\i);
+  }
+  \aegaxes{-0.25}{4.45}{4.35}{A}{M}
+
+  \draw[aeg hist one] (0,0)--(2,0);
+  \draw[aeg hist one] (2,0)--(2,2);
+  \draw[aeg hist one] (2,2)--(4,2);
+  \draw[aeg hist one] (4,2)--(4,4);
+
+  \draw[aeg hist two] (0,0)--(0,2);
+  \draw[aeg hist two] (0,2)--(2,2);
+  \draw[aeg hist two] (2,2)--(2,4);
+  \draw[aeg hist two] (2,4)--(4,4);
+
+  \fill (0,0) circle (1.7pt) node[below left] {$(0,0)$};
+  \fill (2,2) circle (1.7pt);
+  \fill (4,4) circle (1.7pt) node[above right] {$(4,4)$};
+
+  \node[red!65!black,fill=white,inner sep=1pt] at (3.0,2.0) {$\gamma$};
+  \node[blue!65!black,fill=white,inner sep=1pt] at (2.0,3.0) {$\delta$};
+  \node[aeg note] at (1.0,0.9) {$\Sigma_1$};
+  \node[aeg note] at (3.0,3.1) {$\Sigma_2$};
+\end{tikzpicture}
+\caption{Two staircase histories of the same total charge.  The red path
+$\gamma$ adds, scales, adds, scales; the blue path $\delta$ scales, adds,
+scales, adds.  Both run from $(0,0)$ to the common charge endpoint $(4,4)$,
+and neither is the temporal reversal of the other.  The shaded blocks
+$\Sigma_1$ and $\Sigma_2$ are the filling whose weighted area gives the
+relative defect \eqref{eq:four-step-staircase-torsion}; they meet only at the
+intermediate charge $(2,2)$, so the later scale weights the earlier block.}
+\label{fig:p0-same-charge-different-histories}
+\end{figure}
+
+\paragraph{Staircases of order \(n\).}
+The same rectangle argument applies to
+\(\gamma=(\mathsf M_{2^n},\mathsf A_n)\) and \(\delta=(\mathsf A_n,\mathsf
+M_{2^n})\), whose common charge is \((n,n\lambda)\) and whose relative defect
+is \(n(e^{n\lambda}-1)\); at \(\mu=1\) and \(\lambda=\ln2\) this is
+\(n(2^{n}-1)\), that is \(1,6,21\) for \(n=1,2,3\).  The computation is
+Subsection~\ref{app:p0-staircase-counts}, where the three fillings are drawn
+and the integers are identified as weighted areas rather than counts of
+enclosed cells.
 
 \paragraph{Equal charges without reversal.}
 The pair
