@@ -737,7 +737,7 @@ proposal and an open problem.  No claim of this section is changed.
 \paragraph{The carrier is separate from the two-dimensional AES.}  The punctured
 surface $M^\circ=\overline M\setminus S$ is two-dimensional; the contact form of
 Section~\ref{sec:p0-contact} lives on an odd-dimensional carrier
-$\mathcal C=\R^3$, never on $M^\circ$ itself.  A flow is therefore declared on a
+$\mathcal C=\R^3_{(u,v,a)}$, never on $M^\circ$ itself.  A flow is therefore declared on a
 dynamical carrier $N_{\mathrm{reg}}$ --- either $M^\circ$ itself or a lift,
 cover, or bundle over it, whose dimension, legal domain, and relation to
 $M^\circ$ are declared separately --- and it is never read off the AES data
@@ -756,20 +756,20 @@ manifold with a $C^1$ vector field $Y$ and local flow $\varphi_t$; let
 $N_{\mathrm{reg}}$ be a finite-dimensional $C^2$ manifold,
 $U_{\mathrm{reg}}\subset N_{\mathrm{reg}}$ a legal open set, and
 $\widetilde X\in C^1(TU_{\mathrm{reg}})$ a vector field with maximal local flow
-$\Phi_s$, where $s$ is lift time.  Let $\pi\colon U_{\mathrm{reg}}\to B$ be a
+$\Phi_s$, where $s$ is lift time.  Let $\varpi\colon U_{\mathrm{reg}}\to B$ be a
 $C^2$ submersion and $\nu\colon U_{\mathrm{reg}}\to(0,\infty)$ a $C^1$ positive
 rate satisfying the descent identity
 \[
-  D\pi_z\,\widetilde X(z)=\nu(z)\,Y(\pi z),
+  D\varpi_z\,\widetilde X(z)=\nu(z)\,Y(\varpi z),
 \]
 and define the time cocycle
 \[
-  \tau(s,z)=\int_0^s \nu(\Phi_r z)\,dr .
+  \tau(s,z)=\int_0^s \nu(\Phi_r z)\,\dd r .
 \]
 A candidate return $(z,S)$ is \emph{fully legal} when $S>0$ and
 $[0,S]\times\{z\}\subset\operatorname{Dom}(\Phi)$ with
 $\Phi_{[0,S]}(z)\subset U_{\mathrm{reg}}$.  This typed datum
-$(N_{\mathrm{reg}},U_{\mathrm{reg}},B,\widetilde X,Y,\pi,\nu,\tau)$, together with
+$(N_{\mathrm{reg}},U_{\mathrm{reg}},B,\widetilde X,Y,\varpi,\nu,\tau)$, together with
 a return section and a fiber action when needed, replaces an untyped
 ``clock'' $\tau$: a single-valued clock with $d\tau(\widetilde X)=1$ is
 inconsistent with a nontrivial closed orbit, for a strict return would then force
@@ -778,10 +778,10 @@ both $\tau(\Phi_S z)-\tau(z)=S$ and $\tau(\Phi_S z)=\tau(z)$.
 \begin{proposition}[Reduction of a return to a periodic orbit]
 \label{prop:p0-reduction-descent}
 With the data above, suppose the descent identity holds on the relevant orbit
-segment and the candidate return $(z,S)$ is fully legal.  Put $p=\pi z$ and assume
-$Y(p)\neq0$.  If $\pi(\Phi_S z)=\pi(z)$ --- in particular if $\Phi_S z=z$ (a strict
+segment and the candidate return $(z,S)$ is fully legal.  Put $p=\varpi z$ and assume
+$Y(p)\neq0$.  If $\varpi(\Phi_S z)=\varpi(z)$ --- in particular if $\Phi_S z=z$ (a strict
 return) or if $\Phi_S z=z\cdot g$ for a smooth right action of a Lie group $G$ on
-$N_{\mathrm{reg}}$ with $\pi(z\cdot g)=\pi(z)$ (a relative return) --- then the
+$N_{\mathrm{reg}}$ with $\varpi(z\cdot g)=\varpi(z)$ (a relative return) --- then the
 equation $\dot b=Y(b)$ admits a nontrivial periodic solution through $p$, of
 positive period $T=\tau(S,z)>0$.
 \end{proposition}
@@ -790,21 +790,21 @@ positive period $T=\tau(S,z)>0$.
 The orbit segment is the continuous image of a compact interval and $\nu>0$ is
 continuous, so $0<m\le\nu\le M<\infty$ there; hence $s\mapsto t=\tau(s,z)$ is
 strictly increasing with a $C^1$ inverse, and $0<mS\le T\le MS<\infty$.  Let
-$b(t)=\pi(\Phi_{s(t)}z)$; the chain rule and the descent identity give
-$b'(t)=Y(b(t))$, and $\pi(\Phi_S z)=\pi(z)$ gives $b(T)=b(0)=p$.  Uniqueness of
+$b(t)=\varpi(\Phi_{s(t)}z)$; the chain rule and the descent identity give
+$b'(t)=Y(b(t))$, and $\varpi(\Phi_S z)=\varpi(z)$ gives $b(T)=b(0)=p$.  Uniqueness of
 solutions of the $C^1$ equation $\dot b=Y(b)$ lets this segment be periodically
 concatenated, and $Y(p)\neq0$ excludes the constant solution.
 \end{proof}
 
 \begin{proposition}[Reverse lift and drift]
 \label{prop:p0-reduction-reverse}
-Suppose $\pi\colon U_{\mathrm{reg}}\to B_0$ is a principal $G$-bundle, the descent
+Suppose $\varpi\colon U_{\mathrm{reg}}\to B_0$ is a principal $G$-bundle, the descent
 identity holds, and $\beta(t)=\varphi_t(p)$ is a nontrivial periodic solution of
-period $T>0$ on $B_0$.  Fix $z_0\in\pi^{-1}(p)$ and put
+period $T>0$ on $B_0$.  Fix $z_0\in\varpi^{-1}(p)$ and put
 $\widehat X=\widetilde X/\nu$.  If the orbit $z(t)$ of $\widehat X$ from $z_0$
 exists on all of $[0,T]$ and stays in $U_{\mathrm{reg}}$, then there is a unique
 $g\in G$ with $z(T)=z_0\cdot g$; this is a relative return of $\widetilde X$ with
-lift time $S=\int_0^T\frac{dt}{\nu(z(t))}$, and it is strict exactly when $g=e$.
+lift time $S=\int_0^T\frac{\dd t}{\nu(z(t))}$, and it is strict exactly when $g=e$.
 If moreover $R_g(U_{\mathrm{reg}})=U_{\mathrm{reg}}$,
 $(R_g)_*\widetilde X=\widetilde X$, and $\nu(z\cdot g)=\nu(z)$, then
 $\Phi_{kS}(z_0)=z_0\cdot g^k$, and the $k$-th return is strict exactly when
@@ -812,7 +812,7 @@ $g^k=e$.
 \end{proposition}
 
 \begin{proof}
-$D\pi\,\widehat X=Y\circ\pi$, so uniqueness gives $\pi z(t)=\beta(t)$, and the
+$D\varpi\,\widehat X=Y\circ\varpi$, so uniqueness gives $\varpi z(t)=\beta(t)$, and the
 endpoint lies in the same fiber; transitivity gives $g$ and freeness gives
 uniqueness.  The positive continuous clock has positive finite bounds on the
 compact orbit segment, so the integral is a legitimate inverse time change and the
@@ -824,9 +824,9 @@ iteration by translating orbit segments.
 \label{cor:p0-reduction-section}
 With a transverse section $\Sigma\subset B_0$ given by $h=0$ with
 $dh(Y)\neq0$, a coordinate embedding $j\colon V\to\Sigma$, and a lift
-$\sigma\colon V\to U_{\mathrm{reg}}$ with $\pi\sigma=j$, define on a positive
+$\sigma\colon V\to U_{\mathrm{reg}}$ with $\varpi\sigma=j$, define on a positive
 return branch $S(\xi)$ whose orbit is fully legal the quotient return map
-$\mathcal P(\xi)=\kappa(\pi\Phi_{S(\xi)}\sigma(\xi))$ with inverse coordinate
+$\mathcal P(\xi)=\kappa(\varpi\Phi_{S(\xi)}\sigma(\xi))$ with inverse coordinate
 $\kappa$.  A fixed point $F_{\mathrm{quot}}(\xi_*)=\mathcal P(\xi_*)-\xi_*=0$ is,
 under these hypotheses, a periodic orbit of
 Proposition~\ref{prop:p0-reduction-descent}.
@@ -836,7 +836,7 @@ Proposition~\ref{prop:p0-reduction-descent}.
 \label{prop:p0-reduction-transport}
 For the basic model $\mu=\lambda=1$, the map
 \[
-  \Psi\colon\R^2\to\{\eta>0\},
+  \Psi\colon\R^2_{(x,y)}\to\{\eta>0\},
   \qquad
   \Psi(x,y)=\bigl(-y\,e^{-x},\,e^{-x}\bigr)
 \]
@@ -878,9 +878,22 @@ does not; (ii)~topological completion equals conformal filling equals
 metric/arithmetic completion; (iii)~the AES data determine the dynamics;
 (iv)~the two-dimensional AES is itself the three-dimensional contact carrier, or a
 horizontal flow is automatically a contact Hamiltonian flow; (v)~an interval
-containing zero proves root existence; (vi)~any root projects through $\pi$ to a
+containing zero proves root existence; (vi)~any root projects through $\varpi$ to a
 periodic orbit without the return hypotheses; (vii)~a bottom-space period lifts to
 a strict closed orbit, or a relative return must come from a puncture monodromy.
+
+\begin{remark}[Standard ODE and flow terminology]
+\label{rem:p0-punctured-flow-terminology}
+The reduction statements above use standard terminology of ordinary differential
+equations and smooth dynamics --- a submersion, a principal bundle, a time
+cocycle, a return section, and the flows $\varphi_t$ and $\Phi_s$ --- because
+their purpose is to connect a declared flow on a carrier to an ordinary
+differential equation on a base manifold.  These are standard notions, not new
+AES vocabulary, and their use here does not assert that a punctured AES satisfies
+them.  The symbol $\varpi$ denotes the reduction submersion of this subsection;
+it is distinct from the charge projection $\pi$ of
+Section~\ref{sec:p0-contact}.
+\end{remark}
 
 \subsection{Open problems}
 \label{subsec:p0-holed-open}
