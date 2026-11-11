@@ -9,6 +9,9 @@ own status.  The finite-type construction and reconstruction interface follow
 in Section~\ref{sec:p0-compactification}.  The interpretive reading of those
 witnesses --- the language of tearing --- is presented as a structural proposal,
 and Subsection~\ref{subsec:p0-holed-nonclaims} lists what is not established.
+Subsection~\ref{subsec:p0-punctured-flow-proposal} records, as a further
+structural proposal, what extra data turn a punctured AES into a flow and reduce
+that flow to an ODE.
 
 \subsection{Punctured arithmetic expression spaces}
 \label{subsec:p0-holed-definition}
@@ -718,6 +721,96 @@ The following list of non-claims is part of the content of this section.
   singular notion, and its classification is not attempted.
 \end{itemize}
 
+\subsection{Flows on a punctured AES and reduction to an ODE (structural proposal)}
+\label{subsec:p0-punctured-flow-proposal}
+
+The punctured space of Definition~\ref{def:p0-punctured-aes} is geometric data: a
+surface, a metric, and an assignment, with a finite set of declared singular
+points.  This subsection records, as a \emph{structural proposal} and not as a
+theorem, what must be \emph{added} to such a space before one can speak of a flow
+on it and of the reduction of that flow to an ordinary differential equation.
+It changes no claim of this section: every assertion below is a proposal or an
+open problem, never a proved proposition.
+
+\paragraph{The flow is extra data.}  The AES data $(M,g,a;\mu,\lambda)$ determine
+a canonical frame and, through Section~\ref{sec:p0-contact}, a contact structure
+with a horizontal distribution and a charge projection; they determine no
+preferred vector field on the punctured locus.  This is forced by
+Proposition~\ref{prop:p0-no-puncture-holonomy}: the horizontal structure is the
+integrable foliation by the level sets of $a$, hence flat and without holonomy,
+and the assignment is single-valued, so ``punctured'' must not be read as
+``multi-valued''.  A flow is therefore declared, not derived, and a monodromy, if
+it appears, is an explicitly adjoined local system.  The proposed object consists
+of declared data:
+\begin{itemize}
+  \item a punctured AES as in Definition~\ref{def:p0-punctured-aes};
+  \item a vector field $X$ on the punctured locus;
+  \item dynamical data --- a clock and a return section;
+  \item end models declaring how each puncture is treated (cusp, cone, collar,
+  or direction), extending the end data of Subsection~\ref{subsec:p0-end-data};
+  \item optional Hamiltonian/Lagrangian data $H$ and $L$;
+  \item an optional adjoined monodromy (a local system).
+\end{itemize}
+
+\paragraph{The three completions stay distinct.}  The end data of
+Subsection~\ref{subsec:p0-end-data} and Remark~\ref{rem:p0-three-models} keep
+topological point filling, conformal point filling, and metric completion
+separate: a topological or conformal completion does not by itself extend $g$ or
+$a$.  The once-punctured model already shows that $g$ may extend smoothly while
+$a$ does not, and that a puncture may lie at finite $g$-distance from an interior
+point (Proposition~\ref{prop:p0-puncture-local-picture}).  A flow that reaches a
+puncture in finite time therefore needs the end models to declare whether it
+stops, continues, or is blown up.
+
+\paragraph{Hamiltonian and Lagrangian data are added, not intrinsic.}  If a
+symplectic or contact structure is adjoined on the regular part, a Hamiltonian
+vector field $X_H=\omega^{-1}\,dH$ and a Lagrangian
+$L\colon TM^\circ\to\R$ with its Legendre transform become available; the joint
+reading is the contact form of Section~\ref{sec:p0-contact}, a chosen
+Hamiltonian, and the end models.  The Legendre transform is local and may
+degenerate at a puncture, and any multi-valuedness of an action is a property of
+the adjoined cover or local system, not of the AES.  A dissipative system such as
+the van der Pol equation is not Hamiltonian and is not asserted to be one; such a
+flow enters the proposal through its Li\'enard or arithmetic lift, not through
+the Hamilton--Lagrange reading.
+
+\paragraph{Reduction to an ODE is an explicit datum.}  To return a flow on the
+punctured surface to an ordinary differential equation one declares a reduction
+datum: a projection $\pi$ from the (possibly lifted) surface to the ODE phase
+space or a section, a clock $\tau$, a return section $\sigma$, an open set
+$U_{\mathrm{reg}}$ avoiding the punctures, and, if a monodromy was adjoined, that
+same local system.  The reduction is exact when
+\[
+  d\pi\cdot X = X_{\mathrm{ODE}}\circ \pi,
+  \qquad
+  d\tau\cdot X = 1 .
+\]
+With a nontrivial monodromy a periodic orbit is only a relative period and must
+be read on the cover; without one the flow can be single-valued, but the four
+ingredients are still required.  The passage from a punctured flow to the root of
+an equation is the one-directional chain
+\[
+  \text{tube replay on the lift}
+  \ \longrightarrow\ \text{root existence on the lift}
+  \ \longrightarrow\ \text{reduction } \pi
+  \ \longrightarrow\ \text{ODE periodic orbit}
+  \ \longrightarrow\ \text{value-layer zero judgment},
+\]
+and it must not be reversed.  In particular, an interval that contains zero is a
+value-layer judgment, not a proof that a flow has a root; the existence question
+is kept separate from the exact-zero question, which belongs to the value layer
+rather than to the geometry of this section.
+
+\paragraph{Non-claims.}  The following statements are part of the content of this
+subsection and are not asserted: (i)~the punctured AES carries a canonical
+puncture monodromy --- Proposition~\ref{prop:p0-no-puncture-holonomy} shows it
+does not; (ii)~topological completion equals metric completion equals arithmetic
+completion; (iii)~the AES data determine the flow; (iv)~the van der Pol equation
+is Hamiltonian; (v)~an interval containing zero proves the existence of a root;
+(vi)~the holonomy of the charge plane is the holonomy of the puncture --- it is
+the holonomy of the added charge projection of
+Proposition~\ref{prop:p0-no-puncture-holonomy}.
+
 \subsection{Open problems}
 \label{subsec:p0-holed-open}
 
@@ -778,6 +871,30 @@ question raised in Subsection~\ref{subsec:p0-tearing-at-puncture}.
   Section~\ref{sec:p0-ripples}, that survives at the puncture; in the model of
   Theorem~\ref{thm:p0-four-circle-model} the pole would have to be placed at the
   critical point, where the conformal factor of the metric vanishes.
+\end{enumerate}
+
+The flow-and-reduction proposal of
+Subsection~\ref{subsec:p0-punctured-flow-proposal} leaves five further problems,
+each a programme and not a result.
+
+\begin{enumerate}
+  \item \label{op:p0-punctured-flow-end-data}\emph{Minimal end data.}  Determine
+  a minimal sufficient set of end models (direction, conformal class, metric
+  asymptotics, and the limit or branching behaviour of the assignment) and the
+  condition under which two end models give the same flow.
+  \item \emph{Decidable end conditions.}  Write the end condition on the vector
+  field $X$ so that finite-time and finite-distance behaviour at a puncture is
+  decidable.
+  \item \emph{Degeneration of the Legendre transform.}  Classify the degeneration
+  of the Hamiltonian/Lagrangian reading at the ends, and separate action
+  multi-valuedness coming from the adjoined monodromy from a coordinate artifact.
+  \item \emph{Minimal reduction datum.}  Give minimal conditions on the reduction
+  datum $(\pi,\tau,\sigma,U_{\mathrm{reg}})$ and prove a preservation statement:
+  a root of the lifted equation that lies in $U_{\mathrm{reg}}$ projects under
+  $\pi$ to a root of the reduced equation.
+  \item \emph{An AES-native lift of the van der Pol flow.}  Decide whether the
+  van der Pol equation admits an explicit lift to a punctured AES with a
+  reduction datum whose periodic orbits avoid the punctures.
 \end{enumerate}
 
 A solution of any of them would turn the language of this chapter from a
