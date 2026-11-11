@@ -4700,97 +4700,114 @@ not promote a finite calibration to a theorem.
 ## OQ-101 — Flows on a punctured AES and reduction to an ODE
 
 **Priority:** P3
-**State:** OPEN (2026-11-11).
+**State:** OPEN (2026-11-11; aligned to note 53 v0.2).
 **Scope:** `paper-0/sections/11-holed-aes.tex`
 (`subsec:p0-punctured-flow-proposal`), `governance/05b-paper-0-status-register.md`.
 **Depends on:** `governance/00b-paper-0-geometric-foundation-amendment.md`,
 `governance/05b-paper-0-status-register.md`,
 `notes/analysis-and-calculus/53-punctured-aes-flows-and-reduction.md`.
 
-**Question.** Paper 0 §11 records, as a `STRUCTURAL PROPOSAL`, that a flow on a
-punctured AES is declared extra data and that a reduction datum
-`(π,τ,σ,U_reg)` returns it to an ODE. The five open parts below are each a
-programme, not a result; none changes a proved claim of Paper 0.
+**Question.** Paper 0 §11 proves, with stated hypotheses, that a declared strict
+or relative return on a dynamical carrier descends to a periodic orbit of the
+underlying ODE (`prop:p0-reduction-descent`/`-reverse`/`-section`/`-transport`),
+and records as a structural proposal the realization of that reduction on an
+actual punctured AES. The resolved and open parts follow note 53 v0.2 §9.
 
-**101.1 — Minimal end data (`OPEN`).**
-Determine a minimal sufficient set of end models (direction, conformal class,
-metric asymptotics, and the limit or branching behaviour of the assignment) and
-the condition under which two end models give the same flow.
+**Resolved (proved with stated hypotheses).** R-A descent; R-B reverse relative
+lift and drift iteration under equivariance; R-C section-root corollary; the
+plane first-return local-isolation correspondence; the van der Pol lift's strict
+negative drift (conditional on the periodic orbit); R-D transport to the basic
+model; the Krawczyk root-existence sufficient condition (note 53 §6.3).
 
-**101.2 — Decidable end conditions (`OPEN`).**
-Write the end condition on the vector field `X` so that finite-time and
-finite-distance behaviour at a puncture is decidable.
+**101.1 — End data and end tubes (`OPEN`).**
+Interval-neighbourhood semantics of the regular and end strata, and an effective
+representation of the end tube.
 
-**101.3 — Degeneration of the Legendre transform (`OPEN`).**
-Classify the degeneration of the Hamiltonian/Lagrangian reading at the ends, and
-separate action multi-valuedness coming from the adjoined monodromy from a
-coordinate artifact.
+**101.2 — Minimal end data (`OPEN`).**
+Minimal dynamical data of a concrete AES end model and the uniqueness of its
+extension; a topological or conformal completion does not supply it.
 
-**101.4 — Minimal reduction datum and root preservation (`OPEN`).**
-Give minimal conditions on the reduction datum `(π,τ,σ,U_reg)` and prove a
-preservation statement: a root of the lifted equation that lies in `U_reg`
-projects under `π` to a root of the reduced equation.
+**101.3 — Realizing the carrier hypotheses (`OPEN`).**
+Whether a chosen punctured carrier satisfies full-orbit legality, the
+principal-bundle or fiber action, and the time-compatibility hypotheses of the
+reduction propositions.
 
-**101.5 — AES-native van der Pol lift (`OPEN`).**
-Decide whether the van der Pol equation admits an explicit lift to a punctured
-AES with a reduction datum whose periodic orbits avoid the punctures.
+**101.4 — Hamilton--Lagrange degeneration (`OPEN`).**
+A genuine Hamiltonian/Lagrangian representation and the degeneration of its
+Legendre transform; not implied by horizontality alone.
 
-**Default rule while open.** Cite the flow/reduction proposal only at
-`STRUCTURAL PROPOSAL` strength; do not assert canonical puncture monodromy, do not
-read an interval containing zero as a root proof, and keep the existence question
-separate from the exact-zero question.
+**101.5 — Sharpening the reduction hypotheses (`PARTIALLY RESOLVED`).**
+The smooth/positive-clock/legal-domain reduction theorem is proved; non-free
+actions, singular quotients, non-unique end extension, resets, and weaker
+regularity are outside it, and the hypotheses are not asserted to be minimal.
+
+**101.6 — Cover and connection semantics (`OPEN`).**
+Strict interval semantics for an adjoined cover/local system and for connection
+holonomy; a general curved connection's closed-loop drift depends on the path and
+does not yield a `π₁`-only representation.
+
+**101.7 — AES-native realization (`PARTIALLY RESOLVED`).**
+The van der Pol lift and the basic-model transport are explicit; the global
+realization on an arbitrary punctured AES, a finite original-time equivalence of
+the arithmetic motions, and an AES-native interval certification are unfinished.
+
+**Default rule while open.** Cite the reduction theorem only at
+`PROVED WITH STATED HYPOTHESES` and the application only at `STRUCTURAL PROPOSAL`;
+do not assert canonical puncture monodromy, do not read an interval containing
+zero as a root proof, and do not assert that a bottom-space period lifts strictly.
 
 ## OQ-102 — Scott/Lawson vocabulary and the Adva interval boundary
 
 **Priority:** P3
-**State:** OPEN (2026-11-11).
+**State:** OPEN (2026-11-11; aligned to note 52 v0.2).
 **Scope:** `notes/analysis-and-calculus/52-scott-lawson-adva-interval-boundary.md`,
 `notes/analysis-and-calculus/09-order-topology-scott-lawson.md`,
-`notes/aes/03-quadrilateral-neighborhoods-and-scott-continuity.md`.
+`notes/aes/03-quadrilateral-neighborhoods-and-scott-continuity.md`,
+`notes/aes/05-measure-probability-information-and-area.md`.
 **Depends on:** `governance/scott-lawson-paper-1-integration-2026-10-31.md`,
 `governance/notes-reserve-audit.md`.
 
-**Question.** Note 52 separates the AEG value-lattice Scott/lower/Lawson
-vocabulary from the Adva interval interpreter's reverse-inclusion information
-order, and separates interval-Newton `RootExists` from `ExactZero`. It is a
-boundary/discipline document: it is registered here, and none of it is promoted
-into Paper 0/1/2 body text. The open parts are as follows.
+**Question.** Note 52 v0.2 separates three layers --- finite rational
+representations, the real-interval completion (a continuous dcpo), and effective
+names --- and separates interval-Newton `RootExists` from `ExactZero`. It is a
+boundary/discipline document: registered here, not promoted into Paper 0/1/2 body
+text. Rational finite intervals are **not** a dcpo; only real-endpoint intervals
+form the continuous dcpo. The answered and open parts follow note 52 §10.
 
-**102.1 — Interval-domain structure (`OPEN`; partly answered for the concrete
-`D`).**
-Determine the dcpo/continuous-domain structure of the interval poset `I(L)` under
-reverse inclusion (directed sup = intersection, compact elements, Scott basis).
-Note 03 proves this for its concrete four-coordinate interval domain `D`; the
-general endpoint/zero-domain form remains open.
+**Answered (`CLASSICAL`).** Q1 (real interval domain and its dcpo/basis, §1),
+Q3 (exact finite-term `+,-,*,/` Scott continuity versus fixed-grid rounding's
+discontinuity, §4–§5), Q4 (pure interval predicates; strict positive/negative and
+zero-exclusion are Scott open, exact zero is not, §2/§6), Q6 (relative Scott
+topology on maximal elements recovers the point topology; `E`'s maximal elements
+recover the Lawson topology).
 
-**102.2 — Generator-level functor (`OPEN`).**
-Decide whether there is a functor from the value lattice to the bilateral
-constraint object that carries the constant generators `T_s, D_k, ¬` verbatim;
-the only positive result so far is the endpoint-level `REFORMULATION`.
+**102.1 — Generator-level functor (`PARTIAL REFORMULATION`, rest `OPEN`).**
+Fixed translation, positive scaling, and zero-excluding reciprocal are matched in
+§3; a functor conclusion needs the two categories, morphisms, and relation
+preservation stated, not just endpoint formulas.
 
-**102.3 — Term-level continuity versus homomorphy (`OPEN`).**
-Note 03 proves interval `+,-,*,/` (zero-excluding) are Scott-continuous on the
-concrete `D`; the maximal homomorphic subalgebra and the complete-relation-image
-question remain open, since dependency (`x-x`, `x/x`) loses sharpness without
-losing continuity.
+**102.2 — Term-level homomorphy and shared semantics (`OPEN`).**
+The natural interval homomorphism on all real-function identity quotients is
+refuted by counterexample; which guarded rewrites, relation domains, or shared
+semantics improve precision is open.
 
-**102.4 — Exact-zero judgments versus Scott/Lawson sets (`OPEN`).**
-Give the precise relation of `ExactZero`/`ZeroUndetermined`/`StrictPositive`/
-`UnknownDomain` to Scott/Lawson open, closed, and closure sets. `ExactZero` is not
-a Scott open set, and an interval containing zero does not prove a root.
+**102.3 — Exact-zero and contract design (`OPEN`).**
+Separately specify the identities, existence, and error bounds C11 needs; an
+exact-zero claim needs a checked identity, a singleton enclosure, or a discrete
+gap witness.
 
-**102.5 — Zero-status vocabulary as Paper I discipline (`OPEN`).**
-Decide whether Paper I's zero geometry needs the `ZeroStatus = ExactZero |
-ZeroUndetermined | StrictPositive | StrictNegative | UnknownDomain` and
-`RootStatus = RootExists | RootExcluded | RootUnknown` distinction, and the
-`InvalidWitness` state for `contracted=true` with a residual not containing zero.
-If adopted, this enters as a discipline note, not as Paper I body text.
+**102.4 — Newton/certificate realization (`OPEN`; implementation acceptance).**
+Replay the `F(c)`, full-box Jacobian, and tube source used by Newton; separate
+zero status, root status, source validity, and the target proposition in the
+certificate schema.
 
-**102.6 — Certificate schema (`OPEN`).**
-Specify a certificate schema carrying both `ZeroStatus` and `RootStatus` and
-rejecting `contracted=true` without a sound replayed tube as `InvalidWitness`.
+**102.5 — Structure mass and scale (`OPEN`).**
+Define structural mass, its refinement and transport, validity, and geometric
+realization (linked to AES note 04); the specific Haar mass and fixed-leaf
+valuation of AES note 05 exist with proofs, but their general structural
+generalization is open.
 
-**Default rule while open.** Do not identify the interval domain's Scott topology
-with the value-lattice Lawson topology; do not promote `ZeroUndetermined` to
-`ExactZero`; treat `contracted=true` without a sound replayed `F(c)`/`J(X)` as an
-invalid witness, not a certificate.
+**Default rule while open.** Do not identify the rational finite representation
+with the real-interval dcpo; do not treat fixed-grid rounding as Scott-continuous;
+do not promote `ZeroUndetermined` to `ExactZero`; treat `contracted=true` without
+a sound replayed `F(c)`/`J(X)` as an invalid witness.

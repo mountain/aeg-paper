@@ -9,9 +9,9 @@ own status.  The finite-type construction and reconstruction interface follow
 in Section~\ref{sec:p0-compactification}.  The interpretive reading of those
 witnesses --- the language of tearing --- is presented as a structural proposal,
 and Subsection~\ref{subsec:p0-holed-nonclaims} lists what is not established.
-Subsection~\ref{subsec:p0-punctured-flow-proposal} records, as a further
-structural proposal, what extra data turn a punctured AES into a flow and reduce
-that flow to an ODE.
+Subsection~\ref{subsec:p0-punctured-flow-proposal} proves, with stated
+hypotheses, the reduction of a declared return to a periodic orbit, and records
+as a structural proposal what realizes that reduction on a punctured AES.
 
 \subsection{Punctured arithmetic expression spaces}
 \label{subsec:p0-holed-definition}
@@ -721,95 +721,166 @@ The following list of non-claims is part of the content of this section.
   singular notion, and its classification is not attempted.
 \end{itemize}
 
-\subsection{Flows on a punctured AES and reduction to an ODE (structural proposal)}
+\subsection{Flows on a punctured AES and reduction to an ODE}
 \label{subsec:p0-punctured-flow-proposal}
 
-The punctured space of Definition~\ref{def:p0-punctured-aes} is geometric data: a
-surface, a metric, and an assignment, with a finite set of declared singular
-points.  This subsection records, as a \emph{structural proposal} and not as a
-theorem, what must be \emph{added} to such a space before one can speak of a flow
-on it and of the reduction of that flow to an ordinary differential equation.
-It changes no claim of this section: every assertion below is a proposal or an
-open problem, never a proved proposition.
+This subsection records what must be \emph{added} to a punctured AES
+(Definition~\ref{def:p0-punctured-aes}) before one can speak of a flow on it and
+of the reduction of that flow to an ordinary differential equation.  The
+reduction statement below (Propositions~\ref{prop:p0-reduction-descent},
+\ref{prop:p0-reduction-reverse}, and \ref{prop:p0-reduction-transport} and
+Corollary~\ref{cor:p0-reduction-section}) is a proved statement about smooth
+flows, stated with explicit hypotheses; realizing those hypotheses on an actual
+punctured AES, on its end data, and on an interval receiver remains a structural
+proposal and an open problem.  No claim of this section is changed.
 
-\paragraph{The flow is extra data.}  The AES data $(M,g,a;\mu,\lambda)$ determine
-a canonical frame and, through Section~\ref{sec:p0-contact}, a contact structure
-with a horizontal distribution and a charge projection; they determine no
-preferred vector field on the punctured locus.  This is forced by
+\paragraph{The carrier is separate from the two-dimensional AES.}  The punctured
+surface $M^\circ=\overline M\setminus S$ is two-dimensional; the contact form of
+Section~\ref{sec:p0-contact} lives on an odd-dimensional carrier
+$\mathcal C=\R^3$, never on $M^\circ$ itself.  A flow is therefore declared on a
+dynamical carrier $N_{\mathrm{reg}}$ --- either $M^\circ$ itself or a lift,
+cover, or bundle over it, whose dimension, legal domain, and relation to
+$M^\circ$ are declared separately --- and it is never read off the AES data
+$(M,g,a;\mu,\lambda)$.  This is forced by
 Proposition~\ref{prop:p0-no-puncture-holonomy}: the horizontal structure is the
-integrable foliation by the level sets of $a$, hence flat and without holonomy,
-and the assignment is single-valued, so ``punctured'' must not be read as
-``multi-valued''.  A flow is therefore declared, not derived, and a monodromy, if
-it appears, is an explicitly adjoined local system.  The proposed object consists
-of declared data:
-\begin{itemize}
-  \item a punctured AES as in Definition~\ref{def:p0-punctured-aes};
-  \item a vector field $X$ on the punctured locus;
-  \item dynamical data --- a clock and a return section;
-  \item end models declaring how each puncture is treated (cusp, cone, collar,
-  or direction), extending the end data of Subsection~\ref{subsec:p0-end-data};
-  \item optional Hamiltonian/Lagrangian data $H$ and $L$;
-  \item an optional adjoined monodromy (a local system).
-\end{itemize}
+integrable foliation by the level sets of $a$, flat and without holonomy, and the
+assignment is single-valued, so ``punctured'' must not be read as
+``multi-valued''; a monodromy, if it appears, is an explicitly adjoined local
+system.  The three completions of Subsection~\ref{subsec:p0-end-data} remain
+distinct, and a flow that reaches a puncture in finite time needs end models
+(Subsection~\ref{subsec:p0-end-data}) to declare whether it stops, continues, or
+is blown up.
 
-\paragraph{The three completions stay distinct.}  The end data of
-Subsection~\ref{subsec:p0-end-data} and Remark~\ref{rem:p0-three-models} keep
-topological point filling, conformal point filling, and metric completion
-separate: a topological or conformal completion does not by itself extend $g$ or
-$a$.  The once-punctured model already shows that $g$ may extend smoothly while
-$a$ does not, and that a puncture may lie at finite $g$-distance from an interior
-point (Proposition~\ref{prop:p0-puncture-local-picture}).  A flow that reaches a
-puncture in finite time therefore needs the end models to declare whether it
-stops, continues, or is blown up.
-
-\paragraph{Hamiltonian and Lagrangian data are added, not intrinsic.}  If a
-symplectic or contact structure is adjoined on the regular part, a Hamiltonian
-vector field $X_H=\omega^{-1}\,dH$ and a Lagrangian
-$L\colon TM^\circ\to\R$ with its Legendre transform become available; the joint
-reading is the contact form of Section~\ref{sec:p0-contact}, a chosen
-Hamiltonian, and the end models.  The Legendre transform is local and may
-degenerate at a puncture, and any multi-valuedness of an action is a property of
-the adjoined cover or local system, not of the AES.  A dissipative system such as
-the van der Pol equation is not Hamiltonian and is not asserted to be one; such a
-flow enters the proposal through its Li\'enard or arithmetic lift, not through
-the Hamilton--Lagrange reading.
-
-\paragraph{Reduction to an ODE is an explicit datum.}  To return a flow on the
-punctured surface to an ordinary differential equation one declares a reduction
-datum: a projection $\pi$ from the (possibly lifted) surface to the ODE phase
-space or a section, a clock $\tau$, a return section $\sigma$, an open set
-$U_{\mathrm{reg}}$ avoiding the punctures, and, if a monodromy was adjoined, that
-same local system.  The reduction is exact when
+\paragraph{Reduction data.}  Let $B$ be an $n$-dimensional $C^2$ ODE phase
+manifold with a $C^1$ vector field $Y$ and local flow $\varphi_t$; let
+$N_{\mathrm{reg}}$ be a finite-dimensional $C^2$ manifold,
+$U_{\mathrm{reg}}\subset N_{\mathrm{reg}}$ a legal open set, and
+$\widetilde X\in C^1(TU_{\mathrm{reg}})$ a vector field with maximal local flow
+$\Phi_s$, where $s$ is lift time.  Let $\pi\colon U_{\mathrm{reg}}\to B$ be a
+$C^2$ submersion and $\nu\colon U_{\mathrm{reg}}\to(0,\infty)$ a $C^1$ positive
+rate satisfying the descent identity
 \[
-  d\pi\cdot X = X_{\mathrm{ODE}}\circ \pi,
+  D\pi_z\,\widetilde X(z)=\nu(z)\,Y(\pi z),
+\]
+and define the time cocycle
+\[
+  \tau(s,z)=\int_0^s \nu(\Phi_r z)\,dr .
+\]
+A candidate return $(z,S)$ is \emph{fully legal} when $S>0$ and
+$[0,S]\times\{z\}\subset\operatorname{Dom}(\Phi)$ with
+$\Phi_{[0,S]}(z)\subset U_{\mathrm{reg}}$.  This typed datum
+$(N_{\mathrm{reg}},U_{\mathrm{reg}},B,\widetilde X,Y,\pi,\nu,\tau)$, together with
+a return section and a fiber action when needed, replaces an untyped
+``clock'' $\tau$: a single-valued clock with $d\tau(\widetilde X)=1$ is
+inconsistent with a nontrivial closed orbit, for a strict return would then force
+both $\tau(\Phi_S z)-\tau(z)=S$ and $\tau(\Phi_S z)=\tau(z)$.
+
+\begin{proposition}[Reduction of a return to a periodic orbit]
+\label{prop:p0-reduction-descent}
+With the data above, suppose the descent identity holds on the relevant orbit
+segment and the candidate return $(z,S)$ is fully legal.  Put $p=\pi z$ and assume
+$Y(p)\neq0$.  If $\pi(\Phi_S z)=\pi(z)$ --- in particular if $\Phi_S z=z$ (a strict
+return) or if $\Phi_S z=z\cdot g$ for a smooth right action of a Lie group $G$ on
+$N_{\mathrm{reg}}$ with $\pi(z\cdot g)=\pi(z)$ (a relative return) --- then the
+equation $\dot b=Y(b)$ admits a nontrivial periodic solution through $p$, of
+positive period $T=\tau(S,z)>0$.
+\end{proposition}
+
+\begin{proof}
+The orbit segment is the continuous image of a compact interval and $\nu>0$ is
+continuous, so $0<m\le\nu\le M<\infty$ there; hence $s\mapsto t=\tau(s,z)$ is
+strictly increasing with a $C^1$ inverse, and $0<mS\le T\le MS<\infty$.  Let
+$b(t)=\pi(\Phi_{s(t)}z)$; the chain rule and the descent identity give
+$b'(t)=Y(b(t))$, and $\pi(\Phi_S z)=\pi(z)$ gives $b(T)=b(0)=p$.  Uniqueness of
+solutions of the $C^1$ equation $\dot b=Y(b)$ lets this segment be periodically
+concatenated, and $Y(p)\neq0$ excludes the constant solution.
+\end{proof}
+
+\begin{proposition}[Reverse lift and drift]
+\label{prop:p0-reduction-reverse}
+Suppose $\pi\colon U_{\mathrm{reg}}\to B_0$ is a principal $G$-bundle, the descent
+identity holds, and $\beta(t)=\varphi_t(p)$ is a nontrivial periodic solution of
+period $T>0$ on $B_0$.  Fix $z_0\in\pi^{-1}(p)$ and put
+$\widehat X=\widetilde X/\nu$.  If the orbit $z(t)$ of $\widehat X$ from $z_0$
+exists on all of $[0,T]$ and stays in $U_{\mathrm{reg}}$, then there is a unique
+$g\in G$ with $z(T)=z_0\cdot g$; this is a relative return of $\widetilde X$ with
+lift time $S=\int_0^T\frac{dt}{\nu(z(t))}$, and it is strict exactly when $g=e$.
+If moreover $R_g(U_{\mathrm{reg}})=U_{\mathrm{reg}}$,
+$(R_g)_*\widetilde X=\widetilde X$, and $\nu(z\cdot g)=\nu(z)$, then
+$\Phi_{kS}(z_0)=z_0\cdot g^k$, and the $k$-th return is strict exactly when
+$g^k=e$.
+\end{proposition}
+
+\begin{proof}
+$D\pi\,\widehat X=Y\circ\pi$, so uniqueness gives $\pi z(t)=\beta(t)$, and the
+endpoint lies in the same fiber; transitivity gives $g$ and freeness gives
+uniqueness.  The positive continuous clock has positive finite bounds on the
+compact orbit segment, so the integral is a legitimate inverse time change and the
+chain rule verifies the reparametrized orbit.  The equivariance clauses give the
+iteration by translating orbit segments.
+\end{proof}
+
+\begin{corollary}[A section root is a periodic orbit]
+\label{cor:p0-reduction-section}
+With a transverse section $\Sigma\subset B_0$ given by $h=0$ with
+$dh(Y)\neq0$, a coordinate embedding $j\colon V\to\Sigma$, and a lift
+$\sigma\colon V\to U_{\mathrm{reg}}$ with $\pi\sigma=j$, define on a positive
+return branch $S(\xi)$ whose orbit is fully legal the quotient return map
+$\mathcal P(\xi)=\kappa(\pi\Phi_{S(\xi)}\sigma(\xi))$ with inverse coordinate
+$\kappa$.  A fixed point $F_{\mathrm{quot}}(\xi_*)=\mathcal P(\xi_*)-\xi_*=0$ is,
+under these hypotheses, a periodic orbit of
+Proposition~\ref{prop:p0-reduction-descent}.
+\end{corollary}
+
+\begin{proposition}[Transport to the basic model]
+\label{prop:p0-reduction-transport}
+For the basic model $\mu=\lambda=1$, the map
+\[
+  \Psi\colon\R^2\to\{\eta>0\},
   \qquad
-  d\tau\cdot X = 1 .
+  \Psi(x,y)=\bigl(-y\,e^{-x},\,e^{-x}\bigr)
 \]
-With a nontrivial monodromy a periodic orbit is only a relative period and must
-be read on the cover; without one the flow can be single-valued, but the four
-ingredients are still required.  The passage from a punctured flow to the root of
-an equation is the one-directional chain
+is a global diffeomorphism with inverse $x=-\log\eta$, $y=-\xi/\eta$, and a $C^1$
+plane vector field $Y=P\,\partial_x+Q\,\partial_y$ transports by the original
+time to
 \[
-  \text{tube replay on the lift}
-  \ \longrightarrow\ \text{root existence on the lift}
-  \ \longrightarrow\ \text{reduction } \pi
-  \ \longrightarrow\ \text{ODE periodic orbit}
-  \ \longrightarrow\ \text{value-layer zero judgment},
+  Y_E=\eta\,(yP-Q)\,\partial_\xi-\eta P\,\partial_\eta .
 \]
-and it must not be reversed.  In particular, an interval that contains zero is a
-value-layer judgment, not a proof that a flow has a root; the existence question
-is kept separate from the exact-zero question, which belongs to the value layer
-rather than to the geometry of this section.
+The image of a finite periodic orbit is compact in the upper half-plane;
+boundedness of $x$ gives $\eta=e^{-x}$ a strict positive lower bound, so the image
+does not reach $\eta=0$ in one lap, and the return is conjugate to the return of
+the original ODE.
+\end{proposition}
+
+\begin{proof}
+The inverse formula verifies the two composites are identities and the Jacobian
+determinant is $-e^{-2x}\neq0$; the chain rule gives the transported field.
+Boundedness of $x$ on a compact finite orbit segment gives
+$\eta=e^{-x}\ge\eta_0>0$ there.
+\end{proof}
+
+\paragraph{Application to a punctured AES (structural proposal).}  What the
+preceding statements do not supply is a punctured AES on which the hypotheses --- a
+full legal orbit avoiding the punctures, a submersion, a positive rate, and a
+fiber action --- are realized.  Choosing such a carrier, its end models, and an
+interval receiver that certifies the return is the remaining structural work, and
+it is left as a proposal rather than claimed here.  In particular a bottom-space
+period need not lift to a strict closed orbit (a cylinder example and the van der
+Pol Li\'enard lift both have nonzero drift), and a dissipative system such as the
+van der Pol equation is not asserted to be Hamiltonian.  Root existence on a
+certified interval box is a separate value-layer judgment, kept apart from the
+geometry of this subsection.
 
 \paragraph{Non-claims.}  The following statements are part of the content of this
 subsection and are not asserted: (i)~the punctured AES carries a canonical
 puncture monodromy --- Proposition~\ref{prop:p0-no-puncture-holonomy} shows it
-does not; (ii)~topological completion equals metric completion equals arithmetic
-completion; (iii)~the AES data determine the flow; (iv)~the van der Pol equation
-is Hamiltonian; (v)~an interval containing zero proves the existence of a root;
-(vi)~the holonomy of the charge plane is the holonomy of the puncture --- it is
-the holonomy of the added charge projection of
-Proposition~\ref{prop:p0-no-puncture-holonomy}.
+does not; (ii)~topological completion equals conformal filling equals
+metric/arithmetic completion; (iii)~the AES data determine the dynamics;
+(iv)~the two-dimensional AES is itself the three-dimensional contact carrier, or a
+horizontal flow is automatically a contact Hamiltonian flow; (v)~an interval
+containing zero proves root existence; (vi)~any root projects through $\pi$ to a
+periodic orbit without the return hypotheses; (vii)~a bottom-space period lifts to
+a strict closed orbit, or a relative return must come from a puncture monodromy.
 
 \subsection{Open problems}
 \label{subsec:p0-holed-open}
@@ -874,27 +945,39 @@ question raised in Subsection~\ref{subsec:p0-tearing-at-puncture}.
 \end{enumerate}
 
 The flow-and-reduction proposal of
-Subsection~\ref{subsec:p0-punctured-flow-proposal} leaves five further problems,
-each a programme and not a result.
+Subsection~\ref{subsec:p0-punctured-flow-proposal} leaves the following problems,
+each a programme and not a result.  The reduction theorem above
+(Propositions~\ref{prop:p0-reduction-descent}, \ref{prop:p0-reduction-reverse},
+and \ref{prop:p0-reduction-transport}) settles the smooth-flow reduction and the
+basic-model transport; what remains open is their realization on a punctured AES.
 
 \begin{enumerate}
-  \item \label{op:p0-punctured-flow-end-data}\emph{Minimal end data.}  Determine
-  a minimal sufficient set of end models (direction, conformal class, metric
-  asymptotics, and the limit or branching behaviour of the assignment) and the
-  condition under which two end models give the same flow.
-  \item \emph{Decidable end conditions.}  Write the end condition on the vector
-  field $X$ so that finite-time and finite-distance behaviour at a puncture is
-  decidable.
-  \item \emph{Degeneration of the Legendre transform.}  Classify the degeneration
-  of the Hamiltonian/Lagrangian reading at the ends, and separate action
-  multi-valuedness coming from the adjoined monodromy from a coordinate artifact.
-  \item \emph{Minimal reduction datum.}  Give minimal conditions on the reduction
-  datum $(\pi,\tau,\sigma,U_{\mathrm{reg}})$ and prove a preservation statement:
-  a root of the lifted equation that lies in $U_{\mathrm{reg}}$ projects under
-  $\pi$ to a root of the reduced equation.
-  \item \emph{An AES-native lift of the van der Pol flow.}  Decide whether the
-  van der Pol equation admits an explicit lift to a punctured AES with a
-  reduction datum whose periodic orbits avoid the punctures.
+  \item \label{op:p0-punctured-flow-end-data}\emph{End data and end tubes.}  Give
+  the interval-neighbourhood semantics of the regular and end strata and an
+  effective representation of the end tube.
+  \item \emph{Minimal end data.}  Determine the minimal dynamical data of a
+  concrete AES end model and the uniqueness of its extension; a topological or
+  conformal completion does not supply it.
+  \item \emph{Realizing the carrier hypotheses.}  Decide whether a chosen
+  punctured carrier satisfies full-orbit legality, the principal-bundle or fiber
+  action, and the time-compatibility hypotheses of
+  Propositions~\ref{prop:p0-reduction-descent} and \ref{prop:p0-reduction-reverse}.
+  \item \emph{Hamilton--Lagrange degeneration.}  Classify a genuine Hamiltonian or
+  Lagrangian representation and the degeneration of its Legendre transform; it is
+  not implied by horizontality alone.
+  \item \emph{Sharpening the reduction hypotheses.}  The reduction theorem is
+  proved under smoothness, a positive clock, and a legal domain; non-free actions,
+  singular quotients, non-unique end extension, resets, and weaker regularity are
+  outside it, and the hypotheses are not asserted to be minimal.
+  \item \emph{Cover and connection semantics.}  Give a strict interval semantics
+  for an adjoined cover or local system and for connection holonomy; a closed-loop
+  drift of a general curved connection depends on the path and does not by itself
+  yield a $\pi_1$-only representation.
+  \item \emph{AES-native realization.}  The van der Pol lift and the basic-model
+  transport of Proposition~\ref{prop:p0-reduction-transport} are explicit, but the
+  global realization on an arbitrary punctured AES, a finite original-time
+  equivalence of the arithmetic motions, and an AES-native interval certification
+  remain unfinished.
 \end{enumerate}
 
 A solution of any of them would turn the language of this chapter from a
