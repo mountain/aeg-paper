@@ -5,7 +5,8 @@ claims, not governance records, and not a change to any mathematical-status
 register. Notes 01–02 record the elliptic AES programme (positive curvature,
 compactification, analysis). Notes 03–04, added 2026-11-10, record rational
 neighborhood data, continuity in an explicit basic model, and the separate open
-question of geometric metric realization.
+question of geometric metric realization. Note 05 records neighborhood mass,
+Haar transport, conditional probability, information and their area connections.
 
 ## Why a separate `aes/` folder
 
@@ -23,6 +24,7 @@ bases and relation transport, alongside metric-realization questions.
 - [02 – The arithmetic side of the elliptic AES](02-arithmetic-side-of-the-elliptic-aes.md)
 - [03 – Quadrilateral neighborhoods and Scott continuity](03-quadrilateral-neighborhoods-and-scott-continuity.md)
 - [04 – Structural data, metric unification and the catenoid example](04-structural-data-metric-unification-and-catenoid.md)
+- [05 – Measure, probability, information and area](05-measure-probability-information-and-area.md)
 
 ## Elliptic AES programme summary (notes 01–02)
 
@@ -61,6 +63,16 @@ Note 04 preserves the metric-unification question and its catenoid example from
 the linked discussion Page. The rational root brackets are certified; displayed
 areas are numerical approximations. A general AES metric realization and a
 geometric interpretation of structural mass remain open.
+
+## Neighborhood mass, probability and information (note 05)
+
+Note 05 separates structural mass, conditional probability, logarithmic
+information, positive area and the signed ACS order defect. It fixes the
+left/right Haar convention, proves the basic transport laws and a conditional
+selection of the cross-layer motion, and includes a rational partition example
+with certified logarithm bounds. A fixed-leaf construction connects these data
+to continuous valuations on Scott opens. General metric realization and
+probabilistic semantics for arbitrary histories remain open.
 
 ## Relation to the papers
 
@@ -104,3 +116,7 @@ The 2026-11-10 additions were directed by Mingli Yuan and formalized/drafted
 with ChatGPT / Codex (OpenAI). Their per-note provenance, proofs, sources and
 claim boundaries are recorded in notes 03–04. The source Page is preserved;
 no manuscript or mathematical-status register was changed.
+
+Note 05 records the separate measurement/probability thread of the same
+2026-11-10 discussion. Its additional assumptions, derivations and user-reported
+model motivation are distinguished in its provenance section.
