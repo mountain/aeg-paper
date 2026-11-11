@@ -74,8 +74,8 @@ since advanced to canonical active source closures. Paper II is recorded in Sect
 | `arxiv/` | 14 | prior distribution snapshot, styles, figures, bibliography | ARCHIVAL | currently `archive/arxiv/`; DOI/version provenance |
 | `paper4p/` | 2 | short alternative manuscript and build | ARCHIVAL | currently `archive/paper4p/`; no active theorem authority |
 | `notes/` | 32 | bilateral, analytic, loop, thermal, ring, resource notes | HOLD / PARTIAL EXPORT | audited algebra → I; analysis → II; singularity → III; quotient/complexity → IV; currently classified under topical subdirectories of `notes/` |
-| `misc/` | 28 | standalone diagram/model TeX and image experiments | HOLD / ARCHIVAL | currently preserved under `images/sources/`; reuse only after formula and asset audit |
-| `images/` | 26 | 21 PDF and 5 PNG rendered assets | HOLD / SHARED ASSET ARCHIVE | none is required by the active Paper I build |
+| `misc/` | 28 | standalone diagram/model TeX and image experiments | HOLD / ARCHIVAL | currently preserved under `images/sources/`; reuse only after formula and asset audit — the audit is `figure-asset-audit.md` |
+| `images/` | 26 | 21 PDF and 5 PNG rendered assets | HOLD / SHARED ASSET ARCHIVE | none is required by the active Paper I build; per-asset ledger in `figure-asset-audit.md` |
 | `knots/` | 6 | knot/problem TeX plus one PDF | EXPORTED / ARCHIVAL | currently preserved under `notes/knots-and-loops/`; Paper III research archive; no invariant claim |
 | `ideal_glass/` | 18 | independent PDF, TeX, Python package, experiment tooling | HOLD / INDEPENDENT | currently `archive/ideal_glass/`; not a Paper I dependency |
 | `plans/` | 2 | historical principles and study plan | ARCHIVAL | currently `archive/plans/`; active plans live in `governance/` |
