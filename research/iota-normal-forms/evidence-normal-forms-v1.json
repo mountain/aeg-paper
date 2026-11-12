@@ -1,4 +1,13 @@
 {
+  "brute_force_levels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
   "definitions": {
     "arity": "number of leading lambdas of the normal form",
     "birth": "minimal leaf count at which the form appears",
@@ -18432,12 +18441,16 @@
     }
   ],
   "p_iota_family": {
+    "distinct_output_forms": 28,
+    "input_forms": 59,
+    "multiplicity_max": 8,
+    "multiplicity_min": 1,
     "sibling": {
       "cap_hit": false,
       "pretty": "lambda a.a(S)(K)(iota)(a(S)(K))",
-      "size": 52
-    },
-    "size": 28
+      "size": 52,
+      "terminal_above_cap": false
+    }
   },
   "s14": {
     "cap": 20000,
@@ -18866,6 +18879,8 @@
     "cap_hits": 2,
     "lower": 128,
     "nonhit_forms": 128,
+    "nonhit_terminal_above_cap": 0,
+    "nonhit_terminated": true,
     "upper": 130
   },
   "semantics_tests": {

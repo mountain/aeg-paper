@@ -1,6 +1,6 @@
 # K_n database: iota trees, their normal forms and their fibres
 
-**Status:** `COMPUTATIONALLY VERIFIED EXAMPLE`, 2026-11-12. Not a paper claim and
+**Status:** `COMPUTATIONALLY VERIFIED EXAMPLE` (reproducible by this implementation), 2026-11-12. Not a paper claim and
 not entered in `governance/05` or `05c`. **For this note, \(K_n\) denotes the set
 of plane binary trees with \(n\) leaves labelled by the single combinator
 \(\iota\)**; the expansion is descriptive, not an established object of the
@@ -10,9 +10,13 @@ corpus. The nearest in-repo contexts are
 
 ## 1. What is in the database
 
-For \(n=1,\dots,13\) the script `verify_normal_forms.py` enumerates the
-\(C_{n-1}\) plane binary trees with \(n\) leaves, reads each as a closed
-\(\lambda\)-term with one \(\iota=\lambda x.xSK\) per leaf, and records:
+For \(n=1,\dots,13\) the script `verify_normal_forms.py` constructs the set of
+\(\beta\)-normal forms of the closed \(\lambda\)-terms with one
+\(\iota=\lambda x.xSK\) per leaf. It does **not** enumerate the \(C_{n-1}\) trees
+individually: it uses the congruence below over the distinct normal forms and
+carries the fibre counts along the same recursion. A brute-force enumeration of
+all trees is performed separately for \(n\le7\) and compared with the recursion.
+For every form it records:
 
 | field | meaning |
 |---|---|
@@ -101,12 +105,12 @@ Here \(S\) has birth 5; the right factors \(\lambda a.\lambda b.b(ab)\) and
 So \(b_1,b_2\) are second-generation self-application forms: an abundant
 birth-7 form, composed with \(S\), then applied to \(\iota\).
 
-This is not a size effect: the \(n=13\) family \(p\cdot\iota\) has 28 members,
-including a size-52 sibling
+This is not a size effect: the image of \(p\mapsto p\cdot\iota\) on the 59
+twelve-leaf forms has 28 distinct output forms, including a size-52 sibling
 \(\lambda a.\,aSK(\iota)(aSK)\) which is born at 13 with fibre 1 but whose
 \(n=14\) application stays below the cap. The verifier computes and asserts both
-the family size (28) and the sibling's below-cap reduction; the sibling is
-recorded in the evidence. Explosiveness is shape-specific, not monotone in size or
+the image cardinality (28), the multiplicities of the 59 inputs, and the
+sibling's below-cap reduction; both are recorded in the evidence. Explosiveness is shape-specific, not monotone in size or
 fibreness.
 
 At \(n=14\) the exact count is bounded by \(128\le s_{14}\le 130\). The verifier
@@ -127,7 +131,10 @@ python3 research/iota-normal-forms/verify_normal_forms.py research/iota-normal-f
 
 The first command writes to `/tmp`; the committed evidence is never overwritten.
 The calibration is same-author and has not had an independent human review. The
-oracle in §1 checks seven small reductions and one capture-avoidance case; it is
-**not** an independent implementation of the database, so a systematic normalizer
-bug that preserves the aggregate sequence and the Catalan totals could still
-produce a self-consistent but wrong per-row database.
+oracle checks seven small reductions and one capture-avoidance case, and the
+brute-force enumeration for \(n\le7\) independently enumerates the trees (with the
+same normalizer); neither is an independent reducer. The replay is therefore
+"**reproducible by this implementation**": a systematic normalizer bug that
+preserves the aggregate sequence, the Catalan totals and the small oracle could
+still produce a self-consistent but wrong database. The status label
+`COMPUTATIONALLY VERIFIED EXAMPLE` should be read with that caveat.

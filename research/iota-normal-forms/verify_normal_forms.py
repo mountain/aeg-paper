@@ -171,18 +171,19 @@ def check(name, condition, detail=None):
 
 
 def reduce_capped(t, cap):
-    """Reduce; return (state, exceeded_cap, terminated).
+    """Reduce; return (state, exceeded_cap, terminated, terminal_above_cap).
 
-    exceeded_cap marks that some intermediate state exceeded the size cap; it
-    does not assert that the normal form (if it exists) is larger than the cap.
+    exceeded_cap marks that a non-terminal intermediate state exceeded the cap.
+    A terminal normal form larger than the cap is reported as terminated with
+    terminal_above_cap=True, not as a cap hit.
     """
     steps = 0
     while True:
-        if size(t) > cap:
-            return t, True, False
         n = step(t)
         if n is None:
-            return t, False, True
+            return t, False, True, size(t) > cap
+        if size(t) > cap:
+            return t, True, False, False
         t = n
         steps += 1
         if steps > MAX_STEPS:
@@ -247,11 +248,34 @@ def main(argv):
     for n in range(1, MAX_N + 1):
         check('tree count at %d' % n, sum(counts[n].values()) == cat(n - 1))
 
+    # independent brute-force enumeration of the trees for small n
+    def all_trees(n):
+        if n == 1:
+            return [()]
+        out = []
+        for i in range(1, n):
+            for l in all_trees(i):
+                for r in all_trees(n - i):
+                    out.append((l, r))
+        return out
+
+    def tree_term(t):
+        if t == ():
+            return IOTA
+        return A(tree_term(t[0]), tree_term(t[1]))
+
+    brute_checked = []
+    for n in range(1, 8):
+        c = Counter(norm(tree_term(t)) for t in all_trees(n))
+        check('brute-force level %d matches the recursion' % n,
+              dict(c) == counts[n], (n, len(c), len(counts[n])))
+        brute_checked.append(n)
+
     # explosive n=14 pairs: b in S_13 with iota·b exceeding CAP
     explosive = []
     explosive_meta = {}
     for b in sorted(forms[13], key=term_key):
-        state, hit, terminated = reduce_capped(A(IOTA, b), CAP)
+        state, hit, terminated, above_cap = reduce_capped(A(IOTA, b), CAP)
         if hit:
             explosive.append(b)
             explosive_meta[b] = {'cap': CAP, 'reduction_exceeded_cap': True,
@@ -261,15 +285,20 @@ def main(argv):
     # the advertised n=14 two-sided bound: all root splits
     s14_forms = set()
     s14_hits = []
+    s14_above = 0
     for i in range(1, 14):
         for a in sorted(forms[i], key=term_key):
             for b in sorted(forms[14 - i], key=term_key):
-                state, hit, terminated = reduce_capped(A(a, b), CAP)
+                state, hit, terminated, above_cap = reduce_capped(A(a, b), CAP)
                 if hit:
                     s14_hits.append((i, a, b))
                 else:
+                    check('n=14 non-hit reduction terminates', terminated)
+                    if above_cap:
+                        s14_above += 1
                     s14_forms.add(state)
     check('n=14 non-hit forms = 128', len(s14_forms) == 128, len(s14_forms))
+    check('n=14 non-hit terminal-above-cap = 0', s14_above == 0, s14_above)
     check('n=14 cap-hitting pairs = 2', len(s14_hits) == 2, len(s14_hits))
     check('n=14 hits are iota applied to the two explosive forms',
           all(i == 1 and a == IOTA for i, a, b in s14_hits)
@@ -277,7 +306,8 @@ def main(argv):
               {json.dumps(serialize(b)) for b in explosive})
     s14 = {'nonhit_forms': len(s14_forms), 'cap_hits': len(s14_hits),
            'lower': len(s14_forms), 'upper': len(s14_forms) + len(s14_hits),
-           'cap': CAP,
+           'cap': CAP, 'nonhit_terminated': True,
+           'nonhit_terminal_above_cap': s14_above,
            'cap_hit_splits': [{'split': [i, 14 - i], 'left': serialize(a),
                               'right': serialize(b), 'right_pretty': pretty(b)}
                               for i, a, b in s14_hits]}
@@ -285,14 +315,28 @@ def main(argv):
     # the p·iota family and its size-52 sibling
     family = [f for f in sorted(forms[13], key=term_key)
               if any(norm(A(x, IOTA)) == f for x in forms[12])]
-    check('p·iota family at n=13 has 28 members', len(family) == 28, len(family))
+    check('p·iota image at n=13 has 28 distinct output forms',
+          len(family) == 28, len(family))
+    family_set = set(family)
+    multiplicity = Counter()
+    for x in forms[12]:
+        out = norm(A(x, IOTA))
+        if out in family_set:
+            multiplicity[out] += 1
+    check('every p maps into the image', sum(multiplicity.values()) == len(forms[12]),
+          (sum(multiplicity.values()), len(forms[12])))
     sibling = next((f for f in family if size(f) == 52), None)
-    check('p·iota family has a size-52 member', sibling is not None)
-    _, sibling_hit, _ = reduce_capped(A(IOTA, sibling), CAP)
-    check('size-52 sibling stays below the cap', not sibling_hit)
-    family_info = {'size': len(family),
+    check('p·iota image has a size-52 member', sibling is not None)
+    _, sibling_hit, sibling_term, sibling_above = reduce_capped(A(IOTA, sibling), CAP)
+    check('size-52 sibling stays below the cap',
+          sibling_term and not sibling_hit and not sibling_above)
+    family_info = {'distinct_output_forms': len(family),
+                   'input_forms': len(forms[12]),
+                   'multiplicity_min': min(multiplicity.values()),
+                   'multiplicity_max': max(multiplicity.values()),
                    'sibling': {'pretty': pretty(sibling), 'size': size(sibling),
-                               'cap_hit': sibling_hit}}
+                               'cap_hit': sibling_hit,
+                               'terminal_above_cap': sibling_above}}
 
     levels = []
     for n in range(1, MAX_N + 1):
@@ -371,6 +415,7 @@ def main(argv):
         'levels': levels,
         's14': s14,
         'p_iota_family': family_info,
+        'brute_force_levels': brute_checked,
         'semantics_tests': {'passed': semantics_tests(),
                             'cases': ['I x -> x', 'K x y -> x', 'S K K -> I',
                                       'iota iota -> I', 'iota I -> F',
