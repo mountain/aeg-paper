@@ -10,7 +10,11 @@ nf(A B) = nf(nf(A) nf(B)), with exact fibre counts, a witness tree for each
 form, its arity and size, its birth level, and the two n = 13 forms whose
 application to iota (the n = 14 explosive terms) exceeds the size cap.
 
-Every table entry is asserted; the script exits non-zero when a check fails.
+The aggregate sequence, the Catalan totals, the n=14 bound, the cap-hit identity,
+the p·iota family and the semantic oracle are asserted; the individual rows are
+emitted for the database and are not compared against an independent fixture.
+The script exits non-zero when a check fails, and a fuel bound prevents a cyclic
+reduction from hanging CI.
 `--verify-evidence` compares the regenerated JSON byte for byte with the
 committed evidence.
 
@@ -22,6 +26,7 @@ from collections import Counter
 
 MAX_N = 13
 CAP = 20000
+MAX_STEPS = 2000000
 
 
 def V(n):
@@ -81,11 +86,15 @@ def norm(t):
     if t in CACHE:
         return CACHE[t]
     orig = t
+    steps = 0
     while True:
         n = step(t)
         if n is None:
             break
         t = n
+        steps += 1
+        if steps > MAX_STEPS:
+            raise SystemExit('normalization fuel exhausted')
     CACHE[orig] = t
     return t
 
@@ -167,6 +176,7 @@ def reduce_capped(t, cap):
     exceeded_cap marks that some intermediate state exceeded the size cap; it
     does not assert that the normal form (if it exists) is larger than the cap.
     """
+    steps = 0
     while True:
         if size(t) > cap:
             return t, True, False
@@ -174,6 +184,9 @@ def reduce_capped(t, cap):
         if n is None:
             return t, False, True
         t = n
+        steps += 1
+        if steps > MAX_STEPS:
+            raise SystemExit('reduction fuel exhausted')
 
 
 def semantics_tests():
@@ -181,11 +194,11 @@ def semantics_tests():
     checks = [
         ('I x -> x', norm(A(I, V(0))) == V(0)),
         ('K x y -> x', norm(A(A(K, V(0)), V(1))) == V(0)),
-        ('S K K -> I', norm(A(A(S, K), K)) == I),
-        ('iota iota -> I', norm(A(IOTA, IOTA)) == I),
-        ('iota I -> F', norm(A(IOTA, I)) == norm(A(K, I))),
-        ('iota K -> S', norm(A(IOTA, K)) == S),
-        ('capture: K y -> lambda y. y', norm(A(K, V(0))) == L(V(1))),
+        ('S K K -> I', norm(A(A(S, K), K)) == L(V(0))),
+        ('iota iota -> I', norm(A(IOTA, IOTA)) == L(V(0))),
+        ('iota I -> F', norm(A(IOTA, I)) == L(L(V(0)))),
+        ('iota K -> S', norm(A(IOTA, K)) == L(L(L(A(A(V(2), V(0)), A(V(1), V(0))))))),
+        ('capture: K y -> lambda y. y with y free', norm(A(K, V(0))) == L(V(1))),
     ]
     for name, ok in checks:
         check('semantics: ' + name, ok)
@@ -247,20 +260,39 @@ def main(argv):
 
     # the advertised n=14 two-sided bound: all root splits
     s14_forms = set()
-    s14_hits = 0
+    s14_hits = []
     for i in range(1, 14):
         for a in sorted(forms[i], key=term_key):
             for b in sorted(forms[14 - i], key=term_key):
                 state, hit, terminated = reduce_capped(A(a, b), CAP)
                 if hit:
-                    s14_hits += 1
+                    s14_hits.append((i, a, b))
                 else:
                     s14_forms.add(state)
     check('n=14 non-hit forms = 128', len(s14_forms) == 128, len(s14_forms))
-    check('n=14 cap-hitting pairs = 2', s14_hits == 2, s14_hits)
-    s14 = {'nonhit_forms': len(s14_forms), 'cap_hits': s14_hits,
-           'lower': len(s14_forms), 'upper': len(s14_forms) + s14_hits,
-           'cap': CAP}
+    check('n=14 cap-hitting pairs = 2', len(s14_hits) == 2, len(s14_hits))
+    check('n=14 hits are iota applied to the two explosive forms',
+          all(i == 1 and a == IOTA for i, a, b in s14_hits)
+          and {json.dumps(serialize(b)) for _, _, b in s14_hits} ==
+              {json.dumps(serialize(b)) for b in explosive})
+    s14 = {'nonhit_forms': len(s14_forms), 'cap_hits': len(s14_hits),
+           'lower': len(s14_forms), 'upper': len(s14_forms) + len(s14_hits),
+           'cap': CAP,
+           'cap_hit_splits': [{'split': [i, 14 - i], 'left': serialize(a),
+                              'right': serialize(b), 'right_pretty': pretty(b)}
+                              for i, a, b in s14_hits]}
+
+    # the p·iota family and its size-52 sibling
+    family = [f for f in sorted(forms[13], key=term_key)
+              if any(norm(A(x, IOTA)) == f for x in forms[12])]
+    check('p·iota family at n=13 has 28 members', len(family) == 28, len(family))
+    sibling = next((f for f in family if size(f) == 52), None)
+    check('p·iota family has a size-52 member', sibling is not None)
+    _, sibling_hit, _ = reduce_capped(A(IOTA, sibling), CAP)
+    check('size-52 sibling stays below the cap', not sibling_hit)
+    family_info = {'size': len(family),
+                   'sibling': {'pretty': pretty(sibling), 'size': size(sibling),
+                               'cap_hit': sibling_hit}}
 
     levels = []
     for n in range(1, MAX_N + 1):
@@ -338,7 +370,12 @@ def main(argv):
         },
         'levels': levels,
         's14': s14,
-        'semantics_tests': 'passed (%d known reductions and one capture-avoidance test)' % semantics_tests(),
+        'p_iota_family': family_info,
+        'semantics_tests': {'passed': semantics_tests(),
+                            'cases': ['I x -> x', 'K x y -> x', 'S K K -> I',
+                                      'iota iota -> I', 'iota I -> F',
+                                      'iota K -> S',
+                                      'capture: K y -> lambda y. y with y free']},
         'explosive_lineage': lineage,
     }
     text = json.dumps(ev, indent=2, sort_keys=True) + '\n'

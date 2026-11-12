@@ -1,10 +1,12 @@
 # K_n database: iota trees, their normal forms and their fibres
 
 **Status:** `COMPUTATIONALLY VERIFIED EXAMPLE`, 2026-11-12. Not a paper claim and
-not entered in `governance/05` or `05c`. The object (the \(K_n\) tree expansion) is
-not yet defined in the corpus; the nearest in-repo contexts are note 40
-(carousel--$\iota$ overview) and §7 of the frames note. No register entry is
-claimed.
+not entered in `governance/05` or `05c`. **For this note, \(K_n\) denotes the set
+of plane binary trees with \(n\) leaves labelled by the single combinator
+\(\iota\)**; the expansion is descriptive, not an established object of the
+corpus. The nearest in-repo contexts are
+`notes/analysis-and-calculus/40-carousel-iota-overview.md` and
+`research/frames-to-blocks/README.md` (§7). No register entry is claimed.
 
 ## 1. What is in the database
 
@@ -102,8 +104,10 @@ birth-7 form, composed with \(S\), then applied to \(\iota\).
 This is not a size effect: the \(n=13\) family \(p\cdot\iota\) has 28 members,
 including a size-52 sibling
 \(\lambda a.\,aSK(\iota)(aSK)\) which is born at 13 with fibre 1 but whose
-\(n=14\) application stays below the cap. Explosiveness is shape-specific, not
-monotone in size or fibreness.
+\(n=14\) application stays below the cap. The verifier computes and asserts both
+the family size (28) and the sibling's below-cap reduction; the sibling is
+recorded in the evidence. Explosiveness is shape-specific, not monotone in size or
+fibreness.
 
 At \(n=14\) the exact count is bounded by \(128\le s_{14}\le 130\). The verifier
 enumerates **all** root splits at \(n=14\): every non-cap pair reduces to a
@@ -122,6 +126,8 @@ python3 research/iota-normal-forms/verify_normal_forms.py research/iota-normal-f
 ```
 
 The first command writes to `/tmp`; the committed evidence is never overwritten.
-The calibration is same-author and has not had an independent human review; the
-reductions are additionally checked against the small oracle in §1 so that a
-normalizer bug cannot pass merely by being self-consistent.
+The calibration is same-author and has not had an independent human review. The
+oracle in §1 checks seven small reductions and one capture-avoidance case; it is
+**not** an independent implementation of the database, so a systematic normalizer
+bug that preserves the aggregate sequence and the Catalan totals could still
+produce a self-consistent but wrong per-row database.
