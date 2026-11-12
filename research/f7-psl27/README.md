@@ -1,15 +1,16 @@
-# F_7, PSL(2,7), and the Paper IV counts
+# F_7, PGL(2,7), PSL(2,7), and the Paper IV counts
 
-**Status:** research note v0.1, 2026-11-12. Not a paper claim, not a trial, not a
-proof record. It records what the repository already says about \(\mathbb F_7\),
-and the finite group-action correspondences that can be built on top of Paper IV's
-calibration.
+**Status:** research scaffold v0.2, 2026-11-12. Not a paper claim, not a trial, not
+a proof record. It records what the repository already says about
+\(\mathbb F_7\), and the finite group-action correspondences that can be built on
+top of Paper IV's calibration.
 
-**One-line result.** The 56 regular bivaluations of Paper IV are, as a
-\(PSL_2(\mathbb F_7)\)-set, the 56 elements of order 3; the 8 projective points are
-the 8 Sylow 7-subgroups; the 21 Fano flags are the 21 involutions. The 42 ordered
-Fano pairs and the 42 elements of order 4 have the same size but different
-stabilizers (\(V_4\) against \(C_4\)), so that one stays a numerical coincidence.
+**One-line result.** As \(PSL_2(\mathbb F_7)\)-sets, the 56 regular bivaluations of
+Paper IV are isomorphic to the 56 elements of order 3, the 8 projective points to
+the 8 Sylow 7-subgroups, and the 21 Fano flags to the 21 involutions. The 42
+ordered Fano pairs and the 42 elements of order 4 have the same size but are
+**not** isomorphic \(PSL\)-sets (\(V_4\) against \(C_4\)); the 42 six-leaf
+\(\iota\)-trees stay a numerical coincidence.
 
 ---
 
@@ -25,84 +26,145 @@ Paper IV, `paper-4/sections/03-projective-quotients.tex`, Example
 \]
 
 The 336 ordered projective frames condense to 56 ordered image--kernel pairs, with
-six frame lifts above each pair. Paper IV also computes a cross-ratio holonomy in
-\(\mathbb F_7^\times\) (`04b-transport-density.tex`, the witness loop with
-\(\Lambda(\square)=4\neq1\)). Paper III uses \(\mathbb F_7\) only as a residue field
-of a specialization (`05-history-divisor-naturality.tex`, the point
-\((7,\sqrt2-3)\)), and Paper V's appendix mentions a conjugacy choice over
-\(\mathbb F_7\). No part of the repository discusses \(PSL_2(\mathbb F_7)\) as a
-group.
+six frame lifts above each pair. The cross-ratio holonomy example is
+`ex:f7-cross-ratio-holonomy` in
+`paper-4/sections/04-condensation-and-continuation.tex` (\(\Lambda(\square)=4\neq1\)
+in \(\mathbb F_7^\times\)); the edge-by-edge transport version is
+`ex:f7-edge-transports` in `paper-4/sections/04b-transport-density.tex`. Paper III
+uses \(\mathbb F_7\) only as a residue field of a specialization
+(`05-history-divisor-naturality.tex`, the point \((7,\sqrt2-3)\)), and Paper V's
+appendix mentions a conjugacy choice over \(\mathbb F_7\).
 
-## 2. The group
+Two existing pieces of work are closer than the papers: note 49,
+`notes/analysis-and-calculus/49-conic-histories-and-finite-calculi.tex`,
+Proposition `prop:commutant`, already proves that \(\mathrm{PGL}_2(\mathbb F_7)\)
+is two-transitive on the projective conic and computes its order; and
+`notes/analysis-and-calculus/finite-field-calculi/conic-dynamics/verify.py`
+enumerates all 336 projective matrices over \(\mathbb F_7\) and checks covariance
+against every one of them. **Paper IV's native group is \(\mathrm{PGL}_2(\mathbb
+F_7)\); everything below is a restriction to the index-two subgroup
+\(\mathrm{PSL}_2(\mathbb F_7)\).** Where the PGL statement is stronger, it is
+recorded as well.
 
-\(PSL_2(\mathbb F_7)\) has order \(168\), is the index-two subgroup of
-\(\mathrm{PGL}_2(\mathbb F_7)\) (the determinant-square half), and is isomorphic to
-\(GL(3,2)\), the automorphism group of the Fano plane. Its conjugacy classes are
+## 2. The two groups
 
+\(\mathrm{PGL}_2(\mathbb F_7)\) has order 336 and conjugacy classes
 \[
-1,\quad 21,\quad 56,\quad 42,\quad 48
+1,\ 21,\ 28,\ 56,\ 42,\ 56,\ 48,\ 42,\ 42
 \]
+(order 1, two involution classes, order 3, order 4, order 6, a single order-7
+class, and two order-8 classes).
 
-for the identity, the involutions, the order-3 elements, the order-4 elements, and
-the order-7 elements; the 48 order-7 elements split into two classes of 24 (the two
-primitive directions). The Sylow counts are \(n_2=21\), \(n_3=28\), \(n_7=8\).
+\(\mathrm{PSL}_2(\mathbb F_7)\) has order 168, is the index-two subgroup of
+determinant-square matrices, and is isomorphic to \(GL(3,2)\), the automorphism
+group of the Fano plane. Its classes are
+\[
+1,\quad 21,\quad 56,\quad 42,\quad 24,\quad 24,
+\]
+i.e. the identity, the involutions, the order-3 elements, the order-4 elements,
+and the two inverse classes of order-7 elements. The Sylow counts are
+\(n_2=21\), \(n_3=28\), \(n_7=8\).
 
 ## 3. Correspondences
 
-The script `verify_psl27.py` builds \(PSL_2(\mathbb F_7)\) as the permutations of
-\(\mathbb P^1(\mathbb F_7)\) induced by \(SL_2(\mathbb F_7)\), computes the classes
-and Sylow counts above, and checks the stabilizer conjugacies used below. Its
-evidence is `evidence-psl27-v1.json`.
+The script `verify_psl27.py` builds both groups as permutations of
+\(\mathbb P^1(\mathbb F_7)\), computes the classes, Sylow counts, stabilizers and
+centralizers below, and checks the conjugacies on which the isomorphisms rest.
+Its evidence is `evidence-psl27-v1.json`.
 
-| AEG / combinatorial object | \(PSL_2(\mathbb F_7)\) object | status |
+| AEG / combinatorial object | group object | status |
 |---|---|---|
-| the 8 projective points | the 8 Sylow 7-subgroups | both transitive; point stabilizer has order 21 and is conjugate to the normalizer of a Sylow 7; the two \(PSL\)-sets are isomorphic |
-| the 56 regular bivaluations (ordered pairs of points) | the 56 elements of order 3 (conjugation) | \(PSL\) is 2-transitive on 8 points; the ordered-pair stabilizer is a \(C_3\) conjugate to a Sylow 3; the two \(PSL\)-sets are isomorphic |
-| the 21 Fano flags | the 21 involutions (or the 21 Sylow 2-subgroups) | flag stabilizer is the Borel of order 8, a Sylow 2; an involution's centralizer is a Sylow 2; all Sylow 2-subgroups are conjugate, so the \(PSL\)-sets are isomorphic (classical \(GL(3,2)\) action) |
-| the 42 ordered Fano pairs | the 42 order-4 elements | same size only: the ordered-pair stabilizer is \(V_4\), while an order-4 element has centralizer \(C_4\); **not** isomorphic as \(PSL\)-sets |
-| the 24 heptagons of the Klein quartic | the 24 cosets of a Sylow 7-subgroup | classical; the two classes of order-7 elements of size 24 are the two orientations |
-| the 42 six-leaf \(\iota\)-trees (\(K_6\)) | 42 order-4 elements / ordered Fano pairs | numerical only; no natural action is constructed |
+| the 8 projective points | the 8 Sylow 7-subgroups of \(PSL\) | both transitive; point stabilizer order 21 is conjugate to the Sylow-7 normalizer; isomorphic \(PSL\)-sets |
+| the 56 regular bivaluations (ordered pairs of points) | the 56 order-3 elements (conjugation in \(PGL\) and in \(PSL\)) | \(PGL\) is 2-transitive on 8 points and its ordered-pair stabilizer has order 6, conjugate to the centralizer of an order-3 element; the same holds for \(PSL\) with order 3. Isomorphic sets in both groups |
+| the 21 Fano flags | the 21 involutions / the 21 Sylow 2-subgroups | both have stabilizer a Sylow 2 (order 8, element orders \(1,2^5,4^2\)); the sets are isomorphic, but there is **no natural bijection** between involutions and Sylow 2-subgroups: each Sylow 2-subgroup contains five involutions, so the incidence is 5-to-1 |
+| the 42 ordered Fano pairs | the 42 order-4 elements | same size only: the ordered-pair stabilizer is \(V_4\), while an order-4 element has centralizer \(C_4\); **not** isomorphic \(PSL\)-sets |
+| the 24 heptagons of the Klein quartic | the 24 cosets of a Sylow 7-subgroup | classical; the two inverse order-7 classes are the two orientations |
+| the 42 six-leaf \(\iota\)-trees | 42 order-4 elements / ordered Fano pairs | numerical only; no action constructed |
 
-Two remarks on the table. First, the 56-row is the substantive one for AEG: it
-upgrades Paper IV's bivaluation count from a number to a transitive
-\(PSL_2(\mathbb F_7)\)-set, and identifies it with a conjugacy class of the group.
-Second, the 42-row is a warning: equal cardinality does not imply a group-set
+The 42 row is a warning: equal cardinality does not imply a group-set
 isomorphism, and here the stabilizers decide against it. The same caution applies
-to the 42 \(K_6\) trees: they coincide in number, but nothing here gives them a
-\(PSL_2(\mathbb F_7)\)-action.
+to the six-leaf trees. "Six-leaf \(\iota\)-trees" means the full binary trees with
+six leaves (the level \(K_6\) in the document's \(K_n=n\) leaves convention),
+\(C_5=42\) of them; each leaf is one \(\iota\).
+
+The 21-flag row needs the same care as the 42 row: the equality of the sets is
+not a canonical identification. The flags are the cosets of a Borel subgroup
+(\(GL(3,2)\)), the involutions are a conjugacy class, and a Sylow 2-subgroup
+contains five involutions; the standard statement is only that the two
+\(PSL\)-sets are isomorphic.
 
 ## 4. The Klein quartic and the \((2,3,7)\) triangle
 
-\(PSL_2(\mathbb F_7)\) is the Hurwitz group of genus \(3\):
-\(168=84(g-1)\), and the Klein quartic \(X=\mathbb H^2/\ker\) for a quotient
-\((2,3,7)\)-triangle group \(\to PSL_2(\mathbb F_7)\) carries the \(\{3,7\}\) tiling
-with \(24\) heptagons, \(56\) triangles and \(84\) edges.
+The Klein quartic carries two dual tilings, which must not be conflated:
 
-The hyperbolic numbers line up with the group-set table:
+* the \(\{3,7\}\) tiling has \(56\) triangular faces, \(84\) edges and \(24\)
+  vertices;
+* its dual \(\{7,3\}\) tiling has \(24\) heptagonal faces, \(84\) edges and \(56\)
+  vertices.
 
-* the \((2,3,7)\) triangle has area \(\pi-( \pi/2+\pi/3+\pi/7)=\pi/42\);
-* the orientation-preserving \((2,3,7)\) orbifold has area \(\pi/21\);
-* the Klein quartic has area \(4\pi(g-1)=8\pi=168\cdot(\pi/21)\);
-* the 56 triangles match the 56 order-3 elements; the 24 heptagons match the 24
-  cosets of a Sylow 7; the 168 automorphisms are the group.
+The 56 \(\{3,7\}\) triangles form \(PSL_2(\mathbb F_7)/C_3\), matching the 56
+order-3 elements; the 24 \(\{7,3\}\) heptagons form \(PSL_2(\mathbb F_7)/C_7\),
+matching the 24 cosets of a Sylow 7-subgroup.
+
+The surface has area \(4\pi(g-1)=8\pi\). Each \(\{3,7\}\) triangle therefore has
+area \(\pi/7\). The \((2,3,7)\) *fundamental* triangle has area
+\[
+\pi-\left(\frac{\pi}{2}+\frac{\pi}{3}+\frac{\pi}{7}\right)=\frac{\pi}{42},
+\]
+and the closed surface contains \(8\pi/(\pi/42)=336\) such fundamental triangles.
+The \((2,3,7)\)-triangle statement is not the same as the 56-triangle statement:
+the 56 faces are the \(\{3,7\}\) tiles, while the 336 are the fundamental
+\((2,3,7)\) triangles.
+
+Precisely, the uniformization is
+\[
+X=\mathbb H^2/\ker\bigl(\Delta^+(2,3,7)\to PSL_2(\mathbb F_7)\bigr),
+\]
+where \(\Delta^+(2,3,7)\) is the *orientation-preserving* triangle group and the
+kernel is the genus-3 surface group; the finite quotient acting on \(X\) is
+\(PSL_2(\mathbb F_7)\).
 
 This is the hyperbolic partner of the \((2,4,\infty)\) triangle of the \(q=4\)
 Hecke group used in the frames note: both are triangle groups, but the
-\((2,3,7)\) one is the Hurwitz case and produces a closed genus-3 surface rather
-than an annulus or a cone.
+\((2,3,7)\) one is the Hurwitz case and gives a closed genus-3 surface, not an
+annulus or a cone.
 
 ## 5. What is proved, what is classical, what is open
 
-* **Computed here** (`COMPUTATIONALLY VERIFIED EXAMPLE`): the class sizes, the
-  Sylow counts, 2-transitivity on the 8 points, the conjugacy of the ordered-pair
-  stabilizer with a Sylow 3, the conjugacy of the point stabilizer with the Sylow-7
-  normalizer, the \(V_4\) type of the Fano ordered-pair stabilizer, and the 24
+* **Computed here** (`COMPUTATIONALLY VERIFIED EXAMPLE`): the class multisets of
+  both groups, the Sylow counts, 2-transitivity on the 8 points, the conjugacy of
+  the ordered-pair stabilizer with a Sylow 3 (PSL) and with the order-3
+  centralizer (PGL), the conjugacy of the point stabilizer with the Sylow-7
+  normalizer, the \(V_4\) type of the Fano ordered-pair stabilizer, the \(C_4\)
+  type of the order-4 centralizer, the flag stabilizer of order 8, and the 24
   cosets of a Sylow 7.
-* **Classical:** \(PSL_2(\mathbb F_7)\cong GL(3,2)\); the Fano flags are the Borel
-  cosets; the Klein quartic and its \(\{3,7\}\) tiling; the Hurwitz bound.
+* **Classical:** \(PSL_2(\mathbb F_7)\cong GL(3,2)\); \(PGL_2(\mathbb F_7)\) is
+  2-transitive on the conic (note 49, `prop:commutant`); the Fano flag action and
+  the Borel stabilizer; the Klein quartic and its dual \(\{3,7\}/\{7,3\}\) tilings;
+  the Hurwitz bound.
 * **Open:** a natural \(PSL_2(\mathbb F_7)\)-action on the 42 six-leaf
   \(\iota\)-trees; a lift of the \(PSL\)-set isomorphisms to the AEG structures
-  themselves (bivaluations, frame lifts, cross-ratio holonomy); whether the
-  56 bivaluations' six frame lifts admit a \(PSL\)-compatible splitting.
+  themselves (bivaluations, frame lifts, cross-ratio holonomy); and the precise
+  meaning of a "PSL-compatible splitting" of the six frame lifts. On the last
+  point: \(H\cap PSL_2(\mathbb F_7)\) has order 3, so the six lifts already split
+  into two \(PSL\)-orbits of size 3; a \(PSL\)-equivariant section
+  \(\mathrm{Biv}\to\mathrm{Frames}\) does not exist. If "splitting" means the
+  two-orbit partition, it is automatic; if it means an equivariant section, it is
+  impossible.
 
 No claim here is entered in `governance/05` or `05c`; it is research scaffold.
+
+## 6. Reproduce
+
+```bash
+python3 research/f7-psl27/verify_psl27.py research/f7-psl27/evidence-psl27-v1.json
+python3 -O research/f7-psl27/verify_psl27.py /tmp/psl27-o.json
+python3 research/f7-psl27/verify_psl27.py /tmp/psl27-n.json
+cmp /tmp/psl27-o.json /tmp/psl27-n.json
+python3 research/f7-psl27/verify_psl27.py research/f7-psl27/evidence-psl27-v1.json --verify-evidence
+```
+
+The script exits non-zero when any check fails, so the normal and `-O` runs must
+agree byte for byte with the committed evidence. This calibration is
+same-author and was checked with the codex-review scaffold; it has not had an
+independent human review, and it should not be cited as one.
