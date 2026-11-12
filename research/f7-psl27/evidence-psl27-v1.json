@@ -13,6 +13,13 @@
     "flag_stabilizer_order": 8,
     "flags": 21,
     "lines": 7,
+    "ordered_pair_stabilizer_element_orders": [
+      1,
+      2,
+      2,
+      2
+    ],
+    "ordered_pair_stabilizer_order": 4,
     "ordered_pair_stabilizer_type": "V4",
     "points": 7
   },
@@ -106,6 +113,7 @@
     "ordered_pair_stabilizer_is_c3": true,
     "ordered_pair_stabilizer_order": 3,
     "point_stabilizer_order": 21,
+    "sylow2_centers_biject_involutions": true,
     "sylow7_normalizer_order": 21,
     "sylow_counts": {
       "2": 21,
@@ -115,8 +123,8 @@
     "two_transitive_on_8_points": true
   },
   "status": {
-    "21_flags_and_involutions": "classical GL(3,2) flag action; stabilizer computed here",
-    "42_pairs_and_order4": "not isomorphic: V4 stabilizer against C4 centralizer (proved by the computed types)",
+    "21_flags_and_involutions": "classical GL(3,2) flag action; the canonical Sylow-2 center map gives the involution bijection (computed here)",
+    "42_pairs_and_order4": "not isomorphic: V4 ordered-pair stabilizer against C4 order-4 centralizer (both computed)",
     "42_six_leaf_trees": "open; no action constructed",
     "56_pairs_and_order3": "standard consequence of orbit-stabilizer plus the computed conjugacy",
     "8_points_and_sylow7": "standard consequence of orbit-stabilizer plus the computed conjugacy"

@@ -242,6 +242,26 @@ def main(argv):
     check("flag stabilizer is a Sylow 2",
           sorted(order7(g) for g in flag_stab) == [1, 2, 2, 2, 2, 2, 4, 4])
 
+    # canonical Sylow 2 <-> involution bijection via centers
+    e8 = tuple(range(8))
+    involutions = {g for g in G if order(g) == 2}
+    centers = set()
+    for S in s2s:
+        central = [h for h in S if h != e8 and all(compose(h, s) == compose(s, h) for s in S)]
+        check("Sylow 2 center has one nonidentity element", len(central) == 1, len(central))
+        centers.add(central[0])
+    check("21 Sylow 2 subgroups biject with 21 involutions",
+          centers == involutions, len(centers))
+
+    # Fano ordered-pair stabilizer (computed, not hard-coded)
+    i0, i1 = vecs.index((1, 0, 0)), vecs.index((0, 1, 0))
+    fano_pair_stab = [g for g in F if g[i0] == i0 and g[i1] == i1]
+    pair_orders = sorted(order7(g) for g in fano_pair_stab)
+    pair_type = ("V4" if len(fano_pair_stab) == 4 and pair_orders == [1, 2, 2, 2]
+                 else "other")
+    check("Fano ordered-pair stabilizer is V4",
+          pair_type == "V4", (len(fano_pair_stab), pair_orders))
+
     # PGL(2,7)
     pgl = sorted({perm((a, b, c, d))
                   for a, b, c, d in itertools.product(range(P), repeat=4)
@@ -285,18 +305,21 @@ def main(argv):
             "cosets_of_sylow7": 24,
             "order4_centralizer_order": len(cent4),
             "order4_centralizer_element_orders": sorted(order(h) for h in cent4),
+            "sylow2_centers_biject_involutions": True,
         },
         "fano": {
             "points": len(vecs), "lines": len(planes), "flags": len(flags),
             "flag_stabilizer_order": len(flag_stab),
             "flag_stabilizer_element_orders": sorted(order7(g) for g in flag_stab),
-            "ordered_pair_stabilizer_type": "V4",
+            "ordered_pair_stabilizer_order": len(fano_pair_stab),
+            "ordered_pair_stabilizer_element_orders": pair_orders,
+            "ordered_pair_stabilizer_type": pair_type,
         },
         "status": {
             "8_points_and_sylow7": "standard consequence of orbit-stabilizer plus the computed conjugacy",
             "56_pairs_and_order3": "standard consequence of orbit-stabilizer plus the computed conjugacy",
-            "21_flags_and_involutions": "classical GL(3,2) flag action; stabilizer computed here",
-            "42_pairs_and_order4": "not isomorphic: V4 stabilizer against C4 centralizer (proved by the computed types)",
+            "21_flags_and_involutions": "classical GL(3,2) flag action; the canonical Sylow-2 center map gives the involution bijection (computed here)",
+            "42_pairs_and_order4": "not isomorphic: V4 ordered-pair stabilizer against C4 order-4 centralizer (both computed)",
             "42_six_leaf_trees": "open; no action constructed",
         },
     }

@@ -7,10 +7,10 @@ top of Paper IV's calibration.
 
 **One-line result.** As \(PSL_2(\mathbb F_7)\)-sets, the 56 regular bivaluations of
 Paper IV are isomorphic to the 56 elements of order 3, the 8 projective points to
-the 8 Sylow 7-subgroups, and the 21 Fano flags to the 21 involutions. The 42
-ordered Fano pairs and the 42 elements of order 4 have the same size but are
-**not** isomorphic \(PSL\)-sets (\(V_4\) against \(C_4\)); the 42 six-leaf
-\(\iota\)-trees stay a numerical coincidence.
+the 8 Sylow 7-subgroups, and the 21 Fano flags to the 21 involutions (the last
+through the canonical Sylow-2 center map). The 42 ordered Fano pairs and the 42
+elements of order 4 have the same size but are **not** isomorphic \(PSL\)-sets
+(\(V_4\) against \(C_4\)).
 
 ---
 
@@ -37,8 +37,10 @@ appendix mentions a conjugacy choice over \(\mathbb F_7\).
 
 Two existing pieces of work are closer than the papers: note 49,
 `notes/analysis-and-calculus/49-conic-histories-and-finite-calculi.tex`,
-Proposition `prop:commutant`, already proves that \(\mathrm{PGL}_2(\mathbb F_7)\)
-is two-transitive on the projective conic and computes its order; and
+the paragraph preceding Proposition `prop:commutant` records
+\(|\mathrm{PGL}_2(\mathbb F_7)|=336\), and the proof of that proposition uses the
+two-transitivity of \(\mathrm{PGL}_2(\mathbb F_7)\) on ordered pairs of distinct
+lines;
 `notes/analysis-and-calculus/finite-field-calculi/conic-dynamics/verify.py`
 enumerates all 336 projective matrices over \(\mathbb F_7\) and checks covariance
 against every one of them. **Paper IV's native group is \(\mathrm{PGL}_2(\mathbb
@@ -76,22 +78,15 @@ Its evidence is `evidence-psl27-v1.json`.
 |---|---|---|
 | the 8 projective points | the 8 Sylow 7-subgroups of \(PSL\) | both transitive; point stabilizer order 21 is conjugate to the Sylow-7 normalizer; isomorphic \(PSL\)-sets |
 | the 56 regular bivaluations (ordered pairs of points) | the 56 order-3 elements (conjugation in \(PGL\) and in \(PSL\)) | \(PGL\) is 2-transitive on 8 points and its ordered-pair stabilizer has order 6, conjugate to the centralizer of an order-3 element; the same holds for \(PSL\) with order 3. Isomorphic sets in both groups |
-| the 21 Fano flags | the 21 involutions / the 21 Sylow 2-subgroups | both have stabilizer a Sylow 2 (order 8, element orders \(1,2^5,4^2\)); the sets are isomorphic, but there is **no natural bijection** between involutions and Sylow 2-subgroups: each Sylow 2-subgroup contains five involutions, so the incidence is 5-to-1 |
+| the 21 Fano flags | the 21 involutions / the 21 Sylow 2-subgroups | flag stabilizer is a Sylow 2 (order 8, element orders \(1,2^5,4^2\)); the Sylow 2-subgroups are \(D_8\), and \(S\mapsto z(S)\) (the unique nonidentity central involution) is a canonical bijection onto the 21 involutions, inverse to \(t\mapsto C_G(t)\); computed here |
 | the 42 ordered Fano pairs | the 42 order-4 elements | same size only: the ordered-pair stabilizer is \(V_4\), while an order-4 element has centralizer \(C_4\); **not** isomorphic \(PSL\)-sets |
 | the 24 heptagons of the Klein quartic | the 24 cosets of a Sylow 7-subgroup | classical; the two inverse order-7 classes are the two orientations |
-| the 42 six-leaf \(\iota\)-trees | 42 order-4 elements / ordered Fano pairs | numerical only; no action constructed |
 
 The 42 row is a warning: equal cardinality does not imply a group-set
-isomorphism, and here the stabilizers decide against it. The same caution applies
-to the six-leaf trees. "Six-leaf \(\iota\)-trees" means the full binary trees with
-six leaves (the level \(K_6\) in the document's \(K_n=n\) leaves convention),
-\(C_5=42\) of them; each leaf is one \(\iota\).
-
-The 21-flag row needs the same care as the 42 row: the equality of the sets is
-not a canonical identification. The flags are the cosets of a Borel subgroup
-(\(GL(3,2)\)), the involutions are a conjugacy class, and a Sylow 2-subgroup
-contains five involutions; the standard statement is only that the two
-\(PSL\)-sets are isomorphic.
+isomorphism, and here the stabilizers decide against it. The flags and the
+involutions, by contrast, are canonically identified through the Sylow 2 centers,
+so the two rows are genuinely different: the 21-row is an isomorphism of
+\(PSL\)-sets with a canonical map, the 42-row is only a numerical coincidence.
 
 ## 4. The Klein quartic and the \((2,3,7)\) triangle
 
@@ -139,11 +134,11 @@ annulus or a cone.
   type of the order-4 centralizer, the flag stabilizer of order 8, and the 24
   cosets of a Sylow 7.
 * **Classical:** \(PSL_2(\mathbb F_7)\cong GL(3,2)\); \(PGL_2(\mathbb F_7)\) is
-  2-transitive on the conic (note 49, `prop:commutant`); the Fano flag action and
+  2-transitive on the conic (note 49, the paragraph and proof of
+  `prop:commutant`); the Fano flag action and
   the Borel stabilizer; the Klein quartic and its dual \(\{3,7\}/\{7,3\}\) tilings;
   the Hurwitz bound.
-* **Open:** a natural \(PSL_2(\mathbb F_7)\)-action on the 42 six-leaf
-  \(\iota\)-trees; a lift of the \(PSL\)-set isomorphisms to the AEG structures
+* **Open:** a lift of the \(PSL\)-set isomorphisms to the AEG structures
   themselves (bivaluations, frame lifts, cross-ratio holonomy); and the precise
   meaning of a "PSL-compatible splitting" of the six frame lifts. On the last
   point: \(H\cap PSL_2(\mathbb F_7)\) has order 3, so the six lifts already split
