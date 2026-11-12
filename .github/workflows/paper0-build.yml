@@ -136,6 +136,12 @@ jobs:
           cmp /tmp/omega.json research/iota-carousel/evidence-omega-v1.json
           python3 research/donaghey-orbits/verify_orbits.py
 
+      - name: Replay the K_n normal-form database
+        run: |
+          python3 -O research/iota-normal-forms/verify_normal_forms.py /tmp/nf.json
+          cmp /tmp/nf.json research/iota-normal-forms/evidence-normal-forms-v1.json
+          python3 research/iota-normal-forms/verify_normal_forms.py research/iota-normal-forms/evidence-normal-forms-v1.json --verify-evidence
+
       - name: Check important LaTeX warnings
         run: |
           status=0
