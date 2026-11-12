@@ -10,7 +10,7 @@ orbit-stabilizer correspondences used in the note:
   * 21 Fano flags                   <-> 21 involutions / 21 Sylow 2-subgroups
   * 42 ordered pairs of Fano points <-> 42 order-4 elements (size only; the
     stabilizer is V4 while the centralizer is C4, so no PSL-set isomorphism)
-  * 24 heptagon cosets              <-> 24 cosets of a Sylow 7-subgroup
+  * 24 cosets of a Sylow 7-subgroup (the classical heptagon count)
 
 Every expected value is asserted, so the script exits non-zero when a check
 fails. `--verify-evidence` regenerates the JSON and compares it byte for byte
@@ -20,7 +20,6 @@ Run: python3 verify_psl27.py [out.json] [--verify-evidence]
 """
 import itertools
 import json
-import os
 import sys
 
 P = 7
@@ -55,11 +54,11 @@ def perm(M):
 
 
 def compose(p, q):
-    return tuple(p[q[x]] for x in range(8))
+    return tuple(p[q[x]] for x in range(len(q)))
 
 
 def inverse(p):
-    out = [0] * 8
+    out = [0] * len(p)
     for i, v in enumerate(p):
         out[v] = i
     return tuple(out)
@@ -117,19 +116,6 @@ def conjugacy_classes(G):
     return classes
 
 
-def build_group(matrix_predicate, quotient):
-    perms = set()
-    for a, b, c, d in itertools.product(range(P), repeat=4):
-        if not matrix_predicate(a, b, c, d):
-            continue
-        M = (a, b, c, d)
-        perms.add(perm(M))
-    if quotient:
-        # quotient by +-I: already done by taking permutations; ensure count
-        pass
-    return sorted(perms)
-
-
 def main(argv):
     out_path = "/tmp/psl27.json"
     verify = False
@@ -183,6 +169,8 @@ def main(argv):
                         s2s.add(H)
     check("PSL Sylow counts", (len(s2s), len(s3s), len(s7)) == (21, 28, 8),
           (len(s2s), len(s3s), len(s7)))
+    check("every Sylow 2 is D8",
+          all(sorted(order(h) for h in S) == [1, 2, 2, 2, 2, 2, 4, 4] for S in s2s))
 
     point_stab = frozenset(g for g in G if g[0] == 0)
     s7_one = sorted(s7, key=lambda H: tuple(sorted(H)))[0]
@@ -236,11 +224,18 @@ def main(argv):
              if vecs.index(v) in P]
     check("7 Fano points, 7 lines, 21 flags",
           (len(vecs), len(planes), len(flags)) == (7, 7, 21))
-    v0, P0 = flags[0]
-    flag_stab = [g for g in F if g[v0] == v0 and frozenset(g[x] for x in P0) == P0]
-    check("flag stabilizer order 8", len(flag_stab) == 8, len(flag_stab))
-    check("flag stabilizer is a Sylow 2",
-          sorted(order7(g) for g in flag_stab) == [1, 2, 2, 2, 2, 2, 4, 4])
+    flag_stabs = []
+    for v, plane in flags:
+        st = frozenset(g for g in F if g[v] == v and frozenset(g[x] for x in plane) == plane)
+        flag_stabs.append(st)
+    check("all 21 flag stabilizers have order 8",
+          all(len(st) == 8 for st in flag_stabs), [len(st) for st in flag_stabs])
+    check("all flag stabilizers are D8",
+          all(sorted(order7(g) for g in st) == [1, 2, 2, 2, 2, 2, 4, 4]
+              for st in flag_stabs))
+    check("all flag stabilizers are conjugate",
+          all(any(conjugates(flag_stabs[0], g) == st for g in F) for st in flag_stabs))
+    flag_stab = flag_stabs[0]
 
     # canonical Sylow 2 <-> involution bijection via centers
     e8 = tuple(range(8))
@@ -277,12 +272,25 @@ def main(argv):
     check("PGL transitive on 56 ordered pairs", len(pgl_pairs) == 56, len(pgl_pairs))
     pgl_stab = frozenset(g for g in pgl if g[0] == 0 and g[1] == 1)
     check("PGL ordered-pair stabilizer order 6", len(pgl_stab) == 6, len(pgl_stab))
+    check("PSL is the index-two subgroup of PGL",
+          set(G) <= set(pgl) and len(pgl) == 2 * len(G))
+    check("H cap PSL has order 3", len(set(pgl_stab) & set(G)) == 3,
+          len(set(pgl_stab) & set(G)))
     pgl3 = next(cyclic(g) for g in pgl if order(g) == 3)
     cent3 = frozenset(h for h in pgl if compose(h, next(g for g in pgl3 if order(g) == 3))
                       == compose(next(g for g in pgl3 if order(g) == 3), h))
     check("PGL order-3 centralizer order 6", len(cent3) == 6, len(cent3))
     check("PGL stabilizer conjugate to order-3 centralizer",
           any(conjugates(pgl_stab, g) == cent3 for g in pgl))
+
+    two_trans = (len(pairs) == 56)
+    pair_is_c3 = (len(stab_pair) == 3
+                  and any(conjugates(stab_pair, g) == s3 for g in G))
+    points_sylow = (len(point_stab) == 21 and len(norm7) == 21
+                    and any(conjugates(point_stab, g) == norm7 for g in G))
+    cosets_count = len({frozenset(compose(g, h) for h in s7_one) for g in G})
+    centers_bijection = (centers == involutions)
+    flag_orders = sorted(order7(g) for g in flag_stab)
 
     ev = {
         "pgl": {
@@ -296,21 +304,21 @@ def main(argv):
             "order": len(G),
             "element_order_counts": {str(k): len(v) for k, v in sorted(by_order.items())},
             "class_multiset": sorted((c["order"], c["size"]) for c in classes),
-            "two_transitive_on_8_points": True,
+            "two_transitive_on_8_points": two_trans,
             "ordered_pair_stabilizer_order": len(stab_pair),
-            "ordered_pair_stabilizer_is_c3": True,
+            "ordered_pair_stabilizer_is_c3": pair_is_c3,
             "sylow_counts": {"2": len(s2s), "3": len(s3s), "7": len(s7)},
             "point_stabilizer_order": len(point_stab),
             "sylow7_normalizer_order": len(norm7),
-            "cosets_of_sylow7": 24,
+            "cosets_of_sylow7": cosets_count,
             "order4_centralizer_order": len(cent4),
             "order4_centralizer_element_orders": sorted(order(h) for h in cent4),
-            "sylow2_centers_biject_involutions": True,
+            "sylow2_centers_biject_involutions": centers_bijection,
         },
         "fano": {
             "points": len(vecs), "lines": len(planes), "flags": len(flags),
             "flag_stabilizer_order": len(flag_stab),
-            "flag_stabilizer_element_orders": sorted(order7(g) for g in flag_stab),
+            "flag_stabilizer_element_orders": flag_orders,
             "ordered_pair_stabilizer_order": len(fano_pair_stab),
             "ordered_pair_stabilizer_element_orders": pair_orders,
             "ordered_pair_stabilizer_type": pair_type,
@@ -325,9 +333,10 @@ def main(argv):
     }
     text = json.dumps(ev, indent=2, sort_keys=True) + "\n"
     if verify:
-        with open(out_path, "r", encoding="utf-8") as f:
+        with open(out_path, "rb") as f:
             committed = f.read()
-        check("evidence matches the committed file", text == committed)
+        check("evidence matches the committed file byte for byte",
+              text.encode("utf-8") == committed)
         print("evidence verified:", out_path)
         return
     with open(out_path, "w", encoding="utf-8") as f:

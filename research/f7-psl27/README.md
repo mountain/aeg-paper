@@ -7,8 +7,8 @@ top of Paper IV's calibration.
 
 **One-line result.** As \(PSL_2(\mathbb F_7)\)-sets, the 56 regular bivaluations of
 Paper IV are isomorphic to the 56 elements of order 3, the 8 projective points to
-the 8 Sylow 7-subgroups, and the 21 Fano flags to the 21 involutions (the last
-through the canonical Sylow-2 center map). The 42 ordered Fano pairs and the 42
+the 8 Sylow 7-subgroups, and the 21 Fano flags to the 21 involutions (classically,
+through the Sylow-2 center map). The 42 ordered Fano pairs and the 42
 elements of order 4 have the same size but are **not** isomorphic \(PSL\)-sets
 (\(V_4\) against \(C_4\)).
 
@@ -78,7 +78,7 @@ Its evidence is `evidence-psl27-v1.json`.
 |---|---|---|
 | the 8 projective points | the 8 Sylow 7-subgroups of \(PSL\) | both transitive; point stabilizer order 21 is conjugate to the Sylow-7 normalizer; isomorphic \(PSL\)-sets |
 | the 56 regular bivaluations (ordered pairs of points) | the 56 order-3 elements (conjugation in \(PGL\) and in \(PSL\)) | \(PGL\) is 2-transitive on 8 points and its ordered-pair stabilizer has order 6, conjugate to the centralizer of an order-3 element; the same holds for \(PSL\) with order 3. Isomorphic sets in both groups |
-| the 21 Fano flags | the 21 involutions / the 21 Sylow 2-subgroups | flag stabilizer is a Sylow 2 (order 8, element orders \(1,2^5,4^2\)); the Sylow 2-subgroups are \(D_8\), and \(S\mapsto z(S)\) (the unique nonidentity central involution) is a canonical bijection onto the 21 involutions, inverse to \(t\mapsto C_G(t)\); computed here |
+| the 21 Fano flags | the 21 involutions / the 21 Sylow 2-subgroups | all 21 flag stabilizers are computed to be order 8 with element orders \(1,2^5,4^2\) and are conjugate; every Sylow 2-subgroup of \(PSL\) is computed to be \(D_8\); the map \(S\mapsto z(S)\) (the unique nonidentity central involution) is a canonical bijection between the 21 Sylow 2-subgroups and the 21 involutions, computed here. The flags-to-Sylow-2 identification is the classical \(GL(3,2)\) flag action, not a new computation |
 | the 42 ordered Fano pairs | the 42 order-4 elements | same size only: the ordered-pair stabilizer is \(V_4\), while an order-4 element has centralizer \(C_4\); **not** isomorphic \(PSL\)-sets |
 | the 24 heptagons of the Klein quartic | the 24 cosets of a Sylow 7-subgroup | classical; the two inverse order-7 classes are the two orientations |
 
@@ -131,8 +131,10 @@ annulus or a cone.
   the ordered-pair stabilizer with a Sylow 3 (PSL) and with the order-3
   centralizer (PGL), the conjugacy of the point stabilizer with the Sylow-7
   normalizer, the \(V_4\) type of the Fano ordered-pair stabilizer, the \(C_4\)
-  type of the order-4 centralizer, the flag stabilizer of order 8, and the 24
-  cosets of a Sylow 7.
+  type of the order-4 centralizer, all 21 flag stabilizers (order 8, \(D_8\),
+  conjugate), every Sylow 2-subgroup being \(D_8\), the canonical Sylow-2 center
+  bijection with the involutions, \(PSL\) being the index-two subgroup of \(PGL\),
+  \(|H\cap PSL|=3\), and the 24 cosets of a Sylow 7.
 * **Classical:** \(PSL_2(\mathbb F_7)\cong GL(3,2)\); \(PGL_2(\mathbb F_7)\) is
   2-transitive on the conic (note 49, the paragraph and proof of
   `prop:commutant`); the Fano flag action and
@@ -141,23 +143,28 @@ annulus or a cone.
 * **Open:** a lift of the \(PSL\)-set isomorphisms to the AEG structures
   themselves (bivaluations, frame lifts, cross-ratio holonomy); and the precise
   meaning of a "PSL-compatible splitting" of the six frame lifts. On the last
-  point: \(H\cap PSL_2(\mathbb F_7)\) has order 3, so the six lifts already split
-  into two \(PSL\)-orbits of size 3; a \(PSL\)-equivariant section
-  \(\mathrm{Biv}\to\mathrm{Frames}\) does not exist. If "splitting" means the
-  two-orbit partition, it is automatic; if it means an equivariant section, it is
-  impossible.
+  point: the six lifts over a bivaluation are a free orbit of the order-6
+  stabilizer \(H\), and \(H\cap PSL_2(\mathbb F_7)\) has order 3, so they split
+  into two orbits of size 3 under \(H\cap PSL\). A \(PSL\)-equivariant section
+  \(\mathrm{Biv}\to\mathrm{Frames}\) would need a point fixed by the order-3
+  stabilizer of the bivaluation, but the action is free; hence no such section
+  exists. If "splitting" means the two-orbit partition, it is automatic; if it
+  means an equivariant section, it is impossible.
 
 No claim here is entered in `governance/05` or `05c`; it is research scaffold.
 
 ## 6. Reproduce
 
 ```bash
-python3 research/f7-psl27/verify_psl27.py research/f7-psl27/evidence-psl27-v1.json
+python3 research/f7-psl27/verify_psl27.py /tmp/psl27.json
+cmp /tmp/psl27.json research/f7-psl27/evidence-psl27-v1.json
 python3 -O research/f7-psl27/verify_psl27.py /tmp/psl27-o.json
-python3 research/f7-psl27/verify_psl27.py /tmp/psl27-n.json
-cmp /tmp/psl27-o.json /tmp/psl27-n.json
+cmp /tmp/psl27-o.json research/f7-psl27/evidence-psl27-v1.json
 python3 research/f7-psl27/verify_psl27.py research/f7-psl27/evidence-psl27-v1.json --verify-evidence
 ```
+
+The first command writes to `/tmp`; the committed evidence is never overwritten by
+the verification recipe.
 
 The script exits non-zero when any check fails, so the normal and `-O` runs must
 agree byte for byte with the committed evidence. This calibration is
