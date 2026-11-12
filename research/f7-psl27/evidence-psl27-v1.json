@@ -1,0 +1,65 @@
+{
+  "conjugacy_classes": [
+    {
+      "order": 1,
+      "size": 1
+    },
+    {
+      "order": 2,
+      "size": 21
+    },
+    {
+      "order": 3,
+      "size": 56
+    },
+    {
+      "order": 4,
+      "size": 42
+    },
+    {
+      "order": 7,
+      "size": 24
+    },
+    {
+      "order": 7,
+      "size": 24
+    }
+  ],
+  "cosets_of_sylow7": 24,
+  "element_order_counts": {
+    "1": 1,
+    "2": 21,
+    "3": 56,
+    "4": 42,
+    "7": 48
+  },
+  "gl32_ordered_pair_stabilizer": {
+    "element_orders": [
+      1,
+      2,
+      2,
+      2
+    ],
+    "order": 4,
+    "type": "V4"
+  },
+  "group_order": 168,
+  "involution_count": 21,
+  "note": "PSL(2,7) acts 2-transitively on the 8 points of P^1(F_7); the 56 ordered pairs have a C3 stabilizer conjugate to a Sylow 3, so they are isomorphic as PSL-sets to the 56 elements of order 3. The 8 points and the 8 Sylow 7-subgroups both have stabilizer order 21. The 21 Sylow 2-subgroups match the 21 Fano flags. The 42 order-4 elements and the 42 ordered Fano pairs have the same size only: the ordered-pair stabilizer is V4 while the centralizer of an order-4 element is C4, so they are not isomorphic as PSL-sets.",
+  "order3_count": 56,
+  "order4_count": 42,
+  "order7_class_sizes": [
+    24,
+    24
+  ],
+  "order7_count": 48,
+  "ordered_pair_stabilizer_is_c3": true,
+  "ordered_pair_stabilizer_order": 3,
+  "points_and_sylow7_share_stabilizer_order_21": true,
+  "sylow_counts": {
+    "2": 21,
+    "3": 28,
+    "7": 8
+  },
+  "two_transitive_on_8_points": true
+}
