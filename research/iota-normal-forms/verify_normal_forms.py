@@ -161,15 +161,35 @@ def check(name, condition, detail=None):
                          ('' if detail is None else ' (%r)' % (detail,)))
 
 
-def norm_capped(t, cap):
-    """Normalize; return (term, hit) where hit marks exceeding the size cap."""
+def reduce_capped(t, cap):
+    """Reduce; return (state, exceeded_cap, terminated).
+
+    exceeded_cap marks that some intermediate state exceeded the size cap; it
+    does not assert that the normal form (if it exists) is larger than the cap.
+    """
     while True:
         if size(t) > cap:
-            return t, True
+            return t, True, False
         n = step(t)
         if n is None:
-            return t, False
+            return t, False, True
         t = n
+
+
+def semantics_tests():
+    """Known reductions and one capture-avoidance test for the normalizer."""
+    checks = [
+        ('I x -> x', norm(A(I, V(0))) == V(0)),
+        ('K x y -> x', norm(A(A(K, V(0)), V(1))) == V(0)),
+        ('S K K -> I', norm(A(A(S, K), K)) == I),
+        ('iota iota -> I', norm(A(IOTA, IOTA)) == I),
+        ('iota I -> F', norm(A(IOTA, I)) == norm(A(K, I))),
+        ('iota K -> S', norm(A(IOTA, K)) == S),
+        ('capture: K y -> lambda y. y', norm(A(K, V(0))) == L(V(1))),
+    ]
+    for name, ok in checks:
+        check('semantics: ' + name, ok)
+    return len(checks)
 
 
 def main(argv):
@@ -216,11 +236,31 @@ def main(argv):
 
     # explosive n=14 pairs: b in S_13 with iota·b exceeding CAP
     explosive = []
+    explosive_meta = {}
     for b in sorted(forms[13], key=term_key):
-        _, hit = norm_capped(A(IOTA, b), CAP)
+        state, hit, terminated = reduce_capped(A(IOTA, b), CAP)
         if hit:
             explosive.append(b)
+            explosive_meta[b] = {'cap': CAP, 'reduction_exceeded_cap': True,
+                                 'terminated': False, 'state_size_at_cap': size(state)}
     check('two explosive forms at n=13', len(explosive) == 2, len(explosive))
+
+    # the advertised n=14 two-sided bound: all root splits
+    s14_forms = set()
+    s14_hits = 0
+    for i in range(1, 14):
+        for a in sorted(forms[i], key=term_key):
+            for b in sorted(forms[14 - i], key=term_key):
+                state, hit, terminated = reduce_capped(A(a, b), CAP)
+                if hit:
+                    s14_hits += 1
+                else:
+                    s14_forms.add(state)
+    check('n=14 non-hit forms = 128', len(s14_forms) == 128, len(s14_forms))
+    check('n=14 cap-hitting pairs = 2', s14_hits == 2, s14_hits)
+    s14 = {'nonhit_forms': len(s14_forms), 'cap_hits': s14_hits,
+           'lower': len(s14_forms), 'upper': len(s14_forms) + s14_hits,
+           'cap': CAP}
 
     levels = []
     for n in range(1, MAX_N + 1):
@@ -247,33 +287,38 @@ def main(argv):
             'rows': rows,
         })
 
-    # lineage of the two explosive forms
+    # lineage of the two explosive forms (sorted iteration, serialized lookup)
     lineage = []
     for b in explosive:
         parents = []
         for i in range(1, 13):
-            for x in forms[i]:
-                for y in forms[13 - i]:
+            for x in sorted(forms[i], key=term_key):
+                for y in sorted(forms[13 - i], key=term_key):
                     if norm(A(x, y)) == b:
                         parents.append({'split': [i, 13 - i],
-                                        'left': pretty(x), 'right': pretty(y),
+                                        'left': serialize(x), 'right': serialize(y),
+                                        'left_pretty': pretty(x), 'right_pretty': pretty(y),
                                         'left_birth': birth[x], 'right_birth': birth[y]})
         grandparents = []
         for p in parents:
-            x = next(f for f in forms[12] if pretty(f) == p['left'])
-            for i in range(1, 12):
-                for u in forms[i]:
-                    for v in forms[12 - i]:
+            i0 = p['split'][0]
+            x = next(f for f in forms[i0] if serialize(f) == p['left'])
+            for j in range(1, i0):
+                for u in sorted(forms[j], key=term_key):
+                    for v in sorted(forms[i0 - j], key=term_key):
                         if norm(A(u, v)) == x:
-                            grandparents.append({'split': [i, 12 - i],
-                                                 'left': pretty(u), 'right': pretty(v),
+                            grandparents.append({'split': [j, i0 - j],
+                                                 'left': serialize(u), 'right': serialize(v),
+                                                 'left_pretty': pretty(u),
+                                                 'right_pretty': pretty(v),
                                                  'left_birth': birth[u],
                                                  'right_birth': birth[v]})
         lineage.append({
             'form': pretty(b), 'size': size(b), 'arity': arity(b),
             'birth': birth[b], 'fiber_at_13': counts[13][b],
+            'reduction_at_14': explosive_meta[b],
             'parents_at_13': parents,
-            'parent_decompositions_at_12': grandparents,
+            'parent_decompositions': grandparents,
         })
 
     ev = {
@@ -284,7 +329,7 @@ def main(argv):
             'fiber': 'number of n-leaf trees whose normal form is the given form',
             'birth': 'minimal leaf count at which the form appears',
             'arity': 'number of leading lambdas of the normal form',
-            'explosive': 'form b at n=13 whose application iota·b exceeds CAP=%d nodes' % CAP,
+            'explosive': 'form b at n=13 whose reduction of iota·b exceeds CAP=%d nodes; this does not assert a normal-form size' % CAP,
         },
         'summary': {
             's_n': expected_s,
@@ -292,6 +337,8 @@ def main(argv):
             'max_fiber': [max(counts[n].values()) for n in range(1, MAX_N + 1)],
         },
         'levels': levels,
+        's14': s14,
+        'semantics_tests': 'passed (%d known reductions and one capture-avoidance test)' % semantics_tests(),
         'explosive_lineage': lineage,
     }
     text = json.dumps(ev, indent=2, sort_keys=True) + '\n'

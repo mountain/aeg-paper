@@ -1,8 +1,10 @@
 # K_n database: iota trees, their normal forms and their fibres
 
-**Status:** computational evidence, 2026-11-12. Not a paper claim and not entered
-in `governance/05` or `05c`; it is the finite database behind the discussion of
-the \(K_n\) expansion.
+**Status:** `COMPUTATIONALLY VERIFIED EXAMPLE`, 2026-11-12. Not a paper claim and
+not entered in `governance/05` or `05c`. The object (the \(K_n\) tree expansion) is
+not yet defined in the corpus; the nearest in-repo contexts are note 40
+(carousel--$\iota$ overview) and §7 of the frames note. No register entry is
+claimed.
 
 ## 1. What is in the database
 
@@ -62,9 +64,11 @@ Two readings matter for the process-geometry discussion:
 ## 3. The two explosive forms at \(n=13\)
 
 At \(n=14\) the application \(\iota\cdot b\) of a 13-leaf form \(b\) to the leaf is
-the only operation that can produce the two terms whose normal forms exceed
-20,000 nodes (and also 80,000: the head reduction alone does not finish in
-minutes). The two forms are:
+the only operation that can produce the two terms whose **reduction** exceeds the
+20,000-node cap at an intermediate state (an exploratory run with an 80,000 cap
+also hit it, but the committed verifier asserts only the 20,000 cap). The flag
+does not assert that the final normal form is larger than the cap. The two forms
+are:
 
 \[
 b_1=\lambda a.\,aSK\,(a(aSK)),\qquad
@@ -101,9 +105,11 @@ including a size-52 sibling
 \(n=14\) application stays below the cap. Explosiveness is shape-specific, not
 monotone in size or fibreness.
 
-At \(n=14\) the exact count is bounded by \(128\le s_{14}\le 130\): all but the
-two explosive pairs normalise below the 20,000-node cap and contribute 128
-distinct forms; the remaining two contribute at most two more.
+At \(n=14\) the exact count is bounded by \(128\le s_{14}\le 130\). The verifier
+enumerates **all** root splits at \(n=14\): every non-cap pair reduces to a
+normal form of size at most 20,000 (the run records termination), and these
+contribute 128 distinct forms; the two cap-hitting pairs contribute at most two
+more. The bound is therefore checked, not asserted in prose only.
 
 ## 4. Reproduce
 
@@ -116,4 +122,6 @@ python3 research/iota-normal-forms/verify_normal_forms.py research/iota-normal-f
 ```
 
 The first command writes to `/tmp`; the committed evidence is never overwritten.
-The calibration is same-author and has not had an independent human review.
+The calibration is same-author and has not had an independent human review; the
+reductions are additionally checked against the small oracle in §1 so that a
+normalizer bug cannot pass merely by being self-consistent.

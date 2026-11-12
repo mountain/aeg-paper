@@ -2,7 +2,7 @@
   "definitions": {
     "arity": "number of leading lambdas of the normal form",
     "birth": "minimal leaf count at which the form appears",
-    "explosive": "form b at n=13 whose application iota\u00b7b exceeds CAP=20000 nodes",
+    "explosive": "form b at n=13 whose reduction of iota\u00b7b exceeds CAP=20000 nodes; this does not assert a normal-form size",
     "fiber": "number of n-leaf trees whose normal form is the given form",
     "form": "beta-normal form of the closed lambda term (leaf = iota)",
     "leaf": "iota = lambda x. x S K",
@@ -14,12 +14,160 @@
       "birth": 13,
       "fiber_at_13": 1,
       "form": "lambda a.a(S)(K)(a(S)(K))(a(S)(K))",
-      "parent_decompositions_at_12": [
+      "parent_decompositions": [
         {
-          "left": "S",
+          "left": [
+            "l",
+            [
+              "l",
+              [
+                "l",
+                [
+                  "a",
+                  [
+                    "a",
+                    [
+                      "v",
+                      2
+                    ],
+                    [
+                      "v",
+                      0
+                    ]
+                  ],
+                  [
+                    "a",
+                    [
+                      "v",
+                      1
+                    ],
+                    [
+                      "v",
+                      0
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ],
           "left_birth": 5,
-          "right": "lambda a.a(S)(K)(a(S)(K))",
+          "left_pretty": "S",
+          "right": [
+            "l",
+            [
+              "a",
+              [
+                "a",
+                [
+                  "a",
+                  [
+                    "v",
+                    0
+                  ],
+                  [
+                    "l",
+                    [
+                      "l",
+                      [
+                        "l",
+                        [
+                          "a",
+                          [
+                            "a",
+                            [
+                              "v",
+                              2
+                            ],
+                            [
+                              "v",
+                              0
+                            ]
+                          ],
+                          [
+                            "a",
+                            [
+                              "v",
+                              1
+                            ],
+                            [
+                              "v",
+                              0
+                            ]
+                          ]
+                        ]
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  "l",
+                  [
+                    "l",
+                    [
+                      "v",
+                      1
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "a",
+                [
+                  "a",
+                  [
+                    "v",
+                    0
+                  ],
+                  [
+                    "l",
+                    [
+                      "l",
+                      [
+                        "l",
+                        [
+                          "a",
+                          [
+                            "a",
+                            [
+                              "v",
+                              2
+                            ],
+                            [
+                              "v",
+                              0
+                            ]
+                          ],
+                          [
+                            "a",
+                            [
+                              "v",
+                              1
+                            ],
+                            [
+                              "v",
+                              0
+                            ]
+                          ]
+                        ]
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  "l",
+                  [
+                    "l",
+                    [
+                      "v",
+                      1
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ],
           "right_birth": 7,
+          "right_pretty": "lambda a.a(S)(K)(a(S)(K))",
           "split": [
             5,
             7
@@ -28,16 +176,210 @@
       ],
       "parents_at_13": [
         {
-          "left": "lambda a.lambda b.b(S)(K)(b(S)(K))(ab)",
+          "left": [
+            "l",
+            [
+              "l",
+              [
+                "a",
+                [
+                  "a",
+                  [
+                    "a",
+                    [
+                      "a",
+                      [
+                        "v",
+                        0
+                      ],
+                      [
+                        "l",
+                        [
+                          "l",
+                          [
+                            "l",
+                            [
+                              "a",
+                              [
+                                "a",
+                                [
+                                  "v",
+                                  2
+                                ],
+                                [
+                                  "v",
+                                  0
+                                ]
+                              ],
+                              [
+                                "a",
+                                [
+                                  "v",
+                                  1
+                                ],
+                                [
+                                  "v",
+                                  0
+                                ]
+                              ]
+                            ]
+                          ]
+                        ]
+                      ]
+                    ],
+                    [
+                      "l",
+                      [
+                        "l",
+                        [
+                          "v",
+                          1
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    "a",
+                    [
+                      "a",
+                      [
+                        "v",
+                        0
+                      ],
+                      [
+                        "l",
+                        [
+                          "l",
+                          [
+                            "l",
+                            [
+                              "a",
+                              [
+                                "a",
+                                [
+                                  "v",
+                                  2
+                                ],
+                                [
+                                  "v",
+                                  0
+                                ]
+                              ],
+                              [
+                                "a",
+                                [
+                                  "v",
+                                  1
+                                ],
+                                [
+                                  "v",
+                                  0
+                                ]
+                              ]
+                            ]
+                          ]
+                        ]
+                      ]
+                    ],
+                    [
+                      "l",
+                      [
+                        "l",
+                        [
+                          "v",
+                          1
+                        ]
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  "a",
+                  [
+                    "v",
+                    1
+                  ],
+                  [
+                    "v",
+                    0
+                  ]
+                ]
+              ]
+            ]
+          ],
           "left_birth": 12,
-          "right": "iota",
+          "left_pretty": "lambda a.lambda b.b(S)(K)(b(S)(K))(ab)",
+          "right": [
+            "l",
+            [
+              "a",
+              [
+                "a",
+                [
+                  "v",
+                  0
+                ],
+                [
+                  "l",
+                  [
+                    "l",
+                    [
+                      "l",
+                      [
+                        "a",
+                        [
+                          "a",
+                          [
+                            "v",
+                            2
+                          ],
+                          [
+                            "v",
+                            0
+                          ]
+                        ],
+                        [
+                          "a",
+                          [
+                            "v",
+                            1
+                          ],
+                          [
+                            "v",
+                            0
+                          ]
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "l",
+                [
+                  "l",
+                  [
+                    "v",
+                    1
+                  ]
+                ]
+              ]
+            ]
+          ],
           "right_birth": 1,
+          "right_pretty": "iota",
           "split": [
             12,
             1
           ]
         }
       ],
+      "reduction_at_14": {
+        "cap": 20000,
+        "reduction_exceeded_cap": true,
+        "state_size_at_cap": 22611,
+        "terminated": false
+      },
       "size": 51
     },
     {
@@ -45,12 +387,70 @@
       "birth": 13,
       "fiber_at_13": 1,
       "form": "lambda a.a(S)(K)(a(a(S)(K)))",
-      "parent_decompositions_at_12": [
+      "parent_decompositions": [
         {
-          "left": "S",
+          "left": [
+            "l",
+            [
+              "l",
+              [
+                "l",
+                [
+                  "a",
+                  [
+                    "a",
+                    [
+                      "v",
+                      2
+                    ],
+                    [
+                      "v",
+                      0
+                    ]
+                  ],
+                  [
+                    "a",
+                    [
+                      "v",
+                      1
+                    ],
+                    [
+                      "v",
+                      0
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ],
           "left_birth": 5,
-          "right": "lambda a.lambda b.b(ab)",
+          "left_pretty": "S",
+          "right": [
+            "l",
+            [
+              "l",
+              [
+                "a",
+                [
+                  "v",
+                  0
+                ],
+                [
+                  "a",
+                  [
+                    "v",
+                    1
+                  ],
+                  [
+                    "v",
+                    0
+                  ]
+                ]
+              ]
+            ]
+          ],
           "right_birth": 7,
+          "right_pretty": "lambda a.lambda b.b(ab)",
           "split": [
             5,
             7
@@ -59,16 +459,117 @@
       ],
       "parents_at_13": [
         {
-          "left": "lambda a.lambda b.ab(b(ab))",
+          "left": [
+            "l",
+            [
+              "l",
+              [
+                "a",
+                [
+                  "a",
+                  [
+                    "v",
+                    1
+                  ],
+                  [
+                    "v",
+                    0
+                  ]
+                ],
+                [
+                  "a",
+                  [
+                    "v",
+                    0
+                  ],
+                  [
+                    "a",
+                    [
+                      "v",
+                      1
+                    ],
+                    [
+                      "v",
+                      0
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ],
           "left_birth": 12,
-          "right": "iota",
+          "left_pretty": "lambda a.lambda b.ab(b(ab))",
+          "right": [
+            "l",
+            [
+              "a",
+              [
+                "a",
+                [
+                  "v",
+                  0
+                ],
+                [
+                  "l",
+                  [
+                    "l",
+                    [
+                      "l",
+                      [
+                        "a",
+                        [
+                          "a",
+                          [
+                            "v",
+                            2
+                          ],
+                          [
+                            "v",
+                            0
+                          ]
+                        ],
+                        [
+                          "a",
+                          [
+                            "v",
+                            1
+                          ],
+                          [
+                            "v",
+                            0
+                          ]
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "l",
+                [
+                  "l",
+                  [
+                    "v",
+                    1
+                  ]
+                ]
+              ]
+            ]
+          ],
           "right_birth": 1,
+          "right_pretty": "iota",
           "split": [
             12,
             1
           ]
         }
       ],
+      "reduction_at_14": {
+        "cap": 20000,
+        "reduction_exceeded_cap": true,
+        "state_size_at_cap": 23269,
+        "terminated": false
+      },
       "size": 36
     }
   ],
@@ -17930,6 +18431,14 @@
       "trees": 208012
     }
   ],
+  "s14": {
+    "cap": 20000,
+    "cap_hits": 2,
+    "lower": 128,
+    "nonhit_forms": 128,
+    "upper": 130
+  },
+  "semantics_tests": "passed (7 known reductions and one capture-avoidance test)",
   "summary": {
     "catalan": [
       1,
