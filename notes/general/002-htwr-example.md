@@ -175,24 +175,8 @@ $$\alpha (I_* - \ln 2) \;\le\; \mathcal{A}^*(\sigma_{\max}) \;\le\; 7\alpha I_* 
 ## 六、 三种核心几何机制总结对照
 
 | 演化机制 / 空间配额区 | 代表电路与拓扑亏格 | 横向催化通量 $\Sigma_{\text{aux}}$ | 峰值总通量 $\Sigma_{\text{total}}$ | 纵向总作用量 $\mathcal{A}$ | 双曲几何物理图景 |
-| --- | --- | --- | --- | --- | --- |
-| **纯测地流基态**<br>
-
-<br>($\sigma_{\max} = 0$) | 连分数迭代 $2 + 1/u$<br>
-
-<br>($g = 0$，零扇出单管) | $0$ | $I_*$ | $\dfrac{3\alpha}{2 h_0} I_*^2 \asymp \Theta(N^2)$ | 紧贴双曲测地线匀速挪动 $N$ 步的零曲率喇叭管 |
-| **催化虫洞跨越态**<br>
-
-<br>($5h_0 \le \sigma_{\max} < \frac{1}{2}I_*$) | 常驻 $(x_k, c_k)$ 四门步进<br>
-
-<br>($g = \Theta(I_*/\sigma_{\max})$) | $\le \sigma_{\max}$ | $I_* + O(\sigma_{\max})$ | $\Theta\!\left(\dfrac{\alpha I_*^2}{\sigma_{\max}}\right)$ | 主导线零扇出穿行，借横向催化小环柄与 $Q_k$ 约分虫洞做等距大步跳跃 |
-| **Heron 全凝聚基态**<br>
-
-<br>($\sigma_{\max} \ge \frac{1}{2}I_*$) | 部分分式倍增 $\frac{1}{2}(x + \frac{2}{x})$<br>
-
-<br>($g = \lceil \log_2 N \rceil$) | $\dfrac{1}{2} I_*$ | $I_*$ | $7\alpha I_* \asymp \Theta(N)$ | 极点有理劈裂消除冗余膨胀，$\log_2 N$ 次无损倍增直达尖点 |
-| **未拆解牛顿次优态**<br>
-
-<br>*(反例参照)* | 原始分式 $\frac{x^2+2}{2x}$<br>
-
-<br>($g = 2\lceil \log_2 N \rceil$) | $I_*$ | $\dfrac{3}{2} I_*$ | $13\alpha I_* \asymp \Theta(N)$ | 因未拆解部分分式导致分子过度潜入深渊，再经 $Q_n$ 约分虫洞回吐虚胖通量 |
+| :--- | :--- | :---: | :---: | :---: | :--- |
+| **纯测地流基态**<br>($\sigma_{\max} = 0$) | 连分数迭代 $2 + 1/u$<br>($g = 0$，零扇出单管) | $0$ | $I_*$ | $\dfrac{3\alpha}{2 h_0} I_*^2 \asymp \Theta(N^2)$ | 紧贴双曲测地线匀速挪动 $N$ 步的零曲率喇叭管 |
+| **催化虫洞跨越态**<br>($5h_0 \le \sigma_{\max} < \frac{1}{2}I_*$) | 常驻 $(x_k, c_k)$ 四门步进<br>($g = \Theta(I_*/\sigma_{\max})$) | $\le \sigma_{\max}$ | $I_* + O(\sigma_{\max})$ | $\Theta\!\left(\dfrac{\alpha I_*^2}{\sigma_{\max}}\right)$ | 主导线零扇出穿行，借横向催化小环柄与 $Q_k$ 约分虫洞做等距大步跳跃 |
+| **Heron 全凝聚基态**<br>($\sigma_{\max} \ge \frac{1}{2}I_*$) | 部分分式倍增 $\frac{1}{2}(x + \frac{2}{x})$<br>($g = \lceil \log_2 N \rceil$) | $\dfrac{1}{2} I_*$ | $I_*$ | $7\alpha I_* \asymp \Theta(N)$ | 极点有理劈裂消除冗余膨胀，$\log_2 N$ 次无损倍增直达尖点 |
+| **未拆解牛顿次优态**<br>*(反例参照)* | 原始分式 $\frac{x^2+2}{2x}$<br>($g = 2\lceil \log_2 N \rceil$) | $I_*$ | $\dfrac{3}{2} I_*$ | $13\alpha I_* \asymp \Theta(N)$ | 因未拆解部分分式导致分子过度潜入深渊，再经 $Q_n$ 约分虫洞回吐虚胖通量 |
