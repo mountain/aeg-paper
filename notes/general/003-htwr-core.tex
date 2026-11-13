@@ -1,0 +1,511 @@
+% !TEX program = xelatex
+% 编译：xelatex 003-htwr-core.tex（需 ctex 宏包；两遍以获得正确交叉引用）
+\documentclass[11pt,a4paper]{ctexart}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{bm}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+
+\usepackage{capt-of}
+\usepackage{enumitem}
+\usepackage{geometry}
+\geometry{left=2.6cm,right=2.6cm,top=2.8cm,bottom=2.8cm}
+
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black]{hyperref}
+
+\allowdisplaybreaks[3]
+\emergencystretch=1.5em
+
+% ---- 定理环境（中文）----
+\theoremstyle{plain}
+\newtheorem{theorem}{定理}[section]
+\newtheorem{proposition}[theorem]{命题}
+\newtheorem{corollary}[theorem]{推论}
+\newtheorem{lemma}[theorem]{引理}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{定义}
+\newtheorem{remark}[theorem]{注}
+\renewcommand{\proofname}{证明}
+
+% ---- 常用记号 ----
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cH}{\mathcal{H}}
+\newcommand{\cK}{\mathcal{K}}
+\newcommand{\cQ}{\mathcal{Q}}
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cR}{\mathcal{R}}
+\newcommand{\cW}{\mathcal{W}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cTDelta}{\mathcal{T}_{\Delta}}
+\newcommand{\Saux}{\Sigma_{\mathrm{aux}}}
+\newcommand{\Stot}{\Sigma_{\mathrm{total}}}
+\newcommand{\PSL}{\mathrm{PSL}}
+\newcommand{\val}{\mathrm{val}}
+\newcommand{\Hom}{\mathrm{Hom}}
+\newcommand{\Id}{\mathrm{Id}}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\setlist[itemize]{leftmargin=1.6em,itemsep=2pt,topsep=3pt}
+\setlist[enumerate]{leftmargin=1.9em,itemsep=3pt,topsep=3pt}
+
+\title{\bfseries 双曲热带波前--残差核（HTWR Core）\\[2pt]
+\large 从极简 Quantale 到非线性算术语言的时空对偶}
+\author{}
+\date{2026-11-13}
+
+\begin{document}
+
+\maketitle
+
+\begin{center}
+\small
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{2.0cm}>{\raggedright\arraybackslash}p{0.82\textwidth}@{}}
+\toprule
+\textbf{文档性质} & 算术表达式几何（AEG）基础架构与非线性语言公理化研究笔记 \\
+\textbf{内容构成} & 第一部分：公理体系（HTWR Core，公理 I--IV）；第二部分：展示定理与严格上下界推导 \\
+\textbf{日期} & 2026-11-13 \\
+\textbf{备注} & 核心构想、推演脉络、反例审计与催化虫洞构造，形成于与 \textbf{Google Gemini（Carbon 版本）} 的批判性对谈、协作核查与推演 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\vspace{0.6em}
+
+\begin{quote}\small
+\textbf{摘要.}
+本文提出算术表达式几何（AEG）的极简代数--几何对偶内核——双曲热带波前--残差核（Hyperbolic Tropical Wavefront--Residual Core, HTWR Core）。
+我们从批判性地剥离 Christopher Mulvey 的 Quantale 中无点拓扑外壳出发，以“前缀求值历史 $\cH$（Time）与后缀切割界面 $\cK$（Space）”的双端伴随（Chu 构造 / Galois 极性）为第一性底座，建立四条公理：语义商状态与双曲全息标定、带度量的非线性弦图语法、热带波前模与纠缠线性化、Bellman--Galois 双向残差与时空守恒。
+在此内核上，我们以 $\sqrt{2}$ 的 Pell 收敛子为试验场，给出（i）代数等价上下文在 HTWR 度量下严格不等的世界面代价、（ii）对任意目标与任意 DAG 成立的时空作用量--催化通量不确定性下界，以及（iii）借助“主导线零扇出”的催化虫洞构造达到该下界的紧致帕累托边界定理。
+\end{quote}
+
+\tableofcontents
+
+\bigskip
+
+%=====================================================================
+\part{公理体系：HTWR Core}
+%=====================================================================
+
+\section{问题起源：Quantale 的去芜存菁}
+
+Christopher Mulvey 提出 Quantale（量子格）的初衷是为非交换 $C^*$-代数寻找无点拓扑（Locale）谱对偶，但由于非交换乘法丧失了交运算的幂等性（$a \wedge a = a$），“代数元素对应空间区域”的几何直觉受阻，导致其在谱重整上陷入结构性瓶颈。反之，Quantale 在广义度量几何（Lawvere 度量空间）与资源/程序逻辑（Lambek 演算、Hoare 最弱前置条件）中却找到了无冗余的归宿。其真正核心并非“重构空间的点”，而是
+\begin{center}
+\emph{非交换过程复合对极值（$\bigvee/\inf$）的分配律等价于双向资源残差（$a \backslash c,\ c / b$）的存在性。}
+\end{center}
+
+将标准 Quantale 引入 AEG 以刻画资源复杂度与计算时空对偶时，直接照搬现有公理会产生三重冗余与冲突：
+
+\begin{enumerate}
+\item \textbf{完备格过度公理化}：在离散有限语法层强求任意子集并（$\bigvee$），迫使单一算术表达式退化为形式幂集，掩盖了具体的几何树/图结构。
+\item \textbf{标量成本与非交换曲率混同}：标量成本累加是交换的，而 AEG 的核心非交换性源于仿射生成元（加与乘）的李括号缺陷（$[A, M] \neq 0$），单一半群乘法无法同时承载二者。
+\item \textbf{单一乘法无法分离时空维度}：一维半群乘法只能刻画串行时间复合，无法内生表征多分支挂起时的切割界面宽度（Space / Cut Capacity）。
+\end{enumerate}
+
+因此，必须剥离传统 Quantale 的无点拓扑外壳，结合 AEG 的\textbf{原生非线性语言}愿景，重构一个极简的代数--几何对偶内核。
+
+\section{核心思辨与五步推演脉络}
+
+本公理体系的收束经历了五个关键理论分岔点的严密排查与裁决。
+
+\begin{enumerate}
+\item \textbf{时空对偶的逻辑锚定（历史--上下文伴随优先）.}
+以“前缀求值历史 $\cH$（Time）与后缀上下文/切割界面 $\cK$（Space）”的双端求值配对（Chu 构造 / Galois 极性）作为第一性底座，无需先验假设完备格，残差闭合不动点自动生成完备格结构；连续接触流形的截面几何则作为该离散伴随结构在状态度量下的内生涌现结果。
+
+\item \textbf{原生非线性语法与线性分配律危机.}
+摒弃“纯树语法打补丁”的传统路线，在切割界面（Cut $[m]$）的定义中原生允许有向无环图（DAG）的多重扇出（$\Delta: u \mapsto (u, u)$）。推演表明：一旦上下文内部包含非线性重用（如 $k(\square) = \square \times (\square + 1)$），求值配对将产生对角线耦合，直接击穿语法层的线性分配律
+\[
+\langle h_1 \vee h_2,\ k \rangle = \langle h_1, k \rangle \vee \langle h_2, k \rangle .
+\]
+破局之道是将配对提升至截面状态空间上的\textbf{热带波前函数模}，以算子预层线性化恢复严格分配律。
+
+\item \textbf{扇出奇点的一等公民化与凝聚相变.}
+拒绝将变量重用视为零成本语法连线，将分岔 $\Delta: [1] \to [2]$ 与擦除 $\epsilon: [1] \to [0]$ 确立为携带正作用量代价的基本生成元。由此导出非线性语言的\textbf{凝聚相变判据（全息剪刀差）}：仅当制备某状态的历史作用量 $\cA(f)$ 大于其瞬时分岔成本 $c_\Delta(u)$ 时，系统才凝聚出高曲率 DAG 共享枢纽（对应二维世界面环柄，亏格 $g \ge 1$）；浅层琐碎计算（$\cA(f) < c_\Delta(u)$）则自发裂解回零曲率局部纯树（$g = 0$）。
+
+\item \textbf{语义商空间定标与接触几何的自动涌现.}
+确立导线状态取自\textbf{最简语义商空间} $\PP^1(\QQ)$，且分岔节点 $\Delta$ 与算术节点 $(+, \times)$ 均按输入状态的信息高度 $I(u)$（对数 Weil 高度）成正比收费。这一决断同时解决了三大难题：
+\begin{itemize}
+\item \textbf{堵死物理漏洞}：既终结了 BSS 单位成本模型中“反复平方法零成本制造指数位宽”的免费午餐，又通过在算术门入口处按全管径收费，消除了商空间上的“免费 $\gcd$ 约分漏洞”。
+\item \textbf{逼出接触几何}：因下游分岔成本依赖于输入状态，后缀上下文 $k$ 失去固定标量成本，化身为状态依赖的剩余势泛函 $\cW_k(u)$。总作用量极值变分 $\delta(z + \cW_k(u)) = 0$ 直接在截面上诱导出接触 $1$-形式 $dz + p\,dI = 0$，其中共轭动量 $p = \partial \cW_k / \partial I$ 精确度量下游上下文对当前导线位宽的扇出负载放大率。
+\item \textbf{揭示结合律度量破缺}：值空间 $\QQ$ 满足严格结合律，但上下文空间 $\cK_m$ 因不同结合顺序导致中间管径膨胀或提前约分坍缩，产生非零的作用量挠率（Associator Defect），构成非严格 Lax $2$-范畴。
+\end{itemize}
+
+\item \textbf{双曲全息标定与散射虫洞图景（单双曲底座 $\beta_1$）.}
+针对 Weil 高度 $I(p/q)$ 在欧氏实轴上处处不连续的分形障碍，拒绝引入外挂误差参数做人工平滑，也拒绝膨胀为无穷维 Adelic 乘积空间，而是直接将语义边界锚定于单个\textbf{实双曲上半平面 $\HH^2$}（及其单位余切接触流形 $S^*\HH^2$）。信息量 $I(u)$ 原生几何化为双曲中心到尖点 Ford 极限圆的光滑径向测地距离；一元 Möbius 变换对应体空间等距流，而二元加乘与公因子约分则诚实地表现为双曲世界面上的离散散射顶点与跨尺度“算术虫洞”。
+\end{enumerate}
+
+%---------------------------------------------------------------------
+\section{形式化公理体系：HTWR Core}
+%---------------------------------------------------------------------
+
+设标量成本结构为极简 Lawvere 热带半环
+\[
+\cQ = \bigl([0, \infty],\ \ge,\ +,\ 0\bigr),
+\]
+其序方向以 $\inf$ 为并、$+$ 为张量积。AEG 的资源与时空对偶由以下四条公理刻画。
+
+\subsection*{公理 I\quad 语义商状态与双曲全息标定（State \& Hyperbolic Calibration）}
+
+\begin{enumerate}
+\item \textbf{马尔可夫语义态.} 单通道状态空间定义为射影有理商集
+\[
+X := \PP^1(\QQ) = \QQ \cup \{\infty\}.
+\]
+任意既约元素 $u = p/q \in X$（$\gcd(p,q)=1$）完全决定其后续演化代价，无历史路径冗余规范。
+
+\item \textbf{双曲--接触几何锚定.} 赋予上半平面 $\HH^2$ 标准双曲度量 $ds^2 = (dx^2 + dy^2)/y^2$ 及中心基点 $z_0 = i$。每个边界尖点 $u \in X$ 唯一关联其相切 Ford 极限圆 $C_u \subset \HH^2$（在单位余切球丛 $S^*\HH^2 \cong \PSL(2, \mathbb{R})$ 中提升为标准 Legendrian 曲线）。
+
+\item \textbf{信息管径（径向深度）.} 状态 $u$ 的内禀信息量由中心基点到极限圆 $C_u$ 的双曲测地距离标定：
+\[
+I(u) := \tfrac{1}{2}\, d_{\HH^2}(i, C_u) + c_0 \ \asymp\ \ln \max\bigl(\abs{p}, \abs{q}\bigr),
+\]
+其中常数 $c_0$ 归一化使得平凡态满足 $I(0), I(\pm 1), I(\infty) \ge 0$。
+\end{enumerate}
+
+\subsection*{公理 II\quad 带度量非线性弦图语法与局部面积作用量（Rigged Worldsheet Syntax）}
+
+\begin{enumerate}
+\item \textbf{分次空间截面与通量.} 计算过程的横截接口为携带 $m$ 根存活导线的分次对象 $[m]$（状态空间 $X^m$）。截面上状态元组 $\mathbf{u} = (u_1, \dots, u_m) \in X^m$ 的瞬时空间复杂度（总横截通量）定义为肥管周长之和：
+\[
+\Sigma(\mathbf{u}) := \sum_{j=1}^{m} I(u_j).
+\]
+
+\item \textbf{一等拓扑生成元.} 非线性 DAG 语法范畴由四类有向裤子（Cobordisms）经串行焊接（$\rhd$）与并行并置（$\otimes$）生成：
+\begin{itemize}
+\item \textbf{测地传播子} $\gamma \in \PSL(2, \ZZ)$：$[1] \to [1]$，沿 $\HH^2$ 双曲等距流演化；
+\item \textbf{二元散射正裤子} $\star \in \{+, \times, \div\}$：$[2] \to [1]$，执行算术合成及潜在的公因子约分跃迁；
+\item \textbf{非线性扇出倒裤子} $\Delta$：$[1] \to [2]$，$u \mapsto (u, u)$，产生世界面环柄（亏格 $g \ge 1$）与跨通道耦合；
+\item \textbf{热力学擦除封口} $\epsilon$：$[1] \to [0]$，释放终止生命周期的存活导线。
+\end{itemize}
+
+\item \textbf{局部世界面面积作用量.} 任意基本生成元 $g: [r] \to [s]$ 在输入状态 $\mathbf{u}_{\mathrm{in}} \in X^r$ 处消耗严格正的局部作用量：
+\[
+c_g(\mathbf{u}_{\mathrm{in}}) := \epsilon_0 + \alpha_g \sum_{j=1}^{r} I(u_j),
+\qquad (\epsilon_0 > 0,\ \alpha_g > 0).
+\]
+一般非线性网络的总作用量 $\cA$ 为其内部所有生成元局部作用量之和（共享上游节点仅计一次）。
+\end{enumerate}
+
+\subsection*{公理 III\quad 热带波前模与纠缠线性化（Tropical Wavefront Linearization）}
+
+\begin{enumerate}
+\item \textbf{前缀波前坍缩.} 所有输出宽度为 $m$ 的前缀历史集合 $\cH_m = \Hom([0], [m])$，通过最小作用量原理坍缩为自由 $\cQ$-模 $\cQ^{X^m}$ 中的\textbf{制备波前泛函（Eikonal Wavefront）}：
+\[
+V_m(\mathbf{u}) := \inf\Bigl\{ \cA(h) \ \Bigm|\ h \in \cH_m,\ \val(h) = \mathbf{u} \Bigr\}.
+\]
+\begin{itemize}
+\item 无共享祖先的纯树并置对应\textbf{热带可分离积态}：$V(\mathbf{u}_1, \mathbf{u}_2) = V_1(\mathbf{u}_1) + V_2(\mathbf{u}_2)$；
+\item 含 $\Delta$ 扇出的非线性 DAG 对应集中在低维代数子簇上的\textbf{热带纠缠态}，例如
+\[
+(\cTDelta V)(u_1, u_2) = \begin{cases} V(u_1) + c_\Delta(u_1), & u_1 = u_2, \\ +\infty, & \text{否则}. \end{cases}
+\]
+\end{itemize}
+
+\item \textbf{上下文 Bellman 转移算子.} 任意非线性后缀上下文 $k \in \cK_m = \Hom([m], [1])$ 诱导语义映射 $f_k: X^m \to X$ 与状态依赖剩余势 $\cW_k: X^m \to [0, \infty)$，并提升为模同态 $\cT_k : \cQ^{X^m} \to \cQ^{X}$：
+\[
+(\cT_k V)(y) := \inf_{\substack{\mathbf{u} \in X^m \\ f_k(\mathbf{u}) = y}} \bigl\{ V(\mathbf{u}) + \cW_k(\mathbf{u}) \bigr\}.
+\]
+$\cT_k$ 对逐点下确界严格保持分配律：$\cT_k(\inf_\alpha V_\alpha) = \inf_\alpha \cT_k(V_\alpha)$。
+\end{enumerate}
+
+\subsection*{公理 IV\quad Bellman--Galois 双向残差与时空守恒（Spacetime Residual Duality）}
+
+\begin{enumerate}
+\item \textbf{残差伴随包络.} 由 $\cT_k$ 的保确界性，给定目标态 $y^* \in X$ 与总作用量上限 $B \in [0, \infty)$，唯一诱导反向残差算子（最大允许前缀成本包络）：
+\[
+\cR_{k, y^*}(B)(\mathbf{u}) :=
+\begin{cases}
+B - \cW_k(\mathbf{u}), & \text{若 } f_k(\mathbf{u}) = y^*, \\[2pt]
+-\infty\ (\text{不可达}), & \text{若 } f_k(\mathbf{u}) \neq y^*.
+\end{cases}
+\]
+前缀波前与后缀残差满足对偶可解判据：目标 $y^*$ 在预算 $B$ 内可达，当且仅当存在截面态 $\mathbf{u} \in X^m$ 使得 $V_m(\mathbf{u}) \le \cR_{k, y^*}(B)(\mathbf{u})$。由丢番图几何 \textbf{Northcott 定理}，任何有限预算下的有效残差支撑集 $\{\mathbf{u} \mid \cR_{k, y^*}(B)(\mathbf{u}) \ge 0\}$ 均为严格有限集。
+
+\item \textbf{内生时空权衡律.} 施加空间截面通量约束 $\Sigma(\mathbf{u}) \le \Sigma_{\max}$ 时，任何满足凝聚条件 $\cA(f) > c_\Delta(u)$ 但超出剩余通量配额的深层枢纽态 $u$ 无法存活穿越截面，被迫经 $\epsilon$ 擦除并在下游上下文展开重算，从而将横向空间通量的压缩定量转化为纵向总作用量 $\cA$（时间）的刚性增长。
+\end{enumerate}
+
+%=====================================================================
+\part{展示定理：精确时空帕累托边界}
+%=====================================================================
+
+\section{模型定标与测试靶点}
+
+选取 $\sqrt{2}$ 的 Pell 有理收敛子序列 $\{x_n\}_{n \ge 1}$ 作为标准试验场。定义整数对 $(P_n, Q_n)$ 满足
+\[
+(1 + \sqrt{2})^n = P_n + Q_n\sqrt{2},
+\]
+记 $x_n := \frac{P_n}{Q_n} \in \PP^1(\QQ)$（其平移态 $u_n := x_n + 1 = \frac{Q_{n+1}}{Q_n}$ 满足纯连分数不动点递推 $u_{n+1} = 2 + \frac{1}{u_n}$）。
+
+\begin{enumerate}
+\item \textbf{双曲管径标定.} 记银比 $\lambda := 1 + \sqrt{2}$，单步双曲深度增量 $h_0 := \ln \lambda \approx 0.8814$。因 $\gcd(P_n, Q_n) = 1$ 且 $P_n = \frac{1}{2}[\lambda^n + (1-\sqrt{2})^n] > Q_n > 0$，第 $n$ 阶状态的信息高度（双曲径向深度）精确满足：
+\[
+I(x_n) = \ln P_n = n h_0 - \ln 2 + o(1).
+\]
+对目标态 $x_N$（$N \gg 1$），记终点固有深度为 $I_* := I(x_N) = N h_0 - \ln 2 + o(1)$。
+
+\item \textbf{局部作用量定标.} 取公理 II 中归一化门斜率 $\alpha_g = \alpha > 0$，底噪量子 $\epsilon_0 > 0$（满足 $\epsilon_0 \ll \alpha h_0$）：
+\begin{itemize}
+\item 一元 Möbius 测地门 $\gamma \in \PSL(2, \ZZ)$（由 $z \mapsto z \pm 1,\ z \mapsto -1/z$ 生成）及扇出奇点 $\Delta$：$c(z) = \epsilon_0 + \alpha I(z)$；
+\item 二元散射门 $\star \in \{+, -, \times, \div\}$：$c(z_1, z_2) = \epsilon_0 + \alpha\bigl(I(z_1) + I(z_2)\bigr)$。
+\end{itemize}
+\end{enumerate}
+
+该序列同时容许两条正交的生成几何：
+
+\begin{itemize}
+\item \textbf{零亏格双曲测地流（$g=0$）}：经平移 $u_n = x_n + 1$ 沿 $T(u) = 2 + 1/u$ 串行推进 $N-1$ 步，全程仅维持单根导线（$m=1$），总作用量为二次阶：
+\[
+\cA_{\mathrm{CF}}(x_N) = \sum_{n=1}^{N-1} 3\alpha I(u_n) + O(N\epsilon_0) = \frac{3\alpha}{2 h_0} I_*^2 + O(\alpha I_*).
+\]
+
+\item \textbf{高亏格牛顿切线折叠（$g \ge 1$）}：精确满足单导线二倍跳变恒等式 $x_{2n} = \frac{x_n^2 + 2}{2 x_n}$，仅需 $\Theta(\log N)$ 层环柄即可跨越至终点。
+\end{itemize}
+
+\section{分配律破缺与“$\tfrac{3}{2}I_*$ 假性壁垒”的消解}
+
+在考察牛顿倍增步 $x_n \mapsto x_{2n}$（设输入深度 $L := I(x_n) \approx \frac{1}{2} I_*$）时，后缀上下文空间 $\cK_1$ 中的\textbf{分配律/部分分式对称性破缺}直接决定了空间峰值与虫洞损耗。
+
+\begin{enumerate}
+\item \textbf{未拆解有理分式上下文} $k_{\mathrm{naive}}(\square) = \dfrac{\square^2 + 2}{2\square}$：
+\begin{itemize}
+\item 需两次 $\Delta$ 扇出产生三导线截面 $(\square, \square, \square)$，左两路相乘坠入深度 $2L$ 的平方深渊 $\frac{P_n^2}{Q_n^2}$，同时右路挂起深度为 $L$ 的分母 $2x_n$。
+\item 在除法门合拢前，双管截面 $(P_n^2 + 2Q_n^2)/Q_n^2$ 与 $2P_n/Q_n$ 的瞬时总通量膨胀至 $\bm{3L \approx \frac{3}{2} I_*}$，随后经除法门约去公因子 $Q_n$（约分虫洞）坍缩回输出深度 $2L = I_*$，单轮消耗作用量 $13\alpha L$，累计作用量 $13\alpha I_*$。
+\end{itemize}
+
+\item \textbf{部分分式（Heron）重构上下文} $k_{\mathrm{Heron}}(\square) = \frac{1}{2}\Bigl(\square + \dfrac{2}{\square}\Bigr)$：
+\begin{itemize}
+\item 语义上 $k_{\mathrm{Heron}} = k_{\mathrm{naive}}$，但由于将射影极点 $\{0, \infty\} \subset \PP^1(\QQ)$ 在有理数域上拆分为两个一度分支，仅需\textbf{一次} $\Delta$ 扇出。
+\item 在最后一轮倍增（$n = N/2 \to N$）中，截面 $[2]$ 上并置的两根导线为 $x_{N/2} = \frac{P_{N/2}}{Q_{N/2}}$ 与 $\frac{2}{x_{N/2}} = \frac{2 Q_{N/2}}{P_{N/2}}$（因 $P_m$ 恒为奇数，二者既约）。其瞬时总通量为
+\[
+\Sigma_{\mathrm{Heron}} = \ln P_{N/2} + \ln(2 Q_{N/2})
+= \Bigl(\frac{N}{2}h_0 - \ln 2\Bigr) + \Bigl(\frac{N}{2}h_0 - \tfrac{1}{2}\ln 2\Bigr) + o(1)
+= I_* - \tfrac{1}{2}\ln 2 < I_*.
+\]
+\item 两分支经加法门直接通分合成 $\frac{P_{N/2}^2 + 2Q_{N/2}^2}{P_{N/2} Q_{N/2}}$（\textbf{零公因子约分浪费}），单轮消耗作用量降至 $7\alpha L$，累计总作用量压缩至 $\bm{7\alpha I_* + O(\epsilon_0 \log N)}$。
+\end{itemize}
+\end{enumerate}
+
+\begin{quote}
+\small
+\textbf{实例校验（$N=8$）}：$x_4 = \frac{17}{12}$，$x_8 = \frac{577}{408}$，终点深度 $I(x_8) = \ln 577 \approx 6.3578$。在 $x_4 \mapsto x_8$ 的 Heron 环柄内部，最宽截面为 $\bigl(\frac{17}{12}, \frac{24}{17}\bigr)$，瞬时总通量 $\ln 17 + \ln 24 = \ln 408 \approx 6.0113 < \ln 577$。
+\end{quote}
+
+\textbf{几何结论.} 代数上等价的两个非线性上下文在 HTWR 核中具有严格不等的世界面度量（$\Sigma_{\mathrm{naive}} = \frac{3}{2}I_* > \Sigma_{\mathrm{Heron}} = I_*$）。在无附加通道约束下，总通量上限 $\Sigma_{\max} = I_*$ 已足以容纳 Heron 倍增链，不产生二次时间退化。
+
+\section{切割界面的正交分解：纵向波前深度 vs 横向催化通量}
+
+上述分析揭示了总通量 $\Sigma(\mathbf{u})$ 的掩蔽效应：由于主载体导线在终点必须达到深度 $I_*$，在早期浅层（$L \ll I_*$）开启的环柄全部躲在终点肥管投下的“空间阴影”内。要分离“问题固有的纵向目标深度”与“非线性分岔占用的横向工作空间”，必须对任意切割截面 $\mathbf{u} = (u_1, \dots, u_m) \in X^m$ 的空间通量做正交分解：
+\[
+\Sigma(\mathbf{u}) = \underbrace{\Phi(\mathbf{u})}_{\text{纵向主波前深度}} + \underbrace{\Saux(\mathbf{u})}_{\text{横向催化/纠缠通量}},
+\]
+其中：
+
+\begin{itemize}
+\item \textbf{纵向主波前深度} $\Phi(\mathbf{u}) := \max_{1 \le j \le m} I(u_j)$：度量当前截面中最深导线向双曲边界尖点推进的距离（从 $0$ 演化至 $I_*$ 的状态坐标）；
+\item \textbf{横向催化通量（Transverse Catalytic Flux）} $\Saux(\mathbf{u}) := \Sigma(\mathbf{u}) - \Phi(\mathbf{u}) = \sum_{j \neq j_{\max}} I(u_j)$：度量除主载体导线外，由扇出奇点 $\Delta$ 派生并同时挂起在截面上的\textbf{辅助纠缠管径总和}；
+\item 纯树单线测地流（$m=1,\ g=0$）恒有 $\Saux \equiv 0$；
+\item Heron 全倍增链在末轮合拢前需要 $\Saux = I(x_{N/2}) = \frac{1}{2} I_* + O(1)$。
+\end{itemize}
+
+以横向催化配额 $\Saux \le \sigma_{\max}$ 作为空间约束变量，HTWR 核上的普适时空权衡律随即完整显现。
+
+\section{普适时空不确定性下界定理}
+
+\begin{theorem}[HTWR 时空作用量--催化通量不确定性原理]\label{thm:uncertainty}
+设目标态 $y^* \in \PP^1(\QQ)$ 的信息高度为 $I_* = I(y^*) > \ln 2$。对于 HTWR 核中\textbf{任意}制备 $y^*$ 的非线性弦图网络 $h \in \Hom([0], [1])$，若其存在叶状切片序列（拓扑求值序）使得每一空间截面 $\cC_t$ 的横向催化通量满足 $\Saux(\cC_t) \le \sigma_{\max}$（$\sigma_{\max} \ge 0$），则 $h$ 的总作用量满足无条件刚性下界：
+\[
+\cA(h) \ \ge\ \frac{\alpha\,(I_* - \ln 2)^2}{2(\sigma_{\max} + \ln 2)} .
+\]
+\end{theorem}
+
+\begin{proof}[严格证明]
+将弦图 $h$ 按拓扑序分解为 $M$ 个单生成元切片 $g_1, g_2, \dots, g_M$，由于共享子图已显式表示为 $\Delta$ 生成元，每个门在序列中恰好出现一次，$\cA(h) = \sum_{t=1}^{M} c_{g_t}$。记截面 $\cC_t$ 上的纵向主深度为 $\Phi_t := \Phi(\cC_t)$，初态 $\Phi_0 = 0$，终态 $\Phi_M = I_*$。考察单步增量 $\Delta \Phi_t := \Phi_t - \Phi_{t-1} > 0$ 的一切可能生成元 $g_t$：
+
+\begin{enumerate}
+\item \textbf{常数注入、擦除 $\epsilon$ 与扇出 $\Delta$}：均不产生超越原截面最大高度的新状态（对 $\Delta(u) \mapsto (u,u)$，最大值不变，仅将副本计入 $\Saux$），故 $\Delta \Phi_t \le 0$。
+
+\item \textbf{一元 Möbius 生成元 $\gamma \in \{z \mapsto -1/z,\ z \mapsto z \pm 1\}$}：求逆严格保持高度 $I(-1/z) = I(z)$；加减 $1$ 满足 $\max(\abs{p \pm q}, \abs{q}) \le 2\max(\abs{p}, \abs{q})$，故 $I(z \pm 1) \le I(z) + \ln 2$。若 $\Delta \Phi_t > 0$，则必有 $\Phi_t = I(z \pm 1) \le I(z) + \ln 2$，从而
+\[
+\Delta \Phi_t \le \ln 2 \le \sigma_{\max} + \ln 2,
+\qquad
+c_{g_t}(z) \ge \alpha I(z) \ge \alpha(\Phi_t - \ln 2).
+\]
+
+\item \textbf{二元散射生成元 $\star \in \{+, -, \times, \div\}$}：设输入导线为 $u_1, u_2 \in \cC_{t-1}$ 且 $I(u_1) \ge I(u_2)$。由于 $u_1, u_2$ 在截面 $\cC_{t-1}$ 中占据两个独立槽位，无论全局最大导线是否落在 $u_1$ 上，较细导线 $u_2$ 必然计入横向催化通量，即
+\[
+I(u_2) \le \Saux(\cC_{t-1}) \le \sigma_{\max}.
+\]
+由对数 Weil 高度的三角不等式（乘除满足 $I(u_1 \star u_2) \le I(u_1) + I(u_2)$，加减满足 $I(u_1 \pm u_2) \le I(u_1) + I(u_2) + \ln 2$），输出态 $u_{\mathrm{out}} = u_1 \star u_2$ 满足 $I(u_{\mathrm{out}}) \le I(u_1) + I(u_2) + \ln 2$。若 $\Delta \Phi_t > 0$，则 $\Phi_t = I(u_{\mathrm{out}})$ 且 $\Phi_{t-1} \ge I(u_1)$，立得两条核心不等式：
+\[
+\Delta \Phi_t \le I(u_{\mathrm{out}}) - I(u_1) \le I(u_2) + \ln 2 \le \sigma_{\max} + \ln 2,
+\]
+\[
+c_{g_t}(u_1, u_2) \ge \alpha\bigl(I(u_1) + I(u_2)\bigr) \ge \alpha\bigl(I(u_{\mathrm{out}}) - \ln 2\bigr) = \alpha(\Phi_t - \ln 2).
+\]
+\end{enumerate}
+
+抽取序列 $\{\Phi_t\}_{t=0}^{M}$ 中刷新历史最高纪录的严格递增子序列 $0 = \hat\Phi_0 < \hat\Phi_1 < \dots < \hat\Phi_R = I_*$，记步长 $\delta_r := \hat\Phi_r - \hat\Phi_{r-1} \in (0,\ \sigma_{\max} + \ln 2]$。利用 $\frac{\delta_r}{\sigma_{\max} + \ln 2} \le 1$ 及右端点黎曼和单调性，对所有满足 $\hat\Phi_r > \ln 2$ 的纪录步求和：
+\begin{align*}
+\cA(h)
+&\ge \sum_{\hat\Phi_r > \ln 2} \alpha(\hat\Phi_r - \ln 2)
+\ \ge\ \frac{\alpha}{\sigma_{\max} + \ln 2} \sum_{\hat\Phi_r > \ln 2} (\hat\Phi_r - \ln 2)\,\delta_r \\
+&\ge \frac{\alpha}{\sigma_{\max} + \ln 2} \int_{\ln 2}^{I_*} (x - \ln 2)\,dx
+\ =\ \frac{\alpha\,(I_* - \ln 2)^2}{2(\sigma_{\max} + \ln 2)} . \qedhere
+\end{align*}
+\end{proof}
+
+\section{催化虫洞大步跨越与紧致帕累托边界}
+
+定理~\ref{thm:uncertainty} 给出了双曲反比下界 $\Omega(I_*^2 / \sigma_{\max})$。下面针对 Pell 收敛子 $x_N$（对\textbf{任意整数 $N \ge 1$}，无需假设 $N = 2^K$），构造一个精妙的“线性主管道 + 常驻催化剂虫洞”网络，证明该下界在整个区间 $\sigma_{\max} \in [0, \frac{1}{2}I_*]$ 上是\textbf{紧致的（Tight up to a constant）}。
+
+\subsection*{核心构造：主导线零扇出的催化步进恒等式}
+
+若在深度 $L \gg \sigma_{\max}$ 处直接对主导线 $x_n$ 做 $\Delta$ 扇出，横向通量将瞬间飙升至 $L > \sigma_{\max}$ 而违规。为绕开此禁令，利用 $(1+\sqrt{2})^{n+k} = (P_n + Q_n\sqrt{2})(P_k + Q_k\sqrt{2})$ 及 Pell 恒等式 $P_k^2 - 2Q_k^2 = (-1)^k$，将跨度为 $k$ 的跳变映射改写为关于主变量 $x_n$ 的\textbf{一度分式线性（Möbius）分解式}：
+\[
+x_{n+k} = \frac{x_n x_k + 2}{x_n + x_k} = x_k + \frac{2 - x_k^2}{x_n + x_k} = x_k + \frac{(-1)^{k+1} / Q_k^2}{x_n + x_k}.
+\]
+
+\textbf{几何奇迹.} 在该表达式中，重负荷主变量 $x_n$ \textbf{仅出现一次（严格线性穿行，零 $\Delta$ 扇出！）}。给定催化步长参数 $k \ge 1$（对应催化基元深度 $s := I(x_k) \approx k h_0$），只需在横向常驻一对轻量级催化剂导线 $(x_k,\ c_k)$，其中
+\[
+c_k := 2 - x_k^2 = \frac{(-1)^{k+1}}{Q_k^2},
+\qquad I(c_k) = 2\ln Q_k \approx 2s .
+\]
+
+\begin{enumerate}
+\item \textbf{余数前置消除整除锯齿.} 对任意 $N$，作带余除法 $N = M k + r$（$0 \le r < k$）。在起点先用 Heron 倍增链制备初始主态 $z^{(0)} = x_r$（若 $r=0$ 则从 $x_k$ 起步减一轮）以及催化剂对 $(x_k, c_k)$。因 $r < k$，制备过程峰值通量不超过 $3s$，消耗作用量仅为 $O(\alpha s)$。
+
+\item \textbf{即时扇出（Just-in-Time）四门虫洞跨越.} 在第 $j$ 轮大步跨越（$z = x_{r+jk} \mapsto x_{r+(j+1)k}$，主深度 $L_j \approx (r+jk)h_0$）中，按序执行：
+\begin{itemize}
+\item 从催化剂 $x_k$ 扇出一份副本并与 $z$ 相加：$z_1 = z + x_k = \dfrac{Q_{r+(j+1)k}}{Q_{r+jk}\, Q_k}$（主深度升至 $L_j + s$，瞬时横向通量 $4s$）；
+\item 主导线求逆：$z_2 = 1 / z_1$（主深度 $L_j + s$，横向通量 $3s$）；
+\item 从催化剂 $c_k$ 扇出一份副本并与 $z_2$ 相乘：$z_3 = z_2 \cdot c_k = \dfrac{(-1)^{k+1} Q_{r+jk}}{Q_k\, Q_{r+(j+1)k}}$（自动约去一重 $Q_k$，主深度 $L_j + 2s$，\textbf{全局峰值横向通量为 $s + 2s + 2s = 5s$}）；
+\item 从催化剂 $x_k$ 扇出一份副本并与 $z_3$ 相加：$z_{\mathrm{next}} = z_3 + x_k = \dfrac{Q_k\, P_{r+(j+1)k}}{Q_k\, Q_{r+(j+1)k}} = x_{r+(j+1)k}$（触发约分虫洞消去剩余因子 $Q_k$，主深度精准回落至 $L_{j+1} = L_j + s$！）。
+\end{itemize}
+\end{enumerate}
+
+\begin{quote}
+\small
+\textbf{算术实例验证（$n=3 \to 5,\ k=2$）}：主态 $x_3 = \frac{7}{5}$，催化剂 $x_2 = \frac{3}{2},\ c_2 = 2 - \frac{9}{4} = -\frac{1}{4}$。四步演化依次为
+\[
+\begin{gathered}
+z_1 = \frac{7}{5} + \frac{3}{2} = \frac{29}{10}
+\longrightarrow z_2 = \frac{10}{29}
+\longrightarrow z_3 = \frac{10}{29}\times\Bigl(-\tfrac{1}{4}\Bigr) = -\frac{5}{58} \\
+\longrightarrow z_4 = -\frac{5}{58} + \frac{3}{2} = \frac{82}{58} = \frac{41}{29} = x_5,
+\end{gathered}
+\]
+两轮 $Q_2 = 2$ 的虫洞约分严丝合缝。
+\end{quote}
+
+单轮跨越总计消耗作用量 $\Delta \cA_j = \alpha(4 L_j + 12s) + O(\epsilon_0)$，全程横向通量严格受控于 $5s$。令 $s = \frac{1}{5}\sigma_{\max}$（即取步长 $k = \lfloor \frac{\sigma_{\max}}{5 h_0} \rfloor$），对 $M \approx \frac{I_*}{s} = \frac{5 I_*}{\sigma_{\max}}$ 轮求和：
+\[
+\cA_{\mathrm{BSGS}}(\sigma_{\max}) = \sum_{j=0}^{M-1} 4\alpha (j s) + O(\alpha M s) = 2\alpha s M^2 + O(\alpha I_*) = \frac{10\alpha I_*^2}{\sigma_{\max}} + O(\alpha I_*).
+\]
+结合定理~\ref{thm:uncertainty} 的普适下界与 $\sigma_{\max} \ge \frac{1}{2}I_*$ 处的 Heron 全倍增饱和态，即得完整的帕累托边界定理。
+
+\begin{theorem}[二次收敛子的双曲时空帕累托边界定理]\label{thm:pareto}
+在 HTWR 核公理 I--IV 下，制备第 $N$ 阶 Pell 收敛子 $x_N$（固有深度 $I_* = N \ln(1+\sqrt{2}) - \ln 2 + o(1)$）在横向催化通量配额 $\Saux \le \sigma_{\max}$ 下的最小可达作用量 $\cA^*(\sigma_{\max})$ 呈现双相结构，且在全定义域上精确锁定数量级。
+
+\begin{enumerate}
+\item \textbf{催化虫洞反比权衡相（$0 \le \sigma_{\max} < \frac{1}{2} I_*$）}：
+\[
+\frac{\alpha\,(I_* - \ln 2)^2}{2(\sigma_{\max} + \ln 2)}
+\ \le\ \cA^*(\sigma_{\max})
+\ \le\
+\begin{cases}
+\dfrac{3\alpha}{2 h_0}\, I_*^2 + O(\alpha I_*), & 0 \le \sigma_{\max} < 5 h_0, \\[10pt]
+\dfrac{10\alpha I_*^2}{\sigma_{\max}} + O(\alpha I_*), & 5 h_0 \le \sigma_{\max} < \dfrac{1}{2} I_* .
+\end{cases}
+\]
+在此区间内，系统遵守严格的\textbf{双曲时空守恒律}
+\[
+\cA^*(\sigma_{\max}) \cdot (\sigma_{\max} + \ln 2) = \Theta(\alpha I_*^2),
+\]
+边际空间影子价格（接触热力学广义压强）满足幂律发散 $-\dfrac{\partial \cA^*}{\partial \sigma_{\max}} \asymp \dfrac{\alpha I_*^2}{\sigma_{\max}^2}$。
+
+\item \textbf{全凝聚线性饱和相（$\sigma_{\max} \ge \frac{1}{2} I_*$）}：当横向催化配额跨过临界点 $\sigma_c = \frac{1}{2} I_* - \frac{1}{2}\ln 2$ 时，Heron 部分分式环柄链解锁，二次障碍彻底消失，作用量坍缩并锁定于线性基态：
+\[
+\alpha (I_* - \ln 2) \ \le\ \cA^*(\sigma_{\max}) \ \le\ 7\alpha I_* + O(\epsilon_0 \log I_*).
+\]
+\end{enumerate}
+\end{theorem}
+
+\clearpage
+\section{三种核心几何机制总结对照}
+
+\begin{center}
+\footnotesize
+\renewcommand{\arraystretch}{1.45}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{3.5cm}
+  >{\centering\arraybackslash}p{3.1cm}
+  >{\centering\arraybackslash}p{3.3cm}
+  >{\raggedright\arraybackslash}X@{}}
+\toprule
+\textbf{演化机制 / 空间配额区} & \shortstack{\textbf{横向催化通量 $\Saux$}\\\textbf{（峰值总通量 $\Stot$）}} & \textbf{纵向总作用量 $\cA$} & \textbf{双曲几何物理图景} \\
+\midrule
+\textbf{纯测地流基态}\newline（$\sigma_{\max} = 0$）\newline\textit{连分数迭代 $2 + 1/u$；$g = 0$，零扇出单管}
+& $0$\newline（$I_*$）
+& $\dfrac{3\alpha}{2 h_0} I_*^2$\newline $\asymp \Theta(N^2)$
+& 紧贴双曲测地线匀速挪动 $N$ 步的零曲率喇叭管 \\
+\addlinespace
+\textbf{催化虫洞跨越态}\newline（$5h_0 \le \sigma_{\max} < \frac{1}{2}I_*$）\newline\textit{常驻 $(x_k, c_k)$ 四门步进；$g = \Theta(I_*/\sigma_{\max})$}
+& $\le \sigma_{\max}$\newline（$I_* + O(\sigma_{\max})$）
+& $\Theta\!\left(\dfrac{\alpha I_*^2}{\sigma_{\max}}\right)$
+& 主导线零扇出穿行，借横向催化小环柄与 $Q_k$ 约分虫洞做等距大步跳跃 \\
+\addlinespace
+\textbf{Heron 全凝聚基态}\newline（$\sigma_{\max} \ge \frac{1}{2}I_*$）\newline\textit{部分分式倍增 $\frac{1}{2}(x + \frac{2}{x})$；$g = \lceil \log_2 N \rceil$}
+& $\dfrac{1}{2} I_*$\newline（$I_*$）
+& $7\alpha I_*$\newline $\asymp \Theta(N)$
+& 极点有理劈裂消除冗余膨胀，$\log_2 N$ 次无损倍增直达尖点 \\
+\addlinespace
+\textbf{未拆解牛顿次优态}\newline\textit{（反例参照）}\newline\textit{原始分式 $\frac{x^2+2}{2x}$；$g = 2\lceil \log_2 N \rceil$}
+& $I_*$\newline（$\frac{3}{2} I_*$）
+& $13\alpha I_*$\newline $\asymp \Theta(N)$
+& 因未拆解部分分式导致分子过度潜入深渊，再经 $Q_n$ 约分虫洞回吐虚胖通量 \\
+\bottomrule
+\end{tabularx}
+\captionof{table}{HTWR 核中三种核心演化机制与一例反例的几何对照。}
+\label{tab:mechanisms}
+\end{center}
+
+\clearpage
+\section{核心几何推论与后续研究靶点}
+
+\begin{center}
+\footnotesize
+\renewcommand{\arraystretch}{1.45}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{3.0cm}
+  >{\raggedright\arraybackslash}X
+  >{\raggedright\arraybackslash}p{4.4cm}@{}}
+\toprule
+\textbf{现象维度} & \textbf{HTWR 核中的几何机制诠释} & \textbf{待攻克的具体数学问题} \\
+\midrule
+\textbf{结合律破缺与测地选路}
+& $(a+b)+c$ 与 $a+(b+c)$ 语义相等，但中间公因子约分（漏斗坍缩）使不同结合路径的管径面积积分相差 $\Theta(N)$，结合子（Associator）携带非零作用量挠率。
+& 刻画有理数加乘网络中最优结合序的局部曲率判据与贪心失效边界。 \\
+\addlinespace
+\textbf{代数化简的虫洞诠释}
+& 借道双曲深渊（如平方差 $(x-1)(x+1) = x^2 - 1$ 或反复平方）再利用约分跳回浅层，入口全额管径收费确保不违背热力学第二定律，净收益源于高亏格环柄对浅层线性测地步数的指数级压缩。
+& 严格证明“催化虫洞（Catalytic Wormhole）”能够击败纯浅层 $\PSL(2, \ZZ)$ 连分数流的最小亏格阈值。 \\
+\addlinespace
+\textbf{时空帕累托边界}
+& 限制最大截面通量 $\Sigma_{\max}$ 迫使高亏格世界面退化展开为低亏格长管道，形成 $(\cA, \Sigma)$ 平面上的凸包络边界。
+& 选取典型测试序列（如 $2^N - 1$、Fibonacci 有理逼近序列或 Sylvester 数列），精确算出第一条非平凡的 $(\cA, \Sigma)$ 帕累托曲线。 \\
+\bottomrule
+\end{tabularx}
+\captionof{table}{核心几何推论与后续研究靶点。}
+\label{tab:outlook}
+\end{center}
+
+\end{document}
