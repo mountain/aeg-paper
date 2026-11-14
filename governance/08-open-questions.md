@@ -4811,3 +4811,135 @@ generalization is open.
 with the real-interval dcpo; do not treat fixed-grid rounding as Scott-continuous;
 do not promote `ZeroUndetermined` to `ExactZero`; treat `contracted=true` without
 a sound replayed `F(c)`/`J(X)` as an invalid witness.
+
+## OQ-103 — HTWR framework and the fanout-cost / wrapping bridge (Level C)
+
+**Priority:** P3
+**State:** OPEN (2026-11-14).
+**Scope:** `notes/general/001-htwr-core.md`, `002-htwr-example.md`,
+`004-test-sequences.md`, `005-fanout-wrapping.md` and its witness
+`005-fanout-wrapping-witness.py`; cross-reads `aeglib/docs/17`,
+`aeglib/docs/18`, `aeglib/docs/19` (VdP C11 wrapping/audit).
+**Depends on:** `governance/notes-reserve-audit.md` §2.9;
+`governance/05-mathematical-status.md` (status vocabulary).
+
+**Question.** The HTWR (hyperbolic tropical wavefront-residual) core is a
+`STRUCTURAL PROPOSAL` framework: a resource/complexity reading of arithmetic
+evaluation on `P¹(Q)`, calibrated by logarithmic Weil height, with fanout `Δ`
+and erasure `ε` as costed generators. Its Theorems 1–2 (a spacetime-uncertainty
+lower bound and a two-phase Pareto boundary for Pell/Fibonacci convergents) are
+proved only **conditional on** axioms I–IV. The Level-C witness (`005`) shows
+that the naive-vs-Heron fanout difference — two vs one `Δ` — is reproduced, in
+exact rational interval arithmetic, as a monotone wrapping-width difference
+(`W_true < W_heron < W_naive`, exact leading-order excess ratio `577/288` at
+`x=17/12`). This registers the framework and its bridge; it promotes nothing.
+
+**103.1 — Framework registration (`STRUCTURAL PROPOSAL`).** Axioms I–IV and the
+conditional Theorems 1–2 are an axiomatic proposal, not published theorems. They
+must not be cited as results of Papers 0–IV.
+
+**103.2 — interval-width ↔ information-height (`OPEN`; the Level-C core).**
+HTWR's `I(u) = ln max(|p|,|q|)` is rational *size* (Weil height), whereas the
+wrapping excess is a real *interval width*. Whether `I(u)` can be replaced by a
+precision log `log(1/width)` so that `c_Δ = α·I(u)` becomes the exact
+leading-order wrapping coefficient — upgrading "monotone in fanout" to a
+quantitative law — is open. `005` shows the excess is monotone but **not** a
+simple multiple of the fanout count (`577/288 ≠ 2`), so the correspondence is
+not automatic.
+
+**103.3 — Wrapping lower bound (`STRUCTURAL PROPOSAL` / `OPEN`).** Translating
+Theorem 1 into a lower bound on validated-ODE tube width or work at precision `ε`
+is a structural proposal. A proof requires the fiberwise enclosure argument that
+is currently missing; per AGENTS.md, computational lower bounds must not be
+inferred from geometric growth alone.
+
+**103.4 — Split-tube formalization (`ADVANCED`, 2026-11-14).** Formalized in
+`notes/general/006-split-tube-htwr.md` with witness
+`006-split-tube-witness.py`. The VdP augmented RHS is block-triangular: the
+phase/action components `(x,y,A_hor,I)` do **not** read the variational `φ`, so
+`F₁(x,y)` is independent of `F₂(x,y,φ)`. Hence the split-tube phase radius
+`r_phase ≤ r_unsplit` (strict iff a variational RHS component dominates). The
+HTWR reading — phase/action as the "main wire", `φ` as the "fanout-auxiliary
+wire" (the `Δ` fanout of `(x,y)` into `J(x,y)`) — is `STRUCTURAL PROPOSAL`.
+Honest finding (`COMPUTATIONALLY VERIFIED EXAMPLE`): on the converged C11
+periodic orbit the variational RHS is **not** consistently dominant, so the
+term-by-term wrapping reduction is weak (`r_phase/r_unsplit ∈ {0.91, 1.0}`); its
+decisive value was during shooting (`docs/17` §11, `φ21'≈29.5`). Not promoted to
+a theorem.
+
+**Why it matters.** The VdP C11 certification is blocked by dependency
+blow-up (wrapping); a resource-theoretic reading of that blow-up would turn a
+numerical nuisance into a bounded cost, and would connect the AEG
+resource/complexity layer (Paper IV outlook) to the hilbert-16 vertical slice.
+
+**Current evidence.** `005`'s exact rational witness; notes 001/002/004's
+identity verifications; `aeglib/docs/18/19`'s two confirmed arithmetic bugs and
+the split-tube observation. All are finite/conditional; none is a general
+theorem.
+
+**Default rule while open.** Treat HTWR axioms I–IV and Theorems 1–2 as
+`STRUCTURAL PROPOSAL`; do not claim a quantitative fanout→wrapping law; do not
+infer a wrapping or complexity lower bound from the uncertainty principle; do not
+promote the split-tube heuristic into a certified reduction.
+
+**Resolution condition.** 103.1 resolves when the framework is either assigned a
+paper or explicitly archived; 103.2 resolves with a proved correspondence (or a
+counterexample); 103.3 resolves with a fiberwise enclosure proof; 103.4 resolves
+with a replayed, termwise split-tube enclosure.
+
+**Affected files.** `notes/general/001–005`;
+`governance/notes-reserve-audit.md` §2.9; this entry.
+
+**Owner.** Mingli Yuan (research direction); status and witness: DeepSeekHarness.
+
+**Decision record.** None yet.
+
+## OQ-104 — Pan / Encke-gap edge waves: density-wave dispersion and amplitude
+
+**Priority:** P3
+**State:** OPEN (2026-11-14).
+**Scope:** `notes/general/007-pan-encke-farey.md`; witnesses
+`aeglib/python/examples/pan_encke_resonance_ladder.py`,
+`aeglib/python/examples/pan_encke_gap_criterion.py`.
+
+**Question.** Note 007 fixes the *skeleton* of the Pan/Encke-gap edge waves: the
+Lindblad resonance ladder `x=m/(m±1)` (Farey neighbours of co-rotation), the
+resonance radii (`m=551` at the Encke outer edge), and the Chirikov
+resonance-overlap reading of the gap opening (Hill radius 19 km, overlap
+`m≈475`, gap `≈8.5 R_H`). It does **not** yet compute the observed edge-wave
+wavelength/amplitude (tens of km, i.e. azimuthal `m~10⁴`), because that requires
+the linear density-wave dispersion relation with self-gravity,
+`(ω − mΩ)² = κ² − 2πGΣ|k| + c²k²`, plus the gap-edge boundary/mode structure.
+This registers the open physics.
+
+**104.1 — Dispersion and wavelength (`OPEN`).** Solve the tight-winding
+dispersion relation near the m=551 resonance and obtain the radial/azimuthal
+wavelength as a function of distance from resonance; check against the observed
+tens-of-km edge-wave wavelength.
+
+**104.2 — aeglib capability gap (`OPEN`).** The dispersion relation is a
+multivariate root/parameter-continuation problem; aeglib 0.0.2 has univariate
+Sturm + Arb enclosure but no dispersion solver. Advancing 104.1 needs a
+multivariate Newton/Krawczyk + parameter continuation on `ArbBall` (aeg-certify
+has `krawczyk.rs`, not yet exposed to Python).
+
+**Why it matters.** It closes the gap between the resonance skeleton (Farey/Ford,
+resonance overlap) and the actual observed wave, turning the AEG reading from a
+structural analogy into a predictive computation.
+
+**Current evidence.** Note 007's certified resonance ladder and overlap numbers;
+no dispersion computation yet.
+
+**Default rule while open.** Do not claim a wavelength/amplitude result; do not
+equate the m=551 resonance with the observed m~10⁴ edge wave; keep the Farey/Ford
+reading as `STRUCTURAL PROPOSAL`.
+
+**Resolution condition.** 104.1 resolves with a dispersion-derived wavelength
+matching the observed value to order-of-magnitude; 104.2 resolves when aeglib
+exposes a certified multivariate dispersion solver.
+
+**Affected files.** `notes/general/007-pan-encke-farey.md`; this entry.
+
+**Owner.** Mingli Yuan (research direction); DeepSeekHarness (witnesses).
+
+**Decision record.** None yet.

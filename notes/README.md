@@ -23,6 +23,7 @@ The subject directories are:
 6. `thermodynamics-and-renormalization/`
 7. `electrodynamics/`
 8. `aes/`
+9. `general/`
 
 `electrodynamics/` is an archived working directory rather than a numbered note:
 it holds a rendered manuscript on a contact-geometric reading of classical
@@ -99,3 +100,35 @@ elliptic AES definition remain research tasks.
 - [02 — The arithmetic side of the elliptic AES](aes/02-arithmetic-side-of-the-elliptic-aes.md):
   the three-layer syntax/value/realization split, the bounded spherical
   assignment, the critical/turning locus, and the range domain.
+
+## Hyperbolic tropical wavefront-residual core (HTWR)
+
+- [001 — HTWR Core](general/001-htwr-core.md): the minimal quantale→AEG core,
+  axioms I–IV (state `P¹(Q)` with logarithmic-Weil-height hyperbolic
+  calibration; rigged worldsheet syntax with fanout `Δ`/erasure `ε` as costed
+  generators; tropical wavefront/Bellman transfer; Bellman–Galois residual
+  duality). `STRUCTURAL PROPOSAL`.
+- [002 — Exact spacetime Pareto boundary](general/002-htwr-example.md):
+  Theorem 1 (spacetime-uncertainty lower bound) and Theorem 2 (two-phase Pareto
+  boundary for Pell convergents) conditional on axioms I–IV; the
+  catalytic-wormhole Möbius big-step and the naive-vs-Heron fanout comparison.
+  `STRUCTURAL PROPOSAL` (+ `STANDARD CONSEQUENCE` for the identities).
+- [003 — HTWR Core (compiled)](general/003-htwr-core.tex): LaTeX render of 001.
+- [004 — Test sequences](general/004-test-sequences.md): Pell/Fibonacci unified
+  to the metallic-means family, Sylvester, and Recamán; structural positioning
+  and status labels. `STRUCTURAL PROPOSAL` + `COMPUTATIONALLY VERIFIED EXAMPLE`.
+- [005 — Fanout cost and interval wrapping](general/005-fanout-wrapping.md):
+  Level-C witness that the naive-vs-Heron fanout difference is reproduced as an
+  exact rational interval-wrapping difference. `STRUCTURAL PROPOSAL` +
+  `COMPUTATIONALLY VERIFIED EXAMPLE`; companion witness
+  [005-fanout-wrapping-witness.py](general/005-fanout-wrapping-witness.py).
+- [006 — Split-tube as an HTWR decomposition](general/006-split-tube-htwr.md):
+  formalizes the VdP C11 split-tube as the HTWR "main wire + fanout-auxiliary"
+  decomposition; proves the block-triangularity (phase/action does not read
+  the variational `φ`) and checks the term-by-term wrapping reduction.
+  Companion witness [006-split-tube-witness.py](general/006-split-tube-witness.py).
+- [007 — Pan and the Encke-gap edge waves](general/007-pan-encke-farey.md):
+  reads the Pan Lindblad resonance ladder `x=m/(m±1)` as the Farey/Ford
+  structure; aeglib certifies the resonance radii (m=551 at the Encke outer
+  edge) and the resonance-overlap gap-opening criterion. `STRUCTURAL PROPOSAL`
+  reading; companions under `aeglib/python/examples/pan_encke_*.py`.

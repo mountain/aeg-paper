@@ -80,6 +80,15 @@ HYPOTHESES`, its application to a punctured AES remains `STRUCTURAL PROPOSAL`
 OQ-101. The root-existence routing (tube replay + Newton + reduction) stays a
 value-layer verification concern and is not promoted.
 
+**Amendment (2026-11-14).** A new subject directory `notes/general/` was added
+(notes `001`–`005`), carrying the HTWR (hyperbolic tropical wavefront-residual)
+core. Section 2 gains subsection 2.9 and section 4 Tier C a bullet. The five
+notes are graded `STRUCTURAL PROPOSAL` (with `STANDARD CONSEQUENCE REQUIRING AN
+IN-PAPER PROOF` and `COMPUTATIONALLY VERIFIED EXAMPLE` where each note states
+them); no note is promoted and none is assigned to a paper. The open residuals
+are registered as OQ-103 in `governance/08-open-questions.md`. The directory is
+also added to `notes/README.md`.
+
 ---
 
 ## 1. Purpose and method
@@ -240,6 +249,18 @@ The same check should be re-run whenever notes are added.
 * `archive/ideal_glass/` — Python prototype + Chinese working note applying AEG contact/ACS to ideal glass protocols; declared approximations throughout; exploratory.
 * `archive/peddle/` — interactive pebble-game resource lab (HTML); visual, not audited mathematically.
 
+### 2.9 `notes/general/` (added 2026-11-14; appended after 2.8 to avoid renumbering 2.7/2.8)
+
+| File | Disposition | Grade | Current status / destination |
+| --- | --- | --- | --- |
+| 001-htwr-core | Unincorporated; new thread | STRUCTURAL PROPOSAL | HTWR (hyperbolic tropical wavefront-residual) core: axioms I–IV state `P¹(Q)` + logarithmic-Weil-height hyperbolic calibration, rigged worldsheet syntax with fanout Δ / erasure ε as costed generators, tropical wavefront/Bellman transfer, and Bellman–Galois residual duality. Axiomatic proposal; no existence/uniqueness/invariance theorem. Outlook candidate for Paper IV (resource/complexity layer), unassigned. |
+| 002-htwr-example | Unincorporated; new thread | STRUCTURAL PROPOSAL (+ STANDARD CONSEQUENCE for the identities) | Theorem 1 (spacetime uncertainty lower bound) and Theorem 2 (two-phase Pareto boundary for Pell convergents) are proved **conditional on** axioms I–IV; the catalytic-wormhole Möbius big-step and the naive-vs-Heron fanout comparison are the core mechanism. The norm/Newton identities are classical. No paper claim promoted. |
+| 003-htwr-core.tex | Unincorporated; compiled companion of 001 | STRUCTURAL PROPOSAL (same as 001) | LaTeX render of 001; not an independent claim. |
+| 004-test-sequences | Unincorporated; new thread | STRUCTURAL PROPOSAL + COMPUTATIONALLY VERIFIED EXAMPLE (+ STANDARD CONSEQUENCE) | Pell/Fibonacci unified to the metallic-means family (Cassini, Newton doubling, Möbius big-step all verified); Sylvester (double-exponential, no wormhole, naive = optimal); Recamán (no structure, negative reference). Records a notation conflict (Pell numbers vs companion Pell) for the paper symbol table. |
+| 005-fanout-wrapping | Unincorporated; new thread | STRUCTURAL PROPOSAL + COMPUTATIONALLY VERIFIED EXAMPLE (+ STANDARD CONSEQUENCE) | Level-C witness: reproduces, in exact rational interval arithmetic (`005-fanout-wrapping-witness.py`), that the naive and Heron forms of the Pell doubling map enclose the same center (577/408) but with widths `W_true < W_heron < W_naive`, wrapping excess monotone in fanout count with exact leading-order ratio 577/288. Replayed on aeglib 0.0.2's `ArbBall` (the VdP C11 interval type) by `aeglib/python/examples/level_c_fanout_wrapping.py` (width ratio ≈ 2.002). The "fanout cost = wrapping" correspondence (interval-width ↔ information-height) is a STRUCTURAL PROPOSAL; residuals OQ-103. |
+| 006-split-tube-htwr | Unincorporated; new thread | PROVED WITH STATED HYPOTHESES (block-triangularity) + STANDARD CONSEQUENCE (radius inequality) + STRUCTURAL PROPOSAL (HTWR reading) + COMPUTATIONALLY VERIFIED EXAMPLE (orbit sampling) | OQ-103.4: formalizes the VdP C11 split-tube as the HTWR "main wire (phase/action) + fanout-auxiliary (variational phi)" decomposition; proves (definitionally, `006-split-tube-witness.py`) that the phase/action RHS does not read phi, hence `r_phase <= r_unsplit`. Honest finding: on the converged C11 orbit the variational RHS is not consistently dominant, so the term-by-term wrapping reduction is weak (<= ~9%); its decisive value was during shooting (docs/17 §11). Advances OQ-103.4 to "formalized + weak reduction confirmed". |
+| 007-pan-encke-farey | Unincorporated; new thread | PROVED WITH STATED HYPOTHESES (resonance ladder) + COMPUTATIONALLY VERIFIED EXAMPLE (edge coincidence, overlap) + STRUCTURAL PROPOSAL (Farey/Ford + HTWR depth) | AEG application to the Pan/Encke-gap edge waves: the Lindblad resonance ladder `x=m/(m±1)` is the Farey neighbourhood of co-rotation `x=1`; aeglib `ArbBall` certifies the resonance radii (`pan_encke_resonance_ladder.py`, m=551 → a_P+161.6 km at the Encke outer edge) and the gap-opening criterion (`pan_encke_gap_criterion.py`, Hill radius 19.05 km, resonance overlap m≈475, gap≈8.5 R_H). The Farey/Ford and HTWR-depth readings are STRUCTURAL PROPOSAL. Residual (edge-wave wavelength/amplitude, density-wave dispersion): OQ-104. |
+
 ---
 
 ## 3. Conflict and obsolescence register
@@ -337,6 +358,15 @@ analysis and a proof.
   bridge; carry `09`'s corrections.
 * `projective-condensation/01` §10 — contact comparison conjecture for
   PSL₂(R)/unit tangent bundle vs the AEG horizontal distribution.
+* `general/001`–`005` — the HTWR (hyperbolic tropical wavefront-residual)
+  thread (added 2026-11-14): a resource/complexity reading of arithmetic
+  evaluation on `P¹(Q)` with logarithmic-Weil-height calibration, a
+  spacetime-uncertainty lower bound and a two-phase Pareto boundary for
+  Pell/Fibonacci convergents (all conditional on axioms I–IV), and the
+  Level-C witness that the naive-vs-Heron fanout difference is reproduced as
+  an exact rational interval-wrapping difference. Residuals: OQ-103. Not a
+  promotion candidate as a whole; any paper entry requires the integration
+  audits of `05-mathematical-status.md` §4.
 
 ### Tier D — exploratory, superseded, or corrected
 
