@@ -103,6 +103,11 @@ elliptic AES definition remain research tasks.
 
 ## Hyperbolic tropical wavefront-residual core (HTWR)
 
+> English translations of 001, 002 and 004 are provided as
+> `001-htwr-core.en.md`, `002-htwr-example.en.md` and
+> `004-test-sequences.en.md` (added 2026-11-14), so the HTWR core is available
+> in both languages.
+
 - [001 — HTWR Core](general/001-htwr-core.md): the minimal quantale→AEG core,
   axioms I–IV (state `P¹(Q)` with logarithmic-Weil-height hyperbolic
   calibration; rigged worldsheet syntax with fanout `Δ`/erasure `ε` as costed
