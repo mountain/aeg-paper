@@ -1,0 +1,132 @@
+{
+  "fano": {
+    "flag_stabilizer_element_orders": [
+      1,
+      2,
+      2,
+      2,
+      2,
+      2,
+      4,
+      4
+    ],
+    "flag_stabilizer_order": 8,
+    "flags": 21,
+    "lines": 7,
+    "ordered_pair_stabilizer_element_orders": [
+      1,
+      2,
+      2,
+      2
+    ],
+    "ordered_pair_stabilizer_order": 4,
+    "ordered_pair_stabilizer_type": "V4",
+    "points": 7
+  },
+  "pgl": {
+    "class_multiset": [
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        21
+      ],
+      [
+        2,
+        28
+      ],
+      [
+        3,
+        56
+      ],
+      [
+        4,
+        42
+      ],
+      [
+        6,
+        56
+      ],
+      [
+        7,
+        48
+      ],
+      [
+        8,
+        42
+      ],
+      [
+        8,
+        42
+      ]
+    ],
+    "order": 336,
+    "order3_centralizer_order": 6,
+    "ordered_pair_and_order3_centralizer_conjugate": true,
+    "ordered_pair_stabilizer_order": 6
+  },
+  "psl": {
+    "class_multiset": [
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        21
+      ],
+      [
+        3,
+        56
+      ],
+      [
+        4,
+        42
+      ],
+      [
+        7,
+        24
+      ],
+      [
+        7,
+        24
+      ]
+    ],
+    "cosets_of_sylow7": 24,
+    "element_order_counts": {
+      "1": 1,
+      "2": 21,
+      "3": 56,
+      "4": 42,
+      "7": 48
+    },
+    "order": 168,
+    "order4_centralizer_element_orders": [
+      1,
+      2,
+      4,
+      4
+    ],
+    "order4_centralizer_order": 4,
+    "ordered_pair_stabilizer_is_c3": true,
+    "ordered_pair_stabilizer_order": 3,
+    "point_stabilizer_order": 21,
+    "sylow2_centers_biject_involutions": true,
+    "sylow7_normalizer_order": 21,
+    "sylow_counts": {
+      "2": 21,
+      "3": 28,
+      "7": 8
+    },
+    "two_transitive_on_8_points": true
+  },
+  "status": {
+    "21_flags_and_involutions": "classical GL(3,2) flag action; the canonical Sylow-2 center map gives the involution bijection (computed here)",
+    "42_pairs_and_order4": "not isomorphic: V4 ordered-pair stabilizer against C4 order-4 centralizer (both computed)",
+    "42_six_leaf_trees": "open; no action constructed",
+    "56_pairs_and_order3": "standard consequence of orbit-stabilizer plus the computed conjugacy",
+    "8_points_and_sylow7": "standard consequence of orbit-stabilizer plus the computed conjugacy"
+  }
+}
