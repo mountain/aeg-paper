@@ -137,3 +137,8 @@ elliptic AES definition remain research tasks.
   wavelength is `c²/(GΣ) ≈ 0.75 km` at resonance and decreases away (wrapped-up),
   matching the observed "wavelength varies smoothly" signature.
   Companion witness [008-encke-density-wave-witness.py](general/008-encke-density-wave-witness.py).
+- [009 — Encke edge-mode cold-WKB test (negative)](general/009-encke-edge-mode-wkb.md):
+  tests the Papaloizou–Lin edge mode in the cold WKB limit; the turning point
+  lies outside the edge only for `m < 551`, so the measured `m ≈ 2800` edge wave
+  is **not** a cold WKB edge mode (evanescent decay ≈ 0.5 m). Companion witness
+  [008-encke-edge-mode-wkb.py](general/008-encke-edge-mode-wkb.py).

@@ -4937,15 +4937,7 @@ tight-winding dispersion is a closed-form quadratic in `k`, so 104.1 did **not**
 need this; the multivariate solver is only for the full `(m,k)` joint +
 boundary-condition problem.
 
-**104.3 — Edge-mode (Papaloizou–Lin) dispersion (`OPEN`, 2026-11-14).** The
-radial/azimuthal comparison (note 008 §4.5) shows the observed short-wavelength
-edge wave is not the free `m≈551` density wave, and points to a trapped edge
-mode. The well-posed next problem: solve the cold self-gravitating WKB mode
-`σ² = κ² − 2πGΣ|k|` with the reflecting boundary `Σ₁(r_edge)=0` and the Airy
-turning-point quantization `∫|k| dr = (n + 3/4)π` between the edge and the
-Lindblad resonance, giving the discrete edge-mode frequencies `ω_n(m)` and their
-radial extent. This is a boundary-value problem, one notch harder than the free
-dispersion (104.1).
+**104.3 — Edge-mode (Papaloizou–Lin) dispersion (`RESOLVED NEGATIVELY` for the cold WKB form, 2026-11-14; re-scoped).** The cold self-gravitating WKB mode `σ² = κ² − 2πGΣ|k|` with the reflecting boundary and Airy quantization was tested (`notes/general/009-encke-edge-mode-wkb.md`, witness `008-encke-edge-mode-wkb.py`). Result: the turning point is `r_L = a_P((m+1)/m)^{2/3}`, so the confined mode exists only for `m < 551`; for `m ≥ 551` (including the measured `m ≈ 2800`) the Lindblad resonance lies **inside** the cleared gap, and the edge is in a far-off-resonance evanescent zone (radial decay length `≈ 0.5 m`). So the observed edge wave is **not** a cold WKB edge mode. Re-scoped open problem: a pressure-confined edge mode (`c > 0`, dispersion `σ² = κ² − 2πGΣ|k| + c²k²`) or Pan's near-field (Hill-sphere) gravitational distortion — both outside the original cold WKB statement.
 
 **Why it matters.** It closes the gap between the resonance skeleton (Farey/Ford,
 resonance overlap) and the actual observed wave, turning the AEG reading from a
