@@ -142,3 +142,8 @@ elliptic AES definition remain research tasks.
   lies outside the edge only for `m < 551`, so the measured `m ≈ 2800` edge wave
   is **not** a cold WKB edge mode (evanescent decay ≈ 0.5 m). Companion witness
   [008-encke-edge-mode-wkb.py](general/008-encke-edge-mode-wkb.py).
+- [010 — Encke scalloped edge as Pan's tidal distortion](general/010-encke-scalloped-edge-tidal.md):
+  final closure — the edge wave is Pan's **static tidal distortion** (forced
+  epicycle): amplitude `GM_P/(κ²d²) ≈ 0.79 km` and azimuthal FWHM ≈ 249 km,
+  matching the image (0.65 km, ~300 km). Companion witness
+  [010-encke-scalloped-edge-tidal.py](general/010-encke-scalloped-edge-tidal.py).
