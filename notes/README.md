@@ -105,9 +105,10 @@ elliptic AES definition remain research tasks.
 
 > English translations of the HTWR notes are provided as `NN-*.en.md`
 > alongside each Chinese `NN-*.md` (added 2026-11-14), so the whole HTWR
-> thread 001–010, 014 and 015 is available in both languages.  A compiled English
-> render of 001 is `003-htwr-core.en.tex` + `003-htwr-core.en.pdf` (pdflatex).
-> The scripts 011–027 are companion computations/figures to notes 002 and 015.
+> thread 001–010, 014, 015 and 016 is available in both languages.  A compiled
+> English render of 001 is `003-htwr-core.en.tex` + `003-htwr-core.en.pdf`
+> (pdflatex).  The scripts 011–028 are companion computations/figures to notes
+> 002, 015 and 016.
 
 - [001 — HTWR Core](general/001-htwr-core.md): the minimal quantale→AEG core,
   axioms I–IV (state `P¹(Q)` with logarithmic-Weil-height hyperbolic
@@ -177,3 +178,11 @@ elliptic AES definition remain research tasks.
   `p(u) = P_λ(0)` (`u=e^λ`), with Chebyshev `T_n` unifying threading and Belyi.
   Companions 015–027 (`*.py`/`*.png`); statuses `PROVED` + `COMPUTATIONALLY
   VERIFIED EXAMPLE` + `STRUCTURAL PROPOSAL`, open OQ-073/074/076.
+- [016 — C₂*C₄ normal form, tearing, even-order Belyi, {7,4}](general/016-c2c4-tearing-belyi-f7.md):
+  the four construction interfaces of `{∞,4}` — the `C₂*C₄` normal form fixing
+  `013`'s non-free IFS (`F₃=F₂⁻¹, F₄=F₁⁻¹`) and giving the collision-free
+  Bass–Serre tree `T₄`; the `F₂⋊C₄` tearing commutator `[α̃,β̃_⊥]=T⁴`; the
+  even-ramification Belyi criterion (q=4 sign protection); and the
+  `Γ₄↠PSL₂(F₇)` `{7,4}` compactification (genus 10, `F=24,E=84,V=42`). Companion
+  [028-c2c4-tree.py](general/028-c2c4-tree.py) + [028-c2c4-tree.png](general/028-c2c4-tree.png);
+  statuses `PROVED` + `STRUCTURAL PROPOSAL`.
