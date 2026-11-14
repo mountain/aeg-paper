@@ -4919,12 +4919,14 @@ This registers the open physics.
 wavenumber `k`; the radial wavelength is `λ₀ = c²/(GΣ) ≈ 0.75 km` at resonance
 (`Σ=500 kg/m²`, `c=0.5 cm/s`) and **decreases** away from resonance (wrapped-up
 spiral). This matches the observed "wavelength varies smoothly" signature
-(Tiscareno et al., DPS 2005). Residual (`D4`): the exact quantitative match
-remains open — a radial/azimuthal comparison (note 008 §4.5) shows that if the
-observed edge-wave wavelength is azimuthal (~50–100 km, value not yet
-retrieved), it maps to `m~10⁴` (resonances **inside** the cleared gap), not to
-the `m≈551` edge resonance; this points to a trapped **edge mode**
-(Papaloizou–Lin) rather than the free `m=551` density wave. Not over-asserted.
+(Tiscareno et al., DPS 2005). Measured (PIA08257, note 008 §4.6, witness
+`008-encke-edge-wave-image.py`): edge-wave azimuthal wavelength `λ_θ ≈ 260–320 km`,
+radial amplitude `A ≈ 0.65 km`, hence `m = 2πr/λ_θ ≈ 2600–3200` — a resonance
+**inside** the cleared gap (`a_P + 28 km`), not the `m≈551` edge resonance
+(`a_P + 162 km`). This confirms the observed edge wave is a trapped **edge mode**
+(Papaloizou–Lin), not the free `m=551` density wave; the earlier `~50–100 km`
+estimate is superseded. Residual (`D4`): the edge-mode dispersion's quantitative
+solution (now registered as OQ-104.3).
 
 **104.2 — aeglib capability gap (`OPEN`).** The dispersion relation is a
 multivariate root/parameter-continuation problem; aeglib 0.0.2 has univariate
