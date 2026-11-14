@@ -103,10 +103,10 @@ elliptic AES definition remain research tasks.
 
 ## Hyperbolic tropical wavefront-residual core (HTWR)
 
-> English translations of 001, 002 and 004 are provided as
-> `001-htwr-core.en.md`, `002-htwr-example.en.md` and
-> `004-test-sequences.en.md` (added 2026-11-14), so the HTWR core is available
-> in both languages.
+> English translations of the HTWR notes are provided as `NN-*.en.md`
+> alongside each Chinese `NN-*.md` (added 2026-11-14), so the whole HTWR
+> thread 001–010 is available in both languages.  A compiled English render of
+> 001 is `003-htwr-core.en.tex` + `003-htwr-core.en.pdf` (pdflatex).
 
 - [001 — HTWR Core](general/001-htwr-core.md): the minimal quantale→AEG core,
   axioms I–IV (state `P¹(Q)` with logarithmic-Weil-height hyperbolic
@@ -118,7 +118,9 @@ elliptic AES definition remain research tasks.
   boundary for Pell convergents) conditional on axioms I–IV; the
   catalytic-wormhole Möbius big-step and the naive-vs-Heron fanout comparison.
   `STRUCTURAL PROPOSAL` (+ `STANDARD CONSEQUENCE` for the identities).
-- [003 — HTWR Core (compiled)](general/003-htwr-core.tex): LaTeX render of 001.
+- [003 — HTWR Core (compiled)](general/003-htwr-core.tex): LaTeX render of 001;
+  English render [003-htwr-core.en.tex](general/003-htwr-core.en.tex) +
+  [003-htwr-core.en.pdf](general/003-htwr-core.en.pdf).
 - [004 — Test sequences](general/004-test-sequences.md): Pell/Fibonacci unified
   to the metallic-means family, Sylvester, and Recamán; structural positioning
   and status labels. `STRUCTURAL PROPOSAL` + `COMPUTATIONALLY VERIFIED EXAMPLE`.
