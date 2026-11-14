@@ -132,3 +132,8 @@ elliptic AES definition remain research tasks.
   structure; aeglib certifies the resonance radii (m=551 at the Encke outer
   edge) and the resonance-overlap gap-opening criterion. `STRUCTURAL PROPOSAL`
   reading; companions under `aeglib/python/examples/pan_encke_*.py`.
+- [008 — Encke density-wave dispersion and wavelength](general/008-encke-density-wave.md):
+  solves the tight-winding density-wave dispersion in closed form; the radial
+  wavelength is `c²/(GΣ) ≈ 0.75 km` at resonance and decreases away (wrapped-up),
+  matching the observed "wavelength varies smoothly" signature.
+  Companion witness [008-encke-density-wave-witness.py](general/008-encke-density-wave-witness.py).

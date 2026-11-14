@@ -4912,10 +4912,16 @@ the linear density-wave dispersion relation with self-gravity,
 `(ω − mΩ)² = κ² − 2πGΣ|k| + c²k²`, plus the gap-edge boundary/mode structure.
 This registers the open physics.
 
-**104.1 — Dispersion and wavelength (`OPEN`).** Solve the tight-winding
-dispersion relation near the m=551 resonance and obtain the radial/azimuthal
-wavelength as a function of distance from resonance; check against the observed
-tens-of-km edge-wave wavelength.
+**104.1 — Dispersion and wavelength (`ADVANCED`, 2026-11-14).** Solved in
+`notes/general/008-encke-density-wave.md` with witness
+`008-encke-density-wave-witness.py`. The tight-winding dispersion
+`(ω−mΩ)² = κ² − 2πGΣ|k| + c²k²` is a closed-form quadratic in the radial
+wavenumber `k`; the radial wavelength is `λ₀ = c²/(GΣ) ≈ 0.75 km` at resonance
+(`Σ=500 kg/m²`, `c=0.5 cm/s`) and **decreases** away from resonance (wrapped-up
+spiral). This matches the observed "wavelength varies smoothly" signature
+(Tiscareno et al., DPS 2005). Residual (`D4`): the exact quantitative match to
+the observed wavelength requires clarifying whether the observed quantity is
+radial or azimuthal (`2πr/m`) and pinning `Σ,c`; not over-asserted here.
 
 **104.2 — aeglib capability gap (`OPEN`).** The dispersion relation is a
 multivariate root/parameter-continuation problem; aeglib 0.0.2 has univariate
