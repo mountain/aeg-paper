@@ -4930,7 +4930,46 @@ the `m≈551` edge resonance; this points to a trapped **edge mode**
 multivariate root/parameter-continuation problem; aeglib 0.0.2 has univariate
 Sturm + Arb enclosure but no dispersion solver. Advancing 104.1 needs a
 multivariate Newton/Krawczyk + parameter continuation on `ArbBall` (aeg-certify
-has `krawczyk.rs`, not yet exposed to Python).
+has `krawczyk.rs`, not yet exposed to Python). Note (2026-11-14): the
+tight-winding dispersion is a closed-form quadratic in `k`, so 104.1 did **not**
+need this; the multivariate solver is only for the full `(m,k)` joint +
+boundary-condition problem.
+
+**104.3 — Edge-mode (Papaloizou–Lin) dispersion (`OPEN`, 2026-11-14).** The
+radial/azimuthal comparison (note 008 §4.5) shows the observed short-wavelength
+edge wave is not the free `m≈551` density wave, and points to a trapped edge
+mode. The well-posed next problem: solve the cold self-gravitating WKB mode
+`σ² = κ² − 2πGΣ|k|` with the reflecting boundary `Σ₁(r_edge)=0` and the Airy
+turning-point quantization `∫|k| dr = (n + 3/4)π` between the edge and the
+Lindblad resonance, giving the discrete edge-mode frequencies `ω_n(m)` and their
+radial extent. This is a boundary-value problem, one notch harder than the free
+dispersion (104.1).
+
+**Why it matters.** It closes the gap between the resonance skeleton (Farey/Ford,
+resonance overlap) and the actual observed wave, turning the AEG reading from a
+structural analogy into a predictive computation.
+
+**Current evidence.** Note 007's certified resonance ladder and overlap numbers;
+note 008's free-dispersion `λ(Δr)` and the radial/azimuthal comparison. No
+edge-mode dispersion computation yet; the exact observed wavelength (radial vs
+azimuthal, value) still needs retrieving from the primary literature (Cuzzi &
+Scargle 1985; Porco et al. 2005; Tiscareno et al. 2007).
+
+**Default rule while open.** Do not claim a wavelength/amplitude result; do not
+equate the m=551 resonance with the observed edge wave; keep the Farey/Ford
+reading as `STRUCTURAL PROPOSAL`.
+
+**Resolution condition.** 104.1 resolves with a dispersion-derived wavelength
+matching the observed value to order-of-magnitude; 104.3 resolves with a
+quantized edge-mode frequency/radial-extent matching the observed confined
+edge wave.
+
+**Affected files.** `notes/general/007-pan-encke-farey.md`,
+`notes/general/008-encke-density-wave.md`; this entry.
+
+**Owner.** Mingli Yuan (research direction); DeepSeekHarness (witnesses).
+
+**Decision record.** None yet.
 
 **Why it matters.** It closes the gap between the resonance skeleton (Farey/Ford,
 resonance overlap) and the actual observed wave, turning the AEG reading from a
