@@ -105,8 +105,9 @@ elliptic AES definition remain research tasks.
 
 > English translations of the HTWR notes are provided as `NN-*.en.md`
 > alongside each Chinese `NN-*.md` (added 2026-11-14), so the whole HTWR
-> thread 001–010 is available in both languages.  A compiled English render of
-> 001 is `003-htwr-core.en.tex` + `003-htwr-core.en.pdf` (pdflatex).
+> thread 001–010, 014 and 015 is available in both languages.  A compiled English
+> render of 001 is `003-htwr-core.en.tex` + `003-htwr-core.en.pdf` (pdflatex).
+> The scripts 011–027 are companion computations/figures to notes 002 and 015.
 
 - [001 — HTWR Core](general/001-htwr-core.md): the minimal quantale→AEG core,
   axioms I–IV (state `P¹(Q)` with logarithmic-Weil-height hyperbolic
@@ -154,3 +155,25 @@ elliptic AES definition remain research tasks.
   epicycle): amplitude `GM_P/(κ²d²) ≈ 0.79 km` and azimuthal FWHM ≈ 249 km,
   matching the image (0.65 km, ~300 km). Companion witness
   [010-encke-scalloped-edge-tidal.py](general/010-encke-scalloped-edge-tidal.py).
+- [014 — Pell master figure](general/014-pell-master-figure.md): the integrated
+  2×3 figure — Ford circles + HTWR height (Axiom I), the `{∞,4}` Poincaré-disk
+  tiling (cusps `w(±(√2−1))`), units of `Z[√2]` on `P²−2Q²=±1`, the convergence
+  law `|x_n−√2| = 2√2 kⁿ`, the k=8 catalytic-wormhole depth profile, and the
+  Sylvester no-wormhole control — unified by `k = 3−2√2 = (√2−1)² = λ⁻²`;
+  derives the two `ln Q_k` cancellations of the four-gate crossing (each saves
+  `ln Q_k`). `STRUCTURAL PROPOSAL` reading + `COMPUTATIONALLY VERIFIED EXAMPLE`
+  identities. Companion [014-pell-master-figure.py](general/014-pell-master-figure.py)
+  + [014-pell-master-figure.png](general/014-pell-master-figure.png); development
+  trail [011-wormhole-acceleration-witness.py](general/011-wormhole-acceleration-witness.py),
+  [012-pell-hyperbolic-viz.py](general/012-pell-hyperbolic-viz.py),
+  [013-pell-poincare-wormhole.py](general/013-pell-poincare-wormhole.py).
+- [015 — Pell, {∞,4}, Hecke Hauptmodul and Belyi maps](general/015-pell-hecke-belyi-thread.md):
+  consolidation of the Pell thread — the unifying constant `k = 3−2√2 =
+  (√2−1)² = λ⁻²`; the `{∞,4}` tiling as the Hecke Hauptmodul zero network
+  `β⁻¹([0,1])` (4-valent at `ε₄`, cone `4π`); the dual grids `{∞,4}` vs `{4,∞}`
+  (the `a=0` line's orbit); the flat metric `g₄=|dζ|²` with radial assignment
+  `a₄=(μ/λ)sinh(λs)`; vertex a-values `Z√2 ∪ (2Z+1)`; non-trivial zero sets =
+  Belyi maps / dessins d'enfants (LMFDB); and the threading polynomial
+  `p(u) = P_λ(0)` (`u=e^λ`), with Chebyshev `T_n` unifying threading and Belyi.
+  Companions 015–027 (`*.py`/`*.png`); statuses `PROVED` + `COMPUTATIONALLY
+  VERIFIED EXAMPLE` + `STRUCTURAL PROPOSAL`, open OQ-073/074/076.
