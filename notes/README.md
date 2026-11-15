@@ -105,10 +105,10 @@ elliptic AES definition remain research tasks.
 
 > English translations of the HTWR notes are provided as `NN-*.en.md`
 > alongside each Chinese `NN-*.md` (added 2026-11-14), so the whole HTWR
-> thread 001–010, 014–019 is available in both languages.  A
+> thread 001–010, 014–020 is available in both languages.  A
 > compiled English render of 001 is `003-htwr-core.en.tex` + `003-htwr-core.en.pdf`
-> (pdflatex).  The scripts 011–039 are companion computations/figures to notes
-> 002 and 015–019.
+> (pdflatex).  The scripts 011–046 are companion computations/figures to notes
+> 002 and 015–020.
 
 - [001 — HTWR Core](general/001-htwr-core.md): the minimal quantale→AEG core,
   axioms I–IV (state `P¹(Q)` with logarithmic-Weil-height hyperbolic
@@ -219,3 +219,15 @@ elliptic AES definition remain research tasks.
   [039-sc-square-eikonal.png](general/039-sc-square-eikonal.png); statuses
   `PROVED` (`K≡−1`, Eikonal, `L_true` under hypothesis) + `STRUCTURAL
   PROPOSAL` (add-multiply renormalization).
+- [020 — Add/multiply lines, graph potential, boundary values, cusped 4-gon](general/020-cayley-add-multiply-potential-boundary.md):
+  the paper-0 frame `X_u=(−μy,0)` (horizontal, ADD) ⊥ `X_v=(0,−λy)` (vertical,
+  MULTIPLY) — correcting `040`, with the level-vs-add angle `arctan(1/|a|)` that
+  varies with `a`; the graph potential `a(node)=(μ/λ)sinh(λd)` (node = branch
+  singularity, edge = Eikonal flow, root `a=0`, values `0→16→1023`); the
+  boundary-value criterion `ℓ_e=|β(Δa)|/λ` and the E₀/Cayley comparison (odd
+  integers 2D-realizable in E₀ with 1D slack, unrealizable in Cayley); the
+  potential colouring; the E₁-like blue square (`inradius=ln2`, source-free
+  centre `15/16`, differing source strength = `a(node)`); and the cusped 4-gon
+  upgrade (4 corners = parabolic cusps → geometry/potential/value all change).
+  Companions 041–046; statuses `PROVED` + `COMPUTATIONALLY VERIFIED` +
+  `STRUCTURAL PROPOSAL` (one refutation: `1/a` is not an Eikonal solution).
