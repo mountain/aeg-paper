@@ -105,10 +105,10 @@ elliptic AES definition remain research tasks.
 
 > English translations of the HTWR notes are provided as `NN-*.en.md`
 > alongside each Chinese `NN-*.md` (added 2026-11-14), so the whole HTWR
-> thread 001–010, 014, 015 and 016 is available in both languages.  A compiled
-> English render of 001 is `003-htwr-core.en.tex` + `003-htwr-core.en.pdf`
-> (pdflatex).  The scripts 011–028 are companion computations/figures to notes
-> 002, 015 and 016.
+> thread 001–010, 014–018 is available in both languages.  A
+> compiled English render of 001 is `003-htwr-core.en.tex` + `003-htwr-core.en.pdf`
+> (pdflatex).  The scripts 011–038 are companion computations/figures to notes
+> 002 and 015–018.
 
 - [001 — HTWR Core](general/001-htwr-core.md): the minimal quantale→AEG core,
   axioms I–IV (state `P¹(Q)` with logarithmic-Weil-height hyperbolic
@@ -186,3 +186,24 @@ elliptic AES definition remain research tasks.
   `Γ₄↠PSL₂(F₇)` `{7,4}` compactification (genus 10, `F=24,E=84,V=42`). Companion
   [028-c2c4-tree.py](general/028-c2c4-tree.py) + [028-c2c4-tree.png](general/028-c2c4-tree.png);
   statuses `PROVED` + `STRUCTURAL PROPOSAL`.
+- [017 — Cayley model and the conformal-hyperbolic unification](general/017-cayley-model-conformal-hyperbolic.md):
+  the Cayley tree 4-border (= the `F₂` 4-regular tree = `T₄`) with its fractal
+  border, the hyperbolic metric `g=(dx²+dy²)/L²` (`L` = Manhattan depth, `K=−2`);
+  the lemma `K=fΔf−|∇f|²` (harmonic depth ⟹ constant curvature) unifying the
+  three `{∞,4}` realizations — Poincaré (`f=y`, `K=−1`), Cayley (`f=L`, `K=−2`,
+  `g_C=½g_P` homothety), Hecke (`f=|W|=e^s`, `K=0`, flat developing map) — with
+  the depth correspondence `y ∼ L ∼ e^s`. Companions
+  [030-cayley-model-hyperbolic.py](general/030-cayley-model-hyperbolic.py),
+  [031-conformal-hyperbolic-proof.py](general/031-conformal-hyperbolic-proof.py);
+  statuses `PROVED` + `STRUCTURAL PROPOSAL`.
+- [018 — Assignment, duality, add-multiply, Eikonal on the Cayley model](general/018-cayley-assignment-duality-eikonal.md):
+  the distribution of `a` on the Cayley tree (`a(gε₄)=(AD+BC)−√2(AC+BD)`, odd
+  integers, collapse, Pell axis `P_{2d+3}`); primal `{∞,4}` vs dual `{4,∞}`
+  (perpendicular bisectors, zero lines); level lines (rays) ⊥ gradient lines
+  (circles, `H²` geodesics); the add-multiply decomposition (blue = add-zero,
+  origin = multiply-zero, green circles = multiply scale `1/2,1/4,1/8`, 45°/135°
+  diagonals = add axes `a=∓1`); the Eikonal equation `|∇a|²=μ²+λ²a²` (= AES
+  axiom) with its angular (rays) and radial (circles, `e^s`) faces; and the
+  Eikonal fill on the Cayley model `a=(μ/λ)sinh(λL)` with countably many ridge
+  (medial-axis) singularities. Companions 032–038; statuses `PROVED` +
+  `COMPUTATIONALLY VERIFIED EXAMPLE` + `STRUCTURAL PROPOSAL`.
