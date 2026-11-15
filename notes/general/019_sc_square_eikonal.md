@@ -124,9 +124,9 @@ $$
    
    由于 $\vert{}\nabla_w s_\perp\vert{} = \frac{2}{1-\vert{}w\vert{}^2}$，该解在**包含原点** $(0,0)$ **在内的整个开正方形** $(-e, e)^2$ **上处处实解析且零奇点**，与连接上下边界 $Y = \mp e$ 的等距正交轨线构成全局光滑正交网格。
 
-## 五、附：欧氏分形模型 `030/038` 的真边界公式 $L_{\mathrm{true}}$ 对照
+## 五、附：欧氏分形模型 `030/038` 的上包络穿透深度 $L_{\mathrm{true}}$ 对照
 
-若在 $[-e, e]^2$（旋正缩尺 $e/16$）内保留欧氏 $L^\infty$ 方框并集 $D_N = \bigcup_i Q_i$，到外部补集 $\mathbb{R}^2 \setminus D_N$ 的精确距离由**上包络公式**给出：
+若在 $[-e, e]^2$（旋正缩尺 $e/16$）内保留欧氏 $L^\infty$ 方框并集 $D_N = \bigcup_i Q_i$，定义到外部补集的**上包络穿透深度**（非精确距离，见下）：
 
 $$
 L_{\mathrm{true}}(X, Y) = \frac{16}{e} \max_i \Big(h_i - \max\big(\vert{}X - c_{X,i}\vert{},\ \vert{}Y - c_{Y,i}\vert{}\big)\Big)_+.
@@ -135,6 +135,13 @@ $$
 
 这消除了 [038-eikonal-cayley.py](https://github.com/mountain/aeg-paper/blob/main/notes/general/038-eikonal-cayley.py) 中 $\min_i \vert{}d_i - R_i\vert{}$ 造成的内部伪零线裂缝与外部无界溢出，清晰显示分片线性模型的奇点集恰好由 $T_4$ 对角树骨架与父子方格咽喉截线组成（`039` 面板 d）。
 
+**但需注明：$L_{\mathrm{true}}$ 是 L∞ 穿透深度，一般不等于到补集的精确距离。** 具体地：
+
+- **星形 / 穿透假设（等式条件）**：$L_{\mathrm{true}}$ 精确等于到 $\partial D_N$ 的 $L^1$ 距离，当且仅当「最深的方框恰是最外层的方框」——即每条从根出发的 $L^\infty$ 射线只穿出并集一次（$L^\infty$ 正交凸 / 方向星形）。凯莱树并集在**主轴与主对角方向**满足该条件（数值对拍一致）。
+- **一般情形为下界**：在峡湾与父子咽喉附近，并集延伸到更深方框之外，穿透深度 < 最近出口距离，故 $L_{\mathrm{true}}$ 只是**下界**。随机数值对拍（`039` 补充检验）给出偏差可达 $\sim0.85$（凯莱并集）与 $\sim1.5$（任意并集）。
+- **修正与真值**：$L_{\mathrm{true}}$ 的**实际价值**是消除内部伪零线（与 `038` 的 $\min_i\vert d_i-R_i\vert$ 不同，它在内部缝合线取父方框的正穿透，只在外部补集归零）。若需精确到补集距离，应以**棋盘距离变换（CDT）** 或对 $L_{\mathrm{true}}$ 的补集距离变换为对拍真值；`L_true` 仅作快速下界与可视化。
+
+
 ## 六、状态汇总
 
 | 命题 / 构造 | 状态 | 验证方式 | 
@@ -142,5 +149,5 @@ $$
 | $\mathcal{S}: \mathbb{D}_w \xrightarrow{\sim} [-e, e]^2$ 将四尖点映至四边中点、四 Pell 轴映至四角 | **PROVED** | 解析恒等 + `039` 精度 $10^{-15}$ | 
 | 共形深度 $f_{\mathrm{SC}}$ 满足 $K = f_{\mathrm{SC}}\Delta f_{\mathrm{SC}} - \Vert{}\nabla f_{\mathrm{SC}}\Vert{}^2 \equiv -1$ | **PROVED** | Wirtinger 四行恒等证明 + `039` 验证 | 
 | 径向超椭圆填充 $a_{\mathrm{rad}}$ 与全局无奇点填充 $a_\perp$ 精确满足内蕴程函方程 | **PROVED** | 解析链式法则 + `039` 残差 $< 10^{-14}$ | 
-| $L_{\mathrm{true}} = \max_i (R_i - d_i)_+$ 精确等于欧氏分形到外部补集的 $L^1$ 距离 | **PROVED** | 棋盘距离变换对拍 + `039` 面板 (d) | 
+| $L_{\mathrm{true}} = \max_i (R_i - d_i)_+$：修正 `038` 内部伪零线；**在星形/穿透假设下**等于到外部补集的 $L^1$ 距离，一般情形为下界 | **PROVED under star-shaped hypothesis** | 解析 + `039` 面板 (d) + 主轴对拍；任意并集偏差 $\sim1.5$，精确值须 CDT 对拍 | 
 | 将 $\mathcal{Q}_e$ 上的圆-方极坐标流直接解释为连续算术加乘重整化坐标 | **STRUCTURAL PROPOSAL** | 几何精确，算术语义待与 Paper II/IV 耦合 | 

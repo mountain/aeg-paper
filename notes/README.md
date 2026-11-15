@@ -105,10 +105,10 @@ elliptic AES definition remain research tasks.
 
 > English translations of the HTWR notes are provided as `NN-*.en.md`
 > alongside each Chinese `NN-*.md` (added 2026-11-14), so the whole HTWR
-> thread 001–010, 014–018 is available in both languages.  A
+> thread 001–010, 014–019 is available in both languages.  A
 > compiled English render of 001 is `003-htwr-core.en.tex` + `003-htwr-core.en.pdf`
-> (pdflatex).  The scripts 011–038 are companion computations/figures to notes
-> 002 and 015–018.
+> (pdflatex).  The scripts 011–039 are companion computations/figures to notes
+> 002 and 015–019.
 
 - [001 — HTWR Core](general/001-htwr-core.md): the minimal quantale→AEG core,
   axioms I–IV (state `P¹(Q)` with logarithmic-Weil-height hyperbolic
@@ -207,3 +207,15 @@ elliptic AES definition remain research tasks.
   Eikonal fill on the Cayley model `a=(μ/λ)sinh(λL)` with countably many ridge
   (medial-axis) singularities. Companions 032–038; statuses `PROVED` +
   `COMPUTATIONALLY VERIFIED EXAMPLE` + `STRUCTURAL PROPOSAL`.
+- [019 — Schwarz–Christoffel square, `{∞,4}` embedding, smooth Eikonal fills](general/019_sc_square_eikonal.md):
+  the lemniscatic Schwarz–Christoffel map `S(w)=(e/K₊)∫₀^w dζ/√(1+ζ⁴)`
+  (`K₊=Γ(1/4)²/(8√π)`) carrying the unit disk onto `Q_e=[−e,e]²`; the four cusp
+  and Pell-corner phase locks; the conformal depth `f_SC` with the four-line
+  Wirtinger proof `K≡−1`; two shock-free orthogonal Eikonal fills (radial
+  squircle and global cusp-to-cusp); and the upper-envelope penetration
+  `L_true` (fixing `038`'s internal pseudo-zeros under the star-shaped
+  hypothesis, lower bound in general). Companion
+  [039-sc-square-eikonal.py](general/039-sc-square-eikonal.py) +
+  [039-sc-square-eikonal.png](general/039-sc-square-eikonal.png); statuses
+  `PROVED` (`K≡−1`, Eikonal, `L_true` under hypothesis) + `STRUCTURAL
+  PROPOSAL` (add-multiply renormalization).

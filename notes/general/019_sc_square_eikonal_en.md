@@ -69,11 +69,18 @@ Script `039-sc-square-eikonal.py` constructs and verifies two shock-free orthogo
    $$s_\perp(Z) = \operatorname{arsinh}\left(\frac{2\operatorname{Im} w(Z)}{1 - |w(Z)|^2}\right), \qquad a_\perp(X, Y) = \frac{\mu}{\lambda}\sinh\big(\lambda s_\perp(Z)\big),$$
    yields a real-analytic Eikonal solution across **all of $(-e, e)^2$ including $(0,0)$**, paired with orthogonal trajectories connecting $Y = -e$ to $Y = +e$.
 
-## 5. Addendum: Exact Exterior-Boundary Formula $L_{\mathrm{true}}$ for `030/038`
+## 5. Addendum: Upper-Envelope Penetration $L_{\mathrm{true}}$ for `030/038`
 
-When retaining the rotated Euclidean square union $D_N = \bigcup_i Q_i \subset [-e, e]^2$, the exact $L^1$ distance to $\mathbb{R}^2 \setminus D_N$ is given by the upper envelope:
+When retaining the rotated Euclidean square union $D_N = \bigcup_i Q_i \subset [-e, e]^2$, the upper envelope
 $$L_{\mathrm{true}}(X, Y) = \frac{16}{e} \max_i \Big(h_i - \max\big(|X - c_{X,i}|,\ |Y - c_{Y,i}|\big)\Big)_+,$$
-healing all internal parent-seam fractures and exterior leakage of [038-eikonal-cayley.py](https://github.com/mountain/aeg-paper/blob/main/notes/general/038-eikonal-cayley.py) and isolating the countable shock locus onto $T_4$ plus parent-child neck gates (`039`, panel d).
+heals the internal parent-seam fractures and exterior leakage of [038-eikonal-cayley.py](https://github.com/mountain/aeg-paper/blob/main/notes/general/038-eikonal-cayley.py) and isolates the countable shock locus onto $T_4$ plus parent-child neck gates (`039`, panel d).
+
+**Caveat: $L_{\mathrm{true}}$ is the $L^\infty$ penetration depth, not in general the exact distance to the complement.**
+
+- **Star-shaped / penetration hypothesis (equality)**: $L_{\mathrm{true}}$ equals the exact $L^1$ distance to $\partial D_N$ iff "the deepest square is also the outermost", i.e. every $L^\infty$ ray from the root exits the union exactly once ($L^\infty$-orthogonal convexity / directional star-shapedness). The Cayley tree union satisfies this along the main axes and diagonals (numerical cross-check agrees).
+- **Lower bound in general**: near fjords and parent-child necks the union extends beyond the deepest square, so the penetration depth is $<$ the nearest-exit distance; $L_{\mathrm{true}}$ is then only a **lower bound** (random cross-check shows deviations up to $\sim0.85$ for the Cayley union and $\sim1.5$ for arbitrary unions).
+- **Purpose and ground truth**: the concrete value of $L_{\mathrm{true}}$ is removing the internal pseudo-zero lines of `038` (unlike $\min_i|d_i-R_i|$, it takes the parent's positive penetration on interior seams and vanishes only in the exterior complement). For an exact distance one should use a **chessboard distance transform (CDT)** or the complement distance transform as ground truth; $L_{\mathrm{true}}$ is a fast lower bound / visualization.
+
 
 ## 6. Epistemic Status Summary
 
@@ -82,5 +89,5 @@ healing all internal parent-seam fractures and exterior leakage of [038-eikonal-
 | $\mathcal{S}: \mathbb{D}_w \xrightarrow{\sim} [-e, e]^2$ locks the 4 cusps to edge midpoints and 4 Pell axes to corners | **PROVED** | Exact integral identities + `039` ($10^{-15}$) |
 | Conformal depth $f_{\mathrm{SC}}$ satisfies $K = f_{\mathrm{SC}}\Delta f_{\mathrm{SC}} - \|\nabla f_{\mathrm{SC}}\|^2 \equiv -1$ | **PROVED** | 4-line Wirtinger proof + `039` verification |
 | Radial squircle fill $a_{\mathrm{rad}}$ and smooth cusp-to-cusp fill $a_\perp$ satisfy the intrinsic Eikonal PDE | **PROVED** | Analytic chain rule + `039` residual $< 10^{-14}$ |
-| $L_{\mathrm{true}} = \max_i (R_i - d_i)_+$ equals the exact $L^1$ distance to $\mathbb{R}^2 \setminus D_N$ | **PROVED** | Chessboard CDT cross-check + `039` panel (d) |
+| $L_{\mathrm{true}} = \max_i (R_i - d_i)_+$: fixes the `038` internal pseudo-zeros; equals the exact $L^1$ distance to the exterior **under the star-shaped/penetration hypothesis**, lower bound in general | **PROVED under star-shaped hypothesis** | Analytic + `039` panel (d) + main-axis cross-check; arbitrary unions deviate $\sim1.5$, exact value needs CDT |
 | Interpreting the squircle-ray coordinates on $\mathcal{Q}_e$ directly as continuous add-multiply renormalization coordinates | **STRUCTURAL PROPOSAL** | Geometrically exact; arithmetic coupling open |
