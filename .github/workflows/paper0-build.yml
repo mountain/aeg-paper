@@ -9,6 +9,7 @@ on:
       - "paper-6/**"
       - "research/iota-carousel/**"
       - "research/donaghey-orbits/**"
+      - "research/f7-psl27/**"
       - "research/iota-normal-forms/**"
       - "research/pants-interface-disks/verify_handles.py"
       - "research/pants-interface-disks/evidence-handles.json"
@@ -136,6 +137,12 @@ jobs:
           python3 research/iota-carousel/verify_omega.py /tmp/omega.json
           cmp /tmp/omega.json research/iota-carousel/evidence-omega-v1.json
           python3 research/donaghey-orbits/verify_orbits.py
+
+      - name: Replay the F_7 / PSL(2,7) calibration
+        run: |
+          python3 -O research/f7-psl27/verify_psl27.py /tmp/psl27.json
+          cmp /tmp/psl27.json research/f7-psl27/evidence-psl27-v1.json
+          python3 research/f7-psl27/verify_psl27.py research/f7-psl27/evidence-psl27-v1.json --verify-evidence
 
       - name: Replay the K_n normal-form database
         run: |

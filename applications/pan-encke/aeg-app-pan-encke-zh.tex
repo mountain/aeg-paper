@@ -1,0 +1,255 @@
+% Pan 与 Encke 缝隙边缘波：共振阶梯的 Farey--Ford 解读。HTWR 框架应用实例（中文版）。
+\documentclass[11pt]{ctexart}
+
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage[
+  colorlinks=true,
+  linkcolor=blue!45!black,
+  citecolor=green!35!black,
+  urlcolor=blue!55!black,
+  pdfencoding=auto
+]{hyperref}
+
+\theoremstyle{remark}
+\newtheorem*{status}{状态}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\Ht}{\mathbb{H}}
+\newcommand{\dd}{\,\mathrm{d}}
+
+\title{\textbf{Pan 与 Encke 缝隙边缘波：\\[0.3em]
+共振阶梯的 Farey--Ford 解读}\\[0.35em]
+\large 双曲热带波前--残差（HTWR）框架的一个应用实例}
+
+\author{
+苑明理\thanks{通讯作者，对本文承担全部科学责任。计算、推演与撰写由 DeepSeek
+Harness（人工智能研究智能体）协助；该协助在此注明，但不构成人类署名，因为
+智能体不是自然人，不能签署版权转让。}\\
+\small 由 DeepSeek Harness 提供计算协助
+}
+
+\date{\today\\[0.25em]\small 应用笔记草案，v1.0}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+土星 Encke 缝隙的扇贝形边缘，是守护卫星 Pan 的引力印记。本文给出一个双层说明。
+\emph{算术层}把 Pan 的 Lindblad 共振阶梯 $x=m/(m\pm1)$ 读作共转点（$x=1$）的
+Farey 邻居，实现为双曲上半平面上堆积的 Ford 圆——这是 HTWR 框架核心的有理逼近
+结构在一个真实物理系统中的具体实例。\emph{动力学层}则解决观测到的波纹：它既
+不是传播密度波，也不是（冷或压强）边缘模，而是 Pan 的\emph{静态潮汐畸变}
+（受迫本轮），径向振幅 $GM_P/(\kappa^2 d^2)\approx0.79$\,km、方位角尺度
+$\approx250$\,km，与从 Cassini 图像提取的数值（$\approx0.65$\,km、
+$\approx300$\,km）吻合。两层互补：算术骨架定位了缝隙（共振重叠），潮汐畸变
+塑造了缝隙的边缘。
+\end{abstract}
+
+\noindent\textbf{关键词：}行星环；Encke 缝隙；Pan；Lindblad 共振；Farey 序列；
+Ford 圆；本轮理论；Chirikov 共振重叠。
+
+\noindent\textbf{状态。}第 2--3 节（Farey 阶梯与缝隙开启判据）是 HTWR 读法，
+记为\emph{结构提议}加初等天体力学。第 4--6 节是标准线性天体力学，分别标
+\textsc{proved with stated hypotheses} 或 \textsc{computationally verified
+example}。本文不宣称任何 AEG 新定理，只展示 HTWR 有理逼近结构的一个物理实现。
+
+\section{引言}\label{sec:intro}
+
+Pan（质量 $M_P\approx4.95\times10^{15}$\,kg，半长轴 $a_P=133{,}584$\,km）在
+Encke 缝隙（土星 A 环中宽 $325$\,km 的间隙）内运行。它的引力在缝隙两侧边缘激发
+扇贝形（波纹状）图案，被 Voyager 与 Cassini 观测到，且遍布 $360^\circ$ 经度
+\cite{Tiscareno2005WavyEdges}。本文目的有二：（一）展示 Pan 共振的\emph{算术
+结构}——一条堆积在共转点的 Farey 阶梯——作为 HTWR 框架有理逼近几何的一个具体
+实例；（二）通过\emph{排除法}解决观测边缘波的\emph{动力学机制}，最终落到 Pan
+的静态潮汐畸变。两部分互补而非同一现象：共振阶梯解释"缝隙为何在那里"，潮汐
+畸变解释"边缘为何呈扇贝形"。
+
+\section{共振阶梯是 Farey 序列（算术层）}\label{sec:farey}
+
+在线性本轮理论中，Pan 的第 $m$ 阶引力分量（图样速度 $\Omega_P$）在 Lindblad
+共振处激发环粒子
+\begin{equation}\label{eq:lindblad}
+m(\Omega-\Omega_P)=\pm\kappa,\qquad
+\Omega=\kappa=\Omega_P\,(r/a_P)^{-3/2}.
+\end{equation}
+令 $x:=\Omega/\Omega_P$，得 $m(x-1)=\pm x$，即
+\begin{equation}\label{eq:ladder}
+\text{内共振 }(r<a_P):\ x=\frac{m}{m-1},\qquad
+\text{外共振 }(r>a_P):\ x=\frac{m}{m+1},\qquad
+\frac{r}{a_P}=x^{-2/3}.
+\end{equation}
+因此共振\emph{频率}恰是共转点的 Farey 邻居，$x=m/(m\pm1)\to1$（$m\to\infty$）。
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{c c c c}
+\toprule
+$m$ & 外共振 $x=m/(m+1)$ & $r/a_P$（Arb 认证） & Ford 圆半径 $1/(2q^2)$\\
+\midrule
+$1$ & $1/2$ & $1.58740$ & $1.25\times10^{-1}$\\
+$10$ & $10/11$ & $1.06560$ & $4.13\times10^{-3}$\\
+$100$ & $100/101$ & $1.00666$ & $4.90\times10^{-5}$\\
+$551$ & $551/552$ & $1.00121$ & $1.64\times10^{-6}$\\
+\bottomrule
+\end{tabular}
+\caption{Pan 的外 Lindblad 共振阶梯。}
+\label{tab:ladder}
+\end{table}
+
+$m=551$ 时外共振在 $r=a_P+161.6$\,km，即 Encke 外缘（$+162$\,km）。这就是 HTWR
+读法的一句话：共振阶梯是 $\PP^1(\Q)$ 上的一列有理点 $p/q$，每个带一个与实轴在
+$p/q$ 相切的 Ford 圆（半径 $1/(2q^2)$），堆积在共转尖点 $x=1$；第 $m$ 阶共振的
+"信息高度" $I=\ln\max(p,q)=\ln(m+1)$（方位角波数的对数）。
+
+\begin{status}
+阶梯恒等式 \eqref{eq:ladder} 是初等的（\textsc{proved}）。Ford 圆 / 双曲读法是
+\textsc{structural proposal}，不是新定理。
+\end{status}
+
+\section{缝隙开启：Chirikov 共振重叠判据}\label{sec:chirikov}
+
+缝隙边缘是\emph{高 $m$ 共振重叠}处。相关尺度为
+\begin{equation}\label{eq:scales}
+R_H=a_P(\mu/3)^{1/3}\approx19.0\text{ km}
+\quad(\mu=M_P/M_S=8.7\times10^{-12}),\qquad
+\delta r\approx a_P\sqrt\mu\approx0.39\text{ km},
+\end{equation}
+且共振间距 $dR_m=2a_P/(3m^2)=0.293$\,km（$m=551$）。重叠（Chirikov）要求
+$\delta r\gtrsim dR_m$，即 $m\gtrsim\sqrt{2/(3\sqrt\mu)}\approx475$。观测边缘
+（$m\approx551$）与此相符到共振宽度的 $\mathcal O(1)$ 系数。由于
+$\mathrm{gap}/R_H\approx8.5$，缝隙由\emph{共振森林}（稠密的高 $m$ 阶梯）开启，
+而非 Hill 球直接清空。
+
+\section{密度波色散（自由波，被排除）}\label{sec:dispersion}
+
+自引力加压强的紧缠绕（WKB）色散为
+\begin{equation}\label{eq:dispersion}
+(\omega-m\Omega)^2=\kappa^2-2\pi G\Sigma|k|+c^2k^2,
+\end{equation}
+是径向波数 $k$ 的闭合二次式。共振处径向波长 $\lambda_0=c^2/(G\Sigma)\approx
+0.75$\,km（$\Sigma=500$\,kg/m$^2$、$c=0.5$\,cm/s），随距共振距离\emph{减小}
+（"wrapped-up"螺旋）。这与观测的"波长平滑变化"签名定性吻合，但自由波生活在
+$m<551$（共振在环内）；实测边缘波是 $m\approx2800$，其共振在\emph{被清空的缝隙
+内部}。故观测边缘波不是自由密度波。
+
+\section{边缘模的排除（冷与压强）}\label{sec:edgemode}
+
+我们检验 Papaloizou--Lin 边缘模在冷 WKB 极限与带压强两种情形。
+
+\emph{冷 WKB}（$\sigma^2=\kappa^2-2\pi G\Sigma|k|$，反射边界，Airy 量子化
+$\int|k|\dd r=(n+3/4)\pi$）：转折点 $r_L=a_P((m+1)/m)^{2/3}$ 仅在 $m<551$ 时
+位于边缘之外；对 $m\ge551$，共振在缝隙内，边缘远失谐（倏逝衰减长度
+$\approx0.5$\,m）。
+
+\emph{压强}（$Q=c\kappa/(\pi G\Sigma)\approx6$）：存在条件是几何的（$m<548$），
+与 $c$ 无关；在 $m=2800$ 处压强只给出径向波长 $\approx47$\,m 的短波。
+
+故观测边缘波既不是密度波，也不是（冷或压强）边缘模。
+
+\section{静态潮汐畸变（收束）}\label{sec:tidal}
+
+缝隙边缘距 Pan $d\approx162$\,km $\approx8.5\,R_H$——线性潮汐区（$d\gg R_H$）。
+Pan 的引力径向拉拽边缘，本轮恢复力 $\kappa^2\delta r$ 平衡：
+\begin{equation}\label{eq:tidal}
+\kappa^2\,\delta r=-\frac{GM_P\,d}{(d^2+y^2)^{3/2}},
+\end{equation}
+其中 $y$ 是相对 Pan 的方位角偏移。这是\emph{受迫本轮}，离心率
+\begin{equation}\label{eq:ecc}
+e_f=\frac{M_P}{M_S}\Bigl(\frac{a_P}{d}\Bigr)^2\approx5.9\times10^{-6},
+\end{equation}
+径向振幅 $A=a_P\,e_f=GM_P/(\kappa^2 d^2)$，方位角剖面
+$\delta r(y)=\delta r_{\max}\,(1+(y/d)^2)^{-3/2}$（宽度 $d$ 的局部鼓包）。
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{l c c}
+\toprule
+量 & 计算 & 观测（PIA08257）\\
+\midrule
+径向振幅 $A$ & $0.785$\,km & $\approx0.65$\,km\\
+方位角 FWHM & $249$\,km & $\approx300$\,km\\
+\bottomrule
+\end{tabular}
+\caption{静态潮汐畸变与图像提取的对照。}
+\label{tab:tidal}
+\end{table}
+
+两者吻合到 $\sim20\%$，在 $\Sigma/c$/几何的不确定内。
+
+\section{观测：从 Cassini 图像提取}\label{sec:image}
+
+我们从 NASA 公有领域图像 PIA08257（"Encke Waves"，原图 $1$\,km/px，径向拉伸
+$4\times$）直接提取边缘波参数：检测缝隙边缘、拟合最强正弦，得方位角波长
+$\lambda_\theta\approx260$--$320$\,km、径向振幅 $A\approx0.65$\,km，故
+$m=2\pi r/\lambda_\theta\approx2800$。可由 \texttt{aeglib}/numpy 脚本复现
+（\texttt{008-encke-edge-wave-image.py}）。
+
+\section{讨论：HTWR 框架贡献了什么、没贡献什么}\label{sec:discussion}
+
+HTWR 框架贡献的是\emph{算术骨架}：共振阶梯是 $\Ht^2$ 上实现为 Ford 圆的 Farey
+序列，共转点是尖点。这是 HTWR 公理（状态空间 $\PP^1(\Q)$、对数 Weil 高度标定）
+所抽象的有理逼近结构的\emph{物理实现}——不是新定理，也不是边缘波本身的机制。
+
+边缘波的\emph{机制}是标准线性天体力学（受迫本轮），HTWR 框架在其中没有角色。
+两层回答不同问题：缝隙\emph{在哪里}（共振重叠，Farey 堆积），边缘\emph{呈什么
+形状}（静态潮汐畸变）。
+
+\begin{status}
+\emph{诚实边界。}三个次要签名——"波长平滑变化"、"振幅时涨时落"、"$\gtrsim10$
+个月不衰减"——不被静态力平衡捕捉；它们需要完整动力学（碰撞阻尼加多 $m$ 叠加）。
+这些仍是开放项（\texttt{governance/08-open-questions.md}，OQ-104）。
+\end{status}
+
+\section{结论}\label{sec:conclusion}
+
+Encke 缝隙的扇贝形边缘是一个双层现象：\emph{算术骨架}（Pan 的 Lindblad 共振
+形成 Farey 阶梯 $x=m/(m\pm1)$，作为 Ford 圆堆积在共转点——HTWR 有理逼近结构的
+一个具体实例），与\emph{动力学层}（观测边缘波是 Pan 的静态潮汐畸变，受迫本轮，
+振幅 $GM_P/(\kappa^2d^2)\approx0.79$\,km，与观测 $\approx0.65$\,km 吻合）。框架
+在此的价值是示范性的：它把一份共振目录变成 $\PP^1(\Q)$ 上的几何对象，而塑造
+边缘的物理仍是经典的。
+
+\section*{致谢与来源}
+\addcontentsline{toc}{section}{致谢与来源}
+研究问题与方向、对象选择与物理陈述由苑明理负责，是本文作者与唯一科学责任人。
+DeepSeek Harness（人工智能研究智能体）协助推演、精确计算（
+\texttt{aeglib/python/examples/pan\_encke\_*.py} 与
+\texttt{aeg-paper/notes/general/007--010}）、图像提取与 \LaTeX{} 源码准备。智能体
+不是自然人：此处仅记为协助，不记为共同作者。机器交叉核对不是独立人工评审。
+
+\appendix
+\section{数学状态登记}\label{app:status}
+\begin{center}
+\begin{tabular}{l p{0.66\textwidth}}
+\toprule
+编号 & 状态\\
+\midrule
+R1 & 共振阶梯 $x=m/(m\pm1)$、半径 $r/a_P=x^{-2/3}$ ---
+\textsc{proved with stated hypotheses}\\
+R2 & Ford 圆 / 双曲读法（HTWR） --- \textsc{structural proposal}\\
+R3 & Chirikov 重叠 $\to$ 边缘 $m\approx551$ ---
+\textsc{standard consequence} + \textsc{computationally verified}\\
+R4 & 密度波色散，$\lambda_0=c^2/(G\Sigma)$ ---
+\textsc{proved with stated hypotheses}\\
+R5 & 边缘模对 $m\ge551$ 不存在（冷 \& 压强） ---
+\textsc{proved with stated hypotheses}\\
+R6 & 静态潮汐畸变 $A=GM_P/(\kappa^2d^2)$ ---
+\textsc{proved with stated hypotheses}\\
+R7 & 图像提取 $\lambda_\theta\approx300$\,km、$A\approx0.65$\,km ---
+\textsc{computationally verified example}\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\nocite{Cuzzi1985WavyEdges,GoldreichTremaine1979,PapaloizouLin1988}
+\bibliographystyle{plain}
+\bibliography{aeg-app-pan-encke}
+
+\end{document}

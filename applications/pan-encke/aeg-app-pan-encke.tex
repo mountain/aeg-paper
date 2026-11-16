@@ -1,0 +1,307 @@
+% Pan and the Encke Gap Edge Waves: a Farey--Ford Reading of a Resonance Ladder.
+% An application example of the HTWR framework. English version.
+\documentclass[11pt]{article}
+
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage[
+  colorlinks=true,
+  linkcolor=blue!45!black,
+  citecolor=green!35!black,
+  urlcolor=blue!55!black,
+  pdfencoding=auto
+]{hyperref}
+
+\theoremstyle{remark}
+\newtheorem*{status}{Status}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\Ht}{\mathbb{H}}
+\newcommand{\dd}{\,\mathrm{d}}
+
+\title{\textbf{Pan and the Encke Gap Edge Waves:\\[0.3em]
+a Farey--Ford Reading of a Resonance Ladder}\\[0.35em]
+\large An application example of the Hyperbolic Tropical
+Wavefront--Residual (HTWR) framework}
+
+\author{
+Mingli Yuan\thanks{Corresponding author and sole holder of scientific
+responsibility.  Computation, drafting, and writing were assisted by DeepSeek
+Harness, an artificial-intelligence research agent; that assistance is credited
+here but is not human authorship, since the agent is not a natural person and
+cannot sign a copyright transfer.}\\
+\small with computational assistance from DeepSeek Harness
+}
+
+\date{\today\\[0.25em]\small Draft application note, v1.0}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+The scalloped edges of Saturn's Encke gap are the gravitational signature of the
+shepherd moon Pan.  We give a two-layer account.  The \emph{arithmetic layer}
+reads Pan's Lindblad resonance ladder $x=m/(m\pm1)$ as the Farey neighbourhood of
+corotation ($x=1$), realized as Ford circles piling up on the hyperbolic upper
+half-plane --- a concrete physical instance of the rational-approximation
+structure at the core of the HTWR framework.  The \emph{dynamical layer} then
+resolves the observed wave: it is neither a propagating density wave nor a (cold
+or pressure) edge mode, but Pan's \emph{static tidal distortion} (a forced
+epicycle), with radial amplitude $GM_P/(\kappa^2 d^2)\approx0.79$\,km and
+azimuthal scale $\approx250$\,km, matching the values extracted from a Cassini
+image ($\approx0.65$\,km, $\approx300$\,km).  The two layers are complementary:
+the arithmetic skeleton locates the gap (resonance overlap), while the tidal
+distortion shapes its edge.
+\end{abstract}
+
+\noindent\textbf{Keywords:} planetary rings; Encke gap; Pan; Lindblad resonances;
+Farey sequence; Ford circles; epicyclic theory; Chirikov resonance overlap.
+
+\noindent\textbf{Status.} \S2--\S3 (the Farey ladder and the gap-opening
+criterion) are the HTWR reading, recorded as \emph{structural proposals} plus
+elementary celestial mechanics.  \S4--\S6 are standard linear celestial
+mechanics, labelled \textsc{proved with stated hypotheses} or
+\textsc{computationally verified example} as appropriate.  This note claims no
+new theorem of AEG; it exhibits a physical realization of the HTWR
+rational-approximation structure.
+
+\section{Introduction}\label{sec:intro}
+
+Pan (mass $M_P\approx4.95\times10^{15}$\,kg, semi-major axis
+$a_P=133{,}584$\,km) orbits inside the Encke gap, a $325$-km-wide division in
+Saturn's A ring.  Its gravity excites a scalloped (``wavy'') pattern on both gap
+edges, observed by Voyager and Cassini and ubiquitous over $360^\circ$ of
+longitude \cite{Tiscareno2005WavyEdges}.  The aim of this note is twofold:
+(i)~to exhibit the \emph{arithmetic structure} of Pan's resonances --- a Farey
+ladder accumulating at corotation --- as a concrete instance of the HTWR
+framework's rational-approximation geometry; and (ii)~to resolve the
+\emph{dynamical mechanism} of the observed edge wave by elimination, ending at
+Pan's static tidal distortion.  The two parts are complementary, not the same
+phenomenon: the resonance ladder explains \emph{why the gap is there}, the tidal
+distortion explains \emph{why its edge is scalloped}.
+
+\section{The resonance ladder is a Farey sequence (the arithmetic layer)}
+\label{sec:farey}
+
+In the linear epicyclic theory, the $m$-th gravitational component of Pan
+(pattern speed $\Omega_P$) excites a ring particle at the Lindblad resonance
+\begin{equation}\label{eq:lindblad}
+m(\Omega-\Omega_P)=\pm\kappa,\qquad
+\Omega=\kappa=\Omega_P\,(r/a_P)^{-3/2}.
+\end{equation}
+Writing $x:=\Omega/\Omega_P$, this is $m(x-1)=\pm x$, i.e.\
+\begin{equation}\label{eq:ladder}
+\text{inner }(r<a_P):\ x=\frac{m}{m-1},\qquad
+\text{outer }(r>a_P):\ x=\frac{m}{m+1},\qquad
+\frac{r}{a_P}=x^{-2/3}.
+\end{equation}
+Hence the resonance \emph{frequencies} are exactly the Farey neighbours of
+corotation, $x=m/(m\pm1)\to1$ as $m\to\infty$.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{c c c c}
+\toprule
+$m$ & outer $x=m/(m+1)$ & $r/a_P$ (Arb-certified) & Ford radius $1/(2q^2)$\\
+\midrule
+$1$ & $1/2$ & $1.58740$ & $1.25\times10^{-1}$\\
+$10$ & $10/11$ & $1.06560$ & $4.13\times10^{-3}$\\
+$100$ & $100/101$ & $1.00666$ & $4.90\times10^{-5}$\\
+$551$ & $551/552$ & $1.00121$ & $1.64\times10^{-6}$\\
+\bottomrule
+\end{tabular}
+\caption{The outer Lindblad resonance ladder of Pan.}
+\label{tab:ladder}
+\end{table}
+
+At $m=551$ the outer resonance sits at $r=a_P+161.6$\,km, i.e.\ at the Encke
+outer edge ($+162$\,km).  This is the HTWR reading in one line: the resonance
+ladder is a sequence of rational points $p/q\in\PP^1(\Q)$, each carrying a Ford
+circle of radius $1/(2q^2)$ tangent to the real axis at $p/q$, piling up at the
+corotation cusp $x=1$; the $m$-th resonance has ``information height''
+$I=\ln\max(p,q)=\ln(m+1)$ (the logarithm of the azimuthal wavenumber).
+
+\begin{status}
+The ladder identity \eqref{eq:ladder} is elementary (\textsc{proved}).  The
+Ford-circle / hyperbolic reading is a \textsc{structural proposal}, not a new
+theorem.
+\end{status}
+
+\section{Gap opening: the Chirikov resonance-overlap criterion}\label{sec:chirikov}
+
+The gap edge is where the high-$m$ resonances \emph{overlap}.  The relevant
+scales are
+\begin{equation}\label{eq:scales}
+R_H=a_P(\mu/3)^{1/3}\approx19.0\text{ km}
+\quad(\mu=M_P/M_S=8.7\times10^{-12}),\qquad
+\delta r\approx a_P\sqrt\mu\approx0.39\text{ km},
+\end{equation}
+and the resonance spacing $dR_m=2a_P/(3m^2)=0.293$\,km at $m=551$.  Overlap
+(Chirikov) requires $\delta r\gtrsim dR_m$, i.e.\
+$m\gtrsim\sqrt{2/(3\sqrt\mu)}\approx475$.  The observed edge ($m\approx551$)
+agrees with this to the $\mathcal O(1)$ coefficient of the resonance width.
+Since $\mathrm{gap}/R_H\approx8.5$, the gap is opened by the \emph{resonance
+forest} (the dense high-$m$ ladder), not by direct Hill-sphere clearing.
+
+\section{The density-wave dispersion (the free wave, eliminated)}
+\label{sec:dispersion}
+
+The tight-winding (WKB) dispersion for a self-gravitating, pressure-supported
+disk is
+\begin{equation}\label{eq:dispersion}
+(\omega-m\Omega)^2=\kappa^2-2\pi G\Sigma|k|+c^2k^2,
+\end{equation}
+a closed-form quadratic in the radial wavenumber $k$.  At resonance the radial
+wavelength is $\lambda_0=c^2/(G\Sigma)\approx0.75$\,km
+($\Sigma=500$\,kg/m$^2$, $c=0.5$\,cm/s), \emph{decreasing} away from resonance
+(the ``wrapped-up'' spiral).  This matches the observed ``wavelength varies
+smoothly'' signature qualitatively, but the free wave lives at $m<551$
+(resonance in the ring); the measured edge wave is $m\approx2800$, whose
+resonance lies \emph{inside} the cleared gap.  Hence the observed edge wave is
+not the free density wave.
+
+\section{Edge-mode elimination (cold and pressure)}\label{sec:edgemode}
+
+We test the Papaloizou--Lin edge mode in the cold WKB limit and with pressure.
+
+\emph{Cold WKB} ($\sigma^2=\kappa^2-2\pi G\Sigma|k|$, reflecting edge, Airy
+quantization $\int|k|\dd r=(n+3/4)\pi$): the turning point
+$r_L=a_P((m+1)/m)^{2/3}$ lies outside the edge only for $m<551$; for
+$m\ge551$ the resonance is inside the gap and the edge is far off-resonance
+(evanescent decay length $\approx0.5$\,m).
+
+\emph{Pressure} ($Q=c\kappa/(\pi G\Sigma)\approx6$): the existence condition is
+geometric ($m<548$), independent of $c$; at $m=2800$ the pressure only yields a
+short wave of radial wavelength $\approx47$\,m.
+
+So the observed edge wave is neither a density wave nor an edge mode (cold or
+pressure).
+
+\section{The static tidal distortion (the resolution)}\label{sec:tidal}
+
+The edge lies $d\approx162$\,km $\approx8.5\,R_H$ from Pan --- the linear tidal
+regime ($d\gg R_H$).  Pan's gravity pulls the edge radially, balanced by the
+epicyclic restoring force $\kappa^2\delta r$:
+\begin{equation}\label{eq:tidal}
+\kappa^2\,\delta r=-\frac{GM_P\,d}{(d^2+y^2)^{3/2}},
+\end{equation}
+where $y$ is the azimuthal offset from Pan.  This is a \emph{forced epicycle}
+with eccentricity
+\begin{equation}\label{eq:ecc}
+e_f=\frac{M_P}{M_S}\Bigl(\frac{a_P}{d}\Bigr)^2\approx5.9\times10^{-6},
+\end{equation}
+radial amplitude $A=a_P\,e_f=GM_P/(\kappa^2 d^2)$, and azimuthal profile
+$\delta r(y)=\delta r_{\max}\,(1+(y/d)^2)^{-3/2}$ (a localized bump of width
+$d$).
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{l c c}
+\toprule
+quantity & computed & observed (PIA08257)\\
+\midrule
+radial amplitude $A$ & $0.785$\,km & $\approx0.65$\,km\\
+azimuthal FWHM & $249$\,km & $\approx300$\,km\\
+\bottomrule
+\end{tabular}
+\caption{Static tidal distortion versus the image extraction.}
+\label{tab:tidal}
+\end{table}
+
+Both agree to $\sim20\%$, inside the $\Sigma/c$/geometry uncertainty.
+
+\section{Observation: extraction from a Cassini image}\label{sec:image}
+
+We extracted the edge-wave parameters directly from NASA's public-domain image
+PIA08257 (``Encke Waves'', $1$\,km/px original, stretched $4\times$ in the radial
+direction), detecting the gap edges and fitting the strongest sinusoid:
+azimuthal wavelength $\lambda_\theta\approx260$--$320$\,km and radial amplitude
+$A\approx0.65$\,km, hence $m\approx2800$ (from $m=2\pi r/\lambda_\theta$).
+Reproducible in
+\texttt{aeglib}/numpy scripts (\texttt{008-encke-edge-wave-image.py}).
+
+\section{Discussion: what the HTWR framework does and does not contribute}
+\label{sec:discussion}
+
+The HTWR framework contributes the \emph{arithmetic skeleton}: the resonance
+ladder is a Farey sequence realized as Ford circles on $\Ht^2$, with the
+corotation point as the cusp.  This is a \emph{physical realization} of the
+rational-approximation structure that the HTWR axioms (state space
+$\PP^1(\Q)$, logarithmic-Weil-height calibration) abstract --- not a new theorem,
+and not the mechanism of the edge wave itself.
+
+The edge-wave \emph{mechanism} is standard linear celestial mechanics (forced
+epicycle), where the HTWR framework has no role.  The two layers answer
+different questions: \emph{where} the gap is (resonance overlap, the Farey
+pile-up), and \emph{what shape} its edge has (static tidal distortion).
+
+\begin{status}
+\emph{Honest boundary.} The secondary signatures --- ``wavelength varies
+smoothly'', ``amplitude grows and decays'', ``undamped over $\gtrsim10$ months''
+--- are not captured by the static force balance; they require the full dynamics
+(collisional damping and multi-$m$ superposition).  These remain open
+(\texttt{governance/08-open-questions.md}, OQ-104).
+\end{status}
+
+\section{Conclusion}\label{sec:conclusion}
+
+The Encke gap's scalloped edges are a two-layer phenomenon: an \emph{arithmetic
+skeleton} (Pan's Lindblad resonances form the Farey ladder $x=m/(m\pm1)$,
+accumulating at corotation as Ford circles --- a concrete instance of the HTWR
+rational-approximation structure), and a \emph{dynamical layer} (the observed
+edge wave is Pan's static tidal distortion, a forced epicycle of amplitude
+$GM_P/(\kappa^2d^2)\approx0.79$\,km, matching the observed $\approx0.65$\,km).
+The framework's value here is exemplary: it turns a resonance catalogue into a
+geometric object on $\PP^1(\Q)$, while the physics that shapes the edge remains
+classical.
+
+\section*{Acknowledgements and provenance}
+\addcontentsline{toc}{section}{Acknowledgements and provenance}
+The research direction, the choice of objects, and the physical statements are
+the work of Mingli Yuan, who is the author and sole holder of scientific
+responsibility.  DeepSeek Harness, an artificial-intelligence research agent,
+assisted with the derivations, the exact computations (under
+\texttt{aeglib/python/examples/pan\_encke\_*.py} and
+\texttt{aeg-paper/notes/general/007--010}), the image extraction, and the
+preparation of \LaTeX{} source.  An agent is not a natural person: it appears
+here as assistance, not as a coauthor.  Machine cross-checking is not
+independent human review.
+
+\appendix
+\section{Mathematical status register}\label{app:status}
+\begin{center}
+\begin{tabular}{l p{0.70\textwidth}}
+\toprule
+ID & status\\
+\midrule
+R1 & resonance ladder $x=m/(m\pm1)$, radius $r/a_P=x^{-2/3}$ ---
+\textsc{proved with stated hypotheses}\\
+R2 & Ford-circle / hyperbolic reading (HTWR) --- \textsc{structural proposal}\\
+R3 & Chirikov overlap $\to$ gap edge $m\approx551$ ---
+\textsc{standard consequence} + \textsc{computationally verified}\\
+R4 & density-wave dispersion, $\lambda_0=c^2/(G\Sigma)$ ---
+\textsc{proved with stated hypotheses}\\
+R5 & edge mode absent for $m\ge551$ (cold \& pressure) ---
+\textsc{proved with stated hypotheses}\\
+R6 & static tidal distortion $A=GM_P/(\kappa^2d^2)$ ---
+\textsc{proved with stated hypotheses}\\
+R7 & image extraction $\lambda_\theta\approx300$\,km, $A\approx0.65$\,km ---
+\textsc{computationally verified example}\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\nocite{Cuzzi1985WavyEdges,GoldreichTremaine1979,PapaloizouLin1988}
+\bibliographystyle{plain}
+\bibliography{aeg-app-pan-encke}
+
+\end{document}

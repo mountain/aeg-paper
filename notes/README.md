@@ -23,6 +23,7 @@ The subject directories are:
 6. `thermodynamics-and-renormalization/`
 7. `electrodynamics/`
 8. `aes/`
+9. `general/`
 
 `electrodynamics/` is an archived working directory rather than a numbered note:
 it holds a rendered manuscript on a contact-geometric reading of classical
@@ -99,3 +100,134 @@ elliptic AES definition remain research tasks.
 - [02 — The arithmetic side of the elliptic AES](aes/02-arithmetic-side-of-the-elliptic-aes.md):
   the three-layer syntax/value/realization split, the bounded spherical
   assignment, the critical/turning locus, and the range domain.
+
+## Hyperbolic tropical wavefront-residual core (HTWR)
+
+> English translations of the HTWR notes are provided as `NN-*.en.md`
+> alongside each Chinese `NN-*.md` (added 2026-11-14), so the whole HTWR
+> thread 001–010, 014–020 is available in both languages.  A
+> compiled English render of 001 is `003-htwr-core.en.tex` + `003-htwr-core.en.pdf`
+> (pdflatex).  The scripts 011–046 are companion computations/figures to notes
+> 002 and 015–020.
+
+- [001 — HTWR Core](general/001-htwr-core.md): the minimal quantale→AEG core,
+  axioms I–IV (state `P¹(Q)` with logarithmic-Weil-height hyperbolic
+  calibration; rigged worldsheet syntax with fanout `Δ`/erasure `ε` as costed
+  generators; tropical wavefront/Bellman transfer; Bellman–Galois residual
+  duality). `STRUCTURAL PROPOSAL`.
+- [002 — Exact spacetime Pareto boundary](general/002-htwr-example.md):
+  Theorem 1 (spacetime-uncertainty lower bound) and Theorem 2 (two-phase Pareto
+  boundary for Pell convergents) conditional on axioms I–IV; the
+  catalytic-wormhole Möbius big-step and the naive-vs-Heron fanout comparison.
+  `STRUCTURAL PROPOSAL` (+ `STANDARD CONSEQUENCE` for the identities).
+- [003 — HTWR Core (compiled)](general/003-htwr-core.tex): LaTeX render of 001;
+  English render [003-htwr-core.en.tex](general/003-htwr-core.en.tex) +
+  [003-htwr-core.en.pdf](general/003-htwr-core.en.pdf).
+- [004 — Test sequences](general/004-test-sequences.md): Pell/Fibonacci unified
+  to the metallic-means family, Sylvester, and Recamán; structural positioning
+  and status labels. `STRUCTURAL PROPOSAL` + `COMPUTATIONALLY VERIFIED EXAMPLE`.
+- [005 — Fanout cost and interval wrapping](general/005-fanout-wrapping.md):
+  Level-C witness that the naive-vs-Heron fanout difference is reproduced as an
+  exact rational interval-wrapping difference. `STRUCTURAL PROPOSAL` +
+  `COMPUTATIONALLY VERIFIED EXAMPLE`; companion witness
+  [005-fanout-wrapping-witness.py](general/005-fanout-wrapping-witness.py).
+- [006 — Split-tube as an HTWR decomposition](general/006-split-tube-htwr.md):
+  formalizes the VdP C11 split-tube as the HTWR "main wire + fanout-auxiliary"
+  decomposition; proves the block-triangularity (phase/action does not read
+  the variational `φ`) and checks the term-by-term wrapping reduction.
+  Companion witness [006-split-tube-witness.py](general/006-split-tube-witness.py).
+- [007 — Pan and the Encke-gap edge waves](general/007-pan-encke-farey.md):
+  reads the Pan Lindblad resonance ladder `x=m/(m±1)` as the Farey/Ford
+  structure; aeglib certifies the resonance radii (m=551 at the Encke outer
+  edge) and the resonance-overlap gap-opening criterion. `STRUCTURAL PROPOSAL`
+  reading; companions under `aeglib/python/examples/pan_encke_*.py`.
+- [008 — Encke density-wave dispersion and wavelength](general/008-encke-density-wave.md):
+  solves the tight-winding density-wave dispersion in closed form; the radial
+  wavelength is `c²/(GΣ) ≈ 0.75 km` at resonance and decreases away (wrapped-up),
+  matching the observed "wavelength varies smoothly" signature.
+  Companion witness [008-encke-density-wave-witness.py](general/008-encke-density-wave-witness.py).
+- [009 — Encke edge-mode cold-WKB test (negative)](general/009-encke-edge-mode-wkb.md):
+  tests the Papaloizou–Lin edge mode in the cold WKB limit; the turning point
+  lies outside the edge only for `m < 551`, so the measured `m ≈ 2800` edge wave
+  is **not** a cold WKB edge mode (evanescent decay ≈ 0.5 m). Companion witness
+  [008-encke-edge-mode-wkb.py](general/008-encke-edge-mode-wkb.py).
+- [010 — Encke scalloped edge as Pan's tidal distortion](general/010-encke-scalloped-edge-tidal.md):
+  final closure — the edge wave is Pan's **static tidal distortion** (forced
+  epicycle): amplitude `GM_P/(κ²d²) ≈ 0.79 km` and azimuthal FWHM ≈ 249 km,
+  matching the image (0.65 km, ~300 km). Companion witness
+  [010-encke-scalloped-edge-tidal.py](general/010-encke-scalloped-edge-tidal.py).
+- [014 — Pell master figure](general/014-pell-master-figure.md): the integrated
+  2×3 figure — Ford circles + HTWR height (Axiom I), the `{∞,4}` Poincaré-disk
+  tiling (cusps `w(±(√2−1))`), units of `Z[√2]` on `P²−2Q²=±1`, the convergence
+  law `|x_n−√2| = 2√2 kⁿ`, the k=8 catalytic-wormhole depth profile, and the
+  Sylvester no-wormhole control — unified by `k = 3−2√2 = (√2−1)² = λ⁻²`;
+  derives the two `ln Q_k` cancellations of the four-gate crossing (each saves
+  `ln Q_k`). `STRUCTURAL PROPOSAL` reading + `COMPUTATIONALLY VERIFIED EXAMPLE`
+  identities. Companion [014-pell-master-figure.py](general/014-pell-master-figure.py)
+  + [014-pell-master-figure.png](general/014-pell-master-figure.png); development
+  trail [011-wormhole-acceleration-witness.py](general/011-wormhole-acceleration-witness.py),
+  [012-pell-hyperbolic-viz.py](general/012-pell-hyperbolic-viz.py),
+  [013-pell-poincare-wormhole.py](general/013-pell-poincare-wormhole.py).
+- [015 — Pell, {∞,4}, Hecke Hauptmodul and Belyi maps](general/015-pell-hecke-belyi-thread.md):
+  consolidation of the Pell thread — the unifying constant `k = 3−2√2 =
+  (√2−1)² = λ⁻²`; the `{∞,4}` tiling as the Hecke Hauptmodul zero network
+  `β⁻¹([0,1])` (4-valent at `ε₄`, cone `4π`); the dual grids `{∞,4}` vs `{4,∞}`
+  (the `a=0` line's orbit); the flat metric `g₄=|dζ|²` with radial assignment
+  `a₄=(μ/λ)sinh(λs)`; vertex a-values `Z√2 ∪ (2Z+1)`; non-trivial zero sets =
+  Belyi maps / dessins d'enfants (LMFDB); and the threading polynomial
+  `p(u) = P_λ(0)` (`u=e^λ`), with Chebyshev `T_n` unifying threading and Belyi.
+  Companions 015–027 (`*.py`/`*.png`); statuses `PROVED` + `COMPUTATIONALLY
+  VERIFIED EXAMPLE` + `STRUCTURAL PROPOSAL`, open OQ-073/074/076.
+- [016 — C₂*C₄ normal form, tearing, even-order Belyi, {7,4}](general/016-c2c4-tearing-belyi-f7.md):
+  the four construction interfaces of `{∞,4}` — the `C₂*C₄` normal form fixing
+  `013`'s non-free IFS (`F₃=F₂⁻¹, F₄=F₁⁻¹`) and giving the collision-free
+  Bass–Serre tree `T₄`; the `F₂⋊C₄` tearing commutator `[α̃,β̃_⊥]=T⁴`; the
+  even-ramification Belyi criterion (q=4 sign protection); and the
+  `Γ₄↠PSL₂(F₇)` `{7,4}` compactification (genus 10, `F=24,E=84,V=42`). Companion
+  [028-c2c4-tree.py](general/028-c2c4-tree.py) + [028-c2c4-tree.png](general/028-c2c4-tree.png);
+  statuses `PROVED` + `STRUCTURAL PROPOSAL`.
+- [017 — Cayley model and the conformal-hyperbolic unification](general/017-cayley-model-conformal-hyperbolic.md):
+  the Cayley tree 4-border (= the `F₂` 4-regular tree = `T₄`) with its fractal
+  border, the hyperbolic metric `g=(dx²+dy²)/L²` (`L` = Manhattan depth, `K=−2`);
+  the lemma `K=fΔf−|∇f|²` (harmonic depth ⟹ constant curvature) unifying the
+  three `{∞,4}` realizations — Poincaré (`f=y`, `K=−1`), Cayley (`f=L`, `K=−2`,
+  `g_C=½g_P` homothety), Hecke (`f=|W|=e^s`, `K=0`, flat developing map) — with
+  the depth correspondence `y ∼ L ∼ e^s`. Companions
+  [030-cayley-model-hyperbolic.py](general/030-cayley-model-hyperbolic.py),
+  [031-conformal-hyperbolic-proof.py](general/031-conformal-hyperbolic-proof.py);
+  statuses `PROVED` + `STRUCTURAL PROPOSAL`.
+- [018 — Assignment, duality, add-multiply, Eikonal on the Cayley model](general/018-cayley-assignment-duality-eikonal.md):
+  the distribution of `a` on the Cayley tree (`a(gε₄)=(AD+BC)−√2(AC+BD)`, odd
+  integers, collapse, Pell axis `P_{2d+3}`); primal `{∞,4}` vs dual `{4,∞}`
+  (perpendicular bisectors, zero lines); level lines (rays) ⊥ gradient lines
+  (circles, `H²` geodesics); the add-multiply decomposition (blue = add-zero,
+  origin = multiply-zero, green circles = multiply scale `1/2,1/4,1/8`, 45°/135°
+  diagonals = add axes `a=∓1`); the Eikonal equation `|∇a|²=μ²+λ²a²` (= AES
+  axiom) with its angular (rays) and radial (circles, `e^s`) faces; and the
+  Eikonal fill on the Cayley model `a=(μ/λ)sinh(λL)` with countably many ridge
+  (medial-axis) singularities. Companions 032–038; statuses `PROVED` +
+  `COMPUTATIONALLY VERIFIED EXAMPLE` + `STRUCTURAL PROPOSAL`.
+- [019 — Schwarz–Christoffel square, `{∞,4}` embedding, smooth Eikonal fills](general/019_sc_square_eikonal.md):
+  the lemniscatic Schwarz–Christoffel map `S(w)=(e/K₊)∫₀^w dζ/√(1+ζ⁴)`
+  (`K₊=Γ(1/4)²/(8√π)`) carrying the unit disk onto `Q_e=[−e,e]²`; the four cusp
+  and Pell-corner phase locks; the conformal depth `f_SC` with the four-line
+  Wirtinger proof `K≡−1`; two shock-free orthogonal Eikonal fills (radial
+  squircle and global cusp-to-cusp); and the upper-envelope penetration
+  `L_true` (fixing `038`'s internal pseudo-zeros under the star-shaped
+  hypothesis, lower bound in general). Companion
+  [039-sc-square-eikonal.py](general/039-sc-square-eikonal.py) +
+  [039-sc-square-eikonal.png](general/039-sc-square-eikonal.png); statuses
+  `PROVED` (`K≡−1`, Eikonal, `L_true` under hypothesis) + `STRUCTURAL
+  PROPOSAL` (add-multiply renormalization).
+- [020 — Add/multiply lines, graph potential, boundary values, cusped 4-gon](general/020-cayley-add-multiply-potential-boundary.md):
+  the paper-0 frame `X_u=(−μy,0)` (horizontal, ADD) ⊥ `X_v=(0,−λy)` (vertical,
+  MULTIPLY) — correcting `040`, with the level-vs-add angle `arctan(1/|a|)` that
+  varies with `a`; the graph potential `a(node)=(μ/λ)sinh(λd)` (node = branch
+  singularity, edge = Eikonal flow, root `a=0`, values `0→16→1023`); the
+  boundary-value criterion `ℓ_e=|β(Δa)|/λ` and the E₀/Cayley comparison (odd
+  integers 2D-realizable in E₀ with 1D slack, unrealizable in Cayley); the
+  potential colouring; the E₁-like blue square (`inradius=ln2`, source-free
+  centre `15/16`, differing source strength = `a(node)`); and the cusped 4-gon
+  upgrade (4 corners = parabolic cusps → geometry/potential/value all change).
+  Companions 041–046; statuses `PROVED` + `COMPUTATIONALLY VERIFIED` +
+  `STRUCTURAL PROPOSAL` (one refutation: `1/a` is not an Eikonal solution).

@@ -224,8 +224,11 @@ $q_i=(a_i,b_i)\in Biv_K^{\mathrm{reg}}$ that is transverse in the sense that
 \[
   \varphi_{b_1}(v_{a_2}) = 1 + a_2 b_1 \neq 0.
 \]
-Choose frame lifts $g_i = \begin{pmatrix} 1 & -a_i \\ -b_i & 1 \end{pmatrix}
-\begin{pmatrix} \Phi_i & 0 \\ 0 & 1 \end{pmatrix} \in G$ with fiber coordinates
+Choose frame lifts
+$g_i = \begin{pmatrix} 1 & -a_i \\ b_i & 1 \end{pmatrix}
+\begin{pmatrix} \Phi_i & 0 \\ 0 & 1 \end{pmatrix} \in G$, whose first column spans
+$\ker\varphi_{b_i}=\langle(1,b_i)^\top\rangle$ and whose second column spans the
+image line $\langle v_{a_i}\rangle$, with fiber coordinates
 $\Phi_i\in K^\times \cong H$. Define the \emph{projective torsion transport} of the
 lifted step $\tilde{e}: g_1\to g_2$ as the element of the affine semidirect product
 $\mathrm{Aff}(1,K) = K^\times \ltimes K$ given by
@@ -259,18 +262,30 @@ the product of $\Lambda(\tilde{e}_k)$ around any closed lifted loop
 The transport $\mathcal{T}$ of Definition~\ref{def:projective-edge-transport}
 has the following properties:
 \begin{enumerate}
-  \item \emph{(Exact Borel reduction).} On the affine Borel sector
+  \item \emph{(Borel reduction).} On the affine Borel sector
   $B_\infty = \mathrm{Stab}_G(\infty)$, where $b_k\equiv 0$ and $a_k=-\xi_k$ for
   every prefix $g_k(z)=\Phi_k z + \xi_k$, the base correction satisfies
-  $\lambda_{\mathrm{base}}(e_k)\equiv 1$, and the total transport along a history
-  $\gamma=(s_1,\dots,s_n)$ reduces to
+  $\lambda_{\mathrm{base}}(e_k)\equiv 1$, and each edge transport reduces to
   \[
-    \mathcal{T}(\gamma)\big|_{B_\infty}
-    = \begin{pmatrix} \Phi_n & \xi_n \\ 0 & 1 \end{pmatrix}.
+    \mathcal{T}(\tilde e_k)\big|_{B_\infty}
+    = \begin{pmatrix} \Phi_k/\Phi_{k-1} & \Phi_{k-1}^{-1}(\xi_k-\xi_{k-1}) \\ 0 & 1 \end{pmatrix}.
   \]
-  Consequently, for scale-compatible affine histories $\gamma$ and $\delta$, the
-  translation component of $\mathcal{T}(\delta)^{-1}\mathcal{T}(\gamma)$ is
-  precisely the relative affine defect $\Phi^{-1}(\xi_\gamma - \xi_\delta)$ of
+  The scale telescopes, so the total transport along a history
+  $\gamma=(s_1,\dots,s_n)$ is
+  \begin{equation}\label{eq:borel-reduction-total}
+    \mathcal{T}(\gamma)\big|_{B_\infty}
+    = \begin{pmatrix}
+        \Phi_n & \Phi_n\displaystyle\sum_{k=1}^n\frac{\xi_k-\xi_{k-1}}{\Phi_{k-1}\Phi_k}\\[10pt]
+        0 & 1
+      \end{pmatrix}.
+  \end{equation}
+  Thus the multiplicative component recovers the affine-prefix scale $\Phi_n$
+  exactly, while the translation component is the weighted sum
+  $\Phi_n\sum_k(\xi_k-\xi_{k-1})/(\Phi_{k-1}\Phi_k)$, which equals the
+  affine-prefix translation $\xi_n-\xi_0$ only on the translation subgroup
+  $\Phi_k\equiv1$.  In particular, for a non-constant scale the transport does
+  not reduce to $\begin{pmatrix}\Phi_n&\xi_n\\0&1\end{pmatrix}$, and it does not
+  reproduce the relative affine defect $\Phi^{-1}(\xi_\gamma-\xi_\delta)$ of
   Paper~0, Section~7.4.
 
   \item \emph{(Fixed-kernel flatness).} Along any closed lifted loop $\ell$ on which
@@ -301,9 +316,22 @@ has the following properties:
 gives $\Lambda(\tilde{e}_k)=\Phi_k/\Phi_{k-1}$ and
 $\Delta\hat{\xi}(\tilde{e}_k)=\Phi_{k-1}^{-1}(\xi_k-\xi_{k-1})$. Multiplying the
 matrices~\eqref{eq:projective-torsion-matrix} chronologically from $k=1$ to $n$
-yields upper-left entry $\Phi_n/\Phi_0=\Phi_n$ and upper-right entry
-$\Phi_n \sum_{k=1}^n \Phi_k^{-1}(\xi_k-\xi_{k-1}) = \xi_n$, matching the affine
-cocycle law of Paper~0, Proposition~7.1.
+telescopes the upper-left entry to $\Phi_n/\Phi_0=\Phi_n$.  The upper-right entry
+is obtained from the composition law
+$(s_2,d_2)(s_1,d_1)=(s_2s_1,s_2d_1+d_2)$: the $k$-th translation is multiplied
+by every later scale, giving
+$\Phi_n\sum_{k=1}^n(\xi_k-\xi_{k-1})/(\Phi_{k-1}\Phi_k)$, which is
+\eqref{eq:borel-reduction-total}.  This equals $\xi_n-\xi_0$ only when every
+scale $\Phi_k$ is $1$ (the translation subgroup); for non-constant scale it
+differs from the affine-prefix translation $\xi_n$.  For instance, over
+$K=\mathbb F_7$ with $(\Phi_0,\Phi_1,\Phi_2)=(1,1,2)$ and
+$(\xi_0,\xi_1,\xi_2)=(0,1,2)$ the two edge matrices
+$\begin{pmatrix}1&1\\0&1\end{pmatrix}$ and $\begin{pmatrix}2&1\\0&1\end{pmatrix}$
+compose to $\begin{pmatrix}2&3\\0&1\end{pmatrix}$, whereas the affine prefix is
+$\begin{pmatrix}2&2\\0&1\end{pmatrix}$.  Recovering the affine prefix would
+require replacing the edge translation \eqref{eq:projective-torsion-components}
+by the target-normalized increment $\xi_k-(\Phi_k/\Phi_{k-1})\xi_{k-1}$, whose
+definition off the Borel sector is a separate claim.
 
 (2) If $b_k=b_0$ for all $k$, then $\lambda_{\mathrm{base}}(e_k)=(1+a_k b_0)/(1+a_{k-1}b_0)$,
 whose product over a closed loop $a_m=a_0$ cancels pairwise, while $\prod (\Phi_k/\Phi_{k-1})=1$.
