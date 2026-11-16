@@ -34,6 +34,34 @@ Do not reconcile conflicting sources silently. Record the conflict and follow th
 
 ---
 
+## Documentation language policy
+
+Documentation materials — the repository and paper `README`s, index files,
+`AGENTS.md`, and the authoritative governance records — are bilingual, with
+**English as the primary document**.
+
+* The canonical file keeps the plain name: `X.md` is English.
+* The Chinese translation lives beside it as `X.zh.md` (same basename + `.zh`).
+* Existing bilingual pairs are migrated by renaming the Chinese `X.md` to
+  `X.zh.md` and the English `X.en.md` to `X.md` (normalise `X_en.md`/`X-en.md`
+  to `.en.md` first).
+* Cross-references always point at the primary `X.md` name.
+
+Research note bodies (`notes/` and other exploratory or discussion material) are
+**not required to be bilingual**. They may remain in Chinese or English as
+originally written, consistent with the "Language of publication" rules in
+`governance/06-editorial-rules.md`. A note that already carries both languages
+keeps the normalised naming above; no new translation of single-language note
+bodies is required.
+
+Translations must preserve mathematical meaning exactly: keep every formula,
+notation, LaTeX, code block, figure/citation reference, and status label
+unchanged, and follow the "Language of publication" rules in
+`governance/06-editorial-rules.md`. Do not paraphrase a proof or change a claim
+status while translating; a translation is a faithful rendering, not a rewrite.
+
+---
+
 ## General working principles
 
 ### Preserve mathematical meaning

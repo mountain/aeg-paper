@@ -103,12 +103,12 @@ elliptic AES definition remain research tasks.
 
 ## Hyperbolic tropical wavefront-residual core (HTWR)
 
-> English translations of the HTWR notes are provided as `NN-*.en.md`
-> alongside each Chinese `NN-*.md` (added 2026-11-14), so the whole HTWR
-> thread 001–010, 014–020 is available in both languages.  A
-> compiled English render of 001 is `003-htwr-core.en.tex` + `003-htwr-core.en.pdf`
-> (pdflatex).  The scripts 011–046 are companion computations/figures to notes
-> 002 and 015–020.
+> English is the primary language for the HTWR notes: each note's canonical
+> file is `NN-*.md` (English), with a Chinese translation `NN-*.zh.md`
+> alongside it (added 2026-11-14), so the whole HTWR thread 001–010, 014–020 is
+> available in both languages.  A compiled English render of 001 is
+> `003-htwr-core.en.tex` + `003-htwr-core.en.pdf` (pdflatex).  The scripts
+> 011–046 are companion computations/figures to notes 002 and 015–020.
 
 - [001 — HTWR Core](general/001-htwr-core.md): the minimal quantale→AEG core,
   axioms I–IV (state `P¹(Q)` with logarithmic-Weil-height hyperbolic

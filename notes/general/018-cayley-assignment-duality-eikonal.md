@@ -1,79 +1,79 @@
-# 018 — 凯莱模型上的赋值、对偶、加乘分解与 Eikonal 填充
+# 018 — Assignment, duality, add-multiply decomposition and the Eikonal fill on the Cayley model
 
-> **文档性质**：算术表达式几何（AEG）研究笔记（018：把 `a` 的分布、`{∞,4}`/`{4,∞}` 对偶、等值/梯度正交、加乘分解与 Eikonal 填充统一到凯莱模型上）
-> **前置依赖**：笔记十七《Cayley 模型共形双曲统一》（[017-cayley-model-conformal-hyperbolic.md](017-cayley-model-conformal-hyperbolic.md)）、笔记石《C₂*C₄ 范式》（[016-c2c4-tearing-belyi-f7.md](016-c2c4-tearing-belyi-f7.md)）
-> **日期**：2026-11-15
-> **备注**：本笔记整合 032–038 号脚本；所有陈述标状态（`PROVED`/`COMPUTATIONALLY VERIFIED EXAMPLE`/`STRUCTURAL PROPOSAL`）。
+> **Document nature**: research notes on Arithmetic Expression Geometry (AEG) (018: unifying the distribution of `a`, the `{∞,4}`/`{4,∞}` duality, level/gradient orthogonality, the add-multiply decomposition, and the Eikonal fill on the Cayley model).
+> **Prerequisites**: Note XVII, *Cayley model and the conformal-hyperbolic unification* ([017-cayley-model-conformal-hyperbolic.md](017-cayley-model-conformal-hyperbolic.md)); Note XVI, *The C₂*C₄ normal form* ([016-c2c4-tearing-belyi-f7.md](016-c2c4-tearing-belyi-f7.md)).
+> **Date**: 2026-11-15
+> **Remark**: this note consolidates scripts 032–038; every statement is status-labelled (`PROVED` / `COMPUTATIONALLY VERIFIED EXAMPLE` / `STRUCTURAL PROPOSAL`).
 
 ---
 
-## 一、凯莱模型回顾
+## 1. The Cayley model in brief
 
-凯莱模型 `D∞` 是 `F₂` 4 叉树 `T₄` 的**欧氏嵌入**：递归方格（L¹ 球 `|x|+|y|≤R`，半径 `2^step` 逐层减半），对角线 = 树，并集边界 = 分形 border `B∞`。度量 `g=(dx²+dy²)/L²`，`L`=到 border 的 Manhattan 深度，`K=−2`（笔记 017）。`T₄` 同时也是 `{∞,4}` 的 1-骨架。
+The Cayley model `D∞` is the **Euclidean embedding** of the F₂ 4-regular tree `T₄`: recursive squares (L¹ balls `|x|+|y|≤R`, radius `2^step` halving with depth), the diagonals = the tree, the boundary `B∞` = the fractal border of the union. The metric is `g=(dx²+dy²)/L²` (`L` = Manhattan depth to the border, `K=−2`; Note 017). `T₄` is also the 1-skeleton of `{∞,4}`.
 
-## 二、赋值 `a` 在凯莱树上（奇整数、塌缩）
+## 2. The assignment `a` on the Cayley tree (odd integers, collapse)
 
-`a=−x/y` 在 `ε₄` 轨道取**奇整数** `2m+1`。把 `a` 搬到凯莱树节点（方格中心）上，得显式公式（`g=[[A,B],[C,D]]`）：
+`a=−x/y` takes **odd-integer** values `2m+1` on the `ε₄` orbit. Carried to the Cayley tree nodes (square centres), it has the explicit formula (`g=[[A,B],[C,D]]`):
 
 $$a(g\,\varepsilon_4)=(AD+BC)-\sqrt2(AC+BD).$$
 
-**奇数性**：`H(√2)` 两个奇偶类下 `a≡1 (mod 2)`（`PROVED`，`029`）。树节点上 `a` **非单射**：根 `a=1`，四子 `a=−1,3,7,3`（两子同 `a=3`）——即 `a` 把指数树**多对一塌缩**到 `Z[√2]` 奇数（`COMPUTATIONALLY VERIFIED`）。沿 `U²J` 轴 `a=P_{2d+3}`（Pell 分子）。
+**Oddness**: in both parity classes of `H(√2)`, `a≡1 (mod 2)` (`PROVED`, `029`). On the tree `a` is **not injective**: root `a=1`, four children `a=−1,3,7,3` (two share `a=3`) — `a` **collapses** the exponential tree many-to-one onto the odd integers of `Z[√2]` (`COMPUTATIONALLY VERIFIED`). Along the `U²J` axis `a=P_{2d+3}` (Pell numerators).
 
-## 三、原始 `{∞,4}` 与对偶 `{4,∞}`
+## 3. Primal `{∞,4}` and dual `{4,∞}`
 
-- **原始 `{∞,4}`**（黑）：`F₂` 对角线树，节点 `a` 染色；
-- **对偶 `{4,∞}`**（蓝）：每条原始边的**垂直平分线**，在 `ε₂` 中点垂直相交。每个 `ε₄` 顶点被一个**对偶 4 边形面**环绕；对偶顶点（蓝线交角）= 尖点（`∞`-价）。
+- **primal `{∞,4}`** (black): the F₂ diagonal tree, nodes coloured by `a`;
+- **dual `{4,∞}`** (blue): the **perpendicular bisector** of each primal edge, crossing at the `ε₂` midpoint. Each `ε₄` vertex is surrounded by a **dual 4-gon face**; the dual vertices (blue-line corners) are the cusps (`∞`-valent).
 
-**蓝线 = 零线**：对偶 `{4,∞}` 是 `a=0`（虚轴）的 `Γ₄` 轨道（笔记 015/016 §3），即各 `a∘g⁻¹` 的零集（`STRUCTURAL PROPOSAL`，几何实现）。
+**Blue lines = zero lines**: the dual `{4,∞}` is the `Γ₄`-orbit of the `a=0` line (the imaginary axis; Notes 015/016 §3), i.e. the zero sets of the transported `a∘g⁻¹` (`STRUCTURAL PROPOSAL`, geometric realisation).
 
-## 四、等值线（射线）与梯度线（圆）正交
+## 4. Level lines (rays) and gradient lines (circles) are orthogonal
 
-`a=−x/y`：等值线 `a=const` = **过原点射线** `y=kx`；欧氏梯度线 `∇a=(−1/y,x/y²)` 的流 `dy/dx=−x/y` ⇒ **同心圆** `x²+y²=const`（且是 `H²` 测地线）。二者**处处正交**（`COMPUTATIONALLY VERIFIED`）。在 AES 度量 `g`（`μ=1,λ=2`）下梯度线为**椭圆** `4x²+y²=const`（`g`-正交）。
+For `a=−x/y`: level lines `a=const` are **rays** `y=kx` through the origin; the Euclidean gradient lines of `∇a=(−1/y,x/y²)` satisfy `dy/dx=−x/y` ⇒ **concentric circles** `x²+y²=const` (which are also `H²` geodesics). They are **orthogonal everywhere** (`COMPUTATIONALLY VERIFIED`). In the AES metric `g` (`μ=1,λ=2`) the gradient lines are **ellipses** `4x²+y²=const` (`g`-orthogonal).
 
-## 五、加乘分解（`μ=1,λ=2`）
+## 5. The add-multiply decomposition (`μ=1,λ=2`)
 
-极坐标 `a=−cot θ`，`(ρ,θ)` 天然拆成加乘：
+Polar coordinates `a=−cot θ` split `(ρ,θ)` into add/multiply:
 
-| 对象 | 读数 |
+| object | reading |
 |---|---|
-| 蓝线（`a=0`）| **加零**线 |
-| 原点 | `a=0/0` 奇点，**乘零**（补赋 `a=0`）|
-| 绿圆 `ρ=4,2,1,0.5,…` | **乘尺度** `1, 1/2, 1/4, 1/8,…`（逐层减半）|
-| 45°/135° 对角线 | **加轴**：`a=−1`（45°）、`a=1`（135°），每步 `a↦a+1` |
+| blue lines (`a=0`) | the **add-zero** line |
+| origin | the `a=0/0` singularity, the **multiply-zero** (completed `a=0`) |
+| green circles `ρ=4,2,1,0.5,…` | the **multiply scale** `1, 1/2, 1/4, 1/8,…` (halving) |
+| 45°/135° diagonals | the **add axes**: `a=−1` (45°), `a=1` (135°), one `a↦a+1` step apart |
 
-四者融洽：加沿射线、乘沿圆，正交；加零（蓝）、乘零（原点）各为加/乘零元（`STRUCTURAL PROPOSAL`，基于 `036` 的精确事实）。
+The four fit together: add runs along the rays, multiply along the circles, orthogonally; the add-zero (blue) and multiply-zero (origin) are the respective zero elements (`STRUCTURAL PROPOSAL`, built on the exact facts of `036`).
 
-## 六、Eikonal 方程 = AES 公理
+## 6. The Eikonal equation = the AES axiom
 
 $$|\nabla a|^2=\mu^2+\lambda^2a^2\quad(\text{def:regular-aes}),\qquad a=\frac{\mu}{\lambda}\sinh(\lambda s),\ |\nabla s|=1.$$
 
-两个面都满足（数值 `1.1×10⁻¹³`）：
+Both faces satisfy it (numerically `1.1×10⁻¹³`):
 
-- **角向面（E₀）** `a=−x/y`：等值线=射线；
-- **径向面（平坦/Hecke）** `a=(μ/λ)sinh(λs)`：等值线=同心圆（`e^s`）。
+- **angular face (E₀)** `a=−x/y`: level lines = rays;
+- **radial face (flat/Hecke)** `a=(μ/λ)sinh(λs)`: level lines = concentric circles (`e^s`).
 
-「填充空间 + 骨架吻合」对这两个已知解 `PROVED`；「仅用骨架唯一重构」`STRUCTURAL PROPOSAL`（需适定性条件）。
+"Fill the space + agree with the skeleton" is `PROVED` for these two known solutions; "unique reconstruction from the skeleton alone" is a `STRUCTURAL PROPOSAL` (needs well-posedness conditions).
 
-## 七、Eikonal 在凯莱模型上：可数脊奇点
+## 7. Eikonal on the Cayley model: countably many ridge singularities
 
-凯莱模型 `L` 分段线性、`|∇L|=√2`，故 `a=(μ/λ)sinh(λL)` 满足
+On the Cayley model `L` is piecewise-linear with `|∇L|=√2`, so `a=(μ/λ)sinh(λL)` satisfies
 
 $$|\nabla a|^2=2(\mu^2+\lambda^2a^2).$$
 
-`L` 的梯度在「脊」（最近方格切换处 = 中轴/Voronoi 脊）跳变。方格**可数** ⇒ 脊**可数** ⇒ Eikonal 解**分片光滑、可数脊上冲击**。这正是「在凯莱模型画 Eikonal 内点」的正确形式（`038`，`COMPUTATIONALLY VERIFIED`）。
+The gradient of `L` jumps along the **ridges** (where the nearest square changes — the medial axis / Voronoi ridges). The squares are **countable** ⇒ the ridges are **countable** ⇒ the Eikonal solution is **piecewise smooth with shocks along countably many ridges**. This is the correct form of "drawing the Eikonal interior points on the Cayley model" (`038`, `COMPUTATIONALLY VERIFIED`).
 
-## 八、状态汇总
+## 8. Status summary
 
-| 结果 | 状态 |
+| result | status |
 |---|---|
 | `a(g ε₄)=(AD+BC)−√2(AC+BD)∈2Z+1` | `PROVED` |
-| `a` 在树上非单射（塌缩）| `COMPUTATIONALLY VERIFIED` |
-| 原始/对偶正交、对偶 4 边形面 | `COMPUTATIONALLY VERIFIED` |
-| 等值线（射线）⊥ 梯度线（圆）| `COMPUTATIONALLY VERIFIED` |
-| 加乘分解（蓝=加零、原点=乘零、绿=乘尺度、45°/135°=加轴）| `STRUCTURAL PROPOSAL` |
-| Eikonal = AES 公理、两面满足 | `PROVED`（`1e-13`）|
-| 凯莱 Eikonal：可数脊奇点分片填充 | `COMPUTATIONALLY VERIFIED` |
+| `a` is not injective on the tree (collapse) | `COMPUTATIONALLY VERIFIED` |
+| primal/dual orthogonality, dual 4-gon faces | `COMPUTATIONALLY VERIFIED` |
+| level lines (rays) ⊥ gradient lines (circles) | `COMPUTATIONALLY VERIFIED` |
+| add-multiply decomposition (blue=add-zero, origin=multiply-zero, green=multiply scale, 45°/135°=add axes) | `STRUCTURAL PROPOSAL` |
+| Eikonal = AES axiom, both faces satisfy | `PROVED` (`1e-13`) |
+| Cayley Eikonal: piecewise fill with countably many ridge singularities | `COMPUTATIONALLY VERIFIED` |
 
-## 附：脚本索引
+## Appendix: script index
 
-`032` a 在凯莱模型 · `033` 原始/对偶叠加 · `034` 等值/梯度正交 · `035` 梯度线在凯莱 · `036` 加乘分解 · `037` Eikonal 两面 · `038` Eikonal 凯莱 + 可数脊。
+`032` a on the Cayley model · `033` primal/dual overlay · `034` level/gradient orthogonality · `035` gradient lines on Cayley · `036` add-multiply decomposition · `037` Eikonal two faces · `038` Eikonal on Cayley + countable ridges.

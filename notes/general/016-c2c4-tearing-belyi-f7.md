@@ -1,83 +1,83 @@
-# 016 — C₂*C₄ 范式、F₂⋊C₄ 撕裂、偶分歧 Belyi 判据与 {7,4} 紧化
+# 016 — The C₂*C₄ normal form, F₂⋊C₄ tearing, the even-order Belyi criterion, and the {7,4} compactification
 
-> **文档性质**：算术表达式几何（AEG）研究笔记（016：{∞,4} 四阶无限边形镶嵌的四个构造接口——精确树范式、撕裂换位子、偶分歧符号判据、有限模商紧化）
-> **前置依赖**：笔记十四《Pell 主图》（[014](014-pell-master-figure.md)）、笔记十五《Pell–Hecke–Belyi 线程》（[015-pell-hecke-belyi-thread.md](015-pell-hecke-belyi-thread.md)）、[paper-0/sections/08-acs-tearing.tex](../../paper-0/sections/08-acs-tearing.tex)、[paper-0/sections/04-ripple-geometry.tex](../../paper-0/sections/04-ripple-geometry.tex)
-> **日期**：2026-11-15
-> **备注**：本笔记回应评审对 `013` 的四个构造问题；第 1 节的 `C₂*C₄` 构造器为 [028-c2c4-tree.py](028-c2c4-tree.py)（修正 `013` 非自由 IFS），全部论断已数值核实。
+> **Document nature**: research notes on Arithmetic Expression Geometry (AEG) (016: four construction interfaces of the order-4 apeirogonal tiling {∞,4} — the precise tree normal form, the tearing commutator, the even-order sign criterion, and the finite modular compactification).
+> **Prerequisites**: Note XIV, *The Pell master figure* ([014](014-pell-master-figure.md)); Note XV, *The Pell–Hecke–Belyi thread* ([015-pell-hecke-belyi-thread.md](015-pell-hecke-belyi-thread.md)); [paper-0/sections/08-acs-tearing.tex](../../paper-0/sections/08-acs-tearing.tex); [paper-0/sections/04-ripple-geometry.tex](../../paper-0/sections/04-ripple-geometry.tex).
+> **Date**: 2026-11-15
+> **Remark**: this note answers the reviewer's four construction problems about `013`; the §1 `C₂*C₄` constructor is [028-c2c4-tree.py](028-c2c4-tree.py) (fixing `013`'s non-free IFS). All claims are numerically verified.
 
 ---
 
-## 一、离散生成元：C₂*C₄ 范式（修正 013 的非自由 IFS）
+## 1. Discrete generators: the C₂*C₄ normal form (fixing 013's non-free IFS)
 
-### 1.1 013 的隐藏挠关系
+### 1.1 The hidden torsion of 013
 
-`013` 的四个映射满足（PSL(2,ℝ) 意义下）：
+The four maps of `013` satisfy (in PSL(2,ℝ)):
 
-$$F_3 = F_2^{-1},\qquad F_4 = F_1^{-1}\qquad(\text{因 } F_3F_2 = (6-4\sqrt2)\,I,\ F_4F_1 = (6-4\sqrt2)\,I).$$
+$$F_3 = F_2^{-1},\qquad F_4 = F_1^{-1}\qquad(\text{since } F_3F_2 = (6-4\sqrt2)\,I,\ F_4F_1 = (6-4\sqrt2)\,I).$$
 
-故 `013` 的「4 叉树」实为 2 生成元的 Cayley 图，存在词碰撞与重画。**状态**：`PROVED`（直接矩阵计算）。
+Hence `013`'s "4-ary tree" was actually a 2-generator Cayley graph with word collisions and re-drawing. **Status**: `PROVED` (direct matrix computation).
 
-### 1.2 精确树范式
+### 1.2 The precise tree normal form
 
-取
+Take
 
-$$\Gamma_4 = \langle J, U \mid J^2 = U^4 = 1 \rangle \cong C_2 * C_4,\qquad U = JT\ (\text{固定 }\varepsilon_4),\ J\ (\text{固定 }\varepsilon_2=i).$$
+$$\Gamma_4 = \langle J, U \mid J^2 = U^4 = 1 \rangle \cong C_2 * C_4,\qquad U = JT\ (\text{fixes }\varepsilon_4),\ J\ (\text{fixes }\varepsilon_2=i).$$
 
-`{∞,4}` 在 `H²` 内部的 1-骨架作为抽象图**同构于 4-正则 Bass–Serre 树 `T₄`**：根边 `e₀=[ε₄, J(ε₄)]`，顶点 `g(ε₄)` 的四个邻居为 `g U^r J(ε₄)`（`r=0,1,2,3`）。按约化词 `U^{r₀} J U^{r₁} J ⋯ J U^{r_d}`（`r₀∈{0,1,2,3}`, `r_i∈{1,2,3}`）展开，**零碰撞**生成 `1 + 2(3^d − 1)` 个顶点（`028` 脚本 `d=4` 得 161，精确）。**状态**：`PROVED`（自由积 + Bass–Serre 标准事实；计数已核）。
+The 1-skeleton of `{∞,4}` inside `H²` is, as an abstract graph, **isomorphic to the 4-regular Bass–Serre tree `T₄`**: root edge `e₀=[ε₄, J(ε₄)]`, and the four neighbours of `g(ε₄)` are `g U^r J(ε₄)` (`r=0,1,2,3`). Expanding by the reduced words `U^{r₀} J U^{r₁} J ⋯ J U^{r_d}` (`r₀∈{0,1,2,3}`, `r_i∈{1,2,3}`) generates `1 + 2(3^d − 1)` vertices **collision-free** (`028` gives 161 at `d=4`, exact). **Status**: `PROVED` (free product + Bass–Serre; the count is verified).
 
-### 1.3 两类理想边界点的区分
+### 1.3 Distinguishing the two kinds of ideal boundary points
 
-- **面心（抛物尖点）**：`Γ₄·∞ = Q√2 ∪ {∞}`（如 `±(√2−1)`），是涟漪束 `R(F)` 的切点；
-- **直行轴端点（双曲不动点）**：`Γ₄·{±1} ∉ Q√2`。`r_i≡2` 的词 `(U²J)^d` 给出 Pell 轴，`028` 输出其端点收敛到 `−1`（双曲不动点），**不**收敛到尖点。**状态**：`COMPUTATIONALLY VERIFIED EXAMPLE`。
+- **face centres (parabolic cusps)**: `Γ₄·∞ = Q√2 ∪ {∞}` (e.g. `±(√2−1)`), the tangency points of the ripple pencils `R(F)`;
+- **straight-axis endpoints (hyperbolic fixed points)**: `Γ₄·{±1} ∉ Q√2`. The `r_i≡2` word `(U²J)^d` gives the Pell axis; `028` shows its endpoints converge to `−1` (a hyperbolic fixed point), **not** to a cusp. **Status**: `COMPUTATIONALLY VERIFIED EXAMPLE`.
 
-## 二、撕裂：F₂⋊C₄ 与换位子 [α̃, β̃_⊥] = T⁴
+## 2. Tearing: F₂⋊C₄ and the commutator [α̃, β̃_⊥] = T⁴
 
-定义同态 `φ: Γ₄ → Z/4Z`，`φ(U)=1, φ(J)=2`。由 Kurosh 定理，`ker φ` 无挠、指数 4，同构于秩 2 自由群 `F₂`，且 `ker φ ∩ ⟨U⟩ = {1}`、`φ(⟨U⟩) = Z/4Z`，故 `ker φ` 在 `ε₄` 顶点集上**自由单传递**作用。
+Define `φ: Γ₄ → Z/4Z` by `φ(U)=1, φ(J)=2`. By Kurosh, `ker φ` is torsion-free, of index 4, isomorphic to the free group `F₂` of rank 2; and `ker φ ∩ ⟨U⟩ = {1}`, `φ(⟨U⟩) = Z/4Z`, so `ker φ` acts **freely and transitively** on the `ε₄` vertex set.
 
-取双曲生成元（平移长均为 `2 ln λ`）：
+Take the hyperbolic generators (translation length `2 ln λ` each):
 
 $$\tilde\alpha = J U^2,\qquad \tilde\beta_\perp = U^3 J U^3.$$
 
-**换位子**（`028` 已核，PSL 意义）：
+**Commutator** (verified in `028`, in PSL):
 
 $$[\tilde\alpha, \tilde\beta_\perp] = (JU)^4 = T^4 = \begin{pmatrix}1 & 4\sqrt2\\ 0 & 1\end{pmatrix}.$$
 
-在交换商（ACS 欧氏方格 `{4,4}`）中 `[\bar\alpha,\bar\beta_\perp]=1`（四步围成正方形）；在非交换提升下，四步沿 `y=1/√2` 踏过 `ε₄ → Tε₄ → T²ε₄ → T³ε₄ → T⁴ε₄`（`Tε₄ = J(ε₄)`），无穷重复 `[α̃,β̃_⊥]^∞` 把闭合 `{4,4}` 方格「撕」成尖点宽度 4 的无限边形。**状态**：换位子恒等式 `PROVED`（矩阵计算）；「撕裂」几何诠释 `STRUCTURAL PROPOSAL`。
+In the commutative quotient (the ACS Euclidean square grid `{4,4}`) `[\bar\alpha,\bar\beta_\perp]=1` (four steps close a square); in the non-commutative lift the four steps trace `ε₄ → Tε₄ → T²ε₄ → T³ε₄ → T⁴ε₄` along `y=1/√2` (with `Tε₄ = J(ε₄)`). Repeating `[α̃,β̃_⊥]^∞` tears the closed `{4,4}` square open into a cusp-width-4 apeirogon. **Status**: the commutator identity `PROVED` (matrix computation); the "tearing" geometric reading `STRUCTURAL PROPOSAL`.
 
-**关键张力**：仿射作用 `A_p(x)=x+p, M_q(x)=e^q x` 落在可解 Borel 子群 `B_∞`（`[[M,A],A]=id`，只激活单尖点 `∞`），故 `015 §8` 的穿线多项式 `P_λ(0)` 把指数增长的 `F₂` 顶点折叠到 `Z[√2]`。要撑开 `{∞,4}`，须引入跳出 `B_∞` 的射影门（如 `z↦±1/z`）。**状态**：`STRUCTURAL PROPOSAL`。
+**The key tension**: the affine actions `A_p(x)=x+p, M_q(x)=e^q x` lie in the solvable Borel `B_∞` (`[[M,A],A]=id`, activating only the cusp `∞`), which is why `015 §8`'s threading polynomial `P_λ(0)` collapses the exponentially-growing `F₂` vertices many-to-one onto `Z[√2]`. To spread `{∞,4}` open inside the arithmetic language one must introduce projective gates leaving `B_∞` (e.g. `z↦±1/z`). **Status**: `STRUCTURAL PROPOSAL`.
 
-## 三、偶分歧 Belyi 判据（q=4 的符号保护）
+## 3. The even-order Belyi criterion (the q=4 sign protection)
 
-在 `F² = β/(1−β)`、`W=(F−i)/(F+i)`、`g₄ = |d log W|² = ds² + dθ²` 下：
+Under `F² = β/(1−β)`, `W=(F−i)/(F+i)`, `g₄ = |d log W|² = ds² + dθ²`:
 
-1. **每个无限边形面在 `g₄` 下等距于平坦欧氏半平面**：`ε₄` 处 `1−β` 有 4 阶零点，`W−1 ∼ c(w−ε₄)²`，锥角 `4π`；恰有 4 个无限边形在 `ε₄` 相交，每面分到内角 `4π/4 = π`（平角）。沿边穿过 `ε₂` 时 `θ=arg W` 旋转 `2π`；绕尖点无穷多条边把有孔圆盘 `{|W|<1}` 万有覆叠为无界半平面 `{s<0, θ∈ℝ}`。**状态**：`PROVED`（paper-3 分支拉回 + 平坦度量）。
+1. **each apeirogon face is isometric to a flat Euclidean half-plane under `g₄`**: at `ε₄`, `1−β` has a 4th-order zero, so `W−1 ∼ c(w−ε₄)²` and the cone angle is `4π`; exactly 4 apeirogons meet at `ε₄`, so each face gets interior angle `4π/4 = π` (a straight angle). Along an edge, crossing `ε₂` rotates `θ=arg W` by `2π`; infinitely many edges around a cusp universally cover the punctured disk `{|W|<1}` into the unbounded half-plane `{s<0, θ∈ℝ}`. **Status**: `PROVED` (paper-3 branched pullback + flat metric).
 
-2. **偶分歧阶 = 全局单值符号的充要条件**：`H²` 上镶嵌可二染色的充要条件是所有内部顶点价为偶数。`q=4` 在 `ε₂`(2 阶)、`ε₄`(4 阶) 处分歧阶全偶 ⟹ `F=√(β/(1−β))` 在 `H²` 上全局单值；`q=3`（模群 `{∞,3}`）处 `1−β ∼ (w−ε₃)³` 开平方仍有半整数分支点，无法全局定号。**这是 OQ-073/074/076 筛选可容许 Belyi 映射族的首要判据：`β⁻¹(0)` 与 `β⁻¹(1)` 的局部重数全偶。** **状态**：`PROVED`（平方根单值化的标准事实：`F²` 的除子须为偶）。
+2. **even ramification order = global single-valued sign**: a tessellation of `H²` is 2-colourable iff every interior vertex valence is even. `q=4` has even ramification at `ε₂`(2) and `ε₄`(4), so `F=√(β/(1−β))` is globally single-valued on `H²`; `q=3` (the modular group `{∞,3}`) has `1−β ∼ (w−ε₃)³`, whose square root retains a half-integral branch point, so no global sign. **This is the primary criterion for OQ-073/074/076 filtering admissible Belyi maps: the local multiplicities of `β⁻¹(0)` and `β⁻¹(1)` are all even.** **Status**: `PROVED` (standard square-root single-valuedness: the divisor of `F²` must be even).
 
-## 四、有限模商紧化：Γ₄ ↠ PSL₂(F₇) 与 {7,4} 曲面
+## 4. The finite modular compactification: Γ₄ ↠ PSL₂(F₇) and the {7,4} surface
 
-`7` 在 `Z[√2]` 中分裂（`3²≡2 mod 7`）。按 `√2 ↦ 3 mod 7` 投射：
+`7` splits in `Z[√2]` (`3²≡2 mod 7`). Projecting by `√2 ↦ 3 mod 7`:
 
-$$J \mapsto \begin{pmatrix}0&-1\\1&0\end{pmatrix},\quad T_+ = \begin{pmatrix}1&3\\0&1\end{pmatrix}\ (7\text{阶}),\quad U_+ = JT_+ = \begin{pmatrix}0&-1\\1&3\end{pmatrix}\ (4\text{阶}),$$
+$$J \mapsto \begin{pmatrix}0&-1\\1&0\end{pmatrix},\quad T_+ = \begin{pmatrix}1&3\\0&1\end{pmatrix}\ (7),\quad U_+ = JT_+ = \begin{pmatrix}0&-1\\1&3\end{pmatrix}\ (4),$$
 
-满射生成整个 `PSL₂(F₇)`（`028` 已核 `|⟨J,T₊⟩| = 168`）。无挠正规核 `ker π₊` 在尖点宽度为 7（`T⁷ ∈ ker`），把每个四阶无限边形卷为**直角七边形**，紧化得亏格 10 的模曲面 `X̄(3−√2)`：
+surjects onto `PSL₂(F₇)` (`028` verified `|⟨J,T₊⟩| = 168`). The torsion-free normal core `ker π₊` has cusp width 7 (`T⁷ ∈ ker`), rolling each order-4 apeirogon into a **right-angled heptagon**, compactifying to a genus-10 modular surface `X̄(3−√2)`:
 
 $$F = 168/7 = 24,\quad E = 168/2 = 84,\quad V = 168/4 = 42,\quad g = 1 + 84\cdot\tfrac{3}{28} = 10,$$
 
-`336` 个 `(2,4,7)` 基本三角形，Gauss–Bonnet `336 × 3π/28 = 36π = 4π(10−1)` 吻合。这直接把 `015` 的 Hecke 几何与 Paper IV / PR #39 的 `F₇` 计数装进同一张交换图。**状态**：`PROVED`（同余投射 + 轨道–稳定子 + Riemann–Hurwitz；计数已核）。
+with `336` `(2,4,7)` fundamental triangles, Gauss–Bonnet `336 × 3π/28 = 36π = 4π(10−1)`. This places `015`'s Hecke geometry and Paper IV / PR #39's `F₇` count in one commutative diagram. **Status**: `PROVED` (congruence projection + orbit–stabilizer + Riemann–Hurwitz; count verified).
 
 ---
 
-## 状态汇总
+## Status summary
 
-| 结果 | 状态 |
+| result | status |
 |---|---|
-| `F₃=F₂⁻¹, F₄=F₁⁻¹`；`C₂*C₄` 范式；`T₄` 树计数 | `PROVED` |
-| 换位子 `[α̃,β̃_⊥]=T⁴` | `PROVED` |
-| 撕裂几何诠释；Borel 塌缩 vs 双曲展开 | `STRUCTURAL PROPOSAL` |
-| 单面 = 平坦半平面；偶分歧判据 | `PROVED` |
-| `Γ₄↠PSL₂(F₇)`；`{7,4}` 计数 | `PROVED` |
+| `F₃=F₂⁻¹, F₄=F₁⁻¹`; `C₂*C₄` normal form; `T₄` tree count | `PROVED` |
+| commutator `[α̃,β̃_⊥]=T⁴` | `PROVED` |
+| tearing reading; Borel collapse vs hyperbolic spread | `STRUCTURAL PROPOSAL` |
+| single face = flat half-plane; even-order criterion | `PROVED` |
+| `Γ₄↠PSL₂(F₇)`; `{7,4}` count | `PROVED` |
 
-## 附：028 输出（零碰撞树 + 换位子）
+## Appendix: 028 output (collision-free tree + commutator)
 
-`d=4`：161 顶点、160 边；`[α̃,β̃_⊥] = −T⁴ = T⁴`（PSL）；Pell 轴 `(U²J)^d ε₄` 收敛到 `−1`；换位子路径 `ε₄ → (1+i)/√2 → … → ε₄+4√2`。
+`d=4`: 161 vertices, 160 edges; `[α̃,β̃_⊥] = −T⁴ = T⁴` (PSL); Pell axis `(U²J)^d ε₄` converges to `−1`; commutator path `ε₄ → (1+i)/√2 → … → ε₄+4√2`.

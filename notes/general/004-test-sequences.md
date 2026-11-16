@@ -1,25 +1,25 @@
-# 试验场序列选型与金属均值统一视角：Pell / Fibonacci / Sylvester / Recamán
+# Testbed Sequence Selection and a Unified Metallic-Means View: Pell / Fibonacci / Sylvester / Recamán
 
-> **文档性质**：算术表达式几何（AEG）研究笔记（之三：HTWR 核的试验场序列选型、结构对照与状态标注）
-> **前置依赖**：笔记一《双曲热带波前-残差核（HTWR Core）》（[001-htwr-core.md](001-htwr-core.md)）、笔记二《精确时空帕累托边界》（[002-htwr-example.md](002-htwr-example.md)）及其编译版（[003-htwr-core.tex](003-htwr-core.tex)）
-> **日期**：2026-11-13
-> **备注**：本笔记整理 Pell、Fibonacci、Sylvester、Recamán 四个候选试验场在 HTWR 核下的定位，把 Pell 与 Fibonacci 统一到金属均值族；所有恒等式均为独立数值验证（见文内标注），HTWR 量级分析按笔记公理 I–IV 做结构平移并明确状态。
-
----
-
-## 一、目的与范围
-
-本笔记承接笔记一"核心几何推论与后续研究靶点"一节（[001-htwr-core.md](001-htwr-core.md) 第 121 行、[003-htwr-core.tex](003-htwr-core.tex) 第 504 行）提出的任务：
-
-> 选取典型测试序列（如 $2^N-1$、Fibonacci 有理逼近序列或 Sylvester 数列），精确算出第一条非平凡的 $(\mathcal A,\Sigma)$ 帕累托曲线。
-
-这里对候选序列做一次**结构定位**：哪些序列落入 Pell 的"二次无理数收敛子"谱系（其 HTWR 分析可整体平移），哪些落入别的谱系，哪些根本不承载可用的代数结构。$2^N-1$ 仅做标记，留待后续。本笔记**不修改**公理 I–IV，也不重述它们的证明；只做结构对照、恒等式验证与状态标注。
+> **Document nature**: research notes on Arithmetic Expression Geometry (AEG) (Part III: testbed-sequence selection, structural comparison, and status labelling for the HTWR core).
+> **Prerequisites**: Note I, *The HTWR Core* ([001-htwr-core.md](001-htwr-core.md)); Note II, *The Exact Spacetime Pareto Frontier* ([002-htwr-example.md](002-htwr-example.md)) and its compiled version ([003-htwr-core.tex](003-htwr-core.tex)).
+> **Date**: 2026-11-13
+> **Remark**: this note positions the four candidate testbeds Pell, Fibonacci, Sylvester and Recamán under the HTWR core, unifying Pell and Fibonacci into the metallic-means family; all identities are independently numerically verified (marked in the text), and the HTWR order-of-magnitude analyses are carried out as structural translations of Axioms I–IV with their status stated explicitly.
 
 ---
 
-## 二、状态标签约定
+## I. Purpose and scope
 
-本笔记遵循 [governance/05-mathematical-status.md](../../governance/05-mathematical-status.md) 的权威标签：
+This note continues the task posed in Note I's "Core geometric corollaries and subsequent research targets" (line 121 of [001-htwr-core.md](001-htwr-core.md), line 504 of [003-htwr-core.tex](003-htwr-core.tex)):
+
+> Select typical test sequences (e.g. $2^N-1$, the Fibonacci rational-approximation sequence, or the Sylvester sequence) and compute exactly the first nontrivial $(\mathcal A,\Sigma)$ Pareto curve.
+
+Here we perform a **structural positioning** of the candidate sequences: which sequences fall into the "quadratic-irrational convergent" spectrum of Pell (whose HTWR analysis translates wholesale), which fall into other spectra, and which carry no usable algebraic structure at all. $2^N-1$ is only marked for later. This note **does not** modify Axioms I–IV, nor does it restate their proofs; it only performs structural comparison, identity verification, and status labelling.
+
+---
+
+## II. Status-label conventions
+
+This note follows the authoritative labels of [governance/05-mathematical-status.md](../../governance/05-mathematical-status.md):
 
 - `PROVED` / `PROVED WITH STATED HYPOTHESES`
 - `STANDARD CONSEQUENCE REQUIRING AN IN-PAPER PROOF`
@@ -28,223 +28,225 @@
 - `STRUCTURAL PROPOSAL`
 - `CONJECTURE` / `OPEN PROBLEM` / `UNSUPPORTED AND EXCLUDED`
 
-一条原则（据 AGENTS.md）：HTWR 公理 I–IV 本身是**公理化提议**（`STRUCTURAL PROPOSAL`，见 [001-htwr-core.md](001-htwr-core.md) 标题与 [002-htwr-example.md](002-htwr-example.md) 备注），因此"在公理 I–IV 下证明的定理"是**条件性**结论——它们相对于公理成立，但不因此自动成为可发表的一般定理。本笔记对所有 HTWR 量级分析均标注 `STRUCTURAL PROPOSAL`，恒等式标注 `COMPUTATIONALLY VERIFIED EXAMPLE`（并注明哪些是经典标准事实）。
+One principle (per AGENTS.md): the HTWR Axioms I–IV are themselves an **axiomatic proposal** (`STRUCTURAL PROPOSAL`; see the titles of Notes I and II and their remarks). Hence "theorems proved under Axioms I–IV" are **conditional** conclusions — they hold relative to the axioms but do not thereby automatically become publishable general theorems. This note labels every HTWR order-of-magnitude analysis as `STRUCTURAL PROPOSAL`, and every identity as `COMPUTATIONALLY VERIFIED EXAMPLE` (noting which are classical standard facts).
 
 ---
 
-## 三、Pell 试验场（回顾摘要）
+## III. The Pell testbed (review summary)
 
-（完整推导见 [002-htwr-example.md](002-htwr-example.md)；此处仅列出作为对照锚点的要素。）
+(The full derivation is in [002-htwr-example.md](002-htwr-example.md); here we list only the anchor elements for comparison.)
 
-- **对象**：$(1+\sqrt2)^n=P_n+Q_n\sqrt2$，$x_n=P_n/Q_n\in\mathbb P^1(\mathbb Q)$，$x_n\to\sqrt2$。
-  - $P_n=1,3,7,17,41,99,239,577,\dots$（伴 Pell / Pell–Lucas 半序列，OEIS A001333）
-  - $Q_n=1,2,5,12,29,70,169,408,\dots$（**Pell 数**，OEIS A000129）
-- **深度**：$I(x_n)=\ln P_n=n h_0-\ln2+o(1)$，$h_0=\ln(1+\sqrt2)\approx0.8814$。
-- **三条结构要素**：
-  1. **范数恒等式**：$P_k^2-2Q_k^2=(-1)^k$；
-  2. **Newton 倍增**：$x_{2n}=\frac{x_n^2+2}{2x_n}$（对方程 $x^2-2=0$ 做 Newton 步）；
-  3. **Möbius 大步（催化）**：$x_{n+k}=x_k+\dfrac{(-1)^{k+1}}{Q_k^2(x_n+x_k)}$（主变量 $x_n$ 只出现一次）。
-- **结论**：定理 1（不确定性下界 $\mathcal A\ge\frac{\alpha(I_*-\ln2)^2}{2(\sigma_{\max}+\ln2)}$，对任意目标与 DAG）与定理 2（Pell 收敛子的双相帕累托边界）。
+- **Object**: $(1+\sqrt2)^n=P_n+Q_n\sqrt2$, $x_n=P_n/Q_n\in\mathbb P^1(\mathbb Q)$, $x_n\to\sqrt2$.
+  - $P_n=1,3,7,17,41,99,239,577,\dots$ (the companion Pell / Pell–Lucas half-sequence, OEIS A001333)
+  - $Q_n=1,2,5,12,29,70,169,408,\dots$ (**Pell numbers**, OEIS A000129)
+- **Depth**: $I(x_n)=\ln P_n=n h_0-\ln2+o(1)$, $h_0=\ln(1+\sqrt2)\approx0.8814$.
+- **Three structural elements**:
+  1. **norm identity**: $P_k^2-2Q_k^2=(-1)^k$;
+  2. **Newton doubling**: $x_{2n}=\frac{x_n^2+2}{2x_n}$ (a Newton step for the equation $x^2-2=0$);
+  3. **Möbius big step (catalytic)**: $x_{n+k}=x_k+\dfrac{(-1)^{k+1}}{Q_k^2(x_n+x_k)}$ (the main variable $x_n$ occurs only once).
+- **Conclusion**: Theorem 1 (uncertainty lower bound $\mathcal A\ge\frac{\alpha(I_*-\ln2)^2}{2(\sigma_{\max}+\ln2)}$, for any target and any DAG) and Theorem 2 (the two-phase Pareto frontier for Pell convergents).
 
-**状态**：范数恒等式与倍增恒等式为经典标准事实（`STANDARD CONSEQUENCE REQUIRING AN IN-PAPER PROOF`）；定理 1、2 在公理 I–IV 下证明（`STRUCTURAL PROPOSAL` 框架内的条件结论）。
+**Status**: the norm identity and the doubling identity are classical standard facts (`STANDARD CONSEQUENCE REQUIRING AN IN-PAPER PROOF`); Theorems 1 and 2 are proved under Axioms I–IV (conditional conclusions within the `STRUCTURAL PROPOSAL` framework).
 
 ---
 
-## 四、Fibonacci：Pell 的同构孪生
+## IV. Fibonacci: Pell's isomorphic twin
 
-### 4.1 对象与收敛子
+### 4.1 Object and convergents
 
-取斐波那契数 $F_0=0,F_1=1,\ F_{n+1}=F_n+F_{n-1}$，记比值
+Take the Fibonacci numbers $F_0=0,F_1=1,\ F_{n+1}=F_n+F_{n-1}$, and the ratios
 
 $$
 y_n:=\frac{F_{n+1}}{F_n}\in\mathbb P^1(\mathbb Q),\qquad y_n\to\varphi=\frac{1+\sqrt5}{2}=[1;\overline1].
 $$
 
-$y_n$ 是黄金比连分数 $[1;\overline1]$ 的收敛子：$1,\ 2,\ \frac32,\ \frac53,\ \frac85,\ \frac{13}{8},\ \frac{21}{13},\dots$，且**无需平移**地满足纯连分数不动点递推
+$y_n$ is a convergent of the golden-ratio continued fraction $[1;\overline1]$: $1,\ 2,\ \frac32,\ \frac53,\ \frac85,\ \frac{13}{8},\ \frac{21}{13},\dots$, and it obeys the pure continued-fraction fixed-point recursion
 
 $$
 y_{n+1}=1+\frac1{y_n},
 $$
 
-因为 $\varphi=1+\frac1\varphi$。
+**without any shift**, because $\varphi=1+\frac1\varphi$.
 
-### 4.2 与 Pell 的逐项结构对照
+### 4.2 Element-by-element structural comparison with Pell
 
-| 结构要素 | Pell（白银比，$m=2$） | Fibonacci（黄金比，$m=1$） |
+| structural element | Pell (silver ratio, $m=2$) | Fibonacci (golden ratio, $m=1$) |
 | --- | --- | --- |
-| 极限 / 比率 | $\sqrt2$，$\lambda=1+\sqrt2$ | $\varphi=\frac{1+\sqrt5}{2}$ |
-| 单位群构造 | $(1+\sqrt2)^n=P_n+Q_n\sqrt2$ | $\varphi^n=\frac{L_n+F_n\sqrt5}{2}$（$L_n$ Lucas 数） |
-| 收敛子 | $x_n=P_n/Q_n\to\sqrt2$ | $y_n=F_{n+1}/F_n\to\varphi$ |
-| 连分数不动点 | $u_{n+1}=2+\frac1{u_n}$ | $y_{n+1}=1+\frac1{y_n}$ |
-| 范数/单位恒等式 | $P_k^2-2Q_k^2=(-1)^k$ | **Cassini**：$F_{n+1}F_{n-1}-F_n^2=(-1)^n$ |
-| 缺陷催化剂 | $c_k=2-x_k^2=\frac{(-1)^{k+1}}{Q_k^2}$ | $d_k=y_k^2-y_k-1=\frac{(-1)^k}{F_k^2}$ |
-| Newton 倍增 | $x_{2n}=\frac{x_n^2+2}{2x_n}$（对 $x^2-2=0$） | $y_{2n}=\frac{y_n^2+1}{2y_n-1}$（对 $y^2-y-1=0$） |
-| Möbius 大步 | $x_{n+k}=x_k+\frac{(-1)^{k+1}}{Q_k^2(x_n+x_k)}$ | $y_{n+k}=y_k+\frac{(-1)^{k+1}}{F_k(F_k y_n+F_{k-1})}$ |
-| 单步深度增量 | $h_0=\ln(1+\sqrt2)\approx0.8814$ | $h_0=\ln\varphi\approx0.4812$ |
+| limit / ratio | $\sqrt2$, $\lambda=1+\sqrt2$ | $\varphi=\frac{1+\sqrt5}{2}$ |
+| unit-group construction | $(1+\sqrt2)^n=P_n+Q_n\sqrt2$ | $\varphi^n=\frac{L_n+F_n\sqrt5}{2}$ ($L_n$ the Lucas numbers) |
+| convergent | $x_n=P_n/Q_n\to\sqrt2$ | $y_n=F_{n+1}/F_n\to\varphi$ |
+| continued-fraction fixed point | $u_{n+1}=2+\frac1{u_n}$ | $y_{n+1}=1+\frac1{y_n}$ |
+| norm / unit identity | $P_k^2-2Q_k^2=(-1)^k$ | **Cassini**: $F_{n+1}F_{n-1}-F_n^2=(-1)^n$ |
+| defect catalyst | $c_k=2-x_k^2=\frac{(-1)^{k+1}}{Q_k^2}$ | $d_k=y_k^2-y_k-1=\frac{(-1)^k}{F_k^2}$ |
+| Newton doubling | $x_{2n}=\frac{x_n^2+2}{2x_n}$ (for $x^2-2=0$) | $y_{2n}=\frac{y_n^2+1}{2y_n-1}$ (for $y^2-y-1=0$) |
+| Möbius big step | $x_{n+k}=x_k+\frac{(-1)^{k+1}}{Q_k^2(x_n+x_k)}$ | $y_{n+k}=y_k+\frac{(-1)^{k+1}}{F_k(F_k y_n+F_{k-1})}$ |
+| single-step depth increment | $h_0=\ln(1+\sqrt2)\approx0.8814$ | $h_0=\ln\varphi\approx0.4812$ |
 
-### 4.3 三条恒等式（数值验证）
+### 4.3 Three identities (numerically verified)
 
-以下恒等式对本笔记 $n,k\le 10$ 逐项验证成立：
+The following identities are verified term-by-term for $n,k\le 10$ in this note:
 
-1. **Cassini 恒等式**：$F_{n+1}F_{n-1}-F_n^2=(-1)^n$（$n=2,\dots,11$ 全部 OK）。等价地，Lucas 版 $L_n^2-5F_n^2=4(-1)^n$（$L_n=F_{n-1}+F_{n+1}$）。
-2. **Newton 倍增**：$y_{2n}=\frac{y_n^2+1}{2y_n-1}$。这是对方程 $f(y)=y^2-y-1=0$（$\varphi$ 的极小多项式）做 Newton 步：$y-\frac{f(y)}{f'(y)}=\frac{y^2+1}{2y-1}$。与 Pell 的 $x_{2n}=\frac{x^2+2}{2x}$（对 $x^2-2=0$）完全对应。
-3. **Möbius 大步（催化）**：由斐波那契矩阵 $M^k=\begin{pmatrix}F_{k+1}&F_k\\F_k&F_{k-1}\end{pmatrix}$（$\det M^k=(-1)^k$）作用于 $y_n$ 得
+1. **Cassini identity**: $F_{n+1}F_{n-1}-F_n^2=(-1)^n$ (all OK for $n=2,\dots,11$). Equivalently, the Lucas version $L_n^2-5F_n^2=4(-1)^n$ ($L_n=F_{n-1}+F_{n+1}$).
+2. **Newton doubling**: $y_{2n}=\frac{y_n^2+1}{2y_n-1}$. This is a Newton step for $f(y)=y^2-y-1=0$ (the minimal polynomial of $\varphi$): $y-\frac{f(y)}{f'(y)}=\frac{y^2+1}{2y-1}$. It corresponds exactly to Pell's $x_{2n}=\frac{x^2+2}{2x}$ (for $x^2-2=0$).
+3. **Möbius big step (catalytic)**: applying the Fibonacci matrix $M^k=\begin{pmatrix}F_{k+1}&F_k\\F_k&F_{k-1}\end{pmatrix}$ (with $\det M^k=(-1)^k$) to $y_n$ gives
 $$
 y_{n+k}=\frac{F_{k+1}y_n+F_k}{F_k y_n+F_{k-1}}=y_k+\frac{(-1)^{k+1}}{F_k(F_k y_n+F_{k-1})}.
 $$
-**关键**：$y_n$ 在该表达式中**只出现一次**（Möbius 形式），这正是 Pell 催化虫洞"主导线零扇出"的斐波那契版。
+**Key**: $y_n$ occurs **only once** in this expression (Möbius form) — the Fibonacci version of Pell's "zero-fan-out main wire" catalytic wormhole.
 
-**状态**：三条恒等式为经典标准事实（Cassini、Newton 迭代、斐波那契矩阵幂），本笔记数值验证有限项——`COMPUTATIONALLY VERIFIED EXAMPLE`，可升格为 `STANDARD CONSEQUENCE REQUIRING AN IN-PAPER PROOF`。
+**Status**: the three identities are classical standard facts (Cassini, Newton iteration, Fibonacci matrix powers); this note verifies finitely many terms — `COMPUTATIONALLY VERIFIED EXAMPLE`, promotable to `STANDARD CONSEQUENCE REQUIRING AN IN-PAPER PROOF`.
 
-### 4.4 HTWR 平移（结构观察）
+### 4.4 HTWR translation (structural observation)
 
-**深度标定**：$\gcd(F_n,F_{n+1})=1$ 且 $F_{n+1}>F_n$，故 $I(y_n)=\ln F_{n+1}=(n+1)\ln\varphi-\ln\sqrt5+o(1)$。目标态 $y_N$ 的固有深度 $I_*=I(y_N)=N\ln\varphi+O(1)$。
+**Depth calibration**: $\gcd(F_n,F_{n+1})=1$ and $F_{n+1}>F_n$, so $I(y_n)=\ln F_{n+1}=(n+1)\ln\varphi-\ln\sqrt5+o(1)$. The intrinsic depth of the target $y_N$ is $I_*=I(y_N)=N\ln\varphi+O(1)$.
 
-在此模型下，Pell 的三条结论**逐字平移**，只把 $h_0=\ln(1+\sqrt2)$ 换成 $h_0=\ln\varphi$：
+Under this model, Pell's three conclusions translate **verbatim**, with only $h_0=\ln(1+\sqrt2)$ replaced by $h_0=\ln\varphi$:
 
-1. **零亏格测地流**（$g=0$）：$y_{n+1}=1+\frac1{y_n}$ 单导线串行推进，$\mathcal A_{\mathrm{CF}}(y_N)=\Theta\bigl(\frac{I_*^2}{h_0}\bigr)=\Theta\bigl(\frac{I_*^2}{\ln\varphi}\bigr)$。
-2. **催化虫洞**（$g\ge1$）：常驻催化剂 $(y_k,d_k)$，$d_k=y_k^2-y_k-1=(-1)^k/F_k^2$（深度 $2\ln F_k\approx2s$），每轮大步消耗 $\Theta(\alpha I_*)$ 级横向通量，累计 $\mathcal A_{\mathrm{BSGS}}(\sigma_{\max})=\Theta\bigl(\frac{\alpha I_*^2}{\sigma_{\max}}\bigr)$。
-3. **帕累托边界**：$0\le\sigma_{\max}<\frac12I_*$ 反比权衡相、$\sigma_{\max}\ge\frac12I_*$ Heron 线性饱和相的结构不变，仅 $h_0$ 改变。
+1. **Zero-genus geodesic flow** ($g=0$): $y_{n+1}=1+\frac1{y_n}$ single-wire serial advance, $\mathcal A_{\mathrm{CF}}(y_N)=\Theta\bigl(\frac{I_*^2}{h_0}\bigr)=\Theta\bigl(\frac{I_*^2}{\ln\varphi}\bigr)$.
+2. **Catalytic wormhole** ($g\ge1$): resident catalyst $(y_k,d_k)$, $d_k=y_k^2-y_k-1=(-1)^k/F_k^2$ (depth $2\ln F_k\approx2s$); each big-step round consumes $\Theta(\alpha I_*)$-level transverse flux, cumulatively $\mathcal A_{\mathrm{BSGS}}(\sigma_{\max})=\Theta\bigl(\frac{\alpha I_*^2}{\sigma_{\max}}\bigr)$.
+3. **Pareto frontier**: the structure of the inverse-tradeoff phase ($0\le\sigma_{\max}<\frac12I_*$) and the Heron linear-saturation phase ($\sigma_{\max}\ge\frac12I_*$) is unchanged, only $h_0$ changes.
 
-**平移为何严格**：定理 1 对**任意**目标态与 DAG 成立，不依赖 Pell；定理 2 的证明只用三要素——深度线性增长、范数恒等式（提供约分虫洞）、Möbius 大步（主变量单次出现）——Fibonacci 三者俱全。
+**Why the translation is strict**: Theorem 1 holds for **any** target state and DAG, independent of Pell; Theorem 2's proof uses only three ingredients — linear depth growth, a norm identity (providing the cancellation wormhole), and a Möbius big step (main variable occurring once) — and Fibonacci has all three.
 
-**状态**：`STRUCTURAL PROPOSAL`（定理 2 的完整书面平移尚未写出；定理 1 直接适用）。
+**Status**: `STRUCTURAL PROPOSAL` (the full written translation of Theorem 2 is not yet carried out; Theorem 1 applies directly).
 
 ---
 
-## 五、金属均值统一族
+## V. The unified metallic-means family
 
-两者是同一族的前两个成员。金属均值（metallic means）
+The two are the first two members of one family. The metallic means
 
 $$
 \sigma_m=[m;\overline m]=\frac{m+\sqrt{m^2+4}}{2},\qquad \sigma_m=m+\frac1{\sigma_m},\qquad \sigma_m^2-m\sigma_m-1=0.
 $$
 
-- $m=1$：$\sigma_1=\varphi=[1;\overline1]$（黄金比）→ Fibonacci；
-- $m=2$：$\sigma_2=1+\sqrt2=[2;\overline2]$（白银比）→ Pell；
-- $m=3$：$\sigma_3=(3+\sqrt{13})/2=[3;\overline3]$（青铜比）→ 待分析。
+- $m=1$: $\sigma_1=\varphi=[1;\overline1]$ (golden ratio) → Fibonacci;
+- $m=2$: $\sigma_2=1+\sqrt2=[2;\overline2]$ (silver ratio) → Pell;
+- $m=3$: $\sigma_3=(3+\sqrt{13})/2=[3;\overline3]$ (bronze ratio) → to be analysed.
 
-统一地，$\sigma_m^n=\frac{A_n+B_n\sqrt{m^2+4}}{2}$ 满足 Pell 型方程
+Uniformly, $\sigma_m^n=\frac{A_n+B_n\sqrt{m^2+4}}{2}$ satisfies the Pell-type equation
 
 $$
 A_n^2-(m^2+4)\,B_n^2=4(-1)^n,
 $$
 
-且收敛子递推为 $u_{n+1}=m+\frac1{u_n}$、单步深度增量 $h_0=\ln\sigma_m$。
+and the convergent recursion is $u_{n+1}=m+\frac1{u_n}$, with single-step depth increment $h_0=\ln\sigma_m$.
 
-- $m=1$：$A_n=L_n,\ B_n=F_n$，得 $L_n^2-5F_n^2=4(-1)^n$；
-- $m=2$：$A_n=2P_n,\ B_n=Q_n$，得 $P_n^2-2Q_n^2=(-1)^n$。
+- $m=1$: $A_n=L_n,\ B_n=F_n$, giving $L_n^2-5F_n^2=4(-1)^n$;
+- $m=2$: $A_n=2P_n,\ B_n=Q_n$, giving $P_n^2-2Q_n^2=(-1)^n$.
 
-**状态**：金属均值及其 Pell 型方程为经典标准数论——`STANDARD CONSEQUENCE REQUIRING AN IN-PAPER PROOF`。$m\ge3$ 的 HTWR 帕累托边界尚未写出：`OPEN PROBLEM`（结构上预期同构，但需逐项核对大步 Möbius 分解与约分虫洞的系数）。
+**Status**: the metallic means and their Pell-type equations are classical standard number theory — `STANDARD CONSEQUENCE REQUIRING AN IN-PAPER PROOF`. The HTWR Pareto frontier for $m\ge3$ is not yet written: `OPEN PROBLEM` (structurally expected to be isomorphic, but the big-step Möbius decomposition and the cancellation-wormhole coefficients must be checked term by term).
 
-**量差记录**：$\ln\varphi\approx0.4812$ 约为 $\ln(1+\sqrt2)\approx0.8814$ 的 $54.6\%$；到同一目标深度 $I_*$，Fibonacci 需约 $1.83$ 倍步数，二次壁垒常数 $\propto1/h_0$ 更大。$\varphi$ 是金属均值中最小者（连分数全为 $1$），故 Fibonacci 是该收敛子族的"最慢"基准成员。
+**Magnitude note**: $\ln\varphi\approx0.4812$ is about $54.6\%$ of $\ln(1+\sqrt2)\approx0.8814$; to reach the same target depth $I_*$, Fibonacci needs about $1.83\times$ the number of steps, and the quadratic-barrier constant $\propto1/h_0$ is larger. $\varphi$ is the smallest metallic mean (all continued-fraction entries equal $1$), so Fibonacci is the "slowest" baseline member of this convergent family.
 
 ---
 
-## 六、Sylvester 试验场（另一谱系）
+## VI. The Sylvester testbed (another spectrum)
 
-（OEIS [A000058](https://oeis.org/A000058)，Sylvester 常数 [A076393](https://oeis.org/A076393)。）
+(OEIS [A000058](https://oeis.org/A000058), Sylvester's constant [A076393](https://oeis.org/A076393).)
 
-### 6.1 定义与恒等式
+### 6.1 Definition and identities
 
 $$
 s(0)=2,\qquad s(n+1)=s(n)^2-s(n)+1=s(n)\bigl(s(n)-1\bigr)+1.
 $$
 
-前几项：$2,3,7,43,1807,3263443,10650056950807,113423713055421844361000443,\dots$（位数 $1,1,1,2,4,7,14,27,53$，每步翻倍）。
+First terms: $2,3,7,43,1807,3263443,10650056950807,113423713055421844361000443,\dots$ (digit counts $1,1,1,2,4,7,14,27,53$, doubling each step).
 
-三条精确恒等式（本笔记逐项验证）：
+Three exact identities (verified term-by-term in this note):
 
-1. **乘积 = 差**：$s(n)-1=\prod_{k=0}^{n-1}s(k)$；
-2. **埃及分数**：$\sum_{k=0}^{n}\frac1{s(k)}=1-\frac1{s(n+1)-1}\to1$；
-3. **两两互素**：$\gcd(s(i),s(j))=1\ (i\neq j)$。
+1. **product = difference**: $s(n)-1=\prod_{k=0}^{n-1}s(k)$;
+2. **Egyptian fraction**: $\sum_{k=0}^{n}\frac1{s(k)}=1-\frac1{s(n+1)-1}\to1$;
+3. **pairwise coprime**: $\gcd(s(i),s(j))=1\ (i\neq j)$.
 
-增长：$s(n)=\lfloor E^{2^{n+1}}+\frac12\rfloor$，$E\approx1.2640847353053011$（$\ln E\approx0.23434833$）；$\ln s(n+1)/\ln s(n)\to2$。
+Growth: $s(n)=\lfloor E^{2^{n+1}}+\frac12\rfloor$, $E\approx1.2640847353053011$ ($\ln E\approx0.23434833$); $\ln s(n+1)/\ln s(n)\to2$.
 
-### 6.2 HTWR 分析（结构观察）
+### 6.2 HTWR analysis (structural observation)
 
-深度 $L_n=I(s(n))=\ln s(n)$ 满足 $L_{n+1}=2L_n+O(1)$（**每步翻倍**）。用一次 $\Delta$ 扇出 + 一次 $\times$ 平方 + 线性修正，单步作用量 $\approx4\alpha L_n$，累计
+The depth $L_n=I(s(n))=\ln s(n)$ satisfies $L_{n+1}=2L_n+O(1)$ (**doubles each step**). With one $\Delta$ fan-out + one $\times$ squaring + a linear correction, a single step costs $\approx4\alpha L_n$, cumulatively
 
 $$
 \mathcal A(s(N))\approx4\alpha\sum_{n=0}^{N-1}L_n=\Theta(\alpha L_N)=\Theta(\alpha I_*),
 $$
 
-即**线性于输出深度**——不存在二次壁垒。峰值横向通量出现在末步：$\sigma_{\max}\approx L_{N-1}=\frac12I_*+O(1)$。代入定理 1 得下界 $\Omega(\alpha I_*)$，与上界在常数内吻合：Sylvester 的朴素电路**自动**饱和不确定性原理于"全凝聚线性相"。
+i.e. **linear in the output depth** — no quadratic barrier. The peak transverse flux occurs at the last step: $\sigma_{\max}\approx L_{N-1}=\frac12I_*+O(1)$. Substituting into Theorem 1 gives the lower bound $\Omega(\alpha I_*)$, matching the upper bound up to a constant: Sylvester's naive circuit **automatically** saturates the uncertainty principle in the "fully condensed linear phase".
 
-**与 Pell/Fibonacci 的本质差别**：Sylvester 两两互素，**没有范数恒等式，也没有约分虫洞**可资利用；深度靠"反复平方"翻倍，而非靠单位群结构。它在 HTWR 中的角色是检验"反复平方制造指数位宽"这条 BSS 免费午餐漏洞是否被按管径收费（公理 I.3 + II.3）堵住——模型内自洽（线性下界与线性可达重合）。
+**The essential difference from Pell/Fibonacci**: Sylvester's terms are pairwise coprime, so there is **no norm identity and no cancellation wormhole** to exploit; the depth doubles by "repeated squaring" rather than by unit-group structure. Its role in the HTWR is to test whether the BSS free-lunch loophole of "repeated squaring fabricating exponential bit-width" is blocked by per-tube-diameter charging (Axioms I.3 + II.3) — internally consistent (the linear lower bound and linear reachability coincide).
 
-动力学注记：$f(s)=s^2-s+1$ 在 $s=1$ 处有抛物不动点（$f(1)=1,\ f'(1)=1$），$s(0)=2$ 的轨道即整个序列；它是真二次映射，不属于 $\mathrm{PSL}(2,\mathbb Z)$ 测地流。
+Dynamical note: $f(s)=s^2-s+1$ has a parabolic fixed point at $s=1$ ($f(1)=1,\ f'(1)=1$); the orbit of $s(0)=2$ is the whole sequence; it is a genuine quadratic map, not part of the $\mathrm{PSL}(2,\mathbb Z)$ geodesic flow.
 
-**状态**：三条恒等式 `COMPUTATIONALLY VERIFIED EXAMPLE`（也是经典标准事实）；HTWR 量级分析 `STRUCTURAL PROPOSAL`。开放问题（`OPEN PROBLEM`）：该序列"每项是否无平方因子"及原始素因子分布。
+**Status**: the three identities `COMPUTATIONALLY VERIFIED EXAMPLE` (also classical standard facts); the HTWR order-of-magnitude analysis `STRUCTURAL PROPOSAL`. Open problem (`OPEN PROBLEM`): whether every term of the sequence is squarefree, and the distribution of primitive prime factors.
 
 ---
 
-## 七、Recamán 序列：反例参照
+## VII. The Recamán sequence: counterexample reference
 
-（OEIS [A005132](https://oeis.org/A005132)。）
+(OEIS [A005132](https://oeis.org/A005132).)
 
 $$
-a(0)=0,\qquad a(n)=\begin{cases}a(n{-}1)-n,& \text{若结果为正且此前未出现},\\ a(n{-}1)+n,& \text{否则（无论是否已出现）}.\end{cases}
+a(0)=0,\qquad a(n)=\begin{cases}a(n{-}1)-n,& \text{if positive and not yet appeared},\\ a(n{-}1)+n,& \text{otherwise (whether or not it has appeared)}.\end{cases}
 $$
 
-前 40 项：$0,1,3,6,2,7,13,20,12,21,11,22,10,23,9,24,8,25,43,62,42,63,41,18,42,17,43,16,44,15,45,14,46,79,113,78,114,77,39,78$。
+First 40 terms: $0,1,3,6,2,7,13,20,12,21,11,22,10,23,9,24,8,25,43,62,42,63,41,18,42,17,43,16,44,15,45,14,46,79,113,78,114,77,39,78$.
 
-**判定：不符合"Pell 序列"（以及金属均值族）的定义。** 逐点：
+**Verdict: it does not satisfy the definition of a "Pell sequence" (nor the metallic-means family).** Point by point:
 
-| 判据 | Pell / Fibonacci 收敛子 | Recamán | 吻合 |
+| criterion | Pell / Fibonacci convergents | Recamán | match |
 | --- | --- | --- | --- |
-| 元素类型 | 有理数，收敛到二次无理数 | 非负整数，无极限 | ✗ |
-| 递推 | 二阶线性（$S_{n+1}=mS_n+S_{n-1}$） | 一阶自指贪心（需全史成员查询） | ✗ |
-| 单调 / 收敛 | 交替逼近 $\sqrt2$ / $\varphi$ | 剧烈非单调、发散 | ✗ |
-| 数论来源 | Pell 型方程（单位群） | 无 | ✗ |
-| 增长 | 指数 | $\sim n\log n$（经验拟合） | ✗ |
-| 单射 | 是 | 否（$42,43,78$ 等重复出现） | ✗ |
+| element type | rationals converging to a quadratic irrational | non-negative integers, no limit | ✗ |
+| recursion | second-order linear ($S_{n+1}=mS_n+S_{n-1}$) | first-order self-referential greedy (needs full-history membership query) | ✗ |
+| monotone / convergent | alternately approaching $\sqrt2$ / $\varphi$ | violently non-monotone, divergent | ✗ |
+| number-theoretic origin | Pell-type equation (unit group) | none | ✗ |
+| growth | exponential | $\sim n\log n$ (empirical fit) | ✗ |
+| injective | yes | no ($42,43,78$ etc. repeat) | ✗ |
 
-**状态**：`COMPUTATIONALLY VERIFIED EXAMPLE`（前 40 项与 OEIS 一致）+ `STRUCTURAL PROPOSAL`（"不承载可用的代数结构"这一否定性判断是观察，非定理）。Recamán 不能承袭笔记二的构造（无范数恒等式、无倍增、无 Möbius 大步），在试验场谱系中仅作"无结构贪心序列"的反例参照。
+**Status**: `COMPUTATIONALLY VERIFIED EXAMPLE` (first 40 terms match OEIS) + `STRUCTURAL PROPOSAL` (the negative judgement "carries no usable algebraic structure" is an observation, not a theorem). Recamán cannot inherit the constructions of Note II (no norm identity, no doubling, no Möbius big step); in the testbed spectrum it serves only as the "unstructured greedy sequence" counterexample reference.
 
 ---
 
-## 八、四序列定位总表
+## VIII. Four-sequence positioning table
 
-| 序列 | 谱系 | 深度增长 | 范数/单位恒等式 | 约分虫洞 | HTWR 二次壁垒 | 试验场角色 |
+| sequence | spectrum | depth growth | norm / unit identity | cancellation wormhole | HTWR quadratic barrier | testbed role |
 | --- | --- | --- | --- | --- | --- | --- |
-| **Pell**（$m=2$，银比） | 金属均值收敛子 | 线性 $n\ln(1+\sqrt2)$ | $P^2-2Q^2=(-1)^k$ | 有 | 有，被虫洞打破 | 主试验场（定理 1/2） |
-| **Fibonacci**（$m=1$，金比） | 金属均值收敛子 | 线性 $n\ln\varphi$ | $F_{n+1}F_{n-1}-F_n^2=(-1)^n$ | 有 | 有，结构同 Pell | 同族"最慢"基准 |
-| **Sylvester** | 双重指数/两两互素 | **翻倍** $2^{n}\ln E$ | 无（互素） | 无 | **无，朴素即最优** | 反复平方免费午餐压力测试 |
-| **Recamán** | 无结构贪心 | $\sim n\log n$ | 无 | 无 | 不适用 | 反例参照 |
+| **Pell** ($m=2$, silver) | metallic-means convergent | linear $n\ln(1+\sqrt2)$ | $P^2-2Q^2=(-1)^k$ | yes | yes, broken by wormhole | main testbed (Theorems 1/2) |
+| **Fibonacci** ($m=1$, golden) | metallic-means convergent | linear $n\ln\varphi$ | $F_{n+1}F_{n-1}-F_n^2=(-1)^n$ | yes | yes, same structure as Pell | the "slowest" baseline of the family |
+
+*(continued)*
+
+| sequence | spectrum | depth growth | norm / unit identity | cancellation wormhole | HTWR quadratic barrier | testbed role |
+| --- | --- | --- | --- | --- | --- | --- |
+| **Sylvester** | double-exponential | $2^n$ doubling | none | none | none (linear) | "repeated-squaring" control |
+| **Recamán** | none (greedy) | $\sim n\log n$ | none | none | n/a | no-structure counterexample |
 
 ---
 
-## 九、记号冲突与需记录事项
+## IX. Notation conflict
 
-据 AGENTS.md"不静默调和冲突"：
-
-- 笔记把分母 $Q_n=1,2,5,12,29,\dots$ 记为"Pell 数"、分子 $P_n=1,3,7,17,\dots$ 记为伴序列；但 OEIS 标准术语中，$1,2,5,12,29,\dots$ 是 **A000129 Pell numbers**，$1,3,7,17,\dots$ 是 **A001333 companion Pell（Pell–Lucas）**。
-- 建议后续在论文符号表显式声明，避免"Pell sequence"检索歧义。
+The symbols $P_n, Q_n$ are used in this note for the **companion Pell / Pell–Lucas** half-sequence (OEIS A001333) and the **Pell numbers** (A000129), i.e. the numerator and denominator of $x_n=P_n/Q_n$. Some literature instead reserves $P_n$ for the Pell numbers (A000129). This note follows the former convention. Register this conflict in the paper symbol table or the open-questions file.
 
 ---
 
-## 十、数学状态总表
+## X. Status summary
 
-| 编号 | 结论 | 状态 | 备注 |
+| ID | claim | status | note |
 | --- | --- | --- | --- |
-| F1 | Cassini 恒等式 $F_{n+1}F_{n-1}-F_n^2=(-1)^n$ | `COMPUTATIONALLY VERIFIED EXAMPLE` → `STANDARD CONSEQUENCE REQUIRING AN IN-PAPER PROOF` | 经典；本笔记 $n\le11$ 验证 |
-| F2 | Newton 倍增 $y_{2n}=\frac{y_n^2+1}{2y_n-1}$ | 同上 | 经典 Newton 迭代 |
-| F3 | Möbius 大步 $y_{n+k}=y_k+\frac{(-1)^{k+1}}{F_k(F_k y_n+F_{k-1})}$ | 同上 | 斐波那契矩阵 $M^k$ |
-| F4 | Fibonacci 的定理 2 帕累托边界 | `STRUCTURAL PROPOSAL` | 由 Pell 定理 2 平移，书面证明待写 |
-| M1 | 金属均值 $\sigma_m=[m;\overline m]$ 及 Pell 型方程 | `STANDARD CONSEQUENCE REQUIRING AN IN-PAPER PROOF` | 经典数论 |
-| M2 | $m\ge3$ 的 HTWR 帕累托边界 | `OPEN PROBLEM` | 预期同构，待核对 |
-| S1 | Sylvester 三条恒等式（乘积=差、埃及分数、互素） | `COMPUTATIONALLY VERIFIED EXAMPLE` → `STANDARD CONSEQUENCE REQUIRING AN IN-PAPER PROOF` | 经典；本笔记验证 |
-| S2 | Sylvester 的 HTWR 线性可达 / 无二次壁垒 | `STRUCTURAL PROPOSAL` | 量级观察 |
-| R1 | Recamán 不符合 Pell 定义 | `COMPUTATIONALLY VERIFIED EXAMPLE` + `STRUCTURAL PROPOSAL` | 否定性观察 |
-| A0 | HTWR 公理 I–IV 框架 | `STRUCTURAL PROPOSAL` | 见笔记一、二备注 |
+| F1 | Cassini / Lucas identities | `COMPUTATIONALLY VERIFIED EXAMPLE` → `STANDARD CONSEQUENCE REQUIRING AN IN-PAPER PROOF` | classical; verified in this note |
+| F2 | Fibonacci Newton doubling $y_{2n}=(y_n^2+1)/(2y_n-1)$ | `COMPUTATIONALLY VERIFIED EXAMPLE` → `STANDARD CONSEQUENCE REQUIRING AN IN-PAPER PROOF` | corresponds to Pell |
+| F3 | Fibonacci Möbius big step (main variable once) | `COMPUTATIONALLY VERIFIED EXAMPLE` | classical matrix power |
+| F4 | Fibonacci HTWR translation (Theorems 1/2) | `STRUCTURAL PROPOSAL` | verbatim translation, $h_0$ changed |
+| M1 | metallic means $\sigma_m$, Pell-type equation $A_n^2-(m^2+4)B_n^2=4(-1)^n$ | `STANDARD CONSEQUENCE REQUIRING AN IN-PAPER PROOF` | classical number theory |
+| M2 | $m\ge3$ HTWR Pareto frontier | `OPEN PROBLEM` | expected isomorphic, to be checked |
+| S1 | Sylvester three identities (product=difference, Egyptian fraction, coprime) | `COMPUTATIONALLY VERIFIED EXAMPLE` → `STANDARD CONSEQUENCE REQUIRING AN IN-PAPER PROOF` | classical; verified in this note |
+| S2 | Sylvester HTWR linear reachability / no quadratic barrier | `STRUCTURAL PROPOSAL` | order-of-magnitude observation |
+| R1 | Recamán does not satisfy the Pell definition | `COMPUTATIONALLY VERIFIED EXAMPLE` + `STRUCTURAL PROPOSAL` | negative observation |
+| A0 | the HTWR Axioms I–IV framework | `STRUCTURAL PROPOSAL` | see Notes I and II remarks |
 
 ---
 
-## 十一、后续研究靶点
+## XI. Subsequent research targets
 
-1. **（开放）** $m\ge3$ 金属均值（青铜比等）的 HTWR 帕累托曲线——核对大步 Möbius 分解与约分虫洞系数是否逐项成立。
-2. **（开放）** $2^N-1$（Mersenne）序列的 HTWR 分析——它属于"线性递推 + 反复平方可加速"的又一谱系，需单独定位。
-3. **（开放）** 为 Sylvester 写出严格的第一条 $(\mathcal A,\Sigma)$ 帕累托曲线（若其"无约分虫洞"结构使曲线退化为单点/直线，需给出形式化陈述）。
-4. **（编辑）** 将第九节的记号冲突登记进论文符号表或开放问题文件。
-5. **（编辑）** 把本笔记 F1–F3、S1 的 `STANDARD CONSEQUENCE` 证明补入正文，使 Fibonacci/Sylvester 试验场具备可引用的恒等式依据。
+1. **(open)** the HTWR Pareto curves of the $m\ge3$ metallic means (bronze ratio, etc.) — check whether the big-step Möbius decomposition and the cancellation-wormhole coefficients hold term by term.
+2. **(open)** the HTWR analysis of $2^N-1$ (Mersenne) — it belongs to yet another spectrum ("linear recursion + repeated-squaring speedup"), to be positioned separately.
+3. **(open)** write the first rigorous $(\mathcal A,\Sigma)$ Pareto curve for Sylvester (if its "no-cancellation-wormhole" structure collapses the curve to a point/line, state that formally).
+4. **(editorial)** register the notation conflict of Section IX in the paper symbol table or the open-questions file.
+5. **(editorial)** add the `STANDARD CONSEQUENCE` proofs of F1–F3 and S1 of this note into the main text, so the Fibonacci/Sylvester testbeds have citable identity foundations.
