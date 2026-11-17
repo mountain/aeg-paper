@@ -8,7 +8,7 @@ scalloped ("wavy") edges of Saturn's Encke gap, shaped by the shepherd moon Pan.
 
 | language | LaTeX source | built PDF | readable Markdown |
 | --- | --- | --- | --- |
-| English | `aeg-app-pan-encke.tex` | `aeg-app-pan-encke.pdf` | `pan-encke-paper.en.md` |
+| English | `aeg-app-pan-encke.tex` | `aeg-app-pan-encke.pdf` | `pan-encke-paper.md` |
 | Chinese | `aeg-app-pan-encke-zh.tex` | `aeg-app-pan-encke-zh.pdf` | `pan-encke-paper.zh.md` |
 
 Shared bibliography: `aeg-app-pan-encke.bib`.

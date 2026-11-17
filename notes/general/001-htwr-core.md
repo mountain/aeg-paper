@@ -1,122 +1,108 @@
-# 双曲热带波前-残差核（HTWR Core）：从极简 Quantale 到非线性算术语言的时空对偶
+# The Hyperbolic Tropical Wavefront–Residual Core (HTWR Core): Spacetime Duality from the Minimal Quantale to a Nonlinear Arithmetic Language
 
-> **文档性质**：算术表达式几何（AEG）基础架构与非线性语言公理化研究笔记
-> **日期**：2026-11-13
-> **备注**：本笔记的核心构想、推演脉络与公理体系，形成于与 **Google Gemini（Carbon 版本）** 的批判性对谈与协作推演。
-
----
-
-## 一、 问题起源：Quantale 的去芜存菁
-
-Christopher Mulvey 提出 Quantale（量子格）的初衷是为非交换 $C^*$-代数寻找无点拓扑（Locale）谱对偶，但由于非交换乘法丧失了交运算的幂等性（$a \wedge a = a$），“代数元素对应空间区域”的几何直觉受阻，导致其在谱重整上陷入结构性瓶颈。反之，Quantale 在广义度量几何（Lawvere 度量空间）与资源/程序逻辑（Lambek 演算、Hoare 最弱前置条件）中却找到了无冗余的归宿。其真正核心并非“重构空间的点”，而是**非交换过程复合对极值（$\bigvee/\inf$）的分配律等价于双向资源残差（$a \backslash c,\ c / b$）的存在性**。
-
-将标准 Quantale 引入 AEG 以刻画资源复杂度与计算时空对偶时，直接照搬现有公理会产生三重冗余与冲突：
-
-1. **完备格过度公理化**：在离散有限语法层强求任意子集并（$\bigvee$），迫使单一算术表达式退化为形式幂集，掩盖了具体的几何树/图结构。
-2. **标量成本与非交换曲率混同**：标量成本累加是交换的，而 AEG 的核心非交换性源于仿射生成元（加与乘）的李括号缺陷（$[A, M] \neq 0$），单一半群乘法无法同时承载二者。
-3. **单一乘法无法分离时空维度**：一维半群乘法只能刻画串行时间复合，无法内生表征多分支挂起时的切割界面宽度（Space / Cut Capacity）。
-
-因此，必须剥离传统 Quantale 的无点拓扑外壳，结合 AEG 的**原生非线性语言**愿景，重构一个极简的代数-几何对偶内核。
+> **Document nature**: research notes on the foundational architecture and the axiomatics of a nonlinear language of Arithmetic Expression Geometry (AEG).
+> **Date**: 2026-11-13
+> **Remark**: the core ideas, the derivational thread, and the axiom system of this note were formed in critical dialogue and collaborative derivation with **Google Gemini (Carbon build)**.
 
 ---
 
-## 二、 核心思辨与五步推演脉络
+## I. Origin of the problem: distilling the Quantale
 
-本公理体系的收束经历了五个关键理论分岔点的严密排查与裁决：
+Christopher Mulvey introduced the Quantale (quantum lattice) to seek a pointless-topology (locale) spectral duality for non-commutative $C^*$-algebras. But because non-commutative multiplication destroys the idempotence of the meet ($a \wedge a = a$), the geometric intuition that "algebraic elements correspond to regions of space" is obstructed, and the programme stalls on spectral reconstruction. Conversely, the Quantale finds a redundancy-free home in generalised metric geometry (Lawvere metric spaces) and in resource/program logic (Lambek calculus, Hoare weakest preconditions). Its true core is **not** "reconstructing the points of a space", but rather: **the distributivity of non-commutative process composition over the extrema ($\bigvee/\inf$) is equivalent to the existence of two-sided resources residuals ($a \backslash c,\ c / b$)**.
 
-1. **时空对偶的逻辑锚定（历史-上下文伴随优先）**
-以“前缀求值历史 $\mathcal{H}$（Time）与后缀上下文/切割界面 $\mathcal{K}$（Space）”的双端求值配对（Chu 构造 / Galois 极性）作为第一性底座，无需先验假设完备格，残差闭合不动点自动生成完备格结构；连续接触流形的截面几何则作为该离散伴随结构在状态度量下的内生涌现结果。
-2. **原生非线性语法与线性分配律危机**
-摒弃“纯树语法打补丁”的传统路线，在切割界面（Cut $[m]$）的定义中原生允许有向无环图（DAG）的多重扇出（$\Delta: u \mapsto (u, u)$）。推演表明：一旦上下文内部包含非线性重用（如 $k(\square) = \square \times (\square + 1)$），求值配对将产生对角线耦合，直接击穿语法层的线性分配律 $\langle h_1 \vee h_2, k \rangle = \langle h_1, k \rangle \vee \langle h_2, k \rangle$。破局之道是将配对提升至截面状态空间上的**热带波前函数模**，以算子预层线性化恢复严格分配律。
-3. **扇出奇点的一等公民化与凝聚相变**
-拒绝将变量重用视为零成本语法连线，将分岔 $\Delta: [1] \to [2]$ 与擦除 $\epsilon: [1] \to [0]$ 确立为携带正作用量代价的基本生成元。由此导出非线性语言的**凝聚相变判据（全息剪刀差）**：仅当制备某状态的历史作用量 $\mathcal{A}(f)$ 大于其瞬时分岔成本 $c_\Delta(u)$ 时，系统才凝聚出高曲率 DAG 共享枢纽（对应二维世界面环柄，亏格 $g \ge 1$）；浅层琐碎计算（$\mathcal{A}(f) < c_\Delta(u)$）则自发裂解回零曲率局部纯树（$g = 0$）。
-4. **语义商空间定标与接触几何的自动涌现**
-确立导线状态取自**最简语义商空间** $\mathbb{P}^1(\mathbb{Q})$，且分岔节点 $\Delta$ 与算术节点 $(+, \times)$ 均按输入状态的信息高度 $I(u)$（对数 Weil 高度）成正比收费。这一决断同时解决了三大难题：
-* **堵死物理漏洞**：既终结了 BSS 单位成本模型中“反复平方法零成本制造指数位宽”的免费午餐，又通过在算术门入口处按全管径收费，消除了商空间上的“免费 $\gcd$ 约分漏洞”。
-* **逼出接触几何**：因下游分岔成本依赖于输入状态，后缀上下文 $k$ 失去固定标量成本，化身为状态依赖的剩余势泛函 $\mathcal{W}_k(u)$。总作用量极值变分 $\delta(z + \mathcal{W}_k(u)) = 0$ 直接在截面上诱导出接触 1-形式 $dz + p\,dI = 0$，其中共轭动量 $p = \partial \mathcal{W}_k / \partial I$ 精确度量下游上下文对当前导线位宽的扇出负载放大率。
-* **揭示结合律度量破缺**：值空间 $\mathbb{Q}$ 满足严格结合律，但上下文空间 $\mathcal{K}_m$ 因不同结合顺序导致中间管径膨胀或提前约分坍缩，产生非零的作用量挠率（Associator Defect），构成非严格 Lax 2-范畴。
+Introducing the standard Quantale into AEG to characterise resource complexity and the computational spacetime duality produces three redundancies and conflicts:
 
+1. **Over-axiomatised complete lattice**: demanding arbitrary joins ($\bigvee$) at a discrete finite syntactic layer forces a single arithmetic expression to degenerate into a formal power set, masking the concrete geometric tree/graph structure.
+2. **Conflation of scalar cost and non-commutative curvature**: scalar cost accumulation is commutative, whereas AEG's core non-commutativity stems from the Lie-bracket defect ($[A, M] \neq 0$) of the affine generators (addition and multiplication); a single semigroup multiplication cannot carry both at once.
+3. **A single multiplication cannot separate the spacetime dimensions**: one-dimensional semigroup composition only encodes serial temporal composition, and cannot endogenously represent the cutting-interface width (Space / Cut Capacity) of multi-branch suspension.
 
-5. **双曲全息标定与散射虫洞图景（单双曲底座 $\beta_1$）**
-针对 Weil 高度 $I(p/q)$ 在欧氏实轴上处处不连续的分形障碍，拒绝引入外挂误差参数做人工平滑，也拒绝膨胀为无穷维 Adelic 乘积空间，而是直接将语义边界锚定于单个**实双曲上半平面 $\mathbb{H}^2$**（及其单位余切接触流形 $S^*\mathbb{H}^2$）。信息量 $I(u)$ 原生几何化为双曲中心到尖点 Ford 极限圆的光滑径向测地距离；一元 Möbius 变换对应体空间等距流，而二元加乘与公因子约分则诚实地表现为双曲世界面上的离散散射顶点与跨尺度“算术虫洞”。
+One must therefore strip the pointless-topology shell of the traditional Quantale, and, combining it with AEG's vision of a **native nonlinear language**, rebuild a minimal algebraic-geometric duality kernel.
 
 ---
 
-## 三、 形式化公理体系：双曲热带波前-残差核（HTWR Core）
+## II. The core dialectic and the five-step derivational thread
 
-设标量成本结构为极简 Lawvere 热带半环 $\mathcal{Q} = ([0, \infty], \ge, +, 0)$（其序方向以 $\inf$ 为并、$+$ 为张量积）。AEG 的资源与时空对偶由以下四条公理刻画：
+The convergence of this axiom system passed through a rigorous examination and adjudication of five key theoretical forks:
 
-### 公理 I：语义商状态与双曲全息标定（State & Hyperbolic Calibration）
+1. **Logical anchoring of spacetime duality (history-context adjunction first)**
+   Take the two-ended evaluation pairing (Chu construction / Galois polarity) of prefix evaluation history $\mathcal{H}$ (Time) and suffix context / cutting interface $\mathcal{K}$ (Space) as the first-principles base. No complete lattice is presupposed; the residual-closure fixed points auto-generate the complete-lattice structure. The cross-section geometry of a continuous contact manifold then emerges endogenously from this discrete adjoint structure under a state metric.
+2. **Native nonlinear syntax and the crisis of the linear distributivity law**
+   Abandon the traditional "pure-tree syntax plus patches" route; natively allow multiple fan-out of directed acyclic graphs ($\Delta: u \mapsto (u, u)$) in the definition of the cutting interface (Cut $[m]$). The derivation shows: once a context internally contains nonlinear reuse (e.g. $k(\square) = \square \times (\square + 1)$), the evaluation pairing produces a diagonal coupling that directly breaks the syntactic-level linear distributivity $\langle h_1 \vee h_2, k \rangle = \langle h_1, k \rangle \vee \langle h_2, k \rangle$. The way out is to lift the pairing to a **tropical wavefront function module** over the cross-section state space, recovering strict distributivity by operator-presheaf linearisation.
+3. **First-class fan-out singularities and the condensation phase transition**
+   Refuse to treat variable reuse as a zero-cost syntactic wire; establish the fan-out $\Delta: [1] \to [2]$ and the erasure $\epsilon: [1] \to [0]$ as basic generators carrying positive action cost. This yields the **condensation phase-transition criterion (the holographic scissors gap)** of the nonlinear language: only when the history action $\mathcal{A}(f)$ preparing some state exceeds its instantaneous fan-out cost $c_\Delta(u)$ does the system condense a high-curvature DAG sharing hub (corresponding to a two-dimensional worldsheet handle, genus $g \ge 1$); shallow trivial computations ($\mathcal{A}(f) < c_\Delta(u)$) spontaneously crack back into zero-curvature local pure trees ($g = 0$).
+4. **Semantic quotient calibration and the automatic emergence of contact geometry**
+   Fix the wire states to live in the **minimal semantic quotient space** $\mathbb{P}^1(\mathbb{Q})$, and charge both the fan-out node $\Delta$ and the arithmetic nodes $(+, \times)$ in proportion to the input state's information height $I(u)$ (logarithmic Weil height). This single decision solves three problems at once:
+   * **Closing the physical loopholes**: it terminates both the BSS unit-cost "free lunch" of repeated squaring fabricating exponential bit-width, and the "free $\gcd$ cancellation loophole" on the quotient space, by charging at the arithmetic-gate entrance in proportion to the full tube diameter.
+   * **Forcing contact geometry**: because the downstream fan-out cost depends on the input state, the suffix context $k$ loses its fixed scalar cost and becomes a state-dependent residual potential functional $\mathcal{W}_k(u)$. The total-action extremal variation $\delta(z + \mathcal{W}_k(u)) = 0$ directly induces the contact $1$-form $dz + p\,dI = 0$ on the cross-section, where the conjugate momentum $p = \partial \mathcal{W}_k / \partial I$ exactly measures the fan-out load amplification of the downstream context on the current wire's bit-width.
+   * **Revealing the associativity metric defect**: the value space $\mathbb{Q}$ obeys strict associativity, but the context space $\mathcal{K}_m$ — because different bracketing orders inflate the intermediate tube diameter or collapse by early cancellation — produces a nonzero action torsion (Associator Defect), forming a non-strict Lax $2$-category.
 
-1. **马尔可夫语义态**：单通道状态空间定义为射影有理商集 $X := \mathbb{P}^1(\mathbb{Q}) = \mathbb{Q} \cup \{\infty\}$。任意既约元素 $u = p/q \in X$（$\gcd(p,q)=1$）完全决定其后续演化代价，无历史路径冗余规范。
-2. **双曲-接触几何锚定**：赋予上半平面 $\mathbb{H}^2$ 标准双曲度量 $ds^2 = (dx^2 + dy^2)/y^2$ 及中心基点 $z_0 = i$。每个边界尖点 $u \in X$ 唯一关联其相切 Ford 极限圆 $C_u \subset \mathbb{H}^2$（在单位余切球丛 $S^*\mathbb{H}^2 \cong \mathrm{PSL}(2, \mathbb{R})$ 中提升为标准 Legendrian 曲线）。
-3. **信息管径（径向深度）**：状态 $u$ 的内禀信息量由中心基点到极限圆 $C_u$ 的双曲测地距离标定：
+5. **Hyperbolic holographic calibration and the scattering-wormhole picture (single hyperbolic base $\beta_1$)**
+   Facing the fractal obstacle that the Weil height $I(p/q)$ is everywhere discontinuous on the Euclidean real axis, refuse both the introduction of an external error parameter for artificial smoothing and the inflation to an infinite-dimensional Adelic product space. Instead anchor the semantic boundary directly in a **single real hyperbolic upper half-plane $\mathbb{H}^2$** (and its unit cotangent contact manifold $S^*\mathbb{H}^2$). The information $I(u)$ is natively geometrised as the smooth radial geodesic distance from the hyperbolic centre to the cusp Ford limit circle; unary Möbius transformations correspond to isometric flows of the bulk space, while binary addition/multiplication and common-factor cancellation are honestly represented as discrete scattering vertices on the hyperbolic worldsheet and as cross-scale "arithmetic wormholes".
+
+---
+
+## III. The formal axiom system: the Hyperbolic Tropical Wavefront–Residual Core (HTWR Core)
+
+Let the scalar cost structure be the minimal Lawvere tropical semiring $\mathcal{Q} = ([0, \infty], \ge, +, 0)$ (order direction: $\inf$ as join, $+$ as tensor). The resource and spacetime duality of AEG is characterised by the following four axioms:
+
+### Axiom I: Semantic quotient state and hyperbolic holographic calibration (State & Hyperbolic Calibration)
+
+1. **Markov semantic state**: the single-channel state space is the projective rational quotient set $X := \mathbb{P}^1(\mathbb{Q}) = \mathbb{Q} \cup \{\infty\}$. Any reduced element $u = p/q \in X$ ($\gcd(p,q)=1$) completely determines its subsequent evolution cost, with no redundancy from path history.
+2. **Hyperbolic–contact geometric anchoring**: endow the upper half-plane $\mathbb{H}^2$ with the standard hyperbolic metric $ds^2 = (dx^2 + dy^2)/y^2$ and the base point $z_0 = i$. Each boundary cusp $u \in X$ is uniquely associated with its tangent Ford limit circle $C_u \subset \mathbb{H}^2$ (lifted to the standard Legendrian curve in the unit cotangent sphere bundle $S^*\mathbb{H}^2 \cong \mathrm{PSL}(2, \mathbb{R})$).
+3. **Information tube diameter (radial depth)**: the intrinsic information of a state $u$ is calibrated by the hyperbolic geodesic distance from the base point to the limit circle $C_u$:
 
 $$I(u) := \frac{1}{2} d_{\mathbb{H}^2}(i, C_u) + c_0 \asymp \ln \max(\vert{}p\vert{}, \vert{}q\vert{})$$
 
+where the constant $c_0$ is normalised so that the trivial states satisfy $I(0), I(\pm 1), I(\infty) \ge 0$.
 
+### Axiom II: Rigged worldsheet syntax with metric, and the local area action (Rigged Worldsheet Syntax)
 
-其中常数 $c_0$ 归一化使得平凡态满足 $I(0), I(\pm 1), I(\infty) \ge 0$。
-
-### 公理 II：带度量非线性弦图语法与局部面积作用量（Rigged Worldsheet Syntax）
-
-1. **分次空间截面与通量**：计算过程的横截接口为携带 $m$ 根存活导线的分次对象 $[m]$（状态空间 $X^m$）。截面上状态元组 $\mathbf{u} = (u_1, \dots, u_m) \in X^m$ 的瞬时空间复杂度（总横截通量）定义为肥管周长之和：
+1. **Graded cross-section spaces and flux**: the transverse interface of a computation is a graded object $[m]$ carrying $m$ live wires (state space $X^m$). The instantaneous spatial complexity (total transverse flux) of a cross-section state tuple $\mathbf{u} = (u_1, \dots, u_m) \in X^m$ is the sum of fat-tube circumferences:
 
 $$\Sigma(\mathbf{u}) := \sum_{j=1}^m I(u_j)$$
 
+2. **First-class topological generators**: the nonlinear DAG syntax category is generated by four kinds of directed pair-of-pants (cobordisms) under serial welding ($\rhd$) and parallel juxtaposition ($\otimes$):
+   * **geodesic propagator** $\gamma \in \mathrm{PSL}(2, \mathbb{Z})$: $[1] \to [1]$, evolving along an isometric flow of $\mathbb{H}^2$;
+   * **binary scattering pants** $\star \in \{+, \times, \div\}$: $[2] \to [1]$, performing arithmetic composition and the potential common-factor cancellation transition;
+   * **nonlinear fan-out pants** $\Delta$: $[1] \to [2]$, $u \mapsto (u, u)$, producing a worldsheet handle (genus $g \ge 1$) and cross-channel coupling;
+   * **thermodynamic erasure cap** $\epsilon$: $[1] \to [0]$, releasing a live wire at the end of its life cycle.
 
-2. **一等拓扑生成元**：非线性 DAG 语法范畴由四类有向裤子（Cobordisms）经串行焊接（$\rhd$）与并行并置（$\otimes$）生成：
-* **测地传播子** $\gamma \in \mathrm{PSL}(2, \mathbb{Z})$：$[1] \to [1]$，沿 $\mathbb{H}^2$ 双曲等距流演化；
-* **二元散射正裤子** $\star \in \{+, \times, \div\}$：$[2] \to [1]$，执行算术合成及潜在的公因子约分跃迁；
-* **非线性扇出倒裤子** $\Delta$：$[1] \to [2]$，$u \mapsto (u, u)$，产生世界面环柄（亏格 $g \ge 1$）与跨通道耦合；
-* **热力学擦除封口** $\epsilon$：$[1] \to [0]$，释放终止生命周期的存活导线。
-
-
-3. **局部世界面面积作用量**：任意基本生成元 $g: [r] \to [s]$ 在输入状态 $\mathbf{u}_{\text{in}} \in X^r$ 处消耗严格正的局部作用量：
+3. **Local worldsheet area action**: any basic generator $g: [r] \to [s]$ at input state $\mathbf{u}_{\text{in}} \in X^r$ consumes a strictly positive local action:
 
 $$c_g(\mathbf{u}_{\text{in}}) := \epsilon_0 + \alpha_g \sum_{j=1}^r I(u_j) \qquad (\epsilon_0 > 0,\ \alpha_g > 0)$$
 
+The total action $\mathcal{A}$ of a general nonlinear network is the sum of the local actions of all its internal generators (a shared upstream node is counted once).
 
+### Axiom III: Tropical wavefront module and entangling linearisation (Tropical Wavefront Linearization)
 
-一般非线性网络的总作用量 $\mathcal{A}$ 为其内部所有生成元局部作用量之和（共享上游节点仅计一次）。
-
-### 公理 III：热带波前模与纠缠线性化（Tropical Wavefront Linearization）
-
-1. **前缀波前坍缩**：所有输出宽度为 $m$ 的前缀历史集合 $\mathcal{H}_m = \mathrm{Hom}([0], [m])$，通过最小作用量原理坍缩为自由 $\mathcal{Q}$-模 $\mathcal{Q}^{X^m}$ 中的**制备波前泛函（Eikonal Wavefront）**：
+1. **Prefix wavefront collapse**: the set $\mathcal{H}_m = \mathrm{Hom}([0], [m])$ of all prefix histories of output width $m$ is collapsed, by the least-action principle, into the **preparation wavefront functional (Eikonal Wavefront)** in the free $\mathcal{Q}$-module $\mathcal{Q}^{X^m}$:
 
 $$V_m(\mathbf{u}) := \inf \big\{ \mathcal{A}(h) \;\big\vert{}\; h \in \mathcal{H}_m,\ \mathrm{val}(h) = \mathbf{u} \big\}$$
 
+* a pure-tree juxtaposition with no shared ancestor corresponds to a **tropical separable product state**: $V(\mathbf{u}_1, \mathbf{u}_2) = V_1(\mathbf{u}_1) + V_2(\mathbf{u}_2)$;
+* a nonlinear DAG containing a $\Delta$ fan-out corresponds to a **tropical entangled state** concentrated on a low-dimensional algebraic subvariety (e.g. $(\mathcal{T}_\Delta V)(u_1, u_2) = V(u_1) + c_\Delta(u_1)$ when $u_1 = u_2$, and $+\infty$ otherwise).
 
-* 无共享祖先的纯树并置对应**热带可分离积态**：$V(\mathbf{u}_1, \mathbf{u}_2) = V_1(\mathbf{u}_1) + V_2(\mathbf{u}_2)$；
-* 含 $\Delta$ 扇出的非线性 DAG 对应集中在低维代数子簇上的**热带纠缠态**（例如 $(\mathcal{T}_\Delta V)(u_1, u_2) = V(u_1) + c_\Delta(u_1)$ 当 $u_1 = u_2$，否则为 $+\infty$）。
-
-
-2. **上下文 Bellman 转移算子**：任意非线性后缀上下文 $k \in \mathcal{K}_m = \mathrm{Hom}([m], [1])$ 诱导语义映射 $f_k: X^m \to X$ 与状态依赖剩余势 $\mathcal{W}_k: X^m \to [0, \infty)$，并提升为模同态 $\mathcal{T}_k : \mathcal{Q}^{X^m} \to \mathcal{Q}^X$：
+2. **Context Bellman transfer operator**: any nonlinear suffix context $k \in \mathcal{K}_m = \mathrm{Hom}([m], [1])$ induces a semantic map $f_k: X^m \to X$ and a state-dependent residual potential $\mathcal{W}_k: X^m \to [0, \infty)$, lifted to a module homomorphism $\mathcal{T}_k : \mathcal{Q}^{X^m} \to \mathcal{Q}^X$:
 
 $$(\mathcal{T}_k V)(y) := \inf_{\substack{\mathbf{u} \in X^m \\ f_k(\mathbf{u}) = y}} \big\{ V(\mathbf{u}) + \mathcal{W}_k(\mathbf{u}) \big\}$$
 
+$\mathcal{T}_k$ preserves strict distributivity over pointwise infima: $\mathcal{T}_k(\inf_\alpha V_\alpha) = \inf_\alpha \mathcal{T}_k(V_\alpha)$.
 
+### Axiom IV: Bellman–Galois two-sided residual and spacetime conservation (Spacetime Residual Duality)
 
-$\mathcal{T}_k$ 对逐点下确界严格保持分配律：$\mathcal{T}_k(\inf_\alpha V_\alpha) = \inf_\alpha \mathcal{T}_k(V_\alpha)$。
+1. **Residual adjoint envelope**: by the order-preservation of $\mathcal{T}_k$, given a target state $y^* \in X$ and a total-action budget $B \in [0, \infty)$, one uniquely induces the reverse residual operator (maximal admissible prefix-cost envelope):
 
-### 公理 IV：Bellman-Galois 双向残差与时空守恒（Spacetime Residual Duality）
+$$\mathcal{R}_{k, y^*}(B)(\mathbf{u}) := \begin{cases} B - \mathcal{W}_k(\mathbf{u}), & \text{if } f_k(\mathbf{u}) = y^* \\ -\infty \ (\text{unreachable}), & \text{if } f_k(\mathbf{u}) \neq y^* \end{cases}$$
 
-1. **残差伴随包络**：由 $\mathcal{T}_k$ 的保确界性，给定目标态 $y^* \in X$ 与总作用量上限 $B \in [0, \infty)$，唯一诱导反向残差算子（最大允许前缀成本包络）：
-
-$$\mathcal{R}_{k, y^*}(B)(\mathbf{u}) := \begin{cases} B - \mathcal{W}_k(\mathbf{u}), & \text{若 } f_k(\mathbf{u}) = y^* \\ -\infty \ (\text{不可达}), & \text{若 } f_k(\mathbf{u}) \neq y^* \end{cases}$$
-
-
-
-前缀波前与后缀残差满足对偶可解判据：目标 $y^*$ 在预算 $B$ 内可达，当且仅当存在截面态 $\mathbf{u} \in X^m$ 使得 $V_m(\mathbf{u}) \le \mathcal{R}_{k, y^*}(B)(\mathbf{u})$。由丢番图几何 **Northcott 定理**，任何有限预算下的有效残差支撑集 $\{\mathbf{u} \mid \mathcal{R}_{k, y^*}(B)(\mathbf{u}) \ge 0\}$ 均为严格有限集。
-2. **内生时空权衡律**：施加空间截面通量约束 $\Sigma(\mathbf{u}) \le \Sigma_{\max}$ 时，任何满足凝聚条件 $\mathcal{A}(f) > c_\Delta(u)$ 但超出剩余通量配额的深层枢纽态 $u$ 无法存活穿越截面，被迫经 $\epsilon$ 擦除并在下游上下文展开重算，从而将横向空间通量的压缩定量转化为纵向总作用量 $\mathcal{A}$（时间）的刚性增长。
+The prefix wavefront and the suffix residual satisfy the duality solvability criterion: the target $y^*$ is reachable within budget $B$ iff there exists a cross-section state $\mathbf{u} \in X^m$ with $V_m(\mathbf{u}) \le \mathcal{R}_{k, y^*}(B)(\mathbf{u})$. By the Diophantine-geometric **Northcott theorem**, the effective residual support set $\{\mathbf{u} \mid \mathcal{R}_{k, y^*}(B)(\mathbf{u}) \ge 0\}$ is strictly finite for any finite budget.
+2. **Endogenous spacetime tradeoff law**: when the spatial cross-section flux constraint $\Sigma(\mathbf{u}) \le \Sigma_{\max}$ is imposed, any deep hub state $u$ that satisfies the condensation condition $\mathcal{A}(f) > c_\Delta(u)$ but exceeds the residual flux quota cannot survive crossing the cross-section; it is forced to be erased by $\epsilon$ and recomputed after unfolding in the downstream context — thereby quantitatively converting the compression of the transverse spatial flux into a rigid growth of the longitudinal total action $\mathcal{A}$ (time).
 
 ---
 
-## 四、 核心几何推论与后续研究靶点
+## IV. Core geometric corollaries and subsequent research targets
 
-| 现象维度 | HTWR 核中的几何机制诠释 | 待攻克的具体数学问题 |
+| phenomenon | geometric mechanism in the HTWR core | concrete mathematical problem to attack |
 | --- | --- | --- |
-| **结合律破缺与测地选路** | $(a+b)+c$ 与 $a+(b+c)$ 语义相等，但中间公因子约分（漏斗坍缩）使不同结合路径的管径面积积分相差 $\Theta(N)$，结合子（Associator）携带非零作用量挠率。 | 刻画有理数加乘网络中最优结合序的局部曲率判据与贪心失效边界。 |
-| **代数化简的虫洞诠释** | 借道双曲深渊（如平方差 $(x-1)(x+1) = x^2 - 1$ 或反复平方）再利用约分跳回浅层，入口全额管径收费确保不违背热力学第二定律，净收益源于高亏格环柄对浅层线性测地步数的指数级压缩。 | 严格证明“催化虫洞（Catalytic Wormhole）”能够击败纯浅层 $\mathrm{PSL}(2, \mathbb{Z})$ 连分数流的最小亏格阈值。 |
-| **时空帕累托边界** | 限制最大截面通量 $\Sigma_{\max}$ 迫使高亏格世界面退化展开为低亏格长管道，形成 $(\mathcal{A}, \Sigma)$ 平面上的凸包络边界。 | 选取典型测试序列（如 $2^N - 1$、Fibonacci 有理逼近序列或 Sylvester 数列），精确算出第一条非平凡的 $(\mathcal{A}, \Sigma)$ 帕累托曲线。 |
-
+| **Associativity defect and geodesic routing** | $(a+b)+c$ and $a+(b+c)$ are semantically equal, but intermediate common-factor cancellation (funnel collapse) makes the tube-area integral of different bracketing paths differ by $\Theta(N)$; the associator carries nonzero action torsion. | characterise the local curvature criterion and the greedy-failure boundary of optimal bracketing order in rational add/multiply networks. |
+| **Wormhole interpretation of algebraic simplification** | routing through the hyperbolic abyss (e.g. the difference of squares $(x-1)(x+1) = x^2 - 1$, or repeated squaring) and then jumping back to shallow water via cancellation; the full-tube-diameter entrance charge ensures no violation of the second law of thermodynamics, the net gain coming from the exponential compression of shallow linear geodesic steps by a high-genus handle. | rigorously prove the minimal genus threshold at which a "Catalytic Wormhole" beats the pure shallow $\mathrm{PSL}(2, \mathbb{Z})$ continued-fraction flow. |
+| **The spacetime Pareto frontier** | constraining the maximal cross-section flux $\Sigma_{\max}$ forces a high-genus worldsheet to degenerate and unfold into a low-genus long tube, forming a convex envelope in the $(\mathcal{A}, \Sigma)$ plane. | choose typical test sequences (e.g. $2^N - 1$, the Fibonacci rational-approximation sequence, or the Sylvester sequence) and compute exactly the first nontrivial $(\mathcal{A}, \Sigma)$ Pareto curve. |

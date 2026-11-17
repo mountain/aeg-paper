@@ -1,76 +1,76 @@
-# Split-tube 的 HTWR 分解：VdP C11 的"主导线 + 扇出辅助导线"（OQ-103.4）
+# The Split-tube as an HTWR Decomposition: VdP C11's "Main Wire + Fanout-Auxiliary Wire" (OQ-103.4)
 
-> **文档性质**：算术表达式几何（AEG）研究笔记（之五：OQ-103.4——把 VdP C11 的 split-tube 形式化为 HTWR 的"主导线 + 扇出辅助导线"分解，并检查其逐项包裹缩减）
-> **前置依赖**：笔记一《HTWR Core》公理 I–IV（[001-htwr-core.md](001-htwr-core.md)）、笔记四《扇出成本与区间包裹》（[005-fanout-wrapping.md](005-fanout-wrapping.md)）、[aeglib docs 17](../../../aeglib/docs/17-vdp-c11-certification.md) §11–12
-> **日期**：2026-11-14
-> **可运行见证**：[006-split-tube-witness.py](006-split-tube-witness.py)（纯 Python RK4 + RHS 量级核对，无第三方依赖）
-> **实现参照**：`aeglib/crates/aeg-hilbert16/src/vdp_certified/{model,taylor}.rs`（0.0.2，`f93947f`）
+> **Document nature**: research notes on Arithmetic Expression Geometry (AEG) (Part V: OQ-103.4 — formalising the VdP C11 split-tube as the HTWR "main wire + fanout-auxiliary wire" decomposition, and checking its term-by-term wrapping reduction).
+> **Prerequisites**: Note I, *The HTWR Core*, Axioms I–IV ([001-htwr-core.md](001-htwr-core.md)); Note IV, *Fanout Cost and Interval Wrapping* ([005-fanout-wrapping.md](005-fanout-wrapping.md)); [aeglib docs 17](../../../aeglib/docs/17-vdp-c11-certification.md) §11–12.
+> **Date**: 2026-11-14
+> **Runnable witness**: [006-split-tube-witness.py](006-split-tube-witness.py) (pure Python RK4 + RHS magnitude check, no third-party deps).
+> **Implementation reference**: `aeglib/crates/aeg-hilbert16/src/vdp_certified/{model,taylor}.rs` (0.0.2, `f93947f`).
 
 ---
 
-## 一、VdP 增广 8 维系统与块三角结构
+## I. The VdP augmented 8-dimensional system and its block-triangular structure
 
-VdP C11 认证把周期轨道、变分矩阵与水平作用量并成一个 8 维增广状态
+The VdP C11 certification merges the periodic orbit, the variational matrix, and the horizontal action into one 8-dimensional augmented state
 
 ```
 z = (x, y, φ11, φ12, φ21, φ22, A_hor, I)
 ```
 
-其向量场（`model.rs::rhs_interval`，`ε=1`）为
+whose vector field (`model.rs::rhs_interval`, `ε=1`) is
 
 ```
-x'   = y                                    （相位）
-y'   = ε(1−x²)y − x                          （相位）
+x'   = y                                    (phase)
+y'   = ε(1−x²)y − x                          (phase)
 φ11' = φ21
 φ12' = φ22
-φ21' = j21·φ11 + j22·φ21                     （变分，j21 = −1−2εxy, j22 = ε(1−x²)）
-φ22' = j21·φ12 + j22·φ22                     （变分）
-A_hor' = ε(1−x²)y − x − y²                    （水平作用量）
-I'   = y²                                    （作用量）
+φ21' = j21·φ11 + j22·φ21                     (variational, j21 = −1−2εxy, j22 = ε(1−x²))
+φ22' = j21·φ12 + j22·φ22                     (variational)
+A_hor' = ε(1−x²)y − x − y²                    (horizontal action)
+I'   = y²                                    (action)
 ```
 
-**块三角性（定义性事实）**：相位/作用量分量 `(x', y', A_hor', I')` **只依赖** `(x, y)`，不读变分 `φ`；变分分量 `φ'` 依赖 `(x, y)` 与 `φ`。即
+**Block-triangularity (definitional fact)**: the phase/action components `(x', y', A_hor', I')` depend **only** on `(x, y)`, not on the variational `φ`; the variational components `φ'` depend on `(x, y)` **and** `φ`. That is,
 
 ```
-F₁(x, y)   = (x', y', A_hor', I')            依赖 (x,y) —— 主线
-F₂(x, y, φ) = (φ11', …, φ22')                依赖 (x,y) 与 φ —— 辅线
+F₁(x, y)   = (x', y', A_hor', I')            depends on (x,y) — the main wire
+F₂(x, y, φ) = (φ11', …, φ22')                depends on (x,y) and φ — the auxiliary wire
 ```
 
-`φ` **不回馈**进相位/作用量。这正是 `taylor.rs` 里 split-tube 的注释原文："phi does not feed back into the phase/action components, so its much larger RHS must not inflate the x/y tube."
+`φ` does **not** feed back into the phase/action. This is exactly the comment in `taylor.rs`'s split-tube: "phi does not feed back into the phase/action components, so its much larger RHS must not inflate the x/y tube."
 
-## 二、HTWR 分解
+## II. The HTWR decomposition
 
-把笔记四（005）的"扇出成本"读法套到这个系统：
+Applying Note IV's (005) "fanout cost" reading to this system:
 
-| HTWR 对象 | VdP C11 分量 | 含义 |
+| HTWR object | VdP C11 components | meaning |
 | --- | --- | --- |
-| **主导线（主载体导线）** | `(x, y)` 相位 + `(A_hor, I)` 作用量 | 推进实际状态、累积水平作用量 `A_hor=∫(Q−yP)dt`、`I=∫y²dt` 的 depth-1 主载体 |
-| **扇出辅助导线** | `φ = ∂z/∂z₀` 变分矩阵 | 相位态的线性化切线响应：Jacobian `J(x,y)=[[0,1],[−1−2εxy, ε(1−x²)]]` 把 `(x,y)` **扇出**成其条目，再以 `Φ'=JΦ` 传播 |
-| **横向催化通量 Σ_aux** | `φ` 四分量 | 必须与主载体并行的线性化"辅助导线"，即 HTWR 的扇出拷贝 |
+| **main wire (main carrier)** | `(x, y)` phase + `(A_hor, I)` action | the depth-1 main carrier advancing the actual state and accumulating the horizontal action `A_hor=∫(Q−yP)dt`, `I=∫y²dt` |
+| **fanout-auxiliary wire** | `φ = ∂z/∂z₀` variational matrix | the linearised tangent response of the phase state: the Jacobian `J(x,y)=[[0,1],[−1−2εxy, ε(1−x²)]]` **fans out** `(x,y)` into its entries, then propagates by `Φ'=JΦ` |
+| **transverse catalytic flux Σ_aux** | the four `φ` components | the linearised "auxiliary wires" that must run parallel to the main carrier — the HTWR fanout copies |
 
-关键：`J(x,y)` 正是笔记四里"`x` 被扇出多次"的 VdP 版本——相位 `(x,y)` 被扇出到 `j21=−1−2εxy`（读 `x,y` 两次）、`j22=ε(1−x²)`（读 `x` 两次）里，再乘上 `φ`。所以变分块是相位态的 **Δ 扇出**，其代价（包裹宽度）就是横向催化通量。
+Key: `J(x,y)` is exactly Note IV's "`x` fanned out multiple times", in VdP form — the phase `(x,y)` is fanned out into `j21=−1−2εxy` (reads `x,y` twice) and `j22=ε(1−x²)` (reads `x` twice), then multiplied into `φ`. So the variational block is the **Δ fan-out** of the phase state, and its cost (wrapping width) is the transverse catalytic flux.
 
-## 三、Split-tube 的逐项包裹缩减
+## III. The split-tube's term-by-term wrapping reduction
 
-`taylor.rs` 把 Picard 管拆成两组：
+`taylor.rs` splits the Picard tube into two groups:
 
 ```
 phase = [0,1,6,7]      r_phase = 0.5·h·max_{i∈phase}|F_i|
 phi   = [2,3,4,5]      r_phi   = 0.5·h·max_{i∈phi}|F_i|
 ```
 
-而未拆分（单半径）是 `r = 0.5·h·max_{0≤i≤7}|F_i|`。由块三角性，`F₁` 不读 `φ`，故 `r_phase` 完全由主线自身的 RHS 决定，**不承载扇出的代价**。于是：
+The unsplit (single-radius) tube is `r = 0.5·h·max_{0≤i≤7}|F_i|`. By block-triangularity, `F₁` does not read `φ`, so `r_phase` is determined entirely by the main wire's own RHS — it does **not** carry the fanout's cost. Hence
 
 ```
-r_phase ≤ r （严格当某个变分分量的 |F| 超过所有相位/作用量分量时）
+r_phase ≤ r （strict when some variational component's |F| exceeds all phase/action components）
 ```
 
-**逐项结论**：split-tube 的主线管半径**从不比未拆分更宽**；它是"主导线不替扇出辅助导线付费"这一 HTWR 原则（公理 II.3：Δ 携带独立正作用量代价）在区间算术里的操作化。变分管 `r_phi` 则单独收费（辅助导线的横向通量）。
+**Term-by-term conclusion**: the split-tube's main-wire radius is **never wider** than the unsplit one; it is the operationalisation of the HTWR principle "the main wire does not pay for the fanout-auxiliary wire" (Axiom II.3: Δ carries an independent positive action cost) in interval arithmetic. The variational tube `r_phi` is charged separately (the auxiliary wire's transverse flux).
 
-## 四、计算核对（006 见证）
+## IV. Computational check (006 witness)
 
-1. **块三角性**：把 `φ` 置零重算 RHS，相位/作用量分量逐位不变 → `True`（定义性事实的数值复核）。
-2. **半径缩减**：沿 C11 周期轨道（`y₀=2.1727126964`，RK4）逐点量 `max|F_phase|`、`max|F_phi|` 与 `r_phase/r_unsplit`：
+1. **Block-triangularity**: setting `φ` to zero and recomputing the RHS leaves the phase/action components unchanged → `True` (a numerical check of the definitional fact).
+2. **Radius reduction**: along the C11 periodic orbit (`y₀=2.1727126964`, RK4), pointwise `max|F_phase|`, `max|F_phi|` and `r_phase/r_unsplit`:
 
 | t | max\|F_phase\| | max\|F_phi\| | r_phase / r_unsplit |
 | ---: | ---: | ---: | ---: |
@@ -81,19 +81,19 @@ r_phase ≤ r （严格当某个变分分量的 |F| 超过所有相位/作用量
 | 3.62 | 7.7175 | **8.4773** | **0.9104** |
 | 4.00 | 4.6078 | 3.2744 | 1.0000 |
 
-**诚实的发现**：在**收敛后的 C11 周期轨道**上，变分 RHS 并不持续主导（`r_phase/r_unsplit` 多数为 1，仅在 `t≈3.62` 降到 0.91）。因此 split-tube 的**逐项包裹缩减是弱缩减**（`r_phase ≤ r`，周期轨道上实际 ≤ ~9%）。它的**决定性价值在打靶（shooting）阶段**：docs 17 §11 记录 pre-fix 时 `φ21'≈29.5`（`t≈3.62`），那时变分 RHS 远超相位 RHS，单半径被变分项拉大、反过来放大 `x,y` 的非线性项而发散；拆分才把主线管钉住。这与"周期轨道上 φ 有界、打靶中 φ 可暴涨"一致。
+**Honest finding**: on the **converged C11 periodic orbit**, the variational RHS is not consistently dominant (`r_phase/r_unsplit` is mostly 1, dropping to 0.91 only at `t≈3.62`). Hence the split-tube's term-by-term wrapping reduction is **weak** (`r_phase ≤ r`, at most ~9% on this orbit). Its **decisive value is in the shooting phase**: doc 17 §11 records that pre-fix `φ21'≈29.5` (`t≈3.62`), when the variational RHS far exceeds the phase RHS, the single radius is pulled up by the variational term, which in turn amplifies the `x,y` nonlinear terms and diverges; only the split pins the main wire. This is consistent with "φ is bounded on the periodic orbit but can blow up during shooting".
 
-## 五、状态与边界
+## V. Status and boundary
 
-| 编号 | 结论 | 状态 |
+| ID | conclusion | status |
 | --- | --- | --- |
-| S1 | VdP 增广 RHS 的块三角性（相位/作用量不读 φ） | `PROVED WITH STATED HYPOTHESES`（从定义方程显式算出 + 数值复核） |
-| S2 | `r_phase ≤ r_unsplit`（split 从不加宽主线管） | `STANDARD CONSEQUENCE`（子集最大值 ≤ 全集最大值；由 S1 使其有意义） |
-| S3 | split-tube = HTWR "主导线 + 扇出辅助导线" 分解 | `STRUCTURAL PROPOSAL`（解释性读法，非定理） |
-| S4 | 周期轨道上逐项缩减"弱"、打靶中"强" | `COMPUTATIONALLY VERIFIED EXAMPLE`（有限 RK4 采样，非一般定理） |
+| S1 | block-triangularity of the VdP augmented RHS (phase/action does not read φ) | `PROVED WITH STATED HYPOTHESES` (explicit from the defining equations + numeric check) |
+| S2 | `r_phase ≤ r_unsplit` (the split never widens the main-wire tube) | `STANDARD CONSEQUENCE` (max over subset ≤ max over set; made meaningful by S1) |
+| S3 | split-tube = HTWR "main wire + fanout-auxiliary wire" decomposition | `STRUCTURAL PROPOSAL` (interpretive reading, not a theorem) |
+| S4 | term-by-term reduction "weak" on the periodic orbit, "strong" during shooting | `COMPUTATIONALLY VERIFIED EXAMPLE` (finite RK4 sampling, not a general theorem) |
 
-**边界**：本笔记形式化的是**机制**（块三角性 + 半径不等式 + HTWR 读法），**不是** split-tube 最优性的证明，也不声称"变分 RHS 恒大于相位 RHS"（S4 明确这是数据依赖的）。OQ-103.4 据此从 `OPEN` 推进为**形式化完成 + 弱缩减确认**（见 [governance/08-open-questions.md](../../governance/08-open-questions.md) OQ-103.4）。
+**Boundary**: this note formalises the **mechanism** (block-triangularity + the radius inequality + the HTWR reading), **not** the optimality of the split-tube, nor a claim that "the variational RHS always exceeds the phase RHS" (S4 makes explicit that this is data-dependent). OQ-103.4 is thereby advanced from `OPEN` to "formalised + weak reduction confirmed" (see [governance/08-open-questions.md](../../governance/08-open-questions.md) OQ-103.4).
 
-## 六、与既有治理的关系
+## VI. Relation to existing governance
 
-本笔记不修改公理 I–IV、不修改任何论文正文、不升级任何既有 claim。它把 OQ-103.4 的"形式化 + 逐项检查"落地为可复现见证（[006-split-tube-witness.py](006-split-tube-witness.py)），并登记进 [governance/notes-reserve-audit.md](../../governance/notes-reserve-audit.md) §2.9。研究问题与方向：苑明理；本形式化、见证与状态标注：DeepSeekHarness，2026-11-14。
+This note does not modify Axioms I–IV, does not modify any paper body, and does not promote any existing claim. It lands OQ-103.4's "formalisation + term-by-term check" as a reproducible witness ([006-split-tube-witness.py](006-split-tube-witness.py)), and registers it in [governance/notes-reserve-audit.md](../../governance/notes-reserve-audit.md) §2.9. Research direction: Mingli Yuan; this formalisation, witness, and status labelling: DeepSeekHarness, 2026-11-14.

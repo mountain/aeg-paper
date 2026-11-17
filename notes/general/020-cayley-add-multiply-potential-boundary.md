@@ -1,99 +1,96 @@
-# 020 — 凯莱模型上的加乘线、图的势、边值可满足性与尖点 4 边形
+# 020 — Add/multiply lines, graph potential, boundary-value satisfiability, and the cusped 4-gon on the Cayley model
 
-> **文档性质**：算术表达式几何（AEG）研究笔记（020：`F₂`/`T₄` 凯莱模型上的「加乘框架订正 → 节点势 → 边值可满足性 → 图着色 → E₁ 型蓝方框 → 尖点 4 边形」）
-> **前置依赖**：笔记十七《Cayley 共形双曲统一》（[017-cayley-model-conformal-hyperbolic.md](017-cayley-model-conformal-hyperbolic.md)）、笔记十八《凯莱模型赋值/对偶/Eikonal》（[018-cayley-assignment-duality-eikonal.md](018-cayley-assignment-duality-eikonal.md)）、笔记十九《SC 方盘》（[019_sc_square_eikonal.md](019_sc_square_eikonal.md)）、`paper-0/sections/03-aes-and-motion.tex`（`prop:canonical-arithmetic-frame`）
-> **日期**：2026-11-15
-> **备注**：本笔记整合 041–046；`040` 的「等值线=加线」结论已由 `041` 订正。
+> **Document nature**: research notes on Arithmetic Expression Geometry (AEG) (020: the Cayley model of the F₂/T₄ tree — "frame correction → node potential → boundary-value satisfiability → graph colouring → E₁-like square → cusped 4-gon").
+> **Prerequisites**: Note XVII, *Cayley model and the conformal-hyperbolic unification* ([017-cayley-model-conformal-hyperbolic.md](017-cayley-model-conformal-hyperbolic.md)); Note XVIII, *Assignment, duality, add-multiply, Eikonal on the Cayley model* ([018-cayley-assignment-duality-eikonal.md](018-cayley-assignment-duality-eikonal.md)); Note XIX, *The Schwarz–Christoffel square* ([019_sc_square_eikonal.md](019_sc_square_eikonal.md)); `paper-0/sections/03-aes-and-motion.tex` (`prop:canonical-arithmetic-frame`).
+> **Date**: 2026-11-15
+> **Remark**: this note consolidates 041–046; the "level lines = add lines" claim of `040` is corrected by `041`.
 
 ---
 
-## 一、订正：加线 = 水平线，乘线 = 竖直线（041）
+## 1. Correction: add lines = horizontal, multiply lines = vertical (041)
 
-`paper-0` 的 `prop:canonical-arithmetic-frame` 中，`J` 是 **`g`-正交旋转**（不是欧氏 90°）。代回
+In `paper-0`'s `prop:canonical-arithmetic-frame`, `J` is the **`g`-orthogonal rotation** (not the Euclidean 90°). Substituting
 
 $$X_u=\frac{\mu}{q}E_a-\frac{\lambda a}{q}JE_a,\quad X_v=\frac{\lambda a}{q}E_a+\frac{\mu}{q}JE_a$$
 
-（`q=√(μ²+λ²a²)`）得 **`X_u=(−μy,0)`（水平）、`X_v=(0,−λy)`（竖直）**（sympy 严格核验）。
+with `q=√(μ²+λ²a²)` gives **`X_u=(−μy,0)` (horizontal), `X_v=(0,−λy)` (vertical)** (sympy-verified).
 
-- **加线** = 水平线 `y=const`（沿它 `a=−x/y` 线性变化）；
-- **乘线** = 竖直线 `x=const`（沿它 `a` 按 `1/y` 伸缩）；
-- **加 ⊥ 乘 = 90°**（与 `a` 无关）。
+- **add lines** = horizontal `y=const` (along which `a=−x/y` varies linearly);
+- **multiply lines** = vertical `x=const` (along which `a` scales as `1/y`);
+- **add ⊥ multiply = 90°** (independent of `a`).
 
-**`040` 的错误**：曾把「等值线（射线）」当作加线。等值线 `y=kx`（`k=−1/a`）与加线（水平）的夹角是
+**The `040` error**: I had called the level lines (rays) "add lines". The level line `y=kx` (`k=−1/a`) makes with the add line (horizontal) the angle
 
 $$\angle(\text{level},\text{add})=\arctan(1/|a|),$$
 
-**随 `a` 连续变化**（`a=0` 时 90° 贴乘线；`|a|→∞` 时 0° 贴加线）。这正是评审所指的「夹角和 `a` 值有关」。
+which **varies continuously with `a`** (90° at `a=0`, hugging the multiply line; 0° as `|a|→∞`, hugging the add line). This is the reviewer's "the angle depends on `a`".
 
-## 二、图的势：节点值（042）
+## 2. Graph potential: node values (042)
 
-**设置**：树节点（4 价分支点，`∇a` 未定义）为奇点，边正则（承载 Eikonal 流），原点补 `a=0`。
+**Setup**: tree nodes (4-valent branch points, `∇a` undefined) are singularities, edges are regular (carry the Eikonal flow), the origin is completed with `a=0`.
 
-沿边 `da/ds=±√(μ²+λ²a²)`，两端满足 `β(v)−β(u)=±λℓ_e`（`β=arcsinh(λa/μ)`）。**树无环 ⟹ 无环绕障碍 ⟹ 解存在**：
+Along an edge `da/ds=±√(μ²+λ²a²)`, so `β(v)−β(u)=±λℓ_e` (`β=arcsinh(λa/μ)`). **The tree is acyclic ⟹ no cycle obstruction ⟹ a solution exists**:
 
-$$\boxed{a(\text{node})=\frac{\mu}{\lambda}\sinh\big(\lambda\,d(\text{node})\big)},\quad d=\text{从原点的 }g\text{-路径长}.$$
+$$\boxed{a(\text{node})=\frac{\mu}{\lambda}\sinh\big(\lambda\,d(\text{node})\big)},\quad d=\text{$g$-path-length from the root}.$$
 
-数值（`μ=1,λ=2`，`g=(dx²+dy²)/L²`）：根边 `g`-长 = `3ln2≈2.079`，节点值 `0→≈16→≈1023`；沿边 `da/ds=√(μ²+λ²a²)` 逐点差 `1e-15`。
+Numerics (`μ=1,λ=2`, `g=(dx²+dy²)/L²`): root edge `g`-length `3ln2≈2.079`, node values `0→≈16→≈1023`; `da/ds=√(μ²+λ²a²)` matches to `1e-15`.
 
-## 三、边值可满足性判据（043）
+## 3. Boundary-value satisfiability criterion (043)
 
-「给定节点值求边值」的**严格 1D 流条件**（边须为特征线）：
+The strict 1D flow condition (the edge must be a characteristic):
 
 $$\boxed{\ell_e=\frac{\big|\operatorname{arcsinh}(\lambda a_v/\mu)-\operatorname{arcsinh}(\lambda a_u/\mu)\big|}{\lambda}}$$
 
-局部即全局（树无环）。检验（`μ=1,λ=2`）：
+local = global (acyclic tree). Test (`μ=1,λ=2`):
 
-| 边 | `g`-长 | 奇整数要求 | 结果 |
+| edge | `g`-length | required (odd ints) | result |
 |---|---|---|---|
-| **E₀** `ε₄→Jε₄`（`a:1→−1`）| 1.6227 | 1.4436 | **slack +0.179**（边非特征线）|
-| **Cayley**（`a:0→1`）| 3ln2=2.0794 | 0.7218 | **+1.358** 不符 |
-| **Cayley**（`a:1→3`）| 2.0794 | 0.5241 | **+1.555** 不符 |
+| **E₀** `ε₄→Jε₄` (`a:1→−1`) | 1.6227 | 1.4436 | **slack +0.179** (edge not characteristic) |
+| **Cayley** (`a:0→1`) | 3ln2=2.0794 | 0.7218 | **+1.358** mismatch |
+| **Cayley** (`a:1→3`) | 2.0794 | 0.5241 | **+1.555** mismatch |
 
-**两读法区分**：
-- **2D Eikonal**（`|∇a|=√(…)`，无边长约束）：E₀ 下奇整数**可实现**（`a=−x/y` 全局解）；Cayley 下**不可实现**（Cayley 的 Eikonal 解给 `≈16,1023`）。
-- **1D 流**（边为特征线）：两者**都不严格成立**（E₀ 有 slack，Cayley 差更大），唯一严格解是 `a=(μ/λ)sinh(λd)`。
+**Two readings**: (2D Eikonal, no edge-length constraint) E₀ realizes the odd integers (`a=−x/y`), Cayley does not (its Eikonal solution gives `≈16,1023`); (1D flow) neither is strict — E₀ has slack, Cayley is worse; the only strict solution is `a=(μ/λ)sinh(λd)`.
 
-## 四、图的势着色（044）
+## 4. Graph-potential colouring (044)
 
-节点按 `a=(μ/λ)sinh(λd)`（对数色）、边按流速 `√(μ²+λ²a²)` 着色；右图按 `g`-距离 `d` 着色。53 节点，`a:0→6.5×10⁴`，`d:0→6.24`。
+Nodes coloured by `a=(μ/λ)sinh(λd)` (log scale), edges by the flow rate `√(μ²+λ²a²)`; the right panel colours by the `g`-distance `d`. 53 nodes, `a:0→6.5×10⁴`, `d:0→6.24`.
 
-## 五、E₁ 型蓝方框（045）
+## 5. The E₁-like blue square (045)
 
-蓝线（对偶 `{4,∞}` 垂直平分线）围成闭合方框（根方框 `[−4,4]²`）。**蓝边界 `a=0` + 内部 Eikonal**：
+Blue lines (dual `{4,∞}` perpendicular bisectors) bound closed squares (root square `[−4,4]²`). With **`a=0` on the blue boundary + Eikonal inside**:
 
 $$a_{\text{centre}}=\frac{\mu}{\lambda}\sinh(\lambda\cdot\text{inradius}),\quad \text{inradius}=\int\frac{dx}{L}.$$
 
-自相似使 **每个方框 `inradius=ln2`**，故
+Self-similarity gives **`inradius=ln2` for every square**, hence
 
-$$a_{\text{centre}}=\tfrac12\sinh(2\ln2)=\boxed{\tfrac{15}{16}}\quad(\text{所有方框相同}).$$
+$$a_{\text{centre}}=\tfrac12\sinh(2\ln2)=\boxed{\tfrac{15}{16}}\quad(\text{all squares}).$$
 
-**关键区分**：无源填充中心恒为 `15/16`；**各不相同的数是中心「源强度」`a(node)`**（`0,16,1023,…`，即势）。所以「E₁ 型 + 中心 puncture 源」正确，但「极点值」应理解为**源强度**。
+**Key distinction**: the source-free fill is constant `15/16`; **the differing number is the centre "source strength" `a(node)`** (`0,16,1023,…`, the potential). So "E₁ + centre puncture source" is right, but the "pole value" is the **source strength**.
 
-**± 对称**：`sinh` 奇，`a(d)` 与 `−a(d)` 都满足流方程（`0→−16→−1023` 是合法镜像）。
-**逆值对称**：`1/a` **不是** Eikonal 解——`|∇(1/a)|²=λ²b²+μ²b⁴`（四次对偶），仅**值旋转** `a→e^{iθ}a` 是真正的对称。
+**± symmetry**: `sinh` is odd, so `a(d)` and `−a(d)` both solve the flow (`0→−16→−1023` is a valid mirror). **Inversion**: `1/a` is **not** an Eikonal solution — `|∇(1/a)|²=λ²b²+μ²b⁴` (quartic dual); only the value **rotation** `a→e^{iθ}a` is a symmetry.
 
-## 六、尖点 4 边形（046）
+## 6. The cusped 4-gon (046)
 
-蓝方框 4 顶点 = 对偶 `{4,∞}` 顶点 = 原始 `{∞,4}` 面心 = **抛物线尖点 `Q√2 ∪ {∞}`**。把 4 顶点设为奇点，三处形态皆变：
+The 4 corners of a blue square = the dual `{4,∞}` vertices = the primal `{∞,4}` face centres = the **parabolic cusps `Q√2 ∪ {∞}`**. Making the 4 corners singular changes three things:
 
-1. **几何**：`E₁`（单 puncture 圆盘）→ **尖点 4 边形**（4 抛物顶点，边上 `a=0`、角上 `a=∞`，混合边界条件）；
-2. **势**：节点图 → **节点 + 尖点二部图**（尖点带「尖点势」/极点留数）；
-3. **值函数**：单 puncture → **4 尖点 + 中心源** 的复合剖面（恒定 `15/16` 被尖点主导剖面取代）。
+1. **Geometry**: `E₁` (one-puncture disc) → **cusped 4-gon** (4 parabolic vertices; `a=0` on the sides, `a=∞` at the corners — a mixed boundary condition);
+2. **Potential**: node graph → **node + cusp bipartite graph** (the cusps carry "cusp potentials" / pole residues);
+3. **Value function**: one puncture → **4 cusps + centre source** composite profile (the constant `15/16` is replaced by a cusp-dominated profile).
 
-## 七、状态汇总
+## 7. Status summary
 
-| 结果 | 状态 | 验证 |
+| result | status | verification |
 |---|---|---|
-| `X_u=(−μy,0)`、`X_v=(0,−λy)`，加⊥乘 | `PROVED` | sympy 对 `prop:canonical-arithmetic-frame` |
-| 等值线与加线夹角 `arctan(1/|a|)` | `COMPUTATIONALLY VERIFIED` | 数值 |
-| `a(node)=(μ/λ)sinh(λd)`，树无环一致 | `PROVED` | 解析 + `1e-15` |
-| 可满足性判据 `ℓ_e=|β(Δa)|/λ` | `PROVED` | 解析 + 数值 |
-| 奇整数在 Cayley 下不可满足；E₀ 下 2D 可实现但有 1D slack | `PROVED` | 精确数值 |
-| 图着色（势/流速） | `COMPUTATIONALLY VERIFIED` | `044` |
-| 蓝方框 `inradius=ln2`、无源中心 `15/16` | `PROVED` | 数值 `ln2`/`15/16` |
-| 逆值 `1/a` 非 Eikonal 解（四次对偶）| `PROVED`（否证）| 数值 |
-| 「E₁ 型 + 中心源强度=势」 | `STRUCTURAL PROPOSAL` | 几何精确，算术语义待定 |
-| 4 顶点=尖点、升级为尖点 4 边形 | `STRUCTURAL PROPOSAL`（顶点=尖点为精确对偶）| `016/017` + `046` |
+| `X_u=(−μy,0)`, `X_v=(0,−λy)`, add ⊥ multiply | `PROVED` | sympy vs `prop:canonical-arithmetic-frame` |
+| level-vs-add angle `arctan(1/|a|)` | `COMPUTATIONALLY VERIFIED` | numeric |
+| `a(node)=(μ/λ)sinh(λd)`, acyclic consistency | `PROVED` | analytic + `1e-15` |
+| criterion `ℓ_e=|β(Δa)|/λ` | `PROVED` | analytic + numeric |
+| odd integers unrealizable in Cayley; 2D-realizable in E₀ with 1D slack | `PROVED` | exact numerics |
+| graph colouring (potential / flow) | `COMPUTATIONALLY VERIFIED` | `044` |
+| blue square `inradius=ln2`, source-free centre `15/16` | `PROVED` | numeric |
+| inversion `1/a` not an Eikonal solution (quartic dual) | `PROVED` (refuted) | numeric |
+| "E₁ + centre source strength = potential" | `STRUCTURAL PROPOSAL` | geometry exact, arithmetic open |
+| 4 corners = cusps, upgrade to cusped 4-gon | `STRUCTURAL PROPOSAL` (corner=cusp exact) | `016/017` + `046` |
 
 ## 八、从 HTWR 回到 tube：研究来路、差距与暂缓记录（2026-11-15）
 
@@ -134,6 +131,6 @@ p_\gamma(u)=u^2-2u-1,\qquad p_\gamma(1+\sqrt2)=0.
 $$
 这个恒等式仅是选定参数的算术见证。未来应进一步确定实际端点所在的零分支或商类，并展示多项式计算提供的几何判别；只出现两个不同的零值点仍不够，因为它们可能在 $E_0$ 的同一条零线上。若使用严格的 proper zero tube 概念，还须另核对正则性、投影及 properness，不能由“有一族切片”自动推出。
 
-## 附：脚本索引
+## Appendix: script index
 
-`041` 加/乘订正 · `042` 节点值 · `043` 可满足性 · `044` 势着色 · `045` E₁ 方框 · `046` 尖点 4 边形。
+`041` add/multiply correction · `042` node values · `043` satisfiability · `044` potential colouring · `045` E₁ square · `046` cusped 4-gon.
