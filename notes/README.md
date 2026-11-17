@@ -11,7 +11,7 @@ NN-descriptive-topic-slug.tex
 mathematical-status, authority, chronology, or paper-allocation code. Rendered PDFs
 and local compilation companions use the same basename as their source. A local
 `references.bib` remains unnumbered because it is a shared support file rather than a
-note.
+note. Markdown notes use the same prefix and slug with the `.md` extension.
 
 The subject directories are:
 
@@ -24,6 +24,7 @@ The subject directories are:
 7. `electrodynamics/`
 8. `aes/`
 9. `general/`
+10. `algebra/`
 
 `electrodynamics/` is an archived working directory rather than a numbered note:
 it holds a rendered manuscript on a contact-geometric reading of classical
@@ -36,6 +37,13 @@ its register of contents and its known staleness are recorded in
 These files remain historical or exploratory research material unless a governance
 record explicitly assigns a stronger status. Filename order does not promote a note
 to theorem authority.
+
+## Algebra
+
+- [01 — Finite-layer exponential polynomials, zeros, and factorization](algebra/01-finite-layer-exponential-polynomials.md)
+  connects the A/M power–weight family to a recursive analytic algebra, works
+  out four complex examples and their domain coloring, and proves the
+  finite-zero decomposition and factorization within a fixed exponent group.
 
 ## Finite-field differences and harmonic analysis
 
