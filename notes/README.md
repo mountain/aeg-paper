@@ -38,6 +38,14 @@ These files remain historical or exploratory research material unless a governan
 record explicitly assigns a stronger status. Filename order does not promote a note
 to theorem authority.
 
+## Process observation and gluing
+
+- [056 — Local intervention, arithmetic sharing, and global twists](general/056-intervention-depth-and-holonomy.md)
+  proves a linear DAG versus quadratic formula separation for the parity
+  outputs, and an exact cycle and marked-path criterion for a finite gluing
+  model. [OQ-105](../governance/08-open-questions.md#oq-105--intervention-depth-and-compositional-boundary-data)
+  records the questions about common terms and compositional boundary data.
+
 ## Algebra
 
 - [01 — Finite-layer exponential polynomials, zeros, and factorization](algebra/01-finite-layer-exponential-polynomials.md)
