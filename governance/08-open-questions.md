@@ -4985,3 +4985,37 @@ exposes a certified multivariate dispersion solver.
 **Owner.** Mingli Yuan (research direction); DeepSeekHarness (witnesses).
 
 **Decision record.** None yet.
+
+## OQ-105 — Intervention depth and compositional boundary data
+
+**Status.** OPEN. Added 2026-11-22. See
+[Note 056](../notes/general/056-intervention-depth-and-holonomy.md).
+
+**Formula cost.** Let $E_r$ and $O_r$ be the two square-free parity
+polynomials. An observer varies a selected set of inputs over the positive
+rationals and fixes every other input at $1$. The difference
+$D_r=E_r-O_r=\prod_i(1-x_i)$ requires all $r$ inputs to be varied. The pure
+parity outputs have a linear joint DAG and quadratic individual monotone
+formula size, as proved in Note 056. For binary $+,\times$ trees with
+nonnegative constants, let $S_r$ be the minimum total gate count of
+$P=E_r+B$ and $Q=O_r+B$, allowing any common polynomial $B$ with nonnegative
+coefficients. Does $S_r=O(r)$ hold? Can one prove a superlinear lower bound?
+A proof or a uniform construction must allow unrestricted shared support
+between the output polynomials. The wider question allows any nonzero
+multiple of $D_r$ as the difference.
+
+**Boundary data.** In the finite bit model of Note 056, fix the two
+connections being compared, the boundary bit labels, and the named
+intervention ports. A continuation may glue another block of the same type,
+pin boundary bits, or disable any subset of ports. The full conditional
+boundary table gives a sufficient description. Characterize the coarsest
+equivalence on blocks that is compositional and preserves the minimum
+distinguishing intervention in every allowed continuation. Count controlled
+edges, with infinite cost when no witness exists. Substitution and shared
+arithmetic subexpressions give possible extensions.
+
+**Resolution evidence.** For formula cost, give a uniform construction or
+a lower bound in the stated gate model. For boundary data, give a
+composition rule with a proof of preservation, or refute a specific
+candidate by giving two blocks with the same candidate data and a
+continuation whose distinguishing costs differ.

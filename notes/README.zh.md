@@ -30,6 +30,13 @@ NN-descriptive-topic-slug.tex
 除非某份治理记录明确赋予更强状态，这些文件仍是历史或探索性研究材料。文件名顺序不把
 笔记提升为定理权威。
 
+## 过程观察与拼接
+
+- [056 — 局部干预、算术共享与整体扭转](general/056-intervention-depth-and-holonomy.md)
+  证明奇偶输出在线性 DAG 与二次公式树之间的规模差异，并给出有限拼接模型里的闭环与带标记路径判据。
+  [OQ-105](../governance/08-open-questions.md#oq-105--intervention-depth-and-compositional-boundary-data)
+  登记共同项和可复合边界数据的问题。
+
 ## 有限域差分与调和分析
 
 - [48 — 有限 F7 上的有限三角学](analysis-and-calculus/48-finite-field-trigonometry.tex)：
